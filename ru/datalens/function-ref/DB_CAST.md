@@ -27,6 +27,10 @@ DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )
 | `ClickHouse`      | `Целое число`   | `Int16`             |                              |                               |
 | `ClickHouse`      | `Целое число`   | `Int32`             |                              |                               |
 | `ClickHouse`      | `Целое число`   | `Int64`             |                              |                               |
+| `ClickHouse`      | `Целое число`   | `UInt8`             |                              |                               |
+| `ClickHouse`      | `Целое число`   | `UInt16`            |                              |                               |
+| `ClickHouse`      | `Целое число`   | `UInt32`            |                              |                               |
+| `ClickHouse`      | `Целое число`   | `UInt64`            |                              |                               |
 | `ClickHouse`      | `Строка`        | `String`            |                              |                               |
 | `PostgreSQL`      | `Дробное число` | `double precision`  |                              |                               |
 | `PostgreSQL`      | `Дробное число` | `real`              |                              |                               |

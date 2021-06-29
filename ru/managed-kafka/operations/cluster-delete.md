@@ -23,6 +23,10 @@
   {{ yc-mdb-kf }} cluster delete <имя или идентификатор кластера>
   ```
 
+- Terraform
+
+  {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
+
 
 - API
 

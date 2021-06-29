@@ -32,6 +32,7 @@ To create a VM:
     - Choose the [platform](../concepts/vm-platforms.md).
     - Specify the [guaranteed share](../../compute/concepts/performance-levels.md) and number of vCPUs and RAM you need.
     - If necessary, make your VM [preemptible](../concepts/preemptible-vm.md).
+    - (optional) Enable a [software-accelerated network](../concepts/software-accelerated-network.md).
 
 1. Under **Network settings**:
     - Specify the subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list. If you don't have a network, click **Create a new network** to create one:
@@ -50,3 +51,4 @@ To create a VM:
 1. Click **Create VM**.
 
 The virtual machine appears in the list. When a VM is being created, it is assigned an [IP address](../../vpc/concepts/address) and [hostname](../../vpc/concepts/address#fqdn) (FQDN). You can use this data to access the VM via RDP.
+

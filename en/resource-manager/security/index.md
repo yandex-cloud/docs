@@ -1,7 +1,7 @@
-----
+---
 title: Access management in Yandex Resource Manager
 description: "Access management in a service that allows you to structure Yandex.Cloud resources using directories — Yandex Resource Manager. The section describes which resources you can assign a role to, which roles operate in the service, which roles are required for a particular action."
-----
+---
 
 # Access management
 

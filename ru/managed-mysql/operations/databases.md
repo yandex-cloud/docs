@@ -34,6 +34,12 @@
 
 Количество баз данных в кластере неограниченно.
 
+{% note info %}
+
+Созданные базы данных по умолчанию недоступны пользователям кластера. Чтобы подключиться к новой базе, [выдайте роли нужным пользователям](grant.md#grant-role).
+
+{% endnote %}
+
 {% list tabs %}
 
 - Консоль управления
@@ -44,6 +50,8 @@
   1. Выберите вкладку **Базы данных**.
   1. Нажмите кнопку **Добавить**.
   1. Введите имя для базы данных и нажмите кнопку **Добавить**.
+
+  {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
 - CLI
 
@@ -65,17 +73,42 @@
      $ {{ yc-mdb-my }} database create <имя базы данных> --cluster-name=<имя кластера>
      ```
 
+     {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
      {{ mmy-short-name }} запустит операцию создания базы данных.
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+  1. Добавьте к описанию кластера {{ mmy-name }} блок описания базы данных `database`:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+        ...
+        database {
+          name = "<имя базы данных>"
+        }
+      }
+      ```
+
+      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+
 {% endlist %}
-
-{% note info %}
-
-[Выдайте роли нужным пользователям](grant.md#grant-role) для доступа к созданной БД.
-
-{% endnote %}
 
 ## Удалить базу данных {#remove-db}
 
@@ -100,6 +133,26 @@
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+  1. Удалите из описания кластера {{ mmy-name }} блок `database` с описанием базы данных.
+
+  1. Удалите из описания пользователей блоки `permission` с полем `database_name`, указывающим на удаляемую базу.
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
 {% endlist %}
 
@@ -142,6 +195,34 @@
   Обратите внимание на кавычки: значением параметра должна стать вся строка, включая часть `sql_mode=`.
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+
+    1. Задайте нужные режимы SQL в значении параметра `sql_mode` блока `mysql_config`, например:
+
+        ```hcl
+        resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+          ...
+          mysql_config = {
+            sql_mode = "<список режимов SQL>"
+            ...
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster#mysql-config).
 
 - API
 

@@ -56,7 +56,7 @@ To get an idea of how the problem might be solved:
 1. Click on the first cell to select it:
 
    ```
-   #!L
+   #!g1.1
    %matplotlib inline
    import matplotlib
    import matplotlib.pyplot as plt
@@ -76,7 +76,7 @@ The packages listed in the cell are already installed in {{ ml-platform-name }} 
 
 {% note info %}
 
-This cell and the next cells use the L-configuration of computing resources to accelerate loading and training the model. For more information, see [{#T}](../concepts/configurations.md).
+This cell and the next cells use the configuration of computing resources g1.1 to accelerate loading and training the model. For more information, see [{#T}](../concepts/configurations.md).
 
 {% endnote %}
 
@@ -98,7 +98,7 @@ To upload and label the data:
 1. Select all the cells containing code under **Functions for connecting to S3** and **Labeling**. To do this, hold *Shift* and click to the left of the cells:
 
    ```
-   #!L
+   #!g1.1
    
    session = boto3.session.Session()
    ...
@@ -122,7 +122,7 @@ To prepare the model and calculate the properties:
 1. Select all the cells containing code under **Calculating properties**:
 
    ```
-   #!l
+   #!g1.1
    model = ResNet50(weights='imagenet',  input_shape=(224, 224, 3))
    ...
    ```
@@ -158,7 +158,7 @@ To use the resulting model:
 
    {% note info %}
 
-   You need much fewer resources to use the model than to train it, that's why a minimum S-configuration is left for this purpose (default).
+   You need much fewer resources to use the model than to train it, that's why a minimum configuration c1.4 is left for this purpose (default).
 
    {% endnote %}
 

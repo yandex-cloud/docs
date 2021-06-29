@@ -1,7 +1,7 @@
-----
+---
 title: Dead Letter Queue in Yandex Cloud Functions
 description: "Dead Letter Queue (DLQ) is a queue where messages that could not be processed by the function called by the trigger are forwarded. The message is considered processed if the function that received it completed without errors. Messages forwarded to DLQ are stored there for further diagnostics."
-----
+---
 
 # Dead Letter Queue
 

@@ -7,7 +7,7 @@
   1. Перед подключением установите [SSL-сертификат](https://storage.yandexcloud.net/cloud-certs/CA.pem) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
   1. В браузере перейдите по одному из адресов:
      - `https://c-<идентификатор кластера {{ ES }}>.rw.mdb.yandexcloud.net`, если публичный IP-адрес назначен всем хостам с этой ролью. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
-     - `https://<имя любого хоста с ролью Data node и публичным IP>.mdb.cloud.yandex.net`
+     - `https://<имя любого хоста с ролью Data node и публичным IP>.mdb.yandexcloud.net`
   1. Введите имя пользователя и пароль.
   
   **Если ни одному хосту с ролью _Data node_ не назначен публичный IP-адрес:**

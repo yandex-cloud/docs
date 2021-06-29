@@ -1,6 +1,26 @@
 # Релизы YC CLI
 
-## Версия 0.77.0 (07.06.21) {#latest-release}
+## Версия 0.78.0 (29.06.21) {#latest-release}
+
+### {{ managed-k8s-name }} {#k8s}
+
+* Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`.
+
+  Добавлен флаг `--network-acceleration-type`, который позволяет указать для группы узлов тип сети: стандартная или программно-ускоренная.
+
+* Команда `yc managed-kubernetes cluster create`.
+  
+  Добавлен флаг `--cilium` для создания кластера, который поддерживает туннельный режим и использует Cilium CNI.
+
+### {{ dataproc-name }} {#dataproc}
+
+* Команда `yc dataproc job create-<JOB-TYPE>`.
+
+  Теперь после запуска задания в терминале отображается лог его выполнения.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.77.0 (07.06.21) {#version0.77.0}
 
 **{{ compute-name }}**
 
@@ -36,8 +56,6 @@
 * Команды `yc managed-redis cluster create\update`.
 
   Добавлены флаги `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases` и `--notify-keyspace-events` (см. описание в redis.conf).
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.76.0 (19.05.21) {#version0.76.0}
 

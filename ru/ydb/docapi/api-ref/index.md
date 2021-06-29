@@ -1,7 +1,7 @@
-----
+---
 title: Методы работы с Yandex Database HTTP API
 description: "Yandex Database HTTP API предоставляет следующие методы работы. Работа с таблицами (CreateTable, DeleteTable, DescribeTable, ListTables). Работа с элементами (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
-----
+---
 
 # Все методы
 

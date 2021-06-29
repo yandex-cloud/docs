@@ -261,6 +261,8 @@ default:
   s2-4xlarge: s2.4xlarge (40 vCPU, 160 ГБ)
   s2-5xlarge: s2.5xlarge (48 vCPU, 192 ГБ)
   s2-6xlarge: s2.6xlarge (64 vCPU, 256 ГБ)
+  graph-update: 15 секунд
+  graph-update-burstable: 150 секунд
   mch-backup-retention: 7
   mch-dedup-retention: 30
   stt-short-fileSize: 1 МБ
