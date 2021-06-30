@@ -21,6 +21,8 @@ items:
         href: operations/update.md
       - name: Обновление версии MongoDB
         href: operations/cluster-version-update.md
+      - name: Мониторинг и инструменты диагностики кластера
+        href: operations/monitoring.md
       - name: Управление базами данных
         href: operations/databases.md
       - name: Управление хостами кластера
@@ -37,6 +39,8 @@ items:
     items:
       - name: Шардирование коллекций
         href: tutorials/sharding.md
+      - name: Анализ производительности и оптимизация
+        href: tutorials/profiling.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -57,6 +61,8 @@ items:
         href: concepts/limits.md
       - name: Типы хранилища
         href: concepts/storage.md
+      - name: Дисковое пространство в Managed Service for MongoDB
+        href: concepts/disk-space.md
       - name: Резервные копии
         href: concepts/backup.md
       - name: Репликация

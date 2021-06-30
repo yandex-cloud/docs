@@ -19,6 +19,8 @@ items:
         href: operations/cluster-version-update.md
       - name: Управление базами данных
         href: operations/databases.md
+      - name: Мониторинг и инструменты диагностики кластера
+        href: operations/monitoring.md
       - name: Управление пользователями БД
         href: operations/cluster-users.md
       - name: Управление резервными копиями
@@ -43,6 +45,8 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Дисковое пространство в Managed Service for MongoDB
+        href: concepts/disk-space.md
       - name: Резервные копии
         href: concepts/backup.md
       - name: Репликация
