@@ -6,6 +6,8 @@
 
 1. Установите {{ k8s }} CLI [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl).
 
+1. [Настройте](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md) конфигурацию kubectl.
+
 1. Установите менеджер пакетов {{ k8s }} [Нelm 3](https://helm.sh/docs/intro/install/).
 
 1. Добавьте в Helm репозиторий для NGINX:
@@ -126,6 +128,84 @@
      cert-manager-69cf79df7f-ghw6s              1/1     Running   0          54s
      cert-manager-cainjector-7648dc6696-gnrzz   1/1     Running   0          55s
      cert-manager-webhook-7746f64877-wz9bh      1/1     Running   0          54s
+     ```
+
+   {% endlist %}
+
+1. Чтобы протестировать работу менеджера сертификатов, необходимо создать Ingress, Service и Deployment.
+   Cохраните следующую спецификацию для создания приложения в YAML-файл с именем `app.yaml`:
+
+    ```yaml
+    apiVersion: extensions/v1beta1
+    kind: Ingress
+    metadata:
+      name: www-ingress
+      annotations:
+        kubernetes.io/ingress.class: "nginx"
+        cert-manager.io/cluster-issuer: "letsencrypt"
+    spec:
+      tls:
+        - hosts:
+          - <ваш домен>
+          secretName: <имя домена>
+      rules:
+        - host: <ваш домен>
+          http:
+            paths:
+            - backend:
+                serviceName: app
+                servicePort: 80
+              path: /
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: app
+    spec:
+      selector:
+        app: app
+      ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 80
+
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: app-deployment
+      labels:
+        app: app
+    spec:
+      replicas: 3
+      selector:
+        matchLabels:
+          app: app
+      template:
+        metadata:
+          labels:
+            app: app
+        spec:
+          containers:
+          - name: app
+            image: gcr.io/google-samples/frontend:v0.1.2
+            ports:
+            - containerPort: 80
+    ```
+
+    * <ваш домен> — URL адрес вашего домена.
+    * <имя домена> — название вашего домена.
+
+1. Создайте приложение в kubernetes:
+
+   {% list tabs %}
+
+   - CLI
+
+     Выполните команду:
+
+     ```bash
+     kubectl apply -f app.yaml
      ```
 
    {% endlist %}
