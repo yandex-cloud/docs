@@ -271,6 +271,24 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endlist %}
 
+{% if region == "ru" %}
+
+{% include [rub-local-nvme.md](../_pricing/compute/rub-local-nvme.md) %}
+
+{% endif %}
+
+{% if region == "kz" %}
+
+{% include [kzt-local-nvme.md](../_pricing/compute/kzt-local-nvme.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include [usd-local-nvme.md](../_pricing/compute/usd-local-nvme.md) %}
+
+{% endif %}
+
 ### Software accelerated network {#software-accelerated-network}
 
 {% if region == "ru" %}
