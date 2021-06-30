@@ -170,6 +170,11 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endlist %}
 
+
+
+
+{% include [usd-local-nvme.md](../_pricing/compute/usd-local-nvme.md) %}
+
 ### Software accelerated network {#software-accelerated-network}
 
 

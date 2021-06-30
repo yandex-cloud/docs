@@ -35,7 +35,7 @@ For more information about how replication works in {{ MG }}, read the [DBMS doc
 {{ MG }} clusters are subject to the following limitations:
 
 - Each cluster may have a maximum of five hosts.
-- The maximum storage capacity for each {{ MG }} cluster is 512 GB.
+- The maximum storage capacity for each {{ MG }} cluster is 605 GB.
 
 For more information about {{ mmg-short-name }} limits, see [{#T}](../concepts/limits.md).
 
