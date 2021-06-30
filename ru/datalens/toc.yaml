@@ -143,6 +143,8 @@ items:
             href: operations/dataset/create-field.md
           - name: Создание вычисляемого поля данных
             href: operations/dataset/create-calculated-field.md
+          - name: Создание фильтра по умолчанию
+            href: operations/dataset/create-filter.md
           - name: Обновление полей в датасете
             href: operations/dataset/update-field.md
           - name: Материализация датасета

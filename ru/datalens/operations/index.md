@@ -21,6 +21,7 @@
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/create-field.md)
 - [{#T}](dataset/create-calculated-field.md)
+- [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/materialize.md)
 - [{#T}](dataset/manage-row-level-security.md)
