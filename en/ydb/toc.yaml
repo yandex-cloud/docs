@@ -35,6 +35,8 @@ items:
     items:
       - name: Deploying a web application
         href: solutions/java-servlet-todo-list.md
+      - name: Using the YDB Docker container
+        href: solutions/ydb_docker.md
   - name: Concepts
     items:
       - name: Overview

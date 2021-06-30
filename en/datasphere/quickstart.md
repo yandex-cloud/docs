@@ -12,7 +12,16 @@ In this section, you'll learn how to:
 
 1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
 1. On the [Billing]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher. The role must be assigned for the folder where you'll work or the cloud that the folder belongs to.
+
+## Assign roles for using DataSphere {#roles}
+
+In the management console on the [Access management]({{ link-console-access-management }}) page, make sure you have relevant roles:
+
+* To work with existing projects, you need the `datasphere.user` role or higher.
+
+* To create, edit, and delete projects, you need the `datasphere.admin` role or higher.
+
+Learn more about [access management](security/index.md).
 
 ## Create a project {#create-project}
 
