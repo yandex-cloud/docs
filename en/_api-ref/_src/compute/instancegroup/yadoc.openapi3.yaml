@@ -354,7 +354,7 @@ paths:
         in: query
         description: |-
           A filter expression that filters resources listed in the response.
-          Currently you can use filtering only on the `name` field.
+          Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation) field.
 
           The maximum string length in characters is 1000.
         schema:

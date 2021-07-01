@@ -34,7 +34,6 @@ filter |
       "name": "string",
       "description": "string",
       "labels": "object",
-      "regionId": "string",
       "url": "string",
       "status": "string"
     }
@@ -53,7 +52,6 @@ containers[].<br>createdAt | **string** (date-time)<br><p>String in <a href="htt
 containers[].<br>name | **string**<br>
 containers[].<br>description | **string**<br>
 containers[].<br>labels | **object**<br>
-containers[].<br>regionId | **string**<br>
 containers[].<br>url | **string**<br>
 containers[].<br>status | **string**<br>
 nextPageToken | **string**<br>

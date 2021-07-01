@@ -29,7 +29,6 @@ containerId | Required.
   "name": "string",
   "description": "string",
   "labels": "object",
-  "regionId": "string",
   "url": "string",
   "status": "string"
 }
@@ -44,6 +43,5 @@ createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org
 name | **string**<br>
 description | **string**<br>
 labels | **object**<br>
-regionId | **string**<br>
 url | **string**<br>
 status | **string**<br>

@@ -3,20 +3,20 @@ editable: false
 ---
 
 # Method start
-
+Starts the specified application load balancer.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:start
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:start
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-loadBalancerId | Required.
+loadBalancerId | Required. ID of the application load balancer to start.  The application load balancer must have a `STOPPED` status ([LoadBalancer.status](/docs/application-load-balancer/api-ref/LoadBalancer#representation)).  To get the application load balancer ID, make a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -4,24 +4,24 @@ editable: false
 
 # TargetGroupService
 
-
+A set of methods for managing target groups.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) |  |
-| [List](#List) |  |
-| [Create](#Create) |  |
-| [Update](#Update) |  |
-| [Delete](#Delete) |  |
-| [AddTargets](#AddTargets) |  |
-| [RemoveTargets](#RemoveTargets) |  |
+| [Get](#Get) | Returns the specified target group. |
+| [List](#List) | Lists target groups in the specified folder. |
+| [Create](#Create) | Creates a target group in the specified folder. |
+| [Update](#Update) | Updates the specified target group. |
+| [Delete](#Delete) | Deletes the specified target group. |
+| [AddTargets](#AddTargets) | Adds targets to the specified target group. |
+| [RemoveTargets](#RemoveTargets) | Removes targets from the specified target group. |
 | [ListOperations](#ListOperations) | Lists operations for the specified target group. |
 
 ## Calls TargetGroupService {#calls}
 
 ## Get {#Get}
 
-
+Returns the specified target group. <br>To get the list of all available target groups, make a [List](#List) request.
 
 **rpc Get ([GetTargetGroupRequest](#GetTargetGroupRequest)) returns ([TargetGroup](#TargetGroup))**
 
@@ -29,34 +29,34 @@ editable: false
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required.  
+target_group_id | **string**<br>Required. ID of the target group to return. <br>To get the target group ID, make a [TargetGroupService.List](#List) request. 
 
 
 ### TargetGroup {#TargetGroup}
 
 Field | Description
 --- | ---
-id | **string**<br>Output only. ID of the target group. 
-name | **string**<br>The name is unique within the folder. 3-63 characters long. 
-description | **string**<br>Description of the target group. 0-256 characters long. 
+id | **string**<br>ID of the target group. Generated at creation time. 
+name | **string**<br>Name of the target group. The name is unique within the folder. 
+description | **string**<br>Description of the target group. 
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-targets[] | **[Target](#Target)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
+labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
+targets[] | **[Target](#Target)**<br>List of targets in the target group. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
 ### Target {#Target}
 
 Field | Description
 --- | ---
-address_type | **oneof:** `ip_address`<br>
-&nbsp;&nbsp;ip_address | **string**<br> 
-subnet_id | **string**<br>ID of the subnet that target connected to. 
+address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
+&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
+subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 
 
 ## List {#List}
 
-
+Lists target groups in the specified folder.
 
 **rpc List ([ListTargetGroupsRequest](#ListTargetGroupsRequest)) returns ([ListTargetGroupsResponse](#ListTargetGroupsResponse))**
 
@@ -64,45 +64,45 @@ subnet_id | **string**<br>ID of the subnet that target connected to.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required.  
-page_size | **int64**<br> Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br> The maximum string length in characters is 100.
-filter | **string**<br> The maximum string length in characters is 1000.
+folder_id | **string**<br>Required. ID of the folder to list target groups in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListTargetGroupsResponse.next_page_token](#ListTargetGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListTargetGroupsResponse.next_page_token](#ListTargetGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [TargetGroup.name](#TargetGroup1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListTargetGroupsResponse {#ListTargetGroupsResponse}
 
 Field | Description
 --- | ---
-target_groups[] | **[TargetGroup](#TargetGroup1)**<br> 
-next_page_token | **string**<br> 
+target_groups[] | **[TargetGroup](#TargetGroup1)**<br>List of target groups in the specified folder. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListTargetGroupsRequest.page_size](#ListTargetGroupsRequest), use `next_page_token` as the value for the [ListTargetGroupsRequest.page_token](#ListTargetGroupsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### TargetGroup {#TargetGroup1}
 
 Field | Description
 --- | ---
-id | **string**<br>Output only. ID of the target group. 
-name | **string**<br>The name is unique within the folder. 3-63 characters long. 
-description | **string**<br>Description of the target group. 0-256 characters long. 
+id | **string**<br>ID of the target group. Generated at creation time. 
+name | **string**<br>Name of the target group. The name is unique within the folder. 
+description | **string**<br>Description of the target group. 
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-targets[] | **[Target](#Target1)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
+labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
+targets[] | **[Target](#Target1)**<br>List of targets in the target group. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
 ### Target {#Target1}
 
 Field | Description
 --- | ---
-address_type | **oneof:** `ip_address`<br>
-&nbsp;&nbsp;ip_address | **string**<br> 
-subnet_id | **string**<br>ID of the subnet that target connected to. 
+address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
+&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
+subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 
 
 ## Create {#Create}
 
-
+Creates a target group in the specified folder.
 
 **rpc Create ([CreateTargetGroupRequest](#CreateTargetGroupRequest)) returns ([operation.Operation](#Operation))**
 
@@ -114,20 +114,20 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required.  
-name | **string**<br> Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
-description | **string**<br> The maximum string length in characters is 256.
-labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-targets[] | **[Target](#Target2)**<br> 
+folder_id | **string**<br>Required. ID of the folder to create a target group in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
+name | **string**<br>Name of the target group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
+description | **string**<br>Description of the target group. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+targets[] | **[Target](#Target2)**<br>List of targets in the target group. 
 
 
 ### Target {#Target2}
 
 Field | Description
 --- | ---
-address_type | **oneof:** `ip_address`<br>
-&nbsp;&nbsp;ip_address | **string**<br> 
-subnet_id | **string**<br>ID of the subnet that target connected to. 
+address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
+&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
+subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 
 
 ### Operation {#Operation}
@@ -150,34 +150,34 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-target_group_id | **string**<br> 
+target_group_id | **string**<br>ID of the target group that is being created. 
 
 
 ### TargetGroup {#TargetGroup2}
 
 Field | Description
 --- | ---
-id | **string**<br>Output only. ID of the target group. 
-name | **string**<br>The name is unique within the folder. 3-63 characters long. 
-description | **string**<br>Description of the target group. 0-256 characters long. 
+id | **string**<br>ID of the target group. Generated at creation time. 
+name | **string**<br>Name of the target group. The name is unique within the folder. 
+description | **string**<br>Description of the target group. 
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-targets[] | **[Target](#Target3)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
+labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
+targets[] | **[Target](#Target3)**<br>List of targets in the target group. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
 ### Target {#Target3}
 
 Field | Description
 --- | ---
-address_type | **oneof:** `ip_address`<br>
-&nbsp;&nbsp;ip_address | **string**<br> 
-subnet_id | **string**<br>ID of the subnet that target connected to. 
+address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
+&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
+subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 
 
 ## Update {#Update}
 
-
+Updates the specified target group.
 
 **rpc Update ([UpdateTargetGroupRequest](#UpdateTargetGroupRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -189,21 +189,21 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required.  
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
-name | **string**<br> Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
-description | **string**<br> The maximum string length in characters is 256.
-labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-targets[] | **[Target](#Target4)**<br> 
+target_group_id | **string**<br>Required. ID of the target group to update. <br>To get the target group ID, make a [TargetGroupService.List](#List) request. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the target group should be updated. 
+name | **string**<br>New name for the target group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
+description | **string**<br>New description of the target group. The maximum string length in characters is 256.
+labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [TargetGroupService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+targets[] | **[Target](#Target4)**<br>New list of targets in the target group. <br>Existing list of targets is completely replaced by the specified list, so if you just want to add or remove a target, make a [TargetGroupService.AddTargets](#AddTargets) request or a [TargetGroupService.RemoveTargets](#RemoveTargets) request. 
 
 
 ### Target {#Target4}
 
 Field | Description
 --- | ---
-address_type | **oneof:** `ip_address`<br>
-&nbsp;&nbsp;ip_address | **string**<br> 
-subnet_id | **string**<br>ID of the subnet that target connected to. 
+address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
+&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
+subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 
 
 ### Operation {#Operation1}
@@ -226,34 +226,34 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-target_group_id | **string**<br> 
+target_group_id | **string**<br>ID of the target group that is being updated. 
 
 
 ### TargetGroup {#TargetGroup3}
 
 Field | Description
 --- | ---
-id | **string**<br>Output only. ID of the target group. 
-name | **string**<br>The name is unique within the folder. 3-63 characters long. 
-description | **string**<br>Description of the target group. 0-256 characters long. 
+id | **string**<br>ID of the target group. Generated at creation time. 
+name | **string**<br>Name of the target group. The name is unique within the folder. 
+description | **string**<br>Description of the target group. 
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-targets[] | **[Target](#Target5)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
+labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
+targets[] | **[Target](#Target5)**<br>List of targets in the target group. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
 ### Target {#Target5}
 
 Field | Description
 --- | ---
-address_type | **oneof:** `ip_address`<br>
-&nbsp;&nbsp;ip_address | **string**<br> 
-subnet_id | **string**<br>ID of the subnet that target connected to. 
+address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
+&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
+subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 
 
 ## Delete {#Delete}
 
-
+Deletes the specified target group.
 
 **rpc Delete ([DeleteTargetGroupRequest](#DeleteTargetGroupRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -265,7 +265,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required.  
+target_group_id | **string**<br>Required. ID of the target group to delete. <br>To get the target group ID, make a [TargetGroupService.List](#List) request. 
 
 
 ### Operation {#Operation2}
@@ -288,12 +288,12 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-target_group_id | **string**<br> 
+target_group_id | **string**<br>ID of the target group that is being deleted. 
 
 
 ## AddTargets {#AddTargets}
 
-
+Adds targets to the specified target group.
 
 **rpc AddTargets ([AddTargetsRequest](#AddTargetsRequest)) returns ([operation.Operation](#Operation3))**
 
@@ -305,17 +305,17 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required.  
-targets[] | **[Target](#Target6)**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required. ID of the target group to add targets to. <br>To get the target group ID, make a [TargetGroupService.List](#List) request. 
+targets[] | **[Target](#Target6)**<br>List of targets to add to the target group. The number of elements must be greater than 0.
 
 
 ### Target {#Target6}
 
 Field | Description
 --- | ---
-address_type | **oneof:** `ip_address`<br>
-&nbsp;&nbsp;ip_address | **string**<br> 
-subnet_id | **string**<br>ID of the subnet that target connected to. 
+address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
+&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
+subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 
 
 ### Operation {#Operation3}
@@ -338,34 +338,34 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-target_group_id | **string**<br> 
+target_group_id | **string**<br>ID of the target group that the targets are being added to. 
 
 
 ### TargetGroup {#TargetGroup4}
 
 Field | Description
 --- | ---
-id | **string**<br>Output only. ID of the target group. 
-name | **string**<br>The name is unique within the folder. 3-63 characters long. 
-description | **string**<br>Description of the target group. 0-256 characters long. 
+id | **string**<br>ID of the target group. Generated at creation time. 
+name | **string**<br>Name of the target group. The name is unique within the folder. 
+description | **string**<br>Description of the target group. 
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-targets[] | **[Target](#Target7)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
+labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
+targets[] | **[Target](#Target7)**<br>List of targets in the target group. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
 ### Target {#Target7}
 
 Field | Description
 --- | ---
-address_type | **oneof:** `ip_address`<br>
-&nbsp;&nbsp;ip_address | **string**<br> 
-subnet_id | **string**<br>ID of the subnet that target connected to. 
+address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
+&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
+subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 
 
 ## RemoveTargets {#RemoveTargets}
 
-
+Removes targets from the specified target group.
 
 **rpc RemoveTargets ([RemoveTargetsRequest](#RemoveTargetsRequest)) returns ([operation.Operation](#Operation4))**
 
@@ -377,17 +377,17 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-target_group_id | **string**<br>Required.  
-targets[] | **[Target](#Target8)**<br> The number of elements must be greater than 0.
+target_group_id | **string**<br>Required. ID of the target group to remove targets from. <br>To get the target group ID, make a [TargetGroupService.List](#List) request. 
+targets[] | **[Target](#Target8)**<br>List of targets to remove from the target group. The number of elements must be greater than 0.
 
 
 ### Target {#Target8}
 
 Field | Description
 --- | ---
-address_type | **oneof:** `ip_address`<br>
-&nbsp;&nbsp;ip_address | **string**<br> 
-subnet_id | **string**<br>ID of the subnet that target connected to. 
+address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
+&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
+subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 
 
 ### Operation {#Operation4}
@@ -410,29 +410,29 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-target_group_id | **string**<br> 
+target_group_id | **string**<br>ID of the target group that the targets are being removed from. 
 
 
 ### TargetGroup {#TargetGroup5}
 
 Field | Description
 --- | ---
-id | **string**<br>Output only. ID of the target group. 
-name | **string**<br>The name is unique within the folder. 3-63 characters long. 
-description | **string**<br>Description of the target group. 0-256 characters long. 
+id | **string**<br>ID of the target group. Generated at creation time. 
+name | **string**<br>Name of the target group. The name is unique within the folder. 
+description | **string**<br>Description of the target group. 
 folder_id | **string**<br>ID of the folder that the target group belongs to. 
-labels | **map<string,string>**<br>Resource labels as `key:value` pairs. Maximum of 64 per resource. 
-targets[] | **[Target](#Target9)**<br>NOTE: all endpoints must use the same address_type - either ip or hostname. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the target group. 
+labels | **map<string,string>**<br>Target group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
+targets[] | **[Target](#Target9)**<br>List of targets in the target group. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
 ### Target {#Target9}
 
 Field | Description
 --- | ---
-address_type | **oneof:** `ip_address`<br>
-&nbsp;&nbsp;ip_address | **string**<br> 
-subnet_id | **string**<br>ID of the subnet that target connected to. 
+address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
+&nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
+subnet_id | **string**<br>ID of the subnet that the target is connected to. 
 
 
 ## ListOperations {#ListOperations}
@@ -455,7 +455,7 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified target group. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListTargetGroupOperationsRequest.page_size](#ListTargetGroupOperationsRequest), use the `next_page_token` as the value for the [ListTargetGroupOperationsRequest.page_token](#ListTargetGroupOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListTargetGroupOperationsRequest.page_size](#ListTargetGroupOperationsRequest), use `next_page_token` as the value for the [ListTargetGroupOperationsRequest.page_token](#ListTargetGroupOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation5}

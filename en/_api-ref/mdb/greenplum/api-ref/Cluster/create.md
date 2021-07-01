@@ -118,7 +118,7 @@ userName | **string**<br><p>Owner user name</p>
 userPassword | **string**<br><p>Required. Owner user password</p> <p>The string length in characters must be 8-128.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
-deletionProtection | **boolean** (boolean)<br><p>Deletion Protection flag Enable it to protected your cluster from accidental removal.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -90,7 +90,8 @@ A set of methods for managing Apache Kafka® clusters.
   ],
   "hostGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
  
@@ -160,6 +161,7 @@ health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: cluster state is unknown.</li> <li>CREATING: cluster is being created.</li> <li>RUNNING: cluster is running normally.</li> <li>ERROR: cluster encountered a problem and cannot operate.</li> <li>UPDATING: cluster is being updated.</li> <li>STOPPING: cluster is stopping.</li> <li>STOPPED: cluster stopped.</li> <li>STARTING: cluster is starting.</li> </ul> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 
 ## Methods {#methods}
 Method | Description

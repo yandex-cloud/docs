@@ -599,31 +599,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listSegmentHosts
-  /mdb/managed-greenplum/v1/operations/{operationId}:
-    get:
-      tags:
-      - Operation
-      summary: Returns the specified operation.
-      operationId: OperationGet
-      parameters:
-      - name: operationId
-        in: path
-        description: |-
-          Required.
-          Required. ID of the operation to return.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: get
 components:
   schemas:
     Access:
@@ -723,9 +698,7 @@ components:
           description: Owner user name
           type: string
         deletionProtection:
-          description: |-
-            Deletion Protection flag
-            Enable it to protected your cluster from accidental removal.
+          description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
     ClusterEnvironment:
@@ -860,9 +833,7 @@ components:
           items:
             type: string
         deletionProtection:
-          description: |-
-            Deletion Protection flag
-            Enable it to protected your cluster from accidental removal.
+          description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
     DeleteClusterMetadata:
@@ -1459,9 +1430,7 @@ components:
           items:
             type: string
         deletionProtection:
-          description: |-
-            Deletion Protection flag
-            Enable it to protected your cluster from accidental removal.
+          description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
     WeeklyMaintenanceWindow:
@@ -2207,6 +2176,3 @@ components:
 tags:
 - name: Cluster
   description: A set of methods for managing Greenplum clusters.
-- name: Operation
-  description: A set of methods for managing operations that are asynchronous API
-    requests.

@@ -3,20 +3,20 @@ editable: false
 ---
 
 # Method delete
-
+Deletes the specified application load balancer.
  
 
  
 ## HTTP request {#https-request}
 ```
-DELETE https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}
+DELETE https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-loadBalancerId | Required.
+loadBalancerId | Required. ID of the application load balancer to delete.  To get the application load balancer ID, make a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

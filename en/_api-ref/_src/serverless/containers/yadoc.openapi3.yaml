@@ -394,6 +394,20 @@ components:
           $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
         accessBinding:
           $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    Args:
+      type: object
+      properties:
+        args:
+          type: array
+          items:
+            type: string
+    Command:
+      type: object
+      properties:
+        command:
+          type: array
+          items:
+            type: string
     Container:
       type: object
       properties:
@@ -414,8 +428,6 @@ components:
           type: object
           additionalProperties:
             type: string
-        regionId:
-          type: string
         url:
           type: string
         status:
@@ -455,11 +467,6 @@ components:
           type: object
           additionalProperties:
             type: string
-        regionId:
-          description: |-
-            Required.
-            The maximum string length in characters is 50.
-          type: string
     DeleteContainerMetadata:
       type: object
       properties:
@@ -513,13 +520,9 @@ components:
         imageDigest:
           type: string
         command:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/Command_in_Image_command'
         args:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/Args_in_Image_args'
         environment:
           description: |-
             Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
@@ -536,13 +539,9 @@ components:
           description: Required.
           type: string
         command:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/Command_in_ImageSpec_command'
         args:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/Args_in_ImageSpec_args'
         environment:
           description: |-
             Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
@@ -905,13 +904,9 @@ components:
           description: Required.
           type: string
         command:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/Command_in_ImageSpec_command'
         args:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/Args_in_ImageSpec_args'
         environment:
           description: |-
             Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.
@@ -921,6 +916,34 @@ components:
             type: string
         workingDir:
           type: string
+    Command_in_Image_command:
+      type: object
+      properties:
+        command:
+          type: array
+          items:
+            type: string
+    Args_in_Image_args:
+      type: object
+      properties:
+        args:
+          type: array
+          items:
+            type: string
+    Command_in_ImageSpec_command:
+      type: object
+      properties:
+        command:
+          type: array
+          items:
+            type: string
+    Args_in_ImageSpec_args:
+      type: object
+      properties:
+        args:
+          type: array
+          items:
+            type: string
     Image_in_Revision_image:
       type: object
       properties:
@@ -929,13 +952,9 @@ components:
         imageDigest:
           type: string
         command:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/Command_in_Image_command'
         args:
-          type: array
-          items:
-            type: string
+          $ref: '#/components/schemas/Args_in_Image_args'
         environment:
           description: |-
             Each key must match the regular expression `` [a-zA-Z][a-zA-Z0-9_]* ``.

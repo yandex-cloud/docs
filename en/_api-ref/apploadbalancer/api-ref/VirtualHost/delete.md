@@ -9,15 +9,15 @@ Deletes the specified virtual host.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
+DELETE https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-httpRouterId | Required. ID of the HTTP Router to delete a virtual host in.
-virtualHostName | Required. Name of the virtual host to delete.  Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+httpRouterId | Required. ID of the HTTP router to delete a virtual host from.  To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
+virtualHostName | Required. Name of the virtual host to delete.  To get the virtual host name, make a [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.  Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

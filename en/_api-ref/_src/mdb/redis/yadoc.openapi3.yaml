@@ -1240,6 +1240,10 @@ components:
           description: TLS port and functionality on\off
           type: boolean
           format: boolean
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     ClusterConfig:
       type: object
       allOf:
@@ -1415,6 +1419,10 @@ components:
             type: string
         tlsEnabled:
           description: TLS port and functionality on\off
+          type: boolean
+          format: boolean
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
     DeleteClusterHostsMetadata:
@@ -2361,6 +2369,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     WeeklyMaintenanceWindow:
       description: Weelky maintenance window settings.
       type: object

@@ -3239,6 +3239,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     ClusterConfig:
       type: object
       properties:
@@ -3469,6 +3473,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     CreateClusterShardGroupMetadata:
       type: object
       properties:
@@ -4589,6 +4597,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     UpdateClusterShardGroupMetadata:
       type: object
       properties:

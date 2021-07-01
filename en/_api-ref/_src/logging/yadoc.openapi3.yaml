@@ -449,7 +449,7 @@ paths:
         schema:
           type: array
           items:
-            $ref: '#/components/schemas/Level'
+            $ref: '#/components/schemas/LogLevelLevel'
       - name: criteria.filter
         in: query
         description: The maximum string length in characters is 1000.
@@ -457,6 +457,7 @@ paths:
           type: string
       - name: criteria.pageSize
         in: query
+        description: Acceptable values are 1 to 1000, inclusive.
         schema:
           type: string
           format: int64
@@ -528,7 +529,7 @@ components:
           additionalProperties:
             type: string
         retentionPeriod:
-          description: The minimum value is 3600 seconds.
+          description: Acceptable values are 3600 seconds to 604800 seconds, inclusive.
           type: string
     Criteria:
       type: object
@@ -566,11 +567,12 @@ components:
           description: The maximum number of elements is 10.
           type: array
           items:
-            $ref: '#/components/schemas/Level'
+            $ref: '#/components/schemas/LogLevelLevel'
         filter:
           description: The maximum string length in characters is 1000.
           type: string
         pageSize:
+          description: Acceptable values are 1 to 1000, inclusive.
           type: string
           format: int64
     DeleteLogGroupMetadata:
@@ -627,21 +629,12 @@ components:
           type: string
           format: date-time
         level:
-          $ref: '#/components/schemas/Level_in_IncomingLogEntry_level'
+          $ref: '#/components/schemas/LogLevelLevel_in_IncomingLogEntry_level'
         message:
           description: The maximum string length in characters is 65536.
           type: string
         jsonPayload:
           type: object
-    Level:
-      type: string
-      enum:
-      - TRACE
-      - DEBUG
-      - INFO
-      - WARN
-      - ERROR
-      - FATAL
     ListAccessBindingsResponse:
       type: object
       properties:
@@ -707,7 +700,7 @@ components:
           type: string
           format: date-time
         level:
-          $ref: '#/components/schemas/Level_in_LogEntry_level'
+          $ref: '#/components/schemas/LogLevelLevel_in_LogEntry_level'
         message:
           type: string
         jsonPayload:
@@ -765,6 +758,15 @@ components:
       - ACTIVE
       - DELETING
       - ERROR
+    LogLevelLevel:
+      type: string
+      enum:
+      - TRACE
+      - DEBUG
+      - INFO
+      - WARN
+      - ERROR
+      - FATAL
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -930,7 +932,7 @@ components:
           additionalProperties:
             type: string
         retentionPeriod:
-          description: The minimum value is 3600 seconds.
+          description: Acceptable values are 3600 seconds to 604800 seconds, inclusive.
           type: string
     WriteRequest:
       type: object
@@ -1030,7 +1032,7 @@ components:
           type: string
         subject:
           $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
-    Level_in_IncomingLogEntry_level:
+    LogLevelLevel_in_IncomingLogEntry_level:
       type: string
       enum:
       - TRACE
@@ -1050,7 +1052,7 @@ components:
           description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
             ``.
           type: string
-    Level_in_LogEntry_level:
+    LogLevelLevel_in_LogEntry_level:
       type: string
       enum:
       - TRACE

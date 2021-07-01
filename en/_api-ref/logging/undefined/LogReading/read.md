@@ -24,7 +24,7 @@ criteria.since | String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text 
 criteria.until | String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 criteria.levels | The maximum number of elements is 10.
 criteria.filter | The maximum string length in characters is 1000.
-criteria.pageSize | 
+criteria.pageSize | Acceptable values are 1 to 1000, inclusive.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

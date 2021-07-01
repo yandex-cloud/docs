@@ -46,7 +46,6 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-region_id | **string**<br> 
 url | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
 
@@ -85,7 +84,6 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-region_id | **string**<br> 
 url | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
 
@@ -108,7 +106,6 @@ folder_id | **string**<br>Required.
 name | **string**<br> Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br> The maximum string length in characters is 256.
 labels | **map<string,string>**<br> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-region_id | **string**<br>Required.  The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -144,7 +141,6 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-region_id | **string**<br> 
 url | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
 
@@ -203,7 +199,6 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br> 
 description | **string**<br> 
 labels | **map<string,string>**<br> 
-region_id | **string**<br> 
 url | **string**<br> 
 status | enum **Status**<br> <ul><ul/>
 
@@ -285,10 +280,24 @@ core_fraction | **int64**<br> Acceptable values are 0 to 100, inclusive.
 Field | Description
 --- | ---
 image_url | **string**<br>Required.  
-command[] | **string**<br> 
-args[] | **string**<br> 
+command | **[Command](#Command)**<br> 
+args | **[Args](#Args)**<br> 
 environment | **map<string,string>**<br> The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 working_dir | **string**<br> 
+
+
+### Command {#Command}
+
+Field | Description
+--- | ---
+command[] | **string**<br> 
+
+
+### Args {#Args}
+
+Field | Description
+--- | ---
+args[] | **string**<br> 
 
 
 ### Operation {#Operation3}
@@ -336,10 +345,24 @@ Field | Description
 --- | ---
 image_url | **string**<br> 
 image_digest | **string**<br> 
-command[] | **string**<br> 
-args[] | **string**<br> 
+command | **[Command](#Command1)**<br> 
+args | **[Args](#Args1)**<br> 
 environment | **map<string,string>**<br> The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 working_dir | **string**<br> 
+
+
+### Command {#Command1}
+
+Field | Description
+--- | ---
+command[] | **string**<br> 
+
+
+### Args {#Args1}
+
+Field | Description
+--- | ---
+args[] | **string**<br> 
 
 
 ### Resources {#Resources1}
@@ -386,10 +409,24 @@ Field | Description
 --- | ---
 image_url | **string**<br> 
 image_digest | **string**<br> 
-command[] | **string**<br> 
-args[] | **string**<br> 
+command | **[Command](#Command2)**<br> 
+args | **[Args](#Args2)**<br> 
 environment | **map<string,string>**<br> The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 working_dir | **string**<br> 
+
+
+### Command {#Command2}
+
+Field | Description
+--- | ---
+command[] | **string**<br> 
+
+
+### Args {#Args2}
+
+Field | Description
+--- | ---
+args[] | **string**<br> 
 
 
 ### Resources {#Resources2}
@@ -449,10 +486,24 @@ Field | Description
 --- | ---
 image_url | **string**<br> 
 image_digest | **string**<br> 
-command[] | **string**<br> 
-args[] | **string**<br> 
+command | **[Command](#Command3)**<br> 
+args | **[Args](#Args3)**<br> 
 environment | **map<string,string>**<br> The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
 working_dir | **string**<br> 
+
+
+### Command {#Command3}
+
+Field | Description
+--- | ---
+command[] | **string**<br> 
+
+
+### Args {#Args3}
+
+Field | Description
+--- | ---
+args[] | **string**<br> 
 
 
 ### Resources {#Resources3}

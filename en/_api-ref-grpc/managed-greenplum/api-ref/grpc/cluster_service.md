@@ -63,7 +63,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Window of ma
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Maintenance operation planned at nearest maintenance_window. 
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
-deletion_protection | **bool**<br>Deletion Protection flag Enable it to protected your cluster from accidental removal. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### GreenplumConfig {#GreenplumConfig}
@@ -242,7 +242,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Window of m
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
-deletion_protection | **bool**<br>Deletion Protection flag Enable it to protected your cluster from accidental removal. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### GreenplumConfig {#GreenplumConfig1}
@@ -401,7 +401,7 @@ user_name | **string**<br>Owner user name
 user_password | **string**<br>Required. Owner user password The string length in characters must be 8-128.
 network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection flag Enable it to protected your cluster from accidental removal. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### GreenplumConfig {#GreenplumConfig2}
@@ -523,7 +523,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of m
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
-deletion_protection | **bool**<br>Deletion Protection flag Enable it to protected your cluster from accidental removal. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### GreenplumConfig {#GreenplumConfig3}
@@ -684,7 +684,7 @@ network_id | **string**<br>Required. ID of the network to create the cluster in.
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest maintenance_window. 
 security_group_ids[] | **string**<br>User security groups 
-deletion_protection | **bool**<br>Deletion Protection flag Enable it to protected your cluster from accidental removal. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### GreenplumConfig {#GreenplumConfig4}
@@ -835,7 +835,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of m
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest maintenance_window. 
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
-deletion_protection | **bool**<br>Deletion Protection flag Enable it to protected your cluster from accidental removal. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### GreenplumConfig {#GreenplumConfig5}
@@ -1070,7 +1070,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of m
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest maintenance_window. 
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
-deletion_protection | **bool**<br>Deletion Protection flag Enable it to protected your cluster from accidental removal. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### GreenplumConfig {#GreenplumConfig6}
@@ -1265,7 +1265,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Window of m
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Maintenance operation planned at nearest maintenance_window. 
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
-deletion_protection | **bool**<br>Deletion Protection flag Enable it to protected your cluster from accidental removal. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### GreenplumConfig {#GreenplumConfig7}
@@ -1463,7 +1463,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Window of m
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Maintenance operation planned at nearest maintenance_window. 
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
-deletion_protection | **bool**<br>Deletion Protection flag Enable it to protected your cluster from accidental removal. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### GreenplumConfig {#GreenplumConfig8}
@@ -1661,7 +1661,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Window of m
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Maintenance operation planned at nearest maintenance_window. 
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
-deletion_protection | **bool**<br>Deletion Protection flag Enable it to protected your cluster from accidental removal. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### GreenplumConfig {#GreenplumConfig9}

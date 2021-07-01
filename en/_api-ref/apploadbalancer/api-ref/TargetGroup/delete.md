@@ -3,20 +3,20 @@ editable: false
 ---
 
 # Method delete
-
+Deletes the specified target group.
  
 
  
 ## HTTP request {#https-request}
 ```
-DELETE https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGroupId}
+DELETE https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGroupId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-targetGroupId | Required.
+targetGroupId | Required. ID of the target group to delete.  To get the target group ID, make a [list](/docs/application-load-balancer/api-ref/TargetGroup/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

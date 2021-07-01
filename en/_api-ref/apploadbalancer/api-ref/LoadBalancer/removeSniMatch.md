@@ -3,20 +3,20 @@ editable: false
 ---
 
 # Method removeSniMatch
-
+Deletes the specified SNI handler.
  
-
+This request does not allow to delete `defaultHandler`.
  
 ## HTTP request {#https-request}
 ```
-POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeSniMatch
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeSniMatch
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-loadBalancerId | Required.
+loadBalancerId | Required. ID of the application load balancer to remove the SNI handler from.
  
 ## Body parameters {#body_params}
  
@@ -30,8 +30,8 @@ loadBalancerId | Required.
  
 Field | Description
 --- | ---
-listenerName | **string**<br><p>Required.</p> 
-sniMatchName | **string**<br><p>Required.</p> 
+listenerName | **string**<br><p>Required. Name of the listener te remove the SNI handler from.</p> 
+sniMatchName | **string**<br><p>Required. Name of the SNI handler to remove.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

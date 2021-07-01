@@ -1020,7 +1020,8 @@ clusterId | Required. ID of the PostgreSQL Cluster resource to update. To get th
   },
   "securityGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 
@@ -1986,6 +1987,7 @@ maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>Maintenance operat
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of the week (in ``DDD`` format).</p> 
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC (in ``HH`` format).</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -37,7 +37,7 @@ updateMask | **string**<br><p>A comma-separated names off ALL fields to be updat
 name | **string**<br><p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 description | **string**<br><p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
-retentionPeriod | **string**<br><p>The minimum value is 3600 seconds.</p> 
+retentionPeriod | **string**<br><p>Acceptable values are 3600 seconds to 604800 seconds, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

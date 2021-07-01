@@ -3697,7 +3697,7 @@ Field | Description
 instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to list instances for. To get the instance group ID, use a [InstanceGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstanceGroupInstancesResponse.next_page_token](#ListInstanceGroupInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupInstancesResponse.next_page_token](#ListInstanceGroupInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [ManagedInstance.name](#ManagedInstance) field. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](#InstanceGroup8) field. The maximum string length in characters is 1000.
 
 
 ### ListInstanceGroupInstancesResponse {#ListInstanceGroupInstancesResponse}

@@ -3,20 +3,20 @@ editable: false
 ---
 
 # Method removeTargets
-
+Removes targets from the specified target group.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGroupId}:removeTargets
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGroupId}:removeTargets
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-targetGroupId | Required.
+targetGroupId | Required. ID of the target group to remove targets from.  To get the target group ID, make a [list](/docs/application-load-balancer/api-ref/TargetGroup/list) request.
  
 ## Body parameters {#body_params}
  
@@ -34,9 +34,9 @@ targetGroupId | Required.
  
 Field | Description
 --- | ---
-targets[] | **object**<br><p>Required. Must contain at least one element.</p> 
-targets[].<br>subnetId | **string**<br><p>ID of the subnet that target connected to.</p> 
-targets[].<br>ipAddress | **string**<br>
+targets[] | **object**<br><p>A target resource. For details about the concept, see <a href="/docs/application-load-balancer/concepts/target-group">documentation</a>.</p> 
+targets[].<br>subnetId | **string**<br><p>ID of the subnet that the target is connected to.</p> 
+targets[].<br>ipAddress | **string**<br><p>IP address of the target.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

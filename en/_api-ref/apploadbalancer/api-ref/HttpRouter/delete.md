@@ -3,20 +3,20 @@ editable: false
 ---
 
 # Method delete
-
+Deletes the specified HTTP router.
  
 
  
 ## HTTP request {#https-request}
 ```
-DELETE https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}
+DELETE https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-httpRouterId | Required.
+httpRouterId | Required. ID of the HTTP router to delete.  To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

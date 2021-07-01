@@ -30,12 +30,16 @@ containerRevisionId | Required.
   "image": {
     "imageUrl": "string",
     "imageDigest": "string",
-    "command": [
-      "string"
-    ],
-    "args": [
-      "string"
-    ],
+    "command": {
+      "command": [
+        "string"
+      ]
+    },
+    "args": {
+      "args": [
+        "string"
+      ]
+    },
     "environment": "object",
     "workingDir": "string"
   },
@@ -61,8 +65,10 @@ createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org
 image | **object**<br>
 image.<br>imageUrl | **string**<br>
 image.<br>imageDigest | **string**<br>
-image.<br>command[] | **string**<br>
-image.<br>args[] | **string**<br>
+image.<br>command | **object**<br>
+image.<br>command.<br>command[] | **string**<br>
+image.<br>args | **object**<br>
+image.<br>args.<br>args[] | **string**<br>
 image.<br>environment | **object**<br><p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
 image.<br>workingDir | **string**<br>
 resources | **object**<br>

@@ -3,27 +3,27 @@ editable: false
 ---
 
 # Method listOperations
-Lists operations for the specified http router.
+Lists operations for the specified HTTP router.
  
 
  
 ## HTTP request {#https-request}
 ```
-GET https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/operations
+GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/operations
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-httpRouterId | Required. ID of the http router to get operations for.  To get the http router ID, use a [list](/docs/apploadbalancer/api-ref/HttpRouter/list) request.  The maximum string length in characters is 50.
+httpRouterId | Required. ID of the HTTP router to get operations for.  To get the HTTP router ID, use a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.  The maximum string length in characters is 50.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than [pageSize](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#query_params), the service returns a [nextPageToken](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
-pageToken | Page token. To get the next page of results, set [pageToken](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#query_params) to the [nextPageToken](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageSize | The maximum number of results per page that should be returned. If the number of available results is larger than [pageSize](/docs/application-load-balancer/api-ref/HttpRouter/listOperations#query_params), the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/HttpRouter/listOperations#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/application-load-balancer/api-ref/HttpRouter/listOperations#query_params) to the [nextPageToken](/docs/application-load-balancer/api-ref/HttpRouter/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -73,4 +73,4 @@ operations[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum 
 operations[].<br>error.<br>message | **string**<br><p>An error message.</p> 
 operations[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
 operations[].<br>response | **object** <br>`operations[]` includes only one of the fields `error`, `response`<br><br><p>The normal response of the operation in case of success. If the original method returns no data on success, such as Delete, the response is <a href="https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty">google.protobuf.Empty</a>. If the original method is the standard Create/Update, the response should be the target resource of the operation. Any method that returns a long-running operation should document the response type, if any.</p> 
-nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/apploadbalancer/api-ref/HttpRouter/listOperations#query_params">pageSize</a>, use the <a href="/docs/apploadbalancer/api-ref/HttpRouter/listOperations#responses">nextPageToken</a> as the value for the <a href="/docs/apploadbalancer/api-ref/HttpRouter/listOperations#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/apploadbalancer/api-ref/HttpRouter/listOperations#responses">nextPageToken</a> to continue paging through the results.</p> 
+nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/application-load-balancer/api-ref/HttpRouter/listOperations#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/application-load-balancer/api-ref/HttpRouter/listOperations#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

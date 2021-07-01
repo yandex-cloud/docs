@@ -3,13 +3,13 @@ editable: false
 ---
 
 # Method create
-
+Creates a target group in the specified folder.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/targetGroups
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups
 ```
  
 ## Body parameters {#body_params}
@@ -32,13 +32,13 @@ POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/targetGroup
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required.</p> 
-name | **string**<br><p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
-description | **string**<br><p>The maximum string length in characters is 256.</p> 
-labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
-targets[] | **object**<br>
-targets[].<br>subnetId | **string**<br><p>ID of the subnet that target connected to.</p> 
-targets[].<br>ipAddress | **string**<br>
+folderId | **string**<br><p>Required. ID of the folder to create a target group in.</p> <p>To get the folder ID, make a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> 
+name | **string**<br><p>Name of the target group. The name must be unique within the folder.</p> <p>Value must match the regular expression ``([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?``.</p> 
+description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Target group labels as ``key:value`` pairs. For details about the concept, see <a href="/docs/overview/concepts/services#labels">documentation</a>.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
+targets[] | **object**<br><p>A target resource. For details about the concept, see <a href="/docs/application-load-balancer/concepts/target-group">documentation</a>.</p> 
+targets[].<br>subnetId | **string**<br><p>ID of the subnet that the target is connected to.</p> 
+targets[].<br>ipAddress | **string**<br><p>IP address of the target.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

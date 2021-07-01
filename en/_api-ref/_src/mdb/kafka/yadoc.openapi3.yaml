@@ -1210,6 +1210,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     ClusterEnvironment:
       description: |2-
          - PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
@@ -1402,6 +1406,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     CreateTopicMetadata:
       type: object
       properties:
@@ -2315,6 +2323,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     UpdateTopicMetadata:
       type: object
       properties:

@@ -167,7 +167,8 @@ clusterId | Required. ID of the Redis cluster to return. To get the cluster ID u
   "securityGroupIds": [
     "string"
   ],
-  "tlsEnabled": true
+  "tlsEnabled": true,
+  "deletionProtection": true
 }
 ```
 Description of a Redis cluster. For more information, see
@@ -288,3 +289,4 @@ plannedOperation.<br>info | **string**<br><p>Information about this maintenance 
 plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>Time until which this maintenance operation is delayed.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 tlsEnabled | **boolean** (boolean)<br><p>TLS port and functionality on\off</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 

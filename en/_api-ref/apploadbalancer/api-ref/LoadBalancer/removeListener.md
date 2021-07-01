@@ -3,20 +3,20 @@ editable: false
 ---
 
 # Method removeListener
-
+Deletes the specified listener.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeListener
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeListener
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-loadBalancerId | Required.
+loadBalancerId | Required. ID of the application load balancer to remove the listener from.
  
 ## Body parameters {#body_params}
  
@@ -29,7 +29,7 @@ loadBalancerId | Required.
  
 Field | Description
 --- | ---
-name | **string**<br><p>Required.</p> 
+name | **string**<br><p>Required. Name of the listener to remove from the application load balancer.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -993,6 +993,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     ClusterConfig:
       type: object
       properties:
@@ -1114,6 +1118,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     CreateJobMetadata:
       type: object
       properties:
@@ -1988,6 +1996,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     UpdateSubclusterConfigSpec:
       type: object
       properties:

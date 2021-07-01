@@ -3,21 +3,21 @@ editable: false
 ---
 
 # Method removeRoute
-
+Deletes the specified route from the specified virtual host.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}:removeRoute
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}:removeRoute
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-httpRouterId | Required.
-virtualHostName | Required.
+httpRouterId | Required. ID of the HTTP router to delete a route from.  To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
+virtualHostName | Required. Name of the virtual host to delete a route from.  To get the virtual host name, make a [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.
  
 ## Body parameters {#body_params}
  
@@ -30,7 +30,7 @@ virtualHostName | Required.
  
 Field | Description
 --- | ---
-routeName | **string**<br><p>Required.</p> 
+routeName | **string**<br><p>Required. Name of the route to delete.</p> <p>To get the route name, make a <a href="/docs/application-load-balancer/api-ref/VirtualHost/get">get</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

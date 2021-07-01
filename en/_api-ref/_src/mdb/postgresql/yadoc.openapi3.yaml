@@ -1577,6 +1577,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     ClusterConfig:
       type: object
       allOf:
@@ -1865,6 +1869,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     CreateDatabaseMetadata:
       type: object
       properties:
@@ -8721,6 +8729,10 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     UpdateDatabaseMetadata:
       type: object
       properties:

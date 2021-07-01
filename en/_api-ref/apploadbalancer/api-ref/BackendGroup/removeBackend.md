@@ -3,20 +3,20 @@ editable: false
 ---
 
 # Method removeBackend
-
+Removes backends from the specified backend group.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/backendGroups/{backendGroupId}:removeBackend
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/backendGroups/{backendGroupId}:removeBackend
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-backendGroupId | Required.
+backendGroupId | Required. ID of the backend group to remove a backend from.  To get the backend group ID, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
  
 ## Body parameters {#body_params}
  
@@ -29,7 +29,7 @@ backendGroupId | Required.
  
 Field | Description
 --- | ---
-backendName | **string**<br><p>Required.</p> 
+backendName | **string**<br><p>Required. Name of the backend to remove.</p> <p>To get the backend name, make a <a href="/docs/application-load-balancer/api-ref/BackendGroup/get">get</a> request.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

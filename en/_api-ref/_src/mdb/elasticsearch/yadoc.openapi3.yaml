@@ -1329,6 +1329,10 @@ components:
           description: ID of the service account used for access to Yandex Object
             Storage.
           type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     ClusterConfig:
       type: object
       properties:
@@ -1475,6 +1479,10 @@ components:
           description: ID of the service account used for access to Yandex Object
             Storage.
           type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     CreateUserMetadata:
       type: object
       properties:
@@ -2170,6 +2178,10 @@ components:
           description: ID of the service account used for access to Yandex Object
             Storage.
           type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     UpdateUserMetadata:
       type: object
       properties:

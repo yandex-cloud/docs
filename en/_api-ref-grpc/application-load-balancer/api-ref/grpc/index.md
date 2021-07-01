@@ -5,9 +5,9 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
-[BackendGroupService](./backend_group_service.md) | 
-[HttpRouterService](./http_router_service.md) | 
-[LoadBalancerService](./load_balancer_service.md) | 
-[TargetGroupService](./target_group_service.md) | 
-[VirtualHostService](./virtual_host_service.md) | A set of methods for managing virtual hosts of HTTP Router resource.
+[BackendGroupService](./backend_group_service.md) | A set of methods for managing backend groups.
+[HttpRouterService](./http_router_service.md) | A set of methods for managing HTTP routers.
+[LoadBalancerService](./load_balancer_service.md) | A set of methods for managing application load balancers.
+[TargetGroupService](./target_group_service.md) | A set of methods for managing target groups.
+[VirtualHostService](./virtual_host_service.md) | A set of methods for managing virtual hosts of HTTP routers.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

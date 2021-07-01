@@ -3,20 +3,20 @@ editable: false
 ---
 
 # Method delete
-
+Deletes the specified backend group.
  
 
  
 ## HTTP request {#https-request}
 ```
-DELETE https://apploadbalancer.api.cloud.yandex.net/apploadbalancer/v1/backendGroups/{backendGroupId}
+DELETE https://alb.api.cloud.yandex.net/apploadbalancer/v1/backendGroups/{backendGroupId}
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-backendGroupId | Required.
+backendGroupId | Required. ID of the backend group to delete.  To get the backend group ID, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

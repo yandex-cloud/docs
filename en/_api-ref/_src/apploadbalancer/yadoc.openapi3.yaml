@@ -6,17 +6,24 @@ info:
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
   x-y-docUri: api-ref
-  x-y-baseUrl: https://apploadbalancer.api.cloud.yandex.net
+  x-y-baseUrl: https://alb.api.cloud.yandex.net
 paths:
   /apploadbalancer/v1/backendGroups/{backendGroupId}:
     get:
       tags:
       - BackendGroup
+      summary: Returns the specified backend group.
+      description: To get the list of all available backend groups, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list)
+        request.
       operationId: BackendGroupGet
       parameters:
       - name: backendGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the backend group to return.
+
+          To get the backend group ID, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
         required: true
         schema:
           type: string
@@ -31,11 +38,16 @@ paths:
     delete:
       tags:
       - BackendGroup
+      summary: Deletes the specified backend group.
       operationId: BackendGroupDelete
       parameters:
       - name: backendGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the backend group to delete.
+
+          To get the backend group ID, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
         required: true
         schema:
           type: string
@@ -53,11 +65,16 @@ paths:
     patch:
       tags:
       - BackendGroup
+      summary: Updates the specified backend group.
       operationId: BackendGroupUpdate
       parameters:
       - name: backendGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the backend group to update.
+
+          To get the backend group ID, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
         required: true
         schema:
           type: string
@@ -77,32 +94,56 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateBackendGroupMetadata'
-      x-y-operation-response: '[BackendGroup](/docs/apploadbalancer/api-ref/BackendGroup#representation)'
+      x-y-operation-response: '[BackendGroup](/docs/application-load-balancer/api-ref/BackendGroup#representation)'
   /apploadbalancer/v1/backendGroups:
     get:
       tags:
       - BackendGroup
+      summary: Lists backend groups in the specified folder.
       operationId: BackendGroupList
       parameters:
       - name: folderId
         in: query
-        description: Required.
+        description: |-
+          Required.
+          ID of the folder to list backend groups in.
+
+          To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Acceptable values are 0 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/BackendGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/application-load-balancer/api-ref/BackendGroup/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
-        description: The maximum string length in characters is 1000.
+        description: |-
+          A filter expression that filters backend groups listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [BackendGroup.name](/docs/application-load-balancer/api-ref/BackendGroup#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Example of a filter: `name=my-backend-group`.
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       responses:
@@ -116,6 +157,7 @@ paths:
     post:
       tags:
       - BackendGroup
+      summary: Creates a backend group in the specified folder.
       operationId: BackendGroupCreate
       requestBody:
         content:
@@ -133,18 +175,21 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateBackendGroupMetadata'
-      x-y-operation-response: '[BackendGroup](/docs/apploadbalancer/api-ref/BackendGroup#representation)'
+      x-y-operation-response: '[BackendGroup](/docs/application-load-balancer/api-ref/BackendGroup#representation)'
   /apploadbalancer/v1/backendGroups/{backendGroupId}:addBackend:
     post:
       tags:
       - BackendGroup
-      summary: AddBackend/RemoveBackend technically do the same, but have different
-        semantics.
+      summary: Adds backends to the specified backend group.
       operationId: BackendGroupAddBackend
       parameters:
       - name: backendGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the backend group to add a backend to.
+
+          To get the backend group ID, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
         required: true
         schema:
           type: string
@@ -164,16 +209,21 @@ paths:
       x-y-navtitle: addBackend
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddBackendMetadata'
-      x-y-operation-response: '[BackendGroup](/docs/apploadbalancer/api-ref/BackendGroup#representation)'
+      x-y-operation-response: '[BackendGroup](/docs/application-load-balancer/api-ref/BackendGroup#representation)'
   /apploadbalancer/v1/backendGroups/{backendGroupId}:removeBackend:
     post:
       tags:
       - BackendGroup
+      summary: Removes backends from the specified backend group.
       operationId: BackendGroupRemoveBackend
       parameters:
       - name: backendGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the backend group to remove a backend from.
+
+          To get the backend group ID, make a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
         required: true
         schema:
           type: string
@@ -193,16 +243,19 @@ paths:
       x-y-navtitle: removeBackend
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveBackendMetadata'
-      x-y-operation-response: '[BackendGroup](/docs/apploadbalancer/api-ref/BackendGroup#representation)'
+      x-y-operation-response: '[BackendGroup](/docs/application-load-balancer/api-ref/BackendGroup#representation)'
   /apploadbalancer/v1/backendGroups/{backendGroupId}:updateBackend:
     post:
       tags:
       - BackendGroup
+      summary: Updates the specified backend.
       operationId: BackendGroupUpdateBackend
       parameters:
       - name: backendGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the backend group to update the backend in.
         required: true
         schema:
           type: string
@@ -222,7 +275,7 @@ paths:
       x-y-navtitle: updateBackend
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateBackendMetadata'
-      x-y-operation-response: '[BackendGroup](/docs/apploadbalancer/api-ref/BackendGroup#representation)'
+      x-y-operation-response: '[BackendGroup](/docs/application-load-balancer/api-ref/BackendGroup#representation)'
   /apploadbalancer/v1/backendGroups/{backendGroupId}/operations:
     get:
       tags:
@@ -236,7 +289,7 @@ paths:
           Required.
           ID of the backend group to get operations for.
 
-          To get the backend group ID, use a [list](/docs/apploadbalancer/api-ref/BackendGroup/list) request.
+          To get the backend group ID, use a [list](/docs/application-load-balancer/api-ref/BackendGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -246,7 +299,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than [pageSize](/docs/apploadbalancer/api-ref/BackendGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/apploadbalancer/api-ref/BackendGroup/listOperations#responses)
+          results is larger than [pageSize](/docs/application-load-balancer/api-ref/BackendGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/BackendGroup/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -257,8 +310,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/apploadbalancer/api-ref/BackendGroup/listOperations#query_params) to the
-          [nextPageToken](/docs/apploadbalancer/api-ref/BackendGroup/listOperations#responses) returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/application-load-balancer/api-ref/BackendGroup/listOperations#query_params) to the
+          [nextPageToken](/docs/application-load-balancer/api-ref/BackendGroup/listOperations#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -275,11 +328,18 @@ paths:
     get:
       tags:
       - HttpRouter
+      summary: Returns the specified HTTP router.
+      description: To get the list of all available HTTP routers, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list)
+        request.
       operationId: HttpRouterGet
       parameters:
       - name: httpRouterId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the HTTP router to return.
+
+          To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
         required: true
         schema:
           type: string
@@ -294,11 +354,16 @@ paths:
     delete:
       tags:
       - HttpRouter
+      summary: Deletes the specified HTTP router.
       operationId: HttpRouterDelete
       parameters:
       - name: httpRouterId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the HTTP router to delete.
+
+          To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
         required: true
         schema:
           type: string
@@ -316,11 +381,16 @@ paths:
     patch:
       tags:
       - HttpRouter
+      summary: Updates the specified HTTP router.
       operationId: HttpRouterUpdate
       parameters:
       - name: httpRouterId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the HTTP router to update.
+
+          To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
         required: true
         schema:
           type: string
@@ -340,32 +410,56 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateHttpRouterMetadata'
-      x-y-operation-response: '[HttpRouter](/docs/apploadbalancer/api-ref/HttpRouter#representation)'
+      x-y-operation-response: '[HttpRouter](/docs/application-load-balancer/api-ref/HttpRouter#representation)'
   /apploadbalancer/v1/httpRouters:
     get:
       tags:
       - HttpRouter
+      summary: Lists HTTP routers in the specified folder.
       operationId: HttpRouterList
       parameters:
       - name: folderId
         in: query
-        description: Required.
+        description: |-
+          Required.
+          ID of the folder to list HTTP routers in.
+
+          To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Acceptable values are 0 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/HttpRouter/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/application-load-balancer/api-ref/HttpRouter/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
-        description: The maximum string length in characters is 1000.
+        description: |-
+          A filter expression that filters HTTP routers listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [HttpRouter.name](/docs/application-load-balancer/api-ref/HttpRouter#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Example of a filter: `name=my-http-router`.
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       responses:
@@ -379,6 +473,7 @@ paths:
     post:
       tags:
       - HttpRouter
+      summary: Creates an HTTP router in the specified folder.
       operationId: HttpRouterCreate
       requestBody:
         content:
@@ -396,21 +491,21 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateHttpRouterMetadata'
-      x-y-operation-response: '[HttpRouter](/docs/apploadbalancer/api-ref/HttpRouter#representation)'
+      x-y-operation-response: '[HttpRouter](/docs/application-load-balancer/api-ref/HttpRouter#representation)'
   /apploadbalancer/v1/httpRouters/{httpRouterId}/operations:
     get:
       tags:
       - HttpRouter
-      summary: Lists operations for the specified http router.
+      summary: Lists operations for the specified HTTP router.
       operationId: HttpRouterListOperations
       parameters:
       - name: httpRouterId
         in: path
         description: |-
           Required.
-          ID of the http router to get operations for.
+          ID of the HTTP router to get operations for.
 
-          To get the http router ID, use a [list](/docs/apploadbalancer/api-ref/HttpRouter/list) request.
+          To get the HTTP router ID, use a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -420,7 +515,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than [pageSize](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#query_params), the service returns a [nextPageToken](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#responses)
+          results is larger than [pageSize](/docs/application-load-balancer/api-ref/HttpRouter/listOperations#query_params), the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/HttpRouter/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -431,8 +526,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#query_params) to the
-          [nextPageToken](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#responses) returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/application-load-balancer/api-ref/HttpRouter/listOperations#query_params) to the
+          [nextPageToken](/docs/application-load-balancer/api-ref/HttpRouter/listOperations#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -449,11 +544,18 @@ paths:
     get:
       tags:
       - LoadBalancer
+      summary: Returns the specified application load balancer.
+      description: To get the list of all available application load balancers, make
+        a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
       operationId: LoadBalancerGet
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to return.
+
+          To get the application load balancer ID, make a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
         required: true
         schema:
           type: string
@@ -468,11 +570,16 @@ paths:
     delete:
       tags:
       - LoadBalancer
+      summary: Deletes the specified application load balancer.
       operationId: LoadBalancerDelete
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to delete.
+
+          To get the application load balancer ID, make a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
         required: true
         schema:
           type: string
@@ -490,11 +597,16 @@ paths:
     patch:
       tags:
       - LoadBalancer
+      summary: Updates the specified application load balancer.
       operationId: LoadBalancerUpdate
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to update.
+
+          To get the application load balancer ID, make a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
         required: true
         schema:
           type: string
@@ -514,32 +626,56 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateLoadBalancerMetadata'
-      x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
+      x-y-operation-response: '[LoadBalancer](/docs/application-load-balancer/api-ref/LoadBalancer#representation)'
   /apploadbalancer/v1/loadBalancers:
     get:
       tags:
       - LoadBalancer
+      summary: Lists application load balancers in the specified folder.
       operationId: LoadBalancerList
       parameters:
       - name: folderId
         in: query
-        description: Required.
+        description: |-
+          Required.
+          ID of the folder to list application load balancers in.
+
+          To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Acceptable values are 0 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/LoadBalancer/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/application-load-balancer/api-ref/LoadBalancer/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
-        description: The maximum string length in characters is 1000.
+        description: |-
+          A filter expression that filters application load balancers listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [LoadBalancer.name](/docs/application-load-balancer/api-ref/LoadBalancer#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Example of a filter: `name=my-load-balancer`.
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       responses:
@@ -553,6 +689,7 @@ paths:
     post:
       tags:
       - LoadBalancer
+      summary: Creates an application load balancer in the specified folder.
       operationId: LoadBalancerCreate
       requestBody:
         content:
@@ -570,16 +707,23 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateLoadBalancerMetadata'
-      x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
+      x-y-operation-response: '[LoadBalancer](/docs/application-load-balancer/api-ref/LoadBalancer#representation)'
   /apploadbalancer/v1/loadBalancers/{loadBalancerId}:start:
     post:
       tags:
       - LoadBalancer
+      summary: Starts the specified application load balancer.
       operationId: LoadBalancerStart
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to start.
+
+          The application load balancer must have a `STOPPED` status ([LoadBalancer.status](/docs/application-load-balancer/api-ref/LoadBalancer#representation)).
+
+          To get the application load balancer ID, make a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
         required: true
         schema:
           type: string
@@ -593,16 +737,23 @@ paths:
       x-y-navtitle: start
       x-y-operation-metadata:
         $ref: '#/components/schemas/StartLoadBalancerMetadata'
-      x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
+      x-y-operation-response: '[LoadBalancer](/docs/application-load-balancer/api-ref/LoadBalancer#representation)'
   /apploadbalancer/v1/loadBalancers/{loadBalancerId}:stop:
     post:
       tags:
       - LoadBalancer
+      summary: Stops the specified application load balancer.
       operationId: LoadBalancerStop
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to stop.
+
+          The application load balancer must have an `ACTIVE` status ([LoadBalancer.status](/docs/application-load-balancer/api-ref/LoadBalancer#representation)).
+
+          To get the application load balancer ID, make a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
         required: true
         schema:
           type: string
@@ -616,18 +767,19 @@ paths:
       x-y-navtitle: stop
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopLoadBalancerMetadata'
-      x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
+      x-y-operation-response: '[LoadBalancer](/docs/application-load-balancer/api-ref/LoadBalancer#representation)'
   /apploadbalancer/v1/loadBalancers/{loadBalancerId}:addListener:
     post:
       tags:
       - LoadBalancer
-      summary: AddListener/UpdateListener technically do the same, but have different
-        semantics.
+      summary: Adds a listener to the specified application load balancer.
       operationId: LoadBalancerAddListener
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to add a listener to.
         required: true
         schema:
           type: string
@@ -647,16 +799,19 @@ paths:
       x-y-navtitle: addListener
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddListenerMetadata'
-      x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
+      x-y-operation-response: '[LoadBalancer](/docs/application-load-balancer/api-ref/LoadBalancer#representation)'
   /apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeListener:
     post:
       tags:
       - LoadBalancer
+      summary: Deletes the specified listener.
       operationId: LoadBalancerRemoveListener
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to remove the listener from.
         required: true
         schema:
           type: string
@@ -676,16 +831,19 @@ paths:
       x-y-navtitle: removeListener
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveListenerMetadata'
-      x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
+      x-y-operation-response: '[LoadBalancer](/docs/application-load-balancer/api-ref/LoadBalancer#representation)'
   /apploadbalancer/v1/loadBalancers/{loadBalancerId}:updateListener:
     post:
       tags:
       - LoadBalancer
+      summary: Updates the specified listener of the specified application load balancer.
       operationId: LoadBalancerUpdateListener
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to update the listener in.
         required: true
         schema:
           type: string
@@ -705,16 +863,21 @@ paths:
       x-y-navtitle: updateListener
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateListenerMetadata'
-      x-y-operation-response: '[LoadBalancer](/docs/apploadbalancer/api-ref/LoadBalancer#representation)'
+      x-y-operation-response: '[LoadBalancer](/docs/application-load-balancer/api-ref/LoadBalancer#representation)'
   /apploadbalancer/v1/loadBalancers/{loadBalancerId}:addSniMatch:
     post:
       tags:
       - LoadBalancer
+      summary: Adds a SNI handler to the specified listener.
+      description: This request does not allow to add `defaultHandler`. Make an [updateListener](/docs/application-load-balancer/api-ref/LoadBalancer/updateListener)
+        request instead.
       operationId: LoadBalancerAddSniMatch
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to add a SNI handler to.
         required: true
         schema:
           type: string
@@ -739,11 +902,17 @@ paths:
     post:
       tags:
       - LoadBalancer
+      summary: Updates the specified SNI handler of the specified listener.
+      description: This request does not allow to update `defaultHandler`. Make an
+        [updateListener](/docs/application-load-balancer/api-ref/LoadBalancer/updateListener)
+        request instead.
       operationId: LoadBalancerUpdateSniMatch
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to update the SNI handler in.
         required: true
         schema:
           type: string
@@ -768,11 +937,15 @@ paths:
     post:
       tags:
       - LoadBalancer
+      summary: Deletes the specified SNI handler.
+      description: This request does not allow to delete `defaultHandler`.
       operationId: LoadBalancerRemoveSniMatch
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer to remove the SNI handler from.
         required: true
         schema:
           type: string
@@ -797,26 +970,31 @@ paths:
     get:
       tags:
       - LoadBalancer
-      summary: |-
-        Returns zonal state of each target within target group
-        for a given backend group and load balancer.
+      summary: Returns the statuses of all targets of the specified backend group
+        in all their availability zones.
       operationId: LoadBalancerGetTargetStates
       parameters:
       - name: loadBalancerId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the application load balancer that the backend group is attributed to.
         required: true
         schema:
           type: string
       - name: backendGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the backend group that the target group is attributed to.
         required: true
         schema:
           type: string
       - name: targetGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the target group to get target states of.
         required: true
         schema:
           type: string
@@ -832,16 +1010,16 @@ paths:
     get:
       tags:
       - LoadBalancer
-      summary: Lists operations for the specified load balancer.
+      summary: Lists operations for the specified application load balancer.
       operationId: LoadBalancerListOperations
       parameters:
       - name: loadBalancerId
         in: path
         description: |-
           Required.
-          ID of the load balancer to get operations for.
+          ID of the application load balancer to get operations for.
 
-          To get the load balancer ID, use a [list](/docs/apploadbalancer/api-ref/LoadBalancer/list) request.
+          To get the application load balancer ID, use a [list](/docs/application-load-balancer/api-ref/LoadBalancer/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -851,7 +1029,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than [pageSize](/docs/apploadbalancer/api-ref/LoadBalancer/listOperations#query_params), the service returns a [nextPageToken](/docs/apploadbalancer/api-ref/LoadBalancer/listOperations#responses)
+          results is larger than [pageSize](/docs/application-load-balancer/api-ref/LoadBalancer/listOperations#query_params), the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/LoadBalancer/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -862,8 +1040,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/apploadbalancer/api-ref/LoadBalancer/listOperations#query_params) to the
-          [nextPageToken](/docs/apploadbalancer/api-ref/LoadBalancer/listOperations#responses) returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/application-load-balancer/api-ref/LoadBalancer/listOperations#query_params) to the
+          [nextPageToken](/docs/application-load-balancer/api-ref/LoadBalancer/listOperations#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -880,11 +1058,18 @@ paths:
     get:
       tags:
       - TargetGroup
+      summary: Returns the specified target group.
+      description: To get the list of all available target groups, make a [list](/docs/application-load-balancer/api-ref/TargetGroup/list)
+        request.
       operationId: TargetGroupGet
       parameters:
       - name: targetGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the target group to return.
+
+          To get the target group ID, make a [list](/docs/application-load-balancer/api-ref/TargetGroup/list) request.
         required: true
         schema:
           type: string
@@ -899,11 +1084,16 @@ paths:
     delete:
       tags:
       - TargetGroup
+      summary: Deletes the specified target group.
       operationId: TargetGroupDelete
       parameters:
       - name: targetGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the target group to delete.
+
+          To get the target group ID, make a [list](/docs/application-load-balancer/api-ref/TargetGroup/list) request.
         required: true
         schema:
           type: string
@@ -921,11 +1111,16 @@ paths:
     patch:
       tags:
       - TargetGroup
+      summary: Updates the specified target group.
       operationId: TargetGroupUpdate
       parameters:
       - name: targetGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the target group to update.
+
+          To get the target group ID, make a [list](/docs/application-load-balancer/api-ref/TargetGroup/list) request.
         required: true
         schema:
           type: string
@@ -945,32 +1140,56 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateTargetGroupMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/apploadbalancer/api-ref/TargetGroup#representation)'
+      x-y-operation-response: '[TargetGroup](/docs/application-load-balancer/api-ref/TargetGroup#representation)'
   /apploadbalancer/v1/targetGroups:
     get:
       tags:
       - TargetGroup
+      summary: Lists target groups in the specified folder.
       operationId: TargetGroupList
       parameters:
       - name: folderId
         in: query
-        description: Required.
+        description: |-
+          Required.
+          ID of the folder to list target groups in.
+
+          To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Acceptable values are 0 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/TargetGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/application-load-balancer/api-ref/TargetGroup/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
-        description: The maximum string length in characters is 1000.
+        description: |-
+          A filter expression that filters target groups listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [TargetGroup.name](/docs/application-load-balancer/api-ref/TargetGroup#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Example of a filter: `name=my-target-group`.
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       responses:
@@ -984,6 +1203,7 @@ paths:
     post:
       tags:
       - TargetGroup
+      summary: Creates a target group in the specified folder.
       operationId: TargetGroupCreate
       requestBody:
         content:
@@ -1001,16 +1221,21 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateTargetGroupMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/apploadbalancer/api-ref/TargetGroup#representation)'
+      x-y-operation-response: '[TargetGroup](/docs/application-load-balancer/api-ref/TargetGroup#representation)'
   /apploadbalancer/v1/targetGroups/{targetGroupId}:addTargets:
     post:
       tags:
       - TargetGroup
+      summary: Adds targets to the specified target group.
       operationId: TargetGroupAddTargets
       parameters:
       - name: targetGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the target group to add targets to.
+
+          To get the target group ID, make a [list](/docs/application-load-balancer/api-ref/TargetGroup/list) request.
         required: true
         schema:
           type: string
@@ -1030,16 +1255,21 @@ paths:
       x-y-navtitle: addTargets
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddTargetsMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/apploadbalancer/api-ref/TargetGroup#representation)'
+      x-y-operation-response: '[TargetGroup](/docs/application-load-balancer/api-ref/TargetGroup#representation)'
   /apploadbalancer/v1/targetGroups/{targetGroupId}:removeTargets:
     post:
       tags:
       - TargetGroup
+      summary: Removes targets from the specified target group.
       operationId: TargetGroupRemoveTargets
       parameters:
       - name: targetGroupId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the target group to remove targets from.
+
+          To get the target group ID, make a [list](/docs/application-load-balancer/api-ref/TargetGroup/list) request.
         required: true
         schema:
           type: string
@@ -1059,7 +1289,7 @@ paths:
       x-y-navtitle: removeTargets
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveTargetsMetadata'
-      x-y-operation-response: '[TargetGroup](/docs/apploadbalancer/api-ref/TargetGroup#representation)'
+      x-y-operation-response: '[TargetGroup](/docs/application-load-balancer/api-ref/TargetGroup#representation)'
   /apploadbalancer/v1/targetGroups/{targetGroupId}/operations:
     get:
       tags:
@@ -1073,7 +1303,7 @@ paths:
           Required.
           ID of the target group to get operations for.
 
-          To get the target group ID, use a [list](/docs/apploadbalancer/api-ref/TargetGroup/list) request.
+          To get the target group ID, use a [list](/docs/application-load-balancer/api-ref/TargetGroup/list) request.
 
           The maximum string length in characters is 50.
         required: true
@@ -1083,7 +1313,7 @@ paths:
         in: query
         description: |-
           The maximum number of results per page that should be returned. If the number of available
-          results is larger than [pageSize](/docs/apploadbalancer/api-ref/TargetGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/apploadbalancer/api-ref/TargetGroup/listOperations#responses)
+          results is larger than [pageSize](/docs/application-load-balancer/api-ref/TargetGroup/listOperations#query_params), the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/TargetGroup/listOperations#responses)
           that can be used to get the next page of results in subsequent list requests.
           Default value: 100.
 
@@ -1094,8 +1324,8 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/apploadbalancer/api-ref/TargetGroup/listOperations#query_params) to the
-          [nextPageToken](/docs/apploadbalancer/api-ref/TargetGroup/listOperations#responses) returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/application-load-balancer/api-ref/TargetGroup/listOperations#query_params) to the
+          [nextPageToken](/docs/application-load-balancer/api-ref/TargetGroup/listOperations#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
         schema:
@@ -1112,14 +1342,18 @@ paths:
     get:
       tags:
       - VirtualHost
-      summary: Returns the specified VirtualHost resource.
+      summary: Returns the specified virtual host.
+      description: To get the list of all virtual hosts of an HTTP router, make a
+        [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.
       operationId: VirtualHostGet
       parameters:
       - name: httpRouterId
         in: path
         description: |-
           Required.
-          ID of the HTTP Router that the virtual host belongs to.
+          ID of the HTTP router that the virtual host belongs to.
+
+          To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
         required: true
         schema:
           type: string
@@ -1127,9 +1361,11 @@ paths:
         in: path
         description: |-
           Required.
-          Name of the VirtualHost resource to return.
+          Name of the virtual host to return.
 
-          Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          To get the virtual host name, make a [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.
+
+          Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
         required: true
         schema:
           type: string
@@ -1151,7 +1387,9 @@ paths:
         in: path
         description: |-
           Required.
-          ID of the HTTP Router to delete a virtual host in.
+          ID of the HTTP router to delete a virtual host from.
+
+          To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
         required: true
         schema:
           type: string
@@ -1161,7 +1399,9 @@ paths:
           Required.
           Name of the virtual host to delete.
 
-          Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          To get the virtual host name, make a [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.
+
+          Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
         required: true
         schema:
           type: string
@@ -1179,20 +1419,28 @@ paths:
     patch:
       tags:
       - VirtualHost
-      summary: Updates an existing VirtualHost in the specified HTTP Router.
+      summary: Updates the specified virtual host of the specified HTTP router.
       operationId: VirtualHostUpdate
       parameters:
       - name: httpRouterId
         in: path
         description: |-
           Required.
-          ID of the HTTP Router that the virtual host belongs to.
+          ID of the HTTP router to update a virtual host in.
+
+          To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
         required: true
         schema:
           type: string
       - name: virtualHostName
         in: path
-        description: Required.
+        description: |-
+          Required.
+          Name of the virtual host.
+
+          Used only to refer to the virtual host. The name of a host cannot be changed.
+
+          To get the virtual host name, make a [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.
         required: true
         schema:
           type: string
@@ -1212,31 +1460,43 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateVirtualHostMetadata'
-      x-y-operation-response: '[VirtualHost](/docs/apploadbalancer/api-ref/VirtualHost#representation)'
+      x-y-operation-response: '[VirtualHost](/docs/application-load-balancer/api-ref/VirtualHost#representation)'
   /apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts:
     get:
       tags:
       - VirtualHost
-      summary: Retrieves the list of virtual hosts in the specified HTTP Router.
+      summary: Lists virtual hosts of the specified HTTP router.
       operationId: VirtualHostList
       parameters:
       - name: httpRouterId
         in: path
         description: |-
           Required.
-          ID of the HTTP Router that the virtual host belongs to.
+          ID of the HTTP router to list virtual hosts in.
+
+          To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
         required: true
         schema:
           type: string
       - name: pageSize
         in: query
-        description: The maximum value is 1000.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/VirtualHost/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/application-load-balancer/api-ref/VirtualHost/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       responses:
@@ -1250,14 +1510,16 @@ paths:
     post:
       tags:
       - VirtualHost
-      summary: Creates a new virtual host in the specified HTTP Router.
+      summary: Creates a virtual host in the specified HTTP router.
       operationId: VirtualHostCreate
       parameters:
       - name: httpRouterId
         in: path
         description: |-
           Required.
-          ID of the HTTP Router that the virtual host belongs to.
+          ID of the HTTP router to create a virtual host in.
+
+          To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
         required: true
         schema:
           type: string
@@ -1277,22 +1539,31 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateVirtualHostMetadata'
-      x-y-operation-response: '[VirtualHost](/docs/apploadbalancer/api-ref/VirtualHost#representation)'
+      x-y-operation-response: '[VirtualHost](/docs/application-load-balancer/api-ref/VirtualHost#representation)'
   /apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}:removeRoute:
     post:
       tags:
       - VirtualHost
+      summary: Deletes the specified route from the specified virtual host.
       operationId: VirtualHostRemoveRoute
       parameters:
       - name: httpRouterId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the HTTP router to delete a route from.
+
+          To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
         required: true
         schema:
           type: string
       - name: virtualHostName
         in: path
-        description: Required.
+        description: |-
+          Required.
+          Name of the virtual host to delete a route from.
+
+          To get the virtual host name, make a [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.
         required: true
         schema:
           type: string
@@ -1312,22 +1583,31 @@ paths:
       x-y-navtitle: removeRoute
       x-y-operation-metadata:
         $ref: '#/components/schemas/RemoveRouteMetadata'
-      x-y-operation-response: '[VirtualHost](/docs/apploadbalancer/api-ref/VirtualHost#representation)'
+      x-y-operation-response: '[VirtualHost](/docs/application-load-balancer/api-ref/VirtualHost#representation)'
   /apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}:updateRoute:
     post:
       tags:
       - VirtualHost
+      summary: Updates the specified route of the specified virtual host.
       operationId: VirtualHostUpdateRoute
       parameters:
       - name: httpRouterId
         in: path
-        description: Required.
+        description: |-
+          Required.
+          ID of the HTTP router to update a route in.
+
+          To get the HTTP router ID, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
         required: true
         schema:
           type: string
       - name: virtualHostName
         in: path
-        description: Required.
+        description: |-
+          Required.
+          Name of the virtual host to update a route in.
+
+          To get the virtual host name, make a [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.
         required: true
         schema:
           type: string
@@ -1347,15 +1627,17 @@ paths:
       x-y-navtitle: updateRoute
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateRouteMetadata'
-      x-y-operation-response: '[VirtualHost](/docs/apploadbalancer/api-ref/VirtualHost#representation)'
+      x-y-operation-response: '[VirtualHost](/docs/application-load-balancer/api-ref/VirtualHost#representation)'
 components:
   schemas:
     AddBackendMetadata:
       type: object
       properties:
         backendGroupId:
+          description: ID of the backend group that the backend is being added to.
           type: string
         backendName:
+          description: Name of the backend that is being added to the backend group.
           type: string
     AddBackendRequest:
       type: object
@@ -1366,14 +1648,20 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpBackend'
+            description: HTTP backend to add to the backend group.
           grpc:
             $ref: '#/components/schemas/GrpcBackend'
+            description: gRPC backend to add to the backend group.
     AddListenerMetadata:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that the listener is being
+            added to.
           type: string
         listenerName:
+          description: Name of the listener that is being added to the application
+            load balancer.
           type: string
     AddListenerRequest:
       type: object
@@ -1384,23 +1672,33 @@ components:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that the SNI handler is
+            being added to.
           type: string
         listenerName:
+          description: Name of the listener that the SNI handler is being added to.
           type: string
         sniMatchName:
+          description: Name of the SNI handler that is being added to the listener.
           type: string
     AddSniMatchRequest:
       type: object
       properties:
         listenerName:
-          description: Required.
+          description: |-
+            Required.
+            Name of the listener to add a SNI handler to.
           type: string
         name:
-          description: Required.
+          description: |-
+            Required.
+            Name of the SNI handler to add.
           type: string
         serverNames:
           description: |-
             Required.
+            Server names that are matched by the SNI handler.
+
             Must contain at least one element.
           type: array
           items:
@@ -1411,6 +1709,7 @@ components:
       type: object
       properties:
         targetGroupId:
+          description: ID of the target group that the targets are being added to.
           type: string
     AddTargetsRequest:
       type: object
@@ -1418,11 +1717,14 @@ components:
         targets:
           description: |-
             Required.
+            List of targets to add to the target group.
+
             Must contain at least one element.
           type: array
           items:
             $ref: '#/components/schemas/Target'
     Address:
+      description: An endpoint address resource.
       type: object
       allOf:
       - title: address
@@ -1431,10 +1733,16 @@ components:
         properties:
           externalIpv4Address:
             $ref: '#/components/schemas/ExternalIpv4Address'
+            description: Public IPv4 endpoint address.
           internalIpv4Address:
             $ref: '#/components/schemas/InternalIpv4Address'
+            description: |-
+              Internal IPv4 endpoint address.
+
+              To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support).
           externalIpv6Address:
             $ref: '#/components/schemas/ExternalIpv6Address'
+            description: Public IPv6 endpoint address.
     AddressSpec:
       type: object
       allOf:
@@ -1444,45 +1752,62 @@ components:
         properties:
           externalIpv4AddressSpec:
             $ref: '#/components/schemas/ExternalIpv4AddressSpec'
+            description: Public IPv4 endpoint address.
           internalIpv4AddressSpec:
             $ref: '#/components/schemas/InternalIpv4AddressSpec'
+            description: |-
+              Internal IPv4 endpoint address.
+
+              To enable the use of listeners with internal addresses, [contact support](https://console.cloud.yandex.ru/support).
           externalIpv6AddressSpec:
             $ref: '#/components/schemas/ExternalIpv6AddressSpec'
+            description: Public IPv6 endpoint address.
     AllocationPolicy:
+      description: A locality settings (allocation policy) resource.
       type: object
       properties:
         locations:
           description: |-
             Required.
+            Availability zones and subnets that the application load balancer resides.
+
             The minimum number of elements is 1.
           type: array
           items:
             $ref: '#/components/schemas/Location'
     BackendGroup:
+      description: |-
+        A backend group resource.
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group).
       type: object
       allOf:
       - type: object
         properties:
           id:
-            description: Output only. ID of the backend group.
+            description: ID of the backend group. Generated at creation time.
             type: string
           name:
-            description: The name is unique within the folder. 3-63 characters long.
+            description: Name of the backend group. The name is unique within the
+              folder. The string length in characters is 3-63.
             type: string
           description:
-            description: Description of the backend group. 0-256 characters long.
+            description: Description of the backend group. The string is 0-256 characters
+              long.
             type: string
           folderId:
             description: ID of the folder that the backend group belongs to.
             type: string
           labels:
-            description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
+            description: |-
+              Backend group labels as `key:value` pairs.
+              For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+              The maximum number of labels is 64.
             type: object
             additionalProperties:
               type: string
           createdAt:
             description: |-
-              Creation timestamp for the backend group.
+              Creation timestamp.
 
               String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
             type: string
@@ -1493,13 +1818,16 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpBackendGroup'
+            description: List of HTTP backends that the backend group consists of.
           grpc:
             $ref: '#/components/schemas/GrpcBackendGroup'
+            description: List of gRPC backends that the backend group consists of.
     BackendTls:
+      description: A resource for backend TLS settings.
       type: object
       properties:
         sni:
-          description: SNI string for TLS connections.
+          description: Server Name Indication (SNI) string for TLS connections.
           type: string
         validationContext:
           $ref: '#/components/schemas/ValidationContext_in_BackendTls_validationContext'
@@ -1507,6 +1835,7 @@ components:
       type: object
       properties:
         backendGroupId:
+          description: ID of the backend group that is being created.
           type: string
     CreateBackendGroupRequest:
       type: object
@@ -1514,17 +1843,30 @@ components:
       - type: object
         properties:
           folderId:
-            description: Required.
+            description: |-
+              Required.
+              ID of the folder to create a backend group in.
+
+              To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
             type: string
           name:
-            description: Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])?
-              ``.
+            description: |-
+              Name of the backend group.
+              The name must be unique within the folder.
+
+              Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
             type: string
           description:
-            description: The maximum string length in characters is 256.
+            description: |-
+              Description of the backend group.
+
+              The maximum string length in characters is 256.
             type: string
           labels:
             description: |-
+              Backend group labels as `key:value` pairs.
+              For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
               No more than 64 per resource.
               The string length in characters for each key must be 1-63.
               Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
@@ -1539,28 +1881,45 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpBackendGroup'
+            description: List of HTTP backends that the backend group will consist
+              of.
           grpc:
             $ref: '#/components/schemas/GrpcBackendGroup'
+            description: List of gRPC backends that the backend group consists of.
     CreateHttpRouterMetadata:
       type: object
       properties:
         httpRouterId:
+          description: ID of the HTTP router that is being created.
           type: string
     CreateHttpRouterRequest:
       type: object
       properties:
         folderId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the folder to create an HTTP router in.
+
+            To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
           type: string
         name:
-          description: Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])?
-            ``.
+          description: |-
+            Name of the HTTP router.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            Description of the HTTP router.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            HTTP router labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
@@ -1570,6 +1929,11 @@ components:
           additionalProperties:
             type: string
         virtualHosts:
+          description: |-
+            Virtual hosts that combine routes inside the router.
+            For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host).
+
+            Only one virtual host with no authority (default match) can be specified.
           type: array
           items:
             $ref: '#/components/schemas/VirtualHost'
@@ -1580,22 +1944,36 @@ components:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that is being created.
           type: string
     CreateLoadBalancerRequest:
       type: object
       properties:
         folderId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the folder to create an application load balancer in.
+
+            To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
           type: string
         name:
-          description: Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])?
-            ``.
+          description: |-
+            Name of the application load balancer.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            Description of the application load balancer.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            Application load balancer labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
@@ -1605,18 +1983,34 @@ components:
           additionalProperties:
             type: string
         regionId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the region that the application load balancer is located at.
+
+            The only supported value is `ru-central1`.
           type: string
         networkId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the network that the application load balancer belongs to.
           type: string
         listenerSpecs:
+          description: |-
+            Listeners that belong to the application load balancer.
+
+            For details about the concept,
+            see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener).
           type: array
           items:
             $ref: '#/components/schemas/ListenerSpec'
         allocationPolicy:
           $ref: '#/components/schemas/AllocationPolicy_in_CreateLoadBalancerRequest_allocationPolicy'
         securityGroupIds:
+          description: |-
+            ID's of the security groups attributed to the application load balancer.
+
+            For details about the concept,
+            see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups).
           type: array
           items:
             type: string
@@ -1624,22 +2018,36 @@ components:
       type: object
       properties:
         targetGroupId:
+          description: ID of the target group that is being created.
           type: string
     CreateTargetGroupRequest:
       type: object
       properties:
         folderId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the folder to create a target group in.
+
+            To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
           type: string
         name:
-          description: Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])?
-            ``.
+          description: |-
+            Name of the target group.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            Description of the target group.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            Target group labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
@@ -1649,6 +2057,7 @@ components:
           additionalProperties:
             type: string
         targets:
+          description: List of targets in the target group.
           type: array
           items:
             $ref: '#/components/schemas/Target'
@@ -1658,7 +2067,7 @@ components:
         httpRouterId:
           description: |-
             Required.
-            ID of the HTTP Router that the virtual host is being created.
+            ID of the HTTP router that the virtual host is being created in.
           type: string
         virtualHostName:
           description: Name of the virtual host that is being created.
@@ -1668,23 +2077,50 @@ components:
       properties:
         name:
           description: |-
-            Configuration of the virtual host to create.
+            Name of the virtual host. The name must be unique within the HTTP router and cannot be changed after creation.
 
-            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+            Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
           type: string
         authority:
+          description: |-
+            List of domains that are attributed to the virtual host.
+
+            The host is selected to process the request received by the load balancer
+            if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain
+            specified in the host.
+
+            A wildcard asterisk character (`*`) matches 0 or more characters.
+
+            If not specified, all domains are attributed to the host, which is the same as specifying a `*` value.
+            An HTTP router must not contain more than one virtual host to which all domains are attributed.
           type: array
           items:
             type: string
         routes:
+          description: |-
+            Routes of the virtual host.
+
+            A route contains a set of conditions (predicates) that are used by the load balancer to select the route
+            for the request and an action on the request.
+            For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
+
+            The order of routes matters: the first route whose predicate matches the request is selected.
+            The most specific routes should be at the top of the list, so that they are not overridden.
+            For example, if the first HTTP route is configured, via `match`, to match paths prefixed with just `/`,
+            other routes are never matched.
           type: array
           items:
             $ref: '#/components/schemas/Route'
         modifyRequestHeaders:
+          description: Modifications that are made to the headers of incoming HTTP
+            requests before they are forwarded to backends.
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
         modifyResponseHeaders:
+          description: |-
+            Modifications that are made to the headers of HTTP responses received from backends
+            before responses are forwarded to clients.
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
@@ -1692,37 +2128,43 @@ components:
       type: object
       properties:
         backendGroupId:
+          description: ID of the backend group that is being deleted.
           type: string
     DeleteHttpRouterMetadata:
       type: object
       properties:
         httpRouterId:
+          description: ID of the HTTP router that is being deleted.
           type: string
     DeleteLoadBalancerMetadata:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that is being deleted.
           type: string
     DeleteTargetGroupMetadata:
       type: object
       properties:
         targetGroupId:
+          description: ID of the target group that is being deleted.
           type: string
     DeleteVirtualHostMetadata:
       type: object
       properties:
         httpRouterId:
-          description: ID of the HTTP Router where a virtual host is being deleted.
+          description: ID of the HTTP router that the virtual host is being deleted
+            from.
           type: string
         virtualHostName:
           description: Name of the virtual host that is being deleted.
           type: string
     DirectResponseAction:
+      description: A direct response action resource.
       type: object
       properties:
         status:
           description: |-
-            HTTP response status.
+            HTTP status code to use in responses.
 
             Acceptable values are 100 to 599, inclusive.
           type: string
@@ -1734,11 +2176,14 @@ components:
       type: object
       maxProperties: 0
     Endpoint:
+      description: An endpoint resource.
       type: object
       properties:
         addresses:
           description: |-
             Required.
+            Endpoint public (external) and internal addresses.
+
             Must contain at least one element.
           type: array
           items:
@@ -1746,6 +2191,8 @@ components:
         ports:
           description: |-
             Required.
+            Endpoint ports.
+
             Must contain at least one element.
             Acceptable values are 1 to 65535, inclusive.
           type: array
@@ -1758,6 +2205,8 @@ components:
         addressSpecs:
           description: |-
             Required.
+            Endpoint public (external) and internal addresses.
+
             Must contain at least one element.
           type: array
           items:
@@ -1765,6 +2214,8 @@ components:
         ports:
           description: |-
             Required.
+            Endpoint ports.
+
             Must contain at least one element.
             Acceptable values are 1 to 65535, inclusive.
           type: array
@@ -1772,24 +2223,30 @@ components:
             type: string
             format: int64
     ExternalIpv4Address:
+      description: A public (external) IPv4 endpoint address resource.
       type: object
       properties:
         address:
+          description: IPv4 address.
           type: string
     ExternalIpv4AddressSpec:
       type: object
       properties:
         address:
+          description: IPv4 address.
           type: string
     ExternalIpv6Address:
+      description: A public (external) IPv4 endpoint address resource.
       type: object
       properties:
         address:
+          description: IPv6 address.
           type: string
     ExternalIpv6AddressSpec:
       type: object
       properties:
         address:
+          description: IPv6 address.
           type: string
     FieldMask:
       description: |-
@@ -1806,10 +2263,12 @@ components:
       type: object
       properties:
         targetStates:
+          description: Target states of the specified target group.
           type: array
           items:
             $ref: '#/components/schemas/TargetState'
     GrpcBackend:
+      description: A gRPC backend resource.
       type: object
       allOf:
       - type: object
@@ -1817,66 +2276,86 @@ components:
           name:
             description: |-
               Required.
-              Name.
+              Name of the backend.
+
+              Value must match the regular expression `` [a-z][-a-z0-9]{1,61}[a-z0-9] ``.
             type: string
           backendWeight:
             description: |-
-              Traffic will be split between backends of the same BackendGroup according to
-              their weights.
-              If set to zero, backend will be disabled.
-              If not set in all backends, they all will have equal weights.
-              Must either set or unset in all backeds of the group.
+              Backend weight. Traffic is distributed between backends of a backend group according to their weights.
+
+              Weights must be set either for all backends of a group or for none of them.
+              Setting no weights is the same as setting equal non-zero weights for all backends.
+
+              If set to `0`, traffic is not sent to the backend.
             type: integer
             format: int64
           loadBalancingConfig:
             $ref: '#/components/schemas/LoadBalancingConfig'
+            description: Load balancing configuration for the backend.
           port:
             description: |-
-              Port for all targets from target group.
+              Port used by all targets to receive traffic.
 
               Acceptable values are 0 to 65535, inclusive.
             type: string
             format: int64
           healthchecks:
-            description: No health checks means no active health checking will be
-              performed.
+            description: |-
+              Health checks to perform on targets from target groups.
+              For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
+
+              If no health checks are specified, active health checking is not performed.
             type: array
             items:
               $ref: '#/components/schemas/HealthCheck'
           tls:
             $ref: '#/components/schemas/BackendTls'
-            description: TLS settings for the upstream.
+            description: |-
+              Settings for TLS connections between load balancer nodes and backend targets.
+
+              If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
+              and compares received certificates with the one specified in `validationContext`.
+              If not specified, the load balancer establishes unencrypted HTTP connections with targets.
       - title: backend_type
         type: object
         maxProperties: 1
         properties:
           targetGroups:
             $ref: '#/components/schemas/TargetGroupsBackend'
-            description: References target groups for the backend.
+            description: Target groups that belong to the backend.
     GrpcBackendGroup:
+      description: A gRPC backend group resource.
       type: object
       properties:
         backends:
+          description: List of gRPC backends.
           type: array
           items:
             $ref: '#/components/schemas/GrpcBackend'
     GrpcRoute:
+      description: A gRPC route configuration resource.
       type: object
       allOf:
       - type: object
         properties:
           match:
             $ref: '#/components/schemas/GrpcRouteMatch'
-            description: Checks "/" prefix by default.
+            description: Condition (predicate) used to select the route.
       - title: action
         type: object
         maxProperties: 1
         properties:
           route:
             $ref: '#/components/schemas/GrpcRouteAction'
+            description: Forwards the request to a backend group for processing as
+              configured.
           statusResponse:
             $ref: '#/components/schemas/GrpcStatusResponseAction'
+            description: Instructs the load balancer to respond directly with a specified
+              status.
     GrpcRouteAction:
+      description: A gRPC route action resource.
       type: object
       allOf:
       - type: object
@@ -1884,40 +2363,67 @@ components:
           backendGroupId:
             description: |-
               Required.
-              Backend group to route requests.
+              Backend group to forward requests to.
             type: string
           maxTimeout:
             description: |-
-              Lower timeout may be specified by the client (using grpc-timeout header).
-              If not set, default is 60 seconds.
+              Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group:
+              the maximum time the connection is kept alive for, regardless of whether data is transferred over it.
+
+              If a client specifies a lower timeout in HTTP `grpc-timeout` header, the `max_timeout` value is ignored.
+
+              If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code.
+
+              Default value: `60`.
             type: string
           idleTimeout:
             description: |-
-              Specifies the idle timeout (time without any data transfer for the active request) for the route.
-              It is useful for streaming scenarios - one should set idle_timeout to something meaningful
-              and max_timeout to the maximum time the stream is allowed to be alive.
-              If not specified, there is no per-route idle timeout.
+              Idle timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group:
+              the maximum time the connection is allowed to be idle, i.e. without any data transferred over it.
+
+              Specifying meaningful values for both `maxTimeout` and `idle_timeout` is useful for implementing
+              server-push mechanisms such as long polling, server-sent events etc.
+
+              If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code.
+
+              If not specified, no idle timeout is used, and an alive connection may be idle for any duration
+              (see `maxTimeout`).
             type: string
       - title: host_rewrite_specifier
         type: object
         maxProperties: 1
         properties:
           hostRewrite:
+            description: Host replacement.
             type: string
           autoHostRewrite:
+            description: Automatically replaces the host with that of the target.
             type: boolean
             format: boolean
     GrpcRouteMatch:
+      description: A gRPC route condition (predicate) resource.
       type: object
       properties:
         fqmn:
           $ref: '#/components/schemas/StringMatch_in_GrpcRouteMatch_fqmn'
     GrpcStatusResponseAction:
+      description: A gRPC status response action resource.
       type: object
       properties:
         status:
           $ref: '#/components/schemas/GrpcStatusResponseActionStatus_in_GrpcStatusResponseAction_status'
     GrpcStatusResponseActionStatus:
+      description: |-
+        gRPC status code supported for use in responses.
+
+         - OK: `OK` (0) status code.
+         - INVALID_ARGUMENT: `INVALID_ARGUMENT` (3) status code.
+         - NOT_FOUND: `NOT_FOUND` (5) status code.
+         - PERMISSION_DENIED: `PERMISSION_DENIED` (7) status code.
+         - UNAUTHENTICATED: `UNAUTHENTICATED` (16) status code.
+         - UNIMPLEMENTED: `UNIMPLEMENTED` (12) status code.
+         - INTERNAL: `INTERNAL` (13) status code.
+         - UNAVAILABLE: `UNAVAILABLE` (14) status code.
       type: string
       enum:
       - OK
@@ -1930,6 +2436,7 @@ components:
       - UNAVAILABLE
       default: OK
     HeaderModification:
+      description: A header modification resource.
       type: object
       allOf:
       - type: object
@@ -1942,20 +2449,30 @@ components:
         maxProperties: 1
         properties:
           append:
-            description: Append string to the header value.
+            description: |-
+              Appends the specified string to the header value.
+
+              Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
+              are supported.
             type: string
           replace:
-            description: New value for a header.
+            description: |-
+              Replaces the value of the header with the specified string.
+
+              Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
+              are supported.
             type: string
           remove:
-            description: Remove the header.
+            description: Removes the header.
             type: boolean
             format: boolean
           rename:
-            description: New name for a header.
+            description: Replaces the name of the header with the specified string.
             type: string
     HealthCheck:
-      description: Active health check.
+      description: |-
+        A health check resource.
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
       type: object
       allOf:
       - type: object
@@ -1963,37 +2480,47 @@ components:
           timeout:
             description: |-
               Required.
-              Time to wait for a health check response.
+              Health check timeout.
+
+              The timeout is the time allowed for the target to respond to a check.
+              If the target doesn't respond in time, the check is considered failed.
             type: string
           interval:
             description: |-
               Required.
-              Interval between health checks.
+              Base interval between consecutive health checks.
             type: string
           intervalJitterPercent:
-            description: |-
-              An optional jitter amount as a percentage of interval.
-              If specified, during every interval value of
-              (interval_ms * interval_jitter_percent / 100) will be added to the wait time.
             type: number
             format: double
           healthyThreshold:
             description: |-
-              Number of consecutive successful health checks required to promote endpoint
-              into the healthy state. 0 means 1.
-              Note that during startup, only a single successful health check is required to mark a host healthy.
+              Number of consecutive successful health checks required to mark an unhealthy target as healthy.
+
+              Both `0` and `1` values amount to one successful check required.
+
+              The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check.
+
+              Default value: `0`.
             type: string
             format: int64
           unhealthyThreshold:
             description: |-
-              Number of consecutive failed health checks required to demote endpoint
-              into the unhealthy state. 0 means 1.
-              Note that for HTTP health checks, a single 503 immediately makes endpoint unhealthy.
+              Number of consecutive failed health checks required to mark a healthy target as unhealthy.
+
+              Both `0` and `1` values amount to one unsuccessful check required.
+
+              The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target
+              (not applicable to TCP stream health checks). The target is immediately marked unhealthy.
+
+              Default value: `0`.
             type: string
             format: int64
           healthcheckPort:
             description: |-
-              Optional alternative port for health checking.
+              Port used for health checks.
+
+              If not specified, the backend port (`port` or `port`) is used for health checks.
 
               Acceptable values are 0 to 65535, inclusive.
             type: string
@@ -2004,34 +2531,48 @@ components:
         properties:
           stream:
             $ref: '#/components/schemas/HealthCheckStreamHealthCheck'
+            description: TCP stream health check settings.
           http:
             $ref: '#/components/schemas/HealthCheckHttpHealthCheck'
+            description: HTTP health check settings.
           grpc:
             $ref: '#/components/schemas/HealthCheckGrpcHealthCheck'
+            description: gRPC health check settings.
     HealthCheckGrpcHealthCheck:
+      description: A resource for gRPC health check settings.
       type: object
       properties:
         serviceName:
-          description: Optional service name for grpc.health.v1.HealthCheckRequest
-            message.
+          description: |-
+            Name of the gRPC service to be checked.
+
+            If not specified, overall health is checked.
+
+            For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md).
           type: string
     HealthCheckHttpHealthCheck:
+      description: A resource for HTTP health check settings.
       type: object
       properties:
         host:
-          description: Optional "Host" HTTP header value.
+          description: Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority`
+            pseudo-header used in requests to targets.
           type: string
         path:
           description: |-
             Required.
-            HTTP path.
+            HTTP path used in requests to targets: request URI for HTTP/1.1 request line
+            or value for the HTTP/2 `:path` pseudo-header.
           type: string
         useHttp2:
-          description: If set, health checks will use HTTP/2.
+          description: |-
+            Enables HTTP/2 usage in health checks.
+
+            Default value: `false`, HTTP/1.1 is used.
           type: boolean
           format: boolean
     HealthCheckStreamHealthCheck:
-      description: TCP (+TLS) health check ("Stream protocol HC").
+      description: A resource for TCP stream health check settings.
       type: object
       properties:
         send:
@@ -2039,12 +2580,15 @@ components:
         receive:
           $ref: '#/components/schemas/Payload_in_HealthCheckStreamHealthCheck_receive'
     Http2Options:
+      description: An HTTP/2 options resource.
       type: object
       properties:
         maxConcurrentStreams:
+          description: Maximum number of concurrent HTTP/2 streams in a connection.
           type: string
           format: int64
     HttpBackend:
+      description: An HTTP backend resource.
       type: object
       allOf:
       - type: object
@@ -2052,39 +2596,52 @@ components:
           name:
             description: |-
               Required.
-              Name.
+              Name of the backend.
+
+              Value must match the regular expression `` [a-z][-a-z0-9]{1,61}[a-z0-9] ``.
             type: string
           backendWeight:
             description: |-
-              Traffic will be split between backends of the same BackendGroup according to
-              their weights.
-              If set to zero, backend will be disabled.
-              If not set in all backends, they all will have equal weights.
-              Must either set or unset in all backeds of the group.
+              Backend weight. Traffic is distributed between backends of a backend group according to their weights.
+
+              Weights must be set either for all backends in a group or for none of them.
+              Setting no weights is the same as setting equal non-zero weights for all backends.
+
+              If set to `0`, traffic is not sent to the backend.
             type: integer
             format: int64
           loadBalancingConfig:
             $ref: '#/components/schemas/LoadBalancingConfig'
+            description: Load balancing configuration for the backend.
           port:
             description: |-
-              Port for all targets from target group.
+              Port used by all targets to receive traffic.
 
               Acceptable values are 0 to 65535, inclusive.
             type: string
             format: int64
           healthchecks:
-            description: No health checks means no active health checking will be
-              performed.
+            description: |-
+              Health checks to perform on targets from target groups.
+              For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
+
+              If no health checks are specified, active health checking is not performed.
             type: array
             items:
               $ref: '#/components/schemas/HealthCheck'
           tls:
             $ref: '#/components/schemas/BackendTls'
-            description: TLS settings for the upstream.
+            description: |-
+              Settings for TLS connections between load balancer nodes and backend targets.
+
+              If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
+              and compares received certificates with the one specified in `validationContext`.
+              If not specified, the load balancer establishes unencrypted HTTP connections with targets.
           useHttp2:
             description: |-
-              Enables HTTP2 for upstream requests.
-              If not set, HTTP 1.1 will be used by default.
+              Enables HTTP/2 usage in connections between load balancer nodes and backend targets.
+
+              Default value: `false`, HTTP/1.1 is used.
             type: boolean
             format: boolean
       - title: backend_type
@@ -2093,20 +2650,27 @@ components:
         properties:
           targetGroups:
             $ref: '#/components/schemas/TargetGroupsBackend'
-            description: References target groups for the backend.
+            description: Target groups that belong to the backend.
     HttpBackendGroup:
+      description: An HTTP backend group resource.
       type: object
       properties:
         backends:
+          description: List of HTTP backends.
           type: array
           items:
             $ref: '#/components/schemas/HttpBackend'
     HttpHandler:
+      description: An HTTP handler resource.
       type: object
       allOf:
       - type: object
         properties:
           httpRouterId:
+            description: |-
+              ID of the HTTP router processing requests.
+
+              For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router).
             type: string
       - title: protocol_settings
         type: object
@@ -2114,12 +2678,17 @@ components:
         properties:
           http2Options:
             $ref: '#/components/schemas/Http2Options'
-            description: If set, will enable HTTP2 protocol for the handler.
+            description: |-
+              HTTP/2 settings.
+
+              If specified, incoming HTTP/2 requests are supported by the listener.
           allowHttp10:
-            description: If set, will enable only HTTP1 protocol with HTTP1.0 support.
+            description: Enables support for incoming HTTP/1.0 and HTTP/1.1 requests
+              and disables it for HTTP/2 requests.
             type: boolean
             format: boolean
     HttpListener:
+      description: An HTTP listener resource.
       type: object
       properties:
         handler:
@@ -2127,24 +2696,30 @@ components:
         redirects:
           $ref: '#/components/schemas/Redirects_in_HttpListener_redirects'
     HttpRoute:
+      description: An HTTP route configuration resource.
       type: object
       allOf:
       - type: object
         properties:
           match:
             $ref: '#/components/schemas/HttpRouteMatch'
-            description: Checks "/" prefix by default.
+            description: Condition (predicate) used to select the route.
       - title: action
         type: object
         maxProperties: 1
         properties:
           route:
             $ref: '#/components/schemas/HttpRouteAction'
+            description: Forwards the request to a backend group for processing as
+              configured.
           redirect:
             $ref: '#/components/schemas/RedirectAction'
+            description: Redirects the request as configured.
           directResponse:
             $ref: '#/components/schemas/DirectResponseAction'
+            description: Instructs the load balancer to respond directly as configured.
     HttpRouteAction:
+      description: An HTTP route action resource.
       type: object
       allOf:
       - type: object
@@ -2152,27 +2727,41 @@ components:
           backendGroupId:
             description: |-
               Required.
-              Backend group to route requests.
+              Backend group to forward requests to.
             type: string
           timeout:
             description: |-
-              Specifies the request timeout (overall time request processing is allowed to take) for the route.
-              If not set, default is 60 seconds.
+              Overall timeout for an HTTP connection between a load balancer node an a backend from the backend group:
+              the maximum time the connection is kept alive for, regardless of whether data is transferred over it.
+
+              If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code.
+
+              Default value: `60`.
             type: string
           idleTimeout:
             description: |-
-              Specifies the idle timeout (time without any data transfer for the active request) for the route.
-              It is useful for streaming scenarios (i.e. long-polling, server-sent events) - one should set
-              idle_timeout to something meaningful and timeout to the maximum time the stream is allowed to be alive.
-              If not specified, there is no per-route idle timeout.
+              Idle timeout for an HTTP connection between a load balancer node an a backend from the backend group:
+              the maximum time the connection is allowed to be idle, i.e. without any data transferred over it.
+
+              Specifying meaningful values for both `timeout` and `idle_timeout` is useful for implementing
+              server-push mechanisms such as long polling, server-sent events (`EventSource` interface) etc.
+
+              If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code.
+
+              If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see `timeout`).
             type: string
           prefixRewrite:
-            description: If not empty, matched path prefix will be replaced by this
-              value.
+            description: |-
+              Replacement for the path prefix matched by [StringMatch.match].
+
+              For instance, if `prefixMatch` value is `/foo` and `replace_prefix` value is `/bar`,
+              a request with `/foobaz` path is forwarded with `/barbaz` path.
+              For `exactMatch`, the whole path is replaced.
+
+              If not specified, the path is not changed.
             type: string
           upgradeTypes:
-            description: Only specified upgrade types will be allowed. For example,
-              "websocket".
+            description: Supported values for HTTP `Upgrade` header. E.g. `websocket`.
             type: array
             items:
               type: string
@@ -2181,137 +2770,178 @@ components:
         maxProperties: 1
         properties:
           hostRewrite:
+            description: Host replacement.
             type: string
           autoHostRewrite:
+            description: Automatically replaces the host with that of the target.
             type: boolean
             format: boolean
     HttpRouteMatch:
+      description: An HTTP route condition (predicate) resource.
       type: object
       properties:
         httpMethod:
+          description: HTTP method specified in the request.
           type: array
           items:
             type: string
         path:
           $ref: '#/components/schemas/StringMatch_in_HttpRouteMatch_path'
     HttpRouter:
+      description: |-
+        An HTTP router resource.
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router).
       type: object
       properties:
         id:
-          description: Output only. ID of the router.
+          description: ID of the router. Generated at creation time.
           type: string
         name:
-          description: The name is unique within the folder. 3-63 characters long.
+          description: Name of the router. The name is unique within the folder.
           type: string
         description:
-          description: Description of the router. 0-256 characters long.
+          description: Description of the router.
           type: string
         folderId:
           description: ID of the folder that the router belongs to.
           type: string
         labels:
-          description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
+          description: |-
+            Router labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
           type: object
           additionalProperties:
             type: string
         virtualHosts:
-          description: Only one virtual host with no authority (default match) can
-            be specified.
+          description: |-
+            Virtual hosts that combine routes inside the router.
+            For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host).
+
+            Only one virtual host with no authority (default match) can be specified.
           type: array
           items:
             $ref: '#/components/schemas/VirtualHost'
         createdAt:
           description: |-
-            Creation timestamp for the http router.
+            Creation timestamp.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     InternalIpv4Address:
+      description: An internal IPv4 endpoint address resource.
       type: object
       properties:
         address:
+          description: IPv4 address.
           type: string
         subnetId:
+          description: ID of the subnet that the address belongs to.
           type: string
     InternalIpv4AddressSpec:
       type: object
       properties:
         address:
+          description: IPv4 address.
           type: string
         subnetId:
+          description: ID of the subnet that the address belongs to.
           type: string
     ListBackendGroupOperationsResponse:
       type: object
       properties:
         operations:
-          description: List of operations for the specified target group.
+          description: List of operations for the specified backend group.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/apploadbalancer/api-ref/BackendGroup/listOperations#query_params), use the [nextPageToken](/docs/apploadbalancer/api-ref/BackendGroup/listOperations#responses) as the value
-            for the [pageToken](/docs/apploadbalancer/api-ref/BackendGroup/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/apploadbalancer/api-ref/BackendGroup/listOperations#responses) to continue paging through the results.
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/application-load-balancer/api-ref/BackendGroup/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/application-load-balancer/api-ref/BackendGroup/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListBackendGroupsResponse:
       type: object
       properties:
         backendGroups:
+          description: List of backend groups in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/BackendGroup'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/application-load-balancer/api-ref/BackendGroup/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/application-load-balancer/api-ref/BackendGroup/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListHttpRouterOperationsResponse:
       type: object
       properties:
         operations:
-          description: List of operations for the specified target group.
+          description: List of operations for the specified HTTP router.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#query_params), use the [nextPageToken](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#responses) as the value
-            for the [pageToken](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/apploadbalancer/api-ref/HttpRouter/listOperations#responses) to continue paging through the results.
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/application-load-balancer/api-ref/HttpRouter/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/application-load-balancer/api-ref/HttpRouter/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListHttpRoutersResponse:
       type: object
       properties:
         httpRouters:
+          description: List of HTTP routers in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/HttpRouter'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/application-load-balancer/api-ref/HttpRouter/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/application-load-balancer/api-ref/HttpRouter/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListLoadBalancerOperationsResponse:
       type: object
       properties:
         operations:
-          description: List of operations for the specified target group.
+          description: List of operations for the specified application load balancer.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/apploadbalancer/api-ref/LoadBalancer/listOperations#query_params), use the [nextPageToken](/docs/apploadbalancer/api-ref/LoadBalancer/listOperations#responses) as the value
-            for the [pageToken](/docs/apploadbalancer/api-ref/LoadBalancer/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/apploadbalancer/api-ref/LoadBalancer/listOperations#responses) to continue paging through the results.
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/application-load-balancer/api-ref/LoadBalancer/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/application-load-balancer/api-ref/LoadBalancer/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListLoadBalancersResponse:
       type: object
       properties:
         loadBalancers:
+          description: List of application load balancers in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/LoadBalancer'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/application-load-balancer/api-ref/LoadBalancer/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/application-load-balancer/api-ref/LoadBalancer/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListTargetGroupOperationsResponse:
       type: object
@@ -2323,32 +2953,49 @@ components:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
           description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/apploadbalancer/api-ref/TargetGroup/listOperations#query_params), use the [nextPageToken](/docs/apploadbalancer/api-ref/TargetGroup/listOperations#responses) as the value
-            for the [pageToken](/docs/apploadbalancer/api-ref/TargetGroup/listOperations#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/apploadbalancer/api-ref/TargetGroup/listOperations#responses) to continue paging through the results.
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/application-load-balancer/api-ref/TargetGroup/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/application-load-balancer/api-ref/TargetGroup/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListTargetGroupsResponse:
       type: object
       properties:
         targetGroups:
+          description: List of target groups in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/TargetGroup'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/application-load-balancer/api-ref/TargetGroup/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/application-load-balancer/api-ref/TargetGroup/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListVirtualHostsResponse:
       type: object
       properties:
         virtualHosts:
-          description: List of virtual hosts.
+          description: List of virtual hosts of the specified HTTP router.
           type: array
           items:
             $ref: '#/components/schemas/VirtualHost'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/application-load-balancer/api-ref/VirtualHost/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/application-load-balancer/api-ref/VirtualHost/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     Listener:
-      description: A Listener resource.
+      description: |-
+        A listener resource.
+
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener).
       type: object
       allOf:
       - type: object
@@ -2356,10 +3003,14 @@ components:
           name:
             description: |-
               Required.
-              Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
+              Name of the listener. The name is unique within the application load balancer.
+              The string length in characters is 3-63.
             type: string
           endpoints:
-            description: Network endpoints (addresses and ports) of the listener.
+            description: |-
+              Endpoints of the listener.
+
+              Endpoints are defined by their IP addresses and ports.
             type: array
             items:
               $ref: '#/components/schemas/Endpoint'
@@ -2369,8 +3020,10 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpListener'
+            description: HTTP listener settings.
           tls:
             $ref: '#/components/schemas/TlsListener'
+            description: HTTPS (HTTP over TLS) listener settings.
     ListenerSpec:
       type: object
       allOf:
@@ -2379,11 +3032,17 @@ components:
           name:
             description: |-
               Required.
+              Name of the listener. The name is unique within the application load balancer.
+
               Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
             type: string
           endpointSpecs:
             description: |-
               Required.
+              Endpoints of the listener.
+
+              Endpoints are defined by their IP addresses and ports.
+
               Must contain at least one element.
             type: array
             items:
@@ -2394,67 +3053,90 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpListener'
+            description: HTTP listener settings.
           tls:
             $ref: '#/components/schemas/TlsListener'
+            description: HTTPS (HTTP over TLS) listener settings.
     LoadBalancer:
-      description: A LoadBalancer resource.
+      description: |-
+        An application load balancer resource.
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer).
       type: object
       properties:
         id:
-          description: Output only. ID of the load balancer.
+          description: ID of the application load balancer. Generated at creation
+            time.
           type: string
         name:
-          description: The name is unique within the folder. 3-63 characters long.
+          description: Name of the application load balancer. The name is unique within
+            the folder.
           type: string
         description:
-          description: Description of the load balancer. 0-256 characters long.
+          description: Description of the application load balancer.
           type: string
         folderId:
-          description: ID of the folder that the load balancer belongs to.
+          description: ID of the folder that the application load balancer belongs
+            to.
           type: string
         labels:
-          description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
+          description: |-
+            Application load balancer labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
           type: object
           additionalProperties:
             type: string
         status:
           $ref: '#/components/schemas/LoadBalancerStatus_in_LoadBalancer_status'
         regionId:
-          description: ID of the region that the load balancer located at.
+          description: |-
+            ID of the region that the application load balancer is located at.
+
+            Currently Yandex Cloud supports only `ru-central1` region.
           type: string
         networkId:
-          description: ID of the network that the load balancer located at.
+          description: ID of the network that the application load balancer belongs
+            to.
           type: string
         listeners:
-          description: List of listeners for the application load balancer.
+          description: |-
+            Listeners that belong to the application load balancer.
+
+            For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener).
           type: array
           items:
             $ref: '#/components/schemas/Listener'
         allocationPolicy:
           $ref: '#/components/schemas/AllocationPolicy_in_LoadBalancer_allocationPolicy'
         logGroupId:
-          description: Cloud log group used by the load balancer to store access logs.
+          description: |-
+            ID of the log group that stores access logs of the application load balancer.
+
+            The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create).
           type: string
         securityGroupIds:
-          description: ID's of security groups attached to the load balancer.
+          description: |-
+            ID's of the security groups attributed to the application load balancer.
+
+            For details about the concept,
+            see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups).
           type: array
           items:
             type: string
         createdAt:
           description: |-
-            Creation timestamp for the load balancer.
+            Creation timestamp.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     LoadBalancerStatus:
       description: |2-
-         - CREATING: Application load balancer is being created.
-         - STARTING: Application load balancer is being started.
-         - ACTIVE: Application load balancer is active and sends traffic to the targets.
-         - STOPPING: Application load balancer is being stopped.
-         - STOPPED: Application load balancer is stopped and doesn't send traffic to the targets.
-         - DELETING: Application load balancer is being deleted.
+         - CREATING: The application load balancer is being created.
+         - STARTING: The application load balancer is being started.
+         - ACTIVE: The application load balancer is active and sends traffic to the targets.
+         - STOPPING: The application load balancer is being stopped.
+         - STOPPED: The application load balancer is stopped and doesn't send traffic to the targets.
+         - DELETING: The application load balancer is being deleted.
       type: string
       enum:
       - CREATING
@@ -2464,43 +3146,79 @@ components:
       - STOPPED
       - DELETING
     LoadBalancingConfig:
+      description: A load balancing configuration resource.
       type: object
       properties:
         panicThreshold:
           description: |-
-            If percentage of healthy hosts in the backend is lower than panic_threshold,
-            traffic will be routed to all backends no matter what the health status is.
-            This helps to avoid healthy backends overloading  when everything is bad.
-            zero means no panic threshold.
+            Threshold for panic mode.
+
+            If percentage of healthy backends in the group drops below threshold,
+            panic mode will be activated and traffic will be routed to all backends, regardless of their health check status.
+            This helps to avoid overloading healthy backends.
+            For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode).
+
+            If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times.
+
+            Default value: `0`.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         localityAwareRoutingPercent:
           description: |-
-            Percent of traffic to be sent to the same availability zone.
-            The rest will be equally divided between other zones.
+            Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
+            The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality).
+
+            If there are no healthy backends in an availability zone, all the traffic is divided between other zones.
+
+            If `strictLocality` is `true`, the specified value is ignored.
+            A load balancer node sends all the traffic within its availability zone, regardless of backends' health.
+
+            Default value: `0`.
 
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
         strictLocality:
           description: |-
-            If set, will route requests only to the same availability zone.
-            Balancer won't know about endpoints in other zones.
+            Specifies whether a load balancer node should only send traffic to backends in its availability zone,
+            regardless of their health, and ignore backends in other zones.
+
+            If set to `true` and there are no healthy backends in the zone, the node in this zone will respond
+            to incoming traffic with errors.
+            For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality).
+
+            If `strict_locality` is `true`, the value specified in `localityAwareRoutingPercent` is ignored.
+
+            Default value: `false`.
           type: boolean
           format: boolean
     Location:
+      description: |-
+        An application load balancer location resource.
+
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location).
       type: object
       properties:
         zoneId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the availability zone where the application load balancer resides.
+
+            Each Yandex Cloud availability zone can only be specified once.
           type: string
         subnetId:
+          description: ID of the subnet that the application load balancer belongs
+            to.
           type: string
         disableTraffic:
-          description: If set, will disable all L7 instances in the zone for request
-            handling.
+          description: |-
+            Disables the load balancer node in the specified availability zone.
+
+            Backends in the availability zone are not directly affected by this setting.
+            They still may receive traffic from the load balancer nodes in other availability zones,
+            subject to `localityAwareRoutingPercent` and `strictLocality` settings.
           type: boolean
           format: boolean
     Operation:
@@ -2561,6 +3279,7 @@ components:
               Any method that returns a long-running operation should document the response type, if any.
             type: object
     Payload:
+      description: A health check payload resource.
       type: object
       allOf:
       - title: payload
@@ -2569,57 +3288,69 @@ components:
         properties:
           text:
             description: |-
-              Text message.
+              Payload text.
 
               The string length in characters must be greater than 0.
             type: string
     RedirectAction:
+      description: A redirect action resource.
       type: object
       allOf:
       - type: object
         properties:
           replaceScheme:
             description: |-
-              Replaces scheme.
-              If the original scheme is `http` or `https`,
-              will also remove the 80 or 443 port, if present.
+              URI scheme replacement.
+
+              If `http` or `https` scheme is to be replaced and `80` or `443` port is specified in the original URI,
+              the port is also removed.
+
+              If not specified, the original scheme and port are used.
             type: string
           replaceHost:
-            description: Replaces hostname.
+            description: |-
+              URI host replacement.
+
+              If not specified, the original host is used.
             type: string
           replacePort:
-            description: Replaces port.
+            description: |-
+              URI host replacement.
+
+              If not specified, the original host is used.
             type: string
             format: int64
           removeQuery:
-            description: Remove query part.
+            description: Removes URI query.
             type: boolean
             format: boolean
           responseCode:
             $ref: '#/components/schemas/RedirectActionRedirectResponseCode'
-            description: The HTTP status code to use in the redirect response.
+            description: HTTP status code to use in redirect responses.
       - title: path
         type: object
         maxProperties: 1
         properties:
           replacePath:
-            description: Replace path.
+            description: Replacement for the whole path.
             type: string
           replacePrefix:
             description: |-
-              Replace only matched prefix.
-              Example:
-                 match:    { prefix_match: "/some" }
-                 redirect: { replace_prefix: "/other" }
-              will redirect "/something" to "/otherthing"
+              Replacement for the path prefix matched by [StringMatch.match].
+
+              For instance, if `prefixMatch` value is `/foo` and `replace_prefix` value is `/bar`,
+              a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`.
+              For `exactMatch`, the whole path is replaced.
             type: string
     RedirectActionRedirectResponseCode:
-      description: |2-
-         - MOVED_PERMANENTLY: Moved Permanently HTTP Status Code - 301.
-         - FOUND: Found HTTP Status Code - 302.
-         - SEE_OTHER: See Other HTTP Status Code - 303.
-         - TEMPORARY_REDIRECT: Temporary Redirect HTTP Status Code - 307.
-         - PERMANENT_REDIRECT: Permanent Redirect HTTP Status Code - 308.
+      description: |-
+        HTTP status codes supported for use in redirect responses.
+
+         - MOVED_PERMANENTLY: `301 Moved Permanently` status code.
+         - FOUND: `302 Found` status code.
+         - SEE_OTHER: `303 See Other` status code.
+         - TEMPORARY_REDIRECT: `307 Temporary Redirect` status code.
+         - PERMANENT_REDIRECT: `308 Permanent Redirect` status code.
       type: string
       enum:
       - MOVED_PERMANENTLY
@@ -2629,75 +3360,109 @@ components:
       - PERMANENT_REDIRECT
       default: MOVED_PERMANENTLY
     Redirects:
+      description: A listener redirects resource.
       type: object
       properties:
         httpToHttps:
-          description: Adds "*" VirtualHost with a http -> https redirect.
+          description: |-
+            Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`.
+
+            The setting has the same effect as a single, catch-all `HttpRoute`
+            with `replaceScheme` set to `https`.
           type: boolean
           format: boolean
     RemoveBackendMetadata:
       type: object
       properties:
         backendGroupId:
+          description: ID of the backend group that the backend is being removed from.
           type: string
         backendName:
+          description: Name of the backend that is being removed.
           type: string
     RemoveBackendRequest:
       type: object
       properties:
         backendName:
-          description: Required.
+          description: |-
+            Required.
+            Name of the backend to remove.
+
+            To get the backend name, make a [get](/docs/application-load-balancer/api-ref/BackendGroup/get) request.
           type: string
     RemoveListenerMetadata:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that the listener is being
+            removed from.
           type: string
         listenerName:
+          description: Name of the listener that is being removed from the application
+            load balancer.
           type: string
     RemoveListenerRequest:
       type: object
       properties:
         name:
-          description: Required.
+          description: |-
+            Required.
+            Name of the listener to remove from the application load balancer.
           type: string
     RemoveRouteMetadata:
       type: object
       properties:
         httpRouterId:
+          description: ID of the HTTP router that the route is being deleted from.
           type: string
         virtualHostName:
+          description: Name of the virtual host that the route is being deleted from.
           type: string
         routeName:
+          description: Name of the route that is being deleted.
           type: string
     RemoveRouteRequest:
       type: object
       properties:
         routeName:
-          description: Required.
+          description: |-
+            Required.
+            Name of the route to delete.
+
+            To get the route name, make a [get](/docs/application-load-balancer/api-ref/VirtualHost/get) request.
           type: string
     RemoveSniMatchMetadata:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that the SNI handler is
+            being removed from.
           type: string
         listenerName:
+          description: Name of the listener that the SNI handler is being removed
+            from.
           type: string
         sniMatchName:
+          description: Name of the SNI handler that is being removed.
           type: string
     RemoveSniMatchRequest:
       type: object
       properties:
         listenerName:
-          description: Required.
+          description: |-
+            Required.
+            Name of the listener te remove the SNI handler from.
           type: string
         sniMatchName:
-          description: Required.
+          description: |-
+            Required.
+            Name of the SNI handler to remove.
           type: string
     RemoveTargetsMetadata:
       type: object
       properties:
         targetGroupId:
+          description: ID of the target group that the targets are being removed from.
           type: string
     RemoveTargetsRequest:
       type: object
@@ -2705,17 +3470,24 @@ components:
         targets:
           description: |-
             Required.
+            List of targets to remove from the target group.
+
             Must contain at least one element.
           type: array
           items:
             $ref: '#/components/schemas/Target'
     Route:
+      description: |-
+        A route resource.
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
       type: object
       allOf:
       - type: object
         properties:
           name:
-            description: Required.
+            description: |-
+              Required.
+              Name of the route.
             type: string
       - title: route
         type: object
@@ -2723,17 +3495,24 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpRoute'
+            description: HTTP route configuration.
           grpc:
             $ref: '#/components/schemas/GrpcRoute'
+            description: gRPC route configuration.
     SniMatch:
+      description: A SNI handler resource.
       type: object
       properties:
         name:
-          description: Required.
+          description: |-
+            Required.
+            Name of the SNI handler.
           type: string
         serverNames:
           description: |-
             Required.
+            Server names that are matched by the SNI handler.
+
             Must contain at least one element.
           type: array
           items:
@@ -2744,13 +3523,16 @@ components:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that is being started.
           type: string
     StopLoadBalancerMetadata:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that is being stopped.
           type: string
     StringMatch:
+      description: A string matcher resource.
       type: object
       allOf:
       - title: match
@@ -2758,67 +3540,83 @@ components:
         maxProperties: 1
         properties:
           exactMatch:
+            description: Exact match string.
             type: string
           prefixMatch:
+            description: Prefix match string.
             type: string
     Target:
+      description: |-
+        A target resource.
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/target-group).
       type: object
       allOf:
       - type: object
         properties:
           subnetId:
-            description: ID of the subnet that target connected to.
+            description: ID of the subnet that the target is connected to.
             type: string
       - title: address_type
         type: object
         maxProperties: 1
         properties:
           ipAddress:
+            description: IP address of the target.
             type: string
     TargetGroup:
+      description: |-
+        A target group resource.
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/target-group).
       type: object
       properties:
         id:
-          description: Output only. ID of the target group.
+          description: ID of the target group. Generated at creation time.
           type: string
         name:
-          description: The name is unique within the folder. 3-63 characters long.
+          description: Name of the target group. The name is unique within the folder.
           type: string
         description:
-          description: Description of the target group. 0-256 characters long.
+          description: Description of the target group.
           type: string
         folderId:
           description: ID of the folder that the target group belongs to.
           type: string
         labels:
-          description: Resource labels as `key:value` pairs. Maximum of 64 per resource.
+          description: |-
+            Target group labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
           type: object
           additionalProperties:
             type: string
         targets:
-          description: 'NOTE: all endpoints must use the same address_type - either
-            ip or hostname.'
+          description: List of targets in the target group.
           type: array
           items:
             $ref: '#/components/schemas/Target'
         createdAt:
           description: |-
-            Creation timestamp for the target group.
+            Creation timestamp.
 
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
     TargetGroupsBackend:
+      description: A resource for target groups that belong to the backend.
       type: object
       properties:
         targetGroupIds:
           description: |-
             Required.
+            List of ID's of target groups that belong to the backend.
+
+            To get the ID's of all available target groups, make a [list](/docs/application-load-balancer/api-ref/TargetGroup/list) request.
+
             Must contain at least one element.
           type: array
           items:
             type: string
     TargetState:
+      description: A target state resource.
       type: object
       properties:
         status:
@@ -2826,13 +3624,27 @@ components:
         target:
           $ref: '#/components/schemas/Target_in_TargetState_target'
     TargetStateHealthcheckStatus:
+      description: Health of the target.
       type: object
       properties:
         zoneStatuses:
+          description: Statuses of the target in its availability zones.
           type: array
           items:
             $ref: '#/components/schemas/TargetStateZoneHealthcheckStatus'
     TargetStateStatus:
+      description: |-
+        Supported target statuses.
+
+         - HEALTHY: All of the health checks specified in `healthchecks` or `healthchecks` are passed
+        (the number depends on the `healthyThreshold` setting) and the target is ready to receive traffic.
+         - PARTIALLY_HEALTHY: Some of the health checks specified in `healthchecks` or `healthchecks` failed
+        (the number depends on the `unhealthyThreshold` setting).
+        The target is ready to receive traffic from the load balancer nodes which, based on their health checks,
+        consider the target healthy.
+         - UNHEALTHY: All of the health checks specified in `healthchecks` or `healthchecks` failed
+        (the number depends on the `unhealthyThreshold` setting) and the target is not receiving traffic.
+         - DRAINING: Target is being deleted and the application load balancer is no longer sending traffic to this target.
       type: string
       enum:
       - HEALTHY
@@ -2841,19 +3653,28 @@ components:
       - DRAINING
       - TIMEOUT
     TargetStateZoneHealthcheckStatus:
+      description: Health of the target in the availability zone.
       type: object
       properties:
         zoneId:
-          description: Required.
+          description: |-
+            Required.
+            ID of the availability zone.
           type: string
         status:
           $ref: '#/components/schemas/TargetStateStatus_in_TargetStateZoneHealthcheckStatus_status'
         failedActiveHc:
-          description: Whether UNHEALTHY status was set due to failed active checks
-            or not.
+          description: |-
+            Indicates whether the target has been marked `UNHEALTHY` due to failing active health checks,
+            which determine target statuses as configured in `healthchecks` or `healthchecks`.
+
+            Currently the only type of health checks is active, as described above.
+            Passive health checks, which determine the health of a target based on its responses to production requests
+            (HTTP 5xx status codes, connection errors etc.), are not implemented yet.
           type: boolean
           format: boolean
     TlsHandler:
+      description: An HTTPS (HTTP over TLS) handler resource.
       type: object
       allOf:
       - type: object
@@ -2861,10 +3682,9 @@ components:
           certificateIds:
             description: |-
               Required.
-              Certificate IDs in the Certificate Manager.
-              Multiple TLS certificates can be associated with the same context to allow
-              both RSA and ECDSA certificates.
-              Only the first certificate of each type will be used.
+              ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
+
+              RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
 
               Must contain at least one element.
             type: array
@@ -2876,12 +3696,17 @@ components:
         properties:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
+            description: HTTP handler.
     TlsListener:
+      description: An HTTPS (HTTP over TLS) listener resource.
       type: object
       properties:
         defaultHandler:
           $ref: '#/components/schemas/TlsHandler_in_TlsListener_defaultHandler'
         sniHandlers:
+          description: |-
+            Settings for handling HTTPS requests with Server Name Indication (SNI)
+            matching one of `serverNames` values.
           type: array
           items:
             $ref: '#/components/schemas/SniMatch'
@@ -2889,6 +3714,7 @@ components:
       type: object
       properties:
         backendGroupId:
+          description: ID of the backend group that is being updated.
           type: string
     UpdateBackendGroupRequest:
       type: object
@@ -2897,15 +3723,32 @@ components:
         properties:
           updateMask:
             $ref: '#/components/schemas/FieldMask'
+            description: Field mask that specifies which attributes of the backend
+              group should be updated.
           name:
-            description: Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])?
-              ``.
+            description: |-
+              New name for the backend group.
+              The name must be unique within the folder.
+
+              Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
             type: string
           description:
-            description: The maximum string length in characters is 256.
+            description: |-
+              New description of the backend group.
+
+              The maximum string length in characters is 256.
             type: string
           labels:
             description: |-
+              Backend group labels as `key:value` pairs.
+              For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
+              Existing set of labels is completely replaced by the provided set, so if you just want
+              to add or remove a label:
+              1. Get the current set of labels with a [get](/docs/application-load-balancer/api-ref/BackendGroup/get) request.
+              2. Add or remove a label in this set.
+              3. Send the new set in this field.
+
               No more than 64 per resource.
               The string length in characters for each key must be 1-63.
               Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
@@ -2920,14 +3763,20 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpBackendGroup'
+            description: New list of HTTP backends that the backend group will consist
+              of.
           grpc:
             $ref: '#/components/schemas/GrpcBackendGroup'
+            description: New list of gRPC backends that the backend group will consist
+              of.
     UpdateBackendMetadata:
       type: object
       properties:
         backendGroupId:
+          description: ID of the backend group that the backend is being updated it.
           type: string
         backendName:
+          description: Name of the backend that is being updated.
           type: string
     UpdateBackendRequest:
       type: object
@@ -2936,18 +3785,23 @@ components:
         properties:
           updateMask:
             $ref: '#/components/schemas/FieldMask'
+            description: Field mask that specifies which attributes of the backend
+              should be updated.
       - title: backend
         type: object
         maxProperties: 1
         properties:
           http:
             $ref: '#/components/schemas/HttpBackend'
+            description: New settings for the HTTP backend.
           grpc:
             $ref: '#/components/schemas/GrpcBackend'
+            description: New settings for the gRPC backend.
     UpdateHttpRouterMetadata:
       type: object
       properties:
         httpRouterId:
+          description: ID of the HTTP router that is being updated.
           type: string
     UpdateHttpRouterRequest:
       type: object
@@ -2955,14 +3809,29 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateHttpRouterRequest_updateMask'
         name:
-          description: Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])?
-            ``.
+          description: |-
+            New name for the HTTP router.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            New description of the HTTP router.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            HTTP router labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [get](/docs/application-load-balancer/api-ref/HttpRouter/get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
@@ -2972,6 +3841,14 @@ components:
           additionalProperties:
             type: string
         virtualHosts:
+          description: |-
+            New virtual hosts that combine routes inside the router.
+            For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host).
+
+            Only one virtual host with no authority (default match) can be specified.
+
+            Existing list of virtual hosts is completely replaced by the specified list, so if you just want to add or remove
+            a virtual host, make a [create](/docs/application-load-balancer/api-ref/VirtualHost/create) request or a [delete](/docs/application-load-balancer/api-ref/VirtualHost/delete) request.
           type: array
           items:
             $ref: '#/components/schemas/VirtualHost'
@@ -2982,8 +3859,11 @@ components:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that the listener is being
+            updated in.
           type: string
         listenerName:
+          description: Name of the listener that is being updated.
           type: string
     UpdateListenerRequest:
       type: object
@@ -2996,6 +3876,7 @@ components:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that is being updated.
           type: string
     UpdateLoadBalancerRequest:
       type: object
@@ -3003,14 +3884,29 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateLoadBalancerRequest_updateMask'
         name:
-          description: Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])?
-            ``.
+          description: |-
+            New name for the application load balancer.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            New description of the application load balancer.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            New application load balancer labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [get](/docs/application-load-balancer/api-ref/LoadBalancer/get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
@@ -3020,12 +3916,32 @@ components:
           additionalProperties:
             type: string
         listenerSpecs:
+          description: |-
+            New listeners for the application load balancer.
+
+            For details about the concept,
+            see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener).
+
+            Existing list of listeners is completely replaced by the specified list, so if you just want to add, update,
+            or remove a listener, make a [addListener](/docs/application-load-balancer/api-ref/LoadBalancer/addListener) request,
+            a [updateListener](/docs/application-load-balancer/api-ref/LoadBalancer/updateListener) request, or a [removeListener](/docs/application-load-balancer/api-ref/LoadBalancer/removeListener) request.
           type: array
           items:
             $ref: '#/components/schemas/ListenerSpec'
         allocationPolicy:
           $ref: '#/components/schemas/AllocationPolicy_in_UpdateLoadBalancerRequest_allocationPolicy'
         securityGroupIds:
+          description: |-
+            ID's of new security groups attributed to the application load balancer.
+
+            For details about the concept,
+            see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups).
+
+            Existing list of security groups is completely replaced by the specified list,
+            so if you just want to add or remove an allocation policy:
+            1. Get the current set of security groups with a [get](/docs/application-load-balancer/api-ref/LoadBalancer/get) request.
+            2. Add or remove a group in this set.
+            3. Send the new set in this field.
           type: array
           items:
             type: string
@@ -3033,10 +3949,13 @@ components:
       type: object
       properties:
         httpRouterId:
+          description: ID of the HTTP router that the route is being updated in.
           type: string
         virtualHostName:
+          description: Name of the virtual host that the route is being updated in.
           type: string
         routeName:
+          description: Name of the route that is being updated.
           type: string
     UpdateRouteRequest:
       type: object
@@ -3044,41 +3963,66 @@ components:
       - type: object
         properties:
           routeName:
-            description: Required.
+            description: |-
+              Required.
+              Name of the route to update.
+
+              To get the route name, make a [get](/docs/application-load-balancer/api-ref/VirtualHost/get) request.
             type: string
           updateMask:
             $ref: '#/components/schemas/FieldMask'
+            description: Field mask that specifies which attributes of the route should
+              be updated.
       - title: route
         type: object
         maxProperties: 1
         properties:
           http:
             $ref: '#/components/schemas/HttpRoute'
+            description: New settings of the HTTP route.
           grpc:
             $ref: '#/components/schemas/GrpcRoute'
+            description: New settings of the gRPC route.
     UpdateSniMatchMetadata:
       type: object
       properties:
         loadBalancerId:
+          description: ID of the application load balancer that the SNI handler is
+            being updated in.
           type: string
         listenerName:
+          description: Name of the listener that the SNI handler is being updated
+            in.
           type: string
         sniMatchName:
+          description: Name of the SNI handler that is being updated.
           type: string
     UpdateSniMatchRequest:
       type: object
       properties:
         listenerName:
-          description: Required.
+          description: |-
+            Required.
+            Name of the listener to update the SNI handler in.
           type: string
         name:
-          description: Required.
+          description: |-
+            Required.
+            Name of the SNI handler to update.
           type: string
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateSniMatchRequest_updateMask'
         serverNames:
           description: |-
             Required.
+            New server names that are matched by the SNI handler.
+
+            Existing set of server names is completely replaced by the provided set, so if you just want
+            to add or remove a server name:
+            1. Get the current set of server names with a [get](/docs/application-load-balancer/api-ref/LoadBalancer/get) request.
+            2. Add or remove a server name in this set.
+            3. Send the new set in this field.
+
             Must contain at least one element.
           type: array
           items:
@@ -3089,6 +4033,7 @@ components:
       type: object
       properties:
         targetGroupId:
+          description: ID of the target group that is being updated.
           type: string
     UpdateTargetGroupRequest:
       type: object
@@ -3096,14 +4041,29 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateTargetGroupRequest_updateMask'
         name:
-          description: Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])?
-            ``.
+          description: |-
+            New name for the target group.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            New description of the target group.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            Target group labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [get](/docs/application-load-balancer/api-ref/TargetGroup/get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
@@ -3113,6 +4073,11 @@ components:
           additionalProperties:
             type: string
         targets:
+          description: |-
+            New list of targets in the target group.
+
+            Existing list of targets is completely replaced by the specified list, so if you just want to add or remove
+            a target, make a [addTargets](/docs/application-load-balancer/api-ref/TargetGroup/addTargets) request or a [removeTargets](/docs/application-load-balancer/api-ref/TargetGroup/removeTargets) request.
           type: array
           items:
             $ref: '#/components/schemas/Target'
@@ -3120,10 +4085,11 @@ components:
       type: object
       properties:
         httpRouterId:
-          description: ID of the HTTP Router where a virtual host is being updated.
+          description: ID of the HTTP router that the virtual host is being updated
+            in.
           type: string
         virtualHostName:
-          description: Name of the updated virtual host.
+          description: Name of the virtual host that is being updated.
           type: string
     UpdateVirtualHostRequest:
       type: object
@@ -3132,25 +4098,59 @@ components:
           $ref: '#/components/schemas/FieldMask_in_UpdateVirtualHostRequest_updateMask'
         authority:
           description: |-
-            Fields of the virtual host to update.
-            Except name, that field used to address virtual host within the http router
-            and cannot be changed after creation.
+            New list of domains to attribute to the virtual host.
+
+            The host is selected to process the request received by the load balancer
+            if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain
+            specified in the host.
+
+            A wildcard asterisk character (`*`) matches 0 or more characters.
+
+            Existing list of domains is completely replaced by the specified list.
+
+            If not specified, all domains are attributed to the host, which is the same as specifying a `*` value.
+            An HTTP router must not contain more than one virtual host to which all domains are attributed.
           type: array
           items:
             type: string
         routes:
+          description: |-
+            New list of routes of the virtual host.
+
+            A route contains a set of conditions (predicates) that are used by the load balancer to select the route
+            for the request and an action on the request.
+            For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
+
+            The order of routes matters: the first route whose predicate matches the request is selected.
+            The most specific routes should be at the top of the list, so that they are not overridden.
+            For example, if the first HTTP route is configured, via `match`, to match paths prefixed with just `/`,
+            other routes are never matched.
+
+            Existing list of routes is completely replaced by the specified list, so if you just want to remove a route,
+            make a [removeRoute](/docs/application-load-balancer/api-ref/VirtualHost/removeRoute) request.
           type: array
           items:
             $ref: '#/components/schemas/Route'
         modifyRequestHeaders:
+          description: |-
+            New list of modifications that are made to the headers of incoming HTTP requests
+            before they are forwarded to backends.
+
+            Existing list of modifications is completely replaced by the specified list.
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
         modifyResponseHeaders:
+          description: |-
+            New list of modifications that are made to the headers of HTTP responses received from backends
+            before responses are forwarded to clients.
+
+            Existing list of modifications is completely replaced by the specified list.
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
     ValidationContext:
+      description: A TLS validation context resource.
       type: object
       allOf:
       - title: trusted_ca
@@ -3158,40 +4158,61 @@ components:
         maxProperties: 1
         properties:
           trustedCaId:
-            description: Trusted CA certificate ID in the Certificate Manager.
             type: string
           trustedCaBytes:
-            description: Trusted CA blob.
+            description: X.509 certificate contents in PEM format.
             type: string
     VirtualHost:
+      description: |-
+        A virtual host resource.
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host).
       type: object
       properties:
         name:
-          description: Required.
+          description: |-
+            Required.
+            Name of the virtual host. The name is unique within the HTTP router.
           type: string
         authority:
           description: |-
-            A list of domains (host/authority header) that will be matched to this
-            virtual host. Wildcard hosts are supported in the form of '*.foo.com' or
-            '*-bar.foo.com'.
-            If not specified, all domains will be matched.
+            List of domains that are attributed to the virtual host.
+
+            The host is selected to process the request received by the load balancer
+            if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain
+            specified in the host.
+
+            A wildcard asterisk character (`*`) matches 0 or more characters.
+
+            If not specified, all domains are attributed to the host, which is the same as specifying a `*` value.
+            An HTTP router must not contain more than one virtual host to which all domains are attributed.
           type: array
           items:
             type: string
         routes:
           description: |-
-            Routes are matched *in-order*. Be careful when adding them to the end.
-            For instance, having http '/' match first makes all other routes unused.
+            Routes of the virtual host.
+
+            A route contains a set of conditions (predicates) that are used by the load balancer to select the route
+            for the request and an action on the request.
+            For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes).
+
+            The order of routes matters: the first route whose predicate matches the request is selected.
+            The most specific routes should be at the top of the list, so that they are not overridden.
+            For example, if the first HTTP route is configured, via `match`, to match paths prefixed with just `/`,
+            other routes are never matched.
           type: array
           items:
             $ref: '#/components/schemas/Route'
         modifyRequestHeaders:
-          description: Apply the following modifications to the request headers.
+          description: Modifications that are made to the headers of incoming HTTP
+            requests before they are forwarded to backends.
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
         modifyResponseHeaders:
-          description: Apply the following modifications to the response headers.
+          description: |-
+            Modifications that are made to the headers of HTTP responses received from backends
+            before responses are forwarded to clients.
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
@@ -3212,7 +4233,9 @@ components:
           items:
             type: object
     ListenerSpec_in_AddListenerRequest_listenerSpec:
-      description: Required.
+      description: |-
+        Required.
+        Listener to add to the application load balancer.
       type: object
       allOf:
       - type: object
@@ -3220,11 +4243,17 @@ components:
           name:
             description: |-
               Required.
+              Name of the listener. The name is unique within the application load balancer.
+
               Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
             type: string
           endpointSpecs:
             description: |-
               Required.
+              Endpoints of the listener.
+
+              Endpoints are defined by their IP addresses and ports.
+
               Must contain at least one element.
             type: array
             items:
@@ -3235,10 +4264,16 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpListener'
+            description: HTTP listener settings.
           tls:
             $ref: '#/components/schemas/TlsListener'
+            description: HTTPS (HTTP over TLS) listener settings.
     TlsHandler_in_AddSniMatchRequest_handler:
-      description: Required.
+      description: |-
+        Required.
+        Settings for handling requests with Server Name Indication (SNI) matching one of [serverNames](/docs/application-load-balancer/api-ref/LoadBalancer/addSniMatch#body_params) values.
+
+        An HTTPS (HTTP over TLS) handler resource.
       type: object
       allOf:
       - type: object
@@ -3246,10 +4281,9 @@ components:
           certificateIds:
             description: |-
               Required.
-              Certificate IDs in the Certificate Manager.
-              Multiple TLS certificates can be associated with the same context to allow
-              both RSA and ECDSA certificates.
-              Only the first certificate of each type will be used.
+              ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
+
+              RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
 
               Must contain at least one element.
             type: array
@@ -3261,8 +4295,12 @@ components:
         properties:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
+            description: HTTP handler.
     ValidationContext_in_BackendTls_validationContext:
-      description: Validation context for backend TLS connections.
+      description: |-
+        Validation context for TLS connections.
+
+        A TLS validation context resource.
       type: object
       allOf:
       - title: trusted_ca
@@ -3270,23 +4308,34 @@ components:
         maxProperties: 1
         properties:
           trustedCaId:
-            description: Trusted CA certificate ID in the Certificate Manager.
             type: string
           trustedCaBytes:
-            description: Trusted CA blob.
+            description: X.509 certificate contents in PEM format.
             type: string
     AllocationPolicy_in_CreateLoadBalancerRequest_allocationPolicy:
+      description: |-
+        Locality settings of the application load balancer.
+
+        For details about the concept,
+        see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location).
+
+        A locality settings (allocation policy) resource.
       type: object
       properties:
         locations:
           description: |-
             Required.
+            Availability zones and subnets that the application load balancer resides.
+
             The minimum number of elements is 1.
           type: array
           items:
             $ref: '#/components/schemas/Location'
     Payload_in_DirectResponseAction_body:
-      description: Optional response body.
+      description: |-
+        Response body.
+
+        A health check payload resource.
       type: object
       allOf:
       - title: payload
@@ -3295,12 +4344,19 @@ components:
         properties:
           text:
             description: |-
-              Text message.
+              Payload text.
 
               The string length in characters must be greater than 0.
             type: string
     StringMatch_in_GrpcRouteMatch_fqmn:
-      description: If not set, all services/methods are assumed.
+      description: |-
+        Match settings for gRPC service method called in the request.
+
+        A match string must be a fully qualified method name, e.g. `foo.bar.v1.BazService/Get`, or a prefix of such.
+
+        If not specified, the route matches all methods.
+
+        A string matcher resource.
       type: object
       allOf:
       - title: match
@@ -3308,10 +4364,25 @@ components:
         maxProperties: 1
         properties:
           exactMatch:
+            description: Exact match string.
             type: string
           prefixMatch:
+            description: Prefix match string.
             type: string
     GrpcStatusResponseActionStatus_in_GrpcStatusResponseAction_status:
+      description: |-
+        gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses.
+
+        gRPC status code supported for use in responses.
+
+         - OK: `OK` (0) status code.
+         - INVALID_ARGUMENT: `INVALID_ARGUMENT` (3) status code.
+         - NOT_FOUND: `NOT_FOUND` (5) status code.
+         - PERMISSION_DENIED: `PERMISSION_DENIED` (7) status code.
+         - UNAUTHENTICATED: `UNAUTHENTICATED` (16) status code.
+         - UNIMPLEMENTED: `UNIMPLEMENTED` (12) status code.
+         - INTERNAL: `INTERNAL` (13) status code.
+         - UNAVAILABLE: `UNAVAILABLE` (14) status code.
       type: string
       enum:
       - OK
@@ -3325,8 +4396,11 @@ components:
       default: OK
     Payload_in_HealthCheckStreamHealthCheck_send:
       description: |-
-        Optional message to send.
-        If empty, it's a connect-only health check.
+        Message sent to targets during TCP data transfer.
+
+        If not specified, no data is sent to the target.
+
+        A health check payload resource.
       type: object
       allOf:
       - title: payload
@@ -3335,12 +4409,17 @@ components:
         properties:
           text:
             description: |-
-              Text message.
+              Payload text.
 
               The string length in characters must be greater than 0.
             type: string
     Payload_in_HealthCheckStreamHealthCheck_receive:
-      description: Optional text to search in reply.
+      description: |-
+        Data that must be contained in the messages received from targets for a successful health check.
+
+        If not specified, no messages are expected from targets, and those that are received are not checked.
+
+        A health check payload resource.
       type: object
       allOf:
       - title: payload
@@ -3349,17 +4428,26 @@ components:
         properties:
           text:
             description: |-
-              Text message.
+              Payload text.
 
               The string length in characters must be greater than 0.
             type: string
     HttpHandler_in_HttpListener_handler:
-      description: Sets plaintext HTTP router, optional.
+      description: |-
+        Settings for handling HTTP requests.
+
+        Only one of `handler` and `redirects` can be specified.
+
+        An HTTP handler resource.
       type: object
       allOf:
       - type: object
         properties:
           httpRouterId:
+            description: |-
+              ID of the HTTP router processing requests.
+
+              For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router).
             type: string
       - title: protocol_settings
         type: object
@@ -3367,23 +4455,39 @@ components:
         properties:
           http2Options:
             $ref: '#/components/schemas/Http2Options'
-            description: If set, will enable HTTP2 protocol for the handler.
+            description: |-
+              HTTP/2 settings.
+
+              If specified, incoming HTTP/2 requests are supported by the listener.
           allowHttp10:
-            description: If set, will enable only HTTP1 protocol with HTTP1.0 support.
+            description: Enables support for incoming HTTP/1.0 and HTTP/1.1 requests
+              and disables it for HTTP/2 requests.
             type: boolean
             format: boolean
     Redirects_in_HttpListener_redirects:
       description: |-
-        Shortcut for adding http -> https redirects,
-        can be used instead of the HttpHandler above.
+        Redirects settings.
+
+        Only one of `redirects` and `handler` can be specified.
+
+        A listener redirects resource.
       type: object
       properties:
         httpToHttps:
-          description: Adds "*" VirtualHost with a http -> https redirect.
+          description: |-
+            Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`.
+
+            The setting has the same effect as a single, catch-all `HttpRoute`
+            with `replaceScheme` set to `https`.
           type: boolean
           format: boolean
     StringMatch_in_HttpRouteMatch_path:
-      description: If not set, '/' is assumed.
+      description: |-
+        Match settings for the path specified in the request.
+
+        If not specified, the route matches all paths.
+
+        A string matcher resource.
       type: object
       allOf:
       - title: match
@@ -3391,19 +4495,21 @@ components:
         maxProperties: 1
         properties:
           exactMatch:
+            description: Exact match string.
             type: string
           prefixMatch:
+            description: Prefix match string.
             type: string
     LoadBalancerStatus_in_LoadBalancer_status:
       description: |-
         Status of the application load balancer.
 
-         - CREATING: Application load balancer is being created.
-         - STARTING: Application load balancer is being started.
-         - ACTIVE: Application load balancer is active and sends traffic to the targets.
-         - STOPPING: Application load balancer is being stopped.
-         - STOPPED: Application load balancer is stopped and doesn't send traffic to the targets.
-         - DELETING: Application load balancer is being deleted.
+         - CREATING: The application load balancer is being created.
+         - STARTING: The application load balancer is being started.
+         - ACTIVE: The application load balancer is active and sends traffic to the targets.
+         - STOPPING: The application load balancer is being stopped.
+         - STOPPED: The application load balancer is stopped and doesn't send traffic to the targets.
+         - DELETING: The application load balancer is being deleted.
       type: string
       enum:
       - CREATING
@@ -3413,18 +4519,29 @@ components:
       - STOPPED
       - DELETING
     AllocationPolicy_in_LoadBalancer_allocationPolicy:
-      description: Allocation sites for application load balancer instances.
+      description: |-
+        Locality settings of the application load balancer.
+
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location).
+
+        A locality settings (allocation policy) resource.
       type: object
       properties:
         locations:
           description: |-
             Required.
+            Availability zones and subnets that the application load balancer resides.
+
             The minimum number of elements is 1.
           type: array
           items:
             $ref: '#/components/schemas/Location'
     TlsHandler_in_SniMatch_handler:
-      description: Required.
+      description: |-
+        Required.
+        Settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values.
+
+        An HTTPS (HTTP over TLS) handler resource.
       type: object
       allOf:
       - type: object
@@ -3432,10 +4549,9 @@ components:
           certificateIds:
             description: |-
               Required.
-              Certificate IDs in the Certificate Manager.
-              Multiple TLS certificates can be associated with the same context to allow
-              both RSA and ECDSA certificates.
-              Only the first certificate of each type will be used.
+              ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
+
+              RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
 
               Must contain at least one element.
             type: array
@@ -3447,31 +4563,55 @@ components:
         properties:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
+            description: HTTP handler.
     TargetStateHealthcheckStatus_in_TargetState_status:
-      description: Statuses of the target for all known zones.
+      description: |-
+        Health of the target, i.e. its statuses in all availability zones.
+
+        Health of the target.
       type: object
       properties:
         zoneStatuses:
+          description: Statuses of the target in its availability zones.
           type: array
           items:
             $ref: '#/components/schemas/TargetStateZoneHealthcheckStatus'
     Target_in_TargetState_target:
-      description: Required.
+      description: |-
+        Required.
+        Target.
+
+        A target resource.
+        For details about the concept, see [documentation](/docs/application-load-balancer/concepts/target-group).
       type: object
       allOf:
       - type: object
         properties:
           subnetId:
-            description: ID of the subnet that target connected to.
+            description: ID of the subnet that the target is connected to.
             type: string
       - title: address_type
         type: object
         maxProperties: 1
         properties:
           ipAddress:
+            description: IP address of the target.
             type: string
     TargetStateStatus_in_TargetStateZoneHealthcheckStatus_status:
-      description: Healthcheck status of target for the specific zone.
+      description: |-
+        Status of the target in the availability zone.
+
+        Supported target statuses.
+
+         - HEALTHY: All of the health checks specified in `healthchecks` or `healthchecks` are passed
+        (the number depends on the `healthyThreshold` setting) and the target is ready to receive traffic.
+         - PARTIALLY_HEALTHY: Some of the health checks specified in `healthchecks` or `healthchecks` failed
+        (the number depends on the `unhealthyThreshold` setting).
+        The target is ready to receive traffic from the load balancer nodes which, based on their health checks,
+        consider the target healthy.
+         - UNHEALTHY: All of the health checks specified in `healthchecks` or `healthchecks` failed
+        (the number depends on the `unhealthyThreshold` setting) and the target is not receiving traffic.
+         - DRAINING: Target is being deleted and the application load balancer is no longer sending traffic to this target.
       type: string
       enum:
       - HEALTHY
@@ -3480,7 +4620,12 @@ components:
       - DRAINING
       - TIMEOUT
     TlsHandler_in_TlsListener_defaultHandler:
-      description: Required.
+      description: |-
+        Required.
+        Settings for handling HTTPS requests by default,
+        with Server Name Indication (SNI) not matching any of the `sniHandlers`.
+
+        An HTTPS (HTTP over TLS) handler resource.
       type: object
       allOf:
       - type: object
@@ -3488,10 +4633,9 @@ components:
           certificateIds:
             description: |-
               Required.
-              Certificate IDs in the Certificate Manager.
-              Multiple TLS certificates can be associated with the same context to allow
-              both RSA and ECDSA certificates.
-              Only the first certificate of each type will be used.
+              ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
+
+              RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
 
               Must contain at least one element.
             type: array
@@ -3503,8 +4647,11 @@ components:
         properties:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
+            description: HTTP handler.
     FieldMask_in_UpdateHttpRouterRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the HTTP router should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -3516,6 +4663,8 @@ components:
       type: string
     FieldMask_in_UpdateListenerRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the listener should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -3526,7 +4675,9 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     ListenerSpec_in_UpdateListenerRequest_listenerSpec:
-      description: Required.
+      description: |-
+        Required.
+        New attributes of the listener.
       type: object
       allOf:
       - type: object
@@ -3534,11 +4685,17 @@ components:
           name:
             description: |-
               Required.
+              Name of the listener. The name is unique within the application load balancer.
+
               Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
             type: string
           endpointSpecs:
             description: |-
               Required.
+              Endpoints of the listener.
+
+              Endpoints are defined by their IP addresses and ports.
+
               Must contain at least one element.
             type: array
             items:
@@ -3549,10 +4706,14 @@ components:
         properties:
           http:
             $ref: '#/components/schemas/HttpListener'
+            description: HTTP listener settings.
           tls:
             $ref: '#/components/schemas/TlsListener'
+            description: HTTPS (HTTP over TLS) listener settings.
     FieldMask_in_UpdateLoadBalancerRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the application load balancer should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -3563,17 +4724,34 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     AllocationPolicy_in_UpdateLoadBalancerRequest_allocationPolicy:
+      description: |-
+        New locality settings of the application load balancer.
+
+        For details about the concept,
+        see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location).
+
+        Existing locality settings are completely replaced by the specified settings,
+        so if you just want to add or remove an allocation policy:
+        1. Get the current settings with a [get](/docs/application-load-balancer/api-ref/LoadBalancer/get) request.
+        2. Add or remove a policy in this set.
+        3. Send the new set in this field.
+
+        A locality settings (allocation policy) resource.
       type: object
       properties:
         locations:
           description: |-
             Required.
+            Availability zones and subnets that the application load balancer resides.
+
             The minimum number of elements is 1.
           type: array
           items:
             $ref: '#/components/schemas/Location'
     FieldMask_in_UpdateSniMatchRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the SNI handler should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -3584,7 +4762,11 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     TlsHandler_in_UpdateSniMatchRequest_handler:
-      description: Required.
+      description: |-
+        Required.
+        New settings for handling requests with Server Name Indication (SNI) matching one of [serverNames](/docs/application-load-balancer/api-ref/LoadBalancer/updateSniMatch#body_params) values.
+
+        An HTTPS (HTTP over TLS) handler resource.
       type: object
       allOf:
       - type: object
@@ -3592,10 +4774,9 @@ components:
           certificateIds:
             description: |-
               Required.
-              Certificate IDs in the Certificate Manager.
-              Multiple TLS certificates can be associated with the same context to allow
-              both RSA and ECDSA certificates.
-              Only the first certificate of each type will be used.
+              ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
+
+              RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
 
               Must contain at least one element.
             type: array
@@ -3607,8 +4788,11 @@ components:
         properties:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
+            description: HTTP handler.
     FieldMask_in_UpdateTargetGroupRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the target group should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -3620,6 +4804,8 @@ components:
       type: string
     FieldMask_in_UpdateVirtualHostRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the virtual host should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -3631,8 +4817,12 @@ components:
       type: string
 tags:
 - name: BackendGroup
+  description: A set of methods for managing backend groups.
 - name: HttpRouter
+  description: A set of methods for managing HTTP routers.
 - name: LoadBalancer
+  description: A set of methods for managing application load balancers.
 - name: TargetGroup
+  description: A set of methods for managing target groups.
 - name: VirtualHost
-  description: A set of methods for managing virtual hosts of HTTP Router resource.
+  description: A set of methods for managing virtual hosts of HTTP routers.

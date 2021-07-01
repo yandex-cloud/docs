@@ -145,7 +145,7 @@ plannedOperation | **object**<br><p>Maintenance operation planned at nearest mai
 plannedOperation.<br>info | **string**<br><p>The maximum string length in characters is 256.</p> 
 plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
-deletionProtection | **boolean** (boolean)<br><p>Deletion Protection flag Enable it to protected your cluster from accidental removal.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

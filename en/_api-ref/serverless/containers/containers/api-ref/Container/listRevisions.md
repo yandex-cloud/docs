@@ -36,12 +36,16 @@ filter | The maximum string length in characters is 1000.
       "image": {
         "imageUrl": "string",
         "imageDigest": "string",
-        "command": [
-          "string"
-        ],
-        "args": [
-          "string"
-        ],
+        "command": {
+          "command": [
+            "string"
+          ]
+        },
+        "args": {
+          "args": [
+            "string"
+          ]
+        },
         "environment": "object",
         "workingDir": "string"
       },
@@ -71,8 +75,10 @@ revisions[].<br>createdAt | **string** (date-time)<br><p>String in <a href="http
 revisions[].<br>image | **object**<br>
 revisions[].<br>image.<br>imageUrl | **string**<br>
 revisions[].<br>image.<br>imageDigest | **string**<br>
-revisions[].<br>image.<br>command[] | **string**<br>
-revisions[].<br>image.<br>args[] | **string**<br>
+revisions[].<br>image.<br>command | **object**<br>
+revisions[].<br>image.<br>command.<br>command[] | **string**<br>
+revisions[].<br>image.<br>args | **object**<br>
+revisions[].<br>image.<br>args.<br>args[] | **string**<br>
 revisions[].<br>image.<br>environment | **object**<br><p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
 revisions[].<br>image.<br>workingDir | **string**<br>
 revisions[].<br>resources | **object**<br>

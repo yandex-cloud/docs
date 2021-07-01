@@ -7,8 +7,8 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[BackendGroup](BackendGroup/index.md) | 
-[HttpRouter](HttpRouter/index.md) | 
-[LoadBalancer](LoadBalancer/index.md) | 
-[TargetGroup](TargetGroup/index.md) | 
-[VirtualHost](VirtualHost/index.md) | A set of methods for managing virtual hosts of HTTP Router resource.
+[BackendGroup](BackendGroup/index.md) | A set of methods for managing backend groups.
+[HttpRouter](HttpRouter/index.md) | A set of methods for managing HTTP routers.
+[LoadBalancer](LoadBalancer/index.md) | A set of methods for managing application load balancers.
+[TargetGroup](TargetGroup/index.md) | A set of methods for managing target groups.
+[VirtualHost](VirtualHost/index.md) | A set of methods for managing virtual hosts of HTTP routers.

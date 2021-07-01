@@ -27,12 +27,16 @@ POST https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions:
   "serviceAccountId": "string",
   "imageSpec": {
     "imageUrl": "string",
-    "command": [
-      "string"
-    ],
-    "args": [
-      "string"
-    ],
+    "command": {
+      "command": [
+        "string"
+      ]
+    },
+    "args": {
+      "args": [
+        "string"
+      ]
+    },
     "environment": "object",
     "workingDir": "string"
   },
@@ -53,8 +57,10 @@ executionTimeout | **string**<br><p>The maximum value is 600 seconds.</p>
 serviceAccountId | **string**<br>
 imageSpec | **object**<br><p>Required.</p> 
 imageSpec.<br>imageUrl | **string**<br><p>Required.</p> 
-imageSpec.<br>command[] | **string**<br>
-imageSpec.<br>args[] | **string**<br>
+imageSpec.<br>command | **object**<br>
+imageSpec.<br>command.<br>command[] | **string**<br>
+imageSpec.<br>args | **object**<br>
+imageSpec.<br>args.<br>args[] | **string**<br>
 imageSpec.<br>environment | **object**<br><p>Each key must match the regular expression ``[a-zA-Z][a-zA-Z0-9_]*``. The maximum string length in characters for each value is 4096.</p> 
 imageSpec.<br>workingDir | **string**<br>
 concurrency | **string** (int64)<br>
