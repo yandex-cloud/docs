@@ -4,7 +4,63 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
-  - name: Квоты и лимиты
-    href: limits.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Ресурсы
+        items:
+          - name: Создать ресурс
+            href: operations/resources/create-resource.md
+          - name: Изменить основные настройки ресурса
+            href: operations/resources/configure-basics.md
+          - name: Отключить ресурс
+            href: operations/resources/disable-resource.md
+          - name: Настроить кеширование ресурса
+            href: operations/resources/configure-caching.md
+          - name: Предзагрузить файлы на CDN-серверы
+            href: operations/resources/prefetch-files.md
+          - name: Очистить кеш ресурса
+            href: operations/resources/purge-cache.md
+          - name: Настроить заголовки запросов и ответов
+            href: operations/resources/configure-headers.md
+          - name: Настроить CORS при ответах клиентам
+            href: operations/resources/configure-cors.md
+          - name: Настроить HTTP-методы
+            href: operations/resources/configure-http.md
+          - name: Включить сжатие файлов
+            href: operations/resources/enable-compression.md
+          - name: Включить сегментацию файлов
+            href: operations/resources/enable-segmentation.md
+      - name: Группы источников
+        items:
+          - name: Создать группу источников
+            href: operations/origin-groups/create-group.md
+          - name: Изменить группу источников
+            href: operations/origin-groups/edit-group.md
+          - name: Подключить группу источников к ресурсу
+            href: operations/origin-groups/bind-group-to-resource.md
+          - name: Удалить группу источников
+            href: operations/origin-groups/delete-group.md
+  - name: Концепции
+    items:
+      - name: Обзор сервиса
+        href: concepts/index.md
+      - name: Ресурс
+        href: concepts/resource.md
+      - name: Кеширование контента
+        href: concepts/caching.md
+      - name: CORS
+        href: concepts/cors.md
+      - name: Сжатие контента
+        href: concepts/compression.md
+      - name: Сегментация контента
+        href: concepts/slicing.md
+      - name: Источники и их группы
+        href: concepts/origins.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Решение проблем
+    href: troubleshooting.md
   - name: Правила тарификации
     href: pricing.md
