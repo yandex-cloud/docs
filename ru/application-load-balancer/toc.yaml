@@ -39,6 +39,10 @@ items:
             href: operations/application-load-balancer-update.md
           - name: Удалить L7-балансировщик
             href: operations/application-load-balancer-delete.md
+  - name: Сценарии использования
+    items:
+      - name: Организация виртуального хостинга
+        href: solutions/virtual-hosting.md
   - name: Концепции
     items:
       - name: Обзор
