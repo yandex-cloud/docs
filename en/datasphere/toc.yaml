@@ -51,10 +51,12 @@ items:
         href: concepts/dvc-and-git.md
       - name: Integration with Data Proc
         href: concepts/data-proc.md
-      - name: Using TensorBoard in DataSphere
-        href: concepts/tensorboard.md
       - name: Background operations
         href: concepts/async.md
+      - name: Private data storage
+        href: concepts/secrets.md
+      - name: Using TensorBoard in Yandex DataSphere
+        href: concepts/tensorboard.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Early access
@@ -84,7 +86,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref/datasphere/toc.yaml
+          path: en/_api-ref/datasphere/toc.yaml        
   - name: Access management
     href: security/index.md
   - name: Pricing policy
