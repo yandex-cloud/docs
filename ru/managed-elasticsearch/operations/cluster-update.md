@@ -11,10 +11,27 @@ keywords:
 
 После создания кластера вы можете:
 
+* [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-disk-size) (доступно только для стандартного `network-hdd` и быстрого сетевого `network-ssd` хранилищ).
 * [{#T}](#change-admin-password).
 * [{#T}](#update-additional-settings).
+
+
+## Изменить настройки сервисного аккаунта {#change-service-account}
+
+{% list tabs %}
+
+* Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. Выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
+
+       {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
+{% endlist %}
+
 
 ## Изменить класс хостов {#change-resource-preset}
 
