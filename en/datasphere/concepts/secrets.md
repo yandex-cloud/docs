@@ -29,7 +29,6 @@ You can't create secrets with identical names in the same project. Two secrets w
 ### Creating a secret {#create}
 
 1. Open the project where you would like to create a secret.
-1. Make sure that the [early access mode](../early-access/index.md) is enabled.
 1. To create a secret, go to the ![Secrets](../../_assets/datasphere/jupyterlab/secret.svg) tab and click the ![plus](../../_assets/datasphere/jupyterlab/add.svg) icon.
 1. In the dialog box, fill in the fields below:
     * **Name**: Assign the secret a name.
