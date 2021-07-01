@@ -201,7 +201,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters
   "networkId": "string",
   "securityGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 
@@ -361,6 +362,7 @@ hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host shoul
 hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> <p>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with ``assignPublicIp`` set as needed.</p> <p>Possible values:</p> <ul> <li>false - don't assign a public IP to the host.</li> <li>true - the host should have a public IP address.</li> </ul> 
 networkId | **string**<br><p>ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

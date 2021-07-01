@@ -69,6 +69,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring}
@@ -184,6 +185,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring1}
@@ -279,6 +281,7 @@ network_id | **string**<br>Required. ID of the network to create the cluster in.
 sharded | **bool**<br>Redis cluster mode on/off. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -364,6 +367,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring2}
@@ -456,6 +460,7 @@ config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources f
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -553,6 +558,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring3}
@@ -724,6 +730,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring4}
@@ -855,6 +862,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring5}
@@ -989,6 +997,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring6}
@@ -1120,6 +1129,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring7}
@@ -1301,6 +1311,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring8}
@@ -1435,6 +1446,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenanc
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring9}
@@ -1566,6 +1578,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenanc
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring10}
@@ -2144,6 +2157,7 @@ maintenance_window | **[MaintenanceWindow](#MaintenanceWindow12)**<br>Maintenanc
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation11)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 tls_enabled | **bool**<br>TLS port and functionality on\off 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring11}

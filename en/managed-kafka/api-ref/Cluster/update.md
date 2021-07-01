@@ -89,7 +89,8 @@ clusterId | Required. ID of the Apache Kafka® cluster to update.  To get the Ap
   "name": "string",
   "securityGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 
@@ -149,6 +150,7 @@ configSpec.<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that define
 configSpec.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage topics via AdminAPI</p> 
 name | **string**<br><p>New name for the Apache Kafka® cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

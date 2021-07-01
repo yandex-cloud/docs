@@ -64,7 +64,8 @@ clusterId | ID of the cluster to update.  To get the cluster ID, make a [list](/
   "uiProxy": true,
   "securityGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 
@@ -101,6 +102,7 @@ bucket | **string**<br><p>Name of the new Object Storage bucket to use for Data 
 decommissionTimeout | **string** (int64)<br><p>Timeout to gracefully decommission nodes. In seconds. Default value: 0</p> <p>Acceptable values are 0 to 86400, inclusive.</p> 
 uiProxy | **boolean** (boolean)<br><p>Enable UI Proxy feature.</p> 
 securityGroupIds[] | **string**<br><p>User security groups.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

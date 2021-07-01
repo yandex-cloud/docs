@@ -68,7 +68,8 @@ POST https://mdb.api.cloud.yandex.net/managed-elasticsearch/v1/clusters
   "securityGroupIds": [
     "string"
   ],
-  "serviceAccountId": "string"
+  "serviceAccountId": "string",
+  "deletionProtection": true
 }
 ```
 
@@ -111,6 +112,7 @@ hostSpecs[].<br>shardName | **string**<br><p>The shard name to create on the hos
 networkId | **string**<br><p>Required. ID of the network to create the Elasticsearch cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

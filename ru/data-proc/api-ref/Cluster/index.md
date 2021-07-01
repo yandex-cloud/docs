@@ -43,7 +43,8 @@ A set of methods for managing Data Proc clusters.
   ],
   "hostGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
  
@@ -73,6 +74,7 @@ bucket | **string**<br><p>Object Storage bucket to be used for Data Proc jobs th
 uiProxy | **boolean** (boolean)<br><p>Whether UI Proxy feature is enabled.</p> 
 securityGroupIds[] | **string**<br><p>User security groups.</p> 
 hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 
 ## Methods {#methods}
 Method | Description

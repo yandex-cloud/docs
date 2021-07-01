@@ -64,7 +64,8 @@ A set of methods for managing Elasticsearch clusters.
   "securityGroupIds": [
     "string"
   ],
-  "serviceAccountId": "string"
+  "serviceAccountId": "string",
+  "deletionProtection": true
 }
 ```
  
@@ -111,6 +112,7 @@ health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: cluster state is unknown.</li> <li>CREATING: cluster is being created.</li> <li>RUNNING: cluster is running normally.</li> <li>ERROR: cluster encountered a problem and cannot operate.</li> <li>UPDATING: cluster is being updated.</li> <li>STOPPING: cluster is stopping.</li> <li>STOPPED: cluster stopped.</li> <li>STARTING: cluster is starting.</li> </ul> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 
 ## Methods {#methods}
 Method | Description

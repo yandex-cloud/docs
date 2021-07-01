@@ -57,4 +57,138 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: BackendGroupService
+            href: api-ref/grpc/backend_group_service.md
+          - name: HttpRouterService
+            href: api-ref/grpc/http_router_service.md
+          - name: LoadBalancerService
+            href: api-ref/grpc/load_balancer_service.md
+          - name: TargetGroupService
+            href: api-ref/grpc/target_group_service.md
+          - name: VirtualHostService
+            href: api-ref/grpc/virtual_host_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: BackendGroup
+            items:
+              - name: Overview
+                href: api-ref/BackendGroup/index.md
+              - name: addBackend
+                href: api-ref/BackendGroup/addBackend.md
+              - name: create
+                href: api-ref/BackendGroup/create.md
+              - name: delete
+                href: api-ref/BackendGroup/delete.md
+              - name: get
+                href: api-ref/BackendGroup/get.md
+              - name: list
+                href: api-ref/BackendGroup/list.md
+              - name: listOperations
+                href: api-ref/BackendGroup/listOperations.md
+              - name: removeBackend
+                href: api-ref/BackendGroup/removeBackend.md
+              - name: update
+                href: api-ref/BackendGroup/update.md
+              - name: updateBackend
+                href: api-ref/BackendGroup/updateBackend.md
+          - name: HttpRouter
+            items:
+              - name: Overview
+                href: api-ref/HttpRouter/index.md
+              - name: create
+                href: api-ref/HttpRouter/create.md
+              - name: delete
+                href: api-ref/HttpRouter/delete.md
+              - name: get
+                href: api-ref/HttpRouter/get.md
+              - name: list
+                href: api-ref/HttpRouter/list.md
+              - name: listOperations
+                href: api-ref/HttpRouter/listOperations.md
+              - name: update
+                href: api-ref/HttpRouter/update.md
+          - name: LoadBalancer
+            items:
+              - name: Overview
+                href: api-ref/LoadBalancer/index.md
+              - name: addListener
+                href: api-ref/LoadBalancer/addListener.md
+              - name: addSniMatch
+                href: api-ref/LoadBalancer/addSniMatch.md
+              - name: create
+                href: api-ref/LoadBalancer/create.md
+              - name: delete
+                href: api-ref/LoadBalancer/delete.md
+              - name: get
+                href: api-ref/LoadBalancer/get.md
+              - name: getTargetStates
+                href: api-ref/LoadBalancer/getTargetStates.md
+              - name: list
+                href: api-ref/LoadBalancer/list.md
+              - name: listOperations
+                href: api-ref/LoadBalancer/listOperations.md
+              - name: removeListener
+                href: api-ref/LoadBalancer/removeListener.md
+              - name: removeSniMatch
+                href: api-ref/LoadBalancer/removeSniMatch.md
+              - name: start
+                href: api-ref/LoadBalancer/start.md
+              - name: stop
+                href: api-ref/LoadBalancer/stop.md
+              - name: update
+                href: api-ref/LoadBalancer/update.md
+              - name: updateListener
+                href: api-ref/LoadBalancer/updateListener.md
+              - name: updateSniMatch
+                href: api-ref/LoadBalancer/updateSniMatch.md
+          - name: TargetGroup
+            items:
+              - name: Overview
+                href: api-ref/TargetGroup/index.md
+              - name: addTargets
+                href: api-ref/TargetGroup/addTargets.md
+              - name: create
+                href: api-ref/TargetGroup/create.md
+              - name: delete
+                href: api-ref/TargetGroup/delete.md
+              - name: get
+                href: api-ref/TargetGroup/get.md
+              - name: list
+                href: api-ref/TargetGroup/list.md
+              - name: listOperations
+                href: api-ref/TargetGroup/listOperations.md
+              - name: removeTargets
+                href: api-ref/TargetGroup/removeTargets.md
+              - name: update
+                href: api-ref/TargetGroup/update.md
+          - name: VirtualHost
+            items:
+              - name: Overview
+                href: api-ref/VirtualHost/index.md
+              - name: create
+                href: api-ref/VirtualHost/create.md
+              - name: delete
+                href: api-ref/VirtualHost/delete.md
+              - name: get
+                href: api-ref/VirtualHost/get.md
+              - name: list
+                href: api-ref/VirtualHost/list.md
+              - name: removeRoute
+                href: api-ref/VirtualHost/removeRoute.md
+              - name: update
+                href: api-ref/VirtualHost/update.md
+              - name: updateRoute
+                href: api-ref/VirtualHost/updateRoute.md
 base: en/application-load-balancer

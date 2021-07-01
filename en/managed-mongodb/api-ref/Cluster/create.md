@@ -447,7 +447,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters
   "networkId": "string",
   "securityGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 
@@ -731,6 +732,7 @@ hostSpecs[].<br>type | **string**<br><p>Type of the host to be deployed.</p> <ul
 hostSpecs[].<br>shardName | **string**<br><p>Name of the shard that the host belongs to.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

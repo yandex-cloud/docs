@@ -62,6 +62,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring}
@@ -175,6 +176,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring1}
@@ -270,6 +272,7 @@ user_specs[] | **[UserSpec](#UserSpec)**<br>Descriptions of database users to be
 host_specs[] | **[HostSpec](#HostSpec)**<br>Individual configurations for hosts that should be created for the MySQL cluster. 
 network_id | **string**<br>ID of the network to create the cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -390,6 +393,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring2}
@@ -482,6 +486,7 @@ config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources f
 name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>New maintenance window settings for the cluster. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -577,6 +582,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring3}
@@ -746,6 +752,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring4}
@@ -875,6 +882,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow6)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring5}
@@ -1007,6 +1015,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow7)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation6)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring6}
@@ -1136,6 +1145,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow8)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation7)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring7}
@@ -1315,6 +1325,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow9)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation8)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring8}
@@ -1447,6 +1458,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow10)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation9)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring9}
@@ -1577,6 +1589,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow11)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation10)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring10}

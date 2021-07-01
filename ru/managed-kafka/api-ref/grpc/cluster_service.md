@@ -54,6 +54,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring}
@@ -137,6 +138,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring1}
@@ -204,6 +206,7 @@ network_id | **string**<br>ID of the network to create the Apache Kafka® cluste
 subnet_id[] | **string**<br>IDs of subnets to create brokers in. 
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups to place VMs of cluster on. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -344,6 +347,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring2}
@@ -406,6 +410,7 @@ labels | **map<string,string>**<br>Custom labels for the Apache Kafka® cluster 
 config_spec | **[ConfigSpec](#ConfigSpec4)**<br>New configuration and resources for hosts in the Apache Kafka® cluster. <br>Use `update_mask` to prevent reverting all cluster settings that are not listed in `config_spec` to their default values. 
 name | **string**<br>New name for the Apache Kafka® cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### ConfigSpec {#ConfigSpec4}
@@ -479,6 +484,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring3}
@@ -621,6 +627,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring4}
@@ -720,6 +727,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring5}
@@ -819,6 +827,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring6}
