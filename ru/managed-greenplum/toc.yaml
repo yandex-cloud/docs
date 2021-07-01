@@ -1,0 +1,120 @@
+---
+title: Yandex Managed Service for Greenplum<sup>®</sup>
+href: index.yaml
+stage: tech-preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    when: state != "public-preview"
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+        when: state != "public-preview"
+      - name: Информация об имеющихся кластерах
+        href: operations/cluster-list.md
+        when: state != "public-preview"
+      - name: Создание кластера
+        href: operations/cluster-create.md
+        when: state != "public-preview"
+      - name: Подключение к базе данных
+        href: operations/connect.md
+        when: state != "public-preview"
+      - name: Остановка и запуск кластера
+        href: operations/cluster-stop.md
+        when: state != "public-preview"
+      - name: Изменение настроек кластера и базы данных
+        href: operations/cluster-update.md
+        when: state != "public-preview"
+      - name: Управление хостами Greenplum Database<sup>®</sup>
+        href: operations/cluster-hosts.md
+        when: state != "public-preview"
+      - name: Управление базами данных
+        href: operations/databases.md
+        when: state != "public-preview"
+      - name: Управление пользователями БД
+        href: operations/cluster-users.md
+        when: state != "public-preview"
+      - name: Назначение привилегий и ролей
+        href: operations/grant.md
+        when: state != "public-preview"
+      - name: Управление резервными копиями
+        href: operations/cluster-backups.md
+        when: state != "public-preview"
+      - name: Удаление кластера
+        href: operations/cluster-delete.md
+        when: state != "public-preview"
+  - name: Концепции
+    items:
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+        when: state != "public-preview"
+      - name: Классы хостов
+        href: concepts/instance-types.md
+        when: state != "public-preview"
+      - name: Сеть в Managed Service for Greenplum Database<sup>®</sup>
+        href: concepts/network.md
+        when: state != "public-preview"
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+      - name: Типы хранилища
+        href: concepts/storage.md
+        when: state != "public-preview"
+      - name: Резервные копии
+        href: concepts/backup.md
+        when: state != "public-preview"
+      - name: Назначение ролей
+        href: concepts/roles.md
+        when: state != "public-preview"
+      - name: Управление соединениями
+        href: concepts/pooling.md
+        when: state != "public-preview"
+      - name: Репликация
+        href: concepts/replication.md
+        when: state != "public-preview"
+      - name: Поддерживаемые клиенты
+        href: concepts/supported-clients.md
+        when: state != "public-preview"
+      - name: Настройки Greenplum Database<sup>®</sup>
+        href: concepts/settings-list.md
+        when: state != "public-preview"
+  - name: Управление доступом
+    href: security/index.md
+    when: state != "public-preview"
+  - name: Ресурсы и квоты
+    href: quotas.md
+    when: state != "public-preview"
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API (англ.)
+    when: api != "no-show"
+    items:
+      - name: Authentication
+        href: api-ref/authentication.md
+        when: state != "public-preview"
+      - name: gRPC
+        items: null
+        when: state != "public-preview"
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/managed-greenplum/toc.yaml
+          when: state != "public-preview"
+      - name: REST
+        items: null
+        when: state != "public-preview"
+        include:
+          repo: docs
+          path: en/_api-ref/mdb/greenplum/toc.yaml
+          when: state != "public-preview"
+  - name: Вопросы и ответы
+    when: state != "public-preview"
+    items:
+      - name: Общие вопросы
+        href: qa/general.md
+        when: state != "public-preview"
+      - name: Вопросы о Greenplum Database<sup>®</sup>
+        href: qa/greenplum.md
+        when: state != "public-preview"
+      - name: Все вопросы на одной странице
+        href: qa/all.md
+        when: state != "public-preview"
