@@ -22,31 +22,27 @@
 1. Выберите вкладку **Бакеты**.
 1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md):
     1. В выпадающем списке **Выберите пользователя** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
-    1. Задайте разрешения `READ + WRITE` для сервисного аккаунта из выпадающего списка.
+    1. Задайте разрешения `READ + WRITE` для выбранного сервисного аккаунта.
     1. Нажмите кнопку **Добавить**.
     1. Нажмите кнопку **Сохранить**.
 
 
 ## Подключить репозиторий снапшотов {#register-snapshot-repository}
 
-{% note alert %}
-
-Если бакет зарегистрирован в кластере {{ ES }} как репозиторий снапшотов, не вносите никаких изменений в содержимое бакета вручную — это нарушит работу механизма снапшотов {{ ES }}!
-
-{% endnote %}
+{% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
 1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#update-additional-settings) кластера подключите расширение [repository-s3](../concepts/plugins.md).
 1. Зарегистрируйте бакет как репозиторий снапшотов, используя публичный [API {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/put-snapshot-repo-api.html):
 
     ```http
-    PUT https://admin:<пароль>@<FQDN или IP-адрес хоста>:9200/<репозиторий>
+    PUT --cacert ~/.elasticsearch/root.crt https://admin:<пароль>@<FQDN или IP-адрес хоста>:9200/_snapshot/<репозиторий>
     ```
 
     В параметрах запроса укажите бакет, связанный с сервисным аккаунтом кластера:
 
     ```bash
-    curl https://admin:<пароль>@<FQDN или IP-адрес хоста>:9200/<репозиторий> \
-         -X POST \
+    curl --cacert ~/.elasticsearch/root.crt https://admin:<пароль>@<FQDN или IP-адрес хоста>:9200/_snapshot/<репозиторий> \
+         -X PUT \
          --header "Content-Type: application/json" \
          --data '{
            "type": "s3",

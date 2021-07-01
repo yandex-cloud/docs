@@ -144,7 +144,8 @@ POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters
   ],
   "hostGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 
@@ -246,6 +247,7 @@ networkId | **string**<br><p>ID of the network to create the Apache Kafka® clus
 subnetId[] | **string**<br><p>IDs of subnets to create brokers in.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 hostGroupIds[] | **string**<br><p>Host groups to place VMs of cluster on.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

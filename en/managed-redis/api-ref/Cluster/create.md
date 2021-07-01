@@ -81,7 +81,8 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters
   "securityGroupIds": [
     "string"
   ],
-  "tlsEnabled": true
+  "tlsEnabled": true,
+  "deletionProtection": true
 }
 ```
 
@@ -138,6 +139,7 @@ networkId | **string**<br><p>Required. ID of the network to create the cluster i
 sharded | **boolean** (boolean)<br><p>Redis cluster mode on/off.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 tlsEnabled | **boolean** (boolean)<br><p>TLS port and functionality on\off</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

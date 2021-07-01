@@ -63,7 +63,8 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
   ],
   "hostGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 
@@ -103,6 +104,7 @@ bucket | **string**<br><p>Name of the Object Storage bucket to use for Data Proc
 uiProxy | **boolean** (boolean)<br><p>Enable UI Proxy feature.</p> 
 securityGroupIds[] | **string**<br><p>User security groups.</p> 
 hostGroupIds[] | **string**<br><p>Host groups to place VMs of cluster on.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -32,6 +32,9 @@ links:
   - title: Concepts
     description: Learn about the concepts and resources of the service
     href: concepts/index
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits

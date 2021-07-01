@@ -2950,7 +2950,8 @@ clusterId | Required. ID of the PostgreSQL Cluster resource to return. To get th
   },
   "securityGroupIds": [
     "string"
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
 A PostgreSQL Cluster resource. For more information, see
@@ -5790,3 +5791,4 @@ plannedOperation | **object**<br><p>Planned maintenance operation to be started 
 plannedOperation.<br>info | **string**<br><p>Information about this maintenance operation.</p> <p>The maximum string length in characters is 256.</p> 
 plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>Time until which this maintenance operation is delayed.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 

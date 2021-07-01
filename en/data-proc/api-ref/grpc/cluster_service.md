@@ -54,6 +54,7 @@ bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring}
@@ -126,6 +127,7 @@ bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring1}
@@ -179,6 +181,7 @@ bucket | **string**<br>Name of the Object Storage bucket to use for Data Proc jo
 ui_proxy | **bool**<br>Enable UI Proxy feature. 
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups to place VMs of cluster on. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### CreateClusterConfigSpec {#CreateClusterConfigSpec}
@@ -276,6 +279,7 @@ bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring2}
@@ -329,6 +333,7 @@ bucket | **string**<br>Name of the new Object Storage bucket to use for Data Pro
 decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In seconds. Default value: 0 Acceptable values are 0 to 86400, inclusive.
 ui_proxy | **bool**<br>Enable UI Proxy feature. 
 security_group_ids[] | **string**<br>User security groups. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### UpdateClusterConfigSpec {#UpdateClusterConfigSpec}
@@ -424,6 +429,7 @@ bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring3}
@@ -553,6 +559,7 @@ bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring4}
@@ -642,6 +649,7 @@ bucket | **string**<br>Object Storage bucket to be used for Data Proc jobs that 
 ui_proxy | **bool**<br>Whether UI Proxy feature is enabled. 
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring5}

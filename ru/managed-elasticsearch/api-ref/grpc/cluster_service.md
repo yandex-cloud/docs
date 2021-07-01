@@ -56,6 +56,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring}
@@ -143,6 +144,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring1}
@@ -213,6 +215,7 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>One or more configurations of hosts 
 network_id | **string**<br>Required. ID of the network to create the Elasticsearch cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -310,6 +313,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring2}
@@ -377,6 +381,7 @@ config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources f
 name | **string**<br>New name for the Elasticsearch cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### ConfigSpec {#ConfigSpec1}
@@ -455,6 +460,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring3}
@@ -601,6 +607,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring4}
@@ -704,6 +711,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring5}
@@ -807,6 +815,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: cluster state is unknown.</li><li>`CREATING`: cluster is being created.</li><li>`RUNNING`: cluster is running normally.</li><li>`ERROR`: cluster encountered a problem and cannot operate.</li><li>`UPDATING`: cluster is being updated.</li><li>`STOPPING`: cluster is stopping.</li><li>`STOPPED`: cluster stopped.</li><li>`STARTING`: cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
 ### Monitoring {#Monitoring6}
