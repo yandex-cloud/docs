@@ -37,7 +37,7 @@
     1. Выполните команду:
     
         ```
-        $ yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
+        yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
         ```
 
         - По умолчанию учетные данные добавляются в директорию `$HOME/.kube/config`.
@@ -45,7 +45,10 @@
     1. Проверьте конфигурацию kubectl после добавления учетных данных:
     
         ```
-        $ kubectl config view
+        kubectl config view
+        ```
+        Результат выполнения:
+        ```
         apiVersion: v1
         clusters:
         - cluster:
