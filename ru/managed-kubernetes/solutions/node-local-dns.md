@@ -102,11 +102,32 @@
 
 ### Загрузите шаблон спецификации {#download-spec}
 
-Вы можете скачать [шаблон спецификации](https://raw.githubusercontent.com/kubernetes/kubernetes/master/cluster/addons/dns/nodelocaldns/nodelocaldns.yaml) вручную или с помощью команды:
+Вы можете скачать [шаблон спецификации](https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml) вручную или с помощью команды:
 
-```bash
-wget https://raw.githubusercontent.com/kubernetes/kubernetes/master/cluster/addons/dns/nodelocaldns/nodelocaldns.yaml
-```
+{% list tabs %}
+
+- Windows (PowerShell)
+
+	```
+	wget "https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml" -OutFile "nodelocaldns.yaml"
+	```
+
+- Linux
+
+	```bash
+	wget https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml
+	```
+
+- macOS
+
+	```bash
+	brew install wget
+	
+	wget https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml
+	```
+
+{% endlist %}
+
 
 ### Замените переменные в шаблоне {#variables}
 
@@ -127,15 +148,46 @@ wget https://raw.githubusercontent.com/kubernetes/kubernetes/master/cluster/addo
 * `__PILLAR__LOCAL__DNS__`: `169.254.20.10`.
 * `__PILLAR__DNS__SERVER__`: `ClusterIp` сервиса `kube-dns`.
 
-Для этого произведите автозамену в текстовом редакторе или с помощью команды:
+Для этого произведите автозамену в любом текстовом редакторе или с помощью командной строки:
 
-```bash
-domain=cluster.local
-localdns=169.254.20.10
-kubedns=$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})
+{% list tabs %}
 
-sed -i "s/__PILLAR__LOCAL__DNS__/$localdns/g; s/__PILLAR__DNS__DOMAIN__/$domain/g; s/__PILLAR__DNS__SERVER__/$kubedns/g" nodelocaldns.yaml
-```
+- Windows (PowerShell)
+
+	```
+	$domain="cluster.local"
+	$localdns="169.254.20.10"
+	$kubedns=(kubectl get svc kube-dns -n kube-system -o jsonpath="{.spec.clusterIP}")
+	
+	((Get-Content -path nodelocaldns.yaml -Raw) -replace '__PILLAR__LOCAL__DNS__',$localdns) | Set-Content -Path nodelocaldns.yaml
+	((Get-Content -path nodelocaldns.yaml -Raw) -replace '__PILLAR__DNS__DOMAIN__',$domain) | Set-Content -Path nodelocaldns.yaml
+	((Get-Content -path nodelocaldns.yaml -Raw) -replace '__PILLAR__DNS__SERVER__',$kubedns) | Set-Content -Path nodelocaldns.yaml
+	```
+
+- Linux
+
+	```bash
+	domain=cluster.local
+	localdns=169.254.20.10
+	kubedns=$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})
+	
+	sed -i "s/__PILLAR__LOCAL__DNS__/$localdns/g; s/__PILLAR__DNS__DOMAIN__/$domain/g; s/__PILLAR__DNS__SERVER__/$kubedns/g" nodelocaldns.yaml
+	```
+
+- macOS
+
+	```bash
+	brew install gnu-sed
+	
+	domain=cluster.local
+	localdns=169.254.20.10
+	kubedns=$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})
+	
+	gsed -i "s/__PILLAR__LOCAL__DNS__/$localdns/g; s/__PILLAR__DNS__DOMAIN__/$domain/g; s/__PILLAR__DNS__SERVER__/$kubedns/g" nodelocaldns.yaml
+	```
+
+{% endlist %}
+
 
 ### Запустите NodeLocal DNS Cache {#startup}
 

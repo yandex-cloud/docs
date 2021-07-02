@@ -75,7 +75,6 @@ items:
         href: solutions/custom-dns.md
       - name: Настройка локального кэширования DNS
         href: solutions/node-local-dns.md
-        when: audience == "draft"
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
