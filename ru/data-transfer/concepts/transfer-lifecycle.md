@@ -36,7 +36,7 @@
 
 Переход между статусами для трансферов типа «{{ dt-repl }}» показан на схеме:
 
-![lifecycle-replication](../../_assets/data-transfer/lifecycle/replication.png)
+![lifecycle-replication](../../_assets/data-transfer/lifecycle/replication.svg)
 
 ### Копировать и реплицировать {#copy-and-replication}
 
@@ -48,4 +48,4 @@
 
 Переход между статусами для трансферов типа «{{ dt-copy-repl }}» показан на схеме:
 
-![lifecycle-copy-and-replication](../../_assets/data-transfer/lifecycle/copy-and-replication.png)
+![lifecycle-copy-and-replication](../../_assets/data-transfer/lifecycle/copy-and-replication.svg)
