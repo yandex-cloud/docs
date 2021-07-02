@@ -8,8 +8,8 @@
 
 Дополнительная информация доступна по ссылкам:
 
-- [Заключение о соответствии системы защиты персональных данных требованиям ФЗ-152 «О персональных данных»](https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf)
-- [Соглашение об обработке данных](https://yandex.ru/legal/cloud_dpa/)
+* [Заключение о соответствии системы защиты персональных данных требованиям ФЗ-152 «О персональных данных»](https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf).
+* [Соглашение об обработке данных](https://yandex.ru/legal/cloud_dpa/).
 
 ## GDPR (General Data Protection Regulation) {#gdpr}
 
@@ -29,6 +29,12 @@
 
 Стандарт ISO 27018 выдвигает требования к защите ПДн при их обработке провайдерами облачных сервисов. В стандарте изложены практические рекомендации по обеспечению ИБ для защиты личной информации клиентов. Эти рекомендации дополняют требования базового стандарта — ISO 27001.
 
+Дополнительная информация доступна по ссылкам:
+
+* [Сертификат ISO 27001](https://storage.yandexcloud.net/yc-compliance/certificates/ISO_27001_RU.pdf).
+* [Сертификат ISO 27017](https://storage.yandexcloud.net/yc-compliance/certificates/ISO_27017_RU.pdf).
+* [Сертификат ISO 27018](https://storage.yandexcloud.net/yc-compliance/certificates/ISO_27018_RU.pdf).
+
 ## PCI DSS {#pci-dss}
 
 PCI DSS содержит требования для защиты данных держателей карт. Они обязательны и распространяются на все компании, обрабатывающие данные Visa, MasterCard, American Express, JCB, МИР и других платежных систем.
@@ -39,12 +45,12 @@ PCI DSS содержит требования для защиты данных �
 
 Дополнительная информация доступна по ссылкам:
 
-- [Сертификат PCI DSS для {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_RU.pdf);
-- [Сертификат PCI DSS для ЦОД Яндекса](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex.pdf);
-- [PCI DSS AOC для {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_AOC.pdf);
-- [PCI DSS AOC для ЦОД Яндекса](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS%20_Yandex_Cloud_AOC_datacenter.pdf);
-- [Матрица разделения ответственности](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf);
-- [Требования и рекомендации для построения PCI DSS](https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf).
+* [Сертификат PCI DSS для {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_RU.pdf).
+* [Сертификат PCI DSS для ЦОД Яндекса](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex.pdf).
+* [PCI DSS AOC для {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_AOC.pdf).
+* [PCI DSS AOC для ЦОД Яндекса](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS%20_Yandex_Cloud_AOC_datacenter.pdf).
+* [Матрица разделения ответственности](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
+* [Требования и рекомендации для построения PCI DSS](https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf).
 
 ## ГОСТ Р 57580.1-2017
 

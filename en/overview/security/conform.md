@@ -8,8 +8,8 @@ When a client, acting as an operator, places personal data on {{ yandex-cloud }}
 
 For more information, follow the links:
 
-- [Statement of personal data protection system compliance with the requirements of Federal Law No. 152 "On Personal Data"](https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf)
-- [Data Processing Agreement](https://yandex.com/legal/cloud_dpa/)
+* [Statement of personal data protection system compliance with the requirements of Federal Law No. 152 "On Personal Data"](https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf).
+* [Data Processing Agreement](https://yandex.com/legal/cloud_dpa/).
 
 ## GDPR (General Data Protection Regulation) {#gdpr}
 
@@ -29,6 +29,12 @@ ISO 27017 includes a set of practical information security recommendations for c
 
 ISO 27018 addresses the requirements for the security of personal data processed by cloud service providers. The standard sets out information security guidelines for protecting the personal information of clients. They supplement the requirements of the basic standard, ISO 27001.
 
+You can read more at:
+
+* [ISO 27001 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27001-EN.pdf).
+* [ISO 27017 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27017-EN.pdf).
+* [ISO 27018 certificate](https://storage.yandexcloud.net/yc-compliance/certificates/ISO-27018-EN.pdf).
+
 ## PCI DSS {#pci-dss}
 
 PCI DSS (Payment Card Industry Data Security Standard) contains a set of requirements for cardholder data protection. They are mandatory and apply to all companies that process data from payment systems like Visa, MasterCard, American Express, JCB, and MIR.
@@ -39,10 +45,10 @@ By ensuring that our cloud infrastructure meets PCI DSS requirements, we enable 
 
 You can read more at:
 
-- [PCI DSS certificate for {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_EN.pdf).
-- [PCI DSS certificate for the Yandex data center](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex.pdf).
-- [PCI DSS Attestation of Compliance (AOC) for {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_AOC.pdf).
-- [PCI DSS Attestation of Compliance (AOC) for the Yandex data center](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS%20_Yandex_Cloud_AOC_datacenter.pdf).
-- [Responsibility matrix](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
-- [Requirements and recommendations for building the PCI DSS infrastructure](https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf).
+* [PCI DSS certificate for {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_EN.pdf).
+* [PCI DSS certificate for the Yandex data center](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex.pdf).
+* [PCI DSS Attestation of Compliance (AOC) for {{ yandex-cloud }}](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Yandex_Cloud_AOC.pdf).
+* [PCI DSS Attestation of Compliance (AOC) for the Yandex data center](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS%20_Yandex_Cloud_AOC_datacenter.pdf).
+* [Responsibility matrix](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
+* [Requirements and recommendations for building the PCI DSS infrastructure](https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf).
 
