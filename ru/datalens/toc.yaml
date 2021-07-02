@@ -62,6 +62,9 @@ items:
           - name: Too many series on the chart
             hidden: true
             href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
+          - name: Data source timed out
+            hidden: true
+            href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
