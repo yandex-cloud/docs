@@ -2,6 +2,8 @@
 
 Добро пожаловать в репозиторий [документации](https://cloud.yandex.ru/docs) Yandex.Cloud.
 
+Тарам-пам-пам
+
 ## Про документацию
 
 Документация разработана с использованием [Yandex Flavored Markdown](https://github.com/yandex-cloud/yfm-docs). [Подробнее про синтаксис](guides/yfm-syntax-ru.md).
