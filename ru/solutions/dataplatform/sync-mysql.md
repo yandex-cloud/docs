@@ -1,4 +1,4 @@
-# Синхронизация данных из MySQL с помощью {{ data-transfer-name }}
+# Синхронизация данных из MySQL с помощью {{ data-transfer-full-name }}
 
 Из описания сценария вы узнаете, как обеспечить периодическую доставку изменений из внешней базы данных в облако при помощи {{ data-transfer-name }}. Для синхронизации данных в вашем облаке нужно создать промежуточное стейджинговое хранилище данных — {{ mmy-name }}, в которое будут реплицироваться таблицы. Данные синхронизируются практически в режиме реального времени. 
 
@@ -41,24 +41,24 @@
 
       Создайте диск с предварительно настроенным публичным образом виртуальной машины с интернет-магазином:
 
-         ```
-         yc compute disk create \
+      ```bash
+      yc compute disk create \
          --name web-store-lab-dataplatform \
          --source-image-id fd8lcf21vlpfdhb84m2s \
          --folder-id <your-yc-folder-id>
-         ```
+      ```
       
       Создайте виртуальную машину:
 
-         ```
-         yc compute instance create \
+      ```bash
+      yc compute instance create \
          --name magento \
          --zone ru-central1-a \
          --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
          --hostname ya-sample-store \
          --use-boot-disk disk-name=web-store-lab-dataplatform \
          --ssh-key ~/.ssh/id_rsa.pub
-         ```
+      ```
 
    {% endlist %}
 
