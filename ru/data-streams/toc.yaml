@@ -1,0 +1,64 @@
+title: Yandex Data Streams
+stage: tech-preview
+href: index.yaml
+items:
+  - name: Начало работы
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Настройка AWS CLI
+        href: quickstart/aws.md
+      - name: Создание потока данных
+        href: quickstart/create-stream.md
+      - name: Настройка поставки данных
+        items:
+          - name: Fluentd
+            href: quickstart/fluentd.md
+          - name: Logstash
+            href: quickstart/logstash.md
+          - name: AWS CLI
+            href: quickstart/aws-cli.md
+      - name: Сохранение данных в ClickHouse
+        href: quickstart/send-to-clickhouse.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Управление потоками данных
+        href: operations/manage-streams.md
+      - name: Получение идентификатора потока и эндпоинта AWS Kinesis
+        href: operations/aws-stream-full.md
+      - name: Работа с AWS CLI
+        items:
+          - name: Создание потока данных
+            href: operations/aws-cli/create.md
+          - name: Отправка данных в поток
+            href: operations/aws-cli/send.md
+          - name: Удаление потока данных
+            href: operations/aws-cli/delete.md
+      - name: Работа с AWS SDK
+        items:
+          - name: Подготовка окружения
+            href: operations/aws-sdk/prepare.md
+          - name: Создание потока данных
+            href: operations/aws-sdk/create.md
+          - name: Отправка данных в поток
+            href: operations/aws-sdk/send.md
+          - name: Удаление потока данных
+            href: operations/aws-sdk/delete.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Термины и определения
+        href: concepts/glossary.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: HTTP API, совместимый с Amazon Kinesis Data Streams
+    items:
+      - name: Все методы
+        href: kinesisapi/api-ref.md

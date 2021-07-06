@@ -49,6 +49,7 @@ default:
   alb-full-name: Yandex Application Load Balancer
   dns-full-name: Yandex Cloud DNS
   at-full-name: Yandex Audit Trails
+  yds-full-name: Yandex Data Streams
   cdn-full-name: Yandex Cloud CDN
 
   # Полные имена сервисов без Yandex
@@ -99,6 +100,7 @@ default:
   alb-name: Application Load Balancer
   dns-name: Cloud DNS
   at-name: Audit Trails
+  yds-name: Data Streams
   cdn-name: Cloud CDN
 
   # Короткие имена
@@ -313,6 +315,8 @@ default:
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
+  yds-short-name: Data Streams
+  yds: yds
 
   # Data Transfer
   dt-copy: Копировать
@@ -413,3 +417,4 @@ external:
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1go92dnv7b9u8f21mnj
+  
