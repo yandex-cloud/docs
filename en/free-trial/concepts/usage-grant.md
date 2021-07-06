@@ -16,7 +16,7 @@ Both parts can be used simultaneously.
 
 The grant terms of use depend on your country of residence and the payment method you select when registering and creating your billing account.
 
-### Grant terms of use as from 1 to 30 July 2021 {#terms-july}
+### Grant terms of use as from 1 to 31 July 2021 {#terms-july}
 
 {% list tabs %}
 
@@ -24,8 +24,8 @@ The grant terms of use depend on your country of residence and the payment metho
 
   Payment method | Using the grant
   --- | ---
-  Bank card | The grant is provisionally divided into two parts and distributed among services as follows:<br>_The first part_: ₽1000 from the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_The second part_: ₽3000 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services.
-  Bank transfer | The total grant in the amount of ₽4000 can be used to pay for any {{ yandex-cloud }} services.
+  Bank card | The grant is provisionally divided into two parts and distributed among services as follows:<br>_The first part_: ₽2500 from the total grant amount. It can be used to pay for {{ compute-full-name }} services (including VM images).<br>_The second part_: ₽7500 from the total grant amount. It can be used to pay for other {{ yandex-cloud }} services.
+  Bank transfer | The total grant in the amount of ₽10000 can be used to pay for any {{ yandex-cloud }} services.
 
 - For non-residents of the Russian Federation
 

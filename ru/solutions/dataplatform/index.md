@@ -1,3 +1,3 @@
 # Построение Data Platform на базе {{ yandex-cloud }}
 
-* [{#T}](sync-postgresql.md)
+* [{#T}](sync-mysql.md)

@@ -69,7 +69,7 @@ The service is located at: `stt.api.cloud.yandex.net:443`
 | config<br>.specification<br>.audioEncoding | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`LINEAR16_PCM`: [LPCM with no WAV header](formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](formats.md#oggopus) format.</li></ul> |
 | config<br>.specification<br>.sampleRateHertz | **integer** (int64)<br>The sampling frequency of the submitted audio.<br/>Required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default): Sampling rate of 48 kHz.</li><li>`16000`: Sampling rate of 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> |
 | config.<br>specification.<br>rawResults | **boolean** <br>Flag that indicates how to write numbers. `true`: In words. `false` (default): In figures. |
-| folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
+| folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="../../iam/api-ref/UserAccount/index#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ### Experimental additional recognition settings {#additional-settings}
 

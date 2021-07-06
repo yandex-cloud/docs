@@ -1,6 +1,6 @@
 # Building and managing dependencies
 
-{{ sf-name }} supports two ways to manage dependencies: automatic installation using `Maven` and manual delivery of dependencies along with the source code.
+{{ sf-name }} supports two ways to manage dependencies: automatic installation using `Maven` and manual delivery of dependencies along with the source code. However, you can't configure dependencies using both methods at the same time.
 
 ### Maven
 
@@ -21,3 +21,4 @@ Make sure the project archive root contains the `pom.xml` file.
 To configure dependencies manually, place the `jar` archives of the necessary libraries in the root of the project archive.
 
 The process of installing dependencies has resource and execution time limits. For more information, see [{#T}](../../concepts/limits.md). You can view the dependency installation log using the link that appears in the list of operations.
+

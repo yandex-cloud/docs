@@ -31,7 +31,7 @@ Use the `"Transfer-Encoding: chunked"` header for data streaming.
 | profanityFilter | **boolean**<br>This parameter controls the profanity filter in recognized speech.<br>Acceptable values:<ul><li>`false` (default) — Profanities aren't excluded from recognition results.</li><li>`true` — Profanities are excluded from recognition results.</li></ul> |
 | format | **string**<br>[The format](formats.md) of the submitted audio.<br/>Acceptable values:<ul><li>`lpcm` — [LPCM with no WAV header](formats.md#lpcm).</li><li>`oggopus` (default) — [OggOpus](formats.md#oggopus).</li></ul> |
 | sampleRateHertz | **string**<br>The sampling frequency of the submitted audio.<br/>Used if `format` is set to `lpcm`. Acceptable values:<ul><li>`48000` (default) — Sampling rate of 48 kHz.</li><li>`16000` — Sampling rate of 16 kHz.</li><li>`8000` — Sampling rate of 8 kHz.</li></ul> |
-| folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
+| folderId | **string**<br><p>ID of the folder that you have access to. Required for authorization with a user account (see the <a href="../../iam/api-ref/UserAccount/index#representation">UserAccount</a> resource). Don't specify this field if you make a request on behalf of a service account.</p> <p>Maximum string length: 50 characters.</p> |
 
 ### Parameters in the request body {#body_params}
 
