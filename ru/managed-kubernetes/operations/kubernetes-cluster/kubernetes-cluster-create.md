@@ -28,81 +28,51 @@
     
 - CLI
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+    1. {% include [cli-install](../../../_includes/cli-install.md) %}
         
-    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}    
+    1. {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Создайте кластер {{ k8s }}:
+    1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
     
-    ```
-    $ yc managed-kubernetes cluster create 
-        --name test-k8s \
-        --network-name default \
-        --zone ru-central1-a \
-        --subnet-name default-a \
-        --public-ip \
-        --release-channel regular \
-        --version 1.13 \
-        --cluster-ipv4-range 10.1.0.0/16 \
-        --service-ipv4-range 10.2.0.0/16 \
-        --service-account-name default-sa \
-        --node-service-account-name default-sa \
-        --daily-maintenance-window start=22:00,duration=10h
-    done (5m47s)
-    id: cathn0s6qobfa61p3u6k
-    folder_id: b1g66jflru0ek1omtsu0
-    created_at: "2019-12-02T13:50:26Z"
-    name: test-k8s
-    status: RUNNING
-    health: HEALTHY
-    network_id: enpg0laccbrtg80ff9ro
-    master:
-     zonal_master:
-       zone_id: ru-central1-a
-       internal_v4_address: 172.23.0.15
-       external_v4_address: 84.201.128.175
-     version: "1.13"
-     endpoints:
-       internal_v4_endpoint: https://172.23.0.15/
-       external_v4_endpoint: https://84.201.128.175/
-     master_auth:
-       cluster_ca_certificate: |
-         -----BEGIN CERTIFICATE-----
-         MIICyDCCAbCgAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl
-         ...
-         5ojvE6TqXJD5yANkK/eX6KAawlXey02BnNO/c7Ip6ShQdjTrf8OrlpvtDE4=
-         -----END CERTIFICATE-----
-     version_info:
-       current_version: "1.13"
-     maintenance_policy:
-       auto_upgrade: true
-       maintenance_window:
-         daily_maintenance_window:
-           start_time:
-             hours: 22
-           duration: 36000s
-    ip_allocation_policy:
-     cluster_ipv4_cidr_block: 10.1.0.0/16
-     service_ipv4_cidr_block: 10.2.0.0/16
-    service_account_id: aje3932acd0c5ur7gatp
-    node_service_account_id: aje3932acd0c5hg8dagp
-    release_channel: REGULAR
-    ```
-    
-    Где: 
-    - `--name` — имя кластера {{ k8s }}.
-    - `--network-name` — имя сети.
-    - `--zone` — зона доступности.
-    - `--subnet-name` — имя подсети.
-    - `--public-ip` — флаг, который указывается, если кластеру {{ k8s }} требуется публичный IP-адрес.
-    - `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#release-channels).
-    - `--version` — версия {{ k8s }}.
-    - `--cluster-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для подов.
-    - `--service-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для сервисов.
-    - `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
-    - `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
-    - `--daily-maintenance-window` — настройки окна обновлений.
-            
+        ```bash
+        {{ yc-k8s }} cluster create \
+           --name test-k8s \
+           --network-name default \
+           --zone ru-central1-a \
+           --subnet-name default-a \
+           --public-ip \
+           --release-channel regular \
+           --version 1.13 \
+           --cluster-ipv4-range 10.1.0.0/16 \
+           --service-ipv4-range 10.2.0.0/16 \
+           --service-account-name default-sa \
+           --node-service-account-name default-sa \
+           --daily-maintenance-window start=22:00,duration=10h
+        ```
+
+        Где:
+
+        - `--name` — имя кластера {{ k8s }}.
+        - `--network-name` — имя сети.
+        - `--zone` — зона доступности.
+        - `--subnet-name` — имя подсети.
+        - `--public-ip` — флаг, который указывается, если кластеру {{ k8s }} требуется публичный IP-адрес.
+        - `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#release-channels).
+        - `--version` — версия {{ k8s }}.
+        - `--cluster-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../../concepts/index.md#pod).
+        - `--service-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для сервисов.
+        - `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
+        - `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
+        - `--daily-maintenance-window` — настройки окна обновлений.
+
+    1. Чтобы включить [контроллер сетевых политик](../../concepts/network-policy.md) Calico, передайте в команде создания кластера параметр `--enable-network-policy`:
+
+        ```bash
+        {{ yc-k8s }} cluster create \
+           ...
+           --enable-network-policy
+        ```
+
 - API 
 
     Чтобы создать  кластер {{ k8s }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md) для ресурса [Cluster](../../api-ref/Cluster).

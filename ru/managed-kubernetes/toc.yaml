@@ -17,8 +17,8 @@ items:
               Обеспечение доступа к приложению, запущенному в кластере
               Kubernetes
             href: operations/create-load-balancer.md
-          - name: Работа с сетевыми политиками кластера Kubernetes
-            href: operations/running-network-policy.md
+          - name: Настройка контроллера сетевых политик Calico
+            href: operations/calico.md
       - name: Шифрование секретов
         href: operations/encrypting-secrets.md
       - name: Работа с постоянными томами

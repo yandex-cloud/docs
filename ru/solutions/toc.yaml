@@ -96,7 +96,7 @@ items:
       - name: Все сценарии
         href: dataplatform/index.md
       - name: Синхронизация данных из MySQL с помощью Yandex DataTransfer
-        href: dataplatform/sync-postgresql.md
+        href: dataplatform/sync-mysql.md
   - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии
