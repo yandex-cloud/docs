@@ -1,11 +1,6 @@
 ---
-title: "Creating WordPress website - Instruction"
-description: "A step-by-step instruction with which you will learn how to quickly create a WordPress website in the cloud. 3 easy steps to deploy a Wordpress site: create a virtual machine, configure Wordpress CMS settings and configure DNS."
-keywords:
-  - creating wordpress website
-  - website wordpress
-  - cms wordpress
-  - configure wordpress
+title: "WordPress website. How to create? Instructions"
+description: "A step-by-step guide to quickly create a WordPress website in the cloud. 3 easy steps to deploy a Wordpress site: create a virtual machine, configure the Wordpress CMS and configure DNS."
 
 author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/content-program/icons/aplana-logo.png", "name": "Аплана Диджитал", "url": "https://aplanadigital.ru" }
 

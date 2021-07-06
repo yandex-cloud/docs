@@ -1,3 +1,8 @@
+---
+title: "Query language in Yandex Monitoring"
+description: "This section describes the {{monitoring-full-name}} query language. It is used to transform metrics when setting up dashboards and alerts, as well as in the MetricsData.read API method."
+---
+
 # Query language
 
 This section describes the {{monitoring-full-name}} query language. It's used to convert metrics when you configure [dashboards](./visualization/dashboard.md) and [alerts](./alerting.md), as well as in the [MetricsData.read](../api-ref/MetricsData/read.md) API method.

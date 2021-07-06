@@ -1,3 +1,8 @@
+---
+title: "Information about clusters in {{ mch-short-name }}"
+description: "You can request detailed information about each {{ mch-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mch-name }} service."
+---
+
 # Information about existing clusters
 
 You can request detailed information about each {{ mch-short-name }} cluster you created.

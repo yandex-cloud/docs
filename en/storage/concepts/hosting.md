@@ -1,13 +1,6 @@
 ---
-title: Website hosting (html, css, javascript)
-description: Website Hosting allows you to host a static website built on HTML, CSS and JavaScript. The site cannot contain any scripts that require running on the web server side.
-keywords:
-  - website hosting
-  - hosting
-  - static website hosting
-  - hosting html
-  - hosting jss
-  - hosting css
+title: "Static websites hosting (html, css, javascript)"
+description: "Static websites hosting allows you to host a static site built on HTML, CSS and JavaScript. The site cannot contain any scripts that require running on the web server side."
 ---
 
 # Static website hosting

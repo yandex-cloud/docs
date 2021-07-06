@@ -1,3 +1,8 @@
+---
+title: "Relationship between {{data-transfer-full-name}} service resources"
+description: "{{data-transfer-full-name}} allows you to easily transfer data between databases. The service allows you to reduce the time for the migration process, minimize downtime when switching to a new database or have a permanent replica of the database."
+---
+
 # Relationship between service resources
 
 You can use {{ data-transfer-full-name }} to easily transfer data between databases. This way you can reduce the migration period and minimize downtime when switching to a new database. You don't need to install any drivers to transfer data. All the settings are available in the management console.

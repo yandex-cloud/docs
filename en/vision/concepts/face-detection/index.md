@@ -1,5 +1,5 @@
 ---
-description: Face detection is a service that allows you to find people's faces in an image. For example, to tag people in a photo or find all photos with portraits. The service looks for people's faces in the image and highlights them with rectangles. Supported file formats – JPEG, PNG, PDF.
+description: "Face detection is a service that allows you to find people's faces in an image. For example, to tag people in a photo or find all photos with portraits. The service looks for people's faces in the image and highlights them with rectangles. Supported file formats – JPEG, PNG, PDF."
 keywords:
   - face detection
   - face detection service

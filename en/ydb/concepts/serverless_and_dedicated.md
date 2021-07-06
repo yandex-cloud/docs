@@ -1,6 +1,6 @@
 ---
-title: Yandex Database operation modes – Serverless and Dedicated
-description: You can create YDB databases in two modes – Dedicated and Serverless. Dedicated mode assumes that resources for tablet instances and for executing YQL queries are selected from the compute resources explicitly allocated to the database. n Serverless mode, the YDB infrastructure determines the amount of computing resources to be allocated to serve the user database.
+title: Serverless and Dedicated Yandex Database operation modes
+description: "You can create YDB databases in two modes – Dedicated and Serverless. Dedicated mode assumes that resources for tablet instances and for executing YQL queries are selected from the compute resources explicitly allocated to the database. n Serverless mode, the YDB infrastructure determines the amount of computing resources to be allocated to serve the user database."
 keywords:
   - ydb
   - serverless

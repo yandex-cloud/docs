@@ -1,3 +1,8 @@
+---
+title: "GPU and vGPU - Graphics Accelerators"
+description: "GPU is a graphics processor unit that handles certain types of data much more efficiently than vCPU can be used for complex calculations. Compute Cloud provides graphics accelerators (GPU) and virtual graphics accelerators (vGPU) as part of the graphics card."
+---
+
 # Graphics accelerators (GPUs and vGPUs)
 
 {{ compute-short-name }} provides graphics accelerators (GPUs) and virtual graphics accelerators (vGPUs) as part of graphics cards. GPUs outperform vCPUs in processing certain types of data and can be used for complex computing.
