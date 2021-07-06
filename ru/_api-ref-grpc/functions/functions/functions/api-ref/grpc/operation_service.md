@@ -1,4 +1,7 @@
 ---
+title: "Метод OperationService. Справочник API для функций"
+description: "Набор методов для управления операциями функций в асинхронных запросах API сервиса Yandex Cloud Functions. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
+
 editable: false
 ---
 

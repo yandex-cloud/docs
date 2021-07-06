@@ -1,4 +1,7 @@
 ---
+title: "Метод OperationService. Справочник API в Yandex Virtual Private Cloud"
+description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex Virtual Private Cloud. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
+
 editable: false
 ---
 

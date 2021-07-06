@@ -1,3 +1,8 @@
+---
+title: "Managed Service for SQL Server. Ответы на вопросы"
+description: "Что такое Managed Service for SQL Server? Для каких задач стоит использовать Managed Service for SQL Server, а для каких виртуальные машины с базами данных? Какую часть работы по управлению и сопровождению баз данных берет на себя Managed Service for SQL Server? Ответы на эти и другие вопросы в данной статье."
+---
+
 # Общие вопросы
 
 #### Что такое {{ mms-short-name }}? {#what-is}

@@ -1,4 +1,7 @@
 ---
+title: "Метод OperationService. Справочник API в Yandex Managed Service for Elasticsearch"
+description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex Managed Service for Elasticsearch. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
+
 editable: false
 ---
 

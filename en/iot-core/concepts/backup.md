@@ -1,3 +1,8 @@
+---
+title: "Backups in Yandex IoT Core"
+description: "Data in the Yandex IoT Core service is securely stored and replicated in the Yandex.Cloud infrastructure. You can view lists of registries, information about registers, lists of registry certificates, lists of registry devices, information about devices, lists of device certificates, lists of device aliases."
+---
+
 # Backups
 
 Data in {{ iot-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can view:

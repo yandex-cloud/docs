@@ -1,4 +1,7 @@
 ---
+title: "Метод OperationService. Справочник API в Yandex Lockbox"
+description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex Lockbox. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
+
 editable: false
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: Backup to Yandex Compute Cloud
 description: Backups of data in images, snapshots, and disks that aren't connected to instances is stored securely and replicated within the Yandex.Cloud infrastructure. To back up the data from disks attached to an instance, create snapshots of the disks from time to time.
 keywords:
   - backup

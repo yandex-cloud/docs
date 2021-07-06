@@ -1,3 +1,8 @@
+---
+title: "Yandex Monitoring. Ответы на вопросы"
+description: "Как мне поставлять в Yandex Monitoring метрики своего приложения? Как мне поставлять в Yandex Monitoring метрики сторонних приложений? Ответы на эти и другие вопросы в данной статье."
+---
+
 # Общие вопросы
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}

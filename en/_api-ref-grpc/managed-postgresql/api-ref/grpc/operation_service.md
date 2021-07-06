@@ -1,4 +1,7 @@
 ---
+title: "Method OperationService. API Reference in Yandex Managed Service for PostgreSQL"
+description: "A set of methods for managing operations in asynchronous API requests of the Yandex Managed Service for PostgreSQL. Links are specified relative to the operation.api.cloud.yandex.net domain."
+
 editable: false
 ---
 

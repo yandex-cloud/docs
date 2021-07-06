@@ -1,4 +1,7 @@
 ---
+title: "Метод OperationService. Справочник API в Yandex Data Proc"
+description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex Data Proc. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
+
 editable: false
 ---
 

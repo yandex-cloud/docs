@@ -1,4 +1,7 @@
 ---
+title: "Метод OperationService. Справочник API в Yandex Key Management Service"
+description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex Key Management Service. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
+
 editable: false
 ---
 

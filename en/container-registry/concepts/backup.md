@@ -1,3 +1,8 @@
+---
+title: "Docker Images backups"
+description: "Data in the Container Registry is securely stored and replicated in the Yandex.Cloud infrastructure, but you can backup Docker images at any time. To back up Docker images, follow the instructions described in this article."
+---
+
 # Backups
 
 Data in {{ container-registry-name }} is stored securely and replicated in the {{ yandex-cloud }} infrastructure. However, you can create backups of [Docker images](../concepts/docker-image.md) at any time.
