@@ -1,7 +1,6 @@
----
 title: Yandex Managed Service for Greenplum<sup>®</sup>
 href: index.yaml
-stage: tech-preview
+stage: preview
 items:
   - name: Начало работы
     href: quickstart.md
