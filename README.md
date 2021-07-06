@@ -1,5 +1,5 @@
 # Документация Yandex.Cloud
-
+q
 Добро пожаловать в репозиторий [документации](https://cloud.yandex.ru/docs) Yandex.Cloud.
 
 ## Про документацию
