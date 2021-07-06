@@ -1,13 +1,6 @@
 ---
-title: 1C-Bitrix website – Configure and deploy
-description: 1C-Bitrix website – Site Management is a web project management system from 1C-Bitrix. It lets you easily manage the structure and content of your website without knowing programming or design. In this tutorial we'll show you how to deploy and configure a 1C-Bitrix website in the cloud.
-keywords:
-  - 1c
-  - 1с
-  - 1с bitrix
-  - website bitrix
-  - bitrix hosting
-  - configure bitrix
+title: "Website on Bitrix - Installation and Configuration"
+description: "In this manual, we will tell you how to deploy and configure a site on Bitrix in the cloud. 1C-Bitrix is a web project management system from 1C-Bitrix. With its help you can manage the structure and content of your site, without special knowledge of programming and layout. "
 ---
 
 # 1C-Bitrix website

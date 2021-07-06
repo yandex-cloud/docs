@@ -1,3 +1,8 @@
+---
+title: "Data model in Yandex DataLens"
+description: "The article describes the data model of the Yandex DataLens service. One or more tables are used as a data source. If several tables are available in the source, they can be joined using the JOIN operator. The union is performed by creating a link. In a link, you specify the fields of the source table and the fields of the table to be joined to."
+---
+
 # Data model
 
 Data in a dataset is represented as fields.

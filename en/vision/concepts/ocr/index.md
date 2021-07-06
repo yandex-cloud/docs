@@ -1,9 +1,6 @@
 ---
-description: Optical Character Recognition or OCR works on language models trained in a specific set of languages. The service highlights the found text on the image and groups it by levels – words are grouped into lines, lines into blocks, blocks into pages.
-keywords:
-  - ocr
-  - optical character recognition
-  - optical text recognition
+title: "What is OCR? Optical Character Recognition Overview"
+description: "OCR is optical character recognition. The service extracts the found text in the image and groups it by levels. Words are grouped into lines, lines into blocks, blocks into pages. For text recognition, a language model trained in a certain set of languages is used . The model is selected automatically based on the list of languages."
 ---
 
 # Optical character recognition (OCR)

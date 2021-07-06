@@ -8,9 +8,9 @@ To revoke directory or object permissions:
 
     {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
-1. Click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) by the object or directory and select**Permissions**.
+1. Click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) by the object or directory and select **Permissions**.
 
-1. Select the user with the permission you want to revoke.
+1. Select the user with the permission you want to revoke or choose the **All** group.
 
 1. In the window that opens, click **Revoke permissions**.
 

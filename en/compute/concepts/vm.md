@@ -1,8 +1,6 @@
 ---
-description: A virtual machine is similar to a server in the Yandex.Cloud infrastructure. A virtual machine is created in one of the folders in your cloud and inherits access rights from them. When creating a virtual machine, you can choose the availability zone where it will be located.
-keywords:
-  - vm
-  - virtual machine
+title: "Virtual machine is an analogue of a server"
+description: "A virtual machine is an analogue of a server in a cloud infrastructure. The virtual machine is created in one of the directories and inherits access rights from them. When you create a virtual machine, you can choose which of the Availability Zones will host it."
 ---
 
 # Virtual machines

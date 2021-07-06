@@ -1,5 +1,5 @@
 ---
-title: Virtual Machine Image
+title: What is a virtual machine image? Overview
 description: An image is a complete copy of the file system structure and data on a disk. It is designed to quickly create a data disk, primarily a virtual machine’s boot disk. Images can be used for distributing software, such as OS distributions or disks with pre-installed software.
 keywords:
   - vm

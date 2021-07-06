@@ -1,3 +1,8 @@
+---
+title: "Yandex Load Balancer API (gRPC)"
+description: "This API reference is organized by resource. Actions are performed by sending HTTP requests in Yandex Load Balancer API to resource URLs or making RPC calls."
+---
+
 # Yandex Load Balancer API
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 

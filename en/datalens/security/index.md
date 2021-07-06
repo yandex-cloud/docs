@@ -19,8 +19,8 @@ Users can also request permission on their own via the request form. For more in
 
 Let you define user permissions in a {{ datalens-short-name }} instance:
 
-- `{{ roles-datalens-instances-user }}` — A {{ datalens-short-name }} user with the permissions to create, read, and update objects based on [object permissions](#permissions).
-- `{{ roles-datalens-instances-admin }}` — The {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. The administrator has the `{{ roles-datalens-instances-user }}` rights and can also change the service plan and pay for the paid content in {{ marketplace-name }}.
+- `{{ roles-datalens-instances-user }}`: A {{ datalens-short-name }} user with the permissions to create, read, and update objects based on [object permissions](#permissions).
+- `{{ roles-datalens-instances-admin }}`: A {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. The administrator has the `{{ roles-datalens-instances-user }}` rights and can also change the service plan and pay for the paid content in {{ marketplace-name }}.
 
 User roles are assigned in the {{ yandex-cloud }} console.
 
@@ -74,7 +74,8 @@ For more information about assigning roles in {{ yandex-cloud }}, see [Roles](..
 
 ## Object permissions {#permissions}
 
-You can assign the following permissions to objects and folders in {{ datalens-short-name }}:
+Permissions can be assigned to individual users or the **All** group that includes users who passed [authentication](../../iam/concepts/authorization/index.md#authentication).
+You can assign the following permissions to objects and directories in {{ datalens-short-name }}:
 
 - [{{ permission-execute }}](#permission-execute)
 - [{{ permission-read }}](#permission-read)
@@ -160,7 +161,7 @@ The `{{ permission-admin }}` permission includes everything under the `{{ permis
 ## Object access audit
 
 A {{ datalens-short-name }} user can get access logs for {{ datalens-short-name }} objects (view, edit, delete).
-To get logs, you can contact [technical support]({{ link-console-support }}).
+To get logs, you can contact [the technical support]({{ link-console-support }}).
 
 #### What's next {#what-is-next}
 

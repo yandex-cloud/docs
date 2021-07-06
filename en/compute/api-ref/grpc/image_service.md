@@ -1,4 +1,7 @@
 ---
+title: "ImageService method. API reference in Yandex Compute Cloud"
+description: "A set of methods for managing Image resources via the API in Yandex Compute Cloud - Get, GetLatestByFamily, List, Create, Update, Delete, ListOperations."
+
 editable: false
 ---
 

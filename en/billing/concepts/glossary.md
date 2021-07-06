@@ -1,3 +1,8 @@
+---
+title: "Glossary. Billing"
+description: "In the Glossary, all terms used in Yandex.Cloud are provided for informational purposes. The description of the following terms is given - act, grant, details, agreement, credit limit, personal account, reporting period, offer, penalties, billing account, payer, trial period, etc. In the event of a conflict between the definitions of terms in the Agreement and the Glossary, the terms of the Agreement shall prevail."
+---
+
 # Glossary
 
 {% note info %}

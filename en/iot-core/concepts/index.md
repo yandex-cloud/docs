@@ -1,3 +1,8 @@
+---
+title: "Relationship between Yandex IoT Core service resources"
+description: "The main elements of the Yandex IoT Core service are a device, and a registry that can exchange various data and commands using an MQTT broker. Data exchange takes place using the MQTT protocol version 3.1.1. This is a simplified network protocol for interaction between devices on the basis of a publisher- subscriber."
+---
+
 # Relationship between service resources
 
 The main service elements are [devices](index.md#device) and [registries](index.md#registry). They can exchange various data and commands using the [MQTT broker](index.md#mqtt-broker).
