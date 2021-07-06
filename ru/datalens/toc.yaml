@@ -135,9 +135,11 @@ items:
           - name: Создание подключения к Yandex Cloud Billing
             href: operations/connection/create-cloud-billing.md
             when: audience == "external"
+          - name: Создание подключения к Greenplum
+            href: operations/connection/create-greenplum.md                
           - name: Управление доступом к подключению
             when: audience == "external"
-            href: operations/connection/manage-access.md
+            href: operations/connection/manage-access.md      
       - name: Работа с датасетами
         items:
           - name: Создание датасета
