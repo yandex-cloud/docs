@@ -1,3 +1,8 @@
+---
+title: "Managed Service for Redis. Ответы на вопросы"
+description: "Что такое Managed Service for Redis? Для каких задач стоит использовать Managed Service for Redis, а для каких виртуальные машины с базами данных? Какую часть работы по управлению и сопровождению баз данных берет на себя Managed Service for Redis? Ответы на эти и другие вопросы в данной статье."
+---
+
 # Общие вопросы
 
 #### Что такое {{ mrd-short-name }}? {#what-is}

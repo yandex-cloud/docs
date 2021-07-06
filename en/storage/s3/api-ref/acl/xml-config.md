@@ -1,3 +1,8 @@
+---
+title: "XML structure of ACL configuration. Object Storage API (S3)"
+description: "A general view of the XML structure of the ACL configuration is described, as well as each or every element. AccessControlPolicy, Owner, AccessControlList, Grant, Grantee, ID, DisplayName, URI, Permission."
+---
+
 # XML structure of ACL configuration
 
 ACL general view:

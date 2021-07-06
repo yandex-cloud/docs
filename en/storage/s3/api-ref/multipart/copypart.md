@@ -1,3 +1,8 @@
+---
+title: "Method copyPart. Object Storage API (S3)"
+description: "The copyPart method in the Object Storage API (S3) copies a part of an object. Has the same functionality as the uploadPart Method, only the data is not transferred in the request body, but copied from the existing object."
+---
+
 # copyPart method
 
 Copies part of an object.

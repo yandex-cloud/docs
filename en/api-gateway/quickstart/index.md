@@ -1,3 +1,8 @@
+---
+title: "Getting started with Yandex API Gateway (API gateways)"
+description: "In this tutorial, you will create and test different types of extensions. First, you configure the API gateway to receive a static response, and then add the integration to call the function."
+---
+
 # Getting started
 
 Using these instructions, you'll create and test different types of extensions: first, you'll set up an API gateway for getting [static responses](../concepts/extensions/dummy.md) and then add integration for [invoking functions](../concepts/extensions/cloud-functions.md).

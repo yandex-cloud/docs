@@ -57,6 +57,8 @@ items:
             href: operations/connection/create-appmetrica.md
           - name: Создание подключения к Yandex Cloud Billing
             href: operations/connection/create-cloud-billing.md
+          - name: Создание подключения к Greenplum
+            href: operations/connection/create-greenplum.md
           - name: Управление доступом к подключению
             href: operations/connection/manage-access.md
       - name: Работа с датасетами

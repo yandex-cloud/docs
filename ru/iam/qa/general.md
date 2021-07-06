@@ -1,3 +1,9 @@
+---
+title: "Yandex Identity and Access Management. Ответы на вопросы"
+description: "Для чего нужен сервис Yandex Identity and Access Management?
+Как начать работу с IAM? Сколько стоит использование сервиса IAM? Ответы на эти и другие вопросы в данной статье."
+---
+
 # Общие вопросы
 
 #### Для чего нужен сервис {{ iam-full-name }}? {#usage}

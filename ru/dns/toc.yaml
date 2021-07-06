@@ -37,6 +37,10 @@ items:
         href: concepts/compute-integration.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Практические руководства
+    items:
+      - name: Миграция DNS-зон из Яндекс.Коннект
+        href: solutions/connect-migration.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

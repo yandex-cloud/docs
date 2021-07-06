@@ -1,3 +1,8 @@
+---
+title: Инструкции по работе с Yandex IoT Core
+description: "Из статьи вы узнаете как работать с Yandex IoT Core в Yandex.Cloud. Рассказываем о том, как управлять реестрами, устройствами, алиасами топиков, сертификатами и паролями."
+---
+
 # Все инструкции
 
 * [{#T}](publish.md)
@@ -19,7 +24,7 @@
 * [{#T}](device/device-update.md)
 * [{#T}](device/device-delete.md)
 
-### Управление алиасами топиков {#alias}
+## Управление алиасами топиков {#alias}
 
 * [{#T}](device/alias/alias-create.md)
 * [{#T}](device/alias/alias-list.md)

@@ -1,5 +1,6 @@
 ---
-description: TLS (Transport Layer Security) is a protocol that supports secure transmission of data between a client and service. To reliably protect the interaction with the service, use the TLS protocol version 1.2 and higher.
+title: "What is TLS? Transport Layer Security Overview"
+description: "TLS (Transport Layer Security) is a protocol that supports secure transmission of data between a client and service. To reliably protect the interaction with the service, use the TLS protocol version 1.2 and higher."
 keywords:
   - tls
   - transport layer security
