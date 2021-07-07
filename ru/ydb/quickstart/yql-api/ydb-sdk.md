@@ -20,12 +20,12 @@
 
     {% endcut %}
 
-1. Для аутентификации в базе данных {% if deploy != "arc" %}[создайте сервисный аккаунт](../../iam/operations/sa/create){% else %}создайте сервисный аккаунт{% endif %} и {% if deploy != "arc" %}[назначьте](../../../iam/operations/sa/assign-role-for-sa.md){% else %}назначьте{% endif %} ему роли `viewer` и `editor`.
+1. Для аутентификации в базе данных {% if deploy != "arc" %}[создайте сервисный аккаунт](../../../iam/operations/sa/create){% else %}создайте сервисный аккаунт{% endif %} и {% if deploy != "arc" %}[назначьте](../../../iam/operations/sa/assign-role-for-sa.md){% else %}назначьте{% endif %} ему роли `viewer` и `editor`.
 1. Перейдите в раздел **Сервисные аккаунты** своего каталога и выберите необходимый сервисный аккаунт в списке. Сохраните идентификатор сервисного аккаунта.
 
     {% note info %}
 
-    Вы можете запускать тестовое приложение с {% if deploy != "arc" %} [виртуальной машины](../../compute/operations/vm-create/create-linux-vm) {% else %} виртуальной машины {% endif %} в {{ yandex-cloud }}.
+    Вы можете запускать тестовое приложение с {% if deploy != "arc" %} [виртуальной машины](../../../compute/operations/vm-create/create-linux-vm) {% else %} виртуальной машины {% endif %} в {{ yandex-cloud }}.
 
     {% endnote %}
 

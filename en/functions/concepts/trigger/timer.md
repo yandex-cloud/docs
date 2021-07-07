@@ -1,6 +1,6 @@
 # Timer
 
-_Timer_ is a [trigger](index.md) that runs a function on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+_Timer_ is a [trigger](../trigger/) that runs a function on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 ## Cron expression format {#cron-expression}
 

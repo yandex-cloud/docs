@@ -1,6 +1,6 @@
 # Triggers for {{ container-registry-name }}
 
-[Triggers](index.md) for {{ container-registry-name }} run a function when certain events occur with a [Docker-image](../../../container-registry/concepts/docker-image.md) from {{ container-registry-full-name }}. The trigger must be in the same cloud as the [registry](../../../container-registry/concepts/registry.md), whose events it's subscribed to.
+[Triggers](../trigger/) for {{ container-registry-name }} run a function when certain events occur with a [Docker-image](../../../container-registry/concepts/docker-image.md) from {{ container-registry-full-name }}. The trigger must be in the same cloud as the [registry](../../../container-registry/concepts/registry.md), whose events it's subscribed to.
 
 A trigger for {{ container-registry-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the function.
 
