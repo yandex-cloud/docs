@@ -6,6 +6,7 @@
 
   - [Ya ClickHouse community](https://t.me/joinchat/CCDG-0xr4EZOAQdjd0mdgg)
   - [Ya Elasticsearch community](https://t.me/joinchat/CCDG-01vFEW7xhWYxLgMDQ)
+  - [Ya Greenplum community](https://t.me/joinchat/d7lTthPUL28xYTUy)
   - [Ya Kafka community](https://t.me/joinchat/CCDG-0WyQTfU3nrYLA-L-A)
   - [Ya MongoDB community](https://t.me/joinchat/CCDG-0j8slyfw1YwzBRsZQ)
   - [Ya MySQL community](https://t.me/joinchat/CCDG-1NgeZXWauTBursiKA)
@@ -17,6 +18,7 @@
 
   - `/duty clickhouse`
   - `/duty elastic`
+  - `/duty greenplum`
   - `/duty kafka`
   - `/duty mongo`
   - `/duty mysql`
