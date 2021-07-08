@@ -152,7 +152,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
           address: 130.193.32.90
           ip_version: IPV4
       ```
-   2. Connect to the virtual machine over SHH on behalf of the `yc-user` user, using the private key:
+   2. Connect to the virtual machine over SSH on behalf of the `yc-user` user, using the private key:
 
       ```
       $ ssh yc-user@130.193.32.90
