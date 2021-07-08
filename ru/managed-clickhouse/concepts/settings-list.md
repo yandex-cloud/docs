@@ -13,14 +13,13 @@
   - `allowDdl` в REST API.
 
 
-## Настройки СУБД уровня кластера {#dbms-cluster-settings}
+## Настройки на уровне кластера {#dbms-cluster-settings}
 
 Доступны следующие настройки:
 
 {% include [mch-dbms-settings](../../_includes/mdb/mch-dbms-settings.md) %}
 
-
-## Пользовательские настройки {#user-level-settings}
+## Настройки на уровне пользователя {#user-level-settings}
 
 ### Настройки квот {#quota-settings}
 
@@ -46,3 +45,11 @@
 Доступны следующие настройки:
 
 {% include [mch-dbms-user-settings](../../_includes/mdb/mch-dbms-user-settings.md) %}
+
+## Пользовательские настройки {#custom-settings}
+
+{{ tag-sql }}
+
+[Пользовательские настройки](https://clickhouse.tech/docs/ru/operations/settings/#custom_settings) можно переопределять, как переменные, в [профиле настроек](https://clickhouse.tech/docs/ru/operations/access-rights/#settings-profiles-management), сессии или запросе. Работа с профилями настроек доступна, если для кластера включено [управление пользователями через SQL](../operations/cluster-users.md#sql-user-management).
+
+Название пользовательской настройки в {{ mch-name }} должно начинаться с предопределенного префикса `custom_`. Префикс фиксированный — пользователь не может его менять.

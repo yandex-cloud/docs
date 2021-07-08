@@ -1,6 +1,6 @@
 # Triggers for {{ objstorage-name }}
 
-[Triggers](index.md) for {{ objstorage-name }} run a function when certain events occur with an [object](../../../storage/concepts/object.md) from {{ objstorage-full-name }}. The trigger must be in the same cloud as the bucket whose events it's subscribed to.
+[Triggers](../trigger/) for {{ objstorage-name }} run a function when certain events occur with an [object](../../../storage/concepts/object.md) from {{ objstorage-full-name }}. The trigger must be in the same cloud as the bucket whose events it's subscribed to.
 
 A trigger for {{ objstorage-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the function.
 

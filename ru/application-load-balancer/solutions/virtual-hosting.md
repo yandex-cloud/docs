@@ -24,7 +24,7 @@
 
 Перед тем, как разворачивать виртуальный хостинг, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
-{% include [prepare-register-billing](../../solutions/_solutions_includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud). Все действия сценария нужно производить в этом каталоге.
 
@@ -238,7 +238,7 @@
 
 Чтобы загрузить файл на ВМ:
 
-{% include [upload-files](../../solutions/_solutions_includes/upload-web-site-files.md) %}
+{% include [upload-files](../../_includes/solutions/_common/upload-web-site-files.md) %}
 
 Повторите этот процесс с нужными файлами для каждой ВМ из групп `vhosting-ig-a` и `vhosting-ig-b`.
 

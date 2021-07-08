@@ -20,12 +20,12 @@
 
     {% endcut %}
 
-1. Для аутентификации в базе данных [создайте сервисный аккаунт](../../iam/operations/sa/create) и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роли `viewer` и `editor`.
+1. Для аутентификации в базе данных [создайте сервисный аккаунт](../../../iam/operations/sa/create) и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роли `viewer` и `editor`.
 1. Перейдите в раздел **Сервисные аккаунты** своего каталога и выберите необходимый сервисный аккаунт в списке. Сохраните идентификатор сервисного аккаунта.
 
     {% note info %}
 
-    Вы можете запускать тестовое приложение с [виртуальной машины](../../compute/operations/vm-create/create-linux-vm) в {{ yandex-cloud }}.
+    Вы можете запускать тестовое приложение с [виртуальной машины](../../../compute/operations/vm-create/create-linux-vm) в {{ yandex-cloud }}.
 
     {% endnote %}
 

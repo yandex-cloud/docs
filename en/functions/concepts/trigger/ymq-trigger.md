@@ -1,6 +1,6 @@
 # Triggers for {{ message-queue-short-name }}
 
-[The trigger](index.md) for {{ message-queue-short-name }} is used to process the message queue. It picks up messages from the queue and passes them to a function for processing. The trigger must be in the same cloud with the queue it reads messages from. Only one trigger can be created for each message queue.
+[The trigger](../trigger/) for {{ message-queue-short-name }} is used to process the message queue. It picks up messages from the queue and passes them to a function for processing. The trigger must be in the same cloud with the queue it reads messages from. Only one trigger can be created for each message queue.
 
 The {{ message-queue-short-name }} trigger needs [service accounts](../../../iam/concepts/users/service-accounts.md) to read messages from a queue and call functions. You can use the same service account for both operations.
 

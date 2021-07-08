@@ -88,7 +88,7 @@ Create an API gateway and access it.
 
 ### Create a function {#function}
 
-Create a function to get a list of numbers. Read more about functions in the documentation for [{{ sf-name }}](../../functions).
+Create a function to get a list of numbers. Read more about functions in the documentation for [{{ sf-name }}](../../functions/).
 
 {% list tabs %}
 

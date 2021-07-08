@@ -5,7 +5,7 @@ After you create a {{ dataproc-name }} cluster, you can connect to the host of t
 Cluster hosts cannot be assigned a public IP address, so use a VM from the same cloud network to connect to them.
 
 1. [Create a new VM](../../compute/operations/vm-create/create-linux-vm.md) if necessary.
-1. Connect to the VM via [SSH](../../compute/operations/vm-control).
+1. Connect to the VM via [SSH](../../compute/operations/vm-connect/ssh).
 1. You should also use SSH to connect to the host of the main subcluster from your VM.
 
 ## Connecting to a host via SSH {{ dataproc-name }} {#data-proc-ssh}

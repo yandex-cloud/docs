@@ -20,7 +20,7 @@
 
 Перед тем, как разворачивать сервис, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
-{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать рабочий каталог для  компонентов вашего сервиса на [странице облака]({{ link-console-main }}).
 

@@ -16,7 +16,7 @@
 
 Перед тем, как разворачивать инфраструктуру, зарегистрируйтесь в {{ yandex-cloud }} и создайте платежный аккаунт:
 
-{% include [prepare-register-billing](../../solutions/_solutions_includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака](https://console.cloud.yandex.ru/cloud).
 
