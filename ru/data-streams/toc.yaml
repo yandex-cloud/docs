@@ -32,6 +32,8 @@ items:
         items:
           - name: Создание потока данных
             href: operations/aws-cli/create.md
+          - name: Получение описания потока
+            href: operations/aws-cli/describe.md
           - name: Отправка данных в поток
             href: operations/aws-cli/send.md
           - name: Удаление потока данных
