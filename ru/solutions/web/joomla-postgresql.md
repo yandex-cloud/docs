@@ -1,6 +1,6 @@
 ---
 title: Сайт на базе CMS Joomla c БД PostgreSQL – Установка и настройка
-description: Joomla — это система управления содержимым веб-сайтов написанная на языках PHP и JavaScript. С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS Joomla с базой данных PostgreSQL
+description: Joomla — это система управления содержимым веб-сайтов написанная на языках PHP и JavaScript. С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS Joomla с базой данных PostgreSQL.
 keywords:
   - joomla
   - CMS Joomla
@@ -12,7 +12,7 @@ keywords:
 
 # Сайт на базе Joomla с БД PostgreSQL
 
-С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS Joomla с базой данных под управлением СУБД PostgreSQL в инфраструктуре {{ yandex-cloud }}.
+С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS Joomla с базой данных под управлением СУБД {{ PG }} в инфраструктуре {{ yandex-cloud }}.
 
 Чтобы настроить статический веб-сайт на Joomla:
 1. [Создайте виртуальную машину для Joomla](#create-vm).
@@ -30,25 +30,24 @@ keywords:
 
 Перед тем, как разворачивать сервер, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
 
-{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша ВМ, на [странице облака](https://console.cloud.yandex.ru/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-Убедитесь, что в выбранном каталоге есть сеть с подсетями в зонах доступности `ru-cental1-a`, `ru-central1-b` и `ru-central1-c`. Для этого на странице каталога выберите сервис **Virtual Private Cloud**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
+Убедитесь, что в выбранном каталоге есть сеть с подсетями в зонах доступности `ru-cental1-a`, `ru-central1-b` и `ru-central1-c`. Для этого на странице каталога выберите сервис **{{ vpc-name }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки сайта на Joomla входит:
 * плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* плата за кластер баз данных PostgreSQL (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
+* плата за кластер БД {{ PG }} (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 ## Создайте виртуальную машину для Joomla {#create-vm}
 
-Чтобы создать ВМ:
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 1. В поле **Имя** введите имя ВМ — `joomla-pg-tutorial-web`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
@@ -62,7 +61,6 @@ keywords:
    * **Гарантированная доля vCPU** — 5%.
    * **vCPU** — 2.
    * **RAM** — 1 ГБ.
-
 1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
 1. Укажите данные для доступа на ВМ:
    * В поле **Логин** введите имя пользователя.
@@ -76,14 +74,14 @@ keywords:
 
 ## Создайте кластер баз данных PostgreSQL {#create-cluster}
 
-1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Кластер PostgreSQL**.
+1. На странице каталога нажмите кнопку **Создать ресурс** и выберите **Кластер {{ PG }}**.
 1. В поле **Имя** введите имя кластера — `joomla-pg-tutorial-db-cluster`.
 1. В разделе **Класс БД** выберите **b2.medium**.
 1. В разделе **Размер хранилища** укажите 10 ГБ.
-1. В разделе **База данных**:
-   1. В поле **Имя БД** введите `joomla-pg-tutorial-db`.
-   1. В поле **Имя пользователя** введите `joomla`.
-   1. В поле **Пароль** введите пароль, который вы будете использовать для доступа к базе.
+1. В разделе **База данных** укажите:
+   * **Имя БД** — `joomla-pg-tutorial-db`.
+   * **Имя пользователя** — `joomla`.
+   * **Пароль** — пароль, который вы будете использовать для доступа к БД.
 1. В списке **Сеть** выберите сеть, к которой подключена ваша ВМ.
 1. В разделе **Хосты** добавьте еще два хоста в других зонах доступности. При создании хостов не включайте для них **Публичный доступ**.
 1. Нажмите кнопку **Создать кластер**.
@@ -96,7 +94,7 @@ keywords:
 1. В блоке **Сеть** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
 
-   Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей.  Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
+   Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
 1. Скачайте и распакуйте архив с Joomla:
 
    ```bash
@@ -245,16 +243,16 @@ keywords:
 
    ```
    <VirtualHost *:80 [::]:80>
-           ServerAdmin webmaster@localhost
-           DocumentRoot /var/www/html/
+     ServerAdmin webmaster@localhost
+     DocumentRoot /var/www/html/
 
-           <Directory /var/www/html/>
-                   DirectoryIndex index.php index.html
-                   DirectorySlash off
-                   RewriteEngine on
-                   RewriteBase /
-                   AllowOverride all
-           </Directory>
+     <Directory /var/www/html/>
+       DirectoryIndex index.php index.html
+       DirectorySlash off
+       RewriteEngine on
+       RewriteBase /
+       AllowOverride all
+     </Directory>
    </VirtualHost>
    ```
 
@@ -299,9 +297,7 @@ keywords:
 
 ## Настройте Joomla {#configure-joomla}
 
-Настройте Joomla по [инструкции](https://docs.joomla.org/J3.x:Installing_Joomla/ru) на сайте проекта.
-
-В процессе настройки вам потребуются параметры подключения к базе данных. Чтобы узнать и правильно прописать параметры, выполните:
+Настройте Joomla по [инструкции](https://docs.joomla.org/J3.x:Installing_Joomla/ru) на сайте проекта. В процессе настройки вам потребуются параметры подключения к БД.
 
 1. Получите адреса хостов кластера БД в консоли управления:
    1. Откройте каталог, в котором создан кластер БД.
@@ -310,10 +306,10 @@ keywords:
    1. Откройте вкладку **Хосты**.
    1. В колонке **Адрес (доменное имя)** найдите адреса хостов.
 1. На шаге **Database** в веб-установщике Joomla заполните поля:
-   * **Тип базы данных**: `PostgreSQL`.
+   * **Тип базы данных**: `{{ PG }}`.
    * **Имя сервера базы данных**:
 
-     ```
+     ```bash
      <адрес хоста 1>,<адрес хоста 2>,<адрес хоста 3> port=6432 sslmode=verify-full target_session_attrs=read-write
      ```
 
@@ -325,13 +321,13 @@ keywords:
 
 ## Загрузите файлы веб-сайта {#upload-files}
 
-{% include [upload-files](../_solutions_includes/upload-web-site-files.md) %}
+{% include [upload-files](../../_includes/solutions/_common/upload-web-site-files.md) %}
 
 ## Настройте DNS {#configure-dns}
 
 Доменное имя, которое вы хотите использовать для веб-сайта, нужно связать с созданной ВМ `joomla-pg-tutorial-web`.
 
-{% include [configure-a-record-and-cname](../_solutions_includes/configure-a-record-and-cname.md) %}
+{% include [configure-a-record-and-cname](../../_includes/solutions/web/configure-a-record-and-cname.md) %}
 
 ## Проверьте работу сайта {#test-site}
 
@@ -341,9 +337,9 @@ keywords:
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за развернутый сервер и базу данных, достаточно удалить [созданную ВМ](../../compute/operations/vm-control/vm-delete.md) `joomla-pg-tutorial-web` и [кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md) `joomla-pg-tutorial-db-cluster`.
+Чтобы перестать платить за развернутый сервер и БД, достаточно удалить [созданную ВМ](../../compute/operations/vm-control/vm-delete.md) `joomla-pg-tutorial-web` и [кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md) `joomla-pg-tutorial-db-cluster`.
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. Откройте сервис **Virtual Private Cloud** в вашем каталоге.
+1. Откройте сервис **{{ vpc-name }}** в вашем каталоге.
 1. Перейдите на вкладку **IP-адреса**.
 1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **Удалить**.

@@ -36,7 +36,7 @@
 
 Убедитесь, что платежный аккаунт готов к работе:  
 
-{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
 Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог на [странице облака](https://console.cloud.yandex.ru/cloud).
  
