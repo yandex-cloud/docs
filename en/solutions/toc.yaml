@@ -141,3 +141,7 @@ items:
         href: iot/datalens.md
       - name: Monitoring sensor readings and event notifications
         href: iot/monitoring.md
+  - name: Serverless technologies
+    items:
+      - name: URL shortener
+        href: serverless/serverless-url-shortener.md
