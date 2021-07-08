@@ -75,5 +75,5 @@ $ {{ ydb-cli }} -e <эндпоинт> -d <база данных> table index dro
 
 Более подробно примеры работы с индексами рассмотренны в разделе [Рекомендации - вторичные индексы](../best_practices/secondary_indexes.md).
 
-Примеры работы с ydb cli представлены в разделе [Использование консольного клиента {{ ydb-short-name }}](../quickstart/examples-ydb-cli).
+Примеры работы с ydb cli представлены в разделе [Использование консольного клиента {{ ydb-short-name }}](../quickstart/yql-api/ydb-cli.md#examples).
 
