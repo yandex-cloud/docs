@@ -2,11 +2,47 @@
 
 Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробнее о словарях читайте в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/query_language/dicts/).
 
+{{ mch-name }} поддерживает несколько типов источников словарей:
+   - HTTP(s); 
+   - {{ PG }};
+   - {{ MY }};
+   - {{ CH }};
+   - {{ MG }}.
+
+Словарями можно управлять либо через SQL, либо через интерфейсы облака. SQL — рекомендуемый способ.
+
 ## Подключить словарь {#add-dictionary}
 
 {% list tabs %}
 
+- SQL
+
+  {% note alert %}
+
+  Если словарь добавлен через SQL, для него недоступно управление через консоль, CLI и API.
+
+  {% endnote %}
+    
+  1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+  1. Выполните [DDL-запрос](https://clickhouse.tech/docs/ru/sql-reference/statements/create/dictionary/):
+
+     ```sql
+     CREATE DICTIONARY <имя словаря>(
+     <столбцы данных>
+     )
+     PRIMARY KEY <имя столбца с ключами>
+     SOURCE(<источник>(<конфигурация источника>))
+     LIFETIME(<интервал обновления>)
+     LAYOUT(<способ размещения в памяти>());
+     ```
+
 - Консоль управления
+
+  {% note alert %}
+
+  Если словарь добавлен через консоль, для него недоступно управление через SQL.
+
+  {% endnote %}
   
   1. Выберите кластер:
   
@@ -15,8 +51,7 @@
      1. Нажмите на кнопку **Добавить словарь**.
 
   1. Настройте параметры источника словаря:
-  
-     **{{ mch-name }}** поддерживает несколько типов источников словарей: HTTP(s), {{ PG }}, {{ MY }}, {{ CH }}, {{ MG }}.
+    
      Параметры подключения будут отличаться для разных типов источников.
      
      * **URL** — URL HTTP(s)-источника;
@@ -83,6 +118,12 @@
   
   
 - CLI
+
+  {% note alert %}
+
+  Если словарь добавлен через CLI, для него недоступно управление через SQL.
+
+  {% endnote %}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
   
@@ -112,6 +153,12 @@
     
 - API
 
+  {% note alert %}
+
+  Если словарь добавлен через API, для него недоступно управление через SQL.
+
+  {% endnote %}
+
   Подключить словарь можно с помощью метода [createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md).
 
 {% endlist %}
@@ -119,6 +166,11 @@
 ## Просмотреть список словарей {#get-dicts-list}
 
 {% list tabs %}
+
+- SQL
+  
+  1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+  1. Выполните [запрос](https://clickhouse.tech/docs/ru/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
 
 - Консоль управления
 
@@ -136,13 +188,13 @@
   1. Посмотрите описание команды CLI для получения детальной информации о кластере:
   
      ```
-     $ {{ yc-mdb-ch }} cluster get --help
+     {{ yc-mdb-ch }} cluster get --help
      ```
   
   1. Выполните команду:
   
      ```
-     $ {{ yc-mdb-ch }} cluster get <имя кластера>
+     {{ yc-mdb-ch }} cluster get <имя кластера>
      ```
   
   Подключенные словари отображаются в блоке ```dictionaries:``` результата выполнения команды.
@@ -156,6 +208,11 @@
 ## Удалить словарь {#delete-dictionary}
 
 {% list tabs %}
+
+- SQL
+  
+  1. [Подключитесь](connect.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
+  1. Выполните [запрос](https://clickhouse.tech/docs/ru/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя БД>.<имя словаря>`.
 
 - Консоль управления
   
@@ -174,15 +231,15 @@
   1. Посмотрите описание команды CLI для удаления словаря:
   
      ```
-     $ {{ yc-mdb-ch }} cluster remove-external-dictionary --help
+     {{ yc-mdb-ch }} cluster remove-external-dictionary --help
      ```
   
   1. Удалите словарь с помощью команды:
   
      ```
-     $ {{ yc-mdb-ch }} cluster remove-external-dictionary \
-       --name <имя кластера> \
-       --dict-name <имя словаря> \
+     {{ yc-mdb-ch }} cluster remove-external-dictionary \
+     --name <имя кластера> \
+     --dict-name <имя словаря> \
      ```
 
 - API
