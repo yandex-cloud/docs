@@ -1,5 +1,5 @@
 allowHTML: true
-langs: ['ru', 'en']
+langs: ['ru']
 
 ignore:
   - "en/_api-ref/*"
@@ -9,10 +9,12 @@ ignore:
   - "ru/tracker/*"
   - "en/tracker/*"
   - "ru/monitoring/*"
+  - "ru/data-streams/*"
+  - "en/*"
 
 docs-viewer:
   project-name: cloud
-  langs: ['ru', 'en']
+  langs: ['ru']
   show-revision: false
   show-toc-header: true
   releasers:

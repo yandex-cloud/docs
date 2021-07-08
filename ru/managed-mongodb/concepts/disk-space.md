@@ -20,8 +20,12 @@
 Чтобы избежать перехода хоста в read-only, рекомендуется настроить алерты в {{ monitoring-full-name }}, которые будут уведомлять вас о скором заполнении хранилища:
 
 1. Откройте панель {{ monitoring-name }}.
+{% if audience == "external" %}
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
-1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) и укажите в его параметрах:
+{% else %}
+1. [Создайте канал уведомлений](https://docs.yandex-team.ru/solomon/concepts/alerting#channels).
+{% endif %}
+1. {% if audience == "external" %}[Создайте алерт](../../monitoring/operations/alert/create-alert.md){% else %}[Создайте алерт](https://docs.yandex-team.ru/solomon/concepts/alerting#alerts){% endif %}  и укажите в его параметрах:
    1. **Метрика** — последовательно выберите облако, каталог, где располагается кластер {{ mmg-name }}, укажите параметры `service={{ mmg-name }}`, `name = disk.free_bytes`. `resource_id=<cluster_id>` (в последнем параметре выберите идентификатор кластера  {{ mmg-name }}, на который настроен алерт).
    1. **Условие срабатывания** — выберите `Меньше или равно` и укажите размер свободного дискового пространства, при котором сработает алерт:
       1. Для кластеров с хостами объема до 600 Гб - рекомендуется значение `1G` (1 Гб) в `Alarm` и `1500M` (1,5 Гб) для `Warning`.
