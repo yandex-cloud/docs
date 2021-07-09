@@ -1,4 +1,4 @@
-OS | Cost per vCPU per hour, without VAT
+OS | Cost per vCPU per hour, with VAT
 --- | ---
 Linux for all core types | Free
 Windows Server Datacenter for 5% of vCPU | ₽0.6346

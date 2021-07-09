@@ -1,4 +1,4 @@
-Guaranteed vCPU performance | Rate for 1 hour, without VAT
+Guaranteed vCPU performance | Rate for 1 hour, with VAT
 --- | ---
 **Intel Broadwell** |
 5% | {{ sku|RUB|compute.vm.cpu.c05.preemptible|string }}

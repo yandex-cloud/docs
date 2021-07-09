@@ -1,4 +1,4 @@
-Product | Cost per CAL pack per month, without VAT
+Product | Cost per CAL pack per month, with VAT
 --- | ---
 Remote Desktop Services (5 CAL) | ₽2110
 Remote Desktop Services (10 CAL) | ₽4220

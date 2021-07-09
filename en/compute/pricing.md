@@ -11,12 +11,13 @@ editable: false
 ## What goes into the cost of using {{ compute-short-name }} {#rules}
 
 The cost of {{ compute-short-name }} usage is based on:
+
 * Computing resources:
   * Type and number of cores (vCPUs).
   * Number of graphics accelerators (GPUs).
   * Amount of memory (RAM).
 * Operating systems.
-* Type and size of storage.
+* Type and size of storage:
   * Disks.
   * Images.
   * Snapshots.
@@ -24,6 +25,8 @@ The cost of {{ compute-short-name }} usage is based on:
 * Public IP address.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
+The monthly usage rate is based on 720 hours a month.
 
 ### VM usage {#instance}
 
@@ -51,17 +54,18 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 
 {{ price-per-hour-count-per-second }}
 
-{% if region == "int"%}
-
 #### Example of cost calculation {#example-of-cost-calculation}
 
 Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
 Two VMs were created running Linux OS:
+
 * 5% of vCPU and 1 GB RAM
 * 100% of vCPU and 1 GB RAM
 
 Both VMs have been running for 30 days.
+
+{% if region == "int" %}
 
 VM cost with 5% vCPU at the price of an hour of CPU core usage equal to $0.002476, and the price of an hour of 1 GB of RAM usage equal to $0.003129:
 
@@ -79,11 +83,31 @@ VM Cost with 100% vCPU at the price of an hour of CPU core usage equal to $0.008
 >
 > Total: $8.730000
 
-As you can see, the cost of the VM using 5% vCPU is about half as much as that of the VM using 100% vCPU.
+{% endif %}
+
+{% if region == "ru" %}
+
+Cost formula for a virtual machine with 5% vCPU at ₽0.1932 per hour of CPU core time and ₽0.2441 per hour of 1 GB of RAM:
+
+>5% vCPU = ₽0.1932/hour * 30 days * 24 hours = ₽139.1040
+>
+>1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
+>
+>Total: ₽314.8560
+
+Cost formula for a virtual machine with 100% vCPU at ₽0.7017 per hour of CPU core time and ₽0.2441 per hour of 1 GB of RAM:
+
+> 1 vCPU = ₽0.7017/hour * 30 days * 24 hours = ₽505.2240
+>
+>1 GB RAM = ₽0.2441/hour * 30 days * 24 hours = ₽175.7520
+>
+>Total: ₽680.9760
 
 {% endif %}
 
-### Use of storage (disks, snapshots, and images) {#disk}
+As you can see, the cost of the VM using 5% vCPU is about half as much as that of the VM using 100% vCPU.
+
+### Storage usage (disks, snapshots, and images) {#disk}
 
 When creating a disk, you specify its size, meaning the amount of block storage that the disk occupies. The cost of the service depends on the amount of time between when the disk is created and deleted, the amount of disk space, and the disk type selected during creation.
 
@@ -93,21 +117,23 @@ If you created an image or snapshot, you pay for the storage of this object sepa
 
 The cost is specified for one month of use. Billing occurs per second.
 
-### Usage {{ ig-name }} {#instance-groups}
+### {{ ig-name }} usage {#instance-groups}
 
 The {{ ig-name }} component can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
-All other Yandex.Cloud services, such as VMs and external IP addresses, are [charged as usual](../billing/pricing.md). Outgoing traffic is [charged](#prices-traffic) the same as other services.
+All other {{ yandex-cloud }} services, such as VMs and external IP addresses, [are charged as usual](../billing/pricing.md). Outgoing traffic is [charged](#prices-traffic) the same as other services.
 
-### Using a dedicated host {#dedicated-hosts}
+### Dedicated host usage {#dedicated-hosts}
 
 The cost of a dedicated host depends on its type (processor model, number of cores, and RAM) and doesn't depend on the number of VMs running on it.
 
+There are dedicated host configurations with local SSD disks that you can use after receiving approval from Technical Support. If there are local disks in a host configuration, you will need to pay for them even if you do not use them.
+
 vCPUs and RAM of VMs running on a dedicated host are not charged.
 
-Using additional resources, such as images from {{ marketplace-name }} or disks, are charged as usual.
+Use of additional resources, such as images from {{ marketplace-name }} or network disks, is billed as usual.
 
-Prices are shown for 1 hour of use. Billing occurs per second.
+Usage prices are shown on an hourly basis (monthly for local disks). Billing occurs per second.
 
 ## Pricing {#prices}
 
@@ -189,6 +215,24 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% include [rub-os-win-server.md](../_pricing/compute/rub-os-win-server.md) %}
 
+{% endif %}
+
+{% if region == "kz" %}
+
+{% include [kzt-os-win-server.md](../_pricing/compute/kzt-os-win-server.md) %}
+
+{% endif %}
+
+{% if region == "int" %}
+
+{% include [usd-os-win-server.md](../_pricing/compute/usd-os-win-server.md) %}
+
+{% endif %}
+
+\* Windows Server Standard is provided at a fixed price that doesn't depend on the VM configuration.
+
+{% if region == "ru" %}
+
 {% include [rub-os-rds.md](../_pricing/compute/rub-os-rds.md) %}
 
 {% include [rub-os-sql.md](../_pricing/compute/rub-os-sql.md) %}
@@ -243,7 +287,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endif %}
 
-### Dedicated host computing resources {#dedicated-host}
+### Computing resources of dedicated hosts {#prices-dedicated-host}
 
 {% if region == "ru" %}
 
@@ -269,13 +313,15 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endif %}
 
-{% endlist %}
+</br>
 
 {% if region == "ru" %}
 
 {% include [rub-local-nvme.md](../_pricing/compute/rub-local-nvme.md) %}
 
 {% endif %}
+
+</br>
 
 {% if region == "kz" %}
 
@@ -289,7 +335,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, non-replicated di
 
 {% endif %}
 
-### Software accelerated network {#software-accelerated-network}
+### Software-accelerated network {#software-accelerated-network}
 
 {% if region == "ru" %}
 

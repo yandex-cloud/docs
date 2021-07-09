@@ -1,4 +1,4 @@
-Other computing resources | Rate for 1 hour, without VAT
+Other computing resources | Rate for 1 hour, with VAT
 --- | ---
 **Intel Broadwell** |
 1 GPU | {{ sku|RUB|compute.vm.gpu.gpu-standard|string }}

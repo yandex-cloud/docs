@@ -1,3 +1,3 @@
-Type | Rate for 1 GB per month, without VAT
----  | ---
-Local disk (SSD) | ₸33.0000
+| Type | Cost of 1 GB per month, with VAT |
+| --- | --- |
+| Local disk (SSD) | ₸33.0000 |
