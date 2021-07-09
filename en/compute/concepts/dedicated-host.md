@@ -125,4 +125,4 @@ host-group-id: 2
 
 ## Billing {#billing}
 
-For information about pricing for dedicated hosts, see [{#T}](../pricing.md#dedicated-host).
+For information about pricing for dedicated hosts, see [{#T}](../pricing.md#dedicated-hosts).
