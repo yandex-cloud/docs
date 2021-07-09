@@ -1,5 +1,6 @@
-{% note warning %}
+{% note info %}
 
-You can't create a trigger for the `$monitoring/<device ID>/json` topic.
+For the `$monitoring/<device ID>/json` topic, the only allowed [system alias](../../iot-core/concepts/topic.md#mealias) is `$me`.
 
 {% endnote %}
+
