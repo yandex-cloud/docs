@@ -215,6 +215,21 @@
 
      {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
+- API
+
+  Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
+
+    * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
+    * Имя кластера в параметре `name`.
+    * Окружение кластера в параметре `environment`.
+    * Идентификатор сети в параметре `networkId`.
+    * Конфигурацию кластера в параметре `configSpec`.
+    * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
+    * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+    * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
+    * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
+
+
 {% endlist %}
 
 {% note warning %}

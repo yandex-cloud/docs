@@ -7,3 +7,8 @@ To create a table:
 1. Select the **Table** chart type.
 1. Drag a dimension or measure from the dataset to the **Columns** section. The field is displayed as a column.
 
+You can also change the names of table columns:
+
+1. Under **Columns**, click the icon to the left of the dimension or measure name.
+1. In the window that opens, change the **Name** field value and click **Apply**.
+
