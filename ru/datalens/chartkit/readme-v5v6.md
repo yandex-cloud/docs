@@ -27,8 +27,6 @@ ChartsAPI версии 5 и выше
 
 ### Для вики-текста {#for-wiki-text}
 
-[Версии](https://wf.yandex-team.ru/versions)
-
 ```
 https://yastatic.net/jquery/1.11.0/jquery.min.js
 https://yastatic.net/tools-wf/5.0.15/v-5/wf.js
