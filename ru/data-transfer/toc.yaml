@@ -26,6 +26,9 @@ items:
         href: concepts/solutions.md
       - name: Жизненный цикл трансфера
         href: concepts/transfer-lifecycle.md
+      - name: Преобразование типов данных
+        when: audience == "draft"
+        href: concepts/data-type-bindings.md
       - name: Мониторинг трансферов
         href: concepts/monitoring.md
       - name: Квоты и лимиты
