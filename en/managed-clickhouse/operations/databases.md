@@ -1,6 +1,6 @@
 # Database management
 
-{{ mch-name }} lets you manage cluster databases in two ways:
+{{ mch-name }} lets you manage cluster databases two ways:
 
 - {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Choose this method if you want to use all the features of the {{ yandex-cloud }} managed service.
 - SQL queries to the cluster. Choose this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.
@@ -15,7 +15,7 @@ To manage databases using SQL, [create a cluster](cluster-create.md) with the fo
 In a cluster with DB management via SQL enabled:
 
 - You can only manage databases and [users](cluster-users.md#sql-user-management) via SQL.
-- User and DB management using {{ yandex-cloud }} standard interfaces (the CLI, API, or management console) isn't possible.
+- User and DB management using standard {{ yandex-cloud }} interfaces (CLI, API, or management console) isn't possible.
 - Users are managed under the `admin` account. The password for this account is set when creating a cluster.
 
 {% include [sql-db-and-users-alert](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
@@ -72,11 +72,7 @@ There are no limits to the number of databases in a cluster.
   1. Click **Add**.
   1. Enter a name for the database and click **Add**.
 
-  {% note info %}
-
-    Database names may consist of Latin letters, numbers, dashes, and underscores. The maximum name length is 63 characters. You can't create a database named `default`.
-
-  {% endnote %}
+  {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
 - CLI
 
@@ -87,19 +83,46 @@ There are no limits to the number of databases in a cluster.
   Run the create database command and set the name of the new database:
 
   ```
-  $ {{ yc-mdb-ch }} database create <database name>
+  $ {{ yc-mdb-ch }} database create <database name> \
       --cluster-name <cluster name>
   ```
 
   {{ mch-short-name }} runs the create database operation.
 
-  {% note info %}
-
-    Database names may consist of Latin letters, numbers, dashes, and underscores. The maximum name length is 63 characters. You can't create a database named `default`.
-
-  {% endnote %}
+  {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
   The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+
+- Terraform
+
+    To create a database in a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `database` description block to the {{ mch-name }} cluster description:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          database {
+            name = "<DB name>"
+          }
+        }
+        ```
+
+        {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 
@@ -114,6 +137,8 @@ There are no limits to the number of databases in a cluster.
       ```sql
       CREATE DATABASE <database name>;
       ```
+
+      {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
   To learn more about creating databases, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/create/database/).
 
@@ -142,6 +167,26 @@ There are no limits to the number of databases in a cluster.
   ```
 
   The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+
+- Terraform
+
+    To delete a database from a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Delete the `database` description block from the {{ mch-name }} cluster description.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

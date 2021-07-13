@@ -58,5 +58,39 @@ To create a geobase:
   1. Under **DBMS settings**, click **Configure**.
   1. In the **Geobase uri** field, provide a public link to the geobase archive in {{ objstorage-name }}.
 
+- Terraform
+
+    To connect a geobase to a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add the `geobase_uri` parameter with a link to the archive with the geobase to connect in {{ objstorage-name }} to the {{ mch-name }} cluster settings:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          clickhouse {
+            config {
+              geobase_uri = "<public link to archive with geobase in {{ objstorage-name }}>"
+              ...
+            }
+          ...
+          }
+        ...
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 {% endlist %}
 

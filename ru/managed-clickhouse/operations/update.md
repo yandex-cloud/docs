@@ -349,7 +349,7 @@
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
@@ -359,7 +359,7 @@
 
   1. Нажмите кнопку **Сохранить изменения**.
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -398,7 +398,7 @@
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-* Terraform
+- Terraform
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -442,7 +442,7 @@
 
     Подробнее см. в [документации провайдера Terraform](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
-* API
+- API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
 

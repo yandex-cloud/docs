@@ -96,6 +96,42 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
   Shard names can be requested with a [list of shards in the cluster](shards.md#list-shards).
 
+- Terraform
+
+    To create a shard group:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `shard_group` description block to the {{ mch-name }} cluster description.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          shard_group {
+            name        = "<shard group name>"
+            description = "<optional description of shard group>"
+            shard_names = [
+              # List of shards in the group
+              "<shard name 1>",
+              ...
+              "<shard name N>"
+            ]
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - API
 
   Use the [createShardGroup](../api-ref/Cluster/createShardGroup.md) API method and pass the following in the request:
@@ -139,6 +175,42 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
   Shard names can be requested with a [list of shards in the cluster](shards.md#list-shards).
 
+- Terraform
+
+    To change a shard group:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mch-name }} cluster description, change the `shard_group` block to the required shard group.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          shard_group {
+            name        = "<new shard group name>"
+            description = "<new description of shard group>"
+            shard_names = [
+              # New list of shards in the group
+              "<shard name 1>",
+              ...
+              "<shard name N>"
+            ]
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - API
 
   Use the [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) API method and pass the following in the request:
@@ -180,6 +252,26 @@ Tables created on the deleted group are kept, but they are disabled and attempts
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   The name of the shard group can be requested with [a list of shard groups in the cluster](#list-shard-groups).
+
+- Terraform
+
+    To delete a shard group:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Delete the `shard_group` block describing the required group from the {{ mch-name }} cluster description.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the deletion of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

@@ -81,7 +81,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
   1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, place the cursor on the host line and click  ![image](../../_assets/pencil.svg).
 
      When configuring host parameters, remember that:
-     - If you previously selected **local-ssd** in the **Storage** section, you need to add at least 2 hosts to the cluster.
+     - If you previously selected `local-ssd` in the **Storage** section, you need to add at least 2 hosts to the cluster.
      - If you plan to use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, there can be only one host in the cluster.
 
   1. If necessary, configure additional cluster settings:
@@ -187,13 +187,12 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
   {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
 
-  If you don't have Terraform yet, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
-
-       * Database cluster: Description of the cluster and its hosts. If necessary, you can also configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) here.
+       * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
@@ -210,7 +209,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
            resources {
              resource_preset_id = "<host class>"
              disk_type_id       = "<storage type>"
-             disk_size          = "<storage size, GB>"
+             disk_size          = <storage size in GB>
            }
          }
        
@@ -245,25 +244,15 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
        For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
-    1. Make sure that the configuration files are correct.
-       1. In the command line, go to the folder where you created the configuration file.
-       1. Run the check using the command:
+    1. Make sure the settings are correct.
 
-          ```
-          terraform plan
-          ```
-
-       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out. This is a test step. No resources are created.
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
     1. Create a cluster.
-       1. If the configuration doesn't contain any errors, run the command:
 
-          ```
-          terraform apply
-          ```
-       1. Confirm that you want to create the resources.
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+        After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 - API
 
@@ -398,7 +387,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       resources {
         resource_preset_id = "{{ host-class }}"
         disk_type_id       = "network-ssd"
-        disk_size          = "32"
+        disk_size          = 32
       }
     }
   

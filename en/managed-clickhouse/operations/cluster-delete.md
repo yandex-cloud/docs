@@ -1,4 +1,4 @@
-# Deleting clusters
+# Deleting a cluster
 
 {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
