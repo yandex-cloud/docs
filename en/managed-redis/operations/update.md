@@ -8,7 +8,7 @@ After creating a cluster, you can:
 
 - [{#T}](#change-disk-size).
 
-- [Configure](#change-redis-config) {{ RD }} servers according to the [documentation for {{ RD }}](https://redis.io/documentation). Supported settings are listed [in the API reference](../api-ref/Cluster/update.md).
+- [Configure](#change-redis-config) {{ RD }} servers according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see the [{#T}](../concepts/settings-list.md) section and the [API reference](../api-ref/Cluster/update.md).
 
 - [{#T}](#change-additional-settings).
 
@@ -177,7 +177,7 @@ After creating a cluster, you can:
 
 ## Changing {{ RD }} settings {#change-redis-config}
 
-You can change the DBMS settings of the hosts in your cluster. All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
+You can change the DBMS settings of the hosts in your cluster. All supported settings are described in the [{#T}](../concepts/settings-list.md) section and the [API reference](../api-ref/Cluster/update.md).
 
 {% list tabs %}
 
@@ -275,9 +275,9 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 - API
 
     To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
-    - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    - The list of groups, in the `securityGroupIds` parameter.
-    - The list of settings to update, in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+    - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    - The list of groups in the `securityGroupIds` parameter.
+    - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 
