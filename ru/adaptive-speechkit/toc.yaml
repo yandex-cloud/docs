@@ -5,11 +5,11 @@ editable: false
 items:
 - name: Синтез переменных
   href: adaptive.md
-- name: Справочник API (англ.)
+- name: Справочник API
   items:
-    - name: Authentication
+    - name: Аутентификация в API
       href: api-ref/authentication.md
-    - name: GRPC
+    - name: gRPC (англ.)
       items: null
       include:
         repo: docs

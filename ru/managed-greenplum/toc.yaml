@@ -85,20 +85,20 @@ items:
     when: state != "public-preview"
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API (англ.)
+  - name: Справочник API
     when: api != "no-show"
     items:
       - name: Authentication
         href: api-ref/authentication.md
         when: state != "public-preview"
-      - name: gRPC
+      - name: gRPC (англ.)
         items: null
         when: state != "public-preview"
         include:
           repo: docs
           path: en/_api-ref-grpc/managed-greenplum/toc.yaml
           when: state != "public-preview"
-      - name: REST
+      - name: REST (англ.)
         items: null
         when: state != "public-preview"
         include:

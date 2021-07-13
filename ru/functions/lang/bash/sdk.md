@@ -1,6 +1,6 @@
 # Использование SDK
 
-В среду выполнения по умолчанию установлена утилита [YC CLI](../../../cli) для работы с API {{ yandex-cloud }}.
+В среду выполнения по умолчанию установлена утилита [YC CLI](../../../cli/) для работы с API {{ yandex-cloud }}.
 
 Взаимодействие с сервисами {{ yandex-cloud }} происходит с помощью [сервисного аккаунта](../../operations/function-sa.md), указанного в функции. В этом случае пользователь не совершает дополнительных действий: утилита применяет сервисный аккаунт автоматически.
 
@@ -13,7 +13,7 @@ set -e
 HOME=/tmp yc --format json resource-manager cloud list | jq -c  '{body:. | tostring}'
 ```
  
-Также для работы с совместимыми сервисами {{ yandex-cloud }} — [Yandex Object Storage](../../../storage) и [Yandex Message Queue](../../../message-queue) — в среду выполнения установлена утилита [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html).
+Также для работы с совместимыми сервисами {{ yandex-cloud }} — [Yandex Object Storage](../../../storage/) и [Yandex Message Queue](../../../message-queue/) — в среду выполнения установлена утилита [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html).
 
 В этом случае выпишите [статические ключи доступа для сервисного аккаунта](../../../iam/operations/sa/create-access-key.md) и передайте их, например, через [переменные окружения](../../concepts/runtime/environment-variables.md) функции.
 

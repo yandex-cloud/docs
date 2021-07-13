@@ -59,16 +59,16 @@ items:
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
-  - name: Справочник API (англ.)
+  - name: Справочник API
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: gRPC (англ.)
         items: null
         include:
           repo: docs
           path: en/_api-ref-grpc/application-load-balancer/toc.yaml
-      - name: REST
+      - name: REST (англ.)
         items: null
         include:
           repo: docs

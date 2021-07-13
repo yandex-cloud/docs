@@ -3,4 +3,4 @@ title: "Аутентификация в API Yandex Identity and Access Managemen
 description: "Для выполнения операций через API в сервисе идентификации и контроля доступа – Yandex Identity and Access Management, необходимо получить IAM-токен для сервисного, федеративного или Яндекс аккаунта."
 ---
 
-{% include [auth](../../../en/_includes/authentication.md) %}
+{% include [auth](../../_includes/authentication.md) %}

@@ -14,7 +14,7 @@ items:
     href: pricing.md
   - name: Справочник API (англ.)
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: Обработка ошибок
         href: api-ref/errors-handling.md

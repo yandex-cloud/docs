@@ -4,5 +4,5 @@ description: "Для выполнения операций через API в с�
 ---
 
 {% if audience=="external" %}
-{% include [auth](../../../en/_includes/authentication-ml-services.md) %}
+{% include [auth](../../_includes/authentication-ml-services.md) %}
 {% endif %}
