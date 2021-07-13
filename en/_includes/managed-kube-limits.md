@@ -2,14 +2,14 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Total number of vCPUs for all nodes per cloud | 24 |
-| Total amount of RAM per cloud | 96 GB |
-| Total disk storage capacity per cloud | 2 TB |
-| Maximum number of Kubernetes clusters per cloud | 2 |
-| Maximum number of node groups per cloud | 10 |
-| Maximum number of nodes per cloud | 20 |
-| Maximum number of node groups per Kubernetes cluster | 6 |
-| Maximum number of nodes per Kubernetes cluster | 10 |
+| Total number of vCPUs for all nodes per cloud | 192 |
+| Total amount of RAM per cloud | 384 GB |
+| Total disk storage capacity per cloud | 32 TB |
+| Maximum number of Kubernetes clusters per cloud | 8 |
+| Maximum number of node groups per cloud | 32 |
+| Maximum number of nodes per cloud | 160 |
+| Maximum number of node groups per Kubernetes cluster | 16 |
+| Maximum number of nodes per Kubernetes cluster | 32 |
 
 #### VM limits {#managed-k8s-limits}
 
