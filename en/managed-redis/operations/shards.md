@@ -74,13 +74,6 @@ The cluster name and ID can be requested with a [list of clusters in the folder]
 
   1. Click **Create shard**.
 
-<<<<<<< HEAD
-  After adding a new shard, you must [rebalance your cluster](../concepts/sharding.md#scaling):
-  1. Wait until the cluster status changes to **Running**.
-  1. Open the **Hosts** tab and click **Rebalance cluster**. Click **OK**.
-
-=======
->>>>>>> develop
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -95,15 +88,37 @@ The cluster name and ID can be requested with a [list of clusters in the folder]
     --host zone-id=<availability zone>,subnet-name=<subnet name>
   ```
 
-<<<<<<< HEAD
-  After adding a new shard, you must rebalance your cluster:
+- Terraform
 
-  ```
-  $ yc managed-redis cluster --cluster-name test-sharding-2 rebalance
-  ```
+    To add a shard to a cluster:
 
-=======
->>>>>>> develop
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](./cluster-create.md).
+
+    1. Add the required number of `host` blocks to the {{ mrd-name }} cluster description and specify the shard name in the `shard_name` parameter:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster name>" {
+          ...
+          host {
+            zone       = "<availability zone>"
+            subnet_id  = <subnet ID>
+            shard_name = "<shard name>"
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+
 {% endlist %}
 
 To be able to place data in the new shard, start {{ mrd-name }} [cluster rebalancing](#rebalance-cluster).
@@ -142,6 +157,26 @@ All the shard hosts are deleted with the shard.
   ```
 
   The shard name can be requested with a [list of cluster shards](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- {{ TF }}
+
+    To delete a shard from a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Delete all shard-related `host` blocks from the {{ mrd-name }} cluster description.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the deletion of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
 
 {% endlist %}
 
