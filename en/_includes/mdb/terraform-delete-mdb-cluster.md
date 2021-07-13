@@ -2,20 +2,21 @@
 
 Read more about Terraform in the [documentation](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-Clusters created using Terraform can be deleted:
+To delete a cluster created using {{ TF }}:
 
-  1. In the command line, go to the folder with the Terraform configuration file.
-  1. Delete resources using the command:
+1. In the command line, go to the folder with the current {{ TF }} configuration file with an infrastructure plan.
 
-      ```
-      terraform destroy
-      ```
+1. Delete resources using the command:
 
-      {% note alert %}
+    ```bash
+    terraform destroy
+    ```
 
-      Terraform will delete all the resources that you created using it, such as clusters, networks, subnets, and VMs.
+    {% note alert %}
 
-      {% endnote %}
+    {{ TF }} will delete all the resources that you created using it, such as clusters, networks, subnets, and VMs.
 
-  1. Confirm the deletion of resources.
+    {% endnote %}
+
+1. Confirm the deletion of resources.
 

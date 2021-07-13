@@ -46,8 +46,6 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
 ## Switching versions {#start-update}
 
-To change the {{ CH }} version:
-
 {% list tabs %}
 
 - Management console
@@ -101,6 +99,33 @@ To change the {{ CH }} version:
         ```
 
     When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+
+- Terraform
+
+    To change the {{ CH }} version:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. To the {{ mch-name }} cluster description, add the `version` field or change its value if it's already there:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          version = "<ClickHouse version>"
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

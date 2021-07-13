@@ -21,6 +21,8 @@ items:
         href: stt/models.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
+      - name: Разметка аудио
+        href: stt/markup.md
   - name: Синтез речи
     items:
       - name: О технологии

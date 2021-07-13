@@ -95,7 +95,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
-  1. See the description of the CLI command for adding a host:
+  1. View a description of the CLI command for adding a host:
 
      ```
      $ {{ yc-mdb-ch }} host add --help
@@ -115,13 +115,50 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
      
      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- Terraform
+
+    To add a host to the cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `host` block to the {{ mch-name }} cluster description.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          host {
+            type = "CLICKHOUSE"
+            zone = "<availability zone>"
+            ...
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - API
 
   To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
 
 {% endlist %}
 
-## Deleting a host {#remove-host}
+{% note warning %}
+
+If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
+{% endnote %}
+
+## Removing a host {#remove-host}
 
 You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
 
@@ -149,6 +186,26 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
   ```
 
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+    To remove a host from a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mch-name }} cluster description, remove the `CLICKHOUSE` type `host` block.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the deletion of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

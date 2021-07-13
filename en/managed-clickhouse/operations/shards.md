@@ -25,6 +25,44 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
   1. Enter a name for the shard and add the desired number of hosts.
   1. Click **Create shard**.
 
+- Terraform
+
+    {% note info %}
+
+    {{ TF }} doesn't allow specifying shard weight.
+
+    {% endnote %}
+
+    To add a shard to a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `CLICKHOUSE` type `host` block  with the `shard_name` field filled in to the {{ mch-name }} cluster description or change existing hosts:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          host {
+            type       = "CLICKHOUSE"
+            zone       = "<availability zone>"
+            subnet_id  = yandex_vpc_subnet.<subnet in the availability zone>.id
+            shard_name = "<shard name>"
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - API
 
   To add a shard to the cluster, use the [addShard](../api-ref/Cluster/addShard.md) method.
@@ -119,6 +157,26 @@ When you delete a shard, all tables and data that are saved on that shard are de
   1. Click on the name of a cluster and open the **Shards** tab.
 
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
+
+- Terraform
+
+    To delete a shard from a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Delete the `host` block with a shard description from the {{ mch-name }} cluster description.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the deletion of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

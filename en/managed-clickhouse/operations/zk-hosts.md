@@ -23,8 +23,7 @@ Note:
   1. Click **Set up {{ ZK }} hosts**.
   1. Specify the [host class](../concepts/instance-types.md).
   1. Set up the storage settings.
-  1. Change the settings of a {{ ZK }} host if necessary. 
-    To do this, hover the cursor over the line of the required host and click ![image](../../_assets/pencil.svg).
+  1. Change the settings of a {{ ZK }} host if necessary. To do this, hover the cursor over the line of the required host and click ![image](../../_assets/pencil.svg).
   1. Click **Save changes**.
 
 - CLI
@@ -53,6 +52,120 @@ Note:
      If the network hosting the cluster contains exactly 3 subnets, each per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} automatically distributes hosts over the subnets.
 
      You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+    To enable fault tolerance for a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Make sure that the configuration file describes three subnets: one for each availability zone. If necessary, add the missing ones:
+
+        ```hcl
+        resource "yandex_vpc_network" "<network name>" {
+          name = "<network name>"
+        }
+        
+        resource "yandex_vpc_subnet" "<subnet name in the ru-central1-a zone>" {
+          name           = "<subnet name in the ru-central1-a zone>"
+          zone           = "ru-central1-a"
+          network_id     = yandex_vpc_network.<network name>.id
+          v4_cidr_blocks = [ "<range of subnet addresses in the ru-central1-a zone>" ]
+        }
+        
+        resource "yandex_vpc_subnet" "<subnet name in the ru-central1-b zone>" {
+          name           = "<subnet name in the ru-central1-b zone>"
+          zone           = "ru-central1-b"
+          network_id     = yandex_vpc_network.<network name>.id
+          v4_cidr_blocks = [ "<range of subnet addresses in the ru-central1-b zone>" ]
+        }
+        
+        resource "yandex_vpc_subnet" "<subnet name in the ru-central1-c zone>" {
+          name           = "<subnet name in the ru-central1-c zone>"
+          zone           = "ru-central1-c"
+          network_id     = yandex_vpc_network.<network name>.id
+          v4_cidr_blocks = [ "<range of subnet addresses in the ru-central1-c zone>" ]
+        }
+        ```
+
+    1. Add the required number of `CLICKHOUSE` type `host` blocks to the {{ CH }} cluster description.
+
+        {{ CH }} host requirements:
+        
+        * Minimum host class: `b1.medium`.
+        * If there are several hosts, they must be located in different availability zones.
+
+        If necessary, change the class of existing {{ CH }} hosts and availability zone and add the required number of new hosts.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          name = "<cluster name>"
+          ...
+          clickhouse {
+            resources {
+              resource_preset_id = "<host class: b1.medium or higher>"
+              disk_type_id       = "<storage type>"
+              disk_size          = <storage size in GB>
+            }
+          }
+          ...
+          host {
+            type      = "CLICKHOUSE"
+            zone      = "ru-central1-a"
+            subnet_id = yandex_vpc_subnet.<name of the subnet in the ru-central1-a availability zone>.id
+          }
+          ...
+        }
+        ```
+
+    1. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
+
+        {{ ZK }} host requirements:
+        * Each availability zone must have at least one host.
+        * Minimum host class: `b1.medium`.
+        * Storage type: `network-ssd`.
+        * The minimum storage size is 10 GB.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          zookeeper {
+            resources {
+              resource_preset_id = "<host class: b1.medium or higher>"
+              disk_type_id       = "network-ssd"
+              disk_size          = <storage size in GB>
+            }
+          }
+          ...
+          host {
+            type      = "ZOOKEEPER"
+            zone      = "ru-central1-a"
+            subnet_id = yandex_vpc_subnet.<name of the subnet in the ru-central1-a availability zone>.id
+          }
+          host {
+            type      = "ZOOKEEPER"
+            zone      = "ru-central1-b"
+            subnet_id = yandex_vpc_subnet.<name of the subnet in the ru-central1-b availability zone>.id
+          }
+          host {
+            type      = "ZOOKEEPER"
+            zone      = "ru-central1-c"
+            subnet_id = yandex_vpc_subnet.<name of the subnet in the ru-central1-c availability zone>.id
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 
@@ -99,7 +212,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
        If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
      - You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. See the description of the CLI command for adding a host:
+  1. View a description of the CLI command for adding a host:
 
      ```
      $ {{ yc-mdb-ch }} host add --help
@@ -112,6 +225,38 @@ The following characteristics are set for the {{ ZK }} hosts by default:
           --cluster-name <cluster name>
           --host zone-id=<availability zone>,subnet-id=<subnet ID>,type=zookeeper
      ```
+
+- Terraform
+
+    To add a {{ ZK }} host to a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `ZOOKEEPER` type `host` block to the {{ mch-name }} cluster description:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          host {
+            type      = "ZOOKEEPER"
+            zone      = "<availability zone>"
+            subnet_id = yandex_vpc_subnet.<name of the subnet in the selected availability zone>.id
+          }
+          ...
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 
@@ -145,6 +290,26 @@ The following characteristics are set for the {{ ZK }} hosts by default:
   ```
 
   The host name can be requested with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+    To delete a {{ ZK }} host from a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mch-name }} cluster description, delete the `ZOOKEEPER` type `host` block.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the deletion of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 

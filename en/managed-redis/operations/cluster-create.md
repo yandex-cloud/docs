@@ -40,11 +40,8 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
       - Select the host type: it defines the [guaranteed vCPU performance](../../compute/concepts/performance-levels.md). **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
       - Select the amount of RAM for the host.
       - Select the disk size. The available disk size depends on the amount of RAM and is limited by [quotas and limits](../concepts/limits.md#limits). The minimum disk size is twice the selected amount of RAM, while the maximum disk size is 8 times the selected amount of RAM.
-
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
-
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
-
   1. Under **Hosts**, click **Add host** and select the availability zone and subnet to connect the host to. Create the necessary number of hosts. To change the availability zone and the added host, click the pencil icon in the host line.
 
      If you enabled sharding, enter names for the shards.
@@ -52,6 +49,8 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   1. If necessary, configure additional cluster settings:
 
      {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
+
+  1. If necessary, configure the [DBMS settings](../concepts/settings-list.md).
 
   1. Click **Create cluster**.
 
@@ -110,7 +109,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
-       * Database cluster: Description of the cluster and its hosts.
+       * Database cluster: Description of the cluster and its hosts. If necessary, you can also configure the [DBMS settings](../concepts/settings-list.md#dbms-settings) here.
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
@@ -219,7 +218,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     - In the folder with the ID `{{ tf-folder-id }}`.
     - Network: `mynet`.
     - With a single host of the `hm1.nano` class in the new `mysubnet` subnet and the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
-    - In the new security group `redis-sg` allowing connections through port `{{ port-mrd }}` from any addresses in the `mysubnet` subnet.
+    - In the new `redis-sg` security group allowing connections through port `{{ port-mrd }}` from any address in the `mysubnet` subnet.
     - With a 16 GB fast network storage (`{{ disk-type-example }}`).
     - With the `user1user1` password.
 

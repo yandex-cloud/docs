@@ -12,12 +12,12 @@ To manage users via SQL, [create a cluster](cluster-create.md) with the **User m
 In a cluster with user management via SQL enabled:
 
 - You can only manage users via SQL.
-- User management using {{ yandex-cloud }} standard interfaces (the CLI, API, or management console) isn't possible.
+- User management using standard {{ yandex-cloud }} interfaces (CLI, API, or management console) isn't possible.
 - Users are managed under the `admin` account. The password for this account is set when creating a cluster.
 
 {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
 
-To learn more about managing users using SQL, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/operations/access-rights).
+For more information about managing users using SQL, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/operations/access-rights).
 
 ## Getting a list of users {#list-users}
 
@@ -64,18 +64,23 @@ To learn more about managing users using SQL, see the [{{ CH }} documentation](h
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click **Add**.
-  1. Enter a database username and password (from 8 to 128 characters).
+  1. Enter the database username and password.
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
   1. Select one or more databases that the user should have access to:
      1. Select the database from the **Database** drop-down list.
      1. Click **Add** to the right of the drop-down list.
      1. Repeat the previous two steps until all the required databases are selected.
      1. To delete a database that was added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name in the **Permissions** list.
+
   1. Configure [additional settings](../concepts/settings-list.md) for the user:
      1. Set [quotas](../concepts/settings-list.md#quota-settings) in **Additional settings → Quotas**:
         1. To add a quota, click ![image](../../_assets/plus.svg) or **+ Quotas**. You can add multiple quotas that will be valid at the same time.
         1. To delete a quota, click ![image](../../_assets/vertical-ellipsis.svg) to the right of the quota name and select **Delete**.
-        1. To change a quota, set the required setting values for it.
+        1. To change a quota, set the required values of its settings.
      1. Configure [{{ CH }}](../concepts/settings-list.md#user-level-settings) in **Additional settings → Settings**.
+
   1. Click **Add**.
 
   See also: [Example of creating a read-only user](#example-create-readonly-user).
@@ -97,6 +102,8 @@ To learn more about managing users using SQL, see the [{{ CH }} documentation](h
        --settings=<list of {{ CH }} settings for the user>
   ```
 
+  {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
   For more information about [quotas](../concepts/settings-list.md#quota-settings) and [{{ CH }} settings](../concepts/settings-list.md#user-level-settings), see [{#T}](../concepts/settings-list.md).
 
   To set multiple quotas, list them using the required number of `--quota` parameters in the command:
@@ -113,6 +120,39 @@ To learn more about managing users using SQL, see the [{{ CH }} documentation](h
 
   See also: [Example of creating a read-only user](#example-create-readonly-user).
 
+- Terraform
+
+    To create a user in a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `user` block to the {{ mch-name }} cluster description.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          user {
+            name     = "<username>"
+            password = "<password>"
+            ...
+          }
+        }
+        ```
+
+        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - SQL
 
   1. [Connect](connect.md) to the cluster using the [admin account](#sql-user-management).
@@ -120,8 +160,10 @@ To learn more about managing users using SQL, see the [{{ CH }} documentation](h
   1. Create a user:
 
       ```sql
-      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user's password>';
+      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user password>';
       ```
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
   To learn more about creating users, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/create/user/).
 
@@ -139,6 +181,8 @@ To learn more about managing users using SQL, see the [{{ CH }} documentation](h
   1. Click ![image](../../_assets/vertical-ellipsis.svg) and select **Change password**.
   1. Set a new password and click **Edit**.
 
+  {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -153,7 +197,44 @@ To learn more about managing users using SQL, see the [{{ CH }} documentation](h
        --password=<new password>
   ```
 
+  {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+    To change the user's password:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mch-name }} cluster description, find the `user` block for the required user.
+
+    1. Change the value of the `password` field:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          user {
+            name     = "<username>"
+            password = "<new password>"
+            ...
+          }
+        }
+        ```
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - SQL
 
@@ -164,6 +245,8 @@ To learn more about managing users using SQL, see the [{{ CH }} documentation](h
       ```sql
       ALTER USER <username> IDENTIFIED BY '<new password>';
       ```
+
+      {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
   To learn more about changing users, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/alter/user/).
 
@@ -188,7 +271,7 @@ To learn more about managing users using SQL, see the [{{ CH }} documentation](h
   1. Set [quotas](../concepts/settings-list.md#quota-settings) for the user in **Additional settings → Quotas**:
      1. To add a quota, click ![image](../../_assets/plus.svg) or **+ Quotas**. You can add multiple quotas that will be valid at the same time.
      1. To delete a quota, click ![image](../../_assets/vertical-ellipsis.svg) to the right of the quota name and select **Delete**.
-     1. To change a quota, set the required setting values for it.
+     1. To change a quota, set the required values of its settings.
   1. Change the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) for the user in **Additional settings → Settings**.
   1. Click **Save**.
 
@@ -251,6 +334,78 @@ To learn more about managing users using SQL, see the [{{ CH }} documentation](h
 
      This command doesn't delete a configured setting, it just explicitly assigns it the default value (specified for [each setting](#clickhouse-settings)).
 
+- Terraform
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. To configure the user's permissions to access certain databases, add the required number of `permission` blocks to the cluster user description — one for each database:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          user {
+            name     = "<username>"
+            password = "<password>"
+            permission {
+              database_name = "<database 1>"
+            }
+            ...
+            permission {
+              database_name = "<database N>"
+            }
+          }
+        }
+        ```
+
+        In the `database_name` field, specify the name of the database to grant access to.
+
+    1. To change [quota settings](../concepts/settings-list.md#quota-settings) for the user, add the required number of `quota` blocks to the cluster user description.
+
+        When describing quotas, only the `interval_duration` field is required.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          user {
+            name     = "<username>"
+            password = "<password>"
+            ...
+            quota {
+              interval_duration = <interval duration in milliseconds>
+              ...
+            }
+          }
+        }
+        ```
+
+    1. To change [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, add the `settings` block to the cluster user description.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          user {
+            name     = "<username>"
+            password = "<password>"
+            ...
+            settings {
+              <DBMS settings for an individual user>
+            }
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 - SQL
 
   1. [Connect](connect.md) to the cluster using the [admin account](#sql-user-management).
@@ -298,6 +453,26 @@ To learn more about managing users using SQL, see the [{{ CH }} documentation](h
   ```
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+    To delete a user:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Delete the `user` block with a description of the required user from the {{ mch-name }} cluster description.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - SQL
 
@@ -361,6 +536,44 @@ Let's say you need to add to the existing `mych` cluster a new user named `ro-us
        ```
        DB::Exception: Cannot modify 'readonly' setting in readonly mode.
        ```
+
+- Terraform
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add the `user` block to the cluster description.
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "mych" {
+          name = "mych"
+        
+          database {
+            name = "db1"
+          }
+        
+          user {
+            name     = "ro-user"
+            password = "Passw0rd"
+            permission {
+              database_name = "db1"
+            }
+            settings {
+              readonly = 1
+            }
+          }
+          ...
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - SQL
 

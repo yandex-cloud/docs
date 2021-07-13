@@ -51,6 +51,8 @@ items:
         href: concepts/supported-features.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Redis settings
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
