@@ -30,6 +30,37 @@
 
   1. Click **Add** and wait for the model to be added.
 
+- Terraform
+
+    To add a machine learning model to a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. To the {{ mch-name }} cluster description, add the `ml_model` block with a description of the added machine learning model:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          ml_model {
+            name = "<model name>"
+            type = "<model type: ML_MODEL_TYPE_CATBOOST>"
+            uri  = "<public link to the model file in {{ objstorage-name }}>"
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
+
 {% endlist %}
 
 ## Applying a model {#apply-ml-model}
