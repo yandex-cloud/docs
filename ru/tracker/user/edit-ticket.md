@@ -46,6 +46,6 @@
 - [{#T}](comments.md)
 - [{#T}](checklist.md)
 - [{#T}](ticket-links.md)
-- [{#T}](attache-file.md)
+- [{#T}](attach-file.md)
 - [{#T}](move-ticket.md)
 

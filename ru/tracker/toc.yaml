@@ -155,7 +155,7 @@ items:
         - name: Изменить связи задачи
           href: user/ticket-links.md
         - name: Прикрепить к задаче изображения и файлы
-          href: user/attache-file.md
+          href: user/attach-file.md
         - name: Форматировать текст в задаче
           href: user/wiki-markup.md
         - name: Выполнить макрос
