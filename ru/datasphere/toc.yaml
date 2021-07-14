@@ -35,6 +35,12 @@ items:
         href: operations/projects/work-with-git.md
       - name: Настройка интеграции с Data Proc
         href: operations/data-proc-integration.md
+      - name: Подключение к источникам данных
+        items:
+          - name: Подключение к базе данных {{ CH }}
+            href: operations/data/connect-to-clickhouse.md
+          - name: Подключение к базе данных {{ PG }}
+            href: operations/data/connect-to-postgresql.md
   - name: Концепции
     items:
       - name: Обзор

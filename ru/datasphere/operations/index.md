@@ -17,3 +17,5 @@ description: "Из статьи вы узнаете как работать с Y
 - [{#T}](projects/delete.md)
 - [{#T}](projects/work-with-git.md)
 - [{#T}](data-proc-integration.md)
+- [{#T}](data/connect-to-clickhouse.md)
+- [{#T}](data/connect-to-postgresql.md)
