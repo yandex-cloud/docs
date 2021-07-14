@@ -49,6 +49,8 @@ items:
         href: concepts/configurations.md
       - name: Integration with version and data control systems
         href: concepts/dvc-and-git.md
+      - name: Saving a state
+        href: concepts/save-state.md
       - name: Integration with Data Proc
         href: concepts/data-proc.md
       - name: Background operations

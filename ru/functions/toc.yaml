@@ -279,11 +279,11 @@ items:
     href: pricing.md
   - name: Управление доступом
     href: security/index.md
-  - name: Справочник API Functions (англ.)
+  - name: Справочник API Functions
     items:
       - name: Authentication
         href: api-ref/functions/authentication.md
-      - name: gRPC
+      - name: gRPC (англ.)
         items:
           - name: Overview
             href: functions/api-ref/grpc/index.md
@@ -291,7 +291,7 @@ items:
             href: functions/api-ref/grpc/function_service.md
           - name: OperationService
             href: functions/api-ref/grpc/operation_service.md
-      - name: REST
+      - name: REST (англ.)
         items:
           - name: Overview
             href: functions/api-ref/index.md
@@ -339,11 +339,11 @@ items:
                 href: functions/api-ref/Function/update.md
               - name: updateAccessBindings
                 href: functions/api-ref/Function/updateAccessBindings.md
-  - name: Справочник API Triggers (англ.)
+  - name: Справочник API Triggers
     items:
       - name: Authentication
         href: api-ref/triggers/authentication.md
-      - name: gRPC
+      - name: gRPC (англ.)
         items:
           - name: Overview
             href: triggers/api-ref/grpc/index.md
@@ -351,7 +351,7 @@ items:
             href: triggers/api-ref/grpc/trigger_service.md
           - name: OperationService
             href: triggers/api-ref/grpc/operation_service.md
-      - name: REST
+      - name: REST (англ.)
         items:
           - name: Overview
             href: triggers/api-ref/index.md

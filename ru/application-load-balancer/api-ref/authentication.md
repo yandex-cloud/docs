@@ -1,1 +1,1 @@
-{% include [auth](../../../en/_includes/authentication.md) %}
+{% include [auth](../../_includes/authentication.md) %}

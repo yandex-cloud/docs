@@ -39,7 +39,7 @@
 ## Применение контрольной точки {#apply}
 
 Чтобы вернуться к состоянию ноутбука на определенной контрольной точке:
-1. Откройте панель ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints-panel**.
+1. Откройте панель ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints**.
 1. Выберите нужную контрольную точку в списке.
 1. Нажмите кнопку **Apply**.
 1. Дождитесь выполнения операции.
@@ -49,7 +49,7 @@
 ## Сохранение контрольной точки {#pin}
 
 Чтобы защитить контрольную точку от автоматического удаления, ее нужно сохранить:
-1. Откройте панель ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints-panel**.
+1. Откройте панель ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints**.
 1. Выберите нужную контрольную точку в списке **Checkpoints** и нажмите кнопку **Pin**.
 1. В открывшемся окне введите имя сохраняемой контрольной точки.
 1. Нажмите кнопку **Save**.
@@ -64,7 +64,7 @@
 
 Сохраненную контрольную точку можно экспортировать:
 
-1. Откройте панель ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints-panel**.
+1. Откройте панель ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints**.
 1. В списке **Pinned checkpoints** выберите контрольную точку.
 1. Нажмите кнопку **Share**.
 1. В открывшемся окне нажмите кнопку **Copy to clipboard**.

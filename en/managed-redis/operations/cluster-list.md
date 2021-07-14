@@ -56,7 +56,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
   $ {{ yc-mdb-rd }} cluster get <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
 
 {% endlist %}
 

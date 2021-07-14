@@ -35,6 +35,12 @@ items:
         href: operations/projects/work-with-git.md
       - name: Настройка интеграции с Data Proc
         href: operations/data-proc-integration.md
+      - name: Подключение к источникам данных
+        items:
+          - name: Подключение к базе данных {{ CH }}
+            href: operations/data/connect-to-clickhouse.md
+          - name: Подключение к базе данных {{ PG }}
+            href: operations/data/connect-to-postgresql.md
   - name: Концепции
     items:
       - name: Обзор
@@ -81,11 +87,11 @@ items:
         href: tutorials/markup.md
       - name: Классификация изображений на видеокадрах
         href: tutorials/video-recognition.md
-  - name: Справочник API (англ.)
+  - name: Справочник API
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: gRPC (англ.)
         items:
           - name: Overview
             href: api-ref/grpc/index.md
@@ -95,7 +101,7 @@ items:
             href: api-ref/grpc/project_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
-      - name: REST
+      - name: REST (англ.)
         items:
           - name: Overview
             href: api-ref/index.md

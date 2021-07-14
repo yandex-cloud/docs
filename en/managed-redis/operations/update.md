@@ -46,6 +46,40 @@ After creating a cluster, you can:
           --description <new cluster description>
      ```
 
+- {{ TF }}
+
+    {% note alert %}
+
+    Do not change the cluster name using {{ TF }}. This will delete the existing cluster and create a new one.
+
+    {% endnote %}
+
+    To update the cluster description:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](./cluster-create.md).
+
+    1. In the {{ mrd-name }} cluster description, change the `description` parameter value:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster name>" {
+          name        = "<cluster name>"
+          description = "<new cluster description>"
+          ...
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+
 - API
 
   To change the cluster name and description, use the API [update](../api-ref/Cluster/update.md) method: pass the values in the `name` and `description` request parameters.
@@ -109,6 +143,36 @@ After creating a cluster, you can:
 
      {{ mrd-short-name }} will run the update host class command for the cluster.
 
+- {{ TF }}
+
+    To change the [host class](../concepts/instance-types.md) for the cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](./cluster-create.md).
+
+    1. In the {{ mrd-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster name>" {
+          ...
+          resources {
+            resource_preset_id = "<host class>"
+            ...
+            }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+
 - API
 
   You can change the [host class](../concepts/instance-types.md) using the API [update](../api-ref/Cluster/update.md) method: pass the necessary values in the `configSpec.resources.resourcePresetId` request parameter.
@@ -158,6 +222,36 @@ After creating a cluster, you can:
 
      If all the criteria are met, {{ mrd-short-name }} starts increasing the size of the {{ RD }} host disks.
 
+- {{ TF }}
+
+    To increase the storage size for a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](./cluster-create.md).
+
+    1. In the {{ mrd-name }} cluster description, change the `disk_size` parameter value under `resources`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster name>" {
+          ...
+          resources {
+            disk_size = <storage size in GB>
+            ...
+            }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+
 - API
 
   You can change the {{ RD }} host disk size using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the `configSpec.resources.diskSize` request parameter.
@@ -178,6 +272,38 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
   1. Under **DBMS settings**, click **Settings**.
   1. Configure the available parameters according to the [{{ RD }} documentation](https://redis.io/documentation).
   1. Click **Save**.
+
+- {{ TF }}
+
+    To update the [DBMS settings](../concepts/settings-list.md) for the cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](./cluster-create.md).
+
+    1. In the {{ mrd-name }} cluster description, change the values of the parameters under `config`:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster name>" {
+          ...
+          config {
+            password         = "<password>"
+            timeout          = <time in seconds before disabling inactive clients>
+            maxmemory_policy = "<memory management policy when there is not enough memory>"
+            version          = "<Redis version: 5.0 or 6.0>"
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
 
 - API
 
@@ -263,6 +389,33 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
            --security-group-ids <list of security groups>
         ```
 
+- {{ TF }}
+
+    To edit the list of cluster security groups:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](./cluster-create.md).
+
+    1. In the {{ mrd-name }} cluster description, change the `security_group_ids` parameter value:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster name>" {
+          ...
+          security_group_ids = [<list of security group IDs>]
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+
 - API
 
     To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
@@ -274,7 +427,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 {% note warning %}
 
-You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 
