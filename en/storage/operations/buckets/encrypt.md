@@ -1,7 +1,5 @@
 # Bucket encryption
 
-_The function is at the [Preview stage](../../../overview/concepts/launch-stages.md)._
-
 In {{ objstorage-short-name }}, you can encrypt objects in the bucket using [{{ kms-short-name }} keys](../../../kms/concepts/key.md):
 * [Add encryption to the bucket](#add) so that all the new objects are encrypted with the specified key.
 * Specify the encryption key when you [upload an object using the API](../../s3/api-ref/object/upload.md).
