@@ -150,16 +150,22 @@ items:
           href: user/edit-ticket.md
         - name: Добавить комментарии к задаче
           href: user/comments.md
-        - name: Форматировать текст в задаче
-          href: user/wiki-markup.md
+        - name: Создать чеклист
+          href: user/checklist.md
         - name: Изменить связи задачи
           href: user/ticket-links.md
+        - name: Прикрепить к задаче изображения и файлы
+          href: user/attache-file.md
+        - name: Форматировать текст в задаче
+          href: user/wiki-markup.md
         - name: Выполнить макрос
           href: user/macroses.md
+        - name: Проголосовать за задачу
+          href: user/votes.md
+        - name: Перенести задачу в другую очередь
+          href: user/move-ticket.md                             
         - name: Изменить несколько задач
           href: manager/bulk-change.md
-    - name: Создать чеклист
-      href: user/checklist.md
     - name: Настроить напоминание о задаче
       href: user/reminder.md
     - name: Отметить затраченное время
@@ -168,8 +174,6 @@ items:
       href: user/create-param.md
     - name: Посмотреть историю изменений задачи
       href: user/history.md
-    - name: Проголосовать за задачу
-      href: user/votes.md
     - name: Получить доступ к задаче
       href: user/ticket-access.md
     - name: Удалить задачу
