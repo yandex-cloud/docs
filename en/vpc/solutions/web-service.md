@@ -10,7 +10,7 @@ To create the infrastructure of an internet service:
 1. [Configure VPN routing](#vpn-routing).
 1. [Create a route table](#create-route-table).
 1. [Link the route table to all subnets](#associate-route-table).
-1. [Create and configure security groups](#create-secutiry-group).
+1. [Create and configure security groups](#create-security-group).
 1. [Assign the security groups to the VMs](#assign-security-groups-vm).
 1. [Create a network load balancer](#create-load-balancer).
 1. [Test the infrastructure](#test).
@@ -125,7 +125,7 @@ To use static routes, link the route table to a subnet. To do this:
 
 {% endlist %}
 
-## Create and configure security groups {#create-secutiry-group}
+## Create and configure security groups {#create-security-group}
 
 To distribute traffic between network segments, create security groups and set up rules for receiving and sending traffic.
 

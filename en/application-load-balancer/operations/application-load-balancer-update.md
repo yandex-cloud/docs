@@ -18,7 +18,7 @@ To edit an L7 load balancer:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for editing the load balancer parameters:
+  1. View a description of the CLI command for updating the load balancer parameters:
 
      ```
      yc alb load-balancer update --help
@@ -59,7 +59,7 @@ To edit an L7 load balancer:
        - zone_id: ru-central1-c
          subnet_id: fo2ap2nrhjk9vpfdnno8
      log_group_id: eolul9ap0bv02i8bsp87
-     created_at: "2021-02-14T16:47:52.057994243Z"
+     created_at: "2021-04-26T12:12:13.624832586Z"
      ```
 
 {% endlist %}
