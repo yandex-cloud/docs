@@ -49,11 +49,11 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API (англ.)
+  - name: Справочник API
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: gRPC (англ.)
         items:
           - name: Overview
             href: apigateway/api-ref/grpc/index.md
@@ -61,7 +61,7 @@ items:
             href: apigateway/api-ref/grpc/apigateway_service.md
           - name: OperationService
             href: apigateway/api-ref/grpc/operation_service.md
-      - name: REST
+      - name: REST (англ.)
         items:
           - name: Overview
             href: apigateway/api-ref/index.md

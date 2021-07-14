@@ -133,20 +133,6 @@
 
       1. После создания кластера [создайте учетную запись администратора](./cluster-accounts.md#create-account).
 
-- API
-
-  Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
-  - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-  - Имя кластера в параметре `name`.
-  - Идентификаторы групп безопасности в параметре `securityGroupIds`.
-
-  Чтобы управлять топиками через Admin API {{ KF }}:
-
-  {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
-  1. Передайте значение `true` для параметра `unmanagedTopics`.
-  1. После создания кластера [создайте учетную запись администратора](./cluster-accounts.md#create-account).
-
 - Terraform
 
     {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
@@ -233,6 +219,13 @@
   - Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
   - Имя кластера в параметре `name`.
   - Идентификаторы групп безопасности в параметре `securityGroupIds`.
+
+  Чтобы управлять топиками через Admin API {{ KF }}:
+
+  {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
+
+  1. Передайте значение `true` для параметра `unmanagedTopics`.
+  1. После создания кластера [создайте учетную запись администратора](./cluster-accounts.md#create-account).
 
 {% endlist %}
 

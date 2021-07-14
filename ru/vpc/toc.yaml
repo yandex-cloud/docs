@@ -98,11 +98,11 @@ items:
         items:
           - name: До 1 января 2019 года
             href: pricing-archive/pricing-01012019.md
-  - name: Справочник API (англ.)
+  - name: Справочник API
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: REST
+      - name: REST (англ.)
         items:
           - name: Overview
             href: api-ref/index.md
@@ -210,7 +210,7 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
-      - name: gRPC
+      - name: gRPC (англ.)
         items:
           - name: Overview
             href: api-ref/grpc/index.md

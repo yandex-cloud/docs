@@ -107,6 +107,36 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and R
 
      If you add a host to a sharded cluster, specify in the `shard-name` parameter the name of the shard to add the host to.
 
+- {{ TF }}
+
+    To add a host to the cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `host` block to the {{ mrd-name }} cluster description.
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster name>" {
+          ...
+          host {
+            zone      = "<availability zone>"
+            subnet_id = <subnet ID>
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+
 - API
 
   To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
@@ -150,7 +180,27 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
        --cluster-name=<cluster name>
   ```
 
-  The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+    To remove a host from a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Delete the `host` block from the {{ mrd-name }} cluster description.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the deletion of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
 
 - API
 

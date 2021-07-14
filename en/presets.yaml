@@ -192,7 +192,7 @@ default:
   security-group: enp6saqnq4ie244g67sb
   host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
-  mch-hs-version: 21.1
+  mch-hs-version: 21.7
   mmg-backup-retention: 7
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
@@ -299,6 +299,20 @@ default:
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
+  tf-provider-mch: >-
+    https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
+  tf-provider-mkf: >-
+    https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster
+  tf-provider-mmg: >-
+    https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster
+  tf-provider-mms: >-
+    https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_sqlserver_cluster
+  tf-provider-mmy: >-
+    https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster
+  tf-provider-mpg: >-
+    https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
+  tf-provider-mrd: >-
+    https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
   port-any: 0-65535
   port-http: 80
   port-https: 443
@@ -313,6 +327,7 @@ default:
   port-mpg: 6432
   port-mrd-sentinel: 26379
   port-mrd: 6379
+  port-mrd-tls: 6380
   port-ssh: 22
   sku|RUB|compute:
     vm:

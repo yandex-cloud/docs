@@ -3,4 +3,4 @@ title: "Аутентификация в API Yandex Managed Service for PostgreSQ
 description: "Для выполнения операций через API в сервисе управления базами данных PostgreSQL – Yandex Managed Service for PostgreSQL, необходимо получить IAM-токен для сервисного, федеративного или Яндекс аккаунта."
 ---
 
-{% include [auth](../../../en/_includes/authentication.md) %}
+{% include [auth](../../_includes/authentication.md) %}

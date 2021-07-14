@@ -41,11 +41,11 @@ items:
             href: tts/brand-voice/index.md
           - name: Формат входных данных Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md
-      - name: Справочник APIv3 (англ.)
+      - name: Справочник APIv3
         items:
-          - name: Authentication
+          - name: Аутентификация в API
             href: api-ref/authentication.md
-          - name: gRPC
+          - name: gRPC (англ.)
             items:
               - name: Overview
                 href: api-ref/grpc/index.md

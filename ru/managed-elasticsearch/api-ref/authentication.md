@@ -3,4 +3,4 @@ title: "Аутентификация в API Yandex Managed Service for Elasticse
 description: "Для выполнения операций через API в сервисе создания и управления кластерами Elasticsearch – Yandex Managed Service for Elasticsearch, необходимо получить IAM-токен для сервисного, федеративного или Яндекс аккаунта."
 ---
 
-{% include [auth](../../../en/_includes/authentication.md) %}
+{% include [auth](../../_includes/authentication.md) %}
