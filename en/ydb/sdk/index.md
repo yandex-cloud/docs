@@ -2,16 +2,31 @@
 
 When writing your app, you can use the SDKs available for [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk), and [Java](https://github.com/yandex-cloud/ydb-java-sdk).
 
-This page explains in detail the `basic_example_v1` test app code available as part of the SDK:
+This page explains in detail the test app code available as part of the SDK:
 
-* For [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/kikimr/public/sdk/python/examples/basic_example_v1)
+* For [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/examples/basic_example_v1)
 * For [Go](https://github.com/yandex-cloud/ydb-go-sdk/tree/master/example/basic_example_v1)
-* For [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/basic_example_v1)
+* For [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/basic_example)
 * For [NodeJS](https://github.com/yandex-cloud/ydb-nodejs-sdk/tree/master/examples/basic-example-v1)
+
+{% if audience == "internal" %}
+
+* For [C++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/python/examples/basic_example)
+{% endif %}
 
 To launch the app, connect to the database. For more information, see [{#T}](../quickstart/launch-test-app.md).
 
-After launching and running `basic_example_v1`, the following is displayed in the console:
+{% if audience == "internal" %}
+
+{% note info %}
+
+To authenticate with YDB, the test app uses a token from the __YDB_TOKEN__ environment variable.
+
+{% endnote %}
+
+{% endif %}
+
+After launching and running the app, the following is displayed in the console:
 
 {% list tabs %}
 
@@ -115,7 +130,7 @@ After launching and running `basic_example_v1`, the following is displayed in th
 
 {% endlist %}
 
-## Create a new driver, client, and session instance {#driver-client-session-init}
+## Creating a new driver, client, and session instance {#driver-client-session-init}
 
 To interact with {{ ydb-short-name }}, you have to create an instance of the driver, client, and session:
 
@@ -123,9 +138,9 @@ To interact with {{ ydb-short-name }}, you have to create an instance of the dri
 * The {{ ydb-short-name }} client runs on top of the {{ ydb-short-name }} driver and enables the handling of entities and transactions.
 * The {{ ydb-short-name }} session contains information about executed transactions and prepared queries, and is part of the {{ ydb-short-name }} client context.
 
-### Initialize the driver {#driver-init}
+### Initializing the driver {#driver-init}
 
-The driver lets the app and {{ ydb-short-name }} interact at the transport layer. The driver must exist throughout the {{ ydb-short-name }} access lifecycle. Before creating a {{ ydb-short-name }} client and setting up a session, initialize the {{ ydb-short-name }} driver. `basic_example_v1` app code snippet for driver initialization with database connection parameters:
+The driver lets the app and {{ ydb-short-name }} interact at the transport layer. The driver must exist throughout the {{ ydb-short-name }} access lifecycle. Before creating a {{ ydb-short-name }} client and setting up a session, initialize the {{ ydb-short-name }} driver. App code snippet for driver initialization with database connection parameters:
 
 {% list tabs %}
 
@@ -165,9 +180,9 @@ The driver lets the app and {{ ydb-short-name }} interact at the transport layer
 
 {% endlist %}
 
-### Initialize the client and session {{ ydb-short-name }} {#client-session-init}
+### Initializing the {{ ydb-short-name }} client and session {#client-session-init}
 
-The client enables the handling of {{ ydb-short-name }} entities. The session contains information about executable transactions and prepared queries. `basic_example_v1` app code snippet for creating a session:
+The client enables the handling of {{ ydb-short-name }} entities. The session contains information about executable transactions and prepared queries. App code snippet for creating a session:
 
 {% list tabs %}
 
@@ -351,9 +366,9 @@ For more information about PRAGMA YQL support, see the [YQL documentation](../yq
 - Python
 
   To execute YQL queries, use the `session.transaction().execute()` method.
-The SDK lets you explicitly control the execution of transactions and configure the transaction execution mode using the ```TxControl``` class.
+  The SDK lets you explicitly control the execution of transactions and configure the transaction execution mode using the ```TxControl``` class.
 
-  In the `basic_example_v1` code snippet below, the transaction is executed using the ```transaction().execute()``` method. The transaction execution mode set is ```ydb.SerializableReadWrite()```. When all the queries in the transaction are completed, the transaction is automatically committed by explicitly setting the flag ```commit_tx=True```. The query body is described using YQL syntax and is passed to the ```execute``` method as a parameter.
+  In the code snippet below, the transaction is executed using the ```transaction().execute()``` method. The transaction execution mode set is ```ydb.SerializableReadWrite()```. When all the queries in the transaction are completed, the transaction is automatically committed by explicitly setting the ```commit_tx=True``` flag. The query body is described using YQL syntax and is passed to the ```execute``` method as a parameter.
 
   ```python
   def select_simple(session, path):
@@ -380,7 +395,7 @@ The SDK lets you explicitly control the execution of transactions and configure 
 - Go
 
   To execute YQL queries, use the `Session.Execute()` method.
-The SDK lets you explicitly control the execution of transactions and configure the transaction execution mode using the ```TxControl``` class.
+  The SDK lets you explicitly control the execution of transactions and configure the transaction execution mode using the ```TxControl``` class.
 
   ```go
   func selectSimple(ctx context.Context, sp *table.SessionPool, prefix string) (err error) {
@@ -449,11 +464,10 @@ The SDK lets you explicitly control the execution of transactions and configure 
   	return nil
   }
   ```
-
 - Java
 
   To execute YQL queries, use the `Session.executeDataQuery()` method.
-The SDK lets you explicitly control the execution of transactions and configure the transaction execution mode using the `TxControl` class.
+  The SDK lets you explicitly control the execution of transactions and configure the transaction execution mode using the `TxControl` class.
 
   ```java
   private void selectSimple() {
@@ -480,7 +494,7 @@ The SDK lets you explicitly control the execution of transactions and configure 
 
 {% endlist %}
 
-## Process execution results {#results-processing}
+## Processing execution results {#results-processing}
 
 {% list tabs %}
 
@@ -535,7 +549,7 @@ The SDK lets you explicitly control the execution of transactions and configure 
 
 - Python
 
-  `basic_example_v1` code snippet for data insert/update:
+  Code snippet for inserting and updating data:
 
   ```python
   def upsert_simple(session, path):
@@ -551,7 +565,7 @@ The SDK lets you explicitly control the execution of transactions and configure 
 
 - Java
 
-  `basic_example_v1` code snippet for data insert/update:
+  Code snippet for inserting and updating data:
 
   ```java
   private void upsertSimple() {
@@ -580,7 +594,7 @@ Parameterized prepared queries are saved as templates where specially formatted 
 
 - Python
 
-  `basic_example_v1` code snippet for parameterized prepared queries. The prepared query is stored in the session context.
+  Code snippet for parameterized prepared queries. The prepared query is stored in the session context.
 
   ```python
   def select_prepared(session, path, series_id, season_id, episode_id):
@@ -615,7 +629,7 @@ Parameterized prepared queries are saved as templates where specially formatted 
 
 - Java
 
-  `basic_example_v1` code snippet for parameterized prepared queries. The prepared query is stored in the session context.
+  Code snippet for parameterized prepared queries. The prepared query is stored in the session context.
 
   ```java
   private void preparedSelect(long seriesId, long seasonId, long episodeId) {
@@ -664,7 +678,7 @@ Parameterized prepared queries are saved as templates where specially formatted 
 
 - Python
 
-  In most cases, instead of explicitly using [TCL](../concepts/transactions.md) for Begin and Commit calls, it's better to use transaction control parameters in the execute calls. This helps you avoid unnecessary requests to {{ ydb-short-name }} and run your queries more efficiently. `basic_example_v1` code snippet for `transaction().begin()` and `tx.Commit()` calls:
+  In most cases, instead of explicitly using [TCL](../concepts/transactions.md) for Begin and Commit calls, it's better to use transaction control parameters in the execute calls. This helps you avoid unnecessary requests to {{ ydb-short-name }} and run your queries more efficiently. Code snippet for `transaction().begin()` and `tx.Commit()` calls:
 
   ```python
   def explicit_tcl(session, path, series_id, season_id, episode_id):
@@ -698,7 +712,7 @@ Parameterized prepared queries are saved as templates where specially formatted 
 
 - Java
 
-  In most cases, instead of explicitly using [TCL](../concepts/transactions.md) for Begin and Commit calls, it's better to use transaction control parameters in `execute` calls. This helps you avoid unnecessary requests to {{ ydb-short-name }} and make queries more efficiently. `basic_example_v1` code snippet for `beginTransaction()` and `transaction.Commit()` calls:
+  In most cases, instead of explicitly using [TCL](../concepts/transactions.md) for Begin and Commit calls, it's better to use transaction control parameters in `execute` calls. This helps you avoid unnecessary requests to {{ ydb-short-name }} and make queries more efficiently. Code snippet for `beginTransaction()` and `transaction.Commit()` calls:
 
   ```java
   private Status explicitTcl(Session session) {
