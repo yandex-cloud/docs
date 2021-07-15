@@ -88,6 +88,8 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
 
+{% include [functions-roles-mdbproxy](../../../_includes/roles-functions-mdbproxy.md) %}
+
 ## {{ iam-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}

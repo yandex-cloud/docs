@@ -41,6 +41,8 @@ items:
         href: operations/index.md
       - name: Получение IAM-токена сервисного аккаунта с помощью функции
         href: operations/function-sa.md
+      - name: Подключение к управляемым БД из функции
+        href: operations/database-connection.md
       - name: Управление правами доступа к функции
         href: operations/function-public.md
       - name: Управление функцией
