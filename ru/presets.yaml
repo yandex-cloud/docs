@@ -52,6 +52,7 @@ default:
   at-full-name: Yandex Audit Trails
   yds-full-name: Yandex Data Streams
   cdn-full-name: Yandex Cloud CDN
+  serverless-containers-full-name: Yandex Serverless Containers
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -104,6 +105,7 @@ default:
   at-name: Audit Trails
   yds-name: Data Streams
   cdn-name: Cloud CDN
+  serverless-containers-name: Serverless Containers
 
   # Короткие имена
   iam-short-name: IAM
@@ -131,6 +133,7 @@ default:
   cloud-logs-short-name: Cloud Logs
   cloud-logging-short-name: Cloud Logging
   container-registry-short-name: Container Registry
+  serverless-containers-short-name: Serverless Containers
   dataproc-short-name: Data Proc
   vision-short-name: Vision
   datalens-short-name: DataLens
