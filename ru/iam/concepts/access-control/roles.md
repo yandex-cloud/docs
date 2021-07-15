@@ -100,6 +100,18 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
 
+## {{ cloud-logging-name }} {#logging}
+
+{% include [logging-roles-viewer](../../../_includes/roles-logging-viewer.md) %}
+
+{% include [logging-roles-editor](../../../_includes/roles-logging-editor.md) %}
+
+{% include [logging-roles-reader](../../../_includes/roles-logging-reader.md) %}
+
+{% include [logging-roles-writer](../../../_includes/roles-logging-writer.md) %}
+
+{% include [logging-roles-admin](../../../_includes/roles-logging-admin.md) %}
+
 ## {{ kms-name }} {#kms-roles}
 
 {% include [kms-admin](../../../_includes/roles-kms-admin.md) %}

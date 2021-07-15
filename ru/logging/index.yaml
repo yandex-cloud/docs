@@ -1,0 +1,26 @@
+title: Yandex Cloud Logging
+description:
+  - >-
+    Сервис Yandex Cloud Logging позволяет читать и записывать 
+    логи сервисов и пользовательских приложений, объединяя сообщения в лог-группы.
+meta:
+  title: Cloud Logging
+links:
+  - title: Начало работы
+    description: Добавьте записи в лог-группу и прочитайте их
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/index
+  - title: Концепции
+    description: Читайте подробнее про концепции Cloud Logging
+    href: concepts
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing
+  - title: Управление доступом
+    description: Какие права доступа нужны для работы с сервисом
+    href: security/index

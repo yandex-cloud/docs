@@ -26,6 +26,10 @@ links:
   - title: CLI Yandex.Cloud
     description: Интерфейс командной строки
     href: cli/
+  - title: Cloud Logging
+    description: Логи сервисов и пользовательских приложений
+    href: logging/
+    when: audience == "external"
   - title: Compute Cloud
     description: Виртуальные машины и диски
     href: compute/

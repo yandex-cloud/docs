@@ -178,3 +178,7 @@ description: 'В сервисах Yandex.Cloud могут действовать
 ### {{ api-gw-full-name }} {#api-gw}
 
 {% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
+
+### {{ cloud-logging-name }} {#logging}
+
+{% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}

@@ -18,6 +18,9 @@ items:
     when: audience == "external"
   - name: CLI Yandex.Cloud
     href: cli/index.yaml
+  - name: Cloud Logging
+    href: logging/index.yaml
+    when: audience == "external"
   - name: Compute Cloud
     href: compute/index.yaml
     when: audience == "external"
