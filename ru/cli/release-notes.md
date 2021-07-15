@@ -17,16 +17,9 @@
 * Добавлена команда `yc serverless function set-scaling-policy` для задания настроек масштабирования функции.
 * Добавлена команда `yc serverless function list-scaling-policies` для просмотра настроек масштабирования функции.
 * Добавлена команда `yc serverless function remove-scaling-policy` для удаления настроек масштабирования функции.
-
 * Команда `yc serverless function version create`.
 
   Исправлена обработка директорий для флага `--source-path` на Windows.
-
-### {{ serverless-containers-name }} {#serverless-containers}
-
-Добавлена поддержка сервиса {{ serverless-containers-name }}:
-* Добавлена команда `yc serverless container` для создания и управления контейнерами.
-* Добавлена команда `yc serverless container revision` для развертывания и просмотра версий контейнера.
 
 ### Сервисы управляемых баз данных {#managed-db}
 
