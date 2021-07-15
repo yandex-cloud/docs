@@ -31,7 +31,7 @@
 1. [Подключитесь](../operations/connect.md) к хосту `MONGOS` или `MONGOINFRA` с помощью CLI `mongo` и включите шардирование:
 
    ```
-   sh.enableSharding(<имя базы>)
+   sh.enableSharding("<имя базы>")
    ```
 
    Тип хоста можно запросить со [списком хостов в кластере](../operations/hosts.md#list-hosts).

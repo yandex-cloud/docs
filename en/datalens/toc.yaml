@@ -65,6 +65,8 @@ items:
             href: operations/dataset/create-field.md
           - name: Creating a calculated data field
             href: operations/dataset/create-calculated-field.md
+          - name: Creating a default filter
+            href: operations/dataset/create-filter.md
           - name: Updating fields in datasets
             href: operations/dataset/update-field.md
           - name: Dataset materialization
@@ -151,6 +153,8 @@ items:
         href: concepts/marketplace.md
       - name: Backups
         href: concepts/backup.md
+      - name: Caching
+        href: concepts/caching.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

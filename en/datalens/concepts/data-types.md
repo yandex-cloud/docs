@@ -149,7 +149,7 @@ You can convert the source data type to `String` by using the function [STR](../
 
 A number with no no fractional part.
 
-You can convert the source data type to `Integer` by using the function [INT](..//function-ref/INT.md).
+You can convert the source data type to `Integer` by using the function [INT](../function-ref/INT.md).
 
 #### Record example {#integer-example}
 

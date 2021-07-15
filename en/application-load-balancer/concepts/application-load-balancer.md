@@ -6,9 +6,27 @@ The load balancer stores a list of endpoints, which accept traffic and disables 
 
 For convenience and security, you can use the load balancer together with {{ certificate-manager-full-name }} to store your TLS certificates. You can also use {{ monitoring-full-name }} services to monitor request processing.
 
-## Load balancer locality {#lb-location}
+## Security groups {#security-groups}
 
-When you create a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in three [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets. If the backend VMs belong to [security groups](../../vpc/concepts/security-groups.md), allow traffic from these subnets on the VM ports used by the application to handle traffic.
+{% note info %}
+
+Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they aren't available in your network, all incoming and outgoing traffic will be allowed for the L7 load balancer and backend VMs, and no additional configuration is required.
+
+{% endnote %}
+
+When you create a load balancer, specify [security groups](../../vpc/concepts/security-groups.md) as they contain a set of rules for the load balancer to receive incoming traffic and send it to backend VMs. Security groups are also assigned to each VM.
+
+For the load balancer to work correctly:
+
+* The load balancer's security groups must allow:
+  * Receiving external incoming traffic on the ports specified in [the listener](#listener). For example, for HTTP(S) traffic: TCP connections on ports `80` and `443` from any address (CIDR — `0.0.0.0/0`).
+  * Receiving incoming traffic to check the status of the load balancer's nodes in different [availability zones](../../overview/concepts/geo-scope.md): TCP connections on port `30080` from IP addresses in ranges `198.18.235.0/24` and `198.18.248.0/24`.
+  * Sending traffic to backend VMs. For example, any outgoing connections to internal addresses of virtual machines (CIDR — `<internal IP of VM>/32`), to [subnets](../../vpc/concepts/network.md#subnet), or security groups containing VMs.
+* Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md). For example, any incoming connections from subnets that host [the load balancer](#lb-location) or from one of its security groups.
+
+## Host load balancer {#lb-location}
+
+When you create a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in three [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets.
 
 You can disable the load balancer in the selected availability zones. In this case, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer's nodes in other availability zones will continue delivering traffic to backends in the availability zones where the load balancer was disabled if permitted by the [locality aware routing](backend-group.md#locality) settings.
 

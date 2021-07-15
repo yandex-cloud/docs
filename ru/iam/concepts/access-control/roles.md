@@ -88,6 +88,8 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
 
+{% include [functions-roles-mdbproxy](../../../_includes/roles-functions-mdbproxy.md) %}
+
 ## {{ iam-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
@@ -97,6 +99,18 @@ _Роль_ — это набор разрешений, который опре�
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
+## {{ cloud-logging-name }} {#logging}
+
+{% include [logging-roles-viewer](../../../_includes/roles-logging-viewer.md) %}
+
+{% include [logging-roles-editor](../../../_includes/roles-logging-editor.md) %}
+
+{% include [logging-roles-reader](../../../_includes/roles-logging-reader.md) %}
+
+{% include [logging-roles-writer](../../../_includes/roles-logging-writer.md) %}
+
+{% include [logging-roles-admin](../../../_includes/roles-logging-admin.md) %}
 
 ## {{ kms-name }} {#kms-roles}
 

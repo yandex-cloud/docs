@@ -87,12 +87,25 @@
 
 {{ PG }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
 
+{% list tabs %}
 
-```bash
-mkdir ~/.postgresql && \
-wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt && \
-chmod 0600 ~/.postgresql/root.crt
-```
+- Linux (Bash)
+
+  
+  ```bash
+  mkdir ~/.postgresql && \
+  wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt && \
+  chmod 0600 ~/.postgresql/root.crt
+  ```
+
+- Windows (PowerShell)
+
+  
+  ```powershell
+  mkdir $HOME\AppData\Roaming\postgresql; curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  ```
+
+{% endlist %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -150,11 +163,13 @@ chmod 0600 ~/.postgresql/root.crt
 
 ## Примеры строк подключения {#connection-string}
 
-{% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
+{% include [conn-strings-environment](../../_includes/mdb/mpg-conn-strings-env.md) %}
 
 Вы можете подключаться к {{ PG }}-хостам в публичном доступе только с использованием SSL-сертификата. Перед подключением к таким хостам [подготовьте сертификат](#configuring-an-ssl-certificate).
 
-В этих примерах предполагается, что SSL-сертификат `root.crt` расположен в директории `/home/<домашняя директория>/.postgresql/`. 
+В примерах ниже предполагается, что SSL-сертификат `root.crt` расположен в директории:
+* `/home/<домашняя директория>/.postgresql/` для Ubuntu;
+* `$HOME\AppData\Roaming\postgresql` для Windows.
 
 Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
 
