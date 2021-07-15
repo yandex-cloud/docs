@@ -4,7 +4,7 @@ Dataset settings determine how the dataset uses the source data.
 
 ## Connecting multiple tables {#multi-table}
 
-If multiple tables are available in the data source, you can merge them using the JOIN operator.
+If multiple tables are available from a data source, you can merge them using the JOIN operator.
 When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table.
 
 You can use the following types of JOIN operators:
@@ -63,9 +63,24 @@ For example, every second week on Thursday at 03:00.
 
 The minimum available interval is once a day.
 
+## Default filters {#default-filters}
+
+In a dataset, you can [create](../../operations/dataset/create-filter.md) a default filter. It will be applied to any new chart created from data in the current dataset.
+
+{% note info %}
+
+You can create a filter for an individual chart in the chart settings.
+
+{% endnote %}
+
+Default filters enable you:
+
+* To reduce the amount of data requested from a source when building a chart.
+* To add customized filters to new charts created from data in the same dataset.
+
 ## Access management {#access-management}
 
-You can configure permissions for the whole dataset. For more information, see [{#T}](../../operations/dataset/manage-access.md).
+You can configure permissions for an entire dataset. For more information, see [{#T}](../../operations/dataset/manage-access.md).
 
 You can also set data permissions at the row level (_Row-level security_ or _RLS_). Learn more in [{#T}](../../operations/dataset/manage-row-level-security.md).
 
@@ -73,4 +88,6 @@ You can also set data permissions at the row level (_Row-level security_ or _RLS
 
 - [{#T}](../../operations/dataset/create.md)
 - [{#T}](../../operations/dataset/materialize.md)
+- [{#T}](../calculations/index.md)
+- [{#T}](../calculations/index.md#how-to-create-calculated-field)
 

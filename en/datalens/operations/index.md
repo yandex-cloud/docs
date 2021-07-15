@@ -4,6 +4,7 @@
 
 - [{#T}](connection/create-clickhouse.md)
 - [{#T}](connection/create-csv.md)
+- [{#T}](connection/create-google-sheets.md)
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)
@@ -19,6 +20,7 @@
 - [{#T}](dataset/create.md)
 - [{#T}](dataset/create-field.md)
 - [{#T}](dataset/create-calculated-field.md)
+- [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/materialize.md)
 - [{#T}](dataset/manage-row-level-security.md)
