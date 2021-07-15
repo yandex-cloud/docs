@@ -52,7 +52,8 @@ JSON-структура запроса:
         "httpMethod": "<DELETE, GET, HEAD, OPTIONS, PATCH, POST или PUT>",
         "requestId": "<ID запроса, генерируется в роутере>",
         "requestTime": "<время запроса в формате CLF>",
-        "requestTimeEpoch": "<время запроса в формате Unix>"
+        "requestTimeEpoch": "<время запроса в формате Unix>",
+        "authorizer": "<словарь с контекстом авторизации>"
     }
     ```
                
@@ -283,12 +284,12 @@ module.exports.handler = async (event, context) => {
         - "Proxy-Authenticate"
         - "Transfer-Encoding"
         - "Via"
-        - "Www-Authenticate"
     
     - Перезаписываются с добавлением префикса `X-Yf-Remapped-`:
         - "Content-Md5"
         - "Date"
         - "Server"
+        - "Www-Authenticate"
 
 {% endlist %}
 
