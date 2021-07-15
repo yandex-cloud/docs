@@ -87,6 +87,8 @@
 
     Минимальное значение и значение по умолчанию — `1`.
 
+    См. также описание настройки уровня кластера [Num partitions](#settings-num-partitions).
+
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 
 * **Preallocate** {{ tag-cli }} {{ tag-tf }} {#settings-topic-preallocate}
@@ -99,12 +101,11 @@
 
     В консоли управления этой настройке соответствует **Фактор репликации**.
 
-    Количество копий данных (реплик) для топика в кластере.
+    Количество [копий данных](../../../managed-kafka/concepts/brokers.md) для топика.
 
-    Минимальное значение зависит от количества [хостов-брокеров](../../../managed-kafka/concepts/brokers.md):
+    Минимальное значение и значение по умолчанию — `1`. Максимальное значение равно количеству хостов-брокеров в кластере.
 
-    * для кластеров с одним хостом-брокером — `1`;
-    * для кластеров с двумя и более хостами-брокерами — `3`.
+    См. также описание настройки уровня кластера [Default replication factor](#settings-default-replication-factor).
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#streamsconfigs_replication.factor).
 
