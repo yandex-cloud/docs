@@ -41,6 +41,18 @@ items:
             href: operations/data/connect-to-clickhouse.md
           - name: Подключение к базе данных {{ PG }}
             href: operations/data/connect-to-postgresql.md
+      - name: Работа с приватными данными
+        items:
+          - name: Создание секрета
+            href: operations/data/secret-create.md
+          - name: Вызов секрета
+            href: operations/data/secret-call.md
+          - name: Изменение секрета
+            href: operations/data/secret-change.md
+          - name: Копирование секрета
+            href: operations/data/secret-copy.md
+          - name: Удаление секрета
+            href: operations/data/secret-delete.md
   - name: Концепции
     items:
       - name: Обзор
@@ -87,16 +99,16 @@ items:
         href: tutorials/markup.md
       - name: Классификация изображений на видеокадрах
         href: tutorials/video-recognition.md
-  - name: Справочник API
+  - name: Справочник API (англ.)
     items:
-        - name: Аутентификация в API
+        - name: Authentication
           href: api-ref/authentication.md
-        - name: gRPC (англ.)
+        - name: gRPC
           items: null
           include:
             repo: docs
             path: en/_api-ref-grpc/datasphere/toc.yaml
-        - name: REST (англ.)
+        - name: REST
           items: null
           include:
             repo: docs
