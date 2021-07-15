@@ -31,7 +31,7 @@ Run all your sharding setup commands via the `mongo` CLI from a user granted the
 1. [Connect](../operations/connect.md) to the `MONGOS` or `MONGOINFRA` host using the `mongo` CLI and enable sharding:
 
    ```
-   sh.enableSharding(<database name>)
+   sh.enableSharding("<database name>")
    ```
 
    You can obtain the host type with a [list of hosts in the cluster](../operations/hosts.md#list-hosts).
