@@ -78,24 +78,50 @@
 
 {{ MY }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
 
-{% if audience != "internal" %}
+{% list tabs %}
 
-```bash
-mkdir ~/.mysql && \
-wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt && \
-chmod 0600 ~/.mysql/root.crt
-```
+* Linux (Bash)
 
-{% else %}
+  {% if audience != "internal" %}
 
-```bash
-mkdir ~/.mysql && \
-wget "{{ pem-path }}" -O ~/.mysql/root.crt && \
-chmod 0600 ~/.mysql/root.crt
-```
+  ```bash
+  mkdir ~/.mysql && \
+  wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt && \
+  chmod 0600 ~/.mysql/root.crt
+  ```
 
-{% endif %}
+  {% else %}
 
+  ```bash
+  mkdir ~/.mysql && \
+  wget "{{ pem-path }}" -O ~/.mysql/root.crt && \
+  chmod 0600 ~/.mysql/root.crt
+  ```
+
+  {% endif %}
+
+  Сертификат будет сохранен в каталоге `$HOME/.mysql/root.crt`.
+
+* Windows (PowerShell)
+
+  {% if audience != "internal" %}
+
+  ```PowerShell
+  mkdir ~/.mysql; curl -o ~/.mysql/root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  ```
+
+  {% else %}
+
+  ```PowerShell
+  mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ pem-path }}
+  ```
+
+  {% endif %}
+
+  Сертификат будет сохранен в каталоге `$HOME\.mysql\root.crt`.
+
+{% endlist %}
+  
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
 ## Подключение из графических IDE {#connection-ide}
@@ -150,8 +176,6 @@ chmod 0600 ~/.mysql/root.crt
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
 Вы можете подключаться к {{ MY }}-хостам в публичном доступе только с использованием SSL-сертификата. Перед подключением к таким хостам [подготовьте сертификат](#configuring-an-ssl-certificate).
-
-В этих примерах предполагается, что сертификат `root.crt` расположен в директории `/home/<домашняя директория>/.mysql/`.
 
 Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
 

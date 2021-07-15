@@ -89,7 +89,7 @@
 
 {% list tabs %}
 
-- Linux (Bash)
+* Linux (Bash)
 
   {% if audience != "internal" %}
 
@@ -109,7 +109,7 @@
 
   {% endif %}
 
-- Windows (PowerShell)
+* Windows (PowerShell)
 
   {% if audience != "internal" %}
 
