@@ -1,8 +1,46 @@
 # Релизы YC CLI
 
-## Версия 0.78.0 (29.06.21) {#latest-release}
+## Версия 0.79.0 (13.07.21) {#latest-release}
 
-### {{ managed-k8s-name }} {#k8s}
+### Изменения в сервисах {{ yandex-cloud }}
+
+### {{ cloud-logging-name }} {#logging}
+
+Добавлена поддержка сервиса {{ cloud-logging-name }}.
+
+{{ cloud-logging-name }} — сервис для чтения и записи логов сервисов и пользовательских приложений.
+
+Сервис {{ cloud-logging-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее о сервисе читайте в [документации](../logging/).
+
+### {{ sf-name }} {#serverless-functions}
+
+* Добавлена команда `yc serverless function set-scaling-policy` для задания настроек масштабирования функции.
+* Добавлена команда `yc serverless function list-scaling-policies` для просмотра настроек масштабирования функции.
+* Добавлена команда `yc serverless function remove-scaling-policy` для удаления настроек масштабирования функции.
+
+* Команда `yc serverless function version create`.
+
+  Исправлена обработка директорий для флага `--source-path` на Windows.
+
+### {{ serverless-containers-name }} {#serverless-containers}
+
+Добавлена поддержка сервиса {{ serverless-containers-name }}:
+* Добавлена команда `yc serverless container` для создания и управления контейнерами.
+* Добавлена команда `yc serverless container revision` для развертывания и просмотра версий контейнера.
+
+### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}**
+
+* Команда `yc managed-clickhouse cluster update`.
+
+    Добавлен флаг `--cloud-storage` для включения хранения данных в {{ objstorage-name }}.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.78.0 (29.06.21) {#version0.78.0}
+
+#### {{ managed-k8s-name }} {#k8s}
 
 * Команды `yc managed-kubernetes node-group create` и `yc managed-kubernetes node-group update`.
 
@@ -12,13 +50,11 @@
   
   Добавлен флаг `--cilium` для создания кластера, который поддерживает туннельный режим и использует Cilium CNI.
 
-### {{ dataproc-name }} {#dataproc}
+#### {{ dataproc-name }} {#dataproc}
 
 * Команда `yc dataproc job create-<JOB-TYPE>`.
 
   Теперь после запуска задания в терминале отображается лог его выполнения.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.77.0 (07.06.21) {#version0.77.0}
 
