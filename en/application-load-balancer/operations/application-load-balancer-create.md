@@ -9,8 +9,8 @@ To create an L7 load balancer:
   1. In the list of services, select **{{ alb-name }}**.
   1. In the menu on the left, select **Load balancers**.
   1. Click **Create load balancer**.
-  1. Enter the load balancer name: `test-load-balancer`.
-  1. Under **Network settings**, select the network whose subnets will host the balancer's nodes.
+  1. Enter the name of the load balancer: `test-load-balancer`.
+  1. Under **Network Settings**, select the network whose subnets will host the load balancer's nodes and the [appropriate security groups](../concepts/application-load-balancer.md#security-groups) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the load balancer).
   1. Under **Allocation**, select three subnets for the load balancer's nodes and enable traffic to these subnets.
   1. Click **Add listener** under **Listeners**. Set the listener settings:
      1. Enter the listener name: `test-listener`.
@@ -32,7 +32,7 @@ To create an L7 load balancer:
      yc alb load-balancer create --help
      ```
 
-  1. Run the command, specifying the network and subnets to host the load balancer nodes:
+  1. Run the following command, specifying the network and subnets that will host the load balancer's nodes and the [appropriate security groups](../concepts/application-load-balancer.md#security-groups):
 
      ```
      yc alb load-balancer create <load balancer name> \
@@ -61,7 +61,7 @@ To create an L7 load balancer:
        - zone_id: ru-central1-c
          subnet_id: fo2ap2nrhjk9vpfdnno8
      log_group_id: eolul9ap0bv02i8bsp87
-     created_at: "2021-02-14T16:47:52.057994243Z"
+     created_at: "2021-04-26T12:12:13.624832586Z"
      ```
 
   1. View a description of the CLI command for adding a listener for an L7 load balancer:
@@ -109,7 +109,7 @@ To create an L7 load balancer:
        - zone_id: ru-central1-c
          subnet_id: fo2ap2nrhjk9vpfdnno8
      log_group_id: eolul9ap0bv02i8bsp87
-     created_at: "2021-02-14T16:47:52.057994243Z"
+     created_at: "2021-04-26T12:12:13.624832586Z"
      ```
 
 {% endlist %}

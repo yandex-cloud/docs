@@ -13,13 +13,13 @@ Depending on the selected interface, the same setting is represented in a differ
   - `allow_ddl` in the CLI, gRPC API, and SQL.
   - `allowDdl` in the REST API.
 
-## Cluster-level DBMS settings {#dbms-cluster-settings}
+## Cluster-level settings {#dbms-cluster-settings}
 
 You can use the following settings:
 
 {% include [mch-dbms-settings](../../_includes/mdb/mch-dbms-settings.md) %}
 
-## Custom settings {#user-level-settings}
+## User-level settings {#user-level-settings}
 
 ### Quota settings {#quota-settings}
 
@@ -32,7 +32,7 @@ If the user exceeds one of the quota limits, they won't be able to make new quer
 For each user, there is a default quota that takes into account the consumption of all resources per hour, but doesn't impose any restrictions.
 Information about the resource consumption level is written to the {{ CH }} server log.
 
-For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/quotas/).
+For more information, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/operations/quotas/).
 
 You can use the following quota settings:
 
@@ -45,4 +45,12 @@ These settings apply at the individual user level.
 You can use the following settings:
 
 {% include [mch-dbms-user-settings](../../_includes/mdb/mch-dbms-user-settings.md) %}
+
+## Custom settings {#custom-settings}
+
+{{ tag-sql }}
+
+You can redefine [custom settings](https://clickhouse.tech/docs/en/operations/settings/#custom_settings), as variables, [in the settings profile](https://clickhouse.tech/docs/ru/operations/access-rights/#settings-profiles-management), session, or request. Working with settings profiles is available if the [user management via SQL](../operations/cluster-users.md#sql-user-management) is enabled for the cluster.
+
+The name of the user setting in {{ mch-name }} must start with a predefined prefix `custom_`. The prefix is fixed, users cannot change it.
 

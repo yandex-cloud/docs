@@ -5,17 +5,28 @@ description: "Из статьи вы узнаете как работать с Y
 
 # Все инструкции
 
-- [{#T}](projects/create.md)
-- [{#T}](projects/install-dependencies.md)
-- [{#T}](projects/snippets.md)
-- [{#T}](projects/checkpoints.md)
-- [{#T}](projects/control-compute-resources.md)
-- [{#T}](projects/clear-kernel-state.md)
-- [{#T}](projects/publication.md)
-- [{#T}](projects/export.md)
-- [{#T}](projects/update.md)
-- [{#T}](projects/delete.md)
-- [{#T}](projects/work-with-git.md)
-- [{#T}](data-proc-integration.md)
-- [{#T}](data/connect-to-clickhouse.md)
-- [{#T}](data/connect-to-postgresql.md)
+* [{#T}](projects/create.md)
+* [{#T}](projects/install-dependencies.md)
+* [{#T}](projects/snippets.md)
+* [{#T}](projects/checkpoints.md)
+* [{#T}](projects/control-compute-resources.md)
+* [{#T}](projects/clear-kernel-state.md)
+* [{#T}](projects/publication.md)
+* [{#T}](projects/export.md)
+* [{#T}](projects/update.md)
+* [{#T}](projects/delete.md)
+* [{#T}](projects/work-with-git.md)
+* [{#T}](data-proc-integration.md)
+
+## Работа с данными внутри проекта
+
+* [{#T}](../operations/data/secret-create.md)
+* [{#T}](../operations/data/secret-call.md)
+* [{#T}](../operations/data/secret-copy.md)
+* [{#T}](../operations/data/secret-change.md)
+* [{#T}](../operations/data/secret-delete.md)
+  
+## Получение данных из источников
+
+* [{#T}](data/connect-to-clickhouse.md)
+* [{#T}](data/connect-to-postgresql.md)

@@ -635,6 +635,66 @@ sudo apt update && sudo apt install -y php php-pgsql
 
 {% endlist %}
 
+### PowerShell {#powershell}
+
+Перед подключением установите [{{ PG }} для Windows](https://www.postgresql.org/download/windows/) той же версии, которая используется в кластере. Выберите только установку *Command Line Tools*.
+
+{% list tabs %}
+
+- Подключение без SSL
+
+  1. Установите переменные окружения для подключения:
+
+     ```powershell
+     $Env:PGSSLMODE="disable"; $Env:PGTARGETSESSIONATTRS="read-write"
+     ```
+
+  1. Подключитесь к базе данных:
+
+     ```powershell
+     & 'C:\Program Files\PostgreSQL\<версия>\bin\psql.exe' `
+           -h <FQDN одного или нескольких хостов {{ PG }}> `
+           -p {{ port-mpg }} `
+           -U <имя пользователя> `
+           <имя БД>
+     ```
+
+     После выполнения команды введите пароль пользователя для завершения процедуры подключения.
+
+  1. Для проверки успешности подключения выполните запрос:
+
+     ```powershell
+     SELECT version();
+     ```
+
+- Подключение c SSL
+
+  1. Установите переменные окружения для подключения:
+
+     ```powershell
+     $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
+     ```
+
+  1. Подключитесь к базе данных:
+
+     ```powershell
+     & 'C:\Program Files\PostgreSQL\<версия>\bin\psql.exe' `
+           -h <FQDN одного или нескольких хостов {{ PG }}> `
+           -p {{ port-mpg }} `
+           -U <имя пользователя> `
+           <имя БД>
+     ```
+
+     После выполнения команды введите пароль пользователя для завершения процедуры подключения.
+
+  1. Для проверки успешности подключения выполните запрос:
+
+     ```powershell
+     SELECT version();
+     ```
+
+{% endlist %}
+
 ### Python {#python}
 
 Перед подключением установите зависимости:

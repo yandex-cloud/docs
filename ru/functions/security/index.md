@@ -26,6 +26,8 @@ description: "Управление доступом сервиса для зап
 
 {% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
 
+{% include [functions-roles-mdbproxy](../../_includes/roles-functions-mdbproxy.md) %}
+
 ### {{ roles-viewer }} {#viewer}
 
 Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например, посмотреть список функций или версий и журнал выполнения функции.

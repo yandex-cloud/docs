@@ -62,14 +62,14 @@ To configure a remote host:
 1. Copy the Hadoop and Spark configuration files:
 
     ```bash
-    sudo scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:/etc/hadoop/conf/* /etc/hadoop/conf/
-    sudo scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:/etc/spark/conf/* /etc/spark/conf/
+    sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:/etc/hadoop/conf/* /etc/hadoop/conf/
+    sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net:/etc/spark/conf/* /etc/spark/conf/
     ```
 
 1. Create a new user to run jobs under:
 
     ```bash
-    useradd sparkuser
+    sudo useradd sparkuser
     ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "sudo -u hdfs hdfs dfs -ls /user/sparkuser"
     ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.mdb.yandexcloud.net "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
     ```
