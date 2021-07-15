@@ -14,8 +14,8 @@ _Подключение_ содержит информацию о парамет
 - **MS SQL Server**
 - **Oracle Database**
 - **Greenplum**
-- **Metrica** (в режиме прямого доступа и через API)
-- **AppMetrica** (в режиме прямого доступа и через API)
+- **Metrica** (в режиме прямого доступа и через Logs API)
+- **AppMetrica** (в режиме прямого доступа и через Logs API)
 
 {% if audience != "internal" %} Вы можете добавить дополнительные типы подключений из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md). {% endif %}
 

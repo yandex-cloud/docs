@@ -13,8 +13,8 @@ The following types of connections are available in {{ datalens-short-name }}:
 - **Google Sheets**
 - **MS SQL Server**
 - **Oracle Database**
-- **Metrica** (in direct or API access mode)
-- **AppMetrica** (in direct or API access mode)
+- **Metrica** (in direct or Logs API access mode)
+- **AppMetrica** (in direct or Logs API access mode)
 
 You can add additional types of connections from the list of available ones in the [{{datalens-short-name }} Marketplace](marketplace.md).
 
