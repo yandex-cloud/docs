@@ -27,6 +27,18 @@
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_compression.type).
 
+* **Default replication factor** {{ tag-all }} {#settings-default-replication-factor}
+
+    Количество [копий данных](../../../managed-kafka/concepts/brokers.md) для топика в кластере.
+
+    Настройка применяется только для [автоматически создаваемых топиков](#settings-auto-create-topics).
+
+    Минимальное значение и значение по умолчанию — `1`. Максимальное значение равно количеству хостов-брокеров в кластере.
+
+    См. также описание настройки уровня топика [Replication factor](#settings-topic-replication-factor).
+
+    Подробнее см. в [документации {{ KF }}](http://kafka.apache.org/documentation/#brokerconfigs_default.replication.factor).
+
 * **Log flush interval messages** {{ tag-all }} {#settings-log-flush-interval-messages}
 
     В консоли управления этой настройке соответствует **Максимальное число сообщений в памяти**.
@@ -128,6 +140,18 @@
     Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-log-segment-bytes).
 
     Подробнее см. в [документации {{ KF }}](https://kafka.apache.org/documentation/#brokerconfigs_log.segment.bytes).
+
+* **Num partitions** {{ tag-all }} {#settings-num-partitions}
+
+    Количество разделов лога на топик в кластере.
+
+    Настройка применяется только для [автоматически создаваемых топиков](#settings-auto-create-topics).
+
+    Минимальное значение и значение по умолчанию — `1`.
+
+    См. также описание настройки уровня топика [Num partitions](#settings-topic-num-partitions).
+
+    Подробнее см. в [документации {{ KF }}](http://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 
 * **Socket receive buffer bytes** {{ tag-con }} {#settings-socket-receive-buffer-bytes}
 

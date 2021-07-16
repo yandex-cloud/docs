@@ -52,8 +52,8 @@ Displays changes to measures by dimension as a single or multiple horizontal lin
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
 | X | Dimension. Only one field can be specified |
-| Y | Measure.  You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names` |
-| Y2 | Measure.  Use it to add a second Y-axis to a chart. You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names` |
+| Y | Measure. You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names` |
+| Y2 | Measure. Use it to add a second Y-axis to a chart. You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section contains a dimension named `Measure Names` |
 | Filters | Dimension or measure. Used as a filter |
 | Colors | Dimension or the `Measure Names` field. Affects the color of lines. `Measure Names` is removed by deleting measures from the Y-axis |
 | Sorting | Dimension. Can only use one dimension from the X-axis. Affects the sorting of the X-axis |
@@ -300,6 +300,21 @@ Working with linked datasets in geovisualizations on different layers:
 * Filters in the **Layer filters** section that use non-linked dimensions only apply to their own dataset within the current layer.
 * There are no restrictions on using non-linked dimensions in different layers.
 
+## Hierarchies {#hierarchies}
+
+_A hierarchy_ is a set of dimensions arranged in an order that determines the sequence in which data is shown. You can [add](../operations/chart/add-hierarchy.md) a hierarchy to your chart to move to the lower levels of the hierarchy with filtering by selected or all dimension values.
+
+Completed transitions by hierarchy level are displayed above a visualization. You can move between the hierarchy levels in the following ways:
+
+* Click **![image](../../_assets/datalens/arrow-left.svg)** or **![image](../../_assets/datalens/arrow-right.svg)** to go to the previous or next level.
+* Click on the value in the line of completed transitions to return to the selected level.
+* Click on a visualization element (for example, a row or column of a simple table) to go to the next hierarchy level with filtering enabled.
+
+Limitations when working with hierarchies:
+
+* Hierarchies are available for all chart types except **Map**, **Indicator**, **Tree diagram**, and **Pivot table**.
+* You can only add dimensions to a hierarchy.
+* You can add only one hierarchy to a visualization.
 
 ## Publishing a chart {#public-access}
 

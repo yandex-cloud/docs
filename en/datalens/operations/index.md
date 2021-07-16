@@ -37,6 +37,7 @@
 - [{#T}](chart/create-table.md)
 - [{#T}](chart/create-pivot-table.md)
 - [{#T}](chart/create-indicator-chart.md)
+- [{#T}](chart/add-hierarchy.md)
 - [{#T}](chart/publish.md)
 - [{#T}](chart/manage-access.md)
 
