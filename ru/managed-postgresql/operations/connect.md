@@ -89,7 +89,7 @@
 
 {% list tabs %}
 
-- Linux (Bash)
+* Linux (Bash)
 
   
   ```bash
@@ -98,7 +98,7 @@
   chmod 0600 ~/.postgresql/root.crt
   ```
 
-- Windows (PowerShell)
+* Windows (PowerShell)
 
   
   ```powershell

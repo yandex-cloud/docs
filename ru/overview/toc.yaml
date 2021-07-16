@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Сервисы Yandex.Cloud
     href: concepts/services.md
+  - name: Начало работы
+    href: quickstart.md
   - name: Мобильное приложение
     items:
       - name: Обзор
@@ -23,8 +25,6 @@ items:
         href: platform-comparison/azure.md
   - name: Зоны доступности
     href: concepts/geo-scope.md
-  - name: Начало работы
-    href: quickstart.md
   - name: Стадии готовности сервисов
     href: concepts/launch-stages.md
   - name: Квоты и лимиты
