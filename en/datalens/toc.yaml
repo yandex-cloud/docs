@@ -93,6 +93,8 @@ items:
             href: operations/chart/create-pivot-table.md
           - name: Creating an indicator chart
             href: operations/chart/create-indicator-chart.md
+          - name: Adding a hierarchy
+            href: operations/chart/add-hierarchy.md
           - name: Publishing a chart
             href: operations/chart/publish.md
           - name: Managing chart access
