@@ -11,9 +11,9 @@ items:
         href: solutions/data-from-csv-visualization.md
       - name: Creating and publishing a chart with a map of Moscow from a CSV file
         href: solutions/data-from-csv-to-public-visualization.md
-      - name: Analyzing a store chain's sales based on data from a ClickHouse DB
+      - name: Analyzing a retail chain's sales from a ClickHouse database
         href: solutions/data-from-ch-visualization.md
-      - name: Analyzing open data on road accidents in Russia
+      - name: Analyzing public data on road accidents in Russia
         href: solutions/data-from-csv-geo-visualization.md
       - name: Analyzing sales and locations of pizzerias based on data from Clickhouse DB and Marketplace
         href: solutions/data-from-ch-to-geolayers-visualization.md
@@ -63,7 +63,7 @@ items:
             href: operations/dataset/create-field.md
           - name: Creating a calculated data field
             href: operations/dataset/create-calculated-field.md
-          - name: Creating a default filter
+          - name: Creating a default filter for new charts
             href: operations/dataset/create-filter.md
           - name: Updating fields in datasets
             href: operations/dataset/update-field.md
@@ -91,7 +91,7 @@ items:
             href: operations/chart/create-table.md
           - name: Creating a pivot table
             href: operations/chart/create-pivot-table.md
-          - name: Creating an indicator chart
+          - name: Creating an indicator
             href: operations/chart/create-indicator-chart.md
           - name: Adding a hierarchy
             href: operations/chart/add-hierarchy.md
