@@ -171,6 +171,8 @@ items:
             href: operations/chart/create-column-chart.md
           - name: Создание линейчатой диаграммы
             href: operations/chart/create-bar-chart.md
+          - name: Создание точечной диаграммы
+            href: operations/chart/create-scatter-chart.md
           - name: Создание карты
             href: operations/chart/create-map-chart.md
           - name: Создание таблицы

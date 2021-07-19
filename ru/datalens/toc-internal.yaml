@@ -58,6 +58,8 @@ items:
             href: operations/chart/create-pie-chart.md
           - name: Создание столбчатой диаграммы
             href: operations/chart/create-column-chart.md
+          - name: Создание точечной диаграммы
+            href: operations/chart/create-scatter-chart.md
           - name: Создание таблицы
             href: operations/chart/create-table.md
           - name: Создание сводной таблицы
