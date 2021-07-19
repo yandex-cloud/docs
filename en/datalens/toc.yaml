@@ -176,5 +176,15 @@ items:
     include:
       repo: docs
       path: en/_api-ref/datalens/toc.yaml
+  - name: Public materials
+    items:
+      - name: Educational projects
+        href: public-talks/educational-projects.md
+      - name: Webinars and conferences
+        href: public-talks/webinars-and-confs.md
+      - name: Articles and publications
+        href: public-talks/articles-and-publications.md
+      - name: Public dashboards and charts
+        href: public-talks/public-dashboards-and-charts.md
   - name: Questions and answers
     href: qa/index.md
