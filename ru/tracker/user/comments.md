@@ -150,14 +150,7 @@
 
 По умолчанию комментарии следуют в хронологическом порядке. Чтобы помещать последние комментарии в начале списка:
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**.
-
-    
-    {% note info %}
-
-    Вы также можете перейти по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).
-
-    {% endnote %}
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. В блоке **Порядок сообщений в задаче** выберите опцию **Сначала новые**.
 

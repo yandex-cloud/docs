@@ -36,7 +36,6 @@ Authorization: OAuth <OAuth-токен>
 -------- | -------- | ----------
 \<queue-id\>| Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
 
-
 ### Параметры тела запроса {#req-body-params}
 
 Тело запроса содержит информацию, необходимую для создания локального поля:
@@ -49,7 +48,6 @@ name | Название локального поля:<ul><li>`en` — на ан
 id | Идентификатор локального поля. | Строка
 category | Объект с информацией о категории поля.<br/>Чтобы получить список всех категорий, используйте HTTP запрос:<br/>`GET /v2/fields/categories` | Строка
 type | Тип локального поля:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType` — Дата;</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType` — Дата/Время;</li><li>`ru.yandex.startrek.core.fields.StringFieldType` — Текстовое однострочное поле;</li><li>`ru.yandex.startrek.core.fields.TextFieldType` — Текстовое многострочное поле;</li><li>`ru.yandex.startrek.core.fields.FloatFieldType` — Дробное число;</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType` — Целое число;</li><li>`ru.yandex.startrek.core.fields.UserFieldType` — Имя пользователя;</li><li>`ru.yandex.startrek.core.fields.UriFieldType` — Ссылка.</li>| Строка
-
 #### Дополнительные параметры
 
 Параметр | Описание | Тип данных
@@ -118,7 +116,7 @@ values | Значения для выпадающего списка. | Масс
     ```json
      {
         "type": "local",
-        "self": "https://api.tracker.yandex.net/v2/queues/ORG/localFields/loc_field_key",
+        "self": "{{ host }}/v2/queues/ORG/localFields/loc_field_key",
         "id": "6054ae3a2b6b2c7f80bb9a93--loc_field_key",
         "name": "Название поля на русском языке",
         "description": "Описание локального поля",
@@ -136,7 +134,7 @@ values | Значения для выпадающего списка. | Масс
         },
         "order": 100, 
         "category": {
-            "self": "https://api.tracker.yandex.net/v2/fields/categories/000000000000000000000003",
+            "self": "{{ host }}/v2/fields/categories/000000000000000000000003",
             "id": "000000000000000000000003",
             "display": "category_name"
         }    

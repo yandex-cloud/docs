@@ -1,10 +1,11 @@
 #### Заголовки {#req-headers}
 
 - **Host**
-        Адрес узла, предоставляющего API:
+
+    Адрес узла, предоставляющего API:
     ```
-    https://api.tracker.yandex.net
-    ```
+	{{ host }}
+	```
 
 - **Authorization**
 

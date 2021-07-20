@@ -8,8 +8,10 @@ When a client, acting as an operator, places personal data on {{ yandex-cloud }}
 
 For more information, follow the links:
 
-* [Statement of personal data protection system compliance with the requirements of Federal Law No. 152 "On Personal Data"](https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf).
+* [Accreditation of compliance (in Russian)](https://storage.yandexcloud.net/yc-compliance/conformance_ru_certificate.pdf).
+* [Opinion on Compliance of the Personal Data Protection System with the Requirements of Federal Law No. 152 "On Personal Data"](https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf).
 * [Data Processing Agreement](https://yandex.com/legal/cloud_dpa/).
+* [Customer actions for personal data protection](https://storage.yandexcloud.net/yc-compliance/recomendations/FZ-152-EN.pdf).
 
 ## GDPR (General Data Protection Regulation) {#gdpr}
 
@@ -52,3 +54,13 @@ You can read more at:
 * [Responsibility matrix](https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_responsibility_matrix-new.pdf).
 * [Requirements and recommendations for building the PCI DSS infrastructure](https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf).
 
+## GOST R 57580 {#gost}
+
+GOST R 57580 is a Russian national standard for the security of banking and financial transactions. The standard has been mandatory for all credit and non-credit financial organizations operating on the territory of the Russian Federation since its introduction on January 1, 2018.
+
+The compliance of the cloud platform’s services with the requirements of this standard helps organizations hosting their systems and applications in the cloud to meet the requirements of the Central Bank and ensure compliance with the standard on the side of their systems running in the cloud.
+
+You can read more at:
+
+* [Opinion on compliance (in Russian)](https://storage.yandexcloud.net/yc-compliance/conformance_ru_finance.pdf).
+* [Shared responsibility as part of compliance with GOST R 57580 (in Russian)](https://storage.yandexcloud.net/yc-compliance/RST_577580_Yandex.Cloud_responsibility_matrix.pdf).

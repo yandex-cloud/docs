@@ -27,7 +27,6 @@ default:
   link-sub-manage: https://tracker.yandex.ru/subscriptions/manage
   link-sub-manage-ya: https://st.yandex-team.ru/subscriptions/manage
   link-settings: https://tracker.yandex.ru/settings
-  link-settings-ya: https://st.yandex-team.ru/settings
   link-tracker-promo: https://cloud.yandex.ru/services/tracker
   link-services-tracker: https://connect.yandex.ru/portal/services/tracker
   link-forms: https://forms.yandex.ru/

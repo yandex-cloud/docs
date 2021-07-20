@@ -43,7 +43,6 @@ name | Название поля:<ul><li>`en` — на английском яз
 id | Идентификатор поля. | Строка
 category | Объект с информацией о категории поля.<br/>Чтобы получить список всех категорий, используйте HTTP запрос:<br/>`GET /v2/fields/categories` | Строка
 type | Тип поля:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType` — Дата;</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType` — Дата/Время;</li><li>`ru.yandex.startrek.core.fields.StringFieldType` — Текстовое однострочное поле;</li><li>`ru.yandex.startrek.core.fields.TextFieldType` — Текстовое многострочное поле;</li><li>`ru.yandex.startrek.core.fields.FloatFieldType` — Дробное число;</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType` — Целое число;</li><li>`ru.yandex.startrek.core.fields.UserFieldType` — Имя пользователя;</li><li>`ru.yandex.startrek.core.fields.UriFieldType` — Ссылка.</li>| Строка
-
 #### Дополнительные параметры
 
 Параметр | Описание | Тип данных
@@ -112,7 +111,7 @@ values | Значения для выпадающего списка. | Масс
 
     ```json
      {
-      "self": "https://api.tracker.yandex.net/v2/fields/global_field_key",
+      "self": "{{ host }}/v2/fields/global_field_key",
       "id": "global_field_key",
       "name": "Название поля на русском языке",
       "description": "Описание поля",
@@ -140,7 +139,7 @@ values | Значения для выпадающего списка. | Масс
       },
       "order": 5,
       "category": {
-          "self": "https://api.tracker.yandex.net/v2/fields/categories/000000000000000000000001",
+          "self": "{{ host }}/v2/fields/categories/000000000000000000000001",
           "id": "000000000000000000000001",
           "display": "Системные"
       },

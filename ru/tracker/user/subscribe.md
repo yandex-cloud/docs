@@ -76,14 +76,7 @@
 
 По умолчанию вы не получаете уведомления о ваших собственных действиях над задачами. Чтобы включить уведомления о своих действиях:
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**.
-
-    
-    {% note info %}
-
-    Вы также можете перейти по ссылке [{{ link-settings }}]({{ link-settings }}).
-
-    {% endnote %}
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. Включите опцию **Получать письма о моих действиях**.
 

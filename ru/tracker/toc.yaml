@@ -324,7 +324,7 @@ items:
   - name: Справочник API
     items:
       - name: Обзор
-        href: about.md
+        href: about-api.md
       - name: Доступ к API
         href: concepts/access.md
       - name: Задачи

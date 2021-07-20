@@ -1,4 +1,4 @@
-# Creating a default filter
+# Creating a default filter for new charts
 
 To create a default filter:
 
