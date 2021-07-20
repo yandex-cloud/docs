@@ -237,6 +237,8 @@ items:
       - name: DataLens Public
         when: audience == "external"
         href: concepts/datalens-public.md
+      - name: Агрегации в DataLens
+        href: concepts/aggregation-tutorial.md
       - name: Вычисляемые поля
         items:
           - name: Обзор
