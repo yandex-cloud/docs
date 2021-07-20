@@ -1,16 +1,11 @@
 #### Заголовки {#req-headers}
 
 - **Host**
-    {% if audience == "external" %}
+
     Адрес узла, предоставляющего API:
     ```
-    https://api.tracker.yandex.net
-    ```
-    {% else %}
-    ```
-    https://st-api.yandex-team.ru/
-    ```
-    {% endif %}
+	{{ host }}
+	```
 
 - **Authorization**
 

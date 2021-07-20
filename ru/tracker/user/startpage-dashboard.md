@@ -2,7 +2,7 @@
 
 Вы можете {% if audience == "external" %}сделать [начальной страницей](startpage.md){% else %}выводить на вкладке [**Моя страница**](startpage.md){% endif %} любой из доступных дашбордов:
 
-1. Нажмите на значок ![](../../_assets/tracker/tracker-settings.png) в верхней панели {{ tracker-name }} или перейдите по ссылке: {% if audience == "internal" %}[https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% else %}[https://tracker.yandex.ru/settings]({{ link-settings }}){% endif %}.
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. В блоке **Моя страница** выберите из списка опцию **Дашборд** и укажите, какой дашборд вы хотите использовать в качестве начальной страницы.
 

@@ -1,6 +1,6 @@
 # Python клиент
 
-Чтобы вам было проще начать пользоваться [API {{ tracker-name }}](../about.md), мы подготовили {% if audience == "external" %}[yandex_tracker_client](https://github.com/yandex/yandex_tracker_client){% else %}[startrek_client](https://pypi.yandex-team.ru/dashboard/repositories/default/packages/startrek_client/){% endif %} — пакет, позволяющий легко добавлять вызовы API в программы, написанные на языке Python.
+Чтобы вам было проще начать пользоваться [API {{ tracker-name }}](../about-api.md), мы подготовили {% if audience == "external" %}[yandex_tracker_client](https://github.com/yandex/yandex_tracker_client){% else %}[startrek_client](https://pypi.yandex-team.ru/dashboard/repositories/default/packages/startrek_client/){% endif %} — пакет, позволяющий легко добавлять вызовы API в программы, написанные на языке Python.
 
 Чтобы начать пользоваться клиентом:
 

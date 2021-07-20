@@ -1,0 +1,1 @@
+На верхней панели {{ tracker-name }} нажмите {% if audience == "external" %}![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**{% else %}на ваш портрет и выберите пункт **Персональные настройки**{% endif %} или перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).

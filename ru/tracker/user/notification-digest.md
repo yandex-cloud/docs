@@ -2,17 +2,7 @@
 
 Чтобы регулярно получать по почте отчет о последних изменениях задач, на которые вы подписаны:
 
-1. {% if audience == "external" %}На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**.{% else %}На верхней панели {{ tracker-name }} нажмите на ваш портрет и выберите пункт **Персональные настройки** или перейдите по ссылке [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
-
-    {% if audience == "external" %}
-
-    {% note info %}
-
-    Вы также можете перейти по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).
-
-    {% endnote %}
-
-    {% endif %}
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. Включите опцию **Получать дайджест об изменениях в задачах** и выберите периодичность отправки изменений.
 

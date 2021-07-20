@@ -14,19 +14,10 @@
 
 Вы можете настроить вашу начальную страницу так, чтобы на ней отображался любой [фильтр](filters.md), [дашборд](dashboard.md) или [доска задач](../manager/create-agile-board.md):
 
-1. {% if audience == "external" %}На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**.{% else %}На верхней панели {{ tracker-name }} нажмите на ваш портрет и выберите пункт **Персональные настройки** или перейдите по ссылке [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
-
-    {% if audience == "external" %}
-
-    {% note info %}
-
-    Вы также можете перейти по ссылке [{{ link-settings }}]({{ link-settings }}).
-
-    {% endnote %}
-
-    {% endif %}
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. В блоке **Моя страница** укажите какой фильтр, дашборд или доску задач вы хотите видеть на главной странице.
+
 1. Нажмите кнопку **Сохранить**.
 
 

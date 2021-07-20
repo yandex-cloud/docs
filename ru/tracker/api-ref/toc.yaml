@@ -1,6 +1,6 @@
 items:
 - name: Обзор
-  href: about.md
+  href: about-api.md
 - name: Доступ к API
   href: concepts/access.md
 - name: Задачи
@@ -105,8 +105,10 @@ items:
       href: concepts/queues/get-fields.md
     - name: Удалить очередь
       href: concepts/queues/delete-queue.md
+      when: audience == "external"
     - name: Восстановить очередь
       href: concepts/queues/restore-queue.md
+      when: audience == "external"
     - name: Удалить тег из очереди
       href: concepts/queues/delete-tag.md
 - name: Доски задач
@@ -178,15 +180,19 @@ items:
 #    - name: Обзор
 #      href: extra-api-requests.md
     - name: Создать поле задачи
-      href: concepts/issues/create-field.md    
+      href: concepts/issues/create-field.md
+      when: audience == "external"      
     - name: Получить параметры поля задачи
       href: concepts/issues/get-issue-fields.md
     - name: Изменить название поля задачи
       href: concepts/issues/patch-issue-field-name.md
+      when: audience == "external"
     - name: Изменить возможные значения поля задачи
       href: concepts/issues/patch-issue-field-value.md
+      when: audience == "external"
     - name: Создать категорию поля задачи
       href: concepts/issues/create-issue-field-category.md
+      when: audience == "external"
     - name: Локальные поля
       items:
         - name: Создать локальное поле очереди

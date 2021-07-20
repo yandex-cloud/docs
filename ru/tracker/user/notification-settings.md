@@ -22,7 +22,7 @@ description: 'По умолчанию Tracker отправляет вам уве
 
 Вы можете выбрать, как в письмах с уведомлениями будут отображаться имена пользователей и типы событий. Для этого:
 
-1. {% if audience == "external" %}На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки** или перейдите по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).{% else %}На верхней панели {{ tracker-name }} нажмите на ваш портрет и выберите пункт **Персональные настройки** или перейдите по ссылке [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 2. В блоке **Имя отправителя в письмах** выберите нужный вариант.
 
