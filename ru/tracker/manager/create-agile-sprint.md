@@ -125,14 +125,7 @@
 
 Вы можете настроить страницу спринтов так, чтобы список задач и спринты отображались в одной колонке. Для этого:
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**.
-
-        
-    {% note info %}
-
-    Вы также можете перейти по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).
-
-    {% endnote %}
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. Выберите опцию **Отображать спринты и задачи в одной колонке**.
 

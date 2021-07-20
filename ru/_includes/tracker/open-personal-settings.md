@@ -1,0 +1,1 @@
+На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки** или перейдите по ссылке [{{ link-settings }}]({{ link-settings }}).

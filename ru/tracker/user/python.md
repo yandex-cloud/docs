@@ -1,6 +1,6 @@
 # Python клиент
 
-Чтобы вам было проще начать пользоваться [API {{ tracker-name }}](../about.md), мы подготовили [yandex_tracker_client](https://github.com/yandex/yandex_tracker_client) — пакет, позволяющий легко добавлять вызовы API в программы, написанные на языке Python.
+Чтобы вам было проще начать пользоваться [API {{ tracker-name }}](../about-api.md), мы подготовили [yandex_tracker_client](https://github.com/yandex/yandex_tracker_client) — пакет, позволяющий легко добавлять вызовы API в программы, написанные на языке Python.
 
 Чтобы начать пользоваться клиентом:
 

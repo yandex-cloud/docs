@@ -5,16 +5,10 @@
 
 Вы можете настроить вашу начальную страницу так, чтобы на ней отображался любой [фильтр](filters.md), [дашборд](dashboard.md) или [доска задач](../manager/create-agile-board.md):
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**.
-
-    
-    {% note info %}
-
-    Вы также можете перейти по ссылке [{{ link-settings }}]({{ link-settings }}).
-
-    {% endnote %}
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. В блоке **Моя страница** укажите какой фильтр, дашборд или доску задач вы хотите видеть на главной странице.
+
 1. Нажмите кнопку **Сохранить**.
 
 

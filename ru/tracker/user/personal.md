@@ -6,7 +6,7 @@
 
 Вы можете настроить вашу [начальную страницу](startpage.md) так, чтобы на ней отображался любой [фильтр](filters.md), [дашборд](dashboard.md) или [доска задач](../manager/create-agile-board.md):
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки** или перейдите по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. В блоке **Моя страница** укажите какой фильтр, дашборд или доску задач вы хотите видеть на главной странице.
 
@@ -17,7 +17,7 @@
 
 Для работы в {{ tracker-name }} вы можете выбрать русский и английский язык. Для этого:
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки** или перейдите по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. В блоке **Язык интерфейса** выберите нужный язык.
 
@@ -36,7 +36,7 @@
 
 Чтобы изменить способ отображения:
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки** или перейдите по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. В блоке **Отображение пользователей** выберите удобный для вас способ:
     - Выберите **Показывать логин вместо имени**, чтобы в системных полях задачи вместо имен и фамилий отображались логины.
@@ -63,14 +63,7 @@
 
 Чтобы изменить формат отображения таких параметров:
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки**.
-
-    
-    {% note info %}
-
-    Вы также можете перейти по ссылке [{{ link-settings }}]({{ link-settings }}).
-
-    {% endnote %}
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. В блоке **Формат дат** выберите нужный формат.
 
@@ -80,7 +73,7 @@
 
 {{ tracker-name }} отправляет по почте уведомления об изменениях в задачах, на которые вы подписаны. На странице персональных настроек вы можете настроить параметры уведомлений:
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки** или перейдите по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. Задайте настройки уведомлений: 
     - Включите или отключите [регулярные отчеты об изменениях задач, на которые вы подписаны](notification-digest.md).
@@ -99,7 +92,7 @@
 
 По умолчанию комментарии в задаче сортируются от старых к новым. Вы можете включить сортировку комментариев от новых к старым на странице персональных настроек:
 
-1. На верхней панели {{ tracker-name }} нажмите ![](../../_assets/tracker/tracker-settings.png) → **Персональные настройки** или перейдите по ссылке [https://tracker.yandex.ru/settings]({{ link-settings }}).
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. В блоке **Порядок сообщений в задаче** включите опцию **Сначала новые**.
 
