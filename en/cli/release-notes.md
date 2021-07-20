@@ -1,6 +1,95 @@
 # YC CLI Releases
 
-## Version 0.76.0 (19.05.21) {#latest-release}
+## Version 0.79.0 (13.07.21) {#latest-release}
+
+### Changes to {{ yandex-cloud }} services
+
+### {{ cloud-logging-name }} {#logging}
+
+Added support for {{ cloud-logging-name }}.
+
+{{ cloud-logging-name }} is a service for reading and recording service logs and user applications.
+
+{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../logging/).
+
+### {{ sf-name }} {#serverless-functions}
+
+* Added the `yc serverless function set-scaling-policy` command to configure a function's scaling settings.
+
+* Added the `yc serverless function list-scaling-policies` command to view a function's scaling settings.
+
+* Added the `yc serverless function remove-scaling-policy` command to delete a function's scaling settings.
+
+* Command `yc serverless function version create`
+
+  Fixed the directory processing for the `--source-path` flag on Windows.
+
+### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+* Command `yc managed-clickhouse cluster update`
+
+    Added the `--cloud-storage` flag to enable data storage in {{ objstorage-name }}.
+
+## Previous releases {#previous-releases}
+
+### Version 0.78.0 (29.06.21) {#version0.78.0}
+
+#### {{ managed-k8s-name }} {#k8s}
+
+* Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`
+
+  Added the `--network-acceleration-type` flag, which lets you specify a network type for node groups: standard or software-accelerated.
+
+* Command `yc managed-kubernetes cluster create`
+
+  Added the `--cilium` flag to create a cluster that supports tunnel mode and uses Cilium CNI.
+
+#### {{ dataproc-name }} {#dataproc}
+
+* Command `yc dataproc job create-<JOB-TYPE>`
+
+  Now, after starting a task, its execution log is displayed in the terminal.
+
+### Version 0.77.0 (07.06.21) {#version0.77.0}
+
+**{{ compute-name }}**
+
+* Command `yc compute instance`
+
+  Added the `dns-record-spec` and `ipv6-dns-record-spec` keys to `network_interface`.
+
+**{{ api-gw-name }}**
+
+* Added the `yc serverless api-gateway add-domain` command to add a domain to an API gateway.
+* Added the `yc serverless api-gateway remove-domain` command to remove a domain from an API gateway.
+
+#### Managed database services {#managed-db}
+
+**{{ mes-name }}**
+
+* Command `yc managed-elasticsearch cluster list-logs`
+
+  Added the `--service-type` flag to generate Kibana logs.
+
+* Commands `yc managed-elasticsearch cluster create` and `yc managed-elasticsearch cluster update`
+
+  Added the `--service-account` flag.
+
+**{{ mkf-name }}**
+
+* Commands `yc managed-kafka cluster create` and `yc managed-kafka cluster update`
+
+  Added the `--num-partitions` and `--default-replication-factor` flags to set and edit configuration settings of Kafka brokers.
+
+**{{ mrd-name }}**
+
+* Commands `yc managed-redis cluster create\update`
+
+  Added the `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases`, and `--notify-keyspace-events` flags (see description in redis.conf).
+
+### Version 0.76.0 (19.05.21) {#version0.76.0}
 
 **{{ mpg-name }}**
 
@@ -17,8 +106,6 @@
 * Command `yc compute instance-group`
 
   Instance groups can now output the group status.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.75.0 (13.04.21) {#version0.75.0}
 
