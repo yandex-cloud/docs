@@ -3,4 +3,4 @@ title: "Аутентификация в API Yandex Cloud Functions (Тригге
 description: "Для выполнения операций через API в сервисе для запуска приложений без создания виртуальных машин – Yandex Cloud Functions, необходимо получить IAM-токен для сервисного, федеративного или Яндекс аккаунта. Инструкция описывает процесс аунтификации в API для запуска триггеров."
 ---
 
-{% include [auth](../../../../en/_includes/authentication.md) %}
+{% include [auth](../../../_includes/authentication.md) %}
