@@ -117,12 +117,12 @@
 
         routes:
           - input:
-            plugin: metrics_pull
-            config:
-              url: http://localhost:8000
-              format:
-                prometheus: {}
-              namespace: app
+              plugin: metrics_pull
+              config:
+                url: http://localhost:8000
+                format:
+                  prometheus: {}
+                namespace: app
             channel:
               channel_ref:
                 name: cloud_monitoring
