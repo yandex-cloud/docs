@@ -123,6 +123,9 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Создание подключения к Oracle Database
             href: operations/connection/create-oracle.md
+          - name: Создание подключения к Yandex Database
+            when: audience == "internal"
+            href: operations/connection/create-ydb.md
           - name: Создание подключения к ClickHouse over YT
             when: audience == "internal"
             href: operations/connection/create-chyt.md

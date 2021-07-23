@@ -9,6 +9,7 @@
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)
 - [{#T}](connection/create-oracle.md)
+{% if audience == "internal" %} - [{#T}](connection/create-ydb.md) {% endif %}
 - [{#T}](connection/create-greenplum.md)
 {% if audience == "internal" %} - [{#T}](connection/create-chyt.md) {% endif %}
 - [{#T}](connection/create-metrica-api.md)
