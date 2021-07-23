@@ -171,6 +171,8 @@ DataLens работает с датами в формате ISO. Это знач
 
 Добавьте нумерацию строк с помощью вычисляемого поля, например, `RSUM(ANY(1))`. См. [изображение](https://jing.yandex-team.ru/files/elenbaskakova/add-line-numeration.png).
 
+Функция `ANY` поддерживается только в материализованных датасетах, {{ CH }} и {{ MY }}. Подробный список поддерживаемых источников см. в разделе [{#T}](function-ref/ANY.md#data-source-support).
+
 ### Как вычислить кумулятивную сумму? {#how-to-calculate-cumulative-sum}
 
 Используйте функцию [RSUM](function-ref/RSUM.md).
