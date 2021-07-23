@@ -285,7 +285,7 @@ items:
     href: security/index.md
   - name: Справочник API Functions
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/functions/authentication.md
       - name: gRPC (англ.)
         items: null
@@ -299,7 +299,7 @@ items:
           path: en/_api-ref/serverless/functions/toc.yaml
   - name: Справочник API Triggers
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/triggers/authentication.md
       - name: gRPC (англ.)
         items: null
