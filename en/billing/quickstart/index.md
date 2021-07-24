@@ -108,3 +108,5 @@ Under one Yandex account, all payers must be either residents of the Russian Fed
 ### Get started with {{ yandex-cloud }} {#start}
 
    {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
+
+Testing
