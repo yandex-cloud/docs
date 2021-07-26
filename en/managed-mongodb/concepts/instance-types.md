@@ -1,3 +1,8 @@
+---
+title: "Managed Service for MongoDB host classes"
+description: "The host class defines the processing power that is allocated to each host in the MongoDB cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it."
+---
+
 # Host classes
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.

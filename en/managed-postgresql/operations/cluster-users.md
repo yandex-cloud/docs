@@ -1,3 +1,8 @@
+---
+title: "PostgreSQL user management"
+description: "This article will show you how to add and remove users, as well as manage their individual settings in the PostgreSQL database management service."
+---
+
 # Managing database users
 
 You can add and remove users, as well as manage their individual settings.

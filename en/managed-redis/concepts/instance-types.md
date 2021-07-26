@@ -1,3 +1,8 @@
+---
+title: "Managed Service for Redis host classes"
+description: "The host class defines the processing power that is allocated to each host in the Redis cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it. The memory allocated to the host also determines the maxmemory configuration parameter for Redis hosts - the maximum amount of data equal to 75% of the available memory."
+---
+
 # Host classes
 
 The host class determines the computing power allocated for each host in the cluster. When you change the class for a cluster, all existing hosts change to match it.

@@ -1,3 +1,8 @@
+---
+title: "MySQL backup management"
+description: "You can back up and restore clusters from your existing MySQL backups. Point-in-Time Recovery (PITR) technology allows you to restore the state of the cluster to any point in time from the backup to the current moment."
+---
+
 # Managing backups
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.

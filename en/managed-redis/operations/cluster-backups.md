@@ -1,3 +1,8 @@
+---
+title: "Redis backup management"
+description: "You can create backups and restore clusters from existing Redis backups. When restoring a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have enough resources to create such a cluster, you will not be able to recover from the backup."
+---
+
 # Managing backups
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.

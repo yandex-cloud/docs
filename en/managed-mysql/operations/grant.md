@@ -1,3 +1,8 @@
+---
+title: "Assigning privileges and roles to MySQL users"
+description: "In Managed Service for MySQL, privileges are atomic user authority over individual database objects. Roles are the privileges granted to a user on all user objects in a database. Users can have different sets of roles for different databases. For details on supported roles, see the roles description."
+---
+
 # Assigning privileges and roles to users
 
 In **{{ mmy-name }}**, _privileges_ are atomic user permissions for individual database objects. _Roles_ are the privileges granted to the user for all user objects in a database. Users can have different role sets for different databases. To learn more about supported roles, see the [description of roles](#db-roles).
