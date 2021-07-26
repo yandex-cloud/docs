@@ -27,9 +27,9 @@ Changes to the settings of instance groups may affect instances in this group in
 
 * Changing the specification of [health checks](../../../operations/instance-groups/enable-autohealing.md) (`health_checks_spec`).
 
-* Changing the specification of the target group of a [network load balancer](../../../../network-load-balancer/concepts/index.md) (`load_balancer_spec`) is currently not supported.
+* Changing a [network load balancer's](../../../../network-load-balancer/concepts/index.md) (`load_balancer_spec`) target group specification is not currently supported.
 
-### Changes that cause restart or re-creation of instances {#ch-gr-affect}
+### Changes that cause the restart or re-creation of instances {#ch-gr-affect}
 
 * Changing the group scaling policy (`scale_policy`).
 
@@ -58,6 +58,6 @@ In some cases, changing the instance template (`instance_template`) causes the i
 ### Parameters whose change leads to instance re-creation {#ch-temp-with-recreate}
 
 * `network_interface_specs`: You can't update network interfaces without re-creating the instance.
-* `secondary_disk_specs`: You can't update secondary disks without re-creating the instance.
+* `secondary_disk_specs`: You can't update secondary disks without re-creating the instance. Disks are retained whenever possible.
 * `scheduling_policy`: You can't convert a regular instance into a preemptible instance or vice versa without re-creating the instance.
 

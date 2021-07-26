@@ -255,6 +255,8 @@ items:
                 href: concepts/instance-groups/deploy/deploy.md
               - name: Rules for updating instance groups
                 href: concepts/instance-groups/deploy/instance.md
+              - name: Changing secondary disks in an instance template
+                href: concepts/instance-groups/deploy/secondary-disk.md
           - name: Statuses
             href: concepts/instance-groups/statuses.md
       - name: Dedicated host
