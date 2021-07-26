@@ -6,10 +6,12 @@ items:
     items:
       - name: Добавить клиента
         href: operations/pin-client.md
-      - name: Проверить наличие доступов к облакам клиента
+      - name: Проверить наличие доступа к облаку клиента
         href: operations/access/check.md
-      - name: Предоставить партнеру доступ к облакам клиента
+      - name: Предоставить партнеру доступ к облаку клиента
         href: operations/access/grant.md
+      - name: Посмотреть потребление клиентов
+        href: operations/get-client-stat.md
   - name: Партнерские программы
     expanded: true
     items:
