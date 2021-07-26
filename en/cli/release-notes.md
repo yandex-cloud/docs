@@ -356,7 +356,7 @@ Added primary support for {{ mkf-name }}:
 
 - Command `yc <managed DB service name> cluster update`
 
-    Added the `--websql-access` flag to control access from the [консоли управления]({{ link-console-main }}).
+    Added the `--websql-access` flag to control access from the [management console]({{ link-console-main }}).
 
 ### Version 0.68.0 (03.11.20) {#version0.68.0}
 
