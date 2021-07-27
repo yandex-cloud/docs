@@ -9,6 +9,7 @@
 * [Чтение](#read)
 * [Редактирование](#edit)
 * [Удаление](#delete)
+* [Доступ](#access)
 
 {% include [include](../../../_includes/datalens/internal/charts/common.md) %}
 
@@ -19,3 +20,5 @@
 {% include [include](../../../_includes/datalens/internal/charts/update.md) %}
 
 {% include [include](../../../_includes/datalens/internal/charts/delete.md) %}
+
+{% include [include](../../../_includes/datalens/internal/charts/access.md) %}
