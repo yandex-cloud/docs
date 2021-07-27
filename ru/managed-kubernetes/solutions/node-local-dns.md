@@ -62,7 +62,7 @@
     --name node-group \
     --cluster-name node-local-dns \
     --location zone=ru-central1-a \
-    --public-ip \
+    --network-interface subnets=<имя подсети для группы узлов>,ipv4-address=nat \
     --fixed-size 3
     ```
 

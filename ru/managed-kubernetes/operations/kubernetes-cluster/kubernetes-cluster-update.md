@@ -2,18 +2,20 @@
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}
 
-## Изменение кластера {{ k8s }} {#edit}
+## Изменить кластер {{ k8s }} {#update-cluster}
 
 Вы можете изменить следующие параметры кластера {{ k8s }}:
+
 * Имя.
 * Описание.
 * Сервисные аккаунты.
 * Версию {{ k8s }}.
+* Список групп безопасности.
 * Политику обновлений.
 
 {% list tabs %}
 
-- Консоль управления
+* Консоль управления
 
    Чтобы изменить [кластер {{ k8s }}](../../concepts/index.md#kubernetes-cluster):
    1. Откройте раздел **{{ managed-k8s-name }}** в каталоге, где требуется изменить кластер {{ k8s }}.
@@ -22,30 +24,53 @@
    1. В открывшемся окне измените необходимые параметры.
    1. Нажмите кнопку **Сохранить изменения**.
 
-- CLI
+* CLI
 
-   Получите подробную информацию о команде для изменения кластера {{ k8s }}: 
- 
-   ```
-   yc managed-kubernetes cluster update --help
-   ```
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   Для изменения кластера {{ k8s }} воспользуйтесь следующими параметрами:
-   * `--new-name` — изменить имя.
-   * `--description` — изменить описание.
-   * `--service-account-id`, `--service-account-name` — изменить сервисный аккаунт для ресурсов.
-   * `--node-service-account-id`, `--node-service-account-name` — изменить сервисный аккаунт для узлов.
-   * `--version` — изменить версию {{ k8s }}.
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   Чтобы изменить кластер:
+
+   1. Посмотрите описание команды CLI для изменения кластера:
+
+       ```bash
+       {{ yc-k8s }} cluster update --help
+       ```
+
+   1. Выполните команду, передав список изменяемых настроек (в примере приведены не все настройки):
+
+       ```bash
+       {{ yc-k8s }} cluster update <имя кластера> \
+         --new-name <новое имя кластера> \
+         --description <описание кластера> \
+         --service-account-id <идентификатор сервисного аккаунта для ресурсов> \
+         --service-account-name <имя сервисного аккаунта для ресурсов> \
+         --node-service-account-id <идентификатор сервисного аккаунта для узлов> \
+         --security-group-ids <список идентификаторов групп безопасности>
+       ```
+
+   Вы можете изменить следующие настройки:
+
+   * `--new-name` — имя кластера.
+   * `--description` — описание кластера.
+   * `--service-account-id`, `--service-account-name` — сервисный аккаунт для управления кластером.
+   * `--node-service-account-id`, `--node-service-account-name` — сервисный аккаунт для управления узлами.
+   * `--security-group-ids` — группы безопасности кластера.
+
+       {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
+
+   * `--version` — версию {{ k8s }}.
    * `--latest-revision` — получить все доступные обновления для текущей версии мастера.
-   * `--auto-upgrade` — управлять автоматическими обновлениями.
+   * `--auto-upgrade` — управлять автоматическими обновлениями кластера.
    * Управление окном обновлений:
        * `--anytime-maintenance-window` — обновлять в любое время.
        * `--daily-maintenance-window` — обновлять ежедневно в выбранное время.
        * `--weekly-maintenance-window` — обновлять в выбранные дни.
 
-- API
+* API
 
-   Чтобы изменить параметры кластера {{ k8s }}, воспользуйтесь методом [update](../../api-ref/Cluster/update.md) для ресурса [Cluster](../../api-ref/Cluster/).
+    Чтобы изменить параметры кластера {{ k8s }}, воспользуйтесь методом [update](../../api-ref/Cluster/update.md) для ресурса [Cluster](../../api-ref/Cluster/).
 
 {% endlist %}
   

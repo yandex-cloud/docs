@@ -5,6 +5,7 @@ description: "Из статьи вы узнаете, как работать с 
 
 # Все инструкции
 
+* [{#T}](security-groups.md)
 * [{#T}](node-connect-ssh.md)
 * [{#T}](create-static-conf.md)
 * [{#T}](create-load-balancer.md)

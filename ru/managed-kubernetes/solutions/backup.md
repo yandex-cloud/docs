@@ -387,13 +387,15 @@
      yc managed-kubernetes node-group create \
        --cluster-name cluster-from-backup \
        --fixed-size 1 \
-       --public-ip
+       --network-interface subnets=subnet,ipv4-address=nat
      ```
 
      Где:
      * `cluster-name` — имя кластера {{ k8s }}, в котором будет создана группа узлов.
      * `fixed-size` — количество узлов в группе.
-     * `public-ip` — флаг, который указывается, если группе узлов требуется публичный IP-адрес.
+     * `--network-interface` — настройки сети:
+
+         {% include [network-interface](../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
      Результат выполнения:
 
