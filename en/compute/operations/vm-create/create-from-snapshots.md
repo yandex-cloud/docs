@@ -1,4 +1,4 @@
-# Create a VM with disks restored from snapshots
+# Creating a VM with disks restored from snapshots
 
 You can create a VM with disks restored from the snapshots that exist in the folder. Learn about creating a disk snapshot in [{#T}](../disk-control/create-snapshot.md).
 

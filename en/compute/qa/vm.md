@@ -8,17 +8,17 @@ keywords:
 
 # Virtual machines
 
-### Technical parameters {#technical-parameters}
+### Technical specifications {#technical-parameters}
 
 #### What VM configuration (memory, vCPU) can I use? {#configure-vm}
 
 {% include [support-channels](../../_includes/compute/compute-resources.md) %}
 
-Read more in [{#T}](../concepts/performance-levels.md).
+Learn more in [{#T}](../concepts/performance-levels.md).
 
 #### How can I change the amount of RAM and the number of cores allocated to a VM? {#update-type}
 
-Read more in [{#T}](../operations/vm-control/vm-update-resources.md).
+Learn more in [{#T}](../operations/vm-control/vm-update-resources.md).
 
 ### Operations on VMs {#operations-on-vm}
 
@@ -28,17 +28,17 @@ Yes, you can take snapshots of disks attached to a VM and use them when creating
 
 #### Can I move my VM to a different availability zone? {#move-az}
 
-You cannot directly change the availability zone the VM lives in. However, you can create a copy of the VM in the availability zone you need.
+You cannot directly change the availability zone where the VM is hosted. However, you can create a copy of the VM in the availability zone you need.
 
 #### Can I move my VM to a different folder? {#move-to-project}
 
-You cannot directly change the folder the VM belongs to. However, you can create a copy of the VM in the appropriate folder.
+You cannot directly change the folder that the VM belongs to. However, you can create a copy of the VM in the appropriate folder.
 
 #### If I accidentally delete my VM, can I restore it? {#delete-vm2}
 
-No, you can't. Deleting a VM is an operation that cannot be undone.
+No, you can't. Deleting a VM is an irreversible operation.
 
-To avoid losing your data in case of accidental deletion, you can configure disk backup using snapshots, or specify that the disks should not be automatically deleted when deleting the VM.
+To avoid losing your data in case of accidental deletion, you can configure disk backups using snapshots or specify that the disks should not be automatically deleted when deleting the VM.
 
 #### If I lose a private key file from a Linux VM, how else can I log in to it? {#lost-sshkey}
 

@@ -95,6 +95,8 @@ items:
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
             href: operations/vm-operate/install-nvidia-drivers.md
+          - name: Restoring access to a VM
+            href: operations/vm-connect/recovery-access.md
       - name: Creating new disks
         items:
           - name: Creating an empty disk
