@@ -1,78 +1,77 @@
-# Развертывание группы доступности Always On с внутренним сетевым балансировщиком
+# Deploying an Always On availability group with an internal network load balancer
 
-Сценарий описывает развертывание в {{ yandex-cloud }} группы доступности Always On с балансировкой нагрузки между узлами с помощью внутреннего сетевого балансировщика. Несколько подсетей будут объединены в одну общую подсеть с помощью настройки сетевых интерфейсов. Благодаря этому не потребуется использование [Multisubnet Failover]{% if region == "int" %}(https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% else %}(https://docs.microsoft.com/ru-ru/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% endif %}. Основной IP-адрес будет назначаться реплике, в которую ведется запись. У этой же реплики будет открыт порт, на который балансировщик будет направлять трафик. Поскольку порт, указанный для подключения к балансировщику, становится недоступным, для приема трафика будет использоваться дополнительный нестандартный порт.
+The use case describes how to deploy an Always On availability group in {{ yandex-cloud }} and enable load balancing between the nodes using an internal network load balancer. Network interfaces will be set up to combine multiple subnets into a single common subnet. This means that you don't need [Multisubnet Failover]{% if region == "int" %}(https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% else %}(https://docs.microsoft.com/ru-ru/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% endif %}. The primary IP address will be assigned to the replica written to. The same replica will have an open port, and the load balancer will route traffic to this port. Since the port specified for connecting to the load balancer becomes unavailable, an additional non-standard port will be used to receive traffic.
 
-Чтобы создать и настроить группу доступности Always On с внутренним сетевым балансировщиком:
+To create and configure an Always On availability group with an internal network load balancer:
 
-1. [Подготовьте облако к работе](#before-begin).
-1. [Необходимые платные ресурсы](#paid-resources).
-1. [Создайте сетевую инфраструктуру](#prepare-network).
-1. [Создайте внутренний сетевой балансировщик](#create-load-balancer).
-1. [Создайте обработчик](#create-listener).
-1. [Создайте и подключите целевую группу](#create-target-group).
-1. [Подготовьте виртуальные машины для группы доступности](#create-vms).
-1. [Создайте файл с учетными данными администратора](#prepare-admin-credentials).
-1. [Создайте виртуальные машины](#create-group-vms).
-1. [Создайте ВМ для бастионного хоста](#create-jump-server).
-1. [Создайте ВМ для Active Directory](#create-ad-controller).
-1. [Создайте ВМ для серверов MSSQL](#create-ad-server).
-1. [Установите и настройте Active Directory](#install-ad).
-1. [Создайте пользователей и группы в Active Directory](#install-ad).
-1. [Установите и настройте MSSQL](#install-mssql).
-1. [Установите MSSQL на серверы баз данных](#mssql-nodes).
-1. [Создайте Windows Failover Cluster](#configure-failover-cluster).
-1. [Настройте Always On](#configure-always-on).
-1. [Протестируйте группу доступности](#test).
-1. [Протестируйте работу базы данных](#test-always-on).
+1. [Before you start](#before-begin).
+1. [Required paid resources](#paid-resources).
+1. [Create a network infrastructure](#prepare-network).
+1. [Create an internal network load balancer](#create-load-balancer).
+1. [Create a listener](#create-listener).
+1. [Create and connect a target group](#create-target-group).
+1. [Prepare VMs for the availability group](#create-vms).
+1. [Create a file with administrator credentials](#prepare-admin-credentials).
+1. [Create VMs](#create-group-vms).
+1. [Create a VM for a bastion host](#create-jump-server).
+1. [Create a VM for Active Directory](#create-ad-controller).
+1. [Create a VM for MSSQL servers](#create-ad-server).
+1. [Install and configure Active Directory](#install-ad).
+1. [Create users and groups in Active Directory](#install-ad).
+1. [Install and configure MSSQL](#install-mssql).
+1. [Install MSSQL on database servers](#mssql-nodes).
+1. [Create a Windows Failover Cluster](#configure-failover-cluster).
+1. [Configure Always On](#configure-always-on).
+1. [Test the availability group](#test).
+1. [Test the database](#test-always-on).
 
-Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+If you no longer need the created resources, [delete them](#clear-out).
 
-## Подготовьте облако к работе {#before-begin}
+## Before you start {#before-begin}
 
-Перед тем, как разворачивать группу доступности, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+Before deploying an availability group, sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](includes/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]{% if region == "int" %}(https://console.cloud.yandex.com/cloud){% else %}(https://console.cloud.yandex.ru/cloud){% endif %}.
+If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page]{% if region == "int" %}(https://console.cloud.yandex.com/cloud){% else %}(https://console.cloud.yandex.ru/cloud){% endif %}.
 
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
-### Необходимые платные ресурсы {#paid-resources}
+### Required paid resources {#paid-resources}
 
-В стоимость поддержки группы доступности входят:
+The cost of supporting the availability group includes:
 
-* плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
-* плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
+* A fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
+* A fee for using dynamic or static public IP addresses (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md)).
 
-Вы можете воспользоваться [мобильностью лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию MSSQL Server в {{ yandex-cloud }}.
+You can use [license mobility](../../compute/qa/licensing) and use your own MSSQL Server license in {{ yandex-cloud }}.
 
-## Создайте сетевую инфраструктуру {#prepare-network}
+## Create a network infrastructure {#prepare-network}
 
-У всех реплик группы будет несколько IP-адресов, трафик на которые будет направляться с помощью [статических маршрутов](../../vpc/concepts/static-routes.md). Подготовьте сетевую инфраструктуру для размещения группы доступности.
+All replicas in the group will have multiple IP addresses that will be routed to using [static routes](../../vpc/concepts/static-routes.md). Prepare the network infrastructure to host the availability group.
 
-1. Создайте сеть с именем `ya-network`:
+1. Create a network named `ya-network`:
 
     {% list tabs %}
 
-    - Консоль управления
+    - Management console
+       1. Open the **Virtual Private Cloud** section in the folder where you want to create the cloud network.
+       1. Click **Create network**.
+       1. Enter the network name: `ya-network`.
+       1. Click **Create network**.
 
-       1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать облачную сеть.
-       1. Нажмите кнопку **Создать сеть.**
-       1. Задайте имя сети: `ya-network`.
-       1. Нажмите кнопку **Создать сеть**.
+    - Bash
 
-    - Bash 
-      
-      [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}, чтобы использовать команды CLI в Bash. 
+      [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface to use CLI commands in Bash.
 
       ```
       $ yc vpc network create --name ya-network
       ```
 
-    - PowerShell 
+    - PowerShell
 
-      [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}, чтобы использовать команды CLI в PowerShell. 
+      [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface to use CLI commands in PowerShell.
 
       ```
       yc vpc network create --name ya-network
@@ -80,36 +79,32 @@
 
     {% endlist %}
 
-1. Создайте подсети, в которых будут размещаться виртуальные машины и сетевой балансировщик: 
-
-   * Три подсети для размещения ВМ SQLServer: `ya-sqlserver-rc1a`, `ya-sqlserver-rc1b` и `ya-sqlserver-rc1c`. К каждой подсети будет привязана таблица маршрутизации `mssql`.
-   * Подсеть `ya-ilb-rc1a` для сетевого балансировщика.
-   * Подсеть `ya-ad-rc1a` для Active Directory.
+1. Create subnets that will host your VMs and network load balancer:
+   * Three subnets for hosting SQLSERVER VMs: `ya-sqlserver-rc1a`, `ya-sqlserver-rc1b`, and `ya-sqlserver-rc1c`. The `mssql` route table will be linked to each subnet.
+   * `ya-ilb-rc1a` subnet for the network load balancer.
+   * `ya-ad-rc1a` subnet for Active Directory.
 
     {% list tabs %}
 
-    - Консоль управления
+    - Management console
+      1. Open the **Virtual Private Cloud** section in the folder to create the subnets in.
+      1. Select the `ya-network` network.
+      1. Click **Add subnet**.
+      1. Fill out the form: enter the `ya-sqlserver-rc1a` subnet name and select the `ru-central1-a` availability zone from the drop-down list.
+      1. Enter the subnet CIDR: IP address and subnet mask: `192.168.1.0/28`.
+      1. Click **Create subnet**.
 
-      1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсети.
-      1. Выберите сеть `ya-network`.
-      1. Нажмите кнопку **Добавить подсеть**.
-      1. Заполните форму: введите имя подсети `ya-sqlserver-rc1a`, выберите зону доступности `ru-central1-a` из выпадающего списка.
-      1. Введите CIDR подсети: IP-адрес и маску подсети: `192.168.1.0/28`.
-      1. Нажмите кнопку **Создать подсеть**.
+      Repeat the steps for subnets with the following names and CIDR:
+      * `ya-sqlserver-rc1b` in the `ru-central1-b` availability zone: `192.168.1.16/28`.
+      * `ya-sqlserver-rc1c` in the `ru-central1-b` availability zone: `192.168.1.32/28`.
+      * `ya-ilb-rc1a` in the `ru-central1-a` availability zone: `192.168.1.48/28`.
+      * `ya-ad-rc1a` in the `ru-central1-a` availability zone: `10.0.0.0/28`.
 
-      Повторите шаги для подсетей со следующими именами и CIDR:
-
-      * `ya-sqlserver-rc1b` в зоне доступности `ru-central1-b` — `192.168.1.16/28`;
-      * `ya-sqlserver-rc1c` в зоне доступности `ru-central1-b` — `192.168.1.32/28`;
-      * `ya-ilb-rc1a` в зоне доступности `ru-central1-a` — `192.168.1.48/28`;
-      * `ya-ad-rc1a` в зоне доступности `ru-central1-a` — `10.0.0.0/28`;
-    
-      Чтобы использовать статические маршруты, необходимо привязать таблицу маршрутизации к подсети:
-
-      1. В строке нужной подсети нажмите кнопку ![image](../../_assets/options.svg).
-      1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
-      1. В открывшемся окне выберите созданную таблицу в списке.
-      1. Нажмите кнопку **Добавить**.
+      To use static routes, link the route table to a subnet:
+      1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
+      1. In the menu that opens, select **Link route table**.
+      1. In the window that opens, select the created table from the list.
+      1. Click **Add**.
 
     - Bash
 
@@ -161,25 +156,25 @@
         --zone ru-central1-a `
         --range 192.168.1.0/28 `
         --network-name ya-network
-
+      
       yc vpc subnet create `
         --name ya-sqlserver-rc1b `
         --zone ru-central1-b `
         --range 192.168.1.16/28 `
         --network-name ya-network
-
+      
       yc vpc subnet create `
         --name ya-sqlserver-rc1c `
         --zone ru-central1-c `
         --range 192.168.1.32/28 `
         --network-name ya-network
-
+      
       yc vpc subnet create `
         --name ya-ilb-rc1a `
         --zone ru-central1-a `
         --range 192.168.1.48/28 `
         --network-name ya-network
-
+      
       yc vpc subnet create `
         --name ya-ad-rc1a `
         --zone ru-central1-a `
@@ -189,7 +184,7 @@
 
     {% endlist %}
 
-## Создайте внутренний сетевой балансировщик {#create-load-balancer}
+## Create an internal network load balancer {#create-load-balancer}
 
 {% list tabs %}
 
@@ -202,7 +197,7 @@
   ```
 
 - PowerShell
-  
+
   ```
   yc load-balancer network-load-balancer create `
      --name ya-loadbalancer `
@@ -211,31 +206,31 @@
 
 {% endlist %}
 
-### Создайте обработчик {#create-listener}
+### Create a listener {#create-listener}
 
 {% list tabs %}
 
-- Bash 
-  
-  Получите идентификатор подсети следующей командой:
+- Bash
+
+  Get the subnet ID using the following command:
 
   ```
   $ yc vpc subnet get --name ya-ilb-rc1a
   ```
-  
-  Выполните команду, указав идентификатор подсети:
+
+  Run the command, indicating the subnet ID:
 
   ```
   $ yc load-balancer network-load-balancer add-listener \
      --name ya-loadbalancer \
-     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=<идентификатор подсети>
+     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=<subnet ID>
   ```
 
 - PowerShell
 
   ```
   $inlbSubnet = yc vpc subnet get --name ya-ilb-rc1a --format json | ConvertFrom-Json
-
+  
   yc load-balancer network-load-balancer add-listener `
     --name ya-loadbalancer `
     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=$($inlbSubnet.id)
@@ -243,27 +238,27 @@
 
 {% endlist %}
 
-### Создайте и подключите целевую группу к балансировщику {#create-target-group}
+### Create and connect the target group to the network load balancer {#create-target-group}
 
 {% list tabs %}
 
 - Bash
 
   ```
-
+  
   $ yc load-balancer target-group create \
      --name ya-tg \
      --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a \
      --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b \
      --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1c
   ```
-  
-  Скопируйте из ответа идентификатор целевой группы и выполните команду:
+
+  Copy the target group ID from the response and run the command:
 
   ```
   $ yc load-balancer network-load-balancer attach-target-group \
      --name ya-loadbalancer \
-     --target-group target-group-id=<идентификатор целевой группы>,healthcheck-name=listener,healthcheck-tcp-port=59999
+     --target-group target-group-id=<target group ID>,healthcheck-name=listener,healthcheck-tcp-port=59999
   ```
 
 - PowerShell
@@ -274,11 +269,11 @@
     --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a `
     --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b `
     --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1c
-
   ```
+
   ```
   $TargetGroup = yc load-balancer target-group get --name ya-tg --format json | ConvertFrom-Json
-
+  
   yc load-balancer network-load-balancer attach-target-group `
     --name ya-loadbalancer `
     --target-group target-group-id=$($TargetGroup.id),healthcheck-name=listener,healthcheck-tcp-port=59999
@@ -286,11 +281,11 @@
 
 {% endlist %}
 
-## Подготовьте виртуальные машины для группы доступности {#create-vms}
+## Create VMs for the availability group {#create-vms}
 
-### Создайте файл с учетными данными администратора {#prepare-admin-credentials}
+### Create a file with administrator credentials {#prepare-admin-credentials}
 
-Создайте файл `setpass` со скриптом для установки пароля локальной учетной записи администратора. Этот скрипт будет выполняться при создании виртуальных машин через CLI.
+Create a file named `setpass` with a script to set the administrator's local account password. This script will be executed when creating VMs via the CLI.
 
 {% list tabs %}
 
@@ -315,19 +310,20 @@
 
 {% note warning %}
 
-Указанный пароль используется только для тестирования. Используйте собственный сложный пароль при развертывании кластера для работы в продуктовом окружении.
+The set password is only used for testing. Use your own complex password when deploying a cluster to work in a product environment.
 
-Пароль должен соответствовать [требованиям к сложности]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% else %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}.
+The password must meet the [complexity requirements]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% else %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}.
 
-Подробные рекомендации по защите Active Directory читайте на [сайте разработчика]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% else %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
+Read more about the best practices for securing Active Directory on the 
+[official website]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% else %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
 
 {% endnote %}
 
-### Создайте виртуальные машины {#create-group-vms}
+### Create VMs {#create-group-vms}
 
-#### Создайте ВМ для бастионного хоста {#create-jump-server}
+#### Create a VM for a bastion host {#create-jump-server}
 
-Создайте бастионный хост с публичным IP-адресом. Через этот хост будет осуществляться доступ ко всем остальным ВМ:
+Create a bastion host with a public IP address. This host will provide access to all other VMs:
 
 {% list tabs %}
 
@@ -348,7 +344,7 @@
      --async
   ```
 
-- Powershell
+- PowerShell
 
   ```
   yc compute instance create `
@@ -367,9 +363,9 @@
 
 {% endlist %}
 
-#### Создайте ВМ для Active Directory {#create-ad-controller}
+#### Create a VM for Active Directory {#create-ad-controller}
 
-Создайте виртуальную машину для установки Active Directory:
+Create a VM to install Active Directory:
 
 {% list tabs %}
 
@@ -409,9 +405,9 @@
 
 {% endlist %}
 
-#### Создайте ВМ для серверов MSSQL {#create-ad-server}
+#### Create a VM for MSSQL servers {#create-ad-server}
 
-Создайте три виртуальных машины для серверов MSSQL:
+Create three VMs for MSSQL servers:
 
 {% list tabs %}
 
@@ -523,11 +519,13 @@
 
 {% endlist %}
 
-### Установите и настройте Active Directory {#install-ad}
+### Install and configure Active Directory {#install-ad}
 
-1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. 
-1. Запустите RDP и подключитесь к виртуальной машине `ya-ad`.
-1. Установите необходимые роли сервера. Запустите PowerShell и выполните следующую команду:
+1. Connect to the VM `ya-jump1` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
+
+1. Start the RDP client and connect to the `ya-ad` VM.
+
+1. Set the required server roles. Start PowerShell and run the following command:
 
    {% list tabs %}
 
@@ -539,7 +537,7 @@
 
    {% endlist %}
 
-1. Создайте лес Active Directory:
+1. Create an Active Directory forest:
 
     {% list tabs %}
 
@@ -552,14 +550,14 @@
          -SafeModeAdministratorPassword `
            ('YaP@ssw0rd!11' | ConvertTo-SecureString -AsPlainText -Force)
        ```
-       
+
     {% endlist %}
 
-   После этого ВМ перезапустится. 
+   After that, the VM restarts.
 
-1. Снова подключитесь к ВМ `ya-ad`.
+1. Reconnect to `ya-ad`.
 
-1. Переименуйте сайт и добавьте в него созданные подсети:
+1. Rename the website and add the created subnets to it:
 
     {% list tabs %}
 
@@ -576,7 +574,7 @@
 
     {% endlist %}
 
-1. Укажите Forwarder для DNS-сервера:
+1. Specify the Forwarder for the DNS server:
 
     {% list tabs %}
 
@@ -588,7 +586,7 @@
 
     {% endlist %}
 
-1. Укажите адреса DNS-сервера:
+1. Specify the DNS server addresses:
 
     {% list tabs %}
 
@@ -600,9 +598,9 @@
 
     {% endlist %}
 
-### Создайте пользователей и группы в Active Directory {#install-ad}
+### Create users and groups in Active Directory {#install-ad}
 
-1. Создайте сервисную учетную запись `mssql-svc`:
+1. Create a service account named `mssql-svc`:
 
     {% list tabs %}
 
@@ -619,7 +617,7 @@
 
     {% endlist %}
 
-1. Создайте группы для доступа к резервным копиям и серверам баз данных:
+1. Create groups to access backups and DB servers:
 
     {% list tabs %}
 
@@ -630,9 +628,9 @@
        New-AdGroup mssql-backups-grp -GroupScope:Global
        ```
 
-    {% endlist %} 
+    {% endlist %}
 
-1. Добавьте учетную запись `Administrator` во все группы. В группу `mssql-backups-grp` добавьте сервисную учетную запись `mssql-svc`:
+1. Add the `Administrator` account to all groups. Add the `mssql-svc` service account to the `mssql-backups-grp` group:
 
     {% list tabs %}
 
@@ -646,7 +644,7 @@
 
     {% endlist %}
 
-1. Задайте [SPN](https://docs.microsoft.com/en-us/windows/win32/ad/service-principal-names) сервисной учетной записи:
+1. Set the [SPN](https://docs.microsoft.com/en-us/windows/win32/ad/service-principal-names) of the service account:
 
     {% list tabs %}
 
@@ -655,22 +653,23 @@
        ```
        setspn -A MSSQLSvc/ya-mssql1.yantoso.net:1433 yantoso\mssql-svc
        setspn -A MSSQLSvc/ya-mssql1.yantoso.net yantoso\mssql-svc
-
+       
        setspn -A MSSQLSvc/ya-mssql2.yantoso.net:1433 yantoso\mssql-svc
        setspn -A MSSQLSvc/ya-mssql2.yantoso.net yantoso\mssql-svc
-
+       
        setspn -A MSSQLSvc/ya-mssql3.yantoso.net:1433 yantoso\mssql-svc
        setspn -A MSSQLSvc/ya-mssql3.yantoso.net yantoso\mssql-svc
        ```
 
     {% endlist %}
 
-### Установите и настройте MSSQL {#install-mssql}
+### Install and configure MSSQL {#install-mssql}
 
-#### Установите MSSQL на серверы баз данных {#mssql-nodes}
+#### Install MSSQL on database servers {#mssql-nodes}
 
-1. Запустите RDP и подключитесь к ВМ `ya-mssql1` с учетной записью `Administrator` и вашим паролем. Для подключения используйте публичный IP-адрес ВМ.
-1. Запустите PowerShell и установите роль: 
+1. Run the RDP client and connect to the `ya-mssql1` VM using the `Administrator` account and your password. Use the public IP address of the VM to connect.
+
+1. Start PowerShell and set the role:
 
     {% list tabs %}
 
@@ -682,9 +681,9 @@
 
     {% endlist %}
 
-1. Перезагрузите ВМ и снова запустите PowerShell. 
+1. Restart the VM and PowerShell.
 
-1. Инициализируйте и отформатируйте второй логический диск:
+1. Initialize and format the second logical disk:
 
     {% list tabs %}
 
@@ -701,12 +700,13 @@
                 -Force `
                 -ShortFileNameSupport $false `
                 -Confirm:$false
-       ```
+      ```
+
     {% endlist %}
 
-    Появится запрос подтверждения форматирования диска. Нажмите кнопку **Format disk**. Нажмите кнопку **Start**. Нажмите кнопку **OK**. 
-    
-1. Подготовьте папки для резервного копирования, хранения баз данных, логов и временных файлов:
+    You'll be asked to confirm that you want to format the disk. Click **Format disk**. Click **Start**. Click **OK**.
+
+1. Create folders for backups and storage for databases, logs, and temporary files:
 
     {% list tabs %}
 
@@ -723,7 +723,7 @@
 
     {% endlist %}
 
-1. Дайте виртуальным машинам с серверами БД доступ в интернет:
+1. Enable internet access to VMs running DB servers:
 
     {% list tabs %}
 
@@ -745,8 +745,9 @@
 
     {% endlist %}
 
-1. Загрузите в папку `C:\dist` дистрибутив MSSQL Server из интернета.
-1. Установите модуль SqlServer:
+1. Download the Microsoft SQL Server distribution from the web to `C:\dist`.
+
+1. Install the SqlServer module:
 
     {% list tabs %}
 
@@ -755,10 +756,10 @@
        ```
        Install-Module -Name SqlServer
        ```
-       
+
     {% endlist %}
 
-1. Укажите адрес DNS-сервера:
+1. Specify the DNS server address:
 
     {% list tabs %}
 
@@ -770,7 +771,7 @@
 
     {% endlist %}
 
-   Подготовьте данные для доступа к домену:
+   Prepare data to access the domain:
 
     {% list tabs %}
 
@@ -782,10 +783,10 @@
            'yantoso\Administrator', `
            ('YaQWErty123' | ConvertTo-SecureString -AsPlainText -Force))
        ```
-       
+
     {% endlist %}
 
-   Добавьте сервер БД в домен:
+   Add the DB server to the domain:
 
     {% list tabs %}
 
@@ -796,12 +797,12 @@
        ```
 
     {% endlist %}
-   
-   ВМ автоматически перезапустится. 
 
-1. После перезагрузки снова подключитесь к ВМ с логином `yantoso\Administrator`, откройте PowerShell.
+   The VM restarts automatically.
 
-1. Дайте необходимые права служебной учетной записи. 
+1. After it restarts, reconnect to the VM with the `yantoso\Administrator` username and open PowerShell.
+
+1. Give the necessary rights to the service account.
 
     {% list tabs %}
 
@@ -809,46 +810,46 @@
 
        ```
        & secedit /export /cfg sec_conf_export.ini  /areas user_rights
-
+       
        $secConfig = Get-Content sec_conf_export.ini | Select-Object -SkipLast 3
        $versionSection = Get-Content sec_conf_export.ini | Select-Object -Last 3
-
+       
        $SID = Get-WmiObject `
          -Class Win32_UserAccount `
          -Filter "name='mssql-svc' and domain='yantoso'" | `
            Select-Object -ExpandProperty SID
-
+       
        $isSeManageVolumePrivilegeDefined = $secConfig | `
          Select-String SeManageVolumePrivilege
-
+       
        if ($isSeManageVolumePrivilegeDefined) {
          $secConfig = $secConfig -replace '^SeManageVolumePrivilege .+', "`$0,*$SID"
        } else {
          $secConfig = $secConfig + "SeManageVolumePrivilege = *$SID"
        }
-
+       
        $isSeLockMemoryPrivilegeDefined = $secConfig | `
          Select-String SeLockMemoryPrivilege
-
+       
        if ($isSeLockMemoryPrivilegeDefined) {
          $secConfig = $secConfig -replace '^SeLockMemoryPrivilege .+', "`$0,*$SID"
        } else {
          $secConfig = $secConfig + "SeLockMemoryPrivilege = *$SID"
        }
-
+       
        $secConfig = $secConfig + $versionSection
        $secConfig | Set-Content sec_conf_import.ini
-
+       
        secedit /configure /db secedit.sdb /cfg sec_conf_import.ini /areas user_rights
-
+       
        Remove-Item sec_conf_import.ini
        Remove-Item sec_conf_export.ini
        ```
 
     {% endlist %}
 
-1. Настройте фаерволл: 
-   
+1. Configure the firewall:
+
     {% list tabs %}
 
     - PowerShell
@@ -861,7 +862,7 @@
          -LocalPort 1433 `
          -Action "Allow" `
          -Protocol "TCP"
-
+       
        New-NetFirewallRule `
          -Group "MSSQL" `
          -DisplayName "MSSQL Server AAG Custom" `
@@ -869,7 +870,7 @@
          -LocalPort 14333 `
          -Action "Allow" `
          -Protocol "TCP"
-
+       
        New-NetFirewallRule `
          -Group "MSSQL" `
          -DisplayName "MSSQL HADR Default" `
@@ -877,7 +878,7 @@
          -LocalPort 5022 `
          -Action "Allow" `
          -Protocol "TCP"
-
+       
        New-NetFirewallRule `
          -Group "MSSQL" `
          -DisplayName "MSSQL NLB Probe" `
@@ -885,34 +886,34 @@
          -LocalPort 59999 `
          -Action "Allow" `
          -Protocol "TCP"
-        ```
+       ```
 
     {% endlist %}
 
-1. Установите MSSQL. Смонтируйте образ, выполните установку и отсоедините образ:
+1. Install MSSQL. Mount an image, perform the installation, and dismount the image:
 
    {% list tabs %}
 
    - PowerShell
 
       ```
-      Mount-DiskImage -ImagePath C:\dist\<имя образа MSSQL Server>.iso
-
+      Mount-DiskImage -ImagePath C:\dist\<MSSQL Server image name>.iso
+      
       & D:\setup.exe /QUIET /INDICATEPROGRESS /IACCEPTSQLSERVERLICENSETERMS `
         /ACTION=INSTALL /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER `
         /SQLSVCACCOUNT="yantoso\mssql-svc" /SQLSVCPASSWORD="YaQWErty123" `
         /SQLSYSADMINACCOUNTS="yantoso\mssql-admins-grp" /UpdateEnabled=FALSE `
         /SQLBACKUPDIR="X:\BACKUP" /SQLTEMPDBDIR="X:\TEMPDB" /SQLTEMPDBLOGDIR="X:\TEMPDBLOG" `
         /SQLUSERDBDIR="X:\DB" /SQLUSERDBLOGDIR="X:\DBLOG"
-
-      Dismount-DiskImage -ImagePath C:\dist\<имя образа MSSQL Server>.iso
+      
+      Dismount-DiskImage -ImagePath C:\dist\<MSSQL Server image name>.iso
       ```
 
    {% endlist %}
 
-1. Повторите шаги 2-13 для ВМ `ya-mssql2` и `ya-mssql3`.
+1. Repeat steps 2-13 for `ya-mssql2` and `ya-mssql3`.
 
-1. Отключите у ВМ доступ в интернет:
+1. Disable internet access for the VM:
 
     {% list tabs %}
 
@@ -923,7 +924,8 @@
        $ yc compute instance remove-one-to-one-nat ya-mssql2 --network-interface-index 0
        $ yc compute instance remove-one-to-one-nat ya-mssql3 --network-interface-index 0
        ```
-    - Powershell
+
+    - PowerShell
 
        ```
        yc compute instance remove-one-to-one-nat ya-mssql1 --network-interface-index 0
@@ -933,17 +935,17 @@
 
     {% endlist %}
 
-1. На каждой ВМ:
+1. On each VM:
 
    ```
    $IPAddress = Get-NetAdapter | Get-NetIPAddress -AddressFamily IPv4 | Select-Object -ExpandProperty IPAddress
    $InterfaceName = Get-NetAdapter | Select-Object -ExpandProperty Name
    $Gateway = Get-NetIPConfiguration | Select-Object -ExpandProperty IPv4DefaultGateway | Select-Object -ExpandProperty NextHop
-
+   
    netsh interface ip set address $InterfaceName static $IPAddress 255.255.255.192 $Gateway
    ```
 
-1. Для работы группы доступности Always On требуется настроенный Windows Server Failover Cluster. Для его создания необходимо протестировать серверы БД. На любой из ВМ кластера выполните:
+1. The Always On availability group requires a configured Windows Server Failover Cluster. To create it, you need to test the DB servers. On any of the cluster VMs, run:
 
     {% list tabs %}
 
@@ -957,10 +959,11 @@
 
     {% endlist %}
 
-### Создайте Windows Failover Cluster {#configure-failover-cluster}
+### Create a Windows Failover Cluster {#configure-failover-cluster}
 
-1. Подключитесь к ВМ `jump-server-vm` с [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. Откройте RDP и подключитесь к ВМ `ya-mssql1`.
-1. Создайте кластер из трех серверов БД:
+1. Connect to `jump-server-vm` using [RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password. Open the RDP client and connect to `ya-mssql1`.
+
+1. Create a cluster of three DB servers:
 
     {% list tabs %}
 
@@ -972,12 +975,12 @@
          -Node 'ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net' `
          -NoStorage `
          -StaticAddress 192.168.1.4
-
+       
        Test-Cluster
-
+       
        Get-ClusterResource -Name 'Cluster IP Address' | `
          Stop-ClusterResource
-
+       
        Get-ClusterResource -Name 'Cluster IP Address' | `
          Set-ClusterParameter -Multiple `
            @{
@@ -986,13 +989,13 @@
              "OverrideAddressMatch"=1;
              "EnableDhcp"=0
            }
-
+       
        Get-ClusterResource -Name 'Cluster Name' | Start-ClusterResource -Wait 60
        ```
 
     {% endlist %}
 
-1. Включите на всех ВМ TCP/IP и добавьте порт `14333` для получения трафика:
+1. Enable TCP/IP on all VMs and add the port `14333` to receive traffic:
 
     {% list tabs %}
 
@@ -1000,19 +1003,19 @@
 
        ```
        $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
-
+       
        foreach ($node in $nodes) {
          $smo = [Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer]::new($node)
          $np = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='NP']")
          $tcp = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']")
          $ipall = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']/IPAddress[@Name='IPAll']")
-
+       
          if (-not $ipall.IPAddressProperties['TcpPort'].Value -ne '1433,14333') {
            $ipall.IPAddressProperties['TcpPort'].Value = '1433,14333'
            $tcp.Alter()
            $altered = $true
          }
-
+       
          if (-not $tcp.IsEnabled) {
            $tcp.IsEnabled = $true
            $tcp.Alter()
@@ -1023,17 +1026,17 @@
            $np.Alter()
            $altered = $true
          }
-
+       
          if ($altered) {
            Get-Service -Name 'MSSQLSERVER' -ComputerName $node | Restart-Service -Force
            Start-Sleep -Seconds 60
          }
        }
        ```
-    
+
     {% endlist %}
 
-1. Импортируйте команды модуля SqlServer для PowerShell и назначьте служебному пользователю `mssql-svc` разрешения на управление серверами:
+1. Import the commands of the SqlServer PowerShell module and grant the server management permissions to the `mssql-svc` service user:
 
     {% list tabs %}
 
@@ -1041,33 +1044,33 @@
 
        ```
        Import-Module SqlServer
-
+       
        Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql1\Default" `
          -LoginName "yantoso\mssql-svc" `
          -LoginType "WindowsUser" `
          -Enable `
          -GrantConnectSql
-
+       
        Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql2\Default" `
          -LoginName "yantoso\mssql-svc" `
          -LoginType "WindowsUser" `
          -Enable `
          -GrantConnectSql
-
+       
        Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql3\Default" `
          -LoginName "yantoso\mssql-svc" `
          -LoginType "WindowsUser" `
          -Enable `
          -GrantConnectSql
-
+       
        $mssql1 = Get-Item "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
        $mssql1.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
        $mssql1.Roles['sysadmin'].Alter()
-
+       
        $mssql2 = Get-Item "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
        $mssql2.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
        $mssql2.Roles['sysadmin'].Alter()
-
+       
        $mssql3 = Get-Item "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
        $mssql3.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
        $mssql3.Roles['sysadmin'].Alter()
@@ -1075,9 +1078,9 @@
 
     {% endlist %}
 
-### Настройте Always On {#configure-always-on}
+### Configure Always On {#configure-always-on}
 
-1. По очереди подключитесь к каждому серверу и включите SqlAlwaysOn. При включении Always On сервис СУБД будет перезапускаться.
+1. Connect to each server in turn and enable SqlAlwaysOn. When Always On is enabled, the DBMS service restarts.
 
     {% list tabs %}
 
@@ -1087,7 +1090,7 @@
        Enable-SqlAlwaysOn -ServerInstance 'ya-mssql1.yantoso.net' -Force
        Enable-SqlAlwaysOn -ServerInstance 'ya-mssql2.yantoso.net' -Force
        Enable-SqlAlwaysOn -ServerInstance 'ya-mssql3.yantoso.net' -Force
-
+       
        Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql1.yantoso.net' | Restart-Service
        Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql2.yantoso.net' | Restart-Service
        Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql3.yantoso.net' | Restart-Service
@@ -1096,8 +1099,7 @@
 
     {% endlist %}
 
-
-1. Создайте и запустите [эндпоинты HADR](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
+1. Create and run [HADR endpoints](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
 
     {% list tabs %}
 
@@ -1108,27 +1110,27 @@
         -Encryption Supported -EncryptionAlgorithm Aes `
         -Name AlwaysonEndpoint `
         -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
-
+       
        Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
-
+       
        New-SqlHADREndpoint -Port 5022 -Owner sa `
          -Encryption Supported -EncryptionAlgorithm Aes `
          -Name AlwaysonEndpoint `
          -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
-
+       
        Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
-
+       
        New-SqlHADREndpoint -Port 5022 -Owner sa `
          -Encryption Supported -EncryptionAlgorithm Aes `
          -Name AlwaysonEndpoint `
          -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
-
+       
        Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
        ```
 
     {% endlist %}
 
-1. Создайте переменные с параметрами реплик. Основной репликой будет выступать `ya-mssql1`, второй и третьей — `ya-mssql2` и `ya-mssql3`. 
+1. Create variables with replica parameters. The main replica is `ya-mssql1`, the second and third ones are `ya-mssql2` and `ya-mssql3`, respectively.
 
     {% list tabs %}
 
@@ -1141,14 +1143,14 @@
         -FailoverMode "Automatic" `
         -AvailabilityMode "SynchronousCommit" `
         -AsTemplate -Version 13
-
+       
        $SecondaryReplica = New-SqlAvailabilityReplica `
          -Name ya-mssql2 `
          -EndpointUrl "TCP://ya-mssql2.yantoso.net:5022" `
          -FailoverMode "Automatic" `
          -AvailabilityMode "SynchronousCommit" `
          -AsTemplate -Version 13
-
+       
        $ThirdReplica = New-SqlAvailabilityReplica `
          -Name ya-mssql3 `
          -EndpointUrl "TCP://ya-mssql3.yantoso.net:5022" `
@@ -1159,7 +1161,7 @@
 
     {% endlist %}
 
-1. Создайте из реплик группу доступности `MyAG` и добавьте туда первый сервер:
+1. Create a `MyAG` availability group of replicas and add the first server to it:
 
     {% list tabs %}
 
@@ -1170,11 +1172,11 @@
            -Name 'MyAG' `
            -AvailabilityReplica @($PrimaryReplica, $SecondaryReplica, $ThirdReplica) `
            -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
-        ```
+       ```
 
     {% endlist %}
 
-1. Добавьте оставшиеся серверы в группу доступности:
+1. Add the remaining servers to the availability group:
 
     {% list tabs %}
 
@@ -1187,7 +1189,7 @@
 
     {% endlist %}
 
-1. Создайте [Listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description):
+1. Create a [Listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description):
 
     {% list tabs %}
 
@@ -1195,7 +1197,7 @@
 
        ```
        $NLBIPAddress = '192.168.1.62'
-
+       
        Get-Cluster | `
          Add-ClusterResource -Name 'MyAG Network Name' -Group 'MyAG' -ResourceType 'Network Name'
        Get-ClusterResource -Name 'MyAG Network Name' | `
@@ -1204,7 +1206,7 @@
              Name = 'MyAGlistener'
              DnsName = 'MyAGlistener'
            }
-
+       
        Get-Cluster | `
          Add-ClusterResource -Name 'My AG listener IP Address' -Group 'MyAG' -ResourceType 'IP Address'
        Get-ClusterResource -Name 'My AG listener IP Address' | `
@@ -1216,23 +1218,23 @@
              Network="Cluster Network 1"
              EnableDhcp=0
            }
-
+       
        Add-ClusterResourceDependency `
          -Resource 'MyAG Network Name' `
          -Provider 'My AG listener IP Address'
-
+       
        Stop-ClusterResource 'MyAG'
-
+       
        Add-ClusterResourceDependency `
          -Resource 'MyAG' `
          -Provider 'MyAG Network Name'
-
+       
        Start-ClusterResource 'MyAG'
        ```
 
     {% endlist %}
 
-1. Назначьте порт `14333` обработчику:
+1. Assign port `14333` to the listener:
 
     {% list tabs %}
 
@@ -1246,7 +1248,7 @@
 
     {% endlist %}
 
-1. Откройте порт `14333` на всех ВМ кластера:
+1. Open port `14333` on each VM in the cluster:
 
     {% list tabs %}
 
@@ -1254,19 +1256,19 @@
 
       ```
       $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
-
+      
       foreach ($node in $nodes) {
         $smo = [Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer]::new($node)
         $tcp = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']")
         $np = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='NP']")
         $ipall = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']/IPAddress[@Name='IPAll']")
-
+      
         if (-not $ipall.IPAddressProperties['TcpPort'].Value -ne '1433,14333') {
           $ipall.IPAddressProperties['TcpPort'].Value = '1433,14333'
           $tcp.Alter()
           $altered = $true
         }
-
+      
         if (-not $tcp.IsEnabled) {
           $tcp.IsEnabled = $true
           $tcp.Alter()
@@ -1277,7 +1279,7 @@
           $np.Alter()
           $altered = $true
         }
-
+      
         if ($altered) {
           Get-Service -Name 'MSSQLSERVER' -ComputerName $node | Restart-Service
           Start-Sleep -Seconds 60
@@ -1287,8 +1289,7 @@
 
     {% endlist %}
 
-
-1. Создайте базу данных на сервере `ya-mssql1`:
+1. Create a database on the `ya-mssql1` server:
 
     {% list tabs %}
 
@@ -1300,7 +1301,7 @@
 
     {% endlist %}
 
-1. Задайте настройки доступа к папке с резервными копиями на сервере:
+1. Configure access settings for the backup folder on the server:
 
     {% list tabs %}
 
@@ -1308,17 +1309,17 @@
 
        ```
        New-SMBShare -Name SQLBackup -Path "X:\BACKUP" -FullAccess "yantoso\mssql-backups-grp"
-
+       
        $Acl = Get-Acl "X:\BACKUP"
        $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("yantoso\mssql-backups-grp","Read", "ContainerInherit, ObjectInherit", "None", "Allow")
        $Acl.AddAccessRule($AccessRule)
-
+       
        $Acl | Set-Acl "X:\BACKUP"
        ```
 
     {% endlist %}
 
-1. Создайте резервную копию базы `MyDatabase` на ВМ `ya-mssql1`:
+1. Create a backup of `MyDatabase` on the `ya-mssql1` VM:
 
     {% list tabs %}
 
@@ -1329,7 +1330,7 @@
          -Database "MyDatabase" -Initialize `
          -BackupFile "MyDatabase.bak" `
          -ServerInstance "ya-mssql1.yantoso.net"
-
+       
        Backup-SqlDatabase `
          -Database "MyDatabase"  -Initialize `
          -BackupFile "MyDatabase.log" `
@@ -1339,7 +1340,7 @@
 
     {% endlist %}
 
-1. Восстановите базу данных на сервере `ya-mssql2` из резервной копии: 
+1. Restore the database on the `ya-mssql2` server from the backup:
 
     {% list tabs %}
 
@@ -1351,7 +1352,7 @@
          -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
          -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" `
          -NORECOVERY
-
+       
        Restore-SqlDatabase `
          -Database "MyDatabase" `
          -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
@@ -1362,7 +1363,7 @@
 
     {% endlist %}
 
-1. Восстановите базу данных на сервере `ya-mssql3` из резервной копии: 
+1. Restore the database on the `ya-mssql3` server from the backup:
 
     {% list tabs %}
 
@@ -1374,7 +1375,7 @@
          -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
          -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" `
          -NORECOVERY
-
+       
        Restore-SqlDatabase `
          -Database "MyDatabase" `
          -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
@@ -1385,7 +1386,7 @@
 
     {% endlist %}
 
-1. Добавьте все базы данных в группу доступности:
+1. Add all the databases to the availability group:
 
     {% list tabs %}
 
@@ -1395,11 +1396,11 @@
        Add-SqlAvailabilityDatabase `
         -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\AvailabilityGroups\MyAG" `
         -Database "MyDatabase"
-
+       
        Add-SqlAvailabilityDatabase `
          -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\AvailabilityGroups\MyAG" `
          -Database "MyDatabase"
-
+       
        Add-SqlAvailabilityDatabase `
          -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\AvailabilityGroups\MyAG" `
          -Database "MyDatabase"
@@ -1407,13 +1408,13 @@
 
     {% endlist %}
 
-## Протестируйте группу доступности {#test}
+## Test the availability group {#test}
 
-### Протестируйте работу базы данных {#test-always-on}
+### Test the database {#test-always-on}
 
-Тестирование можно провести на любой из доменных ВМ, войдя под учетной записью `yantoso\Administrator`.
+You may run tests on any of the domain VMs by logging in with the account `yantoso\Administrator`.
 
-1. Импортируйте PowerShell-модуль `SqlServer`:
+1. Import the `SqlServer` PowerShell module:
 
     {% list tabs %}
 
@@ -1425,7 +1426,7 @@
 
     {% endlist %}
 
-1. Создайте таблицу в реплицируемой БД `MyDatabase`:
+1. Create a table in the replicated `MyDatabase` DB:
 
     {% list tabs %}
 
@@ -1442,7 +1443,7 @@
 
     {% endlist %}
 
-1. Добавьте в таблицу БД новую строку:
+1. Add a new row to the DB table:
 
     {% list tabs %}
 
@@ -1457,7 +1458,7 @@
 
     {% endlist %}
 
-1. Проверьте, появилась ли строка в таблице:
+1. Make sure the row appears in the table:
 
     {% list tabs %}
 
@@ -1469,6 +1470,7 @@
        FROM MyDatabase.dbo.test;
        "@
        ```
+
        ```
        test_id test_name
        ------- ---------
@@ -1477,7 +1479,7 @@
 
     {% endlist %}
 
-1. Проверьте имя основной реплики БД:
+1. Check the name of the main DB replica:
 
     {% list tabs %}
 
@@ -1486,6 +1488,7 @@
        ```
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'mylistener.yantoso.net'
        ```
+
        ```
        Column1
        -------
@@ -1494,8 +1497,7 @@
 
     {% endlist %}
 
-
-1. Выполните аварийное переключение на вторую реплику:
+1. Run a failover to the second replica:
 
     {% list tabs %}
 
@@ -1507,7 +1509,7 @@
 
     {% endlist %}
 
-1. Через некоторое время снова проверьте имя основной реплики:
+1. After a while, check the name of the main replica again:
 
     {% list tabs %}
 
@@ -1516,6 +1518,7 @@
        ```
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
        ```
+
        ```
        Column1
        -------
@@ -1524,7 +1527,7 @@
 
     {% endlist %}
 
-1. Добавьте еще одну строку в таблицу, чтобы проверить работу второй реплики на запись:
+1. Add another row to the table to check the second replica for writes:
 
     {% list tabs %}
 
@@ -1539,7 +1542,7 @@
 
     {% endlist %}
 
-1. Убедитесь, что строка добавлена:
+1. Make sure the row was added:
 
     {% list tabs %}
 
@@ -1548,6 +1551,7 @@
        ```
        Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
        ```
+
        ```
        test_id test_name
        ------- ---------
@@ -1557,13 +1561,13 @@
 
     {% endlist %}
 
-## Удалите созданные ресурсы {#clear-out}
+## Delete the created resources {#clear-out}
 
-Чтобы перестать платить за развернутые ресурсы, [удалите](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины и балансировщик: 
+To stop paying for the deployed resources, [delete](../../compute/operations/vm-control/vm-delete.md) the VMs and load balancer you created:
 
-* `vm-jump-server`; 
-* `ya-ad`;
-* `ya-mssql1`;
-* `ya-mssql2`;
-* `ya-mssql3`; 
-* `ya-loadbalancer`.
+* `vm-jump-server`
+* `ya-ad`
+* `ya-mssql1`
+* `ya-mssql2`
+* `ya-mssql3`
+* `ya-loadbalancer`

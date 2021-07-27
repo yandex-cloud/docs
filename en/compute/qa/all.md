@@ -8,7 +8,15 @@
 
 {% include notitle [vm](vm.md) %}
 
-## Disks snapshots {#disks}
+## Disks and snapshots {#disks}
 
 {% include notitle [disks](disks.md) %}
+
+## Instance groups {#instance-groups}
+
+{% include notitle [disks](../_includes_service/instance-groups/general.md) %}
+
+## Licensing {#licensing}
+
+{% include notitle [licensing](../../_includes/compute/qa-licensing.md) %}
 

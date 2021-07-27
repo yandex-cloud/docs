@@ -8,7 +8,7 @@
 
 ## Образы Windows Server {#win-server}
 
-В [{{ marketplace-name }}](https://cloud.yandex.ru/marketplace?categories=os&operationSystems=WINDOWS) на выбор доступны образы Microsoft Windows Server в редакциях Standart и Datacenter: 
+В [{{ marketplace-name }}]{% if region == "int" %}(https://cloud.yandex.com/marketplace?categories=os&operationSystems=WINDOWS){% else %}(https://cloud.yandex.ru/marketplace?categories=os&operationSystems=WINDOWS){% endif %} на выбор доступны образы Microsoft Windows Server в редакциях Standart и Datacenter: 
 
 * Windows Server 2012 R2
 * Windows Server 2016
@@ -28,27 +28,27 @@
 
 Для работы в облаке в операционную систему вносятся изменения, которые позволяют обезличить систему и удалить временные файлы.
 
-#### Конфигурация сетевых служб
+#### Конфигурация сетевых служб {#configuration}
 
 * Разрешено удаленное управление Windows с помощью службы WinRM. Созданы разрешающие правила для WinRM по протоколу HTTPS.
 * Созданы разрешающие правила для протокола ICMP.
 * Названия сетевых интерфейсов соответствуют названиям на платформе {{ yandex-cloud }}.
 * В реестре системы разрешен протокол RDP, настроены правила и соответствующие сетевые порты.
 
-#### Настройки энергосбережения
+#### Настройки энергосбережения {#power-saving-settings}
 
 * Производительность системы установлена в режим <q>Высокая производительность</q> (power plan — high performance).
 
-#### Настройки времени
+#### Настройки времени {#time-settings}
 
-* Установлено значение параметра `RealTimeIsUniversal`, при котором аппаратное время в системе равно [UTC+0](https://ru.wikipedia.org/wiki/Всемирное_координированное_время). 
+* Установлено значение параметра `RealTimeIsUniversal`, при котором аппаратное время в системе равно [UTC+0]{% if region == "int" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% else %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}. 
 
-#### Прочие преобразования 
+#### Прочие преобразования {#conversions}
 
 * Параметр реестра `ShutDownWithoutLogon` разрешает реагировать на ACPI Call без наличия интерактивной сессии.
 * Отключена поддержка SMBv1.
-* Разрешено использование [серийной консоли](https://docs.microsoft.com/ru-ru/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection).
-* Проведена оптимизация системы с помощью утилиты [Ngen](https://ru.wikipedia.org/wiki/Ngen).
+* Разрешено использование [серийной консоли]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% else %}(https://docs.microsoft.com/ru-ru/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}.
+* Проведена оптимизация системы с помощью утилиты [Ngen]{% if region == "int" %}(https://en.wikipedia.org/wiki/Native_Image_Generator){% else %}(https://ru.wikipedia.org/wiki/Ngen){% endif %}.
 * Установлена утилита `cloudbase-init` для автоматизации операций в процессе запуска виртуальной машины.
 
 ### Драйверы {#drivers}

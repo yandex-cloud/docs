@@ -1,74 +1,73 @@
-# Развертывание группы доступности Always On 
+# Deploying an Always On availability group
 
-Сценарий описывает развертывание в {{ yandex-cloud }} группы доступности Always On. При выходе из строя одного или нескольких узлов группы система продолжит функционировать благодаря репликации и аварийному переключению базы данных, работающей на запись — таким образом обеспечивается высокая доступность СУБД. 
+This scenario describes how to deploy an Always On availability group in {{ yandex-cloud }}. If one or more nodes in the group fail, the system will continue to run through replication and failover of the write database, thus ensuring high availability of the DBMS.
 
-Чтобы создать и настроить группу доступности Always On:
+To create and configure an Always On availability group:
 
-1. [Подготовьте облако к работе](#before-begin).
-1. [Необходимые платные ресурсы](#paid-resources).
-1. [Создайте сетевую инфраструктуру](#prepare-network).
-1. [Подготовьте виртуальные машины для группы доступности](#create-vms).
-1. [Создайте файл с учетными данными администратора](#prepare-admin-credentials).
-1. [Создайте виртуальные машины](#create-group-vms).
-1. [Создайте ВМ для бастионного хоста](#create-jump-server).
-1. [Создайте ВМ для Active Directory](#create-ad-controller).
-1. [Создайте ВМ для сервером MSSQL](#create-ad-server).
-1. [Установите и настройте Active Directory](#install-ad).
-1. [Создайте пользователей и группы в Active Directory](#install-ad).
-1. [Установите и настройте MSSQL](#install-mssql).
-1. [Установите MSSQL на серверы баз данных](#mssql-nodes).
-1. [Настройте Always On](#configure-always-on).
-1. [Протестируйте группу доступности](#test).
-1. [Добавьте бастионный хост в домен](#jump-server-domain).
-1. [Протестируйте работу базы данных](#test-always-on).
+1. [Before you start](#before-begin).
+1. [Required paid resources](#paid-resources).
+1. [Create a network infrastructure](#prepare-network).
+1. [Prepare VMs for the availability group](#create-vms).
+1. [Create a file with administrator credentials](#prepare-admin-credentials).
+1. [Create VMs](#create-group-vms).
+1. [Create a VM for a bastion host](#create-jump-server).
+1. [Create a VM for Active Directory](#create-ad-controller).
+1. [Create a VM for MSSQL servers](#create-ad-server).
+1. [Install and configure Active Directory](#install-ad).
+1. [Create users and groups in Active Directory](#install-ad).
+1. [Install and configure MSSQL](#install-mssql).
+1. [Install MSSQL on database servers](#mssql-nodes).
+1. [Configure Always On](#configure-always-on).
+1. [Test the availability group](#test).
+1. [Add a bastion host to the domain](#jump-server-domain).
+1. [Test the database](#test-always-on).
 
-Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+If you no longer need the created resources, [delete them](#clear-out).
 
-## Подготовьте облако к работе {#before-begin}
+## Before you start {#before-begin}
 
-Перед тем, как разворачивать группу доступности, нужно зарегистрироваться в {{ yandex-cloud }} и создать платежный аккаунт:
+Before deploying an availability group, sign up for {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](includes/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]{% if region == "int" %}(https://console.cloud.yandex.com/cloud){% else %}(https://console.cloud.yandex.ru/cloud){% endif %}.
+If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page]{% if region == "int" %}(https://console.cloud.yandex.com/cloud){% else %}(https://console.cloud.yandex.ru/cloud){% endif %}.
 
-[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
-### Необходимые платные ресурсы {#paid-resources}
+### Required paid resources {#paid-resources}
 
-В стоимость поддержки группы доступности входят:
+The cost of supporting the availability group includes:
 
-* плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
+* A fee for using dynamic or static public IP addresses (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md)).
 
-Вы можете воспользоваться [мобильностью лицензий](../../compute/qa/licensing) и использовать собственную лицензию MSSQL Server в {{ yandex-cloud }}.
+You can use [license mobility](../../compute/qa/licensing) and use your own MSSQL Server license in {{ yandex-cloud }}.
 
-## Создайте сетевую инфраструктуру {#prepare-network}
+## Create a network infrastructure {#prepare-network}
 
-У всех реплик группы будет несколько IP-адресов, трафик на которые будет направляться с помощью [статических маршрутов](../../vpc/concepts/static-routes.md). Подготовьте сетевую инфраструктуру для размещения группы доступности.
+All replicas in the group will have multiple IP addresses that will be routed to using [static routes](../../vpc/concepts/static-routes.md). Prepare the network infrastructure to host the availability group.
 
-1. Создайте сеть с именем `ya-network`:
+1. Create a network named `ya-network`:
 
     {% list tabs %}
 
-    - Консоль управления
+    - Management console
+       1. Open the **Virtual Private Cloud** section in the folder where you want to create the cloud network.
+       1. Click **Create network**.
+       1. Enter the network name: `ya-network`.
+       1. Click **Create network**.
 
-       1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать облачную сеть.
-       1. Нажмите кнопку **Создать сеть.**
-       1. Задайте имя сети: `ya-network`.
-       1. Нажмите кнопку **Создать сеть**.
+    - Bash
 
-    - Bash 
-      
-      [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}, чтобы использовать команды CLI в Bash. 
+      [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface to use CLI commands in Bash.
 
       ```
       $ yc vpc network create --name ya-network
       ```
 
-    - PowerShell 
+    - PowerShell
 
-      [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}, чтобы использовать команды CLI в PowerShell. 
+      [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface to use CLI commands in PowerShell.
 
       ```
       yc vpc network create --name ya-network
@@ -76,27 +75,26 @@
 
     {% endlist %}
 
-2. Создайте в новой сети таблицу маршрутизации `mssql` и добавьте в нее статические маршруты:
+2. Create an `mssql` route table in the new network and add static routes to it:
 
     {% list tabs %}
-    
-    - Консоль управления
 
-       1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать статический маршрут.
-       1. Выберите сеть `ya-network`.
-       1. Нажмите кнопку ![image](../../_assets/plus.svg)**Создать таблицу маршрутизации**.
-       1. Задайте имя таблицы маршрутизации: `mssql`.
-       1. Нажмите кнопку **Добавить маршрут**.
-       1. В открывшемся окне введите префикс подсети назначения в нотации CIDR: `10.0.0.20/32`.
-       1. Укажите **next hop**: `10.0.0.19`.
-       1. Нажмите кнопку **Добавить**.
-       1. Добавьте еще пять маршрутов:
-          * `10.0.0.21/32`, next hop `10.0.0.19`;
-          * `10.0.0.36/32`, next hop `10.0.0.35`;
-          * `10.0.0.37/32`, next hop `10.0.0.35`;
-          * `10.0.0.52/32`, next hop `10.0.0.51`;
+    - Management console
+       1. Open the **Virtual Private Cloud** section in the folder where you want to create a static route.
+       1. Select the `ya-network` network.
+       1. Click ![image](../../_assets/plus.svg)**Create route table**.
+       1. Enter the route table name: `mssql`.
+       1. Click **Add route**.
+       1. In the window that opens enter the destination subnet prefix in CIDR notation: `10.0.0.20/32`.
+       1. Set the **next hop**: `10.0.0.19`.
+       1. Click **Add**.
+       1. Add five more routes:
+          * `10.0.0.21/32`, next hop `10.0.0.19`.
+          * `10.0.0.36/32`, next hop `10.0.0.35`.
+          * `10.0.0.37/32`, next hop `10.0.0.35`.
+          * `10.0.0.52/32`, next hop `10.0.0.51`.
           * `10.0.0.53/32`, next hop `10.0.0.51`.
-       1. Нажмите кнопку **Создать таблицу маршрутизации**.
+       1. Click **Create route table**.
 
     - Bash
 
@@ -125,36 +123,35 @@
         --route destination=10.0.0.53/32,next-hop=10.0.0.51 `
         --network-name ya-network
        ```
+
     {% endlist %}
 
-3. Создайте подсети, в которых будут размещаться виртуальные машины: 
+3. Create subnets that will host your VMs:
 
-  * подсеть `ya-subnet-general` для бастионного хоста и ВМ с инсталляцией Active Directory;
-  * три подсети для размещения ВМ группы доступности Always On: `ya-subnet-alwayson1`, `ya-subnet-alwayson2` и `ya-subnet-alwayson3`. К каждой из подсетей будет привязана таблица маршрутизации `mssql`.
+  * A subnet named `ya-subnet-general` for the bastion host and VM with Active Directory.
+
+  * Three subnets for hosting the Always On availability group VMs: `ya-subnet-alwayson1`, `ya-subnet-alwayson2`, and `ya-subnet-alwayson3`. The `mssql` route table will be linked to each of the subnets.
 
     {% list tabs %}
 
-    - Консоль управления
+    - Management console
+      1. Open the **Virtual Private Cloud** section in the folder to create the subnets in.
+      1. Select the `ya-network` network.
+      1. Click **Add subnet**.
+      1. Fill out the form: enter the `ya-subnet-general` subnet name and select the `ru-central1-a` availability zone from the drop-down list.
+      1. Enter the subnet CIDR: IP address and subnet mask: `10.0.0.0/28`.
+      1. Click **Create subnet**.
 
-      1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсети.
-      1. Выберите сеть `ya-network`.
-      1. Нажмите кнопку **Добавить подсеть**.
-      1. Заполните форму: введите имя подсети `ya-subnet-general`, выберите зону доступности `ru-central1-a` из выпадающего списка.
-      1. Введите CIDR подсети: IP-адрес и маску подсети: `10.0.0.0/28`.
-      1. Нажмите кнопку **Создать подсеть**.
+      Repeat the steps for subnets with the following names and CIDR:
+      * `ya-subnet-alwayson1`: `10.0.0.16/28`.
+      * `ya-subnet-alwayson2`: `10.0.0.32/28`.
+      * `ya-subnet-alwayson3`: `10.0.0.48/28`.
 
-      Повторите шаги для подсетей со следующими именами и CIDR:
-
-      * `ya-subnet-alwayson1` — `10.0.0.16/28`;
-      * `ya-subnet-alwayson2` — `10.0.0.32/28`;
-      * `ya-subnet-alwayson3` — `10.0.0.48/28`. 
-    
-      Чтобы использовать статические маршруты, необходимо привязать таблицу маршрутизации к подсети:
-
-      1. В строке нужной подсети нажмите кнопку ![image](../../_assets/options.svg).
-      1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
-      1. В открывшемся окне выберите созданную таблицу в списке.
-      1. Нажмите кнопку **Добавить**.
+      To use static routes, link the route table to a subnet:
+      1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
+      1. In the menu that opens, select **Link route table**.
+      1. In the window that opens, select the created table from the list.
+      1. Click **Add**.
 
     - Bash
 
@@ -234,11 +231,11 @@
 
     {% endlist %}
 
-## Подготовьте виртуальные машины для группы доступности {#create-vms}
+## Create VMs for the availability group {#create-vms}
 
-### Создайте файл с учетными данными администратора {#prepare-admin-credentials}
+### Create a file with administrator credentials {#prepare-admin-credentials}
 
-Создайте файл `setpass` со скриптом для установки пароля локальной учетной записи администратора. Этот скрипт будет выполняться при создании виртуальных машин через CLI.
+Create a file named `setpass` with a script to set the administrator's local account password. This script will be executed when creating VMs via the CLI.
 
 {% list tabs %}
 
@@ -248,23 +245,24 @@
     #ps1
     Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "QWErty123" -AsPlainText -Force)
     ```
+
 {% endlist %}
 
 {% note warning %}
 
-Указанный пароль используется только для тестирования. Используйте собственный сложный пароль при развертывании кластера для работы в продуктовом окружении.
+The set password is only used for testing. Use your own complex password when deploying a cluster to work in a product environment.
 
-Пароль должен соответствовать [требованиям к сложности]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% else %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}.
+The password must meet the [complexity requirements]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% else %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}.
 
-Подробные рекомендации по защите Active Directory читайте на [сайте разработчика]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% else %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
+Read more about the best practices for securing Active Directory on the [official website]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% else %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
 
 {% endnote %}
 
-### Создайте виртуальные машины {#create-group-vms}
+### Create VMs {#create-group-vms}
 
-#### Создайте ВМ для бастионного хоста {#create-jump-server}
+#### Create a VM for a bastion host {#create-jump-server}
 
-Создайте бастионный хост с публичным IP-адресом. Через этот хост будет осуществляться доступ ко всем остальным ВМ:
+Create a bastion host with a public IP address. This host will provide access to all other VMs:
 
 {% list tabs %}
 
@@ -282,7 +280,7 @@
         --metadata-from-file user-data=setpass
     ```
 
-- Powershell
+- PowerShell
 
     ```
     yc compute instance create `
@@ -298,9 +296,9 @@
 
 {% endlist %}
 
-#### Создайте ВМ для Active Directory {#create-ad-controller}
+#### Create a VM for Active Directory {#create-ad-controller}
 
-Создайте виртуальную машину для установки Active Directory:
+Create a VM to install Active Directory:
 
 {% list tabs %}
 
@@ -338,9 +336,9 @@
 
 {% endlist %}
 
-#### Создайте ВМ для серверов MSSQL {#create-ad-server}
+#### Create a VM for MSSQL servers {#create-ad-server}
 
-Создайте три виртуальных машины для серверов MSSQL:
+Create three VMs for MSSQL servers:
 
 {% list tabs %}
 
@@ -446,11 +444,13 @@
 
 {% endlist %}
 
-### Установите и настройте Active Directory {#install-ad}
+### Install and configure Active Directory {#install-ad}
 
-1. Подключитесь к ВМ `jump-server-vm` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. 
-1. Запустите RDP и подключитесь к виртуальной машине `ya-ad`.
-1. Установите необходимые роли сервера. Запустите PowerShell и выполните следующую команду:
+1. Connect to `jump-server-vm` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
+
+1. Start the RDP client and connect to the `ya-ad` VM.
+
+1. Set the required server roles. Start PowerShell and run the following command:
 
    {% list tabs %}
 
@@ -462,7 +462,7 @@
 
    {% endlist %}
 
-1. Создайте лес Active Directory:
+1. Create an Active Directory forest:
 
     {% list tabs %}
 
@@ -471,14 +471,14 @@
        ```
        Install-ADDSForest -DomainName 'yantoso.net' -Force:$true -SafeModeAdministratorPassword ('QWErty123' | ConvertTo-SecureString -AsPlainText -Force)
        ```
-       
+
     {% endlist %}
 
-   После этого ВМ перезапустится. 
+   After that, the VM restarts.
 
-1. Снова подключитесь к ВМ `ya-ad`.
+1. Reconnect to `ya-ad`.
 
-1. Переименуйте сайт и добавьте в него созданные подсети:
+1. Rename the website and add the created subnets to it:
 
     {% list tabs %}
 
@@ -494,7 +494,7 @@
 
     {% endlist %}
 
-1. Укажите Forwarder для DNS-сервера:
+1. Specify the Forwarder for the DNS server:
 
     {% list tabs %}
 
@@ -506,7 +506,7 @@
 
     {% endlist %}
 
-1. Укажите адреса DNS-сервера:
+1. Specify the DNS server addresses:
 
     {% list tabs %}
 
@@ -518,9 +518,9 @@
 
     {% endlist %}
 
-### Создайте пользователей и группы в Active Directory {#install-ad}
+### Create users and groups in Active Directory {#install-ad}
 
-1. Создайте сервисную учетную запись `mssql-svc`:
+1. Create a service account named `mssql-svc`:
 
     {% list tabs %}
 
@@ -537,7 +537,7 @@
 
     {% endlist %}
 
-1. Создайте группы для доступа к резервным копиям и серверам баз данных:
+1. Create groups to access backups and DB servers:
 
     {% list tabs %}
 
@@ -548,9 +548,9 @@
        New-AdGroup mssql-backups-grp -GroupScope:Global
        ```
 
-    {% endlist %} 
+    {% endlist %}
 
-1. Добавьте учетную запись `Administrator` во все группы. В группу `mssql-backups-grp` добавьте сервисную учетную запись `mssql-svc`:
+1. Add the `Administrator` account to all groups. Add the `mssql-svc` service account to the `mssql-backups-grp` group:
 
     {% list tabs %}
 
@@ -564,7 +564,7 @@
 
     {% endlist %}
 
-1. Задайте [SPN](https://docs.microsoft.com/en-us/windows/win32/ad/service-principal-names) сервисной учетной записи:
+1. Set the [SPN](https://docs.microsoft.com/en-us/windows/win32/ad/service-principal-names) of the service account:
 
     {% list tabs %}
 
@@ -573,21 +573,21 @@
        ```
        setspn -A MSSQLSvc/ya-mssql1.yantoso.net:1433 yantoso\mssql-svc
        setspn -A MSSQLSvc/ya-mssql1.yantoso.net yantoso\mssql-svc
-
+       
        setspn -A MSSQLSvc/ya-mssql2.yantoso.net:1433 yantoso\mssql-svc
        setspn -A MSSQLSvc/ya-mssql2.yantoso.net yantoso\mssql-svc
-
+       
        setspn -A MSSQLSvc/ya-mssql3.yantoso.net:1433 yantoso\mssql-svc
        setspn -A MSSQLSvc/ya-mssql3.yantoso.net yantoso\mssql-svc
        ```
 
     {% endlist %}
 
-### Установите и настройте MSSQL {#install-mssql}
+### Install and configure MSSQL {#install-mssql}
 
-#### Установите MSSQL на серверы баз данных {#mssql-nodes}
+#### Install MSSQL on database servers {#mssql-nodes}
 
-1. Дайте ВМ сервера БД доступ в интернет:
+1. Grant internet access to the DB server VM:
 
     {% list tabs %}
 
@@ -609,8 +609,9 @@
 
     {% endlist %}
 
-1. Запустите RDP и подключитесь к ВМ `ya-mssql1` с учетной записью `Administrator` и вашим паролем. Используйте публичный IP-адрес ВМ для подключения.
-1. Запустите PowerShell и установите роль: 
+1. Run the RDP client and connect to the `ya-mssql1` VM using the `Administrator` account and your password. Use the public IP address of the VM to connect.
+
+1. Start PowerShell and set the role:
 
     {% list tabs %}
 
@@ -622,9 +623,9 @@
 
     {% endlist %}
 
-1. Перезагрузите ВМ и снова запустите PowerShell. 
+1. Restart the VM and PowerShell.
 
-1. Инициализируйте и отформатируйте второй логический диск:
+1. Initialize and format the second logical disk:
 
     {% list tabs %}
 
@@ -642,11 +643,12 @@
                -ShortFileNameSupport $false `
                -Confirm:$false
        ```
+
     {% endlist %}
 
-    Появится запрос подтверждения форматирования диска. Нажмите кнопку **Format disk**. Нажмите кнопку **Start**. Нажмите кнопку **OK**. 
+    You'll be asked to confirm that you want to format the disk. Click **Format disk**. Click **Start**. Click **OK**.
 
-1. Подготовьте папки для резервного копирования, хранения баз данных, логов и временных файлов:
+1. Create folders for backups and storage for databases, logs, and temporary files:
 
     {% list tabs %}
 
@@ -663,8 +665,9 @@
 
     {% endlist %}
 
-1. Загрузите в папку `C:\dist` дистрибутив MSSQL Server из интернета.
-1. Установите модуль SqlServer:
+1. Download the Microsoft SQL Server distribution from the web to `C:\dist`.
+
+1. Install the SqlServer module:
 
     {% list tabs %}
 
@@ -673,10 +676,10 @@
        ```
        Install-Module -Name SqlServer
        ```
-       
+
     {% endlist %}
 
-1. Укажите адрес DNS-сервера:
+1. Specify the DNS server address:
 
     {% list tabs %}
 
@@ -688,7 +691,7 @@
 
     {% endlist %}
 
-   Подготовьте данные для доступа к домену:
+   Prepare data to access the domain:
 
     {% list tabs %}
 
@@ -700,10 +703,10 @@
            'yantoso\Administrator', `
            ('QWErty123' | ConvertTo-SecureString -AsPlainText -Force))
        ```
-       
+
     {% endlist %}
 
-   Добавьте сервер БД в домен:
+   Add the DB server to the domain:
 
     {% list tabs %}
 
@@ -714,12 +717,12 @@
        ```
 
     {% endlist %}
-   
-   ВМ автоматически перезапустится. 
 
-1. После перезагрузки снова подключитесь к ВМ с логином `yantoso\Administrator`, откройте PowerShell.
+   The VM restarts automatically.
 
-1. Дайте необходимые права служебной учетной записи. 
+1. After it restarts, reconnect to the VM with the `yantoso\Administrator` username and open PowerShell.
+
+1. Give the necessary rights to the service account.
 
     {% list tabs %}
 
@@ -727,46 +730,46 @@
 
        ```
        & secedit /export /cfg sec_conf_export.ini  /areas user_rights
-
+       
        $secConfig = Get-Content sec_conf_export.ini | Select-Object -SkipLast 3
        $versionSection = Get-Content sec_conf_export.ini | Select-Object -Last 3
-
+       
        $SID = Get-WmiObject `
          -Class Win32_UserAccount `
          -Filter "name='mssql-svc' and domain='yantoso'" | `
            Select-Object -ExpandProperty SID
-
+       
        $isSeManageVolumePrivilegeDefined = $secConfig | `
          Select-String SeManageVolumePrivilege
-
+       
        if ($isSeManageVolumePrivilegeDefined) {
          $secConfig = $secConfig -replace '^SeManageVolumePrivilege .+', "`$0,*$SID"
        } else {
          $secConfig = $secConfig + "SeManageVolumePrivilege = *$SID"
        }
-
+       
        $isSeLockMemoryPrivilegeDefined = $secConfig | `
          Select-String SeLockMemoryPrivilege
-
+       
        if ($isSeLockMemoryPrivilegeDefined) {
          $secConfig = $secConfig -replace '^SeLockMemoryPrivilege .+', "`$0,*$SID"
        } else {
          $secConfig = $secConfig + "SeLockMemoryPrivilege = *$SID"
        }
-
+       
        $secConfig = $secConfig + $versionSection
        $secConfig | Set-Content sec_conf_import.ini
-
+       
        secedit /configure /db secedit.sdb /cfg sec_conf_import.ini /areas user_rights
-
+       
        Remove-Item sec_conf_import.ini
        Remove-Item sec_conf_export.ini
        ```
 
     {% endlist %}
 
-1. Настройте фаерволл: 
-   
+1. Configure the firewall:
+
     {% list tabs %}
 
     - PowerShell
@@ -779,7 +782,7 @@
         -LocalPort 1433 `
         -Action "Allow" `
         -Protocol "TCP"
-
+       
        New-NetFirewallRule `
         -Group "MSSQL" `
         -DisplayName "MSSQL AAG Default" `
@@ -787,34 +790,34 @@
         -LocalPort 5022 `
         -Action "Allow" `
         -Protocol "TCP" 
-        ```
+       ```
 
     {% endlist %}
 
-1. Установите MSSQL. Смонтируйте образ, выполните установку и отсоедините образ:
+1. Install MSSQL. Mount an image, perform the installation, and dismount the image:
 
     {% list tabs %}
 
     - PowerShell
 
        ```
-       Mount-DiskImage -ImagePath C:\dist\<имя образа MSSQL Server>.iso
-
+       Mount-DiskImage -ImagePath C:\dist\<MSSQL Server image name>.iso
+       
        & D:\setup.exe /QUIET /INDICATEPROGRESS /IACCEPTSQLSERVERLICENSETERMS `
          /ACTION=INSTALL /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER `
          /SQLSVCACCOUNT="yantoso\mssql-svc" /SQLSVCPASSWORD="QWErty123" `
          /SQLSYSADMINACCOUNTS="yantoso\mssql-admins-grp" /UpdateEnabled=FALSE `
          /SQLBACKUPDIR="X:\BACKUP" /SQLTEMPDBDIR="X:\TEMPDB" /SQLTEMPDBLOGDIR="X:\TEMPDBLOG" `
          /SQLUSERDBDIR="X:\DB" /SQLUSERDBLOGDIR="X:\DBLOG"
-
-       Dismount-DiskImage -ImagePath C:\dist\<имя образа MSSQL Server>.iso
+       
+       Dismount-DiskImage -ImagePath C:\dist\<MSSQL Server image name>.iso
        ```
 
     {% endlist %}
 
-1. Повторите шаги 2-13 для ВМ `ya-mssql2` и `ya-mssql3`.
+1. Repeat steps 2-13 for `ya-mssql2` and `ya-mssql3`.
 
-1. Отключите у ВМ доступ в интернет:
+1. Disable internet access for the VM:
 
     {% list tabs %}
 
@@ -825,7 +828,8 @@
        $ yc compute instance remove-one-to-one-nat ya-mssql2 --network-interface-index 0
        $ yc compute instance remove-one-to-one-nat ya-mssql3 --network-interface-index 0
        ```
-    - Powershell
+
+    - PowerShell
 
        ```
        yc compute instance remove-one-to-one-nat ya-mssql1 --network-interface-index 0
@@ -835,10 +839,11 @@
 
     {% endlist %}
 
-### Настройте группу доступности Always On {#configure-always-on}
+### Configure the Always On availability group {#configure-always-on}
 
-1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. Используйте логин Administrator и ваш пароль. Откройте RDP и подключитесь к ВМ `ya-mssql1`.
-1. Для работы группы доступности Always On требуется настроенный Windows Server Failover Cluster. Для его создания необходимо протестировать все серверы БД:
+1. Connect to `jump-server-vm` using RDP. Enter Administrator as the username and then your password. Open the RDP client and connect to `ya-mssql1`.
+
+1. The Always On availability group requires a configured Windows Server Failover Cluster. To create it, you need to test all the DB servers:
 
     {% list tabs %}
 
@@ -852,7 +857,7 @@
 
     {% endlist %}
 
-1. Создайте кластер из трех серверов БД:
+1. Create a cluster of three DB servers:
 
     {% list tabs %}
 
@@ -864,7 +869,7 @@
 
     {% endlist %}
 
-1. Импортируйте команды модуля SqlServer для PowerShell:
+1. Import SqlServer module commands for PowerShell:
 
     {% list tabs %}
 
@@ -876,7 +881,7 @@
 
     {% endlist %}
 
-1. Назначьте служебному пользователю `mssql-svc` разрешения на управление серверами:
+1. Give server management permissions to the `mssql-svc` service user:
 
     {% list tabs %}
 
@@ -888,27 +893,27 @@
          -LoginType "WindowsUser" `
          -Enable `
          -GrantConnectSql
-
+       
        Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" `
          -LoginName "yantoso\mssql-svc" `
          -LoginType "WindowsUser" `
          -Enable `
          -GrantConnectSql
-
+       
        Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" `
          -LoginName "yantoso\mssql-svc" `
          -LoginType "WindowsUser" `
          -Enable `
          -GrantConnectSql
-
+       
        $mssql1 = Get-Item "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
        $mssql1.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
        $mssql1.Roles['sysadmin'].Alter()
-
+       
        $mssql2 = Get-Item "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
        $mssql2.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
        $mssql2.Roles['sysadmin'].Alter()
-
+       
        $mssql3 = Get-Item "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
        $mssql3.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
        $mssql3.Roles['sysadmin'].Alter()
@@ -916,7 +921,7 @@
 
     {% endlist %}
 
-1. По очереди подключитесь к каждому серверу и включите SqlAlwaysOn. При включении Always On сервис СУБД будет перезапускаться.
+1. Connect to each server in turn and enable SqlAlwaysOn. When Always On is enabled, the DBMS service restarts.
 
     {% list tabs %}
 
@@ -930,8 +935,7 @@
 
     {% endlist %}
 
-
-1. Создайте и запустите [эндпоинты HADR](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
+1. Create and run [HADR endpoints](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
 
     {% list tabs %}
 
@@ -942,27 +946,27 @@
         -Encryption Supported -EncryptionAlgorithm Aes `
         -Name AlwaysonEndpoint `
         -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
-
+       
        Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
-
+       
        New-SqlHADREndpoint -Port 5022 -Owner sa `
            -Encryption Supported -EncryptionAlgorithm Aes `
            -Name AlwaysonEndpoint `
            -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
-
+       
        Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
-
+       
        New-SqlHADREndpoint -Port 5022 -Owner sa `
            -Encryption Supported -EncryptionAlgorithm Aes `
            -Name AlwaysonEndpoint `
            -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
-
+       
        Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
        ```
 
     {% endlist %}
 
-1. Создайте переменные с параметрами реплик. Основной репликой будет выступать `ya-mssql1`, второй и третьей — `ya-mssql2` и `ya-mssql3`. 
+1. Create variables with replica parameters. The main replica is `ya-mssql1`, the second and third ones are `ya-mssql2` and `ya-mssql3`, respectively.
 
     {% list tabs %}
 
@@ -975,14 +979,14 @@
         -FailoverMode "Automatic" `
         -AvailabilityMode "SynchronousCommit" `
         -AsTemplate -Version 13
-
+       
        $SecondaryReplica = New-SqlAvailabilityReplica `
            -Name ya-mssql2 `
            -EndpointUrl "TCP://ya-mssql2.yantoso.net:5022" `
            -FailoverMode "Automatic" `
            -AvailabilityMode "SynchronousCommit" `
            -AsTemplate -Version 13
-
+       
        $ThirdReplica = New-SqlAvailabilityReplica `
            -Name ya-mssql3 `
            -EndpointUrl "TCP://ya-mssql3.yantoso.net:5022" `
@@ -993,7 +997,7 @@
 
     {% endlist %}
 
-1. Создайте из реплик группу доступности `MyAG` и добавьте туда первый сервер:
+1. Create a `MyAG` availability group of replicas and add the first server to it:
 
     {% list tabs %}
 
@@ -1004,11 +1008,11 @@
            -Name 'MyAG' `
            -AvailabilityReplica @($PrimaryReplica, $SecondaryReplica, $ThirdReplica) `
            -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
-        ```
+       ```
 
     {% endlist %}
 
-1. Добавьте оставшиеся серверы в группу доступности:
+1. Add the remaining servers to the availability group:
 
     {% list tabs %}
 
@@ -1021,7 +1025,7 @@
 
     {% endlist %}
 
-1. Создайте [Listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description):
+1. Create a [Listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description):
 
     {% list tabs %}
 
@@ -1037,7 +1041,7 @@
 
     {% endlist %}
 
-1. Создайте базу данных на сервере `ya-mssql1`:
+1. Create a database on the `ya-mssql1` server:
 
     {% list tabs %}
 
@@ -1049,7 +1053,7 @@
 
     {% endlist %}
 
-1. Задайте настройки доступа к папке с резервными копиями на сервере:
+1. Configure access settings for the backup folder on the server:
 
     {% list tabs %}
 
@@ -1057,17 +1061,17 @@
 
        ```
        New-SMBShare -Name SQLBackup -Path "X:\BACKUP" -FullAccess "yantoso\mssql-backups-grp"
-
+       
        $Acl = Get-Acl "X:\BACKUP"
        $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("yantoso\mssql-backups-grp","Read", "ContainerInherit, ObjectInherit", "None", "Allow")
        $Acl.AddAccessRule($AccessRule)
-
+       
        $Acl | Set-Acl "X:\BACKUP"
        ```
 
     {% endlist %}
 
-1. Создайте резервную копию базы `MyDatabase` на ВМ `ya-mssql1`:
+1. Create a backup of `MyDatabase` on the `ya-mssql1` VM:
 
     {% list tabs %}
 
@@ -1078,7 +1082,7 @@
            -Database "MyDatabase" -Initialize `
            -BackupFile "MyDatabase.bak" `
            -ServerInstance "ya-mssql1.yantoso.net"
-
+       
        Backup-SqlDatabase `
            -Database "MyDatabase"  -Initialize `
            -BackupFile "MyDatabase.log" `
@@ -1088,7 +1092,7 @@
 
     {% endlist %}
 
-1. Восстановите базу данных на сервере `ya-mssql2` из резервной копии: 
+1. Restore the database on the `ya-mssql2` server from the backup:
 
     {% list tabs %}
 
@@ -1100,7 +1104,7 @@
            -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
            -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" `
            -NORECOVERY
-
+       
        Restore-SqlDatabase `
            -Database "MyDatabase" `
            -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
@@ -1111,7 +1115,7 @@
 
     {% endlist %}
 
-1. Восстановите базу данных на сервере `ya-mssql3` из резервной копии: 
+1. Restore the database on the `ya-mssql3` server from the backup:
 
     {% list tabs %}
 
@@ -1123,7 +1127,7 @@
            -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
            -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" `
            -NORECOVERY
-
+       
        Restore-SqlDatabase `
            -Database "MyDatabase" `
            -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
@@ -1134,7 +1138,7 @@
 
     {% endlist %}
 
-1. Добавьте все базы данных в группу доступности:
+1. Add all the databases to the availability group:
 
     {% list tabs %}
 
@@ -1144,11 +1148,11 @@
        Add-SqlAvailabilityDatabase `
         -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\AvailabilityGroups\MyAG" `
         -Database "MyDatabase"
-
+       
        Add-SqlAvailabilityDatabase `
            -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\AvailabilityGroups\MyAG" `
            -Database "MyDatabase"
-
+       
        Add-SqlAvailabilityDatabase `
            -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\AvailabilityGroups\MyAG" `
            -Database "MyDatabase"
@@ -1156,12 +1160,13 @@
 
     {% endlist %}
 
-## Протестируйте группу доступности {#test}
+## Test the availability group {#test}
 
-### Добавьте бастионный хост в домен {#jump-server-domain}
+### Add a bastion host to the domain {#jump-server-domain}
 
-1. Подключитесь к ВМ `jump-server-vm` с помощью RDP и запустите PowerShell.
-1. Укажите ВМ с контроллером домена в качестве DNS-сервера:
+1. Connect to the VM `jump-server-vm` using RDP and start PowerShell.
+
+1. Specify the VM with the domain controller as the DNS server:
 
     {% list tabs %}
 
@@ -1170,9 +1175,10 @@
        ```
        Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.0.0.3"
        ```
+
     {% endlist %}
 
-1. Добавьте ВМ в домен: 
+1. Add the VM to the domain:
 
     {% list tabs %}
 
@@ -1183,19 +1189,19 @@
          New-Object System.Management.Automation.PSCredential (
            'yantoso\Administrator', `
            ('QWErty123' | ConvertTo-SecureString -AsPlainText -Force))
-
+       
        Add-Computer -DomainCredential $domain_credential -DomainName 'yantoso.net' -Restart -Force
        ```
 
     {% endlist %}
-    
-    ВМ автоматически перезагрузится. 
 
-1. После перезагрузки снова подключитесь к ВМ и войдите под учетной записью `yantoso\Administrator`.
+    The VM restarts automatically.
 
-### Протестируйте работу базы данных {#test-always-on}
+1. After restarting, reconnect to the VM and log in to it as `yantoso\Administrator`.
 
-1. Установите PowerShell-модуль `SqlServer`:
+### Test the database {#test-always-on}
+
+1. Install the `SqlServer` PowerShell module:
 
     {% list tabs %}
 
@@ -1207,7 +1213,7 @@
 
     {% endlist %}
 
-1. Создайте таблицу в реплицируемой БД `MyDatabase`:
+1. Create a table in the replicated `MyDatabase` DB:
 
     {% list tabs %}
 
@@ -1224,7 +1230,7 @@
 
     {% endlist %}
 
-1. Добавьте в таблицу БД новую строку:
+1. Add a new row to the DB table:
 
     {% list tabs %}
 
@@ -1239,7 +1245,7 @@
 
     {% endlist %}
 
-1. Проверьте, появилась ли строка в таблице:
+1. Make sure the row appears in the table:
 
     {% list tabs %}
 
@@ -1248,6 +1254,7 @@
        ```
        Invoke-Sqlcmd -ServerInstance 'mylistner.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
        ```
+
        ```
        test_id test_name
        ------- ---------
@@ -1256,7 +1263,7 @@
 
     {% endlist %}
 
-1. Проверьте имя основной реплики БД:
+1. Check the name of the main DB replica:
 
     {% list tabs %}
 
@@ -1265,6 +1272,7 @@
        ```
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'mylistener.yantoso.net'
        ```
+
        ```
        Column1
        -------
@@ -1273,8 +1281,7 @@
 
     {% endlist %}
 
-
-1. Выполните аварийное переключение на вторую реплику:
+1. Run a failover to the second replica:
 
     {% list tabs %}
 
@@ -1286,7 +1293,7 @@
 
     {% endlist %}
 
-1. Через некоторое время снова проверьте имя основной реплики:
+1. After a while, check the name of the main replica again:
 
     {% list tabs %}
 
@@ -1295,6 +1302,7 @@
        ```
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'mylistener.yantoso.net'
        ```
+
        ```
        Column1
        -------
@@ -1303,7 +1311,7 @@
 
     {% endlist %}
 
-1. Добавьте еще одну строку в таблицу, чтобы проверить работу второй реплики на запись:
+1. Add another row to the table to check the second replica for writes:
 
     {% list tabs %}
 
@@ -1318,7 +1326,7 @@
 
     {% endlist %}
 
-1. Убедитесь, что строка добавлена:
+1. Make sure the row was added:
 
     {% list tabs %}
 
@@ -1327,6 +1335,7 @@
        ```
        Invoke-Sqlcmd -ServerInstance 'mylistner.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
        ```
+
        ```
        test_id test_name
        ------- ---------
@@ -1336,12 +1345,13 @@
 
     {% endlist %}
 
-## Удалите созданные ресурсы {#clear-out}
+## Delete the created resources {#clear-out}
 
-Чтобы перестать платить за развернутые серверы, [удалите](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины: 
+To stop paying for the deployed servers, [delete](../../compute/operations/vm-control/vm-delete.md) the VMs you created:
 
-* `vm-jump-server`; 
-* `ya-ad`;
-* `ya-mssql1`;
-* `ya-mssql2`;
-* `ya-mssql3`. 
+* `vm-jump-server`
+* `ya-ad`
+* `ya-mssql1`
+* `ya-mssql2`
+* `ya-mssql3`
+
