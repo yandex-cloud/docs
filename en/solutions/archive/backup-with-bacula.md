@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Backup to {{ objstorage-full-name }} via Bacula on Centos 7
 
 In these instructions, you'll learn how to create backups in {{ objstorage-full-name }} and recover data via [Bacula](https://www.bacula.org/) on CentOS 7 in the Yandex.Cloud infrastructure.

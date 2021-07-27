@@ -1,7 +1,10 @@
 ---
 title: How to work with Yandex Managed Service for Kubernetes. Instructions
 description: "In this article you will learn how to work with managed Kubernetes service in Yandex.Cloud. We will tell about persistent volumes, manage a group of nodes, Kubernetes cluster."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # All instructions
 

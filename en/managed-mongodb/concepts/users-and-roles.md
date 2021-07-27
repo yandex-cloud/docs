@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Users and roles
 
 The data in {{ mmg-name }} is handled on behalf of the cluster users. To differentiate user access rights, the [role model](https://docs.mongodb.com/manual/core/authorization/) is used. To assign a user specific access rights for the database, [grant them](../operations/cluster-users.md) the relevant role in this database.

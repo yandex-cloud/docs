@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Registering time spent
 
 {{ tracker-name }} can keep a record of the time you spent on an issue.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # C# programming model
 
 {{ sf-name }} provides two models for programming in C#: using the [YcFunction](yc-function.md) interface and an [independent class](independent-function.md) with a compatible method. Both models involve writing their own interface implementations and let you provide a function with one argument and one return value of any type.

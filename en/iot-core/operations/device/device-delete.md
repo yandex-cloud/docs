@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Deleting a device
 
 To access a [device](../../concepts/index.md#device), use its unique ID or name. For information about how to get the unique device ID or name, see [{#T}](device-list.md).

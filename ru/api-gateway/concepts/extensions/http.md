@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Расширение x-yc-apigateway-integration:http
 
 Расширение `x-yc-apigateway-integration:http` перенаправляет запрос в указанный URL.

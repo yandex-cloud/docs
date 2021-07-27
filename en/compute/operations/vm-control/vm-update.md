@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Updating a VM
 
 After you create a VM, you can change its name, description, tags, platform, or metadata.

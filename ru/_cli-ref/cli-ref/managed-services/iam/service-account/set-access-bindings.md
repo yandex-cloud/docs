@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc iam service-account set-access-bindings
 
 Set access bindings for ACCESSING the specified service account and DELETE all existing access bindings if there were any. To configure service account access to a resource use set-access-bindings command for the corresponding resource

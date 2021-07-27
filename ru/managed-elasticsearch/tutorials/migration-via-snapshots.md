@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Миграция в {{ mes-name }} с помощью снапшотов
 
 Кластер {{ mes-name }} поддерживает механизм [снапшотов](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) (snapshots). Это позволяет мигрировать в него данные из другого кластера {{ ES }}.

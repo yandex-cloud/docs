@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # DeleteMessageBatchResultEntry
 
 ID of an entry in the [DeleteMessageBatch](../message/DeleteMessageBatch.md) request.

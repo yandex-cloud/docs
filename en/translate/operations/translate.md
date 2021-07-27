@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # How to translate text
 
 To translate a text, pass it using the [translate](../api-ref/Translation/translate) method.

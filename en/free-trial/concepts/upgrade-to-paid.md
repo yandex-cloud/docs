@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Upgrading to the paid version
 
 You don't automatically upgrade to the paid version once the trial period ends. To upgrade to the paid version, go to the **Billing** page in the management console and click **Upgrade to the paid version**.

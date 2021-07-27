@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Services {{ yandex-cloud }}
 
 _Services_ in {{ yandex-cloud }} let you manage specific cloud resources and access them.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Java programming model
 
 {{ sf-name }} provides four models for programming in Java: using the [Function](jdk-function.md) and [YcFunction](yc-function.md) interfaces, the [HttpServlet](servlet-api.md) class, and the [Spring Boot](spring-boot.md) framework. The first three methods of setting a function handler involve writing their own implementations of these interfaces or classes, and the last one involves loading an application in its original form without any changes.

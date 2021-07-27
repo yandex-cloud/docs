@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Edit a certificate
 
 After creating a certificate, you can change its name or description. To edit a certificate:

@@ -1,7 +1,10 @@
 ---
 title: "How to work with DNS zones and resource records. Step-by-step instructions"
 description: "Step-by-step instructions for working with DNS zones and resource records in Yandex.Cloud. From the article you will learn how to create and manage DNS zones (internal and public), as well as work with DNS resource records (A, AAAA, CAA , CNAME, MX, NS, PTR, SOA, SRV, TXT)."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Step-by-step instructions
 

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Read your payment invoice
 
 At the beginning of the next reporting period, a business may be issued a [payment invoice](../concepts/bill.md) for the resources consumed. A copy of the payment invoice will be sent to the email address specified in the billing account.

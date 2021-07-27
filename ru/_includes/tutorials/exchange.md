@@ -126,7 +126,7 @@
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<ваш пароль>" -AsPlainText -Force)
 ```
 
-Пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
+Пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
 Подробные рекомендации по защите Active Directory читайте на [сайте разработчика](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
@@ -138,7 +138,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `ad-vm-a`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
   1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
@@ -191,7 +191,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `fsw-vm`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-c`.
   1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
@@ -375,7 +375,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
    mkdir c:\distrib
    ```
 
-1. Загрузите [дистрибутив Exchange Server](https://docs.microsoft.com/en-us/exchange/new-features/updates?view=exchserver-2016) и необходимые зависимости:
+1. Загрузите [дистрибутив Exchange Server](https://docs.microsoft.com/ru-ru/exchange/new-features/updates?view=exchserver-2016) и необходимые зависимости:
    1. [.NET Framework 4.7.1](https://go.microsoft.com/fwlink/p/?linkid=863265).
    1. [Visual C++ Redistributable Package for Visual Studio 2012](https://go.microsoft.com/fwlink/?linkid=327788). Переименуйте скачанный файл в `vcredist_x64_2012.exe`.
    1. [Visual C++ Redistributable Package for Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=2002913). Переименуйте скачанный файл в `vcredist_x64_2013.exe`.
@@ -399,7 +399,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
    - Консоль управления
 
-     1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+     1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
      1. В поле **Имя** введите имя виртуальной машины: `vm-exchange-a`.
      1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
      1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
@@ -483,7 +483,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
    - Консоль управления
 
-     1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+     1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
      1. В поле **Имя** введите имя виртуальной машины: `vm-exchange-b`.
      1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
      1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
@@ -807,7 +807,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `vm-edge-a`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
   1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
@@ -848,7 +848,7 @@ Get-EmailAddressPolicy | Set-EmailAddressPolicy -EnabledPrimarySMTPAddressTempla
 
 - Консоль управления
 
-  1. На странице каталога в [консоли управления](https://console.cloud.yandex.ru) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `vm-edge-b`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
   1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.

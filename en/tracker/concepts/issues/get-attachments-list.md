@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Get a list of attached files
 
 Use this request to get a list of files attached to an issue and to comments below it.

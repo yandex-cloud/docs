@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating authorized keys
 
 To create [authorized keys](../../concepts/authorization/key.md):

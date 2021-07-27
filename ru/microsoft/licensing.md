@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Лицензии Microsoft в {{ yandex-cloud }}
 
 ## Использование ПО Microsoft в {{ yandex-cloud }}
@@ -43,7 +47,7 @@
     * Forefront Unified Access Gateway
     * Remote Desktop Services
     
-    Полные правила программы Мобильности лицензий представлены в официальной документации [Microsoft](https://www.microsoft.com/en-us/licensing/product-licensing/products). 
+    Полные правила программы Мобильности лицензий представлены в официальной документации [Microsoft](https://www.microsoft.com/ru-ru/licensing/product-licensing/products).
 
 #### Требования программы Мобильности лицензий для Microsoft SQL Server {#SQLmobility}
 

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Granting access to an app running in a cluster {{ k8s }}
 
 To grant access to an app running in a {{ k8s }} cluster, you can use [various types of public and internal services](../concepts/service.md).

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Queue templates
 
 {{ tracker-name }} offers multiple queue templates for common operations, which make it much easier to manage your {{ tracker-name }} issues. Queue templates include a [workflow](workflow.md) with preset issue types and statuses. Some templates have preset [issue boards](agile.md#sec_boards).

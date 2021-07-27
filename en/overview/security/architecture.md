@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Yandex.Cloud platform architecture
 
 Yandex.Cloud is natively designed to provide a single pool of unified hardware resources. Yandex.Cloud has no dedicated physical management servers, and many platform services are deployed on virtual machines similar to end-user VMs.

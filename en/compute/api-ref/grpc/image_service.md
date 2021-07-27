@@ -3,7 +3,10 @@ title: "ImageService method. API reference in Yandex Compute Cloud"
 description: "A set of methods for managing Image resources via the API in Yandex Compute Cloud - Get, GetLatestByFamily, List, Create, Update, Delete, ListOperations."
 
 editable: false
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # ImageService
 

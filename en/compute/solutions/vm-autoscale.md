@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Running instance groups with auto scaling
 
 To create an [instance group with auto scaling](../concepts/instance-groups/scale.md#auto-scale) and [network load balancer](../../network-load-balancer/concepts/index.md), do the following.
@@ -136,7 +140,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
 
    ```yaml
    name: auto-group
-   service_account_id: ajelabcde12f33nol1v5
+   service_account_id: <Service account ID>
    scale_policy:
      auto_scale:
        min_zone_size: 1
@@ -157,7 +161,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
      target_group_spec:
        name: auto-group-tg
    instance_template:
-     service_account_id: ajelabcde12f33nol1v5
+     service_account_id: <Service account ID>
      platform_id: standard-v1
      resources_spec:
        memory: 2G
@@ -179,9 +183,11 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
          size: 10G
          image_id: fd81a49qficqvt0dthu8
      network_interface_specs:
-       - network_id: enpabce123hde4ft1r3t
+       - network_id: <Network ID>
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
    ```
+
+1. Replace the values in the angle brackets in the `specification.yaml` file with the actual values, based on the previous steps.
 
 1. Create an instance group named `auto-group` using the specification `specification.yaml`:
 

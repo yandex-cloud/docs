@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # How to make a dashboard your home page
 
 You can make any available dashboard your [home page](startpage.md):

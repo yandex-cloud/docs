@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # ReceiveMessage
 
 Method for retrieving one or more messages (up to 10) from the specified queue. Using the `WaitTimeSeconds` parameter enables long-poll support.

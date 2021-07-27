@@ -1,7 +1,10 @@
 ---
 title: "Information about clusters in {{ mmy-short-name }}"
 description: "You can request detailed information about each {{ mmy-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mmy-name }} service."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Information about existing clusters
 
@@ -56,7 +59,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
   $ {{ yc-mdb-my }} cluster get <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
 
 {% endlist %}
 
@@ -83,7 +86,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
   $ {{ yc-mdb-my }} cluster list-operations <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
 
 - API
 

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Bucket versioning
 
 Bucket versioning is the capability to store the history of an object using versions. Each version is a complete copy of the object and occupies space in {{ objstorage-name }}. By using version control, you can protect your data from both unintentional user actions and application faults.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting information about registries
 
 To find out the `ID` or `NAME` of a registry, get a list of registries in a folder.

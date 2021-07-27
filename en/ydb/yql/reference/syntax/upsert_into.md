@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # UPSERT INTO
 
 Saves data to the table by `PRIMARY_KEY`, overwriting the rows. If the specified `PRIMARY_KEY` is missing, a new row is added to the table. If the given `PRIMARY_KEY` exists, the row is overwritten. The values of columns not involved in the operation are not changed.

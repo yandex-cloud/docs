@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc help
 
 Help provides help for any command in the application. Simply type yc help [path to command] for full details.

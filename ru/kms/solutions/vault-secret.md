@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Auto Unseal в Hashicorp Vault
 
 [Vault](https://www.vaultproject.io/) позволяет использовать {{ kms-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
@@ -24,7 +28,7 @@
         
     - Аккаунт на Яндексе
     
-        Для аутентификации будет использован [OAuth-токен](https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token.md).
+        Для аутентификации будет использован [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
 
     {% endlist %}
     

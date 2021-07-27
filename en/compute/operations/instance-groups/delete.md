@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 title: "How to delete an instance group"
 description: "Deleting a group of virtual machines is an irreversible and irreversible operation, it is impossible to restore a deleted group. Together with the group, the Network Load Balancer target group, virtual machines and disks are deleted. To delete a group of virtual machines, open the catalog page in the management console. Select the Yandex Compute service Cloud. On the Virtual Machines page, go to the Virtual Machine Groups tab. Select Delete."
 ---

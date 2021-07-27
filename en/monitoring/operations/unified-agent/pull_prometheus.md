@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Delivering custom application metrics
 
 {{unified-agent-full-name}} builds metrics in the {{ prometheus-name }} format and converts them to the {{ monitoring-full-name }} format. You can use {{unified-agent-short-name}} to build metrics for any apps that provide metrics in the {{ prometheus-name }} format.

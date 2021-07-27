@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc compute instance remove-metadata
 
 Remove keys from metadata for the specified virtual machine instance

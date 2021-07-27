@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Managing ClickHouse users
 
 {{ mch-name }} lets you manage users and their individual settings in two ways:

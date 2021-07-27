@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Detect the language
 
 To detect the language of a text, use the [detectLanguage](../api-ref/Translation/detectLanguage) method.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Deployment algorithm
 
 The deployment algorithm switches an instance group from one state to another using short iterative changes. Each iteration takes into account the restrictions set by the user.

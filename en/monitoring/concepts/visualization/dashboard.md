@@ -1,7 +1,10 @@
 ---
 title: Dashboard in Yandex Monitoring
 description: "Dashboard in Yandex Monitoring — a set of widgets, graphs, texts and headers. Metrics on dashboard charts are displayed for a specific time interval, common for all charts. Parameters allow you to create interactive dashboards, the content of which changes depending on the user's choice. For example, a dashboard showing a summary of the state of a virtual machine can be parameterized with the virtual machine ID."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Dashboards in Yandex Monitoring
 

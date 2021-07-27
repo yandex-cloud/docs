@@ -1,7 +1,10 @@
 ---
 title: "Viewing monitoring graphs in Yandex Cloud Functions"
 description: "You can see the monitoring graph in Yandex Cloud Functions for the following indicators, such as the number of function calls, the average execution time of the function, the number of errors that occurred while executing the function. To see the graph, open the Cloud Functions section in the catalog with the function, information about which you want to receive. In the list of functions, select the function whose monitoring graphs you want to see."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # View monitoring charts
 

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # TransactWriteItems method
 
 A synchronous write operation that groups up to 25 actions. You can work with items from different tables, but you can only perform one action on a single item per query.

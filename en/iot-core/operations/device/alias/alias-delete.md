@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Deleting an alias
 
 Aliases are linked to specific devices. To delete an alias, you need [the device ID or name](../device-list.md).

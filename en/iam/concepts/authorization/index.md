@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Authorization in Yandex.Cloud
 
 When a user does something with a resource in Yandex.Cloud, IAM checks whether the user has the necessary access rights to perform this operation.

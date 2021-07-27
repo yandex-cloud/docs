@@ -1,7 +1,10 @@
 ---
 title: "Backups in Yandex Cloud Functions"
 description: "Data in the Cloud Functions service is securely stored and replicated in the Yandex.Cloud infrastructure. You can get function lists, function version lists, function version information, trigger lists, trigger information."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Backups
 

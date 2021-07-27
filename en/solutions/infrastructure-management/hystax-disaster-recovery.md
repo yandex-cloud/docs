@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Emergency recovery to Yandex.Cloud using Hystax Acura
 
 You can protect your infrastructure using Hystax Acura. Hystax Disaster Recovery ensures your resources are backed up regardless of where they're located. They can be hosted in private data centers on virtual machines or physical servers, or they can be on virtual machines from a cloud service provider.

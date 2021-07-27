@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # SAML-compatible identity federations
 
 Yandex.Cloud supports [SAML 2.0](https://wiki.oasis-open.org/security)-based identity federations. This is a popular markup language to enable Single Sign-On (SSO), a technology that lets users access multiple apps without having to enter their username and password every time. For example, whenever you visit a site and see the _Sign in with Yandex_, _Google_, or _Facebook_ buttons, these are examples of the Single Sign-On system at work.

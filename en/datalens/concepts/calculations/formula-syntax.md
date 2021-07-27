@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Formula syntax
 
 The syntax of calculated expressions in {{ datalens-full-name }} is similar to SQL.

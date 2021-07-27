@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # General procedure for multipart upload
 
 Multipart upload lets you save objects to {{ objstorage-name }} in parts. This can be useful when uploading or copying large objects. We recommend using multipart upload for objects that are at least 100 MB.

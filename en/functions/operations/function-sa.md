@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Using functions to get an IAM token for a service account
 
 If the function version was created with a service account, you can get an IAM token for it from:

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Managing groups of shards
 
 You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} in a _shard group_ and save tables in this group.

@@ -1,7 +1,10 @@
 ---
 title: Quotas and Limits in Managed Service for Kubernetes
 description: 'Managed Service for Kubernetes has limits and quotas for the total number of vCPUs for all nodes, the total amount of RAM, the total amount of disks, the maximum number of Kubernetes clusters in one cloud. You will learn more about the limitations of the service in this article. '
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Quotas and limits
 

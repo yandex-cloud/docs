@@ -1,7 +1,10 @@
 ---
 title: "How to work with virtual machines. Step-by-step instructions"
 description: "Step-by-step instructions for working and managing virtual machines in the Yandex.Cloud. From the article you will learn how to create virtual machines, manage resources, connect to them using SSH, RDP and PowerShell. Learn more about working with disks, images and hosts."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Step-by-step instructions
 
@@ -58,6 +61,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-connect/powershell.md)
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)
+* [{#T}](vm-connect/recovery-access.md)
 
 ## Creating new disks {#disk-create}
 

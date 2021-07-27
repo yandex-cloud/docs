@@ -17,8 +17,12 @@ items:
         href: operations/projects/checkpoints.md
       - name: Управление вычислительными ресурсами
         href: operations/projects/control-compute-resources.md
-      - name: Создание пользовательского образа
-        href: operations/user-images.md
+      - name: Управление Docker‑образами
+        items:
+          - name: Docker-образ для проекта
+            href: operations/user-images.md
+          - name: Docker-образ в ячейке
+            href: operations/user-images-cell.md
       - name: Очистка состояния интерпретатора
         href: operations/projects/clear-kernel-state.md
       - name: Поделиться ноутбуком
@@ -99,11 +103,11 @@ items:
         href: tutorials/markup.md
       - name: Классификация изображений на видеокадрах
         href: tutorials/video-recognition.md
-  - name: Справочник API (англ.)
+  - name: Справочник API
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: gRPC (англ.)
         items:
           - name: Overview
             href: api-ref/grpc/index.md
@@ -113,7 +117,7 @@ items:
             href: api-ref/grpc/project_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
-      - name: REST
+      - name: REST (англ.)
         items:
           - name: Overview
             href: api-ref/index.md

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Webinars and conferences
 
 ## {{ datalens-short-name }} best practices for corporate analytics {#webinar-20201222}

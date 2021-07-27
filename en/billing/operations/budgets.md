@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Enable usage notifications
 
 To control expenses in {{ yandex-cloud }}, you can configure usage notifications with budgets. A budget is a way to control spending on resources used in {{yandex-cloud }}. In a budget, you set a monthly spending limit for certain resources and configure the utilization thresholds for which notifications are sent and to whom. You can set multiple thresholds and define different notification recipients for each. Reaching a pre-set threshold does not affect subsequent resource utilization.

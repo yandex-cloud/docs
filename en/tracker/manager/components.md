@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Components
 
 Components help users group queue issues based on a shared theme, such as their product, process, responsible party, and so on. A single queue can have multiple components.

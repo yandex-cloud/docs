@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Using deprecated host classes
 
 As of June 1, 2020, the `s1.nano` host class is deprecated for {{ mmg-short-name }}.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # deleteBucketEncryption method
 
 Removes encryption from the bucket. For more information about bucket encryption, see [{#T}](../../../operations/buckets/encrypt.md).

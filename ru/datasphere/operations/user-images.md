@@ -1,4 +1,8 @@
-# Создание пользовательского образа
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
+# Создание пользовательского Docker-образа для проекта
 
 Вы можете настроить окружение для выполнения вашего кода, используя Docker-образы.
 
@@ -16,7 +20,8 @@
         ```bash
         ENV LD_LIBRARY_PATH /usr/local/cuda-11.2/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64
         RUN\
-          apt-get install -y -q xserver-xorg-core wget &&\
+          apt-get update &&\
+		  apt-get install -y -q xserver-xorg-core wget &&\
           wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin -O /etc/apt/preferences.d/cuda-repository-pin-600 &&\
           apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub &&\
           add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
@@ -31,7 +36,7 @@
 
     1. Чтобы использовать образ для проекта, нажмите кнопку **Set image to project**, затем **Ok**.
 
-Убедитесь, что функционал пользовательского образа доступен в вашем проекте. Например, для образа с CUDA<sup>®</sup> создайте и запустите ячейку со следующим кодом:
+Убедитесь, что окружение пользовательского образа доступно в вашем проекте. Например, для образа с CUDA<sup>®</sup> создайте и запустите ячейку со следующим кодом:
 
 ```bash
 #!g1.1
@@ -46,3 +51,9 @@ tf.config.list_physical_devices('GPU')
 ...
 [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
 ```
+
+{% note info %}
+
+Чтобы вернуться к окружению по умолчанию, нажмите кнопку **Reset docker image in project** на вкладке ![docker](../../_assets/datasphere/docker.svg) **Docker images**.
+
+{% endnote %}

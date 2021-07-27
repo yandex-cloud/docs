@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Get local queue fields
 
 Use this request to get issue [local fields](../../local-fields.md) linked to the specified queue.

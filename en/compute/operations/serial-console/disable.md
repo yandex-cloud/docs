@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Disabling access to the serial console
 
 Serial console access is not secure, so enabling it might allow hackers to access your VM.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Data insert and update by REPLACE
 
 Add data to the table using [REPLACE INTO](../reference/syntax/replace_into.md):

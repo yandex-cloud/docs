@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Assigning roles
 
 To grant access to a resource, assign a [role](../../../iam/concepts/access-control/roles.md) to the subject for that resource or the resource that the access rights are inherited from (such as a folder or cloud). For more information, see [{#T}](../../concepts/access-control/index.md).

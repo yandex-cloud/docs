@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Changing multiple issues
 
 You can change statuses and fields for multiple issues at once. To open your issue list, go to the queue or filter page.

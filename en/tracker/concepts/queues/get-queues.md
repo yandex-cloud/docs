@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Get a list of queues
 
 Use this request to get a list of available queues. If there are more than 50 queues in the response, use [paging](#section_mtj_ldk_p1b).

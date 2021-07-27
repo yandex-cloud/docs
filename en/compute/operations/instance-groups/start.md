@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Start an instance group
 
 When an instance group is started, all its stopped instances are started. You can start an individual instance, for example, for diagnostics, but to enable [automatic recovery](../../concepts/instance-groups/autohealing.md) and [scaling](../../concepts/instance-groups/scale.md), you must start the entire instance group.

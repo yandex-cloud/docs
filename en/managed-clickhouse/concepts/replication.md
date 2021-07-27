@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Replication {{ CH }}
 
 {{ mch-short-name }} helps organize replication for {{ CH }} clusters with 2 or more hosts in the [shard](sharding.md). You just need to [add hosts {{ ZK }}](#zookeeper-hosts) in the cluster and create a table [with replication support](#replicated-tables). The process of replication is managed by Apache {{ ZK }} in automatic mode.

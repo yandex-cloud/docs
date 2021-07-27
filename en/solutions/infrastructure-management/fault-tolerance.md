@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Configuring a fault-tolerant architecture in {{ yandex-cloud }}
 
 In this guide, you'll learn how to configure a fault-tolerant architecture in {{ yandex-cloud }} and check how it works using various test cases.

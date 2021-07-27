@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Moving a VM to a different availability zone
 
 {% include [instance-az](../../_includes_service/instance-az.md) %}

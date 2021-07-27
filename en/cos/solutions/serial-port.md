@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Configuring data output from a Docker container to a serial port
 
 In this tutorial, you'll create a VM from a [{{ coi }}](../concepts/index.md) and set up a redirect of the application output stream to the VM [serial port](../../compute/operations/serial-console/index.md#configuration).

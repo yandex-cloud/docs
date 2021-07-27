@@ -1,7 +1,10 @@
 ---
 title: "How to create a static route. VPC"
 description: "The default static route (0.0.0.0/0) acts on machines with public IP addresses. If you need to create a NAT instance, create it on a separate subnet. To create a routing table and add static routes to it, open the Virtual section Private Cloud in the directory where you want to create a static route. Select the network where you want to create a routing table. Click Create Routing Table. "
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Creating static routes
 

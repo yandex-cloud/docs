@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Group requests by topic
 
 You will often need to group requests by certain parameters, such as issue type, product, and so on. This lets you pick assignees with the needed know-how for each specific issue, as well as collect and analyze request statistics.

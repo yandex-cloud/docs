@@ -1,7 +1,10 @@
 ---
 title: "Relationship between {{ mms-name }} resources"
 description: "The main entity operated by the {{ mms-name }} service is a database cluster. Each cluster consists of one or more database hosts — virtual machines with deployed DBMS servers. The cluster hosts can be located in different availability zones."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Relationship between service resources
 

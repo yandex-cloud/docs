@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Использование аннотации SpringBootApplication для задания обработчика
 
 Вы можете задать обработчик, загрузив `Spring Boot` приложение с точкой входа в виде класса, помеченного аннотацией [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html).

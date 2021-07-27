@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Scheduled issue creation
 
 You can use {{ tracker-name }} to schedule issue creation using a template. For example, this lets you automatically create a data backup issue every week.

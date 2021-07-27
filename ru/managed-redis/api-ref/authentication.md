@@ -1,6 +1,9 @@
 ---
 title: "Аутентификация в API Yandex Managed Service for Redis"
 description: "Для выполнения операций через API в сервисе управления базами данных Redis – Yandex Managed Service for Redis, необходимо получить IAM-токен для сервисного, федеративного или Яндекс аккаунта."
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 {% include [auth](../../_includes/authentication.md) %}

@@ -1,6 +1,15 @@
 title: Yandex.Cloud partner program
 href: index.yaml
 items:
+  - name: Step-by-step instructions
+    expanded: true
+    items:
+      - name: Pinning a customer in the partner portal
+        href: operations/pin-client.md
+      - name: Checking access permissions to a customer's clouds
+        href: operations/access/check.md
+      - name: Granting a partner access to a customer's clouds
+        href: operations/access/grant.md
   - name: Partner program
     items:
       - name: Referral program

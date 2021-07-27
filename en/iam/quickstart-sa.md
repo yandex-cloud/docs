@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting started with service accounts
 
 {{ iam-short-name }} lets you create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in Yandex.Cloud. Service accounts are free-of-charge and let you flexibly manage access for your programs. Learn more in [{#T}](concepts/users/service-accounts.md).

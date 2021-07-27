@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Running Apache Hive jobs
 
 [Hive](https://hive.apache.org/) is a tool for accessing data storage in the Hadoop ecosystem. It lets you work with data in different formats and DBMS using an SQL-like query language. It's mainly used for working with data in HDFS, HBase, S3-compatible storage, and relational databases.

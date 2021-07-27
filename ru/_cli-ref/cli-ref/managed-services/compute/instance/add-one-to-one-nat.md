@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc compute instance add-one-to-one-nat
 
 Add one-to-one NAT to the the specified network interface of virtual machine instance

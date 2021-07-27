@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Variables in an instance template
 
 {{ ig-name }} lets you create a group of instances of the same type from a [template](instance-template.md). To use different characteristics for such instances, use the substitution mechanism for the system and user-defined variables in the template.

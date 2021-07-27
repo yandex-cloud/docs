@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Speech recognition
 
 _Speech recognition (speech-to-text, STT)_ is the process of converting speech to text.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Messages
 
 Messages are sent through queues and can contain plain text in the body. Messages are received by consumers that delete them from the queue after processing.

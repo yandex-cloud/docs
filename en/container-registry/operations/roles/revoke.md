@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Revoking a role for a resource
 
 You can prevent the [subject](../../../iam/concepts/access-control/index.md#subject) from accessing a resource. To do this, revoke the subject's roles for that resource or the resources that the access rights are inherited from. For more information, see [{#T}](../../../iam/concepts/access-control/index.md).

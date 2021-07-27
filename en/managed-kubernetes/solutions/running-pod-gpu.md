@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Running workloads with GPUs
 
 To run workloads with GPUs on {{ k8s }} cluster pods:

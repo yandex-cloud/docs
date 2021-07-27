@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Auto-healing
 
 {{ ig-name }} regularly runs health checks for the instances in your instance group. If an instance has stopped or an app is taking too long to respond, {{ ig-name }} will try to recover the instance: either it will restart it or create a new one, depending on the [deployment policy](policies/deploy-policy.md).

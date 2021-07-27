@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting started with {{ dns-name }}
 
 Create [DNS zones](concepts/dns-zone.md), add `A` records for your test VMs to them, and test the availability of domain names.

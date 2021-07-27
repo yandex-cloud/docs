@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc application-load-balancer load-balancer target-states
 
 Shows states of targets in the target group and backend group for application load balancer.

@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 # Technical support pricing
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

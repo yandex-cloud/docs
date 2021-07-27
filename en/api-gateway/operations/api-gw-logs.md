@@ -1,7 +1,10 @@
 ---
 title: "Viewing the execution log in Yandex API Gateway"
 description: "You can view the execution log in Yandex API Gateway using the management console. To do this, select the API Gateway service, select the API gateway whose execution log you want to view. In the window that opens, go to the Logs section and specify the period. The default is set period in 1 hour. Time in the execution log is in UTC. "
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Viewing the execution log
 

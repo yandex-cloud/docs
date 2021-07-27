@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting profile information
 
 Use the profile name to access the profile. You can get the profile name from the list of profiles.

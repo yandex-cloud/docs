@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Updating a service account
 
 You can edit the description of a [service account](../../concepts/users/service-accounts.md) via the CLI or API. For now, the management console only allows you to change the name of a service account.

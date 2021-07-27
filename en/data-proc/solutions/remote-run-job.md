@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Running jobs from remote hosts that are not part of a cluster {{ dataproc-name }}
 
 To run Spark jobs on a {{ dataproc-name }} cluster from hosts that are not part of the {{ dataproc-name }} cluster, use the [spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications) utility. Make sure you [meet the remote job launch requirements](#requirements) and [install and set up](#setup-vm) spark-submit.

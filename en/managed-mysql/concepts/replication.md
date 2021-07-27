@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Replication
 
 {{ mmy-name }} clusters use [semi-sync replication](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html): by default, the master waits for a transaction to complete in at least one replica. The difference between {{mmy-name}} semi-sync replication and standard replication is that if all semi-sync replicas are down, the cluster doesn't switch to asynchronous replication. Instead, it disables replication altogether until at least one replica is available.

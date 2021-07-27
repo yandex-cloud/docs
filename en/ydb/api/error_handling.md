@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Handling errors
 
 When using the {{ ydb-short-name }} SDK, there are situations where errors need to be handled.

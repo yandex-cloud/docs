@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # SendMessageBatchResultEntry
 
 Параметр `MessageId` для отправленного в очередь сообщения из группы в методе [SendMessageBatch](../message/SendMessageBatch.md).

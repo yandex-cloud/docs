@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Шифрование секретов в Hashicorp Terraform
 
 [Terraform-провайдер для {{ yandex-cloud }}](https://www.terraform.io/docs/providers/yandex/index.html) позволяет зашифровать секреты ключом {{ kms-short-name }} для последующего их использования в Terraform-конфигурации.

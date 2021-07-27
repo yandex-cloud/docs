@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Пробный период
 
 {% include [free-trial-conditions](../../_includes/free-trial-conditions.md) %}

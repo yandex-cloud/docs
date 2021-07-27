@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # API endpoints of Yandex.Cloud services
 
 Each of Yandex.Cloud services have an API endpoint that you should use for API calls. A full list of endpoints can be retrieved with an [endpoints](https://api.cloud.yandex.net/endpoints) request to `https://api.cloud.yandex.net` URL.

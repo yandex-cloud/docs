@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Updating a resource record
 
 You can change the value of a [resource record](../concepts/resource-record.md). To update a record:

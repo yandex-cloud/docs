@@ -1,7 +1,10 @@
 ---
 title: SQL-запросы в Managed Service for PostgreSQL
 description: 'Managed Service for PostgreSQL позволяет визуализировать структуру данных на вашем PostgreSQL-кластере и отправлять SQL-запросы к базам из консоли управления Yandex.Cloud. Для этого войдите в консоль управления, откройте страницу нужного кластера и перейдите на вкладку SQL.'
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 # SQL-запросы в Managed Service for PostgreSQL
 

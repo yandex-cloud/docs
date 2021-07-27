@@ -1,6 +1,15 @@
 # Аналитика мобильного приложения на данных AppMetrica
 
-В качестве источника данных будет использовано приложение, которое добавлено в сервис [AppMetrica](https://appmetrica.yandex.ru). Просмотреть список доступных вам приложений можно в разделе [Приложения](https://appmetrica.yandex.ru/application/list).
+Вы можете визуализировать и исследовать данные AppMetrica в {{ datalens-full-name }}, используя следующие подходы:
+
+* Прямой доступ.
+  {{ datalens-name }} напрямую подключается к AppMetrica. Этот метод проще и быстрее всего, однако набор поддерживаемых функций [ограничен](https://cloud.yandex.ru/docs/datalens/function-ref/availability).
+* Подключение через LogsAPI.
+  Данные предварительно выгружаются в {{ CH }}. Чтобы создать такое подключение, подготовьте БД {{ CH }} и укажите параметры БД при создании подключения. В {{ datalens-name }} будут доступны все функции, [поддерживаемые {{ CH }}](https://cloud.yandex.ru/docs/datalens/function-ref/availability).
+* Экспорт в режиме реального времени из AppMetrica в {{ mch-name }}.
+  Доступны сырые данные и есть возможность предагрегации и постобработки данных на уровне БД. Для реализации этого варианта [настройте экспорт](https://appmetrica.yandex.ru/docs/cloud/index.html) и [создайте подключение](https://cloud.yandex.ru/docs/datalens/operations/connection/create-clickhouse) {{datalens-name }} к БД {{ CH }}.
+
+В этом сценарии используется прямой доступ. В качестве источника данных будет использовано приложение, которое добавлено в сервис [AppMetrica](https://appmetrica.yandex.ru). Просмотреть список доступных вам приложений можно в разделе [Приложения](https://appmetrica.yandex.ru/application/list).
 
 Если у вас нет доступных приложений, то перед выполнением сценария вам необходимо [добавить приложение](https://appmetrica.yandex.ru/docs/quick-start/concepts/quick-start.html) или использовать стандартный **Дашборд AppMetrica**. 
 

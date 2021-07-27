@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Automatic issue updates
 
 You can use {{ tracker-name }} to regularly update issues that match a certain filter. For example, you can use an auto action to automatically check all issues containing a desired component every hour and set an assignee if one isn't set. You can also invite users responsible for the issue to the comments if you need a progress update.

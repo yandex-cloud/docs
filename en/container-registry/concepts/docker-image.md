@@ -1,7 +1,10 @@
 ---
 title: "Docker image. What is it and how does it work?"
 description: "Docker image is a template for creating Docker containers. It is an executable package that contains everything you need to run the application: code, runtime, libraries, environment variables and configuration files. Docker image consists of layers. Each change is recorded in new layer. When uploading or downloading a Docker image, operations are performed only on the layers that have changed."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Docker image
 

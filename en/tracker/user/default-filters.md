@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Finding my issues
 
 To find issues you're working on, use the preset _system filters_. Filters let you view issues that list you as the assignee, reporter, and so on. To search for issues in the list, use [quick filters](#quick-filters) or [add a search parameter](#add-condition).

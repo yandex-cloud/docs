@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Perform a bulk move of issues to a different queue
 
 Use this request to move multiple issues to another queue at once.

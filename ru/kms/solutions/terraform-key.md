@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Управление ключами {{ kms-short-name }} с Hashicorp Terraform
 
 [Terraform-провайдер для {{ yandex-cloud }}](https://www.terraform.io/docs/providers/yandex/index.html) поддерживает работу с ключами {{ kms-short-name }}.

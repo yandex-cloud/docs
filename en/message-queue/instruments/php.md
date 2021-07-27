@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Example of using {{ message-queue-full-name }} on PHP
 
 Using the [AWS SDK for PHP](https://aws.amazon.com/en/sdk-for-php/), you can manage {{ message-queue-name }} message queues and send and receive messages.

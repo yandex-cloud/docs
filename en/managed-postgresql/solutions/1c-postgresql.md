@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating a {{ PG }} cluster for 1C:Enterprise
 
 {{ mpg-name }} allows you to create failsafe {{ PG }} clusters optimized for 1C:Enterprise. For this, the service supports PostgreSQL versions 10-1c and 11-1c with all the necessary [extensions](#extensions) installed and the connection pooler configuration modified.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Setting up {{ tracker-name }} for a development team
 
 {{ tracker-full-name }} is a collaboration tool that makes it easier to manage the development of apps and programs. {{ tracker-name }} features a variety of tools for developers:

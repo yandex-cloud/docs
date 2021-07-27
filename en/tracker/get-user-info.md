@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Get information about the current user
 
 Use this request to get information about the account of the user on whose behalf the API is being accessed.

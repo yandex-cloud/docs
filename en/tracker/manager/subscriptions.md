@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Subscribing other users to queue updates
 
 You can subscribe {{ tracker-name }} users to notifications to keep them up-to-date about changes to all issues within a certain queue or changes related to specific versions or components.

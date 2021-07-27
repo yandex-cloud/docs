@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Backend group
 
 A backend group defines the settings based on which the L7 load balancer sends traffic to the endpoints of the [target groups](target-group.md): the protocol for connecting to the application instances, settings for the endpoint health checks, and rules for traffic distribution between them.

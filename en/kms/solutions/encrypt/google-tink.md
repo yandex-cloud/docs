@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Encrypting data using Google Tink
 
 [Tink](https://github.com/google/tink) is Google's cryptographic library, an alternative to [AWS Encryption](aws-encryption-sdk.md). The library helps you focus on encrypting and decrypting data without the need to choose the correct encryption algorithm and parameters.

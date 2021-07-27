@@ -1,7 +1,10 @@
 ---
 title: "Terms and definitions Yandex Database. Database"
 description: "A database (DB) is a dedicated isolated part of the resources of the Yandex Database service. The YDB service provides scalability, database fault tolerance and automatic data replication."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Terms and definitions
 

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Create a fixed-size instance group
 
 You can create a group with a fixed number of instances. The group size is set manually. For more information, see [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).

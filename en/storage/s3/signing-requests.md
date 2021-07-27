@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Signing requests
 
 Many requests to {{ objstorage-name }} require authentication on the service side, so the user sending a request must sign it.

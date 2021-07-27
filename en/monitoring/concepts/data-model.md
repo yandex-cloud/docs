@@ -1,7 +1,10 @@
 ---
 title: "Data model in Yandex Monitoring"
 description: "The article describes the data model of the Yandex Monitoring service. A metric is a time series that shows the change in a value over time. Text labels are used to identify metrics. A label is a characteristic of a metric in the key / value format. Each metric is identified by an unordered set labels. Typically, a label is a parameter that accepts a limited set of values."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Data model
 

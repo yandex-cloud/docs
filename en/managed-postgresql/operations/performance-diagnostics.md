@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Performance diagnostics
 
 {{ mpg-name }} provides a built-in tool for DBMS cluster performance diagnostics. Use it to analyze performance metrics {{ PG }} for [sessions](#get-sessions) and [queries](#get-queries).

@@ -4,7 +4,10 @@ description: "When a document is saved to Elasticsearch, it is indexed and place
 keywords:
 - Elasticsearch index
 - Elasticsearch
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Indexes
 

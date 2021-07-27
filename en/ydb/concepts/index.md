@@ -1,7 +1,10 @@
 ---
 title: Yandex Database (YDB). DBMS overview
 description: 'Yandex Database (YDB) is a scale-out distributed fault-tolerant DBMS. YDB is designed with high performance in mind - for example, a typical server can handle tens of thousands of requests per second. The system is designed to handle hundreds of petabytes of data. '
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Yandex Database (YDB) overview
 

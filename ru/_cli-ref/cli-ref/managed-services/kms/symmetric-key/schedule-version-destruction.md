@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc kms symmetric-key schedule-version-destruction
 
 Schedule destruction of the specified symmetric key version

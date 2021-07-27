@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Deleting a partially uploaded object
 
 You can upload an object in parts using [multipart upload](../../concepts/multipart.md). You can't see or delete these objects in the management console. To do this, use [tools](../../tools/index.md) that support multipart uploads.

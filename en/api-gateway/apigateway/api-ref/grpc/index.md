@@ -1,7 +1,10 @@
 ---
 title: "Yandex API Gateway Service (gRPC)"
 description: "The methods of the API reference are grouped by resources. To perform an operation in the Yandex API Gateway Service on a resource, send an HTTP request to the corresponding URL."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Yandex API Gateway Service
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).

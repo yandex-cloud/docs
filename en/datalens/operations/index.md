@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Step-by-step instructions for Yandex DataLens
 
 ## Creating a connection {#creating-connection}
@@ -9,6 +13,7 @@
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)
 - [{#T}](connection/create-oracle.md)
+- [{#T}](connection/create-greenplum.md)
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-metrica-logs-api.md)
 - [{#T}](connection/create-appmetrica.md)

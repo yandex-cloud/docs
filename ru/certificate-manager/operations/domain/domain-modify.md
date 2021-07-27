@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Изменение описания домена
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Installing NVIDIA drivers
 
 To enable compatibility with [GPU](../../concepts/gpus.md), make sure that NVIDIA drivers are installed on the VM. You can install the drivers either when you prepare the image or from inside the VM after it is created.

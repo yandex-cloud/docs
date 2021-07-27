@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting information about a VM
 
 To get basic details of each virtual machine you created, open the virtual machine page in [management console]({{ link-console-main }}). To get detailed information with user-defined [metadata](../../concepts/vm-metadata.md), use the CLI or API.

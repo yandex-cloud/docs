@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Windows Licensing
 
 Terms of use of Microsoft software are governed by the terms and conditions of the license agreement with Microsoft that you enter into when purchasing Microsoft products. The user is responsible for compliance with the Microsoft licensing terms. Licensing recommendations are provided below. You don't have to rely on them as they are not legally binding. If you have any questions about Microsoft software licensing and rights to use Microsoft products, please consult your Legal Department or Microsoft reseller. The information on this page complies with the [current Microsoft Product Terms](https://www.microsoft.com/en-us/licensing/product-licensing/products).

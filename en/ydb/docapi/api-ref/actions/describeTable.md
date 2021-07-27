@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # DescribeTable method
 
 Returns information about a table, including its current status, creation time, primary key schema, and indexes.

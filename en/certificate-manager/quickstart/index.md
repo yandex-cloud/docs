@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting started with {{ certificate-manager-name }}
 
 By following these instructions, you'll create your first [Let's Encrypt<sup>®</sup>](../concepts/managed-certificate) certificate and use it to [set up HTTPS access](../../storage/operations/hosting/certificate.md) to your static website hosted in {{ objstorage-full-name }}.

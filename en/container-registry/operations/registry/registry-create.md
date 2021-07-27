@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating a registry
 
 The created [registry](../../concepts/registry.md) can be used by any users and [service accounts](../../../iam/concepts/users/service-accounts.md) that have rights for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).

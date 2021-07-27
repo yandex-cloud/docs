@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Viewing assigned roles
 
 To view the permissions granted to an account for a resource, retrieve the list of roles assigned for the resource and its parent resources. Assigned roles are [inherited](../../concepts/access-control/index.md#inheritance) by child resources from their parent resources. For example, if you want to find the permissions an account has for a folder, look at the roles for that folder and the cloud that the folder belongs to.

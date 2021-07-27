@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Configuring queues
 
 In {{ tracker-name }}, every issue is part of a queue. A queue is an area shared by related issues being worked on under a single product or pipeline. Queues can also be used as a list of issues meant for a specific team or department.

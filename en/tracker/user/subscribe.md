@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Subscribing to notifications
 
 Subscriptions keep you from missing changes to issues that are important for you. If someone edits an issue that you have subscribed to, you receive an email notification.

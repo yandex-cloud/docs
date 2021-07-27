@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Network on a VM
 
 When creating a VM, you need to specify settings for the network interface connected to it: select the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to and configure its [internal](#internal-ip) and [public](#public-ip) IP addresses. This allows the VM to interact with other services on the intranet and internet.

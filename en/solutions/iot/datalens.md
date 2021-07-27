@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Status monitoring of geographically distributed devices
 
 In this scenario, you'll configure status monitoring for devices (such as vending machines) that are connected to {{ iot-full-name }} and located at various sites in a city. Sensors are emulated using the {{ sf-full-name }} service. If your sensors are connected, use them. You can monitor the status of vending machines on the {{ datalens-full-name }} map and charts.

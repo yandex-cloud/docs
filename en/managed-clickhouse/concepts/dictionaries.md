@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Dictionaries
 
 _Dictionaries_ in {{ CH }} are key-value data stores that are fully or partially loaded to the {{ CH }} server memory.

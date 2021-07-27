@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Yandex DDoS Protection
 
 {{ ddos-protection-full-name }} is the {{ vpc-short-name }} component that safeguards cloud resources from DDoS attacks. DDoS Protection is provided in partnership with Qrator Labs.

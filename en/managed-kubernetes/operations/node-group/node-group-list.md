@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting information about existing node groups
 
 To find out the `ID` or `NAME` of a node group, get a [list of node groups](#list) in the {{ k8s }} cluster or [detailed information about the node group](#get).

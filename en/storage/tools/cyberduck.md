@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # CyberDuck
 
 CyberDuck is a GUI-based cloud storage client for Mac and Windows that is available as a console client for all operating systems.

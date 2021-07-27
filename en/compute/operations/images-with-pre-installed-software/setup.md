@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Configuring software
 
 Virtual machines with LEMP, LAMP, and Node.js do not require any initial configuration. The pre-installed software is ready for use.

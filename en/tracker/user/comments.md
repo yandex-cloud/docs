@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Adding comments to issues
 
 You can use comments to leave notes about progress, ask for additional information, or ask colleagues to join the discussion.

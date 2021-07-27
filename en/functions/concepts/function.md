@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Function
 
 _The function_ lets you put your code in {{ yandex-cloud }} and run it on request or trigger.

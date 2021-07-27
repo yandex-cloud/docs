@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Invoice
 
 An invoice is a tax document that is issued by Yandex to residents of Russia under the Tax Code of the Russian Federation.

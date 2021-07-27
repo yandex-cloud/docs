@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Deployment policy
 
 When creating an instance group, you can choose how the instances will be deployed in the group.

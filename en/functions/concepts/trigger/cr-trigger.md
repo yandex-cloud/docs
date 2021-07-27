@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Triggers for {{ container-registry-name }}
 
 [Triggers](../trigger/) for {{ container-registry-name }} run a function when certain events occur with a [Docker-image](../../../container-registry/concepts/docker-image.md) from {{ container-registry-full-name }}. The trigger must be in the same cloud as the [registry](../../../container-registry/concepts/registry.md), whose events it's subscribed to.

@@ -1,8 +1,12 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Authenticating as a service account
 
 Learn how to authenticate in the CLI:
 
-- [As the service account](#auth-as-sa).
+- [As a service account](#auth-as-sa).
 - [As a service account from inside a VM](#vm-auth-as-sa).
 
 ## Before you start {#before-begin}
@@ -12,87 +16,13 @@ Learn how to authenticate in the CLI:
 
 ## Authenticate as a service account {#auth-as-sa}
 
-1. Get a list of service accounts that exist in your cloud:
-
-    ```
-    $ yc iam service-account --folder-id <folder ID> list
-    +----------------------+------------+
-    |          ID          |    NAME    |
-    +----------------------+------------+
-    | aje3932acd0c5ur7dagp | default-sa |
-    +----------------------+------------+
-    ```
-
-1. Create an authorized key for the service account and save it to the file `key.json`:
-
-    ```
-    $ yc iam key create --service-account-name default-sa --output key.json
-    id: aje83v701b1un777sh40
-    service_account_id: aje3932acd0c5ur7dagp
-    created_at: "2019-08-26T12:31:25Z"
-    key_algorithm: RSA_2048
-    ```
-
-1. Add the service account authorized key to the CLI profile.
-
-    1. Create a new CLI profile:
-
-        ```
-        $ yc config profile create sa-profile
-        ```
-
-    1. Add an authorized key:
-
-        ```
-        $ yc config set service-account-key key.json
-        ```
-
-1. Make sure that the service account parameters are added correctly:
-
-    ```
-    $ yc config list
-    service-account-key:
-      id: aje83v701b1un777sh40
-      service_account_id: aje3932acd0c5ur7dagp
-      created_at: "2019-08-26T12:31:25Z"
-      key_algorithm: RSA_2048
-      public_key: |
-        -----BEGIN PUBLIC KEY-----
-        MIIBIjANBg...
-        -----END PUBLIC KEY-----
-      private_key: |
-        -----BEGIN PRIVATE KEY-----
-        MIIEvwIBAD...
-        -----END PRIVATE KEY-----
-    ```
-
-1. Configure your profile to run commands.
-
-    {% include [add-folder](../../../_includes/cli-add-folder.md) %}
+{% include [auth-as-sa](../../../_includes/cli/auth-as-sa.md) %}
 
 ## Authenticate as a service account from inside a VM {#vm-auth-as-sa}
 
-The authentication process from inside a VM is simplified for a service account:
+{% include [vm-auth-as-sa](../../../_includes/cli/vm-auth-as-sa.md) %}
 
-1. [Link your service account](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to a virtual machine.
-
-1. Authenticate from inside a VM:
-
-    1. Connect to the virtual machine [over SSH](../../../compute/operations/vm-connect/ssh.md) or [via RDP](../../../compute/operations/vm-connect/rdp.md).
-
-    1. {% include [cli-install](../../../_includes/cli-install.md) %}
-
-    1. Create a new profile:
-
-        ```
-        yc config profile create my-robot-profile
-        ```
-
-1. Configure your profile to run commands.
-
-    {% include [add-folder](../../../_includes/cli-add-folder.md) %}
-
-Read more about working with Yandex.Cloud from a VM in the section [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md).
+Read more about working with {{ yandex-cloud }} from a VM in [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
 #### See also
 

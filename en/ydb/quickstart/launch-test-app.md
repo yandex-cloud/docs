@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Launch a test app
 
 To get acquainted with the {{ ydb-short-name }} SDK you can use test apps in [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) or [Java](https://github.com/yandex-cloud/ydb-java-sdk). To do this, you need to set up a DB connection and then install and run the appropriate test app.

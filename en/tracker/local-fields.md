@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Local issue fields
 
 If you want to add a new issue parameter that isn't already an existing field in {{ tracker-name }}, you can add local fields to your queue.

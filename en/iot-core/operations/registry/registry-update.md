@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Updating a registry
 
 You can update the [name](registry-update.md#update-name) or [description](registry-update.md#update-description) of a registry and [manage registry labels](registry-update.md#manage-label).

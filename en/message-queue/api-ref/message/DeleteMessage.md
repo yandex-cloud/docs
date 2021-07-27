@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # DeleteMessage
 
 Method for deleting messages from a queue. To select the message to delete, use the `ReceiptHandle` of the message. A message can be deleted even if it is received and being processed by another consumer. Message Queue automatically deletes messages if the value specified for the `RetentionPeriod` parameter is reached.

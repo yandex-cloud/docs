@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Folder incident notifications
 
 Users specified under **Incident notifications** in the folder settings are notified of incidents in specific folders of the cloud. The _folder_ owners don't receive any notifications by default. They should subscribe to notifications themselves.

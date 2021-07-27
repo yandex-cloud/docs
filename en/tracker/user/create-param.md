@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Adding issue fields
 
 ## Standard issue fields {#section_ymd_ycj_1gb}

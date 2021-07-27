@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Monitoring transfers
 
 {{ data-transfer-name }} supports transfer monitoring. To track data copying and replication processes, go to the **Monitoring** tab and use metrics.

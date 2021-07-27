@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Integration with a corporate DNS zone
 
 To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, follow the steps below:

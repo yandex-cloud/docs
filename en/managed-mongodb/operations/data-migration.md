@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Migrating data to {{ mmg-name }}
 
 To migrate your database to {{ mmg-name }}, you need to directly transfer the data, disable writing to the old database, and then switch the load over to the database cluster in {{ yandex-cloud }}.

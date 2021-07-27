@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc managed-mongodb cluster enable-sharding
 
 Enable sharding for MongoDB cluster.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc kms symmetric-crypto re-encrypt
 
 Re-encrypt a ciphertext with the specified symmetric key

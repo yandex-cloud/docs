@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating a table
 
 Create the tables and set the data schema for them using the statement [CREATE TABLE](../reference/syntax/create_table.md).

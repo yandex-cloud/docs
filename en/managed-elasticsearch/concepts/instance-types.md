@@ -4,11 +4,14 @@ description: 'The Elasticsearch host class defines the processing power that is 
 keywords:
   - Elasticsearch host classes
   - Elasticsearch
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Host classes
 
-The host class determines the computing power allocated for each host with the specific role in the cluster. When you change the host class for a role in the cluster, the characteristics change for all of the hosts with this role that were created earlier in the cluster. To learn more about roles, see [{#T}](index.md).
+The host class determines the computing power allocated for each host with the specific role in the cluster. When you change the host class for a role in the cluster, the characteristics change for all of the hosts with this role that were created earlier in the cluster. To learn more about roles, see [{#T}](./index.md).
 
 
 The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).

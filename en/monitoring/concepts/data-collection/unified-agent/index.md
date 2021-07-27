@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Agent for delivering metrics
 
 {{unified-agent-full-name}}: The agent for delivering metrics for virtual machines and user applications.

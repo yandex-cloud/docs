@@ -3,7 +3,10 @@ title: "Метод OperationService. Справочник API в Yandex Containe
 description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex Container Registry. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
 
 editable: false
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 # OperationService
 

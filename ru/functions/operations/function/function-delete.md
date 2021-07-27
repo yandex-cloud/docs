@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Удаление функции
 
 {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}

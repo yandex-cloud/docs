@@ -1,7 +1,10 @@
 ---
 title: "Relationship between {{ k8s }} service resources"
 description: "The main entity operated by the service is the {{k8s}} cluster. The {{k8s}} cluster consists of a master and one or more groups of nodes. The master is responsible for managing the {{k8s}} cluster. The nodes run containerized user applications . "
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Relationship between service resources
 

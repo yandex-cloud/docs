@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Custom translation glossaries
 
 To increase the accuracy of translations on a specific topic, pass a glossary in the request. A glossary is a dictionary of words and phrases with a single translation.

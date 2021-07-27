@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Adding your own geobase
 
 {{ mch-name }} contains a built-in [geobase dictionary](../concepts/dictionaries.md#internal-dicts) and a set of functions for working with it. The built-in dictionary lets you:

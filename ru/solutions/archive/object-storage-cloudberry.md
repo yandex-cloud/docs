@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Резервное копирование в {{ objstorage-full-name }} через CloudBerry Desktop Backup
 
 Чтобы настроить резервное копирование в {{ objstorage-name }} через CloudBerry Desktop Backup:
