@@ -80,7 +80,7 @@
 
    - API 
    
-      Чтобы создать  кластер {{ k8s }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
+      Чтобы создать  кластер {{ k8s }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md) для ресурса [Cluster](../../api-ref/Cluster/).
    
    {% endlist %}
    
@@ -91,7 +91,7 @@
    При создании группы узлов укажите необходимые метки в формате `ключ:значение`:
       * В консоли управления в блоке **Дополнительно** в поле **Метки узла**.
       * С помощью CLI — укажите флаг `--node-labels key=value[,key=value...]`.
-      * С помощью API — выполните запрос методом [create](../../api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../api-ref/NodeGroup) и укажите метки узла.
+      * С помощью API — выполните запрос методом [create](../../api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/) и укажите метки узла.
 
    {% list tabs %}
 
@@ -199,7 +199,7 @@
 
    - API
 
-     Чтобы создать группу узлов, воспользуйтесь методом [create](../../api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../api-ref/NodeGroup).
+     Чтобы создать группу узлов, воспользуйтесь методом [create](../../api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
 
    {% endlist %}
 

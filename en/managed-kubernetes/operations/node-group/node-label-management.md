@@ -80,7 +80,7 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
 
    - API
 
-     To create a {{ k8s }} cluster, use the [create](../../api-ref/Cluster/create.md) method for a [Cluster](../../api-ref/Cluster) resource.
+     To create a {{ k8s }} cluster, use the [create](../../api-ref/Cluster/create.md) method for a [Cluster](../../api-ref/Cluster/) resource.
 
    {% endlist %}
 
@@ -91,7 +91,7 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
    When creating a node group, specify node labels as `key:value` pairs:
    * Management console: In the **Advanced** section in the **Node labels** field.
    * CLI: Use the `--node-labels key=value[,key=value...]` flag.
-   * API: Execute a request using the [create](../../api-ref/NodeGroup/create.md) method for a [NodeGroup](../../api-ref/NodeGroup) resource and specify the node labels.
+   * API: Execute a request using the [create](../../api-ref/NodeGroup/create.md) method for a [NodeGroup](../../api-ref/NodeGroup/) resource and specify the node labels.
 
    {% list tabs %}
 
@@ -199,7 +199,7 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
 
    - API
 
-     To create a node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
+     To create a node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
 
    {% endlist %}
 
@@ -261,6 +261,6 @@ You can add labels to all nodes in a node group at the same time. To do this, sp
 
    - API
 
-     To view information about the node, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
+     To view information about the node, use the [list](../../api-ref/NodeGroup/list.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
 
    {% endlist %}

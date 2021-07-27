@@ -6,7 +6,7 @@ When creating a cluster, you can:
 
 - Set the network for the cluster itself.
 - Set the subnets for each host in the cluster.
-- Request a public IP address to access cluster hosts with the [_Data node_ role](index.md) from outside {{ yandex-cloud }}.
+- Request a public IP address to access cluster hosts with the [_Data node_ role](./index.md) from outside {{ yandex-cloud }}.
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
 

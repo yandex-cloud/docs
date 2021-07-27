@@ -90,4 +90,4 @@
 
 * [Интерфейс командной строки YC CLI](../../cli).
 * [Шифрование в Key Management Service](../concepts/encryption.md).
-* [Управление ключами в KMS](index.md).
+* [Управление ключами в KMS](./index.md).

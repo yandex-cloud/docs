@@ -1,6 +1,6 @@
 # Encrypting data using the Yandex.Cloud CLI and API
 
-In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up to 32 KB). For more information about available encryption methods, see [{#T}](index.md)
+In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up to 32 KB). For more information about available encryption methods, see [{#T}](./index.md)
 
 ## Before you start {#before-you-begin}
 

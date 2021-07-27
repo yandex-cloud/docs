@@ -92,7 +92,7 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
 
 - API
 
-    To create a node group, use the [create](../../api-ref/NodeGroup/create.md/) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
+    To create a node group, use the [create](../../api-ref/NodeGroup/create.md) method for the [NodeGroup](../../api-ref/NodeGroup/) resource.
 
 {% endlist %}
 

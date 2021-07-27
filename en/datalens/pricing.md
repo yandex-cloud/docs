@@ -62,7 +62,7 @@ In {{ datalens-short-name }}, sessions are categorized as internal or external:
 
 | Session type | Data source |
 | ----- | ----- |
-| Internal | Materialized datasets<br/>CSV connections<br/>Yandex.Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>{{ yandex-cloud }}Managed databases:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql) |
+| Internal | Materialized datasets<br/>CSV connections<br/>Yandex.Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>{{ yandex-cloud }}Managed databases:<br/> - [Managed Service for ClickHouse](../managed-clickhouse/)<br/> - [Managed Service for PostgreSQL](../managed-postgresql/)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql/) |
 | External | Any external data source that is not related to Yandex or {{ yandex-cloud }}. |
 
 ### How sessions are calculated {#how-sessions-counted}

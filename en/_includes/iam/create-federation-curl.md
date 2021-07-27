@@ -1,4 +1,4 @@
-Create a federation using the [create](../../api-ref/Federation/create) method:
+Create a federation using the [create](../../iam/api-ref/Federation/create) method:
 
 ```
 $ curl -X POST \

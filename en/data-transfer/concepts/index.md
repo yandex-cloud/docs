@@ -14,9 +14,9 @@ _Endpoint_ is configuration used to connect to the database.
 Endpoints are available for the following databases:
 
 * {{ MY }} user database.
-* A database in [{{ mmy-short-name }}<sup>®</sup>](../../managed-mysql).
+* A database in [{{ mmy-short-name }}<sup>®</sup>](../../managed-mysql/).
 * {{ PG }} user database.
-* A database in [{{ mpg-short-name }}](../../managed-postgresql).
+* A database in [{{ mpg-short-name }}](../../managed-postgresql/).
 
 ### Types of endpoints {#endpoint-type}
 

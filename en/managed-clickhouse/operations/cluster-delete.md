@@ -26,7 +26,7 @@ description: "After deleting a PostgreSQL database cluster, its backups are pres
   $ {{ yc-mdb-ch }} cluster delete <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 

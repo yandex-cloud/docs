@@ -24,7 +24,7 @@
         
     - Аккаунт на Яндексе
     
-        Для аутентификации будет использован [OAuth-токен](https://cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token.md).
+        Для аутентификации будет использован [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
 
     {% endlist %}
     
