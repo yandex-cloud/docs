@@ -58,4 +58,3 @@ While the model is being trained, you can perform operations in other cells.
 ## Aborting a background operation {#interrupt}
 
 {% include [interrupt](../../_includes/datasphere/interrupt-cell.md) %}
-
