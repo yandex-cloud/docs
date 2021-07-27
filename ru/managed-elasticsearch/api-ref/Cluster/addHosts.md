@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 # Method addHosts
 Adds new hosts to the specified Elasticsearch cluster.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Sharding
 
 _Sharding_ is a horizontal cluster scaling strategy that puts parts of one {{ CH }} database on different shards. A _shard_ consists of one or more [replica hosts](replication.md). A write or read request for the shard can be sent to any of its replicas because there is no dedicated master. When data is inserted, it is taken from the replica on which the `INSERT` request was executed and copied to other replicas in the shard in asynchronous mode.

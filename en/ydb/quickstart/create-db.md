@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Create databases
 
 Create a [database](../concepts/databases.md#database) using {{ ydb-full-name }} from the {{ yandex-cloud }} management console.

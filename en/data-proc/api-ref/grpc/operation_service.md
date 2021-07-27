@@ -3,7 +3,10 @@ title: "Method OperationService. API Reference in Yandex Data Proc"
 description: "A set of methods for managing operations in asynchronous API requests of the Yandex Data Proc service. Links are specified relative to the operation.api.cloud.yandex.net domain."
 
 editable: false
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # OperationService
 

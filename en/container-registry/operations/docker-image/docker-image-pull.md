@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Pulling a Docker image from a registry
 
 To pull a [Docker image](../../concepts/docker-image.md), you need to know the repository it is stored in and its tag or digest.

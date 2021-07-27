@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 # Method setPrimaryVersion
 Sets the primary version for the specified key. The primary version is used

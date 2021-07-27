@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Updating a lifecycle policy
 
 After creating a [lifecycle policy](../../concepts/lifecycle-policy.md), you can update its rules, status, name, and description.

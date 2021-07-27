@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # INSERT INTO
 
 Adds rows to the table. `INSERT INTO` pre-fetches the data and doesn't support overwrite, hence `PRIMARY_KEY` of the new row must not repeat the existing values.

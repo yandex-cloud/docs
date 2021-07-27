@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Which encryption method should I choose?
 
 The table below compares encryption using Yandex.Cloud tools (CLI, API, and SDK) and other libraries (AWS Encryption SDK and Google Tink). Take a look at the table and choose the most suitable method.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Integration with Apache Spark™
 
 {{ ml-platform-name }} integration with {{ dataproc-full-name }} lets you perform calculations on Apache Spark™ clusters. Calculations are performed in sessions created using [Apache Livy](https://livy.apache.org/).

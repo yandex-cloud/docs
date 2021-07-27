@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc application-load-balancer virtual-host delete
 
 Delete the specified virtual host of the http router

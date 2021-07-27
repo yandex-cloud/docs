@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc compute instance attach-disk
 
 Attach existing disk to the the specified virtual machine instance

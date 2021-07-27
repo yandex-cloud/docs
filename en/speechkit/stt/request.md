@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Short audio recognition
 
 Short audio recognition ensures fast response time and is suitable for single-channel audio of small length.

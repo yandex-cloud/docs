@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # SendMessageBatchResultEntry
 
 Encloses a `MessageId` for a successfully enqueued message from a batch in a [SendMessageBatch](../message/SendMessageBatch.md).

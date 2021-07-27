@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Image {{ coi }}
 
 _{{ coi }}_ is an [image](../../compute/concepts/image.md) of a VM optimized for running Docker containers. The image includes Ubuntu LTS, Docker, and a daemon for launching Docker containers.

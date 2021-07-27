@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 # Method listShards
 Retrieves a list of shards that belong to the specified cluster.

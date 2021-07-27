@@ -1,7 +1,10 @@
 ---
 title: "Cloud Computing. FAQ"
 description: "What is cloud computing for? Yandex.Cloud provides scalable cloud computing: you can quickly create and start virtual machines as needed and stop them if the load decreases. Using cloud computing reduces your IT infrastructure costs: you pay only for the resources you use."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # General questions
 

@@ -1,8 +1,12 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Attaching a disk to a VM
 
-You can attach a disk to either a running or stopped virtual machine.
+You can attach a disk to either a running or stopped VM.
 
-For a disk to be successfully attached to a running VM, the operating system must be ready to accept commands to attach disks. Before attaching a disk, make sure that the OS is loaded or stop the virtual machine, otherwise the attach disk operation fails. If an error occurs, stop the VM and repeat the operation.
+For a disk to be successfully attached to a running VM, the VM's operating system must be ready to accept commands to attach disks. Before attaching a disk, make sure that the OS is loaded or stop the VM, otherwise the attach disk operation fails. If an error occurs, stop the VM and repeat the operation.
 
 {% include [disk-auto-delete](../../_includes_service/disk-auto-delete.md) %}
 
@@ -13,16 +17,16 @@ To attach a disk to a VM:
 {% list tabs %}
 
 - Management console
-   1. Select the folder the VM belongs to.
-   1. Select **{{ compute-full-name }}**.
-   1. Go to **Disks**.
-   1. Under **Disks**, select an unmounted disk or [create](../disk-create/empty.md) a new one.
-   1. Next to the desired disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Attach**.
-   1. In the window that opens:
-      - In the **VM** field, select the virtual machine you want to mount your disk to.
-      - Enter a **Device name**.
-      - Select the value of the **Delete automatically** parameter.
-   1. Click **Attach**.
+  1. Select the folder that the VM belongs to.
+  1. Select **{{ compute-full-name }}**.
+  1. Go to **Disks**.
+  1. Under **Disks**, select an unmounted disk or [create](../disk-create/empty.md) a new one.
+  1. Next to the desired disk, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Attach**.
+  1. In the window that opens:
+     * In the **VM** field, select the VM you want to mount your disk to.
+     * Enter a **Device name**.
+     * Select the value of the **Delete automatically** parameter.
+  1. Click **Attach**.
 
 - CLI
 
@@ -32,51 +36,51 @@ To attach a disk to a VM:
 
   1. View a description of the CLI attach disk command:
 
-      ```
-      $ yc compute instance attach-disk --help
-      ```
+     ```bash
+     yc compute instance attach-disk --help
+     ```
 
   1. Get a list of VMs in the default folder:
 
-      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
   1. Select the VM `ID` or `NAME` (for example, `first-instance`).
 
   1. Get a list of disks in the default folder:
 
-      {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
+     {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
   1. Select the `ID` or `NAME` of the required disk (for example, `first-disk`). To view a list of disks attached to the VM, run the command:
 
-      ```
-      $ yc compute instance get --full first-instance
-      ```
+     ```bash
+     yc compute instance get --full first-instance
+     ```
 
   1. Attach the disk to the VM:
 
-      ```
-      $ yc compute instance attach-disk first-instance \
-          --disk-name first-disk \
-          --mode rw
-      ```
+     ```bash
+     yc compute instance attach-disk first-instance \
+       --disk-name first-disk \
+       --mode rw
+     ```
 
-      To automatically delete the disk when deleting the VM, set the `--auto-delete` flag.
+     To automatically delete the disk when deleting the VM, set the `--auto-delete` flag.
 
-      {% include [attach_empty_disk](../../_includes_service/attach-empty-disk.md) %}
+     {% include [attach_empty_disk](../../_includes_service/attach-empty-disk.md) %}
 
-      If an error occurs, stop the virtual machine:
+     If an error occurs, stop the VM:
 
-      ```
-      $ yc compute instance stop first-instance
-      ```
+     ```bash
+     yc compute instance stop first-instance
+     ```
 
-      Then reattach the disk.
+     Then reattach the disk.
 
-  1. If the virtual machine was stopped, restart it:
+  1. If the VM was stopped, restart it:
 
-      ```
-      $ yc compute instance start first-instance
-      ```
+     ```bash
+     yc compute instance start first-instance
+     ```
 
 - API
 
@@ -98,46 +102,44 @@ To use the attached disk:
 
   1. Run the `blkid` command and make sure that there are no partitions with duplicate UUIDs:
 
-      ```bash
-      $ sudo blkid
-      /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-      /dev/vdb2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-      ...
-      ```
+     ```bash
+     sudo blkid
+     /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+     /dev/vdb2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+     ...
+     ```
 
   1. If there are, generate a new UUID for the duplicates that come last in the `blkid` command output. In the example from the previous step, you need to generate a UUID for the `/dev/vdb2` partition:
 
-      ```bash
-      $ sudo e2fsck -f /dev/vdb2
-      $ sudo tune2fs -U $(uuidgen) /dev/vdb2
-      ```
+     ```bash
+     sudo e2fsck -f /dev/vdb2
+     sudo tune2fs -U $(uuidgen) /dev/vdb2
+     ```
 
-      This method works for partitions with `ext2`, `ext3`, and `ext4` file systems. The latter is used in the Linux images provided by {{ yandex-cloud }}. The file system type is returned by the `blkid` command in the `TYPE` parameter.
+     This method works for partitions with `ext2`, `ext3`, and `ext4` file systems. The latter is used in the Linux images provided by {{ yandex-cloud }}. The file system type is returned by the `blkid` command in the `TYPE` parameter.
 
-      If you use another filesystem, run the suitable command. For example, to generate a UUID for `XFS`, run the following:
+     If you have a different file system, use the appropriate commands. For example, for `XFS`, execute:
 
-      ```bash
-      $ sudo xfs_admin -U generate /dev/vdb2
-      ```
+     ```bash
+     sudo xfs_admin -U generate /dev/vdb2
+     ```
 
-      To see if the UUID changed, run the `blkid` command again:
+     To see if the UUID changed, run the `blkid` command again:
 
-      ```bash
-      $ sudo blkid
-      /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-      /dev/vdb2: UUID="ea004485-07fb-4128-b20d-e408db1e8ae8" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
-      ```
+     ```bash
+     sudo blkid
+     /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+     /dev/vdb2: UUID="ea004485-07fb-4128-b20d-e408db1e8ae8" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+     ```
 
-      {% include [include](../../../_includes/compute/duplicated-uuid-note.md) %}
+     {% include [include](../../../_includes/compute/duplicated-uuid-note.md) %}
 
   1. {% include [include](../../../_includes/compute/mount-disk.md) %}
 
   1. Run the `df` command to check the state of the file system.
 
 - Windows
-
   1. Connect to the VM [via RDP](../vm-connect/rdp.md).
-  
   1. Assign a letter to the attached disk. For information about how to do this, see the [Microsoft documentation](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter).
 
 {% endlist %}
@@ -152,21 +154,21 @@ To partition and mount an empty disk yourself:
 
   1. Check if the disk is attached as a device and get its path in the system:
 
-      ```bash
-      lsblk
-      ```
+     ```bash
+     lsblk
+     ```
 
-      Command execution result:
+     Command execution result:
 
-      ```
-      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
-      vda    252:0    0  13G  0 disk
-      ├─vda1 252:1    0   1M  0 part
-      └─vda2 252:2    0  13G  0 part /
-      vdb    252:16   0   1G  0 disk
-      ```
+     ```bash
+     NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+     vda    252:0    0  13G  0 disk
+     ├─vda1 252:1    0   1M  0 part
+     └─vda2 252:2    0  13G  0 part /
+     vdb    252:16   0   1G  0 disk
+     ```
 
-      An empty disk is usually labeled /dev/vdb.
+     An empty disk is usually labeled /dev/vdb.
 
   1. Partition your disk. To do  this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) using [cfdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), [fdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or [parted](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
 
@@ -176,23 +178,23 @@ To partition and mount an empty disk yourself:
 
   1. Check the file system status:
 
-      ```bash
-      df
-      ```
+     ```bash
+     df
+     ```
 
-      Command execution result:
+     Command execution result:
 
-      ```
-      Filesystem     1K-blocks    Used Available Use% Mounted on
-      udev              989424       0    989424   0% /dev
-      tmpfs             203524     816    202708   1% /run
-      /dev/vda2       13354932 2754792  10015688  22% /
-      tmpfs            1017608       0   1017608   0% /dev/shm
-      tmpfs               5120       0      5120   0% /run/lock
-      tmpfs            1017608       0   1017608   0% /sys/fs/cgroup
-      tmpfs             203520       0    203520   0% /run/user/1000
-      /dev/vdb2         523260    3080    520180   1% /mnt
-      ```
+     ```bash
+     Filesystem     1K-blocks    Used Available Use% Mounted on
+     udev              989424       0    989424   0% /dev
+     tmpfs             203524     816    202708   1% /run
+     /dev/vda2       13354932 2754792  10015688  22% /
+     tmpfs            1017608       0   1017608   0% /dev/shm
+     tmpfs               5120       0      5120   0% /run/lock
+     tmpfs            1017608       0   1017608   0% /sys/fs/cgroup
+     tmpfs             203520       0    203520   0% /run/user/1000
+     /dev/vdb2         523260    3080    520180   1% /mnt
+     ```
 
 - Windows
 
@@ -200,12 +202,17 @@ To partition and mount an empty disk yourself:
 
   1. Under **Storage**, select **Disk Management**.
 
+     {% note info %}
+
+     When you attach a disk to a running VM, it might not appear in the list. In this case, restart the OS and repeat steps 1 and 2. After that, right-click on the empty disk and select **In the network**.
+
+     {% endnote %}
+
   1. Initialize the disk. To do this, right-click on the empty disk and select **Initialize Disk**. This opens the **Initialize Disk** dialog.
 
   1. Select a [partition style](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) and click **ОК**.
 
   1. Create partitions on the disk. To do this, right-click on the empty disk and select **New Simple Volume**.
 
-  1. Use the **New Simple Volume Wizard** to set the desired partition size, [assign a drive letter](https://docs.microsoft.com/windows-server/storage/disk-management/change-a-drive-letter), and specify the file system type.
+  1. Use the **New Simple Volume Wizard** to set the desired partition size, [assign a drive letter](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter), and specify the file system type.
 
-{% endlist %}

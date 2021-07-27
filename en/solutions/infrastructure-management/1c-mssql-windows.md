@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server
 
 To configure the use of 1C:Enterprise in {{ yandex-cloud }}, you need to create a working server, a license server, and a database server. 1C servers will be running Windows Server Datacenter 2019 and the DB server will be running MS SQL Server 2016.

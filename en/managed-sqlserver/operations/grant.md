@@ -1,3 +1,11 @@
+---
+title: "Assigning privileges and roles to SQL Server users"
+description: "Atomic permissions in SQL Server are called privileges, permissions groups are called roles. Managed Service for SQL Server supports predefined roles. A user created with a Managed Service for SQL Server cluster is automatically assigned the owner role (DB_OWNER) of the first database in the cluster. Then you can create other users and customize their rights as you see fit."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
+
+
 # Assigning privileges and roles to users
 
 Atomic permissions in **{{ MS }}** are called _privileges_ and groups of permissions are called _roles_. **{{ mms-name }}** supports [predefined roles](#predefined-db-roles). For more information about how to manage permissions, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016).

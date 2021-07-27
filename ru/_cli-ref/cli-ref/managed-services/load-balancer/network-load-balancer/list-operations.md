@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc load-balancer network-load-balancer list-operations
 
 List operations for the specified load balancer

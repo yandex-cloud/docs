@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc container image scan
 
 [PREVIEW] Start scan of Docker image for vulnerabilities.

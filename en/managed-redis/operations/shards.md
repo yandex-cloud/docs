@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Managing cluster shards
 
 You can add and remove cluster shards, request a list of shards in your cluster, and rebalance your cluster.

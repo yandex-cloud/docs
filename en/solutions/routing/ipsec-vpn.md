@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating an IPSec VPN tunnel
 
 This scenario describes how to configure an IPSec instance to route traffic from Yandex.Cloud VMs to an IPSec VPN tunnel using the [strongSwan](https://www.strongswan.org/) daemon.

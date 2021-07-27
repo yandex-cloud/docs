@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Load balancer
 
 A load balancer is used for receiving incoming traffic and transmitting it to the backend endpoints specified in the [target groups](target-group.md). Request routing follows the rules defined in the [HTTP routers](http-router.md) connected to the load balancer's [listeners](#listener.md). Settings for transmitting traffic to backends are configured in [backend groups](backend-group.md) created on top of target groups.

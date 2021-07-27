@@ -1,7 +1,10 @@
 ---
 title: "Relationship between {{ mkf-full-name }} resources"
 description: "{{ KF }} is a distributed messaging system between applications on a publish-subscribe basis. The {{ mkf-full-name }} service helps you deploy and maintain {{ KF }} server clusters 2.1 and 2.6 in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts that host topics and their sections."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Relationship between service resources
 

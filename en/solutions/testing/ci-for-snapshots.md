@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating test VMs using GitLab CI
 
 You can use Yandex.Cloud to automate routine actions, such as running a specific script after each commit to the `master` branch in a git repository. In the example below, a VM is created and tested after each commit.

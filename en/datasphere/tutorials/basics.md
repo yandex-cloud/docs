@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting started with {{ ml-platform-name }}
 
 {{ ml-platform-full-name }} lets you analyze data and build machine learning (ML) models using the familiar Jupyter Notebook interface. From this use case, you'll learn about the service's features by example of using a notebook for the [2017 Kaggle ML & DS Survey](https://www.kaggle.com/kaggle/kaggle-survey-2017) dataset ([Kaggle](https://www.kaggle.com/) survey 2017).

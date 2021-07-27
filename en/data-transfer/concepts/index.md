@@ -1,7 +1,10 @@
 ---
 title: "Relationship between {{data-transfer-full-name}} service resources"
 description: "{{data-transfer-full-name}} allows you to easily transfer data between databases. The service allows you to reduce the time for the migration process, minimize downtime when switching to a new database or have a permanent replica of the database."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Relationship between service resources
 
@@ -14,9 +17,9 @@ _Endpoint_ is configuration used to connect to the database.
 Endpoints are available for the following databases:
 
 * {{ MY }} user database.
-* A database in [{{ mmy-short-name }}<sup>®</sup>](../../managed-mysql).
+* A database in [{{ mmy-short-name }}<sup>®</sup>](../../managed-mysql/).
 * {{ PG }} user database.
-* A database in [{{ mpg-short-name }}](../../managed-postgresql).
+* A database in [{{ mpg-short-name }}](../../managed-postgresql/).
 
 ### Types of endpoints {#endpoint-type}
 

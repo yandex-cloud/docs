@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Running sample code in a notebook
 
 The notebook provides small code examples for loading data from different sources.

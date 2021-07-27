@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Replication and fault tolerance
 
 {{ mrd-name }} uses standard Redis replication and provides high availability of cluster data using Redis Sentinel.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # ChangeMessageVisibilityBatchResultEntry
 
 ID of an entry in a batch from the [ChangeMessageVisibilityBatch](../message/ChangeMessageVisibilityBatch.md) request.

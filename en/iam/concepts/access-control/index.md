@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # How access management works in {{ yandex-cloud }}
 
 Here you can learn how to manage access to your resources and how {{ iam-short-name }} checks access rights for the resources.

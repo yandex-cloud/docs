@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Advanced queue features
 
 You can use advanced queue features to manage your issues more effectively and create your own workflow. These features include automatic changes to issue fields, notifications, and so on.

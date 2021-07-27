@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Log group
 
 _A log group_ is a way of grouping messages from the same source. This source can be, for example, a [function](function.md) or [registry](../../iot-core/concepts/index.md#registry) named IoT-core.

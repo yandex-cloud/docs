@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # deleteBucket method
 
 Deletes an empty bucket. If the bucket isn't empty, first delete all the objects inside the bucket.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # DeleteMessageBatchResultEntry
 
 Идентификатор записи в запросе [DeleteMessageBatch](../message/DeleteMessageBatch.md).

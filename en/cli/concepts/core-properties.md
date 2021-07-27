@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # CLI configuration
 
 You can [set the parameters](../operations/profile/manage-properties.md) in the profile to quickly switch the command execution context. Use global flags for a single run of a command with a specific parameter value.

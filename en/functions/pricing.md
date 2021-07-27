@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 # Pricing for {{ sf-name }}
 
 ## What goes into the cost of using {{ sf-name }} {#rules}

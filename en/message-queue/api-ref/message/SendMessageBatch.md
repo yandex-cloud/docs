@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # SendMessageBatch
 
 Method for simultaneously delivering up to 10 messages to the specified queue. When sending messages to a FIFO queue, they will be delivered in the order that they are sent.

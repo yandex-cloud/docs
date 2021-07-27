@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Projects
 
 In {{ tracker-name }}, projects are sets of issues that have a shared goal. Projects come in various forms, from creating a new app or service to holding a conference or renovating the office. Any activity with deadlines and set goals in mind can be thought of as a project.

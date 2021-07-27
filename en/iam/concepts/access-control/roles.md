@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Roles
 
 _A role_ is a set of user permissions to perform operations with {{ yandex-cloud }} resources.

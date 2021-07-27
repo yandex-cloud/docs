@@ -5,7 +5,10 @@ keywords:
   - yql
   - what is yql
   - Yandex Query Language
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Overview
 

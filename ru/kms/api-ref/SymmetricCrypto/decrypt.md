@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 # Method decrypt
 Decrypts the given ciphertext with the specified key.

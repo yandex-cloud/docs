@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Idempotency
 
 Yandex.Cloud services support [idempotency](https://en.wikipedia.org/wiki/Idempotence). An idempotent operation returns the same result for multiple calls.

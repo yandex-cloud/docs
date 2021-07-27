@@ -95,6 +95,8 @@ items:
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
             href: operations/vm-operate/install-nvidia-drivers.md
+          - name: Restoring access to a VM
+            href: operations/vm-connect/recovery-access.md
       - name: Creating new disks
         items:
           - name: Creating an empty disk
@@ -255,6 +257,8 @@ items:
                 href: concepts/instance-groups/deploy/deploy.md
               - name: Rules for updating instance groups
                 href: concepts/instance-groups/deploy/instance.md
+              - name: Changing secondary disks in an instance template
+                href: concepts/instance-groups/deploy/secondary-disk.md
           - name: Statuses
             href: concepts/instance-groups/statuses.md
       - name: Dedicated host

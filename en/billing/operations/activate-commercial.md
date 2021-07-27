@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Activate the paid version
 
 You need to activate the paid version within thirty days after the trial period ends, otherwise all of your resources are deleted automatically.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc load-balancer network-load-balancer detach-target-group
 
 Detaches the target group from the specified network load balancer.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Deleting data
 
 Delete data from the table using [DELETE](../reference/syntax/delete.md).

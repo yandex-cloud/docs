@@ -1,7 +1,10 @@
 ---
 title: "Viewing monitoring graphs in Yandex API Gateway"
 description: "You can see the monitoring graphs in Yandex API Gateway for the following indicators, such as the number of requests to the API gateway, the number of errors that occurred when accessing the API gateway. To see the graph, open the API Gateway section in the API gateway directory, information about which you want to get. In the window that opens, select the API gateway whose monitoring graphs you want to view. "
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # View monitoring charts
 

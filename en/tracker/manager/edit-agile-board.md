@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Editing and deleting a board
 
 ## Edit a board {#section_ft1_3l3_3z}

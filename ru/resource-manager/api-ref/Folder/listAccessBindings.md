@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 # Method listAccessBindings
 Lists access bindings for the specified folder.

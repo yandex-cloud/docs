@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc compute image get-latest-from-family
 
 Show information about the latest image that is part of an image family

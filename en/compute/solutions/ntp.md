@@ -6,7 +6,10 @@ keywords:
   - sntp
   - network time servers
   - network time
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Configuring clock synchronization using NTP
 

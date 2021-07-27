@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Publishing a notebook
 
 You can export a notebook as a link to an HTML report. The report saves all calculation results and cell explanations so that you can send the link to customers or publish the results on your website.

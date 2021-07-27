@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Managing shards
 
 You can enable [sharding](../concepts/sharding.md) for clusters that have {{ MG }} version 4.0 or higher. You can also add and configure individual shards.

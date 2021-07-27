@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating an automatically scaled instance group
 
 You can create an automatically scaled group of identical instances. The size of this group will be managed automatically. For more information, see [{#T}](../../concepts/instance-groups/scale.md#auto-scale).

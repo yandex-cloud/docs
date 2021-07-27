@@ -1,7 +1,10 @@
 ---
 title: "Viewing the execution log in Yandex Cloud Functions"
 description: "You can view the monitoring schedule in Yandex Cloud Functions using the management console. To do this, select the Cloud Functions service, click on the function whose execution log you want to view. In the window that opens, go to the Logs section and specify the period. By default, the period is set in 1 hour. The function execution logs are stored for 14 days. The time in the log is specified in UTC."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Viewing the execution log
 

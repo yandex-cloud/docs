@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 # Правила тарификации для {{ datalens-full-name }}
 
@@ -48,7 +51,7 @@ editable: false
 
 Тип сессии | Источники данных
 -----  | -----
-Внутренняя | Материализованные датасеты<br/>CSV-подключения<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Управляемые базы данных {{ yandex-cloud }}:<br/> - [Managed Service for ClickHouse](../managed-clickhouse)<br/> - [Managed Service for PostgreSQL](../managed-postgresql)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql)
+Внутренняя | Материализованные датасеты<br/>CSV-подключения<br/>Metrica<br/>Metrica Logs API<br/>AppMetrica<br/>AppMetrica Logs API<br/>Управляемые базы данных {{ yandex-cloud }}:<br/> - [Managed Service for ClickHouse](../managed-clickhouse/)<br/> - [Managed Service for PostgreSQL](../managed-postgresql/)<br/> - [Managed Service for MySQL<sup>®</sup>](../managed-mysql/)
 Внешняя | Любой внешний источник данных, который не относится к Яндексу и {{ yandex-cloud }}.
 
 ### Как считаются сессии {#how-sessions-counted}

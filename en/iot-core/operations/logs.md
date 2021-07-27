@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Viewing the connection log
 
 The log contains information about connecting/disconnecting devices and errors. You can view connection logs for the[registry](#registry) and [devices](#device). The log uses Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).

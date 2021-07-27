@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Updating a folder
 
 The management console only allows you to change the name of a folder. To change its description, use the CLI or API.

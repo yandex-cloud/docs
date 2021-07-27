@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Method cancelVersionDestruction
 Cancels previously scheduled version destruction, if the version hasn't been destroyed yet.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Integration with services from {{ yandex-cloud }}
 
 You can use {{ certificate-manager-name }} certificates in the following {{ yandex-cloud }} services:

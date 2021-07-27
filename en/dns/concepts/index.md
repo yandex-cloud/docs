@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # {{ dns-name }} concepts
 
 {{ dns-full-name }} ({{ dns-name }}) is a service that handles DNS requests and facilitates DNS administration.

@@ -7,7 +7,10 @@ keywords:
   - upload to the cloud
   - disk image
   - Linux OS image
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Uploading a disk image to {{ yandex-cloud }}
 

@@ -4,7 +4,10 @@ description: 'Когда документ сохраняется в Elasticsearc
 keywords:
   - индекс Elasticsearch
   - Elasticsearch
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 # Индексы
 

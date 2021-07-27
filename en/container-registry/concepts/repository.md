@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Repository
 
 _A repository_ is a set of Docker images with the same name. Repositories usually contain several versions of the same Docker image. Tags and digests are used to work with versions inside the repository. For more information, see [Docker image](docker-image.md).

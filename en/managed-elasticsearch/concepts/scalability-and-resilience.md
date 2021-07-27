@@ -5,7 +5,10 @@ keywords:
   - Elasticsearch sharding
   - Elasticsearch replication
   - Elasticsearch
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Sharding and replication
 

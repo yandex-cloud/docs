@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Using SSML
 
 With the Speech Synthesis Markup Language (SSML), you can control how {{ speechkit-name }} synthesizes speech from text.

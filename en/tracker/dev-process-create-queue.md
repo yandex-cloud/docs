@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Create a queue for the development team
 
 Each team has their own established way of planning their workload, solving issues, and releasing products. If you want to set up a familiar workflow for the team in {{ tracker-name }}, use an [issue queue](queue-intro.md). A queue is an area shared by related issues being worked on under a single product or pipeline.

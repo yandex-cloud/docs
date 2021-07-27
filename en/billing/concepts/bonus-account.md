@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Grant
 
 A grant is a discount given to a business or individual to use with any of the Yandex.Cloud services. The discount amount corresponds to the grant amount. The discount is applied to the total cost of services consumed.

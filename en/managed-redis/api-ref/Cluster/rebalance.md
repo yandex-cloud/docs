@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Method rebalance
 Rebalances the cluster. Evenly distributes all the hash slots between the shards.

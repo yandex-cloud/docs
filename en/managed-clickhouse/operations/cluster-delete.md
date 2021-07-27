@@ -1,3 +1,11 @@
+---
+title: "Deleting PostgreSQL clusters"
+description: "After deleting a PostgreSQL database cluster, its backups are preserved and can be used for recovery within 7 days. To restore a deleted cluster from a backup, you will need its ID, so save the cluster ID in a safe place before deleting."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
+
+
 # Deleting a cluster
 
 {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
@@ -21,7 +29,7 @@
   $ {{ yc-mdb-ch }} cluster delete <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](list-clusters).
+  The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 

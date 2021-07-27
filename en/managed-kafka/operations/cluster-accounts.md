@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Managing Apache Kafka® accounts
 
 Accounts in {{ KF }} let you manage permissions of data [producers and consumers](../concepts/producers-consumers.md). A producer or consumer can only access the [topics](../concepts/topics.md) that are allowed for their accounts.

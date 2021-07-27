@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc iot registry list-device-topic-aliases
 
 List all topic aliases set for devices in this registry

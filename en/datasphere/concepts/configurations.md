@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Computing resource configurations
 
 Once you create a project, it runs with the minimal computing resource configuration: <q>c1.4</q> (4 vCPUs).

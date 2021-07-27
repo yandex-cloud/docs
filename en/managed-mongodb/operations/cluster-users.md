@@ -1,3 +1,11 @@
+---
+title: "MongoDB user management"
+description: "This article will show you how to add and remove users, as well as manage their individual settings in the MongoDB database management service."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
+
+
 # Managing database users
 
 You can add and remove users, as well as manage their individual settings.

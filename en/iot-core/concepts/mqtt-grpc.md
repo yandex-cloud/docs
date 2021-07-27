@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Sending messages to an MQTT broker via gRPC
 
 You can send messages to an MQTT broker on behalf of a device or registry using [gRPC](https://grpc.io/docs/). To serialize data, use [Protobuf](https://developers.google.com/protocol-buffers/docs/overview).

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Allocating instances across zones
 
 Allocation of instances across zones depends on the [group scaling type](../scale.md).

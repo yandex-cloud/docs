@@ -1,7 +1,10 @@
 ---
 title: Access management in Cloud Functions
 description: "Access management in the service where you can launch the applications without creating and maintaining virtual machines — Cloud Functions. The section describes which resources can be assigned a role, which roles act in the service."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Access management
 

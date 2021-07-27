@@ -3,7 +3,10 @@ description: "Face detection is a service that allows you to find people's faces
 keywords:
   - face detection
   - face detection service
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Face detection
 

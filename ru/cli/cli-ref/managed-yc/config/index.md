@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc config
 
 The 'yc config' command group lets you set, view and unset properties used by Yandex.Cloud CLI.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc dns zone replace-records
 
 Replace all records specified by name and type in dns zone with new ones.

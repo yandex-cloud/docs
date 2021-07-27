@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Authenticating as a user
 
 You can authenticate in the [profile creation wizard](../profile/profile-create.md#interactive-create) using the `yc init` command or following these steps:

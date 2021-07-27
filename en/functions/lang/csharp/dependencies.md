@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Building and managing dependencies
 
 {{ sf-name }} supports two ways to manage dependencies: automatic installation using `nuget` and manual delivery of dependencies with the source code.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Special data types
 
 * **Callable** is a callable value that can be executed by passing, in parentheses, the arguments in the YQL SQL syntax.

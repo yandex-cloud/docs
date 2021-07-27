@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Deleting a lifecycle policy
 
 To access a [policy](../../concepts/lifecycle-policy.md), use its ID. For information about how to get the policy ID, see [{#T}](lifecycle-policy-list.md).

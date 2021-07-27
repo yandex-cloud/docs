@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Пример использования {{ message-queue-full-name }} на Laravel
 
 Для работы с очередями PHP-фреймворк [Laravel](https://laravel.com/) предоставляет примитив [Queue](https://laravel.com/docs/6.x/queues). В качестве брокера сообщений можно использовать {{ message-queue-name }}. 

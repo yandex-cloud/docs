@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Billing cycle for individuals
 
 The diagram shows the cycle of debiting funds from an individual's bank card, as well as suspending and blocking the use of resources.

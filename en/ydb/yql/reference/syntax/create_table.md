@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # CREATE TABLE
 
 Create a table with the specified data schema and `PRIMARY KEY` (key column):

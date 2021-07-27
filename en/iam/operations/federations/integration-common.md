@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Authentication using an SAML-compatible identity federation
 
 This is a generic guide to configure authentication in the cloud via an SAML-compatible identity federation. Use these instructions if there aren't any [ad-hoc instructions](../index.md#federations) for your identity federation.

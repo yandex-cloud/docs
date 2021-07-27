@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Exporting a project
 
 You can export a project as a ZIP archive. In this case, both a file with a notebook and all files that you see in the **File Explorer** window are exported. This lets you start your notebook locally, provided the environments match.

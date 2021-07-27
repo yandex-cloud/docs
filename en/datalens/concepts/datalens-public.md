@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # DataLens Public
 
 With {{ datalens-public }}, you can grant public access to created charts and dashboards: any user can view published objects without authorization.

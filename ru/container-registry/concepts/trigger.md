@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Триггер {{ sf-full-name }}
 
 [Триггер](../../functions/concepts/trigger/index.md) {{ sf-full-name }} запускает [функцию](../../functions/concepts/function.md), когда с [Docker-образом](docker-image.md) {{ container-registry-name }} происходят определенные события. Триггер должен находиться в одном облаке с [реестром](registry.md), на события которого он подписан.

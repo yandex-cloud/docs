@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Работа с группой виртуальных машин с автоматическим масштабированием
 
 Чтобы создать [группу виртуальных машин с автоматическим масштабированием](../concepts/instance-groups/scale.md#auto-scale) и [сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/index.md), необходимо выполнить следующие действия.
@@ -139,7 +143,7 @@
 
    ```yaml
    name: auto-group
-   service_account_id: ajelabcde12f33nol1v5
+   service_account_id: <Идентификатор сервисного аккаунта>
    scale_policy:
      auto_scale:
        min_zone_size: 1
@@ -160,7 +164,7 @@
      target_group_spec:
        name: auto-group-tg
    instance_template:
-     service_account_id: ajelabcde12f33nol1v5
+     service_account_id: <Идентификатор сервисного аккаунта>
      platform_id: standard-v1
      resources_spec:
        memory: 2G
@@ -182,9 +186,11 @@
          size: 10G
          image_id: fd8iv792kirahcnqnt0q # Идентификатор публичного образа Container Optimized Image.
      network_interface_specs:
-       - network_id: enpabce123hde4ft1r3t
+       - network_id: <Идентификатор облачной сети>
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
    ```
+
+1. Замените в файле `specification.yaml` значения в угловых скобках на реальные, на основе выполнения предыдущих шагов.
 
 1. Создайте группу ВМ с именем `auto-group` с помощью спецификации `specification.yaml`:
 

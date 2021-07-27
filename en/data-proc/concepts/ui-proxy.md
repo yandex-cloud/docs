@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Data Proc component web interfaces {{ dataproc-name }}
 
 Some {{ dataproc-name }} components, such as Hadoop, Spark, Yarn, and Zeppelin, have custom web interfaces that are available on the `MASTER` cluster node. These interfaces can be used:

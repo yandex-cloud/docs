@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Authorized keys
 
 _Authorized keys_ are a pair of public and private keys that are used when creating a [JSON Web Token](https://tools.ietf.org/html/rfc7519). A JSON Web Token is necessary for requesting an [IAM token](iam-token.md) for a [service account](../users/service-accounts.md).

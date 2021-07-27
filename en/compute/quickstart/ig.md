@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating instance groups
 
 Create an instance group using the [Instance Groups](../concepts/instance-groups/index.md) component in the Yandex.Cloud management console.

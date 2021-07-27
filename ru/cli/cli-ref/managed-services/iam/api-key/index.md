@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc iam api-key
 
 Manage service account API keys. API keys are used for authentication with Yandex Cloud services.

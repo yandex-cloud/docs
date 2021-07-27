@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting information about devices
 
 To find a device's `ID` or `NAME`, get a list of devices in a registry.

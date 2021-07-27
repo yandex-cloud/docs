@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Free tier serverless ecosystem
 
 Until October 2021, special pricing applies to serverless computing ecosystem services. This means you can try our {{ yandex-cloud }} serverless solutions free of charge. We calculated the amount of free services so that you could develop and launch a small service, website, or app.

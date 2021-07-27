@@ -1,7 +1,10 @@
 ---
 title: How to work with Yandex IoT Core. Instructions
 description: "From the article you will learn how to work with Yandex IoT Core in Yandex.Cloud. We will tell you how to manage registries, devices, topic aliases, certificates and passwords."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # All instructions
 

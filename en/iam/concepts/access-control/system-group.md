@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # System groups
 
 _A system group_ is an ID for a group of users (subjects) that roles can be assigned to.

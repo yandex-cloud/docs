@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Apache Kafka<sup>®</sup> settings
 
 For {{ mkf-name }} clusters, you can configure settings that relate to {{ KF }}. Some of the settings are set [at the cluster level](#cluster-settings) and others [at the topic level](#topic-settings).

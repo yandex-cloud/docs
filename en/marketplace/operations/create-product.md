@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating a product
 
 To add a product to the Marketplace, you need to [upload an image to {{ yandex-cloud }}](create-image.md#create).

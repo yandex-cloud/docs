@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Delivering Linux system metrics
 
 To deliver system metrics for virtual machines running on Linux-compatible operating systems to {{ monitoring-full-name }}, use the input [linux_metrics](../../concepts/data-collection/unified-agent/configuration.md#linux_metrics_input).

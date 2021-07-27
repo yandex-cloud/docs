@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Yandex DDoS Protection
 
 {{ ddos-protection-full-name }} — это компонент сервиса {{ vpc-short-name }} для защиты облачных ресурсов от DDoS-атак. DDoS Protection предоставляется в партнерстве с Qrator Labs. 

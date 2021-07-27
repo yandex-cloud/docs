@@ -7,7 +7,10 @@ keywords:
   - api
   - s3 api object storage
   - object storage
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # How to use the S3 API
 

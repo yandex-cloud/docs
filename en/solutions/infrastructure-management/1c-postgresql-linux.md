@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-name }}
 
 {{ yandex-cloud }} lets you create PostgreSQL clusters optimized for 1C:Enterprise. To configure the use of 1C:Enterprise, you need to create a working server, a license server, and a {{ mpg-name }} cluster. For 1C servers to run correctly, you should disable security services on them. Therefore the cluster will be accessed via an encrypted OpenVPN server connection, while the 1C servers will have no access to the internet. The 1C servers will be running CentOS 8. The 1C cluster will be configured using the Windows administration console.

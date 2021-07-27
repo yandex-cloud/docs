@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Using {{ objstorage-full-name }} in {{ dataproc-name }}
 
 This section describes various ways that processes running in {{ dataproc-name }} clusters can access objects from {{ objstorage-name }} buckets.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # How to use Yandex.Cloud securely
 
 This section provides recommendations for using {{ iam-short-name }} features to ensure the secure operation of Yandex.Cloud services.

@@ -285,7 +285,7 @@ items:
     href: security/index.md
   - name: Справочник API Functions
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/functions/authentication.md
       - name: gRPC (англ.)
         items:
@@ -345,7 +345,7 @@ items:
                 href: functions/api-ref/Function/updateAccessBindings.md
   - name: Справочник API Triggers
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/triggers/authentication.md
       - name: gRPC (англ.)
         items:

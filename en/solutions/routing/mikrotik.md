@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Installing a Mikrotik CHR virtual router
 
 In Yandex.Cloud, you can deploy a virtual Mikrotik Cloud Hosted Router from a VM image. To install Mikrotik Cloud Hosted Router and check its operability:

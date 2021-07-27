@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Configuring an SLA for issues
 
 In {{ tracker-name }}, an SLA is a [set of rules](manager/sla.md) that defines a timeframe for processing issues in the queue. For example you can set up a time limit during which the assignee must respond to a new issue, respond to a client's comment or completely finish their work on the issue. If the assignee doesn't react within this amount of time, {{ tracker-name }} will send you a notification.

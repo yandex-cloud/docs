@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Encryption
 
 The crypto material contained in key versions isn't available in unencrypted form outside {{ kms-short-name }}. Encryption and decryption in {{ kms-short-name }} is carried out through two cryptographic operations: [encrypt](../api-ref/SymmetricCrypto/encrypt) and [decrypt](../api-ref/SymmetricCrypto/decrypt).

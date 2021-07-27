@@ -1,6 +1,9 @@
 ---
 editable: false
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 # Pricing for {{ kms-full-name }}
 
 The cost for using {{ kms-name }} is based on:
@@ -12,7 +15,7 @@ The cost for using {{ kms-name }} is based on:
    
    {% endnote %}
    
-* The number of cryptographic operations performed ([encrypt](/api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
+* The number of cryptographic operations performed ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
 ## Pricing {#prices}
 

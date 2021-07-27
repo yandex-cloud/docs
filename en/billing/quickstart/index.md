@@ -6,7 +6,10 @@ keywords:
   - how to register in the Yandex cloud
   - registration in the cloud
   - creating an account in the cloud
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Registering an account in {{ yandex-cloud }}
 

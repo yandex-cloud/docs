@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Deleting a DNS zone
 
 To delete a [DNS zone](../concepts/dns-zone.md):

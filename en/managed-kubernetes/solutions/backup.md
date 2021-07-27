@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # {{ k8s }} cluster backups in {{ objstorage-full-name }}
 
 Data in {{ managed-k8s-name }} clusters is stored securely and replicated within the {{ yandex-cloud }} infrastructure. However, whenever you want, you can back up data from {{ k8s }} cluster node groups and store them in [{{ objstorage-name }}](../../storage/) or other storage.

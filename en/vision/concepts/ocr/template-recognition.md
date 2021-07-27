@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Recognition of presets
 
 _Recognition of presets is at the [Preview stage](../../../overview/concepts/launch-stages.md) and is not charged additionally. Its usage is charged [according to text recognition pricing policy](../../pricing.md)._

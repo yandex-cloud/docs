@@ -1,16 +1,26 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting started with the command-line interface
 
 
 _The {{ yandex-cloud }} command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
 
-## Installing the CLI {#install}
+## Installation {#install}
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
 ## Creating a profile {#initialize}
 
 
-  1. Log in to the [management console]({{ link-console-main }}) and accept the user agreement by clicking **Log in**. If you're already connected to the console, skip this step.
+If you aren't connected to the management console yet, log in to the [management console]({{ link-console-main }}) and accept the user agreement by clicking **Log in**.
+
+{% list tabs %}
+
+- As a user
+
+  To authenticate as a user:
 
   1. Get an OAuth token from Yandex.OAuth. To do this, go to the [link]({{ link-cloud-oauth }}) and click **Allow**.
 
@@ -38,32 +48,32 @@ _The {{ yandex-cloud }} command-line interface (CLI)_ provides downloadable soft
 
   1. Select the default folder:
 
-     ```
-     Please choose a folder to use:
-      [1] folder1 (id = cvatao4faoe2bmdrg22b)
-      [2] folder2 (id = tao4faoe2cvabmdrg22b)
-      [3] Create a new folder
-     Please enter your numeric choice: 1
-     ```
+     {% include [include](../_includes/cli/choose-folder.md) %}
 
 
   1. Select the default availability zone for {{ compute-full-name }}:
 
-     ```
-     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
-     Which zone do you want to use as a profile default?
-      [1] ru-central1-a
-      [2] ru-central1-b
-      [3] ru-central1-c
-      [4] Don't set default zone
-     Please enter your numeric choice: 2
-     ```
+     {% include [include](../_includes/cli/choose-zone.md) %}
 
   1. View your CLI profile settings:
 
      ```
      $ yc config list
      ```
+
+- As a service account
+
+    Before you start, get your service account ready:
+    1. [Authenticate in the CLI as a user](operations/authentication/user.md).
+    1. If you don't have a service account yet, [create one](../iam/operations/sa/create.md) and [configure access](../iam/operations/sa/assign-role-for-sa.md).
+
+    {% include [auth-as-sa](../_includes/cli/auth-as-sa.md) %}
+
+- As a federated user
+
+    {% include [include](../_includes/cli/auth-federated-user.md) %}
+
+{% endlist %}
 
 
 ## Examples of commands {#example}
@@ -134,7 +144,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
           --name my-yc-instance \
           --network-interface subnet-name=my-yc-subnet-b,nat-ip-version=ipv4 \
           --zone ru-central1-b \
-		  --ssh-key ~/.ssh/id_rsa.pub
+      	  --ssh-key ~/.ssh/id_rsa.pub
       ```
 
       Pass the path to the public key for SSH access in the `ssh-key` parameter. The `yc-user` user will be automatically created in the virtual machine OS with the specified public key.

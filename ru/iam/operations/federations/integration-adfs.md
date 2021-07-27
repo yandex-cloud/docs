@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Аутентификация с помощью Active Directory
 
 С помощью [федерации удостоверений](../../concepts/users/identity-federations.md) вы можете использовать [Active Directory Federation Services](https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services) (AD FS) для аутентификации в облаке.

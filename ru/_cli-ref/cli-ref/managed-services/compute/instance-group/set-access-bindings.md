@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # yc compute instance-group set-access-bindings
 
 Set access bindings for the specified instance group and delete all existing access bindings if there were any

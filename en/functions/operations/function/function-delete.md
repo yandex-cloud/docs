@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Deleting a function
 
 {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}

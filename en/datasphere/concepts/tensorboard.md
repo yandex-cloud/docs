@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Using TensorBoard in {{ ml-platform-name }}
 
 TensorBoard is a dashboard that visualizes your model training logs. You can view results using graphs, histograms, and other tools.

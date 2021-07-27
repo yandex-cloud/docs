@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Authentication using G Suite
 
 If you have an [identity federation](../../concepts/users/identity-federations.md), you can use Google's [G Suite](https://gsuite.google.com/) to authenticate in the cloud.

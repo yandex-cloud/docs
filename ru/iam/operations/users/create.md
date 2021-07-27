@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Добавление пользователя в облако
 
 Чтобы добавлять пользователей в облако, необходима роль [`admin`](../../concepts/access-control/roles.md#admin) или [`resource-manager.clouds.owner`](../../concepts/access-control/roles.md#owner) на это облако.

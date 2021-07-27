@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Pagination
 
 Some API methods support _pagination_. Pagination is when a server returns results in parts, page by page, and not all of them at once. Pagination is generally used for the `List*` method that returns a list.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Request handler
 
 _A request handler_ is an R function that is used to handle each function invocation. When creating a function version, you should specify the entry point. It consists of the file name and the name of the R function where requests are sent (see example for the handler in the `function.R` or `function.handler` file).

@@ -1,7 +1,10 @@
 ---
 title: "Managed Service for ClickHouse. FAQ"
 description: "What is Managed Service for ClickHouse? For what tasks is it worth using Managed Service for ClickHouse, and for which virtual machines with databases? What part of the management and maintenance of databases does Managed Service for ClickHouse take on? Answers to these and other questions in this article."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # General questions
 

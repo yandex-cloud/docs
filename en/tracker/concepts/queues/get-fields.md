@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Get required queue fields
 
 Use this request to get information about required queue fields. The queue is selected when the ID or key is specified.

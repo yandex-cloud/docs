@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Delivering metrics from hosts outside {{ yandex-cloud }}
 
 To deliver metrics to {{ monitoring-full-name }} from hosts located outside {{ yandex-cloud }}, use [authorized keys](../../../iam/concepts/authorization/key.md) of service accounts. You can also use this method to send metrics from {{ yandex-cloud }} VMs without a linked service account.

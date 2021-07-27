@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Create a checklist or add items to it
 
 Use this request to create a [checklist](../../user/checklist.md) and add new items to it.

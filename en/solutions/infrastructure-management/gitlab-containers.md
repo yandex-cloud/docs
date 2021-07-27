@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Continuous deployment of containerized applications using GitLab
 
 [GitLab](https://about.gitlab.com/) is a [continuous integration](https://en.wikipedia.org/wiki/Continuous_integration) tool. This scenario describes how to build an application in a Docker container and deploy it from the container on a {{ k8s }} cluster with GitLab using Yandex.Cloud tools. After each commit, a script runs in GitLab that describes the steps for building a Docker image and applying a new {{ k8s }} cluster configuration, which specifies the application to be deployed. To configure the infrastructure required for storing source code, building Docker images, and deploying applications, follow these steps:

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Количество запросов к объектам
 
 В данном сценарии описаны шаги, необходимые для получения статистики запросов к объектам {{ objstorage-name }} с помощью языка запросов [S3 Select](../concepts/s3-select-language.md).
@@ -35,26 +39,32 @@
         * Выражение для запроса данных объекта на языке S3 Select в переменную `$query`:
             
             ```bash
-            query='выражение_для_запроса>'
+            query='<выражение_для_запроса>'
             ```
 
             Примеры выражений:
 
             * Поиск запросов по коду ответа:
             
-                ```sql
-                select "timestamp",request_id,handler,object_key,status,request_time \
-                from S3Object \
-                where status >= 400
-                ```
+              ```sql
+              SELECT "timestamp", request_id, handler, object_key, status, request_time
+              FROM S3Object
+              WHERE status >= 400
+              ```
 
             * Поиск долго обрабатываемых запросов:
 
-                ```sql
-                select "timestamp",request_id,handler,object_key,status,request_time \
-                from S3Object \
-                where request_time >= 1000
-                ```
+              ```sql
+              SELECT "timestamp", request_id, handler, object_key, status, request_time
+              FROM S3Object
+              WHERE request_time >= 1000
+              ```
+            
+            * Среднее время обработки запросов (с использованием [агрегатной функции](../concepts/s3-select-language.md#aggregate-functions) `AVG`):
+            
+              ```sql
+              SELECT AVG(request_time) AS "avg" FROM S3Object
+              ```
 
     1. Выполните команду:
 
@@ -69,7 +79,7 @@
           "output.json"
         ```
 
-1. Чтобы вывести количество запросов для каждого ключа объекта, выполните агрегирующий запрос при помощи утилиты `jq`:
+1. Если в запросе не использовались агрегатные функции, выведите количество запросов для каждого ключа объекта. Для этого выполните агрегирующий запрос при помощи утилиты `jq`:
 
     ```bash
     jq .object_key output.json | uniq -c | sort -nr

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Updating an alias
 
 Aliases are linked to specific devices. To update an alias, you need [the device ID or name](../device-list.md).

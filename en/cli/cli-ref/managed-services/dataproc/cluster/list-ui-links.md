@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc dataproc cluster list-ui-links
 
 Show URLs of proxied web user interfaces.

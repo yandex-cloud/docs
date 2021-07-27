@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Requesting technical support
 
 {{ yandex-cloud }} provides technical support under different service plans. Choose the plan that suits you best.

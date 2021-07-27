@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Static website in {{ objstorage-full-name }}
 
 In this guide, you'll learn how to upload your the static HTML files of your website to [{{ objstorage-full-name }}](../../storage) storage and link your domain name to a [bucket](../../storage/concepts/bucket.md) that will store the files.

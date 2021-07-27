@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Forms
 
 In [Yandex.Forms]({{ link-forms }}), you can set up integration with {{ tracker-name }} to automatically create issues using data from forms.

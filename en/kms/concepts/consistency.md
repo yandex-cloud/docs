@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Key consistency
 
 The [encrypt](../api-ref/SymmetricCrypto/encrypt), [decrypt](../api-ref/SymmetricCrypto/decrypt), and [reEncrypt](../api-ref/SymmetricCrypto/reEncrypt) methods are eventually consistent operations: it takes up to **three hours** for the updates they make to take effect.

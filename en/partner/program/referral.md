@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Referral program
 
 _A referral program_ is a program for attracting new {{ yandex-cloud }} customers by distributing referral links. These links contain a unique sequence of characters to identify a partner. The partner who attracted a customer receives a percentage of the amount that the customer pays for resource consumption.

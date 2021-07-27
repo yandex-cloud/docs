@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Node groups with GPUs
 
 You can create node groups with graphics accelerators (GPUs) in {{ k8s }} clusters. A node is created from an image of a GPU-compatible VM with NVIDIA drivers and [CUDA libraries](https://developer.nvidia.com/gpu-accelerated-libraries) installed for GPU acceleration.

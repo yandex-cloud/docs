@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Editing issue links
 
 You can link issues to other issues to group multiple issues based on a common goal or show that certain issues affect each other.

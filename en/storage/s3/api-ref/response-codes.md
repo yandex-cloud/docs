@@ -1,7 +1,10 @@
 ---
 title: "Response and error codes. Object Storage API (S3)"
 description: "Describes the response and error codes in the Object Storage API (S3). Successful response - if no errors are encountered, Object Storage responds with 2xx HTTP codes. The response code and body depend on the request and are discussed in the request descriptions. Response with an error - if an error occurs Object Storage responds with a message with the appropriate HTTP code and optional XML description. Error codes, and their meanings are detailed."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Responses
 

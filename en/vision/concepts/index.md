@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # About the computer vision service
 
 The {{ vision-full-name }} computer vision service analyzes a transmitted image and returns the results.

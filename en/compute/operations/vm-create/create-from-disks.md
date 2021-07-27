@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Creating a VM from a set of disks
 
 You can create a VM from existing disks. The disks must reside in one of the availability zones and not be added to other VMs.

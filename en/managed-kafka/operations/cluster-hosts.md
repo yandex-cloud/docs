@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Managing hosts {{ KF }}
 
 You can change the class of broker hosts in {{ KF }} clusters and get a list of these hosts in a cluster.

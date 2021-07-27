@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Gantt charts
 
 The Gantt chart in {{ tracker-name }} is a tool for planning work on issues in the calendar. You can create a Gantt chart for issue lists found in your queue or by using filters.

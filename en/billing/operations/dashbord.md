@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # View service usage details in {{ datalens-full-name }}
 
 You can view information on your {{ yandex-cloud }} service usage by building a dashboard in {{ datalens-full-name }}.

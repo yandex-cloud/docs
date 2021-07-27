@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Example of using {{ message-queue-full-name }} on Laravel
 
 To work with queues, the [Laravel](https://laravel.com/) PHP framework provides the [Queue](https://laravel.com/docs/6.x/queues) primitive. As a message broker, you can use {{ message-queue-name }}.

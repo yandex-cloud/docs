@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc managed-postgresql user revoke-permission
 
 Revoke permission from the specified PostgreSQL user

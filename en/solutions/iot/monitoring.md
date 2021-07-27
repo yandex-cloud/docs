@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Monitoring sensor readings and event notifications
 
 In this scenario, you'll set up monitoring and notifications about changes in sensor readings connected to {{ iot-full-name }}. Sensors are emulated using the {{ sf-full-name }} service. If your sensors are connected, use them.

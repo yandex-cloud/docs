@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # x-yc-apigateway-integration:http extension
 
 The `x-yc-apigateway-integration:http` extension redirects a request to the specified URL.

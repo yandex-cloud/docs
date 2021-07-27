@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Resource records
 
 A resource record is the main unit of information in a DNS. Using resource records, you determine where to route queries that come to specific domain names. Resource records have the following parameters:

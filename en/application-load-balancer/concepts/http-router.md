@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # HTTP router
 
 The HTTP router defines the routing rules for HTTP requests to [backend groups](backend-group.md), lets you modify the request and response headers, and allows you to generate small static responses directly in the load balancer. You can create an empty HTTP router and then add routes to it.

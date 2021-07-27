@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Создание триггера для {{ cloud-logs-full-name }}
 
 {% include [cloudlogs-create-ui](../../../_includes/functions/cloudlogs-trigger-create.md) %}

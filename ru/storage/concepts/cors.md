@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # CORS
 
 {{ objstorage-full-name }} поддерживает [кросс-доменные запросы](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing) к объектам в бакете.

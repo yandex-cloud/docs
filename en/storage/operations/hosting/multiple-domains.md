@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Support for multiple website domain names
 
 If you want to support multiple domain names for your website, such as `example.com` and `www.example.com`:

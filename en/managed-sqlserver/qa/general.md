@@ -1,7 +1,10 @@
 ---
 title: "Managed Service for SQL Server. FAQ"
 description: "What is Managed Service for SQL Server? For which tasks should Managed Service for SQL Server be used, and for which virtual machines with databases? How much of the work of managing and maintaining databases does Managed Service for SQL Server take on? Answers on these and other questions in this article."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # General questions
 

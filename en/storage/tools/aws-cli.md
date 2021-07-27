@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # AWS Command Line Interface (AWS CLI)
 
 [AWS CLI](https://aws.amazon.com/cli/) is a command line interface designed for AWS services. To learn [how to run commands](https://docs.aws.amazon.com/cli/latest/reference/), see the official Amazon documentation.

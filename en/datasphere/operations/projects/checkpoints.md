@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Versioning. Working with checkpoints
 
 A checkpoint in {{ ml-platform-name }} is the [saved state](../../concepts/save-state.md) of a notebook. A checkpoint consists of the cell code, output, and variable values.

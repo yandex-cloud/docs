@@ -1,7 +1,10 @@
 ---
 title: Access management in Yandex Monitoring
 description: "Access management in the monitoring service, which allows you to collect and store metrics, as well as display them in the form of graphs on dashboards — Yandex Monitoring. To allow access to the resources of the Yandex Monitoring service, assign the user the necessary roles from the list."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Access management
 

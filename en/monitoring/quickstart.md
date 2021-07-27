@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Getting started with {{ monitoring-full-name }}
 
 This guide explains how to create a dashboard and add widgets that display the status of {{ yandex-cloud }} resources.

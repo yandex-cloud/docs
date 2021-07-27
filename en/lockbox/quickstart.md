@@ -1,7 +1,10 @@
 ---
 title: "Getting started with Yandex Lockbox"
 description: "In this tutorial, you will learn how to create secrets and retrieve their contents using the Yandex Lockbox secret storage service. A secret consists of a set of versions that store your data. A version contains sets of keys and values. A key is an unclassified name for a value. to which you will identify it. The value is the secret. "
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Getting started
 

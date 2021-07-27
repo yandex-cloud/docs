@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Availability zones
 
 During the initial stage, the Yandex.Cloud platform is hosted in three Yandex data centers located in different areas of Russia (the Vladimir, Ryazan, and Moscow regions). The Yandex.Cloud infrastructure in each of the data centers is called an _availability zone_. Each zone is isolated from hardware and software failures that may occur in other availability zones. By deploying your apps in multiple zones, you will ensure fault tolerance and significantly reduce the risk of data loss.

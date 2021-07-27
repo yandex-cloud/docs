@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Deleting an issue
 
 An issue can't be deleted in {{ tracker-name }}. If you created an issue by accident or want to cancel it due to a change of plans, simply close the issue with the appropriate resolution.

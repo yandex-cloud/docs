@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Расширение x-yc-apigateway-authorizer:function
 
 Расширение `x-yc-apigateway-authorizer:function` используется внутри схем компонента [securityScheme](https://swagger.io/docs/specification/authentication/) с типами:

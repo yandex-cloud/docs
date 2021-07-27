@@ -1,7 +1,10 @@
 ---
 title: How to work with Yandex API Gateway. Instructions
 description: "In the article you will learn how to work with Yandex API Gateway in Yandex.Cloud. You will learn how to create, modify and delete API gateways, as well as view the monitoring schedule and execution log."
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # All instructions
 

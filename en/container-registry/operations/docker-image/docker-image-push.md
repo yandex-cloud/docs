@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Pushing a Docker image to a registry
 
 These instructions describe how to push a local [Docker image](../../concepts/docker-image.md) to a registry.

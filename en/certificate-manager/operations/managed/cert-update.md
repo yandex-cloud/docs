@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Renew a certificate
 
 {{ certificate-manager-name }} initiates the certificate renewal procedure 30 days before it expires. The certificate status changes to `Renewing`.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Integrate {{ tracker-name }} with other platforms
 
 Developers have to use various different platforms to build, test, and deploy their apps, among other things. You can use {{ tracker-name }} to find links to related resources or to issues hosted on other platforms, making cross-platform development more convenient. To send information from other platforms to {{ tracker-name }}, use the {{ tracker-name }} API. For more information about the {{ tracker-name }} API features, see the [API reference](about.md).

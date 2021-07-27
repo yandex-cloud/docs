@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Delivering metrics from HAProxy and other third-party applications
 
 {{unified-agent-full-name}} supports metric collection in the {{ prometheus-name }} format and metric conversion to the {{ monitoring-full-name }} format. Using {{unified-agent-short-name}} lets you pull metrics from applications that deliver them in the {{ prometheus-name }} format.

@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Dedicated hosts
 
 _A dedicated host_ is a physical server that is intended solely for hosting your VMs in {{ yandex-cloud }}. VMs on dedicated hosts have all the features of regular VMs plus they're physically isolated from other users' VMs. You can also distinguish your VMs used for different projects:

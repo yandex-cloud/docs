@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Transfer from your bank account
 
 Businesses can top up their personal accounts and pay for consumed resources by transferring funds from their bank accounts.

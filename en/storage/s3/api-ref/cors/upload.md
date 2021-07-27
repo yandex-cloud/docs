@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # upload method
 
 Uploads a CORS configuration for a bucket. It replaces any existing configuration.

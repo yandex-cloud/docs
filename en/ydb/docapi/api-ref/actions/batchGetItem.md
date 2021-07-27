@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # GetBatchItem method
 
 Returns the attributes of one or more items from one or more tables. The requested items should be specified by primary key.

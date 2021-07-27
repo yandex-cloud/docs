@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Saving a state
 
 The notebook state is the cell code, output, and variable values at a specific point in time.

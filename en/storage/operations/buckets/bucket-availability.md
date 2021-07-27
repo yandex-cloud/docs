@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Enabling public access for bucket operations
 
 By default, buckets are created with restricted [access](../../concepts/bucket.md#bucket-access). You can use the management console to enable public access:

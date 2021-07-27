@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Table management
 
 Learn how to create, edit, or delete a table. To create a table, you need a [database](create_manage_database#create-db.md).

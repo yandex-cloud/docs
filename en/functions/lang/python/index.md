@@ -1,7 +1,10 @@
 ---
 title: Development in Python at Yandex Cloud Functions. Overview
 description: 'With the Cloud Functions service, you can run Python applications. The service provides several runtimes with different versions.'
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
+
 
 # Development in Python. Overview
 

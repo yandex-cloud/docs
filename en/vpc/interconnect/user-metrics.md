@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Custom {{ interconnect-name }} metrics
 
 {{ interconnect-full-name }} metrics help you monitor the state and performance of {{ interconnect-name }} resources.

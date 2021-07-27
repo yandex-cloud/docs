@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Configure issue templates
 
 You can use [templates](user/ticket-template.md) to make it easier to create common issue types, such as bug fixing or testing-related issues. You can use templates to set predetermined issue parameters and add tips that remind users to specify the necessary information and help describe the issue in more detail.

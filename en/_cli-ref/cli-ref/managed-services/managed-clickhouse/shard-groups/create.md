@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # yc managed-clickhouse shard-groups create
 
 Create new shard group for the cluster in the specified availability zones.

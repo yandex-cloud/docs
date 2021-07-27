@@ -1,7 +1,10 @@
 ---
 title: Инструкции по работе с Yandex DataSphere
 description: "Из статьи вы узнаете как работать с Yandex DataSphere в Yandex.Cloud. Рассказываем о том, как создать проект, установить зависимости, запустить примеры кода в ноутбуке, работать с контрольными точками, управлять вычислительными ресурсами, публиковать ноутбук, работать с Git."
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
+
 
 # Все инструкции
 
@@ -10,6 +13,8 @@ description: "Из статьи вы узнаете как работать с Y
 * [{#T}](projects/snippets.md)
 * [{#T}](projects/checkpoints.md)
 * [{#T}](projects/control-compute-resources.md)
+* [{#T}](user-images.md)
+* [{#T}](user-images-cell.md)
 * [{#T}](projects/clear-kernel-state.md)
 * [{#T}](projects/publication.md)
 * [{#T}](projects/export.md)

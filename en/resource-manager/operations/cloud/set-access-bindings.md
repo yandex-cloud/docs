@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Setting up cloud access rights
 
 To grant a user access to all the cloud resources, assign them a [role](../../../iam/concepts/access-control/roles.md) for that cloud.
