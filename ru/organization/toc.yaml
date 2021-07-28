@@ -28,8 +28,6 @@ items:
       href: manage-users.md
     - name: Добавить пользователя
       href: add-account.md
-    - name: Настроить федерацию удостоверений
-      href: add-federation.md
     - name: Изменить или удалить аккаунт пользователя
       href: edit-account.md
 #    - name: Карточка сотрудника
@@ -38,6 +36,16 @@ items:
 #      href: manage-departments.md
 #    - name: Команды
 #      href: teams.md
+- name: Управление федерациями удостоверений
+  items:
+    - name: Настроить федерацию удостоверений
+      href: add-federation.md
+    - name: Аутентификация с помощью Active Directory
+      href: operations/federations/integration-adfs.md
+    - name: Аутентификация с помощью G-Suite
+      href: operations/federations/integration-gsuite.md
+    - name: Аутентификация с помощью SAML-совместимой федерации удостоверений
+      href: operations/federations/integration-common.md
 - name: Справочник API
   items:
     - name: Аутентификация

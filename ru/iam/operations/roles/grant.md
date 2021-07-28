@@ -195,7 +195,7 @@
 
 {% include [include](../../../_includes/saml-assign-role-note.md) %}
 
-Сейчас [федеративному пользователю](../../concepts/users/identity-federations.md) можно назначить роль только в консоли управления.
+Сейчас [федеративному пользователю](../../../organization/add-federation.md) можно назначить роль только в консоли управления.
 
 {% list tabs %}
 

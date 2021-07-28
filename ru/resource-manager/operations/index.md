@@ -10,6 +10,7 @@ description: "Пошаговые инструкции по управлению 
 - [{#T}](cloud/create.md)
 - [{#T}](cloud/update.md)
 - [{#T}](cloud/set-access-bindings.md)
+- [{#T}](cloud/change-organization.md)
 - [{#T}](cloud/switch-cloud.md)
 - [{#T}](cloud/notify.md)
 

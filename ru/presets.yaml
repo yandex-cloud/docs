@@ -53,6 +53,7 @@ default:
   yds-full-name: Yandex Data Streams
   cdn-full-name: Yandex Cloud CDN
   serverless-containers-full-name: Yandex Serverless Containers
+  org-full-name: Yandex Cloud Organization
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -318,6 +319,7 @@ default:
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-cloud-notifications: https://console.cloud.yandex.ru/cloud?section=incident-notifications
   link-datalens-main: https://datalens.yandex.ru
+  link-org-main: https://org.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud

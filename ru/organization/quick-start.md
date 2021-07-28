@@ -65,4 +65,8 @@
 
 1. Настройте сервер поставщика удостоверений, чтобы он передавал в {{yandex-cloud}} информацию об успешной аутентификации и атрибуты пользователя.
 
-   Атрибуты пользователей, которые поддерживают сервисы {{org-full-name}}, перечислены в разделе [{#T}](add-federation.md#claims-mapping).
+   Атрибуты пользователей, которые поддерживают сервисы {{org-full-name}}, перечислены в инструкциях по настройке федерации удостоверений для разных поставщиков удостоверений:
+
+   * [Active Directory](operations/federations/integration-adfs.md).
+   * [Google Workspace](operations/federations/integration-gsuite.md).
+   * [Другие SAML-совместимые поставщики удостоверений](operations/federations/integration-common.md).

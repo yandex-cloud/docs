@@ -23,10 +23,7 @@ description: "Пошаговые инструкции по управлению 
 
 ## Федерации удостоверений {#federations}
 
-- [{#T}](federations/integration-adfs.md)
-- [{#T}](federations/integration-gsuite.md)
-- [{#T}](federations/integration-common.md)
-- [{#T}](federations/add-users.md)
+Инструкции по управлению федерациями удостоверений теперь в [документации](../../organization/index.yaml) сервиса {{ org-full-name }}.
 
 ## Роли {#roles}
 

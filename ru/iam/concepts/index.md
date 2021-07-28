@@ -54,7 +54,7 @@ _Федеративный аккаунт_ — это аккаунт пользо
 
 {% include [about-saml-federations](../../_includes/iam/about-saml-federations.md) %}
 
-Подробнее читайте в разделе [{#T}](users/identity-federations.md).
+Подробнее читайте в разделе [{#T}](../../organization/add-federation.md).
 
 ## Ключи для авторизации {#keys}
 
