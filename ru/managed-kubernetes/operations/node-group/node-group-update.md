@@ -6,13 +6,15 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}
 
-## Изменить имя группы узлов {#update-name}
+## Изменить параметры группы узлов {#update-settings}
 
 Вы можете изменить следующие параметры группы узлов:
+
 * Имя.
 * Описание.
 * Количество узлов.
 * Версию {{ k8s }}.
+* Список групп безопасности.
 * Вычислительные ресурсы и размер диска узлов.
 * Политику обновлений.
 
@@ -42,8 +44,12 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
   * `--service-account-id`, `--service-account-name` — изменить сервисный аккаунт для ресурсов.
   * `--node-service-account-id`, `--node-service-account-name` — изменить сервисный аккаунт для узлов.
   * `--version` — изменить версию {{ k8s }}.
+  * `--network-interface` — настройки сети:
+
+      {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
+
   * `--latest-revision` — получить все доступные обновления для текущей версии мастера.
-  * `--auto-upgrade` — управялять автоматическими обновлениями.
+  * `--auto-upgrade` — управлять автоматическими обновлениями.
   * Управление окном обновлений:
     * `--anytime-maintenance-window` — обновлять в любое время.
     * `--daily-maintenance-window` — обновлять ежедневно в выбранное время.

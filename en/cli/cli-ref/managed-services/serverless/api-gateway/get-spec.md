@@ -4,7 +4,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 # yc serverless api-gateway get-spec
 
-Get api-gateway openapi specification
+Get API Gateway openapi specification
 
 #### Command Usage
 

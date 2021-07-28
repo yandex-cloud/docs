@@ -37,6 +37,7 @@ Syntax:
 |`--max-expansion`|<b>`int`</b><br/> Number of extra nodes to be created on each upgrade of the node group. Must be used in conjunction with --max-unavailable flag.|
 |`--max-unavailable`|<b>`int`</b><br/> Number of nodes that can be unavailable at the same time on each upgrade of the node group. Must be used in conjunction with --max-expansion flag. --network-interface PROPERTY=VALUE[,PROPERTY=VALUE...] Adds a network interface to the node group.  Possible property names:  subnets Specifies the subnets for the interface, subnets=[id1,id2],subnets=id3It is expected, that there is one subnet for each node group location zone.Can use either names or subnet ids, or both.  ipv4-address Use 'auto' to assigns internal IPv4 address to the interface.Use 'nat' to use One-to-One NAT on the interface.  ipv6-address Use 'auto' to assigns internal IPv6 address to the interface.Use 'nat' to use One-to-One NAT on the interface.  security-group-ids Security groups for the network interface, security-group-ids=[id1,id2],security-group-ids=id3  |
 |`--placement-group`|<b>`string`</b><br/> Placement policy group for the node group. Can be either name or ID.|
+|`--network-acceleration-type`|<b>`string`</b><br/> Type of a network acceleration for nodes. Values: 'standard', 'software-accelerated'|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

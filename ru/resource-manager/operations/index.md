@@ -13,6 +13,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 - [{#T}](cloud/create.md)
 - [{#T}](cloud/update.md)
 - [{#T}](cloud/set-access-bindings.md)
+- [{#T}](cloud/change-organization.md)
 - [{#T}](cloud/switch-cloud.md)
 - [{#T}](cloud/notify.md)
 

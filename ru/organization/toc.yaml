@@ -1,0 +1,53 @@
+title: Yandex Cloud Organization
+stage: preview
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quick-start.md
+  - name: Управление организациями
+    items:
+      - name: Создать организацию
+        href: enable-org.md
+      - name: Изменить данные организации
+        href: org-profile.md
+      - name: Переключиться на другую организацию
+        href: manage-organizations.md
+  - name: Управление пользователями
+    items:
+      - name: Обзор
+        href: manage-users.md
+      - name: Добавить пользователя
+        href: add-account.md
+      - name: Изменить или удалить аккаунт пользователя
+        href: edit-account.md
+  - name: Управление федерациями удостоверений
+    items:
+      - name: Настроить федерацию удостоверений
+        href: add-federation.md
+      - name: Аутентификация с помощью Active Directory
+        href: operations/federations/integration-adfs.md
+      - name: Аутентификация с помощью G-Suite
+        href: operations/federations/integration-gsuite.md
+      - name: Аутентификация с помощью SAML-совместимой федерации удостоверений
+        href: operations/federations/integration-common.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация
+        href: api-authentication.md
+      - name: gRPC
+        items:
+          - name: Обзор
+            href: api-ref/grpc/index.md
+          - name: OrganizationService
+            href: api-ref/grpc/organization_service.md
+          - name: UserService
+            href: api-ref/grpc/user_service.md
+          - name: CertificateService
+            href: api-ref/grpc/certificate_service.md
+          - name: FederationService
+            href: api-ref/grpc/federation_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/organization

@@ -57,7 +57,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 * `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в {{ yandex-cloud }}.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
-* `federatedUser` — аккаунт пользователя из [федерации удостоверений](../users/identity-federations.md), например из Active Directory.
+* `federatedUser` — аккаунт пользователя из [федерации удостоверений](../../../organization/add-federation.md), например из Active Directory.
 
     {% include [include](../../../_includes/saml-assign-role-note.md) %}
 * `system` — [системная группа](system-group.md).

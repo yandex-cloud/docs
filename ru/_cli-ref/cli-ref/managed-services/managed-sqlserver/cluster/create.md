@@ -26,6 +26,7 @@ Syntax:
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|
 |`--disk-type`|<b>`string`</b><br/> Type of the storage environment for the host.|
 |`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add. --security-group-ids value[,value] A list of security groups for the SQLServer cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--confirm-payment`| Confirm immediate payment for cluster creation/restoring|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 

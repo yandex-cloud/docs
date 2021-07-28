@@ -4,7 +4,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 # yc serverless api-gateway list-access-bindings
 
-List api-gateway access bindings
+List API Gateway access bindings
 
 #### Command Usage
 

@@ -15,3 +15,4 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 - [{#T}](cluster-users.md)
 - [{#T}](grant.md)
 - [{#T}](cluster-delete.md)
+- [{#T}](performance-diagnostics.md)

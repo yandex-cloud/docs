@@ -25,6 +25,10 @@ Syntax:
 |`--password`|<b>`string`</b><br/> Authentication password.|
 |`--max-memory-policy`|<b>`string`</b><br/> Redis maxmemory setting. Values: 'volatile-lru', 'allkeys-lru', 'volatile-lfu', 'allkeys-lfu', 'volatile-random', 'allkeys-random', 'volatile-ttl', 'noeviction'|
 |`--timeout`|<b>`int`</b><br/> Time seconds that Redis keeps the connection open while the client is idle.|
+|`--notify-keyspace-events`|<b>`string`</b><br/> Redis events to notify about.|
+|`--slowlog-max-len`|<b>`int`</b><br/> Maximum length of slow operations log.|
+|`--slowlog-log-slower-than`|<b>`int`</b><br/> Threshold in milliseconds to log slow operations.|
+|`--databases`|<b>`int`</b><br/> Number of Redis databases.|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|
 |`--disk-type-id`|<b>`string`</b><br/> Disk type id (e.g., network-ssd).|
@@ -32,6 +36,7 @@ Syntax:
 |`--datalens-access`| Allow access for DataLens --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
 |`--sharded`| Enables sharding for Redis cluster.|
 |`--enable-tls`| Enables tls for Redis cluster. --security-group-ids value[,value] A list of security groups for the Redis cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

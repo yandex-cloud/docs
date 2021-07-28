@@ -36,15 +36,7 @@ items:
           - name: Удаление сервисного аккаунта
             href: operations/sa/delete.md
       - name: Федерации удостоверений
-        items:
-          - name: Аутентификация с помощью Active Directory
-            href: operations/federations/integration-adfs.md
-          - name: Аутентификация с помощью G-Suite
-            href: operations/federations/integration-gsuite.md
-          - name: Аутентификация с помощью федерации удостоверений
-            href: operations/federations/integration-common.md
-          - name: Добавление пользователей
-            href: operations/federations/add-users.md
+        href: operations/federations.md
       - name: Роли
         items:
           - name: Назначение роли
@@ -99,8 +91,6 @@ items:
             href: concepts/authorization/access-key.md
       - name: Сервисные аккаунты
         href: concepts/users/service-accounts.md
-      - name: SAML-совместимые федерации удостоверений
-        href: concepts/users/identity-federations.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Безопасное использование Yandex.Cloud

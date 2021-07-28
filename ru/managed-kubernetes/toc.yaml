@@ -7,6 +7,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Настройка групп безопасности
+        href: operations/security-groups.md
       - name: Подключение к узлу по SSH
         href: operations/node-connect-ssh.md
       - name: Создание файла конфигурации

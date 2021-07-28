@@ -4,7 +4,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 # yc serverless api-gateway list-operations
 
-List api-gateway operations
+List API Gateway operations
 
 #### Command Usage
 

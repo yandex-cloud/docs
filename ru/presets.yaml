@@ -52,6 +52,7 @@ default:
   yds-full-name: Yandex Data Streams
   cdn-full-name: Yandex Cloud CDN
   serverless-containers-full-name: Yandex Serverless Containers
+  org-full-name: Yandex Cloud Organization
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -314,6 +315,7 @@ default:
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-cloud-notifications: https://console.cloud.yandex.ru/cloud?section=incident-notifications
   link-datalens-main: https://datalens.yandex.ru
+  link-org-main: https://org.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
@@ -339,6 +341,7 @@ default:
   port-any: 0-65535
   port-http: 80
   port-https: 443
+  port-k8s: 6443
   port-mch-cli: 9440
   port-mch-http: 8443
   port-mgp: 5432

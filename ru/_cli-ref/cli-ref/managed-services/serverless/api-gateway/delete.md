@@ -4,7 +4,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 # yc serverless api-gateway delete
 
-Delete api-gateway
+Delete API Gateway
 
 #### Command Usage
 

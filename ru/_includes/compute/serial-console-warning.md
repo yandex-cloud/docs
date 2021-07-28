@@ -14,6 +14,6 @@
 
 Не забывайте [отключать доступ](../../compute/operations/serial-console/disable.md) после работы с серийной консолью.
 
-[Федеративные пользователи](../../iam/concepts/users/identity-federations.md) могут подключаться к серийной консоли только с помощью [CLI](../../cli/) или [SSH](../../compute/operations/vm-connect/ssh.md). У таких пользователей нет доступа к серийной консоли из консоли управления {{ yandex-cloud }}.
+[Федеративные пользователи](../../organization/add-federation.md) могут подключаться к серийной консоли только с помощью [CLI](../../cli/) или [SSH](../../compute/operations/vm-connect/ssh.md). У таких пользователей нет доступа к серийной консоли из консоли управления {{ yandex-cloud }}.
 
 {% endnote %}

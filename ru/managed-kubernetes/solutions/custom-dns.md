@@ -58,7 +58,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
     --name custom-dns-group \
     --cluster-name custom-dns-cluster \
     --location zone=ru-central1-b \
-    --public-ip \
+    --network-interface subnets=<имя подсети для группы узлов>,ipv4-address=nat \
     --fixed-size 1
     ```
 
