@@ -61,6 +61,7 @@ Syntax:
 	- [yc vpc address update](address/update.md) — Modify configuration or attributes of the address.
 	- [yc vpc address delete](address/delete.md) — Delete an address.
 	- [yc vpc address list-operations](address/list-operations.md) — List operations for an address.
+	- [yc vpc address move](address/move.md) — Move an address to another folder.
 
 #### Flags
 

@@ -1,6 +1,6 @@
 # yc serverless api-gateway update
 
-Update api-gateway
+Update API Gateway
 
 #### Command Usage
 

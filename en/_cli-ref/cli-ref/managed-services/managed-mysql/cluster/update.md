@@ -17,6 +17,7 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete. --maintenance-window PROPERTY=VALUE[,PROPERTY=VALUE...] Maintenance window settings  Possible property names:  type Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.  hour Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.  day Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'  |
 |`--new-name`|<b>`string`</b><br/> New name for the MySQL cluster|
 |`--description`|<b>`string`</b><br/> Cluster description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add. --security-group-ids value[,value] A list of security groups for the MySQL cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--mysql-version`|<b>`string`</b><br/> Version of MYSQL used in the cluster|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host|

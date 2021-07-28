@@ -34,12 +34,6 @@ Aliases:
 - [yc managed-elasticsearch resource-preset](resource-preset/index.md) — Learn about ElasticSearch resource presets.
 	- [yc managed-elasticsearch resource-preset get](resource-preset/get.md) — Get information about a ElasticSearch resource preset.
 	- [yc managed-elasticsearch resource-preset list](resource-preset/list.md) — List available resource presets for Managed Service for ElasticSearch.
-- [yc managed-elasticsearch user](user/index.md) — Manage ElasticSearch users.
-	- [yc managed-elasticsearch user get](user/get.md) — Get information about a ElasticSearch user.
-	- [yc managed-elasticsearch user list](user/list.md) — List users for a ElasticSearch cluster.
-	- [yc managed-elasticsearch user create](user/create.md) — Create a ElasticSearch user.
-	- [yc managed-elasticsearch user update](user/update.md) — Modify attributes of a ElasticSearch user.
-	- [yc managed-elasticsearch user delete](user/delete.md) — Delete a ElasticSearch user.
 
 #### Flags
 

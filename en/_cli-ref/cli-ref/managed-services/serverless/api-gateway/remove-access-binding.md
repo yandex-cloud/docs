@@ -1,6 +1,6 @@
 # yc serverless api-gateway remove-access-binding
 
-Remove access binding for the specified api-gateway
+Remove access binding for the specified API Gateway
 
 #### Command Usage
 

@@ -24,6 +24,7 @@ Syntax:
 |`--mongod-resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to mongodb host with corresponding role (CPU, RAM etc.).|
 |`--mongod-disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to mongodb host with corresponding role.|
 |`--mongod-disk-type`|<b>`string`</b><br/> Storage type for mongodb host with corresponding role. --labels key=value[,key=value...] A list of cluster labels as key-value pairs. --security-group-ids value[,value] A list of security groups for the MongoDB cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

@@ -17,6 +17,7 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name for the cluster|
 |`--description`|<b>`string`</b><br/> Cluster description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add. --security-group-ids value[,value] A list of security groups for the Redis cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--redis-version`|<b>`string`</b><br/> Version of Redis used in the cluster|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a Redis host|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a Redis host|

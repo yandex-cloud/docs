@@ -16,7 +16,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Kafka cluster name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name for the Kafka cluster.|
-|`--description`|<b>`string`</b><br/> New description of the Kafka cluster. --labels key=value[,key=value...] New set of labels for the Kafka cluster as key-value pairs. Existing set of labels will be completely overwritten. --security-group-ids value[,value] A list of security groups for the Kafka cluster. --zone-ids value[,value] List of availability zones.|
+|`--description`|<b>`string`</b><br/> New description of the Kafka cluster. --labels key=value[,key=value...] New set of labels for the Kafka cluster as key-value pairs. Existing set of labels will be completely overwritten. --security-group-ids value[,value] A list of security groups for the Kafka cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster. --zone-ids value[,value] List of availability zones.|
 |`--brokers-count`|<b>`int`</b><br/> Count of brokers in each availability zone.|
 |`--resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a Kafka host (CPU, RAM etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/> Storage volume available to a Kafka host.|
@@ -34,6 +35,8 @@ Syntax:
 |`--log-segment-bytes`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "log.segment.bytes". The maximum size of a single log file.|
 |`--log-preallocate`| Allows to set Kafka cluster configuration property "log.preallocate". Should pre allocate file when create new segment?|
 |`--auto-create-topics-enable`| Allows to set Kafka cluster configuration property "auto.create.topics.enable". Enable auto creation of topic on the server.|
+|`--num-partitions`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "num.partitions". Default number of partitions per topic on the whole cluster.|
+|`--default-replication-factor`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "default.replication.factor". Default replication factor of the topic on the whole cluster.|
 
 #### Flags
 

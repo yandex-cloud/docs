@@ -8,6 +8,10 @@ Syntax:
 
 `yc serverless <group>`
 
+Aliases: 
+
+- `sls`
+
 #### Command Tree
 
 - [yc serverless function](function/index.md) — Manage functions
@@ -28,6 +32,9 @@ Syntax:
 	- [yc serverless function remove-access-binding](function/remove-access-binding.md) — Remove access binding for the specified function
 	- [yc serverless function allow-unauthenticated-invoke](function/allow-unauthenticated-invoke.md) — Allow unauthenticated invoke for the specified function
 	- [yc serverless function deny-unauthenticated-invoke](function/deny-unauthenticated-invoke.md) — Deny unauthenticated invoke for the specified function
+	- [yc serverless function list-scaling-policies](function/list-scaling-policies.md) — List existing scaling policies for specified function
+	- [yc serverless function set-scaling-policy](function/set-scaling-policy.md) — Set scaling policy for specified function and tag
+	- [yc serverless function remove-scaling-policy](function/remove-scaling-policy.md) — Remove scaling policy for specified function and tag
 - [yc serverless trigger](trigger/index.md) — Manage triggers
 	- [yc serverless trigger get](trigger/get.md) — Show information about the specified trigger
 	- [yc serverless trigger list](trigger/list.md) — List triggers
@@ -38,18 +45,40 @@ Syntax:
 	- [yc serverless trigger pause](trigger/pause.md) — Pause the specified trigger
 	- [yc serverless trigger resume](trigger/resume.md) — Resume the specified trigger
 	- [yc serverless trigger list-operations](trigger/list-operations.md) — Show history of the tag for the specified trigger
-- [yc serverless api-gateway](api-gateway/index.md) — [PREVIEW] Manage api-gateways
-	- [yc serverless api-gateway get](api-gateway/get.md) — Get api-gateway
-	- [yc serverless api-gateway list](api-gateway/list.md) — List api-gateways
-	- [yc serverless api-gateway get-spec](api-gateway/get-spec.md) — Get api-gateway openapi specification
-	- [yc serverless api-gateway create](api-gateway/create.md) — Create api-gateway
-	- [yc serverless api-gateway update](api-gateway/update.md) — Update api-gateway
-	- [yc serverless api-gateway delete](api-gateway/delete.md) — Delete api-gateway
-	- [yc serverless api-gateway list-operations](api-gateway/list-operations.md) — List api-gateway operations
-	- [yc serverless api-gateway list-access-bindings](api-gateway/list-access-bindings.md) — List api-gateway access bindings
-	- [yc serverless api-gateway set-access-bindings](api-gateway/set-access-bindings.md) — Set access bindings for the specified api-gateway and delete all existing access bindings if there were any
-	- [yc serverless api-gateway add-access-binding](api-gateway/add-access-binding.md) — Add access binding for the specified api-gateway
-	- [yc serverless api-gateway remove-access-binding](api-gateway/remove-access-binding.md) — Remove access binding for the specified api-gateway
+- [yc serverless api-gateway](api-gateway/index.md) — Manage API Gateways
+	- [yc serverless api-gateway get](api-gateway/get.md) — Get API Gateway
+	- [yc serverless api-gateway list](api-gateway/list.md) — List API Gateways
+	- [yc serverless api-gateway get-spec](api-gateway/get-spec.md) — Get API Gateway openapi specification
+	- [yc serverless api-gateway create](api-gateway/create.md) — Create API Gateway
+	- [yc serverless api-gateway update](api-gateway/update.md) — Update API Gateway
+	- [yc serverless api-gateway delete](api-gateway/delete.md) — Delete API Gateway
+	- [yc serverless api-gateway list-operations](api-gateway/list-operations.md) — List API Gateway operations
+	- [yc serverless api-gateway list-access-bindings](api-gateway/list-access-bindings.md) — List API Gateway access bindings
+	- [yc serverless api-gateway set-access-bindings](api-gateway/set-access-bindings.md) — Set access bindings for the specified API Gateway and delete all existing access bindings if there were any
+	- [yc serverless api-gateway add-access-binding](api-gateway/add-access-binding.md) — Add access binding for the specified API Gateway
+	- [yc serverless api-gateway remove-access-binding](api-gateway/remove-access-binding.md) — Remove access binding for the specified API Gateway
+	- [yc serverless api-gateway add-domain](api-gateway/add-domain.md) — Attach domain to the specified API Gateway
+	- [yc serverless api-gateway remove-domain](api-gateway/remove-domain.md) — Detach domain from the specified API Gateway
+- [yc serverless container](container/index.md) — Manage containers
+	- [yc serverless container get](container/get.md) — Show information about the specified container
+	- [yc serverless container list](container/list.md) — List containers
+	- [yc serverless container create](container/create.md) — Create a container
+	- [yc serverless container update](container/update.md) — Update the specified container
+	- [yc serverless container add-labels](container/add-labels.md) — Add labels to specified container
+	- [yc serverless container remove-labels](container/remove-labels.md) — Remove labels from specified container
+	- [yc serverless container delete](container/delete.md) — Delete the specified container
+	- [yc serverless container list-operations](container/list-operations.md) — Show operations for the specified container
+	- [yc serverless container list-access-bindings](container/list-access-bindings.md) — List access bindings for the specified container
+	- [yc serverless container set-access-bindings](container/set-access-bindings.md) — Set access bindings for the specified container and delete all existing access bindings if there were any
+	- [yc serverless container add-access-binding](container/add-access-binding.md) — Add access binding for the specified container
+	- [yc serverless container remove-access-binding](container/remove-access-binding.md) — Remove access binding for the specified container
+- [yc serverless mdbproxy](mdbproxy/index.md) — Manage proxies
+	- [yc serverless mdbproxy get](mdbproxy/get.md) — Show information about the specified proxy
+	- [yc serverless mdbproxy list](mdbproxy/list.md) — List proxies
+	- [yc serverless mdbproxy add-labels](mdbproxy/add-labels.md) — Add labels to specified proxy
+	- [yc serverless mdbproxy remove-labels](mdbproxy/remove-labels.md) — Remove labels from specified proxy
+	- [yc serverless mdbproxy delete](mdbproxy/delete.md) — Delete the specified proxy
+	- [yc serverless mdbproxy list-operations](mdbproxy/list-operations.md) — Show history of the tag for the specified proxy
 
 #### Flags
 

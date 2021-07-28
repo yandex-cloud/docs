@@ -1,6 +1,6 @@
 # yc serverless api-gateway get-spec
 
-Get api-gateway openapi specification
+Get API Gateway openapi specification
 
 #### Command Usage
 

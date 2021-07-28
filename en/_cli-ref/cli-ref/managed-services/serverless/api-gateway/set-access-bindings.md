@@ -1,6 +1,6 @@
 # yc serverless api-gateway set-access-bindings
 
-Set access bindings for the specified api-gateway and delete all existing access bindings if there were any
+Set access bindings for the specified API Gateway and delete all existing access bindings if there were any
 
 #### Command Usage
 

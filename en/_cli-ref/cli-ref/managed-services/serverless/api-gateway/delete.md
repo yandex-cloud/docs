@@ -1,6 +1,6 @@
 # yc serverless api-gateway delete
 
-Delete api-gateway
+Delete API Gateway
 
 #### Command Usage
 

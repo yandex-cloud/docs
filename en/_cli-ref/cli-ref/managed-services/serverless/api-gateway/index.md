@@ -1,6 +1,6 @@
 # yc serverless api-gateway
 
-[PREVIEW] Manage api-gateways
+Manage API Gateways
 
 #### Command Usage
 
@@ -8,19 +8,27 @@ Syntax:
 
 `yc serverless api-gateway <command>`
 
+Aliases: 
+
+- `gateway`
+- `api-gw`
+- `gw`
+
 #### Command Tree
 
-- [yc serverless api-gateway get](get.md) — Get api-gateway
-- [yc serverless api-gateway list](list.md) — List api-gateways
-- [yc serverless api-gateway get-spec](get-spec.md) — Get api-gateway openapi specification
-- [yc serverless api-gateway create](create.md) — Create api-gateway
-- [yc serverless api-gateway update](update.md) — Update api-gateway
-- [yc serverless api-gateway delete](delete.md) — Delete api-gateway
-- [yc serverless api-gateway list-operations](list-operations.md) — List api-gateway operations
-- [yc serverless api-gateway list-access-bindings](list-access-bindings.md) — List api-gateway access bindings
-- [yc serverless api-gateway set-access-bindings](set-access-bindings.md) — Set access bindings for the specified api-gateway and delete all existing access bindings if there were any
-- [yc serverless api-gateway add-access-binding](add-access-binding.md) — Add access binding for the specified api-gateway
-- [yc serverless api-gateway remove-access-binding](remove-access-binding.md) — Remove access binding for the specified api-gateway
+- [yc serverless api-gateway get](get.md) — Get API Gateway
+- [yc serverless api-gateway list](list.md) — List API Gateways
+- [yc serverless api-gateway get-spec](get-spec.md) — Get API Gateway openapi specification
+- [yc serverless api-gateway create](create.md) — Create API Gateway
+- [yc serverless api-gateway update](update.md) — Update API Gateway
+- [yc serverless api-gateway delete](delete.md) — Delete API Gateway
+- [yc serverless api-gateway list-operations](list-operations.md) — List API Gateway operations
+- [yc serverless api-gateway list-access-bindings](list-access-bindings.md) — List API Gateway access bindings
+- [yc serverless api-gateway set-access-bindings](set-access-bindings.md) — Set access bindings for the specified API Gateway and delete all existing access bindings if there were any
+- [yc serverless api-gateway add-access-binding](add-access-binding.md) — Add access binding for the specified API Gateway
+- [yc serverless api-gateway remove-access-binding](remove-access-binding.md) — Remove access binding for the specified API Gateway
+- [yc serverless api-gateway add-domain](add-domain.md) — Attach domain to the specified API Gateway
+- [yc serverless api-gateway remove-domain](remove-domain.md) — Detach domain from the specified API Gateway
 
 #### Flags
 

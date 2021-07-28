@@ -1,6 +1,6 @@
 # yc serverless api-gateway create
 
-Create api-gateway
+Create API Gateway
 
 #### Command Usage
 

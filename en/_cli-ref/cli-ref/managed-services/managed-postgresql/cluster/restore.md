@@ -21,6 +21,7 @@ Syntax:
 |`--network-name`|<b>`string`</b><br/> Network name. --host PROPERTY=VALUE[,PROPERTY=VALUE...] Individual configurations for hosts that should be created for the PostgresSQL cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Whether the host should get a public IP address on creation.  replication-source Host name of the host to be used as the replication source (for cascading replication).  priority Priority of the host as a replica.  |
 |`--datalens-access`| Allow access for DataLens|
 |`--websql-access`| Allow access for Web SQL|
+|`--serverless-access`| Allow access for Serverless|
 |`--postgresql-version`|<b>`string`</b><br/> Version of PostgreSQL used in the cluster. Values: 13, 12, 11, 10, 10_1c|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|

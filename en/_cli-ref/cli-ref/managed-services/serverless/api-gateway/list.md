@@ -1,6 +1,6 @@
 # yc serverless api-gateway list
 
-List api-gateways
+List API Gateways
 
 #### Command Usage
 

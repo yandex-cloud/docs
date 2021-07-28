@@ -1,6 +1,6 @@
 # yc serverless api-gateway get
 
-Get api-gateway
+Get API Gateway
 
 #### Command Usage
 

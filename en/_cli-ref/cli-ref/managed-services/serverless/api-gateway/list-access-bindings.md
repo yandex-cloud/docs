@@ -1,6 +1,6 @@
 # yc serverless api-gateway list-access-bindings
 
-List api-gateway access bindings
+List API Gateway access bindings
 
 #### Command Usage
 

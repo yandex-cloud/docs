@@ -8,6 +8,10 @@ Syntax:
 
 `yc ydb database <command>`
 
+Aliases: 
+
+- `db`
+
 #### Command Tree
 
 - [yc ydb database get](get.md) — Get information about the specified YDB database.

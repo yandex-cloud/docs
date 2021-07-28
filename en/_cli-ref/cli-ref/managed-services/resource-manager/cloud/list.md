@@ -13,6 +13,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
 
 #### Flags
 

@@ -1,6 +1,6 @@
 # yc serverless api-gateway list-operations
 
-List api-gateway operations
+List API Gateway operations
 
 #### Command Usage
 
