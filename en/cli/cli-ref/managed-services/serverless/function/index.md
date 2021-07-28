@@ -12,6 +12,10 @@ Syntax:
 
 `yc serverless function <group|command>`
 
+Aliases: 
+
+- `fn`
+
 #### Command Tree
 
 - [yc serverless function get](get.md) — Show information about the specified function
@@ -31,6 +35,9 @@ Syntax:
 - [yc serverless function remove-access-binding](remove-access-binding.md) — Remove access binding for the specified function
 - [yc serverless function allow-unauthenticated-invoke](allow-unauthenticated-invoke.md) — Allow unauthenticated invoke for the specified function
 - [yc serverless function deny-unauthenticated-invoke](deny-unauthenticated-invoke.md) — Deny unauthenticated invoke for the specified function
+- [yc serverless function list-scaling-policies](list-scaling-policies.md) — List existing scaling policies for specified function
+- [yc serverless function set-scaling-policy](set-scaling-policy.md) — Set scaling policy for specified function and tag
+- [yc serverless function remove-scaling-policy](remove-scaling-policy.md) — Remove scaling policy for specified function and tag
 - [yc serverless function version](version/index.md) — Manage function versions
 	- [yc serverless function version list](version/list.md) — List function versions
 	- [yc serverless function version get](version/get.md) — Show information about the specified function version

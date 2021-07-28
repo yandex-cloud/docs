@@ -145,7 +145,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
       --name k8s-gpu-cluster \
       --cluster-name k8s-gpu-cluster \
       --gpus 1 \  
-      --public-ip \
+      --network-interface subnets=<имя подсети для группы узлов>,ipv4-address=nat \
       --location zone=ru-central1-a \  
       --fixed-size 1
      done (3m53s)
@@ -193,7 +193,10 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
      - `--name` — имя группы узлов.
      - `--cluster-name` — имя кластера {{ k8s }}, в котором будет создана группа узлов.
      - `--gpus` — количество GPU для узлов.
-     - `--public-ip` — флаг, который указывается, если группе узлов требуется публичный IP-адрес.    
+     - `--network-interface` — настройки сети:
+
+         {% include [network-interface](../../_includes/managed-kubernetes/cli-network-interface.md) %}
+
      - `--location` — зона доступности, в которых будут расположены узлы. Можно указать несколько вариантов.
      - `--fixed-size` — количество узлов в группе.
 

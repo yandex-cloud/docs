@@ -22,7 +22,8 @@ Syntax:
 |`--description`|<b>`string`</b><br/> New description for the cluster. --labels key=value[,key=value...] A new set of cluster labels as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--bucket`|<b>`string`</b><br/> New Object Storage bucket to be used for Data Proc jobs that are run in the cluster.|
 |`--decommission-timeout`|<b>`int`</b><br/> Graceful decommission timeout in seconds.|
-|`--ui-proxy`| Whether to enable UI Proxy feature. --security-group-ids value[,value] A list of security groups for the Data Proc cluster.|
+|`--ui-proxy`| Whether to enable UI Proxy feature. --property value[,value] Properties passed to all hosts *-site.xml configurations in <service>:<property>=<value> format. For example setting property 'dfs.replication' to 3 in /etc/hadoop/conf/hdfs-site.xml requires specifying --property "hdfs:dfs.replication=3" This flag can be passed multiple times. If you previously specified properties when creating a cluster and now want to add new ones, then you need to list the full set of properties, not just the ones that are being added.  --security-group-ids value[,value] A list of security groups for the Data Proc cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--service-account-id`|<b>`string`</b><br/> New service account id.|
 |`--service-account-name`|<b>`string`</b><br/> New service account name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

@@ -8,13 +8,13 @@ sudo apt update && sudo apt install -y redis-tools
 
 {% note info %}
 
-Для подключения к кластеру с поддержкой TLS [скачайте](https://redis.io/download) архив с исходным кодом утилиты и выполните сборку версии утилиты с TLS командой `make BUILD_TLS=yes`.
+Для подключения к кластеру с поддержкой SSL [скачайте](https://redis.io/download) архив с исходным кодом утилиты и выполните сборку версии утилиты с TLS командой `make BUILD_TLS=yes`.
 
 {% endnote %}
 
 {% list tabs %}
   
-- Подключение без TLS
+- Подключение без SSL
 
   **Подключение с помощью Sentinel**:
   
@@ -38,7 +38,7 @@ sudo apt update && sudo apt install -y redis-tools
 
   {% include [use-special-fqdn](mrd-conn-strings-fqdn.md) %}
 
-- Подключение с TLS
+- Подключение с SSL
   
   **Подключение напрямую к мастеру**:
   
@@ -67,7 +67,7 @@ pip3 install redis
 
 {% list tabs %}
 
-- Подключение без TLS
+- Подключение без SSL
 
   **Пример кода для подключения с помощью Sentinel**:
 
@@ -115,7 +115,7 @@ pip3 install redis
   python3 connect.py
   ```
 
-- Подключение с TLS
+- Подключение с SSL
   
   **Пример кода для подключения напрямую к мастеру**:
 
@@ -160,7 +160,7 @@ sudo pear install nrk/Predis
 
 {% list tabs %}
 
-- Подключение без TLS
+- Подключение без SSL
 
   **Пример кода для подключения с помощью Sentinel**:
 
@@ -222,7 +222,7 @@ sudo pear install nrk/Predis
   php connect.php
   ```
 
-- Подключение с TLS
+- Подключение с SSL
 
   **Пример кода для подключения напрямую к мастеру**:
 
@@ -361,7 +361,7 @@ sudo pear install nrk/Predis
   
 {% list tabs %}
 
-- Подключение без TLS
+- Подключение без SSL
 
   **Пример кода для подключения с помощью Sentinel**:
   
@@ -436,7 +436,7 @@ sudo pear install nrk/Predis
      java -jar target/app-0.1.0-jar-with-dependencies.jar
      ```
 
-- Подключение с TLS
+- Подключение с SSL
   
   **Пример кода для подключения напрямую к мастеру**:
   
@@ -488,7 +488,7 @@ npm install ioredis
 
 {% list tabs %}
 
-- Подключение без TLS
+- Подключение без SSL
 
   **Пример кода для подключения с помощью Sentinel**:
 
@@ -566,7 +566,7 @@ npm install ioredis
   node app.js
   ```
 
-- Подключение с TLS
+- Подключение с SSL
   
   **Пример кода для подключения напрямую к мастеру**:
 
@@ -628,7 +628,7 @@ go get github.com/go-redis/redis/v7
 
 {% list tabs %}
 
-- Подключение без TLS
+- Подключение без SSL
 
   **Пример кода для подключения с помощью Sentinel**:
 
@@ -712,7 +712,7 @@ go get github.com/go-redis/redis/v7
   go run connect.go
   ```
 
-- Подключение с TLS
+- Подключение с SSL
   
   **Пример кода для подключения напрямую к мастеру**:
 
@@ -793,7 +793,7 @@ sudo gem install redis
 
 {% list tabs %}
 
-- Подключение без TLS
+- Подключение без SSL
 
   **Пример кода для подключения с помощью Sentinel:**
 
@@ -845,7 +845,7 @@ sudo gem install redis
   ruby connect.rb
   ```
 
-- Подключение с TLS
+- Подключение с SSL
   
   **Пример кода для подключения напрямую к мастеру:**
 

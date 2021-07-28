@@ -1,15 +1,15 @@
-Создайте федерацию с помощью метода [create](../../iam/api-ref/Federation/create.md):
+Создайте федерацию с помощью метода [create](../../organization/api-ref/grpc/federation_service.md#Create):
 
 ```
 $ curl -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <IAM-токен>" \
   -d '@body.json' \
-  https://iam.api.cloud.yandex.net/iam/v1/saml/federations
+  https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations
 {
  "done": true,
  "metadata": {
-  "@type": "type.googleapis.com/yandex.cloud.iam.v1.saml.CreateFederationMetadata",
+  "@type": "type.googleapis.com/yandex.cloud.organization-manager.v1.saml.CreateFederationMetadata",
   "federationId": "ajeobmje4dgj0belagb9"
  },
  ...

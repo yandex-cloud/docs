@@ -61,14 +61,14 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
    {% note info %}
 
-   Для подключения к кластеру с поддержкой TLS [скачайте](https://redis.io/download) архив с исходным кодом утилиты и выполните сборку версии утилиты с TLS командой `make BUILD_TLS=yes`.
+   Для подключения к кластеру с поддержкой SSL [скачайте](https://redis.io/download) архив с исходным кодом утилиты и выполните сборку версии утилиты с TLS командой `make BUILD_TLS=yes`.
 
    {% endnote %}
 
    {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
    Чтобы подключиться:
-   - К мастеру через любой хост кластера с помощью [Sentinel](https://redis.io/topics/sentinel) (без TLS):
+   - К мастеру через любой хост кластера с помощью [Sentinel](https://redis.io/topics/sentinel) (без SSL):
      1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ RD }}:
      
         ```bash
@@ -83,13 +83,13 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
         
    - Напрямую к хосту-мастеру:
 
-      - Подключитесь без использования TLS:
+      - Подключитесь без использования SSL:
 
         ```bash
         redis-cli -h <FQDN хоста-мастера {{ RD }}> -p {{ port-mrd }} -a <пароль {{ RD }}>
         ```
 
-      - Подключитесь с использованием TLS:
+      - Подключитесь с использованием SSL:
 
         ```bash
         redis-cli -h <FQDN хоста-мастера {{ RD }}> -p {{ port-mrd-tls }} -a <пароль {{ RD }}> --tls --cacert ~/.redis/YandexInternalRootCA.crt

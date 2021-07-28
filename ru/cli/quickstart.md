@@ -31,12 +31,8 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
      Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
      ```
   1. Выберите одно из предложенных облаков, в которых у вас есть права доступа:
-     ```
-     Please select cloud to use:
-      [1] cloud1 (id = aoe2bmdcvatao4frg22b)
-      [2] cloud2 (id = dcvatao4faoe2bmrg22b)
-     Please enter your numeric choice: 2
-     ```
+     
+	 {% include [include](../_includes/cli/choose-cloud.md) %}
 
      Если вам доступно только одно облако, оно будет выбрано автоматически.
   1. Выберите каталог по умолчанию:

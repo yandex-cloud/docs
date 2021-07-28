@@ -22,6 +22,8 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
     
     Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 
+1. Создайте нужные [группы безопасности](../security-groups.md).
+
 ## Создайте кластер {{ k8s }} {#kubernetes-cluster-create}
 
 {% list tabs %}
@@ -29,7 +31,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 - Консоль управления
 
     {% include [create-cluster](../../../_includes/managed-kubernetes/cluster-create.md) %}
-    
+
 - CLI
 
     1. {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -60,11 +62,15 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
         - `--network-name` — имя сети.
         - `--zone` — зона доступности.
         - `--subnet-name` — имя подсети.
-        - `--public-ip` — флаг, который указывается, если кластеру {{ k8s }} требуется публичный IP-адрес.
+        - `--public-ip` — флаг, который указывает, если кластеру {{ k8s }} требуется публичный IP-адрес.
         - `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#release-channels).
         - `--version` — версия {{ k8s }}.
         - `--cluster-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../../concepts/index.md#pod).
         - `--service-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для сервисов.
+        - `--security-group-ids` — список идентификаторов групп безопасности кластера.
+
+        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
+
         - `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
         - `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
         - `--daily-maintenance-window` — настройки окна обновлений.

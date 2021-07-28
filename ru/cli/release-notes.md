@@ -936,7 +936,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{iam-name}} {#iam}
-* Добавлены команды для создания и управления SAML-совместимыми федерациями удостоверений и сертификатами к ним: `yc iam federation` и `yc iam certificate`. Подробнее про SAML-совместимые федерации удостоверений можно узнать в [документации](https://cloud.yandex.ru/docs/iam/concepts/users/identity-federations).
+* Добавлены команды для создания и управления SAML-совместимыми федерациями удостоверений и сертификатами к ним: `yc iam federation` и `yc iam certificate`. Подробнее про SAML-совместимые федерации удостоверений можно узнать в [документации](../organization/add-federation.md).
 
 ### Версия 0.50.0 (27.01.20) {#version0.50.0}
 
@@ -1089,13 +1089,13 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 **Исправлено**
 
-* Для Windows Subsystem for Linux (WSL) при авторизации в CLI с помощью [SAML-совместимых федераций удостоверений](../iam/concepts/users/identity-federations.md) теперь корректно происходит переход в браузер.
+* Для Windows Subsystem for Linux (WSL) при авторизации в CLI с помощью [SAML-совместимых федераций удостоверений](../organization/add-federation.md) теперь корректно происходит переход в браузер.
 
 ### Версия 0.43.0 (11.11.19) {#version0.43.0}
 
 #### Изменения в CLI {#cli}
 
-* Добавлена возможность авторизации в CLI с помощью [SAML-совместимых федераций удостоверений](../iam/concepts/users/identity-federations.md).
+* Добавлена возможность авторизации в CLI с помощью [SAML-совместимых федераций удостоверений](../organization/add-federation.md).
 
     Для этого выполните команду `yc init --federation-id=<FEDERATION_ID>`, после чего можно использовать CLI для работы от имени пользователя этой федерации.
 

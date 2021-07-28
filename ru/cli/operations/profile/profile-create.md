@@ -84,12 +84,8 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
     ```
 1. Выберите одно из предложенных облаков, в которых у вас есть права доступа:
 
-    ```
-    Please select cloud to use:
-    [1] cloud1 (id = aoe2bmdcvatao4frg22b)
-    [2] cloud2 (id = dcvatao4faoe2bmrg22b)
-    Please enter your numeric choice: 2
-    ```
+    {% include [include](../../../_includes/cli/choose-cloud.md) %}
+	
 1. Выберите каталог по умолчанию:
 
     ```

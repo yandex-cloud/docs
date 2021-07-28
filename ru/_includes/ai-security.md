@@ -14,7 +14,7 @@
 
 {% note info %}
 
-Пользователю с аккаунтом на Яндексе или [федеративным аккаунтом](../iam/concepts/users/identity-federations.md) вместе с ролями `editor` или `admin` нужна роль `resource-manager.cloud.member` на облако. Эта роль назначается автоматически при [добавлении в облако](../iam/operations/users/create.md).
+Пользователю с аккаунтом на Яндексе или [федеративным аккаунтом](../organization/add-federation.md) вместе с ролями `editor` или `admin` нужна роль `resource-manager.cloud.member` на облако. Эта роль назначается автоматически при [добавлении в облако](../iam/operations/users/create.md).
 
 {% endnote %}
 

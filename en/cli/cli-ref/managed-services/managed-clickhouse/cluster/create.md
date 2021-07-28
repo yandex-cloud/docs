@@ -38,6 +38,7 @@ Syntax:
 |`--enable-sql-database-management`| Whether database management through SQL commands is enabled.|
 |`--enable-sql-user-management`| Whether user management through SQL commands is enabled. --labels key=value[,key=value...] A list of ClickHouse cluster labels as key-value pairs.|
 |`--service-account`|<b>`string`</b><br/> Service account for the ClickHouse cluster. --security-group-ids value[,value] A list of security groups for the ClickHouse cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--admin-password`|<b>`string`</b><br/> Password for entity. Usage of --read-admin-password is more secure|
 |`--read-admin-password`| Read password for entity from input|
 |`--generate-admin-password`| Generate random password|

@@ -13,7 +13,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 ## Доступ в мобильное приложение {#how}
 
-Для входа используйте [Яндекс ID](../../iam/concepts/index.md#passport) или аккаунт в [федерации удостоверений](../../iam/concepts/users/identity-federations.md).
+Для входа используйте [Яндекс ID](../../iam/concepts/index.md#passport) или аккаунт в [федерации удостоверений](../../organization/add-federation.md).
 
 ## Поддерживаемые устройства и ОС {#devices-os}
 

@@ -25,6 +25,7 @@ Aliases:
 - [yc vpc address update](update.md) — Modify configuration or attributes of the address.
 - [yc vpc address delete](delete.md) — Delete an address.
 - [yc vpc address list-operations](list-operations.md) — List operations for an address.
+- [yc vpc address move](move.md) — Move an address to another folder.
 
 #### Flags
 

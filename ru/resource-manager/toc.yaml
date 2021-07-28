@@ -17,6 +17,8 @@ items:
             href: operations/cloud/set-access-bindings.md
           - name: Переключение на другое облако
             href: operations/cloud/switch-cloud.md
+          - name: Изменение организации для облака
+            href: operations/cloud/change-organization.md
           - name: Уведомления об инцидентах в облаке
             href: operations/cloud/notify.md
       - name: Каталог

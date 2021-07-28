@@ -21,13 +21,19 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name for the ElasticSearch cluster|
 |`--description`|<b>`string`</b><br/> New description for the ElasticSearch cluster. --labels key=value[,key=value...] New set of labels for the ElasticSearch cluster as key-value pairs. Existing set of labels will be completely overwritten. --security-group-ids value[,value] A list of security groups for the ElasticSearch cluster.|
-|`--datanode-resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a datanode host (CPU, RAM etc.).|
-|`--datanode-disk-size`|<b>`byteSize`</b><br/> Storage volume available to a datanode host.|
-|`--datanode-disk-type`|<b>`string`</b><br/> Storage type for a datanode host.|
-|`--masternode-resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a masternode host (CPU, RAM etc.).|
-|`--masternode-disk-size`|<b>`byteSize`</b><br/> Storage volume available to a masternode host.|
-|`--masternode-disk-type`|<b>`string`</b><br/> Storage type for a masternode host. --plugins value[,value] ElasticSearch plugins|
-|`--version`|<b>`string`</b><br/> ElasticSearch version|
+|`--service-account`|<b>`string`</b><br/> Service account for the Elasticsearch cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
+|`--version`|<b>`string`</b><br/> Set new version of the Elasticsearch server software|
+|`--edition`|<b>`string`</b><br/> Set new Elasticsearch server edition --plugins value[,value] Set new set of ElasticSearch plugins|
+|`--datanode-resource-preset`|<b>`string`</b><br/> New resource preset for computational resources available to a datanode host (CPU, RAM etc.).|
+|`--datanode-disk-size`|<b>`byteSize`</b><br/> New storage volume available to a datanode host.|
+|`--datanode-disk-type`|<b>`string`</b><br/> New storage type for a datanode host.|
+|`--masternode-resource-preset`|<b>`string`</b><br/> New resource preset for computational resources available to a masternode host (CPU, RAM etc.).|
+|`--masternode-disk-size`|<b>`byteSize`</b><br/> New storage volume available to a masternode host.|
+|`--masternode-disk-type`|<b>`string`</b><br/> New storage type for a masternode host.|
+|`--admin-password`|<b>`string`</b><br/> Password for entity. Usage of --read-admin-password is more secure|
+|`--read-admin-password`| Read password for entity from input|
+|`--generate-admin-password`| Generate random password|
 
 #### Flags
 

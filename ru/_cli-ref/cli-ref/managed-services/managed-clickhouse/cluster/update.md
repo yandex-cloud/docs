@@ -22,6 +22,7 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/> New name for the ClickHouse cluster|
 |`--description`|<b>`string`</b><br/> New description for the ClickHouse cluster. --labels key=value[,key=value...] New set of labels for the ClickHouse cluster as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--service-account`|<b>`string`</b><br/> New service account for the ClickHouse cluster. --security-group-ids value[,value] A list of security groups for the ClickHouse cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--clickhouse-resource-preset`|<b>`string`</b><br/> New resource preset for computational resources available to a ClickHouse host (CPU, RAM etc.).|
 |`--clickhouse-disk-size`|<b>`byteSize`</b><br/> New volume of the storage available to a ClickHouse host.|
 |`--clickhouse-disk-type`|<b>`string`</b><br/> New storage type for a ClickHouse host.|
@@ -34,6 +35,7 @@ Syntax:
 |`--websql-access`| Allow access for Web SQL|
 |`--metrika-access`| Allow access for Yandex Metrika|
 |`--serverless-access`| Allow access for Serverless|
+|`--cloud-storage`| Whether to use Yandex Object Storage for storing ClickHouse data.|
 |`--enable-sql-database-management`| Whether database management through SQL commands is enabled.|
 |`--enable-sql-user-management`| Whether user management through SQL commands is enabled.|
 |`--admin-password`|<b>`string`</b><br/> Password for entity. Usage of --read-admin-password is more secure|

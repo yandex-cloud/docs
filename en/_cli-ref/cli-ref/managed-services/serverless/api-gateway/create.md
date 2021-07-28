@@ -4,7 +4,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 # yc serverless api-gateway create
 
-Create api-gateway
+Create API Gateway
 
 #### Command Usage
 
