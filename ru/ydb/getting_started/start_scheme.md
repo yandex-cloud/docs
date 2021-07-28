@@ -186,11 +186,31 @@ ALTER TABLE episodes ADD COLUMN is_deleted Bool;
 ALTER TABLE episodes DROP column is_deleted;
 ```
 
+### Добавление или удаление вторичного индекса
+
+```ADD INDEX``` — добавляет индекс с указанным именем и типом для заданного набора колонок. Приведенный ниже код добавит глобальный индекс с именем ```title_index``` для колонки ```title```.
+
+<small>Листинг 8</small>
+
+```sql
+ALTER TABLE `series` ADD INDEX `title_index` GLOBAL ON (`title`);
+```
+
+Удаление индекса:
+
+<small>Листинг 9</small>
+
+```DROP INDEX``` — удаляет индекс с указанным именем. Приведенный ниже код удалит индекс с именем ```title_index```.
+
+```sql
+ALTER TABLE `series` DROP INDEX `title_index`;
+```
+
 ### Изменение групп колонок
 
 ```ADD FAMILY``` — создаёт новую группу колонок в таблице. Приведенный ниже код создаст в таблице ```series_with_families``` группу колонок ```family_small```.
 
-<small>Листинг 8</small>
+<small>Листинг 10</small>
 
 ```sql
 ALTER TABLE series_with_families ADD FAMILY family_small (
@@ -201,7 +221,7 @@ ALTER TABLE series_with_families ADD FAMILY family_small (
 
 При помощи команды ```ALTER COLUMN``` можно изменить группу колонок для указанной колонки. Приведенный ниже код для колонки ```release_date``` в таблице ```series_with_families``` сменит группу колонок на ```family_small```.
 
-<small>Листинг 9</small>
+<small>Листинг 11</small>
 
 ```sql
 ALTER TABLE series_with_families ALTER COLUMN release_date SET FAMILY family_small;
@@ -209,7 +229,7 @@ ALTER TABLE series_with_families ALTER COLUMN release_date SET FAMILY family_sma
 
 Две предыдущие команды из листингов 8 и 9 можно объединить в один вызов ```ALTER TABLE```. Приведенный ниже код создаст в таблице ```series_with_families``` группу колонок ```family_small``` и установит её для колонки ```release_date```.
 
-<small>Листинг 10</small>
+<small>Листинг 12</small>
 
 ```sql
 ALTER TABLE series_with_families
@@ -222,7 +242,7 @@ ALTER TABLE series_with_families
 
 При помощи команды ```ALTER FAMILY``` можно изменить параметры группы колонок. Приведенный ниже код для группы колонок ```default``` в таблице ```series_with_families``` сменит тип хранилища на ```hdd```:
 
-<small>Листинг 11</small>
+<small>Листинг 13</small>
 
 ```sql
 ALTER TABLE series_with_families ALTER FAMILY default SET DATA "hdd";
@@ -234,7 +254,7 @@ ALTER TABLE series_with_families ALTER FAMILY default SET DATA "hdd";
 
 В общем случае команда для изменения любого параметра таблицы выглядит следующим образом:
 
-<small>Листинг 12</small>
+<small>Листинг 14</small>
 
 ```sql
 ALTER TABLE table_name SET (key = value);
@@ -244,7 +264,7 @@ ALTER TABLE table_name SET (key = value);
 
 Например, такая команда выключит автоматическое партиционирование таблицы:
 
-<small>Листинг 13</small>
+<small>Листинг 15</small>
 
 ```sql
 ALTER TABLE series SET (AUTO_PARTITIONING_BY_SIZE = DISABLED);
@@ -256,7 +276,7 @@ ALTER TABLE series SET (AUTO_PARTITIONING_BY_SIZE = DISABLED);
 
 Команда для сброса параметра таблицы выглядит следующим образом:
 
-<small>Листинг 14</small>
+<small>Листинг 16</small>
 
 ```sql
 ALTER TABLE table_name RESET (key);
@@ -266,7 +286,7 @@ ALTER TABLE table_name RESET (key);
 
 Например, такая команда сбросит (удалит) настройки TTL для таблицы:
 
-<small>Листинг 15</small>
+<small>Листинг 17</small>
 
 ```sql
 ALTER TABLE series RESET (TTL);
@@ -284,7 +304,7 @@ ALTER TABLE series RESET (TTL);
 
 DROP TABLE — удаляет указанную таблицу. Если таблицы с таким именем не существует, возвращается ошибка. Приведенный ниже код вернет ошибку ```Table not found```, так как мы не создавали таблицу ```actors```.
 
-<small>Листинг 16</small>
+<small>Листинг 18</small>
 
 ```sql
 DROP TABLE actors;
