@@ -11,3 +11,4 @@
 - [{#T}](cluster-users.md)
 - [{#T}](grant.md)
 - [{#T}](cluster-delete.md)
+- [{#T}](performance-diagnostics.md)
