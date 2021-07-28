@@ -12,5 +12,4 @@ The payment is usually transferred within 15 to 20 minutes. In accordance with R
 
 {% endif %}
 
-If your bank card balance is insufficient on the day when funds are to be debited, the debit transaction will be repeated later. If the funds cannot be debited within one day, they may be debited from one of the bank cards linked to your Yandex.Passport account.
-
+If your bank card balance is insufficient on the day when funds are to be debited, the debit transaction will be repeated later.
