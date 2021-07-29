@@ -49,7 +49,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 После создания подключения вы сможете:
 - [Изменить](#update-connector) или [удалить](#delete-connector) это подключение.
 - [Создавать датасеты](../../datalens/concepts/dataset/index.md) с данными кластера, используя это подключение. 
-- Визуализировать датасеты с помощью [чартов](../../datalens/concepts/chart.md) и [дашбордов](../../datalens/concepts/dashboard.md).
+- Визуализировать датасеты с помощью [чартов](../../datalens/concepts/chart/index.md) и [дашбордов](../../datalens/concepts/dashboard.md).
 
 
 См. также: [пример визуализации данных из {{ CH }}](../../solutions/datalens/data-from-ch-visualization.md).

@@ -85,8 +85,6 @@ items:
         href: operations/get-query-plan.md
       - name: Управление базами данных
         href: operations/create_manage_database.md
-      - name: Подключение к базе данных
-        href: operations/connect_to_a_database.md
       - name: Управление таблицами
         href: operations/schema.md
       - name: Чтение и запись данных

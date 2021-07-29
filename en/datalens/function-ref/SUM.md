@@ -25,11 +25,36 @@ Returns the sum of all expression values. Applicable to numeric data types only.
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-SUM([Profit])
-```
+
+
+
+Source data
+
+| **City**          | **Category**        | **Orders**   | **Profit**   |
+|:------------------|:--------------------|:-------------|:-------------|
+| `'London'`        | `'Office Supplies'` | `8`          | `    120.10` |
+| `'London'`        | `'Furniture'`       | `1`          | `    750.00` |
+| `'Moscow'`        | `'Furniture'`       | `2`          | `   1250.50` |
+| `'Moscow'`        | `'Office Supplies'` | `4`          | `     85.34` |
+| `'San Francisco'` | `'Office Supplies'` | `23`         | `    723.00` |
+| `'Detroit'`       | `'Furniture'`       | `5`          | `   6205.87` |
+
+Grouped by `[City]`.
+
+Sorted by `[City]`.
+
+Result
+
+| **[City]**        | **SUM([Orders])**   | **SUM([Profit])**   |
+|:------------------|:--------------------|:--------------------|
+| `'Detroit'`       | `5`                 | `   6205.87`        |
+| `'London'`        | `9`                 | `    870.10`        |
+| `'Moscow'`        | `6`                 | `   1335.84`        |
+| `'San Francisco'` | `23`                | `    723.00`        |
+
+
 
 
 #### Data source support {#data-source-support}
