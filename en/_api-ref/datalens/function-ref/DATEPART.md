@@ -47,37 +47,68 @@ Only constant values are accepted for arguments (`firstday`).
 
 #### Examples {#examples}
 
-```
-DATEPART(#2019-01-23#, "year") = 2019
-```
+{% cut "Example with date" %}
 
-```
-DATEPART(#2019-01-23#, "month") = 1
-```
 
-```
-DATEPART(#2019-01-23#, "day") = 23
-```
+Formulas:
 
-```
-DATEPART(#2019-01-23 11:47:07#, "hour") = 11
-```
+- **Date**: `[Date]` ;
+- **Year**: `DATEPART([Date], "year")` ;
+- **Month**: `DATEPART([Date], "month")` ;
+- **Day**: `DATEPART([Date], "day")` ;
+- **DayOfWeek**: `DATEPART([Date], "dayofweek")` ;
+- **DOW**: `DATEPART([Date], "dow")` .
 
-```
-DATEPART(#2019-01-23 11:47:07#, "minute") = 47
-```
+| **Date**     | **Year**   | **Month**   | **Day**   | **DayOfWeek**   | **DOW**   |
+|:-------------|:-----------|:------------|:----------|:----------------|:----------|
+| `2014-10-06` | `2014`     | `10`        | `6`       | `1`             | `1`       |
+| `2014-10-07` | `2014`     | `10`        | `7`       | `2`             | `2`       |
+| `2017-03-08` | `2017`     | `3`         | `8`       | `3`             | `3`       |
+| `2024-02-12` | `2024`     | `2`         | `12`      | `1`             | `1`       |
 
-```
-DATEPART(#2019-01-23 11:47:07#, "second") = 7
-```
+{% endcut %}
 
-```
-DATEPART(#1971-01-14 01:02:03#, "dayofweek") = 4
-```
+{% cut "Example with custom first day of the week" %}
 
-```
-DATEPART(#1971-01-14 01:02:03#, "dayofweek", "wed") = 2
-```
+
+Formulas:
+
+- **Date**: `[Date]` ;
+- **DOW**: `DATEPART([Date], "dow")` ;
+- **DOW sun**: `DATEPART([Date], "dow", "sun")` ;
+- **DOW Monday**: `DATEPART([Date], "dow", "Monday")` ;
+- **DOW wed**: `DATEPART([Date], "dow", "wed")` .
+
+| **Date**     | **DOW**   | **DOW sun**   | **DOW Monday**   | **DOW wed**   |
+|:-------------|:----------|:--------------|:-----------------|:--------------|
+| `2014-10-06` | `1`       | `2`           | `1`              | `6`           |
+| `2014-10-07` | `2`       | `3`           | `2`              | `7`           |
+| `2017-03-08` | `3`       | `4`           | `3`              | `1`           |
+| `2024-02-12` | `1`       | `2`           | `1`              | `6`           |
+
+{% endcut %}
+
+{% cut "Example with date and time" %}
+
+
+Formulas:
+
+- **DateTime**: `[DateTime]` ;
+- **Year**: `DATEPART([DateTime], "year")` ;
+- **Month**: `DATEPART([DateTime], "month")` ;
+- **Day**: `DATEPART([DateTime], "day")` ;
+- **Hour**: `DATEPART([DateTime], "hour")` ;
+- **Minute**: `DATEPART([DateTime], "minute")` ;
+- **Second**: `DATEPART([DateTime], "second")` .
+
+| **Date**              | **Year**   | **Month**   | **Day**   | **Hour**   | **Minute**   | **Second**   |
+|:----------------------|:-----------|:------------|:----------|:-----------|:-------------|:-------------|
+| `2014-10-06T07:45:12` | `2014`     | `10`        | `6`       | `7`        | `45`         | `12`         |
+| `2014-10-07T11:10:15` | `2014`     | `10`        | `7`       | `11`       | `10`         | `15`         |
+| `2017-03-08T23:59:59` | `2017`     | `3`         | `8`       | `23`       | `59`         | `59`         |
+| `2024-02-12T07:40:33` | `2024`     | `2`         | `12`      | `7`        | `40`         | `33`         |
+
+{% endcut %}
 
 
 #### Data source support {#data-source-support}

@@ -22,11 +22,20 @@ Rounds the value up to the nearest integer.
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-CEILING(5.37) = 6
-```
+
+
+| **[value]**   | **CEILING([value])**   |
+|:--------------|:-----------------------|
+| `      1.00`  | `      1.00`           |
+| `      0.10`  | `      1.00`           |
+| `     -2.00`  | `     -2.00`           |
+| `     50.50`  | `     51.00`           |
+| `      0.00`  | `      0.00`           |
+| `     -3.50`  | `     -3.00`           |
+
+
 
 
 #### Data source support {#data-source-support}

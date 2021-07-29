@@ -22,11 +22,20 @@ Rounds the value down to the nearest integer.
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-FLOOR(5.37) = 5
-```
+
+
+| **[value]**   | **FLOOR([value])**   |
+|:--------------|:---------------------|
+| `      1.00`  | `      1.00`         |
+| `      0.10`  | `      0.00`         |
+| `     -2.00`  | `     -2.00`         |
+| `     50.50`  | `     50.00`         |
+| `      0.00`  | `      0.00`         |
+| `     -3.50`  | `     -4.00`         |
+
+
 
 
 #### Data source support {#data-source-support}
