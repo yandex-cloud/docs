@@ -51,4 +51,6 @@
 - [{#T}](dashboard/add-chart.md)
 - [{#T}](dashboard/add-selector.md)
 {% if audience != "internal" %} - [{#T}](dashboard/publish.md) {% endif %}
+- [{#T}](dashboard/create-alias.md)
+- [{#T}](dashboard/edit-alias.md)
 - [{#T}](dashboard/manage-access.md) 

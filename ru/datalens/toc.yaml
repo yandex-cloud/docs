@@ -201,6 +201,10 @@ items:
             href: operations/dashboard/add-chart.md
           - name: Добавление селектора на дашборд
             href: operations/dashboard/add-selector.md
+          - name: Создание алиаса
+            href: operations/dashboard/create-alias.md
+          - name: Удаление поля алиаса
+            href: operations/dashboard/edit-alias.md
           - name: Публикация дашборда
             when: audience == "external"
             href: operations/dashboard/publish.md
