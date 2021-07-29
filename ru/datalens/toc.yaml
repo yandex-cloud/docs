@@ -236,7 +236,13 @@ items:
           - name: Настройки датасета
             href: concepts/dataset/settings.md
       - name: Чарт
-        href: concepts/chart.md
+        items:
+          - name: Обзор
+            href: concepts/chart/index.md
+          - name: Типы чартов
+            href: concepts/chart/types.md
+          - name: Настройки чарта
+            href: concepts/chart/settings.md
       - name: Дашборд
         href: concepts/dashboard.md
       - name: Использование Markdown в DataLens
