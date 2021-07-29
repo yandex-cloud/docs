@@ -27,7 +27,7 @@ The runtime environment is updated while relevant language version updates are r
 
 Runtime environments available in {{ sf-name }}.
 
-| First name | ID |
+| Name | ID |
 | ---- | ---- |
 | **Node.js** |  |
 | Node.js 14 | `nodejs14` |
@@ -40,7 +40,10 @@ Runtime environments available in {{ sf-name }}.
 | Python 3.7 | `python37` |
 | Python 2.7 | `python27` |
 | **Go** |  |
+| Go 1.16 | `golang116` |
 | Go 1.14 | `golang114` |
+| **Java** |  |
+| Java 11 | `java11` |
 | **Other** |  |
 | Bash | `bash` |
 

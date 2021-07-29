@@ -18,7 +18,9 @@ items:
         href: manage-users.md
       - name: Добавить пользователя
         href: add-account.md
-      - name: Изменить или удалить аккаунт пользователя
+      - name: Назначить права доступа
+        href: roles.md
+      - name: Удалить аккаунт пользователя
         href: edit-account.md
   - name: Управление федерациями удостоверений
     items:
@@ -26,8 +28,8 @@ items:
         href: add-federation.md
       - name: Аутентификация с помощью Active Directory
         href: operations/federations/integration-adfs.md
-      - name: Аутентификация с помощью G-Suite
-        href: operations/federations/integration-gsuite.md
+      - name: Аутентификация с помощью Google Workspace
+        href: operations/federations/integration-gworkspace.md
       - name: Аутентификация с помощью SAML-совместимой федерации удостоверений
         href: operations/federations/integration-common.md
   - name: Справочник API

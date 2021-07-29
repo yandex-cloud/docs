@@ -4,7 +4,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 # Как начать работать c {{ datalens-short-name }}
 
-В этой инструкции вы создадите свой первый [датасет](concepts/dataset/index.md), для визуализации данных построите несколько [чартов](concepts/chart.md) и разместите их на [дашборде](concepts/dashboard.md).
+В этой инструкции вы создадите свой первый [датасет](concepts/dataset/index.md), для визуализации данных построите несколько [чартов](concepts/chart/index.md) и разместите их на [дашборде](concepts/dashboard.md).
 
 ## Перед началом работы {#before-you-begin}
 

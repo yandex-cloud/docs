@@ -25,11 +25,20 @@ Returns the absolute value of `number`.
 
 **Return type**: Same type as (`number`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
-```
-ABS(-5) = 5
-```
+
+
+| **[value]**   | **ABS([value])**   |
+|:--------------|:-------------------|
+| `      1.00`  | `      1.00`       |
+| `      0.10`  | `      0.10`       |
+| `     -2.00`  | `      2.00`       |
+| `     50.50`  | `     50.50`       |
+| `      0.00`  | `      0.00`       |
+| `     -3.50`  | `      3.50`       |
+
+
 
 
 #### Data source support {#data-source-support}
