@@ -25,7 +25,7 @@
 Вы можете настроить федерацию удостоверений для разных поставщиков удостоверений:
 
 * [Active Directory](operations/federations/integration-adfs.md).
-* [Google Workspace](operations/federations/integration-gsuite.md).
+* [Google Workspace](operations/federations/integration-gworkspace.md).
 * [Другие SAML-совместимые поставщики удостоверений](operations/federations/integration-common.md).
 
 ## Как происходит аутентификация в федерации {#saml-authentication}

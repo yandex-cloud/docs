@@ -14,10 +14,6 @@ items:
       href: enable-org.md
     - name: Изменить данные организации
       href: org-profile.md
-#    - name: Добавить или удалить администратора
-#      href: administrators.md
-#    - name: Изменить владельца организации
-#      href: edit-owner.md
     - name: Переключиться на другую организацию
       href: manage-organizations.md
 #    - name: Удалить организацию
@@ -28,7 +24,9 @@ items:
       href: manage-users.md
     - name: Добавить пользователя
       href: add-account.md
-    - name: Изменить или удалить аккаунт пользователя
+    - name: Назначить права доступа
+      href: roles.md
+    - name: Удалить аккаунт пользователя
       href: edit-account.md
 #    - name: Карточка сотрудника
 #      href: personal.md
@@ -42,8 +40,8 @@ items:
       href: add-federation.md
     - name: Аутентификация с помощью Active Directory
       href: operations/federations/integration-adfs.md
-    - name: Аутентификация с помощью G-Suite
-      href: operations/federations/integration-gsuite.md
+    - name: Аутентификация с помощью Google Workspace
+      href: operations/federations/integration-gworkspace.md
     - name: Аутентификация с помощью SAML-совместимой федерации удостоверений
       href: operations/federations/integration-common.md
 - name: Справочник API
@@ -55,10 +53,10 @@ items:
       include:
         repo: docs
         path: ru/_api-ref-grpc/organization-manager/toc.yaml
-    # - name: REST
-    #   items: null
-    #   include:
-    #     repo: docs
-    #     path: en/_api-ref/organizationmanager/toc.yaml
+#    - name: REST
+#      items: null
+#      include:
+#        repo: docs
+#        path: ru/_api-ref/organizationmanager/toc.yaml
 - name: Правила тарификации
   href: pricing.md

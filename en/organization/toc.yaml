@@ -41,8 +41,8 @@ items:
       include:
         repo: docs
         path: en/_api-ref-grpc/organization-manager/toc.yaml
-    # - name: REST
-    #   items: null
-    #   include:
-    #     repo: docs
-    #     path: en/_api-ref/organizationmanager/toc.yaml
+#    - name: REST
+#      items: null
+#      include:
+#        repo: docs
+#        path: en/_api-ref/organizationmanager/toc.yaml
