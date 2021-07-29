@@ -14,7 +14,7 @@ links:
     href: operations/index
   - title: Концепции
     description: Читайте подробнее про концепции Cloud Logging
-    href: concepts
+    href: concepts/log-group
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
