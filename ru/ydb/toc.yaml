@@ -195,8 +195,6 @@ items:
         when: audience == "external"
       - name: Управление базами данных
         href: operations/create_manage_database.md
-      - name: Подключение к базе данных
-        href: operations/connect_to_a_database.md
         when: deploy != "arc"
       - name: Управление таблицами
         href: operations/schema.md

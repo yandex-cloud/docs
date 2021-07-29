@@ -44,7 +44,7 @@
          },
          tables : [
              {
-                 name : "/ru-central1/b1gia87mbaomkfvsleds/etn008v5oqsj8joktlvd/episodes",
+                 name : "/ru-central1/b1gia87mbaomkfvscrus/etn008v5oqsj8joktlvd/episodes",
                  reads : [
                      {
                          type : Lookup,
@@ -81,7 +81,7 @@
      ```bash
      Query AST:
      (
-     (let $1 '('"/ru-central1/b1gia87mbaomkfvsleds/etn008v5oqsj8joktlvd/episodes" '"1" '"72075186234215788:16"))
+     (let $1 '('"/ru-central1/b1gia87mbaomkfvscrus/etn008v5oqsj8joktlvd/episodes" '"1" '"72075186234215788:16"))
      (let $2 (Uint64 '"1"))
      (let $3 '('"series_id" $2 $2))
      (let $4 '('"season_id" $2 (Void)))
@@ -122,7 +122,7 @@
          }
          "tables": [
              {
-                 "name": "/ru-central1/b1gia87mbaomkfvsleds/etn008v5oqsj8joktlvd/episodes",
+                 "name": "/ru-central1/b1gia87mbaomkfvscrus/etn008v5oqsj8joktlvd/episodes",
                  "reads": [
                      {
                          "columns": [

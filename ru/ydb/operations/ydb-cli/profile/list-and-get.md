@@ -28,6 +28,6 @@ ydb config profile get example
 
 ```text
   endpoint: ydb.serverless.yandexcloud.net:2135
-  database: /ru-central1/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e
+  database: /ru-central1/b1gia87mbaomkfvscrus/etn02j1mlm4vgjhij03e
   use-metadata-credentials
 ```

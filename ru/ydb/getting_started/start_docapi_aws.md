@@ -330,7 +330,7 @@
       def create_series_table(ydb = None):
           if not ydb:
               ydb = boto3.resource('dynamodb', 
-                                    endpoint_url = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvsleds/etn02g38m12h9r0cdivp")
+                                    endpoint_url = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvscrus/etn02g38m12h9r0cdivp")
 
           table = ydb.create_table(
               TableName = 'Series', # Series — имя таблицы 
@@ -401,7 +401,7 @@
       def put_serie(series_id, title, release_date, series_info, ydb = None):
           if not ydb:
               ydb = boto3.resource('dynamodb', 
-                                    endpoint_url = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvsleds/etn02g38m12h9r0cdivp")
+                                    endpoint_url = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvscrus/etn02g38m12h9r0cdivp")
 
           table = ydb.Table('Series')
           response = table.put_item(
@@ -464,7 +464,7 @@
       def get_serie(title, series_id, ydb = None):
           if not ydb:
               ydb = boto3.resource('dynamodb', 
-                                    endpoint_url = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvsleds/etn02g38m12h9r0cdivp")
+                                    endpoint_url = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvscrus/etn02g38m12h9r0cdivp")
 
           table = ydb.Table('Series')
 
@@ -519,7 +519,7 @@
       def delete_serie_table(ydb = None):
           if not ydb:
               ydb = boto3.resource('dynamodb', 
-                                    endpoint_url="https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvsleds/etn02g38m12h9r0cdivp")
+                                    endpoint_url="https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvscrus/etn02g38m12h9r0cdivp")
 
           table = ydb.Table('Series')
           table.delete()
