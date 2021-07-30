@@ -5,6 +5,6 @@ description: 'Квоты и лимиты для сервиса Yandex Resource M
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ resmgr-name }}
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}

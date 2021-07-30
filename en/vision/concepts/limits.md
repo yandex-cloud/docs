@@ -5,7 +5,7 @@ description: 'Yandex Vision has limits and quotas on the number of requests, tex
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ vision-name }}
 
 In the {{ vision-full-name }} service, the following limitations apply:
 

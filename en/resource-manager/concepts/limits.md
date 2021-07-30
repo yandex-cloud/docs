@@ -5,7 +5,7 @@ description: 'Quotas and limits for the Yandex Resource Manager service are not 
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ resmgr-name }}
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
 

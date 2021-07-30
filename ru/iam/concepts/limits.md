@@ -5,7 +5,7 @@ description: 'Квоты и лимиты для сервиса Yandex Identity a
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ iam-name }}
 
 
 {% include [iam-limits.md](../../_includes/iam/iam-limits.md) %}

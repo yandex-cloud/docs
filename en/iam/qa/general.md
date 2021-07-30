@@ -4,7 +4,7 @@ description: "What is the Yandex Identity and Access Management service for?
 How do I get started with IAM? How much does it cost to use the IAM service? Answers to these and other questions in this article."
 ---
 
-# General questions
+# General questions about {{ iam-name }}
 
 #### What is the {{ iam-full-name }} service used for? {#usage}
 

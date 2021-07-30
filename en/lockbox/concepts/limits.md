@@ -3,7 +3,7 @@ title: Quotas and Limits in Lockbox
 description: 'The Lockbox has limits and quotas on the maximum number of key-value pairs in the secret version, the maximum total size of values from key-value pairs in the secret version. You will learn more about the limitations of the service in this article. '
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ lockbox-name }}
 
 {{  lockbox-name }} has the following limits:
 

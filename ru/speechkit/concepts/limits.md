@@ -5,7 +5,7 @@ description: 'В Yandex SpeechKit действуют лимиты и квоты 
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ speechkit-name }}
 
 В сервисе {{ speechkit-full-name }} действуют следующие ограничения:
 

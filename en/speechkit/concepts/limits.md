@@ -5,7 +5,7 @@ description: 'Yandex SpeechKit has limits and quotas for short audio recognition
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ speechkit-name }}
 
 {{ speechkit-full-name }} has the following limits:
 

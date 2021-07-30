@@ -5,7 +5,7 @@ description: 'Quotas and limits for Yandex Identity and Access Management servic
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ iam-name }}
 
 {% include [iam-limits.md](../../_includes/iam/iam-limits.md) %}
 
