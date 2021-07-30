@@ -1,4 +1,4 @@
-# Database management
+# Database management in {{ ydb-name }}
 
 ## Viewing the list of databases {#db-list}
 

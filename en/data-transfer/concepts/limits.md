@@ -5,7 +5,7 @@ description: 'Quotas and limits for the Yandex Data Transfer service are not def
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ data-transfer-name }}
 
 There are no quotas or limits for {{ data-transfer-full-name }}.
 

@@ -1,4 +1,4 @@
-# Concepts {{ container-registry-full-name }}
+# Concepts {{ container-registry-name }}
 
 {{ container-registry-name }} is a service for storing and distributing Docker images.
 

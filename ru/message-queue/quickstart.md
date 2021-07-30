@@ -3,7 +3,7 @@ title: "Начало работы с Yandex Message Queue (очередями с
 description: "В этой инструкции вы научитесь выполнять основные действия c очередями сообщений в Yandex Message Queue. Для начала установите AWS CLI — утилиту командной строки для работы с Message Queue."
 ---
 
-# Начало работы
+# Начало работы с {{ message-queue-name }}
 
 Выполним основные действия с использованием AWS CLI — одного из [инструментов](instruments/index.md) для работы c Message Queue.
 

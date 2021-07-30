@@ -3,7 +3,7 @@ title: "Relationship between {{ k8s }} service resources"
 description: "The main entity operated by the service is the {{k8s}} cluster. The {{k8s}} cluster consists of a master and one or more groups of nodes. The master is responsible for managing the {{k8s}} cluster. The nodes run containerized user applications . "
 ---
 
-# Relationship between service resources
+# Relationship between resources in {{ managed-k8s-name }}
 
 [{{ k8s }}](https://{{ k8s }}.io) is an environment for managing containerized applications. {{ k8s }} provides mechanisms for interacting with clusters that can automate tasks like deploying, scaling, and managing applications in containers.
 

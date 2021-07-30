@@ -3,7 +3,7 @@ title: Key Management Service. Service overview
 description: 'Key Management Service is a service for creating and managing encryption keys in Yandex.Cloud. Modern encryption algorithms are open. Without access to the key, knowledge of the ciphertext and encryption algorithm is not enough to decrypt the data. Thus, the task of securely storing data is reduced to the task of safely storing encryption keys. '
 ---
 
-# Service overview
+# {{ kms-name }} overview
 
 {{ kms-name }} is a service for creating and managing encryption keys in Yandex.Cloud.
 

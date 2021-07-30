@@ -1,4 +1,4 @@
-# Troubleshooting
+# Troubleshooting in {{ container-registry-name }}
 
 The most common errors and how to resolve them are listed below:
 

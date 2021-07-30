@@ -5,7 +5,7 @@ description: 'Yandex Database has limits and quotas on the total number of proce
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ ydb-name }}
 
 {{ ydb-full-name }} has the following limits:
 

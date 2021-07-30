@@ -1,4 +1,4 @@
-# All use cases
+# All use cases for {{ iot-name }}
 
 Examples of how to use {{ iot-full-name }} on Android devices in different programming languages can be found on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot).
 

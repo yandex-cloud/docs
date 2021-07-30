@@ -1,4 +1,4 @@
-# Все сценарии
+# Все сценарии для {{ iot-name }}
 
 Примеры работы {{ iot-full-name }} с устройством Android на разных языках программирования смотрите на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot).
 

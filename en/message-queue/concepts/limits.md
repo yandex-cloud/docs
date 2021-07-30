@@ -5,7 +5,7 @@ description: 'Yandex Message Queue has limits and quotas on the number of SendMe
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ message-queue-name }}
 
 {{ message-queue-full-name }} has the following limits:
 

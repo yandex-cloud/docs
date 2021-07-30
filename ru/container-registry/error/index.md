@@ -1,4 +1,4 @@
-# Решение проблем
+# Решение проблем в {{ container-registry-name }}
 
 В списке ниже приведены часто возникающие ошибки и способы их решения:
 - `docker login is not supported with yc credential helper`

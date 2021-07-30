@@ -5,6 +5,6 @@ description: 'Квоты и лимиты для сервиса Yandex Data Trans
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ data-transfer-name }}
 
 Квоты и лимиты для сервиса {{ data-transfer-full-name }} не определены.
