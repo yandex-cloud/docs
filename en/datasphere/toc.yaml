@@ -73,6 +73,10 @@ items:
         href: tutorials/basics.md
       - name: Voice recognition
         href: tutorials/speech-recognition.md
+      - name: Evaluating the quality of STT models
+        href: tutorials/estimate-quality.md
+      - name: Marking up audio files
+        href: tutorials/markup.md
       - name: Classification of images in video frames
         href: tutorials/video-recognition.md
   - name: API reference

@@ -1,0 +1,12 @@
+title: "Yandex SpeechKit Pro"
+description:
+  - "SpeechKit Pro use cases"
+meta:
+  title: "Yandex SpeechKit"
+links:
+- title: "Training language models for STT"
+  description: "Go through the use case"
+  href: "fit-lm"
+- title: "Performing audio recognition using the Cloud STT API"
+  description: "Go through the use case"
+  href: "recognize-api"

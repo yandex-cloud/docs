@@ -1,0 +1,8 @@
+title: "Yandex SpeechKit Pro"
+href: index.yaml
+stage: tech-preview
+items:
+  - name: Training language models for STT
+    href: fit-lm.md
+  - name: Performing audio recognition using the Cloud STT API
+    href: recognize-api.md
