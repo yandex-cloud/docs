@@ -58,7 +58,7 @@
 
   1. При необходимости задайте дополнительные настройки кластера:
 
-    {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}  
+      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
   1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-settings).
   1. Нажмите кнопку **Создать кластер**.
