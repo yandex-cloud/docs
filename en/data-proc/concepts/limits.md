@@ -5,7 +5,7 @@ description: 'Limits and quotas apply in Yandex Data Proc. The virtual machines 
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ dataproc-name }}
 
 {{ dataproc-full-name }} has the following limits:
 

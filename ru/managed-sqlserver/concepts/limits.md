@@ -7,7 +7,7 @@ editable: false
 
 {% if audience != "internal" %}
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ mms-name }}
 
 В сервисе {{ mms-name }} действуют следующие ограничения:
 

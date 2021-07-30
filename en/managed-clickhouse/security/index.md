@@ -3,7 +3,7 @@ title: Access management in Yandex Managed Service for ClickHouse
 description: "Access management in the service for creating and managing ClickHouse databases. The section describes which resources can be assigned a role, which roles act in the service, which roles are required for this or that action."
 ---
 
-# Access management
+# Access management in {{ mch-name }}
 
 {% if audience != "internal"%}
 

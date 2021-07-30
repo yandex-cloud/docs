@@ -7,7 +7,7 @@ editable: false
 
 {% if audience != "internal" %}
 
-# Quotas and limits
+# Quotas and limits in {{ mms-name }}
 
 {{ mms-name }} has the following limits:
 

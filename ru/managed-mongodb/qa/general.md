@@ -3,7 +3,7 @@ title: "Managed Service for MongoDB. Ответы на вопросы"
 description: "Что такое Managed Service for MongoDB? Для каких задач стоит использовать Managed Service for MongoDB, а для каких виртуальные машины с базами данных? Какую часть работы по управлению и сопровождению баз данных берет на себя Managed Service for MongoDB? Ответы на эти и другие вопросы в данной статье."
 ---
 
-# Общие вопросы
+# Общие вопросы про {{ mmg-name }}
 
 #### Что такое {{ mmg-short-name }}? {#what-is}
 

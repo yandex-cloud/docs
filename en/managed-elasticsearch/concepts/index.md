@@ -3,7 +3,7 @@ title: "Service resource relationship {{ mes-full-name }}"
 description: "{{ ES }} is a specialized distributed document storage system. When a document is added to {{ ES }}, it is indexed. Data from the indexed document becomes available for search and analysis. Service {{ mes-full-name }} helps to deploy and maintain {{ ES }} server clusters in the {{ yandex-cloud }} infrastructure. "
 ---
 
-# Relationship between service resources
+# Relationship between resources in {{ mes-name }}
 
 With {{ mes-full-name }}, you can deploy and maintain {{ ES }} server clusters in the {{ yandex-cloud }} infrastructure.
 

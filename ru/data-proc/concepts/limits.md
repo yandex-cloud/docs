@@ -5,7 +5,7 @@ description: 'В Yandex Data Proc действуют лимиты и квоты.
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ dataproc-name }}
 
 В сервисе {{ dataproc-full-name }} действуют следующие ограничения:
 

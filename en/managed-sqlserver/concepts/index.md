@@ -3,7 +3,7 @@ title: "Relationship between {{ mms-name }} resources"
 description: "The main entity operated by the {{ mms-name }} service is a database cluster. Each cluster consists of one or more database hosts — virtual machines with deployed DBMS servers. The cluster hosts can be located in different availability zones."
 ---
 
-# Relationship between service resources
+# Relationship between resources in {{ mms-name }}
 
 The main entity used in {{ mms-name }} is a _database cluster_.
 

@@ -7,7 +7,7 @@ editable: false
 
 {% if audience != "internal" %}
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ mkf-name }}
 
 В сервисе {{ mkf-name }} действуют следующие ограничения:
 

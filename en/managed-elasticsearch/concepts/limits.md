@@ -5,7 +5,7 @@ description: 'Managed Service for Elasticsearch has limits and quotas for the nu
 
 {% if audience != "internal" %}
 
-# Quotas and limits
+# Quotas and limits in {{ mes-name }}
 
 {{ mes-name }} has the following limits:
 

@@ -3,7 +3,7 @@ title: Access management in Yandex Data Proc
 description: "Access management in the Apache Hadoop and Apache Spark cluster creation and management service. To allow access to the Data Proc service resources (clusters or subclusters), assign the user the required roles from the list below."
 ---
 
-# Access management
+# Access management in {{ dataproc-name }}
 
 Yandex.Cloud users can only perform operations on resources that are permitted under the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 

@@ -5,7 +5,7 @@ description: 'Managed Service for MySQL has limits and quotas for the number of 
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ mmy-name }}
 
 {{ mmy-name }} has the following limits:
 

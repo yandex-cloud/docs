@@ -3,7 +3,7 @@ title: Access management in Yandex Managed Service for Apache Kafka
 description: "Access management in the service for creating and managing Apache Kafka clusters. The section describes which resources can be assigned a role, which roles act in the service, which roles are required for this or that action."
 ---
 
-# Access management
+# Access management in {{ mkf-name }}
 
 {% if audience != "internal" %}
 

@@ -3,7 +3,7 @@ title: "Managed Service for MySQL. FAQ"
 description: "What is Managed Service for MySQL? For what tasks is it worth using Managed Service for MySQL, and for which virtual machines with databases? What part of the management and maintenance of databases does Managed Service for MySQL take on? Answers to these and other questions in this article. "
 ---
 
-# General questions
+# General questions about {{ mmy-name }}
 
 #### What is {{ mmy-short-name }}? {#what-is}
 

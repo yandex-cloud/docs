@@ -5,7 +5,7 @@ description: 'В Managed Service for Elasticsearch действуют лимит
 
 {% if audience != "internal" %}
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ mes-name }}
 
 В сервисе {{ mes-name }} действуют следующие ограничения:
 

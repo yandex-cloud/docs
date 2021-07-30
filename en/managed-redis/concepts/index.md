@@ -3,7 +3,7 @@ title: "Relationship of resources of the Yandex Managed Service for Redis"
 description: "{{ RD }} is a high-performance in-memory database for key-value data. The {{ mrd-name }} service allows you to easily create clusters of hosts {{ RD }} with high fault tolerance. The main entity that operates service {{ mrd-name }}, - database cluster."
 ---
 
-# Relationship between service resources
+# Relationship between resources in {{ mrd-name }}
 
 {{ RD }} is a high-performance key-value store that runs in RAM. {{ mrd-name }} lets you easily create {{ RD }} host clusters with a high level of fault tolerance.
 
