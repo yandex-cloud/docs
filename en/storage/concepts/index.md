@@ -2,7 +2,7 @@
 
 __system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-# Concepts
+# {{ objstorage-name }} сoncepts
 
 {{ objstorage-name }} uses the following concepts:
 

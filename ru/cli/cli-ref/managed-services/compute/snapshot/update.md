@@ -20,7 +20,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Snapshot name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> A new name of the snapshot.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the snapshot. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Specifies a textual description of the snapshot.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
 #### Flags
 

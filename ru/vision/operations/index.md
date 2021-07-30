@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Пошаговые инструкции
+# Пошаговые инструкции для {{ vision-name }}
 
 * [{#T}](ocr/text-detection.md)
 * [{#T}](classification/moderation.md)

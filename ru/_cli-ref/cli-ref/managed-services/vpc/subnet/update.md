@@ -20,11 +20,14 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Subnet name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name for a subnet.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the subnet. --labels key=value[,key=value...] New set of labels for the subnet as key-value pairs. Existing set of labels will be completely overwritten.|
+|`--description`|<b>`string`</b><br/> Specifies a textual description of the subnet.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the subnet as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--route-table-id`|<b>`string`</b><br/> ID of the route table to which the subnetwork belongs.|
 |`--route-table-name`|<b>`string`</b><br/> Name of the route table to which the subnetwork belongs.|
 |`--disassociate-route-table`| Disassociate a route table from the subnet.|
-|`--domain-name`|<b>`string`</b><br/> Domain name for a subnet. --domain-name-server value[,value] Domain name server for a subnet. --ntp-server value[,value] Ntp server for a subnet.|
+|`--domain-name`|<b>`string`</b><br/> Domain name for a subnet.|
+|`--domain-name-server`|<b>`value[,value]`</b><br/> Domain name server for a subnet.|
+|`--ntp-server`|<b>`value[,value]`</b><br/> Ntp server for a subnet.|
 
 #### Flags
 

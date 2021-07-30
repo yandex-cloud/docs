@@ -18,7 +18,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> SQLServer cluster id.|
 |`--name`|<b>`string`</b><br/> SQLServer cluster name.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --set key1=value1[,key2=value2][,"key3=val3a,val3b"] Set SQLServer cluster parameters. Can be used multiple times.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--set`|<b>`key1=value1[,key2=value2][,"key3=val3a,val3b"]`</b><br/> Set SQLServer cluster parameters. Can be used multiple times.|
 
 #### Flags
 

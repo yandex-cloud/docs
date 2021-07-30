@@ -8,7 +8,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Quotas and limits
+# Quotas and limits in {{ message-queue-name }}
 
 {{ message-queue-full-name }} has the following limits:
 

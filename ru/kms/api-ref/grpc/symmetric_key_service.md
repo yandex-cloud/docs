@@ -46,7 +46,7 @@ folder_id | **string**<br>Required. ID of the folder to create a symmetric KMS k
 name | **string**<br>Name of the key. The maximum string length in characters is 100.
 description | **string**<br>Description of the key. The maximum string length in characters is 1024.
 labels | **map<string,string>**<br>Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. For example, `"project": "mvp"` or `"source": "dictionary"`. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-default_algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm to be used with a new key version, generated with the next rotation. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+default_algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm to be used with a new key version, generated with the next rotation. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Interval between automatic rotations. To disable automatic rotation, don't include this field in the creation request. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the symmetric KMS key 
 
@@ -87,7 +87,7 @@ description | **string**<br>Description of the key.
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
 primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
@@ -100,10 +100,11 @@ Field | Description
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
 status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+hosted_by_hsm | **bool**<br>Indication of the version that is hosted by HSM. 
 
 
 ## Get {#Get}
@@ -131,7 +132,7 @@ description | **string**<br>Description of the key.
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
 primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion1)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
@@ -144,10 +145,11 @@ Field | Description
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
 status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion1) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+hosted_by_hsm | **bool**<br>Indication of the version that is hosted by HSM. 
 
 
 ## List {#List}
@@ -185,7 +187,7 @@ description | **string**<br>Description of the key.
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
 primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion2)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
@@ -198,10 +200,11 @@ Field | Description
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
 status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion2) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+hosted_by_hsm | **bool**<br>Indication of the version that is hosted by HSM. 
 
 
 ## ListVersions {#ListVersions}
@@ -234,10 +237,11 @@ Field | Description
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
 status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion3) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+hosted_by_hsm | **bool**<br>Indication of the version that is hosted by HSM. 
 
 
 ## Update {#Update}
@@ -260,7 +264,7 @@ name | **string**<br>New name for the symmetric KMS key. The maximum string leng
 description | **string**<br>New description for the symmetric KMS key. The maximum string length in characters is 1024.
 status | **[SymmetricKey.Status](#SymmetricKey3)**<br>New status for the symmetric KMS key. Using the [SymmetricKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status. 
 labels | **map<string,string>**<br>Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the symmetric KMS key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the symmetric KMS key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic symmetric KMS key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the symmetric KMS key 
 
@@ -300,7 +304,7 @@ description | **string**<br>Description of the key.
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
 primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion4)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
@@ -313,10 +317,11 @@ Field | Description
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
 status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion4) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+hosted_by_hsm | **bool**<br>Indication of the version that is hosted by HSM. 
 
 
 ## Delete {#Delete}
@@ -371,7 +376,7 @@ description | **string**<br>Description of the key.
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
 primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion5)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
@@ -384,10 +389,11 @@ Field | Description
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
 status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion5) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+hosted_by_hsm | **bool**<br>Indication of the version that is hosted by HSM. 
 
 
 ## SetPrimaryVersion {#SetPrimaryVersion}
@@ -444,7 +450,7 @@ description | **string**<br>Description of the key.
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
 primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion6)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
@@ -457,10 +463,11 @@ Field | Description
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
 status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion6) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+hosted_by_hsm | **bool**<br>Indication of the version that is hosted by HSM. 
 
 
 ## ScheduleVersionDestruction {#ScheduleVersionDestruction}
@@ -514,10 +521,11 @@ Field | Description
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
 status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion7) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+hosted_by_hsm | **bool**<br>Indication of the version that is hosted by HSM. 
 
 
 ## CancelVersionDestruction {#CancelVersionDestruction}
@@ -569,10 +577,11 @@ Field | Description
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
 status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion8) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+hosted_by_hsm | **bool**<br>Indication of the version that is hosted by HSM. 
 
 
 ## Rotate {#Rotate}
@@ -628,7 +637,7 @@ description | **string**<br>Description of the key.
 labels | **map<string,string>**<br>Custom labels for the key as `key:value` pairs. Maximum 64 per key. 
 status | enum **Status**<br>Current status of the key. <ul><li>`CREATING`: The key is being created.</li><li>`ACTIVE`: The key is active and can be used for encryption and decryption. Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><li>`INACTIVE`: The key is inactive and unusable. Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.</li><ul/>
 primary_version | **[SymmetricKeyVersion](#SymmetricKeyVersion9)**<br>Primary version of the key, used as the default for all encrypt/decrypt operations, when no version ID is specified. 
-default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+default_algorithm | enum **SymmetricAlgorithm**<br>Default encryption algorithm to be used with new versions of the key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of the last key rotation (time when the last version was created). Empty if the key does not have versions yet. 
 rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time period between automatic key rotations. 
 deletion_protection | **bool**<br>Flag that inhibits deletion of the key 
@@ -641,10 +650,11 @@ Field | Description
 id | **string**<br>ID of the key version. 
 key_id | **string**<br>ID of the symmetric KMS key that the version belongs to. 
 status | enum **Status**<br>Status of the key version. <ul><li>`ACTIVE`: The version is active and can be used for encryption and decryption.</li><li>`SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed is specified in the [SymmetricKeyVersion.destroy_at](#SymmetricKeyVersion9) field.</li><li>`DESTROYED`: The version is destroyed and cannot be recovered.</li><ul/>
-algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+algorithm | enum **SymmetricAlgorithm**<br>Encryption algorithm that should be used when using the key version to encrypt plaintext. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version was created. 
 primary | **bool**<br>Indication of a primary version, that is to be used by default for all cryptographic operations that don't have a key version explicitly specified. 
 destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the key version is going to be destroyed. Empty unless the status is `SCHEDULED_FOR_DESTRUCTION`. 
+hosted_by_hsm | **bool**<br>Indication of the version that is hosted by HSM. 
 
 
 ## ListOperations {#ListOperations}

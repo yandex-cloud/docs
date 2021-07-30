@@ -38,7 +38,7 @@ Field | Description
 --- | ---
 versionId | **string**<br><p>ID of the key version to encrypt the generated data key with. Defaults to the primary version if not specified.</p> <p>The maximum string length in characters is 50.</p> 
 aadContext | **string** (byte)<br><p>Additional authenticated data (AAD context), optional. If specified, this data will be required for decryption with the ``SymmetricDecryptRequest``. Should be encoded with base64.</p> <p>The maximum string length in characters is 8192.</p> 
-dataKeySpec | **string**<br><p>Encryption algorithm and key length for the generated data key.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> </ul> 
+dataKeySpec | **string**<br><p>Encryption algorithm and key length for the generated data key.</p> <p>Supported symmetric encryption algorithms.</p> <ul> <li>AES_128: AES algorithm with 128-bit keys.</li> <li>AES_192: AES algorithm with 192-bit keys.</li> <li>AES_256: AES algorithm with 256-bit keys.</li> <li>AES_256_HSM: AES algorithm with 256-bit keys hosted by HSM</li> </ul> 
 skipPlaintext | **boolean** (boolean)<br><p>If ``true``, the method won't return the data key as plaintext. Default value is ``false``.</p> 
  
 ## Response {#responses}

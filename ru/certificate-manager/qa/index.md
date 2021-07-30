@@ -6,6 +6,6 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Общие вопросы
+# Общие вопросы про {{ certificate-manager-name }}
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}

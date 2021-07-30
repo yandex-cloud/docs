@@ -17,7 +17,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--new-name`|<b>`string`</b><br/> New function name.|
-|`--description`|<b>`string`</b><br/> Function description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs.|
+|`--description`|<b>`string`</b><br/> Function description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs.|
 |`--id`|<b>`string`</b><br/> Function id.|
 |`--name`|<b>`string`</b><br/> Function name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

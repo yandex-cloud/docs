@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Access management
+# Access management in {{ resmgr-name }}
 
 In this section, you'll learn:
 

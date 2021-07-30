@@ -16,6 +16,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
+|`--interval`|<b>`duration|int64`</b><br/>Duration of quota interval in milliseconds. Possible to use time units - "1m30s"|
 |`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

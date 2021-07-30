@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ container-registry-name }}
 
 В сервисе {{ container-registry-full-name }} действуют следующие ограничения:
 

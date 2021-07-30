@@ -18,7 +18,9 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/> Name of the address.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
-|`--description`|<b>`string`</b><br/> Description of the address. --labels key=value[,key=value...] A list of address labels as key-value pairs. --external-ipv4 PROPERTY=VALUE[,PROPERTY=VALUE...] External ipv4 address specification.  Possible property names:  zone Specifies the zone.|
+|`--description`|<b>`string`</b><br/> Description of the address.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of address labels as key-value pairs.|
+|`--external-ipv4`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External ipv4 address specification.  Possible property names:  zone Specifies the zone.|
 
 #### Flags
 

@@ -17,7 +17,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Container name.|
-|`--description`|<b>`string`</b><br/> Container description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Container description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

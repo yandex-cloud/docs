@@ -30,9 +30,13 @@ Syntax:
 |`--source-path`|<b>`string`</b><br/> Local filesystem path of the function package: either directory or file (file can be a valid zip archive).|
 |`--source-version-id`|<b>`string`</b><br/> ID of a version to make a copy from.|
 |`--description`|<b>`string`</b><br/> Version description.|
-|`--environment`|<b>`stringToString`</b><br/> Version environment variables. --tags value[,value] Version tags.|
+|`--environment`|<b>`stringToString`</b><br/> Version environment variables.|
+|`--tags`|<b>`value[,value]`</b><br/> Version tags.|
 |`--network-name`|<b>`string`</b><br/> Version network name.|
-|`--network-id`|<b>`string`</b><br/> Version network id. --subnet-name value[,value] Version subnet names. --subnet-id value[,value] Version subnet ids. --add-service-account PROPERTY=VALUE[,PROPERTY=VALUE...] Adds a named service account to the version. Can be used multiple times.  Possible property names:  alias Specifies an alias, through which the service account can be accessed.  id Service account id  name Service account name.|
+|`--network-id`|<b>`string`</b><br/> Version network id.|
+|`--subnet-name`|<b>`value[,value]`</b><br/> Version subnet names.|
+|`--subnet-id`|<b>`value[,value]`</b><br/> Version subnet ids.|
+|`--add-service-account`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Adds a named service account to the version. Can be used multiple times.  Possible property names:  alias Specifies an alias, through which the service account can be accessed.  id Service account id  name Service account name.|
 
 #### Flags
 

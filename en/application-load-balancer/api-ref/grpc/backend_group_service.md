@@ -66,8 +66,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -87,6 +88,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck}
@@ -294,8 +302,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig2)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend2)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend1)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck2)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls2)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls2). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -315,6 +324,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend1}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck2}
@@ -506,8 +522,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig4)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend4)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend2)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck4)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls4)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls4). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -527,6 +544,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend2}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck4}
@@ -733,8 +757,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig6)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend6)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend3)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck6)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls6)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls6). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -754,6 +779,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend3}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck6}
@@ -946,8 +978,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig8)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend8)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend4)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck8)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls8)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls8). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -967,6 +1000,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend4}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck8}
@@ -1173,8 +1213,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig10)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend10)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend5)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck10)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls10)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls10). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -1194,6 +1235,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend5}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck10}
@@ -1415,8 +1463,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig12)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend12)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend6)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck12)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls12)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls12). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -1436,6 +1485,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend6}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck12}
@@ -1636,8 +1692,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig14)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend14)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend7)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck14)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls14)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls14). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -1657,6 +1714,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend7}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck14}
@@ -1882,8 +1946,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig16)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend16)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend8)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck16)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls16)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls16). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -1903,6 +1968,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend8}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck16}
@@ -2085,8 +2157,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig18)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend18)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend9)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck18)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls18)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls18). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -2106,6 +2179,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend9}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck18}
@@ -2306,8 +2386,9 @@ name | **string**<br>Required. Name of the backend. Value must match the regular
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If set to `0`, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig20)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. For now, targets are referenced only via target groups.
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend20)**<br>Target groups that belong to the backend. 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend10)**<br>Storage bucket to use as a backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck20)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls20)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls20). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -2327,6 +2408,13 @@ strict_locality | **bool**<br>Specifies whether a load balancer node should only
 Field | Description
 --- | ---
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend10}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Cloud S3 bucket name. Should have public access. 
 
 
 ### HealthCheck {#HealthCheck20}

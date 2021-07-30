@@ -20,15 +20,19 @@ Syntax:
 |`--description`|<b>`string`</b><br/> Description of the cluster.|
 |`--environment`|<b>`string`</b><br/> Environment to deploy the cluster in. Supported values: 'production', 'prestable'.|
 |`--network-id`|<b>`string`</b><br/> Network id.|
-|`--network-name`|<b>`string`</b><br/> Network name. --host PROPERTY=VALUE[,PROPERTY=VALUE...] Individual configurations for the cluster hosts.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Assign a public IP address to the host being added.  type Type of the host to be created. Supported values: 'datanode', 'masternode'.  |
+|`--network-name`|<b>`string`</b><br/> Network name.|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Individual configurations for the cluster hosts.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Assign a public IP address to the host being added.  type Type of the host to be created. Supported values: 'datanode', 'masternode'.  |
 |`--datanode-resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a datanode host (CPU, RAM etc.).|
 |`--datanode-disk-size`|<b>`byteSize`</b><br/> Storage volume available to a datanode host.|
 |`--datanode-disk-type`|<b>`string`</b><br/> Storage type for a datanode host.|
 |`--masternode-resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a masternode host (CPU, RAM etc.).|
 |`--masternode-disk-size`|<b>`byteSize`</b><br/> Storage volume available to a masternode host.|
-|`--masternode-disk-type`|<b>`string`</b><br/> Storage type for a masternode host. --plugins value[,value] ElasticSearch plugins|
+|`--masternode-disk-type`|<b>`string`</b><br/> Storage type for a masternode host.|
+|`--plugins`|<b>`value[,value]`</b><br/> ElasticSearch plugins|
 |`--version`|<b>`string`</b><br/> ElasticSearch version|
-|`--edition`|<b>`string`</b><br/> ElasticSearch edition --labels key=value[,key=value...] A list of ElasticSearch cluster labels as key-value pairs. --security-group-ids value[,value] A list of security groups for the ElasticSearch cluster.|
+|`--edition`|<b>`string`</b><br/> ElasticSearch edition|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of ElasticSearch cluster labels as key-value pairs.|
+|`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the ElasticSearch cluster.|
 |`--service-account`|<b>`string`</b><br/> Service account for the Elasticsearch cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--admin-password`|<b>`string`</b><br/> Password for entity. Usage of --read-admin-password is more secure|

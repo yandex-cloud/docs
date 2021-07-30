@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Access management
+# Access management in {{ managed-k8s-name }}
 
 In this section, you'll learn:
 * [What resources you can assign roles to](#resources).

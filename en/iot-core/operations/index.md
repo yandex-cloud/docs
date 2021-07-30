@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# All instructions
+# Step-by-step instructions for {{ iot-name }}
 
 * [{#T}](publish.md)
 * [{#T}](subscribe.md)

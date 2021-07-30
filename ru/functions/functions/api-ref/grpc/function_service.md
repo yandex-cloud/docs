@@ -1298,6 +1298,7 @@ function_id | **string**<br>ID of the function that the scaling policy belongs t
 tag | **string**<br>Tag of the version that the scaling policy belongs to. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the scaling policy 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Modification timestamp for the scaling policy 
+provisioned_instances_count | **int64**<br>Minimum guaranteed provisioned instances count for all zones in total. Billed separately. 
 zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
 
@@ -1318,6 +1319,7 @@ Field | Description
 --- | ---
 function_id | **string**<br>Required. ID of the function to retrieve scaling policies for. <br>To get a function ID, make a [FunctionService.List](#List) request. 
 tag | **string**<br>Required. Version tag. <br>To get the history of version tags make a [FunctionService.ListTagHistory](#ListTagHistory) request. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
+provisioned_instances_count | **int64**<br>Minimum guaranteed provisioned instances count for all zones in total. Billed separately. Acceptable values are 0 to 1000, inclusive.
 zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. Acceptable values are 0 to 1000, inclusive.
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. Acceptable values are 0 to 1000, inclusive.
 
@@ -1353,6 +1355,7 @@ function_id | **string**<br>ID of the function that the scaling policy belongs t
 tag | **string**<br>Tag of the version that the scaling policy belongs to. For details, see [Version tag](/docs/functions/concepts/function#tag). 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp for the scaling policy 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Modification timestamp for the scaling policy 
+provisioned_instances_count | **int64**<br>Minimum guaranteed provisioned instances count for all zones in total. Billed separately. 
 zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
 

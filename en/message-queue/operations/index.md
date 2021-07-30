@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Step-by-step instructions
+# Step-by-step instructions for {{ message-queue-name }}
 
 This section provides step-by-step instructions on how to use Yandex Message Queue.
 

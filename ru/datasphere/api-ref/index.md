@@ -10,5 +10,6 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
+[AppToken](AppToken/index.md) | A set of methods for managing app tokens.
 [Node](Node/index.md) | A set of methods for managing Node resources.
 [Project](Project/index.md) | A set of methods for managing Project resources.

@@ -194,6 +194,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy}
@@ -565,6 +575,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule1)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule1}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy1}
@@ -915,6 +935,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule2)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule2}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy2}
@@ -1242,6 +1272,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule3)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule3}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy3}
@@ -1629,6 +1669,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule4)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule4}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy4}
@@ -1979,6 +2029,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule5)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule5}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy5}
@@ -2289,6 +2349,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule6)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule6}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy6}
@@ -2676,6 +2746,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule7)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule7}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy7}
@@ -3062,6 +3142,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule8)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule8}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy8}
@@ -3448,6 +3538,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule9)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule9}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy9}
@@ -3700,7 +3800,7 @@ Field | Description
 instance_group_id | **string**<br>Required. ID of the InstanceGroup resource to list instances for. To get the instance group ID, use a [InstanceGroupService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListInstanceGroupInstancesResponse.next_page_token](#ListInstanceGroupInstancesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListInstanceGroupInstancesResponse.next_page_token](#ListInstanceGroupInstancesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](#InstanceGroup8) field. The maximum string length in characters is 1000.
+filter | **string**<br>A filter expression that filters resources listed in the response. Currently you can use filtering only on the [ManagedInstance.name](#ManagedInstance) field. The maximum string length in characters is 1000.
 
 
 ### ListInstanceGroupInstancesResponse {#ListInstanceGroupInstancesResponse}
@@ -3964,6 +4064,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule10)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule10}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy10}
@@ -4351,6 +4461,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule11)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule11}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy11}
@@ -4970,6 +5090,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule12)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule12}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy12}
@@ -5356,6 +5486,16 @@ type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. <ul><
 Field | Description
 --- | ---
 placement_group_id | **string**<br>Identifier of placement group 
+host_affinity_rules[] | **[HostAffinityRule](#HostAffinityRule13)**<br>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. 
+
+
+### HostAffinityRule {#HostAffinityRule13}
+
+Field | Description
+--- | ---
+key | **string**<br>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' 
+op | enum **Operator**<br>Include or exclude action <ul><ul/>
+values[] | **string**<br>Affinity value or host ID or host group ID 
 
 
 ### ScalePolicy {#ScalePolicy13}

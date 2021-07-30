@@ -17,7 +17,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> A name of the host group.|
-|`--description`|<b>`string`</b><br/> A textual description of the host group. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> A textual description of the host group.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--zone`|<b>`string`</b><br/> The zone of the host group to create.|
 |`--type`|<b>`string`</b><br/> Specifies the type of the host group to create.|
 |`--fixed-size`|<b>`int`</b><br/> Specifies the size of the host group to create.|

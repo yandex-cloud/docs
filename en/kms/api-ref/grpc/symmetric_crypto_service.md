@@ -110,7 +110,7 @@ Field | Description
 key_id | **string**<br>Required. ID of the symmetric KMS key that the generated data key should be encrypted with. The maximum string length in characters is 50.
 version_id | **string**<br>ID of the key version to encrypt the generated data key with. Defaults to the primary version if not specified. The maximum string length in characters is 50.
 aad_context | **bytes**<br>Additional authenticated data (AAD context), optional. If specified, this data will be required for decryption with the [SymmetricDecryptRequest](#SymmetricDecryptRequest). Should be encoded with base64. The maximum string length in characters is 8192.
-data_key_spec | enum **SymmetricAlgorithm**<br>Encryption algorithm and key length for the generated data key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><ul/>
+data_key_spec | enum **SymmetricAlgorithm**<br>Encryption algorithm and key length for the generated data key. <ul><li>`AES_128`: AES algorithm with 128-bit keys.</li><li>`AES_192`: AES algorithm with 192-bit keys.</li><li>`AES_256`: AES algorithm with 256-bit keys.</li><li>`AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM</li><ul/>
 skip_plaintext | **bool**<br>If `true`, the method won't return the data key as plaintext. Default value is `false`. 
 
 

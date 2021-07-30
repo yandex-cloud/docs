@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Начало работы
+# Начало работы c {{ managed-k8s-name }}
 
 Создайте [кластер {{ k8s }}](concepts/index.md#kubernetes-cluster) и [группу узлов](concepts/index.md#node-group), и управляйте ими с помощью kubectl — командной оболочки {{ k8s}}.
 

@@ -17,7 +17,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Trigger name.|
-|`--description`|<b>`string`</b><br/> Trigger description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Trigger description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--cron-expression`|<b>`string`</b><br/> Timer cron expression. Example: '0/1 * * * ? *'.|
 |`--invoke-function-id`|<b>`string`</b><br/> Function to be invoked by worker on each Timer event.|
 |`--invoke-function-name`|<b>`string`</b><br/> Function to be invoked by worker on each Timer event.|

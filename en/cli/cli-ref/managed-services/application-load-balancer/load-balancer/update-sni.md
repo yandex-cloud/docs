@@ -20,8 +20,11 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Name of the Application load balancer.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--listener-name`|<b>`string`</b><br/> Name of the listener where to update SNI match.|
-|`--sni-name`|<b>`string`</b><br/> Name of the SNI match to update. --server-name value[,value] Server name to match. --certificate-id value[,value] Certificate ID for SNI match.|
-|`--allow-http10`| Allow HTTP1.0 for SNI match. --http2-options PROPERTY=VALUE[,PROPERTY=VALUE...] HTTP2 options for SNI match.  Possible property names:  max-concurrent-streams Max concurrent streams for HTTP2 listener.  |
+|`--sni-name`|<b>`string`</b><br/> Name of the SNI match to update.|
+|`--server-name`|<b>`value[,value]`</b><br/> Server name to match.|
+|`--certificate-id`|<b>`value[,value]`</b><br/> Certificate ID for SNI match.|
+|`--allow-http10`| Allow HTTP1.0 for SNI match.|
+|`--http2-options`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> HTTP2 options for SNI match.  Possible property names:  max-concurrent-streams Max concurrent streams for HTTP2 listener.  |
 |`--http-router-id`|<b>`string`</b><br/> HTTP router id for SNI match.|
 |`--http-router-name`|<b>`string`</b><br/> HTTP router name for SNI match.|
 

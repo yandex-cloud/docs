@@ -20,7 +20,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Address name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name for the address|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the address. --labels key=value[,key=value...] New set of labels for the address as key-value pairs. Existing set of labels will be completely overwritten.|
+|`--description`|<b>`string`</b><br/> Specifies a textual description of the address.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the address as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--reserved`| Specefies if address is reserved or not.|
 
 #### Flags

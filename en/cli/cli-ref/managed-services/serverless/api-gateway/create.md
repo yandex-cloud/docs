@@ -18,7 +18,8 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/> Api-gateway name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
-|`--description`|<b>`string`</b><br/> Api-gateway description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Api-gateway description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--spec`|<b>`string`</b><br/> Api-gateway specification file name.|
 
 #### Flags

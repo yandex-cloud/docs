@@ -18,7 +18,8 @@ Syntax:
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/> Kafka cluster id.|
 |`--cluster-name`|<b>`string`</b><br/> Kafka cluster name.|
-|`--password`|<b>`string`</b><br/> Password of the Kafka user. --permission PROPERTY=VALUE[,PROPERTY=VALUE...] Topic and access role to grant to the user. Can be specified multiple times.  Possible property names:  topic Name of the topic that the permission grants access to. (required)  role Role in the topic. Possible values are: producer, consumer, admin. To grant multiple roles specify this property multiple times. (required)  |
+|`--password`|<b>`string`</b><br/> Password of the Kafka user.|
+|`--permission`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Topic and access role to grant to the user. Can be specified multiple times.  Possible property names:  topic Name of the topic that the permission grants access to. (required)  role Role in the topic. Possible values are: producer, consumer, admin. To grant multiple roles specify this property multiple times. (required)  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

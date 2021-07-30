@@ -39,6 +39,7 @@ pageToken | Page token. To get the next page of results, set `pageToken` to the 
       "tag": "string",
       "createdAt": "string",
       "modifiedAt": "string",
+      "provisionedInstancesCount": "string",
       "zoneInstancesLimit": "string",
       "zoneRequestsLimit": "string"
     }
@@ -55,6 +56,7 @@ scalingPolicies[].<br>functionId | **string**<br><p>ID of the function that the 
 scalingPolicies[].<br>tag | **string**<br><p>Tag of the version that the scaling policy belongs to. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> 
 scalingPolicies[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the scaling policy</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 scalingPolicies[].<br>modifiedAt | **string** (date-time)<br><p>Modification timestamp for the scaling policy</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+scalingPolicies[].<br>provisionedInstancesCount | **string** (int64)<br><p>Minimum guaranteed provisioned instances count for all zones in total. Billed separately.</p> 
 scalingPolicies[].<br>zoneInstancesLimit | **string** (int64)<br><p>Upper limit for instance count in each zone. 0 means no limit.</p> 
 scalingPolicies[].<br>zoneRequestsLimit | **string** (int64)<br><p>Upper limit of requests count in each zone. 0 means no limit.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/functions/api-ref/Function/listScalingPolicies#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/functions/api-ref/Function/listScalingPolicies#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

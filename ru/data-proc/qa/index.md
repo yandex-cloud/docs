@@ -6,6 +6,6 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Общие вопросы
+# Общие вопросы про {{ dataproc-name }}
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}

@@ -19,7 +19,8 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB cluster.|
 |`--cluster-name`|<b>`string`</b><br/>Name of the MongoDB cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--database`|<b>`string`</b><br/>Name of the database that the permission grants access to. --role value[,value]    Role in the database to assign to the user. Can be specified multiple times.|
+|`--database`|<b>`string`</b><br/>Name of the database that the permission grants access to.|
+|`--role`|<b>`value[,value]`</b><br/>Role in the database to assign to the user. Can be specified multiple times.|
 
 #### Flags
 

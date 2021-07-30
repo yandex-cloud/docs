@@ -17,7 +17,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> A name of the target group.|
-|`--description`|<b>`string`</b><br/> A description of the target group. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add. --target PROPERTY=VALUE[,PROPERTY=VALUE...] List of targets.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  ip-address IP Address.  |
+|`--description`|<b>`string`</b><br/> A description of the target group.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
+|`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of targets.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  ip-address IP Address.  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

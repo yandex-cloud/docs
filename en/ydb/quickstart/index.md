@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Overview
+# Getting started with {{ ydb-name }}
 
 Get started with {{ ydb-short-name }} by:
 

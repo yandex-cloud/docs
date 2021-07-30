@@ -17,7 +17,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/> Target group id.|
-|`--name`|<b>`string`</b><br/> Target group name. --target PROPERTY=VALUE[,PROPERTY=VALUE...] List of targets.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  ip-address IP Address.  |
+|`--name`|<b>`string`</b><br/> Target group name.|
+|`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of targets.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  ip-address IP Address.  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

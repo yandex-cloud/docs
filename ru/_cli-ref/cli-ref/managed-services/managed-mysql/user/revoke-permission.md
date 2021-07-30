@@ -19,7 +19,8 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/>MySQL cluster id.|
 |`--cluster-name`|<b>`string`</b><br/>MySQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--database`|<b>`string`</b><br/>Name of the database that the permission grants access to. --permissions value[,value]   User database access roles, possible values: ALL,ALL_PRIVILEGES,ALTER,ALTER_ROUTINE,CREATE,CREATE_ROUTINE,CREATE_TEMPORARY_TABLES,CREATE_VIEW,DELETE,DROP,EVENT,EXECUTE,INDEX,INSERT,LOCK_TABLES,REFERENCES,SELECT,SHOW_VIEW,TRIGGER,UPDATE|
+|`--database`|<b>`string`</b><br/>Name of the database that the permission grants access to.|
+|`--permissions`|<b>`value[,value]`</b><br/>User database access roles, possible values: ALL,ALL_PRIVILEGES,ALTER,ALTER_ROUTINE,CREATE,CREATE_ROUTINE,CREATE_TEMPORARY_TABLES,CREATE_VIEW,DELETE,DROP,EVENT,EXECUTE,INDEX,INSERT,LOCK_TABLES,REFERENCES,SELECT,SHOW_VIEW,TRIGGER,UPDATE|
 
 #### Flags
 

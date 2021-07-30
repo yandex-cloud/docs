@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# General questions
+# General questions about {{ mpg-name }}
 
 #### What is {{ mpg-short-name }}? {#what-is}
 

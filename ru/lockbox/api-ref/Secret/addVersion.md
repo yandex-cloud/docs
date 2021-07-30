@@ -46,7 +46,7 @@ Field | Description
 --- | ---
 description | **string**<br><p>Description of the version.</p> <p>The maximum string length in characters is 1024.</p> 
 payloadEntries[] | **object**<br><p>Describe how payload entries of the base version change in the added version.</p> <p>The maximum number of elements is 32.</p> 
-payloadEntries[].<br>key | **string**<br><p>Required. Non-confidential key of the entry.</p> <p>The maximum string length in characters is 256. Value must match the regular expression ``[.-_0-9a-zA-Z]+``.</p> 
+payloadEntries[].<br>key | **string**<br><p>Required. Non-confidential key of the entry.</p> <p>The maximum string length in characters is 256. Value must match the regular expression ``[-_./\\@0-9a-zA-Z]+``.</p> 
 payloadEntries[].<br>textValue | **string** <br>`payloadEntries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Use the field to set a text value.</p> <p>The maximum string length in characters is 65536.</p> 
 payloadEntries[].<br>binaryValue | **string** (byte) <br>`payloadEntries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Use the field to set a binary value.</p> <p>The maximum string length in characters is 65536.</p> 
 baseVersionId | **string**<br><p>Optional base version id. Defaults to the current version if not specified</p> <p>The maximum string length in characters is 50.</p> 

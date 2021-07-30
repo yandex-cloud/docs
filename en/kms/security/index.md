@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Access management
+# Access management in {{ kms-name }}
 
 In this section, you'll learn:
 
@@ -16,7 +16,7 @@ In this section, you'll learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What resources you can assign roles to. {#resources}
+## What resources you can assign roles to {#resources}
 
 You can assign roles for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [key](../concepts/key). These roles also apply to nested resources.
 
@@ -39,13 +39,13 @@ List of service roles:
 
 ### Primitive roles {#primitive}
 
-Primitive roles are common to all Yandex.Cloud resources. Assigning any of them grants certain permissions in {{ kms-short-name }} and other cloud services. For example, the `admin` role assigned for a folder lets you destroy any {{ kms-short-name }} key in that folder and update the folder itself or resources in it. You can manage primitive roles using the management console.
+Primitive roles are common to all resources {{ yandex-cloud }}. Assigning any of them grants certain permissions in {{ kms-short-name }} and other cloud services. For example, the `admin` role assigned for a folder can enable you to remove any {{ kms-short-name }} keys in a folder and modify the folder itself or the resources it contains. You can manage primitive roles using the management console.
 
 List of primitive roles:
 
-* `viewer`: Only lets you view information about the resources.
-* `editor`: Lets you manage resources (create and edit).
-* `admin`: Lets you manage access to resources and the resources themselves (create, modify, and delete).
+* `viewer`: Provides viewing access only to resource information.
+* `editor`: Lets you manage (create and edit) resources.
+* `admin`: Lets you manage access to resources as well as the resources themselves (create, modify, and delete).
 
 ## What roles do I need {#choosing-roles}
 
@@ -56,24 +56,24 @@ We recommend working with roles as follows:
 1. The cloud owner (the `resource-manager.clouds.owner` role) or administrator (the `admin` role) assigns the `kms.admin` role to the {{ kms-short-name }} administrator.
 1. The {{ kms-short-name }} administrator creates the required number of keys and assigns (through the CLI or API) roles to use them: subjects from different teams are granted the `kms.keys.encrypterDecrypter` role for the keys they need.
 
-It's good practice to store {{ kms-short-name }} keys in a dedicated folder, separately from other Yandex.Cloud resources.
+It's good practice to store {{ kms-short-name }} keys in a dedicated folder apart from other {{ yandex-cloud }} resources.
 
 | Action | Methods | Required roles |
 | ----- | ----- | ----- |
-| **KMS** |  |
+| **{{ kms-short-name }}** |  |
 | Get information about keys and versions | `get`, `listVersions` | `kms.keys.encrypterDecrypter` for a key |
-| Operations of [encryption and decryption](../api-ref/SymmetricCrypto/) | `encrypt`, `decrypt`, `reencrypt`, `generatedatakey` | `kms.keys.encrypterDecrypter` for a key |
+| [Encryption and decryption](../api-ref/SymmetricCrypto/) | `encrypt`, `decrypt`, `reEncrypt`, `generateDataKey` | `kms.keys.encrypterDecrypter` for a key |
 | Get a list of keys in a folder | `list` | `kms.admin` for a key |
 | [Create](../operations/key.md#create) and [update](../operations/key.md#update) a key | `create`, `update` | `kms.admin` for a key |
-| [Rotate a key](../operations/key.md#rotate) and [change the primary version](../operations/version.md#make-primary) | `rotate`, `setPrimaryVersion` | `kms.admin` for a key |
+| [Rotate a key](../operations/key.md#rotate) and [update the primary version](../operations/version.md#make-primary) | `rotate`, `setPrimaryVersion` | `kms.admin` for a key |
 | [Destroy a key](../operations/key.md#delete) and [version](../operations/version.md#delete) | `delete`, `scheduleVersionDestruction`, `cancelVersionDestruction` | `kms.admin` for a key |
 | [Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the key | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `kms.admin` for a key |
 
 #### What's next {#what-is-next}
 
-* [How to use Yandex.Cloud securely](../../iam/best-practices/using-iam-securely.md)
+* [Safe use of {{ yandex-cloud }}](../../iam/best-practices/using-iam-securely.md)
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
-* [Read more about access management in Yandex.Cloud](../../iam/concepts/access-control/index.md).
-* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
+* [For more information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

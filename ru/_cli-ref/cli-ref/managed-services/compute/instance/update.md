@@ -20,12 +20,16 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Instance name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> A new name of the instance.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the instance. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add. --metadata key=value[,key=value...] Metadata to be made available to the guest operating system running on the instance. See for details https://cloud.yandex.ru/docs/compute/concepts/vm-metadata --metadata-from-file key=value[,key=value...] Same as --metadata except that the value for the entry will be read from a local file.|
+|`--description`|<b>`string`</b><br/> Specifies a textual description of the instance.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
+|`--metadata`|<b>`key=value[,key=value...]`</b><br/> Metadata to be made available to the guest operating system running on the instance. See for details https://cloud.yandex.ru/docs/compute/concepts/vm-metadata|
+|`--metadata-from-file`|<b>`key=value[,key=value...]`</b><br/> Same as --metadata except that the value for the entry will be read from a local file.|
 |`--memory`|<b>`byteSize`</b><br/> Specifies how much memory instance should have.|
 |`--cores`|<b>`int`</b><br/> Specifies how many CPU cores instance should have.|
 |`--core-fraction`|<b>`int`</b><br/> If provided, specifies baseline performance for a core in percent.|
 |`--gpus`|<b>`int`</b><br/> Specifies how many GPUs instance should have.|
-|`--platform`|<b>`string`</b><br/> Specifies platform for the instance. --network-settings PROPERTY=VALUE[,PROPERTY=VALUE...] Network settings for the instance.  Possible property names:  type Type of a network for virtual machine instance. Values: standard, software-accelerated  |
+|`--platform`|<b>`string`</b><br/> Specifies platform for the instance.|
+|`--network-settings`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Network settings for the instance.  Possible property names:  type Type of a network for virtual machine instance. Values: standard, software-accelerated  |
 |`--placement-group-id`|<b>`string`</b><br/> Placement group to add the instance to (use an empty string to remove the instance from placement group).|
 |`--placement-group-name`|<b>`string`</b><br/> Placement group to add the instance to (use an empty string to remove the instance from placement group).|
 |`--service-account-id`|<b>`string`</b><br/> Service account, which token can be obtained inside VM from metadata service.|

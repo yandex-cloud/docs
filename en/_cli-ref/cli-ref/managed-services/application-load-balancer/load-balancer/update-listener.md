@@ -21,10 +21,15 @@ Syntax:
 |`--listener-name`|<b>`string`</b><br/> Name of listener to update in application load balancer.|
 |`--enable-tls`| Enable TLS for specified listener.|
 |`--disable-tls`| Disable TLS for specified listener.|
-|`--redirect-to-https`| Redirect HTTP requests to HTTPS for specified listener. --certificate-id value[,value] Certificate ID for specified listener.|
-|`--allow-http10`| Allow HTTP1.0 for specified listener. --http2-options PROPERTY=VALUE[,PROPERTY=VALUE...] HTTP2 options for specified listener.  Possible property names:  max-concurrent-streams Max concurrent streams for HTTP2 listener.   --external-ipv4-endpoint PROPERTY=VALUE[,PROPERTY=VALUE...] External IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  address Use allocated address for the new listener.  |
-|`--disable-external-ipv4-endpoint`| Disable external ipv4 endpoint for specified listener. --internal-ipv4-endpoint PROPERTY=VALUE[,PROPERTY=VALUE...] Internal IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  subnet-id Subnet for internal endpoint.  |
-|`--disable-internal-ipv4-endpoint`| Disable internal ipv4 endpoint for specified listener. --external-ipv6-endpoint PROPERTY=VALUE[,PROPERTY=VALUE...] External IPv6 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  address Use allocated address for the new listener.  |
+|`--redirect-to-https`| Redirect HTTP requests to HTTPS for specified listener.|
+|`--certificate-id`|<b>`value[,value]`</b><br/> Certificate ID for specified listener.|
+|`--allow-http10`| Allow HTTP1.0 for specified listener.|
+|`--http2-options`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> HTTP2 options for specified listener.  Possible property names:  max-concurrent-streams Max concurrent streams for HTTP2 listener.  |
+|`--external-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  address Use allocated address for the new listener.  |
+|`--disable-external-ipv4-endpoint`| Disable external ipv4 endpoint for specified listener.|
+|`--internal-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Internal IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  subnet-id Subnet for internal endpoint.  |
+|`--disable-internal-ipv4-endpoint`| Disable internal ipv4 endpoint for specified listener.|
+|`--external-ipv6-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv6 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  address Use allocated address for the new listener.  |
 |`--disable-external-ipv6-endpoint`| Disable external ipv6 endpoint for specified listener.|
 |`--clear-sni-matches`| Disable TLS for specified listener.|
 |`--http-router-id`|<b>`string`</b><br/> HTTP router id for specified listener.|

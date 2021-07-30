@@ -8,6 +8,6 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ data-transfer-name }}
 
 Квоты и лимиты для сервиса {{ data-transfer-full-name }} не определены.

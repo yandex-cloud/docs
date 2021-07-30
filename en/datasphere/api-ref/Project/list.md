@@ -40,6 +40,10 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/d
         "subnetId": "string",
         "dataProcClusterId": "string",
         "commitMode": "string"
+      },
+      "limits": {
+        "maxUnitsPerHour": "integer",
+        "maxUnitsPerExecution": "integer"
       }
     }
   ],
@@ -61,4 +65,7 @@ projects[].<br>settings.<br>serviceAccountId | **string**<br><p>ID of the servic
 projects[].<br>settings.<br>subnetId | **string**<br><p>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported.</p> 
 projects[].<br>settings.<br>dataProcClusterId | **string**<br><p>ID of the DataProc cluster.</p> 
 projects[].<br>settings.<br>commitMode | **string**<br><p>Commit mode that is assigned to the project.</p> <ul> <li>STANDARD: Commit happens after the execution of a cell or group of cells or after completion with an error.</li> <li>AUTO: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li> </ul> 
+projects[].<br>limits | **object**<br><p>Limits of the project.</p> 
+projects[].<br>limits.<br>maxUnitsPerHour | **integer** (int64)<br><p>The number of units that can be spent per hour.</p> 
+projects[].<br>limits.<br>maxUnitsPerExecution | **integer** (int64)<br><p>The number of units that can be spent on the one execution.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/datasphere/api-ref/Project/list#query_params">pageSize</a>, use the <a href="/docs/datasphere/api-ref/Project/list#responses">nextPageToken</a> as the value for the <a href="/docs/datasphere/api-ref/Project/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/datasphere/api-ref/Project/list#responses">nextPageToken</a> to continue paging through the results.</p> 

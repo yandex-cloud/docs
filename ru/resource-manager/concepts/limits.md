@@ -8,6 +8,6 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ resmgr-name }}
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}

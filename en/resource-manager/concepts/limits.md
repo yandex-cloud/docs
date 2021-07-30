@@ -8,7 +8,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Quotas and limits
+# Quotas and limits in {{ resmgr-name }}
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
 
