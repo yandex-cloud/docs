@@ -9,15 +9,15 @@ To use the service, log in to the management console with your [Yandex account](
 
 In this section, you'll learn:
 
-* [What roles are required](#required-roles) for particular actions.
+* [What roles are required](#choosing-roles) for particular actions.
 * [What resources you can assign roles to](#resources).
 * [What roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## What roles are required {#required-roles}
+## Roles required {#required-roles}
 
-To use the service, you need a [role](../../iam/concepts/access-control/roles.md) `editor` or a higher role for the folder where projects are created. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
+To use the service, you need the [role](../../iam/concepts/access-control/roles.md) `of editor` or higher for the folder where projects are created. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
 
 You can always assign a role granting more permissions than the role specified. For example, assign the `admin` role instead of `editor`.
 
@@ -36,10 +36,10 @@ You can assign roles for a [cloud](../../resource-manager/concepts/resources-hie
    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [For more information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
