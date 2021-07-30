@@ -1303,6 +1303,12 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+        provisionedInstancesCount:
+          description: |-
+            Minimum guaranteed provisioned instances count for all zones in total.
+            Billed separately.
+          type: string
+          format: int64
         zoneInstancesLimit:
           description: |-
             Upper limit for instance count in each zone.
@@ -1364,6 +1370,14 @@ components:
 
             Value must match the regular expression `` [a-z][-_0-9a-z]*|[$]latest ``.
           type: string
+        provisionedInstancesCount:
+          description: |-
+            Minimum guaranteed provisioned instances count for all zones in total.
+            Billed separately.
+
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
         zoneInstancesLimit:
           description: |-
             Upper limit for instance count in each zone.

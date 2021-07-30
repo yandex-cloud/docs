@@ -201,8 +201,7 @@ paths:
 
           The expression must specify:
           1. The field name. Currently filtering can only be applied to the [LogGroup.name](/docs/logging/api-ref/LogGroup#representation) field.
-          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
-          for lists of values.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
           3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
           Example of a filter: `name=my-log-group`.
 
@@ -323,14 +322,8 @@ paths:
           A filter expression that filters resources listed in the response.
 
           The expression must specify:
-          1. The field name. Currently filtering can be applied to the following fields:
-          * [Operation.description](/docs/operation/api-ref/Operation#representation)
-          * [Operation.createdAt](/docs/operation/api-ref/Operation#representation)
-          * [Operation.modifiedAt](/docs/operation/api-ref/Operation#representation)
-          * [Operation.createdBy](/docs/operation/api-ref/Operation#representation)
-          * [Operation.done](/docs/operation/api-ref/Operation#representation)
-          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
-          for lists of values.
+          1. The field name. Currently filtering can be applied to the [Operation.description](/docs/operation/api-ref/Operation#representation), [Operation.createdAt](/docs/operation/api-ref/Operation#representation), [Operation.modifiedAt](/docs/operation/api-ref/Operation#representation), [Operation.createdBy](/docs/operation/api-ref/Operation#representation), [Operation.done](/docs/operation/api-ref/Operation#representation) fields.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
           3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
           Examples of a filter: `done=false`, `created_by='John.Doe'`.
 
@@ -644,7 +637,7 @@ components:
             Name of the log group.
             The name must be unique within the folder.
 
-            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
           type: string
         description:
           description: |-
@@ -1213,7 +1206,7 @@ components:
             New name of the log group.
             The name must be unique within the folder.
 
-            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+            Value must match the regular expression `` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? ``.
           type: string
         description:
           description: |-
@@ -1447,9 +1440,7 @@ components:
       - FATAL
     LogGroupStatus_in_LogGroup_status:
       description: |-
-        Log group status.
-
-        See `LogGroupStatus` for possible values.
+        Status of the log group.
 
         Possible log group statuses.
 
@@ -1530,4 +1521,6 @@ tags:
 - name: LogGroup
   description: A set of methods for managing log groups.
 - name: LogIngestion
+  description: A set of methods for writing to log groups.
 - name: LogReading
+  description: A set of methods for reading from log groups.

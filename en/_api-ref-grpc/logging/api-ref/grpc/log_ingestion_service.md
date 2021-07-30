@@ -4,7 +4,7 @@ editable: false
 
 # LogIngestionService
 
-
+A set of methods for writing to log groups.
 
 | Call | Description |
 | --- | --- |

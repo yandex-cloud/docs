@@ -2651,6 +2651,9 @@ components:
           targetGroups:
             $ref: '#/components/schemas/TargetGroupsBackend'
             description: Target groups that belong to the backend.
+          storageBucket:
+            $ref: '#/components/schemas/StorageBucketBackend'
+            description: Storage bucket to use as a backend.
     HttpBackendGroup:
       description: An HTTP backend group resource.
       type: object
@@ -3530,6 +3533,15 @@ components:
       properties:
         loadBalancerId:
           description: ID of the application load balancer that is being stopped.
+          type: string
+    StorageBucketBackend:
+      type: object
+      properties:
+        bucket:
+          description: |-
+            Required.
+            Cloud S3 bucket name.
+            Should have public access.
           type: string
     StringMatch:
       description: A string matcher resource.

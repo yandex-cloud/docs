@@ -45,6 +45,8 @@ items:
     items:
       - name: Overview
         href: api-ref/Database/index.md
+      - name: create
+        href: api-ref/Database/create.md
       - name: delete
         href: api-ref/Database/delete.md
       - name: get

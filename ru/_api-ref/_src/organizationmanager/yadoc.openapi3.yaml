@@ -284,6 +284,90 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
       x-y-operation-response: Empty
+  /organization-manager/v1/organizations/{organizationId}/users:
+    get:
+      tags:
+      - User
+      summary: Возвращает список пользователей для указанной организации.
+      operationId: UserListMembers
+      parameters:
+      - name: organizationId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор организации в которой будет удалено членство пользователя.
+          Чтобы получить идентификатор организации, используйте запрос [list](/docs/organization-manager/api-ref/Organization/list).
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          Максимальное количество результатов на странице ответа на запрос. Если количество
+          результатов больше чем [pageSize](/docs/organization-manager/api-ref/User/listMembers#query_params) , сервис вернет значение [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses), которое
+          можно использовать для получения следующей страницы. Значение по умолчанию: 100.
+
+          Допустимые значения — от 0 до 1000 включительно.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Токен страницы. Установите значение [pageToken](/docs/organization-manager/api-ref/User/listMembers#query_params) равным значению поля [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses)
+          прошлого запроса, чтобы получить следующую страницу результатов.
+
+          Максимальная длина строки в символах — 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMembersResponse'
+      x-y-navtitle: listMembers
+  /organization-manager/v1/organizations/{organizationId}/users/{subjectId}:
+    delete:
+      tags:
+      - User
+      summary: Удаляет пользователя из членов организации.
+      operationId: UserDeleteMembership
+      parameters:
+      - name: organizationId
+        in: path
+        description: |-
+          Обязательное поле.
+          Идентификатор организации в которой будет удалено членство пользователя.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      - name: subjectId
+        in: path
+        description: |-
+          Идентификатор субъекта, который будет удален из организации.
+          По-умолчанию совпадает с идентификатором субъекта вызывающиего API.
+
+          Максимальная длина строки в символах — 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteMembership
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteMembershipMetadata'
+      x-y-operation-response: '`DeleteMembershipResponse`'
 components:
   schemas:
     AccessBinding:
@@ -405,8 +489,8 @@ components:
         nextPageToken:
           description: |-
             Токен для получения следующей страницы результатов в ответе. Если количество
-            результатов больше чем [ListMembersRequest.page_size], используйте [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) в качестве значения
-            параметра [ListMembersRequest.page_token] в следующем запросе списка ресурсов. Все последующие
+            результатов больше чем [pageSize](/docs/organization-manager/api-ref/User/listMembers#query_params), используйте [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) в качестве значения
+            параметра [pageToken](/docs/organization-manager/api-ref/User/listMembers#query_params) в следующем запросе списка ресурсов. Все последующие
             запросы будут получать свои значения [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) для перебора страниц результатов.
           type: string
     ListMembersResponseOrganizationUser:

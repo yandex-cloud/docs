@@ -57,15 +57,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -89,6 +91,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ## ListPaths {#ListPaths}
@@ -166,15 +176,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule1}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule1)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule1)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule1)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -198,6 +210,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule1}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ## Delete {#Delete}

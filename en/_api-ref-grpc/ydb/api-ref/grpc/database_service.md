@@ -67,6 +67,7 @@ kinesis_api_endpoint | **string**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption}
@@ -123,6 +124,7 @@ assign_public_ips | **bool**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption1)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption1}
@@ -150,6 +152,10 @@ size | **int64**<br> The minimum value is 1.
 
 ### ServerlessDatabase {#ServerlessDatabase}
 
+Field | Description
+--- | ---
+request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 
 
 ### BackupConfig {#BackupConfig}
@@ -170,15 +176,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -202,6 +210,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ## List {#List}
@@ -261,6 +277,7 @@ kinesis_api_endpoint | **string**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption2)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption2}
@@ -317,6 +334,7 @@ assign_public_ips | **bool**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption3)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption3}
@@ -344,6 +362,10 @@ size | **int64**<br> The minimum value is 1.
 
 ### ServerlessDatabase {#ServerlessDatabase1}
 
+Field | Description
+--- | ---
+request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 
 
 ### BackupConfig {#BackupConfig1}
@@ -364,15 +386,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule1}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule1)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule1)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule1)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -396,6 +420,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule1}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ## Create {#Create}
@@ -436,6 +468,7 @@ backup_config | **[BackupConfig](#BackupConfig2)**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption4)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption4}
@@ -492,6 +525,7 @@ assign_public_ips | **bool**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption5)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption5}
@@ -519,6 +553,10 @@ size | **int64**<br> The minimum value is 1.
 
 ### ServerlessDatabase {#ServerlessDatabase2}
 
+Field | Description
+--- | ---
+request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 
 
 ### BackupConfig {#BackupConfig2}
@@ -539,15 +577,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule2}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule2)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule2)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule2)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -571,6 +611,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule2}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ### Operation {#Operation}
@@ -631,6 +679,7 @@ kinesis_api_endpoint | **string**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption6)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption6}
@@ -687,6 +736,7 @@ assign_public_ips | **bool**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption7)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption7}
@@ -714,6 +764,10 @@ size | **int64**<br> The minimum value is 1.
 
 ### ServerlessDatabase {#ServerlessDatabase3}
 
+Field | Description
+--- | ---
+request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 
 
 ### BackupConfig {#BackupConfig3}
@@ -734,15 +788,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule3}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule3)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule3)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule3)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -766,6 +822,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule3}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ## Update {#Update}
@@ -808,6 +872,7 @@ backup_config | **[BackupConfig](#BackupConfig4)**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption8)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption8}
@@ -864,6 +929,7 @@ assign_public_ips | **bool**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption9)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption9}
@@ -891,6 +957,10 @@ size | **int64**<br> The minimum value is 1.
 
 ### ServerlessDatabase {#ServerlessDatabase4}
 
+Field | Description
+--- | ---
+request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 
 
 ### BackupConfig {#BackupConfig4}
@@ -911,15 +981,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule4}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule4)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule4)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule4)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -943,6 +1015,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule4}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ### Operation {#Operation1}
@@ -1003,6 +1083,7 @@ kinesis_api_endpoint | **string**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption10)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption10}
@@ -1059,6 +1140,7 @@ assign_public_ips | **bool**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption11)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption11}
@@ -1086,6 +1168,10 @@ size | **int64**<br> The minimum value is 1.
 
 ### ServerlessDatabase {#ServerlessDatabase5}
 
+Field | Description
+--- | ---
+request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 
 
 ### BackupConfig {#BackupConfig5}
@@ -1106,15 +1192,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule5}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule5)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule5)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule5)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -1138,6 +1226,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule5}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ## Start {#Start}
@@ -1215,6 +1311,7 @@ kinesis_api_endpoint | **string**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption12)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption12}
@@ -1271,6 +1368,7 @@ assign_public_ips | **bool**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption13)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption13}
@@ -1298,6 +1396,10 @@ size | **int64**<br> The minimum value is 1.
 
 ### ServerlessDatabase {#ServerlessDatabase6}
 
+Field | Description
+--- | ---
+request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 
 
 ### BackupConfig {#BackupConfig6}
@@ -1318,15 +1420,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule6}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule6)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule6)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule6)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -1350,6 +1454,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule6}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ## Stop {#Stop}
@@ -1427,6 +1539,7 @@ kinesis_api_endpoint | **string**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption14)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption14}
@@ -1483,6 +1596,7 @@ assign_public_ips | **bool**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption15)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption15}
@@ -1510,6 +1624,10 @@ size | **int64**<br> The minimum value is 1.
 
 ### ServerlessDatabase {#ServerlessDatabase7}
 
+Field | Description
+--- | ---
+request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 
 
 ### BackupConfig {#BackupConfig7}
@@ -1530,15 +1648,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule7}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule7)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule7)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule7)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -1562,6 +1682,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule7}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ## Delete {#Delete}
@@ -1683,6 +1811,7 @@ kinesis_api_endpoint | **string**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption16)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption16}
@@ -1739,6 +1868,7 @@ assign_public_ips | **bool**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption17)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption17}
@@ -1766,6 +1896,10 @@ size | **int64**<br> The minimum value is 1.
 
 ### ServerlessDatabase {#ServerlessDatabase8}
 
+Field | Description
+--- | ---
+request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 
 
 ### BackupConfig {#BackupConfig8}
@@ -1786,15 +1920,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule8}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule8)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule8)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule8)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -1818,6 +1954,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule8}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ## Backup {#Backup}
@@ -1849,15 +1993,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule9}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule9)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule9)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule9)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -1881,6 +2027,14 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule9}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
 ### Operation {#Operation6}
@@ -1941,6 +2095,7 @@ kinesis_api_endpoint | **string**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption18)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption18}
@@ -1997,6 +2152,7 @@ assign_public_ips | **bool**<br>
 Field | Description
 --- | ---
 storage_options[] | **[StorageOption](#StorageOption19)**<br> The minimum number of elements is 1.
+storage_size_limit | **int64**<br>output only field: storage size limit of dedicated database. 
 
 
 ### StorageOption {#StorageOption19}
@@ -2024,6 +2180,10 @@ size | **int64**<br> The minimum value is 1.
 
 ### ServerlessDatabase {#ServerlessDatabase9}
 
+Field | Description
+--- | ---
+request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
 
 
 ### BackupConfig {#BackupConfig9}
@@ -2044,15 +2204,17 @@ backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
 type | enum **[Type](./storage_type#undefined)**<br> <ul><ul/>
+storage_class | enum **StorageClass**<br> <ul><ul/>
 
 
 ### BackupSchedule {#BackupSchedule10}
 
 Field | Description
 --- | ---
-policy | **oneof:** `daily_backup_schedule` or `weekly_backup_schedule`<br>
+policy | **oneof:** `daily_backup_schedule`, `weekly_backup_schedule` or `recurring_backup_schedule`<br>
 &nbsp;&nbsp;daily_backup_schedule | **[DailyBackupSchedule](#DailyBackupSchedule10)**<br> 
 &nbsp;&nbsp;weekly_backup_schedule | **[WeeklyBackupSchedule](#WeeklyBackupSchedule10)**<br> 
+&nbsp;&nbsp;recurring_backup_schedule | **[RecurringBackupSchedule](#RecurringBackupSchedule10)**<br> 
 next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>output only field: when next backup will be executed using provided schedule. 
 
 
@@ -2076,5 +2238,13 @@ Field | Description
 --- | ---
 days[] | **google.type.DayOfWeek**<br> The number of elements must be in the range 1-7.
 execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Required.  
+
+
+### RecurringBackupSchedule {#RecurringBackupSchedule10}
+
+Field | Description
+--- | ---
+start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
+recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 

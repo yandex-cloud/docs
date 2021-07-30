@@ -47,7 +47,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Log group name. 
 description | **string**<br>Log group description. 
 labels | **map<string,string>**<br>Log group labels. 
-status | enum **Status**<br>Log group status. <br>See [Status] for possible values. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
+status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. 
 
 
@@ -75,7 +75,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Log group name. 
 description | **string**<br>Log group description. 
 labels | **map<string,string>**<br>Log group labels. 
-status | enum **Status**<br>Log group status. <br>See [Status] for possible values. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
+status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. 
 
 
@@ -114,7 +114,7 @@ Field | Description
 folder_id | **string**<br>Required. Folder ID of the log groups to return. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 64.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListLogGroupsResponse.next_page_token](#ListLogGroupsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListLogGroupsResponse.next_page_token](#ListLogGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [LogGroup.name](#LogGroup2) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [LogGroup.name](#LogGroup2) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListLogGroupsResponse {#ListLogGroupsResponse}
@@ -136,7 +136,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Log group name. 
 description | **string**<br>Log group description. 
 labels | **map<string,string>**<br>Log group labels. 
-status | enum **Status**<br>Log group status. <br>See [Status] for possible values. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
+status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. 
 
 
@@ -155,7 +155,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a log group in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 64.
-name | **string**<br>Name of the log group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>Name of the log group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
 description | **string**<br>Description of the log group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Log group labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. Must be at least `1h`. Acceptable values are 1h to 168h, inclusive.
@@ -195,7 +195,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Log group name. 
 description | **string**<br>Log group description. 
 labels | **map<string,string>**<br>Log group labels. 
-status | enum **Status**<br>Log group status. <br>See [Status] for possible values. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
+status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. 
 
 
@@ -215,7 +215,7 @@ Field | Description
 --- | ---
 log_group_id | **string**<br>Required. ID of the log group to update. <br>To get a log group ID make a [LogGroupService.List](#List) request. The maximum string length in characters is 64.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the function should be updated. 
-name | **string**<br>New name of the log group. The name must be unique within the folder. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+name | **string**<br>New name of the log group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
 description | **string**<br>New Description of the log group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>New log group labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>New log group entry retention period. <br>Entries will be present in group during this period. Must be at least `1h`. Acceptable values are 1h to 168h, inclusive.
@@ -255,7 +255,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Log group name. 
 description | **string**<br>Log group description. 
 labels | **map<string,string>**<br>Log group labels. 
-status | enum **Status**<br>Log group status. <br>See [Status] for possible values. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
+status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. 
 
 
@@ -341,7 +341,7 @@ Field | Description
 log_group_id | **string**<br>Required. ID of the log group to list operations for. <br>To get a log group ID make a [LogGroupService.List](#List) request. The maximum string length in characters is 64.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListOperationsResponse.next_page_token](#ListOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListOperationsResponse.next_page_token](#ListOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the following fields: </li><li>[operation.Operation.description](#Operation3) </li><li>[operation.Operation.created_at](#Operation3) </li><li>[operation.Operation.modified_at](#Operation3) </li><li>[operation.Operation.created_by](#Operation3) </li><li>[operation.Operation.done](#Operation3) </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [operation.Operation.description](#Operation3), [operation.Operation.created_at](#Operation3), [operation.Operation.modified_at](#Operation3), [operation.Operation.created_by](#Operation3), [operation.Operation.done](#Operation3) fields. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListOperationsResponse {#ListOperationsResponse}

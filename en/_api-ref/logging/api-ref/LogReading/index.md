@@ -3,7 +3,7 @@ editable: false
 ---
 
 # LogReading
-
+A set of methods for reading from log groups.
 
 ## Methods {#methods}
 Method | Description

@@ -8,3 +8,5 @@ editable: false
 ## Методы {#methods}
 Метод | Описание
 --- | ---
+[deleteMembership](deleteMembership.md) | Удаляет пользователя из членов организации.
+[listMembers](listMembers.md) | Возвращает список пользователей для указанной организации.

@@ -89,11 +89,18 @@ filter | A filter expression that filters backend groups listed in the response.
               }
             },
             "useHttp2": true,
+
+            // `backendGroups[].http.backends[]` includes only one of the fields `targetGroups`, `storageBucket`
             "targetGroups": {
               "targetGroupIds": [
                 "string"
               ]
-            }
+            },
+            "storageBucket": {
+              "bucket": "string"
+            },
+            // end of the list of possible fields`backendGroups[].http.backends[]`
+
           }
         ]
       },
@@ -208,8 +215,10 @@ backendGroups[].<br>http.<br>backends[].<br>tls.<br>validationContext | **object
 backendGroups[].<br>http.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`backendGroups[].http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br>
 backendGroups[].<br>http.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`backendGroups[].http.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
 backendGroups[].<br>http.<br>backends[].<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP/2 usage in connections between load balancer nodes and backend targets.</p> <p>Default value: ``false``, HTTP/1.1 is used.</p> 
-backendGroups[].<br>http.<br>backends[].<br>targetGroups | **object**<br>Target groups that belong to the backend.<br><p>A resource for target groups that belong to the backend.</p> 
+backendGroups[].<br>http.<br>backends[].<br>targetGroups | **object**<br>Target groups that belong to the backend. <br>`backendGroups[].http.backends[]` includes only one of the fields `targetGroups`, `storageBucket`<br><br><p>A resource for target groups that belong to the backend.</p> 
 backendGroups[].<br>http.<br>backends[].<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. List of ID's of target groups that belong to the backend.</p> <p>To get the ID's of all available target groups, make a <a href="/docs/application-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>Must contain at least one element.</p> 
+backendGroups[].<br>http.<br>backends[].<br>storageBucket | **object**<br>Storage bucket to use as a backend. <br>`backendGroups[].http.backends[]` includes only one of the fields `targetGroups`, `storageBucket`<br><br>
+backendGroups[].<br>http.<br>backends[].<br>storageBucket.<br>bucket | **string**<br><p>Required. Cloud S3 bucket name. Should have public access.</p> 
 backendGroups[].<br>grpc | **object**<br>List of gRPC backends that the backend group consists of. <br>`backendGroups[]` includes only one of the fields `http`, `grpc`<br><br><p>A gRPC backend group resource.</p> 
 backendGroups[].<br>grpc.<br>backends[] | **object**<br>gRPC backend to add to the backend group.<br><p>A gRPC backend resource.</p> 
 backendGroups[].<br>grpc.<br>backends[].<br>name | **string**<br><p>Required. Name of the backend.</p> <p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 

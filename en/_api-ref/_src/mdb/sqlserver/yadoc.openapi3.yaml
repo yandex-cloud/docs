@@ -786,6 +786,42 @@ paths:
     post:
       tags:
       - Database
+      summary: Creates a new SQL Server database in the specified cluster.
+      operationId: DatabaseCreate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the SQL Server cluster to create a database in.
+
+          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDatabaseRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDatabaseMetadata'
+      x-y-operation-response: '[Database](/docs/managed-sqlserver/api-ref/Database#representation)'
+  /mdb/sqlserver/v1/clusters/{clusterId}/databases:restore:
+    post:
+      tags:
+      - Database
       summary: Creates a new SQL Server database in the specified cluster from a backup
       operationId: DatabaseRestore
       parameters:

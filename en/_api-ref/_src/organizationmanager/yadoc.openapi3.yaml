@@ -288,6 +288,91 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
       x-y-operation-response: Empty
+  /organization-manager/v1/organizations/{organizationId}/users:
+    get:
+      tags:
+      - User
+      summary: List organization active members.
+      operationId: UserListMembers
+      parameters:
+      - name: organizationId
+        in: path
+        description: |-
+          Required.
+          ID of the Organization resource to list members for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/organization-manager/api-ref/User/listMembers#query_params), the service returns a [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [pageToken](/docs/organization-manager/api-ref/User/listMembers#query_params)
+          to the [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses)
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMembersResponse'
+      x-y-navtitle: listMembers
+  /organization-manager/v1/organizations/{organizationId}/users/{subjectId}:
+    delete:
+      tags:
+      - User
+      summary: Delete user membership.
+      operationId: UserDeleteMembership
+      parameters:
+      - name: organizationId
+        in: path
+        description: |-
+          Required.
+          ID of the organization to delete membership.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: subjectId
+        in: path
+        description: |-
+          ID of the subject that is being deleted from organization.
+          By default equals to authenticated subject.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteMembership
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteMembershipMetadata'
+      x-y-operation-response: '`DeleteMembershipResponse`'
 components:
   schemas:
     AccessBinding:
@@ -410,7 +495,7 @@ components:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
             is larger than [ListMembersResponse.page_size], use the [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) as the value
-            for the [ListMembersRequest.page_token] query parameter in the next list request.
+            for the [pageToken](/docs/organization-manager/api-ref/User/listMembers#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) to continue paging through the results.
           type: string
     ListMembersResponseOrganizationUser:

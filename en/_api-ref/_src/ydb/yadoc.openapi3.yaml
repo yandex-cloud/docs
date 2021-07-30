@@ -639,6 +639,8 @@ components:
             $ref: '#/components/schemas/DailyBackupSchedule'
           weeklyBackupSchedule:
             $ref: '#/components/schemas/WeeklyBackupSchedule'
+          recurringBackupSchedule:
+            $ref: '#/components/schemas/RecurringBackupSchedule'
     BackupSettings:
       type: object
       properties:
@@ -681,6 +683,19 @@ components:
             type: string
         type:
           $ref: '#/components/schemas/BackupSettingsType_in_BackupSettings_type'
+        storageClass:
+          $ref: '#/components/schemas/BackupSettingsStorageClass_in_BackupSettings_storageClass'
+    BackupSettingsStorageClass:
+      type: string
+      enum:
+      - STANDARD
+      - REDUCED_REDUNDANCY
+      - STANDARD_IA
+      - ONEZONE_IA
+      - INTELLIGENT_TIERING
+      - GLACIER
+      - DEEP_ARCHIVE
+      - OUTPOSTS
     BackupSettingsType:
       type: string
       enum:
@@ -1067,6 +1082,24 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    RecurringBackupSchedule:
+      type: object
+      properties:
+        startTime:
+          description: |-
+            Required.
+            Timestamp of the first recurrence.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        recurrence:
+          description: |-
+            Required.
+            An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how
+            this backup reccurs.
+            The FREQ values of MINUTELY, and SECONDLY are not supported.
+          type: string
     RegionalDatabase:
       type: object
       properties:
@@ -1136,7 +1169,20 @@ components:
           format: int64
     ServerlessDatabase:
       type: object
-      properties: {}
+      properties:
+        requestUnitsPerSecondLimit:
+          description: |-
+            Specify explicit limit of request units for database.
+            Default value is 0.
+            If zero, then request units are unlimited for this database and units are limited
+            by cloud quota value.
+          type: string
+          format: int64
+        storageSizeLimit:
+          description: Specify serverless database storage size limit. If zero, default
+            value is applied.
+          type: string
+          format: int64
     StartDatabaseMetadata:
       type: object
       properties:
@@ -1161,6 +1207,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StorageOption'
+        storageSizeLimit:
+          description: 'output only field: storage size limit of dedicated database.'
+          type: string
+          format: int64
     StorageOption:
       type: object
       properties:
@@ -1343,6 +1393,8 @@ components:
             type: string
         type:
           $ref: '#/components/schemas/BackupSettingsType_in_BackupSettings_type'
+        storageClass:
+          $ref: '#/components/schemas/BackupSettingsStorageClass_in_BackupSettings_storageClass'
     BackupType_in_Backup_type:
       description: ' - SYSTEM: indicates that backup started by the system.'
       type: string
@@ -1392,6 +1444,8 @@ components:
             type: string
         type:
           $ref: '#/components/schemas/BackupSettingsType_in_BackupSettings_type'
+        storageClass:
+          $ref: '#/components/schemas/BackupSettingsStorageClass_in_BackupSettings_storageClass'
     BackupSchedule_in_BackupSettings_backupSchedule:
       description: provide schedule. if empty, backup will be disabled.
       type: object
@@ -1414,11 +1468,24 @@ components:
             $ref: '#/components/schemas/DailyBackupSchedule'
           weeklyBackupSchedule:
             $ref: '#/components/schemas/WeeklyBackupSchedule'
+          recurringBackupSchedule:
+            $ref: '#/components/schemas/RecurringBackupSchedule'
     BackupSettingsType_in_BackupSettings_type:
       type: string
       enum:
       - SYSTEM
       - USER
+    BackupSettingsStorageClass_in_BackupSettings_storageClass:
+      type: string
+      enum:
+      - STANDARD
+      - REDUCED_REDUNDANCY
+      - STANDARD_IA
+      - ONEZONE_IA
+      - INTELLIGENT_TIERING
+      - GLACIER
+      - DEEP_ARCHIVE
+      - OUTPOSTS
     TimeOfDay_in_DailyBackupSchedule_executeTime:
       description: |-
         Required.
@@ -1487,6 +1554,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StorageOption'
+        storageSizeLimit:
+          description: 'output only field: storage size limit of dedicated database.'
+          type: string
+          format: int64
     ScalePolicy_in_DedicatedDatabase_scalePolicy:
       type: object
       allOf:

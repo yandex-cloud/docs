@@ -402,7 +402,7 @@ List operations for the specified address.
 
 Field | Description
 --- | ---
-address_id | **string**<br>Required. ID of the address to list operations for. <br>To get a address ID make a [AddressService.List](#List) request. The maximum string length in characters is 50.
+address_id | **string**<br>Required. ID of the address to list operations for. <br>To get a address ID make a [tAddressService.List] request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListAddressOperationsResponse.next_page_token](#ListAddressOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListAddressOperationsResponse.next_page_token](#ListAddressOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
 

@@ -6,6 +6,6 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 Service | Description
 --- | ---
 [LogGroupService](./log_group_service.md) | A set of methods for managing log groups.
-[LogIngestionService](./log_ingestion_service.md) | 
-[LogReadingService](./log_reading_service.md) | 
+[LogIngestionService](./log_ingestion_service.md) | A set of methods for writing to log groups.
+[LogReadingService](./log_reading_service.md) | A set of methods for reading from log groups.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

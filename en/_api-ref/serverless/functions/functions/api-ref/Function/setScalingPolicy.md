@@ -23,6 +23,7 @@ functionId | Required. ID of the function to retrieve scaling policies for.  To 
 ```json 
 {
   "tag": "string",
+  "provisionedInstancesCount": "string",
   "zoneInstancesLimit": "string",
   "zoneRequestsLimit": "string"
 }
@@ -32,6 +33,7 @@ functionId | Required. ID of the function to retrieve scaling policies for.  To 
 Field | Description
 --- | ---
 tag | **string**<br><p>Required. Version tag.</p> <p>To get the history of version tags make a <a href="/docs/functions/functions/api-ref/Function/listTagHistory">listTagHistory</a> request.</p> <p>Value must match the regular expression ``[a-z][-_0-9a-z]*\|[$]latest``.</p> 
+provisionedInstancesCount | **string** (int64)<br><p>Minimum guaranteed provisioned instances count for all zones in total. Billed separately.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
 zoneInstancesLimit | **string** (int64)<br><p>Upper limit for instance count in each zone. 0 means no limit.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
 zoneRequestsLimit | **string** (int64)<br><p>Upper limit of requests count in each zone. 0 means no limit.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
  

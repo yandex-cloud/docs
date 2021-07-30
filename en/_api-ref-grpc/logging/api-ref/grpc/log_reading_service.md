@@ -4,7 +4,7 @@ editable: false
 
 # LogReadingService
 
-
+A set of methods for reading from log groups.
 
 | Call | Description |
 | --- | --- |

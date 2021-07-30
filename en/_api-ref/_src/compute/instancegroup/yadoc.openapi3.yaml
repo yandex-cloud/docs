@@ -598,6 +598,66 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
       x-y-operation-response: Empty
+  /compute/v1/instanceGroups/{instanceGroupId}:resumeProcesses:
+    post:
+      tags:
+      - InstanceGroup
+      summary: Resume all process in instance group.
+      operationId: InstanceGroupResumeProcesses
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResumeInstanceGroupProcessesRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: resumeProcesses
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ResumeInstanceGroupProcessMetadata'
+      x-y-operation-response: '[InstanceGroup](/docs/compute/api-ref/InstanceGroup#representation)'
+  /compute/v1/instanceGroups/{instanceGroupId}:pauseProcesses:
+    post:
+      tags:
+      - InstanceGroup
+      summary: Pause all process in instance group.
+      operationId: InstanceGroupPauseProcesses
+      parameters:
+      - name: instanceGroupId
+        in: path
+        description: The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PauseInstanceGroupProcessesRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: pauseProcesses
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/PauseInstanceGroupProcessMetadata'
+      x-y-operation-response: '[InstanceGroup](/docs/compute/api-ref/InstanceGroup#representation)'
 components:
   schemas:
     AccessBinding:
@@ -1638,6 +1698,9 @@ components:
       properties:
         instanceGroupId:
           type: string
+    PauseInstanceGroupProcessesRequest:
+      type: object
+      properties: {}
     PlacementPolicy:
       type: object
       properties:
@@ -1734,6 +1797,9 @@ components:
       properties:
         instanceGroupId:
           type: string
+    ResumeInstanceGroupProcessesRequest:
+      type: object
+      properties: {}
     ScalePolicy:
       type: object
       allOf:

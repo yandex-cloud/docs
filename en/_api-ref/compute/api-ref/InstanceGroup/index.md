@@ -459,6 +459,8 @@ Method | Description
 [listInstances](listInstances.md) | Lists instances for the specified instance group.
 [listLogRecords](listLogRecords.md) | Lists logs for the specified instance group.
 [listOperations](listOperations.md) | Lists operations for the specified instance group.
+[pauseProcesses](pauseProcesses.md) | Pause all process in instance group.
+[resumeProcesses](resumeProcesses.md) | Resume all process in instance group.
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified instance group.
 [start](start.md) | Starts the specified instance group.
 [stop](stop.md) | Stops the specified instance group.

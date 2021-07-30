@@ -1486,7 +1486,7 @@ components:
       type: object
       properties:
         id:
-          description: ID of the backup.
+          description: Required. ID of the backup.
           type: string
         folderId:
           description: ID of the folder that the backup belongs to.
@@ -1509,6 +1509,30 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+        size:
+          description: Size of backup in bytes
+          type: string
+          format: int64
+        type:
+          $ref: '#/components/schemas/BackupBackupCreationType_in_Backup_type'
+        method:
+          $ref: '#/components/schemas/BackupBackupMethod_in_Backup_method'
+    BackupBackupCreationType:
+      description: |2-
+         - AUTOMATED: Backup created by automated daily schedule
+         - MANUAL: Backup created by user request
+      type: string
+      enum:
+      - AUTOMATED
+      - MANUAL
+    BackupBackupMethod:
+      description: |2-
+         - BASE: Base backup
+         - INCREMENTAL: Delta (incremental) PostgreSQL backup
+      type: string
+      enum:
+      - BASE
+      - INCREMENTAL
     BackupClusterMetadata:
       type: object
       properties:
@@ -9066,6 +9090,26 @@ components:
           type: array
           items:
             type: object
+    BackupBackupCreationType_in_Backup_type:
+      description: |-
+        How this backup was created (manual/automatic/etc...)
+
+         - AUTOMATED: Backup created by automated daily schedule
+         - MANUAL: Backup created by user request
+      type: string
+      enum:
+      - AUTOMATED
+      - MANUAL
+    BackupBackupMethod_in_Backup_method:
+      description: |-
+        Method of backup creation
+
+         - BASE: Base backup
+         - INCREMENTAL: Delta (incremental) PostgreSQL backup
+      type: string
+      enum:
+      - BASE
+      - INCREMENTAL
     ClusterEnvironment_in_Cluster_environment:
       description: |-
         Deployment environment of the PostgreSQL cluster.
