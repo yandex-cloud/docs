@@ -26,7 +26,7 @@ URL( address, text )
 #### Примеры {#examples}
 
 ```
-URL('https://example.com/?value=' + [value], [value]))
+URL('https://example.com/?value=' + [value], [value])
 ```
 
 
