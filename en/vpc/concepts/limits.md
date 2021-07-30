@@ -5,7 +5,7 @@ description: 'The Yandex Virtual Private Cloud and Yandex Cloud Interconnect ser
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ vpc-name }}
 
 ## {{ vpc-full-name }}
 

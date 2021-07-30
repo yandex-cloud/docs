@@ -7,7 +7,7 @@ editable: false
 
 {% if audience != "internal" %}
 
-# Quotas and limits
+# Quotas and limits in {{ mpg-name }}
 
 {{ mpg-name }} has the following limits:
 

@@ -5,7 +5,7 @@ description: 'В сервисах Yandex Virtual Private Cloud и Yandex Cloud I
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ vpc-name }}
 
 ## {{ vpc-full-name }}
 

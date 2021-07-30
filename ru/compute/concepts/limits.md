@@ -5,7 +5,7 @@ description: 'В сервисе Compute Cloud действуют лимиты и
 editable: false
 ---
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ compute-name }}
 
 В сервисе {{ compute-name }} действуют следующие ограничения:
 

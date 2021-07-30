@@ -4,7 +4,7 @@ description: 'The Yandex Object Storage service has limits and quotas for the am
 
 editable: false
 ---
-# Quotas and limits
+# Quotas and limits in {{ objstorage-name }}
 
 {{ objstorage-full-name }} has the following limits:
 

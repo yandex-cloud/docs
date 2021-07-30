@@ -7,7 +7,7 @@ editable: false
 
 {% if audience != "internal" %}
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ mpg-name }}
 
 В сервисе {{ mpg-name }} действуют следующие ограничения:
 

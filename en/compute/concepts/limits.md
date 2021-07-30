@@ -5,7 +5,7 @@ description: 'The Compute Cloud service has limits and quotas for virtual machin
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ compute-name }} 
 
 {{ compute-name }} has the following limits:
 
