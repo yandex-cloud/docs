@@ -14,7 +14,8 @@ Syntax:
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/> PostgreSQL cluster id.|
 |`--cluster-name`|<b>`string`</b><br/> PostgreSQL cluster name.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --host PROPERTY=VALUE[,PROPERTY=VALUE...] Configurations for PostgreSQL hosts that should be added to the cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Whether the host should get a public IP address on creation.  replication-source Host name of the host to be used as the replication source (for cascading replication).  priority Priority of the host as a replica.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Configurations for PostgreSQL hosts that should be added to the cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Whether the host should get a public IP address on creation.  replication-source Host name of the host to be used as the replication source (for cascading replication).  priority Priority of the host as a replica.|
 
 #### Flags
 

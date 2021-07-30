@@ -13,9 +13,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Name of the route table.|
-|`--description`|<b>`string`</b><br/> Description of the route table. --labels key=value[,key=value...] A list of route table labels as key-value pairs.|
+|`--description`|<b>`string`</b><br/> Description of the route table.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of route table labels as key-value pairs.|
 |`--network-id`|<b>`string`</b><br/> ID of the network to which the route table belongs.|
-|`--network-name`|<b>`string`</b><br/> Name of the network to which the route table belongs. --route PROPERTY=VALUE[,PROPERTY=VALUE...] A list of static routes in a table.  Possible property names:  destination Destination subnet in CIDR notation.  next-hop Next hop IP address.  |
+|`--network-name`|<b>`string`</b><br/> Name of the network to which the route table belongs.|
+|`--route`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> A list of static routes in a table.  Possible property names:  destination Destination subnet in CIDR notation.  next-hop Next hop IP address.  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

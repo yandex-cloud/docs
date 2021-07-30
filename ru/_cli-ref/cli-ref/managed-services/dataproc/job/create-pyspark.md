@@ -19,8 +19,13 @@ Aliases:
 |`--cluster-id`|<b>`string`</b><br/> ID of the cluster.|
 |`--cluster-name`|<b>`string`</b><br/> Name of the cluster.|
 |`--name`|<b>`string`</b><br/> Optional job name|
-|`--main-python-file-uri`|<b>`string`</b><br/> Main Python file URI --python-file-uris value[,value] Python file URIs --jar-file-uris value[,value] JAR file URIs --file-uris value[,value] File URIs --archive-uris value[,value] Archive URIs|
-|`--properties`|<b>`stringToString`</b><br/> Properties --args value[,value] Arguments|
+|`--main-python-file-uri`|<b>`string`</b><br/> Main Python file URI|
+|`--python-file-uris`|<b>`value[,value]`</b><br/> Python file URIs|
+|`--jar-file-uris`|<b>`value[,value]`</b><br/> JAR file URIs|
+|`--file-uris`|<b>`value[,value]`</b><br/> File URIs|
+|`--archive-uris`|<b>`value[,value]`</b><br/> Archive URIs|
+|`--properties`|<b>`stringToString`</b><br/> Properties|
+|`--args`|<b>`value[,value]`</b><br/> Arguments|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

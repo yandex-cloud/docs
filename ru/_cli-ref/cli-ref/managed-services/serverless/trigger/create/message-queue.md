@@ -13,7 +13,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Trigger name.|
-|`--description`|<b>`string`</b><br/> Trigger description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Trigger description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--queue`|<b>`string`</b><br/> Message queue identifier.|
 |`--queue-service-account-id`|<b>`string`</b><br/> Service account to be used by the worker to access the Message Queue.|
 |`--queue-service-account-name`|<b>`string`</b><br/> Service account to be used by the worker to access the Message Queue.|

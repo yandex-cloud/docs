@@ -13,7 +13,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--new-name`|<b>`string`</b><br/> New container name.|
-|`--description`|<b>`string`</b><br/> Container description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs.|
+|`--description`|<b>`string`</b><br/> Container description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs.|
 |`--id`|<b>`string`</b><br/> Container id.|
 |`--name`|<b>`string`</b><br/> Container name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

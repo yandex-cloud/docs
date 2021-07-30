@@ -16,7 +16,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Api-gateway name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New api-gateway name.|
-|`--description`|<b>`string`</b><br/> New api-gateway description. --labels key=value[,key=value...] New list of label KEY=VALUE pairs to replace existing list.|
+|`--description`|<b>`string`</b><br/> New api-gateway description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> New list of label KEY=VALUE pairs to replace existing list.|
 |`--spec`|<b>`string`</b><br/> New api-gateway specification file name.|
 
 #### Flags

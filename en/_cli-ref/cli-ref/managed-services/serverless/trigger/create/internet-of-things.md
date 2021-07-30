@@ -13,7 +13,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Trigger name.|
-|`--description`|<b>`string`</b><br/> Trigger description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Trigger description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--registry-id`|<b>`string`</b><br/> Internet of Things registry ID.|
 |`--device-id`|<b>`string`</b><br/> Internet of Things device ID.|
 |`--mqtt-topic`|<b>`string`</b><br/> Internet of Things MQTT topic.|

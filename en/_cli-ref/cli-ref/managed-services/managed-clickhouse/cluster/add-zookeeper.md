@@ -17,7 +17,8 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/> Storage volume available to a ZooKeeper host.|
-|`--disk-type`|<b>`string`</b><br/> Storage type for the host. --host PROPERTY=VALUE[,PROPERTY=VALUE...] Configurations for ClickHouse Zookeeper hosts that should be added to the cluster.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.|
+|`--disk-type`|<b>`string`</b><br/> Storage type for the host.|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Configurations for ClickHouse Zookeeper hosts that should be added to the cluster.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.|
 
 #### Flags
 

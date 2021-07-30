@@ -21,7 +21,8 @@ Syntax:
 |`--ipv4-address`|<b>`string`</b><br/> Assigns the given internal IPv4 address to the interface that is updated. If 'auto' used as value, some unassigned address from the subnet is used.|
 |`--clear-ipv4-address`| Clear IPv4 address on the network interface|
 |`--nat-ip-version`|<b>`string`</b><br/> Specifies IP version for One-to-One NAT. Can be either 'ipv4' or 'ipv6'. This flag can be applied to network interfaces with ipv4 address or both addresses.|
-|`--nat-address`|<b>`string`</b><br/> Specifies public IP address for One-to-One NAT. This flag can be applied to network interfaces with ipv4 address or both addresses. --security-group-id value[,value] Security groups for the network interface, --security-group-id id1 --security-group-id=id2|
+|`--nat-address`|<b>`string`</b><br/> Specifies public IP address for One-to-One NAT. This flag can be applied to network interfaces with ipv4 address or both addresses.|
+|`--security-group-id`|<b>`value[,value]`</b><br/> Security groups for the network interface, --security-group-id id1 --security-group-id=id2|
 |`--clear-security-groups`| Clear security groups for the network interface|
 
 #### Flags

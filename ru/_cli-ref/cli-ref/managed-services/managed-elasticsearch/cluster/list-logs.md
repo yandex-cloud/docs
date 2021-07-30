@@ -15,7 +15,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/>ID of the ElasticSearch cluster.|
 |`--name`|<b>`string`</b><br/>Name of the ElasticSearch cluster.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--service-type`|<b>`string`</b><br/>Type of the service to request logs from. Values: 'elasticsearch', 'kibana' --columns value[,value]   Columns from the logs table to request.|
+|`--service-type`|<b>`string`</b><br/>Type of the service to request logs from. Values: 'elasticsearch', 'kibana'|
+|`--columns`|<b>`value[,value]`</b><br/>Columns from the logs table to request.|
 |`--filter`|<b>`string`</b><br/>Filter expression that filters resources listed in the response. Entire filter must be surrounded with quotes. Examples: "message.hostname='node1.db.cloud.yandex.net'"|
 |`--since`|<b>`timestamp`</b><br/>Start timestamp for the logs request. Format: RFC-3339, HH:MM:SS, or a moment  of time relative to the current time. Examples: '2006-01-02T15:04:05Z', '15:04:05', '2h' or '3h30m ago'.|
 |`--until`|<b>`timestamp`</b><br/>End timestamp for the logs request. Format: RFC-3339, HH:MM:SS, or a moment  of time relative to the current time. Examples: '2006-01-02T15:04:05Z', '15:04:05', '2h' or '3h30m ago'.|

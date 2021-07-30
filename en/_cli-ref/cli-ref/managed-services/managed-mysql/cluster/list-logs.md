@@ -15,7 +15,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/>MySQL cluster id.|
 |`--name`|<b>`string`</b><br/>MySQL cluster name.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
-|`--service-type`|<b>`string`</b><br/>Type of the service to request logs about. Values: 'mysql-error', 'mysql-general', 'mysql-slow-query', 'mysql-audit' --columns value[,value]   Columns from logs table to request|
+|`--service-type`|<b>`string`</b><br/>Type of the service to request logs about. Values: 'mysql-error', 'mysql-general', 'mysql-slow-query', 'mysql-audit'|
+|`--columns`|<b>`value[,value]`</b><br/>Columns from logs table to request|
 |`--filter`|<b>`string`</b><br/>Filter expression that filters resources listed in the response. Entire filter must be surrounded with quotes. Examples: "message.hostname='node1.db.cloud.yandex.net'"|
 |`--since`|<b>`timestamp`</b><br/>Start timestamp for the logs request. Format: timestamp in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|
 |`--until`|<b>`timestamp`</b><br/>End timestamp for the logs request. Format: timestamp in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|

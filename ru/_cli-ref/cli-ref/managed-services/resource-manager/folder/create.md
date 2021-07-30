@@ -13,7 +13,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Name of the folder.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the folder. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Specifies a textual description of the folder.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

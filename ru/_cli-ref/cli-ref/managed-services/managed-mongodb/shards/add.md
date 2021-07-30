@@ -15,7 +15,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Shard name.|
 |`--cluster-id`|<b>`string`</b><br/> ID of the MongoDB cluster.|
 |`--cluster-name`|<b>`string`</b><br/> Name of the MongoDB cluster.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --host PROPERTY=VALUE[,PROPERTY=VALUE...] Configurations for MongoDB hosts that should be added to the shard.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Assign a public IP address to the host being added.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Configurations for MongoDB hosts that should be added to the shard.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Assign a public IP address to the host being added.|
 
 #### Flags
 

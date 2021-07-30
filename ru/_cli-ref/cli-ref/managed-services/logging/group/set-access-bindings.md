@@ -14,7 +14,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> Log group id.|
 |`--name`|<b>`string`</b><br/> Log group name.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --access-binding PROPERTY=VALUE[,PROPERTY=VALUE...] Access binding to set. Can be used multiple times.  Possible property names:  role Binding role ID.  service-account-id Service account, whose access will be updated.  service-account-name Service account, whose access will be updated.  user-account-id User account, whose access will be updated.  user-yandex-login User account, whose access will be updated.  all-authenticated-users Access will be updated for all authenticated users  subject Subject whose access will be updated; in TYPE:ID format, e.g. userAccount:<ID>, serviceAccount:<ID>, system:<ID>.  |
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--access-binding`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Access binding to set. Can be used multiple times.  Possible property names:  role Binding role ID.  service-account-id Service account, whose access will be updated.  service-account-name Service account, whose access will be updated.  user-account-id User account, whose access will be updated.  user-yandex-login User account, whose access will be updated.  all-authenticated-users Access will be updated for all authenticated users  subject Subject whose access will be updated; in TYPE:ID format, e.g. userAccount:<ID>, serviceAccount:<ID>, system:<ID>.  |
 |`-y`,`--yes`| Automatic yes to prompts.|
 
 #### Flags

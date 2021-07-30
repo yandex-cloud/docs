@@ -13,10 +13,12 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> A name of the dns zone.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the dns zone. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Specifies a textual description of the dns zone.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--zone`|<b>`string`</b><br/> The zone domain of the dns zone to create.|
 |`--public-visibility`| Specifies whether or not dns zone records will be publicly visible.|
-|`--private-visibility`| Specifies whether or not dns zone records will be visible from private virtual networks. --network-ids value[,value] Specifies network identifiers from which dns zone records will be visible.|
+|`--private-visibility`| Specifies whether or not dns zone records will be visible from private virtual networks.|
+|`--network-ids`|<b>`value[,value]`</b><br/> Specifies network identifiers from which dns zone records will be visible.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

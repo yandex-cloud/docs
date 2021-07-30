@@ -16,8 +16,10 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/> PostgreSQL cluster name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--password`|<b>`string`</b><br/> Password of the PostgreSQL user.|
-|`--conn-limit`|<b>`int`</b><br/> Number of connections available to the user. --permissions value[,value] Names of the databases that the permission grants access to.|
-|`--login`| Indicates whether the user can login. Defaults to true. --grants value[,value] Roles granted to the user.|
+|`--conn-limit`|<b>`int`</b><br/> Number of connections available to the user.|
+|`--permissions`|<b>`value[,value]`</b><br/> Names of the databases that the permission grants access to.|
+|`--login`| Indicates whether the user can login. Defaults to true.|
+|`--grants`|<b>`value[,value]`</b><br/> Roles granted to the user.|
 |`--lock-timeout`|<b>`int`</b><br/> Lock timeout in milliseconds.|
 |`--log-min-duration-statement`|<b>`int`</b><br/> Log minimal duration statement in milliseconds.|
 |`--temp-file-limit`|<b>`int`</b><br/> Temporary file limit in bytes.|

@@ -15,7 +15,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/> Log group id.|
 |`--name`|<b>`string`</b><br/> Log group name.|
 |`--new-name`|<b>`string`</b><br/> New log group name.|
-|`--description`|<b>`string`</b><br/> New log group description. --labels key=value[,key=value...] New list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> New log group description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> New list of label KEY=VALUE pairs to add.|
 |`--retention-period`|<b>`duration`</b><br/> New retention period.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 

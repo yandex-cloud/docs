@@ -15,7 +15,9 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/> MySQL cluster id.|
 |`--cluster-name`|<b>`string`</b><br/> MySQL cluster name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
-|`--password`|<b>`string`</b><br/> Password of the MySQL user. --permissions value[,value] Names of the databases that the permission grants access to. --global-permissions value[,value] User global access roles, possible values: PROCESS,REPLICATION_CLIENT,REPLICATION_SLAVE|
+|`--password`|<b>`string`</b><br/> Password of the MySQL user.|
+|`--permissions`|<b>`value[,value]`</b><br/> Names of the databases that the permission grants access to.|
+|`--global-permissions`|<b>`value[,value]`</b><br/> User global access roles, possible values: PROCESS,REPLICATION_CLIENT,REPLICATION_SLAVE|
 |`--authentication-plugin`|<b>`string`</b><br/> Authentication plugin of the MySQL user.|
 |`--max-questions-per-hour`|<b>`int`</b><br/> The maximum permitted number of user questions per hour.|
 |`--max-updates-per-hour`|<b>`int`</b><br/> The maximum permitted number of user updates per hour.|

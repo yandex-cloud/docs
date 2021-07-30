@@ -13,13 +13,17 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Name of the subnet.|
-|`--description`|<b>`string`</b><br/> Description of the subnet. --labels key=value[,key=value...] A list of network labels as key-value pairs.|
+|`--description`|<b>`string`</b><br/> Description of the subnet.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of network labels as key-value pairs.|
 |`--zone`|<b>`string`</b><br/> ID of the availability zone where the new subnet should reside.|
 |`--network-id`|<b>`string`</b><br/> ID of the network to which the subnetwork belongs.|
 |`--network-name`|<b>`string`</b><br/> Name of the network to which the subnetwork belongs.|
 |`--route-table-id`|<b>`string`</b><br/> ID of the route table to which the subnetwork belongs.|
-|`--route-table-name`|<b>`string`</b><br/> Name of the route table to which the subnetwork belongs. --range value[,value] The IP address space allocated to this subnet in CIDR notation.|
-|`--domain-name`|<b>`string`</b><br/> Domain name for a subnet. --domain-name-server value[,value] Domain name server for a subnet. --ntp-server value[,value] Ntp server for a subnet.|
+|`--route-table-name`|<b>`string`</b><br/> Name of the route table to which the subnetwork belongs.|
+|`--range`|<b>`value[,value]`</b><br/> The IP address space allocated to this subnet in CIDR notation.|
+|`--domain-name`|<b>`string`</b><br/> Domain name for a subnet.|
+|`--domain-name-server`|<b>`value[,value]`</b><br/> Domain name server for a subnet.|
+|`--ntp-server`|<b>`value[,value]`</b><br/> Ntp server for a subnet.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

@@ -19,10 +19,12 @@ Aliases:
 |`--cluster-id`|<b>`string`</b><br/> ID of the cluster.|
 |`--cluster-name`|<b>`string`</b><br/> Name of the cluster.|
 |`--name`|<b>`string`</b><br/> Optional job name|
-|`--query-file-uri`|<b>`string`</b><br/> Query file URI --query-list value[,value] Query List|
+|`--query-file-uri`|<b>`string`</b><br/> Query file URI|
+|`--query-list`|<b>`value[,value]`</b><br/> Query List|
 |`--continue-on-failure`| Continue on query failure|
 |`--script-variables`|<b>`stringToString`</b><br/> Script variables|
-|`--properties`|<b>`stringToString`</b><br/> Properties --jar-file-uris value[,value] JAR file URIs|
+|`--properties`|<b>`stringToString`</b><br/> Properties|
+|`--jar-file-uris`|<b>`value[,value]`</b><br/> JAR file URIs|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

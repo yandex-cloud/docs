@@ -13,10 +13,12 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Trigger name.|
-|`--description`|<b>`string`</b><br/> Trigger description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Trigger description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--bucket-id`|<b>`string`</b><br/> Object storage bucket ID.|
 |`--prefix`|<b>`string`</b><br/> Object prefix filter.|
-|`--suffix`|<b>`string`</b><br/> Object suffix filter. --events value[,value] List of object storage events to subscribe. A list can be specified by listing events separated by commas as well as passing this flag multiple times. Available events are: 'create-object' , 'delete-object', 'update-object'. |
+|`--suffix`|<b>`string`</b><br/> Object suffix filter.|
+|`--events`|<b>`value[,value]`</b><br/> List of object storage events to subscribe. A list can be specified by listing events separated by commas as well as passing this flag multiple times. Available events are: 'create-object' , 'delete-object', 'update-object'. |
 |`--invoke-function-id`|<b>`string`</b><br/> Function to be invoked by worker on the data from Object Storage.|
 |`--invoke-function-name`|<b>`string`</b><br/> Function to be invoked by worker on the data from Object Storage.|
 |`--invoke-function-tag`|<b>`string`</b><br/> Function tag.|

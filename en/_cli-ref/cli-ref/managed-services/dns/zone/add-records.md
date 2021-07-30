@@ -14,7 +14,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> DNS zone id.|
 |`--name`|<b>`string`</b><br/> DNS zone name.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --record "<NAME> [TTL] <TYPE> <DATA>" record to add in format "<NAME> [TTL] <TYPE> <DATA>". If record with specified name and type is already present no error will be shown.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--record`|<b>`"<NAME>`</b><br/>[TTL] <TYPE> <DATA>" record to add in format "<NAME> [TTL] <TYPE> <DATA>". If record with specified name and type is already present no error will be shown.|
 
 #### Flags
 

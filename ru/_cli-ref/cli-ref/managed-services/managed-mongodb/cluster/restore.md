@@ -18,7 +18,10 @@ Syntax:
 |`--environment`|<b>`string`</b><br/> Environment for the restored cluster. Supported values: 'production', 'prestable'.|
 |`--recovery-target-timestamp`|<b>`int`</b><br/> Timestamp of the moment to which the MongoDB cluster should be restored. Format: UNIX Epoch time (POSIX time). Example: '1600884000' is UNIX Epoch time for '2020-09-23T18:00:00+00:00'.|
 |`--network-id`|<b>`string`</b><br/> Network id.|
-|`--network-name`|<b>`string`</b><br/> Network name. --host PROPERTY=VALUE[,PROPERTY=VALUE...] Individual configurations for hosts that should be created for the MongoDB cluster being restored.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Assign a public IP address to the host being added.   --labels key=value[,key=value...] A list of labels as key-value pairs to add for the cluster being restored. --security-group-ids value[,value] A list of security groups for the MongoDB cluster.|
+|`--network-name`|<b>`string`</b><br/> Network name.|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Individual configurations for hosts that should be created for the MongoDB cluster being restored.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Assign a public IP address to the host being added.  |
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of labels as key-value pairs to add for the cluster being restored.|
+|`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the MongoDB cluster.|
 |`--mongodb-version`|<b>`string`</b><br/> Version of MongoDB used by the cluster. Supported value: 3.6, 4.0, 4.2, 4.4|
 |`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/> Retain period of automatically created backup in days.|

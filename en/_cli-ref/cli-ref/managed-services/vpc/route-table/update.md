@@ -16,8 +16,10 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Route table name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name for the route table.|
-|`--description`|<b>`string`</b><br/> New description for the route table. --labels key=value[,key=value...] New set of labels for the route table as key-value pairs. Existing set of labels will be completely overwritten.|
-|`--clear-routes`| Clear all routes from a table. --route PROPERTY=VALUE[,PROPERTY=VALUE...] New list of static routes for table.  Possible property names:  destination Destination subnet in CIDR notation.  next-hop Next hop IP address.|
+|`--description`|<b>`string`</b><br/> New description for the route table.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the route table as key-value pairs. Existing set of labels will be completely overwritten.|
+|`--clear-routes`| Clear all routes from a table.|
+|`--route`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> New list of static routes for table.  Possible property names:  destination Destination subnet in CIDR notation.  next-hop Next hop IP address.|
 
 #### Flags
 

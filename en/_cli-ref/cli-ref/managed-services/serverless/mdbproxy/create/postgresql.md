@@ -13,7 +13,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Proxy name.|
-|`--description`|<b>`string`</b><br/> Proxy description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Proxy description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--cluster-id`|<b>`string`</b><br/> Cluster identifier for PostgreSQL.|
 |`--cluster-name`|<b>`string`</b><br/> Cluster name for PostgreSQL.|
 |`--user`|<b>`string`</b><br/> PostgreSQL user.|

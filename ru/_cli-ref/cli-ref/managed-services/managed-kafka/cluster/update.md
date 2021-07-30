@@ -16,8 +16,11 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Kafka cluster name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name for the Kafka cluster.|
-|`--description`|<b>`string`</b><br/> New description of the Kafka cluster. --labels key=value[,key=value...] New set of labels for the Kafka cluster as key-value pairs. Existing set of labels will be completely overwritten. --security-group-ids value[,value] A list of security groups for the Kafka cluster.|
-|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster. --zone-ids value[,value] List of availability zones.|
+|`--description`|<b>`string`</b><br/> New description of the Kafka cluster.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the Kafka cluster as key-value pairs. Existing set of labels will be completely overwritten.|
+|`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Kafka cluster.|
+|`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
+|`--zone-ids`|<b>`value[,value]`</b><br/> List of availability zones.|
 |`--brokers-count`|<b>`int`</b><br/> Count of brokers in each availability zone.|
 |`--resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a Kafka host (CPU, RAM etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/> Storage volume available to a Kafka host.|

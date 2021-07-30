@@ -16,7 +16,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Secret name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name of the secret.|
-|`--description`|<b>`string`</b><br/> New description of the secret. --labels key=value[,key=value...] A list of new label KEY=VALUE pairs to update.|
+|`--description`|<b>`string`</b><br/> New description of the secret.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of new label KEY=VALUE pairs to update.|
 |`--deletion-protection`| Enable deletion protection for the secret.|
 |`--no-deletion-protection`| Disable deletion protection for the secret.|
 

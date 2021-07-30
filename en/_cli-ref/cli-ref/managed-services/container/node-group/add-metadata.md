@@ -14,7 +14,9 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> ID of the node group.|
 |`--name`|<b>`string`</b><br/> Name of the node group.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --metadata key=value[,key=value...] Metadata to add. See for details https://cloud.yandex.ru/docs/compute/concepts/vm-metadata --metadata-from-file key=value[,key=value...] Same as --metadata except that the value for the entry will be read from a local file.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--metadata`|<b>`key=value[,key=value...]`</b><br/> Metadata to add. See for details https://cloud.yandex.ru/docs/compute/concepts/vm-metadata|
+|`--metadata-from-file`|<b>`key=value[,key=value...]`</b><br/> Same as --metadata except that the value for the entry will be read from a local file.|
 
 #### Flags
 

@@ -22,7 +22,9 @@ Syntax:
 |`--service-account-id`|<b>`string`</b><br/>Service account id.|
 |`--description`|<b>`string`</b><br/>Revision description.|
 |`--environment`|<b>`stringToString`</b><br/>Revision environment variables.|
-|`--image`|<b>`string`</b><br/>Image to run --command value[,value]        Comma-separated entrypoint for the container image. If not specified, the image's default ENTRYPOINT will be used. Pass an empty string to reset it to zero value. --args value[,value]           Comma-separated list of arguments that are passed to the command, run by a container. If not specified, the image's default CMD will be used. Pass an empty string to reset it to zero value.|
+|`--image`|<b>`string`</b><br/>Image to run|
+|`--command`|<b>`value[,value]`</b><br/>Comma-separated entrypoint for the container image. If not specified, the image's default ENTRYPOINT will be used. Pass an empty string to reset it to zero value.|
+|`--args`|<b>`value[,value]`</b><br/>Comma-separated list of arguments that are passed to the command, run by a container. If not specified, the image's default CMD will be used. Pass an empty string to reset it to zero value.|
 
 #### Flags
 

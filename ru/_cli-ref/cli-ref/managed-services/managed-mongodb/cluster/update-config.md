@@ -14,7 +14,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> ID of the MongoDB cluster.|
 |`--name`|<b>`string`</b><br/> Name of the MongoDB cluster.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --set key1=value1[,key2=value2][,"key3=val3a,val3b"] Set a parameter for a MongoDB cluster. Can be specified multiple times. Option may be prefixed by service name: mongocfg, mongod, mongos. Mongod is assumed when no prefix is provided|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--set`|<b>`key1=value1[,key2=value2][,"key3=val3a,val3b"]`</b><br/> Set a parameter for a MongoDB cluster. Can be specified multiple times. Option may be prefixed by service name: mongocfg, mongod, mongos. Mongod is assumed when no prefix is provided|
 
 #### Flags
 

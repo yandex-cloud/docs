@@ -14,7 +14,9 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Registry id.|
 |`--name`|<b>`string`</b><br/>Registry name.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete. --pull value[,value]   Pull ip permission to set. Can be used multiple times. --push value[,value]   Push ip permission to set. Can be used multiple times.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--pull`|<b>`value[,value]`</b><br/>Pull ip permission to set. Can be used multiple times.|
+|`--push`|<b>`value[,value]`</b><br/>Push ip permission to set. Can be used multiple times.|
 |`-y`,`--yes`|Automatic yes to prompts.|
 
 #### Flags

@@ -16,8 +16,10 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Name of the Application load balancer.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> A new name of the application load balancer.|
-|`--description`|<b>`string`</b><br/> A description of the application load balancer. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
-|`--clear-security-groups`| Clear all security groups for application load balancer. --security-group-id value[,value] Security groups for the load balancer, --security-group-id id1 --security-group-id=id2|
+|`--description`|<b>`string`</b><br/> A description of the application load balancer.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
+|`--clear-security-groups`| Clear all security groups for application load balancer.|
+|`--security-group-id`|<b>`value[,value]`</b><br/> Security groups for the load balancer, --security-group-id id1 --security-group-id=id2|
 
 #### Flags
 

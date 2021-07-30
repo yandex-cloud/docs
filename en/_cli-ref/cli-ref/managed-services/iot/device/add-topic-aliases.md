@@ -14,7 +14,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> Device id.|
 |`--name`|<b>`string`</b><br/> Device name.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --topic-aliases key=value[,key=value...] A list of ALIAS=TOPIC_PREFIX pairs to add.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--topic-aliases`|<b>`key=value[,key=value...]`</b><br/> A list of ALIAS=TOPIC_PREFIX pairs to add.|
 
 #### Flags
 

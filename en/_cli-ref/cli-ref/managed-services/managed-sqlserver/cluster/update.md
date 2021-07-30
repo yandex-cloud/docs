@@ -16,7 +16,9 @@ Syntax:
 |`--name`|<b>`string`</b><br/> SQLServer cluster name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name for the SQLServer cluster|
-|`--description`|<b>`string`</b><br/> Cluster description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add. --security-group-ids value[,value] A list of security groups for the SQLServer cluster.|
+|`--description`|<b>`string`</b><br/> Cluster description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
+|`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the SQLServer cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host|

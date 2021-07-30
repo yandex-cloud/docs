@@ -17,7 +17,8 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name of a symmetric key.|
 |`--description`|<b>`string`</b><br/> New description of a symmetric key.|
-|`--status`|<b>`string`</b><br/> New status of a symmetric key. Values: 'creating', 'active', 'inactive' --labels key=value[,key=value...] A list of new label KEY=VALUE pairs to update.|
+|`--status`|<b>`string`</b><br/> New status of a symmetric key. Values: 'creating', 'active', 'inactive'|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of new label KEY=VALUE pairs to update.|
 |`--default-algorithm`|<b>`string`</b><br/> New default symmetric key version algorithm. Values: 'aes-128', 'aes-192', 'aes-256', 'aes-256-hsm'|
 |`--rotation-period`|<b>`duration`</b><br/> New rotation period for symmetric key version.|
 |`--deletion-protection`| Inhibits deletion of a symmetric key.|

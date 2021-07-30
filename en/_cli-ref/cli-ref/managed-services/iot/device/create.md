@@ -16,7 +16,8 @@ Syntax:
 |`--registry-name`|<b>`string`</b><br/> Registry name.|
 |`--name`|<b>`string`</b><br/> Name of device.|
 |`--description`|<b>`string`</b><br/> Description of device/|
-|`--certificate-file`|<b>`string`</b><br/> Path to X.509 certificate file to associate with selected device. --topic-aliases key=value[,key=value...] A list of ALIAS=TOPIC_PREFIX pairs to add.|
+|`--certificate-file`|<b>`string`</b><br/> Path to X.509 certificate file to associate with selected device.|
+|`--topic-aliases`|<b>`key=value[,key=value...]`</b><br/> A list of ALIAS=TOPIC_PREFIX pairs to add.|
 |`--password`|<b>`string`</b><br/> Password for entity. Usage of --read-password is more secure|
 |`--read-password`| Read password for entity from input|
 |`--generate-password`| Generate random password|

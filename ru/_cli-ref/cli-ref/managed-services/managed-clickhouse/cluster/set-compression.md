@@ -14,7 +14,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> ID of the ClickHouse cluster.|
 |`--name`|<b>`string`</b><br/> Name of the ClickHouse cluster.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --with PROPERTY=VALUE[,PROPERTY=VALUE...] Specify compression settings.  Possible property names:  method Compression method. Supported values: 'lz4', 'zstd'.  min-part-size Minimum size of a part of a table.  min-part-size-ratio Minimum ratio of a part to the size of the table.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--with`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Specify compression settings.  Possible property names:  method Compression method. Supported values: 'lz4', 'zstd'.  min-part-size Minimum size of a part of a table.  min-part-size-ratio Minimum ratio of a part to the size of the table.|
 
 #### Flags
 

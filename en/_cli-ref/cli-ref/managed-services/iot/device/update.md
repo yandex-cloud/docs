@@ -13,7 +13,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--new-name`|<b>`string`</b><br/> A new name of device.|
-|`--description`|<b>`string`</b><br/> Description of device. --topic-aliases key=value[,key=value...] A list of ALIAS=TOPIC_PREFIX pairs to add.|
+|`--description`|<b>`string`</b><br/> Description of device.|
+|`--topic-aliases`|<b>`key=value[,key=value...]`</b><br/> A list of ALIAS=TOPIC_PREFIX pairs to add.|
 |`--id`|<b>`string`</b><br/> Device id.|
 |`--name`|<b>`string`</b><br/> Device name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

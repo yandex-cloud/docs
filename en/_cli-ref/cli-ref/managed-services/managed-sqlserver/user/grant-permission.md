@@ -15,7 +15,8 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/>SQLServer cluster id.|
 |`--cluster-name`|<b>`string`</b><br/>SQLServer cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--database`|<b>`string`</b><br/>Name of the database that user is permitted to connect to. --roles value[,value]   User database access roles, possible values: DB_ACCESSADMIN,DB_BACKUPOPERATOR,DB_DATAREADER,DB_DATAWRITER,DB_DDLADMIN,DB_DENYDATAREADER,DB_DENYDATAWRITER,DB_OWNER,DB_SECURITYADMIN|
+|`--database`|<b>`string`</b><br/>Name of the database that user is permitted to connect to.|
+|`--roles`|<b>`value[,value]`</b><br/>User database access roles, possible values: DB_ACCESSADMIN,DB_BACKUPOPERATOR,DB_DATAREADER,DB_DATAWRITER,DB_DDLADMIN,DB_DENYDATAREADER,DB_DENYDATAWRITER,DB_OWNER,DB_SECURITYADMIN|
 
 #### Flags
 

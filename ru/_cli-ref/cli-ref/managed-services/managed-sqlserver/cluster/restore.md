@@ -18,12 +18,15 @@ Syntax:
 |`--description`|<b>`string`</b><br/> Cluster description.|
 |`--environment`|<b>`string`</b><br/> Cluster environment. Values: production, prestable.|
 |`--network-id`|<b>`string`</b><br/> Network id.|
-|`--network-name`|<b>`string`</b><br/> Network name. --host PROPERTY=VALUE[,PROPERTY=VALUE...] Individual configurations for hosts that should be created for the SQLServer cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Whether the host should get a public IP address on creation.  |
+|`--network-name`|<b>`string`</b><br/> Network name.|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Individual configurations for hosts that should be created for the SQLServer cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Whether the host should get a public IP address on creation.  |
 |`--sqlserver-version`|<b>`string`</b><br/> Version of SQLServer used in the cluster. Values: 2016sp2std, 2016sp2ent|
 |`--resource-preset`|<b>`string`</b><br/> ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|
 |`--disk-type`|<b>`string`</b><br/> Type of the storage environment for the host.|
-|`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add. --security-group-ids value[,value] A list of security groups for the SQLServer cluster.|
+|`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
+|`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the SQLServer cluster.|
 |`--confirm-payment`| Confirm immediate payment for cluster creation/restoring|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 

@@ -15,7 +15,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/>Instance id.|
 |`--name`|<b>`string`</b><br/>Instance name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--all`|This flag will delete whole Instance metadata. --keys value[,value]   List of keys that will be deleted in Instance metadata.|
+|`--all`|This flag will delete whole Instance metadata.|
+|`--keys`|<b>`value[,value]`</b><br/>List of keys that will be deleted in Instance metadata.|
 
 #### Flags
 

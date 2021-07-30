@@ -15,13 +15,15 @@ Syntax:
 |`--http-router-id`|<b>`string`</b><br/> ID of the Http router.|
 |`--http-router-name`|<b>`string`</b><br/> Name of the Http router.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
-|`--virtual-host-name`|<b>`string`</b><br/> Specifies the name of the virtual host for the route. --match-http-method value[,value] Specifies HTTP method matcher for the route.|
+|`--virtual-host-name`|<b>`string`</b><br/> Specifies the name of the virtual host for the route.|
+|`--match-http-method`|<b>`value[,value]`</b><br/> Specifies HTTP method matcher for the route.|
 |`--exact-path-match`|<b>`string`</b><br/> Specifies exact path matcher for the route.|
 |`--prefix-path-match`|<b>`string`</b><br/> Specifies prefix path matcher for the route.|
 |`--backend-group-id`|<b>`string`</b><br/> Specifies target backend group id for the route.|
 |`--backend-group-name`|<b>`string`</b><br/> Specifies target backend group name for the route.|
 |`--request-timeout`|<b>`duration`</b><br/> Specifies request timeout for the route.|
-|`--request-idle-timeout`|<b>`duration`</b><br/> Specifies request idle timeout for the route. --upgrade-types value[,value] Specifies allowed HTTP upgrade types for the route (e.g. websocket).|
+|`--request-idle-timeout`|<b>`duration`</b><br/> Specifies request idle timeout for the route.|
+|`--upgrade-types`|<b>`value[,value]`</b><br/> Specifies allowed HTTP upgrade types for the route (e.g. websocket).|
 |`--auto-host-rewrite`| If specified, authority/host header sent to the backend will be replaced with target ip address (target hostname in future)|
 |`--host-rewrite`|<b>`string`</b><br/> Specifies host rewrite for the route. Authority/host header sent to the backend will be replace with this value|
 |`--path-prefix-rewrite`|<b>`string`</b><br/> Specifies path prefix rewrite for the route. Its value will be prepended to the request path.|

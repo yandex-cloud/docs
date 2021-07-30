@@ -17,7 +17,10 @@ Syntax:
 |`--description`|<b>`string`</b><br/> Description of the cluster.|
 |`--environment`|<b>`string`</b><br/> Environment to deploy the cluster in. Supported values: 'production', 'prestable'.|
 |`--network-id`|<b>`string`</b><br/> Network id.|
-|`--network-name`|<b>`string`</b><br/> Network name. --host PROPERTY=VALUE[,PROPERTY=VALUE...] Individual configurations for hosts that should be created with the ClickHouse cluster.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Assign a public IP address to the host being added.  type Type of the host to be created. Supported values: 'clickhouse', 'zookeeper'.   --user PROPERTY=VALUE[,PROPERTY=VALUE...] Descriptions of database users to be created with the ClickHouse cluster.  Possible property names:  name Name of the ClickHouse user.  password Password of the ClickHouse user.   --database PROPERTY=VALUE[,PROPERTY=VALUE...] Descriptions of databases to be created with the ClickHouse cluster.  Possible property names:  name Name of the ClickHouse database.  |
+|`--network-name`|<b>`string`</b><br/> Network name.|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Individual configurations for hosts that should be created with the ClickHouse cluster.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Assign a public IP address to the host being added.  type Type of the host to be created. Supported values: 'clickhouse', 'zookeeper'.  |
+|`--user`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Descriptions of database users to be created with the ClickHouse cluster.  Possible property names:  name Name of the ClickHouse user.  password Password of the ClickHouse user.  |
+|`--database`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Descriptions of databases to be created with the ClickHouse cluster.  Possible property names:  name Name of the ClickHouse database.  |
 |`--clickhouse-resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a ClickHouse host (CPU, RAM etc.).|
 |`--clickhouse-disk-size`|<b>`byteSize`</b><br/> Storage volume available to a ClickHouse host|
 |`--clickhouse-disk-type`|<b>`string`</b><br/> Storage type for a ClickHouse host.|
@@ -32,8 +35,10 @@ Syntax:
 |`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--cloud-storage`| Whether to use Yandex Object Storage for storing ClickHouse data.|
 |`--enable-sql-database-management`| Whether database management through SQL commands is enabled.|
-|`--enable-sql-user-management`| Whether user management through SQL commands is enabled. --labels key=value[,key=value...] A list of ClickHouse cluster labels as key-value pairs.|
-|`--service-account`|<b>`string`</b><br/> Service account for the ClickHouse cluster. --security-group-ids value[,value] A list of security groups for the ClickHouse cluster.|
+|`--enable-sql-user-management`| Whether user management through SQL commands is enabled.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of ClickHouse cluster labels as key-value pairs.|
+|`--service-account`|<b>`string`</b><br/> Service account for the ClickHouse cluster.|
+|`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the ClickHouse cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--admin-password`|<b>`string`</b><br/> Password for entity. Usage of --read-admin-password is more secure|
 |`--read-admin-password`| Read password for entity from input|

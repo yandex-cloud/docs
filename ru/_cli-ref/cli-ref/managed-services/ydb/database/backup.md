@@ -13,7 +13,9 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>ID of the YDB database.|
-|`--name`|<b>`string`</b><br/>Name of the YDB database. --source value[,value]    Adds source path to backup. --exclude value[,value]   Add path to exclude from backup.|
+|`--name`|<b>`string`</b><br/>Name of the YDB database.|
+|`--source`|<b>`value[,value]`</b><br/>Adds source path to backup.|
+|`--exclude`|<b>`value[,value]`</b><br/>Add path to exclude from backup.|
 |`--ttl`|<b>`duration`</b><br/>Specify backup time to live|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

@@ -15,7 +15,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/> Registry id.|
 |`--name`|<b>`string`</b><br/> Registry name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
-|`--new-name`|<b>`string`</b><br/> A new name of the registry. --labels key=value[,key=value...] New set of labels for the registry as key-value pairs. Existing set of labels will be completely overwritten.|
+|`--new-name`|<b>`string`</b><br/> A new name of the registry.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the registry as key-value pairs. Existing set of labels will be completely overwritten.|
 
 #### Flags
 

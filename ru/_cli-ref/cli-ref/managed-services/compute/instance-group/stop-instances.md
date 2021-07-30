@@ -14,7 +14,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>instance group id.|
 |`--name`|<b>`string`</b><br/>instance group name.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete. --instance-ids value[,value]   Ids of instances to stop|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--instance-ids`|<b>`value[,value]`</b><br/>Ids of instances to stop|
 
 #### Flags
 

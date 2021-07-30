@@ -17,13 +17,17 @@ Syntax:
 |`--resource-preset`|<b>`string`</b><br/> Database resource preset ID.|
 |`--public-ip`| Assign public ips for the database.|
 |`--network-id`|<b>`string`</b><br/> Network id.|
-|`--network-name`|<b>`string`</b><br/> Network name. --subnet-name value[,value] Adds subnet by Name for the database. --subnet-id value[,value] Adds subnet by ID for the database. --storage PROPERTY=VALUE[,PROPERTY=VALUE...] YDB database storage options.  Possible property names:  type YDB database storage type id.  groups YDB database storage group count.  |
+|`--network-name`|<b>`string`</b><br/> Network name.|
+|`--subnet-name`|<b>`value[,value]`</b><br/> Adds subnet by Name for the database.|
+|`--subnet-id`|<b>`value[,value]`</b><br/> Adds subnet by ID for the database.|
+|`--storage`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> YDB database storage options.  Possible property names:  type YDB database storage type id.  groups YDB database storage group count.  |
 |`--fixed-size`|<b>`int`</b><br/> Specifies fixed scale policy size.|
 |`--zone`|<b>`string`</b><br/> Specifies database type - zonal.|
 |`--region`|<b>`string`</b><br/> Specifies database type - regional.|
 |`--location`|<b>`string`</b><br/> Specifies database location.|
 |`--dedicated`| Specifies database type - dedicated.|
-|`--serverless`| Specifies database type - serverless. --backup PROPERTY=VALUE[,PROPERTY=VALUE...] YDB database backup config options.  Possible property names:  source Adds source path to backup.  exclude Exclude path from backup.  ttl Specify backup time to live. Example: '120m', '15m', '7200s'  name Specify backup settings name.  description Specify backup settings description.  daily-execute-time Time of day in UTC time zone, HH:MM 24-hour clock format, when daily backup should be executed. Example: '02:30  weekly-execute-time Time of day in UTC time zone, HH:MM 24-hour clock format, when weekly backup should be executed. Example: '02:30  weekly-days Specify days when weekly backup should be executed.  |
+|`--serverless`| Specifies database type - serverless.|
+|`--backup`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> YDB database backup config options.  Possible property names:  source Adds source path to backup.  exclude Exclude path from backup.  ttl Specify backup time to live. Example: '120m', '15m', '7200s'  name Specify backup settings name.  description Specify backup settings description.  daily-execute-time Time of day in UTC time zone, HH:MM 24-hour clock format, when daily backup should be executed. Example: '02:30  weekly-execute-time Time of day in UTC time zone, HH:MM 24-hour clock format, when weekly backup should be executed. Example: '02:30  weekly-days Specify days when weekly backup should be executed.  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

@@ -16,7 +16,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Name of the Http router.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> A new name of the http router.|
-|`--description`|<b>`string`</b><br/> A description of the http router. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> A description of the http router.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
 #### Flags
 

@@ -13,7 +13,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--new-name`|<b>`string`</b><br/> New trigger name.|
-|`--description`|<b>`string`</b><br/> Trigger description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs.|
+|`--description`|<b>`string`</b><br/> Trigger description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs.|
 |`--id`|<b>`string`</b><br/> Trigger id.|
 |`--name`|<b>`string`</b><br/> Trigger name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

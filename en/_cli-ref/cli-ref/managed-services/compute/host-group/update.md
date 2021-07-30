@@ -16,7 +16,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Host group name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> A new name of the host group.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the host group. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Specifies a textual description of the host group.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--fixed-size`|<b>`int`</b><br/> Indicates the new size of the host group.|
 
 #### Flags

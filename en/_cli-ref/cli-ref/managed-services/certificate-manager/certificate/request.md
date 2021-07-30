@@ -18,7 +18,9 @@ Aliases:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Specifies the name of the certificate.|
-|`--description`|<b>`string`</b><br/> Specifies the textual description of the certificate. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add. --domains value[,value] Specifies the list of domains of the certificate.|
+|`--description`|<b>`string`</b><br/> Specifies the textual description of the certificate.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
+|`--domains`|<b>`value[,value]`</b><br/> Specifies the list of domains of the certificate.|
 |`--challenge`|<b>`string`</b><br/> Specifies the challenge type to validate ownership of the domains. Values: 'dns', 'http'|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
