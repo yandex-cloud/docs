@@ -11,6 +11,7 @@ A set of methods for managing SQL Server databases.
 | [Get](#Get) | Returns the specified SQL Server database. |
 | [List](#List) | Retrieves the list of SQL Server databases in the specified cluster. |
 | [Create](#Create) | Creates a new SQL Server database in the specified cluster. |
+| [Restore](#Restore) | Creates a new SQL Server database in the specified cluster from a backup |
 | [Delete](#Delete) | Deletes the specified SQL Server database. |
 
 ## Calls DatabaseService {#calls}
@@ -125,11 +126,66 @@ name | **string**<br>Name of the database.
 cluster_id | **string**<br>ID of the SQL Server cluster the database belongs to. 
 
 
+## Restore {#Restore}
+
+Creates a new SQL Server database in the specified cluster from a backup
+
+**rpc Restore ([RestoreDatabaseRequest](#RestoreDatabaseRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestoreDatabaseMetadata](#RestoreDatabaseMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Database](#Database3)<br>
+
+### RestoreDatabaseRequest {#RestoreDatabaseRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the SQL Server cluster to restore a database in. To get the cluster ID, use a [ClusterService.List](./cluster_service#List) request The maximum string length in characters is 50.
+database_name | **string**<br>Required. Name of the SQLServer database that is being restored. 
+from_database | **string**<br>Required. name of the database which backup will be used to restore the database 
+backup_id | **string**<br>Required. ID of a backup to be used 
+time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp which is used for Point-in-Time recovery 
+
+
+### Operation {#Operation1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestoreDatabaseMetadata](#RestoreDatabaseMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Database](#Database3)>**<br>if operation finished successfully. 
+
+
+### RestoreDatabaseMetadata {#RestoreDatabaseMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the SQLServer cluster where a database is being created. 
+database_name | **string**<br>Required. Name of the SQLServer database that is being created. 
+from_database | **string**<br>Required. name of the database which backup will be used to restore the database 
+backup_id | **string**<br>Required. ID of a backup to be used 
+
+
+### Database {#Database3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the database. 
+cluster_id | **string**<br>ID of the SQL Server cluster the database belongs to. 
+
+
 ## Delete {#Delete}
 
 Deletes the specified SQL Server database.
 
-**rpc Delete ([DeleteDatabaseRequest](#DeleteDatabaseRequest)) returns ([operation.Operation](#Operation1))**
+**rpc Delete ([DeleteDatabaseRequest](#DeleteDatabaseRequest)) returns ([operation.Operation](#Operation2))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteDatabaseMetadata](#DeleteDatabaseMetadata)<br>
@@ -143,7 +199,7 @@ cluster_id | **string**<br>Required. ID of the SQL Server cluster to delete a da
 database_name | **string**<br>Required. Name of the database to delete. <br>To get the name of the database, use a [DatabaseService.List](#List) request. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### Operation {#Operation1}
+### Operation {#Operation2}
 
 Field | Description
 --- | ---

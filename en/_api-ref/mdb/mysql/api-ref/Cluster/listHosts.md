@@ -49,7 +49,8 @@ pageToken | Page token.  To get the next page of results, set [pageToken](/docs/
         }
       ],
       "subnetId": "string",
-      "assignPublicIp": true
+      "assignPublicIp": true,
+      "replicationSource": "string"
     }
   ],
   "nextPageToken": "string"
@@ -74,4 +75,5 @@ hosts[].<br>services[].<br>type | **string**<br><p>Type of the service provided 
 hosts[].<br>services[].<br>health | **string**<br><p>Status code of server availability.</p> <ul> <li>HEALTH_UNKNOWN: Health of the server is unknown.</li> <li>ALIVE: The server is working normally.</li> <li>DEAD: The server is dead or unresponsive.</li> </ul> 
 hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs to.</p> 
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Flag showing public IP assignment status to this host.</p> 
+hosts[].<br>replicationSource | **string**<br><p>Name of the host to be used as the replication source for cascading replication.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#query_params">pageSize</a>, use the <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#responses">nextPageToken</a> to continue paging through the results.</p> 

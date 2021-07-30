@@ -8,6 +8,27 @@ info:
   x-y-docUri: api-ref
   x-y-baseUrl: https://datasphere.api.cloud.yandex.net
 paths:
+  /datasphere/v1/appTokens/{token}:validate:
+    post:
+      tags:
+      - AppToken
+      summary: Validates app token.
+      operationId: AppTokenValidate
+      parameters:
+      - name: token
+        in: path
+        description: App token to validate.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+      x-y-navtitle: validate
   /datasphere/v1/nodes/{nodeId}:execute:
     post:
       tags:
@@ -220,6 +241,61 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/OpenProjectMetadata'
       x-y-operation-response: '`OpenProjectResponse`'
+  /datasphere/v1/projects/{projectId}:unitBalance:
+    get:
+      tags:
+      - Project
+      summary: Returns the unit balance of the specified project.
+      operationId: ProjectGetUnitBalance
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the project to return the unit balance for.
+
+          The maximum string length in characters is 200.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUnitBalanceResponse'
+      x-y-navtitle: getUnitBalance
+    post:
+      tags:
+      - Project
+      summary: Sets the unit balance of the specified project.
+      operationId: ProjectSetUnitBalance
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the project to set the unit balance for.
+
+          The maximum string length in characters is 200.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetUnitBalanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Empty'
+      x-y-navtitle: setUnitBalance
 components:
   schemas:
     CreateProjectMetadata:
@@ -254,6 +330,8 @@ components:
           type: string
         settings:
           $ref: '#/components/schemas/ProjectSettings_in_CreateProjectRequest_settings'
+        limits:
+          $ref: '#/components/schemas/ProjectLimits_in_CreateProjectRequest_limits'
     DeleteProjectMetadata:
       type: object
       properties:
@@ -275,6 +353,13 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    GetUnitBalanceResponse:
+      type: object
+      properties:
+        unitBalance:
+          description: The number of units available to the project.
+          type: integer
+          format: int64
     ListProjectsResponse:
       type: object
       properties:
@@ -406,6 +491,19 @@ components:
           type: string
         settings:
           $ref: '#/components/schemas/ProjectSettings_in_Project_settings'
+        limits:
+          $ref: '#/components/schemas/ProjectLimits_in_Project_limits'
+    ProjectLimits:
+      type: object
+      properties:
+        maxUnitsPerHour:
+          description: The number of units that can be spent per hour.
+          type: integer
+          format: int64
+        maxUnitsPerExecution:
+          description: The number of units that can be spent on the one execution.
+          type: integer
+          format: int64
     ProjectSettings:
       type: object
       properties:
@@ -432,6 +530,13 @@ components:
       enum:
       - STANDARD
       - AUTO
+    SetUnitBalanceRequest:
+      type: object
+      properties:
+        unitBalance:
+          description: The number of units available to the project.
+          type: integer
+          format: int64
     Status:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -474,6 +579,8 @@ components:
           type: string
         settings:
           $ref: '#/components/schemas/ProjectSettings_in_UpdateProjectRequest_settings'
+        limits:
+          $ref: '#/components/schemas/ProjectLimits_in_UpdateProjectRequest_limits'
     ProjectSettings_in_CreateProjectRequest_settings:
       description: Settings of the project.
       type: object
@@ -492,6 +599,18 @@ components:
           type: string
         commitMode:
           $ref: '#/components/schemas/ProjectSettingsCommitMode_in_ProjectSettings_commitMode'
+    ProjectLimits_in_CreateProjectRequest_limits:
+      description: Limits of the project.
+      type: object
+      properties:
+        maxUnitsPerHour:
+          description: The number of units that can be spent per hour.
+          type: integer
+          format: int64
+        maxUnitsPerExecution:
+          description: The number of units that can be spent on the one execution.
+          type: integer
+          format: int64
     ProjectSettings_in_Project_settings:
       description: Settings of the project.
       type: object
@@ -510,6 +629,18 @@ components:
           type: string
         commitMode:
           $ref: '#/components/schemas/ProjectSettingsCommitMode_in_ProjectSettings_commitMode'
+    ProjectLimits_in_Project_limits:
+      description: Limits of the project.
+      type: object
+      properties:
+        maxUnitsPerHour:
+          description: The number of units that can be spent per hour.
+          type: integer
+          format: int64
+        maxUnitsPerExecution:
+          description: The number of units that can be spent on the one execution.
+          type: integer
+          format: int64
     ProjectSettingsCommitMode_in_ProjectSettings_commitMode:
       description: |-
         Commit mode that is assigned to the project.
@@ -552,7 +683,21 @@ components:
           type: string
         commitMode:
           $ref: '#/components/schemas/ProjectSettingsCommitMode_in_ProjectSettings_commitMode'
+    ProjectLimits_in_UpdateProjectRequest_limits:
+      description: Limits of the project.
+      type: object
+      properties:
+        maxUnitsPerHour:
+          description: The number of units that can be spent per hour.
+          type: integer
+          format: int64
+        maxUnitsPerExecution:
+          description: The number of units that can be spent on the one execution.
+          type: integer
+          format: int64
 tags:
+- name: AppToken
+  description: A set of methods for managing app tokens.
 - name: Node
   description: A set of methods for managing Node resources.
 - name: Project

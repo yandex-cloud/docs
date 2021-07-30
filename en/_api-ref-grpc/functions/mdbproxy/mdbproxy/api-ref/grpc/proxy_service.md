@@ -59,7 +59,7 @@ mdb | **oneof:** `postgresql`<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Cluster identifier for postgresql. The maximum string length in characters is 50.
-user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
@@ -78,6 +78,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list proxies in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListProxyResponse.next_page_token](#ListProxyResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListProxyResponse.next_page_token](#ListProxyResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Proxy.name](#Proxy1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListProxyResponse {#ListProxyResponse}
@@ -114,7 +115,7 @@ mdb | **oneof:** `postgresql`<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Cluster identifier for postgresql. The maximum string length in characters is 50.
-user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
@@ -154,7 +155,7 @@ mdb | **oneof:** `postgresql`<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Cluster identifier for postgresql. The maximum string length in characters is 50.
-user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
@@ -209,7 +210,7 @@ mdb | **oneof:** `postgresql`<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Cluster identifier for postgresql. The maximum string length in characters is 50.
-user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
@@ -250,7 +251,7 @@ mdb | **oneof:** `postgresql`<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Cluster identifier for postgresql. The maximum string length in characters is 50.
-user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
@@ -305,7 +306,7 @@ mdb | **oneof:** `postgresql`<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. Cluster identifier for postgresql. The maximum string length in characters is 50.
-user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+user | **string**<br>Required. PostgreSQL user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 

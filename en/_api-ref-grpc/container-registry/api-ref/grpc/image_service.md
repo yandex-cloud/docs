@@ -1,7 +1,4 @@
 ---
-title: "ImageService method. API reference in Yandex Container Registry"
-description: "A set of methods for managing Image resources via API in Yandex Container Registry - Get, List, Delete."
-
 editable: false
 ---
 

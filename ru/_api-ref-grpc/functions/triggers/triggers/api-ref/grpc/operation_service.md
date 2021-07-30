@@ -1,7 +1,4 @@
 ---
-title: "Метод OperationService. Справочник API для триггеров"
-description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex Cloud Functions. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
-
 editable: false
 ---
 

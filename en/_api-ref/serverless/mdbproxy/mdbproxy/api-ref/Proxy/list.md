@@ -19,6 +19,7 @@ Parameter | Description
 folderId | Required. ID of the folder to list proxies in.  To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
 pageSize | The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/mdbproxy/api-ref/Proxy/list#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.  Acceptable values are 0 to 1000, inclusive.
 pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/mdbproxy/api-ref/Proxy/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters proxies listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [Proxy.name](/docs/functions/mdbproxy/api-ref/Proxy#representation) field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. Example of a filter: `name=my-proxy`.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -61,7 +62,7 @@ proxies[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.<
 proxies[].<br>target | **object**<br><p>MDB specific settings.</p> 
 proxies[].<br>target.<br>postgresql | **object**<br>PostgreSQL settings for proxy.<br>
 proxies[].<br>target.<br>postgresql.<br>clusterId | **string**<br><p>Required. Cluster identifier for postgresql.</p> <p>The maximum string length in characters is 50.</p> 
-proxies[].<br>target.<br>postgresql.<br>user | **string**<br><p>Required. PostgreSQL user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+proxies[].<br>target.<br>postgresql.<br>user | **string**<br><p>Required. PostgreSQL user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 proxies[].<br>target.<br>postgresql.<br>password | **string**<br><p>PostgreSQL password, input only field.</p> 
 proxies[].<br>target.<br>postgresql.<br>db | **string**<br><p>Required. PostgreSQL database name.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 proxies[].<br>target.<br>postgresql.<br>endpoint | **string**<br><p>PostgreSQL proxy-host for connection, output only field.</p> 

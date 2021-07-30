@@ -135,6 +135,21 @@ paths:
           The maximum string length in characters is 100.
         schema:
           type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters proxies listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the [Proxy.name](/docs/functions/mdbproxy/api-ref/Proxy#representation) field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Example of a filter: `name=my-proxy`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
       responses:
         "200":
           description: OK
@@ -689,7 +704,7 @@ components:
             PostgreSQL user.
 
             The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
         password:
           description: PostgreSQL password, input only field.

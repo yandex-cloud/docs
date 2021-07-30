@@ -56,6 +56,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>SQL Server Collation 
 
 
 ### Monitoring {#Monitoring}
@@ -138,6 +139,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>SQL Server Collation 
 
 
 ### Monitoring {#Monitoring1}
@@ -204,6 +206,7 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>One or more configurations of hosts 
 network_id | **string**<br>ID of the network to create the SQL Server cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>name of SQL Collation that cluster will be created with The maximum string length in characters is 100.
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -309,6 +312,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>SQL Server Collation 
 
 
 ### Monitoring {#Monitoring2}
@@ -443,6 +447,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>SQL Server Collation 
 
 
 ### Monitoring {#Monitoring3}
@@ -581,6 +586,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>SQL Server Collation 
 
 
 ### Monitoring {#Monitoring4}
@@ -679,6 +685,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>SQL Server Collation 
 
 
 ### Monitoring {#Monitoring5}
@@ -780,6 +787,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>SQL Server Collation 
 
 
 ### Monitoring {#Monitoring6}
@@ -878,6 +886,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>SQL Server Collation 
 
 
 ### Monitoring {#Monitoring7}
@@ -1025,6 +1034,7 @@ health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`:
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+sqlcollation | **string**<br>SQL Server Collation 
 
 
 ### Monitoring {#Monitoring8}
@@ -1173,6 +1183,7 @@ folder_id | **string**<br>ID of the folder that the backup belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp (i.e. when the backup operation was completed). 
 source_cluster_id | **string**<br>ID of the SQL Server cluster that the backup was created for. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
+databases[] | **string**<br>List databases included in the backup 
 
 
 ## ListHosts {#ListHosts}

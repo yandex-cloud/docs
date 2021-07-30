@@ -148,7 +148,7 @@ deletion_protection | **bool**<br>Flag that inhibits deletion of the secret.
 
 Field | Description
 --- | ---
-key | **string**<br>Required. Non-confidential key of the entry. The maximum string length in characters is 256. Value must match the regular expression ` [.-_0-9a-zA-Z]+ `.
+key | **string**<br>Required. Non-confidential key of the entry. The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
 value | **oneof:** `text_value` or `binary_value`<br>Confidential value of the entry.
 &nbsp;&nbsp;text_value | **string**<br>Use the field to set a text value. The maximum string length in characters is 65536.
 &nbsp;&nbsp;binary_value | **bytes**<br>Use the field to set a binary value. The maximum string length in characters is 65536.
@@ -548,7 +548,7 @@ base_version_id | **string**<br>Optional base version id. Defaults to the curren
 
 Field | Description
 --- | ---
-key | **string**<br>Required. Non-confidential key of the entry. The maximum string length in characters is 256. Value must match the regular expression ` [.-_0-9a-zA-Z]+ `.
+key | **string**<br>Required. Non-confidential key of the entry. The maximum string length in characters is 256. Value must match the regular expression ` [-_./\\\\@0-9a-zA-Z]+ `.
 value | **oneof:** `text_value` or `binary_value`<br>Confidential value of the entry.
 &nbsp;&nbsp;text_value | **string**<br>Use the field to set a text value. The maximum string length in characters is 65536.
 &nbsp;&nbsp;binary_value | **bytes**<br>Use the field to set a binary value. The maximum string length in characters is 65536.

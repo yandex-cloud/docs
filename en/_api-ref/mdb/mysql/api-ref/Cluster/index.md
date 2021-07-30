@@ -833,3 +833,4 @@ Method | Description
 [stop](stop.md) | Stops the specified MySQL cluster.
 [streamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 [update](update.md) | Modifies the specified MySQL cluster.
+[updateHosts](updateHosts.md) | Updates the specified hosts.

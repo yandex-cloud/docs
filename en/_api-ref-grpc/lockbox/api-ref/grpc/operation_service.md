@@ -1,7 +1,4 @@
 ---
-title: "Method OperationService. API Reference in Yandex Lockbox"
-description: "A set of methods for managing operations in asynchronous API requests of the Yandex Lockbox service. Links are specified relative to the operation.api.cloud.yandex.net domain."
-
 editable: false
 ---
 

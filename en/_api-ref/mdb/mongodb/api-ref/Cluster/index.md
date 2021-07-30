@@ -1647,6 +1647,7 @@ Method | Description
 [restartHosts](restartHosts.md) | Restarts hosts.
 [restore](restore.md) | Creates a new MongoDB cluster using the specified backup.
 [start](start.md) | Start the specified MongoDB cluster.
+[stepdownHosts](stepdownHosts.md) | Stepdown hosts.
 [stop](stop.md) | Stop the specified MongoDB cluster.
 [streamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 [update](update.md) | Updates the specified MongoDB cluster.

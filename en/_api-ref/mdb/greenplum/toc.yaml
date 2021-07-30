@@ -13,26 +13,16 @@ items:
         href: api-ref/Cluster/get.md
       - name: list
         href: api-ref/Cluster/list.md
-      - name: listLogs
-        href: api-ref/Cluster/listLogs.md
       - name: listMasterHosts
         href: api-ref/Cluster/listMasterHosts.md
       - name: listOperations
         href: api-ref/Cluster/listOperations.md
       - name: listSegmentHosts
         href: api-ref/Cluster/listSegmentHosts.md
-      - name: move
-        href: api-ref/Cluster/move.md
-      - name: rescheduleMaintenance
-        href: api-ref/Cluster/rescheduleMaintenance.md
       - name: start
         href: api-ref/Cluster/start.md
       - name: stop
         href: api-ref/Cluster/stop.md
-      - name: streamLogs
-        href: api-ref/Cluster/streamLogs.md
-      - name: update
-        href: api-ref/Cluster/update.md
   - name: Operation
     items:
       - name: Overview

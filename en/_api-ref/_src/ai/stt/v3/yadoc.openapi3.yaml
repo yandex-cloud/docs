@@ -110,34 +110,19 @@ components:
       enum:
       - WAV
       - OGG_OPUS
-    Context:
-      description: control message to change contexts
-      type: object
-      allOf:
-      - title: Hint
-        type: object
-        maxProperties: 1
-        properties:
-          id:
-            description: ID of LM to use
-            type: string
-    ContextUpdate:
-      type: object
-      properties:
-        updateSucceeded:
-          type: boolean
-          format: boolean
-        message:
-          type: string
     DefaultEouClassifier:
       type: object
       properties:
         type:
           $ref: '#/components/schemas/DefaultEouClassifierEouSensitivity_in_DefaultEouClassifier_type'
+        maxPauseBetweenWordsHintMs:
+          type: string
+          format: int64
     DefaultEouClassifierEouSensitivity:
       type: string
       enum:
       - DEFAULT
+      - HIGH
     Eou:
       description: force EOU, works only with externalEOUClassifier
       type: object
@@ -177,20 +162,6 @@ components:
         properties:
           normalizedText:
             $ref: '#/components/schemas/AlternativeUpdate'
-    LongAudioOptions:
-      type: object
-      properties:
-        recognitionModel:
-          $ref: '#/components/schemas/RecognitionModelOptions_in_LongAudioOptions_recognitionModel'
-    LongAudioResponse:
-      type: object
-      properties:
-        sessionUuid:
-          $ref: '#/components/schemas/SessionUuid_in_LongAudioResponse_sessionUuid'
-        alternative:
-          $ref: '#/components/schemas/AlternativeUpdate_in_LongAudioResponse_alternative'
-        normalizedAlternative:
-          $ref: '#/components/schemas/AlternativeUpdate_in_LongAudioResponse_normalizedAlternative'
     RawAudio:
       description: RAW Audio format spec (no container to infer type). used in AudioFormat
         options
@@ -218,11 +189,6 @@ components:
           $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
-    Reset:
-      description: 'Drop all recognition context. Use case: several recognitions over
-        one channel. After first recognition user should reset context'
-      type: object
-      properties: {}
     SessionUuid:
       type: object
       properties:
@@ -230,20 +196,6 @@ components:
           type: string
         userRequestId:
           type: string
-    ShortAudioOptions:
-      type: object
-      properties:
-        recognitionModel:
-          $ref: '#/components/schemas/RecognitionModelOptions_in_ShortAudioOptions_recognitionModel'
-    ShortAudioResponse:
-      type: object
-      properties:
-        sessionUuid:
-          $ref: '#/components/schemas/SessionUuid_in_ShortAudioResponse_sessionUuid'
-        alternative:
-          $ref: '#/components/schemas/AlternativeUpdate_in_ShortAudioResponse_alternative'
-        normalizedAlternative:
-          $ref: '#/components/schemas/AlternativeUpdate_in_ShortAudioResponse_normalizedAlternative'
     SilenceChunk:
       type: object
       properties:
@@ -307,11 +259,9 @@ components:
             description: |-
               For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing).
                  Final normalization will introduce additional latency
-          contextUpdate:
-            $ref: '#/components/schemas/ContextUpdate'
-            description: Status messages, send by server with fixed interval (keep-alive)
           statusCode:
             $ref: '#/components/schemas/StatusCode'
+            description: Status messages, send by server with fixed interval (keep-alive)
     TextNormalizationOptions:
       description: options
       type: object
@@ -354,41 +304,7 @@ components:
       type: string
       enum:
       - DEFAULT
-    RecognitionModelOptions_in_LongAudioOptions_recognitionModel:
-      type: object
-      properties:
-        model:
-          description: model name
-          type: string
-        audioFormat:
-          $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
-        textNormalization:
-          $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
-    SessionUuid_in_LongAudioResponse_sessionUuid:
-      type: object
-      properties:
-        uuid:
-          type: string
-        userRequestId:
-          type: string
-    AlternativeUpdate_in_LongAudioResponse_alternative:
-      type: object
-      properties:
-        alternatives:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alternative'
-        channelTag:
-          type: string
-    AlternativeUpdate_in_LongAudioResponse_normalizedAlternative:
-      type: object
-      properties:
-        alternatives:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alternative'
-        channelTag:
-          type: string
+      - HIGH
     RawAudioAudioEncoding_in_RawAudio_audioEncoding:
       type: string
       enum:
@@ -418,41 +334,6 @@ components:
           description: Profanity filter
           type: boolean
           format: boolean
-    RecognitionModelOptions_in_ShortAudioOptions_recognitionModel:
-      type: object
-      properties:
-        model:
-          description: model name
-          type: string
-        audioFormat:
-          $ref: '#/components/schemas/AudioFormatOptions_in_RecognitionModelOptions_audioFormat'
-        textNormalization:
-          $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
-    SessionUuid_in_ShortAudioResponse_sessionUuid:
-      type: object
-      properties:
-        uuid:
-          type: string
-        userRequestId:
-          type: string
-    AlternativeUpdate_in_ShortAudioResponse_alternative:
-      type: object
-      properties:
-        alternatives:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alternative'
-        channelTag:
-          type: string
-    AlternativeUpdate_in_ShortAudioResponse_normalizedAlternative:
-      type: object
-      properties:
-        alternatives:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alternative'
-        channelTag:
-          type: string
     CodeType_in_StatusCode_codeType:
       type: string
       enum:

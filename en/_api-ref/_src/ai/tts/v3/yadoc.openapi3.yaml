@@ -83,6 +83,7 @@ components:
       type: string
       enum:
       - WAV
+      - OGG_OPUS
     Hints:
       type: object
       allOf:
@@ -96,6 +97,14 @@ components:
           audioTemplate:
             $ref: '#/components/schemas/AudioTemplate'
             description: Template for synthesizing.
+          speed:
+            description: hint to change speed
+            type: number
+            format: double
+          volume:
+            description: hint to regulate volume
+            type: number
+            format: double
     RawAudio:
       type: object
       properties:
@@ -181,6 +190,7 @@ components:
       type: string
       enum:
       - WAV
+      - OGG_OPUS
     RawAudioAudioEncoding_in_RawAudio_audioEncoding:
       description: |-
         Encoding type.

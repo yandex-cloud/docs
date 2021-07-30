@@ -64,40 +64,6 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterMetadata'
       x-y-operation-response: Empty
-    patch:
-      tags:
-      - Cluster
-      summary: Updates the specified Greenplum cluster.
-      operationId: ClusterUpdate
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the Greenplum Cluster resource to update.
-          To get the Greenplum cluster ID, use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateClusterRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: update
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/UpdateClusterMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-greenplum/api-ref/Cluster#representation)'
   /mdb/managed-greenplum/v1/clusters:
     get:
       tags:
@@ -235,233 +201,6 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-greenplum/api-ref/Cluster#representation)'
-  /mdb/managed-greenplum/v1/clusters/{clusterId}:move:
-    post:
-      tags:
-      - Cluster
-      summary: Moves a Greenplum cluster to the specified folder.
-      operationId: ClusterMove
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the Greenplum cluster to move.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MoveClusterRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: move
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/MoveClusterMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-greenplum/api-ref/Cluster#representation)'
-  /mdb/managed-greenplum/v1/clusters/{clusterId}:rescheduleMaintenance:
-    post:
-      tags:
-      - Cluster
-      summary: Reschedule planned maintenance operation.
-      operationId: ClusterRescheduleMaintenance
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          Required. ID of the Greenplum cluster to maintenance reschedule.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RescheduleMaintenanceRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: rescheduleMaintenance
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/RescheduleMaintenanceMetadata'
-      x-y-operation-response: '[Cluster](/docs/managed-greenplum/api-ref/Cluster#representation)'
-  /mdb/managed-greenplum/v1/clusters/{clusterId}:logs:
-    get:
-      tags:
-      - Cluster
-      summary: Retrieves logs for the specified Greenplum cluster.
-      operationId: ClusterListLogs
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the Greenplum cluster to request logs for.
-          To get the Greenplum cluster ID, use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      - name: columnFilter
-        in: query
-        description: |-
-          Columns from logs table to request.
-          If no columns are specified, entire log records are returned.
-        schema:
-          type: array
-          items:
-            type: string
-      - name: serviceType
-        in: query
-        description: Type of the service to request logs about.
-        schema:
-          $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
-      - name: fromTime
-        in: query
-        description: |-
-          Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-        schema:
-          type: string
-          format: date-time
-      - name: toTime
-        in: query
-        description: |-
-          End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-        schema:
-          type: string
-          format: date-time
-      - name: pageSize
-        in: query
-        description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses)
-          that can be used to get the next page of results in subsequent list requests.
-
-          The maximum value is 1000.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: |-
-          Page token.  To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses)
-          returned by a previous list request.
-
-          The maximum string length in characters is 100.
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListClusterLogsResponse'
-      x-y-navtitle: listLogs
-  /mdb/managed-greenplum/v1/clusters/{clusterId}:stream_logs:
-    get:
-      tags:
-      - Cluster
-      summary: Same as ListLogs but using server-side streaming. Also allows for `tail
-        -f` semantics.
-      operationId: ClusterStreamLogs
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          Required. ID of the Greenplum cluster.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      - name: columnFilter
-        in: query
-        description: Columns from logs table to get in the response.
-        schema:
-          type: array
-          items:
-            type: string
-      - name: serviceType
-        in: query
-        schema:
-          $ref: '#/components/schemas/StreamClusterLogsRequestServiceType'
-      - name: fromTime
-        in: query
-        description: |-
-          Start timestamp for the logs request.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-        schema:
-          type: string
-          format: date-time
-      - name: toTime
-        in: query
-        description: |-
-          End timestamp for the logs request.
-          If this field is not set, all existing logs will be sent and then the new ones as
-          they appear. In essence it has `tail -f` semantics.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-        schema:
-          type: string
-          format: date-time
-      - name: recordToken
-        in: query
-        description: |-
-          Record token. Set [recordToken](/docs/managed-greenplum/api-ref/Cluster/streamLogs#query_params) to the `nextRecordToken` returned by a previous StreamLogs
-          request to start streaming from next log record.
-
-          The maximum string length in characters is 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: |-
-          A filter expression that filters resources listed in the response.
-          The expression must specify:
-          1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.severity] fields.
-          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
-          Examples of a filter:
-          - `message.hostname='node1.db.cloud.yandex.net'`
-          - `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`.
-
-          The maximum string length in characters is 1000.
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StreamLogRecord'
-      x-y-navtitle: streamLogs
   /mdb/managed-greenplum/v1/clusters/{clusterId}/operations:
     get:
       tags:
@@ -846,17 +585,6 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
-    FieldMask:
-      description: |-
-        A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
-        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
-        the field's value will be reset to the default. The default value for most fields is null or 0.
-
-        If `` updateMask `` is not sent in the request, all fields' values will be updated.
-        Fields specified in the request will be updated to provided values.
-        The rest of the fields will be reset to the default.
-      type: string
     GreenplumConfig:
       type: object
       properties:
@@ -1029,27 +757,6 @@ components:
             for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) to continue paging through the results.
           type: string
-    ListClusterLogsRequestServiceType:
-      description: ' - GREENPLUM: Logs of Greenplum activity.'
-      type: string
-      enum:
-      - GREENPLUM
-    ListClusterLogsResponse:
-      type: object
-      properties:
-        logs:
-          description: Requested log records.
-          type: array
-          items:
-            $ref: '#/components/schemas/LogRecord'
-        nextPageToken:
-          description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) as the value
-            for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
-            Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) to continue paging through the results.
-            This value is interchangeable with the `nextRecordToken` from StreamLogs method.
-          type: string
     ListClusterOperationsResponse:
       type: object
       properties:
@@ -1080,21 +787,6 @@ components:
             for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/list#query_params) parameter in the next list request. Each subsequent
             list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/list#responses) to continue paging through the results.
           type: string
-    LogRecord:
-      type: object
-      properties:
-        timestamp:
-          description: |-
-            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-          type: string
-          format: date-time
-        message:
-          description: Contents of the log record.
-          type: object
-          additionalProperties:
-            type: string
     MaintenanceOperation:
       type: object
       properties:
@@ -1145,28 +837,6 @@ components:
           type: string
         link:
           description: Link to the monitoring system charts for the Greenplum cluster.
-          type: string
-    MoveClusterMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: ID of the Greenplum cluster being moved.
-          type: string
-        sourceFolderId:
-          description: ID of the source folder.
-          type: string
-        destinationFolderId:
-          description: ID of the destination folder.
-          type: string
-    MoveClusterRequest:
-      type: object
-      properties:
-        destinationFolderId:
-          description: |-
-            Required.
-            ID of the destination folder.
-
-            The maximum string length in characters is 50.
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
@@ -1225,37 +895,6 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
-    RescheduleMaintenanceMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: Required. ID of the Greenplum cluster.
-          type: string
-        delayedUntil:
-          description: |-
-            Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE".
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-          type: string
-          format: date-time
-    RescheduleMaintenanceRequest:
-      type: object
-      properties:
-        rescheduleType:
-          $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
-        delayedUntil:
-          description: |-
-            The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-          type: string
-          format: date-time
-    RescheduleMaintenanceRequestRescheduleType:
-      type: string
-      enum:
-      - IMMEDIATE
-      - NEXT_AVAILABLE_WINDOW
-      - SPECIFIC_TIME
     Resources:
       type: object
       properties:
@@ -1305,23 +944,6 @@ components:
         clusterId:
           description: ID of the Greenplum cluster being stopped.
           type: string
-    StreamClusterLogsRequestServiceType:
-      description: ' - GREENPLUM: Logs of Greenplum activity.'
-      type: string
-      enum:
-      - GREENPLUM
-    StreamLogRecord:
-      type: object
-      properties:
-        record:
-          $ref: '#/components/schemas/LogRecord_in_StreamLogRecord_record'
-        nextRecordToken:
-          description: |-
-            This token allows you to continue streaming logs starting from the exact
-            same record. To continue streaming, specify value of [next_record_token[
-            as value for the [recordToken](/docs/managed-greenplum/api-ref/Cluster/streamLogs#query_params) parameter in the next StreamLogs request.
-            This value is interchangeable with the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) from ListLogs method.
-          type: string
     TimeOfDay:
       description: |-
         Represents a time of day. The date and time zone are either not significant
@@ -1349,90 +971,6 @@ components:
           description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
-    UpdateClusterMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: ID of the Greenplum Cluster resource that is being updated.
-          type: string
-    UpdateClusterRequest:
-      type: object
-      properties:
-        updateMask:
-          $ref: '#/components/schemas/FieldMask_in_UpdateClusterRequest_updateMask'
-        description:
-          description: |-
-            New description of the Greenplum cluster.
-
-            The maximum string length in characters is 256.
-          type: string
-        labels:
-          description: |-
-            Custom labels for the Greenplum cluster as `key:value` pairs. Maximum 64 per resource.
-            For example, "project": "mvp" or "source": "dictionary".
-
-            The new set of labels will completely replace the old ones. To add a label, request the current
-            set with the [get](/docs/managed-greenplum/api-ref/Cluster/get) method, then send an [update](/docs/managed-greenplum/api-ref/Cluster/update) request with the new label added to the set.
-
-            No more than 64 per resource.
-            The maximum string length in characters for each key is 63.
-            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
-            The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_0-9a-z]* ``.
-          type: object
-          additionalProperties:
-            type: string
-        name:
-          description: |-
-            New name for the cluster.
-
-            The maximum string length in characters is 63.
-            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
-          type: string
-        config:
-          $ref: '#/components/schemas/GreenplumConfig_in_UpdateClusterRequest_config'
-        masterConfig:
-          $ref: '#/components/schemas/MasterSubclusterConfigSpec_in_UpdateClusterRequest_masterConfig'
-        segmentConfig:
-          $ref: '#/components/schemas/SegmentSubclusterConfigSpec_in_UpdateClusterRequest_segmentConfig'
-        masterHostCount:
-          description: Number of hosts of the master subcluster
-          type: string
-          format: int64
-        segmentInHost:
-          description: Number of segments in the host
-          type: string
-          format: int64
-        segmentHostCount:
-          description: Number of hosts of the segment subcluster
-          type: string
-          format: int64
-        userName:
-          description: Owner user name
-          type: string
-        userPassword:
-          description: Owner user password
-          type: string
-        networkId:
-          description: |-
-            Required.
-            ID of the network to create the cluster in.
-
-            The maximum string length in characters is 50.
-          type: string
-        maintenanceWindow:
-          $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
-        plannedOperation:
-          $ref: '#/components/schemas/MaintenanceOperation_in_UpdateClusterRequest_plannedOperation'
-        securityGroupIds:
-          description: User security groups
-          type: array
-          items:
-            type: string
-        deletionProtection:
-          description: Deletion Protection inhibits deletion of the cluster
-          type: boolean
-          format: boolean
     WeeklyMaintenanceWindow:
       type: object
       properties:
@@ -1972,15 +1510,6 @@ components:
           description: The server's time zone to be used in DateTime fields conversions.
             Specified as an IANA identifier.
           type: string
-    RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
-      description: |-
-        Required.
-        Required. The type of reschedule request.
-      type: string
-      enum:
-      - IMMEDIATE
-      - NEXT_AVAILABLE_WINDOW
-      - SPECIFIC_TIME
     Resources_in_SegmentSubclusterConfig_resources:
       description: Resources allocated to Greenplum segment subcluster hosts.
       type: object
@@ -2050,119 +1579,6 @@ components:
           description: Maximum number of inbound connections.
           type: integer
           format: int64
-    LogRecord_in_StreamLogRecord_record:
-      description: One of the requested log records.
-      type: object
-      properties:
-        timestamp:
-          description: |-
-            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-          type: string
-          format: date-time
-        message:
-          description: Contents of the log record.
-          type: object
-          additionalProperties:
-            type: string
-    FieldMask_in_UpdateClusterRequest_updateMask:
-      description: |-
-        Field mask that specifies which fields of the Greenplum Cluster resource should be updated.
-
-        A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
-        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
-        the field's value will be reset to the default. The default value for most fields is null or 0.
-
-        If `` updateMask `` is not sent in the request, all fields' values will be updated.
-        Fields specified in the request will be updated to provided values.
-        The rest of the fields will be reset to the default.
-      type: string
-    GreenplumConfig_in_UpdateClusterRequest_config:
-      description: Green plum cluster config
-      type: object
-      properties:
-        version:
-          description: Version of the Greenplum server software.
-          type: string
-        backupWindowStart:
-          $ref: '#/components/schemas/TimeOfDay_in_GreenplumConfig_backupWindowStart'
-        access:
-          $ref: '#/components/schemas/Access_in_GreenplumConfig_access'
-        zoneId:
-          description: |-
-            ID of the availability zone where the host resides.
-            To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
-
-            The maximum string length in characters is 50.
-          type: string
-        subnetId:
-          description: |-
-            ID of the subnet that the host should belong to. This subnet should be a part
-            of the network that the cluster belongs to.
-            The ID of the network is set in the field [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation).
-
-            The maximum string length in characters is 50.
-          type: string
-        assignPublicIp:
-          description: |-
-            Whether the host should get a public IP address on creation.
-
-            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
-
-            Possible values:
-            * false - don't assign a public IP to the master hosts.
-            * true - the master hosts should have a public IP address.
-          type: boolean
-          format: boolean
-    MasterSubclusterConfigSpec_in_UpdateClusterRequest_masterConfig:
-      description: |-
-        Configuration of the Greenplum master subcluster.
-
-        Configuration of master subcluster
-      type: object
-      properties:
-        resources:
-          $ref: '#/components/schemas/Resources_in_MasterSubclusterConfigSpec_resources'
-        config:
-          $ref: '#/components/schemas/GreenplumMasterConfig_in_MasterSubclusterConfigSpec_config'
-    SegmentSubclusterConfigSpec_in_UpdateClusterRequest_segmentConfig:
-      description: |-
-        Configuration of the Greenplum segment subcluster.
-
-        Configuration of segmet subcluster
-      type: object
-      properties:
-        resources:
-          $ref: '#/components/schemas/Resources_in_SegmentSubclusterConfigSpec_resources'
-        config:
-          $ref: '#/components/schemas/GreenplumSegmentConfig_in_SegmentSubclusterConfigSpec_config'
-    MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
-      description: Window of maintenance operations.
-      type: object
-      allOf:
-      - title: policy
-        type: object
-        maxProperties: 1
-        properties:
-          anytime:
-            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-          weeklyMaintenanceWindow:
-            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
-    MaintenanceOperation_in_UpdateClusterRequest_plannedOperation:
-      description: Maintenance operation planned at nearest maintenance_window.
-      type: object
-      properties:
-        info:
-          description: The maximum string length in characters is 256.
-          type: string
-        delayedUntil:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
-          type: string
-          format: date-time
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
       type: string
       enum:

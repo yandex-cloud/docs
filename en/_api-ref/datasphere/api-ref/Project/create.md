@@ -24,6 +24,10 @@ POST https://datasphere.api.cloud.yandex.net/datasphere/v1/projects
     "subnetId": "string",
     "dataProcClusterId": "string",
     "commitMode": "string"
+  },
+  "limits": {
+    "maxUnitsPerHour": "integer",
+    "maxUnitsPerExecution": "integer"
   }
 }
 ```
@@ -39,6 +43,9 @@ settings.<br>serviceAccountId | **string**<br><p>ID of the service account, on w
 settings.<br>subnetId | **string**<br><p>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported.</p> 
 settings.<br>dataProcClusterId | **string**<br><p>ID of the DataProc cluster.</p> 
 settings.<br>commitMode | **string**<br><p>Commit mode that is assigned to the project.</p> <ul> <li>STANDARD: Commit happens after the execution of a cell or group of cells or after completion with an error.</li> <li>AUTO: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li> </ul> 
+limits | **object**<br><p>Limits of the project.</p> 
+limits.<br>maxUnitsPerHour | **integer** (int64)<br><p>The number of units that can be spent per hour.</p> 
+limits.<br>maxUnitsPerExecution | **integer** (int64)<br><p>The number of units that can be spent on the one execution.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

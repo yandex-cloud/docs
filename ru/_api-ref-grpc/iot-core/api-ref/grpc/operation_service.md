@@ -1,7 +1,4 @@
 ---
-title: "Метод OperationService. Справочник API в Yandex IoT Core"
-description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex IoT Core. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
-
 editable: false
 ---
 

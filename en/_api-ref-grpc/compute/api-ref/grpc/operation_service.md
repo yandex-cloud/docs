@@ -1,7 +1,4 @@
 ---
-title: "Method OperationService. API reference in Yandex Compute Cloud"
-description: "A set of methods for managing operations in asynchronous API requests of the Yandex Compute Cloud service. Links are specified relative to the operation.api.cloud.yandex.net domain."
-
 editable: false
 ---
 

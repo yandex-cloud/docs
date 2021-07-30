@@ -1081,11 +1081,13 @@ components:
          - AES_128: Алгоритм AES со 128-битными ключами.
          - AES_192: Алгоритм AES с 192-битными ключами.
          - AES_256: Алгоритм AES с 256-битными ключами.
+         - AES_256_HSM: Алгоритм AES с 256-битными ключами на базе HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
     SymmetricDecryptRequest:
       type: object
       properties:
@@ -1265,6 +1267,10 @@ components:
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
           format: date-time
+        hostedByHsm:
+          description: Признак версии, которая была создана на базе HSM.
+          type: boolean
+          format: boolean
     SymmetricKeyVersionStatus:
       description: |-
         Возможные статусы версии.
@@ -1495,11 +1501,13 @@ components:
          - AES_128: Алгоритм AES со 128-битными ключами.
          - AES_192: Алгоритм AES с 192-битными ключами.
          - AES_256: Алгоритм AES с 256-битными ключами.
+         - AES_256_HSM: Алгоритм AES с 256-битными ключами на базе HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
     SymmetricAlgorithm_in_GenerateDataKeyRequest_dataKeySpec:
       description: |-
         Алгоритм шифрования и длина для сгенерированного ключа шифрования данных.
@@ -1509,11 +1517,13 @@ components:
          - AES_128: Алгоритм AES со 128-битными ключами.
          - AES_192: Алгоритм AES с 192-битными ключами.
          - AES_256: Алгоритм AES с 256-битными ключами.
+         - AES_256_HSM: Алгоритм AES с 256-битными ключами на базе HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
     SymmetricKeyStatus_in_SymmetricKey_status:
       description: |-
         Текущий статус ключа.
@@ -1567,6 +1577,10 @@ components:
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
           format: date-time
+        hostedByHsm:
+          description: Признак версии, которая была создана на базе HSM.
+          type: boolean
+          format: boolean
     SymmetricAlgorithm_in_SymmetricKey_defaultAlgorithm:
       description: |-
         Алгоритм шифрования по умолчанию, который следует использовать с новыми версиями
@@ -1577,11 +1591,13 @@ components:
          - AES_128: Алгоритм AES со 128-битными ключами.
          - AES_192: Алгоритм AES с 192-битными ключами.
          - AES_256: Алгоритм AES с 256-битными ключами.
+         - AES_256_HSM: Алгоритм AES с 256-битными ключами на базе HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
     SymmetricKeyVersionStatus_in_SymmetricKeyVersion_status:
       description: |-
         Состояние версии ключа.
@@ -1607,11 +1623,13 @@ components:
          - AES_128: Алгоритм AES со 128-битными ключами.
          - AES_192: Алгоритм AES с 192-битными ключами.
          - AES_256: Алгоритм AES с 256-битными ключами.
+         - AES_256_HSM: Алгоритм AES с 256-битными ключами на базе HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
     FieldMask_in_UpdateSymmetricKeyRequest_updateMask:
       description: |-
         Обязательное поле.
@@ -1652,11 +1670,13 @@ components:
          - AES_128: Алгоритм AES со 128-битными ключами.
          - AES_192: Алгоритм AES с 192-битными ключами.
          - AES_256: Алгоритм AES с 256-битными ключами.
+         - AES_256_HSM: Алгоритм AES с 256-битными ключами на базе HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
 tags:
 - name: SymmetricCrypto
   description: Набор методов, выполняющих симметричное шифрование и дешифрование.

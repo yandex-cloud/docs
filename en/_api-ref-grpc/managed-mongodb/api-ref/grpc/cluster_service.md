@@ -33,6 +33,7 @@ A set of methods for managing MongoDB Cluster resources.
 | [DeleteShard](#DeleteShard) | Deletes the specified shard. |
 | [ResetupHosts](#ResetupHosts) | Resetups hosts. |
 | [RestartHosts](#RestartHosts) | Restarts hosts. |
+| [StepdownHosts](#StepdownHosts) | Stepdown hosts. |
 
 ## Calls ClusterService {#calls}
 
@@ -4301,5 +4302,47 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the MongoDB cluster. 
 host_names[] | **string**<br>Required. The name of hosts to restart. 
+
+
+## StepdownHosts {#StepdownHosts}
+
+Stepdown hosts.
+
+**rpc StepdownHosts ([StepdownHostsRequest](#StepdownHostsRequest)) returns ([operation.Operation](#Operation17))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StepdownHostsMetadata](#StepdownHostsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### StepdownHostsRequest {#StepdownHostsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the MongoDB cluster. The maximum string length in characters is 50.
+host_names[] | **string**<br>Required. Name of the hosts to resetup. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
+
+
+### Operation {#Operation17}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StepdownHostsMetadata](#StepdownHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### StepdownHostsMetadata {#StepdownHostsMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the MongoDB cluster. 
+host_names[] | **string**<br>Required. The name of hosts to resetup. 
 
 

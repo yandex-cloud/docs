@@ -1046,6 +1046,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/RestartHostsMetadata'
       x-y-operation-response: Empty
+  /managed-mongodb/v1/clusters/{clusterId}:stepdownHosts:
+    post:
+      tags:
+      - Cluster
+      summary: Stepdown hosts.
+      operationId: ClusterStepdownHosts
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the MongoDB cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StepdownHostsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stepdownHosts
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StepdownHostsMetadata'
+      x-y-operation-response: Empty
   /managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}:
     get:
       tags:
@@ -3989,6 +4023,30 @@ components:
         clusterId:
           description: ID of the MongoDB cluster.
           type: string
+    StepdownHostsMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the MongoDB cluster.
+          type: string
+        hostNames:
+          description: Required. The name of hosts to resetup.
+          type: array
+          items:
+            type: string
+    StepdownHostsRequest:
+      type: object
+      properties:
+        hostNames:
+          description: |-
+            Required.
+            Required. Name of the hosts to resetup.
+
+            Must contain at least one element.
+            The maximum string length in characters for each value is 253.
+          type: array
+          items:
+            type: string
     StopClusterMetadata:
       type: object
       properties:

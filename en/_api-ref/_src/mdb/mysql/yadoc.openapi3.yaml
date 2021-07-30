@@ -793,6 +793,41 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/AddClusterHostsMetadata'
       x-y-operation-response: Empty
+  /managed-mysql/v1/clusters/{clusterId}/hosts:batchUpdate:
+    post:
+      tags:
+      - Cluster
+      summary: Updates the specified hosts.
+      operationId: ClusterUpdateHosts
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the MySQL cluster to update hosts in.
+          To get the MySQL cluster ID, use a [list](/docs/managed-mysql/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClusterHostsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateHosts
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateClusterHostsMetadata'
+      x-y-operation-response: Empty
   /managed-mysql/v1/clusters/{clusterId}/hosts:batchDelete:
     post:
       tags:
@@ -1880,6 +1915,10 @@ components:
           description: Flag showing public IP assignment status to this host.
           type: boolean
           format: boolean
+        replicationSource:
+          description: Name of the host to be used as the replication source for cascading
+            replication.
+          type: string
     HostHealth:
       description: |2-
          - HEALTH_UNKNOWN: Health of the host is unknown.
@@ -1934,6 +1973,10 @@ components:
             * true - the host should have a public IP address.
           type: boolean
           format: boolean
+        replicationSource:
+          description: '`name` of the host to be used as the replication source (for
+            cascading replication).'
+          type: string
     ListBackupsResponse:
       type: object
       properties:
@@ -3574,6 +3617,29 @@ components:
           description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
+    UpdateClusterHostsMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the MySQL cluster to modify hosts in.
+          type: string
+        hostNames:
+          description: Names of hosts that are being modified.
+          type: array
+          items:
+            type: string
+    UpdateClusterHostsRequest:
+      type: object
+      properties:
+        updateHostSpecs:
+          description: |-
+            Required.
+            New configurations to apply to hosts.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/UpdateHostSpec'
     UpdateClusterMetadata:
       type: object
       properties:
@@ -3627,6 +3693,20 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+    UpdateHostSpec:
+      type: object
+      properties:
+        hostName:
+          description: |-
+            Required.
+            Name of the host to update.
+            To get the MySQL host name, use a [listHosts](/docs/managed-mysql/api-ref/Cluster/listHosts) request.
+          type: string
+        replicationSource:
+          description: |-
+            `name` of the host to be used as the replication source (for cascading replication).
+            To get the MySQL host name, use a [listHosts](/docs/managed-mysql/api-ref/Cluster/listHosts) request.
+          type: string
     UpdateUserMetadata:
       type: object
       properties:

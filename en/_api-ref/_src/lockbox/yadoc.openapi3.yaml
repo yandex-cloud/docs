@@ -918,7 +918,7 @@ components:
               Non-confidential key of the entry.
 
               The maximum string length in characters is 256.
-              Value must match the regular expression `` [.-_0-9a-zA-Z]+ ``.
+              Value must match the regular expression `` [-_./\\@0-9a-zA-Z]+ ``.
             type: string
       - title: value
         type: object

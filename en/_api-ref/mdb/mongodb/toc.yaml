@@ -59,6 +59,8 @@ items:
         href: api-ref/Cluster/restore.md
       - name: start
         href: api-ref/Cluster/start.md
+      - name: stepdownHosts
+        href: api-ref/Cluster/stepdownHosts.md
       - name: stop
         href: api-ref/Cluster/stop.md
       - name: streamLogs

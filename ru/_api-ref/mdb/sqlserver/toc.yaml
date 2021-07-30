@@ -45,14 +45,14 @@ items:
     items:
       - name: Обзор
         href: api-ref/Database/index.md
-      - name: create
-        href: api-ref/Database/create.md
       - name: delete
         href: api-ref/Database/delete.md
       - name: get
         href: api-ref/Database/get.md
       - name: list
         href: api-ref/Database/list.md
+      - name: restore
+        href: api-ref/Database/restore.md
   - name: Operation
     items:
       - name: Обзор

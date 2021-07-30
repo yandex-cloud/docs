@@ -14,6 +14,8 @@ A set of methods for managing Project resources.
 | [Open](#Open) | Opens the specified project. |
 | [Get](#Get) | Returns the specified project. |
 | [List](#List) | Lists projects for the specified folder. |
+| [GetUnitBalance](#GetUnitBalance) | Returns the unit balance of the specified project. |
+| [SetUnitBalance](#SetUnitBalance) | Sets the unit balance of the specified project. |
 
 ## Calls ProjectService {#calls}
 
@@ -35,6 +37,7 @@ folder_id | **string**<br>Required. ID of the folder to create a project in. To 
 name | **string**<br>Name of the project. The maximum string length in characters is 63. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the project. The maximum string length in characters is 256.
 settings | **[Project.Settings](#Project)**<br>Settings of the project. 
+limits | **[Project.Limits](#Project)**<br>Limits of the project. 
 
 
 ### Operation {#Operation}
@@ -70,6 +73,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the project. 1-63 characters long. 
 description | **string**<br>Description of the project. 0-256 characters long. 
 settings | **[Settings](#Settings)**<br>Settings of the project. 
+limits | **[Limits](#Limits)**<br>Limits of the project. 
 
 
 ### Settings {#Settings}
@@ -80,6 +84,14 @@ service_account_id | **string**<br>ID of the service account, on whose behalf al
 subnet_id | **string**<br>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported. 
 data_proc_cluster_id | **string**<br>ID of the DataProc cluster. 
 commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li><ul/>
+
+
+### Limits {#Limits}
+
+Field | Description
+--- | ---
+max_units_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units that can be spent per hour. 
+max_units_per_execution | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units that can be spent on the one execution. 
 
 
 ## Update {#Update}
@@ -101,6 +113,7 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Name of the project. The maximum string length in characters is 63. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the project. The maximum string length in characters is 256.
 settings | **[Project.Settings](#Project1)**<br>Settings of the project. 
+limits | **[Project.Limits](#Project1)**<br>Limits of the project. 
 
 
 ### Operation {#Operation1}
@@ -136,6 +149,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the project. 1-63 characters long. 
 description | **string**<br>Description of the project. 0-256 characters long. 
 settings | **[Settings](#Settings1)**<br>Settings of the project. 
+limits | **[Limits](#Limits1)**<br>Limits of the project. 
 
 
 ### Settings {#Settings1}
@@ -146,6 +160,14 @@ service_account_id | **string**<br>ID of the service account, on whose behalf al
 subnet_id | **string**<br>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported. 
 data_proc_cluster_id | **string**<br>ID of the DataProc cluster. 
 commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li><ul/>
+
+
+### Limits {#Limits1}
+
+Field | Description
+--- | ---
+max_units_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units that can be spent per hour. 
+max_units_per_execution | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units that can be spent on the one execution. 
 
 
 ## Delete {#Delete}
@@ -259,6 +281,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the project. 1-63 characters long. 
 description | **string**<br>Description of the project. 0-256 characters long. 
 settings | **[Settings](#Settings2)**<br>Settings of the project. 
+limits | **[Limits](#Limits2)**<br>Limits of the project. 
 
 
 ### Settings {#Settings2}
@@ -269,6 +292,14 @@ service_account_id | **string**<br>ID of the service account, on whose behalf al
 subnet_id | **string**<br>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported. 
 data_proc_cluster_id | **string**<br>ID of the DataProc cluster. 
 commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li><ul/>
+
+
+### Limits {#Limits2}
+
+Field | Description
+--- | ---
+max_units_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units that can be spent per hour. 
+max_units_per_execution | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units that can be spent on the one execution. 
 
 
 ## List {#List}
@@ -304,6 +335,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the project. 1-63 characters long. 
 description | **string**<br>Description of the project. 0-256 characters long. 
 settings | **[Settings](#Settings3)**<br>Settings of the project. 
+limits | **[Limits](#Limits3)**<br>Limits of the project. 
 
 
 ### Settings {#Settings3}
@@ -314,5 +346,47 @@ service_account_id | **string**<br>ID of the service account, on whose behalf al
 subnet_id | **string**<br>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported. 
 data_proc_cluster_id | **string**<br>ID of the DataProc cluster. 
 commit_mode | enum **CommitMode**<br>Commit mode that is assigned to the project. <ul><li>`STANDARD`: Commit happens after the execution of a cell or group of cells or after completion with an error.</li><li>`AUTO`: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li><ul/>
+
+
+### Limits {#Limits3}
+
+Field | Description
+--- | ---
+max_units_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units that can be spent per hour. 
+max_units_per_execution | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units that can be spent on the one execution. 
+
+
+## GetUnitBalance {#GetUnitBalance}
+
+Returns the unit balance of the specified project.
+
+**rpc GetUnitBalance ([GetUnitBalanceRequest](#GetUnitBalanceRequest)) returns ([GetUnitBalanceResponse](#GetUnitBalanceResponse))**
+
+### GetUnitBalanceRequest {#GetUnitBalanceRequest}
+
+Field | Description
+--- | ---
+project_id | **string**<br>Required. ID of the project to return the unit balance for. The maximum string length in characters is 200.
+
+
+### GetUnitBalanceResponse {#GetUnitBalanceResponse}
+
+Field | Description
+--- | ---
+unit_balance | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units available to the project. 
+
+
+## SetUnitBalance {#SetUnitBalance}
+
+Sets the unit balance of the specified project.
+
+**rpc SetUnitBalance ([SetUnitBalanceRequest](#SetUnitBalanceRequest)) returns ([google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty))**
+
+### SetUnitBalanceRequest {#SetUnitBalanceRequest}
+
+Field | Description
+--- | ---
+project_id | **string**<br>Required. ID of the project to set the unit balance for. The maximum string length in characters is 200.
+unit_balance | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units available to the project. 
 
 

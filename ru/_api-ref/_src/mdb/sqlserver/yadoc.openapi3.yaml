@@ -779,8 +779,8 @@ paths:
     post:
       tags:
       - Database
-      summary: Создает новую базу данных SQL Server в указанном кластере.
-      operationId: DatabaseCreate
+      summary: Создает новую базу данные в указанном кластере из резервной копии
+      operationId: DatabaseRestore
       parameters:
       - name: clusterId
         in: path
@@ -798,7 +798,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateDatabaseRequest'
+              $ref: '#/components/schemas/RestoreDatabaseRequest'
         required: true
       responses:
         "200":
@@ -807,9 +807,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Operation'
-      x-y-navtitle: create
+      x-y-navtitle: restore
       x-y-operation-metadata:
-        $ref: '#/components/schemas/CreateDatabaseMetadata'
+        $ref: '#/components/schemas/RestoreDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/managed-sqlserver/api-ref/Database#representation)'
   /mdb/sqlserver/v1/operations/{operationId}:
     get:
@@ -1239,6 +1239,11 @@ components:
             Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
           type: string
           format: date-time
+        databases:
+          description: Список баз данных, содержащихся в резервной копии.
+          type: array
+          items:
+            type: string
     BackupClusterMetadata:
       type: object
       properties:
@@ -2081,6 +2086,55 @@ components:
 
             Максимальная длина строки в символах — 50.
           type: string
+    RestoreDatabaseMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Обязательное поле.
+            Идентификатор кластера SQL Server в котором создается база данных.
+          type: string
+        databaseName:
+          description: |-
+            Обязательное поле.
+            Имя создаваемой базы данных SQL Server.
+          type: string
+        fromDatabase:
+          description: |-
+            Обязательное поле.
+            Имя базы данных из чьей резервной копии будет создана база данных.
+          type: string
+        backupId:
+          description: |-
+            Обязательное поле.
+            Идентификатор резервной копии.
+          type: string
+    RestoreDatabaseRequest:
+      type: object
+      properties:
+        databaseName:
+          description: |-
+            Обязательное поле.
+            Имя с которым будет восстановлена база данных.
+          type: string
+        fromDatabase:
+          description: |-
+            Обязательное поле.
+            Имя базы данных из чьей резервной копии будет создана база данных.
+          type: string
+        backupId:
+          description: |-
+            Обязательное поле.
+            Идентификатор резервной копии.
+          type: string
+        time:
+          description: |-
+            Обязательное поле.
+            Момент времени на который требуется восстановить базу данных.
+
+            Строка в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).
+          type: string
+          format: date-time
     RevokeUserPermissionMetadata:
       type: object
       properties:

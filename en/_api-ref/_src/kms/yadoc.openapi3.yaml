@@ -1055,11 +1055,13 @@ components:
          - AES_128: AES algorithm with 128-bit keys.
          - AES_192: AES algorithm with 192-bit keys.
          - AES_256: AES algorithm with 256-bit keys.
+         - AES_256_HSM: AES algorithm with 256-bit keys hosted by HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
     SymmetricDecryptRequest:
       type: object
       properties:
@@ -1239,6 +1241,10 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+        hostedByHsm:
+          description: Indication of the version that is hosted by HSM.
+          type: boolean
+          format: boolean
     SymmetricKeyVersionStatus:
       description: |-
         Possible version status.
@@ -1464,11 +1470,13 @@ components:
          - AES_128: AES algorithm with 128-bit keys.
          - AES_192: AES algorithm with 192-bit keys.
          - AES_256: AES algorithm with 256-bit keys.
+         - AES_256_HSM: AES algorithm with 256-bit keys hosted by HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
     SymmetricAlgorithm_in_GenerateDataKeyRequest_dataKeySpec:
       description: |-
         Encryption algorithm and key length for the generated data key.
@@ -1478,11 +1486,13 @@ components:
          - AES_128: AES algorithm with 128-bit keys.
          - AES_192: AES algorithm with 192-bit keys.
          - AES_256: AES algorithm with 256-bit keys.
+         - AES_256_HSM: AES algorithm with 256-bit keys hosted by HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
     SymmetricKeyStatus_in_SymmetricKey_status:
       description: |-
         Current status of the key.
@@ -1536,6 +1546,10 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+        hostedByHsm:
+          description: Indication of the version that is hosted by HSM.
+          type: boolean
+          format: boolean
     SymmetricAlgorithm_in_SymmetricKey_defaultAlgorithm:
       description: |-
         Default encryption algorithm to be used with new versions of the key.
@@ -1545,11 +1559,13 @@ components:
          - AES_128: AES algorithm with 128-bit keys.
          - AES_192: AES algorithm with 192-bit keys.
          - AES_256: AES algorithm with 256-bit keys.
+         - AES_256_HSM: AES algorithm with 256-bit keys hosted by HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
     SymmetricKeyVersionStatus_in_SymmetricKeyVersion_status:
       description: |-
         Status of the key version.
@@ -1574,11 +1590,13 @@ components:
          - AES_128: AES algorithm with 128-bit keys.
          - AES_192: AES algorithm with 192-bit keys.
          - AES_256: AES algorithm with 256-bit keys.
+         - AES_256_HSM: AES algorithm with 256-bit keys hosted by HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
     FieldMask_in_UpdateSymmetricKeyRequest_updateMask:
       description: |-
         Required.
@@ -1617,11 +1635,13 @@ components:
          - AES_128: AES algorithm with 128-bit keys.
          - AES_192: AES algorithm with 192-bit keys.
          - AES_256: AES algorithm with 256-bit keys.
+         - AES_256_HSM: AES algorithm with 256-bit keys hosted by HSM
       type: string
       enum:
       - AES_128
       - AES_192
       - AES_256
+      - AES_256_HSM
 tags:
 - name: SymmetricCrypto
   description: Set of methods that perform symmetric encryption and decryption.

@@ -1,7 +1,4 @@
 ---
-title: "Метод OperationService. Справочник API в Yandex Cloud DNS"
-description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex Cloud DNS. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
-
 editable: false
 ---
 

@@ -354,7 +354,7 @@ paths:
         in: query
         description: |-
           A filter expression that filters resources listed in the response.
-          Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation) field.
+          Currently you can use filtering only on the `name` field.
 
           The maximum string length in characters is 1000.
         schema:
@@ -1644,6 +1644,31 @@ components:
         placementGroupId:
           description: Identifier of placement group
           type: string
+        hostAffinityRules:
+          description: List of affinity rules. Scheduler will attempt to allocate
+            instances according to order of rules.
+          type: array
+          items:
+            $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
+    PlacementPolicyHostAffinityRule:
+      description: Affinitity definition
+      type: object
+      properties:
+        key:
+          description: Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'
+          type: string
+        op:
+          $ref: '#/components/schemas/PlacementPolicyHostAffinityRuleOperator_in_PlacementPolicyHostAffinityRule_op'
+        values:
+          description: Affinity value or host ID or host group ID
+          type: array
+          items:
+            type: string
+    PlacementPolicyHostAffinityRuleOperator:
+      type: string
+      enum:
+      - IN
+      - NOT_IN
     PrimaryAddress:
       type: object
       properties:
@@ -2916,6 +2941,12 @@ components:
         placementGroupId:
           description: Identifier of placement group
           type: string
+        hostAffinityRules:
+          description: List of affinity rules. Scheduler will attempt to allocate
+            instances according to order of rules.
+          type: array
+          items:
+            $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
     TargetGroupSpec_in_LoadBalancerSpec_targetGroupSpec:
       description: Specification of the target group that the instance group will
         be added to. For more information, see [Target groups and resources](/docs/load-balancer/concepts/target-resources).
@@ -3071,6 +3102,12 @@ components:
       enum:
       - IPV4
       - IPV6
+    PlacementPolicyHostAffinityRuleOperator_in_PlacementPolicyHostAffinityRule_op:
+      description: Include or exclude action
+      type: string
+      enum:
+      - IN
+      - NOT_IN
     OneToOneNat_in_PrimaryAddress_oneToOneNat:
       description: One-to-one NAT configuration. If missing, NAT has not been set
         up.

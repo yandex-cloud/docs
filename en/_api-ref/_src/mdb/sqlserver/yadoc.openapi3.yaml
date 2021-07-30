@@ -786,16 +786,15 @@ paths:
     post:
       tags:
       - Database
-      summary: Creates a new SQL Server database in the specified cluster.
-      operationId: DatabaseCreate
+      summary: Creates a new SQL Server database in the specified cluster from a backup
+      operationId: DatabaseRestore
       parameters:
       - name: clusterId
         in: path
         description: |-
           Required.
-          ID of the SQL Server cluster to create a database in.
-
-          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request.
+          Required. ID of the SQL Server cluster to restore a database in.
+          To get the cluster ID, use a [list](/docs/managed-sqlserver/api-ref/Cluster/list) request
 
           The maximum string length in characters is 50.
         required: true
@@ -805,7 +804,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateDatabaseRequest'
+              $ref: '#/components/schemas/RestoreDatabaseRequest'
         required: true
       responses:
         "200":
@@ -814,9 +813,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Operation'
-      x-y-navtitle: create
+      x-y-navtitle: restore
       x-y-operation-metadata:
-        $ref: '#/components/schemas/CreateDatabaseMetadata'
+        $ref: '#/components/schemas/RestoreDatabaseMetadata'
       x-y-operation-response: '[Database](/docs/managed-sqlserver/api-ref/Database#representation)'
   /mdb/sqlserver/v1/resourcePresets/{resourcePresetId}:
     get:
@@ -1229,6 +1228,11 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+        databases:
+          description: List databases included in the backup
+          type: array
+          items:
+            type: string
     BackupClusterMetadata:
       type: object
       properties:
@@ -1296,6 +1300,9 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        sqlcollation:
+          description: SQL Server Collation
+          type: string
     ClusterConfig:
       type: object
       allOf:
@@ -1484,6 +1491,12 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        sqlcollation:
+          description: |-
+            name of SQL Collation that cluster will be created with
+
+            The maximum string length in characters is 100.
+          type: string
     CreateDatabaseMetadata:
       type: object
       properties:
@@ -2101,6 +2114,55 @@ components:
           type: array
           items:
             type: string
+    RestoreDatabaseMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Required.
+            ID of the SQLServer cluster where a database is being created.
+          type: string
+        databaseName:
+          description: |-
+            Required.
+            Name of the SQLServer database that is being created.
+          type: string
+        fromDatabase:
+          description: |-
+            Required.
+            name of the database which backup will be used to restore the database
+          type: string
+        backupId:
+          description: |-
+            Required.
+            ID of a backup to be used
+          type: string
+    RestoreDatabaseRequest:
+      type: object
+      properties:
+        databaseName:
+          description: |-
+            Required.
+            Name of the SQLServer database that is being restored.
+          type: string
+        fromDatabase:
+          description: |-
+            Required.
+            name of the database which backup will be used to restore the database
+          type: string
+        backupId:
+          description: |-
+            Required.
+            ID of a backup to be used
+          type: string
+        time:
+          description: |-
+            Required.
+            Timestamp which is used for Point-in-Time recovery
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
     RevokeUserPermissionMetadata:
       type: object
       properties:

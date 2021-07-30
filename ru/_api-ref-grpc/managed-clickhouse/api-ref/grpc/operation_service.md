@@ -1,7 +1,4 @@
 ---
-title: "Метод OperationService. Справочник API в Yandex Managed Service for ClickHouse"
-description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex Managed Service for ClickHouse. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
-
 editable: false
 ---
 

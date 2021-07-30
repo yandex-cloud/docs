@@ -1,7 +1,4 @@
 ---
-title: "Метод OperationService. Справочник API в Yandex Compute Cloud"
-description: "Набор методов для управления операциями в асинхронных запросах API сервиса Yandex Compute Cloud. Ссылки указаны относительно домена operation.api.cloud.yandex.net."
-
 editable: false
 ---
 

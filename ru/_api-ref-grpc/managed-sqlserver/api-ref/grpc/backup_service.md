@@ -35,6 +35,7 @@ folder_id | **string**<br>Идентификатор каталога, кото�
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания (т. е. когда операция резервного копирования была завершена). 
 source_cluster_id | **string**<br>Идентификатор кластера SQL Server, для которого была создана резервная копия. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска операции резервного копирования. 
+databases[] | **string**<br>Список баз данных, содержащихся в резервной копии. 
 
 
 ## List {#List}
@@ -69,5 +70,6 @@ folder_id | **string**<br>Идентификатор каталога, кото�
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания (т. е. когда операция резервного копирования была завершена). 
 source_cluster_id | **string**<br>Идентификатор кластера SQL Server, для которого была создана резервная копия. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время запуска операции резервного копирования. 
+databases[] | **string**<br>Список баз данных, содержащихся в резервной копии. 
 
 

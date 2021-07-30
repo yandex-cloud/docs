@@ -9,3 +9,5 @@ editable: false
 --- | ---
 [Organization](Organization/index.md) | Набор методов для управления организациями.
 [User](User/index.md) | Набор методов для управления пользователями организации.
+[Federation](Federation/index.md) | Набор методов для управления федерациями.
+[Certificate](Certificate/index.md) | Набор методов для управления сертификатами.

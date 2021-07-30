@@ -1,19 +1,30 @@
 openapi: "3.0"
 info:
   title: Yandex Cloud Logging Service
-  description: Description not set.
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://logging.api.cloud.yandex.net
 paths:
   /logging/v1/logGroups/{logGroupId}:
     get:
       tags:
       - LogGroup
+      summary: Returns the specified log group.
+      description: To get the list of all available log groups, make a [list](/docs/logging/api-ref/LogGroup/list)
+        request.
       operationId: LogGroupGet
       parameters:
       - name: logGroupId
         in: path
         description: |-
           Required.
+          ID of the log group to return.
+
+          To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.
+
           The maximum string length in characters is 64.
         required: true
         schema:
@@ -29,12 +40,17 @@ paths:
     delete:
       tags:
       - LogGroup
+      summary: Deletes the specified log group.
       operationId: LogGroupDelete
       parameters:
       - name: logGroupId
         in: path
         description: |-
           Required.
+          ID of the log group to delete.
+
+          To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.
+
           The maximum string length in characters is 64.
         required: true
         schema:
@@ -53,12 +69,17 @@ paths:
     patch:
       tags:
       - LogGroup
+      summary: Updates the specified log group.
       operationId: LogGroupUpdate
       parameters:
       - name: logGroupId
         in: path
         description: |-
           Required.
+          ID of the log group to update.
+
+          To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.
+
           The maximum string length in characters is 64.
         required: true
         schema:
@@ -79,17 +100,24 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateLogGroupMetadata'
-      x-y-operation-response: '[LogGroup](/LogGroup#representation)'
+      x-y-operation-response: '[LogGroup](/docs/logging/api-ref/LogGroup#representation)'
   /logging/v1/logGroups/default:
     get:
       tags:
       - LogGroup
+      summary: Returns default log group for the folder.
+      description: To get the list of all available log groups, make a [list](/docs/logging/api-ref/LogGroup/list)
+        request.
       operationId: LogGroupGetDefault
       parameters:
       - name: folderId
         in: query
         description: |-
           Required.
+          Folder ID of the default log group to return.
+
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
           The maximum string length in characters is 64.
         schema:
           type: string
@@ -105,12 +133,17 @@ paths:
     get:
       tags:
       - LogGroup
+      summary: Returns stats for the specified log group.
       operationId: LogGroupStats
       parameters:
       - name: logGroupId
         in: path
         description: |-
           Required.
+          ID of the log group to return stats for.
+
+          To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.
+
           The maximum string length in characters is 64.
         required: true
         schema:
@@ -127,30 +160,51 @@ paths:
     get:
       tags:
       - LogGroup
+      summary: Retrieves the list of log groups in the specified folder.
       operationId: LogGroupList
       parameters:
       - name: folderId
         in: query
         description: |-
           Required.
+          Folder ID of the log groups to return.
+
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
           The maximum string length in characters is 64.
         schema:
           type: string
       - name: pageSize
         in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/logging/api-ref/LogGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/logging/api-ref/LogGroup/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
         description: |-
-          supported fields for filter:
-          name
+          A filter expression that filters log groups listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can only be applied to the [LogGroup.name](/docs/logging/api-ref/LogGroup#representation) field.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Example of a filter: `name=my-log-group`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -166,6 +220,7 @@ paths:
     post:
       tags:
       - LogGroup
+      summary: Creates a log group in the specified folder.
       operationId: LogGroupCreate
       requestBody:
         content:
@@ -183,24 +238,34 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateLogGroupMetadata'
-      x-y-operation-response: '[LogGroup](/LogGroup#representation)'
+      x-y-operation-response: '[LogGroup](/docs/logging/api-ref/LogGroup#representation)'
   /logging/v1/logGroups/{logGroupId}:listResources:
     get:
       tags:
       - LogGroup
+      summary: Retrieves the resources (type and IDs) in the specified log group.
       operationId: LogGroupListResources
       parameters:
       - name: logGroupId
         in: path
         description: |-
           Required.
+          ID of the log group to list resources for.
+
+          To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.
+
           The maximum string length in characters is 64.
         required: true
         schema:
           type: string
       - name: type
         in: query
-        description: The maximum string length in characters is 256.
+        description: |-
+          Resource type to return resources for.
+
+          If not specified, `ListResourcesResponse` will contain information about all resource types.
+
+          The maximum string length in characters is 256.
         schema:
           type: string
       responses:
@@ -215,36 +280,59 @@ paths:
     get:
       tags:
       - LogGroup
+      summary: Lists operations for the specified log group.
       operationId: LogGroupListOperations
       parameters:
       - name: logGroupId
         in: path
         description: |-
           Required.
+          ID of the log group to list operations for.
+
+          To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.
+
           The maximum string length in characters is 64.
         required: true
         schema:
           type: string
       - name: pageSize
         in: query
-        description: Acceptable values are 0 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/logging/api-ref/LogGroup/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
         schema:
           type: string
           format: int64
       - name: pageToken
         in: query
-        description: The maximum string length in characters is 100.
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/logging/api-ref/LogGroup/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       - name: filter
         in: query
         description: |-
-          supported attributes:
-          description
-          created_at
-          modified_at
-          created_by
-          done
+          A filter expression that filters resources listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently filtering can be applied to the following fields:
+          * [Operation.description](/docs/operation/api-ref/Operation#representation)
+          * [Operation.createdAt](/docs/operation/api-ref/Operation#representation)
+          * [Operation.modifiedAt](/docs/operation/api-ref/Operation#representation)
+          * [Operation.createdBy](/docs/operation/api-ref/Operation#representation)
+          * [Operation.done](/docs/operation/api-ref/Operation#representation)
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN`
+          for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          Examples of a filter: `done=false`, `created_by='John.Doe'`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -261,6 +349,7 @@ paths:
     get:
       tags:
       - LogGroup
+      summary: Lists existing access bindings for the specified log group.
       operationId: LogGroupListAccessBindings
       parameters:
       - name: resourceId
@@ -311,6 +400,7 @@ paths:
     post:
       tags:
       - LogGroup
+      summary: Sets access bindings for the specified log group.
       operationId: LogGroupSetAccessBindings
       parameters:
       - name: resourceId
@@ -346,6 +436,7 @@ paths:
     patch:
       tags:
       - LogGroup
+      summary: Updates access bindings for the specified log group.
       operationId: LogGroupUpdateAccessBindings
       parameters:
       - name: resourceId
@@ -379,6 +470,7 @@ paths:
     post:
       tags:
       - LogIngestion
+      summary: Write log entries to specified destination.
       operationId: LogIngestionWrite
       requestBody:
         content:
@@ -398,22 +490,34 @@ paths:
     get:
       tags:
       - LogReading
+      summary: Read log entries from the specified log group.
       operationId: LogReadingRead
       parameters:
       - name: pageToken
         in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/logging/api-ref/LogReading/read#responses) or [previousPageToken](/docs/logging/api-ref/LogReading/read#responses) returned by a previous read request.
         schema:
           type: string
       - name: criteria.logGroupId
         in: query
         description: |-
           Required.
+          ID of the log group to return.
+
+          To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.
+
           The maximum string length in characters is 64.
         schema:
           type: string
       - name: criteria.resourceTypes
         in: query
         description: |-
+          List of resource types to limit log entries to.
+
+          Empty list disables filter.
+
           The maximum number of elements is 100.
           Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
         schema:
@@ -423,6 +527,10 @@ paths:
       - name: criteria.resourceIds
         in: query
         description: |-
+          List of resource IDs to limit log entries to.
+
+          Empty list disables filter.
+
           The maximum number of elements is 100.
           Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
         schema:
@@ -431,33 +539,48 @@ paths:
             type: string
       - name: criteria.since
         in: query
-        description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-          format.
+        description: |-
+          Lower bound of log entries timestamps.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
         schema:
           type: string
           format: date-time
       - name: criteria.until
         in: query
-        description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-          format.
+        description: |-
+          Upper bound of log entries timestamps.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
         schema:
           type: string
           format: date-time
       - name: criteria.levels
         in: query
-        description: The maximum number of elements is 10.
+        description: |-
+          List of log levels to limit log entries to.
+
+          Empty list disables filter.
+
+          The maximum number of elements is 10.
         schema:
           type: array
           items:
             $ref: '#/components/schemas/LogLevelLevel'
       - name: criteria.filter
         in: query
-        description: The maximum string length in characters is 1000.
+        description: |-
+          Filter expression. See documentation at https://cloud.yandex.ru/docs/logging/concepts/filter.
+
+          The maximum string length in characters is 1000.
         schema:
           type: string
       - name: criteria.pageSize
         in: query
-        description: Acceptable values are 1 to 1000, inclusive.
+        description: |-
+          The maximum number of results per page to return.
+
+          Acceptable values are 1 to 1000, inclusive.
         schema:
           type: string
           format: int64
@@ -502,6 +625,7 @@ components:
       type: object
       properties:
         logGroupId:
+          description: ID of the log group being created.
           type: string
     CreateLogGroupRequest:
       type: object
@@ -509,17 +633,29 @@ components:
         folderId:
           description: |-
             Required.
+            ID of the folder to create a log group in.
+
+            To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
             The maximum string length in characters is 64.
           type: string
         name:
-          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
-            ``.
+          description: |-
+            Name of the log group.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            Description of the log group.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            Log group labels as `key:value` pairs.
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
@@ -529,18 +665,33 @@ components:
           additionalProperties:
             type: string
         retentionPeriod:
-          description: Acceptable values are 3600 seconds to 604800 seconds, inclusive.
+          description: |-
+            Log group entry retention period.
+
+            Entries will be present in group during this period.
+            Must be at least `1h`.
+
+            Acceptable values are 3600 seconds to 604800 seconds, inclusive.
           type: string
     Criteria:
+      description: Read criteria. Should be used in initial `ReadRequest`.
       type: object
       properties:
         logGroupId:
           description: |-
             Required.
+            ID of the log group to return.
+
+            To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.
+
             The maximum string length in characters is 64.
           type: string
         resourceTypes:
           description: |-
+            List of resource types to limit log entries to.
+
+            Empty list disables filter.
+
             The maximum number of elements is 100.
             Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
           type: array
@@ -548,37 +699,57 @@ components:
             type: string
         resourceIds:
           description: |-
+            List of resource IDs to limit log entries to.
+
+            Empty list disables filter.
+
             The maximum number of elements is 100.
             Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
           type: array
           items:
             type: string
         since:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Lower bound of log entries timestamps.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         until:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Upper bound of log entries timestamps.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         levels:
-          description: The maximum number of elements is 10.
+          description: |-
+            List of log levels to limit log entries to.
+
+            Empty list disables filter.
+
+            The maximum number of elements is 10.
           type: array
           items:
             $ref: '#/components/schemas/LogLevelLevel'
         filter:
-          description: The maximum string length in characters is 1000.
+          description: |-
+            Filter expression. See documentation at https://cloud.yandex.ru/docs/logging/concepts/filter.
+
+            The maximum string length in characters is 1000.
           type: string
         pageSize:
-          description: Acceptable values are 1 to 1000, inclusive.
+          description: |-
+            The maximum number of results per page to return.
+
+            Acceptable values are 1 to 1000, inclusive.
           type: string
           format: int64
     DeleteLogGroupMetadata:
       type: object
       properties:
         logGroupId:
+          description: ID of the log group being deleted.
           type: string
     Destination:
       type: object
@@ -588,10 +759,16 @@ components:
         maxProperties: 1
         properties:
           logGroupId:
-            description: The maximum string length in characters is 64.
+            description: |-
+              Entry should be written to log group resolved by ID.
+
+              The maximum string length in characters is 64.
             type: string
           folderId:
-            description: The maximum string length in characters is 64.
+            description: |-
+              Entry should be written to default log group for the folder.
+
+              The maximum string length in characters is 64.
             type: string
     Empty:
       description: Empty JSON object `` {} ``.
@@ -612,11 +789,14 @@ components:
       type: object
       properties:
         logGroupId:
+          description: Log group ID the stats are returned for.
           type: string
         bytes:
+          description: Size of data in log group in bytes.
           type: string
           format: int64
         records:
+          description: Amount of records in log group.
           type: string
           format: int64
     IncomingLogEntry:
@@ -625,15 +805,21 @@ components:
         timestamp:
           description: |-
             Required.
+            Timestamp of the entry.
+
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         level:
           $ref: '#/components/schemas/LogLevelLevel_in_IncomingLogEntry_level'
         message:
-          description: The maximum string length in characters is 65536.
+          description: |-
+            Entry text message.
+
+            The maximum string length in characters is 65536.
           type: string
         jsonPayload:
+          description: Entry annotation.
           type: object
     ListAccessBindingsResponse:
       type: object
@@ -656,24 +842,39 @@ components:
       type: object
       properties:
         groups:
+          description: List of log groups in the specified folder.
           type: array
           items:
             $ref: '#/components/schemas/LogGroup'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/logging/api-ref/LogGroup/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/logging/api-ref/LogGroup/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListOperationsResponse:
       type: object
       properties:
         operations:
+          description: List of operations for the specified log group.
           type: array
           items:
             $ref: '#/components/schemas/Operation'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/logging/api-ref/LogGroup/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/logging/api-ref/LogGroup/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListResourcesResponse:
       type: object
       properties:
         resources:
+          description: List of resources present in log group.
           type: array
           items:
             $ref: '#/components/schemas/LogGroupResource'
@@ -681,77 +882,129 @@ components:
       type: object
       properties:
         uid:
+          description: |-
+            Unique entry ID.
+
+            Useful for logs deduplication.
           type: string
         resource:
           $ref: '#/components/schemas/LogEntryResource_in_LogEntry_resource'
         timestamp:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Timestamp of the entry.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         ingestedAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Entry ingestion time observed by `LogIngestion`.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         savedAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Entry save time.
+
+            Entry is ready to be read since this moment.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         level:
           $ref: '#/components/schemas/LogLevelLevel_in_LogEntry_level'
         message:
+          description: Entry text message.
           type: string
         jsonPayload:
+          description: Entry annotation.
           type: object
     LogEntryResource:
+      description: |-
+        Log entry resource specification.
+
+        May be used either by services and by user.
       type: object
       properties:
         type:
-          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
-            ``.
+          description: |-
+            Resource type, i.e., `serverless.function`
+
+            Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
           type: string
         id:
-          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
-            ``.
+          description: |-
+            Resource ID, i.e., ID of the function producing logs.
+
+            Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
           type: string
     LogGroup:
       type: object
       properties:
         id:
+          description: Log group ID.
           type: string
         folderId:
+          description: Log group folder ID.
           type: string
         cloudId:
+          description: Log group cloud ID.
           type: string
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Log group creation time.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         name:
+          description: Log group name.
           type: string
         description:
+          description: Log group description.
           type: string
         labels:
+          description: Log group labels.
           type: object
           additionalProperties:
             type: string
         status:
           $ref: '#/components/schemas/LogGroupStatus_in_LogGroup_status'
         retentionPeriod:
+          description: |-
+            Log group entry retention period.
+
+            Entries will be present in group during this period.
           type: string
     LogGroupResource:
+      description: Log group resource.
       type: object
       properties:
         type:
+          description: |-
+            Resource type.
+
+            Collected from log entries inside log group.
           type: string
         ids:
+          description: List of resource IDs with the same resource type.
           type: array
           items:
             type: string
     LogGroupStatus:
+      description: |-
+        Possible log group statuses.
+
+         - STATUS_UNSPECIFIED: Unknown status.
+
+        Should never occur.
+         - CREATING: Log group is creating.
+         - ACTIVE: Log group is ready to accept messages,
+         - DELETING: Log group is being deleted.
+
+        No messages will be accepted.
+         - ERROR: Log group is in failed state.
       type: string
       enum:
       - CREATING
@@ -759,6 +1012,30 @@ components:
       - DELETING
       - ERROR
     LogLevelLevel:
+      description: |-
+        Possible log levels for entries.
+
+         - LEVEL_UNSPECIFIED: Default log level.
+
+        Equivalent to not specifying log level at all.
+         - TRACE: Trace log level.
+
+        Possible use case: verbose logging of some business logic.
+         - DEBUG: Debug log level.
+
+        Possible use case: debugging special cases in application logic.
+         - INFO: Info log level.
+
+        Mostly used for information messages.
+         - WARN: Warn log level.
+
+        May be used to alert about significant events.
+         - ERROR: Error log level.
+
+        May be used to alert about errors in infrastructure, logic, etc.
+         - FATAL: Fatal log level.
+
+        May be used to alert about unrecoverable failures and events.
       type: string
       enum:
       - TRACE
@@ -828,14 +1105,30 @@ components:
       type: object
       properties:
         logGroupId:
+          description: Log group ID the read was performed from.
           type: string
         entries:
+          description: List of matching log entries.
           type: array
           items:
             $ref: '#/components/schemas/LogEntry'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the log entries.
+
+            After getting log entries initially with `Criteria`, you can use `next_page_token` as the value
+            for the [pageToken](/docs/logging/api-ref/LogReading/read#query_params) parameter in the next read request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
         previousPageToken:
+          description: |-
+            Token for getting the previous page of the log entries.
+
+            After getting log entries initially with `Criteria`, you can use `previous_page_token` as the value
+            for the [pageToken](/docs/logging/api-ref/LogReading/read#query_params) parameter in the next read request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     SetAccessBindingsMetadata:
       type: object
@@ -908,6 +1201,7 @@ components:
       type: object
       properties:
         logGroupId:
+          description: ID of the log group being updated.
           type: string
     UpdateLogGroupRequest:
       type: object
@@ -915,14 +1209,22 @@ components:
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateLogGroupRequest_updateMask'
         name:
-          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
-            ``.
+          description: |-
+            New name of the log group.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
           type: string
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            New Description of the log group.
+
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
+            New log group labels as `key:value` pairs.
+
             No more than 64 per resource.
             The string length in characters for each key must be 1-63.
             Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
@@ -932,7 +1234,13 @@ components:
           additionalProperties:
             type: string
         retentionPeriod:
-          description: Acceptable values are 3600 seconds to 604800 seconds, inclusive.
+          description: |-
+            New log group entry retention period.
+
+            Entries will be present in group during this period.
+            Must be at least `1h`.
+
+            Acceptable values are 3600 seconds to 604800 seconds, inclusive.
           type: string
     WriteRequest:
       type: object
@@ -942,7 +1250,10 @@ components:
         resource:
           $ref: '#/components/schemas/LogEntryResource_in_WriteRequest_resource'
         entries:
-          description: The maximum number of elements is 100.
+          description: |-
+            List of log entries.
+
+            The maximum number of elements is 100.
           type: array
           items:
             $ref: '#/components/schemas/IncomingLogEntry'
@@ -950,6 +1261,10 @@ components:
       type: object
       properties:
         errors:
+          description: |-
+            Map<idx, status> of ingest failures.
+
+            If entry with idx N is absent, it was ingested successfully.
           type: object
           additionalProperties:
             $ref: '#/components/schemas/rpcStatus'
@@ -1033,6 +1348,34 @@ components:
         subject:
           $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
     LogLevelLevel_in_IncomingLogEntry_level:
+      description: |-
+        Entry severity.
+
+        See `LogLevelLevel` for details.
+
+        Possible log levels for entries.
+
+         - LEVEL_UNSPECIFIED: Default log level.
+
+        Equivalent to not specifying log level at all.
+         - TRACE: Trace log level.
+
+        Possible use case: verbose logging of some business logic.
+         - DEBUG: Debug log level.
+
+        Possible use case: debugging special cases in application logic.
+         - INFO: Info log level.
+
+        Mostly used for information messages.
+         - WARN: Warn log level.
+
+        May be used to alert about significant events.
+         - ERROR: Error log level.
+
+        May be used to alert about errors in infrastructure, logic, etc.
+         - FATAL: Fatal log level.
+
+        May be used to alert about unrecoverable failures and events.
       type: string
       enum:
       - TRACE
@@ -1042,17 +1385,58 @@ components:
       - ERROR
       - FATAL
     LogEntryResource_in_LogEntry_resource:
+      description: |-
+        Entry resource specification.
+
+        May contain information about source service and resource ID.
+        Also may be provided by the user.
+
+        Log entry resource specification.
+
+        May be used either by services and by user.
       type: object
       properties:
         type:
-          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
-            ``.
+          description: |-
+            Resource type, i.e., `serverless.function`
+
+            Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
           type: string
         id:
-          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
-            ``.
+          description: |-
+            Resource ID, i.e., ID of the function producing logs.
+
+            Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
           type: string
     LogLevelLevel_in_LogEntry_level:
+      description: |-
+        Entry severity.
+
+        See `LogLevelLevel` for details.
+
+        Possible log levels for entries.
+
+         - LEVEL_UNSPECIFIED: Default log level.
+
+        Equivalent to not specifying log level at all.
+         - TRACE: Trace log level.
+
+        Possible use case: verbose logging of some business logic.
+         - DEBUG: Debug log level.
+
+        Possible use case: debugging special cases in application logic.
+         - INFO: Info log level.
+
+        Mostly used for information messages.
+         - WARN: Warn log level.
+
+        May be used to alert about significant events.
+         - ERROR: Error log level.
+
+        May be used to alert about errors in infrastructure, logic, etc.
+         - FATAL: Fatal log level.
+
+        May be used to alert about unrecoverable failures and events.
       type: string
       enum:
       - TRACE
@@ -1062,6 +1446,22 @@ components:
       - ERROR
       - FATAL
     LogGroupStatus_in_LogGroup_status:
+      description: |-
+        Log group status.
+
+        See `LogGroupStatus` for possible values.
+
+        Possible log group statuses.
+
+         - STATUS_UNSPECIFIED: Unknown status.
+
+        Should never occur.
+         - CREATING: Log group is creating.
+         - ACTIVE: Log group is ready to accept messages,
+         - DELETING: Log group is being deleted.
+
+        No messages will be accepted.
+         - ERROR: Log group is in failed state.
       type: string
       enum:
       - CREATING
@@ -1070,6 +1470,8 @@ components:
       - ERROR
     FieldMask_in_UpdateLogGroupRequest_updateMask:
       description: |-
+        Field mask that specifies which attributes of the function should be updated.
+
         A comma-separated names off ALL fields to be updated.
         Оnly the specified fields will be changed. The others will be left untouched.
         If the field is specified in `` updateMask `` and no value for that field was sent in the request,
@@ -1080,7 +1482,11 @@ components:
         The rest of the fields will be reset to the default.
       type: string
     Destination_in_WriteRequest_destination:
-      description: Required.
+      description: |-
+        Required.
+        Log entries destination.
+
+        See `Destination` for details.
       type: object
       allOf:
       - title: destination
@@ -1088,23 +1494,40 @@ components:
         maxProperties: 1
         properties:
           logGroupId:
-            description: The maximum string length in characters is 64.
+            description: |-
+              Entry should be written to log group resolved by ID.
+
+              The maximum string length in characters is 64.
             type: string
           folderId:
-            description: The maximum string length in characters is 64.
+            description: |-
+              Entry should be written to default log group for the folder.
+
+              The maximum string length in characters is 64.
             type: string
     LogEntryResource_in_WriteRequest_resource:
+      description: |-
+        Common resource (type, ID) specification for log entries.
+
+        Log entry resource specification.
+
+        May be used either by services and by user.
       type: object
       properties:
         type:
-          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
-            ``.
+          description: |-
+            Resource type, i.e., `serverless.function`
+
+            Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
           type: string
         id:
-          description: Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62}
-            ``.
+          description: |-
+            Resource ID, i.e., ID of the function producing logs.
+
+            Value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
           type: string
 tags:
 - name: LogGroup
+  description: A set of methods for managing log groups.
 - name: LogIngestion
 - name: LogReading

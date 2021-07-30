@@ -1,7 +1,4 @@
 ---
-title: "Метод ImageService. Справочник API в Yandex Compute Cloud"
-description: "Набор методов для управления ресурсами Image через API в Yandex Compute Cloud – Get, GetLatestByFamily, List, Create, Update, Delete, ListOperations."
-
 editable: false
 ---
 

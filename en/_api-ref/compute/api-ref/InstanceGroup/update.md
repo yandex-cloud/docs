@@ -141,7 +141,16 @@ instanceGroupId | Required. ID of the instance group to update. To get the insta
     "name": "string",
     "hostname": "string",
     "placementPolicy": {
-      "placementGroupId": "string"
+      "placementGroupId": "string",
+      "hostAffinityRules": [
+        {
+          "key": "string",
+          "op": "string",
+          "values": [
+            "string"
+          ]
+        }
+      ]
     }
   },
   "scalePolicy": {
@@ -335,6 +344,10 @@ instanceTemplate.<br>name | **string**<br><p>Name of the instance. In order to b
 instanceTemplate.<br>hostname | **string**<br><p>Host name for the instance. This field is used to generate the <a href="/docs/compute/api-ref/Instance#representation">Instance.fqdn</a> value. The host name must be unique within the network and region. If not specified, the host name will be equal to <a href="/docs/compute/api-ref/Instance#representation">Instance.id</a> of the instance and FQDN will be ``&lt;id&gt;.auto.internal``. Otherwise FQDN will be ``&lt;hostname&gt;.&lt;region_id&gt;.internal``.</p> <p>In order to be unique it must contain at least on of instance unique placeholders: {instance.short_id} {instance.index} combination of {instance.zone_id} and {instance.index_in_zone} Example: my-instance-{instance.index} If not set, ``name`` value will be used It may also contain another placeholders, see metadata doc for full list.</p> <p>The maximum string length in characters is 128.</p> 
 instanceTemplate.<br>placementPolicy | **object**<br><p>Placement Group</p> 
 instanceTemplate.<br>placementPolicy.<br>placementGroupId | **string**<br><p>Identifier of placement group</p> 
+instanceTemplate.<br>placementPolicy.<br>hostAffinityRules[] | **object**<br><p>Affinitity definition</p> 
+instanceTemplate.<br>placementPolicy.<br>hostAffinityRules[].<br>key | **string**<br><p>Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'</p> 
+instanceTemplate.<br>placementPolicy.<br>hostAffinityRules[].<br>op | **string**<br><p>Include or exclude action</p> 
+instanceTemplate.<br>placementPolicy.<br>hostAffinityRules[].<br>values[] | **string**<br><p>Affinity value or host ID or host group ID</p> 
 scalePolicy | **object**<br><p>Required. <a href="/docs/compute/concepts/instance-groups/scale">Scaling policy</a> of the instance group.</p> 
 scalePolicy.<br>testAutoScale | **object**<br>[Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.<br>
 scalePolicy.<br>testAutoScale.<br>minZoneSize | **string** (int64)<br><p>Lower limit for instance count in each zone.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
