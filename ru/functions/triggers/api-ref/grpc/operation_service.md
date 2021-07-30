@@ -1,7 +1,4 @@
 ---
-title: "Method OperationService. API Reference for Triggers"
-description: "A set of methods for managing triggers operations in asynchronous API requests of the Yandex Cloud Functions service. Links are specified relative to the operation.api.cloud.yandex.net domain."
-
 editable: false
 
 __system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}

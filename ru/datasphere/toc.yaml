@@ -111,6 +111,8 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: AppTokenService
+            href: api-ref/grpc/app_token_service.md
           - name: NodeService
             href: api-ref/grpc/node_service.md
           - name: ProjectService
@@ -121,6 +123,12 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: AppToken
+            items:
+              - name: Overview
+                href: api-ref/AppToken/index.md
+              - name: validate
+                href: api-ref/AppToken/validate.md
           - name: Node
             items:
               - name: Overview
@@ -137,10 +145,14 @@ items:
                 href: api-ref/Project/delete.md
               - name: get
                 href: api-ref/Project/get.md
+              - name: getUnitBalance
+                href: api-ref/Project/getUnitBalance.md
               - name: list
                 href: api-ref/Project/list.md
               - name: open
                 href: api-ref/Project/open.md
+              - name: setUnitBalance
+                href: api-ref/Project/setUnitBalance.md
               - name: update
                 href: api-ref/Project/update.md
   - name: Управление доступом

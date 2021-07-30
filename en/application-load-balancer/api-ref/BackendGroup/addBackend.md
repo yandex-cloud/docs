@@ -78,11 +78,18 @@ backendGroupId | Required. ID of the backend group to add a backend to.  To get 
       }
     },
     "useHttp2": true,
+
+    // `http` includes only one of the fields `targetGroups`, `storageBucket`
     "targetGroups": {
       "targetGroupIds": [
         "string"
       ]
-    }
+    },
+    "storageBucket": {
+      "bucket": "string"
+    },
+    // end of the list of possible fields`http`
+
   },
   "grpc": {
     "name": "string",
@@ -180,8 +187,10 @@ http.<br>tls.<br>validationContext | **object**<br><p>Validation context for TLS
 http.<br>tls.<br>validationContext.<br>trustedCaId | **string** <br>`http.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br>
 http.<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`http.tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
 http.<br>useHttp2 | **boolean** (boolean)<br><p>Enables HTTP/2 usage in connections between load balancer nodes and backend targets.</p> <p>Default value: ``false``, HTTP/1.1 is used.</p> 
-http.<br>targetGroups | **object**<br>Target groups that belong to the backend.<br><p>A resource for target groups that belong to the backend.</p> 
+http.<br>targetGroups | **object**<br>Target groups that belong to the backend. <br>`http` includes only one of the fields `targetGroups`, `storageBucket`<br><br><p>A resource for target groups that belong to the backend.</p> 
 http.<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. List of ID's of target groups that belong to the backend.</p> <p>To get the ID's of all available target groups, make a <a href="/docs/application-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>Must contain at least one element.</p> 
+http.<br>storageBucket | **object**<br>Storage bucket to use as a backend. <br>`http` includes only one of the fields `targetGroups`, `storageBucket`<br><br>
+http.<br>storageBucket.<br>bucket | **string**<br><p>Required. Cloud S3 bucket name. Should have public access.</p> 
 grpc | **object**<br>gRPC backend to add to the backend group. <br> includes only one of the fields `http`, `grpc`<br><br><p>A gRPC backend resource.</p> 
 grpc.<br>name | **string**<br><p>Required. Name of the backend.</p> <p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 grpc.<br>backendWeight | **integer** (int64)<br><p>Backend weight. Traffic is distributed between backends of a backend group according to their weights.</p> <p>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends.</p> <p>If set to ``0``, traffic is not sent to the backend.</p> 

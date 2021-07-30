@@ -1,11 +1,7 @@
 ---
-title: "Yandex Compute Cloud API"
-description: "Methods of Yandex Compute Cloud API reference are grouped by resources. To perform an operation on a resource, send an HTTP request to the corresponding URL. For Yandex.Cloud API specifications, see GitHub."
 
 __system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
-
 # Yandex Compute Cloud API
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 

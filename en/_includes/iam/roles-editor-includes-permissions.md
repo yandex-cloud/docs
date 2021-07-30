@@ -1,2 +1,2 @@
-These permissions are also included in the `editor`, `admin`, and `resource-manager.cloud.owner` roles.
+These permissions are also part of the `editor`, `admin`, and `resource-manager.clouds.owner` roles.
 

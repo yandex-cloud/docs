@@ -2230,11 +2230,14 @@ next_page_token | **string**<br>This token allows you to get the next page of re
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the backup. 
+id | **string**<br>Required. ID of the backup. 
 folder_id | **string**<br>ID of the folder that the backup belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format (i.e. when the backup operation was completed). 
 source_cluster_id | **string**<br>ID of the PostgreSQL cluster that the backup was created for. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
+size | **int64**<br>Size of backup in bytes 
+type | enum **BackupCreationType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li><ul/>
+method | enum **BackupMethod**<br>Method of backup creation <ul><li>`BASE`: Base backup</li><li>`INCREMENTAL`: Delta (incremental) PostgreSQL backup</li><ul/>
 
 
 ## ListHosts {#ListHosts}

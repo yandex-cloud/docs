@@ -18,7 +18,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>instance group id.|
 |`--name`|<b>`string`</b><br/>instance group name.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete. --labels value[,value]   Label keys to remove.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--labels`|<b>`value[,value]`</b><br/>Label keys to remove.|
 
 #### Flags
 

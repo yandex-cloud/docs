@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Все инструкции
+# Пошаговые инструкции для {{ ml-platform-name }}
 
 * [{#T}](projects/create.md)
 * [{#T}](projects/install-dependencies.md)

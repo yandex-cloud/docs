@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Начало работы
+# Начало работы с {{ message-queue-name }}
 
 Выполним основные действия с использованием AWS CLI — одного из [инструментов](instruments/index.md) для работы c Message Queue.
 

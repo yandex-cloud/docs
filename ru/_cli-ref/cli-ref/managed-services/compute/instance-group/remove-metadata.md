@@ -19,7 +19,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/>instance group id.|
 |`--name`|<b>`string`</b><br/>instance group name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--all`|If this flag is specified, all metadata will be deleted. --keys value[,value]   List of keys that will be deleted in metadata.|
+|`--all`|If this flag is specified, all metadata will be deleted.|
+|`--keys`|<b>`value[,value]`</b><br/>List of keys that will be deleted in metadata.|
 
 #### Flags
 

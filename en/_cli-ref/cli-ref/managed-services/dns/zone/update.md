@@ -20,7 +20,9 @@ Syntax:
 |`--name`|<b>`string`</b><br/> DNS zone name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> A new name of the dns zone.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the dns zone. --network-ids value[,value] Specifies network identifiers from which dns zone records will be visible --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Specifies a textual description of the dns zone.|
+|`--network-ids`|<b>`value[,value]`</b><br/> Specifies network identifiers from which dns zone records will be visible|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
 #### Flags
 

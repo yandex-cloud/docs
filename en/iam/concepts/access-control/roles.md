@@ -75,6 +75,10 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
 
+## {{ data-transfer-name }} {#data-transfer-roles}
+
+{% include [data-transfer-viewer](../../../_includes/roles-data-transfer-viewer.md) %}
+
 ## {{ datalens-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}

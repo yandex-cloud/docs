@@ -18,7 +18,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> Redis cluster id.|
 |`--name`|<b>`string`</b><br/> Redis cluster name.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
 #### Flags
 

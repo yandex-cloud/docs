@@ -17,7 +17,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--new-name`|<b>`string`</b><br/> A new name of registry.|
-|`--description`|<b>`string`</b><br/> Description of registry. --labels key=value[,key=value...] List of KEY=VALUES pairs to add.|
+|`--description`|<b>`string`</b><br/> Description of registry.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> List of KEY=VALUES pairs to add.|
 |`--id`|<b>`string`</b><br/> Registry id.|
 |`--name`|<b>`string`</b><br/> Registry name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

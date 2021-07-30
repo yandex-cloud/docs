@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Getting started
+# Getting started with {{ message-queue-name }}
 
 Let's perform the basic actions using the AWS CLI, one of the [tools](instruments/index.md) for working with Message Queue.
 

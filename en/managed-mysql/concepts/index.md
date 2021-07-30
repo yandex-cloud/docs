@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Relationship between service resources
+# Relationship between resources in {{ mmy-name }}
 
 The main entity used in {{ mmy-name }} is a _database cluster_.
 

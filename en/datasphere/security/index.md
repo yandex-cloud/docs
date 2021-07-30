@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Access management
+# Access management in {{ ml-platform-name }}
 
 The list of operations available to {{ yandex-cloud }} users is determined by the roles they have. A role is assigned to a user at the folder or cloud level, and nested resources inherit this role.
 

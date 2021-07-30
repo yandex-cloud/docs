@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Getting started
+# Getting started with {{ lockbox-name }}
 
 Create your first secret and get its content.
 

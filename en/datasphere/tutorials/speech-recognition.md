@@ -11,7 +11,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 1. [Train a model on voice data](#model-fit).
 1. [Get the results of feature prediction based on test data](#model-test).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. [Create a project](../operations/projects/create) in **{{ ml-platform-name }}** and open it.
 
@@ -21,7 +21,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
     https://github.com/yandex-cloud/examples
     ```
 
-    Wait for the cloning to complete. It may take some time. Once the operation is complete, the **File Browser** section will show the folder of the cloned repository.
+    Wait until the cloning is complete. It may take some time. Once the operation is completed, in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section, a folder of the cloned repository will appear.
 
 1. Open the **examples/datasphere/** folder and review the contents of the **speech-recognition.ipynb** notebook. At the beginning of the notebook, you'll see the basic principles of speech signal modeling with audio features.
 

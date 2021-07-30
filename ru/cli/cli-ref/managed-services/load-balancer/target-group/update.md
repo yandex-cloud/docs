@@ -18,9 +18,11 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> Target group id.|
 |`--name`|<b>`string`</b><br/> Target group name.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --target PROPERTY=VALUE[,PROPERTY=VALUE...] Adds a target to the target group.  Possible property names:  subnet-name Specifies the subnet that the target will connect to.  subnet-id Specifies the ID of the subnet that the target will connect to.  address Specifies the IP address that the target will connect to  |
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Adds a target to the target group.  Possible property names:  subnet-name Specifies the subnet that the target will connect to.  subnet-id Specifies the ID of the subnet that the target will connect to.  address Specifies the IP address that the target will connect to  |
 |`--new-name`|<b>`string`</b><br/> A new name of the target group.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the target group. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Specifies a textual description of the target group.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 
 #### Flags
 

@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Общие вопросы
+# Общие вопросы про {{ managed-k8s-name }}
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}
 

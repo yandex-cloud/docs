@@ -18,7 +18,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Device id.|
 |`--name`|<b>`string`</b><br/>Device name.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete. --topic-aliases value[,value]   Aliases to remove.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--topic-aliases`|<b>`value[,value]`</b><br/>Aliases to remove.|
 
 #### Flags
 

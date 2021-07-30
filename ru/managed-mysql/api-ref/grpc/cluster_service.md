@@ -29,6 +29,7 @@ A set of methods for managing MySQL clusters.
 | [ListBackups](#ListBackups) | Retrieves the list of available backups for the specified MySQL cluster. |
 | [ListHosts](#ListHosts) | Retrieves a list of hosts for the specified MySQL cluster. |
 | [AddHosts](#AddHosts) | Creates new hosts for a cluster. |
+| [UpdateHosts](#UpdateHosts) | Updates the specified hosts. |
 | [DeleteHosts](#DeleteHosts) | Deletes the specified hosts for a cluster. |
 
 ## Calls ClusterService {#calls}
@@ -352,6 +353,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster2). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
 
 
 ### Operation {#Operation}
@@ -1283,6 +1285,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster8). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
 
 
 ### Operation {#Operation7}
@@ -1843,6 +1846,7 @@ health | enum **Health**<br>Status code of the aggregated health of the host. <u
 services[] | **[Service](#Service)**<br>Services provided by the host. 
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
+replication_source | **string**<br>Name of the host to be used as the replication source for cascading replication. 
 
 
 ### Resources {#Resources14}
@@ -1887,6 +1891,7 @@ Field | Description
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster11). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
+replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). 
 
 
 ### Operation {#Operation11}
@@ -1913,11 +1918,61 @@ cluster_id | **string**<br>ID of the MySQL cluster to which the hosts are being 
 host_names[] | **string**<br>Names of hosts that are being added to the cluster. 
 
 
+## UpdateHosts {#UpdateHosts}
+
+Updates the specified hosts.
+
+**rpc UpdateHosts ([UpdateClusterHostsRequest](#UpdateClusterHostsRequest)) returns ([operation.Operation](#Operation12))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterHostsMetadata](#UpdateClusterHostsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### UpdateClusterHostsRequest {#UpdateClusterHostsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the MySQL cluster to update hosts in. To get the MySQL cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+update_host_specs[] | **[UpdateHostSpec](#UpdateHostSpec)**<br>New configurations to apply to hosts. The number of elements must be greater than 0.
+
+
+### UpdateHostSpec {#UpdateHostSpec}
+
+Field | Description
+--- | ---
+host_name | **string**<br>Required. Name of the host to update. To get the MySQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
+replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). To get the MySQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
+
+
+### Operation {#Operation12}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterHostsMetadata](#UpdateClusterHostsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### UpdateClusterHostsMetadata {#UpdateClusterHostsMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the MySQL cluster to modify hosts in. 
+host_names[] | **string**<br>Names of hosts that are being modified. 
+
+
 ## DeleteHosts {#DeleteHosts}
 
 Deletes the specified hosts for a cluster.
 
-**rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation12))**
+**rpc DeleteHosts ([DeleteClusterHostsRequest](#DeleteClusterHostsRequest)) returns ([operation.Operation](#Operation13))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterHostsMetadata](#DeleteClusterHostsMetadata)<br>
@@ -1931,7 +1986,7 @@ cluster_id | **string**<br>Required. ID of the MySQL cluster to remove hosts fro
 host_names[] | **string**<br>Names of hosts to delete. The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
 
 
-### Operation {#Operation12}
+### Operation {#Operation13}
 
 Field | Description
 --- | ---

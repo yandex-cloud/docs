@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Quotas and limits
+# Quotas and limits in {{ network-load-balancer-name }}
 
 In the {{ network-load-balancer-full-name }} service, the following limitations apply:
 

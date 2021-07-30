@@ -17,9 +17,11 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> A name of the image.|
-|`--description`|<b>`string`</b><br/> Specifies a textual description of the image. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Specifies a textual description of the image.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--family`|<b>`string`</b><br/> The family of the image.|
-|`--min-disk-size`|<b>`byteSize`</b><br/> Specify minimum size of the disk which will be created from this image. --product-ids value[,value] A list of product license IDs. Used for billing purposes.|
+|`--min-disk-size`|<b>`byteSize`</b><br/> Specify minimum size of the disk which will be created from this image.|
+|`--product-ids`|<b>`value[,value]`</b><br/> A list of product license IDs. Used for billing purposes.|
 |`--source-image-name`|<b>`string`</b><br/> A source image used to create the image.|
 |`--source-image-id`|<b>`string`</b><br/> An ID of the source image used to create the image.|
 |`--source-family`|<b>`string`</b><br/> The family of the source image.|

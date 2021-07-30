@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Step-by-step instructions
+# Step-by-step instructions for {{ container-registry-name }}
 
 To work with Docker images, [authenticate in {{ container-registry-short-name }}](authentication.md).
 

@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Relationship between service resources
+# Relationships between resources in {{ data-transfer-name }}
 
 You can use {{ data-transfer-full-name }} to easily transfer data between databases. This way you can reduce the migration period and minimize downtime when switching to a new database. You don't need to install any drivers to transfer data. All the settings are available in the management console.
 

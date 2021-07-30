@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Getting started
+# Getting started with {{ managed-k8s-name }}
 
 Create a [cluster {{ k8s }}](concepts/index.md#kubernetes-cluster) and [node group](concepts/index.md#node-group) and manage them using kubectl, the {{ k8s}} command-line interface.
 

@@ -17,7 +17,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Name of the network.|
-|`--description`|<b>`string`</b><br/> Description of the network. --labels key=value[,key=value...] A list of network labels as key-value pairs.|
+|`--description`|<b>`string`</b><br/> Description of the network.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of network labels as key-value pairs.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

@@ -7,7 +7,7 @@ editable: false
 __system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ objstorage-name }}
 
 {{ objstorage-full-name }} has the following limits:
 

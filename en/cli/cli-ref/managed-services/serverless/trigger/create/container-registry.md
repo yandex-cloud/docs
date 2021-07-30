@@ -17,11 +17,13 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Trigger name.|
-|`--description`|<b>`string`</b><br/> Trigger description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Trigger description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--registry-id`|<b>`string`</b><br/> Container registry ID.|
 |`--registry-name`|<b>`string`</b><br/> Container registry name.|
 |`--image-name`|<b>`string`</b><br/> Container image name filter.|
-|`--tag`|<b>`string`</b><br/> Container image tag filter. --events value[,value] List of container registry events to subscribe. A list can be specified by listing events separated by commas as well as passing this flag multiple times. Available events are: 'create-image' , 'delete-image', 'create-image-tag', 'delete-image-tag'. |
+|`--tag`|<b>`string`</b><br/> Container image tag filter.|
+|`--events`|<b>`value[,value]`</b><br/> List of container registry events to subscribe. A list can be specified by listing events separated by commas as well as passing this flag multiple times. Available events are: 'create-image' , 'delete-image', 'create-image-tag', 'delete-image-tag'. |
 |`--invoke-function-id`|<b>`string`</b><br/> Function to be invoked by worker on the data from Container Registry.|
 |`--invoke-function-name`|<b>`string`</b><br/> Function to be invoked by worker on the data from Container Registry.|
 |`--invoke-function-tag`|<b>`string`</b><br/> Function tag.|

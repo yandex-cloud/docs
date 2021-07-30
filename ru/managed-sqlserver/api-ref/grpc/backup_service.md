@@ -38,6 +38,7 @@ folder_id | **string**<br>ID of the folder that the backup belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp (i.e. when the backup operation was completed). 
 source_cluster_id | **string**<br>ID of the SQL Server cluster that the backup was created for. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
+databases[] | **string**<br>List databases included in the backup 
 
 
 ## List {#List}
@@ -72,5 +73,6 @@ folder_id | **string**<br>ID of the folder that the backup belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp (i.e. when the backup operation was completed). 
 source_cluster_id | **string**<br>ID of the SQL Server cluster that the backup was created for. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when the backup operation was started. 
+databases[] | **string**<br>List databases included in the backup 
 
 

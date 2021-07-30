@@ -17,10 +17,13 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> A name of the application load balancer.|
-|`--description`|<b>`string`</b><br/> A description of the application load balancer. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> A description of the application load balancer.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--region-id`|<b>`string`</b><br/> A region id of the application load balancer.|
 |`--network-id`|<b>`string`</b><br/> ID of the network to which the loadbalancer connects.|
-|`--network-name`|<b>`string`</b><br/> Name of the network to which the loadbalancer connects. --security-group-id value[,value] Security groups for the load balancer, --security-group-id id1 --security-group-id=id2 --location PROPERTY=VALUE[,PROPERTY=VALUE...] List of load balancer locations.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  zone Zone of the subnet.  traffic-disabled Disable traffic in zone.  |
+|`--network-name`|<b>`string`</b><br/> Name of the network to which the loadbalancer connects.|
+|`--security-group-id`|<b>`value[,value]`</b><br/> Security groups for the load balancer, --security-group-id id1 --security-group-id=id2|
+|`--location`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of load balancer locations.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  zone Zone of the subnet.  traffic-disabled Disable traffic in zone.  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

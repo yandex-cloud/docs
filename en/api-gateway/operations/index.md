@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# All instructions
+# Step-by-step instructions for {{ api-gw-name }}
 
 * [{#T}](api-gw-create.md)
 * [{#T}](api-gw-update.md)

@@ -18,7 +18,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> DNS zone id.|
 |`--name`|<b>`string`</b><br/> DNS zone name.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --record "<NAME> [TTL] <TYPE> <DATA>" record to replace in format "<NAME> [TTL] <TYPE> <DATA>". If record with specified name and type is present it's data field will be overwritten. TTL value will only be used if new record is created.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--record`|<b>`"<NAME>`</b><br/>[TTL] <TYPE> <DATA>" record to replace in format "<NAME> [TTL] <TYPE> <DATA>". If record with specified name and type is present it's data field will be overwritten. TTL value will only be used if new record is created.|
 
 #### Flags
 

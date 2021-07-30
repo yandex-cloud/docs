@@ -29,7 +29,7 @@ Wraps `text` into a hyperlink to URL `address`.
 #### Examples {#examples}
 
 ```
-URL('https://example.com/?value=' + [value], [value]))
+URL('https://example.com/?value=' + [value], [value])
 ```
 
 

@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Step-by-step instructions
+# Step-by-step instructions for {{ vision-name }}
 
 * [{#T}](ocr/text-detection.md)
 * [{#T}](classification/moderation.md)

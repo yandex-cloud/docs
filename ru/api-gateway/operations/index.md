@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Все инструкции
+# Пошаговые инструкции для {{ api-gw-name }}
 
 * [{#T}](api-gw-create.md)
 * [{#T}](api-gw-update.md)

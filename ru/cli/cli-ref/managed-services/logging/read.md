@@ -20,7 +20,10 @@ Syntax:
 |`--group-name`|<b>`string`</b><br/>Log group name.|
 |`--since`|<b>`timestamp`</b><br/>Show logs since this time|
 |`--until`|<b>`timestamp`</b><br/>Show logs until this time|
-|`-f`,`--follow`|Output logs as they arrive --resource-types value[,value]   Show logs with these resource types (comma-separated) --resource-ids value[,value]     Show logs with these resource ids (comma-separated) --levels value[,value]           Show logs with these levels (comma-separated)|
+|`-f`,`--follow`|Output logs as they arrive|
+|`--resource-types`|<b>`value[,value]`</b><br/>Show logs with these resource types (comma-separated)|
+|`--resource-ids`|<b>`value[,value]`</b><br/>Show logs with these resource ids (comma-separated)|
+|`--levels`|<b>`value[,value]`</b><br/>Show logs with these levels (comma-separated)|
 |`--filter`|<b>`string`</b><br/>Use this filter|
 |`--limit`|<b>`int`</b><br/>The maximum number of records to show.|
 

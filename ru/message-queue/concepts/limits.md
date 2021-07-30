@@ -8,7 +8,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ message-queue-name }}
 
 В сервисе {{ message-queue-full-name }} действуют следующие ограничения:
 

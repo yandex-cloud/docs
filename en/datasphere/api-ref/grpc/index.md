@@ -9,6 +9,7 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
+[AppTokenService](./app_token_service.md) | A set of methods for managing app tokens.
 [NodeService](./node_service.md) | A set of methods for managing Node resources.
 [ProjectService](./project_service.md) | A set of methods for managing Project resources.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

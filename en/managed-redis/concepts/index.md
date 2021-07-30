@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Relationship between service resources
+# Relationship between resources in {{ mrd-name }}
 
 {{ RD }} is a high-performance key-value store that runs in RAM. {{ mrd-name }} lets you easily create {{ RD }} host clusters with a high level of fault tolerance.
 

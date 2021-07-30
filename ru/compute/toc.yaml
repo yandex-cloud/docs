@@ -513,6 +513,8 @@ items:
                 href: api-ref/InstanceGroup/updateFromYaml.md
               - name: updateAccessBindings
                 href: api-ref/InstanceGroup/updateAccessBindings.md
+              - name: pauseProcesses
+                href: api-ref/InstanceGroup/pauseProcesses.md
               - name: stop
                 href: api-ref/InstanceGroup/stop.md
               - name: start
@@ -533,6 +535,8 @@ items:
                 href: api-ref/InstanceGroup/create.md
               - name: listAccessBindings
                 href: api-ref/InstanceGroup/listAccessBindings.md
+              - name: resumeProcesses
+                href: api-ref/InstanceGroup/resumeProcesses.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

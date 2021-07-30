@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Relationship between service resources
+# Relationship between resources in {{ api-gw-name }}
 
 _API gateway_ is an interface for interacting with services in {{ yandex-cloud }} or on the internet.
 

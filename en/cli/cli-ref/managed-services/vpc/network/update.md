@@ -20,7 +20,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Network name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> New name for the network.|
-|`--description`|<b>`string`</b><br/> New description for the network. --labels key=value[,key=value...] New set of labels for the network as key-value pairs. Existing set of labels will be completely overwritten.|
+|`--description`|<b>`string`</b><br/> New description for the network.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the network as key-value pairs. Existing set of labels will be completely overwritten.|
 
 #### Flags
 

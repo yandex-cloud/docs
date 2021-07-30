@@ -18,10 +18,12 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/> Instance id.|
 |`--name`|<b>`string`</b><br/> Instance name.|
-|`--async`| Display information about the operation in progress, without waiting for the operation to complete. --container-arg value[,value] A list of arguments to append to container entrypoint. Overrides default container CMD|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--container-arg`|<b>`value[,value]`</b><br/> A list of arguments to append to container entrypoint. Overrides default container CMD|
 |`--clear-container-args`| Removes the list of arguments from container declaration.|
 |`--container-command`|<b>`string`</b><br/> Executable to run when the container starts. Overrides default container ENTRYPOINT|
-|`--clear-container-command`| Removes command from container declaration. --container-env key=value[,key=value...] Declare environment variable KEY with value VALUE passed to container. Only the last value of KEY is taken when KEY is repeated more than once. Values, declared with --container-env flag override those with the same KEY from file, provided in --container-env-file.|
+|`--clear-container-command`| Removes command from container declaration.|
+|`--container-env`|<b>`key=value[,key=value...]`</b><br/> Declare environment variable KEY with value VALUE passed to container. Only the last value of KEY is taken when KEY is repeated more than once. Values, declared with --container-env flag override those with the same KEY from file, provided in --container-env-file.|
 |`--container-env-file`|<b>`string`</b><br/> Declare environment variables in a file. Values, declared with --container-env flag override those with the same KEY from file. File must contain lines in format KEY=VALUE, variables without value are not supported.|
 |`--remove-container-env`|<b>`string`</b><br/> Removes environment variable KEY from container declaration.|
 |`--container-image`|<b>`string`</b><br/> Container image name.|
@@ -29,7 +31,9 @@ Syntax:
 |`--container-privileged`| Specify whether to run container in privileged mode.|
 |`--container-stdin`| Open container STDIN.|
 |`--container-tty`| Allocate a pseudo-TTY for the container.|
-|`--container-restart-policy`|<b>`string`</b><br/> Specify whether to restart a container on exit. Must be one of: Always, Never, OnFailure. --container-volume-tmpfs PROPERTY=VALUE[,PROPERTY=VALUE...] Add tmpfs-backed docker volume  Possible property names:  name Specifies the name of the volume. (required)  mount-path Specifies the mount path of the volume inside a container. (required)   --container-volume-host-path PROPERTY=VALUE[,PROPERTY=VALUE...] Add docker volume bound to host path  Possible property names:  name Specifies the name of the volume. (required)  mount-path Specifies the mount path of the volume inside a container. (required)  ro Specifies whether the volume is read-only or not inside a container. Default: false  host-path Specifies a path on host VM that will be bound to the volume. (required)  |
+|`--container-restart-policy`|<b>`string`</b><br/> Specify whether to restart a container on exit. Must be one of: Always, Never, OnFailure.|
+|`--container-volume-tmpfs`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Add tmpfs-backed docker volume  Possible property names:  name Specifies the name of the volume. (required)  mount-path Specifies the mount path of the volume inside a container. (required)  |
+|`--container-volume-host-path`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Add docker volume bound to host path  Possible property names:  name Specifies the name of the volume. (required)  mount-path Specifies the mount path of the volume inside a container. (required)  ro Specifies whether the volume is read-only or not inside a container. Default: false  host-path Specifies a path on host VM that will be bound to the volume. (required)  |
 |`--remove-container-volume`|<b>`string`</b><br/> Remove docker volume from container declaration by its name. Several names separated with comma can be provided.|
 |`--clear-container-volumes`| Remove all docker volumes from container declaration|
 |`--docker-compose-file`|<b>`string`</b><br/> Docker compose file.|

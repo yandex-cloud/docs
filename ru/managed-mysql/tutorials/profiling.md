@@ -10,11 +10,12 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 - [неэффективное выполнение запросов в {{ MY }}](#inefficient-queries);
 - [блокировки](#localize-locking-issues).
 
-[Инструменты мониторинга](../operations/monitoring.md) {{ MY }} для диагностики производительности кластера {{ mmy-name }} и специальные запросы {{ MY }} помогут эти проблемы обнаружить. 
+Инструменты [мониторинга](../operations/monitoring.md) {{ MY }} и [диагностики производительности](../operations/performance-diagnostics.md) кластера {{ mmy-name }}, а также специальные запросы {{ MY }} помогут эти проблемы обнаружить.
 
 ## Перед началом работы {#before-start}
 
 1. Выберите базы данных для диагностики.
+1. [Активируйте сбор статистики](../operations/performance-diagnostics.md).
 1. Создайте [пользователя {{ MY }}](../operations/cluster-users.md#adduser) с ролью [`PROCESS`](../operations/grant.md#db-roles) для этих баз. Диагностические запросы необходимо выполнять от имени этого пользователя.
 
 ## Диагностика дефицита ресурсов {#cpu-io-deficit}

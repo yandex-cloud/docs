@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Пошаговые инструкции
+# Пошаговые инструкции для {{ container-registry-name }}
 
 Чтобы работать с Docker-образами, [аутентифицируйтесь в {{ container-registry-short-name }}](authentication.md).
 

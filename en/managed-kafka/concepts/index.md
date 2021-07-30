@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Relationship between service resources
+# Relationship between resources in {{ mkf-name }}
 
 With {{ mkf-full-name }}, you can deploy and maintain {{ KF }} server cluster versions 2.1 and 2.6 in the {{ yandex-cloud }} infrastructure.
 

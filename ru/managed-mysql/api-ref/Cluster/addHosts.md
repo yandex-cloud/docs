@@ -29,7 +29,8 @@ clusterId | Required. ID of the MySQL cluster to add hosts to. To get the MySQL 
     {
       "zoneId": "string",
       "subnetId": "string",
-      "assignPublicIp": true
+      "assignPublicIp": true,
+      "replicationSource": "string"
     }
   ]
 }
@@ -42,6 +43,7 @@ hostSpecs[] | **object**<br><p>Required. Configurations for MySQL hosts that sho
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field <a href="/docs/managed-mysql/api-ref/Cluster#representation">Cluster.networkId</a>.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> <p>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with ``assignPublicIp`` set as needed.</p> <p>Possible values:</p> <ul> <li>false - don't assign a public IP to the host.</li> <li>true - the host should have a public IP address.</li> </ul> 
+hostSpecs[].<br>replicationSource | **string**<br><p>``name`` of the host to be used as the replication source (for cascading replication).</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -4,7 +4,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 # Getting started with {{ ml-platform-name }}
 
-{{ ml-platform-full-name }} lets you analyze data and build machine learning (ML) models using the familiar Jupyter Notebook interface. From this use case, you'll learn about the service's features by example of using a notebook for the [2017 Kaggle ML & DS Survey](https://www.kaggle.com/kaggle/kaggle-survey-2017) dataset ([Kaggle](https://www.kaggle.com/) survey 2017).
+{{ ml-platform-full-name }} lets you analyze data and build machine learning (ML) models using the familiar Jupyter Notebook interface. From this use case, you'll learn about the service's features by using a notebook for the [2017 Kaggle ML & DS Survey](https://www.kaggle.com/kaggle/kaggle-survey-2017) dataset (2017 [Kaggle](https://www.kaggle.com/) survey).
 
 To get started with the service:
 
@@ -24,19 +24,15 @@ To get started with the service:
     https://github.com/dalyona/Yandex_Scale_DataSphere_demo
     ```
 
-    Wait until the cloning is complete. It may take some time. Once the operation is completed, the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section will show the cloned repository's folder.
+    Wait until the cloning is complete. It may take some time. Once the operation is completed, in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section, a folder of the cloned repository will appear.
 
 1. Open the **Yandex_Scale_DataSphere_demo** folder and review the contents of the **kaggle2017.ipynb** notebook.
 
-    {% note info %}
-
-    If you update the browser tab where the notebook is running or close it, the state of the notebook is saved. The variables and results of previous computations are not reset during these actions.
-
-    {% endnote %}
+    {% include [safe-state-warn](../../_includes/datasphere/safe-state.md) %}
 
 ## Check the current directory {#get-cwd}
 
-1. Select the first cell with code:
+1. Select the first cell with the code:
 
     ```python
     # Let's check our current directory and change it
@@ -80,7 +76,7 @@ This extracts files from the `input.zip` archive to the `input` directory inside
 
 ## Install dependencies {#satisfy-dependencies}
 
-1. Select and run the cell with code in the **Introduction for this demo and Kaggle data** section:
+1. Select and run the cell with the code in the **Introduction for this demo and Kaggle data** section:
 
     ```python
     # Let's start with import and install all necessary libraries and packages

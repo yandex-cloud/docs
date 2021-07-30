@@ -30,7 +30,7 @@ Utterance | **oneof:** `text` or `text_template`<br>Text to synthesis, one of te
 &nbsp;&nbsp;text | **string**<br>Raw text (e.g. "Hello, Alice"). 
 &nbsp;&nbsp;text_template | **[TextTemplate](#TextTemplate)**<br>Text template instalce, e.g. `{"Hello, {username}" with username="Alice"}`. 
 hints[] | **[Hints](#Hints)**<br>Optional hints for synthesis. 
-output_audio_spec | **[AudioFormatOptions](#AudioFormatOptions)**<br>Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM. 
+output_audio_spec | **[AudioFormatOptions](#AudioFormatOptions)**<br>Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header 
 
 
 ### TextTemplate {#TextTemplate}
@@ -53,9 +53,11 @@ variable_value | **string**<br>The text of the variable.
 
 Field | Description
 --- | ---
-Hint | **oneof:** `voice` or `audio_template`<br>The hint for TTS engine to specify synthesised audio characteristics.
+Hint | **oneof:** `voice`, `audio_template`, `speed` or `volume`<br>The hint for TTS engine to specify synthesised audio characteristics.
 &nbsp;&nbsp;voice | **string**<br>Name of speaker to use. 
 &nbsp;&nbsp;audio_template | **[AudioTemplate](#AudioTemplate)**<br>Template for synthesizing. 
+&nbsp;&nbsp;speed | **double**<br>hint to change speed 
+&nbsp;&nbsp;volume | **double**<br>hint to regulate volume 
 
 
 ### AudioTemplate {#AudioTemplate}

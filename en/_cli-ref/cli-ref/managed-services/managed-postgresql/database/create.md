@@ -21,7 +21,8 @@ Syntax:
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--owner`|<b>`string`</b><br/> Name of the user assigned as the owner of the database.|
 |`--lc-collate`|<b>`string`</b><br/> Locale property for database to be created.|
-|`--lc-type`|<b>`string`</b><br/> Locale property for database to be created. --extensions key=value[,key=value...] A list of extensions NAME=VERSION pairs to add.|
+|`--lc-type`|<b>`string`</b><br/> Locale property for database to be created.|
+|`--extensions`|<b>`key=value[,key=value...]`</b><br/> A list of extensions NAME=VERSION pairs to add.|
 
 #### Flags
 

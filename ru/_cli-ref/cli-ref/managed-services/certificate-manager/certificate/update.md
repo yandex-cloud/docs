@@ -20,7 +20,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Specifies the certificate name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--new-name`|<b>`string`</b><br/> Specifies the new name of the certificate.|
-|`--description`|<b>`string`</b><br/> Specifies the new description of the certificate. --labels key=value[,key=value...] A list of new label KEY=VALUE pairs to update.|
+|`--description`|<b>`string`</b><br/> Specifies the new description of the certificate.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of new label KEY=VALUE pairs to update.|
 |`--chain`|<b>`string`</b><br/> Path to the PEM file with the new certificate chain. Only for imported certificates.|
 |`--key`|<b>`string`</b><br/> Path to the PEM file with the new private key. Only for imported certificates.|
 

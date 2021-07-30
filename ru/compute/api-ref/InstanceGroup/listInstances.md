@@ -27,7 +27,7 @@ Parameter | Description
 --- | ---
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/compute/api-ref/InstanceGroup/listInstances#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
 pageToken | Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/InstanceGroup/listInstances#query_params) to the [nextPageToken](/docs/compute/api-ref/InstanceGroup/listInstances#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/api-ref/InstanceGroup#representation) field.  The maximum string length in characters is 1000.
+filter | A filter expression that filters resources listed in the response. Currently you can use filtering only on the `name` field.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

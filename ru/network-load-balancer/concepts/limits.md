@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ network-load-balancer-name }}
 
 В сервисе {{ network-load-balancer-full-name }} действуют следующие ограничения:
 

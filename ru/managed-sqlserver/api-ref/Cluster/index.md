@@ -97,7 +97,8 @@ A set of methods for managing SQL Server clusters.
   "securityGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "sqlcollation": "string"
 }
 ```
  
@@ -170,6 +171,7 @@ health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN
 status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+sqlcollation | **string**<br><p>SQL Server Collation</p> 
 
 ## Methods {#methods}
 Method | Description

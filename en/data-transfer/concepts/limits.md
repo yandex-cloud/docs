@@ -8,7 +8,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Quotas and limits
+# Quotas and limits in {{ data-transfer-name }}
 
 There are no quotas or limits for {{ data-transfer-full-name }}.
 

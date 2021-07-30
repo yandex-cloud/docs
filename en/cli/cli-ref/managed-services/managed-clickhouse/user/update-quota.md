@@ -16,10 +16,12 @@ Syntax:
 
 | Flag | Description |
 |----|----|
+|`--interval`|<b>`duration|int64`</b><br/>Duration of interval for quota in milliseconds. Possible to use time units - "1m30s". Minimal value is 1 second.|
 |`--queries`|<b>`int`</b><br/>The total number of queries. 0 - unlimited.|
 |`--errors`|<b>`int`</b><br/>The number of queries that threw exception. 0 - unlimited.|
 |`--result-rows`|<b>`int`</b><br/>The total number of rows given as the result. 0 - unlimited.|
-|`--read-rows`|<b>`int`</b><br/>The total number of source rows read from tables for running the query, on all remote servers. 0 - unlimited. --execution-time duration|int64   The total query execution time, in milliseconds (wall time). Possible to use time units - "1m30s". 0 - unlimited.|
+|`--read-rows`|<b>`int`</b><br/>The total number of source rows read from tables for running the query, on all remote servers. 0 - unlimited.|
+|`--execution-time`|<b>`duration|int64`</b><br/>The total query execution time, in milliseconds (wall time). Possible to use time units - "1m30s". 0 - unlimited.|
 |`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

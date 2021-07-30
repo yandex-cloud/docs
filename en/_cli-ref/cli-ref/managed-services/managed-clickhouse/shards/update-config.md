@@ -19,7 +19,8 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/> ID of the ClickHouse cluster.|
 |`--cluster-name`|<b>`string`</b><br/> Name of the ClickHouse cluster.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
-|`--name`|<b>`string`</b><br/> Shard name. --set key1=value1[,key2=value2][,"key3=val3a,val3b"] Set parameters for a shard. Can be specified multiple times.|
+|`--name`|<b>`string`</b><br/> Shard name.|
+|`--set`|<b>`key1=value1[,key2=value2][,"key3=val3a,val3b"]`</b><br/> Set parameters for a shard. Can be specified multiple times.|
 
 #### Flags
 

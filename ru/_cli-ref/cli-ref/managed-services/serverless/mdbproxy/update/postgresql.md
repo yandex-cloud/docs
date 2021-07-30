@@ -17,7 +17,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--new-name`|<b>`string`</b><br/> New proxy name.|
-|`--description`|<b>`string`</b><br/> Proxy description. --labels key=value[,key=value...] A list of label KEY=VALUE pairs.|
+|`--description`|<b>`string`</b><br/> Proxy description.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs.|
 |`--id`|<b>`string`</b><br/> Proxy id.|
 |`--name`|<b>`string`</b><br/> Proxy name.|
 |`--new-database`|<b>`string`</b><br/> PostgreSQL database.|

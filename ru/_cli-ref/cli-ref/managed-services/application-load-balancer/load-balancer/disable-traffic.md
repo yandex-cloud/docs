@@ -18,7 +18,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>ID of the Application load balancer.|
 |`--name`|<b>`string`</b><br/>Name of the Application load balancer.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete. --zone value[,value]   Zone of the load balancer where to disable traffic, --zone zone-id1 --zone=zone-id2|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--zone`|<b>`value[,value]`</b><br/>Zone of the load balancer where to disable traffic, --zone zone-id1 --zone=zone-id2|
 
 #### Flags
 

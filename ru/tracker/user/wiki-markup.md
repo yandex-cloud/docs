@@ -20,7 +20,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 Зачеркнутый текст | ```--Зачеркнутый текст--``` | ![](../../_assets/tracker/format/crossed.png)
 Мелкий текст | ```++Мелкий текст++``` | ![](../../_assets/tracker/format/small-text.png)
 Выделенный текст | ```??Выделенный текст??``` | ![](../../_assets/tracker/format/red-background.png)
-Цветной текст.<br/><br/>Поддерживаются цвета:<br/><br/>`red` / `крас` / `красный`;<br/>`green` / `зел` / `зеленый`;<br/>`blue` / `син` / `синий`;<br/>`grey` / `gray` / `сер`;<br/>`yellow` / `жел` | ```!!(син)Текст синего цвета!!``` | ![](../../_assets/tracker/format/colored.png)
+Цветной текст.<br/><br/>Поддерживаются цвета:<br/><br/>`red` / `крас` / `красный`;<br/>`green` / `зел` / `зеленый`;<br/>`blue` / `син` / `синий`;<br/>`grey` / `gray` / `сер`;<br/>`yellow` / `жел`. | ```!!(син)Текст синего цвета!!``` | ![](../../_assets/tracker/format/colored.png)
 Нумерованный список | ```1. Пункт списка.```<br/>```2. Пункт списка.```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`1. Подпункт.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`2. Подпункт.`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`3. Подпункт.`<br/>```3. Пункт списка.``` | ![](../../_assets/tracker/format/numerated-list-exampe.png)
 Маркированный список | ```* пункт списка;```<br/>```* пункт списка:```<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* подпункт;`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`* подпункт;`<br/>```* пункт списка.``` | ![](../../_assets/tracker/format/unordered-list-exampe.png)
 Ссылка | ```((http://example.com/ текст ссылки))``` | ![](../../_assets/tracker/format/hyperlink.png)
@@ -28,7 +28,6 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 Цитирование текста | ```<[Цитирование текста,```<br/>```длинного,```<br/>```с переносами]>``` | ![](../../_assets/tracker/format/quote.png)
 Однострочное цитирование | ```>Однострочное цитирование```<br/>```>>Цитата второго уровня``` | ![](../../_assets/tracker/format/inline-quote.png)
 Текст под катом | ```<{Прочитать целиком```<br/>```Этот текст можно увидеть, кликнув```<br/>```по ссылке "прочитать целиком".```<br/>```}>``` | ![](../../_assets/tracker/format/cut.png)
-Таблица | ```#|```<br/>```||cell 11|cell 12|cell 13||```<br/>```||cell 21|cell 22||```<br/>```#|``` | ![](../../_assets/tracker/format/table.png)
+Таблица | ```#\|```<br/>```\|\|cell 11\|cell 12\|cell 13\|\|```<br/>```\|\|cell 21\|cell 22\|\|```<br/>```\|#``` | ![](../../_assets/tracker/format/table.png)
 Исходный код | ```%%фрагмент кода%%``` | ![](../../_assets/tracker/format/source-code-2.png)
 Экранирование элементов вики-разметки | ```""**Экранирование всех элементов**```<br/>```//разметки в тексте//""```<br/>```~**Экранирование одного** //элемента разметки//``` | ![](../../_assets/tracker/format/escaping.png)
-

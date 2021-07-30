@@ -20,7 +20,8 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Security group's name.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 |`--rule-id`|<b>`string`</b><br/> security group rule ID for update|
-|`--description`|<b>`string`</b><br/> New description for the security group rule. --labels key=value[,key=value...] New set of labels for the security group rule as key-value pairs. Existing set of labels will be completely overwritten.|
+|`--description`|<b>`string`</b><br/> New description for the security group rule.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the security group rule as key-value pairs. Existing set of labels will be completely overwritten.|
 
 #### Flags
 

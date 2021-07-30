@@ -1,7 +1,4 @@
 ---
-title: "Method OperationService. API Reference in Yandex IoT Core"
-description: "A set of methods for managing operations in asynchronous API requests of the Yandex IoT Core service. Links are specified relative to the operation.api.cloud.yandex.net domain."
-
 editable: false
 
 __system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}

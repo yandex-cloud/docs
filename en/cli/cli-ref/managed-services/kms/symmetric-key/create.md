@@ -17,7 +17,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--name`|<b>`string`</b><br/> Name of a symmetric key.|
-|`--description`|<b>`string`</b><br/> Description of a symmetric key. --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
+|`--description`|<b>`string`</b><br/> Description of a symmetric key.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--default-algorithm`|<b>`string`</b><br/> Specifies default symmetric key version algorithm. Values: 'aes-128', 'aes-192', 'aes-256', 'aes-256-hsm'|
 |`--rotation-period`|<b>`duration`</b><br/> Rotation period for symmetric key version.|
 |`--deletion-protection`| Inhibits deletion of a symmetric key.|

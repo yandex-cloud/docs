@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Пошаговые инструкции
+# Пошаговые инструкции для {{ data-transfer-name }}
 
 - [{#T}](prepare.md)
 - [{#T}](source-endpoint.md)

@@ -50,7 +50,7 @@ labels | **object**<br><p>Custom labels for the secret as ``key:value`` pairs. M
 kmsKeyId | **string**<br><p>Optional ID of the KMS key will be used to encrypt and decrypt the secret.</p> <p>The maximum string length in characters is 50.</p> 
 versionDescription | **string**<br><p>Description of the first version.</p> <p>The maximum string length in characters is 256.</p> 
 versionPayloadEntries[] | **object**<br><p>Payload entries added to the first version.</p> <p>The maximum number of elements is 32.</p> 
-versionPayloadEntries[].<br>key | **string**<br><p>Required. Non-confidential key of the entry.</p> <p>The maximum string length in characters is 256. Value must match the regular expression ``[.-_0-9a-zA-Z]+``.</p> 
+versionPayloadEntries[].<br>key | **string**<br><p>Required. Non-confidential key of the entry.</p> <p>The maximum string length in characters is 256. Value must match the regular expression ``[-_./\\@0-9a-zA-Z]+``.</p> 
 versionPayloadEntries[].<br>textValue | **string** <br>`versionPayloadEntries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Use the field to set a text value.</p> <p>The maximum string length in characters is 65536.</p> 
 versionPayloadEntries[].<br>binaryValue | **string** (byte) <br>`versionPayloadEntries[]` includes only one of the fields `textValue`, `binaryValue`<br><br><p>Use the field to set a binary value.</p> <p>The maximum string length in characters is 65536.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Flag that inhibits deletion of the secret.</p> 

@@ -21,7 +21,8 @@ Syntax:
 |`--description`|<b>`string`</b><br/> Cluster description.|
 |`--environment`|<b>`string`</b><br/> Cluster environment. Values: production, prestable.|
 |`--network-id`|<b>`string`</b><br/> Network id.|
-|`--network-name`|<b>`string`</b><br/> Network name. --host PROPERTY=VALUE[,PROPERTY=VALUE...] Individual configurations for hosts that should be created for the Redis cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  |
+|`--network-name`|<b>`string`</b><br/> Network name.|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Individual configurations for hosts that should be created for the Redis cluster.  Possible property names:  zone-id ID of the availability zone where the host resides.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  |
 |`--redis-version`|<b>`string`</b><br/> Version of Redis used in the cluster. Values: 5.0, 6.0|
 |`--password`|<b>`string`</b><br/> Authentication password.|
 |`--max-memory-policy`|<b>`string`</b><br/> Redis maxmemory setting. Values: 'volatile-lru', 'allkeys-lru', 'volatile-lfu', 'allkeys-lfu', 'volatile-random', 'allkeys-random', 'volatile-ttl', 'noeviction'|
@@ -34,8 +35,10 @@ Syntax:
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|
 |`--disk-type-id`|<b>`string`</b><br/> Disk type id (e.g., network-ssd).|
 |`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
-|`--datalens-access`| Allow access for DataLens --labels key=value[,key=value...] A list of label KEY=VALUE pairs to add.|
-|`--enable-tls`| Enables tls for Redis cluster. --security-group-ids value[,value] A list of security groups for the Redis cluster.|
+|`--datalens-access`| Allow access for DataLens|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
+|`--enable-tls`| Enables tls for Redis cluster.|
+|`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Redis cluster.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

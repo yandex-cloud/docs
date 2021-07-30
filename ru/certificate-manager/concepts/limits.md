@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Квоты и лимиты
+# Квоты и лимиты в {{ certificate-manager-name }}
 
 В сервисе {{ certificate-manager-name }} действуют следующие ограничения:
 
