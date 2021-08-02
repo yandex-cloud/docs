@@ -52,8 +52,11 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
       - Select the host type: it defines the [guaranteed vCPU performance](../../compute/concepts/performance-levels.md). **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
       - Select the amount of RAM for the host.
       - Select the disk size. The available disk size depends on the amount of RAM and is limited by [quotas and limits](../concepts/limits.md#limits). The minimum disk size is twice the selected amount of RAM, while the maximum disk size is 8 times the selected amount of RAM.
+
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
+
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
   1. Under **Hosts**, click **Add host** and select the availability zone and subnet to connect the host to. Create the necessary number of hosts. To change the availability zone and the added host, click the pencil icon in the host line.
 
      If you enabled sharding, enter names for the shards.
@@ -121,9 +124,10 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   * Security group IDs in the parameter `securityGroupIds`.
   * The `tlsEnabled=true` flag to create a cluster with support for encrypted TLS/SSL connections (for {{ RD }} version 6 or higher).
 
+
 - Terraform
 
-  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
   If you don't have {{ TF }}, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -134,7 +138,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
-       Sample configuration file structure for creating clusters with TLS support:
+       Example configuration file structure for creating clusters with TLS support:
 
        ```hcl
        terraform {
@@ -151,7 +155,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
          folder_id = "<folder ID>"
          zone      = "<availability zone>"
        }
-       
+
        resource "yandex_mdb_redis_cluster" "<cluster name>" {
          name               = "<cluster name>"
          environment        = "<PRESTABLE or PRODUCTION>"
@@ -197,7 +201,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+       After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -269,7 +273,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       }
     }
   }
-  
+    
   provider "yandex" {
     token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
@@ -322,7 +326,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     }
   }
   
-  resource  "yandex_vpc_subnet" "mysubnet" {
+  resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
     network_id     = yandex_vpc_network.mynet.id
@@ -339,6 +343,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 * Terraform
 
     Let's say we need to create a [sharded](../concepts/sharding.md) {{RD}} cluster with the following characteristics:
+    
     * Named `myredis`.
     * In the `PRODUCTION` environment.
     * In the cloud with the ID `{{ tf-cloud-id }}`.

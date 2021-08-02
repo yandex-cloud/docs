@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# View monitoring charts
+# Viewing monitoring charts
 
 You can view charts for the following metrics:
 

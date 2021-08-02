@@ -10,7 +10,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ## Запрос {#request}
 
 ```
-DELETE /{bucket} HTTP/1.1
+DELETE /{bucket} HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

@@ -1,20 +1,6 @@
 1. At the beginning of the configuration file, specify the provider settings.
 
-   {% note info %}
-
-   The provider settings were tested on Terraform `0.14`.
-
-   {% endnote %}
-
-   ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
-
+   ```
    provider "yandex" {
      token     = "<OAuth>"
      cloud_id  = "<cloud ID>"
@@ -22,9 +8,9 @@
      zone      = "ru-central1-a"
    }
    ```
-
+   
    * `provider`: The provider name.
-   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access Yandex.Cloud.
+   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access {{ yandex-cloud }}.
    * `cloud_id`: ID of the cloud where Terraform will create resources.
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where resources will be created by default.
    * `zone`: The availability zone where all cloud resources will be created by default.

@@ -12,8 +12,8 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 
 In {{ mes-name }}, you can perform all these types of queries using the following tools:
 
-- [URI queries](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-your-data.html#run-uri-search), in which a Lucene query string is passed in the GET parameter: `?q=<query string>`.
-- [JSON queries](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-your-data.html#run-request-body-search) written using [{{ ES }} QueryDSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html).
+- [JSON queries](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html) written using [{{ ES }} QueryDSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html).
+- [URI queries](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-uri-request.html), in which a Lucene query string is passed in the GET parameter: `?q=<query string>`.
 - [SQL queries](https://www.elastic.co/guide/en/elasticsearch/reference/current/sql-overview.html). {{ ES }} fully supports SQL queries without requiring any intermediary between itself and SQL.
 
 Some search features in {{ ES }}:

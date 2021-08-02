@@ -16,7 +16,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
   
 - CLI
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](https://cloud.yandex.ru/docs/cli/quickstart#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](../../cli/quickstart.md#install).
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   

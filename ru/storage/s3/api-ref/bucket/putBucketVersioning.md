@@ -13,7 +13,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ## Запрос {#request}
 
 ```
-PUT /{bucket}?versioning HTTP/1.1
+PUT /{bucket}?versioning HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

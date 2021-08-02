@@ -84,8 +84,6 @@ After creating a cluster, you can:
 
 - Terraform
 
-    To change the [host class](../concepts/instance-types.md) for the cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -185,8 +183,6 @@ After creating a cluster, you can:
 
 - Terraform
 
-    To increase the storage size for a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -240,8 +236,6 @@ After creating a cluster, you can:
   1. Click **Save changes**.
 
 - Terraform
-
-    To change [cluster settings](../concepts/settings-list.md#dbms-cluster-settings):
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -373,8 +367,6 @@ After creating a cluster, you can:
 
 - Terraform
 
-    To change additional cluster settings:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -454,8 +446,6 @@ After creating a cluster, you can:
       ```
 
 - Terraform
-
-    To change cluster security groups:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

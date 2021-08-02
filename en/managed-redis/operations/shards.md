@@ -94,8 +94,6 @@ The cluster name and ID can be requested with a [list of clusters in the folder]
 
 - Terraform
 
-    To add a shard to a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](./cluster-create.md).

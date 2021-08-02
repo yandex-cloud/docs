@@ -106,8 +106,6 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
 - Terraform
 
-    To change the {{ CH }} version:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).

@@ -112,16 +112,16 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
   
       ```bash
       {{ yc-mdb-pg }} cluster create \
-      --name <имя кластера> \
-      --environment <окружение, prestable или production> \
-      --network-name <имя сети> \
-      --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-      --resource-preset <класс хоста> \
-      --user name=<имя пользователя>,password=<пароль пользователя> \
-      --database name=<имя базы данных>,owner=<имя владельца базы данных> \
-      --disk-size <размер хранилища в гигабайтах> \
-      --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
-      --security-group-ids <список идентификаторов групп безопасности>
+        --name <имя кластера> \
+        --environment <окружение, prestable или production> \
+        --network-name <имя сети> \
+        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+        --resource-preset <класс хоста> \
+        --user name=<имя пользователя>,password=<пароль пользователя> \
+        --database name=<имя базы данных>,owner=<имя владельца базы данных> \
+        --disk-size <размер хранилища в гигабайтах> \
+        --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
+        --security-group-ids <список идентификаторов групп безопасности>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -268,17 +268,17 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
   
   ```
-  $ {{ yc-mdb-pg }} cluster create \
-       --name mypg \
-       --environment production \
-       --network-name default \
-       --resource-preset {{ host-class }} \
-       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
-       --disk-type {{ disk-type-example }} \
-       --disk-size 20 \
-       --user name=user1,password=user1user1 \
-       --database name=db1,owner=user1 \
-       --security-group-ids {{ security-group }}
+  {{ yc-mdb-pg }} cluster create \
+    --name mypg \
+    --environment production \
+    --network-name default \
+    --resource-preset {{ host-class }} \
+    --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+    --disk-type {{ disk-type-example }} \
+    --disk-size 20 \
+    --user name=user1,password=user1user1 \
+    --database name=db1,owner=user1 \
+    --security-group-ids {{ security-group }}
   ```
 
 - Terraform

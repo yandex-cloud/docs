@@ -12,17 +12,17 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 Чтобы настроить хранение состояний Terraform в {{ objstorage-name }} и использовать его для создания новых ресурсов:
 
-1. [Подготовьте облако к работе](#before-you-begin)
-1. [Необходимые платные ресурсы](#paid-resources)
-1. [Установите Terraform](#install-terraform)
-1. [Создайте файл конфигурации Terraform](#configure-terraform)
-1. [Настройте провайдер](#configure-provider)
-1. [Создайте сервисный аккаунт и статический ключ доступа](#create-service-account)
-1. [Создайте бакет](#create-service-account)
-1. [Настройте бэкенд](#set-up-backend)
-1. [Разверните конфигурацию](#deploy)
-1. [Проверьте сохраненное состояние](#set-up-backend)
-1. [Получите состояние из бэкенда](#retrieve-state)
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Необходимые платные ресурсы](#paid-resources).
+1. [Установите Terraform](#install-terraform).
+1. [Создайте файл конфигурации Terraform](#configure-terraform).
+1. [Настройте провайдер](#configure-provider).
+1. [Создайте сервисный аккаунт и статический ключ доступа](#create-service-account).
+1. [Создайте бакет](#create-service-account).
+1. [Настройте бэкенд](#set-up-backend).
+1. [Разверните конфигурацию](#deploy).
+1. [Проверьте сохраненное состояние](#set-up-backend).
+1. [Получите состояние из бэкенда](#retrieve-state).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

@@ -15,7 +15,7 @@ ACL можно загрузить в виде XML-документа или с �
 ## Запрос {#request}
 
 ```
-PUT /{bucket}?acl HTTP/1.1
+PUT /{bucket}?acl HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

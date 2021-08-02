@@ -1,0 +1,66 @@
+---
+editable: false
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
+
+
+# LogIngestionService
+
+A set of methods for writing to log groups.
+
+| Call | Description |
+| --- | --- |
+| [Write](#Write) | Write log entries to specified destination. |
+
+## Calls LogIngestionService {#calls}
+
+## Write {#Write}
+
+Write log entries to specified destination.
+
+**rpc Write ([WriteRequest](#WriteRequest)) returns ([WriteResponse](#WriteResponse))**
+
+### WriteRequest {#WriteRequest}
+
+Field | Description
+--- | ---
+destination | **[Destination](#Destination)**<br>Required. Log entries destination. <br>See [Destination](#Destination) for details. 
+resource | **[LogEntryResource](#LogEntryResource)**<br>Common resource (type, ID) specification for log entries. 
+entries[] | **[IncomingLogEntry](#IncomingLogEntry)**<br>List of log entries. The maximum number of elements is 100.
+
+
+### Destination {#Destination}
+
+Field | Description
+--- | ---
+destination | **oneof:** `log_group_id` or `folder_id`<br>Entry destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. The maximum string length in characters is 64.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for the folder. The maximum string length in characters is 64.
+
+
+### LogEntryResource {#LogEntryResource}
+
+Field | Description
+--- | ---
+type | **string**<br>Resource type, i.e., `serverless.function` Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? `.
+id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? `.
+
+
+### IncomingLogEntry {#IncomingLogEntry}
+
+Field | Description
+--- | ---
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the entry. 
+level | **[LogLevel.Level](#LogLevel)**<br>Entry severity. <br>See [LogLevel.Level](#LogLevel) for details. 
+message | **string**<br>Entry text message. The maximum string length in characters is 65536.
+json_payload | **google.protobuf.Struct**<br>Entry annotation. 
+
+
+### WriteResponse {#WriteResponse}
+
+Field | Description
+--- | ---
+errors | **map<int64,google.rpc.Status>**<br>Map<idx, status> of ingest failures. <br>If entry with idx N is absent, it was ingested successfully. 
+
+

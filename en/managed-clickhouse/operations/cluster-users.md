@@ -126,8 +126,6 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
 
 - Terraform
 
-    To create a user in a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -206,8 +204,6 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
-
-    To change the user's password:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -459,8 +455,6 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
-
-    To delete a user:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

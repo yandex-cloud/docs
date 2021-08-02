@@ -10,7 +10,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ## Запрос {#request}
 
 ```
-GET / HTTP/1.1
+GET / HTTP/2
 ```
 
 ### Заголовки {#request-headers}

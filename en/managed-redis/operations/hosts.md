@@ -113,8 +113,6 @@ The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and R
 
 - {{ TF }}
 
-    To add a host to the cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -187,8 +185,6 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
-
-    To remove a host from a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

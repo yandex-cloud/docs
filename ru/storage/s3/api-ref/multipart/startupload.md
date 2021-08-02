@@ -12,7 +12,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ## Запрос {#request}
 
 ```
-POST /{bucket}/{key}?uploads HTTP/1.1
+POST /{bucket}/{key}?uploads HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

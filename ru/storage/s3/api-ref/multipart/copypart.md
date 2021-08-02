@@ -15,7 +15,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ## Запрос {#request}
 
 ```
-PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
+PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

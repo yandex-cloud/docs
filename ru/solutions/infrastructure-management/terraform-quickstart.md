@@ -114,12 +114,12 @@ resource "yandex_compute_instance" "vm-1" {
 
 ## Проверьте и отформатируйте файлы конфигураций {#check-resources}
 
-{% include [check-resources](../../_includes/solutions/terraform-check-resources.md)  %}
+{% include [check-resources](../../_includes/solutions/terraform-check-resources.md) %}
 
 ## Создайте ресурсы {#create-resources}
 
-{% include [create-resources](../../_includes/solutions/terraform-create-resources.md)  %}
+{% include [create-resources](../../_includes/solutions/terraform-create-resources.md) %}
 
 ## Удалите ресурсы {#delete-resources}
 
-{% include [delete-resources](../../_includes/solutions/terraform-delete-resources.md)  %}
+{% include [delete-resources](../../_includes/solutions/terraform-delete-resources.md) %}
