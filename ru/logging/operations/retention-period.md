@@ -46,4 +46,8 @@
 	retention_period: 86400s
     ```
 
+- API
+
+    Изменить срок хранения записей в лог-группе можно с помощью метода API [update](../api-ref/LogGroup/update.md).
+
 {% endlist %}

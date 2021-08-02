@@ -23,7 +23,7 @@ criteria.resourceIds | List of resource IDs to limit log entries to.  Empty list
 criteria.since | Lower bound of log entries timestamps.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 criteria.until | Upper bound of log entries timestamps.  String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 criteria.levels | List of log levels to limit log entries to.  Empty list disables filter.  The maximum number of elements is 10.
-criteria.filter | Filter expression. See documentation at https://cloud.yandex.ru/docs/logging/concepts/filter.  The maximum string length in characters is 1000.
+criteria.filter | Filter expression. For details about filtering, see [documentation](/docs/logging/concepts/filter).  The maximum string length in characters is 1000.
 criteria.pageSize | The maximum number of results per page to return.  Acceptable values are 1 to 1000, inclusive.
  
 ## Response {#responses}
@@ -59,8 +59,8 @@ logGroupId | **string**<br><p>Log group ID the read was performed from.</p>
 entries[] | **object**<br><p>List of matching log entries.</p> 
 entries[].<br>uid | **string**<br><p>Unique entry ID.</p> <p>Useful for logs deduplication.</p> 
 entries[].<br>resource | **object**<br><p>Entry resource specification.</p> <p>May contain information about source service and resource ID. Also may be provided by the user.</p> <p>Log entry resource specification.</p> <p>May be used either by services and by user.</p> 
-entries[].<br>resource.<br>type | **string**<br><p>Resource type, i.e., ``serverless.function``</p> <p>Value must match the regular expression ``\|[a-zA-Z][-a-zA-Z0-9_.]{1,62}``.</p> 
-entries[].<br>resource.<br>id | **string**<br><p>Resource ID, i.e., ID of the function producing logs.</p> <p>Value must match the regular expression ``\|[a-zA-Z][-a-zA-Z0-9_.]{1,62}``.</p> 
+entries[].<br>resource.<br>type | **string**<br><p>Resource type, i.e., ``serverless.function``</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{1,62})?``.</p> 
+entries[].<br>resource.<br>id | **string**<br><p>Resource ID, i.e., ID of the function producing logs.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{1,62})?``.</p> 
 entries[].<br>timestamp | **string** (date-time)<br><p>Timestamp of the entry.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 entries[].<br>ingestedAt | **string** (date-time)<br><p>Entry ingestion time observed by ``LogIngestion``.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 entries[].<br>savedAt | **string** (date-time)<br><p>Entry save time.</p> <p>Entry is ready to be read since this moment.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

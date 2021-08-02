@@ -49,4 +49,8 @@
     retention_period: 3600s
     ```
 
+- API
+
+    Создать пользовательскую лог-группу можно с помощью метода API [create](../api-ref/LogGroup/create.md).
+
 {% endlist %}

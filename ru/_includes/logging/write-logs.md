@@ -23,4 +23,8 @@
 	* `--level` — уровень логирования.
 	* `--json-payload` — дополнительная иннформация в формате JSON.
 
+- API
+
+	Добавить записи в лог-группу можно с помощью метода API [write](../../logging/api-ref/LogIngestion/write.md).
+
 {% endlist %}

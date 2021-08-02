@@ -37,4 +37,8 @@
     retention_period: 3600s
     ```
 
+- API
+
+    Удалить пользовательскую лог-группу можно с помощью метода API [delete](../api-ref/LogGroup/delete.md).
+
 {% endlist %}

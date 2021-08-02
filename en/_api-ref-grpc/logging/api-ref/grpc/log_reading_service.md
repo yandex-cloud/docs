@@ -37,7 +37,7 @@ resource_ids[] | **string**<br>List of resource IDs to limit log entries to. <br
 since | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Lower bound of log entries timestamps. 
 until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Upper bound of log entries timestamps. 
 levels[] | **[LogLevel.Level](#LogLevel)**<br>List of log levels to limit log entries to. <br>Empty list disables filter. The maximum number of elements is 10.
-filter | **string**<br>Filter expression. See documentation at https://cloud.yandex.ru/docs/logging/concepts/filter. The maximum string length in characters is 1000.
+filter | **string**<br>Filter expression. For details about filtering, see [documentation](/docs/logging/concepts/filter). The maximum string length in characters is 1000.
 page_size | **int64**<br>The maximum number of results per page to return. Acceptable values are 1 to 1000, inclusive.
 
 
@@ -69,7 +69,7 @@ json_payload | **google.protobuf.Struct**<br>Entry annotation.
 
 Field | Description
 --- | ---
-type | **string**<br>Resource type, i.e., `serverless.function` Value must match the regular expression ` |[a-zA-Z][-a-zA-Z0-9_.]{1,62} `.
-id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` |[a-zA-Z][-a-zA-Z0-9_.]{1,62} `.
+type | **string**<br>Resource type, i.e., `serverless.function` Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? `.
+id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? `.
 
 

@@ -34,6 +34,10 @@
     +---------+--------------+-----------------------+
 	```
 
+- API
+
+    Посмотреть [роли](../security/index.md#roles), назначенные на [пользовательскую лог-группу](../concepts/log-group.md), можно с помощью метода API [listAccessBindings](../api-ref/LogGroup/listAccessBindings.md).
+
 {% endlist %}
 
 ## Назначить роли на лог-группу {#add-access}
@@ -78,6 +82,10 @@
         done (1s)
         ```
 
+- API
+
+    Назначить [роли](../security/index.md#roles) на [пользовательскую лог-группу](../concepts/log-group.md) можно с помощью метода API [setAccessBindings](../api-ref/LogGroup/setAccessBindings.md).
+
 {% endlist %}
 
 ## Отозвать роли, назначенные на лог-группу {#revoke}
@@ -121,5 +129,9 @@
         ```
         done (1s)
         ```
+
+- API
+
+    Отозвать [роли](../security/index.md#roles), назначенные на [пользовательскую лог-группу](../concepts/log-group.md), можно с помощью метода API [updateAccessBindings](../api-ref/LogGroup/updateAccessBindings.md).
 
 {% endlist %}

@@ -155,7 +155,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to create a log group in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 64.
-name | **string**<br>Name of the log group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
+name | **string**<br>Name of the log group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{1,61}[a-z0-9])?)? `.
 description | **string**<br>Description of the log group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Log group labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. Must be at least `1h`. Acceptable values are 1h to 168h, inclusive.
@@ -215,7 +215,7 @@ Field | Description
 --- | ---
 log_group_id | **string**<br>Required. ID of the log group to update. <br>To get a log group ID make a [LogGroupService.List](#List) request. The maximum string length in characters is 64.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the function should be updated. 
-name | **string**<br>New name of the log group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
+name | **string**<br>New name of the log group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{1,61}[a-z0-9])?)? `.
 description | **string**<br>New Description of the log group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>New log group labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>New log group entry retention period. <br>Entries will be present in group during this period. Must be at least `1h`. Acceptable values are 1h to 168h, inclusive.
