@@ -123,7 +123,7 @@ To connect to a cluster:
 
 1. Explore the data with Kibana and {{ ES }} by clicking **View data** for the dataset of interest.
 
-To learn more about Kibana, see the [documentation for {{ ES }}](https://www.elastic.co/guide/en/kibana/current/tutorial-sample-data.html).
+To learn more about Kibana, see the [documentation for {{ ES }}](https://www.elastic.co/guide/en/kibana/current/connect-to-elasticsearch.html).
 
 ## What's next {#whats-next}
 
