@@ -33,8 +33,6 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 
     {% endnote %}
 
-    To add a shard to a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -159,8 +157,6 @@ When you delete a shard, all tables and data that are saved on that shard are de
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
 
 - Terraform
-
-    To delete a shard from a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

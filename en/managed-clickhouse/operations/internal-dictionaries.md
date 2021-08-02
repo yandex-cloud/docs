@@ -60,8 +60,6 @@ To create a geobase:
 
 - Terraform
 
-    To connect a geobase to a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).

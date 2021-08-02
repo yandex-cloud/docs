@@ -95,8 +95,6 @@ There are no limits to the number of databases in a cluster.
 
 - Terraform
 
-    To create a database in a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -169,8 +167,6 @@ There are no limits to the number of databases in a cluster.
   The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
 
 - Terraform
-
-    To delete a database from a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

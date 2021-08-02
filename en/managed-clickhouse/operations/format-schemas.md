@@ -53,8 +53,6 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
 - Terraform
 
-    To add a format schema to a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -121,8 +119,6 @@ To update the contents of a schema that is already connected to the cluster:
 
     - Terraform
 
-        To change a format schema:
-
         1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
             For information about how to create this file, see [{#T}](cluster-create.md).
@@ -183,8 +179,6 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
   The schema name can be requested with a [list of format schemas in the cluster](#list-format-schemas); the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
-
-    To disable a format schema:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

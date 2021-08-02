@@ -55,8 +55,6 @@ Note:
 
 - Terraform
 
-    To enable fault tolerance for a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -228,8 +226,6 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
 - Terraform
 
-    To add a {{ ZK }} host to a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -292,8 +288,6 @@ The following characteristics are set for the {{ ZK }} hosts by default:
   The host name can be requested with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
-
-    To delete a {{ ZK }} host from a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

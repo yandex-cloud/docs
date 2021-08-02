@@ -98,8 +98,6 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
 - Terraform
 
-    To create a shard group:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -177,8 +175,6 @@ You can group several [shards](../concepts/sharding.md) of the cluster {{ CH }} 
 
 - Terraform
 
-    To change a shard group:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -254,8 +250,6 @@ Tables created on the deleted group are kept, but they are disabled and attempts
   The name of the shard group can be requested with [a list of shard groups in the cluster](#list-shard-groups).
 
 - Terraform
-
-    To delete a shard group:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
