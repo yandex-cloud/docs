@@ -5,7 +5,7 @@
 ## Запрос {#request}
 
 ```bash
-GET /{bucket}?policy HTTP/1.1
+GET /{bucket}?policy HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

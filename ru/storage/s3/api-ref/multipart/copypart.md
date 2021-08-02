@@ -12,7 +12,7 @@ description: "Метод copyPart в Object Storage API (S3) копирует ч
 ## Запрос {#request}
 
 ```
-PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
+PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

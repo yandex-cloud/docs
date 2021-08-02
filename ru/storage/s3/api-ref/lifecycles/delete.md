@@ -5,7 +5,7 @@
 ## Запрос {#request}
 
 ```
-DELETE /{bucket}?lifecycle HTTP/1.1
+DELETE /{bucket}?lifecycle HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

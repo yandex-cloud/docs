@@ -5,7 +5,7 @@
 ## Запрос {#request}
 
 ```
-GET /{bucket}?cors HTTP/1.1
+GET /{bucket}?cors HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

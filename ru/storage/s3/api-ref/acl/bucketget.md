@@ -6,7 +6,7 @@
 ## Запрос {#request}
 
 ```
-GET /{bucket}?acl HTTP/1.1
+GET /{bucket}?acl HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

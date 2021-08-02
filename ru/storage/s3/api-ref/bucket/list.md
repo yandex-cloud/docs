@@ -6,7 +6,7 @@
 ## Запрос {#request}
 
 ```
-GET / HTTP/1.1
+GET / HTTP/2
 ```
 
 ### Заголовки {#request-headers}

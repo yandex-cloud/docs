@@ -6,7 +6,7 @@
 ## Запрос {#request}
 
 ```
-GET /{bucket}/{key} HTTP/1.1
+GET /{bucket}/{key} HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

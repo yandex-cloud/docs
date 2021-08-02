@@ -5,7 +5,7 @@
 ## Запрос {#request}
 
 ```bash
-DELETE /{bucket}?policy HTTP/1.1
+DELETE /{bucket}?policy HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

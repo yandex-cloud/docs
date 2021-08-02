@@ -6,7 +6,7 @@
 ## Запрос {#request}
 
 ```
-GET /{bucket}?encryption HTTP/1.1
+GET /{bucket}?encryption HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

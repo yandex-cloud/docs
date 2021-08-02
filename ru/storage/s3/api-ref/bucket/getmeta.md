@@ -12,7 +12,7 @@
 ## Запрос {#request}
 
 ```
-HEAD /{bucket} HTTP/1.1
+HEAD /{bucket} HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

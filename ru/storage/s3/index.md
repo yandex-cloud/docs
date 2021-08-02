@@ -26,7 +26,7 @@ keywords:
 ## Общий вид запроса к API {#common-request-form}
 
 ```
-{GET|HEAD|PUT|DELETE} /<bucket>/<key> HTTP/1.1
+{GET|HEAD|PUT|DELETE} /<bucket>/<key> HTTP/2
 Host: {{ s3-storage-host }}
 Content-Length: length
 Date: date
@@ -38,7 +38,7 @@ Request_body
 Имя бакета можно указать как часть имени хоста. В этом случае запрос примет вид:
 
 ```
-{GET|HEAD|PUT|DELETE} /<key>} HTTP/1.1
+{GET|HEAD|PUT|DELETE} /<key>} HTTP/2
 Host: <bucket>.{{ s3-storage-host }}
 ...
 ```

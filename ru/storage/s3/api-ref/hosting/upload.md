@@ -5,7 +5,7 @@
 ## Запрос {#request}
 
 ```bash
-PUT /{bucket}?website HTTP/1.1
+PUT /{bucket}?website HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

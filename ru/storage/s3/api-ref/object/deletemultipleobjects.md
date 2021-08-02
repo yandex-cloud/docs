@@ -18,7 +18,7 @@
 ## Запрос {#request}
 
 ```
-POST /{bucket}?delete HTTP/1.1
+POST /{bucket}?delete HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

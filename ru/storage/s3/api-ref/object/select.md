@@ -24,7 +24,7 @@
 ## Запрос {#request}
 
 ```
-POST /{bucket}/{key}?select&select-type=2 HTTP/1.1
+POST /{bucket}/{key}?select&select-type=2 HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

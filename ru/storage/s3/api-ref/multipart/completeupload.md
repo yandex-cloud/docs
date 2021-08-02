@@ -17,7 +17,7 @@
 ## Запрос {#request}
 
 ```
-POST /{bucket}/{key}?uploadId=UploadId HTTP/1.1
+POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

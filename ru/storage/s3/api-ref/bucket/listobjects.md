@@ -19,7 +19,7 @@
 ### Запрос {#requestV2}
 
 ```
-GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimiter&encoding-type=EncodingType&max-keys=MaxKeys&prefix=Prefix&start-after=StartAfter HTTP/1.1
+GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimiter&encoding-type=EncodingType&max-keys=MaxKeys&prefix=Prefix&start-after=StartAfter HTTP/2
 ```
 
 #### Path параметры {#path-parametersV2}
@@ -112,7 +112,7 @@ GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimit
 ### Запрос {#requestV1}
 
 ```
-GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-keys=MaxKeys&prefix=Prefix HTTP/1.1
+GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-keys=MaxKeys&prefix=Prefix HTTP/2
 ```
 
 #### Path параметры {#path-parametersV1}

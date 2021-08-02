@@ -6,7 +6,7 @@
 ## Запрос {#request}
 
 ```
-DELETE /{bucket}?cors HTTP/1.1
+DELETE /{bucket}?cors HTTP/2
 ```
 
 ### Path параметры {#path-parameters}
