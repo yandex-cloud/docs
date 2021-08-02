@@ -48,15 +48,15 @@ items:
   items:
     - name: Аутентификация
       href: api-authentication.md
-    - name: gRPC
+    - name: gRPC (англ.)
       items: null
       include:
         repo: docs
-        path: ru/_api-ref-grpc/organization-manager/toc.yaml
-#    - name: REST
-#      items: null
-#      include:
-#        repo: docs
-#        path: ru/_api-ref/organizationmanager/toc.yaml
+        path: en/_api-ref-grpc/organization-manager/toc.yaml
+    - name: REST (англ.)
+      items: null
+      include:
+        repo: docs
+        path: en/_api-ref/organizationmanager/toc.yaml
 - name: Правила тарификации
   href: pricing.md
