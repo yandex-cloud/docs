@@ -31,9 +31,11 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
+
 {% if audience != "internal" %}
 
   1. Select **{{ mch-name }}**.
+
 {% endif %}
 
   1. Click **Create cluster**.
@@ -43,29 +45,29 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
   1. From the **Version** drop-down list, select the version of {{ CH }} which the {{ mch-name }} cluster will use:
      1. For most clusters, it's recommended to select the latest LTS version.
      1. If you plan to use hybrid storage in a cluster, it's recommended to select the latest version. This type of storage is supported starting from {{ CH }} {{ mch-hs-version }}.
-
+  
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
       - `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-
+  
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
-
+  
   1. Under **Storage size**:
 
       {% if audience != "internal" %}
 
-      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**).
+      - Select the type of storage, either a more flexible network type (`network-hdd` or `network-ssd`) or faster local SSD storage (`local-ssd`).
 
         When selecting a storage type, remember that:
         - The size of the local storage can only be changed in 100 GB increments.
-        - If you plan to use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, you can select only one of the network storages in this section: **network-ssd** or **network-hdd**.
+        - If you plan to use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, you can select only one of the network storages in this section: `network-ssd` or `network-hdd`.
 
       {% endif %}
-	  
+
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
-  
+
       - DB name.
       - Username.
       - User password. At least 8 characters.
@@ -185,14 +187,14 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 
 - Terraform
 
-  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
-  If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform yet, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
-       * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
+       * Database cluster: Description of the cluster and its hosts. If necessary, you can also configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) here.
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
@@ -209,7 +211,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
            resources {
              resource_preset_id = "<host class>"
              disk_type_id       = "<storage type>"
-             disk_size          = <storage size in GB>
+             disk_size          = <storage size, GB>
            }
          }
        
@@ -295,7 +297,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
   {% if audience != "internal" %}
-  
+
   - Named `mych`.
   - In the `production` environment.
   - In the `default` network.
@@ -440,3 +442,4 @@ If you specified security group IDs when creating a cluster, you may also need t
   ```
 
 {% endlist %}
+

@@ -8,7 +8,7 @@ In this example, the saved state lets other users get the ID of one of the creat
 
 To configure Terraform state storage in {{ objstorage-name }} and use it to create new resources:
 
-1. [Before you start](#before-begin).
+1. [Before you start](#before-you-begin).
 1. [Required paid resources](#paid-resources).
 1. [Install Terraform](#install-terraform).
 1. [Create a Terraform configuration file](#configure-terraform).
@@ -22,9 +22,9 @@ To configure Terraform state storage in {{ objstorage-name }} and use it to crea
 
 If you no longer need the created resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
-To deploy an infrastructure using Terraform, sign in to Yandex.Cloud and create a billing account:
+To deploy an infrastructure using Terraform, sign in to {{ yandex-cloud }} and create a billing account:
 
 {% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 
@@ -48,7 +48,7 @@ The cost of supporting this infrastructure includes:
 
 ## Install Terraform {#install-terraform}
 
-{% include [terraform-install](../_solutions_includes/terraform-install.md) %}
+{% include [terraform-install](../../_includes/solutions/terraform-install.md) %}
 
 ## Create a Terraform configuration file {#configure-terraform}
 
@@ -57,7 +57,7 @@ The cost of supporting this infrastructure includes:
 
 ## Configure a provider {#configure-provider}
 
-{% include [terraform-configure-provider](../_solutions_includes/terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../../_includes/solutions/terraform-configure-provider.md) %}
 
 ## Create a service account and static access key {#create-service-account}
 
@@ -97,7 +97,7 @@ provider "yandex" {
   token     = "<OAuth or static key of service account>"
   cloud_id  = "<cloud ID>"
   folder_id = "<folder ID>"
-  zone      = "ru-central1-a"
+  zone      = "<default availability zone>"
 }
 ```
 
@@ -232,7 +232,7 @@ Make sure that the state file is uploaded to {{ objstorage-name }}:
 1. From the bucket list, select the bucket you saved the Terraform state to.
 1. Make sure that the state file is in the bucket.
 
-## Get the state from the backend {#retrieve-state}
+## Retrieve the state from the backend {#retrieve-state}
 
 You can request the Terraform state saved in {{ objstorage-name }} from another configuration to expand the infrastructure you created.
 
@@ -309,3 +309,4 @@ Create another configuration and use the saved state to create another VM in one
 ## Delete the created resources {#clear-out}
 
 To destroy the resources you created, run the command `terraform destroy`: start with the second configuration, and then proceed to the first.
+

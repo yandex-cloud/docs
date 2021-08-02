@@ -1,15 +1,14 @@
 # Getting started with Terraform
 
-{% include [terraform-definition](../_solutions_includes/terraform-definition.md)  %}
+{% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
-Configurations for Terraform are written to `.tf` files in HashiCorp Configuration Language (HCL).
-
-To install and configure Terraform and create your first configuration:
+To create your first Terraform configuration:
 
 1. [Install Terraform](#install-terraform)
 1. [Create a Terraform configuration file](#configure-terraform)
 1. [Configure a provider](#configure-provider)
 1. [Prepare an infrastructure plan](#prepare-plan)
+1. [Check and format the configuration files](#check-resources)
 1. [Create resources](#create-resources)
 1. [Delete resources](#delete-resources)
 
@@ -19,7 +18,7 @@ Before deploying your infrastructure, register in {{ yandex-cloud }} and create 
 
 {% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page]{% if region =="int" %}(https://console.cloud.yandex.com/cloud){% else %}(https://console.cloud.yandex.ru/cloud){% endif %}.
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -32,15 +31,15 @@ The cost of Terraform-created resources includes:
 
 ## Install Terraform {#install-terraform}
 
-{% include [terraform_install](../_solutions_includes/terraform-install.md) %}
+{% include [terraform_install](../../_includes/solutions/terraform-install.md) %}
 
 ## Create a Terraform configuration file {#configure-terraform}
 
-{% include [terraform-configure](../_solutions_includes/terraform-configure.md) %}
+{% include [terraform-configure](../../_includes/solutions/terraform-configure.md) %}
 
 ## Configure a provider {#configure-provider}
 
-{% include [terraform-configure-provider](../_solutions_includes/terraform-configure-provider.md) %}
+{% include [terraform-configure-provider](../../_includes/solutions/terraform-configure-provider.md) %}
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
@@ -80,111 +79,44 @@ provider "yandex" {
 
 resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
-
-  resources {
-    cores  = 2
-    memory = 2
-  }
-
-  boot_disk {
-    initialize_params {
-      image_id = "fd87va5cc00gaq2f5qfb"
-    }
-  }
-
-  network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-1.id
-    nat       = true
-  }
-
-  metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
-  }
-}
-
-resource "yandex_compute_instance" "vm-2" {
-  name = "terraform2"
-
-  resources {
-    cores  = 4
-    memory = 4
-  }
-
-  boot_disk {
-    initialize_params {
-      image_id = "fd87va5cc00gaq2f5qfb"
-    }
-  }
-
-  network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-1.id
-    nat       = true
-  }
-
-  metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
-  }
-}
-
-resource "yandex_vpc_network" "network-1" {
-  name = "network1"
-}
-
-resource "yandex_vpc_subnet" "subnet-1" {
-  name           = "subnet1"
-  zone           = "ru-central1-a"
-  network_id     = yandex_vpc_network.network-1.id
-  v4_cidr_blocks = ["192.168.10.0/24"]
-}
-
-output "internal_ip_address_vm_1" {
-  value = yandex_compute_instance.vm-1.network_interface.0.ip_address
-}
-
-output "internal_ip_address_vm_2" {
-  value = yandex_compute_instance.vm-2.network_interface.0.ip_address
-}
-
-
-output "external_ip_address_vm_1" {
-  value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
-}
-
-output "external_ip_address_vm_2" {
-  value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
 }
 ```
 
-### Creating users {#users}
+{% list tabs %}
 
-If you create another user, instead of passing `ssh-keys` in the `metadata` block, you can pass the user metadata in the `user-data` parameter. To do this:
+- Creating a Linux VM
 
-1. Create a text metadata file, for example:
+  {% include [terraform-prepare-plan-linux](../../_includes/solutions/terraform-prepare-plan-linux.md) %}
 
-   {% include [user-data](../../_includes/compute/user-data.md) %}
+- Creating a Windows VM
 
-1. Add the `user-data` parameter to the configuration by specifying the  the metadata file path:
+  {% include [terraform-prepare-plan-windows](../../_includes/solutions/terraform-prepare-plan-windows.md) %}
 
-   ```
-     metadata = {
-       user-data = "${file("<file path>/meta.txt")}"
-     }
-   ```
+{% endlist %}
 
-To learn more about working with metadata, see [VM instance metadata](../../compute/concepts/vm-metadata).
+### Create users {#users}
+
+{% list tabs %}
+
+- Linux
+
+  {% include [terraform-vm-user-linux](../../_includes/solutions/terraform-vm-user-linux.md) %}
+
+- Windows
+
+  {% include [terraform-vm-user-windows](../../_includes/solutions/terraform-vm-user-windows.md) %}
+
+{% endlist %}
+
+## Check and format the configuration files {#check-resources}
+
+{% include [check-resources](../../_includes/solutions/terraform-check-resources.md) %}
 
 ## Create resources {#create-resources}
 
-After the configuration is completed, run the `terraform plan` command. If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out. This is a test step. No resources are created.
-
-{% note alert %}
-
-All resources created via Terraform are charged, therefore check the plan carefully.
-
-{% endnote %}
-
-If there are no errors in the configuration, run the `terraform apply` command. Terraform will ask you to confirm the resource creation: type `yes` in the terminal and press Enter. After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+{% include [create-resources](../../_includes/solutions/terraform-create-resources.md) %}
 
 ## Delete resources {#delete-resources}
 
-To delete all resources created via Terraform, run the `terraform destroy` command. After the command has been executed, the terminal will display a list of resources that will be deleted. Type `yes` to confirm them and press Enter.
+{% include [delete-resources](../../_includes/solutions/terraform-delete-resources.md) %}
+

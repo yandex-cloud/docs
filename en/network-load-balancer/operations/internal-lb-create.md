@@ -16,7 +16,7 @@ The internal network load balancer's listener is assigned a random IP address fr
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Before creating a load balancer, [create](target-group-create.md) a target group to attach to it.
+  1. Before creating a network load balancer, [create](target-group-create.md) a target group to attach to it.
 
   1. View a description of the CLI command to create a network load balancer:
 
@@ -24,7 +24,7 @@ The internal network load balancer's listener is assigned a random IP address fr
      $ yc load-balancer network-load-balancer create --help
      ```
 
-  1. To create an internal load balancer with a [listener](../concepts/listener.md), run the following command:
+  1. To create an internal network load balancer with a [listener](../concepts/listener.md), run the following command:
 
      ```
      $ yc load-balancer network-load-balancer create \
@@ -34,7 +34,7 @@ The internal network load balancer's listener is assigned a random IP address fr
      --listener name=test-listener,port=80,internal-subnet-id=<subnet ID>
      ```
 
-  1. Get the list of all load balancers to make sure that the load balancer was created:
+  1. Get the list of all network load balancers to make sure that the network load balancer was created:
 
      ```
      $ yc load-balancer network-load-balancer list
@@ -46,7 +46,7 @@ The internal network load balancer's listener is assigned a random IP address fr
 
 - Terraform
 
-  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
   If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -58,7 +58,7 @@ The internal network load balancer's listener is assigned a random IP address fr
      * `listener`: The listener parameters.
        * `name`: The name of the listener.
        * `port`: The port to receive traffic.
-       * `intenal_address_spec`: The specification of the internal load balancer's listener.
+       * `intenal_address_spec`: The specification of the internal network load balancer's listener.
          * `subnet_id`: The subnet ID.
 
      Example configuration file structure:
@@ -103,7 +103,7 @@ The internal network load balancer's listener is assigned a random IP address fr
         ```
      2. Confirm that you want to create the resources.
 
-     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -115,7 +115,7 @@ The internal network load balancer's listener is assigned a random IP address fr
 
 - CLI
 
-  To create an internal load balancer without a listener, run the command:
+  To create an internal network load balancer without a listener, run the command:
 
   ```
   $ yc load-balancer network-load-balancer create \
@@ -132,7 +132,7 @@ The internal network load balancer's listener is assigned a random IP address fr
 
 - CLI
 
-  1. To create an internal load balancer with a [listener](../concepts/listener.md) and immediately attach a target group to it, get the list of target groups:
+  1. To create an internal network load balancer with a [listener](../concepts/listener.md) and immediately attach a target group to it, get the list of target groups:
 
      ```
      $ yc load-balancer target-group list

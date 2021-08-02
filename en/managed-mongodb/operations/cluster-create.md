@@ -40,7 +40,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. Under **Storage size**:
-      - Choose the [type of storage](../concepts/storage.md), either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+      - Select the [type of storage](../concepts/storage.md), either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
@@ -48,10 +48,10 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
       - Username.
       - User password. At least 8 characters.
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
-
+  
   1. If necessary, configure additional cluster settings:
 
      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
@@ -124,7 +124,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
 
 - Terraform
 
-  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
   If you don't have Terraform yet, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -151,7 +151,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
        folder_id = "<folder ID>"
        zone      = "<availability zone>"
      }
-     
+
      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
        name               = "<cluster name>"
        environment        = "<PRESTABLE or PRODUCTION>"
@@ -159,7 +159,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
        security_group_ids = [ "<list of security groups>" ]
      
        cluster_config {
-         version = "<MongoDB version: 4.0, 4.2, or 4.4>"
+         version = "<MongoDB version: 4.0, 4.2 or 4.4>"
        }
      
        database {
@@ -286,6 +286,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ MG }} cluster and a network for it with the following characteristics:
+
     - Named `mymg`.
     - Version `4.4`.
     - In the `PRODUCTION` environment.

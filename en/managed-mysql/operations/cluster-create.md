@@ -48,10 +48,10 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
       - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
       - User password (from 8 to 128 characters).
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-group) to connect to the cluster.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-group) to connect to the cluster.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MY }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
-
+  
   1. If necessary, configure additional cluster settings:
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -103,7 +103,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
 - Terraform
 
-  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
   If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 

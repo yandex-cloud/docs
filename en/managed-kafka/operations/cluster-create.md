@@ -11,7 +11,7 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
   To create a cluster, follow these steps:
 
   1. In the management console, select the folder where you want to create a cluster.
-
+  
   1. Select **{{ mkf-name }}**.
 
   1. Click **Create cluster**.
@@ -22,7 +22,7 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
         - `PRODUCTION`: For stable versions of your apps.
         - `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
      1. Select the {{ KF }} version.
-
+  
   1. Under **Host class**, select the platform, host type, and host class.
 
      The host class defines the technical specifications of the VMs where the [{{ KF }} brokers](../concepts/brokers.md) will be deployed. All available options are listed in [Host classes](../concepts/instance-types.md).
@@ -36,9 +36,7 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
   1. Under **Network settings**:
 
      1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) where the {{ KF }} brokers will reside.
-
      1. Select the [network](../../vpc/concepts/network.md).
-
      1. Select subnets in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new subnet** next to the desired availability zone.
 
         {% note info %}
@@ -106,7 +104,7 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
 - Terraform
 
-    {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+    {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
     If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -115,6 +113,8 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
     1. In the configuration file, describe the parameters of resources that you want to create:
 
         {% include [terraform-create-cluster-step-1](../../_includes/mdb/terraform-create-cluster-step-1.md) %}
+
+        If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
 
         Example configuration file structure:
 
@@ -128,16 +128,16 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
         }
         
         provider "yandex" {
-          token = "<OAuth or static key of service account>"
+          token     = "<OAuth or static key of service account>"
           cloud_id  = "<cloud ID>"
           folder_id = "<folder ID>"
           zone      = "<availability zone>"
         }
         
         resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-          environment = "<PRESTABLE or PRODUCTION>"
-          name        = "<cluster name>"
-          network_id  = "<network ID>"
+          environment        = "<PRESTABLE or PRODUCTION>"
+          name               = "<cluster name>"
+          network_id         = "<network ID>"
           security_group_ids = ["<list of security groups>"]
         
           config {
@@ -270,7 +270,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
-    - In the cloud with ID `{{ tf-cloud-id }}`.
+    - In the cloud with the ID `{{ tf-cloud-id }}`.
     - In the folder with the ID `{{ tf-folder-id }}`.
     - With the name `mykf`.
     - In the `PRODUCTION` environment.

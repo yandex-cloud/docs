@@ -44,14 +44,13 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       {% note info %}
 
-      When you select the host class version `12-1c` ({{ PG }} 12 for 1C), consider the number of users in your 1C:Enterprise installation:
+      Select your host class under Version `12-1c` ({{ PG }} 12 for 1C) based on the number of users in your 1C:Enterprise installation:
       * For 50 or more users connecting at the same time, we recommend using `s2.medium`.
-      * For fewer than 50 users, `s2.small` is sufficient.
+      * For fewer than 50 users `s2.small` is sufficient.
 
       {% endnote %}
 
   1. Select the host class to define the technical specifications of the VMs where the database hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
-
   1. Under **Storage size**:
 
 {% if audience != "internal" %}
@@ -126,7 +125,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       --user name=<username>,password=<user password> \
       --database name=<database name>,owner=<database owner name> \
       --disk-size <storage size in GB> \
-      --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
+      --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
       --security-group-ids <list of security group IDs>
       ```
       
@@ -144,7 +143,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       --user name=<username>,password=<user password> \
       --database name=<database name>,owner=<database owner name> \
       --disk-size <storage size in GB> \
-      --security-group-ids <comma-separated list of security group IDs>
+      --security-group-ids <list of security group IDs>
       ```
 
   {% endif %}
@@ -158,7 +157,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
 - Terraform
 
-  {% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
   If you don't have Terraform yet, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -173,9 +172,9 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
      ```
      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-       name        = "<cluster name>"
-       environment = "<PRESTABLE or PRODUCTION>"
-       network_id  = "<network ID>"
+       name               = "<cluster name>"
+       environment        = "<PRESTABLE or PRODUCTION>"
+       network_id         = "<network ID>"
        security_group_ids = [ "<list of security groups>" ]
      
        config {
@@ -188,7 +187,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
        }
      
        database {
-         name = "<database name>"
+         name  = "<database name>"
          owner = "<name of the database owner>"
        }
      
@@ -247,6 +246,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   Let's say we need to create a {{ PG }} cluster with the following characteristics:
 
   {% if audience != "internal" %}
+
   - Named `mypg`.
   - In the `production` environment.
   - In the `default` network.
@@ -257,6 +257,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   - With one `db1` database owned by the user `user1`.
 
   {% else %}
+
   - Named `mypg`.
   - In the `production` environment.
   - In the security group `{{ security-group }}`.
@@ -322,16 +323,16 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   ```go
   provider "yandex" {
-    token = "<OAuth or static key of service account>"
+    token     = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_postgresql_cluster" "mypg" {
-    name        = "mypg"
-    environment = "PRESTABLE"
-    network_id  = yandex_vpc_network.mynet.id
+    name               = "mypg"
+    environment        = "PRESTABLE"
+    network_id         = yandex_vpc_network.mynet.id
     security_group_ids = [ yandex_vpc_security_group.pgsql-sg.id ]
   
     config {
