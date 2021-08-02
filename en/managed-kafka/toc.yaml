@@ -29,6 +29,8 @@ items:
     items:
       - name: Data delivery in Managed Service for ClickHouse
         href: tutorials/send-data-to-mch.md
+      - name: Data delivery in ksqlDB
+        href: tutorials/use-ksqldb-with-mkf.md
   - name: Concepts
     items:
       - name: Relationship between service resources

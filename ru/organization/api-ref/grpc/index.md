@@ -3,14 +3,14 @@
 __system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
 ---
 # Yandex Organization Management API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
+See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Сервис | Описание
+Service | Description
 --- | ---
-[OrganizationService](./organization_service.md) | Набор методов для управления организациями.
-[UserService](./user_service.md) | Набор методов для управления пользователями организации.
-[CertificateService](./certificate_service.md) | Набор методов для управления сертификатами.
-[FederationService](./federation_service.md) | Набор методов для управления федерациями.
-[OperationService](./operation_service.md) | Набор методов для управления операциями в асинхронных запросах API. Ссылки указаны относительно домена `operation.api.cloud.yandex.net`.
+[OrganizationService](./organization_service.md) | A set of methods for managing Organization resources.
+[UserService](./user_service.md) | A set of methods for managing Organization users.
+[CertificateService](./certificate_service.md) | A set of methods for managing certificates.
+[FederationService](./federation_service.md) | A set of methods for managing federations.
+[OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

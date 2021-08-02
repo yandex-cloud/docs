@@ -9,7 +9,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ## Запрос {#request}
 
 ```bash
-PUT /{bucket}?policy HTTP/1.1
+PUT /{bucket}?policy HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

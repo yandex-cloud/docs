@@ -7,92 +7,92 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 # UserService
 
-Набор методов для управления пользователями организации.
+A set of methods for managing Organization users.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [ListMembers](#ListMembers) | Возвращает список пользователей для указанной организации. |
-| [DeleteMembership](#DeleteMembership) | Удаляет пользователя из членов организации. |
+| [ListMembers](#ListMembers) | List organization active members. |
+| [DeleteMembership](#DeleteMembership) | Delete user membership. |
 
-## Вызовы UserService {#calls}
+## Calls UserService {#calls}
 
 ## ListMembers {#ListMembers}
 
-Возвращает список пользователей для указанной организации.
+List organization active members.
 
 **rpc ListMembers ([ListMembersRequest](#ListMembersRequest)) returns ([ListMembersResponse](#ListMembersResponse))**
 
 ### ListMembersRequest {#ListMembersRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-organization_id | **string**<br>Обязательное поле. Идентификатор организации в которой будет удалено членство пользователя. Чтобы получить идентификатор организации, используйте запрос [OrganizationService.List](./organization_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListMembersResponse.next_page_token](#ListMembersResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Допустимые значения — от 0 до 1000 включительно.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListMembersResponse.next_page_token](#ListMembersResponse) прошлого запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
+organization_id | **string**<br>Required. ID of the Organization resource to list members for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListMembersResponse.next_page_token](#ListMembersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100. Acceptable values are 0 to 1000, inclusive.
+page_token | **string**<br>Page token. Set `page_token` to the [ListMembersResponse.next_page_token](#ListMembersResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
 
 
 ### ListMembersResponse {#ListMembersResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-users[] | **OrganizationUser**<br>Список пользователей запрошенной организации. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListMembersRequest.page_size](#ListMembersRequest), используйте `next_page_token` в качестве значения параметра [ListMembersRequest.page_token](#ListMembersRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+users[] | **OrganizationUser**<br>List of users for the specified organization. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListMembersResponse.page_size](#ListMembersResponse), use the `next_page_token` as the value for the [ListMembersRequest.page_token](#ListMembersRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### OrganizationUser {#OrganizationUser}
 
-Поле | Описание
+Field | Description
 --- | ---
 subject_claims | **yandex.cloud.oauth.SubjectClaims**<br>OpenID standard claims with additional Yandex.Organization claims. 
 
 
 ## DeleteMembership {#DeleteMembership}
 
-Удаляет пользователя из членов организации.
+Delete user membership.
 
 **rpc DeleteMembership ([DeleteMembershipRequest](#DeleteMembershipRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteMembershipMetadata](#DeleteMembershipMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DeleteMembershipResponse](#DeleteMembershipResponse)<br>
 
 ### DeleteMembershipRequest {#DeleteMembershipRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-organization_id | **string**<br>Обязательное поле. Идентификатор организации в которой будет удалено членство пользователя. Максимальная длина строки в символах — 50.
-subject_id | **string**<br>Идентификатор субъекта, который будет удален из организации. По-умолчанию совпадает с идентификатором субъекта вызывающиего API. Максимальная длина строки в символах — 50.
+organization_id | **string**<br>Required. ID of the organization to delete membership. The maximum string length in characters is 50.
+subject_id | **string**<br>ID of the subject that is being deleted from organization. By default equals to authenticated subject. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteMembershipMetadata](#DeleteMembershipMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteMembershipResponse](#DeleteMembershipResponse)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteMembershipMetadata](#DeleteMembershipMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteMembershipResponse](#DeleteMembershipResponse)>**<br>if operation finished successfully. 
 
 
 ### DeleteMembershipMetadata {#DeleteMembershipMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-organization_id | **string**<br>Обязательное поле. Идентификатор организации в которой будет удаляется членство пользователя. Максимальная длина строки в символах — 50.
-subject_id | **string**<br>Обязательное поле. Идентификатор субъекта удаляемого из организации. Максимальная длина строки в символах — 50.
+organization_id | **string**<br>Required. ID of the organization to delete membership. The maximum string length in characters is 50.
+subject_id | **string**<br>Required. ID of the subject that is being deleted from organization. The maximum string length in characters is 50.
 
 
 ### DeleteMembershipResponse {#DeleteMembershipResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-organization_id | **string**<br>Обязательное поле. Идентификатор организации в которой удалено членство пользователя. Максимальная длина строки в символах — 50.
-subject_id | **string**<br>Обязательное поле. Идентификатор субъекта удаленного из организации. Максимальная длина строки в символах — 50.
+organization_id | **string**<br>Required. ID of the organization to delete membership. The maximum string length in characters is 50.
+subject_id | **string**<br>Required. ID of the subject that is being deleted from organization. The maximum string length in characters is 50.
 
 

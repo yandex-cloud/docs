@@ -45,6 +45,10 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
     {% endnote %}
 
+- API
+
+    Задать фильтр можно с помощью метода API [read](../api-ref/LogReading/read.md).
+
 }
 
 #### Примеры фильтров {#examples}

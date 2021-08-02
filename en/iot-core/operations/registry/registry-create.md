@@ -61,7 +61,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 
 - Terraform
 
-   {% include [terraform-definition](../../../solutions/_solutions_includes/terraform-definition.md) %}
+   {% include [terraform-definition](../../../_includes/solutions/terraform-definition.md) %}
 
    If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -130,3 +130,4 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
       Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
 
 {% endlist %}
+

@@ -35,4 +35,64 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: LogGroupService
+            href: api-ref/grpc/log_group_service.md
+          - name: LogIngestionService
+            href: api-ref/grpc/log_ingestion_service.md
+          - name: LogReadingService
+            href: api-ref/grpc/log_reading_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: LogGroup
+            items:
+              - name: Overview
+                href: api-ref/LogGroup/index.md
+              - name: create
+                href: api-ref/LogGroup/create.md
+              - name: delete
+                href: api-ref/LogGroup/delete.md
+              - name: get
+                href: api-ref/LogGroup/get.md
+              - name: getDefault
+                href: api-ref/LogGroup/getDefault.md
+              - name: list
+                href: api-ref/LogGroup/list.md
+              - name: listAccessBindings
+                href: api-ref/LogGroup/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/LogGroup/listOperations.md
+              - name: listResources
+                href: api-ref/LogGroup/listResources.md
+              - name: setAccessBindings
+                href: api-ref/LogGroup/setAccessBindings.md
+              - name: stats
+                href: api-ref/LogGroup/stats.md
+              - name: update
+                href: api-ref/LogGroup/update.md
+              - name: updateAccessBindings
+                href: api-ref/LogGroup/updateAccessBindings.md
+          - name: LogIngestion
+            items:
+              - name: Overview
+                href: api-ref/LogIngestion/index.md
+              - name: write
+                href: api-ref/LogIngestion/write.md
+          - name: LogReading
+            items:
+              - name: Overview
+                href: api-ref/LogReading/index.md
+              - name: read
+                href: api-ref/LogReading/read.md
 base: ru/logging

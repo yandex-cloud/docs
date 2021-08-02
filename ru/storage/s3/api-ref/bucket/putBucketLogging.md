@@ -9,7 +9,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ## Запрос {#request}
 
 ```http
-PUT /{bucket}?logging HTTP/1.1
+PUT /{bucket}?logging HTTP/2
 ```
 
 ### Path-параметры {#path-parameters}

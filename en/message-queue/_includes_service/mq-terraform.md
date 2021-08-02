@@ -1,4 +1,4 @@
-{% include [terraform-definition](../../solutions/_solutions_includes/terraform-definition.md) %}
+{% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
   If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
@@ -105,5 +105,5 @@
         ```
      2. Confirm that you want to create the resources.
 
-     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}). To delete the created resources, run the `terraform destroy` command.
+     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}). To delete the created resources, run the `terraform destroy` command.
 

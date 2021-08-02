@@ -28,7 +28,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ## Запрос {#request}
 
 ```
-POST /{bucket}/{key}?select&select-type=2 HTTP/1.1
+POST /{bucket}/{key}?select&select-type=2 HTTP/2
 ```
 
 ### Path параметры {#path-parameters}

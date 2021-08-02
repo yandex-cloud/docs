@@ -12,12 +12,6 @@ The Dead Letter Queue (DLQ) is a queue for messages that consumers couldn't proc
 
 A message can be moved to the DLQ after a set number of unsuccessful attempts to process it. Each queue has a redrive policy that defines the number of processing attempts and the ID of the DLQ.
 
-{% note info %}
-
-Currently, the DLQ can be configured only via the [API](../api-ref/index.md) and AWS CLI. Support for configuring the DLQ from the management console will be added later.
-
-{% endnote %}
-
 ## Redrive policy {#redrive-policy}
 
 The redrive policy defines the conditions for moving messages to the DLQ.
