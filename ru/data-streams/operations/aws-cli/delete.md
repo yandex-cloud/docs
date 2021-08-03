@@ -1,10 +1,10 @@
 # Удаление потока данных
 
-Чтобы удалить [поток данных](../../concepts/glossary.md#stream-concepts), выполните команду:
-
 {% list tabs %}
 
 - CLI
+
+  Чтобы удалить [поток данных](../../concepts/glossary.md#stream-concepts), выполните команду:
 
   ```bash
   aws kinesis delete-stream \
@@ -12,8 +12,14 @@
     --stream-name <идентификатор_потока>
   ```
 
-  * `--endpoint` — [эндпоинт](../aws-stream-full.md) для Amazon Kinesis.
-  * `--stream-name` — [идентификатор потока](../aws-stream-full.md) для AWS Kinesis.
+  * `--endpoint` — для удаления потока, данные в который поставляются по протоколу AWS Kinesis Data Streams, укажите эндпоинт `https://yds.serverless.yandexcloud.net`.
+  * `--stream-name` — состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока.
+
+     >Например, укажите идентификатор потока `/ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream`, если:
+     >* `aws_stream` — имя потока;
+     >* `ru-central1` — зона доступности;
+     >* `aoeu1kuk2dhtaupdb1es` — идентификатор каталога;
+     >* `cc8029jgtuabequtgtbv` — идентификатор базы данных {{ ydb-short-name }}.
 
   Пример команды:
 

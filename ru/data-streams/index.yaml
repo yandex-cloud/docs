@@ -4,7 +4,9 @@ description:
     <em>Сервис Yandex Data Streams находится на <a
     href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
   - >-
-    Yandex Data Streams — масштабируемый сервис для управления потоками данных в режиме реального времени. Data Streams способен непрерывно выполнять сбор данных из источников, таких как истории посещений веб‑сайтов, логи работы приложений и системные журналы. API сервиса совместим с Amazon Kinesis Data Streams API.
+    Yandex Data Streams — масштабируемый сервис для управления потоками данных в режиме реального времени. 
+    Data Streams непрерывно выполняет сбор данных из различных источников, например, истории посещений веб‑сайтов, логов работы приложений и системных журналов. 
+    API сервиса совместим с Amazon Kinesis Data Streams API.
 nav:
   title: Yandex Data Streams
 meta:
@@ -12,7 +14,7 @@ meta:
 links:
   - title: Начало работы
     description: Создайте поток данных, настройте поставку и сохранение данных
-    href: quickstart/quickstart-overview
+    href: quickstart/
   - title: Пошаговые инструкции
     description: Инструкции по выполнению базовых операций
     href: operations/

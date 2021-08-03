@@ -1,26 +1,21 @@
 # Logstash
 
-В этом разделе вы узнаете, как настроить сбор и поставку данных приложений с помощью [Logstash](https://www.elastic.co/logstash).
-
-{{ yds-full-name }} поддерживает протокол AWS Kinesis Data Streams. Поставка данных из Logstash будет осуществляться по этому протоколу.
-
-Чтобы настроить поставку данных с помощью Logstash:
 1. Скачайте и установите [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html).
-1. Установите плагин для поддержки протокола AWS Kinesis Data Streams:
+1. Установите плагин для поддержки протокола AWS Kinesis Data Streams. По этому протоколу будет осуществляться поставка данных.
 
    ```bash
    sudo /usr/share/logstash/bin/logstash-plugin install logstash-output-kinesis
    ```
 
-   {% note warning %}
+   {% note info %}
 
-   Плагин использует библиотеку Amazon Kinesis Producer Library (KPL). Для работы KPL необходим JDK только версии 1.8. Скачайте и установите [JDK](https://www.oracle.com/ru/java/technologies/javase/javase-jdk8-downloads.html) для вашей платформы. При запуске убедитесь, что используется версия JDK 1.8.235 или более новая.
+   Плагин использует библиотеку Amazon Kinesis Producer Library. Для ее работы необходим [Java Development Kit (JDK)](https://www.oracle.com/ru/java/technologies/javase/javase-jdk8-downloads.html). Скачайте и установите его для вашей платформы. При запуске убедитесь, что используется версия JDK 1.8.235 или выше.
 
    {% endnote %}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится поток данных.
-1. В списке сервисов выберите **{{ yds-full-name }}**.
-1. Нажмите на имя созданного ранее потока данных.
+1. Выберите сервис **{{ yds-full-name }}**.
+1. Выберите поток данных.
 1. Нажмите **Подключиться** и перейдите на вкладку **Logstash**.
 1. Скопируйте пример файла конфигурации и вставьте его в файл `/usr/share/logstash/bin/mypipeline.conf`.
 
@@ -55,7 +50,7 @@
    sudo /usr/share/logstash/bin/logstash -f mypipeline.conf
    ```
 
-1. Отправьте текстовые данные в Logstash:
+1. Отправьте тестовые данные в Logstash:
 
    ```bash
    curl -H "content-type: application/json" -XPUT 'http://127.0.0.1:8888/kinesis' -d '{"user_id":"user1", "score": 100}'

@@ -1,1 +1,1 @@
-Вместо `<key_id>` и `<secret>` введите полученные ранее [идентификатор секретного ключа и секретный ключ сервисного аккаунта](../../data-streams/quickstart/aws.md#before-you-begin).
+Вместо `<key_id>` и `<secret>` введите [секретный ключ и его идентификатор](../../iam/concepts/authorization/access-key.md).

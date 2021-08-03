@@ -13,10 +13,10 @@
     --shard-count <количество_сегментов>
   ```
 
-  * `--endpoint` — при создании потока для протокола AWS Kinesis нужно указать эндпоинт `https://yds.serverless.yandexcloud.net`.
-  * `--stream-name` — состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока. Как создать новую базу данных, читайте в [документации {{ ydb-short-name }}](../../../ydb/quickstart/create-db.md).
+  * `--endpoint` — для создания потока, данные в который будут поставляться по протоколу AWS Kinesis Data Streams, укажите эндпоинт `https://yds.serverless.yandexcloud.net`.
+  * `--stream-name` — состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока.
 
-     >Например, укажите идентификатор потока `/ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream`, где:
+     >Например, укажите идентификатор потока `/ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream`, если:
      >* `aws_stream` — имя потока;
      >* `ru-central1` — зона доступности;
      >* `aoeu1kuk2dhtaupdb1es` — идентификатор каталога;

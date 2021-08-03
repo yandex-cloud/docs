@@ -4,13 +4,11 @@ href: index.yaml
 items:
   - name: Начало работы
     items:
-      - name: Обзор
+      - name: Подготовка окружения
         href: quickstart/index.md
-      - name: Настройка AWS CLI
-        href: quickstart/aws.md
       - name: Создание потока данных
         href: quickstart/create-stream.md
-      - name: Настройка поставки данных
+      - name: Сбор и поставка данных
         items:
           - name: Fluentd
             href: quickstart/fluentd.md
@@ -26,13 +24,11 @@ items:
         href: operations/index.md
       - name: Управление потоками данных
         href: operations/manage-streams.md
-      - name: Получение идентификатора потока и эндпоинта AWS Kinesis
-        href: operations/aws-stream-full.md
       - name: Работа с AWS CLI
         items:
           - name: Создание потока данных
             href: operations/aws-cli/create.md
-          - name: Получение описания потока
+          - name: Получение информации о потоке
             href: operations/aws-cli/describe.md
           - name: Отправка данных в поток
             href: operations/aws-cli/send.md
