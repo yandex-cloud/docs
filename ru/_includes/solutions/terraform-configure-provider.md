@@ -2,7 +2,7 @@
 
     {% note info %}
 
-    Настройки проверены на Terraform версии `0.14`.
+    Настройки применимы для Terraform `0.13` и более поздних версий.
 
     {% endnote %}
 
@@ -10,7 +10,8 @@
    terraform {
      required_providers {
        yandex = {
-         source = "yandex-cloud/yandex"
+         source  = "yandex-cloud/yandex"
+         version = "0.61.0"
        }
      }
    }
@@ -23,6 +24,8 @@
    }
    ```
 
+   * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
+   * `version` — минимальная версия провайдера, с которой совместим модуль. Номер версии можно посмотреть на [странице провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest) (кнопка **USE PROVIDER** в верхнем правом углу).
    * `provider` — название провайдера.
    * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) для доступа к {{ yandex-cloud }}.
    * `cloud_id` — идентификатор облака, в котором Terraform создаст ресурсы.
