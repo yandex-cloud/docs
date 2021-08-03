@@ -10,7 +10,7 @@
 
 ## Общие рекомендации для создания образов {#advices}
 
-* Установите приложения до запуска [утилиты `sysprep`](https://ru.wikipedia.org/wiki/Sysprep), если они это поддерживают.
+* Установите приложения до запуска [утилиты `sysprep`]{% if region =="int" %}(https://en.wikipedia.org/wiki/Sysprep){% else %}(https://ru.wikipedia.org/wiki/Sysprep){% endif %}, если они это поддерживают.
 * Если `sysprep` затрагивает работу установленного приложения, но внесенные ею изменения можно исправить, используйте [SetupComplete](#setupcomplete) или [TaskScheduler](#taskscheduler) для конфигурации приложения при первом старте окружения операционной системы.
 * Если установка приложения до `sysprep` невозможна и конфигурация при старте не поможет, используйте SetupComplete или TaskScheduler для установки приложения при первом старте окружения операционной системы.
 * Чтобы образ не оказался недоступен для подключения из внешней сети, установите параметр `passwordneverexpires` для локальной учетной записи администратора с помощью SetupComplete или TaskScheduler. Сбросить пароль извне ВМ невозможно.
@@ -31,7 +31,7 @@
 
 ### Подготовить файл ответов
 
-В каждой версии ОС Windows установлена своя копия `sysprep`. Запустите локально установленную утилиту, расположенную в `$env:SystemRoot\System32\Sysprep\Sysprep.exe`, с ключами `/oobe /generalize /quiet /quit /unattend:<unattend_answer_file_path>`, где `<unattend_answer_file_path>` — путь к [файлу ответов](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep). Файл ответов необходим для настройки и автоматизации обезличивания ОС. Если при запуске `sysprep` вы не укажете явный путь к файлу ответов, утилита попробует найти предыдущий файл ответов в кеше или запустится без него. Запуск `sysprep` без файла ответов может повредить подготовленный вами образ.
+В каждой версии ОС Windows установлена своя копия `sysprep`. Запустите локально установленную утилиту, расположенную в `$env:SystemRoot\System32\Sysprep\Sysprep.exe`, с ключами `/oobe /generalize /quiet /quit /unattend:<unattend_answer_file_path>`, где `<unattend_answer_file_path>` — путь к [файлу ответов]{% if region =="int" %}(https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep){% else %}(https://docs.microsoft.com/ru-ru/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep){% endif %}. Файл ответов необходим для настройки и автоматизации обезличивания ОС. Если при запуске `sysprep` вы не укажете явный путь к файлу ответов, утилита попробует найти предыдущий файл ответов в кеше или запустится без него. Запуск `sysprep` без файла ответов может повредить подготовленный вами образ.
 
 {% cut "Пример содержимого файла ответов" %}
 
@@ -103,7 +103,7 @@
 
 {% endnote %}
 
-### Запустить утилиту sysprep
+### Запустить утилиту sysprep {#run-sysprep}
 
 1. Перед запуском `sysprep` удалите предыдущий файл-тег:
   
@@ -160,7 +160,7 @@
 & schtasks /Create /TN "userdata" /RU SYSTEM /SC ONSTART /RL HIGHEST /TR "Powershell -NoProfile -ExecutionPolicy Bypass -Command \`"& {iex (irm -H @{\\\`"Metadata-Flavor\\\`"=\\\`"Google\\\`"} \\\`"http://169.254.169.254/computeMetadata/v1/instance/attributes/user-data\\\`")}\`"" | Out-Null
 ```
 
-## Создать образ 
+## Создать образ {#create-image}
 
 Создайте образ из загрузочного диска ВМ. 
 
@@ -176,7 +176,7 @@
 
 {% end list %}
 
-#### Что дальше?
+#### Что дальше? {#what-next}
 
 * [Создайте новый продукт в Marketplace](create-product.md)
 * [Создайте новую версию продукта в Marketplace](create-new-version.md)

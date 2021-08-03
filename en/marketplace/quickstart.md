@@ -1,4 +1,4 @@
-# Getting started with the Marketplace partner interface
+# Getting started with the {{ marketplace-name }} partner interface
 
 You can use the Marketplace partner interface to add images of your products to the Marketplace and manage their versions and service plans. Register in the Marketplace partner interface and upload your first image following the instructions.
 
@@ -16,7 +16,10 @@ The service plan determines the cost of running your products. Create a new serv
 
 ## Creating and uploading a product image {#create-image}
 
-{% include [image](../_includes/marketplace/image.md) %}
+Product images to be uploaded to the Marketplace can be based on Linux or Windows Server. Requirements for images and recommendations for creating images are described in the instructions:
+
+* [{#T}](operations/create-image.md)
+* [{#T}](operations/create-image-ms.md)
 
 ## Creating a product {#create-product}
 
