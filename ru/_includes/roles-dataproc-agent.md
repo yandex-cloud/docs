@@ -6,8 +6,7 @@
 
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}
 
-
-### mdb.dataproc.agent {#mdb-dataproc-agent-depricated}
+### mdb.dataproc.agent {#mdb-dataproc-agent-deprecated}
 
 {% note warning %}
 
