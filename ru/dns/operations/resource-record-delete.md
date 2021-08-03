@@ -36,6 +36,62 @@
      --record "<доменное имя> <TTL> <тип записи> <значение>"
      ```
 
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы удалить из зоны DNS запись, созданную с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и удалите фрагмент с описанием DNS записи.
+     
+     {% cut "Пример описания DNS записи в конфигурации Terraform" %}
+
+     ```hcl
+     ...
+     resource "yandex_dns_recordset" "rs1" {
+       zone_id = yandex_dns_zone.zone1.id
+       name    = "srv.example.com."
+       type    = "A"
+       ttl     = 200
+       data    = ["10.1.0.1"]
+     }
+     ...
+     ```
+
+     {% endcut %}
+
+
+  1. В командной строке перейдите в папку, где расположен файл конфигурации Terraform.
+
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Примените изменения конфигурации:
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите Enter.
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc dns zone list-records <имя зоны DNS>
+     ```
+
 {% endlist %}
-
-

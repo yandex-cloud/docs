@@ -48,4 +48,58 @@
        - c645mh47vscba1d64tbs
      ```
 
+- Terraform
+
+  Подробнее о Terraform [читайте в документации](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Чтобы обновить зону DNS, созданную с помощью Terraform:
+
+  1. Откройте файл конфигурации Terraform и измените фрагмент с описанием зоны DNS.
+
+     {% cut "Пример описания зоны DNS в конфигурации Terraform" %}
+     
+     ```hcl
+     resource "yandex_vpc_network" "foo" {}
+     
+     resource "yandex_dns_zone" "zone1" {
+       name        = "my-public-zone"
+       description = "Test public zone"
+     
+       labels = {
+         label1 = "test-public"
+       }
+     
+       zone    = "test.example-public2.com."
+     }
+     ```
+
+     {% endcut %}
+
+  1. Проверьте конфигурацию командой:
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите Enter.
+
+     Проверить изменение параметров зоны DNS можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```
+     yc dns zone get <имя зоны DNS>
+     ```
+
 {% endlist %}
