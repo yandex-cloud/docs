@@ -60,7 +60,7 @@ We do not recommend making a non-replicated disk the boot drive. If it fails, a 
 
 Multiple non-replicated disks can be combined into a [placement group](disk-placement-group.md) to ensure data storage redundancy at the application level. In this case, individual disks are physically placed in different racks in a data center to reduce the probability of simultaneous failure of all disks in the group.
 
-## Maximum disk size
+## Maximum disk size {#maximum-disk-size}
 
 {% include [disk-blocksize](../../_includes/compute/disk-blocksize.md) %}
 
