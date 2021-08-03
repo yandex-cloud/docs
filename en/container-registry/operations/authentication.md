@@ -122,7 +122,7 @@ Using a [service account](../../iam/concepts/users/service-accounts.md), your pr
 
 {% endnote %}
 
-1. [Get an IAM token](../../iam/operations/iam-token/create.md).
+1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md).
 
 1. Run the command:
 
