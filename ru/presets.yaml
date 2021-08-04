@@ -107,6 +107,7 @@ default:
   yds-name: Data Streams
   cdn-name: Cloud CDN
   serverless-containers-name: Serverless Containers
+  org-name: Organization
 
   # Короткие имена
   iam-short-name: IAM
@@ -320,6 +321,7 @@ default:
   link-cloud-notifications: https://console.cloud.yandex.ru/cloud?section=incident-notifications
   link-datalens-main: https://datalens.yandex.ru
   link-org-main: https://org.cloud.yandex.ru/
+  link-tracker: https://tracker.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
@@ -366,6 +368,11 @@ default:
       - 'Рекомендации не помогли'
       - 'Содержание не соответсвует заголовку'
       - 'Другое'
+
+  # Внешние ссылки
+  link-saml: https://ru.wikipedia.org/wiki/SAML
+
+
 internal:
   audience: internal
   console-link: https://yc.yandex-team.ru

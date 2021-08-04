@@ -1,10 +1,9 @@
 default:
 
-  tracker-full-name: Yandex Tracker
-  tracker-name: Tracker
-  tracker-short-name: Tracker
-
-  org-full-name: Yandex Cloud Organization
+  #названия сервиса и главную ссылку вынес в ru/presets.yaml
+  #tracker-full-name: Yandex Tracker
+  #tracker-name: Tracker
+  #link-tracker: https://tracker.yandex.ru/
 
   locale: ru
   
@@ -16,7 +15,6 @@ default:
   org-id: "X-Org-ID: <идентификатор организации>"
   
   #Ссылки на Tracker и Коннект
-  link-tracker: https://tracker.yandex.ru/
   link-tracker-ya: https://st.yandex-team.ru/
   link-connect: https://connect.yandex.ru/
   link-connect-main: https://connect.yandex.ru/portal/home
@@ -51,7 +49,6 @@ default:
   #Ссылки на справку на yandex.ru/support
   #И на справку Организации, пока она в Preview
   link-org-add-federation: https://cloud.yandex.ru/docs/organization/add-federation
-  link-org-main: https://cloud.yandex.ru/docs/organization/
   support-connect-account: https://yandex.ru/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.ru/support/connect/add-domain.html
   support-connect-domains: https://yandex.ru/support/connect/domains.html#proof
