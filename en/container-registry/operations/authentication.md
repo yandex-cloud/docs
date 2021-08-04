@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
+---
 # Authentication in {{ container-registry-short-name }}
 
 Before you start using {{ container-registry-short-name }}, you need to authenticate for the corresponding interface:
@@ -118,7 +122,7 @@ Using a [service account](../../iam/concepts/users/service-accounts.md), your pr
 
 {% endnote %}
 
-1. [Get an IAM token](../../iam/operations/iam-token/create.md).
+1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md).
 
 1. Run the command:
 

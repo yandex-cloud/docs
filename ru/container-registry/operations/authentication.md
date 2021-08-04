@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+---
 # Аутентифицироваться в {{ container-registry-short-name }}
 
 Перед тем как начать работу с {{ container-registry-short-name }}, необходимо пройти аутентификацию для соответствующего интерфейса:
@@ -118,7 +122,7 @@ $ docker login \
 
 {% endnote %}
 
-1. [Получите IAM-токен](../../iam/operations/iam-token/create.md).
+1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-sa.md).
 1. Выполните команду:
 
     ```
