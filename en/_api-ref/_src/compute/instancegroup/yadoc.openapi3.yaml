@@ -602,12 +602,21 @@ paths:
     post:
       tags:
       - InstanceGroup
-      summary: Resume all process in instance group.
+      summary: |-
+        Resumes all processes regarding management of the specified instance group,
+        i.e. scaling, checking instances' health, auto-healing and updating them.
       operationId: InstanceGroupResumeProcesses
       parameters:
       - name: instanceGroupId
         in: path
-        description: The maximum string length in characters is 50.
+        description: |-
+          ID of the instance group to resume processes in.
+
+          The instance group must have a `PAUSED` status ([InstanceGroup.status](/docs/compute/api-ref/InstanceGroup#representation)).
+
+          To get the instance group ID, make a [list](/docs/compute/api-ref/InstanceGroup/list) request.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -632,12 +641,21 @@ paths:
     post:
       tags:
       - InstanceGroup
-      summary: Pause all process in instance group.
+      summary: |-
+        Pauses all processes regarding management of the specified instance group,
+        i.e. scaling, checking instances' health, auto-healing and updating them. Running instances are not stopped.
       operationId: InstanceGroupPauseProcesses
       parameters:
       - name: instanceGroupId
         in: path
-        description: The maximum string length in characters is 50.
+        description: |-
+          ID of the instance group to pause processes in.
+
+          The instance group must have an `ACTIVE` status ([InstanceGroup.status](/docs/compute/api-ref/InstanceGroup#representation)).
+
+          To get the instance group ID, make a [list](/docs/compute/api-ref/InstanceGroup/list) request.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -1201,7 +1219,11 @@ components:
          - ACTIVE: Instance group is active.
         In this state the group manages its instances and monitors their health,
         creating, deleting, stopping, updating and starting instances as needed.
+
         To stop the instance group, call [stop](/docs/compute/api-ref/InstanceGroup/stop).
+        To pause the processes in the instance group, i.e. scaling, checking instances' health,
+        auto-healing and updating them, without stopping the instances,
+        call [pauseProcesses](/docs/compute/api-ref/InstanceGroup/pauseProcesses).
          - STOPPING: Instance group is being stopped.
         Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.
          - STOPPED: Instance group is stopped.
@@ -1209,6 +1231,13 @@ components:
         To start the instance group, call [start](/docs/compute/api-ref/InstanceGroup/start).
          - DELETING: Instance group is being deleted.
          - PAUSED: Instance group is paused.
+        In this state all the processes regarding the group management, i.e. scaling, checking instances' health,
+        auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however,
+        may still be running.
+
+        To resume the processes in the instance group,
+        call [resumeProcesses](/docs/compute/api-ref/InstanceGroup/resumeProcesses).
+        The group status will change to `ACTIVE`.
       type: string
       enum:
       - STARTING
@@ -1697,6 +1726,7 @@ components:
       type: object
       properties:
         instanceGroupId:
+          description: ID of the instance group that processes are being paused in.
           type: string
     PauseInstanceGroupProcessesRequest:
       type: object
@@ -1796,6 +1826,7 @@ components:
       type: object
       properties:
         instanceGroupId:
+          description: ID of the instance group that processes are being resumed in.
           type: string
     ResumeInstanceGroupProcessesRequest:
       type: object
@@ -2885,7 +2916,11 @@ components:
          - ACTIVE: Instance group is active.
         In this state the group manages its instances and monitors their health,
         creating, deleting, stopping, updating and starting instances as needed.
+
         To stop the instance group, call [stop](/docs/compute/api-ref/InstanceGroup/stop).
+        To pause the processes in the instance group, i.e. scaling, checking instances' health,
+        auto-healing and updating them, without stopping the instances,
+        call [pauseProcesses](/docs/compute/api-ref/InstanceGroup/pauseProcesses).
          - STOPPING: Instance group is being stopped.
         Group's instances stop receiving traffic from the load balancer (if any) and are then stopped.
          - STOPPED: Instance group is stopped.
@@ -2893,6 +2928,13 @@ components:
         To start the instance group, call [start](/docs/compute/api-ref/InstanceGroup/start).
          - DELETING: Instance group is being deleted.
          - PAUSED: Instance group is paused.
+        In this state all the processes regarding the group management, i.e. scaling, checking instances' health,
+        auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however,
+        may still be running.
+
+        To resume the processes in the instance group,
+        call [resumeProcesses](/docs/compute/api-ref/InstanceGroup/resumeProcesses).
+        The group status will change to `ACTIVE`.
       type: string
       enum:
       - STARTING
