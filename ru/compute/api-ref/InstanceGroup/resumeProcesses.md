@@ -6,7 +6,8 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 
 # Method resumeProcesses
-Resume all process in instance group.
+Resumes all processes regarding management of the specified instance group,
+i.e. scaling, checking instances' health, auto-healing and updating them.
  
 
  
@@ -19,7 +20,7 @@ POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGro
  
 Parameter | Description
 --- | ---
-instanceGroupId | The maximum string length in characters is 50.
+instanceGroupId | ID of the instance group to resume processes in.  The instance group must have a `PAUSED` status ([InstanceGroup.status](/docs/compute/api-ref/InstanceGroup#representation)).  To get the instance group ID, make a [list](/docs/compute/api-ref/InstanceGroup/list) request.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

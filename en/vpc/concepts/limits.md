@@ -23,4 +23,3 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 {{ interconnect-full-name }} has the following limits:
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
-

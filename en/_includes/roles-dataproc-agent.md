@@ -6,7 +6,7 @@ This role must be assigned to the service account specified when [creating the c
 
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}
 
-### mdb.dataproc.agent {#mdb-dataproc-agent-depricated}
+### mdb.dataproc.agent {#mdb-dataproc-agent-deprecated}
 
 {% note warning %}
 

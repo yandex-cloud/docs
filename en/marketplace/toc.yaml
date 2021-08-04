@@ -11,8 +11,10 @@ items:
         href: operations/registration.md
       - name: Creating a service plan
         href: operations/create-tariff.md
-      - name: Creating a product image
+      - name: Creating a Linux-based product image
         href: operations/create-image.md
+      - name: Creating a Windows-based product image
+        href: operations/create-image-ms.md
       - name: Creating a product
         href: operations/create-product.md
       - name: Updating a product

@@ -1,5 +1,3 @@
-# Creating an instance group from a {{ coi }} with multiple Docker containers
-
 You can create an instance group built on a [{{ coi }}](../../cos/concepts/index.md) with multiple Docker containers inside.
 
 Docker containers are created based on the [Docker Compose specification](../../cos/concepts/index.md#compose-spec).

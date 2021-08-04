@@ -173,6 +173,10 @@ items:
                 href: operations/instance-groups/deploy/rolling-update.md
               - name: Обновление без простоя
                 href: operations/instance-groups/deploy/zero-downtime.md
+          - name: Приостановить процессы в группе ВМ
+            href: operations/instance-groups/pause-processes.md
+          - name: Возобновить процессы в группе ВМ
+            href: operations/instance-groups/resume-processes.md
           - name: Остановить группу ВМ
             href: operations/instance-groups/stop.md
           - name: Запустить группу ВМ
@@ -269,6 +273,8 @@ items:
                 href: concepts/instance-groups/deploy/instance.md
               - name: Изменение дополнительных дисков в шаблоне виртуальной машины
                 href: concepts/instance-groups/deploy/secondary-disk.md
+          - name: Остановка группы и приостановка процессов
+            href: concepts/instance-groups/stopping-pausing.md
           - name: Статусы
             href: concepts/instance-groups/statuses.md
       - name: Выделенный хост
