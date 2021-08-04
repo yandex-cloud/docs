@@ -52,10 +52,10 @@ Additional commands available in the notebook.
 
 Commands to exclude and add variables when saving a state:
 
-* `%%state_exclude [variable names]`: Excludes the specified variables when saving a state.
-* `%%state_include [variable names]`: Adds the specified variables when saving a state.
-* `%%state_include_all`: Returns all variables when saving a state.
-* `%%state_exclude_ls`: Returns a list of all variables that were excluded when saving a state.
+* `%state_exclude [variable names]`: Excludes the specified variables when saving a state.
+* `%state_include [variable names]`: Adds the specified variables when saving a state.
+* `%state_include_all`: Returns all variables when saving a state.
+* `%state_exclude_ls`: Returns a list of all variables that were excluded when saving a state.
 
 ### Adding read-only variables {#readonly}
 
