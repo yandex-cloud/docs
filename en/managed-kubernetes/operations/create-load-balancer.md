@@ -8,7 +8,7 @@ To grant access to an app running in a {{ k8s }} cluster, you can use [various t
 
 To grant public access to the app, use `LoadBalancer` type service with a public IP address.
 
-Applications can be accessed from internal networks, but not from {{ k8s }} clusters: from [subnets](../../vpc/concepts/network.md#subnet) of {{ vpc-full-name }} or a company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../vpc/interconnect/index.md) or VPN. To grant access, use a `LoadBalancer` service based on an [internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md).
+Applications can be accessed from internal networks, but not from {{ k8s }} clusters: from [subnets](../../vpc/concepts/network.md#subnet) of {{ vpc-full-name }} or a company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/) or VPN. To grant access, use a `LoadBalancer` service based on an [internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md).
 
 {% note info %}
 

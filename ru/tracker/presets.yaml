@@ -1,15 +1,10 @@
 default:
-  tracker-full-name: Yandex Tracker
-  tracker-name: Tracker
-  tracker-short-name: Tracker
-  org-full-name: Yandex Cloud Organization
   locale: ru
   api-name: Yandex Tracker API
   api-short-name: Tracker API
   host: https://api.tracker.yandex.net
   ver: v2
   org-id: 'X-Org-ID: <идентификатор организации>'
-  link-tracker: https://tracker.yandex.ru/
   link-tracker-ya: https://st.yandex-team.ru/
   link-connect: https://connect.yandex.ru/
   link-connect-main: https://connect.yandex.ru/portal/home
@@ -39,7 +34,6 @@ default:
   link-tracker-example-2: https://tracker.yandex.ru/ключОчереди
   link-tracker-example-2-ya: https://st.yandex-team.ru/ключОчереди
   link-org-add-federation: https://cloud.yandex.ru/docs/organization/add-federation
-  link-org-main: https://cloud.yandex.ru/docs/organization/
   support-connect-account: https://yandex.ru/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.ru/support/connect/add-domain.html
   support-connect-domains: https://yandex.ru/support/connect/domains.html#proof

@@ -32,7 +32,7 @@ Within a single site, you can use:
 * Link aggregation methods (LACP), including in active/passive mode.
 * Switch stacking on the user side, provided that the switches are combined in a single logical unit.
 
-You can create [two](../concepts/limits.md#yandex-cloud-interconnect) private connections on top of a single trunk link.
+You can create [two](../concepts/limits.md) private connections on top of a single trunk link.
 
 ### Setting up a private connection {#set-up-private-connection}
 
@@ -42,7 +42,7 @@ As soon as your request is processed, our experts contact you to discuss the det
 
 For the connection to run, set up a connection between your local network infrastructure and a {{ yandex-cloud }} virtual network:
 
-1. In the cloud, [create](../quickstart.md) a virtual network and subnets to connect the local network infrastructure to.
+1. In the cloud, [create](../../vpc/quickstart.md) a virtual network and subnets to connect the local network infrastructure to.
 1. Arrange the following parameters with {{ yandex-cloud }}:
    * On your side:
      * Cloud ID.

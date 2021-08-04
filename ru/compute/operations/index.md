@@ -116,6 +116,8 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 * [{#T}](instance-groups/enable-autohealing.md)
 * [{#T}](instance-groups/deploy/rolling-update.md)
 * [{#T}](instance-groups/deploy/zero-downtime.md)
+* [{#T}](instance-groups/pause-processes.md)
+* [{#T}](instance-groups/resume-processes.md)
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/delete.md)

@@ -4,7 +4,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 # Adding a new product version
 
-To update the product version, [upload an image with the new version to {{ yandex-cloud }}](create-image.md#create).
+To add a product to the Marketplace, upload an image based on [Linux](create-image.md#create) or [Windows Server](create-image-ms.md) in {{ yandex-cloud }}.
 
 1. Open the **Products** section.
 1. Select the product you want to add a version of.

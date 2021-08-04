@@ -2,19 +2,15 @@
 
 __system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-# Creating a product image to upload to the Marketplace
+# Creating a Linux-based product image to upload to {{ marketplace-name }}
 
-To add a product to the Marketplace, you need to upload an image to {{ yandex-cloud }}.
+To add a product to the Marketplace, you need to upload an image to {{ yandex-cloud }}. The products can be based on Linux and Windows Server. These instructions will help you create an image based on Linux. To create an image with Windows, see [{#T}](create-image-ms.md).
 
 ## Creating an image {#create}
 
 {% include [create-image](../../_includes/marketplace/image.md) %}
 
 ## Image requirements {#requirements}
-
-Products placed on the Marketplace can be created based on Linux and Windows.
-
-### Linux-based products {#linux-requirements}
 
 Make sure to meet the following requirements for Linux-based product images:
 
@@ -27,7 +23,7 @@ Make sure to meet the following requirements for Linux-based product images:
 * GPT disk partitioning is used.
 * The disk is mounted by its UUID rather than by name.
 
-### Before uploading the image {#before-uploading}
+### Preparing an image {#preparation}
 
 Clean up:
 
@@ -49,7 +45,7 @@ You can use the [yc-image-cleanup.sh](https://github.com/yandex-cloud/examples/b
 
 * Clean up a VM before creating an image from it:
 
-    ```
+    ```bash
     ./yc-image-cleanup.sh -c
     ```
 
@@ -61,7 +57,7 @@ You can use the [yc-image-cleanup.sh](https://github.com/yandex-cloud/examples/b
 
 * Check the image for compliance with some [requirements](#requirements):
 
-    ```
+    ```bash
     ./yc-image-cleanup.sh -d
     ```
 
