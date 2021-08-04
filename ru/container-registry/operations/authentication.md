@@ -122,7 +122,7 @@ $ docker login \
 
 {% endnote %}
 
-1. [Получите IAM-токен](../../iam/operations/iam-token/create.md).
+1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-sa.md).
 1. Выполните команду:
 
     ```
