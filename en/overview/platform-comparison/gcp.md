@@ -7,7 +7,7 @@
 | Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/) |
 | Cloud DNS | [{{ dns-full-name }}](../../dns/) |
 | Cloud Functions | [{{ sf-full-name }}](../../functions/) |
-| Cloud Interconnect | [{{ interconnect-full-name }}](../../vpc/interconnect/) |
+| Cloud Interconnect | [{{ interconnect-full-name }}](../../interconnect/) |
 | Cloud IoT Core | [{{ iot-full-name }}](../../iot-core/) |
 | Cloud Key Management Service | [{{ kms-full-name }}](../../kms/) |
 | Cloud Load Balancing | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |

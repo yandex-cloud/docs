@@ -5,7 +5,7 @@
 Чтобы опубликовать приложение, воспользуйтесь сервисом типа `LoadBalancer`. Возможны следующие варианты:
 * Публичный доступ по IP-адресу с [сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/index.md).
 * Доступ из внутренних сетей по IP-адресу с [внутренним сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/internal-load-balancer.md).
-  Приложение будет доступно: из [подсетей](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }}; внутренних подсетей организации, подключенных к {{ yandex-cloud }} с помощью сервиса [{{ interconnect-full-name }}](../../vpc/interconnect/index.md) или через VPN.
+  Приложение будет доступно: из [подсетей](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }}; внутренних подсетей организации, подключенных к {{ yandex-cloud }} с помощью сервиса [{{ interconnect-full-name }}](../../interconnect/) или через VPN.
 
 Чтобы использовать защиту от DDoS, [зарезервируйте](../../vpc/operations/enable-ddos-protection.md) публичный IP-адрес и [укажите](#advanced) его с помощью опции `loadBalancerIP`.
 

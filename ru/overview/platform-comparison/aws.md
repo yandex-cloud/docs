@@ -26,7 +26,7 @@
 | Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
 | AWS Certificate Manager | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | AWS Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
-| AWS Direct Connect | [{{ interconnect-full-name }}](../../vpc/interconnect/) |
+| AWS Direct Connect | [{{ interconnect-full-name }}](../../interconnect/) |
 | AWS Identity and Access Management, AWS Cognito | [{{ iam-full-name }}](../../iam/) |
 | AWS IoT Core | [{{ iot-full-name }}](../../iot-core/) |
 | AWS Key Management Service | [{{ kms-full-name }}](../../kms/) |

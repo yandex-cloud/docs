@@ -26,7 +26,7 @@
 | Cognitive Services: Vision | [{{ vision-full-name }}](../../vision/) |
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Elastic on Azure | [{{ mes-full-name }}](../../managed-elasticsearch/) |
-| ExpressRoute | [{{ interconnect-full-name }}](../../vpc/interconnect/) |
+| ExpressRoute | [{{ interconnect-full-name }}](../../interconnect/) |
 | HDInsight | [{{ dataproc-full-name }}](../../data-proc/) |
 | HDInsight | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Key Vault | [{{ kms-full-name }}](../../kms/) |

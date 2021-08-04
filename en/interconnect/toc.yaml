@@ -1,0 +1,11 @@
+title: Yandex Cloud Interconnect
+href: index.yaml
+items:
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md

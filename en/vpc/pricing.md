@@ -71,10 +71,6 @@ For example, a user's VM was subject to a typical 10 Gbit/s DDoS attack generati
 
 In this case, only 4 GB of filtered traffic are billed: 2 GB that DDoS Protection passed to cloud resources during the attack, and 2 GB downloaded after the attack. Malicious traffic is filtered out and not billed.
 
-### Cloud Interconnect {#prices-interconnect}
-
-The service is provided when technically possible. Yandex Cloud Interconnect prices are provided upon request and are subject to the technical characteristics of the connection to {{ yandex-cloud }}.
-
 ### Using security groups {#prices-security-groups}
 
 The [security group](concepts/security-groups.md) functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.

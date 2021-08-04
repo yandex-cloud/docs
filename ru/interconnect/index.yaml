@@ -1,0 +1,22 @@
+title: Yandex Cloud Interconnect
+description:
+  - >-
+    Yandex Cloud Interconnect позволяет установить приватное выделенное соединение 
+    между вашей локальной сетевой инфраструктурой и Yandex.Cloud. Выделенное соединение 
+    надежнее, быстрее и безопаснее подключения через интернет.
+  - >-
+    Инфраструктура Yandex.Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с ФЗ-152.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>.
+meta:
+  title: Yandex Cloud Interconnect
+links:
+  - title: Концепции
+    description: Узнайте про возможности сервиса
+    href: index
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

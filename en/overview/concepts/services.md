@@ -10,7 +10,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ api-gw-full-name }}](../../api-gateway/)
 * [{{ certificate-manager-full-name }}](../../certificate-manager/)
 * [{{ sf-full-name }}](../../functions/)
-* [{{ interconnect-full-name }}](../../vpc/interconnect/)
+* [{{ interconnect-full-name }}](../../interconnect/)
 * [{{ compute-full-name }}](../../compute/)
 * [{{ container-registry-full-name }}](../../container-registry/)
 * [{{ dataproc-full-name }}](../../data-proc/)

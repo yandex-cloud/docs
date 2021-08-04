@@ -20,4 +20,3 @@ editable: false
 {{ interconnect-full-name }} has the following limits:
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
-

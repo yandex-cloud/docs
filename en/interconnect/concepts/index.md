@@ -28,7 +28,7 @@ Within a single site, you can use:
 * Link aggregation methods (LACP), including in active/passive mode.
 * Switch stacking on the user side, provided that the switches are combined in a single logical unit.
 
-You can create [two](../concepts/limits.md) private connections on top of a single trunk link.
+You can create [two](limits.md) private connections on top of a single trunk link.
 
 ### Setting up a private connection {#set-up-private-connection}
 
