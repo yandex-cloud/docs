@@ -72,6 +72,35 @@
 
      Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
+- Terraform
+  
+  Чтобы изменить версию {{ MG }}:
+  
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+    1. Добавьте к описанию кластера {{ mmg-name }} поле `version` или измените его значение, если оно уже существует:
+  
+       ```hcl
+       resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+         ...
+         cluster_config {
+           version = "<версия MongoDB>"
+         }
+       }
+       ```
+  
+    1. Проверьте корректность настроек.
+  
+         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+    1. Подтвердите изменение ресурсов.
+  
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+   Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+
 - API
 
   Обновить версию {{ MG }} для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в свойстве `configSpec.version`.

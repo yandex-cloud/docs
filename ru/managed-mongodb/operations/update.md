@@ -82,6 +82,35 @@
 
       {{ mmg-short-name }} запустит операцию изменения класса хостов для кластера.
 
+- Terraform
+  
+  Чтобы изменить [класс хостов](../concepts/instance-types.md) для кластера:
+  
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+  1. Измените в описании кластера {{ mmg-name }} значение параметра `resource_preset_id` в блоке `resources`:
+  
+      ```hcl
+      resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+        ...
+        resources {
+            resource_preset_id = "<класс хостов {{ MG }}>"
+            ...
+        }
+      }
+      ```
+  
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+ 
+  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 
@@ -146,6 +175,36 @@
       ```
 
       Если все условия выполнены, {{ mmg-short-name }} запустит операцию по увеличению объема хранилища.
+  
+- Terraform
+    
+  Чтобы увеличить размер хранилища для кластера:
+    
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+    
+  1. Измените в описании кластера {{ mmg-name }} значение параметра `disk_size` в блоке `resources`:
+    
+      ```hcl
+      resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+        ...
+        resources {
+          disk_size = <размер хранилища, ГБ>
+          ...
+        }
+      }
+      ```
+    
+    1. Проверьте корректность настроек.
+    
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+    
+    1. Подтвердите изменение ресурсов.
+    
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+   
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 
@@ -252,9 +311,57 @@
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- Terraform
+
+  Чтобы изменить дополнительные настройки кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+      
+       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mmg-name }} блок `backup_window_start` в секции `cluster_config`:
+  
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+          ...
+          cluster_config {
+            backup_window_start {
+              hours   = <Час начала резервного копирования>
+              minutes = <Минута начала резервного копирования>
+            }
+            ...
+          }
+          ...
+        }
+        ```
+
+    1. Чтобы разрешить доступ [из сервиса {{ datalens-full-name }}](../../datalens/concepts/index.md), добавьте к описанию кластера {{ mmg-name }} блок `access` в секции `cluster_config`:
+  
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+          ...
+          cluster_config {
+            ...
+            access {
+              data_lens = <Доступ из DataLens: true или false>
+            }
+          ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+
 - API
 
-    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
 
 {% endlist %}
 
@@ -288,6 +395,34 @@
         {{ yc-mdb-mg }} cluster update <имя кластера> \
            --security-group-ids <список групп безопасности>
         ```
+
+- Terraform
+
+  Чтобы изменить список [групп безопасности](../concepts/network.md#security-groups) кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+      
+       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mmg-name }} значение параметра `security_group_ids`:
+  
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+          ...
+          security_group_ids = [ <Список идентификаторов групп безопасности> ]
+          ...
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 

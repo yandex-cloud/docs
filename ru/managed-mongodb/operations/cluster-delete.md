@@ -34,5 +34,3 @@ description: "После удаления кластера баз данных M
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
 {% endlist %}
-
-
