@@ -8,6 +8,12 @@
 
     Выполните команды, заменив `https://your-database-endpoint` эндпоинтом вашей БД:
 
+    {% note warning %}
+
+    Для работы с AWS CLI из Windows рекомендуется использовать [WSL](https://docs.microsoft.com/ru-ru/windows/wsl/).
+
+    {% endnote %}
+
     ```bash
     endpoint="https://your-database-endpoint"
     aws dynamodb put-item \
