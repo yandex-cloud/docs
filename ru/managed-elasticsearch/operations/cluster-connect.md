@@ -85,23 +85,47 @@ keywords:
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
-{% if audience == "internal" %}
+{% list tabs %}
 
-```bash
-mkdir ~/.elasticsearch && \
-wget "https://crls.yandex.net/allCAs.pem" -O ~/.elasticsearch/root.crt && \
-chmod 0600 ~/.elasticsearch/root.crt
-```
+* Linux (Bash)
 
-{% else %}
+  {% if audience == "internal" %}
 
-```bash
-mkdir ~/.elasticsearch && \
-wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
-chmod 0600 ~/.elasticsearch/root.crt
-```
+  ```bash
+  mkdir ~/.elasticsearch && \
+  wget "https://crls.yandex.net/allCAs.pem" -O ~/.elasticsearch/root.crt && \
+  chmod 0600 ~/.elasticsearch/root.crt
+  ```
 
-{% endif %}
+  {% else %}
+
+  ```bash
+  mkdir ~/.elasticsearch && \
+  wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
+  chmod 0600 ~/.elasticsearch/root.crt
+  ```
+
+  {% endif %}
+
+  Сертификат будет сохранен в каталоге `$HOME/.elasticsearch/root.crt`.
+
+* Windows (PowerShell)
+
+  {% if audience == "internal" %}
+
+  ```powershell
+  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://crls.yandex.net/allCAs.pem
+  ```
+
+  {% else %}
+
+  ```powershell
+  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  ```
+
+  {% endif %}
+
+  Сертификат будет сохранен в каталоге `$HOME\.elasticsearch\root.crt`.
 
 ## Автоматический выбор хоста для подключения {#automatic-host-selection}
 
@@ -118,7 +142,7 @@ chmod 0600 ~/.elasticsearch/root.crt
 
 {% include [conn-strings-environment](../../_includes/mdb/mes-conn-strings-env.md) %}
 
-Перед подключением [подготовьте сертификат](#configuring-an-ssl-certificate). В этих примерах предполагается, что сертификат `root.crt` расположен в директории `/home/<домашняя директория>/.elasticsearch/`.
+Перед подключением [подготовьте сертификат](#configuring-an-ssl-certificate). 
 
 Для подключения нужно использовать имя пользователя и пароль, которые были заданы при [создании кластера](cluster-create.md#create-cluster).
 
