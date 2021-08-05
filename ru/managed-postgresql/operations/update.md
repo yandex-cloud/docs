@@ -95,6 +95,36 @@
 
       {{ mpg-short-name }} запустит операцию изменения класса хостов для кластера.
 
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+  1. Измените в описании кластера {{ mpg-name }} значение атрибута `resource_preset_id` в блоке `config.resources`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        ...
+        config {
+          resources {
+            resource_preset_id = "<класс хоста>"
+            ...
+          }
+        }
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
 - API
 
   Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.resources.resourcePresetId`.
@@ -161,10 +191,40 @@
 
       ```
       $ {{ yc-mdb-pg }} cluster update <имя кластера>
-           --disk-size <размер хранилища в ГБ>
+           --disk-size <объем хранилища, ГБ>
       ```
 
       Если все условия выполнены, {{ mpg-short-name }} запустит операцию по увеличению объема хранилища.
+
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+  1. Измените в описании кластера {{ mpg-name }} значение атрибута `disk_size` в блоке `config.resources`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        ...
+        config {
+          resources {
+            disk_size = <объем хранилища, ГБ>
+            ...
+          }
+        }
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
 - API
 
@@ -200,7 +260,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы изменить настройки сервера {{ PG }}:
+  Чтобы изменить [настройки сервера {{ PG }}](../concepts/settings-list.md):
 
   1. Посмотрите полный список настроек, установленных для кластера:
 
@@ -224,6 +284,41 @@
       {{ mpg-short-name }} запустит операцию по изменению настроек кластера.
 
       Все поддерживаемые параметры перечислены в [описании настроек {{ PG }}](../concepts/settings-list.md).
+
+- Terraform
+
+    Чтобы изменить [настройки сервера {{ PG }}](../concepts/settings-list.md):
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените в описании кластера {{ mpg-short-name }} значения параметров в блоке `config.postgresql_config`. Если такого блока нет — создайте его.
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+          ...
+          config {
+            ...
+            postgresql_config = {
+              max_connections                   = <макс.число соединений>
+              enable_parallel_hash              = <true или false>
+              vacuum_cleanup_index_scale_factor = <число от 0 до 1>
+              ...
+            }
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
 - API
 
@@ -279,6 +374,52 @@
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+* Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+  1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mpg-name }} блок `config.backup_window_start`.
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        ...
+        config {
+          backup_window_start {
+            hours   = <Час начала резервного копирования>
+            minutes = <Минута начала резервного копирования>
+          }
+          ...
+        }
+      }
+      ```
+
+  1. Чтобы разрешить доступ из {{ datalens-full-name }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), измените значения соответствующих полей в блоке `config.access`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        ...
+        config {
+          access {
+            data_lens = <Доступ из DataLens: true или false>
+            web_sql   = <Выполнение SQL-запросов из консоли управления: true или false>
+            ...
+        }
+        ...
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
 * API
 
   Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
@@ -313,6 +454,39 @@
       ```
 
       {{ mpg-short-name }} запустит операцию по изменению режима работы менеджера соединений.
+
+- Terraform
+
+    Для изменения режима работы менеджера соединений:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Укажите нужный режим работы в блоке `config.pooler_config`.
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+          ...
+          config {
+            pooler_config {
+              pool_discard = <параметр Odissey pool_discard: true или false>
+              pooling_mode = "<режим работы: SESSION или TRANSACTION>"
+            }
+            ...
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
 - API
 
@@ -357,6 +531,34 @@
 
   Имя хоста-реплики можно запросить со [списком хостов в кластере](hosts.md#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- Terraform
+
+    Чтобы переключить мастер:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Укажите имя хоста-реплики, на которую нужно переключиться, в параметре `host_master_name`.
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+            ...
+            host_master_name = "<имя хоста-реплики: атрибут name соответствующего блока host>"
+          }
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
 - API
 
   Чтобы переключить мастер, воспользуйтесь методом API [startFailover](../api-ref/Cluster/startFailover.md) и передайте в запросе:
@@ -396,6 +598,31 @@
       $ {{ yc-mdb-pg }} cluster update <имя кластера>
            --security-group-ids <список групп безопасности>
       ```
+
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+  1. Измените значение параметра `security_group_ids` в описании кластера:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        ...
+        security_group_ids = [ <список групп безопасности кластера> ]
+      }
+      ```
+
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
 - API
 

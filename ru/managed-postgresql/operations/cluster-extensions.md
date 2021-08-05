@@ -70,6 +70,38 @@
 
   {% endnote %}
 
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+  1. Добавьте к описанию кластера {{ mpg-name }} один или несколько блоков `extension` в секции `database`, соответствующей нужной базе данных (по одному блоку на каждое расширение):
+  
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        ...
+        database {
+          ...
+          extension {
+            name    = "<имя расширения>"
+            version = "<версия расширения>"
+          }
+          ...
+        }
+        ...
+      ```
+
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
 - API
 
   Передать новый список расширений для базы данных можно с помощью метода [update](../api-ref/Database/update.md).

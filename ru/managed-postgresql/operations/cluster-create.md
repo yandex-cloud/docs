@@ -123,17 +123,17 @@
   {% if audience != "internal" %}
 
       ```bash
-      {{ yc-mdb-pg }} cluster create \
-        --name <имя кластера> \
-        --environment <окружение, prestable или production> \
-        --network-name <имя сети> \
-        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-        --resource-preset <класс хоста> \
-        --user name=<имя пользователя>,password=<пароль пользователя> \
-        --database name=<имя базы данных>,owner=<имя владельца базы данных> \
-        --disk-size <размер хранилища в гигабайтах> \
-        --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
-        --security-group-ids <список идентификаторов групп безопасности>
+     {{ yc-mdb-pg }} cluster create \
+      --name <имя кластера> \
+      --environment <окружение, prestable или production> \
+      --network-name <имя сети> \
+      --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+      --resource-preset <класс хоста> \
+      --user name=<имя пользователя>,password=<пароль пользователя> \
+      --database name=<имя базы данных>,owner=<имя владельца базы данных> \
+      --disk-size <объем хранилища, ГБ> \
+      --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
+      --security-group-ids <список идентификаторов групп безопасности>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -141,16 +141,16 @@
   {% else %}
 
       ```bash
-      {{ yc-mdb-pg }} cluster create \
-        --name <имя кластера> \
-        --environment <окружение, prestable или production> \
-        --network-id {{ network-name }} \
-        --host zone-id=<зона доступности> \
-        --resource-preset <класс хоста> \
-        --user name=<имя пользователя>,password=<пароль пользователя> \
-        --database name=<имя базы данных>,owner=<имя владельца базы данных> \
-        --disk-size <размер хранилища в гигабайтах> \
-        --security-group-ids <список идентификаторов групп безопасности>
+     {{ yc-mdb-pg }} cluster create \
+      --name <имя кластера> \
+      --environment <окружение, prestable или production> \
+      --network-id {{ network-name }} \
+      --host zone-id=<зона доступности> \
+      --resource-preset <класс хоста> \
+      --user name=<имя пользователя>,password=<пароль пользователя> \
+      --database name=<имя базы данных>,owner=<имя владельца базы данных> \
+      --disk-size <объем хранилища, ГБ> \
+      --security-group-ids <список идентификаторов групп безопасности>
       ```
 
   {% endif %}
@@ -205,7 +205,7 @@
          resources {
            resource_preset_id = "<класс хоста>"
            disk_type_id       = "<тип хранилища>"
-           disk_size          = "<размер хранилища в гигабайтах>"
+           disk_size          = <объем хранилища, ГБ>
          }
        }
 
@@ -238,15 +238,15 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_postgresql_cluster.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
-  1. Проверьте корректность конфигурационных файлов.
+  1. Проверьте корректность настроек.
 
-     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
   1. Создайте кластер.
 
-     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
