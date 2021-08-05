@@ -1,3 +1,4 @@
+---
 title: Yandex Managed Service for Redis
 href: index.yaml
 items:
@@ -33,6 +34,8 @@ items:
     items:
       - name: Хранение сессий PHP в Managed Service for Redis
         href: tutorials/redis-as-php-sessions-storage.md
+      - name: Миграция базы данных в Managed Service for Redis
+        href: tutorials/data-migration.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
