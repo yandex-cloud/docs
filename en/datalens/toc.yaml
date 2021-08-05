@@ -87,6 +87,8 @@ items:
             href: operations/chart/create-column-chart.md
           - name: Creating a bar chart
             href: operations/chart/create-bar-chart.md
+          - name: Creating a scatter chart
+            href: operations/chart/create-scatter-chart.md
           - name: Creating a map
             href: operations/chart/create-map-chart.md
           - name: Creating a table
