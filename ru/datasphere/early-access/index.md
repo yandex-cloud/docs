@@ -9,3 +9,4 @@
 ## Сейчас в раннем доступе {#available-now}
 
 * [{#T}](repeat.md)
+* [{#T}](../operations/data/connect-to-s3.md)
