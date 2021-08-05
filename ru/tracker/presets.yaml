@@ -15,35 +15,25 @@ default:
   org-id: "X-Org-ID: <идентификатор организации>"
   
   #Ссылки на Tracker и Коннект
-  link-tracker-ya: https://st.yandex-team.ru/
   link-connect: https://connect.yandex.ru/
   link-connect-main: https://connect.yandex.ru/portal/home
   link-admin-fields: https://tracker.yandex.ru/admin/fields
-  link-admin-fields-ya: https://st.yandex-team.ru/admin/fields
   link-admin-resolutions: https://tracker.yandex.ru/admin/resolutions
   link-quick-start: https://tracker.yandex.ru/queues/new/quick-start
   link-repositories: https://tracker.yandex.ru/admin/repositories
   link-tracker-statuses: https://tracker.yandex.ru/admin/statuses
-  link-tracker-statuses-ya: https://st.yandex-team.ru/admin/statuses
   link-tracker-templates: https://tracker.yandex.ru/settings/templates/issues/edit
-  link-tracker-templates-ya: https://st.yandex-team.ru/settings/templates/issues/edit
   link-sub-roles: https://tracker.yandex.ru/subscriptions/roles
-  link-sub-roles-ya: https://st.yandex-team.ru/subscriptions/roles
   link-sub-manage: https://tracker.yandex.ru/subscriptions/manage
-  link-sub-manage-ya: https://st.yandex-team.ru/subscriptions/manage
   link-settings: https://tracker.yandex.ru/settings
-  #link-settings-ya: https://st.yandex-team.ru/settings
   link-tracker-promo: https://cloud.yandex.ru/services/tracker
   link-services-tracker: https://connect.yandex.ru/portal/services/tracker
   link-forms: https://forms.yandex.ru/
-  link-forms-ya: https://forms.yandex-team.ru/
   link-passport: https://passport.yandex.ru/
   link-500-users: https://cloud.yandex.ru/services/tracker#contact-form
   link-tracker-support: https://support.cloud.yandex.ru/
   link-tracker-example-1: https://tracker.yandex.ru/TEST-1234
-  link-tracker-example-1-ya: https://st.yandex-team.ru/TEST-1234
   link-tracker-example-2: https://tracker.yandex.ru/ключОчереди
-  link-tracker-example-2-ya: https://st.yandex-team.ru/ключОчереди
   
 
   #Ссылки на справку на yandex.ru/support
@@ -54,22 +44,13 @@ default:
   support-connect-domains: https://yandex.ru/support/connect/domains.html#proof
   support-connect-services: https://yandex.ru/support/connect/services.html#services__mail-settings
   support-forms-main: https://yandex.ru/support/connect-forms/
-  support-forms-main-ya: https://doc.yandex-team.ru/forms/
   support-forms-create: https://yandex.ru/support/connect-forms/common/new-form.html
-  support-forms-create-ya: https://doc.yandex-team.ru/forms/external/new-form.html
   support-forms-tracker: https://yandex.ru/support/connect-forms/common/create-task.html
-  support-forms-tracker-ya: https://doc.yandex-team.ru/forms/external/create-task.html
   support-forms-access: https://yandex.ru/support/connect-forms/common/restrictions.html#restrictions__sec_access
   support-forms-notify: https://yandex.ru/support/connect-forms/common/notifications.html
-  support-forms-notify-ya: https://doc.yandex-team.ru/forms/external/notifications.html
   support-forms-publish: https://yandex.ru/support/connect-forms/common/publish.html#publish__section_link
-  support-forms-publish-ya: https://doc.yandex-team.ru/forms/external/publish.html
   support-forms-wiki: https://yandex.ru/support/connect-forms/common/publish.html#publish__section_xvx_g2c_tbb
-  support-forms-wiki-ya: https://doc.yandex-team.ru/forms/external/publish.html#publish__section_xvx_g2c_tbb
   support-forms-embed: https://yandex.ru/support/connect-forms/common/publish.html##publish__section_c21_gdb_42b
-  support-forms-embed-ya: https://doc.yandex-team.ru/forms/external/publish.html#publish__section_c21_gdb_42b
-  support-forms-get-params-ya: https://doc.yandex-team.ru/forms/external/get-params.html
-  support-forms-instance-ya: https://doc.yandex-team.ru/forms/external/new-form.html#new-form__instance
   support-forms-question-id: https://yandex.ru/support/connect-forms/common/question-id.html#question-id__sec_question
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
   support-business-domain: https://yandex.ru/support/business/domains.html
@@ -85,7 +66,6 @@ default:
   link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
   link-rfc7578: https://tools.ietf.org/html/rfc7578
   link-get-token: https://oauth.yandex.ru/
-  link-get-token-ya: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=5f671d781aca402ab7460fde4050267b
   link-OAuth-dev-guide: https://yandex.ru/dev/oauth/doc/dg/concepts/about.html
   link-register-application: https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html
   link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
@@ -110,3 +90,25 @@ internal:
   
   #Ссылки на Трекер
   link-settings: https://st.yandex-team.ru/settings
+  link-tracker: https://st.yandex-team.ru/
+  link-admin-fields: https://st.yandex-team.ru/admin/fields
+  link-tracker-statuses: https://st.yandex-team.ru/admin/statuses
+  link-tracker-templates: https://st.yandex-team.ru/settings/templates/issues/edit
+  link-sub-roles: https://st.yandex-team.ru/subscriptions/roles
+  link-sub-manage: https://st.yandex-team.ru/subscriptions/manage
+  link-forms: https://forms.yandex-team.ru/
+  link-tracker-example-1: https://st.yandex-team.ru/TEST-1234
+  link-tracker-example-2: https://st.yandex-team.ru/ключОчереди
+
+  link-get-token: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=5f671d781aca402ab7460fde4050267b
+  
+  #Ссылки на справку на doc.yandex-taem.ru
+  support-forms-main: https://doc.yandex-team.ru/forms/
+  support-forms-create: https://doc.yandex-team.ru/forms/external/new-form.html
+  support-forms-tracker: https://doc.yandex-team.ru/forms/external/create-task.html
+  support-forms-notify: https://doc.yandex-team.ru/forms/external/notifications.html
+  support-forms-publish: https://doc.yandex-team.ru/forms/external/publish.html
+  support-forms-wiki: https://doc.yandex-team.ru/forms/external/publish.html#publish__section_xvx_g2c_tbb
+  support-forms-embed: https://doc.yandex-team.ru/forms/external/publish.html#publish__section_c21_gdb_42b
+  support-forms-get-params: https://doc.yandex-team.ru/forms/external/get-params.html
+  support-forms-instance: https://doc.yandex-team.ru/forms/external/new-form.html#new-form__instance

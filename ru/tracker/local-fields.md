@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Список существующих глобальных полей можно посмотреть на странице [Настройки {{ tracker-name }}]{% if audience == "external" %}({{ link-admin-fields }}){% else %}({{ link-admin-fields-ya }}){% endif %}.
+Список существующих глобальных полей можно посмотреть на странице [Настройки {{ tracker-name }}]({{ link-admin-fields }}).
 
 {% endnote %}
 

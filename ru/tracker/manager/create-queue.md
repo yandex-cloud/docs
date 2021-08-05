@@ -48,7 +48,7 @@
 Ключ очереди можно использовать:
 
 - Для поиска задач — указывать ключ очереди в [условиях фильтров](../user/create-filter.md) и в [языке запросов](../user/query-filter.md). 
-- Для прямого доступа к очереди по адресу: {% if audience == "external" %}`({{ link-tracker-example-2 }})`{% else %}`({{ link-tracker-example-2-ya }})`{% endif %}.
+- Для прямого доступа к очереди по адресу: `({{ link-tracker-example-2 }})`.
 
 ## Скопировать очередь {#section_rhb_jjb_mfb}
 

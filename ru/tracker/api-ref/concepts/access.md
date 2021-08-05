@@ -11,10 +11,9 @@
 Чтобы получить доступ к {{ api-name }}:
 {% if audience == "external" %}
 1. [Зарегистрируйте]({{ link-register-application }}) приложение и настройте для него доступ к чтению и записи в {{ tracker-name }}.
-1. [Получите]({{ link-get-token }}) OAuth-токен для авторизации.
-{% else %}
-1. [Получите]({{ link-get-token-ya }}) OAuth-токен для авторизации.
 {% endif %}
+1. [Получите]({{ link-get-token }}) OAuth-токен для авторизации.
+
 2. В запросах к {{ api-short-name }} указывайте заголовки:
 
     - `Host: {{ host }}`

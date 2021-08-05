@@ -18,6 +18,6 @@
 
 1. Нажмите кнопку **Сохранить**.
 
-Новый шаблон будет доступен на [странице шаблонов]{% if audience == "external" %}({{ link-tracker-templates }}){% else %}({{ link-tracker-templates-ya }}){% endif %}.
+Новый шаблон будет доступен на [странице шаблонов]({{ link-tracker-templates }}).
 
 

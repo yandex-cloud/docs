@@ -12,7 +12,7 @@
 
 ## Как использовать {{ tracker-name }} на мобильном устройстве {#mobile}
 
-Вы можете использовать мобильную версию {{ tracker-name }}. Для этого на мобильном устройстве откройте браузер и перейдите по адресу {% if audience == "external" %}[{{ link-tracker }}]({{ link-tracker }}){% else %}[{{ link-tracker-ya }}]({{ link-tracker-ya }}){% endif%}.
+Вы можете использовать мобильную версию {{ tracker-name }}. Для этого на мобильном устройстве откройте браузер и перейдите по адресу [{{ link-tracker }}]({{ link-tracker }}).
 
 {% if audience == "external" %}
 
