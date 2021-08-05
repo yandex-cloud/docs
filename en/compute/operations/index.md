@@ -78,6 +78,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ## Creating new images {#image-create}
 
 * [{#T}](image-create/upload.md)
+* [{#T}](image-create/custom-image.md)
 
 ## Managing images {#image-control}
 

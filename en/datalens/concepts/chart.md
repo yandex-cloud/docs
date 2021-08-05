@@ -170,8 +170,6 @@ Displays the size of elements in a single data series relative to the sum of ele
 
 Displayed as a set of rectangles. Use this chart to compare proportions in a hierarchy.
 
-Use this chart to compare proportions in a hierarchy.
-
 | Section<br/> in the wizard | Description |
 | ----- | ---- |
 | Dimensions | Dimensions. Determines the hierarchy tree of nested rectangles |

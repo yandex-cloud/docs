@@ -1,0 +1,109 @@
+title: Yandex Cloud Organization
+stage: preview
+href: index.yaml
+items:
+  - name: Getting started
+    href: quick-start.md
+  - name: Managing organizations
+    items:
+      - name: Creating an organization
+        href: enable-org.md
+      - name: Editing organization data
+        href: org-profile.md
+      - name: Switching to another organization
+        href: manage-organizations.md
+  - name: Managing users
+    items:
+      - name: Overview
+        href: manage-users.md
+      - name: Adding Yandex users
+        href: add-account.md
+      - name: Configuring an identity federation
+        href: add-federation.md
+      - name: Editing or deleting a user account
+        href: edit-account.md
+  - name: API Reference
+    items:
+      - name: Authentication
+        href: api-authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: OrganizationService
+            href: api-ref/grpc/organization_service.md
+          - name: UserService
+            href: api-ref/grpc/user_service.md
+          - name: CertificateService
+            href: api-ref/grpc/certificate_service.md
+          - name: FederationService
+            href: api-ref/grpc/federation_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Organization
+            items:
+              - name: Overview
+                href: api-ref/Organization/index.md
+              - name: get
+                href: api-ref/Organization/get.md
+              - name: list
+                href: api-ref/Organization/list.md
+              - name: listAccessBindings
+                href: api-ref/Organization/listAccessBindings.md
+              - name: listOperations
+                href: api-ref/Organization/listOperations.md
+              - name: setAccessBindings
+                href: api-ref/Organization/setAccessBindings.md
+              - name: update
+                href: api-ref/Organization/update.md
+              - name: updateAccessBindings
+                href: api-ref/Organization/updateAccessBindings.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/User/index.md
+              - name: deleteMembership
+                href: api-ref/User/deleteMembership.md
+              - name: listMembers
+                href: api-ref/User/listMembers.md
+          - name: Federation
+            items:
+              - name: Overview
+                href: api-ref/Federation/index.md
+              - name: update
+                href: api-ref/Federation/update.md
+              - name: list
+                href: api-ref/Federation/list.md
+              - name: listUserAccounts
+                href: api-ref/Federation/listUserAccounts.md
+              - name: get
+                href: api-ref/Federation/get.md
+              - name: delete
+                href: api-ref/Federation/delete.md
+              - name: addUserAccounts
+                href: api-ref/Federation/addUserAccounts.md
+              - name: create
+                href: api-ref/Federation/create.md
+              - name: listOperations
+                href: api-ref/Federation/listOperations.md
+          - name: Certificate
+            items:
+              - name: Overview
+                href: api-ref/Certificate/index.md
+              - name: update
+                href: api-ref/Certificate/update.md
+              - name: list
+                href: api-ref/Certificate/list.md
+              - name: get
+                href: api-ref/Certificate/get.md
+              - name: delete
+                href: api-ref/Certificate/delete.md
+              - name: create
+                href: api-ref/Certificate/create.md
+              - name: listOperations
+                href: api-ref/Certificate/listOperations.md
+base: en/organization

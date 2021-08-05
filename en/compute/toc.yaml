@@ -119,6 +119,8 @@ items:
         items:
           - name: Uploading your image
             href: operations/image-create/upload.md
+          - name: Preparing your disk image
+            href: operations/image-create/custom-image.md
       - name: Managing images
         items:
           - name: Deleting a disk image

@@ -2,7 +2,7 @@
 title: Инструкции по работе с Yandex DataSphere
 description: "Из статьи вы узнаете как работать с Yandex DataSphere в Yandex.Cloud. Рассказываем о том, как создать проект, установить зависимости, запустить примеры кода в ноутбуке, работать с контрольными точками, управлять вычислительными ресурсами, публиковать ноутбук, работать с Git."
 
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
 
 
@@ -23,7 +23,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 * [{#T}](projects/work-with-git.md)
 * [{#T}](data-proc-integration.md)
 
-## Работа с данными внутри проекта
+## Работа с данными внутри проекта {#data-in-project}
 
 * [{#T}](../operations/data/secret-create.md)
 * [{#T}](../operations/data/secret-call.md)
@@ -31,7 +31,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 * [{#T}](../operations/data/secret-change.md)
 * [{#T}](../operations/data/secret-delete.md)
   
-## Получение данных из источников
+## Получение данных из источников {#data-source}
 
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
