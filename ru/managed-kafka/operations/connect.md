@@ -88,11 +88,23 @@
 
 {% if audience != "internal" %}
 
-```bash
-sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-```
+{% list tabs %}
+
+- Linux (Bash)
+
+  ```bash
+  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
+  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
+  sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+  ``` 
+
+- Windows (PowerShell)
+
+  ```powershell
+  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexCA.crt https://{{ s3-storage-host }}{{ pem-path }}
+  ```
+
+{% endlist %}
 
 {% else %}
 
@@ -107,7 +119,9 @@ chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
 
 {% include [conn-strings-environment](../../_includes/mdb/mkf-conn-strings-env.md) %}
 
-Перед подключением к хостам кластера с использованием SSL-соединения, [подготовьте сертификат](#get-ssl-cert). В примерах ниже предполагается, что сертификат `YandexCA.crt` расположен в директории `/usr/local/share/ca-certificates/Yandex/`.
+Перед подключением к хостам кластера с использованием SSL-соединения, [подготовьте сертификат](#get-ssl-cert). В примерах ниже предполагается, что сертификат `YandexCA.crt` расположен в директории:
+* `/usr/local/share/ca-certificates/Yandex/` для Ubuntu;
+* `$HOME\.kafka\` для Windows.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

@@ -12,7 +12,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 - Подключение без SSL
 
-  1. Чтобы получить сообщения из топика, выполните команду:
+  1. Запустите команду получения сообщений из топика:
 
       ```bash
       kafkacat -C \
@@ -24,7 +24,9 @@ sudo apt update && sudo apt install -y kafkacat
                -X sasl.password=<пароль потребителя> -Z -K:
       ```
 
-  1. Чтобы отправить сообщение в топик, выполните команду:
+     Команда будет непрерывно считывать новые сообщения из топика.
+
+  1. В отдельном терминале запустите команду отправки сообщения в топик:
 
       ```bash
       echo "test message" | kafkacat -P \
@@ -39,7 +41,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 - Подключение с SSL
 
-    1. Чтобы получить сообщения из топика, выполните команду:
+    1. Запустите команду получения сообщений из топика:
 
         ```bash
         kafkacat -C \
@@ -52,7 +54,9 @@ sudo apt update && sudo apt install -y kafkacat
                  -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
         ```
 
-    1. Чтобы отправить сообщение в топик, выполните команду:
+       Команда будет непрерывно считывать новые сообщения из топика.
+
+    1. В отдельном терминале запустите команду отправки сообщения в топик:
 
         ```bash
           echo "test message" | kafkacat -P \
@@ -68,7 +72,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
-Сначала запустите команду получения сообщений, которая будет непрерывно считывать новые сообщения из топика. Затем в другой терминальной сессии запустите команду отправки сообщений, которая отправит в топик {{ KF }} одно сообщение `test message` с ключом `key`. Сессия с запущенной командой получения сообщений отобразит сообщения, отправленные в топик.
+{% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
 
 ### C# {#csharp}
 
@@ -366,7 +370,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
-Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик {{ KF }} одно или несколько сообщений `test message` с ключом `key`. Приложение-потребитель отобразит сообщения, отправленные в топик.
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### Go {#go}
 
@@ -782,7 +786,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
-Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик {{ KF }} одно или несколько сообщений `test message` с ключом `key`. Приложение-потребитель отобразит сообщения, отправленные в топик.
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### Java {#java}
 
@@ -1018,7 +1022,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 - Подключение с SSL
 
-  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. При этом задайте пароль в параметре `-storepass` для дополнительной защиты хранилища:
+  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
 
      ```bash
      cd /etc/security && \
@@ -1157,7 +1161,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
-Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик {{ KF }} одно или несколько сообщений `test message` с ключом `key`. Приложение-потребитель отобразит сообщения, отправленные в топик.
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### Node.js {#nodejs}
 
@@ -1366,7 +1370,107 @@ npm install node-rdkafka
 
 {% endlist %}
 
-Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик {{ KF }} одно или несколько сообщений `test message` с ключом `key`. Приложение-потребитель отобразит сообщения, отправленные в топик.
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+
+### PowerShell {#powershell}
+
+Перед подключением:
+
+1. Установите последнюю доступную версию [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
+
+1. Загрузите [архив с бинарными файлами](https://kafka.apache.org/downloads) для версии {{ KF }}, которая используется в кластере. Версия Scala неважна.
+
+1. Распакуйте архив.
+
+   {% note tip %}
+
+   Распаковывайте файлы {{ KF }} в корневой каталог диска, например, `C:\kafka_2.12-2.6.0\`. 
+   
+   Если путь к исполняемым и пакетным файлам {{ KF }} будет слишком длинным, то при попытке запустить их возникнет ошибка `The input line is too long`.
+
+   {% endnote %}
+
+{% list tabs %}
+
+- Подключение без SSL
+
+  1. Запустите команду получения сообщений из топика:
+
+      ```powershell
+      <путь к директории с файлами Kafka>\bin\windows\kafka-console-consumer.bat `
+          --bootstrap-server <FQDN брокера>:9092 `
+          --topic <имя топика> `
+          --property print.key=true `
+          --property key.separator=":" `
+          --consumer-property security.protocol=SASL_PLAINTEXT `
+          --consumer-property sasl.mechanism=SCRAM-SHA-512 `
+          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин потребителя>' password='<пароль потребителя>';" 
+      ```
+
+      Команда будет непрерывно считывать новые сообщения из топика.
+
+  1. В отдельном терминале запустите команду отправки сообщения в топик:
+      
+      ```powershell
+      echo "key:test message" | <путь к директории с файлами Kafka>\bin\windows\kafka-console-producer.bat `
+          --bootstrap-server <FQDN брокера>:9092 `
+          --topic <имя топика> `
+          --property parse.key=true `
+          --property key.separator=":" `
+          --producer-property acks=all `
+          --producer-property security.protocol=SASL_PLAINTEXT `
+          --producer-property sasl.mechanism=SCRAM-SHA-512 `
+          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин производителя>' password='<пароль производителя>';"
+      ```
+
+- Подключение с SSL
+
+  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
+
+     ```powershell
+     keytool.exe -importcert -alias YandexCA `
+       --file $HOME\.kafka\YandexCA.crt `
+       --keystore $HOME\.kafka\ssl `
+       --storepass <пароль хранилища сертификатов> `
+       --noprompt
+     ```
+  
+  1. Запустите команду получения сообщений из топика:
+
+      ```powershell
+      <путь к директории с файлами Kafka>\bin\windows\kafka-console-consumer.bat `
+          --bootstrap-server <FQDN брокера>:9091 `
+          --topic <имя топика> `
+          --property print.key=true `
+          --property key.separator=":" `
+          --consumer-property security.protocol=SASL_SSL `
+          --consumer-property sasl.mechanism=SCRAM-SHA-512 `
+          --consumer-property ssl.truststore.location=$HOME\.kafka\ssl `
+          --consumer-property ssl.truststore.password=<пароль хранилища сертификатов> `
+          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин потребителя>' password='<пароль потребителя>';"
+      ```
+
+     Команда будет непрерывно считывать новые сообщения из топика.
+
+  1. В отдельном терминале запустите команду отправки сообщения в топик:
+     
+      ```powershell
+      echo "key:test message" | <путь к директории с файлами Kafka>\bin\windows\kafka-console-producer.bat `
+          --bootstrap-server <FQDN брокера>:9091 `
+          --topic <имя топика> `
+          --property parse.key=true `
+          --property key.separator=":" `
+          --producer-property acks=all `
+          --producer-property security.protocol=SASL_SSL `
+          --producer-property sasl.mechanism=SCRAM-SHA-512 `
+          --producer-property ssl.truststore.location=$HOME\.kafka\ssl `
+          --producer-property ssl.truststore.password=<пароль хранилища сертификатов> `
+          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<логин производителя>' password='<пароль производителя>';"
+      ```
+
+{% endlist %}
+
+{% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
 
 ### Python {#python}
 
@@ -1487,4 +1591,5 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 {% endlist %}
 
-Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик {{ KF }} одно или несколько сообщений `test message` с ключом `key`. Приложение-потребитель отобразит сообщения, отправленные в топик.
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+
