@@ -75,6 +75,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Creating new images {#image-create}
 
 * [{#T}](image-create/upload.md)
+* [{#T}](image-create/custom-image.md)
 
 ## Managing images {#image-control}
 
