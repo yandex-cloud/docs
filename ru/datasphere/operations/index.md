@@ -20,7 +20,7 @@ description: "Из статьи вы узнаете как работать с Y
 * [{#T}](projects/work-with-git.md)
 * [{#T}](data-proc-integration.md)
 
-## Работа с данными внутри проекта
+## Работа с данными внутри проекта {#data-in-project}
 
 * [{#T}](../operations/data/secret-create.md)
 * [{#T}](../operations/data/secret-call.md)
@@ -28,7 +28,7 @@ description: "Из статьи вы узнаете как работать с Y
 * [{#T}](../operations/data/secret-change.md)
 * [{#T}](../operations/data/secret-delete.md)
   
-## Получение данных из источников
+## Получение данных из источников {#data-source}
 
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)

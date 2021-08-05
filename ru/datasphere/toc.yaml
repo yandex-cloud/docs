@@ -91,6 +91,8 @@ items:
         href: early-access/repeat.md
       - name: Подключение к хранилищу S3
         href: operations/data/connect-to-s3.md
+      - name: Датасеты
+        href: concepts/dataset.md
   - name: Сценарии использования
     items:
       - name: Все сценарии

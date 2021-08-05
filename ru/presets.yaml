@@ -287,14 +287,6 @@ default:
   graph-update-burstable: 150 секунд
   mch-backup-retention: 7
   mch-dedup-retention: 30
-  stt-short-fileSize: 1 МБ
-  stt-short-audioLength: 30 секунд
-  stt-short-channelsCount: 1
-  stt-long-fileSize: 1 ГБ
-  stt-long-resultsStorageTime: 3 суток
-  stt-long-audioLength: 4 часа
-  stt-streaming-fileSize: 10 МБ
-  stt-streaming-audioLength: 5 минут
   yql-full-name: Yandex Query Language
   yql-short-name: YQL
   k8s: Kubernetes
@@ -327,6 +319,18 @@ default:
   yandex-cloud: Yandex.Cloud
   yds-short-name: Data Streams
   yds: yds
+
+  # ML
+  stt-short-fileSize: 1 МБ
+  stt-short-audioLength: 30 секунд
+  stt-short-channelsCount: 1
+  stt-long-fileSize: 1 ГБ
+  stt-long-resultsStorageTime: 3 суток
+  stt-long-audioLength: 4 часа
+  stt-streaming-fileSize: 10 МБ
+  stt-streaming-audioLength: 5 минут
+  ya-client-app: https://oauth.yandex.ru/client/new
+  ya-oauth: https://oauth.yandex.ru/verification_code
 
   # Data Transfer
   dt-copy: Копировать
@@ -366,7 +370,7 @@ default:
     dislikeVariants:
       - 'Нет ответа на мой вопрос'
       - 'Рекомендации не помогли'
-      - 'Содержание не соответсвует заголовку'
+      - 'Содержание не соответствует заголовку'
       - 'Другое'
 
   # Внешние ссылки
