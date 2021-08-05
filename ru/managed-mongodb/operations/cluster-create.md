@@ -47,9 +47,12 @@
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером (помните, что используя SSD-диски при создании {{ MG }}-кластера можно задать не меньше 3 хостов). Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
   1. При необходимости задайте дополнительные настройки кластера:
 
-     {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
+      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
 
   1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
+  
+      {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
+  
   1. Нажмите кнопку **Создать кластер**.
 
 - CLI

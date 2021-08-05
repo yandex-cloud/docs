@@ -14,6 +14,8 @@
 
 ## Изменить класс хостов {#change-resource-preset}
 
+{% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
+
 {% list tabs %}
 
 - Консоль управления
@@ -157,13 +159,15 @@
 
 Вы можете изменить настройки СУБД для хостов вашего кластера.
 
+{% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
+
 {% list tabs %}
 
 - Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
-  1. Измените [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings), нажав кнопку **Настроить** в блоке **Настройки СУБД**:
+  1. Измените [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings), нажав кнопку **Настроить** в блоке **Настройки СУБД**.
   1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI

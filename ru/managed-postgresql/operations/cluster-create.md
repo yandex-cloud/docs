@@ -83,6 +83,13 @@
      {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
 
   1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
+  
+     {% note info %}
+
+     Некоторые настройки {{ PG }} [зависят от выбранного класса хостов или от размера хранилища](../concepts/settings-list.md#settings-instance-dependent).
+
+     {% endnote %}
+
   1. Нажмите кнопку **Создать кластер**.
 
 - CLI
@@ -159,7 +166,7 @@
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать кластер:
 

@@ -13,6 +13,27 @@
   - `default_transaction_isolation` в gRPC API;
   - `defaultTransactionIsolation` в REST API.
 
+## Зависимость настроек от класса хостов и размера хранилища {#settings-instance-dependent}
+
+Значения некоторых настроек {{ PG }} могут быть автоматически скорректированы при изменении класса хостов или размера хранилища:
+
+- Если значения не были заданы или не подходят новому классу/размеру, будут применены настройки по умолчанию для этого класса/размера.
+- Если заданные вручную настройки подходят для нового класса/размера, они не будут изменены.
+
+Список настроек, зависящих от класса хостов:
+
+- [Autovacuum max workers](#setting-autovacuum-max-workers).
+- [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay).
+- [Autovacuum vacuum cost limit](#setting-autovacuum-vacuum-cost-limit).
+- [Conn limit](#setting-conn-limit).
+- [Max connections](#setting-max-connections).
+- [Shared buffers](#setting-shared-buffers).
+
+Список настроек, зависящих от размера хранилища:
+
+- [Max wal size](#setting-max-wal-size).
+- [Min wal size](#setting-min-wal-size).
+
 ## Настройки СУБД уровня кластера {#dbms-cluster-settings}
 
 Доступны следующие настройки:
