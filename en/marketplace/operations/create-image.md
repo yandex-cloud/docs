@@ -12,16 +12,18 @@ To add a product to the Marketplace, you need to upload an image to {{ yandex-cl
 
 ## Image requirements {#requirements}
 
-Make sure to meet the following requirements for Linux-based product images:
+{% include [image-create-requirements](../../_includes/compute/image-create-requirements.md) %}
 
-* The network interface runs correctly when starting a VM and obtains the IP address via DHCP.
-* The image has the `cloud-init` package installed and configured to work with our [metadata service](../../compute/operations/vm-info/get-info.md#inside-instance), as well as the `virtio-net` and `virtio-blk` drivers.
-* In the system firewall settings, the minimum required set of ports for running your applications and a port for SSH access (by default, this is port 22 TCP) are open.
-* The SSH server starts automatically at VM startup.
-* Services running your application are resistant to VM reboots.
-* The Linux kernel is running with the `console=ttyS0` parameter.
-* GPT disk partitioning is used.
-* The disk is mounted by its UUID rather than by name.
+For instructions on how to configure the OS to meet the requirements, see [{#T}](../../compute/operations/image-create/custom-image.md).
+
+To use the image for a Marketplace product, also follow these steps:
+
+1. Clean up:
+   * The `/tmp`, `/var/tmp`, and `/var/log` directories.
+   * The package manager cache.
+   * `.bash_history` for all users.
+   * The data on configurations previously received via DHCP (`dhcp.leases` and `dhcp.log`).
+   * The `/etc/machine-id` file.
 
 ### Preparing an image {#preparation}
 

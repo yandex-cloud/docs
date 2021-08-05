@@ -1,6 +1,6 @@
 ---
 
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
 # Пошаговые инструкции для Yandex DataLens
 
@@ -43,6 +43,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 - [{#T}](chart/create-table.md)
 - [{#T}](chart/create-pivot-table.md)
 - [{#T}](chart/create-indicator-chart.md)
+- [{#T}](chart/create-tree-chart.md)
 - [{#T}](chart/add-hierarchy.md)
 - [{#T}](chart/publish.md)
 - [{#T}](chart/manage-access.md) 

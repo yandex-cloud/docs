@@ -89,6 +89,8 @@ items:
             href: operations/chart/create-column-chart.md
           - name: Creating a bar chart
             href: operations/chart/create-bar-chart.md
+          - name: Creating a scatter chart
+            href: operations/chart/create-scatter-chart.md
           - name: Creating a map
             href: operations/chart/create-map-chart.md
           - name: Creating a table
@@ -97,6 +99,8 @@ items:
             href: operations/chart/create-pivot-table.md
           - name: Creating an indicator
             href: operations/chart/create-indicator-chart.md
+          - name: Creating a tree chart
+            href: operations/chart/create-tree-chart.md
           - name: Adding a hierarchy
             href: operations/chart/add-hierarchy.md
           - name: Publishing a chart

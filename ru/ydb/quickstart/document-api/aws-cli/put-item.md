@@ -1,6 +1,6 @@
 ---
 
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
 # Добавление данных в таблицу
 
@@ -11,6 +11,12 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 * AWS CLI
 
     Выполните команды, заменив `https://your-database-endpoint` эндпоинтом вашей БД:
+
+    {% note warning %}
+
+    Для работы с AWS CLI из Windows рекомендуется использовать [WSL](https://docs.microsoft.com/ru-ru/windows/wsl/).
+
+    {% endnote %}
 
     ```bash
     endpoint="https://your-database-endpoint"

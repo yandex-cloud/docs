@@ -4,7 +4,7 @@ description: 'В сервисах Yandex Virtual Private Cloud и Yandex Cloud I
 
 editable: false
 
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответсвует заголовку","Другое"]}
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
 
 
