@@ -23,6 +23,8 @@ items:
             href: operations/subnet-delete.md
           - name: Updating a subnet
             href: operations/subnet-update.md
+          - name: Viewing a list of used addresses
+            href: operations/subnet-used-addresses.md
       - name: IP address
         items:
           - name: Reserving a static public IP address
@@ -33,7 +35,7 @@ items:
             href: operations/set-dynamic-ip.md
           - name: Deleting a static public IP address
             href: operations/address-delete.md
-      - name: Static routes
+      - name: Static routing
         stage: new
         items:
           - name: Creating a static route
@@ -74,7 +76,7 @@ items:
         href: concepts/mtu-mss.md
       - name: DHCP settings
         href: concepts/dhcp-options.md
-      - name: Software accelerated network
+      - name: Software-accelerated network
         href: concepts/software-accelerated-network.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -100,15 +102,15 @@ items:
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: gRPC
-        items: null
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/vpc/toc.yaml
       - name: REST
         items: null
         include:
           repo: docs
           path: en/_api-ref/vpc/toc.yaml
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/vpc/toc.yaml
   - name: Questions and answers
     href: qa/index.md

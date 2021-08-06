@@ -28,7 +28,7 @@
    1. Получите список адресов в выбранной подсети:
 
       ```bash
-      yc vpc subnet list-used-addresses --name <имя-подсети>
+      yc vpc subnet list-used-addresses --name <имя_подсети>
       ```
 
       Результат выполнения:
