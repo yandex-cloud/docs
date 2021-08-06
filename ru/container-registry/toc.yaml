@@ -21,6 +21,16 @@ items:
             href: operations/docker-image/docker-image-pull.md
           - name: Удалить Docker-образ из реестра
             href: operations/docker-image/docker-image-delete.md
+      - name: Управление Helm-чартом
+        items:
+          - name: Получить информацию об имеющихся Helm-чартах
+            href: operations/helm-chart/helm-chart-list.md
+          - name: Загрузить Helm-чарт в реестр
+            href: operations/helm-chart/helm-chart-push.md
+          - name: Скачать Helm-чарт из реестра
+            href: operations/helm-chart/helm-chart-pull.md
+          - name: Удалить Helm-чарт из реестра
+            href: operations/helm-chart/helm-chart-delete.md
       - name: Управление реестром
         items:
           - name: Получить информацию об имеющихся реестрах

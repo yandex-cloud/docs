@@ -7,36 +7,46 @@ description: "Пошаговые инструкции по работе с Docke
 
 Чтобы работать с Docker-образами, [аутентифицируйтесь в {{ container-registry-short-name }}](authentication.md).
 
-
 ## Работа с {{ coi }} {#coi}
 
 Подробнее о том, как работать с образом {{ coi }}, читайте в документации [{{ cos-name }}](../../cos/).
 
 ## Управление Docker-образом {#docker-images}
 
-- [{#T}](docker-image/docker-image-list.md)
-- [{#T}](docker-image/docker-image-create.md)
-- [{#T}](docker-image/docker-image-push.md)
-- [{#T}](docker-image/docker-image-pull.md)
-- [{#T}](docker-image/docker-image-delete.md)
+* [{#T}](docker-image/docker-image-list.md)
+* [{#T}](docker-image/docker-image-create.md)
+* [{#T}](docker-image/docker-image-push.md)
+* [{#T}](docker-image/docker-image-pull.md)
+* [{#T}](docker-image/docker-image-delete.md)
+
+## Управление Helm-чартом {#lifecycle-policy}
+
+* [{#T}](helm-chart/helm-chart-list.md)
+* [{#T}](helm-chart/helm-chart-push.md)
+* [{#T}](helm-chart/helm-chart-pull.md)
+* [{#T}](helm-chart/helm-chart-delete.md)
 
 ## Управление реестром {#registry}
 
-- [{#T}](registry/registry-list.md)
-- [{#T}](registry/registry-create.md)
-- [{#T}](registry/registry-update.md)
-- [{#T}](registry/registry-delete.md)
+* [{#T}](registry/registry-list.md)
+* [{#T}](registry/registry-create.md)
+* [{#T}](registry/registry-update.md)
+* [{#T}](registry/registry-delete.md)
 
 ## Управление репозиторием {#repository}
 
-- [{#T}](repository/repository-list.md)
+* [{#T}](repository/repository-list.md)
 
 ## Управление политиками автоматического удаления Docker-образов {#lifecycle-policy}
 
-- [{#T}](lifecycle-policy/lifecycle-policy-list.md)
-- [{#T}](lifecycle-policy/lifecycle-policy-create.md)
-- [{#T}](lifecycle-policy/lifecycle-policy-update.md)
-- [{#T}](lifecycle-policy/lifecycle-policy-dry-run.md)
-- [{#T}](lifecycle-policy/lifecycle-policy-delete.md)
+* [{#T}](lifecycle-policy/lifecycle-policy-list.md)
+* [{#T}](lifecycle-policy/lifecycle-policy-create.md)
+* [{#T}](lifecycle-policy/lifecycle-policy-update.md)
+* [{#T}](lifecycle-policy/lifecycle-policy-dry-run.md)
+* [{#T}](lifecycle-policy/lifecycle-policy-delete.md)
 
+## Работа с ролями {#roles}
 
+* [{#T}](roles/grant.md)
+* [{#T}](roles/get-assigned-roles.md)
+* [{#T}](roles/revoke.md)
