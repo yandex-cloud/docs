@@ -257,7 +257,4 @@ _Геослои_ — визуализация показателей по точ
 - [{#T}](../../operations/chart/create-bar-chart.md)
 - [{#T}](../../operations/chart/create-pie-chart.md)
 - [{#T}](../../operations/chart/create-map-chart.md)
-- [{#T}](../../operations/chart/publish.md)
-
-
-
+{% if audience != "internal" %}- [{#T}](../../operations/chart/publish.md){% endif %}
