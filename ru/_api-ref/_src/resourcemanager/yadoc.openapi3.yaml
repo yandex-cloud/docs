@@ -687,6 +687,9 @@ components:
         description:
           description: Описание облака. Длина описания должна быть от 0 до 256 символов.
           type: string
+        organizationId:
+          description: Идентификатор организации, которой принадлежит облако.
+          type: string
     CreateFolderMetadata:
       type: object
       properties:

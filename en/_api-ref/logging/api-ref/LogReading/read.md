@@ -59,8 +59,8 @@ logGroupId | **string**<br><p>Log group ID the read was performed from.</p>
 entries[] | **object**<br><p>List of matching log entries.</p> 
 entries[].<br>uid | **string**<br><p>Unique entry ID.</p> <p>Useful for logs deduplication.</p> 
 entries[].<br>resource | **object**<br><p>Entry resource specification.</p> <p>May contain information about source service and resource ID. Also may be provided by the user.</p> <p>Log entry resource specification.</p> <p>May be used either by services and by user.</p> 
-entries[].<br>resource.<br>type | **string**<br><p>Resource type, i.e., ``serverless.function``</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{1,62})?``.</p> 
-entries[].<br>resource.<br>id | **string**<br><p>Resource ID, i.e., ID of the function producing logs.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{1,62})?``.</p> 
+entries[].<br>resource.<br>type | **string**<br><p>Resource type, i.e., ``serverless.function``</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
+entries[].<br>resource.<br>id | **string**<br><p>Resource ID, i.e., ID of the function producing logs.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
 entries[].<br>timestamp | **string** (date-time)<br><p>Timestamp of the entry.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 entries[].<br>ingestedAt | **string** (date-time)<br><p>Entry ingestion time observed by ``LogIngestion``.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 entries[].<br>savedAt | **string** (date-time)<br><p>Entry save time.</p> <p>Entry is ready to be read since this moment.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

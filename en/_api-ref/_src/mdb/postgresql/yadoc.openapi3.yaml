@@ -1627,6 +1627,13 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
+          backupRetainPeriodDays:
+            description: |-
+              Retention policy of automated backups.
+
+              Acceptable values are 7 to 60, inclusive.
+            type: integer
+            format: int64
           access:
             $ref: '#/components/schemas/Access'
             description: Access policy to DB
@@ -9145,6 +9152,13 @@ components:
           backupWindowStart:
             $ref: '#/components/schemas/TimeOfDay'
             description: Time to start the daily backup, in the UTC timezone.
+          backupRetainPeriodDays:
+            description: |-
+              Retention policy of automated backups.
+
+              Acceptable values are 7 to 60, inclusive.
+            type: integer
+            format: int64
           access:
             $ref: '#/components/schemas/Access'
             description: Access policy to DB

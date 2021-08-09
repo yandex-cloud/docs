@@ -40,6 +40,7 @@ id | **string**<br>Идентификатор облака.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
 name | **string**<br>Имя облака. Длина имени должна быть от 3 до 63 символов. 
 description | **string**<br>Описание облака. Длина описания должна быть от 0 до 256 символов. 
+organization_id | **string**<br>Идентификатор организации, которой принадлежит облако. 
 
 
 ## List {#List}
@@ -73,6 +74,7 @@ id | **string**<br>Идентификатор облака.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
 name | **string**<br>Имя облака. Длина имени должна быть от 3 до 63 символов. 
 description | **string**<br>Описание облака. Длина описания должна быть от 0 до 256 символов. 
+organization_id | **string**<br>Идентификатор организации, которой принадлежит облако. 
 
 
 ## Update {#Update}
@@ -126,6 +128,7 @@ id | **string**<br>Идентификатор облака.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания. 
 name | **string**<br>Имя облака. Длина имени должна быть от 3 до 63 символов. 
 description | **string**<br>Описание облака. Длина описания должна быть от 0 до 256 символов. 
+organization_id | **string**<br>Идентификатор организации, которой принадлежит облако. 
 
 
 ## Delete {#Delete}

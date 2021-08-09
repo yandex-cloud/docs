@@ -22,6 +22,7 @@ Method | Description
 --- | ---
 [delete](delete.md) | Deletes the specified repository.
 [get](get.md) | Returns the specified Repository resource.
+[getByName](getByName.md) | Returns the specified Repository resource.
 [list](list.md) | Retrieves the list of Repository resources in the specified registry.
 [listAccessBindings](listAccessBindings.md) | Lists access bindings for the specified repository.
 [setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified repository.

@@ -40,6 +40,7 @@ id | **string**<br>ID of the cloud.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the cloud. 3-63 characters long. 
 description | **string**<br>Description of the cloud. 0-256 characters long. 
+organization_id | **string**<br>ID of the organization that the cloud belongs to. 
 
 
 ## List {#List}
@@ -73,6 +74,7 @@ id | **string**<br>ID of the cloud.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the cloud. 3-63 characters long. 
 description | **string**<br>Description of the cloud. 0-256 characters long. 
+organization_id | **string**<br>ID of the organization that the cloud belongs to. 
 
 
 ## Update {#Update}
@@ -126,6 +128,7 @@ id | **string**<br>ID of the cloud.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the cloud. 3-63 characters long. 
 description | **string**<br>Description of the cloud. 0-256 characters long. 
+organization_id | **string**<br>ID of the organization that the cloud belongs to. 
 
 
 ## Delete {#Delete}

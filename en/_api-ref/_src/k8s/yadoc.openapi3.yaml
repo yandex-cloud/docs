@@ -1093,7 +1093,7 @@ components:
           description: |-
             ID of the disk type.
 
-            Value must match the regular expression `` |network-ssd|network-hdd ``.
+            Value must match the regular expression `` |network-ssd|network-hdd|network-ssd-nonreplicated ``.
           type: string
         diskSize:
           description: |-
@@ -2771,7 +2771,7 @@ components:
           description: |-
             ID of the disk type.
 
-            Value must match the regular expression `` |network-ssd|network-hdd ``.
+            Value must match the regular expression `` |network-ssd|network-hdd|network-ssd-nonreplicated ``.
           type: string
         diskSize:
           description: |-
@@ -2822,7 +2822,7 @@ components:
           description: |-
             ID of the disk type.
 
-            Value must match the regular expression `` |network-ssd|network-hdd ``.
+            Value must match the regular expression `` |network-ssd|network-hdd|network-ssd-nonreplicated ``.
           type: string
         diskSize:
           description: |-

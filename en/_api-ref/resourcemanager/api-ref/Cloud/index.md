@@ -10,7 +10,8 @@ A set of methods for managing Cloud resources.
   "id": "string",
   "createdAt": "string",
   "name": "string",
-  "description": "string"
+  "description": "string",
+  "organizationId": "string"
 }
 ```
  
@@ -20,6 +21,7 @@ id | **string**<br><p>ID of the cloud.</p>
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the cloud. 3-63 characters long.</p> 
 description | **string**<br><p>Description of the cloud. 0-256 characters long.</p> 
+organizationId | **string**<br><p>ID of the organization that the cloud belongs to.</p> 
 
 ## Methods {#methods}
 Method | Description

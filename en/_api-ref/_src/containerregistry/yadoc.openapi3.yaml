@@ -155,6 +155,378 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteImageMetadata'
       x-y-operation-response: Empty
+  /container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}:
+    get:
+      tags:
+      - LifecyclePolicy
+      summary: Returns the specified lifecycle policy.
+      description: To get the list of all available lifecycle policies, make a [list](/docs/container-registry/api-ref/LifecyclePolicy/list)
+        request.
+      operationId: LifecyclePolicyGet
+      parameters:
+      - name: lifecyclePolicyId
+        in: path
+        description: |-
+          Required.
+          ID of the lifecycle policy.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LifecyclePolicy'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - LifecyclePolicy
+      summary: Deletes the specified lifecycle policy.
+      operationId: LifecyclePolicyDelete
+      parameters:
+      - name: lifecyclePolicyId
+        in: path
+        description: |-
+          Required.
+          ID of the lifecycle policy.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteLifecyclePolicyMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - LifecyclePolicy
+      summary: Updates the specified lifecycle policy.
+      operationId: LifecyclePolicyUpdate
+      parameters:
+      - name: lifecyclePolicyId
+        in: path
+        description: |-
+          Required.
+          ID of the lifecycle policy.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateLifecyclePolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateLifecyclePolicyMetadata'
+      x-y-operation-response: '[LifecyclePolicy](/docs/container-registry/api-ref/LifecyclePolicy#representation)'
+  /container-registry/v1/lifecyclePolicies:
+    get:
+      tags:
+      - LifecyclePolicy
+      summary: Retrieves the list of lifecycle policies in the specified repository.
+      operationId: LifecyclePolicyList
+      parameters:
+      - name: registryId
+        in: query
+        description: |-
+          ID of the lifecycle policy.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: repositoryId
+        in: query
+        description: |-
+          Repository of the lifecycle policy.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "The maximum number of results per page to return. If the number
+          of available\nresults is larger than `page_size`, the service returns \na
+          [nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/list#responses)
+          that can be used to get the next page of results in subsequent list requests.\nDefault
+          value: 100.\n\nAcceptable values are 0 to 1000, inclusive."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters lifecycle policy resources listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: |-
+          Sorting the list by [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy#representation), [LifecyclePolicy.createdAt](/docs/container-registry/api-ref/LifecyclePolicy#representation) and [LifecyclePolicy.status](/docs/container-registry/api-ref/LifecyclePolicy#representation) fields.
+          The default sorting order is ascending.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListLifecyclePoliciesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - LifecyclePolicy
+      summary: Creates a lifecycle policy in the specified repository.
+      operationId: LifecyclePolicyCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateLifecyclePolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateLifecyclePolicyMetadata'
+      x-y-operation-response: '[LifecyclePolicy](/docs/container-registry/api-ref/LifecyclePolicy#representation)'
+  /container-registry/v1/dryRunLifecyclePolicy/{lifecyclePolicyId}:
+    post:
+      tags:
+      - LifecyclePolicy
+      summary: Creates a request of a dry run of the lifecycle policy.
+      operationId: LifecyclePolicyDryRun
+      parameters:
+      - name: lifecyclePolicyId
+        in: path
+        description: |-
+          Required.
+          ID of the lifecycle policy.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DryRunLifecyclePolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: dryRun
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DryRunLifecyclePolicyMetadata'
+      x-y-operation-response: '`DryRunLifecyclePolicyResult`'
+  /container-registry/v1/dryRunLifecyclePolicyResults/{dryRunLifecyclePolicyResultId}:
+    get:
+      tags:
+      - LifecyclePolicy
+      summary: Returns the dry run result of the specified lifecycle policy.
+      operationId: LifecyclePolicyGetDryRunResult
+      parameters:
+      - name: dryRunLifecyclePolicyResultId
+        in: path
+        description: |-
+          Required.
+          ID of the dry run result of the lifecycle policy.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DryRunLifecyclePolicyResult'
+      x-y-navtitle: getDryRunResult
+  /container-registry/v1/dryRunLifecyclePolicyResults:
+    get:
+      tags:
+      - LifecyclePolicy
+      summary: Retrieves the list of the dry run results.
+      operationId: LifecyclePolicyListDryRunResults
+      parameters:
+      - name: lifecyclePolicyId
+        in: query
+        description: |-
+          Required.
+          ID of the lifecycle policy.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: "The maximum number of results per page to return. If the number
+          of available\nresults is larger than `page_size`, the service returns \na
+          [nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResults#responses)
+          that can be used to get \nthe next page of results in subsequent list requests.\n\nAcceptable
+          values are 0 to 1000, inclusive."
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResults#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters dry run results listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: |-
+          Sorting the list by `runAt` and `affectedImagesCount` fields.
+          The default sorting order is ascending.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDryRunLifecyclePolicyResultsResponse'
+      x-y-navtitle: listDryRunResults
+  /container-registry/v1/dryRunLifecyclePolicyResults/{dryRunLifecyclePolicyResultId}:affectedImages:
+    get:
+      tags:
+      - LifecyclePolicy
+      summary: Retrieves the list of the affected images.
+      operationId: LifecyclePolicyListDryRunResultAffectedImages
+      parameters:
+      - name: dryRunLifecyclePolicyResultId
+        in: path
+        description: |-
+          Required.
+          ID of the dry run result of the lifecycle policy
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters affected images listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: |-
+          Sorting the list by [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy#representation) and [LifecyclePolicy.createdAt](/docs/container-registry/api-ref/LifecyclePolicy#representation) fields.
+          The default sorting order is ascending.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDryRunLifecyclePolicyResultAffectedImagesResponse'
+      x-y-navtitle: listDryRunResultAffectedImages
   /container-registry/v1/registries/{registryId}:
     get:
       tags:
@@ -598,6 +970,35 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteRepositoryMetadata'
       x-y-operation-response: Empty
+  /container-registry/v1/repositories/{repositoryName}:byName:
+    get:
+      tags:
+      - Repository
+      summary: Returns the specified Repository resource.
+      description: To get the list of available Repository resources, make a [list](/docs/container-registry/api-ref/Repository/list)
+        request.
+      operationId: RepositoryGetByName
+      parameters:
+      - name: repositoryName
+        in: path
+        description: |-
+          Required.
+          Name of the Repository resource to return.
+
+          To get the repository name use a [list](/docs/container-registry/api-ref/Repository/list) request.
+
+          Value must match the regular expression `` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ``.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Repository'
+      x-y-navtitle: getByName
   /container-registry/v1/repositories:
     get:
       tags:
@@ -817,6 +1218,219 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
       x-y-operation-response: Empty
+  /container-registry/v1/scans:
+    get:
+      tags:
+      - Scanner
+      summary: Retrieves the list of ScanResults for specified Image.
+      operationId: ScannerList
+      parameters:
+      - name: imageId
+        in: query
+        description: The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: repositoryId
+        in: query
+        description: The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/container-registry/api-ref/Scanner/list#query_params),
+          the service returns a [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/container-registry/api-ref/Scanner/list#query_params) to the
+          [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on `status` field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. Value or a list of values to compare against the values of the field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: |-
+          An order expression that orders resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on `status` field.
+          2. Order selector. Currently you can use ordering only on `ScanResult.status` field (critical first).
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListScanResultsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Scanner
+      summary: Executes scanning of specified image.
+      operationId: ScannerScan
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScanRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: scan
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ScanMetadata'
+      x-y-operation-response: '`ScanResult`'
+  /container-registry/v1/scans/{scanResultId}:
+    get:
+      tags:
+      - Scanner
+      summary: Returns the specified ScanResult resource.
+      description: To get the list of ScanResults for specified Image, make a [list](/docs/container-registry/api-ref/Scanner/list)
+        request.
+      operationId: ScannerGet
+      parameters:
+      - name: scanResultId
+        in: path
+        description: |-
+          Required.
+          ID of the ScanResult to return.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanResult'
+      x-y-navtitle: get
+  /container-registry/v1/images/{imageId}:lastScanResult:
+    get:
+      tags:
+      - Scanner
+      summary: Returns the last finished ScanResult for the specified Image.
+      operationId: ScannerGetLast
+      parameters:
+      - name: imageId
+        in: path
+        description: |-
+          ID of the Image to get last finished ScanResult.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanResult'
+      x-y-navtitle: getLast
+  /container-registry/v1/scans/{scanResultId}:listVulnerabilities:
+    get:
+      tags:
+      - Scanner
+      summary: Retrieves the list of vulnerabilities found in particular scan.
+      operationId: ScannerListVulnerabilities
+      parameters:
+      - name: scanResultId
+        in: path
+        description: |-
+          Required.
+          ID of the ScanResult to get list of vulnerabilities for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/container-registry/api-ref/Scanner/listVulnerabilities#query_params),
+          the service returns a [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/container-registry/api-ref/Scanner/listVulnerabilities#query_params) to the
+          [nextPageToken](/docs/container-registry/api-ref/Registry/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on `severity` and `name` fields.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. Value or a list of values to compare against the values of the field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: |-
+          An order expression that orders resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on `severity` and `name` fields.
+          2. Order selector. Currently you can use ordering only on `Vulnerability.severity` field (recent first).
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVulnerabilitiesResponse'
+      x-y-navtitle: listVulnerabilities
 components:
   schemas:
     AccessBinding:
@@ -861,6 +1475,7 @@ components:
           type: string
           format: int64
         urls:
+          description: List of blob urls.
           type: array
           items:
             type: string
@@ -868,7 +1483,37 @@ components:
       type: object
       properties:
         lifecyclePolicyId:
+          description: ID of the lifecycle policy resource that is being created.
           type: string
+    CreateLifecyclePolicyRequest:
+      type: object
+      properties:
+        repositoryId:
+          description: |-
+            Required.
+            ID of the lifecycle policy repository.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of lifecycle policy.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of lifecycle policy.
+
+            The maximum string length in characters is 256.
+          type: string
+        status:
+          $ref: '#/components/schemas/LifecyclePolicyStatus_in_CreateLifecyclePolicyRequest_status'
+        rules:
+          description: The rules of the lifecycle policy.
+          type: array
+          items:
+            $ref: '#/components/schemas/LifecycleRule'
     CreateRegistryMetadata:
       type: object
       properties:
@@ -917,6 +1562,7 @@ components:
       type: object
       properties:
         lifecyclePolicyId:
+          description: ID of the lifecycle policy resource that is being deleted.
           type: string
     DeleteRegistryMetadata:
       type: object
@@ -934,22 +1580,32 @@ components:
       type: object
       properties:
         dryRunLifecyclePolicyResultId:
+          description: ID of the dry run result of the lifecycle policy.
           type: string
         lifecyclePolicyId:
+          description: ID of the lifecycle policy.
           type: string
+    DryRunLifecyclePolicyRequest:
+      type: object
+      properties: {}
     DryRunLifecyclePolicyResult:
       type: object
       properties:
         dryRunLifecyclePolicyResultId:
+          description: ID of the dry run result of the lifecycle policy.
           type: string
         lifecyclePolicyId:
+          description: ID of the lifecycle policy.
           type: string
         runAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Time of the getting result.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         affectedImagesCount:
+          description: Count of affected images.
           type: string
           format: int64
     Empty:
@@ -1039,25 +1695,40 @@ components:
       type: object
       properties:
         id:
+          description: ID of the lifecycle policy.
           type: string
         name:
+          description: Name of the lifecycle policy.
           type: string
         repositoryId:
+          description: |-
+            ID of the repository that the lifecycle policy belongs to.
+            Required. The maximum string length in characters is 50.
           type: string
         description:
+          description: |-
+            Description of the lifecycle policy.
+            The maximum string length in characters is 256.
           type: string
         status:
           $ref: '#/components/schemas/LifecyclePolicyStatus_in_LifecyclePolicy_status'
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
         rules:
+          description: The rules of lifecycle policy.
           type: array
           items:
             $ref: '#/components/schemas/LifecycleRule'
     LifecyclePolicyStatus:
+      description: |2-
+         - ACTIVE: Policy is active and regularly deletes Docker images according to the established rules.
+         - DISABLED: Policy is disabled and does not delete Docker images in the repository.
+        Policies in this status can be used for preparing and testing rules.
       type: string
       enum:
       - ACTIVE
@@ -1066,19 +1737,33 @@ components:
       type: object
       properties:
         description:
-          description: The maximum string length in characters is 256.
+          description: |-
+            Description of the lifecycle policy rule.
+
+            The maximum string length in characters is 256.
           type: string
         expirePeriod:
-          description: The minimum value is 86400 seconds.
+          description: |-
+            Period of time for automatic deletion.
+            Period must be a multiple of 24 hours.
+
+            The minimum value is 86400 seconds.
           type: string
         tagRegexp:
-          description: The maximum string length in characters is 256.
+          description: |-
+            Tag for specifying a filter in the form of a regular expression.
+
+            The maximum string length in characters is 256.
           type: string
         untagged:
+          description: Tag for applying the rule to Docker images without tags.
           type: boolean
           format: boolean
         retainedTop:
-          description: The minimum value is 0.
+          description: |-
+            Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
+
+            The minimum value is 0.
           type: string
           format: int64
     ListAccessBindingsResponse:
@@ -1102,19 +1787,33 @@ components:
       type: object
       properties:
         affectedImages:
+          description: List of affected images.
           type: array
           items:
             $ref: '#/components/schemas/Image'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListDryRunLifecyclePolicyResultsResponse:
       type: object
       properties:
         dryRunLifecyclePolicyResults:
+          description: List of results of dry runs of a lifecycle policy.
           type: array
           items:
             $ref: '#/components/schemas/DryRunLifecyclePolicyResult'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResults#query_params) use `next_page_token` as the value
+            for the [pageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResults#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListImagesResponse:
       type: object
@@ -1145,10 +1844,17 @@ components:
       type: object
       properties:
         lifecyclePolicies:
+          description: List of lifecycle policies.
           type: array
           items:
             $ref: '#/components/schemas/LifecyclePolicy'
         nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/container-registry/api-ref/LifecyclePolicy/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/container-registry/api-ref/LifecyclePolicy/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListRegistriesResponse:
       type: object
@@ -1352,6 +2058,16 @@ components:
         scanResultId:
           description: ID of the ScanResult that is being created.
           type: string
+    ScanRequest:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            Required.
+            ID of the Image to be scanned for vulnerabilities.
+
+            The maximum string length in characters is 50.
+          type: string
     ScanResult:
       description: A ScanResult resource.
       type: object
@@ -1482,7 +2198,32 @@ components:
       type: object
       properties:
         lifecyclePolicyId:
+          description: ID of the lifecycle policy resource that is being updated.
           type: string
+    UpdateLifecyclePolicyRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateLifecyclePolicyRequest_updateMask'
+        name:
+          description: |-
+            Name of lifecycle policy.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of lifecycle policy.
+
+            The maximum string length in characters is 256.
+          type: string
+        status:
+          $ref: '#/components/schemas/LifecyclePolicyStatus_in_UpdateLifecyclePolicyRequest_status'
+        rules:
+          description: The rules of the lifecycle policy.
+          type: array
+          items:
+            $ref: '#/components/schemas/LifecycleRule'
     UpdateRegistryMetadata:
       type: object
       properties:
@@ -1681,6 +2422,18 @@ components:
           type: string
         subject:
           $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    LifecyclePolicyStatus_in_CreateLifecyclePolicyRequest_status:
+      description: |-
+        Required.
+        Status of the lifecycle policy.
+
+         - ACTIVE: Policy is active and regularly deletes Docker images according to the established rules.
+         - DISABLED: Policy is disabled and does not delete Docker images in the repository.
+        Policies in this status can be used for preparing and testing rules.
+      type: string
+      enum:
+      - ACTIVE
+      - DISABLED
     Blob_in_Image_config:
       description: |-
         Configuration of the Docker image.
@@ -1699,6 +2452,7 @@ components:
           type: string
           format: int64
         urls:
+          description: List of blob urls.
           type: array
           items:
             type: string
@@ -1729,6 +2483,12 @@ components:
         ip:
           type: string
     LifecyclePolicyStatus_in_LifecyclePolicy_status:
+      description: |-
+        Status of lifecycle policy.
+
+         - ACTIVE: Policy is active and regularly deletes Docker images according to the established rules.
+         - DISABLED: Policy is disabled and does not delete Docker images in the repository.
+        Policies in this status can be used for preparing and testing rules.
       type: string
       enum:
       - ACTIVE
@@ -1788,6 +2548,31 @@ components:
           description: Count of other vulnerabilities.
           type: string
           format: int64
+    FieldMask_in_UpdateLifecyclePolicyRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the lifecycle policy resource are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    LifecyclePolicyStatus_in_UpdateLifecyclePolicyRequest_status:
+      description: |-
+        Required.
+        Status of the lifecycle policy.
+
+         - ACTIVE: Policy is active and regularly deletes Docker images according to the established rules.
+         - DISABLED: Policy is disabled and does not delete Docker images in the repository.
+        Policies in this status can be used for preparing and testing rules.
+      type: string
+      enum:
+      - ACTIVE
+      - DISABLED
     FieldMask_in_UpdateRegistryRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the Registry resource are going to be updated.
@@ -1805,6 +2590,7 @@ tags:
 - name: Image
   description: A set of methods for managing Image resources.
 - name: LifecyclePolicy
+  description: A set of methods for managing Lifecycle policy resources.
 - name: Registry
   description: A set of methods for managing Registry resources.
 - name: Repository

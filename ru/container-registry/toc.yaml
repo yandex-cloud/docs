@@ -101,16 +101,16 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: gRPC (англ.)
         items: null
         include:
           repo: docs
-          path: ru/_api-ref-grpc/container-registry/toc.yaml
-      - name: REST
+          path: en/_api-ref-grpc/container-registry/toc.yaml
+      - name: REST (англ.)
         items: null
         include:
           repo: docs
-          path: ru/_api-ref/containerregistry/toc.yaml
+          path: en/_api-ref/containerregistry/toc.yaml
   - name: Решение проблем
     href: error/index.md
   - name: Вопросы и ответы

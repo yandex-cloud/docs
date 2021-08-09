@@ -30,7 +30,8 @@ filter | Параметры фильтрации ресурсов в ответ�
       "id": "string",
       "createdAt": "string",
       "name": "string",
-      "description": "string"
+      "description": "string",
+      "organizationId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -45,4 +46,5 @@ clouds[].<br>id | **string**<br><p>Идентификатор облака.</p>
 clouds[].<br>createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 clouds[].<br>name | **string**<br><p>Имя облака. Длина имени должна быть от 3 до 63 символов.</p> 
 clouds[].<br>description | **string**<br><p>Описание облака. Длина описания должна быть от 0 до 256 символов.</p> 
+clouds[].<br>organizationId | **string**<br><p>Идентификатор организации, которой принадлежит облако.</p> 
 nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/resource-manager/api-ref/Cloud/list#query_params">pageSize</a>, используйте <a href="/docs/resource-manager/api-ref/Cloud/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/resource-manager/api-ref/Cloud/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/resource-manager/api-ref/Cloud/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 

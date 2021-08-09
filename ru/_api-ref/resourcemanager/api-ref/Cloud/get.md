@@ -26,7 +26,8 @@ cloudId | Обязательное поле. Идентификатор запр
   "id": "string",
   "createdAt": "string",
   "name": "string",
-  "description": "string"
+  "description": "string",
+  "organizationId": "string"
 }
 ```
 Ресурс Cloud. Подробнее см. в разделе [Облако как ресурс Яндекс.Облака](/docs/resource-manager/concepts/resources-hierarchy#cloud).
@@ -37,3 +38,4 @@ id | **string**<br><p>Идентификатор облака.</p>
 createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
 name | **string**<br><p>Имя облака. Длина имени должна быть от 3 до 63 символов.</p> 
 description | **string**<br><p>Описание облака. Длина описания должна быть от 0 до 256 символов.</p> 
+organizationId | **string**<br><p>Идентификатор организации, которой принадлежит облако.</p> 

@@ -692,6 +692,9 @@ components:
         description:
           description: Description of the cloud. 0-256 characters long.
           type: string
+        organizationId:
+          description: ID of the organization that the cloud belongs to.
+          type: string
     CreateFolderMetadata:
       type: object
       properties:

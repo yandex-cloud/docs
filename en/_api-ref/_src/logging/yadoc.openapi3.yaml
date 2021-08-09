@@ -755,13 +755,13 @@ components:
             description: |-
               Entry should be written to log group resolved by ID.
 
-              The maximum string length in characters is 64.
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
             type: string
           folderId:
             description: |-
               Entry should be written to default log group for the folder.
 
-              The maximum string length in characters is 64.
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
             type: string
     Empty:
       description: Empty JSON object `` {} ``.
@@ -913,6 +913,17 @@ components:
         jsonPayload:
           description: Entry annotation.
           type: object
+    LogEntryDefaults:
+      type: object
+      properties:
+        level:
+          $ref: '#/components/schemas/LogLevelLevel_in_LogEntryDefaults_level'
+        jsonPayload:
+          description: |-
+            Default entry annotation.
+            Will be merged with entry annotation.
+            Any conflict will be resolved in favor of entry own annotaion.
+          type: object
     LogEntryResource:
       description: |-
         Log entry resource specification.
@@ -924,13 +935,13 @@ components:
           description: |-
             Resource type, i.e., `serverless.function`
 
-            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? ``.
+            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
           type: string
         id:
           description: |-
             Resource ID, i.e., ID of the function producing logs.
 
-            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? ``.
+            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
           type: string
     LogGroup:
       type: object
@@ -1244,12 +1255,15 @@ components:
           $ref: '#/components/schemas/LogEntryResource_in_WriteRequest_resource'
         entries:
           description: |-
+            Required.
             List of log entries.
 
-            The maximum number of elements is 100.
+            The number of elements must be in the range 1-100.
           type: array
           items:
             $ref: '#/components/schemas/IncomingLogEntry'
+        defaults:
+          $ref: '#/components/schemas/LogEntryDefaults_in_WriteRequest_defaults'
     WriteResponse:
       type: object
       properties:
@@ -1393,17 +1407,55 @@ components:
           description: |-
             Resource type, i.e., `serverless.function`
 
-            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? ``.
+            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
           type: string
         id:
           description: |-
             Resource ID, i.e., ID of the function producing logs.
 
-            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? ``.
+            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
           type: string
     LogLevelLevel_in_LogEntry_level:
       description: |-
         Entry severity.
+
+        See `LogLevelLevel` for details.
+
+        Possible log levels for entries.
+
+         - LEVEL_UNSPECIFIED: Default log level.
+
+        Equivalent to not specifying log level at all.
+         - TRACE: Trace log level.
+
+        Possible use case: verbose logging of some business logic.
+         - DEBUG: Debug log level.
+
+        Possible use case: debugging special cases in application logic.
+         - INFO: Info log level.
+
+        Mostly used for information messages.
+         - WARN: Warn log level.
+
+        May be used to alert about significant events.
+         - ERROR: Error log level.
+
+        May be used to alert about errors in infrastructure, logic, etc.
+         - FATAL: Fatal log level.
+
+        May be used to alert about unrecoverable failures and events.
+      type: string
+      enum:
+      - TRACE
+      - DEBUG
+      - INFO
+      - WARN
+      - ERROR
+      - FATAL
+    LogLevelLevel_in_LogEntryDefaults_level:
+      description: |-
+        Default entry severity.
+        Will be applied if entry level is unspecified.
 
         See `LogLevelLevel` for details.
 
@@ -1488,13 +1540,13 @@ components:
             description: |-
               Entry should be written to log group resolved by ID.
 
-              The maximum string length in characters is 64.
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
             type: string
           folderId:
             description: |-
               Entry should be written to default log group for the folder.
 
-              The maximum string length in characters is 64.
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
             type: string
     LogEntryResource_in_WriteRequest_resource:
       description: |-
@@ -1509,14 +1561,29 @@ components:
           description: |-
             Resource type, i.e., `serverless.function`
 
-            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? ``.
+            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
           type: string
         id:
           description: |-
             Resource ID, i.e., ID of the function producing logs.
 
-            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? ``.
+            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
           type: string
+    LogEntryDefaults_in_WriteRequest_defaults:
+      description: |-
+        Log entries defaults.
+
+        See `LogEntryDefaults` for details.
+      type: object
+      properties:
+        level:
+          $ref: '#/components/schemas/LogLevelLevel_in_LogEntryDefaults_level'
+        jsonPayload:
+          description: |-
+            Default entry annotation.
+            Will be merged with entry annotation.
+            Any conflict will be resolved in favor of entry own annotaion.
+          type: object
 tags:
 - name: LogGroup
   description: A set of methods for managing log groups.
