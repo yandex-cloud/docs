@@ -12,7 +12,20 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 - `innodb_buffer_pool_size` в gRPC, CLI или Terraform;
 - `innodbBufferPoolSize` в REST API.
 
-## Настройки кластера {#dbms-cluster-settings}
+## Зависимость настроек от класса хостов {#settings-instance-dependent}
+
+Значения некоторых настроек {{ MY }} могут быть автоматически скорректированы при изменении класса хостов:
+
+- Если значения не были заданы или не подходят новому классу, будут применены настройки по умолчанию для этого класса.
+- Если заданные вручную настройки подходят для нового класса, они не будут изменены.
+
+Список настроек, зависящих от класса хостов:
+
+- [Innodb buffer pool size](#setting-buffer-pool-size).
+- [Max connections](#setting-max-connections).
+- [Thread cache size](#setting-thread-cache-size).
+
+## Настройки СУБД уровня кластера {#dbms-cluster-settings}
 
 {% include [mmy-dbms-settings](../../_includes/mdb/mmy-dbms-settings.md) %}
 

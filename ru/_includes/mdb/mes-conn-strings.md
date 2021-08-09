@@ -84,9 +84,23 @@
   ```bash
    curl \
      --user <имя пользователя>:<пароль> \
-     --cacert ~/.elasticsearch/root.crt \  
+     --cacert ~/.elasticsearch/root.crt \
      -X GET 'https://c-<идентификатор кластера {{ ES }}>.rw.mdb.yandexcloud.net:9200/'
    ```
+
+- PowerShell
+
+  **Пример команды для подключения с использованием SSL-соединения :**
+
+  
+  ```powershell
+   curl `
+     -Certificate <абсолютный путь к файлу сертификата> `
+     -Uri https://c-<идентификатор кластера {{ ES }}>.rw.mdb.yandexcloud.net:9200 `
+     -Credential <имя пользователя>
+   ```
+
+   В открывшемся окне введите пароль пользователя.
 
 - Python
   

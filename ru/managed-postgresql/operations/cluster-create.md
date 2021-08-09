@@ -82,6 +82,13 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
      {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
 
   1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
+  
+     {% note info %}
+
+     Некоторые настройки {{ PG }} [зависят от выбранного класса хостов или от размера хранилища](../concepts/settings-list.md#settings-instance-dependent).
+
+     {% endnote %}
+
   1. Нажмите кнопку **Создать кластер**.
 
 - CLI
@@ -111,17 +118,17 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
   
       ```bash
-      {{ yc-mdb-pg }} cluster create \
-        --name <имя кластера> \
-        --environment <окружение, prestable или production> \
-        --network-name <имя сети> \
-        --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-        --resource-preset <класс хоста> \
-        --user name=<имя пользователя>,password=<пароль пользователя> \
-        --database name=<имя базы данных>,owner=<имя владельца базы данных> \
-        --disk-size <размер хранилища в гигабайтах> \
-        --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
-        --security-group-ids <список идентификаторов групп безопасности>
+     {{ yc-mdb-pg }} cluster create \
+      --name <имя кластера> \
+      --environment <окружение, prestable или production> \
+      --network-name <имя сети> \
+      --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+      --resource-preset <класс хоста> \
+      --user name=<имя пользователя>,password=<пароль пользователя> \
+      --database name=<имя базы данных>,owner=<имя владельца базы данных> \
+      --disk-size <объем хранилища, ГБ> \
+      --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
+      --security-group-ids <список идентификаторов групп безопасности>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -137,7 +144,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
-  Если у вас ещё нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы создать кластер:
 
@@ -176,7 +183,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
          resources {
            resource_preset_id = "<класс хоста>"
            disk_type_id       = "<тип хранилища>"
-           disk_size          = "<размер хранилища в гигабайтах>"
+           disk_size          = <объем хранилища, ГБ>
          }
        }
 
@@ -209,15 +216,15 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_postgresql_cluster.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
-  1. Проверьте корректность конфигурационных файлов.
+  1. Проверьте корректность настроек.
 
-     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
   1. Создайте кластер.
 
-     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 

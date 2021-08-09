@@ -28,9 +28,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 * объем исходящего трафика из {{ yandex-cloud }} в интернет.
 
-
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
-
 
 ### Использование хостов кластера {#rules-hosts-uptime}
 
@@ -82,7 +80,6 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 {% endnote %}
 
-
 ## Цены {#prices}
 
 Все цены указаны с включением НДС.
@@ -98,7 +95,6 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 
 {% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
-
 
 
 

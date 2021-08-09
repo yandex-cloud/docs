@@ -262,6 +262,3 @@ _Геослои_ — визуализация показателей по точ
 - [{#T}](../../operations/chart/create-pie-chart.md)
 - [{#T}](../../operations/chart/create-map-chart.md)
 - [{#T}](../../operations/chart/publish.md)
-
-
-

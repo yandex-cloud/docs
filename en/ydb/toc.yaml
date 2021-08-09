@@ -14,7 +14,13 @@ items:
       - name: Launch a test app
         href: quickstart/launch-test-app.md
       - name: Document API
-        href: getting_started/start_docapi_rest.md
+        items:
+          - name: Data operations
+            href: getting_started/start_docapi_rest.md
+          - name: AWS instruments
+            items:
+              - name: Environment setup
+                href: quickstart/aws-instrument/setup.md
       - name: Developing in NodeJS through the Document API
         href: getting_started/start_docapi_nodejs.md
   - name: Step-by-step instructions

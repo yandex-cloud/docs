@@ -69,7 +69,7 @@
 
 * **Part log retention size**{#setting-part-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-   The maximum size in bytes that the [system.part_log](https://clickhouse.tech/docs/en/operations/system-tables/part_log) table can reach before old records start being deleted from it.
+  The maximum size in bytes that the [system.part_log](https://clickhouse.tech/docs/en/operations/system-tables/part_log) table can reach before old records start being deleted from it.
 
   A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
 
@@ -144,7 +144,7 @@
 
 * **Trace log enabled**{#setting-trace-log-enabled} {{ tag-con }} {{ tag-tf }}
 
-   Enables or disables logging of stack traces collected by the request profiler to the [system.trace_log](https://clickhouse.tech/docs/en/operations/system-tables/trace_log) table.
+  Enables or disables logging of stack traces collected by the request profiler to the [system.trace_log](https://clickhouse.tech/docs/en/operations/system-tables/trace_log) table.
 
   Logging is enabled by default (`true`).
 
@@ -168,14 +168,14 @@
 
 * **Compression**{#setting-compression} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Rules for compressing data in [MergeTree](https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree) tables:
+  Rules for compressing data in [MergeTree](https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree) tables:
    * **Method**: Compression method. Two methods are available: [LZ4](https://lz4.github.io/lz4/) and [zstd](https://facebook.github.io/zstd/).
    * **Min part size**: Minimum size (in bytes) of a [data part](https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/#mergetree-data-storage) in a table. {{ CH }} only applies the rule to tables with data parts greater than or equal to the **Min part size** value.
    * **Min part size ratio**: Minimum ratio of table part size to total table size. {{ CH }} only applies the rule to tables in which this ratio is greater than or equal to the **Min part size ratio** value.
 
    You can add multiple compression rules. {{ CH }} checks the **Min part size** and **Min part size ratio** conditions and applies the rules to those tables that meet both of them. If multiple rules can be applied to the same table, {{ CH }} applies the first one. If none of the rules are applicable, {{ CH }} uses the LZ4 compression method.
 
-   To learn more, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression)
+   To learn more, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression).
 
 * **Graphite rollup**{#setting-graphite-rollup} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
@@ -207,7 +207,7 @@
     * `SASL_PLAINTEXT`: Authentication credentials are sent as plain text with SASL transport.
     * `SASL_SSL`: Authentication credentials are sent with SSL encryption and SASL as transport.
 
-  For more information, see the [documentation for {{ KF }}](https://kafka.apache.org/documentation/#security).
+  For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#security).
 
 * **Kafka topics**{#setting-kafka-topics} {{ tag-con }} {{ tag-tf }}
 
@@ -215,9 +215,9 @@
   * **Name**: {{ KF }} topic name.
   * **Settings**: Topic-level authentication settings similar to the global authentication settings in the [**Kafka**](#setting-kafka) section.
 
-  If a table run on the [Kafka engine](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/) has no authentication data found for the topic, the global settings from the **Kafka** section are used.
+  If no topic authentication data is found for a table that runs on the [Kafka engine](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/), the global settings from the **Kafka** section are used.
 
-  For more information, see the [documentation for {{ KF }}](https://kafka.apache.org/documentation/#security).
+  For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#security).
 
 * **Merge tree**{#setting-merge-tree} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 

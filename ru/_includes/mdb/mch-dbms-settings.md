@@ -93,7 +93,7 @@
 
 * **Query thread log enabled**{#setting-query-thread-log-enabled} {{ tag-con }} {{ tag-tf }}
 
-  Включает или выключает логирование информации о потоках, которые выполняют запросы, например, имя потока, время его запуска, продолжительность обработки запроса. Логи пишутся в таблицу [system.query_thread_log](https://clickhouse.tech/docs/ru/operations/system-tables/query_thread_log).
+  Включает или выключает логирование информации о потоках, которые выполняют запросы, например, имя потока, время его запуска, продолжительность обработки запроса. Логи пишутся в таблицу [system.query_thread_log](https://clickhouse.tech/docs/ru/operations/system-tables/query_thread_log)
   
   По умолчанию логирование включено (`true`).
 
@@ -175,7 +175,7 @@
 
    Вы можете добавить несколько правил сжатия. {{ CH }} проверит условия **Min part size** и **Min part size ratio** и применит правила к тем таблицам, для которых выполнены оба условия. Если к одной таблице подходит несколько правил, {{ CH }} применит первое из них. Если ни одно из правил не подходит, {{ CH }} применит метод сжатия LZ4.
    
-   Подробнее см. в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression)
+   Подробнее см. в [документации {{ CH }}](https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression).
 
 * **Graphite rollup**{#setting-graphite-rollup} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
@@ -190,7 +190,7 @@
 
   Вы можете настроить несколько конфигураций и использовать их для разных таблиц.
 
-  Подробнее о поддержке Graphite в {{ CH }} читайте в [документации](https://clickhouse.yandex/docs/ru/operations/table_engines/graphitemergetree/). 
+  Подробнее о поддержке Graphite в {{ CH }} читайте в [документации](https://clickhouse.yandex/docs/ru/operations/table_engines/graphitemergetree/).
 
 * **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-tf }}
 
@@ -230,7 +230,7 @@
   * **Replicated deduplication window** — число последних блоков хешей, которые {{ ZK }} будет хранить (старые блоки будут удалены).
   * **Replicated deduplication window seconds** — время, в течение которого {{ ZK }} хранит блоки хешей (старые блоки будут удалены).
 
-  Подробнее см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree)
+  Подробнее см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree).
 
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-tf }}
 

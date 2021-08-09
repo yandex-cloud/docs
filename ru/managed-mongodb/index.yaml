@@ -15,7 +15,7 @@ description:
     полнотекстовый поиск.</li> </ul>
   - >-
     Взаимодействие с сервисом осуществляется с помощью консоли управления,
-    интерфейса командной строки Yandex.Cloud (CLI) или API.
+    интерфейса командной строки Yandex.Cloud (CLI), API или Terraform.
   - >-
     Инфраструктура Yandex.Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>

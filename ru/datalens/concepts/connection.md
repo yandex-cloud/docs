@@ -20,6 +20,7 @@ _Подключение_ содержит информацию о парамет
 - **Greenplum**
 - **Metrica** (в режиме прямого доступа и через Logs API)
 - **AppMetrica** (в режиме прямого доступа и через Logs API)
+- **Yandex Cloud Billing**
 
 Вы можете добавить дополнительные типы подключений из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md).
 
@@ -41,3 +42,4 @@ _Подключение_ содержит информацию о парамет
 - [{#T}](../operations/connection/create-metrica-api.md)
 - [{#T}](../operations/connection/create-metrica-logs-api.md)
 - [{#T}](../operations/connection/create-appmetrica.md)
+- [{#T}](../operations/connection/create-cloud-billing.md)

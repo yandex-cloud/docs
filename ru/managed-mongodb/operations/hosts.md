@@ -122,6 +122,40 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
       Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае {{ mmg-short-name }} автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- Terraform
+  
+  Чтобы добавить хост в кластере:
+  
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+  1. Добавьте к описанию кластера {{ mmg-name }} блок `host`.
+  
+      ```hcl
+      resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+        ...
+        host {
+          role             = "<тип реплики: PRIMARY или SECONDARY>"
+          zone_id          = "<зона доступности>"
+          subnet_id        = "<подсеть в зоне доступности>"
+          assign_public_ip = true / false
+          shard_name       = "<имя шарда в шардированном кластере>"
+          type             = "<тип хоста в шардированном кластере: MONGOD, MONGOS или MONGOCFG>"
+          ...
+        }
+      }
+      ```
+  
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 
@@ -168,6 +202,25 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
   Имя хоста можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- Terraform
+
+  Чтобы удалить хост из кластера:
+  
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+  1. Удалите из описания кластера {{ mmg-name }} блок `host`, соответствующий удаляемому хосту.
+  
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+ 
+  1. Подтвердите удаление ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 
@@ -197,6 +250,16 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
    {% endnote %}
 
 {% list tabs %}
+
+- Консоль управления
+
+  Чтобы запустить принудительную ресинхронизацию хоста:
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
+
+  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
+
+  1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке нужного хоста и выберите пункт **Ресинхронизировать**.
 
 - CLI
 

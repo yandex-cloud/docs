@@ -57,8 +57,9 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
   1. Нажмите кнопку **Добавить**.
   1. Введите имя для базы данных, выберите ее владельца и задайте нужные локали сортировки и набора символов.
 
-      {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
+      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
+      {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
 - CLI
 
@@ -89,14 +90,50 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
      $ {{ yc-mdb-pg }} database create <имя базы данных>
           --cluster-name <имя кластера>
           --owner <имя пользователя-владельца>
-          --lc-collate ru_RU.UTF-8
-          --lc-type ru_RU.UTF-8
+          --lc-collate <локаль сортировки>
+          --lc-type <локаль набора символов>
      ```
+
+     {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
      {{ mpg-short-name }} запустит операцию создания базы данных.
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
+- Terraform
+  
+  Чтобы создать базу данных в кластере:
+  
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+    1. Добавьте к описанию кластера {{ mpg-name }} блок `database`. При необходимости укажите нужные локали сортировки и набора символов (по умолчанию задаются `LC_COLLATE=C` и `LC_CTYPE=C`):
+  
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+          ...
+          database {
+            name       = "<имя базы данных>"
+            owner      = "<имя пользователя-владельца: должен быть задан в блоке user>"
+            lc_collate = "<локаль сортировки>"
+            lc_type    = "<локаль набора символов>"
+            ...
+          }
+        }
+        ```
+  
+        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+    1. Проверьте корректность настроек.
+  
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+    1. Подтвердите изменение ресурсов.
+  
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
 - API
 
@@ -114,7 +151,6 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
   1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
   1. Нажмите значок ![image](../../_assets/vertical-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
 
-
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -130,6 +166,23 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
+- Terraform
+  
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+  1. Удалите из описания кластера {{ mpg-name }} блок `database` с именем удаляемой базы данных.
+  
+  1. Проверьте корректность настроек.
+  
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+  1. Подтвердите изменение ресурсов.
+  
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
 - API
 

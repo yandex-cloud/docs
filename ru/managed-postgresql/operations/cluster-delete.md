@@ -37,5 +37,3 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
   
 {% endlist %}
-
-

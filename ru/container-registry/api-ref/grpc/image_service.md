@@ -7,139 +7,141 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 # ImageService
 
-Набор методов для управления ресурсами Image.
+A set of methods for managing Image resources.
 
-| Вызов | Описание |
+| Call | Description |
 | --- | --- |
-| [List](#List) | Получает список ресурсов Image в указанном реестре или репозитории. |
-| [Get](#Get) | Возвращает указанный ресурс Image. |
-| [Delete](#Delete) | Удаляет указанный Docker-образ. |
+| [List](#List) | Retrieves the list of Image resources in the specified registry or repository. |
+| [Get](#Get) | Returns the specified Image resource. |
+| [Delete](#Delete) | Deletes the specified Docker image. |
 
-## Вызовы ImageService {#calls}
+## Calls ImageService {#calls}
 
 ## List {#List}
 
-Получает список ресурсов Image в указанном реестре или репозитории.
+Retrieves the list of Image resources in the specified registry or repository.
 
 **rpc List ([ListImagesRequest](#ListImagesRequest)) returns ([ListImagesResponse](#ListImagesResponse))**
 
 ### ListImagesRequest {#ListImagesRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-registry_id | **string**<br>Идентификатор реестра для получения списка Docker-образов. `registry_id` игнорируется, если в запросе указан [ListImagesRequest.repository_name](#ListImagesRequest). <br>Чтобы получить идентификатор реестра, используйте запрос [RegistryService.List](./registry_service#List). Максимальная длина строки в символах — 50.
-repository_name | **string**<br>Имя репозитория для получения списка Docker-образов. <br>Чтобы получить имя репозитория, используйте [RepositoryService.List](./repository_service#List) запрос. Значение должно соответствовать регулярному выражению ` |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `.
-folder_id | **string**<br>Идентификатор каталога, для которого запрашивается список Docker-образов. `folder_id` игнорируется, если в запросе есть [ListImagesRequest.repository_name](#ListImagesRequest) или [ListImagesRequest.registry_id](#ListImagesRequest). <br>Чтобы получить идентификатор каталога, используйте запрос [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List). Максимальная длина строки в символах — 50.
-page_size | **int64**<br>Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем `page_size`, сервис вернет значение [ListImagesResponse.next_page_token](#ListImagesResponse), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100. Максимальное значение — 1000.
-page_token | **string**<br>Токен страницы. Установите значение `page_token` равным значению поля [ListImagesResponse.next_page_token](#ListImagesResponse) предыдущего запроса, чтобы получить следующую страницу результатов. Максимальная длина строки в символах — 100.
-filter | **string**<br><ol><li>Имя поля. В настоящее время фильтрация осуществляется только по полю [Image.name](#Image). </li><li>Оператор. Может быть `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. </li><li>Значение. Должно быть не более 256 символов и соответствовать регулярному выражению `[a-z0-9]+(?:[._-](./#)(./#)[a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.</li></ol> Максимальная длина строки в символах — 1000.
-order_by | **string**<br> Максимальная длина строки в символах — 100.
+registry_id | **string**<br>ID of the registry to list Docker images in. <br>`registry_id` is ignored if a [ListImagesRequest.repository_name](#ListImagesRequest) is specified in the request. <br>To get the registry ID use a [RegistryService.List](./registry_service#List) request. The maximum string length in characters is 50.
+repository_name | **string**<br>Name of the repository to list Docker images in. <br>To get the repository name use a [RepositoryService.List](./repository_service#List) request. Value must match the regular expression ` |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `.
+folder_id | **string**<br>ID of the folder to list Docker images in. <br>`folder_id` is ignored if a [ListImagesRequest.repository_name](#ListImagesRequest) or a [ListImagesRequest.registry_id](#ListImagesRequest) are specified in the request. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListImagesResponse.next_page_token](#ListImagesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListImagesResponse.next_page_token](#ListImagesResponse) returned by a previous list request. The maximum string length in characters is 100.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Image.name](#Image) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be a maximum of 256 characters and match the regular expression `[a-z0-9]+(?:[._-](./#)(./#)[a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.</li></ol> The maximum string length in characters is 1000.
+order_by | **string**<br> The maximum string length in characters is 100.
 
 
 ### ListImagesResponse {#ListImagesResponse}
 
-Поле | Описание
+Field | Description
 --- | ---
-images[] | **[Image](#Image)**<br>Список ресурсов Image. 
-next_page_token | **string**<br>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем [ListImagesRequest.page_size](#ListImagesRequest), используйте `next_page_token` в качестве значения параметра [ListImagesRequest.page_token](#ListImagesRequest) в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения `next_page_token` для перебора страниц результатов. 
+images[] | **[Image](#Image)**<br>List of Image resources. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListImagesRequest.page_size](#ListImagesRequest), use the `next_page_token` as the value for the [ListImagesRequest.page_token](#ListImagesRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Image {#Image}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Только для вывода. Идентификатор Docker-образа. 
-name | **string**<br>Имя Docker-образа. Уникально в рамках реестра. 
-digest | **string**<br>Контентный адрес Docker-образа. 
-compressed_size | **int64**<br>Размер сжатого Docker-образа, в байтах. 
-config | **[Blob](#Blob)**<br>Конфигурация Docker-образа. 
-layers[] | **[Blob](#Blob)**<br>Слои Docker-образа. 
-tags[] | **string**<br>Теги Docker-образа. <br>Каждый тег уникален в пределах репозитория. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Только для вывода. Время создания ресурса в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+id | **string**<br>Output only. ID of the Docker image. 
+name | **string**<br>Name of the Docker image. The name is unique within the registry. 
+digest | **string**<br>Content-addressable identifier of the Docker image. 
+compressed_size | **int64**<br>Compressed size of the Docker image, specified in bytes. 
+config | **[Blob](#Blob)**<br>Configuration of the Docker image. 
+layers[] | **[Blob](#Blob)**<br>Layers of the Docker image. 
+tags[] | **string**<br>Tags of the Docker image. <br>Each tag is unique within the repository. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 
 
 ### Blob {#Blob}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Только для вывода. Идентификатор блоба. 
-digest | **string**<br>Контентный адрес блоба. 
-size | **int64**<br>Размер блоба, указанный в байтах. 
+id | **string**<br>Output only. ID of the blob. 
+digest | **string**<br>Content-addressable identifier of the blob. 
+size | **int64**<br>Size of the blob, specified in bytes. 
+urls[] | **string**<br>List of blob urls. 
 
 
 ## Get {#Get}
 
-Возвращает указанный ресурс Image. <br>Чтобы получить список доступных ресурсов Image, используйте запрос [List](#List).
+Returns the specified Image resource. <br>To get the list of available Image resources, make a [List](#List) request.
 
 **rpc Get ([GetImageRequest](#GetImageRequest)) returns ([Image](#Image1))**
 
 ### GetImageRequest {#GetImageRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-image_id | **string**<br>Обязательное поле. Идентификатор возвращаемого Docker-образа. <br>Чтобы получить идентификатор Docker-образа, используйте запрос [ImageService.List](#List). Максимальная длина строки в символах — 50.
+image_id | **string**<br>Required. ID of the Docker image resource to return. <br>To get the Docker image ID use a [ImageService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Image {#Image1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Только для вывода. Идентификатор Docker-образа. 
-name | **string**<br>Имя Docker-образа. Уникально в рамках реестра. 
-digest | **string**<br>Контентный адрес Docker-образа. 
-compressed_size | **int64**<br>Размер сжатого Docker-образа, в байтах. 
-config | **[Blob](#Blob1)**<br>Конфигурация Docker-образа. 
-layers[] | **[Blob](#Blob1)**<br>Слои Docker-образа. 
-tags[] | **string**<br>Теги Docker-образа. <br>Каждый тег уникален в пределах репозитория. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Только для вывода. Время создания ресурса в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
+id | **string**<br>Output only. ID of the Docker image. 
+name | **string**<br>Name of the Docker image. The name is unique within the registry. 
+digest | **string**<br>Content-addressable identifier of the Docker image. 
+compressed_size | **int64**<br>Compressed size of the Docker image, specified in bytes. 
+config | **[Blob](#Blob1)**<br>Configuration of the Docker image. 
+layers[] | **[Blob](#Blob1)**<br>Layers of the Docker image. 
+tags[] | **string**<br>Tags of the Docker image. <br>Each tag is unique within the repository. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 
 
 ### Blob {#Blob1}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Только для вывода. Идентификатор блоба. 
-digest | **string**<br>Контентный адрес блоба. 
-size | **int64**<br>Размер блоба, указанный в байтах. 
+id | **string**<br>Output only. ID of the blob. 
+digest | **string**<br>Content-addressable identifier of the blob. 
+size | **int64**<br>Size of the blob, specified in bytes. 
+urls[] | **string**<br>List of blob urls. 
 
 
 ## Delete {#Delete}
 
-Удаляет указанный Docker-образ.
+Deletes the specified Docker image.
 
 **rpc Delete ([DeleteImageRequest](#DeleteImageRequest)) returns ([operation.Operation](#Operation))**
 
-Метаданные и результат операции:<br>
+Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteImageMetadata](#DeleteImageMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
 ### DeleteImageRequest {#DeleteImageRequest}
 
-Поле | Описание
+Field | Description
 --- | ---
-image_id | **string**<br>Обязательное поле. Идентификатор удаляемого Docker-образа. <br>Чтобы получить идентификатор Docker-образа, используйте запрос [ImageService.List](#List). Максимальная длина строки в символах — 50.
+image_id | **string**<br>Required. ID of the Docker image to delete. <br>To get Docker image ID use a [ImageService.List](#List) request. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
 
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br>Идентификатор операции. 
-description | **string**<br>Описание операции. Длина описания должна быть от 0 до 256 символов. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время создания ресурса в формате в [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-created_by | **string**<br>Идентификатор пользователя или сервисного аккаунта, инициировавшего операцию. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Время, когда ресурс Operation последний раз обновлялся. Значение в формате [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). 
-done | **bool**<br>Если значение равно `false` — операция еще выполняется. Если `true` — операция завершена, и задано значение одного из полей `error` или `response`. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteImageMetadata](#DeleteImageMetadata)>**<br>Метаданные операции. Обычно в поле содержится идентификатор ресурса, над которым выполняется операция. Если метод возвращает ресурс Operation, в описании метода приведена структура соответствующего ему поля `metadata`. 
-result | **oneof:** `error` или `response`<br>Результат операции. Если `done == false` и не было выявлено ошибок — значения полей `error` и `response` не заданы. Если `done == false` и была выявлена ошибка — задано значение поля `error`. Если `done == true` — задано значение ровно одного из полей `error` или `response`.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>Описание ошибки в случае сбоя или отмены операции. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>в случае успешного выполнения операции. 
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteImageMetadata](#DeleteImageMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
 
 
 ### DeleteImageMetadata {#DeleteImageMetadata}
 
-Поле | Описание
+Field | Description
 --- | ---
-image_id | **string**<br>Идентификатор удаляемого Docker-образа. 
+image_id | **string**<br>ID of the Docker image that is being deleted. 
 
 

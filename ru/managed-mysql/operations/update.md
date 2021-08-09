@@ -26,6 +26,8 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 Выбор класса хостов в кластерах {{ mmy-short-name }} ограничен квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **Managed Databases**.
 
+{% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
+
 {% list tabs %}
 
 - Консоль управления
@@ -211,6 +213,8 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 {% endlist %}
 
 ## Изменить настройки {{ MY }} {#change-mysql-config}
+
+{% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}  
 
 {% list tabs %}
 

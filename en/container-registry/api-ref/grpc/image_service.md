@@ -65,7 +65,7 @@ Field | Description
 id | **string**<br>Output only. ID of the blob. 
 digest | **string**<br>Content-addressable identifier of the blob. 
 size | **int64**<br>Size of the blob, specified in bytes. 
-urls[] | **string**<br> 
+urls[] | **string**<br>List of blob urls. 
 
 
 ## Get {#Get}
@@ -102,7 +102,7 @@ Field | Description
 id | **string**<br>Output only. ID of the blob. 
 digest | **string**<br>Content-addressable identifier of the blob. 
 size | **int64**<br>Size of the blob, specified in bytes. 
-urls[] | **string**<br> 
+urls[] | **string**<br>List of blob urls. 
 
 
 ## Delete {#Delete}

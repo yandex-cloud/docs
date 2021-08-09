@@ -7,9 +7,9 @@
   In session pooling, the setting limits the number of user connections to each host in a {{ PG }} cluster. When using this type of pooling, make sure the setting value is not less than the sum of all connections that can be opened by the user service backends. Each open server connection somewhat slows down the {{ PG }}  OLTP (Online Transaction Processing) performance.
 
   The following principles apply to session pooling:
-  - When adding a user, {{ mpg-name }} reserves 50 connections per host in a {{ PG }} cluster by default. The minimum number of connections per user is 10.
-  - The total number of connections reserved for users must not exceed the value of the parameter [max_connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections) specified [when creating the cluster](../../managed-postgresql/operations/cluster-create.md). Keep in mind that {{ mpg-name }} reserves 15 service connections per host. For example, if the cluster has the setting `"max_connections": 100`, you can reserve a maximum of 85 connections per cluster host for users.
-  - We recommend that you distribute different services that use {{ PG }} among different users and set the desired value for each user. If due to issues in some service a large number of connections is created, other services aren't affected and can connect to {{ PG }}.
+  * When adding a user, {{ mpg-name }} reserves 50 connections per host in a {{ PG }} cluster by default. The minimum number of connections per user is 10.
+  * The total number of connections reserved for users must not exceed the value of the parameter [Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections) specified [when creating the cluster](../../managed-postgresql/operations/cluster-create.md). Keep in mind that {{ mpg-name }} reserves 15 service connections per host. For example, if the cluster has the setting `"max_connections": 100`, you can reserve a maximum of 85 connections per cluster host for users.
+  * We recommend that you distribute different services that use {{ PG }} among different users and set the desired value for each user. If issues in one service lead to the creation of a large number of connections, other services aren't affected and can connect to {{ PG }}.
 
 - **Default transaction isolation**{#setting-user-default-transaction-isolation} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 

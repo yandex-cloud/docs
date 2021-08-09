@@ -60,6 +60,8 @@ items:
     items:
       - name: Архитектура и защита базового интернет-сервиса
         href: solutions/web-service.md
+      - name: Настройки DHCP для работы с корпоративным DNS-сервером
+        href: solutions/dhcp-options.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -140,6 +142,10 @@ items:
                 href: api-ref/Network/list.md
               - name: listOperations
                 href: api-ref/Network/listOperations.md
+              - name: listRouteTables
+                href: api-ref/Network/listRouteTables.md
+              - name: listSecurityGroups
+                href: api-ref/Network/listSecurityGroups.md
               - name: listSubnets
                 href: api-ref/Network/listSubnets.md
               - name: move

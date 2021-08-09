@@ -69,7 +69,7 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
 
     {% list tabs %}
 
-      * {{ RD}} cluster with no sharding
+      - {{ RD }} cluster with no sharding
 
         ```ini
         [PHP]
@@ -81,7 +81,7 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
         session.save_path = "tcp://<FQDN of Redis master host>:6379?auth=<password>"
         ```
 
-      * {{ RD }} cluster with sharding
+      - {{ RD }} cluster with sharding
 
         ```ini
         [PHP]

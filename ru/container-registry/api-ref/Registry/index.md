@@ -6,8 +6,8 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 
 # Registry
-Набор методов для управления ресурсами Registry.
-## JSON-представление {#representation}
+A set of methods for managing Registry resources.
+## JSON Representation {#representation}
 ```json 
 {
   "id": "string",
@@ -19,20 +19,26 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 }
 ```
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Только для вывода. Идентификатор реестра.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит реестр.</p> 
-name | **string**<br><p>Название реестра.</p> 
-status | **string**<br><p>Только для вывода. Статус реестра.</p> <ul> <li>CREATING: Реестр создается.</li> <li>ACTIVE: Реестр готов к использованию.</li> <li>DELETING: Реестр удаляется.</li> </ul> 
-createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-labels | **object**<br><p>Метки ресурса в формате ``key:value``. Максимум 64 метки на ресурс.</p> 
+id | **string**<br><p>Output only. ID of the registry.</p> 
+folderId | **string**<br><p>ID of the folder that the registry belongs to.</p> 
+name | **string**<br><p>Name of the registry.</p> 
+status | **string**<br><p>Output only. Status of the registry.</p> <ul> <li>CREATING: Registry is being created.</li> <li>ACTIVE: Registry is ready to use.</li> <li>DELETING: Registry is being deleted.</li> </ul> 
+createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 
-## Методы {#methods}
-Метод | Описание
+## Methods {#methods}
+Method | Description
 --- | ---
-[create](create.md) | Создает реестр в указанном каталоге.
-[delete](delete.md) | Удаляет указанный реестр.
-[get](get.md) | Возвращает указанный ресурс Registry.
-[list](list.md) | Возвращает список доступных ресурсов Registry в указанном каталоге.
-[update](update.md) | Обновляет указанный реестр.
+[create](create.md) | Creates a registry in the specified folder.
+[delete](delete.md) | Deletes the specified registry.
+[get](get.md) | Returns the specified Registry resource.
+[list](list.md) | Retrieves the list of Registry resources in the specified folder.
+[listAccessBindings](listAccessBindings.md) | Lists access bindings for the specified registry.
+[listIpPermission](listIpPermission.md) | List ip permissions for the specified registry.
+[setAccessBindings](setAccessBindings.md) | Sets access bindings for the specified registry.
+[setIpPermission](setIpPermission.md) | Set ip permissions for the specified registry.
+[update](update.md) | Updates the specified registry.
+[updateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified registry.
+[updateIpPermission](updateIpPermission.md) | Update ip permissions for the specified registry.

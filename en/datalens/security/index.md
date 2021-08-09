@@ -8,7 +8,7 @@ Access to {{ datalens-full-name }} is managed from the {{ yandex-cloud }} consol
 To grant a user access, assign them a {{ datalens-short-name }} role.
 
 Permission differentiation in the service is implemented at the object and directory level.
-You can grant users permission to each object and directory. They determine what operations are allowed. If you created or copied a directory or object, they will have the same permissions as their new parent folder.
+You can grant users permission to each object and directory. They determine which operations are allowed. If you created or copied a directory or object, they will have the same permissions as their new parent folder.
 
 You can grant users access to a directory or any service object:
 
@@ -21,7 +21,7 @@ Users can also request permission on their own via the request form. For more in
 
 ## User roles {#users-roles}
 
-Let you define user permissions in a {{ datalens-short-name }} instance:
+Roles enable you define user permissions in a {{ datalens-short-name }} instance:
 
 - `{{ roles-datalens-instances-user }}`: A {{ datalens-short-name }} user with the permissions to create, read, and update objects based on [object permissions](#permissions).
 - `{{ roles-datalens-instances-admin }}`: A {{ datalens-short-name }} instance administrator. The role is automatically assigned to the instance creator. The administrator has the `{{ roles-datalens-instances-user }}` rights and can also change the service plan and pay for the paid content in {{ marketplace-name }}.
@@ -126,7 +126,7 @@ The `{{ permission-write }}` permission includes everything under the `{{ permis
 
 A user with the `{{ permission-admin }}` permission can edit available objects and directories, as well as edit permissions.
 
-The `{{ permission-admin }}` permission includes everything under the `{{ permission-write }}` permission.
+The `{{ permission-admin }}` permission includes everything included in the `{{ permission-write }}` permission.
 
 ## Table of permissions {#permission-table}
 
@@ -141,7 +141,7 @@ The `{{ permission-admin }}` permission includes everything under the `{{ permis
 | Make requests<br/>to a connection | ✔ | ✔ | ✔ | ✔ |
 | Create a dataset<br/>over a connection | - | ✔ | ✔ | ✔ |
 | View<br/>connection parameters | - | ✔ | ✔ | ✔ |
-| Edit connection | - | - | ✔ | ✔ |
+| Edit connections | - | - | ✔ | ✔ |
 | Delete connections | - | - | - | ✔ |
 | Edit permissions | - | - | - | ✔ |
 | **Dataset** |
@@ -156,11 +156,13 @@ The `{{ permission-admin }}` permission includes everything under the `{{ permis
 | Edit charts | N/A | - | ✔ | ✔ |
 | Delete charts | N/A | - | - | ✔ |
 | Edit permissions | N/A | - | - | ✔ |
+| Grant public access | N/A | - | - | ✔ |
 | **Dashboard** |
 | View dashboards | N/A | ✔ | ✔ | ✔ |
 | Edit dashboards | N/A | - | ✔ | ✔ |
-| Deleting dashboards | N/A | - | - | ✔ |
+| Delete dashboards | N/A | - | - | ✔ |
 | Edit permissions | N/A | - | - | ✔ |
+| Grant public access | N/A | - | - | ✔ |
 
 ## Object access audit
 
@@ -173,4 +175,3 @@ To get logs, you can contact [the technical support]({{ link-console-support }})
 - [{#T}](../operations/permission/revoke.md)
 - [{#T}](../operations/permission/request.md)
 - [{#T}](../operations/dataset/manage-row-level-security.md)
-

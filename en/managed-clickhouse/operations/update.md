@@ -6,13 +6,11 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 
 After creating a cluster, you can:
 
-* [Change the host class](#change-resource-preset).
-
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
-
+* [{#T}](#change-resource-preset).
+* [{#T}](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
 * [Configure {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
-
 * [Change additional cluster settings](#change-additional-settings).
+* [Change cluster security groups](#change-sg-set).
 
 * [Change cluster security groups](#change-sg-set).
 
@@ -23,11 +21,8 @@ After creating a cluster, you can:
 - Management console
 
   1. Go to the folder page and select **{{ mch-name }}**.
-
   1. Select the cluster and click **Edit cluster** in the top panel.
-
   1. To change the class of {{ CH }} hosts, under **Host class**, select the required class.
-
   1. To change the class of {{ ZK }} hosts:
 
       1. Click **Configure{{ ZK }}**.
@@ -147,8 +142,8 @@ After creating a cluster, you can:
   
   1. Make sure the required cluster uses network storage (it's currently not possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
-     ```
-     $ {{ yc-mdb-ch }} cluster get <cluster name>
+     ```bash
+     {{ yc-mdb-ch }} cluster get <cluster name>
      
      id: c7qkvr3u78qiopj3u4k2
      folder_id: b1g0ftj57rrjk9thribv
@@ -172,9 +167,9 @@ After creating a cluster, you can:
 
   1. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
 
-     ```
-     $ {{ yc-mdb-ch }} cluster update <cluster name>
-          --clickhouse-disk-size <storage size in GB>
+     ```bash
+     {{ yc-mdb-ch }} cluster update <cluster name> \
+        --clickhouse-disk-size <storage size in GB>
      ```
 
      If all these conditions are met, {{ mch-short-name }} launches the operation to increase storage space.
@@ -410,6 +405,22 @@ After creating a cluster, you can:
     For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
+
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
+
+{% endlist %}
+
+## Changing security groups {#change-sg-set}
+
+{% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ mch-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Under **Network settings**, select security groups for cluster network traffic.
+
+- CLI
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
 

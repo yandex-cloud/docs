@@ -88,12 +88,27 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 Чтобы использовать шифрованное соединение, получите SSL-сертификат:
 
+{% list tabs %}
 
-```bash
-mkdir ~/.elasticsearch && \
-wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
-chmod 0600 ~/.elasticsearch/root.crt
-```
+* Linux (Bash)
+
+  
+  ```bash
+  mkdir ~/.elasticsearch && \
+  wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
+  chmod 0600 ~/.elasticsearch/root.crt
+  ```
+
+  Сертификат будет сохранен в каталоге `$HOME/.elasticsearch/root.crt`.
+
+* Windows (PowerShell)
+
+  
+  ```powershell
+  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  ```
+
+  Сертификат будет сохранен в каталоге `$HOME\.elasticsearch\root.crt`.
 
 ## Автоматический выбор хоста для подключения {#automatic-host-selection}
 
@@ -110,7 +125,7 @@ chmod 0600 ~/.elasticsearch/root.crt
 
 {% include [conn-strings-environment](../../_includes/mdb/mes-conn-strings-env.md) %}
 
-Перед подключением [подготовьте сертификат](#configuring-an-ssl-certificate). В этих примерах предполагается, что сертификат `root.crt` расположен в директории `/home/<домашняя директория>/.elasticsearch/`.
+Перед подключением [подготовьте сертификат](#configuring-an-ssl-certificate). 
 
 Для подключения нужно использовать имя пользователя и пароль, которые были заданы при [создании кластера](cluster-create.md#create-cluster).
 

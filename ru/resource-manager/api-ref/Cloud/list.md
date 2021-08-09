@@ -33,7 +33,8 @@ filter | A filter expression that filters resources listed in the response. The 
       "id": "string",
       "createdAt": "string",
       "name": "string",
-      "description": "string"
+      "description": "string",
+      "organizationId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -48,4 +49,5 @@ clouds[].<br>id | **string**<br><p>ID of the cloud.</p>
 clouds[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 clouds[].<br>name | **string**<br><p>Name of the cloud. 3-63 characters long.</p> 
 clouds[].<br>description | **string**<br><p>Description of the cloud. 0-256 characters long.</p> 
+clouds[].<br>organizationId | **string**<br><p>ID of the organization that the cloud belongs to.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/resource-manager/api-ref/Cloud/list#query_params">pageSize</a>, use the <a href="/docs/resource-manager/api-ref/Cloud/list#responses">nextPageToken</a> as the value for the <a href="/docs/resource-manager/api-ref/Cloud/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/resource-manager/api-ref/Cloud/list#responses">nextPageToken</a> to continue paging through the results.</p> 

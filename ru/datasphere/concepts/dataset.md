@@ -101,9 +101,10 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
     1. На [странице регистрации приложений]({{ ya-client-app }}) в Яндекс ID выберите опцию **Веб-сервисы**.
     1. Вставьте в поле **Callback URI** значение ```{{ ya-oauth }}```.
     1. Настройте разрешения для Яндекс.Диска.
+    1. Инициализируйте датасет в ячейке с кодом:
 
     ```python
-    #pragma dataset init DATASET_NAME --size 1Gb
+    #pragma dataset init <DATASET_NAME> --size 1Gb
 
     from cloud_ml.storage.api import Storage
    
@@ -113,6 +114,23 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
     disk.get('<path_within_ya_disk>/file.txt', '/home/jupyter/mnt/datasets/<DATASET_NAME>/<path>/file.txt')
     ```  
   
+  - Google Drive
+  
+    Для подключения к Google Drive воспользуйтесь [инструкцией](https://developers.google.com/drive/api/v3/enable-drive-api) в официальной документации и создайте **OAuth client ID** типа **TVs and limited input devices**. 
+  
+    Используйте созданный **OAuth client ID** и инициализируйте датасет, выполнив в ячейке код: 
+
+    ```python
+    #pragma dataset init <DATASET_NAME> --size 1Gb
+
+    client_secret = {<client_secret>}
+    
+    gdrive = Storage.gdrive(client_secret)
+    gdrive_file_id = '<fileID>'
+    dst_path = '/home/jupyter/mnt/datasets/<DATASET_NAME>/<path>/file.txt'
+    gdrive.get(gdrive_file_id, dst_path)
+    ```
+
   {% endlist %}
 
 ## Использование датасета

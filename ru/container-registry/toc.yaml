@@ -21,6 +21,16 @@ items:
             href: operations/docker-image/docker-image-pull.md
           - name: Удалить Docker-образ из реестра
             href: operations/docker-image/docker-image-delete.md
+      - name: Управление Helm-чартом
+        items:
+          - name: Получить информацию об имеющихся Helm-чартах
+            href: operations/helm-chart/helm-chart-list.md
+          - name: Загрузить Helm-чарт в реестр
+            href: operations/helm-chart/helm-chart-push.md
+          - name: Скачать Helm-чарт из реестра
+            href: operations/helm-chart/helm-chart-pull.md
+          - name: Удалить Helm-чарт из реестра
+            href: operations/helm-chart/helm-chart-delete.md
       - name: Управление реестром
         items:
           - name: Получить информацию об имеющихся реестрах
@@ -91,25 +101,29 @@ items:
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: gRPC (англ.)
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/grpc/index.md
           - name: ImageService
             href: api-ref/grpc/image_service.md
+          - name: LifecyclePolicyService
+            href: api-ref/grpc/lifecycle_policy_service.md
           - name: RegistryService
             href: api-ref/grpc/registry_service.md
           - name: RepositoryService
             href: api-ref/grpc/repository_service.md
+          - name: ScannerService
+            href: api-ref/grpc/scanner_service.md
           - name: OperationService
             href: api-ref/grpc/operation_service.md
-      - name: REST
+      - name: REST (англ.)
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/index.md
           - name: Image
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Image/index.md
               - name: delete
                 href: api-ref/Image/delete.md
@@ -117,9 +131,31 @@ items:
                 href: api-ref/Image/get.md
               - name: list
                 href: api-ref/Image/list.md
+          - name: LifecyclePolicy
+            items:
+              - name: Overview
+                href: api-ref/LifecyclePolicy/index.md
+              - name: create
+                href: api-ref/LifecyclePolicy/create.md
+              - name: delete
+                href: api-ref/LifecyclePolicy/delete.md
+              - name: dryRun
+                href: api-ref/LifecyclePolicy/dryRun.md
+              - name: get
+                href: api-ref/LifecyclePolicy/get.md
+              - name: getDryRunResult
+                href: api-ref/LifecyclePolicy/getDryRunResult.md
+              - name: list
+                href: api-ref/LifecyclePolicy/list.md
+              - name: listDryRunResultAffectedImages
+                href: api-ref/LifecyclePolicy/listDryRunResultAffectedImages.md
+              - name: listDryRunResults
+                href: api-ref/LifecyclePolicy/listDryRunResults.md
+              - name: update
+                href: api-ref/LifecyclePolicy/update.md
           - name: Registry
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Registry/index.md
               - name: create
                 href: api-ref/Registry/create.md
@@ -129,14 +165,54 @@ items:
                 href: api-ref/Registry/get.md
               - name: list
                 href: api-ref/Registry/list.md
+              - name: listAccessBindings
+                href: api-ref/Registry/listAccessBindings.md
+              - name: listIpPermission
+                href: api-ref/Registry/listIpPermission.md
+              - name: setAccessBindings
+                href: api-ref/Registry/setAccessBindings.md
+              - name: setIpPermission
+                href: api-ref/Registry/setIpPermission.md
               - name: update
                 href: api-ref/Registry/update.md
+              - name: updateAccessBindings
+                href: api-ref/Registry/updateAccessBindings.md
+              - name: updateIpPermission
+                href: api-ref/Registry/updateIpPermission.md
           - name: Repository
             items:
-              - name: Обзор
+              - name: Overview
                 href: api-ref/Repository/index.md
+              - name: delete
+                href: api-ref/Repository/delete.md
+              - name: get
+                href: api-ref/Repository/get.md
+              - name: getByName
+                href: api-ref/Repository/getByName.md
               - name: list
                 href: api-ref/Repository/list.md
+              - name: listAccessBindings
+                href: api-ref/Repository/listAccessBindings.md
+              - name: setAccessBindings
+                href: api-ref/Repository/setAccessBindings.md
+              - name: updateAccessBindings
+                href: api-ref/Repository/updateAccessBindings.md
+              - name: upsert
+                href: api-ref/Repository/upsert.md
+          - name: Scanner
+            items:
+              - name: Overview
+                href: api-ref/Scanner/index.md
+              - name: get
+                href: api-ref/Scanner/get.md
+              - name: getLast
+                href: api-ref/Scanner/getLast.md
+              - name: list
+                href: api-ref/Scanner/list.md
+              - name: listVulnerabilities
+                href: api-ref/Scanner/listVulnerabilities.md
+              - name: scan
+                href: api-ref/Scanner/scan.md
   - name: Решение проблем
     href: error/index.md
   - name: Вопросы и ответы

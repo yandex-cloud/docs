@@ -8,7 +8,7 @@ _Format schema_ describes the format of data input or output and the _data schem
 
 [Cap'n Proto](https://capnproto.org/) and [Protobuf](https://developers.google.com/protocol-buffers/) data formats (including [ProtobufSingle](https://clickhouse.tech/docs/en/interfaces/formats/#protobufsingle)) don't contain a format schema: the data is presented in binary format without any structural details. Before you begin processing data in these formats (for example, before inserting data in a table), add a format schema to the {{ mch-name }} cluster. It will help you correctly interpret the number, order, and type of values when processing binary data.
 
-You can add one or more such format schemas to a {{ mch-name }}  cluster and use them to input and output data in the relevant formats.
+You can add one or more such format schemas to a {{ mch-name }} cluster and use them to input and output data in the relevant formats.
 
 {% note warning %}
 

@@ -13,5 +13,6 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 - [{#T}](shards.md)
 - [{#T}](cluster-backups.md)
 - [{#T}](failover.md)
+- [{#T}](monitoring.md)
 - [{#T}](cluster-delete.md)
 

@@ -19,6 +19,7 @@ The following types of connections are available in {{ datalens-short-name }}:
 - **Oracle Database**
 - **Metrica** (in direct or Logs API access mode)
 - **AppMetrica** (in direct or Logs API access mode)
+- **Yandex Cloud Billing**
 
 You can add additional types of connections from the list of available ones in the [{{datalens-short-name }} Marketplace](marketplace.md).
 
@@ -40,4 +41,4 @@ You can configure connection permissions. For more information, see [{#T}](../se
 - [{#T}](../operations/connection/create-metrica-api.md)
 - [{#T}](../operations/connection/create-metrica-logs-api.md)
 - [{#T}](../operations/connection/create-appmetrica.md)
-
+- [{#T}](../operations/connection/create-cloud-billing.md)

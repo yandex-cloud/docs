@@ -94,7 +94,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -348,7 +348,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -583,7 +583,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -826,7 +826,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -1062,7 +1062,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 
@@ -1314,7 +1314,7 @@ gpus | **int64**<br>Number of GPUs available to the node. The minimum value is 0
 
 Field | Description
 --- | ---
-disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd `.
+disk_type_id | **string**<br>ID of the disk type. Value must match the regular expression ` |network-ssd|network-hdd|network-ssd-nonreplicated `.
 disk_size | **int64**<br>Size of the disk, specified in bytes. Acceptable values are 0 to 4398046511104, inclusive.
 
 

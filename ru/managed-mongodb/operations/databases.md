@@ -59,6 +59,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
   1. Введите имя для базы данных и нажмите кнопку **Добавить**.
   1. Не забудьте [выдать разрешение](cluster-users.md#updateuser) на доступ к созданной базе данных нужному пользователю кластера (пока доступно только с помощью CLI и API).
 
+  {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
 - CLI
 
@@ -73,11 +74,44 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
       --cluster-name <имя кластера>
   ```
 
+  {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
   {{ mmg-short-name }} запустит операцию создания базы данных.
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
   Не забудьте [выдать разрешение](cluster-users.md#updateuser) на доступ к созданной базе данных нужному пользователю кластера.
+
+- Terraform
+  
+  Чтобы создать базу данных в кластере:
+  
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+    1. Добавьте к описанию кластера {{ mmg-name }} блок `database`:
+  
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+          ...
+          database {
+            name = "<имя базы данных>"
+          }
+        }
+        ```
+
+        {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+  
+    1. Проверьте корректность настроек.
+  
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+    1. Подтвердите изменение ресурсов.
+  
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 
@@ -111,6 +145,25 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- Terraform
+  
+  Чтобы удалить базу данных из кластера:
+  
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+    1. Удалите из описания кластера {{ mmg-name }} блок `database` с именем удаляемой базы данных.
+  
+    1. Проверьте корректность настроек.
+  
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+    1. Подтвердите изменение ресурсов.
+  
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 

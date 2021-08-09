@@ -95,6 +95,8 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 
 
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
+
 Prices in USD, without VAT
 
 {% include [usd-class](../_pricing/managed-mongodb/usd-class.md) %}

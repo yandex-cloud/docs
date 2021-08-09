@@ -27,7 +27,8 @@ Field | Description
 --- | ---
 destination | **[Destination](#Destination)**<br>Required. Log entries destination. <br>See [Destination](#Destination) for details. 
 resource | **[LogEntryResource](#LogEntryResource)**<br>Common resource (type, ID) specification for log entries. 
-entries[] | **[IncomingLogEntry](#IncomingLogEntry)**<br>List of log entries. The maximum number of elements is 100.
+entries[] | **[IncomingLogEntry](#IncomingLogEntry)**<br>List of log entries. The number of elements must be in the range 1-100.
+defaults | **[LogEntryDefaults](#LogEntryDefaults)**<br>Log entries defaults. <br>See [LogEntryDefaults](#LogEntryDefaults) for details. 
 
 
 ### Destination {#Destination}
@@ -35,16 +36,16 @@ entries[] | **[IncomingLogEntry](#IncomingLogEntry)**<br>List of log entries. Th
 Field | Description
 --- | ---
 destination | **oneof:** `log_group_id` or `folder_id`<br>Entry destination.
-&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. The maximum string length in characters is 64.
-&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for the folder. The maximum string length in characters is 64.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for the folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 
 ### LogEntryResource {#LogEntryResource}
 
 Field | Description
 --- | ---
-type | **string**<br>Resource type, i.e., `serverless.function` Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? `.
-id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{1,62})? `.
+type | **string**<br>Resource type, i.e., `serverless.function` Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 
 ### IncomingLogEntry {#IncomingLogEntry}
@@ -55,6 +56,14 @@ timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 level | **[LogLevel.Level](#LogLevel)**<br>Entry severity. <br>See [LogLevel.Level](#LogLevel) for details. 
 message | **string**<br>Entry text message. The maximum string length in characters is 65536.
 json_payload | **google.protobuf.Struct**<br>Entry annotation. 
+
+
+### LogEntryDefaults {#LogEntryDefaults}
+
+Field | Description
+--- | ---
+level | **[LogLevel.Level](#LogLevel)**<br>Default entry severity. Will be applied if entry level is unspecified. <br>See [LogLevel.Level](#LogLevel) for details. 
+json_payload | **google.protobuf.Struct**<br>Default entry annotation. Will be merged with entry annotation. Any conflict will be resolved in favor of entry own annotaion. 
 
 
 ### WriteResponse {#WriteResponse}

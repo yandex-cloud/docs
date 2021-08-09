@@ -5,23 +5,23 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Метод get
-Возвращает указанный ресурс Registry.
+# Method get
+Returns the specified Registry resource.
  
-Чтобы получить список доступных ресурсов Registry, используйте запрос [list](/docs/container-registry/api-ref/Registry/list).
+To get the list of available Registry resources, make a [list](/docs/container-registry/api-ref/Registry/list) request.
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://container-registry.api.cloud.yandex.net/container-registry/v1/registries/{registryId}
 ```
  
-## Path-параметры {#path_params}
+## Path parameters {#path_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-registryId | Обязательное поле. Идентификатор возвращаемого ресурса Registry.  Чтобы получить идентификатор реестра, используйте запрос [list](/docs/container-registry/api-ref/Registry/list).  Максимальная длина строки в символах — 50.
+registryId | Required. ID of the Registry resource to return.  To get the registry ID use a [list](/docs/container-registry/api-ref/Registry/list) request.  The maximum string length in characters is 50.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -34,13 +34,13 @@ registryId | Обязательное поле. Идентификатор во�
   "labels": "object"
 }
 ```
-Ресурс Registry. Подробнее смотрите в разделе [Реестр](/docs/container-registry/concepts/registry).
+A Registry resource. For more information, see [Registry](/docs/cloud/containerregistry/registry).
  
-Поле | Описание
+Field | Description
 --- | ---
-id | **string**<br><p>Только для вывода. Идентификатор реестра.</p> 
-folderId | **string**<br><p>Идентификатор каталога, которому принадлежит реестр.</p> 
-name | **string**<br><p>Название реестра.</p> 
-status | **string**<br><p>Только для вывода. Статус реестра.</p> <ul> <li>CREATING: Реестр создается.</li> <li>ACTIVE: Реестр готов к использованию.</li> <li>DELETING: Реестр удаляется.</li> </ul> 
-createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-labels | **object**<br><p>Метки ресурса в формате ``key:value``. Максимум 64 метки на ресурс.</p> 
+id | **string**<br><p>Output only. ID of the registry.</p> 
+folderId | **string**<br><p>ID of the folder that the registry belongs to.</p> 
+name | **string**<br><p>Name of the registry.</p> 
+status | **string**<br><p>Output only. Status of the registry.</p> <ul> <li>CREATING: Registry is being created.</li> <li>ACTIVE: Registry is ready to use.</li> <li>DELETING: Registry is being deleted.</li> </ul> 
+createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 

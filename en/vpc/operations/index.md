@@ -13,6 +13,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 
 - [{#T}](subnet-create.md)
 - [{#T}](subnet-delete.md)
+- [{#T}](subnet-used-addresses.md)
 
 ## Addresses {#addresses}
 

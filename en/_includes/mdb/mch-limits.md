@@ -9,13 +9,18 @@
 
 #### Limits {#mch-limits}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Lowest host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) |
-| Highest host class | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
-| Maximum number of shards per cluster | 50 |
-| Maximum number of hosts per shard | 7 |
-| Maximum number of hosts per cluster | 353 (50 shards × 7 hosts + 3 {{ ZK }} hosts) |
-| Maximum amount of data on the host when using network storage | 4096 GB |
-| Maximum amount of data on the host when using local storage | 1400 GB |
+| Type of limit | Minimum value | Maximum value |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------------------------------------------- |
+| Host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
+| Number of {{ CH }} hosts in a non-sharded cluster when using standard or fast network storage | 1 | 7 |
+| Number of {{ CH }} hosts in a non-sharded cluster when using non-replicated network storage | 3 | 7 |
+| Number of {{ CH }} hosts in a non-sharded cluster when using local storage | 2 | 7 |
+| Number of shards in a sharded cluster | 1 | 50 |
+| Number of hosts in a shard when using standard or fast network storage | 1 | 7 |
+| Number of hosts in a shard when using non-replicated network storage | 3 | 7 |
+| Number of hosts in a shard when using local storage | 2 | 7 |
+| Total number of hosts per cluster | 1 | 353 (50 shards × 7 hosts + 3 {{ ZK }} hosts) |
+| Amount of data on the host when using standard or fast network storage | 10 GB | 4096 GB |
+| Amount of data on the host when using non-replicated network storage | 93 GB | 8184 GB |
+| Amount of data on the host when using local storage | 100 GB | 1500 GB |
 

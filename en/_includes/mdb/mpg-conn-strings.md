@@ -597,6 +597,24 @@
   ruby connect.rb
   ```
 
+- C# EfCore
+
+  **Before connecting, install the dependencies:**
+
+  ```bash
+  Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
+  ```
+
+  **Example of settings in the `appsettings.json` file for connecting via SSL:**
+
+  ```json
+  ...
+  "ConnectionStrings": {
+    "Default": "Server=<FQDN of one or multiple {{ PG }} hosts>;Database=<DB name>;Port=6432;User Id=<username>;Password=<user password>;Ssl Mode=Require; Trust Server Certificate=true;"
+  },
+  ...
+  ```
+
 - ODBC
 
   **Before connecting, install the dependencies:**

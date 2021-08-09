@@ -24,7 +24,7 @@
 
 - **Auto explain log buffers**{#setting-auto-explain-log-buffers} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Enables output of {{ PG }} buffer usage statistics using the `auto_explain` module. This parameter is similar to `BUFFERS` in the `EXPLAIN` command. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+  Enables output of the {{ PG }} buffer usage statistics using the `auto_explain` module. This parameter is similar to `BUFFERS` in the `EXPLAIN` command. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
   This setting is disabled by default.
 
@@ -42,7 +42,7 @@
 
   Enables logging of nested statements inside SQL functions in the `auto_explain` module. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
-  This setting is disabled by default (execution plans are logged for the top-level statements).
+  This setting is disabled by default (execution plans are logged for top-level statements).
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
 
@@ -56,7 +56,7 @@
 
 - **Auto explain log triggers**{#setting-auto-explain-log-triggers} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Enables output of trigger execution statistics in the `auto_explain` module. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+  Enables output of the trigger execution statistics in the `auto_explain` module. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
   This setting is disabled by default.
 
@@ -80,7 +80,7 @@
 
 - **Autovacuum analyze scale factor**{#setting-autovacuum-analyze-scale-factor} {{ tag-all }}
 
-  Fraction of changed or deleted records in the table that, when reached, trigger [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) to start the `ANALYZE` statistics collection command.
+  Fraction of changed or deleted records in the table that, when reached, triggers [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) to start the `ANALYZE` statistics collection command.
 
   The minimum value is `0.0` and the maximum value is `1.0`. Defaults to `0.0001`.
 
@@ -136,7 +136,7 @@
 
 - **Backend flush after**{#setting-backend-flush-after} {{ tag-all }}
 
-  The maximum amount of data (in kilobytes) that a utility process can write to the OS kernel's page cache. If it is exceeded, the DBMS commands the OS to flush data to the disk. The higher the parameter, the less likely a slowdown is when flushing data to the disk using `fsync` (for example, on completing a checkpoint).
+  The maximum amount of data (in kilobytes) that a utility process can write to the OS kernel's page cache. If it is exceeded, the DBMS commands the OS to flush data to the disk. The higher the parameter, the less likely a slowdown on flushing data to the disk using `fsync` (also after a checkpoint is completed) is.
 
   The minimum value is `0` (the setting is not applied) and the maximum value is `2048`. Defaults to `0`.
 
@@ -147,10 +147,10 @@
   Controls representation of quotation mark in an SQL string.
 
   Acceptable values:
-   - `backslash_quote` (`BACKSLASH_QUOTE` for Terraform, API, and CLI): Quotation mark can be represented as `\'` (equivalent to `on`).
-   - `on` (`BACKSLASH_QUOTE_ON` for Terraform, API, and CLI): Quotation mark can be represented as `\'`.
-   - `off` (`BACKSLASH_QUOTE_OFF` for Terraform, API, and CLI): Quotation mark is only represented in the usual SQL way (`''`).
-   - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` for Terraform, API, and CLI) (default): Quotation mark may be represented as `\'` only for the client encodings that don't use `\` in multi-byte characters.
+   * `backslash_quote` (`BACKSLASH_QUOTE` for Terraform, API, and CLI): Quotation marks can be represented as `\'` (equivalent to `on`).
+   * `on` (`BACKSLASH_QUOTE_ON` for Terraform, API, and CLI): Quotation marks can be represented as `\'`.
+   * `off` (`BACKSLASH_QUOTE_OFF` for Terraform, API, and CLI): Quotation marks are represented in a usual SQL way (`''`).
+   * `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` for Terraform, API, and CLI) (default): Quotation marks may be represented as `\'` only for the client encodings that don't use `\` in multi-byte characters.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-BACKSLASH-QUOTE).
 
@@ -164,7 +164,7 @@
 
 - **Bgwriter flush after**{#setting-bgwriter-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
 
-  Limits the amount of data processed by the background writer (in kilobytes). When the limit is exceeded, the DBMS commands the OS to flush this data to disk. This parameter limits the amount of dirty data in the kernel's page cache, reducing the likelihood of stalls when an `fsync` command is issued when the checkpoint is complete, or when the OS writes the data to the disk in the background.
+  Limits the amount of data processed by the background writer (in kilobytes). When the limit is exceeded, the DBMS commands the OS to flush this data to disk. This parameter limits the amount of dirty data in the kernel's page cache, reducing the likelihood of stalls when an `fsync` command is issued on completing a checkpoint or when the OS writes the data to the disk in the background.
 
   The minimum value is `0` and the maximum value is `2048`. Defaults to `512`.
 
@@ -189,8 +189,8 @@
 - **Bytea output**{#setting-bytea-output} {{ tag-all }}
 
   Sets the output format for the [binary string values](https://www.postgresql.org/docs/current/datatype-binary.html) (the `bytea` type):
-   - `hex` (`BYTEA_OUTPUT_HEX` for Terraform, API, and CLI) encodes binary data as two hexadecimal digits per byte, for example '`SELECT '\xDEADBEEF';`'.
-   - `escape` (`BYTEA_OUTPUT_ESCAPE` for Terraform, API, and CLI) means the standard {{ PG }} format (ASCII characters only).
+   * `hex` (`BYTEA_OUTPUT_HEX` for Terraform, API, and CLI) encodes binary data as two hexadecimal digits per byte, for example '`SELECT '\xDEADBEEF';`'.
+   * `escape` (`BYTEA_OUTPUT_ESCAPE` for Terraform, API, and CLI) means the standard {{ PG }} format (ASCII characters only).
 
   Defaults to `hex`.
 
@@ -198,7 +198,7 @@
 
 - **Checkpoint completion target**{#setting-checkpoint-completion-target} {{ tag-all }}
 
-  The ratio of the interval between checkpoints that defines the maximum length of writing RAM pages once the checkpoint is issued. For example, if the value is `0.5`, the system will try to complete the checkpoint in about half the interval before the next checkpoint is issued.
+  Fraction of the interval between checkpoints that defines the maximum duration of writing RAM pages once the checkpoint is issued. For example, if the value is `0.5`, the system will try to complete the checkpoint in about half the interval before the next checkpoint is issued.
 
   The minimum value is `0.0` and the maximum value is `1.0`. Defaults to `0.5`.
 
@@ -206,7 +206,7 @@
 
 - **Checkpoint flush after**{#setting-checkpoint-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
 
-  Size of page cache (in kilobytes) that triggers data flush at a checkpoint. The pages beyond the value are flushed to the disk and deleted from the OS page cache.
+  Size of page cache (in kilobytes) that trigger data flush at checkpoint. The pages beyond the value are flushed to the disk and deleted from the OS page cache.
 
   The minimum value is `0` and the maximum value is `2048`. Defaults to `256`.
 
@@ -233,9 +233,9 @@
   Allows the query planner to use table constraints to optimize queries.
 
   Acceptable values:
-   - `on` (`CONSTRAINT_EXCLUSION_ON` for Terraform, API, and CLI): Use constraints for all tables.
-   - `off` (`CONSTRAINT_EXCLUSION_OFF` for Terraform, API, and CLI): Don't use constraints.
-   - `partition` (`CONSTRAINT_EXCLUSION_PARTITION` for Terraform, API, and CLI) (default): Use constraints only for child tables and `UNION ALL` clauses.
+   * `on` (`CONSTRAINT_EXCLUSION_ON` for Terraform, API, and CLI): Use constraints for all tables.
+   * `off` (`CONSTRAINT_EXCLUSION_OFF` for Terraform, API, and CLI): Don't use constraints.
+   * `partition` (`CONSTRAINT_EXCLUSION_PARTITION` for Terraform, API, and CLI) (default): Use constraints only for child tables and `UNION ALL` clauses.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION).
 
@@ -257,7 +257,7 @@
 
 - **Default statistics target**{#setting-default-statistics-target} {{ tag-all }}
 
-  The maximum number of statistics records for each DB table column. The query planner uses statistics to estimate the number of rows returned by queries to select the most suitable query plan.
+  The maximum number of statistics records for each DB table column. The query planner uses statistics to estimate the number of rows returned by queries to select the best-suiting query plan.
 
   By increasing the value, you can increase the accuracy of the planner's estimates.
 
@@ -270,10 +270,10 @@
   This setting determines the default isolation level to be used for new SQL transactions.
 
   Acceptable values:
-  - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` для Terraform, API, and CLI) (default): The query sees only the rows that were committed before it started.
-  - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` for Terraform, API, and CLI): The behavior of this isolation level in {{ PG }} is identical to `read committed`.
-  - `repeatable read`  (`TRANSACTION_ISOLATION_REPEATABLE_READ` for Terraform, API, and CLI): All queries in the current transaction only see the rows that were committed before the first query to select or update data in this transaction.
-  - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` for Terraform, API, and CLI): The strictest isolation level of all those mentioned. The behavior of this isolation level in {{ PG }} is identical to `repeatable read`. However, if the overlap of read and write operations of parallel serializable transactions is incompatible with their serial execution, one of the transactions is rolled back with the "serialization failure" error.
+  * `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` for Terraform, API, and CLI) (default): The query only sees the rows that were committed before it started.
+  * `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` for Terraform, API, and CLI): The behavior of this isolation level in {{ PG }} is identical to `read committed`.
+  * `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` for Terraform, API, and CLI): All queries in the current transaction only see the rows that were committed before the first query to select or update data in this transaction.
+  * `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` for Terraform, API, and CLI): The strictest isolation level of all those mentioned. The behavior of this isolation level in {{ PG }} is identical to `repeatable read`. However, if the overlap of read and write operations of parallel serializable transactions is incompatible with their serial execution, one of the transactions is rolled back with the "serialization failure" error.
 
   For more information about isolation levels, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/transaction-iso.html).
 
@@ -289,9 +289,9 @@
 
 - **Default with oids**{#setting-default-with-oids} {{ tag-all }}
 
-  Adds a `OID` column containing a unique row ID. The setting has effect if the table is created:
-    - Without specifying `WITH OIDS` or `WITHOUT OIDS`.
-    - Using the `SELECT INTO` command.
+  Adds an `OID` column containing a unique row ID. The setting has effect if the table is created:
+    * either without specifying `WITH OIDS` and `WITHOUT OIDS`,
+    * or using the `SELECT INTO` command.
 
   Using `OID` is considered deprecated in user tables, so you might need to enable this parameter only for backward compatibility reasons.
 
@@ -309,7 +309,7 @@
 
 - **Effective io concurrency**{#setting-effective-io-concurrency} {{ tag-all }}
 
-  The number of concurrent disk I/O operations for an individual DB session. The higher this number, the more operations {{ PG }} will attempt to initiate in parallel within a session.
+  The maximum number of concurrent disk I/O operations for an individual DB session. The higher this number, the more operations {{ PG }} will attempt to initiate in parallel within a session.
 
   The minimum value is `0` and the maximum value is `1000`. Defaults to `1`.
 
@@ -317,10 +317,10 @@
 
 - **Enable bitmapscan**{#setting-enable-bitmapscan} {{ tag-all }}
 
-  Allows the query planner to use the bitmap-scan plan types, even if this is not specified in the query explicitly. This access method is similar to regular access by index, but occurs in two steps:
+  Allows the query planner to use the bitmap-scan plan types, even if this is not explicitly specified in the query. This access method is similar to regular access by index, but occurs in two steps:
    1. The index is scanned (Bitmap Index Scan) and a bitmap is built where the rows to be read by the query are flagged.
    1. The table is scanned (Bitmap Heap Scan). In this case:
-      - The pages are read sequentially (this increases the likelihood to use the OS cache).
+      - The pages are read sequentially (this increases the likelihood of using the OS cache).
       - Each page is viewed exactly once.
 
    This can speed up query execution.
@@ -331,7 +331,7 @@
 
 - **Enable hashagg**{#setting-enable-hashagg} {{ tag-all }}
 
-  Allows the planner to build a hash table from the result set, even if this is not specified in the query explicitly. This setting is effective for frequent unsorted queries to large database tables.
+  Allows the planner to build a hash table from the result set, even if this is not explicitly specified in the query. This setting is effective for frequent unsorted queries to large database tables.
 
   This setting is enabled by default.
 
@@ -347,7 +347,7 @@
 
 - **Enable indexonlyscan**{#setting-enable-indexonlyscan} {{ tag-all }}
 
-  Allows the query planner to use a table index without accessing the data, even if this is not specified in the query explicitly.
+  Allows the query planner to use a table index without accessing the data, even if this is not explicitly specified in the query.
 
   This setting is enabled by default.
 
@@ -395,7 +395,7 @@
 
 - **Enable parallel hash**{#setting-enable-parallel-hash} {{ tag-all }}
 
-  Allows the query planner to use hash-join with parallel hash. The setting only applies when [Enable hashjoin](#setting-enable-hashjoin) is enabled.
+  Allows the query planner to use of hash-join with parallel hash. The setting only applies when [Enable hashjoin](#setting-enable-hashjoin) is enabled.
 
   This setting is enabled by default.
 
@@ -443,7 +443,7 @@
 
 - **Enable tidscan**{#setting-enable-tidscan} {{ tag-all }}
 
-  Allows the query planner to scan the system identifiers of records (CTID, column tuple identifier). This can speed up query execution.
+  Allows the query planner to scan the system identifiers of entries (CTID, column tuple identifier). This can speed up query execution.
 
   This setting is enabled by default (the planner scans CTID).
 
@@ -468,9 +468,9 @@
 - **Force parallel mode**{#setting-force-parallel-mode} {{ tag-all }}
 
   Allows parallelizing a query for testing purposes:
-   - `off` (`FORCE_PARALLEL_MODE_OFF` for Terraform, API, and CLI): Use the parallel mode only when performance increase is expected.
-   - `on` (`FORCE_PARALLEL_MODE_ON` for Terraform, API, and CLI): Force parallelize all the queries where it is safe.
-   - `regress` (`FORCE_PARALLEL_MODE_REGRESS` for Terraform, API, and CLI): Equivalent to `on`, but the standard output is no different from non-parallel mode.
+   * `off` (`FORCE_PARALLEL_MODE_OFF` for Terraform, API, and CLI): Use parallel mode only when performance increase is expected.
+   * `on` (`FORCE_PARALLEL_MODE_ON` for Terraform, API, and CLI): Force parallelize all the queries where it is safe.
+   * `regress` (`FORCE_PARALLEL_MODE_REGRESS` for Terraform, API, and CLI): Equivalent to `on`, but the standard output is no different from non-parallel mode.
 
   Defaults to `off`.
 
@@ -478,7 +478,7 @@
 
 - **From collapse limit**{#setting-from-collapse-limit} {{ tag-all }}
 
-  Maximum number of items in the `FROM` list. As long as this number is not exceeded, the query planner will combine nested queries with the upper query. You can decrease planning time using smaller values, but your query plan might get less effective.
+  Maximum number of items in the `FROM` list. As long as this number is not exceeded, the query planner will combine nested queries with the upper query. You can decrease planning time with smaller values, but your query plan might be less effective.
 
   The minimum value is `1` and the maximum value is `2147483647`. Defaults to `8`.
 
@@ -486,7 +486,7 @@
 
 - **Gin pending list limit**{#setting-gin-list-limit} {{ tag-all }}
 
-  Sets the maximum size (in bytes) of a [GIN index's](https://www.postgresql.org/docs/current/gin-intro.html) pending list. The pending list is used when `fastupdate` mode is enabled. If the pending list exceeds the specified limit, its entries are moved to the index's main GIN data structure in bulk and the list is cleared.
+  Sets the maximum size of a [GIN index's](https://www.postgresql.org/docs/current/gin-intro.html) pending list. The pending list is used when `fastupdate` mode is enabled. If the pending list exceeds the specified limit, its entries are moved to the index's main GIN data structure in bulk and the list is cleared.
 
   The minimum value is `64` and the maximum value is `2147483647` (2 GB). Defaults to `4194304`.
 
@@ -506,7 +506,7 @@
 
   The minimum value is `0` and the maximum value is `2147483647`. Defaults to `0`.
 
-  For more information, see the [{{ PG }} documentation]( https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT).
+  For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT).
 
 - **Jit**{#setting-jit} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
 
@@ -518,7 +518,7 @@
 
 - **Join collapse limit**{#setting-join-collapse-limit} {{ tag-all }}
 
-  Maximum number of items in the `FROM` list. As long as this value is not exceeded, the planner will move explicit `JOIN` instructions (except `FULL JOIN`) to the list. You can decrease planning time using smaller values, but your query plan might get less effective.
+  Maximum number of items in the `FROM` list. As long as this value is not exceeded, the planner will move explicit `JOIN` instructions (except `FULL JOIN`) to the list. You can decrease planning time with smaller values, but your query plan might be less effective.
 
   The minimum value is `1` and the maximum value is `2147483647`. Defaults to `8`.
 
@@ -534,7 +534,7 @@
 
 - **Lock timeout**{#setting-lock-timeout} {{ tag-all }}
 
-  Specifies how long to wait for the lock to be released (in milliseconds). Locks can be used for tables, indexes, rows, or other database objects. If the timeout for an operation has expired, the operation is aborted.
+  Specifies how long to wait for the lock to be released (in milliseconds). Locks can be used for tables, indexes, rows, and other database objects. If the timeout for an operation has expired, the operation is aborted.
 
   The minimum value is `0` (timeout is not controlled, you may wait to acquire a lock as long as you need) and the maximum value is `2147483647`. Defaults to `0`.
 
@@ -577,15 +577,15 @@
 - **Log error verbosity**{#setting-log-error-verbosity} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   The level of detail for the {{ PG }} log entry per message. Log detail levels in ascending order of verbosity:
-  - `terse` (`LOG_ERROR_VERBOSITY_TERSE` for Terraform, CLI, and API). The fields `DETAIL`, `HINT`, `QUERY`, and `CONTEXT` are excluded from the error message.
-  - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` for Terraform, CLI, and API). Default.
-  - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` for Terraform, CLI, and API). The error message includes the `SQLSTATE` error code, the source code file name, function name, and line number that generated the error.
+  * `terse` (`LOG_ERROR_VERBOSITY_TERSE` for Terraform, CLI, and API). The `DETAIL`, `HINT`, `QUERY`, and `CONTEXT` fields are excluded from the error message.
+  * `default` (`LOG_ERROR_VERBOSITY_DEFAULT` for Terraform, CLI, and API). Default.
+  * `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` for Terraform, CLI, and API). The error message includes the `SQLSTATE` error code, the source code file name, function name, and line number that generated the error.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY).
 
 - **Log lock waits**{#setting-log-lock-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Controls logging of long lock waits. When enabled, a log entry is created when {{ PG }}log wait for a session is longer than [Deadlock timeout](#setting-deadlock-timeout).
+  Controls logging of long lock waits. When enabled, a log entry is created when the log wait for a {{ PG }} session is longer than [Deadlock timeout](#setting-deadlock-timeout).
 
   This setting is disabled by default.
 
@@ -593,11 +593,11 @@
 
 - **Log min duration sample**{#setting-log-min-duration-sample} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  The setting is similar to[Log min duration statement](#setting-log-min-duration-statement), but only applies to the statements listed in [Log statement sample rate](#setting-log-statement-sample-rate).
+  The setting is similar to [Log min duration statement](#setting-log-min-duration-statement), but only applies to the statements listed in [Log statement sample rate](#setting-log-statement-sample-rate).
 
   When the value is `0`, the duration is logged for all the specified statements.
 
-  The minimum value is `-1` (disables logging of the statement duration) and the maximum value is `2147483647`. Defaults to `-1`.
+  Minimum value is `-1` (disables logging of the statement duration) and the maximum value is `2147483647`. Defaults to `-1`.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-SAMPLE).
 
@@ -615,9 +615,9 @@
 
 - **Log min error statement**{#setting-log-min-error-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Defines the logging level for errors of SQL statement execution. A message about statement execution is logged if it at least has the specified severity level. Acceptable values: `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
+  Defines the logging level for errors of SQL statement execution. A message about the statement execution is logged if it has at least the specified severity level. Acceptable values: `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
 
-  The default value is `ERROR`. This means that the {{ PG }} log will include all the statements that ended with a message having the `ERROR`, `LOG`, `FATAL`, and `PANIC` severity levels.
+  The default value is `ERROR`. This means that the {{ PG }} log will include all the statements that ended with a message having the `ERROR`, `LOG`, `FATAL`, or `PANIC` severity level.
 
   To disable logging of failed statements, select the `PANIC` value.
 
@@ -625,9 +625,9 @@
 
 - **Log min messages**{#setting-log-min-messages} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  Defines the logging level in {{ PG }}. All messages of the selected severity level (or higher) are logged. Acceptable values (in ascending severity): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
+  Defines the logging level in {{ PG }}. All the messages that have at least the selected severity level are logged. Acceptable values (in ascending severity): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
 
-  The default value is `WARNING`. This means that the {{ PG }} log will include all the messages with the `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC` severity levels.
+  The default value is `WARNING`. This means that the {{ PG }} log will include all the messages with the `WARNING`, `ERROR`, `LOG`, `FATAL`, or `PANIC` severity level.
 
   To disable logging of messages, select the `PANIC` value.
 
@@ -636,10 +636,10 @@
 - **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
   A filter for SQL statements to be written to the {{ PG }} log:
-  - `none` (`LOG_STATEMENT_NONE` for Terraform, CLI, and API) (default): The filter is disabled and SQL statements aren't logged.
-  - `ddl` (`LOG_STATEMENT_DDL` for Terraform, CLI, and API): The SQL statements that let you change data definitions are logged (such as `CREATE`, `ALTER`, and `DROP`).
-  - `mod` (`LOG_STATEMENT_MOD` for Terraform, CLI, and API): The SQL statements that match the `ddl` filter and statements used to change data (such as `INSERT` and `UPDATE`).
-  - `all` (`LOG_STATEMENT_ALL` for Terraform, CLI, and API): All the SQL statements are logged.
+  * `none` (`LOG_STATEMENT_NONE` for Terraform, CLI, and API) (default): The filter is disabled and SQL statements aren't logged.
+  * `ddl` (`LOG_STATEMENT_DDL` for Terraform, CLI, and API): The SQL statements that let you change data definitions are logged (such as `CREATE`, `ALTER`, and `DROP`).
+  * `mod` (`LOG_STATEMENT_MOD` for Terraform, CLI, and API): The SQL statements that match the `ddl` filter and statements used to change data (such as `INSERT` and `UPDATE`).
+  * `all` (`LOG_STATEMENT_ALL` for Terraform, CLI, and API): All the SQL statements are logged.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
@@ -655,7 +655,7 @@
 
 - **Log temp files**{#setting-log-temp-files} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  The size of temporary files (in bytes) that, if exceeded, triggers logging of the file deletion in {{ PG }}.
+  The size of temporary files (in bytes) that, if exceeded, triggers logging of the deletion in {{ PG }}.
 
   The minimum value is `-1` (not used) and the maximum value is `2147483647` (2 GB). Defaults to `-1`.
 
@@ -681,7 +681,7 @@
 
   The maximum number of simultaneous connections to the {{ PG }} host.
 
-  The minimum value is `1` and the maximum value is `262143`. The default value depends on the selected [host class](../../managed-postgresql/concepts/instance-types.md) and is calculated as follows: `200 × <number of vCPUs per host>`. For example, for the cluster class [s1. micro](../../managed-postgresql/concepts/instance-types.md), the default setting is `400` and can't be increased.
+  The minimum value is `1` and the maximum value is `262143`. The default value depends on the selected [host class](../../managed-postgresql/concepts/instance-types.md) and is calculated as follows: `200 × <number of vCPUs per host>`. For example, for the cluster class [s1.micro](../../managed-postgresql/concepts/instance-types.md), the default setting is `400` and can't be increased.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
 
@@ -735,7 +735,7 @@
 
 - **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
 
-  The maximum size of [WAL](https://www.postgresql.org/docs/current/wal-intro.html) log files during replication (in bytes).
+  The maximum size of the [WAL](https://www.postgresql.org/docs/current/wal-intro.html) log files during replication (in bytes).
 
   The minimum value is `-1` (unlimited) and the maximum value is `2251799812636672` (2 TB). Defaults to `1073741824`.
 
@@ -743,7 +743,7 @@
 
 - **Max standby streaming delay**{#setting-max-standby-streaming-delay} {{ tag-all }}
 
-  Waiting time (in milliseconds) after which the hot standby host replica will start canceling the queries that conflict with the about-to-be-applied [WAL](https://www.postgresql.org/docs/current/wal-intro.html) entries.
+  Waiting time (in milliseconds) after which the hot-standby host replica will start canceling the queries that conflict with the about-to-be-applied [WAL](https://www.postgresql.org/docs/current/wal-intro.html) entries.
 
   The minimum value is `-1` and the maximum value is `2147483647` (2 GB). Defaults to `30000`.
 
@@ -759,7 +759,7 @@
 
 - **Max worker processes**{#setting-max-worker-processes} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  The maximum number of {{ PG }} background processes that can be run on the current system.
+  The maximum number of {{ PG }} background processes that might be run on the current system.
 
   The minimum value is `0` and the maximum value is `1024`. Defaults to `8`.
 
@@ -767,9 +767,9 @@
 
 - **Min wal size**{#setting-min-wal-size} {{ tag-all }}
 
-  The amount of disk space (in bytes) occupied by the [WAL](https://www.postgresql.org/docs/current/wal-intro) that, when exceeded, triggers deletion of old WAL files at checkpoints.
+  The amount of disk space (in bytes) occupied by [WAL](https://www.postgresql.org/docs/current/wal-intro) that, when exceeded, triggers deletion of the old WAL files at checkpoints.
 
-  The minimum value is `2`, the maximum value is `2251799812636672` (2 PB). Defaults to `1073741824` (1 GB).
+  The minimum value is `2` and the maximum value is `2251799812636672` (2 PB). Defaults to `1073741824` (1 GB).
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MIN-WAL-SIZE).
 
@@ -777,7 +777,7 @@
 
   The minimum time (in milliseconds) that a query snapshot can be used without risk of an error.
 
-  The minimum value is `-1` (unlimited), the maximum value is `86400000` (24 hours). Defaults to `-1`.
+  The minimum value is `-1` (unlimited) and the maximum value is `86400000` (24 hours). Defaults to `-1`.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-OLD-SNAPSHOT-THRESHOLD).
 
@@ -804,39 +804,39 @@
 - **Pg hint plan debug print**{#setting-pghint-plan-debug} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   The level of output and detail of debugging information for the `pg_hint_plan` module. Applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. Possible values:
-    - `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` for Terraform and API): The output is disabled.
-    - `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` for Terraform and API): Default.
-    - `detailed` (`PG_HINT_PLAN_DEBUG_PRINT_DETAILED` for Terraform and API).
-    - `verbose` (`PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` for Terraform and API).
+    * `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` for Terraform and API): The output is disabled.
+    * `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` for Terraform and API): Default.
+    * `detailed` (`PG_HINT_PLAN_DEBUG_PRINT_DETAILED` for Terraform and API).
+    * `verbose` (`PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` for Terraform and API).
 
 - **Pg hint plan enable hint**{#setting-pg-hint-plan-enable} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Enables the `pg_hint_plan` module that lets you adjust automatic execution plans using so-called “hints” that are simple descriptions in special SQL comments.
+  Enables the `pg_hint_plan` module that lets you adjust the automatic execution plans using so-called “hints” that are simple descriptions in special SQL comments.
 
 - **Pg hint plan enable hint table**{#setting-pg-hint-plan-enable-hint-table} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Enables the use of a table with "hints" for the `pg_hint_plan` module. When it is not possible to edit queries, you can put hints into a special `hint_plan.hints` table. The table contains the following columns:
-  - `id`: Unique number to identify a row for a hint. This column is populated automatically.
-  - `norm_query_string`	: A pattern to match the hinted queries. Constants in the target query must be replaced with `?`. Whitespace characters are significant in the pattern.
-  - `application_name`: The application that initiated the sessions to apply the hint to.
-  - `hint`: The field must include the hints, excluding the surrounding comment marks.
+  * `id`: A unique row ID with the hint. This column is populated automatically.
+  * `norm_query_string`: A pattern to match the hinted queries. Constants in the target query must be replaced with a `?`. Whitespace characters are significant in the pattern.
+  * `application_name`: The application that initiated the sessions to apply the hint to.
+  * `hint`: The field must include the hints, excluding the surrounding comment marks.
 
 - **Pg hint plan message level**{#setting-pghint-plan-message} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   The level of debug messages for the `pg_hint_plan` module that will be included in the {{ PG }} log. Applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. Possible values:
-  - `error`
-  - `warning`
-  - `notice`
-  - `info` (default)
-  - `log`
-  - `debug`
+  * `error`
+  * `warning`
+  * `notice`
+  * `info` (default)
+  * `log`
+  * `debug`
 
 - **Plan cache mode**{#setting-plan-cache-mode} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
 
   Determines the type of query plan (generic or custom) to be used to execute [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html). Possible values:
-    - `auto` (`PLAN_CACHE_MODE_AUTO` for Terraform and API) (default): Automatic selection.
-    - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` for Terraform and API): Force custom plans.
-    - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` for Terraform and API): Force generic plans.
+    * `auto` (`PLAN_CACHE_MODE_AUTO` for Terraform and API) (default): Automatic selection.
+    * `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` for Terraform and API): Force custom plans.
+    * `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` for Terraform and API): Force generic plans.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PLAN-CACHE_MODE).
 
@@ -880,7 +880,7 @@
 
 - **Seq page cost**{#setting-seq-page-cost} {{ tag-all }}
 
-  The approximate conventional cost of reading a single page from a disk when doing a series of consecutive reads.
+  The approximate conventional cost of reading a single page from the disk when doing a series of consecutive reads.
 
   The minimum value is `0`. Defaults to `1`.
 
@@ -896,13 +896,13 @@
 
 - **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
-  A comma-separated list of shared libraries that will be loaded when the {{ PG }} server starts. Each name is interpreted as for the `LOAD` command. Whitespace between names is ignored. If you want to include whitespace characters or commas in the names, enclose them in double quotes.
+  A comma-separated list of shared libraries that will be loaded when the {{ PG }} server starts. Each name is interpreted as for the `LOAD` command. Whitespace characters between names are ignored. If you want to include whitespace characters or commas in the names, enclose them in double quotes.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
 
 - **Standard conforming strings**{#setting-standard-strings} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
 
-  Treating backslashes in regular string constants (`'...'`) literally (as specified in the SQL standard) rather than as a special character.
+  Treating backslashes in the regular string constants (`'...'`) literally (as specified in the SQL standard) rather than a special character.
 
   This setting is enabled by default.
 
@@ -918,7 +918,7 @@
 
 - **Synchronize seqscans**{#setting-synchronize-seqscans} {{ tag-all }}
 
-  Allows sequential scans of large tables to synchronize with each other, so that concurrent scans read the same block at about the same time. When disabled, ensures pre-8.3 behavior where a sequential scan always started from the beginning of the table.
+  Allows sequential scans of large tables to synchronize with each other, so that concurrent scans read the same block at about the same time. When disabled, ensures the pre-8.3 behavior where a sequential scan always started from the beginning of the table.
 
   This setting is enabled by default (syncing enabled).
 
@@ -929,11 +929,11 @@
   Defines whether the DBMS will commit a transaction synchronously. Synchronous execution means that a cluster will wait for synchronous operations that guarantee different levels of data persistence and visibility in the cluster before committing the transaction to the client.
 
   Acceptable values:
-  - `off` (`SYNCHRONOUS_COMMIT_OFF` for Terraform, CLI, and API): A transaction is committed even if the data hasn't yet been written to the [WAL](https://www.postgresql.org/dodcs/current/wal-intro.html) (Write Ahead Log). There is no synchronous write operation, and the transaction data might be lost as a result of a disk subsystem failure.
-  - `on` (`SYNCHRONOUS_COMMIT_ON` for Terraform, CLI, and API) (default): A transaction is committed if the WAL has been written to the master disk and synchronous replica disk.
-  - `local` (`SYNCHRONOUS_COMMIT_LOCAL` for Terraform, CLI, and API): A transaction is committed if the WAL has been written to the master disk.
-  - `remote_apply` (`SYNCHRONOUS_COMMIT_REMOTE_APPLY` for Terraform, CLI, and API): A transaction is committed if the WAL has been written to the master disk and the synchronous replica has accepted the WAL and applied the changes from it.
-  - `remote_write` (`SYNCHRONOUS_COMMIT_REMOTE_WRITE` for Terraform, CLI, and API): A transaction is committed if the WAL is written to the master disk, the synchronous replica has accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the replica fails, transaction data with this level of synchronization may be lost.
+  * `off` (`SYNCHRONOUS_COMMIT_OFF` for Terraform, CLI, and API): A transaction is committed even if the data hasn't yet been written to the [WAL](https://www.postgresql.org/dodcs/current/wal-intro.html) (Write Ahead Log). There is no synchronous write operation, and the transaction data might be lost as a result of a disk subsystem failure.
+  * `on` (`SYNCHRONOUS_COMMIT_ON` for Terraform, CLI, and API) (default): A transaction is committed if the WAL has been written to the master disk and synchronous replica disk.
+  * `local` (`SYNCHRONOUS_COMMIT_LOCAL` for Terraform, CLI, and API): A transaction is committed if the WAL has been written to the master disk.
+  * `remote_apply` (`SYNCHRONOUS_COMMIT_REMOTE_APPLY` for Terraform, CLI, and API): A transaction is committed if the WAL has been written to the master disk, the synchronous replica has accepted the WAL and applied the changes from it.
+  * `remote_write` (`SYNCHRONOUS_COMMIT_REMOTE_WRITE` for Terraform, CLI, and API): A transaction is committed if the WAL is written to the master disk, the synchronous replica has accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the replica fails, transaction data with this level of synchronization may be lost.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
@@ -977,7 +977,7 @@
 
 - **Transform null equals**{#setting-transform-null-equals} {{ tag-all }}
 
-  Enables treating the condition `expression = NULL` as `expression IS NULL`. The condition is true if the expression has the value `NULL`, otherwise it is false. According to the SQL standard, `expression = NULL` always returns `NULL` (an unknown value).
+  Enables treating of the condition `expression = NULL` as `expression IS NULL`. The condition is true if the expression has the value `NULL`, otherwise it is false. According to the SQL standard, `expression = NULL` always returns `NULL` (an unknown value).
 
   This setting is disabled by default (the SQL standard applies).
 
@@ -1019,13 +1019,13 @@
 
   The estimated cost for vacuuming a buffer found in the shared buffer cache.
 
-  The minimum value is `10` and the maximum value is `10000`. Defaults to `1`.
+  The minimum value is `0` and the maximum value is `10000`. Defaults to `1`.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-HIT).
 
 - **Vacuum cost page miss**{#setting-vacuum-cost-page-miss} {{ tag-all }}
 
-  The estimated cost for vacuuming a buffer that has to be read from a disk.
+  The estimated cost for vacuuming a buffer that has to be read from the disk.
 
   The minimum value is `0` and the maximum value is `10000`. Defaults to `10`.
 
@@ -1041,9 +1041,9 @@
 
 - **Wal level**{#setting-wal-level} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-  The logging level used for the [WAL](https://www.postgresql.org/docs/current/wal-intro.html). Possible values:
-    - `WAL_LEVEL_REPLICA`: Writes enough data to support WAL archiving and replication.
-    - `WAL_LEVEL_LOGICAL` (default): On top of the `WAL_LEVEL_REPLICA` level, the information necessary for logical replication is added.
+  The logging level used for [WAL](https://www.postgresql.org/docs/current/wal-intro.html). Possible values:
+    * `WAL_LEVEL_REPLICA`: Writes enough data to support WAL archiving and replication.
+    * `WAL_LEVEL_LOGICAL` (default): On top of the `WAL_LEVEL_REPLICA` level, the information necessary for logical replication is added.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-SETTINGS).
 
@@ -1058,16 +1058,16 @@
 - **Xmlbinary**{#setting-xmlbinary} {{ tag-all }}
 
   The method used for encoding binary data in XML. Possible values:
-  - `base64` (`XML_BINARY_BASE64` for Terraform, API, and CLI) (default): BASE64 encoding.
-  - `hex` (`XML_BINARY_HEX` for Terraform, API, and CLI): Hexadecimal encoding.
+  * `base64` (`XML_BINARY_BASE64` for Terraform, API, and CLI) (default): BASE64 encoding.
+  * `hex` (`XML_BINARY_HEX` for Terraform, API, and CLI): Hexadecimal encoding.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLBINARY).
 
 - **Xmloption**{#setting-xmloption} {{ tag-all }}
 
   The default type of conversion between the XML and character string data. Possible values:
-  - `document` (`XML_OPTION_DOCUMENT` for Terraform, API, and CLI): An XML document.
-  - `content` (`XML_OPTION_CONTENT` for Terraform, API, and CLI) (by default): A fragment of an XML document.
+  * `document` (`XML_OPTION_DOCUMENT` for Terraform, API, and CLI): An XML document.
+  * `content` (`XML_OPTION_CONTENT` for Terraform, API, and CLI) (by default): A fragment of an XML document.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLOPTION).
 

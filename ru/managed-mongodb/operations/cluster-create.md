@@ -36,9 +36,12 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
   1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером (помните, что используя SSD-диски при создании {{ MG }}-кластера можно задать не меньше 3 хостов). Открыв блок **Расширенные настройки**, вы можете выбрать конкретные подсети для каждого хоста — по умолчанию каждый хост создается в отдельной подсети.
   1. При необходимости задайте дополнительные настройки кластера:
 
-     {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
+      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
 
   1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
+  
+      {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
+  
   1. Нажмите кнопку **Создать кластер**.
 
 - CLI
@@ -131,13 +134,14 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
          password = "<пароль пользователя>"
          permission {
            database_name = "<имя базы данных>"
+           roles         = [ "<список ролей пользователя>" ]
          }
        }
 
        resources {
          resource_preset_id = "<класс хоста>"
          disk_type_id       = "<тип хранилища>"
-         disk_size          = "<размер хранилища в гигабайтах>"
+         disk_size          = <размер хранилища, ГБ>
        }
 
        host {
@@ -156,15 +160,17 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_mongodb_cluster.html).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
-  1. Проверьте корректность конфигурационных файлов.
+  1. Проверьте корректность настроек.
 
-     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
   1. Создайте кластер.
 
-     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+       
+      После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 

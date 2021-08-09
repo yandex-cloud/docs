@@ -5,30 +5,29 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Метод list
-Получает список ресурсов Image в указанном реестре или
-репозитории.
+# Method list
+Retrieves the list of Image resources in the specified registry or repository.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://container-registry.api.cloud.yandex.net/container-registry/v1/images
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-registryId | Идентификатор реестра для получения списка Docker-образов. [registryId](/docs/container-registry/api-ref/Image/list#query_params) игнорируется, если в запросе указан [repositoryName](/docs/container-registry/api-ref/Image/list#query_params).  Чтобы получить идентификатор реестра, используйте запрос [list](/docs/container-registry/api-ref/Registry/list).  Максимальная длина строки в символах — 50.
-repositoryName | Имя репозитория для получения списка Docker-образов.  Чтобы получить имя репозитория, используйте [list](/docs/container-registry/api-ref/Repository/list) запрос.  Значение должно соответствовать регулярному выражению `` |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ``.
-folderId | Идентификатор каталога, для которого запрашивается список Docker-образов. [folderId](/docs/container-registry/api-ref/Image/list#query_params) игнорируется, если в запросе есть [repositoryName](/docs/container-registry/api-ref/Image/list#query_params) или [registryId](/docs/container-registry/api-ref/Image/list#query_params).  Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/container-registry/api-ref/Image/list#query_params), сервис вернет значение [nextPageToken](/docs/container-registry/api-ref/Image/list#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/container-registry/api-ref/Image/list#query_params) равным значению поля [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Image.name](/docs/container-registry/api-ref/Image#representation). 2. Оператор. Может быть `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение. Должно быть не более 256 символов и соответствовать регулярному выражению `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.  Максимальная длина строки в символах — 1000.
-orderBy | Максимальная длина строки в символах — 100.
+registryId | ID of the registry to list Docker images in.  [registryId](/docs/container-registry/api-ref/Image/list#query_params) is ignored if a [repositoryName](/docs/container-registry/api-ref/Image/list#query_params) is specified in the request.  To get the registry ID use a [list](/docs/container-registry/api-ref/Registry/list) request.  The maximum string length in characters is 50.
+repositoryName | Name of the repository to list Docker images in.  To get the repository name use a [list](/docs/container-registry/api-ref/Repository/list) request.  Value must match the regular expression `` |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ``.
+folderId | ID of the folder to list Docker images in.  [folderId](/docs/container-registry/api-ref/Image/list#query_params) is ignored if a [repositoryName](/docs/container-registry/api-ref/Image/list#query_params) or a [registryId](/docs/container-registry/api-ref/Image/list#query_params) are specified in the request.  To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/container-registry/api-ref/Image/list#query_params), the service returns a [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/container-registry/api-ref/Image/list#query_params) to the [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Image.name](/docs/container-registry/api-ref/Image#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be a maximum of 256 characters and match the regular expression `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.  The maximum string length in characters is 1000.
+orderBy | The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
@@ -42,13 +41,19 @@ orderBy | Максимальная длина строки в символах �
       "config": {
         "id": "string",
         "digest": "string",
-        "size": "string"
+        "size": "string",
+        "urls": [
+          "string"
+        ]
       },
       "layers": [
         {
           "id": "string",
           "digest": "string",
-          "size": "string"
+          "size": "string",
+          "urls": [
+            "string"
+          ]
         }
       ],
       "tags": [
@@ -62,21 +67,23 @@ orderBy | Максимальная длина строки в символах �
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-images[] | **object**<br><p>Ресурс Image. Подробнее смотрите в разделе <a href="docs/container-registry/concepts/docker-image">Docker-образ</a>.</p> 
-images[].<br>id | **string**<br><p>Только для вывода. Идентификатор Docker-образа.</p> 
-images[].<br>name | **string**<br><p>Имя Docker-образа. Уникально в рамках реестра.</p> 
-images[].<br>digest | **string**<br><p>Контентный адрес Docker-образа.</p> 
-images[].<br>compressedSize | **string** (int64)<br><p>Размер сжатого Docker-образа, в байтах.</p> 
-images[].<br>config | **object**<br><p>Конфигурация Docker-образа.</p> <p>Ресурс Blob.</p> 
-images[].<br>config.<br>id | **string**<br><p>Только для вывода. Идентификатор блоба.</p> 
-images[].<br>config.<br>digest | **string**<br><p>Контентный адрес блоба.</p> 
-images[].<br>config.<br>size | **string** (int64)<br><p>Размер блоба, указанный в байтах.</p> 
-images[].<br>layers[] | **object**<br><p>Ресурс Blob.</p> 
-images[].<br>layers[].<br>id | **string**<br><p>Только для вывода. Идентификатор блоба.</p> 
-images[].<br>layers[].<br>digest | **string**<br><p>Контентный адрес блоба.</p> 
-images[].<br>layers[].<br>size | **string** (int64)<br><p>Размер блоба, указанный в байтах.</p> 
-images[].<br>tags[] | **string**<br><p>Теги Docker-образа.</p> <p>Каждый тег уникален в пределах репозитория.</p> 
-images[].<br>createdAt | **string** (date-time)<br><p>Только для вывода. Время создания ресурса в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/container-registry/api-ref/Image/list#query_params">pageSize</a>, используйте <a href="/docs/container-registry/api-ref/Image/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/container-registry/api-ref/Image/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/container-registry/api-ref/Image/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+images[] | **object**<br><p>An Image resource. For more information, see <a href="/docs/cloud/container-registry/docker-image">Docker image</a>.</p> 
+images[].<br>id | **string**<br><p>Output only. ID of the Docker image.</p> 
+images[].<br>name | **string**<br><p>Name of the Docker image. The name is unique within the registry.</p> 
+images[].<br>digest | **string**<br><p>Content-addressable identifier of the Docker image.</p> 
+images[].<br>compressedSize | **string** (int64)<br><p>Compressed size of the Docker image, specified in bytes.</p> 
+images[].<br>config | **object**<br><p>Configuration of the Docker image.</p> <p>A Blob resource.</p> 
+images[].<br>config.<br>id | **string**<br><p>Output only. ID of the blob.</p> 
+images[].<br>config.<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
+images[].<br>config.<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 
+images[].<br>config.<br>urls[] | **string**<br><p>List of blob urls.</p> 
+images[].<br>layers[] | **object**<br><p>A Blob resource.</p> 
+images[].<br>layers[].<br>id | **string**<br><p>Output only. ID of the blob.</p> 
+images[].<br>layers[].<br>digest | **string**<br><p>Content-addressable identifier of the blob.</p> 
+images[].<br>layers[].<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 
+images[].<br>layers[].<br>urls[] | **string**<br><p>List of blob urls.</p> 
+images[].<br>tags[] | **string**<br><p>Tags of the Docker image.</p> <p>Each tag is unique within the repository.</p> 
+images[].<br>createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/container-registry/api-ref/Image/list#query_params">pageSize</a>, use the <a href="/docs/container-registry/api-ref/Image/list#responses">nextPageToken</a> as the value for the <a href="/docs/container-registry/api-ref/Image/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/container-registry/api-ref/Image/list#responses">nextPageToken</a> to continue paging through the results.</p> 
