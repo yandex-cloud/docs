@@ -214,6 +214,8 @@ items:
       - name: Использование Docker-контейнера YDB
         href: solutions/ydb_docker.md
         when: audience == "external"
+      - name: Разработка навыка Алисы и сайта с авторизацией
+        href: solutions/alice-shareable-todolist.md
   - name: Концепции
     when: audience == "external"
     items:
