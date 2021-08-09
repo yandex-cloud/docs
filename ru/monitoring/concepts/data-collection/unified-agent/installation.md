@@ -48,14 +48,14 @@
 
   {% include [ua-docker-install](../../../../_includes/monitoring/ua-docker-install.md) %}
 
-  Чтобы запустить контейнер с собственным файлом конфигурации, добавьте в команду запуска контейнера параметр `-v`, указав путь до файла конфигурации. Например:
+  Чтобы запустить контейнер с собственным файлом конфигурации, добавьте в команду запуска контейнера параметр `-v`, указав _полный путь_ до файла конфигурации. Например:
 
   ```bash
     docker run \
       -p 16241:16241 -it --detach --uts=host \
       --name=ua \
       -v /proc:/ua_proc \
-      -v config.yml:/etc/yandex/unified_agent/config.yml \
+      -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
       cr.yandex/yc/unified-agent

@@ -34,21 +34,6 @@
 
 1. Установите и настройте {{unified-agent-full-name}}.
 
-   1. Установите {{unified-agent-short-name}} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
-
-      ```bash
-      docker run \
-      -p 16241:16241 -it --detach --uts=host \
-      --name=ua \
-      -v /proc:/ua_proc \
-      -v config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
-      -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs... \
-      cr.yandex/yc/unified-agent
-      ```
-
-       Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
-
    1. Создайте в домашнем каталоге файл **config.yml**. В файле замените строку `$FOLDER_ID` на идентификатор каталога, в который будут записываться метрики.  Укажите имя файла с параметрами JWT в секции `iam.jwt.file`.
 
        **config.yml:**
@@ -103,6 +88,21 @@
         import:
           - /etc/yandex/unified_agent/conf.d/*.yml
        ```
+
+   1. Установите {{unified-agent-short-name}} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
+
+      ```bash
+      docker run \
+      -p 16241:16241 -it --detach --uts=host \
+      --name=ua \
+      -v /proc:/ua_proc \
+      -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
+      -e PROC_DIRECTORY=/ua_proc \
+      -e FOLDER_ID=a1bs... \
+      cr.yandex/yc/unified-agent
+      ```
+
+       Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
 1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}.
 
