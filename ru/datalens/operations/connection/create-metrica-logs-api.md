@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-Перед созданием подключения к Metrica Logs API, вам необходимо создать кластер ClickHouse в {{ yandex-cloud }}. {{ datalens-short-name }} сохранит данные Metrica Logs API в датасет в созданный кластер.
+Перед созданием подключения к Metrica Logs API вам необходимо создать кластер ClickHouse в {{ yandex-cloud }}. {{ datalens-short-name }} будет автоматически выгружать данные Metrica через Logs API в указанный кластер.
 
 {% endnote %}
 

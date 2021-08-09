@@ -135,6 +135,8 @@ items:
             href: operations/connection/create-metrica-logs-api.md
           - name: Создание подключения к AppMetrica
             href: operations/connection/create-appmetrica.md
+          - name: Создание подключения к AppMetrica Logs API
+            href: operations/connection/create-appmetrica-logs-api.md  
           - name: Создание подключения к Yandex Cloud Billing
             href: operations/connection/create-cloud-billing.md
             when: audience == "external"
