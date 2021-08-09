@@ -23,8 +23,8 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      - `PRODUCTION`: For stable versions of your apps.
-      - `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+      * `PRODUCTION`: For stable versions of your apps.
+      * `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the DBMS version.
 
@@ -36,7 +36,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
      {% endnote %}
 
-  1. If necessary, enable support for encrypted TLS/SSL connections to the cluster (for {{ RD }} version 6 or higher).
+  1. If necessary, enable support for encrypted SSL connections to the cluster (for {{ RD }} version 6 or higher).
 
      {% note warning %}
 
@@ -45,13 +45,12 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
      {% endnote %}
 
   1. Set up a [host class](../concepts/instance-types.md) for the cluster:
-      - Select the host type: it defines the [guaranteed vCPU performance](../../compute/concepts/performance-levels.md). **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
-      - Select the amount of RAM for the host.
-      - Select the disk size. The available disk size depends on the amount of RAM and is limited by [quotas and limits](../concepts/limits.md#limits). The minimum disk size is twice the selected amount of RAM, while the maximum disk size is 8 times the selected amount of RAM.
-
+      * Select the host type: it defines the [guaranteed vCPU performance](../../compute/concepts/performance-levels.md). **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
+      * Select the amount of RAM for the host.
+      * Select the disk size. The available disk size depends on the amount of RAM and is limited by [quotas and limits](../concepts/limits.md#limits). The minimum disk size is twice the selected amount of RAM, while the maximum disk size is 8 times the selected amount of RAM.
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, click **Add host** and select the availability zone and subnet to connect the host to. Create the necessary number of hosts. To change the availability zone and the added host, click the pencil icon in the host line.
 
@@ -121,7 +120,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
   * The cluster name, in the `name` parameter.
   * Security group IDs in the parameter `securityGroupIds`.
-  * The `tlsEnabled=true` flag to create a cluster with support for encrypted TLS/SSL connections (for {{ RD }} version 6 or higher).
+  * The `tlsEnabled=true` flag to create a cluster with support for encrypted SSL connections (for {{ RD }} version 6 or higher).
 
 
 - Terraform
@@ -137,7 +136,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
-       Example configuration file structure for creating clusters with TLS support:
+       Example configuration file structure for creating clusters with SSL support:
 
        ```hcl
        terraform {
@@ -221,14 +220,14 @@ If you specified security group IDs when creating a cluster, you may also need t
   To create a cluster with a single host, you should pass a single `--host` parameter.
 
   Let's say we need to create a {{ RD }} cluster with the following characteristics:
-  - Named `myredis`.
-  - With version `6.0`.
-  - In the `production` environment.
-  - In the `default` network.
-  - With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ zone-id }}` availability zone, and the `{{ security-group }}` security group.
-  - With support for TLS connections.
-  - With a 16 GB fast network storage (`{{ disk-type-example }}`).
-  - With the `user1user1` password.
+  * Named `myredis`.
+  * With version `6.0`.
+  * In the `production` environment.
+  * In the `default` network.
+  * With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ zone-id }}` availability zone, and the `{{ security-group }}` security group.
+  * With support for SSL connections.
+  * With a 16 GB fast network storage (`{{ disk-type-example }}`).
+  * With the `user1user1` password.
 
   Run the command:
 
@@ -250,17 +249,17 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
-    - Named `myredis`.
-    - With version `6.0`.
-    - In the `PRODUCTION` environment.
-    - In the cloud with the ID `{{ tf-cloud-id }}`.
-    - In the folder with the ID `{{ tf-folder-id }}`.
-    - Network: `mynet`.
-    - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-    - In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any address in the `mysubnet` subnet.
-    - With support for TLS connections.
-    - With a 16 GB fast network storage (`{{ disk-type-example }}`).
-    - With the `user1user1` password.
+    * Named `myredis`.
+    * With version `6.0`.
+    * In the `PRODUCTION` environment.
+    * In the cloud with the ID `{{ tf-cloud-id }}`.
+    * In the folder with the ID `{{ tf-folder-id }}`.
+    * Network: `mynet`.
+    * With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any address in the `mysubnet` subnet.
+    * With support for SSL connections.
+    * With a 16 GB fast network storage (`{{ disk-type-example }}`).
+    * With the `user1user1` password.
 
   The configuration file for the cluster looks like this:
 
@@ -339,7 +338,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 {% list tabs %}
 
-* Terraform
+- Terraform
 
     Let's say we need to create a [sharded](../concepts/sharding.md) {{RD}} cluster with the following characteristics:
     
