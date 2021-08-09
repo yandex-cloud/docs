@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ mch-short-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -42,7 +43,7 @@ The minimum billing unit is one minute (for example, the cost of 1.5 minutes of 
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 2 hosts in 100 GB increments.
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts in 100 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
@@ -183,12 +184,13 @@ You can't order {{ ZK }} resources with CVoS discounts.
 
 Prices for the time of host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-clickhouse#calculator).
 
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-
 ### {{ CH }} hosts {#calculated-clickhouse}
 
+{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
+
 {% if region == "ru"%}
+
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, RUB.
 
 {% include [rub-ch-classes-hour.md](../_pricing/managed-clickhouse/rub-ch-classes-hour.md) %}
 
@@ -196,33 +198,36 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 {% if region == "kz"%}
 
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, KZT.
+
 {% include [kzt-ch-classes-hour.md](../_pricing/managed-clickhouse/kzt-ch-classes-hour.md) %}
 
 {% endif %}
 
 {% if region == "int"%}
 
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
+
 {% include [usd-ch-classes-hour.md](../_pricing/managed-clickhouse/usd-ch-classes-hour.md) %}
 
 {% endif %}
-
 
 ### ZooKeeper hosts {#prices-zookeeper}
 
 {% if region == "ru"%}
 
-  {% include [rub-zoo-classes-hour.md](../_pricing/managed-clickhouse/rub-zoo-classes-hour.md) %}
+{% include [rub-zoo-classes-hour.md](../_pricing/managed-clickhouse/rub-zoo-classes-hour.md) %}
 
-  {% endif %}
+{% endif %}
 
-  {% if region == "kz"%}
+{% if region == "kz"%}
 
-  {% include [kzt-zoo-classes-hour.md](../_pricing/managed-clickhouse/kzt-zoo-classes-hour.md) %}
+{% include [kzt-zoo-classes-hour.md](../_pricing/managed-clickhouse/kzt-zoo-classes-hour.md) %}
 
-  {% endif %}
+{% endif %}
 
-  {% if region == "int"%}
+{% if region == "int"%}
 
-  {% include [usd-zoo-classes-hour.md](../_pricing/managed-clickhouse/usd-zoo-classes-hour.md) %}
+{% include [usd-zoo-classes-hour.md](../_pricing/managed-clickhouse/usd-zoo-classes-hour.md) %}
 
-  {% endif %}
+{% endif %}

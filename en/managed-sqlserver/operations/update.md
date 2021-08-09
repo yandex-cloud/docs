@@ -3,7 +3,7 @@
 After creating a cluster, you can:
 
 - [Change the host class](#change-resource-preset).
-- [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
+- [Increase the storage size](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
 - [Change {{ MS }} settings](#change-sqlserver-config) according to the {{ MS }} documentation.
 - [Move the cluster](#move-cluster) to another folder.
 
@@ -26,7 +26,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 - API
 
   To change the [host class](../concepts/instance-types.md) for the cluster, use the [update](../api-ref/Cluster/update.md) method and pass the following in the request:
-  - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - New host class, in the `configSpec.resources.resourcePresetId` parameter. To find out the list of supported values, use the `list` method for `ResourcePreset`.
   - List of cluster configuration fields to be changed (in this case, `configSpec.resources.resourcePresetId`), in the `updateMask` parameter.
 
@@ -51,7 +51,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 - API
 
   To change the storage size for a cluster, use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-  - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Required storage size (in bytes), in the `configSpec.resources.diskSize` parameter.
   - List of user configuration fields to be changed (in this case, `configSpec.resources.diskSize`), in the `updateMask` parameter.
 
@@ -77,7 +77,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-  - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The relevant values in the `configSpec.sqlserverConfig_2016sp2` parameter.
   - List of user configuration fields to be changed (in this case, `configSpec.sqlserverConfig_2016sp2`), in the `updateMask` parameter.
 
@@ -105,7 +105,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 - API
 
   To move a cluster from the current folder to a different one, use the [move](../api-ref/Cluster/move.md) API method and pass the following in the request:
-  - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}

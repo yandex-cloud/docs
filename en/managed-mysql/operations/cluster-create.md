@@ -4,10 +4,14 @@
 
 {% if audience != "internal" %}
 
-The number of hosts that can be created with a {{ MY }} cluster depends on the storage option selected:
+The number of hosts that can be created together with a {{ MY }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
-- If you use network drives, the available number of hosts is limited to the current [quota](../concepts/limits.md).
-- If you use SSD disks, at least 3 replicas are created with a cluster to ensure fault tolerance.
+* With **local storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
+* When using network storage:
+    * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
+    * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
+
+After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
 {% note info %}
 
@@ -40,7 +44,13 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. Under **Storage size**:
-      - Select the type of storage, either a more flexible network type (`network-hdd` or `network-ssd`) or faster local SSD storage (`local-ssd`). The size of the local storage can only be changed in 100 GB increments.
+
+      - Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
+
+        When selecting a storage type, remember that:
+        - The size of the local storage can only be changed in 100 GB increments.
+        - The size of non-replicated network storage can only be changed in 93 GB increments.
+
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
@@ -50,8 +60,10 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-group) to connect to the cluster.
 
-  1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MY }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
-  
+  1. Under **Hosts**, select the parameters for the DB hosts created with the cluster. If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+
+     When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+
   1. If necessary, configure additional cluster settings:
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -96,6 +108,8 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
         --resource-preset <host class> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
+        --disk-size <storage size in GB> \
+        --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
         --security-group-ids <list of security group IDs>
      ```
 

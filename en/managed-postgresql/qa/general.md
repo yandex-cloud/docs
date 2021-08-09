@@ -60,9 +60,14 @@ For detailed instructions, see [{#T}](../quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
-For network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
+The minimum number of hosts depends on the selected type of [storage](../concepts/storage.md):
 
-For local SSD storage, the number of hosts is limited during cluster creation: for {{ PG }} clusters, you must create at least three hosts.
+- If you use non-replicated network storage (`ssd-network-nonreplicated`) or fast local storage (`local-ssd`), the minimum number of hosts is 3.
+- If you select the `network-ssd` or `network-hdd` storage type, you can create single-host clusters.
+
+The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
+
+For more information, see [{#T}](../concepts/limits.md).
 
 #### How can I access a running DB host? {#db-access}
 

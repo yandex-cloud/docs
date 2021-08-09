@@ -4,7 +4,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
+* [Increase the storage size](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
 
 ## Change the host class {#change-resource-preset}
 

@@ -36,9 +36,7 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
      - `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
   1. Select the DBMS version.
-
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
-
   1. Under **Storage size**:
       - Select the [type of storage](../concepts/storage.md), either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
@@ -48,10 +46,8 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
       - Username.
       - User password. At least 8 characters.
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
-
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
-  
   1. If necessary, configure additional cluster settings:
 
      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}

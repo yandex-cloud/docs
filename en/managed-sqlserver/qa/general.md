@@ -20,7 +20,7 @@ With {{ mms-short-name }}, you can:
 - Monitors resource usage.
 - Automatically creates DB backups.
 - Provides fault tolerance through automatic failover to backup replicas.
-- Keeps the database software updated.
+- Keeps database software updated.
 
 You interact with database clusters in {{ mms-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
 
@@ -32,7 +32,7 @@ For the created and running databases, {{ mms-short-name }} automatically create
 
 {{ mms-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-#### Which tasks should I use {{ mms-short-name }} or VMs with databases for? {#mdb-advantage}
+#### When should I use {{ mms-short-name }} and when should I use VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -43,7 +43,7 @@ For the created and running databases, {{ mms-short-name }} automatically create
 
 _A database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
 
-_A database cluster_ is one or more database hosts between which replication can be configured.
+_A database cluster_ is one or more database hosts that replication can be configured between.
 
 #### How do I get started with {{ mms-short-name }}? {#quickstart}
 
@@ -60,15 +60,20 @@ For detailed instructions, see [{#T}](../quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
-For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
+The minimum number of hosts depends on the selected type of [storage](../concepts/storage.md):
 
-For local SSD storage, the number of hosts is limited during cluster creation: for {{ MS }} clusters, you must create at least three hosts.
+- If you use non-replicated network storage (`ssd-network-nonreplicated`) or fast local storage (`local-ssd`), the minimum number of hosts is 3.
+- If you select the `network-ssd` or `network-hdd` storage type, you can create single-host clusters.
+
+The maximum number of hosts in a cluster is limited by the selected {{ MS }} edition, the requested computing resources, and the size of the storage for the cluster.
+
+For more information, see [{#T}](../concepts/limits.md).
 
 #### How can I access a running DB host? {#db-access}
 
 You can connect to {{ mms-short-name }} databases using standard DBMS methods.
 
-[More about how to connect to clusters](../operations/connect.md).
+[Learn more about connecting to clusters](../operations/connect.md).
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
@@ -88,13 +93,13 @@ Maintenance in {{ mms-short-name }} implies:
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated when new minor versions are released. The owners of the affected DB clusters receive an advance notice of expected work timing and DB availability.
+The database software is updated when new minor versions are released. The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
 
-#### What happens when a DBMS version is deprecated? {#dbms-deprecated}
+#### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
 One month after the database version becomes deprecated, {{ mms-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 
-New hosts can no longer be created using deprecated DBMS versions. Seven days within such notification for minor versions and one month for major versions, the database clusters are automatically upgraded to the next supported version. Deprecated major versions are upgraded even if you have disabled their automatic updates.
+New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version: seven days after notification for minor versions and one month for major versions. Deprecated major versions are upgraded even if you disabled automatic updates.
 
 #### How is the cost of usage calculated for a database host? {#db-cost}
 
@@ -102,12 +107,12 @@ In {{ mms-short-name }}, the usage cost is calculated based on the following par
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Storage of backups in excess of this size is charged at special [rates](../pricing.md).
+- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at special [rates](../pricing.md).
 - Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
-You can change the computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
+You can change computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
@@ -117,9 +122,9 @@ Yes, backup is enabled by default. For {{ MS }}, a full backup is performed once
 
 By default, backups are stored for seven days.
 
-#### When is backup performed? Is a DB cluster available during backup? {#backup-window}
+#### When are backups performed? Is a DB cluster available during backup? {#backup-window}
 
-The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 a.m. to 05:00 a.m. (UTC+3).
+The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
 
 Clusters remain fully accessible during the backup window.
 
@@ -129,13 +134,13 @@ For all DBMS types, you can track:
 
 - CPU, memory, network, or disk usage, in absolute terms.
 - Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster's host class.
-- The amount of data in the DB cluster and the remaining free space in the data storage.
+- The amount of data in the DB cluster and the remaining free space in data storage.
 
-For any DB hosts, you can track metrics specific to the type of the corresponding DBMS. For example, for {{ MS }}, you can track:
+For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ MS }}, you can track:
 
 - Average query execution time
 - Number of queries per second
-- Number of errors in logs, etc.
+- Number of errors in logs.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 

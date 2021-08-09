@@ -3,7 +3,7 @@
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
+* [Increase the storage size](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
 * [Configure {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 * [Change additional cluster settings](#change-additional-settings).
 * [Set the operation mode for the connection pooler](#change-pooler-config).
@@ -112,7 +112,7 @@ You can't change {{ PG }} server settings using SQL commands.
 
   {% if audience != "internal" %}
 
-  1. Make sure the required cluster uses network storage (it's currently not possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
+  1. Make sure the required cluster uses standard or fast network storage (it's not possible to increase the size of local or non-replicated network storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-pg }} cluster get <cluster name>

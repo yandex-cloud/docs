@@ -15,12 +15,12 @@ With {{ mch-short-name }}, you can:
 - Scale processing power and storage dedicated for your databases as needed.
 - Get database logs.
 
-{{ mch-short-name }} takes on time-consuming administration tasks in the {{ CH }} infrastructure:
+{{ mch-short-name }} takes on time-consuming {{ CH }} infrastructure administration tasks:
 
 - Monitors resource usage.
 - Automatically creates DB backups.
 - Provides fault tolerance through automatic failover to backup replicas.
-- Keeps the database software updated.
+- Keeps database software updated.
 
 You interact with database clusters in {{ mch-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
 
@@ -36,14 +36,14 @@ For the created and running databases, {{ mch-short-name }} automatically create
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
-- {{ mch-short-name }} lets you run template databases with no need to worry about administration.
+- {{ mch-short-name }} allows you to operate template databases with no need to worry about administration.
 - {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
 _A database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
 
-_A database cluster_ is one or more database hosts between which replication can be configured.
+_A database cluster_ is one or more database hosts that replication can be configured between.
 
 #### How do I get started with {{ mch-short-name }}? {#quickstart}
 
@@ -60,15 +60,21 @@ For detailed instructions, see [{#T}](../quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
-For a network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
+The minimum number of hosts depends on the selected type of [storage](../concepts/storage.md):
 
-For local SSD storage, the number of hosts is limited during cluster creation: for {{ CH }} clusters, you must create at least two hosts.
+- If you use non-replicated network storage (`ssd-network-nonreplicated`), the minimum number of hosts is 3.
+- With fast local storage (`local-ssd`), at least 2 hosts are required.
+- If you select the `network-ssd` or `network-hdd` storage type, you can create single-host clusters.
 
-#### How do I access a running database host? {#db-access}
+The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
+
+For more information, see [{#T}](../concepts/limits.md).
+
+#### How can I access a running DB host? {#db-access}
 
 You can connect to {{ mch-short-name }} databases using standard DBMS methods.
 
-[More about how to connect to clusters](../operations/connect.md).
+[Learn more about connecting to clusters](../operations/connect.md).
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
@@ -90,7 +96,7 @@ Maintenance in {{ mch-short-name }} implies:
 
 When new minor versions are released, the cluster software is automatically updated after a short testing period.
 
-The owners of the affected DB clusters receive an advance notice of expected work timing and DB availability.
+The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
@@ -98,7 +104,7 @@ When a DBMS version becomes deprecated, {{ mch-short-name }} automatically sends
 
 New hosts can no longer be created using deprecated DBMS versions. Clusters on a deprecated version of {{ CH }} are updated according to the [versioning policy](../concepts/update-policy.md).
 
-The owners of the affected DB clusters receive an advance notice of expected work timing and DB availability.
+The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
 
 #### How is the cost of usage calculated for a database host? {#db-cost}
 
@@ -106,24 +112,24 @@ In {{ mch-short-name }}, the usage cost is calculated based on the following par
 
 - Selected host class.
 - Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Storage of backups in excess of this size is charged at special [rates](../pricing.md).
+- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at special [rates](../pricing.md).
 - Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
-You can change the computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
+You can change computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
-#### Is database host backup enabled by default? {#default-backup}
+#### Is DB host backup enabled by default? {#default-backup}
 
 Yes, backup is enabled by default. For {{ CH }}, a full backup is performed once a day with the possibility to restore it to any saved backup.
 
 By default, backups are stored for seven days.
 
-#### When is backup performed? Is a database cluster available during backup? {#backup-window}
+#### When are backups performed? Is a DB cluster available during backup? {#backup-window}
 
-The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 a.m. to 05:00 a.m. (UTC+3).
+The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
 
 Clusters remain fully accessible during the backup window.
 
@@ -133,17 +139,16 @@ For all DBMS types, you can track:
 
 - CPU, memory, network, or disk usage, in absolute terms.
 - Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster's host class.
-- The amount of data in the DB cluster and the remaining free space in the data storage.
+- The amount of data in the DB cluster and the remaining free space in data storage.
 
-For any DB hosts, you can track metrics specific to the type of the corresponding DBMS. For example, for {{ PG }}, you can track:
+For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ PG }}, you can track:
 
 - Average query execution time
 - Number of queries per second
-- Number of errors in logs, etc.
+- Number of errors in logs.
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
 {% include [qa-fz-152.md](../../_includes/qa-fz-152.md) %}
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}
-

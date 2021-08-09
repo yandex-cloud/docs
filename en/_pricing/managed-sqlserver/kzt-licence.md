@@ -1,4 +1,4 @@
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, RUB.
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, KZT.
 
 Prices in roubles, with VAT
 

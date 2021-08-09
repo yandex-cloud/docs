@@ -25,7 +25,6 @@ Yes. You can connect to {{ CH }} cluster hosts:
 * Using the [HTTPS interface](https://clickhouse.yandex/docs/en/interfaces/http_interface/):
     * Via an encrypted SSL connection on port 8443.
     * Without encryption through port 8123.
-
 * Using the [command-line client](https://clickhouse.yandex/docs/en/interfaces/cli/):
     * Via an encrypted SSL connection on port 9440.
     * Without encryption through port 9000.
@@ -64,7 +63,7 @@ Access to ZooKeeper and its configuration are not available to {{ yandex-cloud }
 
 #### Why does a {{ CH }} cluster take up 3 hosts more than it should? {#why-does-a-cluster-take-up-3-hosts-more-than-it-should}
 
-When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resources quotas]({{ link-console-quotas }}) used by the cloud and the cluster cost. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
+When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud and the cluster cost. By default, ZooKeeper hosts are created with a minimal [host class](../concepts/instance-types.md).
 
 For more information about using ZooKeeper, see [ClickHouse documentation](https://clickhouse.yandex/docs/en/operations/table_engines/replication/).
 

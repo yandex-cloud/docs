@@ -132,17 +132,23 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 {% if region == "ru" %}
 
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, RUB.
+
 {% include [rub-class](../_pricing/managed-mongodb/rub-class.md) %}
 
 {% endif %}
 
 {% if region == "kzt" %}
 
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, KZT.
+
 {% include [kzt-class](../_pricing/managed-mongodb/kzt-class.md) %}
 
 {% endif %}
 
 {% if region == "int" %}
+
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
 
 Prices in USD, without VAT
 

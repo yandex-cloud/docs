@@ -115,17 +115,23 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 
 {% if region == "ru"%}
 
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, RUB.
+
 {% include [rub-class.md](../_pricing/managed-redis/rub-class.md) %}
 
 {% endif %}
 
 {% if region == "kz"%}
 
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, KZT.
+
 {% include [kzt-class.md](../_pricing/managed-redis/kzt-class.md) %}
 
 {% endif %}
 
 {% if region == "int"%}
+
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
 
 {% include [usd-class.md](../_pricing/managed-redis/usd-class.md) %}
 

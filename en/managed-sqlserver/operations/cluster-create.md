@@ -8,6 +8,19 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
 {% endnote %}
 
+{% if audience != "internal" %}
+
+The number of hosts that can be created together with a {{ MS }} cluster depends on the selected [type of storage](../concepts/storage.md):
+
+* With **local storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
+* When using network storage:
+    * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
+    * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
+
+After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
+
+{% endif %}
+
 ## How to create a {{ MS }} cluster {#create-cluster}
 
 {% list tabs %}
@@ -38,7 +51,11 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
       {% if audience != "internal" %}
 
-      - Select the type of storage, either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+      - Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
+
+        When selecting a storage type, remember that:
+        - The size of the local storage can only be changed in 100 GB increments.
+        - The size of non-replicated network storage can only be changed in 93 GB increments.
 
       {% endif %}
 
@@ -53,7 +70,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
      {% note warning %}
      * If you select **Standard Edition**, you can create a cluster from only one host. This cluster does not provide any fault tolerance. For more information, see [{#T}](../concepts/index.md).
-     * At the moment, you can create an **Enterprise Edition** cluster with either one or three hosts.
+     * At the moment, you can create an **Enterprise Edition** cluster with either one or three hosts. Please note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
      {% endnote %}
 

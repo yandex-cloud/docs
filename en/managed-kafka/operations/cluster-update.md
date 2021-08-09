@@ -5,8 +5,8 @@
 After creating an {{ KF }} cluster, you can:
 
 - [{#T}](#change-resource-preset).
-- [{#T}](#change-disk-size).
-- [Update the {{ KF }} settings](#change-kafka-settings).
+- [{#T}](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
+- [Change {{ KF }} settings](#change-kafka-settings).
 - [Move the cluster](#move-cluster) from the current folder to another one.
 - [Change cluster security groups](#change-sg-set).
 
@@ -16,7 +16,7 @@ After creating an {{ KF }} cluster, you can:
 
 - [{#T}](#change-resource-preset).
 - [{#T}](#change-disk-size).
-- [Update the {{ KF }} settings](#change-kafka-settings).
+- [Change {{ KF }} settings](#change-kafka-settings).
 
 {% endif %}
 
@@ -132,7 +132,7 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 
   To change storage settings for hosts:
 
-  1. Get information about the cluster:
+  1. Make sure the required cluster uses standard or fast network storage (it's not possible to increase the size of local or non-replicated network storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
      ```
      {{ yc-mdb-kf }} cluster list
@@ -175,64 +175,42 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 
 {% endlist %}
 
-## Changing storage settings {#change-disk-size}
-
-{% note warning %}
-
-Currently, you can't change the disk type for {{ KF }} clusters after creation.
-
-{% endnote %}
+## Changing {{ KF }} settings {#change-kafka-settings}
 
 {% list tabs %}
 
-{% if ui != "noshow" %}
-
 - Management console
 
-  1. Go to the folder page and select **{{ mkf-name }}**.
-  1. Select the cluster and click **Edit** in the top panel.
-  1. To change storage settings, select the [storage type](../concepts/storage.md) and its size in the corresponding section.
-  1. Click **Save**.
+    1. Go to the folder page and select **{{ mkf-name }}**.
+    1. Select the cluster and click **Edit** in the top panel.
+    1. Change the {{ KF }} settings by clicking **Configure** under **DBMS settings**:
 
-{% endif %}
+        For more information, see [{{ KF }} settings](../concepts/settings-list.md).
+
+    1. Click **Save**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change storage settings for hosts:
+    To change {{ KF }} settings:
 
-  1. Get information about the cluster:
+    1. View a description of the CLI's update cluster settings command:
 
-     ```
-     {{ yc-mdb-kf }} cluster list
-     {{ yc-mdb-kf }} cluster get <cluster name or ID>
-     ```
+        ```bash
+        {{ yc-mdb-kf }} cluster update --help
+        ```
 
-  1. View a description of the CLI's update cluster command:
+    1. Change [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) in the cluster update command (not all settings are shown in the example):
 
-     ```
-     {{ yc-mdb-kf }} cluster update --help
-     ```
-
-  1. To change the size of the broker host disks, run the command:
-
-     ```
-     {{ yc-mdb-kf }} cluster update <cluster name or ID> --disk-size <disk size>
-     ```
-
-     If no size units are specified, gigabytes are used.
-
-  1. To change the size of the {{ ZK }} host disks, run the command:
-
-     ```
-     {{ yc-mdb-kf }} cluster update <cluster name or ID> \
-     --zookeeper-disk-size <disk size>
-     ```
-
-     If no size units are specified, gigabytes are used.
+        ```bash
+        {{ yc-mdb-kf }} cluster update <cluster name> \
+           --compression-type <compression type> \
+           --log-flush-interval-messages <number of messages in the log to trigger flushing to disk> \
+           --log-flush-interval-ms <maximum time a message can be stored in memory before flushing to disk>
+        ```
 
 {% if api != "noshow" %}
 

@@ -9,11 +9,12 @@
 
 #### Limits {#mkf-limits}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Lowest host class | b2.medium ([50%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Cascade Lake, 4 GB RAM) |
-| Highest host class | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
-| Maximum number of brokers per availability zone | 7 |
-| Maximum amount of data when using network storage | 4096 GB |
-| Maximum amount of data when using local storage | 1400 GB |
+| Type of limit | Minimum value | Maximum value |
+| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| Host class | b2.medium ([50%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Cascade Lake, 4 GB RAM) | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
+| Number of broker hosts in a cluster when using standard or fast network storage | 1 | 7 |
+| Number of broker hosts in a cluster when using non-replicated network storage or fast local storage | 3 | 7 |
+| Amount of data on the broker host when using standard or fast network storage | 10 GB | 2048 GB |
+| Amount of data on the broker host when using non-replicated network storage | 93 GB | 8192 GB |
+| Amount of data on the broker host when using local storage | 100 GB | 1400 GB |
 

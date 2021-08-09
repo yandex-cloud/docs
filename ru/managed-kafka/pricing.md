@@ -25,9 +25,7 @@ editable: false
 
 * объем исходящего трафика из {{ yandex-cloud }} в интернет.
 
-
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
-
 
 ### Использование хостов кластера {#rules-hosts-uptime}
 
@@ -82,7 +80,6 @@ editable: false
 
 {% endnote %}
 
-
 ## Цены {#prices}
 
 Все цены указаны с включением НДС.
@@ -105,7 +102,6 @@ editable: false
 
 {% include notitle [usd-hosts-and-storage.md](../_pricing/managed-kafka/usd-hosts-and-storage.md) %}
 
-
 {% endif %}
 
 ### Исходящий трафик {#prices-traffic}
@@ -127,7 +123,6 @@ editable: false
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
-
 
 ## Расчетные цены для классов хостов {#calculated-host-price}
 

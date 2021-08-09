@@ -2,6 +2,15 @@
 
 A cluster in {{ mkf-name }} is one or more broker hosts where topics and their partitions are located. Producers and consumers can work with these topics by connecting to cluster hosts.
 
+The number of broker hosts that can be created together with a {{ KF }} cluster depends on the selected [type of storage](../concepts/storage.md):
+
+* With **local storage**, you can create a cluster with 3 or more broker hosts (to ensure fault tolerance, a minimum of 3 broker hosts is necessary).
+* When using network storage:
+    * If you select **standard** or **fast network storage**, you can add any number of broker hosts within the [current quota](../concepts/limits.md).
+    * If you select **non-replicated network storage**, you can create a cluster with 3 or more broker hosts (to ensure fault tolerance, a minimum of 3 broker hosts is necessary).
+
+After creating a cluster, you can add extra broker hosts to it if there are enough available [folder resources](../concepts/limits.md).
+
 {% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
 
 {% list tabs %}
@@ -30,8 +39,14 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
      When you [change the host class](cluster-update.md#update-cluster) for the cluster, the characteristics of all existing instances change.
 
   1. Under **Storage**:
-     1. Choose the [type of storage](../concepts/storage.md), either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**).
-     1. Select the size of storage to be used for data. The size of the local storage can only be changed in 100 GB increments.
+
+     * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
+
+        When selecting a storage type, remember that:
+        - The size of the local storage can only be changed in 100 GB increments.
+        - The size of non-replicated network storage can only be changed in 93 GB increments.
+
+     * Select the size of storage to be used for data.
 
   1. Under **Network settings**:
 
@@ -47,20 +62,21 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
 
      1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
-        {% note warning %}
+    {% note warning %}
 
-        You can't request public access after creating a cluster.
+You can't request public access after creating a cluster.
 
-        {% endnote %}
+{% endnote %}
 
      1. Select security groups to control the cluster's network traffic.
 
   1. Under **Hosts**, specify the number of [broker hosts](../concepts/brokers.md) {{ KF }} to be located in each of the selected availability zones.
 
      When choosing the number of hosts, keep in mind that:
-     - The {{ KF }} cluster hosts will be evenly deployed in the selected availability zones. Decide on the number of zones and hosts per zone based on the required fault tolerance model and cluster load.
-     - Replication is possible if there are at least two hosts in the cluster.
-     - Adding more than one host to the cluster automatically adds three {{ ZK }} hosts.
+     * The {{ KF }} cluster hosts will be evenly deployed in the selected availability zones. Decide on the number of zones and hosts per zone based on the required fault tolerance model and cluster load.
+     * Replication is possible if there are at least two hosts in the cluster.
+     * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+     * Adding more than one host to the cluster automatically adds three {{ ZK }} hosts.
 
   1. If you specify two or more broker hosts, under **Host class {{ ZK }}**, specify the characteristics of the [hosts{{ ZK }}](../concepts/index.md) to be located in each of the selected availability zones.
 
@@ -94,7 +110,7 @@ A cluster in {{ mkf-name }} is one or more broker hosts where topics and their p
          --network-name <network name> \
          --brokers-count <number of brokers in the zone> \
          --resource-preset <host class> \
-         --disk-type <disk type> \
+         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --disk-size <storage size in GB> \
          --assign-public-ip <public access> \
          --security-group-ids <list of security group IDs>
@@ -349,4 +365,3 @@ If you specified security group IDs when creating a cluster, you may also need t
     ```
 
 {% endlist %}
-

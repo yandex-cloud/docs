@@ -4,9 +4,9 @@
 
 {{ mch-name }} lets you use network and local storage for database clusters. Network storage is based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local storage is organized on disks that are physically located in the database host servers.
 
-{% include [storage-type.md](../../_includes/mdb/storage-type.md) %}
+{% include [storage-type-nrd](../../_includes/mdb/storage-type-nrd.md) %}
 
-- Hybrid storage is a win-win solution. Frequently used "hot" data is stored on network storage disks, while rarely used "cold" data is stored in [{{ objstorage-full-name }} object storage](../../storage).
+* Hybrid storage is a win-win solution. Frequently used "hot" data is stored on standard (`network-hdd`) or fast (`network-ssd`) network storage drives, while rarely used "cold" data is stored in [{{ objstorage-full-name }} object storage](../../storage).
 
 ## Local storage features {#local-storage-features}
 
@@ -15,11 +15,17 @@ Local storage doesn't provide fault tolerance for data storage and affects the o
 * Local storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using local storage, a 2-host fail-safe configuration is automatically set up.
 * You are charged for a cluster with local storage even if it's stopped. Read more in the [pricing policy](../pricing.md).
 
+## Non-replicated network storage features {#network-nrd-storage-features}
+
+{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
+
+{% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
+
 ## Hybrid storage {#hybrid-storage-features}
 
 {% include [mch-hybrid-storage-preview-combined-note](../../_includes/mdb/mch-hybrid-storage-preview-combined-note.md) %}
 
-Hybrid storage provides fault tolerance for data storage and allows you to manage data placement for [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) tables: the data is automatically moved from local or network storage to {{ objstorage-name }} when it becomes outdated.
+Hybrid storage provides fault tolerance for data storage and lets you manage data placement for [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) tables: the data is automatically moved from local or network storage to {{ objstorage-name }} when it becomes outdated.
 
 To start using hybrid storage, you only need to [create](../operations/cluster-create.md#create-cluster) a cluster of the appropriate type with {{ CH }} version {{ mch-hs-version }} or higher. You don't need to configure object storage. For an example, see [{#T}](../tutorials/hybrid-storage.md).
 
@@ -43,4 +49,3 @@ When creating a cluster, you can choose between the following storage types:
 * Slow local storage (`local-hdd`): A slower but large storage type. Available only for hosts powered by Broadwell or Cascade Lake and with at least eight vCPUs. The `local-hdd` storage has a fixed volume: 10240 GB for Broadwell and 12800 GB for Cascade Lake.
 
 {% endif %}
-

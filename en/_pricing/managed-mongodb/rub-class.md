@@ -2,8 +2,6 @@
 
 - Rate for 1 month
     
-    At the rate of 720 hours per month 
-
     Host class | Rate for month | With CVoS for 1 year | With CVoS for 3 years
     ----- | ----- | ----- | -----
     **Intel Broadwell** |
