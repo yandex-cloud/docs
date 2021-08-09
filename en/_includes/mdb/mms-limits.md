@@ -19,5 +19,6 @@
 | Maximum number of vCPU per {{ MS }} Enterprise Edition cluster | 448 |
 | Maximum number of RAM per {{ MS }} Standard Edition cluster | 128 GB |
 | Maximum number of RAM per {{ MS }} Enterprise Edition cluster | 3584 GB |
-| Maximum amount of data when using network storage | 4096 GB |
+| Maximum amount of data when using network storage | 4096 GB |
 | Maximum amount of data when using local storage | 1400 GB |
+

@@ -14,5 +14,6 @@
 | Lowest host class | s2.micro (2 vCPU Intel Cascade Lake, 8 GB RAM) |
 | Highest host class | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
 | Maximum number of hosts per availability zone | 7 |
-| Maximum amount of data when using network storage | 4096 GB |
+| Maximum amount of data when using network storage | 4096 GB |
 | Maximum amount of data when using local storage | 1400 GB |
+

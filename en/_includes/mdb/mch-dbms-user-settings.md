@@ -10,7 +10,7 @@
 
   By default, DDL queries are allowed.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl){% else %}(https://clickhouse.tech/docs/ru/operations/settings/permissions-for-queries/#settings_allow_ddl){% endif %}.
 
   See also: the [Readonly](#setting-readonly) setting.
 
@@ -22,7 +22,7 @@
 
   Compilation is disabled by default.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#compile).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#compile){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#compile){% endif %}.
 
 - **Compile expressions**{#setting-compile-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -40,7 +40,7 @@
 
 - **DISTINCT overflow mode**{#setting-distinct-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Determines the {{ CH }} behavior when running the `SELECT DISTINCT` [query exceeds the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa): `throw` (abort the query execution and return an error) or `break` (return a partial result).
+  Determines the {{ CH }} behavior when running the `SELECT DISTINCT` [query exceeds the limits]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% else %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}: `throw` (abort the query execution and return an error) or `break` (return a partial result).
 
   By default, not selected (equivalent to `throw`).
 
@@ -52,7 +52,7 @@
 
   By default, memory saving mode is disabled.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% else %}(https://clickhouse.tech/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
 
 - **Distributed product mode**{#setting-distributed-product-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -64,7 +64,7 @@
 
   By default, not selected (equivalent to `deny`).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#distributed-product-mode).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#distributed-product-mode){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#distributed-product-mode){% endif %}.
 
 - **Empty result for aggregation by empty set**{#setting-empty-result-for-aggregation-by-empty-set} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -84,7 +84,7 @@
 
   By default, data compression in HTTP responses is disabled.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/interfaces/http/).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/interfaces/http/){% else %}(https://clickhouse.tech/docs/ru/interfaces/http/){% endif %}.
 
 - **Fallback to stale replicas for distributed queries**{#setting-fallback-to-stale-replicas-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -92,7 +92,7 @@
 
   By default, query forcing is enabled.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries){% endif %}.
 
   See also the [Max replica delay for distributed queries](#setting-max-replica-delay-for-distributed-queries) setting.
 
@@ -102,7 +102,7 @@
 
   Disabled by default (queries are allowed).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-force_index_by_date).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-force_index_by_date){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-force_index_by_date){% endif %}.
 
 - **Force primary key**{#setting-force-primary-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -110,11 +110,11 @@
 
   Disabled by default (queries are allowed).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-force_primary_key).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-force_primary_key){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-force_primary_key){% endif %}.
 
 - **GROUP BY overflow mode**{#setting-group-by-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Determines the {{ CH }} behavior when the number of unique keys during aggregation [exceeds the limit](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa):
+  Determines the {{ CH }} behavior when the number of unique keys during aggregation [exceeds the limit]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% else %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}:
   - `throw`: Abort query execution and return an error.
   - `break`: Return a partial result.
   - `any`: Perform a `GROUP BY` approximately. The quality of this approximate calculation depends heavily on the statistical properties of the data.
@@ -163,7 +163,7 @@
 
   By default, replacement is enabled.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% else %}(https://clickhouse.tech/docs/en/operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields){% endif %}.
 
 - **Input format values interpret expressions**{#setting-input-format-values-interpret-expressions} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -171,11 +171,11 @@
 
   For example, when inserting a value that contains the `now()` expression into a table, the stream parser won't be able to interpret and parse this expression. With the SQL parser enabled, the expression will be interpreted and parsed correctly and the SQL function result will be inserted as the `now()` value (current date and time).
 
-  This option is only used when inserting data of the [Values](https://clickhouse.tech/docs/en/interfaces/formats/#data-format-values) format.
+  This option is only used when inserting data of the [Values]{% if region =="int" %}(https://clickhouse.tech/docs/en/interfaces/formats/#data-format-values){% else %}(https://clickhouse.tech/docs/ru/interfaces/formats/#data-format-values){% endif %} format.
 
   By default, the SQL parser is enabled.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-input_format_values_interpret_expressions){% endif %}.
 
 - **Insert quorum**{#setting-insert-quorum} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -187,7 +187,7 @@
 
   You can use the [Select sequential consistency](#setting-select-sequential-consistency) setting to read data written with Insert quorum.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-insert_quorum).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-insert_quorum){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-insert_quorum){% endif %}.
 
 - **Insert quorum timeout**{#setting-insert-quorum-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -197,11 +197,11 @@
 
 - **Join use nulls**{#setting-join-use-nulls} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
-   Sets the behavior type for `JOIN`. When tables are merged, blank cells may appear. If this option is enabled, the added field changes the type to `Nullable`, and the blank cell is filled with the `NULL` value. Otherwise, the blank cell is filled with the default value for this field type.
+  Sets the behavior type for `JOIN`. When tables are merged, empty cells may appear. If this option is enabled, the added field changes the type to `Nullable`, and the blank cell is filled with the `NULL` value. Otherwise, the blank cell is filled with the default value for this field type.
 
   By default, this option is disabled.
 
-  To learn more, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#join_use_nulls).
+  To learn more, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#join_use_nulls){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#join_use_nulls){% endif %}.
 
 - **Joined subquery requires alias**{#setting-joined-subquery-requires-alias} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 
@@ -245,7 +245,7 @@
 
   The value must be greater than zero (default: `1000`). If a too small value is set, it may render ClickHouse unable to execute even simple queries.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#max-ast-depth).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#max-ast-depth){% else %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#max-ast-depth){% endif %}.
 
 - **Max AST elements**{#setting-max-ast-elements} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -255,7 +255,7 @@
 
   The value must be greater than zero (default: `50000`). If a too small value is set, it may render ClickHouse unable to execute even simple queries.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#max-ast-elements).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#max-ast-elements){% else %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#max-ast-elements){% endif %}.
 
 - **Max block size**{#setting-max-block-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -263,7 +263,7 @@
 
   The value must be greater than zero (default: `65536`).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#setting-max_block_size).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#setting-max_block_size){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#setting-max_block_size){% endif %}.
 
 - **Max bytes before external `GROUP BY`**{#setting-max-bytes-before-external-group-by} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -275,13 +275,13 @@
 
   When using aggregation in the external memory, we recommend setting the value of this setting twice as low as the [Max memory usage](#setting-max-memory-usage) setting value (by default, the maximum memory usage is limited to 10 GB).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% else %}(https://clickhouse.tech/docs/ru/sql-reference/statements/select/group-by/#select-group-by-in-external-memory){% endif %}.
 
   See also the [Distributed aggregation memory efficient](#setting-distributed-aggregation-memory-efficient) setting.
 
 - **Max bytes before external sort**{#setting-max-bytes-before-external-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   This setting is similar to the [previous](#setting-max-bytes-before-external-group-by) setting, except that it is used for the sorting operation (`ORDER BY`).
+  This setting is similar to the [previous](#setting-max-bytes-before-external-group-by) setting, except that it is used for the sorting operation (`ORDER BY`).
 
 - **Max bytes in DISTINCT**{#setting-max-bytes-in-distinct} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -333,7 +333,7 @@
 
   The value must be greater than zero (default: `1048576`).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_insert_block_size).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_insert_block_size){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_insert_block_size){% endif %}.
 
 - **Max memory usage**{#setting-max-memory-usage} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -343,7 +343,7 @@
 
   If you also use the [Max bytes before external `GROUP BY`](#setting-max-bytes-before-external-group-by) or [Max bytes before external sort](#setting-max-bytes-before-external-sort) setting, we recommend that their values are half the Max memory usage value.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#settings_max_memory_usage).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#settings_max_memory_usage){% else %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#settings_max_memory_usage){% endif %}.
 
 - **Max memory usage for user**{#setting-max-memory-usage-for-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -369,7 +369,7 @@
 
   The value must be greater than zero (default: `262144`).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_query_size).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_query_size){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_query_size){% endif %}.
 
 - **Max replica delay for distributed queries**{#setting-max-replica-delay-for-distributed-queries} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -377,7 +377,7 @@
 
   The minimum value is `1000` (one second). The default value is `300000` (300 seconds, or 5 minutes).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries){% endif %}.
 
   See also the [Fallback to stale replicas for distributed queries](#setting-fallback-to-stale-replicas-for-distributed-queries) setting description.
 
@@ -411,7 +411,7 @@
 
   The minimum and default value is `0` (no limitation is set).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#max-rows-to-read).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#max-rows-to-read){% else %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#max-rows-to-read){% endif %}.
 
 - **Max rows to sort**{#setting-max-rows-to-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -443,7 +443,7 @@
 
   The minimum and default value is `0` (the number of threads is calculated automatically based on the number of physical CPU cores, excluding HyperThreading cores).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_threads).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-max_threads){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-max_threads){% endif %}.
 
 - **Merge tree max bytes to use cache**{#setting-merge-tree-max-bytes-to-use-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -493,7 +493,7 @@
 
   For all other values, compilation is performed asynchronously in a separate thread: the result is used as soon as it's available, including by currently running queries.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#min-count-to-compile).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#min-count-to-compile){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#min-count-to-compile){% endif %}.
 
 - **Min count to compile expression**{#setting-min-count-to-compile-expression} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -519,7 +519,7 @@ The minimum value is `0` (block merging is disabled). The default is `1048576`.
 
 - **Output format JSON quote denormals**{#setting-output-format-json-quote-denormals} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Enables or disables special floating-point values (`+nan`, `-nan`, `+inf`, and `-inf`) in JSON output format.
+  Enables or disables special floating-point values (`+nan`, `-nan`, `+inf`, and `-inf`) in JSON output format.
 
   By default, special values are not output.
 
@@ -551,11 +551,11 @@ The minimum value is `0` (block merging is disabled). The default is `1048576`.
 
   By default, not selected (equivalent to `default`).
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/quotas/).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/quotas/){% else %}(https://clickhouse.tech/docs/ru/operations/quotas/){% endif %}.
 
 - **Read overflow mode**{#setting-read-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Determines the {{ CH }} behavior when the amount of data read [exceeds one of the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa). Either `throw` (abort execution and return an error) or `break` (return a partial result).
+  Determines the {{ CH }} behavior when the amount of data read [exceeds one of the limits]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% else %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}. Either `throw` (abort execution and return an error) or `break` (return a partial result).
 
   By default, not selected (equivalent to `throw`).
 
@@ -568,7 +568,7 @@ The minimum value is `0` (block merging is disabled). The default is `1048576`.
 
   This setting doesn't affect running DDL queries. To enable or disable DDL queries, use the [Allow DDL](#setting-allow-ddl) setting.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_readonly).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/permissions-for-queries/#settings_readonly){% else %}(https://clickhouse.tech/docs/ru/operations/settings/permissions-for-queries/#settings_readonly){% endif %}.
 
   See also: [Example of creating a read-only user](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user).
 
@@ -585,7 +585,7 @@ The minimum value is `0` (block merging is disabled). The default is `1048576`.
   - `1`: Only wait for execution at its own (default).
   - `2`: Wait for every action to complete.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% else %}(https://clickhouse.tech/docs/ru/sql-reference/statements/alter/#sinkhronnost-zaprosov-alter){% endif %}.
 
 - **Result overflow mode**{#setting-result-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -595,11 +595,11 @@ The minimum value is `0` (block merging is disabled). The default is `1048576`.
 
 - **SELECT sequential consistency**{#setting-select-sequential-consistency} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Enables or disables sequential consistency for `SELECT` queries.
+  Enables or disables sequential consistency for `SELECT` queries.
 
   By default, sequential consistency is disabled.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-select_sequential_consistency).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-select_sequential_consistency){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-select_sequential_consistency){% endif %}.
 
 - **Send progress in HTTP headers**{#setting-send-progress-in-http-headers} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -619,23 +619,23 @@ The minimum value is `0` (block merging is disabled). The default is `1048576`.
 
   By default, silent skip is disabled.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#settings-skip_unavailable_shards).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#settings-skip_unavailable_shards){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#settings-skip_unavailable_shards){% endif %}.
 
 - **Sort overflow mode**{#setting-sort-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Determines the {{ CH }} behavior when the amount of rows received before sorting [exceeds one of the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa). Either `throw` (abort execution and return an error) or `break` (return a partial result).
+  Determines the {{ CH }} behavior when the amount of rows received before sorting [exceeds one of the limits]{% if region =="int" %}(https://clickhouse.tech/doc/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% else %}(https://clickhouse.tech/doc/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}. Either `throw` (abort execution and return an error) or `break` (return a partial result).
 
   By default, not selected (equivalent to `throw`).
 
 - **Timeout overflow mode**{#setting-timeout-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-   Determines the {{ CH }} behavior when query execution exceeds the `max_execution_time`. Either `throw` (abort execution and return an error) or `break` (return a partial result).
+  Determines the {{ CH }} behavior when query execution exceeds the `max_execution_time`. Either `throw` (abort execution and return an error) or `break` (return a partial result).
 
   By default, not selected (equivalent to `throw`).
 
 - **Transfer overflow mode**{#setting-transfer-overflow-mode} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Determines the {{ CH }} behavior when the amount of data to transfer to another server [exceeds one of the limits](https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa). Either `throw` (abort execution and return an error) or `break` (return a partial result).
+  Determines the {{ CH }} behavior when the amount of data to transfer to another server [exceeds one of the limits]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% else %}(https://clickhouse.tech/docs/ru/operations/settings/query-complexity/#ogranicheniia-na-slozhnost-zaprosa){% endif %}. Either `throw` (abort execution and return an error) or `break` (return a partial result).
 
   By default, not selected (equivalent to `throw`).
 
@@ -645,7 +645,7 @@ The minimum value is `0` (block merging is disabled). The default is `1048576`.
 
   By default, this option is disabled (the comparison returns `false` in the `IN` operator).
 
-  To learn more, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#transform_null_in).
+  To learn more, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#transform_null_in){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#transform_null_in){% endif %}.
 
 - **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -653,7 +653,7 @@ The minimum value is `0` (block merging is disabled). The default is `1048576`.
 
   By default, the uncompressed cache is disabled.
 
-  For more information, see the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/operations/settings/settings/#setting-use_uncompressed_cache).
+  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/settings/settings/#setting-use_uncompressed_cache){% else %}(https://clickhouse.tech/docs/ru/operations/settings/settings/#setting-use_uncompressed_cache){% endif %}.
 
   See also the [Merge tree max bytes to use cache](#setting-merge-tree-max-bytes-to-use-cache) and [Merge tree max rows to use cache](#setting-merge-tree-max-rows-to-use-cache) settings.
 

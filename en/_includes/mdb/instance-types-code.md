@@ -11,3 +11,4 @@ Configuration types:
   Hosts with a guaranteed vCPU share under 50% can't be used in multi-host clusters.
 
   {% endnote %}
+
