@@ -45,9 +45,9 @@ Hosts in {{ mms-name }} clusters are deployed on {{ compute-full-name }} VMs. Yo
 
 The full list of possible host configurations on each platform is provided below:
 
-* **s2**: Standard configurations, with 1:4 vCPU to GB RAM ratio.
+* **s2**: Standard configurations, with 4:1 GB RAM to vCPU ratio.
 
-* **m2**: Configurations with a decreased vCPU to GB RAM ratio (1:8 vs. 1:4 for standard classes). These configurations can be useful for clusters with increased cache requirements.
+* **m2**: Configurations with an increased GB RAM to vCPU ratio (8:1). These configurations can be useful for clusters with higher cache requirements.
 
 | Host class name | Number of CPUs | CPU performance | RAM, GB |
 | ----- | ----- | ----- | ----- |
