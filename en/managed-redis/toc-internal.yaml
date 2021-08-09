@@ -23,6 +23,8 @@ items:
         href: operations/cluster-backups.md
       - name: Changing the master
         href: operations/failover.md
+      - name: Monitoring the state of a cluster and hosts
+        href: operations/monitoring.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
   - name: Use cases
