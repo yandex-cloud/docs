@@ -10,6 +10,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 - [{#T}](connect.md)
 - [{#T}](cluster-stop.md)
 - [{#T}](update.md)
+- [{#T}](stepdown.md)
 - [{#T}](cluster-version-update.md)
 - [{#T}](databases.md)
 - [{#T}](hosts.md)

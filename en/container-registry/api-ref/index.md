@@ -11,7 +11,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 Resource | Description
 --- | ---
 [Image](Image/index.md) | A set of methods for managing Image resources.
-[LifecyclePolicy](LifecyclePolicy/index.md) | 
+[LifecyclePolicy](LifecyclePolicy/index.md) | A set of methods for managing Lifecycle policy resources.
 [Registry](Registry/index.md) | A set of methods for managing Registry resources.
 [Repository](Repository/index.md) | A set of methods for managing Repository resources.
 [Scanner](Scanner/index.md) | A set of methods for scanning Docker images.

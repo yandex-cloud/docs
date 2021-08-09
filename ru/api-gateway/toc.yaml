@@ -23,6 +23,8 @@ items:
     items:
       - name: Развертывание веб-приложения
         href: solutions/java-servlet-todo-list.md
+      - name: Разработка навыка Алисы и сайта с авторизацией
+        href: solutions/alice-shareable-todolist.md
       - name: Разработка Slack-бота
         href: solutions/slack-bot-serverless.md
   - name: Концепции

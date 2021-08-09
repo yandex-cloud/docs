@@ -12,7 +12,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {% note warning %}
 
-You can't use SQL commands to change the [recovery model](https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and restore operations.
+You can't use SQL commands to change the [recovery model](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and recovery operations.
 
 {% endnote %}
 
@@ -61,7 +61,7 @@ You can't use SQL commands to change the [recovery model](https://docs.microsoft
 - Management console
   1. Go to the folder page and select **{{ mms-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  1. Click **Create a backup**.
+  1. Click **Create backup**.
 
   **{{ mms-name }}** launches the operation to create a backup.
 
@@ -75,7 +75,11 @@ You can't use SQL commands to change the [recovery model](https://docs.microsoft
 
 ## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
+Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time in the interval from its backup to archiving the most recent transaction log. For more information, see [{#T}](../concepts/backup.md).
+
+For example, if the backup operation ended August 10, 2020, 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the latest transaction log was saved August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC inclusive.
+
+When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
 For a new cluster, you need to set up all its [parameters required at creation](cluster-create.md#create-cluster).
 
@@ -110,7 +114,7 @@ For a new cluster, you need to set up all its [parameters required at creation](
 - API
 
   To change the backup start time for a cluster, use the [update](../api-ref/Cluster/update.md) method and pass the following in the request:
-  - The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The new backup start time, in the `configSpec.backupWindowStart` parameter.
   - List of cluster configuration fields to be changed (in this case, `configSpec.backupWindowStart`), in the `updateMask` parameter.
 

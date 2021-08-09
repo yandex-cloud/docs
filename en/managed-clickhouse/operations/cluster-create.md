@@ -16,9 +16,13 @@ When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} auto
 
 The number of hosts that can be created together with a {{ CH }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
-* With **local storage**, you can create a cluster with 2 or more replicas (to ensure fault tolerance, a minimum of 2 replicas is necessary). If the [available folder resources](../concepts/limits.md) are still sufficient, you can add extra replicas.
-* With **network storage**, you can request any number of hosts (from one to the maximum for the current [quota](../concepts/limits.md)).
-* With **hybrid storage**, you can only create a cluster with a single host. After creating this cluster, you can [add shards](shards.md#add-shard) consisting of only one host. Such a cluster isn't tolerant to host failures, but if this happens, the data in the shard or cluster is saved. Hybrid storage is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+* With **local storage**, you can create a cluster with 2 or more hosts (to ensure fault tolerance, a minimum of 2 hosts is necessary).
+* When using network storage:
+    * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
+    * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
+* With **hybrid storage**, you can only create a single-host cluster. After creating this cluster, you can [add shards](shards.md#add-shard) consisting of only one host. Such clusters aren't tolerant to host failures, but if this happens, the data in the shard or cluster is saved. Hybrid storage is at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage.
+
+After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
 {% list tabs %}
 
@@ -30,35 +34,31 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
   1. Select **{{ mch-name }}**.
 
   1. Click **Create cluster**.
-
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-
   1. From the **Version** drop-down list, select the version of {{ CH }} which the {{ mch-name }} cluster will use:
      1. For most clusters, it's recommended to select the latest LTS version.
      1. If you plan to use hybrid storage in a cluster, it's recommended to select the latest version. This type of storage is supported starting from {{ CH }} {{ mch-hs-version }}.
-  
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-      - `PRODUCTION`: For stable versions of your apps.
-      - `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-  
+      * `PRODUCTION`: For stable versions of your apps.
+      * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
-  
   1. Under **Storage size**:
 
       
-      - Select the type of storage, either a more flexible network type (`network-hdd` or `network-ssd`) or faster local SSD storage (`local-ssd`).
+      * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
 
         When selecting a storage type, remember that:
-        - The size of the local storage can only be changed in 100 GB increments.
-        - If you plan to use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, you can select only one of the network storages in this section: `network-ssd` or `network-hdd`.
+        * The size of the local storage can only be changed in 100 GB increments.
+        * The size of non-replicated network storage can only be changed in 93 GB increments.
+        * To use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, choose `network-ssd` or `network-hdd`.
 
-      - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
 
-      - DB name.
-      - Username.
-      - User password. At least 8 characters.
+      * DB name.
+      * Username.
+      * User password. At least 8 characters.
 
   1. To [manage users via SQL](cluster-users.md#sql-user-management), enable the **User management via SQL** setting and specify the password of the `admin` user.
 
@@ -71,8 +71,9 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
   1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, place the cursor on the host line and click  ![image](../../_assets/pencil.svg).
 
      When configuring host parameters, remember that:
-     - If you previously selected `local-ssd` in the **Storage** section, you need to add at least 2 hosts to the cluster.
-     - If you plan to use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, there can be only one host in the cluster.
+     * If you selected `local-ssd` under **Storage**, you need to add at least 2 hosts to the cluster.
+     * If you selected `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+     * If you plan to use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, there can only be one host in the cluster.
 
   1. If necessary, configure additional cluster settings:
 
@@ -108,14 +109,14 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
   1. Specify the cluster parameters in the create command (the example shows only mandatory flags):
 
      
-     ```
-     $ {{ yc-mdb-ch }} cluster create \
+     ```bash
+     {{ yc-mdb-ch }} cluster create \
         --name <cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
         --host type=<clickhouse or zookeeper>,zone-id=<availability zone>,subnet-id=<subnet ID> \
         --clickhouse-resource-preset <host class> \
-        --clickhouse-disk-type <network-hdd | network-ssd | local-ssd> \
+        --clickhouse-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
         --clickhouse-disk-size <storage size in GB> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
@@ -225,22 +226,22 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 - API
 
   To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
-  - In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-  - The cluster name, in the `name` parameter.
-  - The environment of the cluster, in the `environment` parameter.
-  - Cluster configuration, in the `configSpec` parameter.
-  - Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-  - Network ID, in the `networkId` parameter.
-  - Security group IDs in the parameter `securityGroupIds`.
+  * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+  * The cluster name, in the `name` parameter.
+  * The environment of the cluster, in the `environment` parameter.
+  * Cluster configuration, in the `configSpec` parameter.
+  * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+  * Network ID, in the `networkId` parameter.
+  * Security group IDs in the parameter `securityGroupIds`.
 
   If necessary, enable user and database management via SQL:
-  - `configSpec.sqlUserManagement`: Set `true` to enable [managing users via SQL](cluster-users.md#sql-user-management).
-  - `configSpec.sqlDatabaseManagement`: Set `true` to enable [database management via SQL](databases.md#sql-database-management). User management via SQL needs to be enabled.
-  - `configSpec.adminPassword` : Set the password for the `admin` user whose account is used for management.
+  * `configSpec.sqlUserManagement`: Set `true` to enable [managing users via SQL](cluster-users.md#sql-user-management).
+  * `configSpec.sqlDatabaseManagement`: Set `true` to enable [database management via SQL](databases.md#sql-database-management). User management via SQL needs to be enabled.
+  * `configSpec.adminPassword` : Set the password for the `admin` user whose account is used for management.
 
   When creating a cluster with multiple hosts:
-    - If a cluster in the[virtual network](../../vpc/concepts/network.md) has subnets in each of the [availability zones](../../overview/concepts/geo-scope.md), one {{ ZK }} host is automatically added to each subnet if you don't explicitly specify the settings for these hosts. If necessary, you can explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
-    - If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
+    * If a cluster in the[virtual network](../../vpc/concepts/network.md) has subnets in each of the [availability zones](../../overview/concepts/geo-scope.md), one {{ ZK }} host is automatically added to each subnet if you don't explicitly specify the settings for these hosts. If necessary, you can explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
+    * If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
 
 {% endlist %}
 
@@ -263,14 +264,14 @@ If you specified security group IDs when creating a cluster, you may also need t
   Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
   
-  - Named `mych`.
-  - In the `production` environment.
-  - In the `default` network.
-  - In the security group `{{ security-group }}`.
-  - With a single `{{ host-class }}` class ClickHouse host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
-  - With 20 GB fast network storage (`{{ disk-type-example }}`).
-  - With one user, `user1`, with the password `user1user1`.
-  - With one database, `db1`.
+  * Named `mych`.
+  * In the `production` environment.
+  * In the `default` network.
+  * In the security group `{{ security-group }}`.
+  * With a single `{{ host-class }}` class ClickHouse host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
+  * With 20 GB fast network storage (`{{ disk-type-example }}`).
+  * With one user, `user1`, with the password `user1user1`.
+  * With one database, `db1`.
 
   Run the command:
 
@@ -292,16 +293,16 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ CH }} cluster and a network for it with the following characteristics:
-    - Named `mych`.
-    - In the `PRESTABLE` environment.
-    - In the cloud with the ID `{{ tf-cloud-id }}`.
-    - In the folder with the ID `{{ tf-folder-id }}`.
-    - Network: `mynet`.
-    - In the new security group `mych-sg` allowing connections to the cluster from the internet via ports `8443` and `9440`.
-    - With a single `{{ host-class }}` class host in the new subnet named `mysubnet` and the `ru-central1-c` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
-    - With 32 GB of fast network storage.
-    - With the database name `my_db`.
-    - With the username `user1` and password `user1user1`.
+    * Named `mych`.
+    * In the `PRESTABLE` environment.
+    * In the cloud with the ID `{{ tf-cloud-id }}`.
+    * In the folder with the ID `{{ tf-folder-id }}`.
+    * Network: `mynet`.
+    * In the new security group `mych-sg` allowing connections to the cluster from the internet via ports `8443` and `9440`.
+    * With a single `{{ host-class }}` class host in the new subnet named `mysubnet` and the `ru-central1-c` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+    * With 32 GB of fast network storage.
+    * With the database name `my_db`.
+    * With the username `user1` and password `user1user1`.
 
   The configuration file for the cluster looks like this:
 

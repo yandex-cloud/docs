@@ -68,7 +68,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
-First, run the command to get messages, which will continuously read new messages from the topic. Then, use another terminal session to run the command to send messages, which will send a single message saying `test message` with the key `key` to the {{ KF }} topic. The session running the command to receive messages will display the messages sent to the topic.
+First, run the command to get messages, which will continuously read new messages from the topic. Then, use another terminal session to run the command to send messages, which will send to the {{ KF }} topic a single message saying `test message` with the `key` key. The session running the command to receive messages will display the messages sent to the topic.
 
 ### C# {#csharp}
 
@@ -883,7 +883,7 @@ Before connecting:
 
    {% endcut %}
 
-   You can view current versions of Maven dependencies at:
+   Current versions of Maven dependencies are available to view at:
    - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
    - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
    - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
@@ -1490,3 +1490,4 @@ pip3 install kafka-python lz4 python-snappy crc32c
 {% endlist %}
 
 First, launch the consumer application that will continuously read new messages from the topic. Then launch the producer application that will send one or more `test message` messages with the `key` key to the {{ KF }} topic. The consumer application displays messages sent to the topic.
+

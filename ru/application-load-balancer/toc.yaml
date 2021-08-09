@@ -59,6 +59,10 @@ items:
         href: concepts/target-group.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Инструменты
+    items:
+      - name: Ingress Controller для {{ managed-k8s-name }}
+        href: tools/k8s-ingress-controller.md
   - name: Управление доступом
     href: security/index.md
   - name: Справочник API

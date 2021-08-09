@@ -6,7 +6,7 @@ For the following products, funds are debited once for the calendar month in adv
 | ----- | ----- |
 | Windows Server Standard* | $77.179488 per host |
 | Microsoft SQL Server Standard | $302.384620 for every 4 vCPUs |
-| Microsoft SQL Server Enterprise | $1 034.000014 for every 4 vCPUs |
+| Microsoft SQL Server Enterprise | $1034.000014 for every 4 vCPUs |
 
 \* Windows Server Standard is provided at a fixed price that doesn't depend on VM configurations.
 

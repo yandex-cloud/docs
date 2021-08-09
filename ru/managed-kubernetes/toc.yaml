@@ -71,11 +71,13 @@ items:
         href: solutions/running-pod-gpu.md
       - name: Установка NGINX Ingress Controller с Let's Encrypt®
         href: solutions/ingress-cert-manager.md
+      - name: Настройка Application Load Balancer Ingress-контроллера
+        href: solutions/alb-ingress-controller.md
       - name: Резервное копирование в Object Storage
         href: solutions/backup.md
       - name: Интеграция с корпоративной зоной DNS
         href: solutions/custom-dns.md
-      - name: Настройка локального кэширования DNS
+      - name: Настройка локального кеширования DNS
         href: solutions/node-local-dns.md
   - name: Концепции
     items:

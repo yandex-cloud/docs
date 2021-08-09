@@ -4,6 +4,7 @@ editable: false
 __system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
 
+
 # Pricing for {{ mmy-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -31,7 +32,8 @@ The minimum billing unit is one minute (for example, the cost of 1.5 minutes of 
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 3 hosts in 100 GB increments.
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts in 100 GB increments.
+    * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in 93 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
@@ -85,5 +87,7 @@ Prices for host uptime are calculated based on [host classes](concepts/instance-
 
 
 
+
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
 
 {% include notitle [usd-classes-hour.md](../_pricing/managed-mysql/usd-classes-hour.md) %}

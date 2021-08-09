@@ -4,7 +4,9 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 # DataLens Public
 
-With {{ datalens-public }}, you can grant public access to created charts and dashboards: any user can view published objects without authorization.
+With {{ datalens-public }}, you can grant public access to charts and dashboards: any user can view published objects without authorization. However, the user cannot view chart settings, connections, or the dataset, or execute an ad-hoc SQL query.
+
+Sample public dashboards and charts can be found in [{#T}](../public-talks/public-dashboards-and-charts.md).
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
@@ -18,9 +20,19 @@ To publish a chart or dashboard, make sure you meet the following conditions:
 
 - Grant permissions to publish related datasets and connections. To do this, you need to have `{{ permission-admin }}` permission to these objects.
 
-## How to publish an object {#how-to-publish}
+To protect the data, we recommend that you only grant the user rights to view those tables that are used to build the dataset when connecting to a database.
+
+We also recommend minimizing the data in a dataset and adding only the required filters to the dashboard. You can download data on a public dashboard in a machine-readable format.
+
+## Publishing an object {#how-to-publish}
 
 You can grant public access to a dashboard or chart.
+
+{% note warning %}
+
+To publish an object, you must have [administrator rights](../security/index.md#permission-admin) to the object and related objects.
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -38,8 +50,8 @@ You can grant public access to a dashboard or chart.
 
 You can embed the published charts into a website or app using the `iframe` element.
 
-Before adding a chart to the `iframe`, add the `_embedded=1` parameter to the chart URL.
-The parameter is added to the URL following the question mark (`?`).
+Before adding a chart to an `iframe`, add the `_embedded=1` parameter to the chart URL.
+The parameter is added to the URL following a question mark (`?`).
 For example:
 
 ```

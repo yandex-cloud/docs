@@ -9,10 +9,12 @@
 
 #### Limits {#mmy-limits}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Lowest host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) |
-| Highest host class | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
-| Maximum number of hosts per cluster | 7 |
-| Maximum amount of data when using network storage | 4096 GB |
-| Maximum amount of data when using local storage | 1400 GB |
+| Type of limit | Minimum value | Maximum value |
+| ------------------------------------------------------------------------------------------------------------ | ---------------------- | ----------------------- |
+| Host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
+| Number of hosts in a cluster when using standard or fast network storage | 1 | 7 |
+| Number of hosts in a cluster when using non-replicated network storage or fast local storage | 3 | 7 |
+| Amount of data on the host when using standard or fast network storage | 10 GB | 2048 GB |
+| Amount of data on the host when using non-replicated network storage | 93 GB | 8192 GB |
+| Amount of data on the host when using local storage | 100 GB | 1400 GB |
+

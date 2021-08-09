@@ -17,6 +17,8 @@ A set of methods for managing Network resources.
 | [Update](#Update) | Updates the specified network. |
 | [Delete](#Delete) | Deletes the specified network. |
 | [ListSubnets](#ListSubnets) | Lists subnets from the specified network. |
+| [ListSecurityGroups](#ListSecurityGroups) | Lists security groups from the specified network. |
+| [ListRouteTables](#ListRouteTables) | Lists route tables from the specified network. |
 | [ListOperations](#ListOperations) | Lists operations for the specified network. |
 | [Move](#Move) | Move network to another folder. |
 
@@ -286,6 +288,126 @@ Field | Description
 domain_name_servers[] | **string**<br> 
 domain_name | **string**<br> 
 ntp_servers[] | **string**<br> 
+
+
+## ListSecurityGroups {#ListSecurityGroups}
+
+Lists security groups from the specified network.
+
+**rpc ListSecurityGroups ([ListNetworkSecurityGroupsRequest](#ListNetworkSecurityGroupsRequest)) returns ([ListNetworkSecurityGroupsResponse](#ListNetworkSecurityGroupsResponse))**
+
+### ListNetworkSecurityGroupsRequest {#ListNetworkSecurityGroupsRequest}
+
+Field | Description
+--- | ---
+network_id | **string**<br>Required. ID of the Network resource to list security groups for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListNetworkSecurityGroupsResponse.next_page_token](#ListNetworkSecurityGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. Set `page_token` to the [ListNetworkSecurityGroupsResponse.next_page_token](#ListNetworkSecurityGroupsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
+
+
+### ListNetworkSecurityGroupsResponse {#ListNetworkSecurityGroupsResponse}
+
+Field | Description
+--- | ---
+security_groups[] | **[SecurityGroup](#SecurityGroup)**<br>List of security groups that belong to the network which is specified in the request. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNetworkSecurityGroupsRequest.page_size](#ListNetworkSecurityGroupsRequest), use the `next_page_token` as the value for the [ListNetworkSecurityGroupsRequest.page_token](#ListNetworkSecurityGroupsRequest) query parameter in the next list request. Subsequent list requests will have their own `next_page_token` to continue paging through the results. 
+
+
+### SecurityGroup {#SecurityGroup}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+folder_id | **string**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+name | **string**<br> 
+description | **string**<br> 
+labels | **map<string,string>**<br> 
+network_id | **string**<br> 
+status | enum **Status**<br> <ul><li>`UPDATING`: updating is a long operation because we must update all instances in SG</li><ul/>
+rules[] | **[SecurityGroupRule](#SecurityGroupRule)**<br> 
+default_for_network | **bool**<br> 
+
+
+### SecurityGroupRule {#SecurityGroupRule}
+
+Field | Description
+--- | ---
+id | **string**<br> 
+description | **string**<br> 
+labels | **map<string,string>**<br> 
+direction | enum **Direction**<br>Required.  <ul><ul/>
+ports | **[PortRange](#PortRange)**<br> 
+protocol_name | **string**<br>null value means any protocol values from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml 
+protocol_number | **int64**<br> 
+target | **oneof:** `cidr_blocks`, `security_group_id` or `predefined_target`<br>
+&nbsp;&nbsp;cidr_blocks | **[CidrBlocks](#CidrBlocks)**<br> 
+&nbsp;&nbsp;security_group_id | **string**<br> 
+&nbsp;&nbsp;predefined_target | **string**<br> 
+
+
+### PortRange {#PortRange}
+
+Field | Description
+--- | ---
+from_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+to_port | **int64**<br> Acceptable values are 0 to 65535, inclusive.
+
+
+### CidrBlocks {#CidrBlocks}
+
+Field | Description
+--- | ---
+v4_cidr_blocks[] | **string**<br> 
+v6_cidr_blocks[] | **string**<br> 
+
+
+## ListRouteTables {#ListRouteTables}
+
+Lists route tables from the specified network.
+
+**rpc ListRouteTables ([ListNetworkRouteTablesRequest](#ListNetworkRouteTablesRequest)) returns ([ListNetworkRouteTablesResponse](#ListNetworkRouteTablesResponse))**
+
+### ListNetworkRouteTablesRequest {#ListNetworkRouteTablesRequest}
+
+Field | Description
+--- | ---
+network_id | **string**<br>Required. ID of the Network resource to list route tables for. The maximum string length in characters is 50.
+page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `page_size`, the service returns a [ListNetworkRouteTablesResponse.next_page_token](#ListNetworkRouteTablesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
+page_token | **string**<br>Page token. Set `page_token` to the [ListNetworkRouteTablesResponse.next_page_token](#ListNetworkRouteTablesResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
+
+
+### ListNetworkRouteTablesResponse {#ListNetworkRouteTablesResponse}
+
+Field | Description
+--- | ---
+route_tables[] | **[RouteTable](#RouteTable)**<br>List of route tables that belong to the network which is specified in the request. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListNetworkRouteTablesRequest.page_size](#ListNetworkRouteTablesRequest), use the `next_page_token` as the value for the [ListNetworkRouteTablesRequest.page_token](#ListNetworkRouteTablesRequest) query parameter in the next list request. Subsequent list requests will have their own `next_page_token` to continue paging through the results. 
+
+
+### RouteTable {#RouteTable}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the route table. 
+folder_id | **string**<br>ID of the folder that the route table belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the route table. The name is unique within the project. 3-63 characters long. 
+description | **string**<br>Optional description of the route table. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+network_id | **string**<br>ID of the network the route table belongs to. 
+static_routes[] | **[StaticRoute](#StaticRoute)**<br>List of static routes. 
+
+
+### StaticRoute {#StaticRoute}
+
+Field | Description
+--- | ---
+destination | **oneof:** `destination_prefix`<br>
+&nbsp;&nbsp;destination_prefix | **string**<br>Destination subnet in CIDR notation 
+next_hop | **oneof:** `next_hop_address`<br>
+&nbsp;&nbsp;next_hop_address | **string**<br>Next hop IP address 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## ListOperations {#ListOperations}

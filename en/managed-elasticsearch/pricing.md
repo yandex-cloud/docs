@@ -4,6 +4,7 @@ editable: false
 __system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
 
+
 # Pricing policy for Managed Service for Elasticsearch
 
 ## Cluster status {#running-stopped}
@@ -83,10 +84,7 @@ You can't order storage or internet traffic using the CVoS model.
 
 Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-elasticsearch#calculator).
 
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
 
 
 
 {% include notitle [usd-calculated.md](../_pricing/managed-elasticsearch/usd-calculated.md) %}
-

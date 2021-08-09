@@ -15,9 +15,12 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
 The number of hosts that can be created with a {{ PG }} cluster depends on the [storage option](../concepts/storage.md) selected:
 
-* When using network drives, you can request any number of hosts (from one to the current [quota](../concepts/limits.md) limit).
+* With **local storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
+* When using network storage:
+    * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
+    * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
 
-* When using SSDs, you can create at least three replicas along with the cluster (a minimum of three replicas is required to ensure fault tolerance). If the [available folder resources](../concepts/limits.md) are still sufficient after creating a cluster, you can add extra replicas.
+After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
 By default, {{ mpg-short-name }} sets the maximum number of connections to each {{ PG }} cluster host. This maximum cannot be greater than the value of [Max connections](../concepts/settings-list.md#setting-max-connections).
 
@@ -55,7 +58,11 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
   1. Under **Storage size**:
 
 
-      - Select the type of storage, either a more flexible network type (`network-hdd` or `network-ssd`) or faster local SSD storage (`local-ssd`). The size of the local storage can only be changed in 100 GB increments.
+      - Select the type of storage, either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`). 
+    
+        When selecting a storage type, remember that:
+        - The size of the local storage can only be changed in 100 GB increments.
+        - The size of non-replicated network storage can only be changed in 93 GB increments.
 
       - Select the amount of space to use for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
@@ -67,13 +74,15 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       - User password (from 8 to 128 characters).
 
-      - Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the level of an individual database.
+      - Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual database level.
 
            {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-  1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ PG }} cluster, you must set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+  1. Under **Hosts**, select the parameters for the database hosts created with the cluster. If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
+
+      When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
   1. If necessary, configure additional cluster settings:
 
@@ -108,7 +117,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
-  
+      
       ```bash
       {{ yc-mdb-pg }} cluster create \
       --name <cluster name> \
@@ -128,9 +137,22 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
       - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
       - Host priority in the `priority` option to [influence the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
-        - The host with the highest priority value in a cluster becomes the synchronous replica.
-        - If the cluster has a few hosts with the highest priority, a synchronous replica is selected among them.
-        - The lowest and default priority is `0` and the highest priority is `100`.
+        - The host with the highest priority in the cluster becomes a synchronous replica.
+        - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them. 
+        - The lowest and default priority is `0` and the highest is `100`.
+      
+      {% note warning %}
+      
+      When using the `--security-group-ids` option, you may need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+      
+      {% endnote %}  
+
+      You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
+      - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
+      - Host priority in the `priority` option to [influence the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
+        - The host with the highest priority value in the cluster becomes the synchronous replica.
+        - If the cluster has multiple hosts with the highest priority, the synchronous replica is elected from among them.
+        - The lowest priority value is `0` (default) and the highest is `100`.
 
 - Terraform
 
@@ -331,4 +353,3 @@ If you specified security group IDs when creating a cluster, you may also need t
   ```
 
 {% endlist %}
-

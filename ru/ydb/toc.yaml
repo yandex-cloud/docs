@@ -101,6 +101,8 @@ items:
         href: solutions/slack-bot-serverless.md
       - name: Использование Docker-контейнера YDB
         href: solutions/ydb_docker.md
+      - name: Разработка навыка Алисы и сайта с авторизацией
+        href: solutions/alice-shareable-todolist.md
   - name: Концепции
     items:
       - name: Обзор

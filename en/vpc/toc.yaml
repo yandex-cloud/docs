@@ -23,6 +23,8 @@ items:
             href: operations/subnet-delete.md
           - name: Updating a subnet
             href: operations/subnet-update.md
+          - name: Viewing a list of used addresses
+            href: operations/subnet-used-addresses.md
       - name: IP address
         items:
           - name: Reserving a static public IP address
@@ -33,7 +35,7 @@ items:
             href: operations/set-dynamic-ip.md
           - name: Deleting a static public IP address
             href: operations/address-delete.md
-      - name: Static routes
+      - name: Static routing
         stage: new
         items:
           - name: Creating a static route
@@ -74,7 +76,7 @@ items:
         href: concepts/mtu-mss.md
       - name: DHCP settings
         href: concepts/dhcp-options.md
-      - name: Software accelerated network
+      - name: Software-accelerated network
         href: concepts/software-accelerated-network.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -100,22 +102,6 @@ items:
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: gRPC
-        items:
-          - name: Overview
-            href: api-ref/grpc/index.md
-          - name: AddressService
-            href: api-ref/grpc/address_service.md
-          - name: NetworkService
-            href: api-ref/grpc/network_service.md
-          - name: RouteTableService
-            href: api-ref/grpc/route_table_service.md
-          - name: SecurityGroupService
-            href: api-ref/grpc/security_group_service.md
-          - name: SubnetService
-            href: api-ref/grpc/subnet_service.md
-          - name: OperationService
-            href: api-ref/grpc/operation_service.md
       - name: REST
         items:
           - name: Overview
@@ -154,6 +140,10 @@ items:
                 href: api-ref/Network/list.md
               - name: listOperations
                 href: api-ref/Network/listOperations.md
+              - name: listRouteTables
+                href: api-ref/Network/listRouteTables.md
+              - name: listSecurityGroups
+                href: api-ref/Network/listSecurityGroups.md
               - name: listSubnets
                 href: api-ref/Network/listSubnets.md
               - name: move
@@ -224,6 +214,22 @@ items:
                 href: api-ref/Operation/index.md
               - name: get
                 href: api-ref/Operation/get.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: AddressService
+            href: api-ref/grpc/address_service.md
+          - name: NetworkService
+            href: api-ref/grpc/network_service.md
+          - name: RouteTableService
+            href: api-ref/grpc/route_table_service.md
+          - name: SecurityGroupService
+            href: api-ref/grpc/security_group_service.md
+          - name: SubnetService
+            href: api-ref/grpc/subnet_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
   - name: Questions and answers
     href: qa/index.md
 base: en/vpc

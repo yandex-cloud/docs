@@ -37,7 +37,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 - API
   
   Получить список пользователей можно с помощью метода [list](../api-ref/User/list.md).
-  
+
 {% endlist %}
 
 ## Добавить пользователя {#adduser}
@@ -49,7 +49,10 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
   1. Перейдите на страницу каталога и выберите сервис **{{ mmg-name }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите кнопку **Добавить**.
-  1. Введите имя пользователя БД и пароль (от 8 до 128 символов).
+  1. Введите имя пользователя БД и пароль.
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
   1. Настройте [роли](../concepts/users-and-roles.md) пользователя:
      
      1. Выберите базу данных, в которой вы хотите выдать роль.
@@ -57,8 +60,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
      
      Вы можете выдать пользователю несколько ролей в разных базах данных.
   1. Нажмите кнопку **Добавить**. 
-    
-  
+
 - CLI
   
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -82,12 +84,50 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
         --permission database=<имя другой БД>,role=<роль>,...
      ```
   
+     {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform
+
+  Чтобы создать пользователя в кластере:
+  
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+    1. Добавьте к описанию кластера {{ mmg-name }} блок `user`:
+  
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+          ...
+          user {
+            name     = "<имя пользователя>"
+            password = "<пароль>"
+            permission {
+              database_name = "<имя базы данных, к которой предоставляется доступ>"
+              roles         = [ "<список ролей пользователя>" ]
+            }
+          }
+        }
+        ```
+  
+        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
+    1. Проверьте корректность настроек.
+  
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+    1. Подтвердите изменение ресурсов.
+  
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
   
   Добавить пользователей можно с помощью метода [create](../api-ref/User/create.md).
-  
+
 {% endlist %}
 
 ## Изменить пользователя {#updateuser}
@@ -103,7 +143,9 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
      1. Нажмите значок ![image](../../_assets/options.svg) и выберите пункт **Настроить**.
      1. Чтобы добавить роль, выберите базу данных и роль и нажмите кнопку **Добавить** под списком ролей.
      1. Чтобы удалить роль, нажмите на значок ![image](../../_assets/cross.svg) возле названия роли.
-  
+     
+  {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
 - CLI
   
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -118,7 +160,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
      $ {{ yc-mdb-mg }} user update --help
      ```
   
-  1. Укажите свойства пользователя в команде создания:
+  1. Укажите свойства пользователя в команде изменения:
      ```
      $ {{ yc-mdb-mg }} user update <имя пользователя>
         --cluster-name <имя кластера>
@@ -127,12 +169,51 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
         --permission database=<имя другой БД>,role=<роль>,...
      ```
   
+     {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform
+
+  Чтобы изменить пароль или список ролей пользователя:
+  
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+    1. Найдите в описании кластера {{ mmg-name }} блок `user` для нужного пользователя.
+    1. Измените значение полей `password` и `permission`:
+  
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+          ...
+          user {
+            name     = "<имя пользователя>"
+            password = "<новый пароль>"
+            permission {
+              database_name = "<имя базы данных>"
+              roles         = [ "<новый список ролей пользователя>" ]
+            }
+          }
+        }
+        ```
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
+    1. Проверьте корректность настроек.
+  
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+    1. Подтвердите изменение ресурсов.
+  
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
   
   Изменить пользователя можно с помощью метода [update](../api-ref/User/update.md).
-  
+
 {% endlist %}
 
 ## Удалить пользователя {#removeuser}
@@ -160,10 +241,30 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
   
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- Terraform
+
+  Чтобы удалить пользователя:
+  
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  
+    1. Удалите из описания кластера {{ mmg-name }} блок `user` с описанием нужного пользователя.
+  
+    1. Проверьте корректность настроек.
+  
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  
+    1. Подтвердите изменение ресурсов.
+  
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  
+  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+
 - API
   
   Удалить пользователя можно с помощью метода [delete](../api-ref/User/delete.md).
-  
+
 {% endlist %}
 
 {% include [user-ro](../../_includes/mdb/mmg-user-examples.md) %}

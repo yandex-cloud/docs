@@ -125,6 +125,24 @@ items:
             items:
               - name: Overview
                 href: api-ref/LifecyclePolicy/index.md
+              - name: create
+                href: api-ref/LifecyclePolicy/create.md
+              - name: delete
+                href: api-ref/LifecyclePolicy/delete.md
+              - name: dryRun
+                href: api-ref/LifecyclePolicy/dryRun.md
+              - name: get
+                href: api-ref/LifecyclePolicy/get.md
+              - name: getDryRunResult
+                href: api-ref/LifecyclePolicy/getDryRunResult.md
+              - name: list
+                href: api-ref/LifecyclePolicy/list.md
+              - name: listDryRunResultAffectedImages
+                href: api-ref/LifecyclePolicy/listDryRunResultAffectedImages.md
+              - name: listDryRunResults
+                href: api-ref/LifecyclePolicy/listDryRunResults.md
+              - name: update
+                href: api-ref/LifecyclePolicy/update.md
           - name: Registry
             items:
               - name: Overview
@@ -159,6 +177,8 @@ items:
                 href: api-ref/Repository/delete.md
               - name: get
                 href: api-ref/Repository/get.md
+              - name: getByName
+                href: api-ref/Repository/getByName.md
               - name: list
                 href: api-ref/Repository/list.md
               - name: listAccessBindings
@@ -173,6 +193,16 @@ items:
             items:
               - name: Overview
                 href: api-ref/Scanner/index.md
+              - name: get
+                href: api-ref/Scanner/get.md
+              - name: getLast
+                href: api-ref/Scanner/getLast.md
+              - name: list
+                href: api-ref/Scanner/list.md
+              - name: listVulnerabilities
+                href: api-ref/Scanner/listVulnerabilities.md
+              - name: scan
+                href: api-ref/Scanner/scan.md
   - name: Troubleshooting
     href: error/index.md
   - name: Questions and answers

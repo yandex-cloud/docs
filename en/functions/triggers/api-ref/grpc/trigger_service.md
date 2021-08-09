@@ -67,9 +67,10 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
-action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue}
@@ -80,8 +81,9 @@ queue_id | **string**<br>Required. ID of the message queue in Yandex Message Que
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage}
@@ -91,8 +93,9 @@ Field | Description
 registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage}
@@ -103,8 +106,9 @@ event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry}
@@ -115,8 +119,9 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs}
@@ -125,8 +130,9 @@ Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
 batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ## List {#List}
@@ -185,9 +191,10 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
-action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue1}
@@ -198,8 +205,9 @@ queue_id | **string**<br>Required. ID of the message queue in Yandex Message Que
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage1}
@@ -209,8 +217,9 @@ Field | Description
 registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage1}
@@ -221,8 +230,9 @@ event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry1}
@@ -233,8 +243,9 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs1}
@@ -243,8 +254,9 @@ Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
 batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ## Create {#Create}
@@ -323,9 +335,10 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
-action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue2}
@@ -336,8 +349,9 @@ queue_id | **string**<br>Required. ID of the message queue in Yandex Message Que
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage2}
@@ -347,8 +361,9 @@ Field | Description
 registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage2}
@@ -359,8 +374,9 @@ event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry2}
@@ -371,8 +387,9 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs2}
@@ -381,8 +398,9 @@ Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
 batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ## Update {#Update}
@@ -461,9 +479,10 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
-action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue3}
@@ -474,8 +493,9 @@ queue_id | **string**<br>Required. ID of the message queue in Yandex Message Que
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage3}
@@ -485,8 +505,9 @@ Field | Description
 registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage3}
@@ -497,8 +518,9 @@ event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry3}
@@ -509,8 +531,9 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs3}
@@ -519,8 +542,9 @@ Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
 batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ## Delete {#Delete}
@@ -635,9 +659,10 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
-action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue4}
@@ -648,8 +673,9 @@ queue_id | **string**<br>Required. ID of the message queue in Yandex Message Que
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage4}
@@ -659,8 +685,9 @@ Field | Description
 registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage4}
@@ -671,8 +698,9 @@ event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry4}
@@ -683,8 +711,9 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs4}
@@ -693,8 +722,9 @@ Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
 batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ## Resume {#Resume}
@@ -769,9 +799,10 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 Field | Description
 --- | ---
 cron_expression | **string**<br>Required. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). The maximum string length in characters is 100.
-action | **oneof:** `invoke_function` or `invoke_function_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
+action | **oneof:** `invoke_function`, `invoke_function_with_retry` or `invoke_container_with_retry`<br>Action to be executed when the current time matches the `cron_expression`.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
-&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Action to be executed when the current time matches the `cron_expression`. 
+&nbsp;&nbsp;invoke_function_with_retry | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retry. 
+&nbsp;&nbsp;invoke_container_with_retry | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retry. 
 
 
 ### MessageQueue {#MessageQueue5}
@@ -782,8 +813,9 @@ queue_id | **string**<br>Required. ID of the message queue in Yandex Message Que
 service_account_id | **string**<br>Required. ID of the service account which has read access to the message queue. The maximum string length in characters is 50.
 batch_settings | **[BatchSettings](#BatchSettings)**<br>Required. Batch settings for processing messages in the queue. 
 visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Queue visibility timeout override. The maximum value is 12h.
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the queue.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the queue.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionOnce](#InvokeFunctionOnce)**<br>Instructions for invoking a function once. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerOnce](#InvokeContainerOnce)**<br>Instructions for invoking a container once. 
 
 
 ### IoTMessage {#IoTMessage5}
@@ -793,8 +825,9 @@ Field | Description
 registry_id | **string**<br>Required. ID of the Yandex IoT Core registry. 
 device_id | **string**<br>ID of the Yandex IoT Core device in the registry. 
 mqtt_topic | **string**<br>MQTT topic whose messages activate the trigger. 
-action | **oneof:** `invoke_function`<br>Action to be executed when the there's a new message in the MQTT topic.
+action | **oneof:** `invoke_function` or `invoke_container`<br>Action to be executed when the there's a new message in the MQTT topic.
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ObjectStorage {#ObjectStorage5}
@@ -805,8 +838,9 @@ event_type[] | **ObjectStorageEventType**<br>Type (name) of events, at least one
 bucket_id | **string**<br>ID of the bucket. 
 prefix | **string**<br>Prefix of the object key. Filter, optional. 
 suffix | **string**<br>Suffix of the object key. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### ContainerRegistry {#ContainerRegistry5}
@@ -817,8 +851,9 @@ event_type[] | **ContainerRegistryEventType**<br>Type (name) of events, at least
 registry_id | **string**<br>ID of the registry. 
 image_name | **string**<br>Docker-image name. Filter, optional. 
 tag | **string**<br>Docker-image tag. Filter, optional. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ### CloudLogs {#CloudLogs5}
@@ -827,8 +862,9 @@ Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
 batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
-action | **oneof:** `invoke_function`<br>
-&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br> 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
 ## ListOperations {#ListOperations}

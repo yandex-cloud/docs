@@ -6,10 +6,12 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 
 # Yandex Container Registry API
-Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL или выполните RPC-вызов. Подробнее об архитектуре API Яндекс.Облака, см. [Концепции API Яндекс.Облака](/docs/api-design-guide/).
+This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
-Ресурс | Описание
+Resource | Description
 --- | ---
-[Image](Image/index.md) | Набор методов для управления ресурсами Image.
-[Registry](Registry/index.md) | Набор методов для управления ресурсами Registry.
-[Repository](Repository/index.md) | Набор методов для управления ресурсами Repository.
+[Image](Image/index.md) | A set of methods for managing Image resources.
+[LifecyclePolicy](LifecyclePolicy/index.md) | A set of methods for managing Lifecycle policy resources.
+[Registry](Registry/index.md) | A set of methods for managing Registry resources.
+[Repository](Repository/index.md) | A set of methods for managing Repository resources.
+[Scanner](Scanner/index.md) | A set of methods for scanning Docker images.

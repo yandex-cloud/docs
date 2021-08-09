@@ -18,7 +18,7 @@ With {{ mmy-short-name }}, you can:
 - Scale processing power and storage dedicated for your databases as needed.
 - Get database logs.
 
-{{ mmy-short-name }} takes on time-consuming administration tasks in the {{ MY }} infrastructure:
+{{ mmy-short-name }} takes on time-consuming {{ MY }} infrastructure administration tasks:
 
 - Monitors resource usage.
 - Automatically creates DB backups.
@@ -37,9 +37,9 @@ For the created and running databases, {{ mmy-short-name }} automatically create
 
 #### When should I use {{ mmy-short-name }} and when should I use VMs with databases? {#mdb-advantage}
 
-{{ yandex-cloud }} offers two ways to operate databases:
+{{ yandex-cloud }} offers two ways to work with databases:
 
-- {{ mmy-short-name }} lets you run template databases with no need to worry about administration.
+- {{ mmy-short-name }} allows you to operate template databases with no need to worry about administration.
 - {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
 #### What is a database host and database cluster? {#what-is-cluster}
@@ -63,11 +63,16 @@ For detailed instructions, see [Getting started with {{ mmy-short-name }}<sup>®
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
-For network-based storage (NBS), the number of hosts in a cluster is limited only by the requested computing resources and the size of the storage for the cluster.
+The minimum number of hosts depends on the selected type of [storage](../concepts/storage.md):
 
-For local SSD storage, the number of hosts is limited during cluster creation: for {{ MY }} clusters, you must create at least three hosts.
+- If you use non-replicated network storage (`ssd-network-nonreplicated`) or fast local storage (`local-ssd`), the minimum number of hosts is 3.
+- If you select the `network-ssd` or `network-hdd` storage type, you can create single-host clusters.
 
-#### How do I access a running database host? {#db-access}
+The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
+
+For more information, see [{#T}](../concepts/limits.md).
+
+#### How can I access a running DB host? {#db-access}
 
 You can connect to {{ mmy-short-name }} databases using standard DBMS methods.
 
@@ -114,13 +119,13 @@ You can change computing resources and storage size in the management console. A
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
-#### Is database host backup enabled by default? {#default-backup}
+#### Is DB host backup enabled by default? {#default-backup}
 
 Yes, backup is enabled by default. For {{ MY }}, a full backup is performed once a day, saving all the database cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 By default, backups are stored for seven days.
 
-#### When are backups performed? Is a database cluster available during backup? {#backup-window}
+#### When are backups performed? Is a DB cluster available during backup? {#backup-window}
 
 The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
 

@@ -61,7 +61,10 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
       {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
-  1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-settings).
+  1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-settings).
+
+      {% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
+
   1. Нажмите кнопку **Создать кластер**.
 
 - CLI

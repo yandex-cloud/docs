@@ -24,15 +24,15 @@
 
   Acceptable values: from `0` to `100` inclusive. The default value is `0`.
 
-  The values `0` and `100` mean fully filled pages (no space is reserved).
+  Values `0` and `100` mean full page usage (no space reserved).
 
   For more information, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-fill-factor-server-configuration-option?view=sql-server-2016).
 
 * **Max degree of parallelism**{#setting-mark-cache-size} {{ tag-con }} {{ tag-api }}
 
-  Limits the number of CPUs to use in parallel plan execution per query.
+  Limits the number of processors to use in parallel plan building per task.
 
-  Acceptable values: from `0` to `32767` inclusive. The default value is `0` (all of the processors available are used).
+  Acceptable values: from `0` to `32767` inclusive. The default value is `0` (all the available processors are used).
 
   For more information, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option?view=sql-server-2016).
 

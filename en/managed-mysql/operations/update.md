@@ -7,9 +7,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
-
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
-
+* [Increase the storage size](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
 * [Configure the {{ MY }} servers](#change-mysql-config).
 
     {% note warning %}
@@ -21,12 +19,6 @@ After creating a cluster, you can:
 * [Change additional cluster settings](#change-additional-settings).
 
 * [{#T}](#change-sg-set).
-
-{% note warning %}
-
-You can't change {{ MY }} server settings using SQL commands.
-
-{% endnote %}
 
 ## Change the host class {#change-resource-preset}
 
@@ -110,7 +102,7 @@ You can't change {{ MY }} server settings using SQL commands.
 
   1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
-  1. Make sure the required cluster is using network storage (it is not yet possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
+  1. Make sure the required cluster uses standard or fast network storage (it's not possible to increase the size of local or non-replicated network storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-my }} cluster get <cluster name>
@@ -170,7 +162,7 @@ You can't change {{ MY }} server settings using SQL commands.
 
   To change {{ MY }} server settings:
 
-  1. View the description of the CLI's update cluster configuration command:
+  1. View a description of the CLI's update cluster configuration command:
 
       ```
       $ {{ yc-mdb-my }} cluster update-config --help
@@ -291,4 +283,3 @@ You can't change {{ MY }} server settings using SQL commands.
 You may need to additionally [set up security groups](connect.md#configure-security-groups) to connect to the cluster.
 
 {% endnote %}
-

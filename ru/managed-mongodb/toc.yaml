@@ -19,6 +19,8 @@ items:
         href: operations/cluster-stop.md
       - name: Изменение настроек кластера и базы данных
         href: operations/update.md
+      - name: Переключение первичной реплики
+        href: operations/stepdown.md
       - name: Обновление версии MongoDB
         href: operations/cluster-version-update.md
       - name: Мониторинг и инструменты диагностики кластера

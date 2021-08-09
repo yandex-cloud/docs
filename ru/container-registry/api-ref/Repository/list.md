@@ -5,35 +5,36 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Метод list
-Получает список ресурсов Repository в указанном реестре.
+# Method list
+Retrieves the list of Repository resources in the specified registry.
  
 
  
-## HTTP-запрос {#https-request}
+## HTTP request {#https-request}
 ```
 GET https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories
 ```
  
-## Query-параметры {#query_params}
+## Query parameters {#query_params}
  
-Параметр | Описание
+Parameter | Description
 --- | ---
-registryId | Идентификатор реестра для получения списка репозиториев.  Чтобы получить идентификатор реестра, используйте запрос [list](/docs/container-registry/api-ref/Registry/list).  Максимальная длина строки в символах — 50.
-folderId | Идентификатор каталога, для которого запрашивается список реестров. [folderId](/docs/container-registry/api-ref/Repository/list#query_params) игнорируется, если в запросе указан [registryId](/docs/container-registry/api-ref/Image/list#query_params).  Чтобы получить идентификатор каталога, используйте запрос [list](/docs/resource-manager/api-ref/Folder/list).  Максимальная длина строки в символах — 50.
-pageSize | Максимальное количество результатов на странице ответа на запрос. Если количество результатов больше чем [pageSize](/docs/container-registry/api-ref/Repository/list#query_params), сервис вернет значение [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses), которое можно использовать для получения следующей страницы. Значение по умолчанию: 100.  Максимальное значение — 1000.
-pageToken | Токен страницы. Установите значение [pageToken](/docs/container-registry/api-ref/Repository/list#query_params) равным значению поля [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses) предыдущего запроса, чтобы получить следующую страницу результатов.  Максимальная длина строки в символах — 100.
-filter | Параметры фильтрации ресурсов в ответе. В параметрах фильтрации указываются: 1. Имя поля. В настоящее время фильтрация осуществляется только по полю [Repository.name](/docs/container-registry/api-ref/Repository#representation). 2. Оператор. Может быть `=` или `!=` для одиночных значений, `IN` или `NOT IN` для списков значений. 3. Значение или список значений для сравнения со значениями фильтра.  Максимальная длина строки в символах — 1000.
-orderBy | Максимальная длина строки в символах — 100.
+registryId | ID of the registry to list repositories in.  To get the registry ID use a [list](/docs/container-registry/api-ref/Registry/list) request.  The maximum string length in characters is 50.
+folderId | ID of the folder to list registries in.  [folderId](/docs/container-registry/api-ref/Repository/list#query_params) is ignored if a [registryId](/docs/container-registry/api-ref/Image/list#query_params) is specified in the request.  To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/container-registry/api-ref/Repository/list#query_params), the service returns a [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/container-registry/api-ref/Repository/list#query_params) to the [nextPageToken](/docs/container-registry/api-ref/Repository/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Repository.name](/docs/container-registry/api-ref/Repository#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. Value or a list of values to compare against the values of the field.  The maximum string length in characters is 1000.
+orderBy | The maximum string length in characters is 100.
  
-## Ответ {#responses}
+## Response {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
 {
   "repositories": [
     {
-      "name": "string"
+      "name": "string",
+      "id": "string"
     }
   ],
   "nextPageToken": "string"
@@ -41,8 +42,9 @@ orderBy | Максимальная длина строки в символах �
 ```
 
  
-Поле | Описание
+Field | Description
 --- | ---
-repositories[] | **object**<br><p>Ресурс Repository. Подробнее смотрите в разделе <a href="/docs/container-registry/concepts/repository">Репозиторий</a>.</p> 
-repositories[].<br>name | **string**<br><p>Имя репозитория. Уникально в рамках реестра.</p> 
-nextPageToken | **string**<br><p>Токен для получения следующей страницы результатов в ответе. Если количество результатов больше чем <a href="/docs/container-registry/api-ref/Repository/list#query_params">pageSize</a>, используйте <a href="/docs/container-registry/api-ref/Repository/list#responses">nextPageToken</a> в качестве значения параметра <a href="/docs/container-registry/api-ref/Repository/list#query_params">pageToken</a> в следующем запросе списка ресурсов. Все последующие запросы будут получать свои значения <a href="/docs/container-registry/api-ref/Repository/list#responses">nextPageToken</a> для перебора страниц результатов.</p> 
+repositories[] | **object**<br><p>A Repository resource. For more information, see <a href="/docs/cloud/container-registry/repository">Repository</a>.</p> 
+repositories[].<br>name | **string**<br><p>Name of the repository. The name is unique within the registry.</p> 
+repositories[].<br>id | **string**<br><p>Output only. ID of the repository.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/container-registry/api-ref/Repository/list#query_params">pageSize</a>, use the <a href="/docs/container-registry/api-ref/Repository/list#responses">nextPageToken</a> as the value for the <a href="/docs/container-registry/api-ref/Repository/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/container-registry/api-ref/Repository/list#responses">nextPageToken</a> to continue paging through the results.</p> 

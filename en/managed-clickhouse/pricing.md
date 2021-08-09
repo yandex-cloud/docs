@@ -4,6 +4,7 @@ editable: false
 __system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
 
+
 # Pricing for {{ mch-short-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -45,7 +46,7 @@ The minimum billing unit is one minute (for example, the cost of 1.5 minutes of 
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 2 hosts in 100 GB increments.
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts in 100 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
 
@@ -111,20 +112,20 @@ You can't order {{ ZK }} resources with CVoS discounts.
 
 Prices for the time of host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-clickhouse#calculator).
 
+### {{ CH }} hosts {#calculated-clickhouse}
+
 {% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
 
 
-### {{ CH }} hosts {#calculated-clickhouse}
 
 
-
+For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
 
 {% include [usd-ch-classes-hour.md](../_pricing/managed-clickhouse/usd-ch-classes-hour.md) %}
-
 
 ### ZooKeeper hosts {#prices-zookeeper}
 
 
 
-  
-  {% include [usd-zoo-classes-hour.md](../_pricing/managed-clickhouse/usd-zoo-classes-hour.md) %}
+
+{% include [usd-zoo-classes-hour.md](../_pricing/managed-clickhouse/usd-zoo-classes-hour.md) %}
