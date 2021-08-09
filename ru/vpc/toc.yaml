@@ -60,6 +60,8 @@ items:
     items:
       - name: Архитектура и защита базового интернет-сервиса
         href: solutions/web-service.md
+      - name: Настройки DHCP для работы с корпоративным DNS-сервером
+        href: solutions/dhcp-options.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
