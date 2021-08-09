@@ -301,6 +301,10 @@ if(
 
 Добавить изображение в ячейку таблицы можно только в [ChartEditor](https://charts.yandex-team.ru/editor). Для этого укажите ссылку на нужное изображение в свойстве [backround-image](http://htmlbook.ru/css/background-image) для [css-стиля ячейки](./editor/widgets/table/index.md#example). См. [пример](https://datalens.yandex-team.ru/editor/1penklxj2bds0-table-with-base64-image).
 
+### Как выгрузить из таблицы все значения, а не только первые 100 строк? {#pagination}
+
+1. Перейдите в [настройки чарта](concepts/chart/settings.md#common-settings).
+1. В открывшемся окне установите значение **Выкл** напротив функции **Пагинация**.
 
 ## Дашборды {#dashboards}
 
