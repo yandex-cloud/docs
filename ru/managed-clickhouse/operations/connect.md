@@ -70,15 +70,37 @@
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
-Чтобы использовать шифрованное соединение, получите SSL-сертификат:
+Чтобы использовать шифрованное соединение, получите SSL-сертификат.
 
 {% if audience != "internal" %}
 
-```bash
-sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
-```
+{% list tabs %}
+
+- Linux (Bash)
+
+  Выполните команды:
+
+  ```bash
+  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
+  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
+  sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+  ```
+
+- Windows (PowerShell)
+
+  1. Скачайте и импортируйте сертификат:
+      ```powershell
+      mkdir -Force $HOME\.clickhouse; `
+      (Invoke-WebRequest https://{{ s3-storage-host }}{{ pem-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
+        | Out-File -Encoding ASCII $HOME\.clickhouse\YandexInternalRootCA.crt; `
+      Import-Certificate `
+        -FilePath  $HOME\.clickhouse\YandexInternalRootCA.crt `
+        -CertStoreLocation cert:\CurrentUser\Root
+      ```
+
+  1. Подтвердите согласие с установкой сертификата в хранилище «Доверенные корневые центры сертификации».
+
+{% endlist %}
 
 {% else %}
 
@@ -143,7 +165,9 @@ chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
 
 Вы можете подключаться к хостам кластера {{ CH }} в публичном доступе только с использованием SSL-сертификата. Перед подключением [подготовьте сертификат](#get-ssl-cert).
 
-В этих примерах предполагается, что сертификат `YandexInternalRootCA.crt` расположен в директории `/usr/local/share/ca-certificates/Yandex/`.
+В примерах ниже предполагается, что сертификат `YandexInternalRootCA.crt`:
+* расположен в директории `/usr/local/share/ca-certificates/Yandex/` — для Ubuntu;
+* импортирован в хранилище доверенных корневых сертификатов — для Windows.
 
 Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
 
