@@ -762,4 +762,24 @@
 
   После подключения к СУБД выполните команду `SELECT version();`.
 
+- PowerShell
+
+  **Подключение с использованием SSL-соединения:**
+
+  ```powershell
+  curl.exe `
+    -H "X-ClickHouse-User: <имя пользователя БД>" `
+    -H "X-ClickHouse-Key: <пароль пользователя БД>" `
+    'https://<FQDN любого хоста {{ CH }}>:8443/?database=<имя БД>&query=SELECT+version()'
+  ```
+
+  **Подключение без использования SSL-соединения:**
+
+  ```powershell
+  curl.exe `
+    -H "X-ClickHouse-User: <имя пользователя БД>" `
+    -H "X-ClickHouse-Key: <пароль пользователя БД>" `
+    'http://<FQDN любого хоста {{ CH }}>:8123/?database=<имя БД>&query=SELECT+version()'
+  ```
+
 {% endlist %}

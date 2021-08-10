@@ -87,7 +87,7 @@ items:
         href: concepts/acl.md
       - name: Политика доступа (Bucket Policy)
         href: concepts/policy.md
-      - name: Загрузка файла через HTML форму
+      - name: Загрузка файла через HTML-форму
         href: concepts/presigned-post-forms.md
       - name: Класс хранилища
         href: concepts/storage-class.md

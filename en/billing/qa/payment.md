@@ -90,8 +90,3 @@ Businesses may conclude an agreement that is signed by both parties. To do this,
 {{ yandex-cloud }} resources are consumed on an as-needed basis. The amount for resources consumed is calculated individually for each service.
 
 For more information, see [Pricing](../pricing.md).
-
-#### Can I enable  an alert to be notified when my account balance is approaching zero? {#notification}
-
-Since {{ yandex-cloud }} uses a postpaid billing system, we don't plan to introduce a service for notifying users about their account balance  approach to zero. We recommend that you track your spending and account balance on your own.
-
