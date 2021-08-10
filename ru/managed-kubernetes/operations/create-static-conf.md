@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
+---
 # Создание файла конфигурации
 
 Статические файлы конфигурации позволяют получить доступ к кластеру {{ k8s }} без использования CLI, например из систем непрерывной интеграции.
@@ -114,7 +118,7 @@
       name: admin-user
       namespace: kube-system
     ---
-    apiVersion: rbac.authorization.k8s.io/v1beta1
+    apiVersion: rbac.authorization.k8s.io/v1
     kind: ClusterRoleBinding
     metadata:
       name: admin-user
