@@ -16,11 +16,15 @@ items:
     - name: Stopping and starting clusters
       href: operations/cluster-stop.md
     - name: Changing cluster settings
-      href: operations/update.md
+      href: operations/cluster-update.md
+    - name: Configuring access to Object Storage
+      href: operations/s3-access.md
     - name: Managing Elasticsearch hosts
       href: operations/cluster-hosts.md
     - name: Managing Elasticsearch users
       href: operations/cluster-users.md
+    - name: Managing backups
+      href: operations/cluster-backups.md
     - name: Deleting a cluster
       href: operations/cluster-delete.md
   - name: Concepts
