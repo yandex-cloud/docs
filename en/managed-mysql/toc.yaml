@@ -65,6 +65,10 @@ items:
         href: concepts/replication.md
       - name: MySQL settings
         href: concepts/settings-list.md
+  - name: Use cases
+    items:
+      - name: Performance analysis and tuning
+        href: tutorials/profiling.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
