@@ -41,6 +41,8 @@ items:
             href: tts/brand-voice/index.md
           - name: Формат входных данных Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md
+          - name: Импорт данных для Brand Voice
+            href: tts/brand-voice/import-data.md
       - name: Справочник APIv3
         items:
         - name: Аутентификация в API
