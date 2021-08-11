@@ -152,17 +152,10 @@ After creating a cluster, you can:
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mmy-name }}**.
-
   1. Select the cluster and click **Edit cluster** in the top panel.
-
-  1. Change the {{ MY }} settings by clicking **Configure** under **DBMS settings**:
-
-     {% include [mmy-dbms-settings](../../_includes/mdb/mmy-dbms-settings.md) %}
-
+  1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-settings) by clicking **Configure** under **DBMS settings**.
   1. Click **Save**.
-
   1. Click **Save changes**.
 
 - CLI
@@ -171,7 +164,7 @@ After creating a cluster, you can:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change {{ MY }} server settings:
+  To update the [{{ MY }} settings](../concepts/settings-list.md#dbms-settings):
 
   1. View a description of the CLI's update cluster configuration command:
 
@@ -192,7 +185,7 @@ After creating a cluster, you can:
 
 - API
 
-  You can change the DBMS settings for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mysql_config_5_7`.
+  You can update the [{{ MY }} settings](../concepts/settings-list.md#dbms-settings) for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate values in the request parameter `configSpec.mysql_config_5_7`.
 
 {% endlist %}
 
@@ -200,7 +193,7 @@ After creating a cluster, you can:
 
 {% list tabs %}
 
-- Management console
+* Management console
 
   1. Go to the folder page and select **{{ mmy-name }}**.
 
@@ -210,7 +203,7 @@ After creating a cluster, you can:
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
-- CLI
+* CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -244,7 +237,7 @@ After creating a cluster, you can:
 
     You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API
+* API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
 
@@ -254,12 +247,12 @@ After creating a cluster, you can:
 
 {% list tabs %}
 
-- Management console
+* Management console
     1. Go to the folder page and select **{{ mmy-name }}**.
     1. Select the cluster and click **Edit cluster** in the top panel.
     1. Under **Network settings**, select security groups for cluster network traffic.
 
-- CLI
+* CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -280,7 +273,7 @@ After creating a cluster, you can:
            --security-group-ids <list of security groups>
         ```
 
-- API
+* API
 
     To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
     * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).

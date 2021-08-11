@@ -63,6 +63,8 @@ items:
         href: concepts/backup.md
       - name: Replication
         href: concepts/replication.md
+      - name: MySQL settings
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
