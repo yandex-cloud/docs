@@ -25,6 +25,7 @@ For the following products, funds are debited once for the calendar month in adv
 | Service | Cost of 1 GB per month, without VAT |
 | ----- | ----- |
 | Standard network storage |  {{ sku|USD|mdb.cluster.network-hdd.mssql|month|string }} |
+| Non-replicated network storage | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.mssql|month|string }} |
 | Fast network storage |  {{ sku|USD|mdb.cluster.network-nvme.mssql|month|string }} |
 | Fast local storage |  {{ sku|USD|mdb.cluster.local-nvme.mssql|month|string }} |
 | Backups beyond the storage size |  $0.032594 |
