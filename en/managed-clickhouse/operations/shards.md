@@ -19,10 +19,18 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mch-name }}**.
+
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
+
   1. Click **Add shard**.
-  1. Enter a name for the shard and add the desired number of hosts.
+
+  1. Specify the shard parameters:
+      * Name and weight.
+      * To copy the schema from a random replica of one of the shards to the hosts of the new shard, select the **Copy data schema** option.
+      * The required number of hosts.
+
   1. Click **Create shard**.
 
 - Terraform
@@ -32,6 +40,8 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
     {{ TF }} doesn't allow specifying shard weight.
 
     {% endnote %}
+
+    To add a shard to a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -65,7 +75,15 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 
   To add a shard to the cluster, use the [addShard](../api-ref/Cluster/addShard.md) method.
 
+  To copy the data schema from a random replica of one of the shards to the hosts of the new shard, pass the `copySchema` parameter set to `true` in the request.
+
 {% endlist %}
+
+{% note warning %}
+
+Use the copy data schema option only if the schema is the same on all replica hosts of the shard that you add the new host to.
+
+{% endnote %}
 
 ## Listing shards in a cluster {#list-shards}
 
@@ -141,8 +159,8 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
 You can delete a shard from a {{ CH }} cluster provided that:
 
-- It's not the only shard.
-- It's not the only shard in a [group of shards](shard-groups.md).
+* It's not the only shard.
+* It's not the only shard in a [group of shards](shard-groups.md).
 
 When you delete a shard, all tables and data that are saved on that shard are deleted.
 
@@ -157,6 +175,8 @@ When you delete a shard, all tables and data that are saved on that shard are de
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
 
 - Terraform
+
+    To delete a shard from a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
