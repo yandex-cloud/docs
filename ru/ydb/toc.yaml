@@ -240,6 +240,8 @@ items:
       - name: Использование Docker-контейнера YDB
         href: solutions/ydb_docker.md
         when: audience == "external"
+      - name: Подключение к YDB из функции Yandex Cloud Functions на Python
+        href: solutions/connect-from-cf.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: solutions/alice-shareable-todolist.md
   - name: Концепции
