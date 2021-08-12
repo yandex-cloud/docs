@@ -17,7 +17,7 @@ The maximum time it takes the support team to respond to your request is given i
 |  | For personal and research projects | For development and pilot projects | For professional projects |  |
 | Request in console | 24 hours | Standard: 8 hours<br/>Critical: 2 hours | Standard: 4 hours<br/>Critical: 30 minutes | Standard: 2 hours<br/>Critical: 15 minutes |
 | Chat | - | 15 minutes | 5 minutes | immediate |
-| Phone | - | - | immediate | immediate |
+| Phone | - | - | on additional request | on additional request |
 
 ## Types of requests to support {#request-types}
 
