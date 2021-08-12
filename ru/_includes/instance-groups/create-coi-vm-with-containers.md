@@ -109,6 +109,7 @@
    - API
 
      1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Networks`.
+
      1. Создать подсеть в зоне доступности `ru-central1-a`с помощью метода [Сreate](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
 
    {% endlist %}
@@ -158,7 +159,7 @@
             image: "redis"
             restart: always
       ssh-keys: | # Параметр для передачи SSH-ключа на ВМ.
-         yc-user:ssh-rsa ABC...d01 user@desktop.ru # Имя пользователя для подключения к ВМ.
+        yc-user:ssh-rsa ABC...d01 user@desktop.ru # Имя пользователя для подключения к ВМ.
    deploy_policy: # Политика развертывания ВМ в группе.
      max_unavailable: 1
      max_expansion: 0

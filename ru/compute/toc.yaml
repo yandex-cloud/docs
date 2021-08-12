@@ -197,6 +197,8 @@ items:
         href: solutions/ntp.md
       - name: Работа с группой ВМ с автоматическим масштабированием
         href: solutions/vm-autoscale.md
+      - name: Обновление группы ВМ под нагрузкой
+        href: solutions/updating-under-load.md
       - name: Развертывание Remote Desktop Gateway
         href: solutions/rds-gw
   - name: Концепции
@@ -211,6 +213,8 @@ items:
             href: concepts/vm-platforms.md
           - name: Уровни производительности vCPU
             href: concepts/performance-levels.md
+          - name: Графические ускорители (GPU)
+            href: concepts/gpus.md
           - name: Прерываемые виртуальные машины
             href: concepts/preemptible-vm.md
           - name: Сеть на виртуальной машине
@@ -219,7 +223,7 @@ items:
             href: concepts/software-accelerated-network.md
           - name: Динамическая миграция
             href: concepts/live-migration.md
-          - name: Группы размещения ВМ
+          - name: Группы размещения
             href: concepts/placement-groups.md
           - name: Статусы
             href: concepts/vm-statuses.md
