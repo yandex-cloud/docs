@@ -106,7 +106,7 @@ yc managed-kubernetes node-group create \
   --cluster-name <имя кластера {{ k8s }}> \
   --fixed-size <количество узлов в группе> \
   --network-interface security-group-ids=[<список групп безопасности>],subnets=<имя подсети>,ipv4-address=nat \
-  --metadata-from-file=ssh-keys <имя файла с публичными ключами>
+  --metadata-from-file ssh-keys=<имя файла с публичными ключами>
 ```
 
 {% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
@@ -118,7 +118,7 @@ yc managed-kubernetes node-group create \
 ```bash
 yc managed-kubernetes node-group add-metadata \
   --name <имя группы узлов> \
-  --metadata-from-file=ssh-keys <имя файла с публичными ключами> \
+  --metadata-from-file ssh-keys=<имя файла с публичными ключами> \
 ```
 
 ## Получите публичный IP-адрес узла {#node-public-ip}
