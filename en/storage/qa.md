@@ -1,25 +1,25 @@
 # Questions and answers about {{ objstorage-name }}
 
-#### What's {{ objstorage-full-name }}? {#qa-what-is}
+#### What is {{ objstorage-full-name }}? {#qa-what-is}
 
-{{ objstorage-full-name }} is a universal, scalable solution for data storage. It is the perfect choice both for high-load services that require reliable and fast access to data, and for projects with minimal requirements for storage infrastructure.
+{{ objstorage-full-name }} is a universal scalable solution for data storage. It is the perfect choice both for high-load services that require reliable and fast access to data, and for projects with minimal requirements for storage infrastructure.
 
 #### What can I do with {{ objstorage-full-name }}? {#qa-usecases}
 
 With {{ objstorage-name }}, you can:
 
-- Store your project files (website or server app) in {{ objstorage-name }} and make access to them either public or private. Files can be in any format.
-- Store large archive data (up to 5 TB per file) and make them available only to those you allow.
-- Enable collaboration with data inside a distributed organization.
-- Provide access to your data from any place on Earth where internet access is available.
+* Store your project files (website or server app) in {{ objstorage-name }} and make access to them either public or private. Files can be in any format.
+* Store large archive data (up to 5 TB per file) and make them available only to those you allow.
+* Enable collaboration with data inside a distributed organization.
+* Provide access to your data from any place on Earth where internet access is available.
 
 #### How do I get started with {{ objstorage-full-name }}? {#qa-quickstart}
 
 To start working with {{ objstorage-name }}:
 
-1. Sign up for Yandex.Cloud.
+1. Sign up for {{ yandex-cloud }}.
 1. Create a folder.
-At this step, you can already use {{ objstorage-name }} via the Yandex.Cloud management console. You can create and delete buckets, as well as upload objects to and download them from buckets.
+   At this step, you can already use {{ objstorage-name }} via the {{ yandex-cloud }} management console. You can create and delete buckets, as well as upload objects to and download them from buckets.
 1. Get static keys to use the {{ objstorage-name }} HTTP API or available SDKs and apps.
 
 For more detailed instructions, see [{#T}](quickstart.md) and [{#T}](s3/index.md).
@@ -34,8 +34,7 @@ Use the feedback form on the support page in the management console.
 
 #### How do I contact technical support? {qa-support-channels}
 
-You can contact technical support in the management console
- under [Support]({{ link-console-support }}).
+You can contact technical support in the management console under [Support]({{ link-console-support }}).
 
 #### How much data can I store? {#qa-storage-volume}
 
@@ -43,7 +42,7 @@ See [{#T}](concepts/limits.md).
 
 #### How can I delete multiple objects at a time? {#qa-delete-multiple-objects}
 
-You can delete multiple objects via the Yandex.Cloud management console or the API using the method [deleteMultipleObjects](s3/api-ref/object/deletemultipleobjects.md).
+You can delete multiple objects via the {{ yandex-cloud }} management console or the API using the [deleteMultipleObjects](s3/api-ref/object/deletemultipleobjects.md) method.
 
 #### What does Yandex do with the data I store in {{ objstorage-full-name }}? {#qa-data-use-by-yandex}
 
@@ -55,14 +54,14 @@ Yes. {{ objstorage-name }} is used in the Yandex infrastructure. Several Yandex 
 
 #### What data consistency model does {{ objstorage-full-name }} use? {#qa-consistency}
 
-For overwritable (PUT) or removable (DELETE) objects, the eventual consistency model is used.
+For overwritable (PUT) and removable (DELETE) objects, the strong consistency model is used.
 
 #### What AWS S3 features are supported in {{ objstorage-full-name }}? {#qa-s3-support}
 
 {{ objstorage-name }} supports:
 
-- Authorization using static tokens.
-- Some HTTP API methods. For a full list of supported methods, see the [API reference](s3/api-ref/index.md).
+* Authorization using static tokens.
+* Some HTTP API methods. For a full list of supported methods, see the [API reference](s3/api-ref/index.md).
 
 #### Where is my data stored? {#qa-where}
 
@@ -76,6 +75,19 @@ Data is stored in an encrypted format and none of those who have access to the p
 
 By default, the storage is accessed via HTTPS.
 
+#### How do you guarantee the performance of {{ objstorage-full-name }}? {#qa-timings}
+
+{{ objstorage-name }} has internal SLAs and SLOs that guarantee a specific speed of sending data to the customer, which, among other things, depend on the storage class.
+
+The {{ objstorage-name }} response time depends on multiple factors:
+
+* Client-side performance (network speed, CPU load, or disk subsystem load).
+* The speed of trunk connections, connections between data centers, or client-server connections.
+* Performance of {{ objstorage-name }} itself.
+
+This is why we can't specify a particular response time value. However, we do not consider a sharp increase in response time or a marked decrease in the speed of sending data to be the norm, and keep working to improve the technical characteristics of {{ objstorage-name }}.
+
 {% include [qa-fz-152.md](../_includes/qa-fz-152.md) %}
 
 {% include [qa-logs.md](../_includes/qa-logs.md) %}
+
