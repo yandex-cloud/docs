@@ -2,17 +2,18 @@
 
 Features provided in {{ mes-name }} depend on the {{ ES }} edition:
 
-| Name | `BASIC` | `GOLD` | `PLATINUM` |
-| ------------------------------------------- | :----------------------------------: | :----------------------------------: | :----------------------------------: |
-| Search and visualization | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Security and encryption | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Audit | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Additional visualization tools | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Advanced monitoring | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Extended support for working with geodata | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Graph analysis | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
-| Machine learning | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
-| Advanced access control | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| Name | Description | `BASIC` | `GOLD` | `PLATINUM` |
+| ---------- | ---------- | :-----: | :----: | :--------: |
+| Search and visualization | Basic Elasticsearch and Kibana search and visualization tools | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Data and delivery management | Managing data delivery from Kibana and the [index lifecycle](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-lifecycle-management.html) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Security and encryption | Support for encryption-in-transit, intra-cluster encryption, and role-based access control (RBAC) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Audit | Retrospective tracking for actions with clusters and their data | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Additional visualization tools | Easier viewing and working with information. For example, thanks to data-dependent dynamic link generation and export to PDF | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Advanced monitoring and notifications | Customized Jira, Slack, and email notification settings for monitoring | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Extended support for working with geodata | Aggregation by geo attributes | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| Graph analytics | Analyzing relationships between index elements | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| Machine learning | ML features: anomaly detection, regression, and classification | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
+| Advanced access control | Integration with third-party authentication and authorization providers (SAML). Granular configuration of data access levels | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 
 {% if audience == "draft" %}
 
@@ -21,12 +22,14 @@ Features provided in {{ mes-name }} depend on the {{ ES }} edition:
 - `BASIC`
 
     In this edition:
+
     - The minimum security settings are provided (authentication, authorization, and logging).
     - Basic monitoring features are provided.
 
 - `GOLD`
 
     In this edition, the following is provided in addition to all the `BASIC` features:
+
     - Advanced security settings (Single Sign-On, attribute-level access control, and other features).
     - Support for Elasticsearch Token Service.
     - Export of reports to PDF and PNG.
@@ -34,6 +37,7 @@ Features provided in {{ mes-name }} depend on the {{ ES }} edition:
 - `PLATINUM`
 
     In this edition, the following is provided in addition to all the `GOLD` features:
+
     - All {{ ES }} security features.
     - Support for JDBC, ODBC, and Tableau Connector clients.
     - Integration with IBM Resilient and ServiceNow ITSM.
@@ -42,4 +46,3 @@ Features provided in {{ mes-name }} depend on the {{ ES }} edition:
     - Use of private content sources.
 
 {% endif %}
-
