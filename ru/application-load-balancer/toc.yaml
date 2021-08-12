@@ -37,6 +37,10 @@ items:
             href: operations/application-load-balancer-create.md
           - name: Изменить L7-балансировщик
             href: operations/application-load-balancer-update.md
+          - name: Посмотреть логи L7-балансировщика
+            href: operations/application-load-balancer-get-logs.md
+          - name: Получить идентификатор лог-группы L7-балансировщика
+            href: operations/application-load-balancer-get-log-group-id.md
           - name: Удалить L7-балансировщик
             href: operations/application-load-balancer-delete.md
   - name: Сценарии использования
@@ -47,6 +51,8 @@ items:
         href: solutions/l7-bluegreen-deploy.md
       - name: Терминирование TLS-соединений
         href: solutions/tls-termination.md
+      - name: Запись логов балансировщика в {{ PG }}
+        href: solutions/logging.md
   - name: Концепции
     items:
       - name: Обзор
