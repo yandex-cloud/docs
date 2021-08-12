@@ -229,7 +229,7 @@ Docker containers are created based on the [Docker Compose specification](../../
 
    - API
 
-     Use the [СreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
+     Use the [CreateFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
 
    {% endlist %}
 

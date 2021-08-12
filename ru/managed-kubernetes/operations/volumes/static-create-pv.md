@@ -31,7 +31,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
     
 1. Сохраните спецификацию для создания объекта `PersistentVolume` в YAML-файл с названием `test-pv.yaml`.
     
-    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolume-v1-core).
+    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
     
     При указании параметра `capacity: storage` убедитесь, что задан точный объем диска. CSI не обеспечивает проверку объема диска для статически подготовленных томов.
     
@@ -77,7 +77,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 1. Сохраните спецификацию для создания объекта `PersistentVolumeClaim` YAML-файл с названием `test-claim.yaml`.
 
-    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolumeclaim-v1-core).
+    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
     
     ```
     apiVersion: v1
@@ -136,7 +136,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
           claimName:  test-claim
     ```
     
-    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#pod-v1-core).
+    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
 1. Выполните команду: 
 

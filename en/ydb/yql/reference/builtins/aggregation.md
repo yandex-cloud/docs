@@ -139,7 +139,7 @@ FROM my_table;
 
 ## SOME {#some}
 
-Get the value for an expression specified as an argument, for one of the table rows. Gives no guarantee of which row is used. It's similar to the [any()](https://clickhouse.yandex/docs/ru/agg_functions/reference/#anyx) function in ClickHouse.
+Get the value for an expression specified as an argument, for one of the table rows. Gives no guarantee of which row is used. It's similar to the [any()](https://clickhouse.tech/docs/en/sql-reference/aggregate-functions/reference/any/) function in ClickHouse.
 
 Because of no guarantee, `SOME` is computationally cheaper than [MIN](#min)/[MAX](#max) often used in similar situations.
 

@@ -14,7 +14,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ydb config profile list
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
 example (active)
@@ -28,7 +28,7 @@ example (active)
 ydb config profile get example
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
   endpoint: ydb.serverless.yandexcloud.net:2135

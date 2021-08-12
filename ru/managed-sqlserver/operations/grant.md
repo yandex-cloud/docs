@@ -95,7 +95,8 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ## Выдать привилегию пользователю {#grant-privilege}
 
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи владельца базы данных.
-2. Выполните команду `GRANT`. Подробное описание синтаксиса команды смотрите в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/t-sql/statements/grant-transact-sql?view=sql-server-2016).
+2. Выполните команду `GRANT`. Подробное описание синтаксиса команды смотрите в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
+
 
 ## Отозвать привилегию у пользователя {#revoke-privilege}
 

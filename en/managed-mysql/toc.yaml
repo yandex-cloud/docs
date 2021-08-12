@@ -25,8 +25,6 @@ items:
         href: operations/hosts.md
       - name: Database management
         href: operations/databases.md
-      - name: Database setup
-        href: operations/db-settings.md
       - name: Managing users
         href: operations/cluster-users.md
       - name: Assigning privileges and roles
@@ -63,6 +61,12 @@ items:
         href: concepts/backup.md
       - name: Replication
         href: concepts/replication.md
+      - name: MySQL settings
+        href: concepts/settings-list.md
+  - name: Use cases
+    items:
+      - name: Performance analysis and tuning
+        href: tutorials/profiling.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

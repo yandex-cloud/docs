@@ -283,7 +283,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 * [toml](https://toml.io/en/)
 * [Torch](https://pytorch.org/)
 * [torch-optimizer](https://pytorch-optimizer.readthedocs.io/en/latest/)
-* [torchvision](https://pytorch.org/docs/stable/torchvision/index.html)
+* [torchvision](https://pytorch.org/vision/stable/index.html)
 * [Tornado](https://www.tornadoweb.org/en/stable/)
 * [tqdm](https://tqdm.github.io/)
 * [Traitlets](https://traitlets.readthedocs.io/en/stable/)

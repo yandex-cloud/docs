@@ -10,8 +10,8 @@ You can add and remove cluster hosts and manage {{ CH }} settings for individual
 
 Note:
 
-- To add new hosts to any of the [shards](../concepts/sharding.md) in a cluster, first [add {{ ZK }} hosts](zk-hosts.md) that will ensure fault tolerance of the cluster.
-- You can't add new hosts if the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features) at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage. However, [you can add](shards.md#add-shard) single-host shards. This restriction is removed at the General Availability stage.
+* To add new hosts to any of the [shards](../concepts/sharding.md) in a cluster, first [add {{ ZK }} hosts](zk-hosts.md) that will ensure fault tolerance of the cluster.
+* You can't add new hosts if the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features) at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage. However, [you can add](shards.md#add-shard) single-host shards. This restriction is removed at the General Availability stage.
 
 {% endnote %}
 
@@ -66,12 +66,10 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
   
   1. Specify the host parameters:
-
       * Availability zone.
-
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
-
       * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
+      * Select the **Copy data schema** option to copy the schema from a random replica to the new host.
 
 - CLI
 
@@ -108,11 +106,13 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
   1. Run the add host command:
 
      
+     ```bash
+     {{ yc-mdb-ch }} host add \
+        --cluster-name <cluster name> \
+        --host zone-id=<availability zone>,subnet-id=<subnet ID>,assign-public-ip=<public IP>,shard-name=<shard name>
      ```
-     $ {{ yc-mdb-ch }} host add
-          --cluster-name <cluster name>
-          --host zone-id=<availability zone>,subnet-id=<subnet ID>
-     ```
+
+     To copy the data schema from a random replica to the new host, set the `--copy-schema` optional parameter.
 
      {{ mch-short-name }} will run the add host operation.
 
@@ -120,6 +120,8 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
+
+    To add a host to the cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -152,11 +154,15 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
   To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
 
+  To copy the data schema from a random replica to the new host, pass the `copySchema` parameter set to `true` in the request.
+
 {% endlist %}
 
 {% note warning %}
 
 If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
+Use the copy data schema option only if the schema is the same on all replica hosts of the cluster.
 
 {% endnote %}
 
@@ -190,6 +196,8 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
+
+    To remove a host from a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

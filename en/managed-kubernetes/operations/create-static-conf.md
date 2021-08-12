@@ -109,7 +109,7 @@ Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {
 
 1. Save the following specification for `ServiceAccount` creation in a YAML file named `sa.yaml`.
 
-    See the detailed specification of the `ServiceAccount` object in the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#serviceaccount-v1-core).
+    See the detailed specification of the `ServiceAccount` object in the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/service-account-v1/).
 
     ```
     apiVersion: v1

@@ -767,7 +767,7 @@
 
 - **Min wal size**{#setting-min-wal-size} {{ tag-all }}
 
-  The amount of disk space (in bytes) occupied by [WAL](https://www.postgresql.org/docs/current/wal-intro) that, when exceeded, triggers deletion of the old WAL files at checkpoints.
+  The amount of disk space (in bytes) occupied by the [WAL](https://www.postgresql.org/docs/current/wal-intro.html) that, when exceeded, triggers deletion of old WAL files at checkpoints.
 
   The minimum value is `2` and the maximum value is `2251799812636672` (2 PB). Defaults to `1073741824` (1 GB).
 

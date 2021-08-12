@@ -4,7 +4,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 # Активация профиля
 
-{% include [profile-list](../../../_includes/profile-list.md) %}
+{% include [profile-list](../../_includes/profile-list.md) %}
 
 Активируйте профиль с именем `example`:
 
@@ -12,7 +12,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ydb config profile activate example
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
 Profile "example" was activated.

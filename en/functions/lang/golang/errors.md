@@ -10,7 +10,7 @@ The error data is also written to the [execution log](logging.md). You can [view
 
 #### Examples of error handling {#examples}
 
-Case 1: user code goes outside the array boundaries, a `panic` is expected. In fact, the [handler](handler.md) captures the `panic` automatically, aggregates information about it, and generates a JSON document that contains an error message (the `errorMessage` field), error type (the `errorType` field), and [stack trace](https://en.qwe.wiki/wiki/Stack_trace) (the `stackTrace` field).
+Case 1: user code goes outside the array boundaries, a `panic` is expected. In fact, the [handler](handler.md) captures the `panic` automatically, aggregates information about it, and generates a JSON document that contains an error message (the `errorMessage` field), error type (the `errorType` field), and [stack trace](https://en.wikipedia.org/wiki/Stack_trace) (the `stackTrace` field).
 
 Function code:
 

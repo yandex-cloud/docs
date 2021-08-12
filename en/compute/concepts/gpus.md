@@ -1,6 +1,13 @@
 ---
 title: "GPU and vGPU - Graphics Accelerators"
 description: "GPU is a graphics processor unit that handles certain types of data much more efficiently than vCPU can be used for complex calculations. Compute Cloud provides graphics accelerators (GPU) and virtual graphics accelerators (vGPU) as part of the graphics card."
+keywords:
+  - gpu
+  - graphics processor
+  - graphics cards 
+  - графический процессор
+  - графические карты
+  - видео карты
 
 __system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
@@ -17,6 +24,8 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 Unlike vGPUs, GPUs run in [TCC](https://docs.nvidia.com/nsight-visual-studio-edition/reference/index.html#tesla-compute-cluster) mode, which doesn't use the operating system's graphics drivers.
 
 {% endnote %}
+
+By default, the cloud has a zero [quota](../concepts/limits.md#quotas) for creating virtual machines with GPUs and vGPUs. To change the quota, contact [technical support]({{ link-console-support }}).
 
 ## Graphics accelerators (GPUs)
 
@@ -47,7 +56,7 @@ Available configurations of computing resources:
   | 4 | 32 | 192 |
   | 8 | 64 | 384 |
 
-For more information about VM organizational and technical limits, see [Quotas and limits](../concepts/limits.md).
+For more information about organizational and technical limits for VMs, see [Quotas and limits](../concepts/limits.md).
 
 ### OS images {#os}
 
@@ -78,9 +87,9 @@ For information about how to install and configure the license server, see the [
 
 VMs with vGPUs can use the following configuration on Intel Broadwell with NVIDIA® vGPU Tesla® V100 8G (`vgpu-standard-v1`):
 
-  | Number of vGPUs | Number of vCPUs | RAM, GB | GPU RAM, GB |
-  | --- | --- | --- | --- |
-  | 1 | 4 | 12 | 8 |
+| Number of vGPUs | Number of vCPUs | RAM, GB | GPU RAM, GB |
+| --- | --- | --- | --- |
+| 1 | 4 | 12 | 8 |
 
 ## GPU vs. vGPU comparison
 
@@ -88,7 +97,7 @@ VMs with vGPUs can use the following configuration on Intel Broadwell with NVIDI
 
 ## See also {#see-also}
 
-* [Create a VM with a GPU](../operations/vm-create/create-vm-with-gpu.md).
+* [{#T}](../operations/vm-create/create-vm-with-gpu.md).
 * Learn how to [add a GPU to an existing VM](../operations/vm-control/vm-update-resources.md#add-gpu).
 * Learn how to [change the number of GPUs](../operations/vm-control/vm-update-resources.md#update-gpu).
 
