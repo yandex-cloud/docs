@@ -14,7 +14,7 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
     * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
     * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
 
-After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
+After creating a cluster, you can add extra hosts to it if the amount of available [folder resources](../concepts/limits.md) is sufficient for this.
 
 {% note info %}
 
@@ -69,10 +69,12 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
-  1. If necessary, configure the DBMS settings:
+     When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
-     {% include [mmy-dbms-settings](../../_includes/mdb/mmy-dbms-settings.md) %}
+  1. If necessary, configure additional cluster settings:
 
+    {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
+  1. If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-settings).
   1. Click **Create cluster**.
 
 - CLI
@@ -116,6 +118,8 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
+      If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-settings).
+
 - Terraform
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
@@ -131,6 +135,21 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
      Example configuration file structure:
 
      ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+     
+     provider "yandex" {
+       token = "<OAuth or static key of service account>"
+       cloud_id  = "<cloud ID>"
+       folder_id = "<folder ID>"
+       zone      = "<availability zone>"
+     }
+     
      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
        name               = "<cluster name>"
        environment        = "<PRESTABLE or PRODUCTION>"
@@ -243,21 +262,29 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ MY }} cluster and a network for it with the following characteristics:
-  - Named `my-mysql`.
-  - Version `8.0`.
-  - In the `PRESTABLE` environment.
-  - In the cloud with the ID `{{ tf-cloud-id }}`.
-  - In the folder with the ID `{{ tf-folder-id }}`.
-  - Network: `mynet`.
-  - In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.
-  - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-  - With 20 GB fast network storage (`{{ disk-type-example }}`).
-  - With one user (`user1`) with the password `user1user1`.
-  - With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
+    - Named `my-mysql`.
+    - Version `8.0`.
+    - In the `PRESTABLE` environment.
+    - In the cloud with the ID `{{ tf-cloud-id }}`.
+    - In the folder with the ID `{{ tf-folder-id }}`.
+    - Network: `mynet`.
+    - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+    - In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.
+    - With 20 GB fast network storage (`{{ disk-type-example }}`).
+    - With one user (`user1`) with the password `user1user1`.
+    - With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
 
   The configuration file for the cluster looks like this:
 
-  ```hcl
+  ```go
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+  
   provider "yandex" {
     token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
@@ -297,7 +324,9 @@ If you specified security group IDs when creating a cluster, you may also need t
     }
   }
   
-  resource "yandex_vpc_network" "mynet" { name = "mynet" }
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
   
   resource "yandex_vpc_security_group" "mysql-sg" {
     name       = "mysql-sg"
@@ -315,7 +344,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     name           = "mysubnet"
     zone           = "{{ zone-id }}"
     network_id     = yandex_vpc_network.mynet.id
-    v4_cidr_blocks = [ "10.5.0.0/24" ]
+    v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
 

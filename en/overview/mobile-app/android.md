@@ -6,6 +6,6 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 
 Use {{ yandex-cloud }} for Android devices:
 
-* **Required OS version:** 5 or higher.
+* **Required OS version:** 8 or higher.
 * **Download link:** [Google Play]({{ link-app-android }}).
 

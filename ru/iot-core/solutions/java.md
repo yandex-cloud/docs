@@ -8,7 +8,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 {% note info %}
 
-Исходный код, который используется в этом сценарии, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/java).
+Исходный код, который используется в этом сценарии, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java).
 
 {% endnote %}
 
@@ -135,7 +135,7 @@ openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
 
 #### Структура файлов {#file-structure}
 
-В примере, доступном на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/java), сертификаты загружаются из файлов, организованных следующим образом:
+В примере, доступном на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java), сертификаты загружаются из файлов, организованных следующим образом:
 
 ```
   /my_registry        Директория реестра |текущая директория|. Пример нужно запускать из этой директории.

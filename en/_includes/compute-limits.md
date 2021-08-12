@@ -13,7 +13,7 @@
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
 | Number of images per cloud | 8 |
 | Number of instance groups per cloud | 10 |
-| Total number of GPUs for all VMs per cloud* | 0 |
+| Total number of GPUs and vGPUs for all VMs per cloud* | 0 |
 | Number of concurrent [operations](../api-design-guide/concepts/operation.md) in the cloud | 15 |
 | Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
 | Maximum number of placement groups per cloud | 2 |
@@ -33,6 +33,15 @@
 | Maximum number of vCPUs for VMs with GPUs | 32 |
 | Maximum RAM for VMs with GPUs | 384 |
 | Maximum number of security groups per interface | 5 |
+
+#### VM limits on operations with non-replicated disks {#compute-limits-vm-nonrepl}
+
+| Type of limit | Value |
+| ----- | ----- |
+| Maximum[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) per vCPU | 10,000 |
+| Maximum[*](../compute/concepts/limits.md#max_iops) IOPS per VM | 100,000 |
+| Maximum[**](../compute/concepts/limits.md#max_bandwidth) [bandwidth](../compute/concepts/disk.md#rw) per vCPU | 100 MB/s |
+| Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth per VM | 1 GB/s |
 
 #### Disk limits {#compute-limits-disks}
 
@@ -74,6 +83,15 @@
     | Type of limit | Value |
     | ----- | ----- |
     | Minimum non-replicated disk size | 93 GB |
+    | [Allocation unit size](../compute/concepts/disk.md#rw) | 93 GB |
+    | Maximum[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) for writes, per disk | 50,000 |
+    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for writes, per allocation unit | 5600 |
+    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) [bandwidth](../compute/concepts/disk.md#rw) for writes, per disk | 1 GB/s |
+    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for writes, per allocation unit | 82 MB/s |
+    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per disk | 50,000 |
+    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per allocation unit | 28,000 |
+    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per disk | 1 GB/s |
+    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per allocation unit | 110 MB/s |
 
 {% endlist %}
 

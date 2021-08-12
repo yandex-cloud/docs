@@ -19,7 +19,7 @@ Create a pod with a dynamically provisioned [volume](../../concepts/volume.md):
 
     {% endnote %}
 
-    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolumeclaim-v1-core).
+    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
     ```
     apiVersion: v1

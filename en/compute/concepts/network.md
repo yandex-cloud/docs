@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 
 When creating a VM, you need to specify settings for the network interface connected to it: select the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to and configure its [internal](#internal-ip) and [public](#public-ip) IP addresses. This allows the VM to interact with other services on the intranet and internet.
 
-After the network interface is connected, the VM will be assigned the internal IP address in the subnet and [FQDN](#hostname). The public IP address will only be assigned if this was set when creating the VM.
+When the network interface is connected, the VM will be assigned the internal IP address in the subnet and [FQDN](#hostname). The public IP address will only be assigned if this was set when creating the VM.
 
 You can find out the IP addresses, FQDN and other information in the management console (go to the **Network** section on the virtual machine's page). This data can be used to connect to the VM.
 

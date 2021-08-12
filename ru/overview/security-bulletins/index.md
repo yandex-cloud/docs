@@ -62,7 +62,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 Уязвимость в Windows Netlogon Remote Protocol позволяет неаутентифицированному атакующему с сетевым доступом к контроллеру домена скомпрометировать все службы идентификации Active Directory.
 
-Исходный отчёт  Secura: [Zerologon](https://www.secura.com/pathtoimg.php?id=2055).
+Исходный отчёт  Secura: [Zerologon](https://www.secura.com/whitepapers/zerologon-whitepaper).
 
 Описание уязвимости, составленное Microsoft: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
 

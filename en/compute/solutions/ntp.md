@@ -20,11 +20,11 @@ You can sync virtual machines in Yandex.Cloud with public time servers via [NTPv
   In the system settings, specify the backup sync servers to use if the DHCP server goes down or is unavailable. To do this, follow the [instructions](#setup).
 
 Recommended sync servers:
-* [ntp0.NL.net](http://support.ntp.org/bin/view/Servers/PublicTimeServer000233)
-* [clock.isc.org](https://support.ntp.org/bin/view/Servers/PublicTimeServer000262)
-* [ntp2.vniiftri.ru](http://support.ntp.org/bin/view/Servers/PublicTimeServer000352)
-* [ntps1-1.cs.tu-berlin.de](http://support.ntp.org/bin/view/Servers/PublicTimeServer000213)
-* [ntp.ix.ru](http://support.ntp.org/bin/view/Servers/PublicTimeServer000766)
+* `ntp0.NL.net`
+* `clock.isc.org`
+* `ntp2.vniiftri.ru`
+* `ntps1-1.cs.tu-berlin.de`
+* `ntp.ix.ru`
 
 The list of recommended servers may change. Yandex.Cloud notifies you 72 hours before you need to make changes to a VM configuration.
 

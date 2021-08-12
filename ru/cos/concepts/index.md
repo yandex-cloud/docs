@@ -58,7 +58,7 @@ _{{ coi }}_ — [образ](../../compute/concepts/image.md) виртуальн
 
 ### COI спецификация {#coi-spec}
 
-Docker-контейнер в {{ coi }} описывается в спецификации (YAML-файле), основанной на [спецификации подов {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#pod-v1-core).
+Docker-контейнер в {{ coi }} описывается в спецификации (YAML-файле), основанной на [спецификации подов {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
 При [создании ВМ на базе {{ coi }}](../solutions/vm-create.md) из консоли управления или YC CLI спецификация генерируется автоматически на основе указанных данных. Для [создания группы ВМ на базе {{ coi }}](../solutions/ig-create.md) спецификацию необходимо составить вручную. Пример спецификации и необходимые ключи описаны ниже.
 

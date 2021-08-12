@@ -6,9 +6,9 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 К снижению производительности кластера {{ mmy-name }} обычно приводят следующие проблемы:
 
-- [высокая утилизация CPU, дискового I/O и сети](#cpu-io-deficit);
-- [неэффективное выполнение запросов в {{ MY }}](#inefficient-queries);
-- [блокировки](#localize-locking-issues).
+* [высокая утилизация CPU, дискового I/O и сети](#cpu-io-deficit);
+* [неэффективное выполнение запросов в {{ MY }}](#inefficient-queries);
+* [блокировки](#localize-locking-issues).
 
 Инструменты [мониторинга](../operations/monitoring.md) {{ MY }} и [диагностики производительности](../operations/performance-diagnostics.md) кластера {{ mmy-name }}, а также специальные запросы {{ MY }} помогут эти проблемы обнаружить.
 

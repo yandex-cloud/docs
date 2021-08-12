@@ -30,7 +30,7 @@ Before you start, you need to add dependencies.
 
 ## Encryption and decryption {#encrypt-decrypt}
 
-Create a Yandex.Cloud provider for the AWS Encryption SDK and use the methods of the [AwsCrypto](https://aws.github.io/aws-encryption-sdk-java/javadoc/com/amazonaws/encryptionsdk/AwsCrypto.html) class to encrypt and decrypt data.
+Create a Yandex.Cloud provider for the AWS Encryption SDK and use the methods of the [AwsCrypto](https://aws.github.io/aws-encryption-sdk-java/com/amazonaws/encryptionsdk/AwsCrypto.html) class to encrypt and decrypt data.
 
 {% list tabs %}
 

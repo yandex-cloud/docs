@@ -8,7 +8,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 
 # Assigning privileges and roles to users
 
-Atomic permissions in **{{ MS }}** are called _privileges_ and groups of permissions are called _roles_. **{{ mms-name }}** supports [predefined roles](#predefined-db-roles). For more information about how to manage permissions, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016).
+Atomic permissions in **{{ MS }}** are called _privileges_ and groups of permissions are called _roles_. **{{ mms-name }}** supports [predefined roles](#predefined-db-roles). For more information about how to manage permissions, see the [documentation for {{ MS }}](https://docs.microsoft.com/en-us/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016).
 
 The user created with a **{{ mms-name }}** cluster is automatically assigned the owner (`DB_OWNER`) role for the first database in the cluster. After that, you can [create other users](cluster-users.md#adduser) and configure their permissions as you wish:
 
@@ -40,6 +40,44 @@ To assign a **role** to a user, use the {{ yandex-cloud }} management console or
   1. To revoke a role, click ![image](../../_assets/cross.svg) to the right of its name.
   1. Click **Save**.
 
+- Terraform
+
+    To change a user's list of roles:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](./cluster-create.md).
+
+    1. In the {{ mms-name }} cluster description, find the `user` block for the required user.
+
+    1. Edit the value in the `roles` field under `permission` for the databases.
+
+        ```hcl
+        resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
+          ...
+          user {
+            ...
+            permission {
+              database_name = "<database name>"
+              roles         = ["<list of user roles>"]
+            }
+            ...
+          }
+        }
+        ```
+
+        For a list of predefined user roles, see [below](#predefined-db-roles). A configuration file with an infrastructure plan should specify them without a prefix, such as, `OWNER`, `DDLADMIN`, and `DATAREADER`.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mms }}).
+
 - API
 
   Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
@@ -59,13 +97,13 @@ To assign a **role** to a user, use the {{ yandex-cloud }} management console or
 
 ## Granting a privilege to a user {#grant-privilege}
 
-1. [Connect](connect.md) to the database under the account of the database owner.
+1. [Connect](connect.md) to the database under the database owner's account.
 2. Run the `GRANT` command. To learn more about the command syntax, see the [documentation for {{ MS }}](https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-transact-sql?view=sql-server-2016).
 
 ## Revoking a privilege from a user {#revoke-privilege}
 
-1. [Connect](connect.md) to the database under the account of the database owner.
-2. Run the `REVOKE` command. To learn more about the command syntax, see the [documentation for {{ MS }}](https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-transact-sql?view=sql-server-2016).
+1. [Connect](connect.md) to the database under the database owner's account.
+2. Run the `REVOKE` command. To learn more about the command syntax, see the [documentation for {{ MS }}](https://docs.microsoft.com/en-us/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
 
 {% include [user-ro](../../_includes/mdb/mms-user-examples.md) %}
 

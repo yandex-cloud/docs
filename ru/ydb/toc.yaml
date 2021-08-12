@@ -61,26 +61,6 @@ items:
                 href: quickstart/document-api/aws-sdk/delete-table.md
   - name: Пошаговые инструкции
     items:
-      - name: Работа с YDB CLI
-        items:
-          - name: Структура и описание команд YDB CLI
-            href: operations/ydb-cli/commands.md
-          - name: Получение информации об объекте схемы
-            href: operations/ydb-cli/scheme-describe.md
-          - name: Потоковое чтение таблицы
-            href: operations/ydb-cli/readtable.md
-          - name: Работа со вторичными индексами
-            href: operations/ydb-cli/operations-index.md
-          - name: Управление профилем
-            items:
-              - name: Создание профиля
-                href: operations/ydb-cli/profile/create.md
-              - name: Получение информации о профиле
-                href: operations/ydb-cli/profile/list-and-get.md
-              - name: Активация профиля
-                href: operations/ydb-cli/profile/activate.md
-              - name: Удаление профиля
-                href: operations/ydb-cli/profile/delete.md
       - name: Использование плана запроса и AST
         href: operations/get-query-plan.md
       - name: Управление базами данных
@@ -91,6 +71,44 @@ items:
         href: operations/crud.md
       - name: Работа со вторичными индексами
         href: operations/indexes.md
+  - name: Работа с YDB CLI
+    items:
+      - name: Установка YDB CLI
+        href: ydb-cli/install.md
+      - name: Авторизация в YDB CLI
+        href: ydb-cli/authorization.md
+      - name: Управление профилем
+        items:
+          - name: Создание профиля
+            href: ydb-cli/profile/create.md
+          - name: Получение информации о профиле
+            href: ydb-cli/profile/list-and-get.md
+          - name: Активация профиля
+            href: ydb-cli/profile/activate.md
+          - name: Удаление профиля
+            href: ydb-cli/profile/delete.md
+      - name: Команды
+        items:
+          - name: Обзор
+            href: ydb-cli/commands/index.md
+          - name: Структура и описание команд YDB CLI
+            href: ydb-cli/commands/commands.md
+          - name: Глобальные параметры
+            href: ydb-cli/commands/global-options.md
+          - name: Листинг объектов
+            href: ydb-cli/commands/scheme-ls.md
+          - name: Получение информации об объекте схемы
+            href: ydb-cli/commands/scheme-describe.md
+          - name: Получение списка эндпоинтов для базы данных
+            href: ydb-cli/commands/discovery-list.md
+          - name: Выполнение запроса к данным
+            href: ydb-cli/commands/query.md
+          - name: Потоковое чтение таблицы
+            href: ydb-cli/commands/readtable.md
+          - name: Работа со вторичными индексами
+            href: ydb-cli/commands/operations-index.md
+          - name: Работа с директориями
+            href: ydb-cli/commands/scheme-mkdir.md
   - name: Работа с SDK
     href: sdk/index.md
   - name: Сценарии использования
@@ -101,6 +119,8 @@ items:
         href: solutions/slack-bot-serverless.md
       - name: Использование Docker-контейнера YDB
         href: solutions/ydb_docker.md
+      - name: Подключение к YDB из функции Yandex Cloud Functions на Python
+        href: solutions/connect-from-cf.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: solutions/alice-shareable-todolist.md
   - name: Концепции

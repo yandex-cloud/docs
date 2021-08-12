@@ -78,7 +78,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
    <ip-address-vm> ya-sample-store.local
    ```
 
-1. Подключитесь к интернет-магазину по [ссылке](http://ya-sample-store.local).
+1. Подключитесь к интернет-магазину по адресу `http://ya-sample-store.local/`.
 
 1. Схему интернет-магазина можно посмотреть при помощи [DBeaver](https://dbeaver.com/).
 
@@ -159,7 +159,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 ## Проследите за переносом изменений в {{ yandex-cloud }} {#start-sync}
 
-1. Создайте заказ в интернет-магазине по [ссылке](http://ya-sample-store.local).
+1. Создайте заказ в интернет-магазине по адресу `http://ya-sample-store.local/`.
 1. Выполните запрос к БД в облаке:
    ``` sql
    SELECT so.*, soi.* FROM sales_order_grid so

@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 
 
-# Deleting clusters
+# Deleting a cluster
 
 {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
@@ -17,6 +17,10 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
   1. Select **{{ mms-name }}**.
   1. Click ![image](../../_assets/options.svg) for the cluster and select **Delete cluster**.
   1. Confirm cluster deletion and click **Delete**.
+
+- Terraform
+
+    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
 - API
 

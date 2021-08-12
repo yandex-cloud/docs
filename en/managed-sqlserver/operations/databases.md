@@ -35,19 +35,73 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
 - Management console
 
   To create a database:
+
   1. Go to the folder page and select **{{ mms-name }}**.
   1. Click on the name of the cluster you need.
   1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
   1. Select the **Databases** tab.
   1. Click **Add**.
   1. Enter the database name and click **Create**.
+
+      {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
+
   1. [Grant the `DB_OWNER`](grant.md) role to the user that should become the owner of the new database.
+
+- Terraform
+
+    To create a database in a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](./cluster-create.md).
+
+    1. Add a `database` block to the {{ mms-name }} cluster description.
+
+        ```hcl
+        resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
+          ...
+          database {
+            name = "<database name>"
+          }
+        }
+        ```
+
+        {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
+
+    1. Add a `permission` block to the description of the user to become the owner of the new database:
+
+        ```hcl
+        resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
+          ...
+          user {
+            ...
+            permission {
+              database_name = "<database name>"
+              roles         = ["OWNER"]
+            }
+            ...
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mms }}).
 
 - API
 
   Use the [create](../api-ref/Database/create.md) API method and pass the following in the request:
+
   - ID of the cluster where you want to create a database, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Database name, in the `databaseSpec.name` parameter.
+
+      {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
 
 To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -62,6 +116,28 @@ To find out the cluster ID, [get a list of clusters in the folder](cluster-list.
   1. Click on the name of the cluster you need and select the **Databases** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line with the desired DB and select **Delete**.
 
+- Terraform
+
+    To delete a database from a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](./cluster-create.md).
+
+    1. Delete the `database` description block from the {{ mms-name }} cluster description.
+
+    1. Delete from the user description the `permission` blocks containing the `database_name` field pointing to the database to delete.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the deletion of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mms }}).
+
 - API
 
   Use the [delete](../api-ref/Database/delete.md) API method and pass the following in the request:
@@ -72,7 +148,7 @@ To find out the cluster ID, [get a list of clusters in the folder](cluster-list.
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
 

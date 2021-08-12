@@ -81,7 +81,7 @@ POST https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize
 ----- | -----
 config | **object**<br>Поле с настройками распознавания.
 config.<br>specification | **object**<br>Настройки распознавания.
-config.<br>specification.<br>languageCode | **string**<br>Язык, для которого будет выполнено распознавание.<br/>Сейчас поддерживается только русский язык — `ru-RU`.
+config.<br>specification.<br>languageCode | **string**<br>Язык, для которого будет выполнено распознавание.<br/>Список доступных языков см. в [описании модели](models.md). Значение по умолчанию — `ru-RU`  — русский язык.
 config.<br>specification.<br>model | **string**<br>Языковая модель, которую следует использовать при распознавании.<br/>Чем точнее выбрана модель, тем лучше результат распознавания. В одном запросе можно указать только одну модель.<br/>[Допустимые значения](models.md) зависят от выбранного языка. Значение параметра по умолчанию: `general`. В зависимости от выбранной модели может измениться [тарификация](../pricing.md#rules-stt-long).
 config.<br>specification.<br>profanityFilter | **boolean**<br>Фильтр ненормативной лексики.<br/>Допустимые значения:<ul><li>`true` — исключать ненормативную лексику из результатов распознавания.</li><li>`false` (по умолчанию) — не исключать ненормативную лексику.</li></ul>
 config.<br>specification.<br>audioEncoding | **string**<br>[Формат](formats.md) передаваемого аудио.<br/>Допустимые значения:<ul><li>`LINEAR16_PCM` — [LPCM без WAV-заголовка](formats.md#lpcm).</li><li>`OGG_OPUS` (по умолчанию) — формат [OggOpus](formats.md#oggopus).</li></ul>

@@ -108,7 +108,7 @@ yc managed-kubernetes node-group create \
 --fixed-size <number_of_nodes_in_the_group> \
 --location zone=<availability_zone>,subnet-name=<subnet_name> \
 --public-ip \
---metadata-from-file=ssh-keys <name_of_the_file_with_public_keys> \
+--metadata-from-file ssh-keys=<name_of_the_file_with_public_keys> \
 ```
 
 ## Update node group keys {#node-add-metadata}
@@ -118,7 +118,7 @@ To update the SSH keys of a node group, use the following command:
 ```
 yc managed-kubernetes node-group add-metadata \
 --name <node group name> \
---metadata-from-file=ssh-keys <name of the file with public keys> \
+--metadata-from-file ssh-keys=<name of the file with public keys> \
 ```
 
 ## Get the public IP address of the node {#node-public-ip}

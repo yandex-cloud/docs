@@ -45,6 +45,8 @@ items:
         href: solutions/virtual-hosting.md
       - name: «Сине-зеленое развертывание» для переключения между версиями сервиса
         href: solutions/l7-bluegreen-deploy.md
+      - name: Терминирование TLS-соединений
+        href: solutions/tls-termination.md
   - name: Концепции
     items:
       - name: Обзор
