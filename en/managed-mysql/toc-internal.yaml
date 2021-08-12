@@ -23,8 +23,6 @@ items:
         href: operations/hosts.md
       - name: Database management
         href: operations/databases.md
-      - name: Database setup
-        href: operations/db-settings.md
       - name: Managing users
         href: operations/cluster-users.md
       - name: Assigning privileges and roles
