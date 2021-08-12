@@ -1,6 +1,6 @@
 # Активация профиля
 
-{% include [profile-list](../../../_includes/profile-list.md) %}
+{% include [profile-list](../../_includes/profile-list.md) %}
 
 Активируйте профиль с именем `example`:
 
@@ -8,7 +8,7 @@
 ydb config profile activate example
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
 Profile "example" was activated.

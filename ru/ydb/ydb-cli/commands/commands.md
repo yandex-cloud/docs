@@ -1,29 +1,39 @@
-# Структура и описание команд YDB CLI
+# Структура и описание команд {{ ydb-short-name }} CLI
 
-Получите информацию обо всех доступных командах YDB CLI или узнайте подробное описание конкретной команды.
+Получите информацию обо всех доступных командах {{ ydb-short-name }} CLI или узнайте подробное описание конкретной команды.
 
-## Получение информации обо всех командах YDB CLI {#all}
+## Получение общей информации обо всех подкомандах {{ ydb-short-name }} CLI {#all}
 
-Чтобы получить список всех доступных команд YDB CLI с кратким описанием, выполните команду:
+Получите список всех доступных подкоманд {{ ydb-short-name }} CLI с кратким описанием:
 
 ```bash
 {{ ydb-cli }} --help
 ```
 
-Результат команды:
+Результат:
 
-```bash
+```text
 YDB client
 
 Usage: ydb [options...] <subcommand>
 
 Subcommands:
 ydb
+├─ config                   Manage YDB CLI configuration
+│  └─ profile               Manage configuration profiles
+│     ├─ activate           Activate specified configuration profile (aliases: set)
+│     ├─ create             Create new configuration profile or re-configure existing one
+│     ├─ delete             Delete specified configuration profile (aliases: remove)
+│     ├─ get                List values for specified configuration profile
+│     └─ list               List configuration profiles
 ├─ discovery                Discovery service operations
 │  ├─ list                  List endpoints
 │  └─ whoami                Who am I?
 ├─ export                   Export service operations
 │  └─ s3                    Create export to S3
+├─ import                   Import service operations
+│  └─ s3                    Create import from S3
+├─ init                     YDB CLI initialization
 ├─ operation                Operation service operations
 │  ├─ cancel                Start cancellation of a long-running operation
 │  ├─ forget                Forget long-running operation
@@ -49,7 +59,7 @@ ydb
 │  ├─ drop                  Drop a table
 │  ├─ index                 Index operations
 │  │  ├─ add                Add index in to the specified table
-│  │  │  └─ global          Add global index. The command returns operation
+│  │  │  └─ global-sync     Add global sync index. The command returns operation (aliases: global)
 │  │  └─ drop               Drop index from the specified table
 │  ├─ query                 Query operations
 │  │  ├─ execute            Execute query (aliases: exec)
@@ -70,86 +80,82 @@ Options:
   {-?|-h|--help}        print usage
   {-e|--endpoint} [PROTOCOL://]HOST[:PORT]
                         [Required] Endpoint to connect. Protocols: grpc, grpcs (Default: grpcs).
-  {-d|--database} PATH  [Required] Database to work with
+                          Endpoint search order:
+                            1. This option
+                            2. Profile specified with --profile option
+                            3. Active configuration profile
+  {-d|--database} PATH  [Required] Database to work with.
+                          Database search order:
+                            1. This option
+                            2. Profile specified with --profile option
+                            3. Active configuration profile
   {-v|--verbose}        Increase verbosity of operations (default: 0)
   --ca-file PATH        Path to a file containing the PEM encoding of the server root certificates for tls connections.
                         If this parameter is empty, the default roots will be used.
-  --iam-token-file PATH IAM token file
+  --iam-token-file PATH IAM token file. Note: IAM tokens expire in 12 hours.
                           For more info go to: cloud.yandex.ru/docs/iam/concepts/authorization/iam-token
                           Token search order:
                             1. This option
-                            2. "IAM_TOKEN" environment variable
+                            2. Profile specified with --profile option
+                            3. "IAM_TOKEN" environment variable
+                            4. Active configuration profile
   --yc-token-file PATH  YC token file. It should contain OAuth token of a Yandex Passport user to get IAM token with.
                           For more info go to: cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token
                           Token search order:
                             1. This option
-                            2. "YC_TOKEN" environment variable
+                            2. Profile specified with --profile option
+                            3. "YC_TOKEN" environment variable
+                            4. Active configuration profile
   --use-metadata-credentials
                         Use metadata service on a virtual machine to get credentials
                           For more info go to: cloud.yandex.ru/docs/compute/operations/vm-connect/auth-inside-vm
                           Definition priority:
                             1. This option
-                            2. "USE_METADATA_CREDENTIALS" environment variable (default: 0)
+                            2. Profile specified with --profile option
+                            3. "USE_METADATA_CREDENTIALS" environment variable
+                            4. Active configuration profile (default: 0)
   --sa-key-file PATH    Security account key file
                           For more info go to: cloud.yandex.ru/docs/iam/operations/iam-token/create-for-sa
                           Definition priority:
                             1. This option
-                            2. "SA_KEY_FILE" environment variable
+                            2. Profile specified with --profile option
+                            3. "SA_KEY_FILE" environment variable
+                            4. Active configuration profile
+  --iam-endpoint STR    Endpoint of IAM service (default: "iam.api.cloud.yandex.net")
+  --profile NAME        Profile name to use configuration parameters from.
+  --license             Print license
+  --credits             Print third-party licenses
+
+Free args: min: 1, max: unlimited
+  <subcommand>  config,discovery,export,import,init,operation,scheme,scripting,table,tools,update,version
 ```
 
+## Получение детальной информации о подкомандах {{ ydb-short-name }} CLI {#one}
 
-## Получение подробной информации о конкретной команде YDB CLI {#one}
-
-Для любой из команд также можно получить более подробное описание со списком доступных параметров:
+Для любой подкоманды также можно получить более подробное описание со списком доступных параметров:
 
 ```bash
-$ {{ ydb-cli }} discovery whoami --help
+{{ ydb-cli }} discovery whoami --help
 ```
 
-Передаваемые параметры делятся на два типа:
-* глобальные — указываются в корне, то есть после `{{ ydb-cli }}`;
-* опции самой команды — указываются в конце.
+Результат:
 
-
-Результат команды:
-
-```bash
+```text
 Usage: ydb [global options...] discovery whoami [options...]
 
 Description: Who am I?
 
 Global options:
-  {-e|--endpoint} [PROTOCOL://]HOST[:PORT]
-                            [Required] Endpoint to connect. Protocols: grpc, grpcs (Default: grpcs).
-  {-d|--database} PATH      [Required] Database to work with
-  {-v|--verbose}            Increase verbosity of operations (default: 0)
-  --ca-file PATH            Path to a file containing the PEM encoding of the server root certificates for tls connections.
-                            If this parameter is empty, the default roots will be used.
-  --iam-token-file PATH     IAM token file
-                              For more info go to: cloud.yandex.ru/docs/iam/concepts/authorization/iam-token
-                              Token search order:
-                                1. This option
-                                2. "IAM_TOKEN" environment variable
-  --yc-token-file PATH      YC token file. It should contain OAuth token of a Yandex Passport user to get IAM token with.
-                              For more info go to: cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token
-                              Token search order:
-                                1. This option
-                                2. "YC_TOKEN" environment variable
-  --use-metadata-credentials
-                            Use metadata service on a virtual machine to get credentials
-                              For more info go to: cloud.yandex.ru/docs/compute/operations/vm-connect/auth-inside-vm
-                              Definition priority:
-                                1. This option
-                                2. "USE_METADATA_CREDENTIALS" environment variable
-                            Default: 0
-  --sa-key-file PATH        Security account key file
-                              For more info go to: cloud.yandex.ru/docs/iam/operations/iam-token/create-for-sa
-                              Definition priority:
-                                1. This option
-                                2. "SA_KEY_FILE" environment variable
+  {-e|--endpoint}, {-d|--database}, {-v|--verbose}, --ca-file, --iam-token-file, --yc-token-file, --use-metadata-credentials, --sa-key-file, --iam-endpoint, --profile, --license, --credits
+  To get full description of these options run 'ydb --help'.
 
 Options:
   {-?|-h|--help}      print usage
   --client-timeout ms Operation client timeout
   {-g|--groups}       With groups (default: 0)
 ```
+
+Передаваемые параметры делятся на два типа:
+
+* `Global options` — глобальные, указываются после `ydb`.
+* `Options` — опции подкоманды, указываются после подкоманды.

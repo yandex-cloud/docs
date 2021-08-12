@@ -1,6 +1,6 @@
 # Удаление профиля
 
-{% include [profile-list](../../../_includes/profile-list.md) %}
+{% include [profile-list](../../_includes/profile-list.md) %}
 
 Удалите профиль `example`:
 
@@ -8,13 +8,13 @@
 ydb config profile delete example
 ```
 
-Результат выполнения:
+Результат:
 
 ```text
 Profile "example" will be permanently removed. Continue? (y/n): 
 ```
 
-Подтвердите удаление. Результат выполнения:
+Подтвердите удаление. Результат:
 
 ```text
 Profile "example" was removed.
