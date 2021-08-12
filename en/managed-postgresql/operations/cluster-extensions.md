@@ -84,7 +84,6 @@ All supported extensions are listed here:
 - [bloom](https://www.postgresql.org/docs/current/static/bloom.html)
 - [btree_gin](https://www.postgresql.org/docs/current/static/btree-gin.html)
 - [btree_gist](https://www.postgresql.org/docs/current/static/btree-gist.html)
-- [chkpass](https://www.postgresql.org/docs/current/static/chkpass.html)
 - [citext](https://www.postgresql.org/docs/current/static/citext.html)
 - [cube](https://www.postgresql.org/docs/current/static/cube.html)
 - [dblink](https://www.postgresql.org/docs/current/static/dblink.html) (requires the `owner` or [mdb_admin](../concepts/roles.md#mdb-admin) role)

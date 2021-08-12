@@ -4,7 +4,7 @@ In this scenario, you'll learn how to connect to {{ iot-full-name }} from an And
 
 {% note info %}
 
-The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/java_android/YandexIoTCoreConnectionExample).
+The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java_android/YandexIoTCoreConnectionExample).
 
 {% endnote %}
 

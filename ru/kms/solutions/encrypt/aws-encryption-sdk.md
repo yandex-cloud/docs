@@ -26,7 +26,7 @@
 
 ## Шифрование и расшифровка {#encrypt-decrypt}
 
-Создайте провайдер {{ yandex-cloud }} для AWS Encryption SDK и используйте методы класса [AwsCrypto](https://aws.github.io/aws-encryption-sdk-java/javadoc/com/amazonaws/encryptionsdk/AwsCrypto.html) для шифрования и расшифровки данных.
+Создайте провайдер {{ yandex-cloud }} для AWS Encryption SDK и используйте методы класса [AwsCrypto](https://aws.github.io/aws-encryption-sdk-java/com/amazonaws/encryptionsdk/AwsCrypto.html) для шифрования и расшифровки данных.
 
 {% list tabs %}
 

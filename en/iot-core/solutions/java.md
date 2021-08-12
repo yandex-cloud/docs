@@ -4,7 +4,7 @@ In this scenario, you'll learn how to connect to {{ iot-full-name }} using the [
 
 {% note info %}
 
-The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/java).
+The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java).
 
 {% endnote %}
 
@@ -139,7 +139,7 @@ openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
 
 #### File structure {#file-structure}
 
-In the example available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/java), certificates are loaded from files with the following structure:
+In the example available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java), certificates are loaded from files with the following structure:
 
 ```
   /my_registry        Registry directory |current directory|. The example should be run from this directory.

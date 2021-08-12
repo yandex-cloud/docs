@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Исходный код, который используется в этом сценарии, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/java_android/YandexIoTCoreConnectionExample).
+Исходный код, который используется в этом сценарии, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java_android/YandexIoTCoreConnectionExample).
 
 {% endnote %}
 

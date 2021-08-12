@@ -58,7 +58,7 @@ All {{ yandex-cloud}} services support TLS 1.2 and higher. Support for outdated 
 
 A flaw in Windows Netlogon Remote Protocol allows an unauthenticated attacker with network access to a domain controller to completely compromise all Active Directory identity services. 
 
-Original report from Secura: [Zerologon](https://www.secura.com/pathtoimg.php?id=2055).
+Original report from Secura: [Zerologon](https://www.secura.com/whitepapers/zerologon-whitepaper).
 
 Microsoft advisory: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
 

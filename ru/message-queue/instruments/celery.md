@@ -1,6 +1,6 @@
 # Пример использования {{ message-queue-full-name }} с Celery
 
-[Celery](http://www.celeryproject.org/) — это очередь задач для языка программирования Python, которую можно использовать в работе с {{ message-queue-name }}.
+[Celery](https://docs.celeryproject.org/en/stable/) — это очередь задач для языка программирования Python, которую можно использовать в работе с {{ message-queue-name }}.
 
 ## Установка {#install}
 

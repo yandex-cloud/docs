@@ -29,7 +29,7 @@ Look up the unique ID of the disk to be used to create the `PersistentVolume`, o
 
 1. Save the `PersistentVolume` creation specification to a YAML file named `test-pv.yaml`.
 
-    To learn more about the specification, see the {{ k8s }} [documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolume-v1-core).
+    To learn more about the specification, see the {{ k8s }} [documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
 
     When setting the `capacity: storage` parameter, make sure you specify the exact size of the disk. CSI doesn't validate the disk size for statically provisioned volumes.
 
@@ -75,7 +75,7 @@ Look up the unique ID of the disk to be used to create the `PersistentVolume`, o
 
 1. Save the `PersistentVolumeClaim` creation specification to a YAML file named `test-claim.yaml`.
 
-    To learn more about the specification, see the {{ k8s }} [documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolumeclaim-v1-core).
+    To learn more about the specification, see the {{ k8s }} [documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
     ```
     apiVersion: v1
@@ -134,7 +134,7 @@ Look up the unique ID of the disk to be used to create the `PersistentVolume`, o
           claimName:  test-claim
     ```
 
-    To learn more about the specification, see the {{ k8s }} [documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#pod-v1-core).
+    To learn more about the specification, see the {{ k8s }} [documentation](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
 1. Run the command:
 

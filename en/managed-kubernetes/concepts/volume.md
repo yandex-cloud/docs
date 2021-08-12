@@ -8,7 +8,7 @@ We can solve these problems using {{ k8s }} volumes.
 
 _Volumes_ are stores shared by objects from different containers deployed in one or more pods. In the pod specification, users set the volumes to be included in the pod and the path that containers should mount them to.
 
-To handle volumes, {{ k8s }} operates with the following [{{ k8s }} API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/) objects: `Volume`, `PersistentVolume`, `PersistentVolumeClaim`, and `StorageClass`.
+To handle volumes, {{ k8s }} operates with the following [{{ k8s }} API](https://kubernetes.io/docs/reference/kubernetes-api/) objects: `Volume`, `PersistentVolume`, `PersistentVolumeClaim`, and `StorageClass`.
 
 Volumes are classified by their life cycle:
 * Temporary (`Volume`) volumes have the same lifetime as the pods that contain them. These volumes are created along with the pod and saved when the container is restarted. When the pod is stopped or deleted, its volumes are destroyed.
@@ -91,6 +91,6 @@ Depending on the `PersistentVolume` and `PersistentVolumeClaim` settings, volume
 
 * For dynamically provisioned volumes: after removing a `PersistentVolumeClaim` built on the `yc-network-hdd` or `yc-network-ssd` storage classes, the applicable `PersistentVolume` and Compute Cloud disk **are deleted**.
 
-* For statically provisioned volumes: you can specify whether to delete the {{ compute-name }} disk when deleting the `PersistentVolumeClaim`. To do this, use the `persistentVolumeReclaimPolicy` parameter in the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#persistentvolumespec-v1-core). By default, the `Retain` value is used for statically provisioned pods and the {{ compute-name }} disk is **not deleted**.
+* For statically provisioned volumes: you can specify whether to delete the {{ compute-name }} disk when deleting the `PersistentVolumeClaim`. To do this, use the `persistentVolumeReclaimPolicy` parameter in the [PersistentVolumeSpec](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/#PersistentVolumeSpec). By default, the `Retain` value is used for statically provisioned pods and the {{ compute-name }} disk is **not deleted**.
 
 Learn more about volumes in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).

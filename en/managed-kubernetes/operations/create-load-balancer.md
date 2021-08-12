@@ -262,7 +262,7 @@ Where:
 In {{ managed-k8s-short-name }}, the following advanced settings are available for a service with the `LoadBalancer` type:
 
 * Assign a [pre-allocated public IP address](../../vpc/operations/get-static-ip.md) using the `loadBalancerIP` parameter.
-* Manage traffic using the [externalTrafficPolicy](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#service-v1-core) parameter:
+* Manage traffic using the [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/) parameter:
   * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. In this case:
     * If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) forwards traffic to another node.
   * `Local`: Traffic goes directly to the nodes where the application containers are running. In this case:

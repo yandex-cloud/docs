@@ -135,7 +135,7 @@ FROM my_table;
 
 ## SOME {#some}
 
-Получить значение указанного в качестве аргумента выражения для одной из строк таблицы. Не дает никаких гарантий о том, какая именно строка будет использована. Аналог функции [any()](https://clickhouse.yandex/docs/ru/agg_functions/reference/#anyx) в ClickHouse.
+Получить значение указанного в качестве аргумента выражения для одной из строк таблицы. Не дает никаких гарантий о том, какая именно строка будет использована. Аналог функции [any()]{% if region =="int" %}(https://clickhouse.tech/docs/en/sql-reference/aggregate-functions/reference/any/){% else %}(https://clickhouse.tech/docs/ru/sql-reference/aggregate-functions/reference/any/){% endif %} в ClickHouse.
 
 Из-за отсутствия гарантий `SOME` вычислительно дешевле, чем часто использующиеся в подобных ситуациях [MIN](#min)/[MAX](#max).
 
