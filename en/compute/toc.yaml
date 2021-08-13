@@ -101,7 +101,7 @@ items:
         items:
           - name: Creating an empty disk
             href: operations/disk-create/empty.md
-          - name: Create an empty disk with a large block
+          - name: Creating an empty disk with a large block
             href: operations/disk-create/empty-disk-blocksize.md
           - name: Creating a non-replicated disk
             href: operations/disk-create/nonreplicated.md
@@ -187,6 +187,8 @@ items:
         href: solutions/ntp.md
       - name: Running instance groups with auto scaling
         href: solutions/vm-autoscale.md
+      - name: Deploying Remote Desktop Gateway
+        href: solutions/rds-gw.md
   - name: Concepts
     items:
       - name: Relationship between resources
