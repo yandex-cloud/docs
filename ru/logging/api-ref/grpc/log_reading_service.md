@@ -7,7 +7,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 # LogReadingService
 
-A set of methods for reading from log groups.
+A set of methods for reading from log groups. To make a request use `reader.logging.yandexcloud.net`.
 
 | Call | Description |
 | --- | --- |
@@ -73,6 +73,6 @@ json_payload | **google.protobuf.Struct**<br>Entry annotation.
 Field | Description
 --- | ---
 type | **string**<br>Resource type, i.e., `serverless.function` Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
-id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` ([a-zA-Z0-9][-a-zA-Z0-9_.]{0,63})? `.
 
 

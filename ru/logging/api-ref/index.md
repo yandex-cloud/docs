@@ -11,5 +11,3 @@ This API reference is organized by resource. Actions are performed by sending HT
 Resource | Description
 --- | ---
 [LogGroup](LogGroup/index.md) | A set of methods for managing log groups.
-[LogIngestion](LogIngestion/index.md) | A set of methods for writing to log groups.
-[LogReading](LogReading/index.md) | A set of methods for reading from log groups.

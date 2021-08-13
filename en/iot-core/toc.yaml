@@ -119,6 +119,12 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: DeviceData
+            items:
+              - name: Overview
+                href: api-ref/DeviceData/index.md
+              - name: publish
+                href: api-ref/DeviceData/publish.md
           - name: Device
             items:
               - name: Overview
@@ -149,12 +155,12 @@ items:
                 href: api-ref/Device/listPasswords.md
               - name: update
                 href: api-ref/Device/update.md
-          - name: DeviceData
+          - name: RegistryData
             items:
               - name: Overview
-                href: api-ref/DeviceData/index.md
+                href: api-ref/RegistryData/index.md
               - name: publish
-                href: api-ref/DeviceData/publish.md
+                href: api-ref/RegistryData/publish.md
           - name: Registry
             items:
               - name: Overview
@@ -187,12 +193,6 @@ items:
                 href: api-ref/Registry/listPasswords.md
               - name: update
                 href: api-ref/Registry/update.md
-          - name: RegistryData
-            items:
-              - name: Overview
-                href: api-ref/RegistryData/index.md
-              - name: publish
-                href: api-ref/RegistryData/publish.md
   - name: Questions and answers
     href: qa/index.md
 base: en/iot-core

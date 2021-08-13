@@ -1,9 +1,6 @@
 #### Quotas {#api-gw-quotas}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Number of API gateways per cloud | 10 |
-| Number of concurrent requests to all API gateways in each availability zone | 10 |
+There are no quotas for {{ api-gw-name }}.
 
 #### Limits {#api-gw-limits}
 

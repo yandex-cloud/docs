@@ -47,7 +47,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 - API
 
-    Задать фильтр можно с помощью метода API [read](../api-ref/LogReading/read.md).
+    Задать фильтр можно с помощью метода API [read](../api-ref/grpc/log_reading_service.md).
 
 }
 

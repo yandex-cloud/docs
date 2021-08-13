@@ -4,9 +4,50 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 ---
 # Creating {{ dataproc-name }} clusters
 
+## Configure security groups {#change-security-groups}
+
+{% note warning %}
+
+Security groups must be created and configured before creating a cluster. If the selected security groups don't have the required rules, {{ yandex-cloud }} disables cluster creation.
+
+{% endnote %}
+
+1. [Create](../../vpc/operations/security-group-create.md) one or more security groups for cluster service traffic.
+1. [Add rules](../../vpc/operations/security-group-update.md#add-rule):
+
+    * One rule for incoming and outgoing service traffic:
+        
+		* Port range: `{{ port-any }}`.
+        * Protocol: `Any`.
+        * Source type: `Security group`.
+        * Purpose: Current security group (`Self`).
+
+    * A separate rule for outgoing HTTPS traffic:
+        
+		* Port range: `{{ port-https }}`.
+        * Protocol: `TCP`.
+        * Source type: `CIDR`.
+        * Destination: `0.0.0.0/0`.
+
+        This will allow you to use [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/ui-proxy.md), and [automatic scaling](../concepts/autoscaling.md) of clusters.
+
+If you plan to use multiple security groups for a cluster, enable all traffic between these groups.
+
+{% note info %}
+
+You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
+
+Security groups must be configured correctly for all subnets that will include cluster hosts.
+
+{% endnote %}
+
+You can set up security groups for [connections to cluster hosts](./connect.md) via an intermediate VM after creating a cluster.
+
+## Create a cluster {#create}
+
 {% list tabs %}
 
-- Management console
+* Management console
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
 
@@ -51,6 +92,14 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
      * [ZooKeeper 3.4.6](http://zookeeper.apache.org/doc/r3.4.6/zookeeperAdmin#sc_configuration)
 
   1. Select or create a network for the cluster.
+
+  1. Select security groups that have the required permissions.
+
+      {% note warning %}
+
+      When creating a cluster, security group settings are verified. If a cluster cannot function with these settings, you get a warning. See [above](#change-security-groups) for an example of working settings.
+
+      {% endnote %}
 
   1. Enable the **UI Proxy** option to access the [web interfaces of the components](../concepts/ui-proxy.md) {{ dataproc-name }}.
 

@@ -103,6 +103,8 @@ items:
           Deploying an Always On availability group with an internal network
           load balancer
         href: windows/mssql-alwayson-lb.md
+      - name: Deploying Remote Desktop Gateway
+        href: windows/rds-gw.md
   - name: Network routing
     items:
       - name: All use cases

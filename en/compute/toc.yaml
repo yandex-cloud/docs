@@ -101,7 +101,7 @@ items:
         items:
           - name: Creating an empty disk
             href: operations/disk-create/empty.md
-          - name: Create an empty disk with a large block
+          - name: Creating an empty disk with a large block
             href: operations/disk-create/empty-disk-blocksize.md
           - name: Creating a non-replicated disk
             href: operations/disk-create/nonreplicated.md
@@ -187,6 +187,8 @@ items:
         href: solutions/ntp.md
       - name: Running instance groups with auto scaling
         href: solutions/vm-autoscale.md
+      - name: Deploying Remote Desktop Gateway
+        href: solutions/rds-gw.md
   - name: Concepts
     items:
       - name: Relationship between resources
@@ -319,22 +321,6 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
-          - name: Disk
-            items:
-              - name: Overview
-                href: api-ref/Disk/index.md
-              - name: create
-                href: api-ref/Disk/create.md
-              - name: delete
-                href: api-ref/Disk/delete.md
-              - name: get
-                href: api-ref/Disk/get.md
-              - name: list
-                href: api-ref/Disk/list.md
-              - name: listOperations
-                href: api-ref/Disk/listOperations.md
-              - name: update
-                href: api-ref/Disk/update.md
           - name: DiskPlacementGroup
             items:
               - name: Overview
@@ -353,6 +339,22 @@ items:
                 href: api-ref/DiskPlacementGroup/listOperations.md
               - name: update
                 href: api-ref/DiskPlacementGroup/update.md
+          - name: Disk
+            items:
+              - name: Overview
+                href: api-ref/Disk/index.md
+              - name: create
+                href: api-ref/Disk/create.md
+              - name: delete
+                href: api-ref/Disk/delete.md
+              - name: get
+                href: api-ref/Disk/get.md
+              - name: list
+                href: api-ref/Disk/list.md
+              - name: listOperations
+                href: api-ref/Disk/listOperations.md
+              - name: update
+                href: api-ref/Disk/update.md
           - name: DiskType
             items:
               - name: Overview

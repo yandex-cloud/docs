@@ -1,0 +1,51 @@
+```yaml
+name: group-for-load # Имя группы ВМ, уникальным в рамках каталога.
+service_account_id: ajeab0cnib1pdefe21dm # Идентификатор сервисного аккаунта.
+allocation_policy: # Политика распределения ВМ в группе.
+   zones:
+     - zone_id: ru-central1-a
+     - zone_id: ru-central1-b
+instance_template:
+  service_account_id: ajeab0cnib1pdefe21dm # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
+  platform_id: standard-v1 # Идентификатор платформы.
+  resources_spec:
+    memory: 2G # Количество памяти (RAM).
+    cores: 2 # Количество ядер процессора (vCPU).
+  boot_disk_spec:
+    mode: READ_WRITE # Режим доступа к диску: чтение и запись.
+    disk_spec:
+      image_id: fd8iv792kirahcnqnt0q # Идентификатор публичного образа Container Optimized Image.
+    type_id: network-ssd # Тип диска.
+    size: 30G # Размер диска.
+  network_interface_specs:
+   - network_id: enplhg4nncc7mctv7kpf # Идентификатор сети.
+     subnet_ids:
+       - e1lnabc23r1c9d0efoje # Идентификатор подсети.
+       - b1csa2b3clideftjb121
+     primary_v4_address_spec: {
+       one_to_one_nat_spec: {
+         ip_version: IPV4 # Спецификация версии интернет-протокола IPv4 для публичного доступа к ВМ.
+       }
+     }         
+  metadata: # Значения, которые будут переданы в метаданные ВМ.
+    docker-container-declaration: |- # Ключ в метаданных ВМ, при котором используется Docker Container спецификация.
+      spec:
+        containers:
+          - image: cr.yandex/yc/demo/autoscaling-example-app:v1
+            name: nginx
+            securityContext:
+              privileged: false
+            restartPolicy: Always
+            tty: false
+            stdin: false
+    ssh-keys: | # Параметр для передачи SSH-ключа на ВМ.
+      yc-user:ssh-rsa ABC...d01 user@desktop.ru # Имя пользователя для подключения к ВМ.
+deploy_policy: # Политика развертывания ВМ в группе.
+  max_unavailable: 4
+scale_policy: # Политика масштабирования ВМ в группе.
+  fixed_scale:
+    size: 6
+load_balancer_spec: # Сетевой балансировщик нагрузки.
+  target_group_spec:
+    name: load-generator
+```
