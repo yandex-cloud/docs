@@ -62,7 +62,11 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md) %}
 
-## {{ dataproc-short-name }} {#mdb-roles}
+## Управляемые базы данных {#mdb-roles}
+
+{% include [mdb.admin](../../../_includes/iam/roles/mdb.admin.md) %}
+
+## {{ dataproc-short-name }} {#dataproc-roles}
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
 
