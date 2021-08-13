@@ -29,15 +29,3 @@ items:
         href: api-ref/LogGroup/update.md
       - name: updateAccessBindings
         href: api-ref/LogGroup/updateAccessBindings.md
-  - name: LogIngestion
-    items:
-      - name: Overview
-        href: api-ref/LogIngestion/index.md
-      - name: write
-        href: api-ref/LogIngestion/write.md
-  - name: LogReading
-    items:
-      - name: Overview
-        href: api-ref/LogReading/index.md
-      - name: read
-        href: api-ref/LogReading/read.md

@@ -154,8 +154,10 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
+enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
+provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
 
 
 ### BackupConfig {#BackupConfig}
@@ -364,8 +366,10 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
+enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
+provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
 
 
 ### BackupConfig {#BackupConfig1}
@@ -555,8 +559,10 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
+enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
+provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
 
 
 ### BackupConfig {#BackupConfig2}
@@ -766,8 +772,10 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
+enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
+provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
 
 
 ### BackupConfig {#BackupConfig3}
@@ -959,8 +967,10 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
+enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
+provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
 
 
 ### BackupConfig {#BackupConfig4}
@@ -1170,8 +1180,10 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
+enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
+provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
 
 
 ### BackupConfig {#BackupConfig5}
@@ -1398,8 +1410,10 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
+enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
+provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
 
 
 ### BackupConfig {#BackupConfig6}
@@ -1626,8 +1640,10 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
+enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
+provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
 
 
 ### BackupConfig {#BackupConfig7}
@@ -1898,8 +1914,10 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
+enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
+provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
 
 
 ### BackupConfig {#BackupConfig8}
@@ -2182,8 +2200,10 @@ size | **int64**<br> The minimum value is 1.
 
 Field | Description
 --- | ---
-request_units_per_second_limit | **int64**<br><ul><li> 0. </li></ul> 
+throttling_rcu_limit | **int64**<br>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set. 
 storage_size_limit | **int64**<br>Specify serverless database storage size limit. If zero, default value is applied. 
+enable_throttling_rcu_limit | **bool**<br>If false, the database is throttled by cloud value. 
+provisioned_rcu_limit | **int64**<br>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed. 
 
 
 ### BackupConfig {#BackupConfig9}

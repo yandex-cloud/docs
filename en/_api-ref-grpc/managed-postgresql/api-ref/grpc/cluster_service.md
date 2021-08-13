@@ -350,6 +350,7 @@ pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig2)**<br>Config
 resources | **[Resources](#Resources2)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access2)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics2)**<br>Configuration of the performance diagnostics service. 
 
@@ -651,6 +652,7 @@ pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Config
 resources | **[Resources](#Resources4)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access4)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics4)**<br>Configuration of the performance diagnostics service. 
 
@@ -1573,6 +1575,7 @@ pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig10)**<br>Confi
 resources | **[Resources](#Resources10)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Retention policy of automated backups. Acceptable values are 7 to 60, inclusive.
 access | **[Access](#Access10)**<br>Access policy to DB 
 performance_diagnostics | **[PerformanceDiagnostics](#PerformanceDiagnostics10)**<br>Configuration of the performance diagnostics service. 
 

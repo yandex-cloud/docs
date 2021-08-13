@@ -136,8 +136,10 @@ databaseId | Required. Required. ID of the YDB cluster.  The maximum string leng
     "assignPublicIps": true
   },
   "serverlessDatabase": {
-    "requestUnitsPerSecondLimit": "string",
-    "storageSizeLimit": "string"
+    "throttlingRcuLimit": "string",
+    "storageSizeLimit": "string",
+    "enableThrottlingRcuLimit": true,
+    "provisionedRcuLimit": "string"
   },
   // end of the list of possible fields
 
@@ -216,5 +218,7 @@ dedicatedDatabase.<br>networkId | **string**<br>
 dedicatedDatabase.<br>subnetIds[] | **string**<br>
 dedicatedDatabase.<br>assignPublicIps | **boolean** (boolean)<br>
 serverlessDatabase | **object** <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
-serverlessDatabase.<br>requestUnitsPerSecondLimit | **string** (int64)<br><p>Specify explicit limit of request units for database. Default value is 0. If zero, then request units are unlimited for this database and units are limited by cloud quota value.</p> 
+serverlessDatabase.<br>throttlingRcuLimit | **string** (int64)<br><p>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If ``enable_throttling_rcu_limit`` flag is true, the database will be throttled using ``throttling_rcu_limit`` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set.</p> 
 serverlessDatabase.<br>storageSizeLimit | **string** (int64)<br><p>Specify serverless database storage size limit. If zero, default value is applied.</p> 
+serverlessDatabase.<br>enableThrottlingRcuLimit | **boolean** (boolean)<br><p>If false, the database is throttled by cloud value.</p> 
+serverlessDatabase.<br>provisionedRcuLimit | **string** (int64)<br><p>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed.</p> 

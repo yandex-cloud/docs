@@ -7,5 +7,4 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[MetricsData](MetricsData/index.md) | A set of methods for managing metric data.
 [MetricsMeta](MetricsMeta/index.md) | A set of methods for managing metric metadata.

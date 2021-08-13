@@ -4,7 +4,7 @@ editable: false
 
 # LogIngestionService
 
-A set of methods for writing to log groups.
+A set of methods for writing to log groups. To make a request use `ingester.logging.yandexcloud.net`.
 
 | Call | Description |
 | --- | --- |
@@ -42,7 +42,7 @@ destination | **oneof:** `log_group_id` or `folder_id`<br>Entry destination.
 Field | Description
 --- | ---
 type | **string**<br>Resource type, i.e., `serverless.function` Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
-id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+id | **string**<br>Resource ID, i.e., ID of the function producing logs. Value must match the regular expression ` ([a-zA-Z0-9][-a-zA-Z0-9_.]{0,63})? `.
 
 
 ### IncomingLogEntry {#IncomingLogEntry}

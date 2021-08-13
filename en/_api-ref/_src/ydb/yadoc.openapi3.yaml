@@ -1170,17 +1170,29 @@ components:
     ServerlessDatabase:
       type: object
       properties:
-        requestUnitsPerSecondLimit:
+        throttlingRcuLimit:
           description: |-
-            Specify explicit limit of request units for database.
-            Default value is 0.
-            If zero, then request units are unlimited for this database and units are limited
-            by cloud quota value.
+            Let's define 1 RU  - 1 request unit
+            Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second.
+            If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value.
+            Otherwise, the database is throttled using the cloud quotas.
+            If zero, all requests will be blocked until non zero value is set.
           type: string
           format: int64
         storageSizeLimit:
           description: Specify serverless database storage size limit. If zero, default
             value is applied.
+          type: string
+          format: int64
+        enableThrottlingRcuLimit:
+          description: If false, the database is throttled by cloud value.
+          type: boolean
+          format: boolean
+        provisionedRcuLimit:
+          description: |-
+            Specify the number of provisioned RCUs to pay less if the database has predictable load.
+            You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed.
+            You will be charged for the on-demand consumption only if provisioned capacity is consumed.
           type: string
           format: int64
     StartDatabaseMetadata:

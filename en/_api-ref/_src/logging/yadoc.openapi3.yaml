@@ -459,132 +459,6 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
       x-y-operation-response: Empty
-  /logging/v1/write:
-    post:
-      tags:
-      - LogIngestion
-      summary: Write log entries to specified destination.
-      operationId: LogIngestionWrite
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/WriteRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/WriteResponse'
-      x-y-navtitle: write
-  /logging/v1/read:
-    get:
-      tags:
-      - LogReading
-      summary: Read log entries from the specified log group.
-      operationId: LogReadingRead
-      parameters:
-      - name: pageToken
-        in: query
-        description: |-
-          Page token. To get the next page of results, set `page_token` to the
-          [nextPageToken](/docs/logging/api-ref/LogReading/read#responses) or [previousPageToken](/docs/logging/api-ref/LogReading/read#responses) returned by a previous read request.
-        schema:
-          type: string
-      - name: criteria.logGroupId
-        in: query
-        description: |-
-          Required.
-          ID of the log group to return.
-
-          To get a log group ID make a [list](/docs/logging/api-ref/LogGroup/list) request.
-
-          The maximum string length in characters is 64.
-        schema:
-          type: string
-      - name: criteria.resourceTypes
-        in: query
-        description: |-
-          List of resource types to limit log entries to.
-
-          Empty list disables filter.
-
-          The maximum number of elements is 100.
-          Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
-        schema:
-          type: array
-          items:
-            type: string
-      - name: criteria.resourceIds
-        in: query
-        description: |-
-          List of resource IDs to limit log entries to.
-
-          Empty list disables filter.
-
-          The maximum number of elements is 100.
-          Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
-        schema:
-          type: array
-          items:
-            type: string
-      - name: criteria.since
-        in: query
-        description: |-
-          Lower bound of log entries timestamps.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-        schema:
-          type: string
-          format: date-time
-      - name: criteria.until
-        in: query
-        description: |-
-          Upper bound of log entries timestamps.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-        schema:
-          type: string
-          format: date-time
-      - name: criteria.levels
-        in: query
-        description: |-
-          List of log levels to limit log entries to.
-
-          Empty list disables filter.
-
-          The maximum number of elements is 10.
-        schema:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogLevelLevel'
-      - name: criteria.filter
-        in: query
-        description: |-
-          Filter expression. For details about filtering, see [documentation](/docs/logging/concepts/filter).
-
-          The maximum string length in characters is 1000.
-        schema:
-          type: string
-      - name: criteria.pageSize
-        in: query
-        description: |-
-          The maximum number of results per page to return.
-
-          Acceptable values are 1 to 1000, inclusive.
-        schema:
-          type: string
-          format: int64
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ReadResponse'
-      x-y-navtitle: read
 components:
   schemas:
     AccessBinding:
@@ -941,7 +815,7 @@ components:
           description: |-
             Resource ID, i.e., ID of the function producing logs.
 
-            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
+            Value must match the regular expression `` ([a-zA-Z0-9][-a-zA-Z0-9_.]{0,63})? ``.
           type: string
     LogGroup:
       type: object
@@ -1121,7 +995,7 @@ components:
             Token for getting the next page of the log entries.
 
             After getting log entries initially with `Criteria`, you can use `next_page_token` as the value
-            for the [pageToken](/docs/logging/api-ref/LogReading/read#query_params) parameter in the next read request.
+            for the [ReadRequest.page_token] parameter in the next read request.
 
             Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
@@ -1130,7 +1004,7 @@ components:
             Token for getting the previous page of the log entries.
 
             After getting log entries initially with `Criteria`, you can use `previous_page_token` as the value
-            for the [pageToken](/docs/logging/api-ref/LogReading/read#query_params) parameter in the next read request.
+            for the [ReadRequest.page_token] parameter in the next read request.
 
             Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
@@ -1246,24 +1120,6 @@ components:
 
             Acceptable values are 3600 seconds to 604800 seconds, inclusive.
           type: string
-    WriteRequest:
-      type: object
-      properties:
-        destination:
-          $ref: '#/components/schemas/Destination_in_WriteRequest_destination'
-        resource:
-          $ref: '#/components/schemas/LogEntryResource_in_WriteRequest_resource'
-        entries:
-          description: |-
-            Required.
-            List of log entries.
-
-            The number of elements must be in the range 1-100.
-          type: array
-          items:
-            $ref: '#/components/schemas/IncomingLogEntry'
-        defaults:
-          $ref: '#/components/schemas/LogEntryDefaults_in_WriteRequest_defaults'
     WriteResponse:
       type: object
       properties:
@@ -1413,7 +1269,7 @@ components:
           description: |-
             Resource ID, i.e., ID of the function producing logs.
 
-            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
+            Value must match the regular expression `` ([a-zA-Z0-9][-a-zA-Z0-9_.]{0,63})? ``.
           type: string
     LogLevelLevel_in_LogEntry_level:
       description: |-
@@ -1524,70 +1380,11 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
-    Destination_in_WriteRequest_destination:
-      description: |-
-        Required.
-        Log entries destination.
-
-        See `Destination` for details.
-      type: object
-      allOf:
-      - title: destination
-        type: object
-        maxProperties: 1
-        properties:
-          logGroupId:
-            description: |-
-              Entry should be written to log group resolved by ID.
-
-              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
-            type: string
-          folderId:
-            description: |-
-              Entry should be written to default log group for the folder.
-
-              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
-            type: string
-    LogEntryResource_in_WriteRequest_resource:
-      description: |-
-        Common resource (type, ID) specification for log entries.
-
-        Log entry resource specification.
-
-        May be used either by services and by user.
-      type: object
-      properties:
-        type:
-          description: |-
-            Resource type, i.e., `serverless.function`
-
-            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
-          type: string
-        id:
-          description: |-
-            Resource ID, i.e., ID of the function producing logs.
-
-            Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
-          type: string
-    LogEntryDefaults_in_WriteRequest_defaults:
-      description: |-
-        Log entries defaults.
-
-        See `LogEntryDefaults` for details.
-      type: object
-      properties:
-        level:
-          $ref: '#/components/schemas/LogLevelLevel_in_LogEntryDefaults_level'
-        jsonPayload:
-          description: |-
-            Default entry annotation.
-            Will be merged with entry annotation.
-            Any conflict will be resolved in favor of entry own annotaion.
-          type: object
 tags:
 - name: LogGroup
   description: A set of methods for managing log groups.
 - name: LogIngestion
-  description: A set of methods for writing to log groups.
+  description: A set of methods for writing to log groups. To make a request use `ingester.logging.yandexcloud.net`.
 - name: LogReading
-  description: A set of methods for reading from log groups.
+  description: A set of methods for reading from log groups. To make a request use
+    `reader.logging.yandexcloud.net`.

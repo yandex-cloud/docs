@@ -140,8 +140,10 @@ pageToken | Page token. Set `page_token` to the `next_page_token` returned by a 
         "assignPublicIps": true
       },
       "serverlessDatabase": {
-        "requestUnitsPerSecondLimit": "string",
-        "storageSizeLimit": "string"
+        "throttlingRcuLimit": "string",
+        "storageSizeLimit": "string",
+        "enableThrottlingRcuLimit": true,
+        "provisionedRcuLimit": "string"
       },
       // end of the list of possible fields`databases[]`
 
@@ -224,6 +226,8 @@ databases[].<br>dedicatedDatabase.<br>networkId | **string**<br>
 databases[].<br>dedicatedDatabase.<br>subnetIds[] | **string**<br>
 databases[].<br>dedicatedDatabase.<br>assignPublicIps | **boolean** (boolean)<br>
 databases[].<br>serverlessDatabase | **object** <br>`databases[]` includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
-databases[].<br>serverlessDatabase.<br>requestUnitsPerSecondLimit | **string** (int64)<br><p>Specify explicit limit of request units for database. Default value is 0. If zero, then request units are unlimited for this database and units are limited by cloud quota value.</p> 
+databases[].<br>serverlessDatabase.<br>throttlingRcuLimit | **string** (int64)<br><p>Let's define 1 RU  - 1 request unit Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second. If ``enable_throttling_rcu_limit`` flag is true, the database will be throttled using ``throttling_rcu_limit`` value. Otherwise, the database is throttled using the cloud quotas. If zero, all requests will be blocked until non zero value is set.</p> 
 databases[].<br>serverlessDatabase.<br>storageSizeLimit | **string** (int64)<br><p>Specify serverless database storage size limit. If zero, default value is applied.</p> 
+databases[].<br>serverlessDatabase.<br>enableThrottlingRcuLimit | **boolean** (boolean)<br><p>If false, the database is throttled by cloud value.</p> 
+databases[].<br>serverlessDatabase.<br>provisionedRcuLimit | **string** (int64)<br><p>Specify the number of provisioned RCUs to pay less if the database has predictable load. You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed. You will be charged for the on-demand consumption only if provisioned capacity is consumed.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for ListDatabases requests, if the number of results is larger than ``page_size`` specified in the request. To get the next page, specify the value of ``next_page_token`` as a value for the ``page_token`` parameter in the next ListDatabases request. Subsequent ListDatabases requests will have their own ``next_page_token`` to continue paging through the results.</p> 

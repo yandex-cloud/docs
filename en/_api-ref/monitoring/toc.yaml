@@ -1,10 +1,6 @@
 items:
   - name: Overview
     href: api-ref/index.md
-  - name: MetricsData
-    items:
-      - name: Overview
-        href: api-ref/MetricsData/index.md
   - name: MetricsMeta
     items:
       - name: Overview
