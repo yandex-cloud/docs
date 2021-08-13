@@ -1,6 +1,6 @@
-# Использование аннотации SpringBootApplication для задания обработчика
+# Использование аннотации SpringBootApplication для задания обработчика на Java
 
-Вы можете задать обработчик, загрузив `Spring Boot` приложение с точкой входа в виде класса, помеченного аннотацией [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html).
+Вы можете задать обработчик на Java, загрузив `Spring Boot` приложение с точкой входа в виде класса, помеченного аннотацией [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html).
 
 В момент исполнения функция {{ sf-name }} не имеет данных о пути, по которому она была вызвана. Другими словами, при наличии эндпоинта `/api/v1/list` в вашем `Spring Boot` приложении, вызвать функцию по адресу `https://functions.yandexcloud.net/function-id/api/v1/list` не получится, вместо этого нужно либо передать данные о пути в теле запроса (параметр `url`), либо воспользоваться интеграцией с [API Gateway](../../../../api-gateway/quickstart/index.md). Мы рекомендуем именно второй способ, поскольку `API Gateway` наиболее прост в использовании со `Spring Boot` приложением, а так же позволяет обращаться к эндпоинтам приложения привычным образом.
 

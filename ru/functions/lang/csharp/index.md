@@ -3,7 +3,7 @@ title: Разработка на CSharp в Yandex Cloud Functions. Обзор
 description: 'С помощью сервиса Cloud Functions вы можете запускать приложения, написанные на C# (CSharp), для платформы .NET Core. Сервис предоставляет среду выполнения .NET Core 3.1.401 с версией языка С# 8.0 и операционной системой Ubuntu 18.04 LTS.'
 ---
 
-# Разработка на CSharp. Обзор
+# Разработка на C#. Обзор
 
 С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на [C#](https://docs.microsoft.com/ru-ru/dotnet/csharp/), для платформы [.NET Core](https://docs.microsoft.com/ru-ru/dotnet/core/about). Сервис предоставляет [среду выполнения](../../concepts/runtime/index.md) .NET Core 3.1.401 с версией языка С# 8.0 и операционной системой Ubuntu 18.04 LTS.
 

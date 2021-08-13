@@ -1,6 +1,6 @@
-# Использование интерфейса Function для задания функции-обработчика
+# Использование интерфейса Function для задания функции-обработчика на Java
 
-Вы можете задать функцию-обработчик, реализовав интерфейс [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html).
+Вы можете задать функцию-обработчик на Java, реализовав интерфейс [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html).
 
 {% note warning %}
 
