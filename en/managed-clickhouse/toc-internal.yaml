@@ -23,6 +23,8 @@ items:
         stage: preview
       - name: Changing cluster and database settings
         href: operations/update.md
+      - name: Setting up access to ObjectStorage
+        href: operations/s3-access.md
       - name: Connecting external dictionaries
         href: operations/dictionaries.md
       - name: Adding your own geobase

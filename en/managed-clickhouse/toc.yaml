@@ -19,6 +19,8 @@ items:
         href: operations/web-sql-query.md
       - name: Changing cluster and database settings
         href: operations/update.md
+      - name: Setting up access to ObjectStorage
+        href: operations/s3-access.md
       - name: Connecting external dictionaries
         href: operations/dictionaries.md
       - name: Adding your own geobase
@@ -96,6 +98,8 @@ items:
         href: concepts/settings-list.md
       - name: ClickHouse versioning policy
         href: concepts/update-policy.md
+      - name: ClickHouse settings
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
