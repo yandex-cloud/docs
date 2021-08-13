@@ -19,6 +19,20 @@ You can delete an {{ ES }} cluster if you no longer need it. All data in the clu
   1. Click ![image](../../_assets/options.svg) for the cluster and select **Delete cluster**.
   1. Confirm cluster deletion and click **Delete**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To delete a cluster, run the command:
+
+    ```bash
+    {{ yc-mdb-es }} cluster delete <cluster ID or name>
+    ```
+
+    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API
 
   To delete the cluster, use the `delete` API method: pass the ID of the desired cluster in the `clusterId` request parameter.

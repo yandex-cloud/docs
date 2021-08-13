@@ -25,6 +25,20 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
   1. Go to the folder page and select **{{ mes-name }}**.
   1. Click on the name of the cluster you need and select the **Hosts** tab.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To get a list of cluster hosts, run the command:
+
+    ```bash
+    {{ yc-mdb-es }} host list --cluster-name <cluster name>
+    ```
+
+    You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API
 
   Use the `listHosts` API method: pass the ID of the desired cluster in the `clusterId` request parameter.
@@ -50,6 +64,22 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
         - Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
         - Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To add hosts to a cluster, run the command:
+
+    ```bash
+    {{ yc-mdb-es }} host add \
+       --cluster-name <cluster name>
+       --host zone-id=<availability zone>,subnet-name=<subnet name>,assign-public-ip=<true or false>,type=<host role: datanode or masternode>
+    ```
+
+    You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - API
 
   Use the `addHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
@@ -73,6 +103,20 @@ The following restrictions apply when deleting hosts:
     1. Go to the folder page and select **{{ mes-name }}**.
     1. Click on the name of the cluster you need and select the **Hosts** tab.
     1. Click the ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To remove a host from the cluster, run:
+
+    ```bash
+    {{ yc-mdb-es }} host delete <hostname> --cluster-name <cluster name>
+    ```
+
+    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

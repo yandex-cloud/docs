@@ -63,7 +63,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
      1. Under **Hosts**, select the configuration of hosts created together with the cluster.
         1. To add a host, click **Add host**.
-        1. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
+        1. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg) icon.
 
           When changing the host, you can: {#change-data-node-settings}
 
@@ -71,7 +71,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
           1. Enable public access. If public access is enabled for the {{ ES }} host with the _Data node_ role, you can connect to this {{ ES }} host or Kibana on the host over the internet. To learn more, see [{#T}](cluster-connect.md).
 
-             {% include [mes-tip-public-kibana](../../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
+            {% include [mes-tip-public-kibana](../../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
         When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
@@ -95,6 +95,49 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
   1. Click **Create**.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To create a cluster:
+
+    1. Check whether the folder has any subnets for the cluster hosts:
+
+        ```bash
+        yc vpc subnet list
+        ```
+
+        If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+
+    1. View a description of the CLI create cluster command:
+
+        ```bash
+        {{ yc-mdb-es }} cluster create --help
+        ```
+
+    1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
+
+        ```bash
+        {{ yc-mdb-es }} cluster create \
+           --name <cluster name> \
+           --environment <prestable or production> \
+           --network-name <network name> \
+           --host zone-id=<availability zone>,subnet-id=<subnet ID>,assign-public-ip=<public access>,type=<host type: datanode or masternode> \
+           --datanode-resource-preset <host class with DataNode role> \
+           --datanode-disk-size <storage size in gigabytes for hosts with the DataNode role> \
+           --datanode-disk-type <storage type for hosts with the DataNode role> \
+           --masternode-resource-preset <host class with the MasterNode role> \
+           --masternode-disk-size <storage size in gigabytes for hosts with the MasterNode role> \
+           --masternode-disk-type <storage type for hosts with the MasterNode role> \
+           --security-group-ids <list of security group IDs> \
+           --version <version {{ ES }}> \
+           --admin-password <admin user password>
+        ```
+
+        The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+
 - API
 
   To create a cluster, use the API `create` method and pass the following in the request:
@@ -105,5 +148,43 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         - Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
     - Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
     - Network ID, in the `networkId` parameter.
+
+{% endlist %}
+
+## Examples {#examples}
+
+### Creating a single-host cluster {#creating-a-single-host-cluster}
+
+{% list tabs %}
+
+- CLI
+
+    To create a cluster with a single host, pass a single `--host` parameter.
+
+    Let's say we need to create a {{ ES }} cluster with the following characteristics:
+    - Name: `my-es-clstr`.
+    - Version: `7.10`.
+    - In the `PRODUCTION` environment.
+    - In the `default` network.
+    - Belonging to the security group with the ID `enpp2s8l3irhk5eromd7`.
+    - With a single publicly available host acting as a `{{ host-class }}`-class _Data node_ in subnet `{{ subnet-id }}` in availability zone `{{ zone-id }}`.
+    - With 20 GB of fast network storage (`{{ disk-type-example }}`).
+    - With password `esadminpwd` and username `admin`.
+
+    Run the command:
+
+    ```bash
+    {{ yc-mdb-es }} cluster create \
+       --name my-es-clstr \
+       --environment production \
+       --network-name default \
+       --host zone-id={{ zone-id }},assign-public-ip=true,type=datanode \
+       --datanode-resource-preset {{ host-class }} \
+       --datanode-disk-type={{ disk-type-example }} \
+       --datanode-disk-size=20 \
+       --admin-password=esadminpwd \
+       --security-group-ids enpp2s8l3irhk5eromd7 \
+       --version 7.10
+    ```
 
 {% endlist %}
