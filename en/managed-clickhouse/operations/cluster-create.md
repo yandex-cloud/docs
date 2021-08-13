@@ -29,8 +29,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
-
-
+  
   1. Select **{{ mch-name }}**.
 
   1. Click **Create cluster**.
@@ -38,10 +37,14 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
   1. From the **Version** drop-down list, select the version of {{ CH }} which the {{ mch-name }} cluster will use:
      1. For most clusters, it's recommended to select the latest LTS version.
      1. If you plan to use hybrid storage in a cluster, it's recommended to select the latest version. This type of storage is supported starting from {{ CH }} {{ mch-hs-version }}.
+
+  1. If you plan to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up a service account to access data in a bucket, see [{#T}](s3-access.md).
+
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
+
   1. Under **Storage size**:
 
       
@@ -66,7 +69,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
      {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, place the cursor on the host line and click  ![image](../../_assets/pencil.svg).
 
@@ -156,12 +159,12 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
-  If you don't have Terraform yet, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
-       * Database cluster: Description of the cluster and its hosts. If necessary, you can also configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) here.
+       * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md).
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 

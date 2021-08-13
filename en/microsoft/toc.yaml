@@ -21,6 +21,8 @@ items:
           Deploying an Always On availability group with an internal network
           load balancer
         href: tutorials/mssql-alwayson-lb.md
+      - name: Deploying Remote Desktop Gateway
+        href: tutorials/rds-gw.md
   - name: Licensing
     items:
       - name: Microsoft licenses in Yandex.Cloud

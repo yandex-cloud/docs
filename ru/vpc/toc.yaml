@@ -84,12 +84,6 @@ items:
         href: concepts/limits.md
   - name: DDoS Protection
     href: ddos-protection/index.md
-  - name: Cloud Interconnect
-    items:
-      - name: Обзор
-        href: interconnect/index.md
-      - name: Пользовательские метрики
-        href: interconnect/user-metrics.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

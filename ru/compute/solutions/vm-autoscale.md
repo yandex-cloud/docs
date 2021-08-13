@@ -8,9 +8,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](../../cli/quickstart.md#install).
-1. Чтобы скрипты из пошагового руководства работали корректно, скачайте и установите утилиту [jq](https://stedolan.github.io/jq/download/).
-1. Чтобы проверить работу автоматического масштабирования, установите утилиту [wrk](https://github.com/wg/wrk) для проведения нагрузочного тестирования.
+{% include [before](../../_includes/compute/before-solution.md) %}
 
 ## Подготовьте окружение {#prepare}
 

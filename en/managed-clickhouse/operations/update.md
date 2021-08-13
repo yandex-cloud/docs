@@ -6,15 +6,40 @@ __system: {"dislikeVariants":["No answer to my question","Recomendations didn't 
 
 After creating a cluster, you can:
 
+* [Change service account settings](#change-service-account).
+
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
+
+* [{#T}](#change-disk-size) (available only for standard network storage, `network-hdd`, and fast network storage, `network-ssd`).
+
 * [Configure {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
+
 * [Change additional cluster settings](#change-additional-settings).
 * [Change cluster security groups](#change-sg-set).
 
 * [Change cluster security groups](#change-sg-set).
 
-## Change the host class {#change-resource-preset}
+## Changing service account settings {#change-service-account}
+
+{% list tabs %}
+
+* Management console
+
+    1. Go to the folder page and select **{{ mch-name }}**.
+
+    1. Select the cluster and click **Edit cluster** in the top panel.
+
+    1. Select the desired service account from the list or create a new one. For more information about setting up service accounts, see [{#T}](s3-access.md).
+
+        {% note warning %}
+
+        If the cluster already uses objects from {{ objstorage-name }} which can be accessed using a service account, then changing the current service account to a different one may make these objects unavailable and interrupt the cluster operation. Delete these objects before changing accounts.
+
+        {% endnote %}
+
+{% endlist %}
+
+## Changing the host class {#change-resource-preset}
 
 {% list tabs %}
 
@@ -79,6 +104,8 @@ After creating a cluster, you can:
 
 - Terraform
 
+    To change the [host class](../concepts/instance-types.md) for the cluster:
+
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -140,7 +167,7 @@ After creating a cluster, you can:
   To increase the storage size for a cluster:
 
   
-  1. Make sure the required cluster uses network storage (it's currently not possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
+  1. Make sure the required cluster uses standard or fast network storage (it's not possible to increase the size of local or non-replicated network storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
      ```bash
      {{ yc-mdb-ch }} cluster get <cluster name>
@@ -177,6 +204,8 @@ After creating a cluster, you can:
      You can change the storage size for ZooKeeper by using the same parameter, `--zookeeper-disk-size`.
 
 - Terraform
+
+    To increase the storage size for a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -231,6 +260,8 @@ After creating a cluster, you can:
   1. Click **Save changes**.
 
 - Terraform
+
+    To change [cluster settings](../concepts/settings-list.md#dbms-cluster-settings):
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -457,6 +488,8 @@ After creating a cluster, you can:
       ```
 
 - Terraform
+
+    To change cluster security groups:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

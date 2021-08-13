@@ -6,7 +6,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 ---
 
 
-# Разработка на CSharp. Обзор
+# Разработка на C#. Обзор
 
 С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на [C#](https://docs.microsoft.com/ru-ru/dotnet/csharp/), для платформы [.NET Core](https://docs.microsoft.com/ru-ru/dotnet/core/about). Сервис предоставляет [среду выполнения](../../concepts/runtime/index.md) .NET Core 3.1.401 с версией языка С# 8.0 и операционной системой Ubuntu 18.04 LTS.
 

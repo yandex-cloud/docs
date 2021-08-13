@@ -89,6 +89,12 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: CertificateContent
+            items:
+              - name: Overview
+                href: api-ref/CertificateContent/index.md
+              - name: get
+                href: api-ref/CertificateContent/get.md
           - name: Certificate
             items:
               - name: Overview
@@ -113,12 +119,6 @@ items:
                 href: api-ref/Certificate/update.md
               - name: updateAccessBindings
                 href: api-ref/Certificate/updateAccessBindings.md
-          - name: CertificateContent
-            items:
-              - name: Overview
-                href: api-ref/CertificateContent/index.md
-              - name: get
-                href: api-ref/CertificateContent/get.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/certificate-manager
