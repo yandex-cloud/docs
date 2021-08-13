@@ -2,7 +2,7 @@
 
 All of the subclusters of a cluster are hosted in one network, and the host of each subcluster is hosted in a specific subnet of that network.
 
-You can't assign public IPs to cluster hosts. You can only connect to a {{ dataproc-name }} cluster using Yandex.Cloud VMs located in the same [cloud network](../../vpc/concepts/network.md) as the cluster.
+You can't assign public IPs to cluster hosts. You can only connect to a {{ dataproc-name }} cluster using {{ yandex-cloud }} VMs located in the same [cloud network](../../vpc/concepts/network.md) as the cluster.
 
 ## Cluster host addresses {#hostname}
 
@@ -15,4 +15,12 @@ The host IP address may change during operation, its FQDN doesn't.
 When you reduce the number of hosts in a subcluster, the service selects the hosts to remove. The FQDNs of the removed hosts then no longer work.
 
 {% endnote %}
+
+## Security groups {#security-groups}
+
+Security groups follow the principle "All traffic that is not allowed is prohibited". If the necessary rules aren't in the security group settings, you won't be able to connect to the cluster. Also, data exchange between the subclusters, cluster, and intermediate VM used for [port forwarding](interfaces.md) won't be supported.
+
+For example, let's assume a VM located on the 10.128.0.0/16 subnet is used to connect to the cluster. If only the 10.133.0.0/24 subnet is specified in the security group rules, you won't be able to connect to the cluster. Moreover, you won't be able to connect to a cluster with a VM located in the 10.128.0.0/16 subnet, which the permissions for the necessary ports haven't been specified for.
+
+Before creating a cluster, you should create and configure security groups so that service traffic between cluster hosts is enabled. For more information, see [{#T}](../operations/cluster-create.md).
 

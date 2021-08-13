@@ -25,3 +25,8 @@ Interfaces:
 | Zeppelin                 | https://cluster-{cluster_id}.dataproc-ui.yandexcloud.net/gateway/default-topology/zeppelin/   |
 | Oozie                    | https://cluster-{cluster_id}.dataproc-ui.yandexcloud.net/gateway/default-topology/oozieui/    |
 
+{% note warning %}
+
+You may need to additionally [set up security groups](../operations/connect.md) to use UI Proxy.
+
+{% endnote %}

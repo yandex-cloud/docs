@@ -6,6 +6,7 @@ You can perform the following actions for any subcluster:
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-autoscaling-rule).
 * [{#T}](#change-disk-size).
+* [{#T}](#change-sg-set).
 
 ## Changing the number of hosts {#change-host-number}
 
@@ -21,7 +22,7 @@ You can change the number of hosts in `DATANODE` and `COMPUTENODE` clusters:
 
 {{ dataproc-name }} runs the add host operation.
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
 
 You can change the computing power of hosts in a separate subcluster:
 
@@ -82,3 +83,23 @@ Currently, you cannot reduce storage size. If necessary, re-create the {{ datapr
 
 {% endlist %}
 
+## Changing security groups {#change-sg-set}
+
+{% list tabs %}
+
+- Management console
+
+    1. Go to the folder page and select **{{ dataproc-name }}**.
+    1. Click on the name of the cluster you want and select the **Hosts** tab.
+    1. Click on the name of the host you want.
+    1. Under **Network**, click ![image](../../_assets/vertical-ellipsis.svg) and select **Edit network interface**.
+    1. Select the appropriate security groups.
+    1. Click **Save**.
+
+{% endlist %}
+
+{% note warning %}
+
+You may need to additionally [set up security groups](./connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endnote %}
