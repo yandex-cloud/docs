@@ -22,8 +22,8 @@ Pricing features:
 
 The minimum billable unit is 1 metric value. The price is rounded up to the nearest hundredth of a ruble.
 
-For example, the cost of writing the first 86,400 values is `0.6048 ₽`, which is rounded to `0.60 ₽`. The cost of writing the first 87,000 values is `0.609 ₽`, which is rounded to `0.60 ₽`.
-         
+For example, the cost of writing the first 86,400 values is `0.6048 ₽`, which is rounded to `0.60 ₽`. The cost of writing the first 87,000 values is `0.609 ₽`, which is rounded to `0.60 ₽`. Where `7,00 ₽` — the price per 1 million values (writing up to 50 million values).
+
 {% include [rub.md](../_pricing/monitoring/rub.md) %}
          
 {% endif %}
