@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Integration with version and data control systems
 
 {{ ml-platform-short-name }} is integrated with the [Git](https://git-scm.com/) version control system and [DVC](https://dvc.org/) data version control system.

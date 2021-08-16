@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Collect request statistics
 
 Managers and staff members of the support team often require various information about the ongoing issues as well as statistics on previously resolved requests. In {{ tracker-name }}, you can view all relevant information and statistics on a dashboard. First you need to [create a dashboard](user/create-dashboard.md#section_cv2_ck3_pz) and then add [widgets](user/widgets.md#section_ll1_zdp_pz), which may include issue lists, tables, and charts, all of which are created automatically based on filters.

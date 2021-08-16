@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Auto Unseal в Hashicorp Vault
 
 [Vault](https://www.vaultproject.io/) позволяет использовать {{ kms-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).

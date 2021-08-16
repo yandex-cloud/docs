@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing {{ dataproc-name }} subclusters
 
 In addition to [updating the settings](subcluster-update.md) of a particular subcluster, you can create new and delete existing subclusters.

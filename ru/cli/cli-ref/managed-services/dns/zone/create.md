@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc dns zone create
 
 Create a dns zone in the specified folder.

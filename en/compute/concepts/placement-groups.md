@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # VM placement groups
 
 When VM instances are created, they're automatically distributed across the {{ yandex-cloud }} physical infrastructure. To control hardware fault tolerance levels, you can combine your VM instances into placement groups.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Policies for automatically deleting Docker images
 
 A [Docker image](docker-image.md) lifecycle policy lets you set rules for automatically deleting Docker images.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc managed-clickhouse user update-quota
 
 Update ClickHouse user quota by the interval. Interval is used as key and can not be updated.User quota should be removed and recreated to update interval duration.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc compute disk-placement-group add-labels
 
 Add labels to the specified disk placement group

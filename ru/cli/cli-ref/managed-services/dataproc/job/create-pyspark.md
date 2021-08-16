@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc dataproc job create-pyspark
 
 Create a Dataproc PySpark job.

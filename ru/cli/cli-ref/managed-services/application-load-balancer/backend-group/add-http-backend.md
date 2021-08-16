@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc application-load-balancer backend-group add-http-backend
 
 Add HTTP backend to the backend group

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Get transitions
 
 Use this request to get a list of possible issue transitions. The issue is selected when its ID or key is specified.

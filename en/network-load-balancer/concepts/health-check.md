@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Resource health checks
 
 *A network load balancer uses health checks* to get information about the health of resources in an attached target group. In response to a status request, a resource reports that it is ready to receive traffic, is in an intermediate state, or has failed. Checks are performed via TCP or HTTP at the intervals specified in the configuration.

@@ -1,10 +1,7 @@
 ---
 title: "Relationship of resources of the Yandex Managed Service for Redis"
 description: "{{ RD }} is a high-performance in-memory database for key-value data. The {{ mrd-name }} service allows you to easily create clusters of hosts {{ RD }} with high fault tolerance. The main entity that operates service {{ mrd-name }}, - database cluster."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Relationship between resources in {{ mrd-name }}
 

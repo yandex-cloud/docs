@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Host classes before June 1, 2020
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.

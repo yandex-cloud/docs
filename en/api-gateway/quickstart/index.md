@@ -1,10 +1,7 @@
 ---
 title: "Getting started with Yandex API Gateway (API gateways)"
 description: "In this tutorial, you will create and test different types of extensions. First, you configure the API gateway to receive a static response, and then add the integration to call the function."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Getting started with {{ api-gw-name }}
 

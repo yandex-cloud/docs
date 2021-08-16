@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc managed-kubernetes cluster list-node-groups
 
 List Kubernetes cluster node groups.

@@ -1,10 +1,7 @@
 ---
 title: "Yandex Database (YDB) backups"
 description: "This section describes the supported methods for creating backups of Yandex Database (YDB) databases and restoring from previously created backups. YDB allows you to use csv files to create backups on the file system and AWS S3-compatible storages."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Backups
 

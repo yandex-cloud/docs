@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Connecting to a VM's serial console via SSH
 
 After [enabling access](./index.md), you can connect to the serial console to work with the VM. Before connecting to the serial console, carefully read the [{#T}](#security).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # IVR integration
 
 You can integrate your [IVR](https://en.wikipedia.org/wiki/Interactive_voice_response) platform (such as [Asterisk](https://www.asterisk.org), [Freeswitch](https://freeswitch.com), [Genesys](https://www.genesys.com/), and [Avaya](https://www.avaya.com/)) with {{ speechkit-full-name }}. This will allow you to set up an interactive voice menu for calls to relieve some of the load on your call center.

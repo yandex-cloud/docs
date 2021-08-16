@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Service accounts
 
 {% include [sa-def](../../_includes_service/sa-def.md) %}

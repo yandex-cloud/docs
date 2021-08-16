@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Connections
 
 _Connections_ contain information about data source access parameters, like the DB host IP address and port.

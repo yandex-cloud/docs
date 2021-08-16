@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Pinning a customer in the partner portal
 
 To add and pin a customer, you should switch to paid consumption mode.

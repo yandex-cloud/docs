@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Notifications and subscriptions
 
 By default, {{ tracker-name }} sends you notifications about changes to issues if you have one of the following roles:

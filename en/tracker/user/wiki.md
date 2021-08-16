@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Wiki
 
 You can insert _magic links_ on Wiki pages to link to individual issues and lists of issues. Such links always contain the issue key, name, status, and the assignee's username.

@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Method createFromYaml
 Creates an instance group in the specified folder from a YAML file.

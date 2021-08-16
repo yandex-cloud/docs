@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 {% include [support-headers](../../_includes/ai-common/support-headers.md) %}
 
 ## Примеры {#examples}

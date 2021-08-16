@@ -4,10 +4,7 @@ description: Backups of data in images, snapshots, and disks that aren't connect
 keywords:
   - backup
   - data backup
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Backups
 

@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 # Pricing for {{ datalens-full-name }}
 
 In {{ datalens-short-name }}, you pay for:

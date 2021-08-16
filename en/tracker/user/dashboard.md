@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Dashboards
 
 _Dashboards_ let you track the status of important issues on a single page. You can arrange [widgets](widgets.md) on your dashboard to display useful information. They can show lists of issues, statistics on issue completion, pivot tables, or notes.

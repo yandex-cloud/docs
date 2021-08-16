@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Method detachTargetGroup
 Detaches the target group from the specified network load balancer.

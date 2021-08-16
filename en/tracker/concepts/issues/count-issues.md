@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Find out the number of issues
 
 Use this request to find out the number of issues that meet the conditions of your request.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Диагностика производительности
 
 {{ mms-name }} использует встроенные [инструменты диагностики производительности](https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/query-store-usage-scenarios) {{ MS }}.

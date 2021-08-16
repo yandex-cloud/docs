@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Structuring issues
 
 Any project or process is easier to manage when your workflow is structured. The primary tools to structure your workflow are decomposition and issue grouping.

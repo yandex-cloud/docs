@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Управление доступом к {{ mes-name }}
 
 
@@ -23,13 +19,15 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/security/service-roles-hierarchy.svg)
+![image](../../_assets/mdb/service-roles-hierarchy.svg)
 
 Роли, действующие в сервисе:
 
 * Сервисные роли:
     * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
     * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+    * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
+    * {% include [mdb.admin](../../_includes/iam/roles/short-descriptions/mdb.admin.md) %}  
 * Примитивные роли:
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
@@ -42,10 +40,11 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
 **Просмотр информации** | |
-Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer`, `editor` или `admin` на каталог с кластером
+Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer` на каталог с кластером
 **Управление ресурсами** | |
-Создание кластеров в каталоге | `create` | `editor` или `admin` на каталог с кластером
-Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `editor` или `admin` на каталог с кластером
+Создание кластеров в каталоге | `create` | `mdb.admin` или `editor` на каталог
+Создание кластеров с хостами, для которых включен публичный доступ | `create` | Либо `vpc.publicAdmin` вместе с `mdb.admin`, либо `editor` на каталог
+Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `mdb.admin` или `editor` на каталог с кластером
 **Управление доступом к ресурсам** | |
 [Создание](../operations/cluster-users.md#adduser), [изменение](../operations/cluster-users.md#updateuser), [удаление](../operations/cluster-users.md#removeuser) учетных записей в кластере | `create`, `update`, `delete` | `editor` или `admin` на каталог с кластером
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на каталог с кластером или облако

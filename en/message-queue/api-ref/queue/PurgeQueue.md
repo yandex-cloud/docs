@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # PurgeQueue
 
 Method for deleting messages in a queue. It takes some time to delete messages. To make sure no messages are left in the queue, pause sending messages to the queue and call the [GetQueueAttributes](GetQueueAttributes.md) method.

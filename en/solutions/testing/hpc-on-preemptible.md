@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # High-performance computing (HPC) on preemptible VMs
 
 [HPC clusters](https://en.wikipedia.org/wiki/Computer_cluster) are used for computational purposes, particularly scientific research and computation-intensive scientific calculations. A computer cluster is a set of servers (computing nodes) connected over a network. Each computing node has a number of multicore processors, local memory, and runs its own operating system instance. The most common are homogeneous clusters where all nodes are identical in their architecture and performance.

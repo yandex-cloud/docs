@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a Docker image
 
 The instructions describe how to build a [Docker image](../../concepts/docker-image.md) from a Dockerfile and how to assemble it.

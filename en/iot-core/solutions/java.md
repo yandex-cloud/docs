@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Working with {{ iot-full-name }} in Java
 
 In this scenario, you'll learn how to connect to {{ iot-full-name }} using the [Paho](https://www.eclipse.org/paho/clients/java/) library written in Java. It assumes that you know how to develop in Java.

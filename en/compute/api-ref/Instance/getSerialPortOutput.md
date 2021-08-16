@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Method getSerialPortOutput
 Returns the serial port output of the specified Instance resource.

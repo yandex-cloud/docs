@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Bucket object lifecycle configuration
 
 {{ objstorage-name }} lets you manage [lifecycles](../../../concepts/lifecycles.md) for objects in buckets. To upload the lifecycle configuration to {{ objstorage-name }}, you need to create an XML document as described in this section. You can obtain a document in this format by downloading an existing configuration.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc kms symmetric-key cancel-version-destruction
 
 Cancel destruction of the scheduled for destruction symmetric key version

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc application-load-balancer load-balancer update-sni
 
 Updates sni match of the application load balancer's listener.

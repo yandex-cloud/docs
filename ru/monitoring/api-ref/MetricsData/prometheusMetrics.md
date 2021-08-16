@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Метод prometheusMetrics
 Экспортирует метрики сервиса в [формате Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Из каталога выгружаются все метрики сервиса.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Making a static public IP address dynamic
 
 You can make a static public IP address dynamic. If a dynamic IP address is used by a VM, then the address resets each time the VM stops. When the VM starts up, it may be allocated a different address.

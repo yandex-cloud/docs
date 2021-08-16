@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Method listNodes
 Retrieves the list of nodes in the specified Kubernetes cluster.

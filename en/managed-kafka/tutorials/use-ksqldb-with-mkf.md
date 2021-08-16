@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Data delivery in ksqlDB
 
 ksqlDB is a database designed for stream processing messages from {{ KF }} topics. Working with message streams in ksqlDB is similar to working with tables in a regular database. A ksqlDB table is automatically populated with data received from a topic, and the data that you add to the ksqlDB table is sent to the {{ KF }} topic. For more information, see the [ksqlDB documentation](https://docs.ksqldb.io/en/latest).

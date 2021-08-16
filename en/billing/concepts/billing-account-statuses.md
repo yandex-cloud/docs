@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Billing account statuses
 
 The status of your billing account depends on whether you have any arrears resulting from a failure to pay for resource usage.

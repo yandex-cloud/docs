@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc managed-clickhouse cluster add-external-dictionary
 
 Add an external dictionary to a ClickHouse cluster.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # How to create a queue
 
 Each issue belongs to one of the queues. Issues with a common theme are usually grouped together in a queue. They might be issues for a specific project, department, or team.

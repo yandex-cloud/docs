@@ -1,10 +1,7 @@
 ---
 title: "Services release stages"
 description: "There are several release stages of Yandex.Cloud services. Preview - the services are suitable for developers who are ready to use them in the development of their applications or in a test environment. Usage is not charged, SLA does not apply. General Availability - available to all users and can be fully used for solving problems. Usage is charged, SLA is valid."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Release stages
 

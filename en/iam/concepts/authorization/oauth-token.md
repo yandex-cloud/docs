@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # OAuth token
 
 In Yandex.Cloud, an OAuth token is used to authenticate when [getting an IAM token](../../operations/iam-token/create.md).

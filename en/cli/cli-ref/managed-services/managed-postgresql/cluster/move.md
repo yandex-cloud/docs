@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc managed-postgresql cluster move
 
 Move the specified PostgreSQL cluster into the folder

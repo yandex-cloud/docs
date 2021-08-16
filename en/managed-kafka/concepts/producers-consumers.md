@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Producers and consumers
 
 {{ KF }} is a distributed system for exchanging messages between data producers and consumers.

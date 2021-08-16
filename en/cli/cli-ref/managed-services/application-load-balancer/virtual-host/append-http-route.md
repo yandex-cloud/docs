@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc application-load-balancer virtual-host append-http-route
 
 Appends http route to the specified virtual host of the http router

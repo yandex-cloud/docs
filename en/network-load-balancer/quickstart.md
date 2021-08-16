@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with {{ network-load-balancer-short-name }}
 
 [Network load balancers](concepts/index.md) evenly distribute workload across cloud resources and monitor their status. This improves the availability and fault tolerance of your applications and cloud network infrastructure.

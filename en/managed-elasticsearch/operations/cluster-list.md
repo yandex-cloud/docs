@@ -5,10 +5,7 @@ keywords:
   - information about Elasticsearch hosts
   - Elasticsearch hosts
   - Elasticsearch
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Information about existing clusters
 
@@ -21,6 +18,18 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 - Management console
 
   Go to the folder page and select **{{ mes-name }}**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To get a list of clusters, run the command:
+
+    ```bash
+    {{ yc-mdb-es }} cluster list
+    ```
 
 - API
 
@@ -37,6 +46,20 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 - Management console
   1. Go to the folder page and select **{{ mes-name }}**.
   1. Click on the name of the cluster you need.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To get cluster details, run the command:
+
+    ```bash
+    {{ yc-mdb-es }} cluster get <cluster name or ID>
+    ```
+
+    You can request a cluster name and ID with a [list of clusters in the folder](#list-clusters).
 
 - API
 
@@ -57,6 +80,20 @@ The operation list shows operations with clusters and related resources (for exa
   1. Click on the name of the cluster you need.
   1. Go to the **Operations** tab.
 
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To get a list of cluster operations, run the command:
+
+    ```bash
+    {{ yc-mdb-es }} cluster list-operations <cluster name and ID>
+    ```
+
+    You can request a cluster name and ID with a [list of clusters in the folder](#list-clusters).
+
 - API
 
   Use the `listOperations` API method: pass the ID of the required cluster in the `clusterId` request parameter.
@@ -64,4 +101,3 @@ The operation list shows operations with clusters and related resources (for exa
   To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
 
 {% endlist %}
-

@@ -4,10 +4,7 @@ description: Answers to frequently asked questions about virtual machines in Yan
 keywords:
   - vm
   - virtual machines
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Virtual machines
 

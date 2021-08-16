@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # PRAGMA
 
 Redefines settings of various kinds. Affects the expressions that follow. If necessary and logically possible, you can change the value of this setting several times within a given query to make it different at different execution steps.

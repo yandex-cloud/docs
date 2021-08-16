@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Привязать сертификат к домену
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

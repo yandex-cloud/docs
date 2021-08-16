@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Method getDryRunResult
 Returns the dry run result of the specified lifecycle policy.

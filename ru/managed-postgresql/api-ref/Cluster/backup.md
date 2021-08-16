@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Method backup
 Creates a backup for the specified PostgreSQL cluster.

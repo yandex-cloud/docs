@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # x-yc-apigateway-integration:dummy extension
 
 The `x-yc-apigateway-integration:dummy` extension returns fixed content with the specified response code and required headers without any third-party service involved.

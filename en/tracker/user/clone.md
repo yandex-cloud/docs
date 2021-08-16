@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # How to clone an issue
 
 You can use cloning to create new issues based on existing ones. You can clone issues in any queue that is available to you.

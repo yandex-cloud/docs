@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # abortUpload method
 
 Aborts an upload and deletes all object parts that were saved from {{ objstorage-name }}. If the abort upload request was received during the upload of any part, no result is guaranteed.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Additional selection criteria
 
 Select all the episode names of the first season of each series and sort them by name.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Scaling types
 
 Choose the instance group scaling type when creating each group. The type determines whether the number of instances in the group will change automatically or manually.

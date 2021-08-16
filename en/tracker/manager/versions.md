@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Versions
 
 Typically, versions are used for software development tasks. They help you group issues that are related to the same version of a product. Version values can be configured on the queue page.

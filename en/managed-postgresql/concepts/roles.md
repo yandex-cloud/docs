@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Assigning roles {{ PG }}
 
 {{ mpg-name }} doesn't let you access [default roles](https://www.postgresql.org/docs/current/default-roles.html). Instead, it provides special roles:

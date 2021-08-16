@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Working with {{ iot-full-name }} from an Android device in Java
 
 In this scenario, you'll learn how to connect to {{ iot-full-name }} from an Android device using the [Paho](https://www.eclipse.org/paho/) library and Java programming language. It assumes that you know how to develop Android apps in Java using Android Studio.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Connecting external dictionaries
 
 You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) to your cluster and remove them. To learn more about dictionaries, see the [documentation for {{ CH }}](https://clickhouse.yandex/docs/en/query_language/dicts/).

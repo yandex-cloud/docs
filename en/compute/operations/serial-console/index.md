@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with the serial console
 
 The serial console allows you to access a VM regardless of the network or OS status. For example, you can use the console for troubleshooting VM issues or when there are problems with SSH access.

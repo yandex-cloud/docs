@@ -1,10 +1,7 @@
 ---
 title: Access management in Yandex Data Transfer
 description: "Access management in the service for transferring data between storages — Yandex Data Transfer. The section describes which roles are required for this or that action, which resources can be assigned a role, which roles operate in the service."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Access management in {{ data-transfer-name }}
 

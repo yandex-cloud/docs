@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with {{ iam-short-name }}
 
 {{ iam-short-name }} lets you manage access to resources.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Setting up access to {{ objstorage-name }}
 
 {{ mes-name }} supports the use of {{ objstorage-full-name }} as an {{ ES }} [snapshot repository](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html). This lets you use {{ objstorage-name }} to store [backups](./cluster-backups.md).

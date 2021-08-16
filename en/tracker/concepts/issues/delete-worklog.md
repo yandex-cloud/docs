@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Delete a record of time spent
 
 Use this request to delete a record of the time spent on an issue.

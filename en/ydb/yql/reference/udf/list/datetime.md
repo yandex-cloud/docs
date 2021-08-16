@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # DateTime UDF
 
 In the DateTime module, the main internal representation format is `Resource<TM>` that stores the following date components:

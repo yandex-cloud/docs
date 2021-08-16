@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Updating fields in datasets
 
 You need to update fields if you changed the schema of a table (or tables) in a data source or manually deleted fields from a dataset.

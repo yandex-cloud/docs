@@ -3,10 +3,7 @@ title: Quotas and limits in Yandex Monitoring
 description: 'The Yandex Monitoring service has limits and quotas for the number of alerts in the cloud, the number of tags for one metric (including mandatory ones). You will learn more about the limitations of the service in this article.'
 
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Quotas and limits
 

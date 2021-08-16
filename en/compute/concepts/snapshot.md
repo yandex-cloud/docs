@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Disk snapshots
 
 _A disk snapshot_ in Yandex.Cloud is a copy of the disk file system at a certain point in time.

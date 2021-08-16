@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Plugin for the **IntelliJ** IDE
 
 If you're using an IDE from JetBrains, integrate it with {{ tracker-name }} using the [plugin](https://plugins.jetbrains.com/plugin/10549-yandex-tracker-integration). The plugin allows you to work with issues directly from the IDE. Learn  more about the plugin's features in the Help for your IDE: [IntelliJ IDEA](https://www.jetbrains.com/help/idea/managing-tasks-and-context.html), [PhpStorm](https://www.jetbrains.com/help/phpstorm/2017.2/managing-tasks-and-contexts.html), [WebStorm](https://www.jetbrains.com/help/webstorm/managing-tasks-and-context.html), [PyCharm](https://www.jetbrains.com/help/pycharm/managing-tasks-and-context.html), [RubyMine](https://www.jetbrains.com/help/ruby/managing-tasks-and-context.html), [AppCode](https://www.jetbrains.com/help/objc/managing-tasks-and-context.html), [CLion](https://www.jetbrains.com/help/clion/managing-tasks-and-context.html), [GoLand](https://www.jetbrains.com/help/clion/2017.2/managing-tasks-and-contexts.html), [DataGrip](https://www.jetbrains.com/help/idea/managing-tasks-and-context.html), [Rider](https://www.jetbrains.com/help/rider/managing_tasks_and_context.html), [MPS](https://www.jetbrains.com/help/idea/managing-tasks-and-context.html), and [Android Studio](https://www.jetbrains.com/help/idea/managing-tasks-and-context.html).

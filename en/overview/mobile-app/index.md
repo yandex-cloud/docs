@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Mobile app {{ yandex-cloud }}
 
 With the {{ yandex-cloud }} mobile app, you can:

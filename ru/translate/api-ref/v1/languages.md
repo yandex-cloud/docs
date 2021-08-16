@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Cписок поддерживаемых языков
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}

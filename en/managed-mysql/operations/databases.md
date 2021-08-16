@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Database management
 
 You can add and remove databases, view information about them, and manage some database settings using {{ mmy-name }} interfaces.

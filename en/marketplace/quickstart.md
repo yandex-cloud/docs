@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with the {{ marketplace-name }} partner interface
 
 You can use the Marketplace partner interface to add images of your products to the Marketplace and manage their versions and service plans. Register in the Marketplace partner interface and upload your first image following the instructions.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # SendMessage
 
 Method for delivering a message to the specified queue. A message can include only XML, JSON, and unformatted text.

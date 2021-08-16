@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Alerting
 
 Alerts in {{ monitoring-full-name }} are used to notify Yandex.Cloud users when metrics change.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Reserving a static public IP address
 
 You can reserve a static public IP address to use for accessing cloud resources later.

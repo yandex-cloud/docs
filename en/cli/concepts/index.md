@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Running commands
 
 CLI commands are divided into groups, each of which corresponds to a Yandex.Cloud service or component.

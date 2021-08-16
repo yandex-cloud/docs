@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Project
 
 _A project_ is a [JupyterLab](https://jupyter.org/) development environment that runs on Yandex.Cloud VMs. It includes the Jupyter Notebook editor and auxiliary tools.

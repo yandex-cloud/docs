@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Release scroll view resources
 
 Use this request to release the resources after viewing a search snapshot in the [{#T}](search-issues.md) request.

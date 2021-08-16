@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a VM on a dedicated host
 
 A created VM will be linked to the host selected from a group of hosts. When the VM is stopped, it won't be available on the host, and when it's restarted, it will be linked to the same host from the group.

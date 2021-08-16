@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc iam service-account list-access-bindings
 
 List access bindings for ACCESSING the specified service account. To determine if a service account has an access to a resource, use list-access-bindings command for the corresponding resource

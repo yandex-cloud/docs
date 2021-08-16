@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Работа с YDB SDK
 
 Для знакомства с работой {{ ydb-short-name }} SDK вы можете воспользоваться тестовыми приложениями на [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk). Настройте подключение к базе данных, после чего установите и запустите соответствующее тестовое приложение.

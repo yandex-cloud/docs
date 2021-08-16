@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Концепции {{ certificate-manager-name }}
 
 {{ certificate-manager-name }} — сервис для управления [TLS-сертификатами](https://en.wikipedia.org/wiki/Public_key_certificate#TLS/SSL_server_certificate) в {{ yandex-cloud }}. С помощью сервиса вы можете получать и обновлять сертификаты от Let's Encrypt<sup>®</sup>, а также добавлять собственные сертификаты.

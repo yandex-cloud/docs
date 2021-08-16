@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a logical replica of Amazon RDS for PostgreSQL in {{ mpg-name }}
 
 If you use Amazon RDS for PostgreSQL, you can create a copy of your data in {{ mpg-name }}.

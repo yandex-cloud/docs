@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc compute instance remove-one-to-one-nat
 
 Remove one-to-one NAT to the the specified network interface of virtual machine instance

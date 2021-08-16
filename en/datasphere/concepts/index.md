@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # About {{ ml-platform-name }}
 
 {{ ml-platform-full-name }} is a machine learning (ML) development environment that combines the familiar Jupyter® Notebook interface, serverless computing technology, and seamless use of different computing resource configurations. {{ ml-platform-full-name }} helps significantly reduce the cost of machine learning compared to computing on your own hardware or other cloud platforms.

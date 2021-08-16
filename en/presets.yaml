@@ -2133,6 +2133,10 @@ default:
           v1|string: Free
           v1|int|number: '0'
           v1|int|string: Free
+      tts_custom|number: '0.0000'
+      tts_custom|string: Free
+      tts_custom|int|number: '0'
+      tts_custom|int|string: Free
       tts:
         monthly_usage:
           v1|number: '0.0000'
@@ -2176,6 +2180,15 @@ default:
       tts|string: ₽183.0508
       tts|int|number: '183'
       tts|int|string: ₽183
+      tts_hosting:
+        full_brand_voice|number: '0.0000'
+        full_brand_voice|string: Free
+        full_brand_voice|int|number: '0'
+        full_brand_voice|int|string: Free
+        adaptive_brand_voice|number: '150000.0000'
+        adaptive_brand_voice|string: ₽150000.0000
+        adaptive_brand_voice|int|number: '150000'
+        adaptive_brand_voice|int|string: ₽150000
       tts_gpu|number: '1200.0000'
       tts_gpu|string: ₽1200.0000
       tts_gpu|int|number: '1200'
@@ -2190,11 +2203,6 @@ default:
           v1|string: Free
           v1|int|number: '0'
           v1|int|string: Free
-      tts_hosting:
-        adaptive_brand_voice|number: '150000.0000'
-        adaptive_brand_voice|string: ₽150000.0000
-        adaptive_brand_voice|int|number: '150000'
-        adaptive_brand_voice|int|string: ₽150000
     datasphere:
       datasets:
         v1|number: '0.0000'
@@ -4224,22 +4232,6 @@ default:
         public_ip|month|int|number: '110'
         public_ip|month|int|string: ₽110
         m2:
-          6xlarge|number: '50.4000'
-          6xlarge|string: ₽50.4000
-          6xlarge|int|number: '50'
-          6xlarge|int|string: ₽50
-          6xlarge|month|number: '36288.0000'
-          6xlarge|month|string: ₽36288.0000
-          6xlarge|month|int|number: '36288'
-          6xlarge|month|int|string: ₽36288
-          8xlarge|number: '67.2000'
-          8xlarge|string: ₽67.2000
-          8xlarge|int|number: '67'
-          8xlarge|int|string: ₽67
-          8xlarge|month|number: '48384.0000'
-          8xlarge|month|string: ₽48384.0000
-          8xlarge|month|int|number: '48384'
-          8xlarge|month|int|string: ₽48384
           medium|number: '6.3000'
           medium|string: ₽6.3000
           medium|int|number: '6'
@@ -4256,30 +4248,6 @@ default:
           2xlarge|month|string: ₽12096.0000
           2xlarge|month|int|number: '12096'
           2xlarge|month|int|string: ₽12096
-          micro|number: '2.1000'
-          micro|string: ₽2.1000
-          micro|int|number: '2'
-          micro|int|string: ₽2
-          micro|month|number: '1512.0000'
-          micro|month|string: ₽1512.0000
-          micro|month|int|number: '1512'
-          micro|month|int|string: ₽1512
-          4xlarge|number: '33.6000'
-          4xlarge|string: ₽33.6000
-          4xlarge|int|number: '34'
-          4xlarge|int|string: ₽34
-          4xlarge|month|number: '24192.0000'
-          4xlarge|month|string: ₽24192.0000
-          4xlarge|month|int|number: '24192'
-          4xlarge|month|int|string: ₽24192
-          5xlarge|number: '42.0000'
-          5xlarge|string: ₽42.0000
-          5xlarge|int|number: '42'
-          5xlarge|int|string: ₽42
-          5xlarge|month|number: '30240.0000'
-          5xlarge|month|string: ₽30240.0000
-          5xlarge|month|int|number: '30240'
-          5xlarge|month|int|string: ₽30240
           3xlarge|number: '25.2000'
           3xlarge|string: ₽25.2000
           3xlarge|int|number: '25'
@@ -4288,6 +4256,14 @@ default:
           3xlarge|month|string: ₽18144.0000
           3xlarge|month|int|number: '18144'
           3xlarge|month|int|string: ₽18144
+          6xlarge|number: '50.4000'
+          6xlarge|string: ₽50.4000
+          6xlarge|int|number: '50'
+          6xlarge|int|string: ₽50
+          6xlarge|month|number: '36288.0000'
+          6xlarge|month|string: ₽36288.0000
+          6xlarge|month|int|number: '36288'
+          6xlarge|month|int|string: ₽36288
           7xlarge|number: '58.8000'
           7xlarge|string: ₽58.8000
           7xlarge|int|number: '59'
@@ -4312,31 +4288,6 @@ default:
           large|month|string: ₽6048.0000
           large|month|int|number: '6048'
           large|month|int|string: ₽6048
-          xlarge|number: '12.6000'
-          xlarge|string: ₽12.6000
-          xlarge|int|number: '13'
-          xlarge|int|string: ₽13
-          xlarge|month|number: '9072.0000'
-          xlarge|month|string: ₽9072.0000
-          xlarge|month|int|number: '9072'
-          xlarge|month|int|string: ₽9072
-        s2:
-          3xlarge|number: '33.6000'
-          3xlarge|string: ₽33.6000
-          3xlarge|int|number: '34'
-          3xlarge|int|string: ₽34
-          3xlarge|month|number: '24192.0000'
-          3xlarge|month|string: ₽24192.0000
-          3xlarge|month|int|number: '24192'
-          3xlarge|month|int|string: ₽24192
-          large|number: '12.6000'
-          large|string: ₽12.6000
-          large|int|number: '13'
-          large|int|string: ₽13
-          large|month|number: '9072.0000'
-          large|month|string: ₽9072.0000
-          large|month|int|number: '9072'
-          large|month|int|string: ₽9072
           micro|number: '2.1000'
           micro|string: ₽2.1000
           micro|int|number: '2'
@@ -4345,14 +4296,47 @@ default:
           micro|month|string: ₽1512.0000
           micro|month|int|number: '1512'
           micro|month|int|string: ₽1512
-          xlarge|number: '16.8000'
-          xlarge|string: ₽16.8000
-          xlarge|int|number: '17'
-          xlarge|int|string: ₽17
-          xlarge|month|number: '12096.0000'
-          xlarge|month|string: ₽12096.0000
-          xlarge|month|int|number: '12096'
-          xlarge|month|int|string: ₽12096
+          xlarge|number: '12.6000'
+          xlarge|string: ₽12.6000
+          xlarge|int|number: '13'
+          xlarge|int|string: ₽13
+          xlarge|month|number: '9072.0000'
+          xlarge|month|string: ₽9072.0000
+          xlarge|month|int|number: '9072'
+          xlarge|month|int|string: ₽9072
+          8xlarge|number: '67.2000'
+          8xlarge|string: ₽67.2000
+          8xlarge|int|number: '67'
+          8xlarge|int|string: ₽67
+          8xlarge|month|number: '48384.0000'
+          8xlarge|month|string: ₽48384.0000
+          8xlarge|month|int|number: '48384'
+          8xlarge|month|int|string: ₽48384
+          4xlarge|number: '33.6000'
+          4xlarge|string: ₽33.6000
+          4xlarge|int|number: '34'
+          4xlarge|int|string: ₽34
+          4xlarge|month|number: '24192.0000'
+          4xlarge|month|string: ₽24192.0000
+          4xlarge|month|int|number: '24192'
+          4xlarge|month|int|string: ₽24192
+          5xlarge|number: '42.0000'
+          5xlarge|string: ₽42.0000
+          5xlarge|int|number: '42'
+          5xlarge|int|string: ₽42
+          5xlarge|month|number: '30240.0000'
+          5xlarge|month|string: ₽30240.0000
+          5xlarge|month|int|number: '30240'
+          5xlarge|month|int|string: ₽30240
+        s2:
+          micro|number: '2.1000'
+          micro|string: ₽2.1000
+          micro|int|number: '2'
+          micro|int|string: ₽2
+          micro|month|number: '1512.0000'
+          micro|month|string: ₽1512.0000
+          micro|month|int|number: '1512'
+          micro|month|int|string: ₽1512
           2xlarge|number: '25.2000'
           2xlarge|string: ₽25.2000
           2xlarge|int|number: '25'
@@ -4361,6 +4345,30 @@ default:
           2xlarge|month|string: ₽18144.0000
           2xlarge|month|int|number: '18144'
           2xlarge|month|int|string: ₽18144
+          6xlarge|number: '67.2000'
+          6xlarge|string: ₽67.2000
+          6xlarge|int|number: '67'
+          6xlarge|int|string: ₽67
+          6xlarge|month|number: '48384.0000'
+          6xlarge|month|string: ₽48384.0000
+          6xlarge|month|int|number: '48384'
+          6xlarge|month|int|string: ₽48384
+          large|number: '12.6000'
+          large|string: ₽12.6000
+          large|int|number: '13'
+          large|int|string: ₽13
+          large|month|number: '9072.0000'
+          large|month|string: ₽9072.0000
+          large|month|int|number: '9072'
+          large|month|int|string: ₽9072
+          xlarge|number: '16.8000'
+          xlarge|string: ₽16.8000
+          xlarge|int|number: '17'
+          xlarge|int|string: ₽17
+          xlarge|month|number: '12096.0000'
+          xlarge|month|string: ₽12096.0000
+          xlarge|month|int|number: '12096'
+          xlarge|month|int|string: ₽12096
           small|number: '4.2000'
           small|string: ₽4.2000
           small|int|number: '4'
@@ -4393,14 +4401,14 @@ default:
           5xlarge|month|string: ₽36288.0000
           5xlarge|month|int|number: '36288'
           5xlarge|month|int|string: ₽36288
-          6xlarge|number: '67.2000'
-          6xlarge|string: ₽67.2000
-          6xlarge|int|number: '67'
-          6xlarge|int|string: ₽67
-          6xlarge|month|number: '48384.0000'
-          6xlarge|month|string: ₽48384.0000
-          6xlarge|month|int|number: '48384'
-          6xlarge|month|int|string: ₽48384
+          3xlarge|number: '33.6000'
+          3xlarge|string: ₽33.6000
+          3xlarge|int|number: '34'
+          3xlarge|int|string: ₽34
+          3xlarge|month|number: '24192.0000'
+          3xlarge|month|string: ₽24192.0000
+          3xlarge|month|int|number: '24192'
+          3xlarge|month|int|string: ₽24192
       kafka:
         v2:
           cpu:
@@ -13397,6 +13405,10 @@ default:
           v1|string: Free
           v1|int|number: '0'
           v1|int|string: Free
+      tts_custom|number: '0.000000'
+      tts_custom|string: Free
+      tts_custom|int|number: '0'
+      tts_custom|int|string: Free
       tts:
         monthly_usage:
           v1|number: '0.000000'
@@ -13440,6 +13452,15 @@ default:
       tts|string: $2.346805
       tts|int|number: '2'
       tts|int|string: $2
+      tts_hosting:
+        full_brand_voice|number: '0.000000'
+        full_brand_voice|string: Free
+        full_brand_voice|int|number: '0'
+        full_brand_voice|int|string: Free
+        adaptive_brand_voice|number: '1923.076950'
+        adaptive_brand_voice|string: $1923.076950
+        adaptive_brand_voice|int|number: '1923'
+        adaptive_brand_voice|int|string: $1923
       tts_gpu|number: '15.384616'
       tts_gpu|string: $15.384616
       tts_gpu|int|number: '15'
@@ -13454,11 +13475,6 @@ default:
           v1|string: Free
           v1|int|number: '0'
           v1|int|string: Free
-      tts_hosting:
-        adaptive_brand_voice|number: '1923.076950'
-        adaptive_brand_voice|string: $1923.076950
-        adaptive_brand_voice|int|number: '1923'
-        adaptive_brand_voice|int|string: $1923
     datasphere:
       datasets:
         v1|number: '0.000000'
@@ -15488,22 +15504,6 @@ default:
         public_ip|month|int|number: '1'
         public_ip|month|int|string: $1
         m2:
-          6xlarge|number: '0.646154'
-          6xlarge|string: $0.646154
-          6xlarge|int|number: '1'
-          6xlarge|int|string: $1
-          6xlarge|month|number: '465.230788'
-          6xlarge|month|string: $465.230788
-          6xlarge|month|int|number: '465'
-          6xlarge|month|int|string: $465
-          8xlarge|number: '0.861538'
-          8xlarge|string: $0.861538
-          8xlarge|int|number: '1'
-          8xlarge|int|string: $1
-          8xlarge|month|number: '620.307717'
-          8xlarge|month|string: $620.307717
-          8xlarge|month|int|number: '620'
-          8xlarge|month|int|string: $620
           medium|number: '0.080769'
           medium|string: $0.080769
           medium|int|number: '0'
@@ -15520,30 +15520,6 @@ default:
           2xlarge|month|string: $155.076929
           2xlarge|month|int|number: '155'
           2xlarge|month|int|string: $155
-          micro|number: '0.026923'
-          micro|string: $0.026923
-          micro|int|number: '0'
-          micro|int|string: $0
-          micro|month|number: '19.384616'
-          micro|month|string: $19.384616
-          micro|month|int|number: '19'
-          micro|month|int|string: $19
-          4xlarge|number: '0.430769'
-          4xlarge|string: $0.430769
-          4xlarge|int|number: '0'
-          4xlarge|int|string: $0
-          4xlarge|month|number: '310.153859'
-          4xlarge|month|string: $310.153859
-          4xlarge|month|int|number: '310'
-          4xlarge|month|int|string: $310
-          5xlarge|number: '0.538462'
-          5xlarge|string: $0.538462
-          5xlarge|int|number: '1'
-          5xlarge|int|string: $1
-          5xlarge|month|number: '387.692323'
-          5xlarge|month|string: $387.692323
-          5xlarge|month|int|number: '388'
-          5xlarge|month|int|string: $388
           3xlarge|number: '0.323077'
           3xlarge|string: $0.323077
           3xlarge|int|number: '0'
@@ -15552,6 +15528,14 @@ default:
           3xlarge|month|string: $232.615394
           3xlarge|month|int|number: '233'
           3xlarge|month|int|string: $233
+          6xlarge|number: '0.646154'
+          6xlarge|string: $0.646154
+          6xlarge|int|number: '1'
+          6xlarge|int|string: $1
+          6xlarge|month|number: '465.230788'
+          6xlarge|month|string: $465.230788
+          6xlarge|month|int|number: '465'
+          6xlarge|month|int|string: $465
           7xlarge|number: '0.753846'
           7xlarge|string: $0.753846
           7xlarge|int|number: '1'
@@ -15576,31 +15560,6 @@ default:
           large|month|string: $77.538465
           large|month|int|number: '78'
           large|month|int|string: $78
-          xlarge|number: '0.161538'
-          xlarge|string: $0.161538
-          xlarge|int|number: '0'
-          xlarge|int|string: $0
-          xlarge|month|number: '116.307697'
-          xlarge|month|string: $116.307697
-          xlarge|month|int|number: '116'
-          xlarge|month|int|string: $116
-        s2:
-          3xlarge|number: '0.430769'
-          3xlarge|string: $0.430769
-          3xlarge|int|number: '0'
-          3xlarge|int|string: $0
-          3xlarge|month|number: '310.153859'
-          3xlarge|month|string: $310.153859
-          3xlarge|month|int|number: '310'
-          3xlarge|month|int|string: $310
-          large|number: '0.161538'
-          large|string: $0.161538
-          large|int|number: '0'
-          large|int|string: $0
-          large|month|number: '116.307697'
-          large|month|string: $116.307697
-          large|month|int|number: '116'
-          large|month|int|string: $116
           micro|number: '0.026923'
           micro|string: $0.026923
           micro|int|number: '0'
@@ -15609,14 +15568,47 @@ default:
           micro|month|string: $19.384616
           micro|month|int|number: '19'
           micro|month|int|string: $19
-          xlarge|number: '0.215385'
-          xlarge|string: $0.215385
+          xlarge|number: '0.161538'
+          xlarge|string: $0.161538
           xlarge|int|number: '0'
           xlarge|int|string: $0
-          xlarge|month|number: '155.076929'
-          xlarge|month|string: $155.076929
-          xlarge|month|int|number: '155'
-          xlarge|month|int|string: $155
+          xlarge|month|number: '116.307697'
+          xlarge|month|string: $116.307697
+          xlarge|month|int|number: '116'
+          xlarge|month|int|string: $116
+          8xlarge|number: '0.861538'
+          8xlarge|string: $0.861538
+          8xlarge|int|number: '1'
+          8xlarge|int|string: $1
+          8xlarge|month|number: '620.307717'
+          8xlarge|month|string: $620.307717
+          8xlarge|month|int|number: '620'
+          8xlarge|month|int|string: $620
+          4xlarge|number: '0.430769'
+          4xlarge|string: $0.430769
+          4xlarge|int|number: '0'
+          4xlarge|int|string: $0
+          4xlarge|month|number: '310.153859'
+          4xlarge|month|string: $310.153859
+          4xlarge|month|int|number: '310'
+          4xlarge|month|int|string: $310
+          5xlarge|number: '0.538462'
+          5xlarge|string: $0.538462
+          5xlarge|int|number: '1'
+          5xlarge|int|string: $1
+          5xlarge|month|number: '387.692323'
+          5xlarge|month|string: $387.692323
+          5xlarge|month|int|number: '388'
+          5xlarge|month|int|string: $388
+        s2:
+          micro|number: '0.026923'
+          micro|string: $0.026923
+          micro|int|number: '0'
+          micro|int|string: $0
+          micro|month|number: '19.384616'
+          micro|month|string: $19.384616
+          micro|month|int|number: '19'
+          micro|month|int|string: $19
           2xlarge|number: '0.323077'
           2xlarge|string: $0.323077
           2xlarge|int|number: '0'
@@ -15625,6 +15617,30 @@ default:
           2xlarge|month|string: $232.615394
           2xlarge|month|int|number: '233'
           2xlarge|month|int|string: $233
+          6xlarge|number: '0.861538'
+          6xlarge|string: $0.861538
+          6xlarge|int|number: '1'
+          6xlarge|int|string: $1
+          6xlarge|month|number: '620.307717'
+          6xlarge|month|string: $620.307717
+          6xlarge|month|int|number: '620'
+          6xlarge|month|int|string: $620
+          large|number: '0.161538'
+          large|string: $0.161538
+          large|int|number: '0'
+          large|int|string: $0
+          large|month|number: '116.307697'
+          large|month|string: $116.307697
+          large|month|int|number: '116'
+          large|month|int|string: $116
+          xlarge|number: '0.215385'
+          xlarge|string: $0.215385
+          xlarge|int|number: '0'
+          xlarge|int|string: $0
+          xlarge|month|number: '155.076929'
+          xlarge|month|string: $155.076929
+          xlarge|month|int|number: '155'
+          xlarge|month|int|string: $155
           small|number: '0.053846'
           small|string: $0.053846
           small|int|number: '0'
@@ -15657,14 +15673,14 @@ default:
           5xlarge|month|string: $465.230788
           5xlarge|month|int|number: '465'
           5xlarge|month|int|string: $465
-          6xlarge|number: '0.861538'
-          6xlarge|string: $0.861538
-          6xlarge|int|number: '1'
-          6xlarge|int|string: $1
-          6xlarge|month|number: '620.307717'
-          6xlarge|month|string: $620.307717
-          6xlarge|month|int|number: '620'
-          6xlarge|month|int|string: $620
+          3xlarge|number: '0.430769'
+          3xlarge|string: $0.430769
+          3xlarge|int|number: '0'
+          3xlarge|int|string: $0
+          3xlarge|month|number: '310.153859'
+          3xlarge|month|string: $310.153859
+          3xlarge|month|int|number: '310'
+          3xlarge|month|int|string: $310
       kafka:
         v2:
           cpu:
@@ -24661,6 +24677,10 @@ default:
           v1|string: Free
           v1|int|number: '0'
           v1|int|string: Free
+      tts_custom|number: '0.0000'
+      tts_custom|string: Free
+      tts_custom|int|number: '0'
+      tts_custom|int|string: Free
       tts:
         monthly_usage:
           v1|number: '0.0000'
@@ -24704,6 +24724,15 @@ default:
       tts|string: ₸1098.3048
       tts|int|number: '1098'
       tts|int|string: ₸1098
+      tts_hosting:
+        full_brand_voice|number: '0.0000'
+        full_brand_voice|string: Free
+        full_brand_voice|int|number: '0'
+        full_brand_voice|int|string: Free
+        adaptive_brand_voice|number: '900000.0000'
+        adaptive_brand_voice|string: ₸900000.0000
+        adaptive_brand_voice|int|number: '900000'
+        adaptive_brand_voice|int|string: ₸900000
       tts_gpu|number: '7200.0000'
       tts_gpu|string: ₸7200.0000
       tts_gpu|int|number: '7200'
@@ -24718,11 +24747,6 @@ default:
           v1|string: Free
           v1|int|number: '0'
           v1|int|string: Free
-      tts_hosting:
-        adaptive_brand_voice|number: '900000.0000'
-        adaptive_brand_voice|string: ₸900000.0000
-        adaptive_brand_voice|int|number: '900000'
-        adaptive_brand_voice|int|string: ₸900000
     datasphere:
       datasets:
         v1|number: '0.0000'
@@ -26752,22 +26776,6 @@ default:
         public_ip|month|int|number: '658'
         public_ip|month|int|string: ₸658
         m2:
-          6xlarge|number: '302.4000'
-          6xlarge|string: ₸302.4000
-          6xlarge|int|number: '302'
-          6xlarge|int|string: ₸302
-          6xlarge|month|number: '217728.0000'
-          6xlarge|month|string: ₸217728.0000
-          6xlarge|month|int|number: '217728'
-          6xlarge|month|int|string: ₸217728
-          8xlarge|number: '403.2000'
-          8xlarge|string: ₸403.2000
-          8xlarge|int|number: '403'
-          8xlarge|int|string: ₸403
-          8xlarge|month|number: '290304.0000'
-          8xlarge|month|string: ₸290304.0000
-          8xlarge|month|int|number: '290304'
-          8xlarge|month|int|string: ₸290304
           medium|number: '37.8000'
           medium|string: ₸37.8000
           medium|int|number: '38'
@@ -26784,30 +26792,6 @@ default:
           2xlarge|month|string: ₸72576.0000
           2xlarge|month|int|number: '72576'
           2xlarge|month|int|string: ₸72576
-          micro|number: '12.6000'
-          micro|string: ₸12.6000
-          micro|int|number: '13'
-          micro|int|string: ₸13
-          micro|month|number: '9072.0000'
-          micro|month|string: ₸9072.0000
-          micro|month|int|number: '9072'
-          micro|month|int|string: ₸9072
-          4xlarge|number: '201.6000'
-          4xlarge|string: ₸201.6000
-          4xlarge|int|number: '202'
-          4xlarge|int|string: ₸202
-          4xlarge|month|number: '145152.0000'
-          4xlarge|month|string: ₸145152.0000
-          4xlarge|month|int|number: '145152'
-          4xlarge|month|int|string: ₸145152
-          5xlarge|number: '252.0000'
-          5xlarge|string: ₸252.0000
-          5xlarge|int|number: '252'
-          5xlarge|int|string: ₸252
-          5xlarge|month|number: '181440.0000'
-          5xlarge|month|string: ₸181440.0000
-          5xlarge|month|int|number: '181440'
-          5xlarge|month|int|string: ₸181440
           3xlarge|number: '151.2000'
           3xlarge|string: ₸151.2000
           3xlarge|int|number: '151'
@@ -26816,6 +26800,14 @@ default:
           3xlarge|month|string: ₸108864.0000
           3xlarge|month|int|number: '108864'
           3xlarge|month|int|string: ₸108864
+          6xlarge|number: '302.4000'
+          6xlarge|string: ₸302.4000
+          6xlarge|int|number: '302'
+          6xlarge|int|string: ₸302
+          6xlarge|month|number: '217728.0000'
+          6xlarge|month|string: ₸217728.0000
+          6xlarge|month|int|number: '217728'
+          6xlarge|month|int|string: ₸217728
           7xlarge|number: '352.8000'
           7xlarge|string: ₸352.8000
           7xlarge|int|number: '353'
@@ -26840,31 +26832,6 @@ default:
           large|month|string: ₸36288.0000
           large|month|int|number: '36288'
           large|month|int|string: ₸36288
-          xlarge|number: '75.6000'
-          xlarge|string: ₸75.6000
-          xlarge|int|number: '76'
-          xlarge|int|string: ₸76
-          xlarge|month|number: '54432.0000'
-          xlarge|month|string: ₸54432.0000
-          xlarge|month|int|number: '54432'
-          xlarge|month|int|string: ₸54432
-        s2:
-          3xlarge|number: '201.6000'
-          3xlarge|string: ₸201.6000
-          3xlarge|int|number: '202'
-          3xlarge|int|string: ₸202
-          3xlarge|month|number: '145152.0000'
-          3xlarge|month|string: ₸145152.0000
-          3xlarge|month|int|number: '145152'
-          3xlarge|month|int|string: ₸145152
-          large|number: '75.6000'
-          large|string: ₸75.6000
-          large|int|number: '76'
-          large|int|string: ₸76
-          large|month|number: '54432.0000'
-          large|month|string: ₸54432.0000
-          large|month|int|number: '54432'
-          large|month|int|string: ₸54432
           micro|number: '12.6000'
           micro|string: ₸12.6000
           micro|int|number: '13'
@@ -26873,14 +26840,47 @@ default:
           micro|month|string: ₸9072.0000
           micro|month|int|number: '9072'
           micro|month|int|string: ₸9072
-          xlarge|number: '100.8000'
-          xlarge|string: ₸100.8000
-          xlarge|int|number: '101'
-          xlarge|int|string: ₸101
-          xlarge|month|number: '72576.0000'
-          xlarge|month|string: ₸72576.0000
-          xlarge|month|int|number: '72576'
-          xlarge|month|int|string: ₸72576
+          xlarge|number: '75.6000'
+          xlarge|string: ₸75.6000
+          xlarge|int|number: '76'
+          xlarge|int|string: ₸76
+          xlarge|month|number: '54432.0000'
+          xlarge|month|string: ₸54432.0000
+          xlarge|month|int|number: '54432'
+          xlarge|month|int|string: ₸54432
+          8xlarge|number: '403.2000'
+          8xlarge|string: ₸403.2000
+          8xlarge|int|number: '403'
+          8xlarge|int|string: ₸403
+          8xlarge|month|number: '290304.0000'
+          8xlarge|month|string: ₸290304.0000
+          8xlarge|month|int|number: '290304'
+          8xlarge|month|int|string: ₸290304
+          4xlarge|number: '201.6000'
+          4xlarge|string: ₸201.6000
+          4xlarge|int|number: '202'
+          4xlarge|int|string: ₸202
+          4xlarge|month|number: '145152.0000'
+          4xlarge|month|string: ₸145152.0000
+          4xlarge|month|int|number: '145152'
+          4xlarge|month|int|string: ₸145152
+          5xlarge|number: '252.0000'
+          5xlarge|string: ₸252.0000
+          5xlarge|int|number: '252'
+          5xlarge|int|string: ₸252
+          5xlarge|month|number: '181440.0000'
+          5xlarge|month|string: ₸181440.0000
+          5xlarge|month|int|number: '181440'
+          5xlarge|month|int|string: ₸181440
+        s2:
+          micro|number: '12.6000'
+          micro|string: ₸12.6000
+          micro|int|number: '13'
+          micro|int|string: ₸13
+          micro|month|number: '9072.0000'
+          micro|month|string: ₸9072.0000
+          micro|month|int|number: '9072'
+          micro|month|int|string: ₸9072
           2xlarge|number: '151.2000'
           2xlarge|string: ₸151.2000
           2xlarge|int|number: '151'
@@ -26889,6 +26889,30 @@ default:
           2xlarge|month|string: ₸108864.0000
           2xlarge|month|int|number: '108864'
           2xlarge|month|int|string: ₸108864
+          6xlarge|number: '403.2000'
+          6xlarge|string: ₸403.2000
+          6xlarge|int|number: '403'
+          6xlarge|int|string: ₸403
+          6xlarge|month|number: '290304.0000'
+          6xlarge|month|string: ₸290304.0000
+          6xlarge|month|int|number: '290304'
+          6xlarge|month|int|string: ₸290304
+          large|number: '75.6000'
+          large|string: ₸75.6000
+          large|int|number: '76'
+          large|int|string: ₸76
+          large|month|number: '54432.0000'
+          large|month|string: ₸54432.0000
+          large|month|int|number: '54432'
+          large|month|int|string: ₸54432
+          xlarge|number: '100.8000'
+          xlarge|string: ₸100.8000
+          xlarge|int|number: '101'
+          xlarge|int|string: ₸101
+          xlarge|month|number: '72576.0000'
+          xlarge|month|string: ₸72576.0000
+          xlarge|month|int|number: '72576'
+          xlarge|month|int|string: ₸72576
           small|number: '25.2000'
           small|string: ₸25.2000
           small|int|number: '25'
@@ -26921,14 +26945,14 @@ default:
           5xlarge|month|string: ₸217728.0000
           5xlarge|month|int|number: '217728'
           5xlarge|month|int|string: ₸217728
-          6xlarge|number: '403.2000'
-          6xlarge|string: ₸403.2000
-          6xlarge|int|number: '403'
-          6xlarge|int|string: ₸403
-          6xlarge|month|number: '290304.0000'
-          6xlarge|month|string: ₸290304.0000
-          6xlarge|month|int|number: '290304'
-          6xlarge|month|int|string: ₸290304
+          3xlarge|number: '201.6000'
+          3xlarge|string: ₸201.6000
+          3xlarge|int|number: '202'
+          3xlarge|int|string: ₸202
+          3xlarge|month|number: '145152.0000'
+          3xlarge|month|string: ₸145152.0000
+          3xlarge|month|int|number: '145152'
+          3xlarge|month|int|string: ₸145152
       kafka:
         v2:
           cpu:

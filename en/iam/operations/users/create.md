@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Adding a user to a cloud
 
 To add users to the cloud, you need the [`admin`](../../concepts/access-control/roles.md#admin) or [`resource-manager.clouds.owner`](../../concepts/access-control/roles.md#owner) role for that cloud.

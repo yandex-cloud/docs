@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc serverless function allow-unauthenticated-invoke
 
 Allow unauthenticated invoke for the specified function

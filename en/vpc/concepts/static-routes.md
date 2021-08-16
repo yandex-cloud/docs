@@ -3,10 +3,7 @@ description: With static routing, you can route traffic from a subnet to the spe
 keywords:
   - static routing
   - routing
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Static routing
 

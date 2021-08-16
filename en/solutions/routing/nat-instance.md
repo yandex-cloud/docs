@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Routing through a NAT instance
 
 Yandex.Cloud lets you configure internet connections for multiple VMs via a NAT instance using static routing. In this case, only one public IP address is used: the one assigned to the VM.

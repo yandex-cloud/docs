@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc certificate-manager certificate set-access-bindings
 
 Set access bindings for the specified certificate and delete all existing access bindings if there were any

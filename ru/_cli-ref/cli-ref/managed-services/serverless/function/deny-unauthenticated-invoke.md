@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc serverless function deny-unauthenticated-invoke
 
 Deny unauthenticated invoke for the specified function

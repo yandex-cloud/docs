@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Setting up the AWS CLI and AWS SDK
 
 To access the database via the Document API in AWS DynamoDB-compatible mode, you can use AWS tools:

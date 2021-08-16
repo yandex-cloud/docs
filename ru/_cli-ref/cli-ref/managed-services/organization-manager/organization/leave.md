@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc organization-manager organization leave
 
 Remove user accounts from the specified organization. Operation is performed by the account that wants to leave.

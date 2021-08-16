@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Integration of the domain management system with services from {{ yandex-cloud }}
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

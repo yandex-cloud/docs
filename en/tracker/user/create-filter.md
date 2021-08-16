@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating an issue filter
 
 If you need something more advanced than the preset [system filters](default-filters.md) to find issues in {{ tracker-name }}, you can create your own filter and sort issues by title, description, comments, field values, update dates, and other parameters. For example, you can use custom filters to find all issues in queues where you have the author or assignee status.

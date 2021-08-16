@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # CORS configuration of buckets
 
 {{ objstorage-name }} lets you manage [CORS configurations](../../../concepts/cors.md) of buckets. To upload the CORS configuration to {{ objstorage-name }}, you need to create an XML document as described in this section. You can obtain a document in this format by downloading an existing configuration.

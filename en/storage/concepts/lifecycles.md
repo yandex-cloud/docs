@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Object lifecycles
 
 {{ objstorage-name }} lets you define the actions automatically applied to individual objects or groups of objects in the bucket at specified points in time.

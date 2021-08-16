@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Integration with {{ container-registry-name }}
 
 To integrate {{ k8s }} with {{ container-registry-name }}, create the following resources: service accounts for managing resources and respective access permissions, a {{ k8s }} cluster, a node group, and a Docker registry and image. To facilitate authentication, configure the Docker Credential helper and make sure that a pod with an app from {{ container-registry-name }} launches using a service account with no additional authentication.

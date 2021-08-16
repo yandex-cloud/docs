@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc container registry set-ip-permissions
 
 Set ip permissions for the specified registry and delete all existing ip permission if there were any

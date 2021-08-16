@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Greedy parameters
 
 [The OpenAPI Specification 3.0](https://github.com/OAI/OpenAPI-Specification) only allows capturing a single URL segment. To capture multiple segments, add `+` after the parameter name: `/prefix/{param+}/suffix`.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Digitizing archives in Yandex Vision
 
 [Yandex Vision](https://cloud.yandex.com/docs/vision/) is a computer vision service for image analysis.

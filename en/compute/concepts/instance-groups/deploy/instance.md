@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Rules for updating instance groups
 
 Updating an instance group is performed to ensure minimum implications for the instances managed by the group.

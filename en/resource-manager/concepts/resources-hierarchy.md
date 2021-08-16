@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Hierarchy of Yandex.Cloud resources
 
 When you get access to Yandex.Cloud, you are allocated a separate workspace: a _cloud_. This is where you will create folders.

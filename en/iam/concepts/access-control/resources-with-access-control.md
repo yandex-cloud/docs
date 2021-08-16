@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # A list of resources that roles can be assigned for
 
 Resources you can [assign](../../operations/roles/grant.md) roles to, [view](../../operations/roles/get-assigned-roles.md) roles for, and [revoke](../../operations/roles/revoke.md) roles to:

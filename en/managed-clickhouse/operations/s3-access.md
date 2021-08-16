@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Setting up access to {{ objstorage-name }}
 
 {{ mch-name }} lets you use {{ objstorage-full-name }} to:

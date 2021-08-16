@@ -4,10 +4,7 @@ keywords:
   - yql
   - faq yql
   - questions and answers yql
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Questions and answers about {{ ydb-short-name }}
 

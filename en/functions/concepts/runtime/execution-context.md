@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Execution context
 
 _The execution context_ is a temporary runtime environment that initializes the external dependencies of your function code, such as database connections and HTTP endpoints.

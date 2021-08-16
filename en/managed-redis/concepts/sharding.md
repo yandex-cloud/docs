@@ -1,10 +1,7 @@
 ---
 title: Sharding in Redis
 description: 'Sharding in Managed Service for Redis is implemented using Redis Cluster. Redis Cluster allows you to create a Redis installation with automatic data sharding between hosts. Sharding offers load balancing across the database hosts — this allows you to overcome the resource constraints of a single server, which is especially important with large amounts of data or the need for intensive calculations. '
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Sharding in Managed Service for Redis
 

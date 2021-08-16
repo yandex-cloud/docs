@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Подключиться к виртуальной машине Windows через PowerShell
 
 {% include [vm-connect-powershell](../../../_includes/compute/vm-connect-powershell.md) %}

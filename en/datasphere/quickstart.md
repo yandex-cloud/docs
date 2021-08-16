@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with {{ ml-platform-name }}
 
 {{ ml-platform-name }} is a service that simplifies the use of the JupyterLab development environment on {{ yandex-cloud }} computing resources. This lets you perform complex calculations, such as training neural networks or analyzing big data, using the familiar Jupyter Notebook interface.

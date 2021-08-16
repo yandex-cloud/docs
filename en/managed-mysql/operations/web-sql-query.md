@@ -1,10 +1,7 @@
 ---
 title: SQL Queries in Managed Service for MySQL
 description: 'Managed Service for MySQL allows you to visualize the data structure on your cluster and send SQL queries to databases from the Yandex.Cloud management console. To do this, log into the management console, open the page of the required cluster and go to the SQL tab. '
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # SQL queries in Managed Service for MySQL
 

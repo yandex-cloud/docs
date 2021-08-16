@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc serverless api-gateway remove-access-binding
 
 Remove access binding for the specified API Gateway

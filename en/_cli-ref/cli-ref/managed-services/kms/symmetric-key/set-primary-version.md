@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc kms symmetric-key set-primary-version
 
 Set primary version of the specified symmetric key

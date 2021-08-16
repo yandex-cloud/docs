@@ -2,10 +2,7 @@
 description: To evaluate the quality of the image, you can use the model of quality of service Yandex Vision. The service compares similar images and selects better quality or filters lower quality images, for example, so as not to show them in search results. Supported file formats for quality assessment – JPEG, PNG, PDF.
 keywords:
   - image quality
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Assessing image quality
 

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Использование интерфейса YcFunction для задания функции-обработчика на С#
 
 Вы можете задать функцию-обработчик на C#, реализовав интерфейс [YcFunction](https://github.com/yandex-cloud/dotnet-sdk/blob/master/Yandex.Cloud.SDK/Functions/YcFunction.cs). Для этого дополнительно нужно добавить [SDK](../sdk.md) в [зависимости](../dependencies.md).

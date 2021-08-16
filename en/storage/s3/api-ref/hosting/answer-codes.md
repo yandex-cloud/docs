@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Static website response codes
 
 If a bucket is configured to host static websites, the user trying to access it may get any of the response codes described in the table below.

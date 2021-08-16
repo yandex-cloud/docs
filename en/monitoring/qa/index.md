@@ -1,10 +1,7 @@
 ---
 title: "Yandex Monitoring. FAQ"
 description: "How can I supply metrics of my application to Yandex Monitoring? How can I supply metrics of third-party applications to Yandex Monitoring? Answers to these and other questions are in this article."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # General questions
 

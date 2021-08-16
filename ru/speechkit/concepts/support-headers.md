@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Диагностика ошибок
 
 {% include [ask-for-support](../../_includes/ai-common/ask-for-support.md) %}

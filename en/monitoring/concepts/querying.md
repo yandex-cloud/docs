@@ -1,10 +1,7 @@
 ---
 title: "Query language in Yandex Monitoring"
 description: "This section describes the {{monitoring-full-name}} query language. It is used to transform metrics when setting up dashboards and alerts, as well as in the MetricsData.read API method."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Query language
 

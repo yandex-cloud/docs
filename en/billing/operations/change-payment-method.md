@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Change the payment method
 
 The payment method can only be changed for the billing account of the **Business account** type:  you can only use a transfer from your bank account instead of a transfer from your bank card. To do this, send a request to: [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru).

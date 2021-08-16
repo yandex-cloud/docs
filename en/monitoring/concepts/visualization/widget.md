@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Widgets
 
 _Widgets_ are dashboard elements that display information as a chart or text.

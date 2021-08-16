@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Pre-signed URLs
 
 Using pre-signed URLs, internet users can perform various operations in {{ objstorage-name }}, such as:

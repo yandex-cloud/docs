@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Division of responsibility
 
 Systems using cloud services require security responsibilities be divided and shared by the client-owner of the end system and the provider-owner of the cloud infrastructure. This division depends on the cloud service model: IaaS (Infrastructure as a Service) or PaaS (Platform as a Service).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with {{ translate-short-name }}
 
 In this section, you will learn how to translate text using the {{ translate-name }} API. To translate a text, pass it using the [translate](api-ref/v1/translate.md) method.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Encrypting data using the AWS Encryption SDK
 
 [The AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html) is a library that simplifies the process of encrypting and decrypting data. Use it if you want to securely encrypt data without going into the details of encryption algorithms.

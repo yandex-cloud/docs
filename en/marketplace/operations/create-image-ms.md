@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a Windows Server-based product image to upload to {{ marketplace-name }}
 
 Products in Marketplace can be based on Linux and Windows Server. These instructions will help you create an image based on Windows Server. To create a Linux-based image, follow the instructions [{#T}](create-image.md).

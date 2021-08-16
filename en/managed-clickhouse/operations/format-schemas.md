@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing data format schemas
 
 {% include [mch-format-schemas-intro](../../_includes/mdb/mch-format-schemas-intro.md) %}

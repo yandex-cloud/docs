@@ -5,10 +5,7 @@ keywords:
   - роли хостов Elasticsearch
   - Elasticsearch
   - хосты Elasticsearch
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Роли хостов
 

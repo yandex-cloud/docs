@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting a download link
 
 If you have a public bucket, its objects are always available. You can get a link by following these instructions or generate one yourself. [Read more about the link format](../../concepts/object.md#object-url).

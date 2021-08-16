@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Using Markdown in DataLens
 
 {{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](dashboard.md#text) widget on the dashboard.

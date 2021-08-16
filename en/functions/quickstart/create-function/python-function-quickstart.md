@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a function in Python
 
 Create and execute a [function](../../concepts/function.md) in Python that welcomes the user.

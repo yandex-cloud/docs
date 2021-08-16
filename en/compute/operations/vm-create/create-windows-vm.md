@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a VM from a Windows public image
 
 This section provides guidelines on how to create a VM with the Windows OS. To create a Linux-based VM, follow the instructions [{#T}](create-linux-vm.md).

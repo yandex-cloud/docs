@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # putBucketEncryption method
 
 Adds encryption to the bucket. By default, the objects added to the bucket are encrypted with the specified [{{ kms-short-name }} key](../../../../kms/concepts/key.md). For more information about bucket encryption, see [{#T}](../../../operations/buckets/encrypt.md).

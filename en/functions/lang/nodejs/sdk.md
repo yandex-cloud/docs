@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Using the SDK
 
 The runtime environment has a pre-installed library that lets you access the [{{ yandex-cloud }} API](../../../api-design-guide/). To use it, you don't need to add [dependencies](dependencies.md) to your application, except when a library version other than that of the pre-installed one is required. You can find the library source code on [GitHub](https://github.com/yandex-cloud/nodejs-sdk).

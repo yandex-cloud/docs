@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Writing custom metrics via the API
 
 To start writing custom metrics via the API, use the [write](../../api-ref/MetricsData/write.md) method.

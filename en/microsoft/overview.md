@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Microsoft in {{ yandex-cloud }}
 
 You can run familiar software and your Windows-based products in {{ yandex-cloud }} and use all the advantages of cloud technologies. Work with a reliable cloud storage and network infrastructure and scale computing capacity to meet your needs.

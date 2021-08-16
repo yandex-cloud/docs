@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Recommendations on how to use the network load balancer
 
 This article provides a set of recommendations for using the Yandex.Cloud network load balancer.

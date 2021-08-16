@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Testing applications with GitLab
 
 [GitLab](https://ru.wikipedia.org/wiki/GitLab) is a web-based Git repository management site and system. GitLab also lets developers run a continuous deployment process for writing, testing, and deploying code.

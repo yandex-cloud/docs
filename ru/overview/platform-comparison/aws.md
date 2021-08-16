@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Сопоставление с Amazon Web Services
 
 | Amazon Web Services | {{ yandex-cloud }} |

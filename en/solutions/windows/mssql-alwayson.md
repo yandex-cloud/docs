@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Deploying an Always On availability group
 
 This scenario describes how to deploy an Always On availability group in {{ yandex-cloud }}. If one or more nodes in the group fail, the system will continue to run through replication and failover of the write database, thus ensuring high availability of the DBMS.

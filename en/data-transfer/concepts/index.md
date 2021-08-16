@@ -1,10 +1,7 @@
 ---
 title: "Relationship between {{data-transfer-full-name}} service resources"
 description: "{{data-transfer-full-name}} allows you to easily transfer data between databases. The service allows you to reduce the time for the migration process, minimize downtime when switching to a new database or have a permanent replica of the database."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Relationships between resources in {{ data-transfer-name }}
 

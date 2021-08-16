@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Deploying Microsoft Exchange
 
 This scenario describes how to deploy Microsoft Exchange servers in Yandex.Cloud. The following Microsoft Exchange servers will be installed in `ru-central1-a` and `ru-central1-b` availability zones: two mail servers, two Active Directory servers, and two Edge Transport servers. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `ru-central1-c` availability zone will manage all the servers.

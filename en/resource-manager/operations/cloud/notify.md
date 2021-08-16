@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Cloud incident notifications
 
 By default, all cloud owners (users with the ``resource-manager.clouds.owner`` role) are notified of incidents in the cloud.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Deleting expired metrics (TTL)
 
 Metrics that don't received new values for 30 days are considered expired and are automatically deleted from {{monitoring-full-name}}. Automatic deletion of expired metrics is run once a day.

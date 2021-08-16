@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Transfer from a bank card
 
 Businesses can top up their personal accounts and pay for consumed resources using a corporate bank card that is linked to the billing account.

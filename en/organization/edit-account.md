@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Editing or deleting a user account
 
 1. [Log in]({{link-passport}}) to the organization's administrator account.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with {{ datalens-short-name }}
 
 In this tutorial, you'll create your first [dataset](concepts/dataset/index.md), build several [charts](concepts/chart.md) to visualize data, and place them on a [dashboard](concepts/dashboard.md).

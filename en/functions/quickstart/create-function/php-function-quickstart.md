@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a function in PHP
 
 Create and execute a [function](../../concepts/function.md) in PHP that welcomes the user.

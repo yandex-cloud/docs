@@ -1,10 +1,7 @@
 ---
 title: "Getting started with Yandex IoT Core"
 description: "In this tutorial, you will learn how to create X509 certificates and configure messaging between devices and registries using the Yandex IoT Core service (mqtt broker)."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Getting started with {{ iot-name }}
 

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # URL shortener
 
 With this script, you'll create a URL shortening service using serverless technologies available in {{ yandex-cloud }}.

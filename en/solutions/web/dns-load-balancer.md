@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Fault tolerant website with DNS load balancing
 
 This tutorial describes how to set up a website with load balancing between two availability zones. This protects the website from failures in one of the zones.

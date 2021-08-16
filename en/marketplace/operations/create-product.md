@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a product
 
 To add a product to the Marketplace, upload an image based on [Linux](create-image.md#create) or [Windows Server](create-image-ms.md) in {{ yandex-cloud }}.

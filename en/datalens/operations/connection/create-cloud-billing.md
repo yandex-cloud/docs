@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a Yandex Cloud Billing connection
 
 ## Connecting to Yandex Cloud Billing {#ya-cloud-billing}

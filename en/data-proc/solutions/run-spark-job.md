@@ -4,10 +4,7 @@ keywords:
   - apache spark
   - spark
   - PySpark
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Launching and managing applications for Spark and PySpark
 

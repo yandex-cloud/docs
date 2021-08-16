@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Select records by parameters
 
 Use this request to fetch data about the time spent by a specific user or during a certain period. You can make a `GET` or `POST` request.

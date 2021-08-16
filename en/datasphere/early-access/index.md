@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Early access mode
 
 Early access mode is an opportunity to try out new {{ ml-platform-name }} features before they are released. The mode can be enabled for a project.

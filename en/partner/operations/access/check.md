@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Checking access permissions to a customer's clouds from the partner console
 
 To verify access to a customer's cloud:

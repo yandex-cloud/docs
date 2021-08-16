@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # GROUP BY
 
 Group the `SELECT` results by the values of the specified columns or expressions. The [aggregate functions](../builtins/aggregation.md) (`COUNT`, `MAX`, `MIN`, `SUM`, `AVG`) are often used together with `GROUP BY` to perform calculations in each group.

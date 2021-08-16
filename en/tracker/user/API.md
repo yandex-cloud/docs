@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # API {{ tracker-name }}
 
 Manage your {{ tracker-name }} issues using HTTP requests to the [{{ tracker-full-name }} REST API](../about.md).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Editing a dashboard
 
 By default, only the owner can edit the dashboard. Change access settings to allow other users to edit the dashboard.

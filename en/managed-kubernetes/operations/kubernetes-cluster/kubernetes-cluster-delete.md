@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Deleting clusters {{ k8s }}
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}

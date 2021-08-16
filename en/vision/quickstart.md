@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with {{ vision-short-name }}
 
 This section describes how to get started with the {{ vision-short-name }} API for image analysis.

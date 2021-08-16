@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Upload a temporary file
 
 Use this request to upload temporary files. Use this request to upload a file to {{ tracker-name }} first, and then attach it when creating an [issue](create-issue.md) or adding a [comment](add-comment.md).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Mounting a volume in Block mode
 
 To mount a volume in `volumeMode: Block` [mode](../../concepts/volume.md#block), follow these steps.

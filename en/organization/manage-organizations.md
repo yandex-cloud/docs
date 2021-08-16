@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Switching to another organization
 
 If you are an administrator or user of multiple organizations, you can switch between them:

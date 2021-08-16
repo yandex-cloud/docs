@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # PutItem method
 
 Replaces an item in a table or creates a new one. If the item with the specified primary key already exists, the method replaces it with a new item. If there is no item, the method creates it.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Updating a DNS zone
 
 After creating a [DNS zone](../concepts/dns-zone.md), you can update it: rename the zone, add a description, or select other networks for it.

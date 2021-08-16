@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Timer
 
 _Timer_ is a [trigger](../trigger/) that runs a function on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc lockbox secret set-access-bindings
 
 Set access bindings for the specified secret and delete all existing access bindings if there were any

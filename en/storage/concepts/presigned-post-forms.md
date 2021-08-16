@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Upload a file via an HTML form
 
 This section describes how to upload files from the browser to {{ objstorage-name }} using an HTML form.

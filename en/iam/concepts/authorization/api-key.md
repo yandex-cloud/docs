@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # API key
 
 _The API key_ is a private key used for simplified authorization in the Yandex.Cloud API. API keys are only used for [service accounts](../users/service-accounts.md).

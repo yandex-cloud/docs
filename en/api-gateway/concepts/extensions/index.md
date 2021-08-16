@@ -1,10 +1,7 @@
 ---
 title: API Gateway specification extensions. Overview
 description: 'The x-yc-apigateway extension allows you to set high-level API gateway parameters, the values of which will be inherited by nested extensions. The x-yc-apigateway-integration extension is the entry point for integrating the API gateway with other services. '
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Overview
 

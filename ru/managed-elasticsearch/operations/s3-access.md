@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Настройка доступа к {{ objstorage-name }}
 
 {{ mes-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) {{ ES }}. Это позволяет использовать {{ objstorage-name }} для хранения [резервных копий](./cluster-backups.md).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # getBucketEncryption method
 
 Returns information about bucket encryption. For more information about bucket encryption, see [{#T}](../../../operations/buckets/encrypt.md).

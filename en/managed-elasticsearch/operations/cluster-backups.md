@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing backups
 
 {{ mes-name }} enables you to use [snapshots](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) in {{ ES }} to manage data backups. To work with snapshots, use the [{{ ES }} public API](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore-apis.html) and a bucket in {{ objstorage-name }} to store them.

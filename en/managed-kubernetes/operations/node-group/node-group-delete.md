@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Deleting a node group
 
 To delete a [node group](../../concepts/index.md#node-group), use its name or ID.

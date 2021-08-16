@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Preemptible VMs
 
 *Preemptible instances* are instances that may be terminated at any time. This can occur in two cases:

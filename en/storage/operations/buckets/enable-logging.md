@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Logging actions with the bucket
 
 To track operations with the [bucket](../../concepts/bucket.md), enable [logging](../../concepts/server-logs.md). Detailed information about requests to the _source_ bucket will be saved in an [object](../../concepts/object.md) in the _target_ bucket. However, {{ objstorage-name }} [doesn't guarantee](../../concepts/server-logs.md) that the logs will be saved fully and quickly.

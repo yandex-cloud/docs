@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ network-load-balancer-full-name }}
 
 В этом сценарии описано, как настроить веб-сайт на стеке LAMP (Linux, Apache, MySQL, PHP) или LEMP (Linux, nginx, MySQL, PHP) с балансировкой нагрузки через [{{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/index.md) между двумя зонами доступности, защищенный от сбоев в одной зоне.

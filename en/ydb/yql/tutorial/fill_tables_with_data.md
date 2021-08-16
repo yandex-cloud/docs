@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Adding data to a table
 
 Populate the [created](create_demo_tables.md) tables with data using the [REPLACE INTO](../reference/syntax/replace_into.md) statement.

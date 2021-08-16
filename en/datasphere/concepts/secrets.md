@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Private data storage
 
 {{ ml-platform-name }} provides a special tool called _Vault_ for the secure handling of private data (such as keys and passwords). You can find the Vault on the ![Secrets](../../_assets/datasphere/jupyterlab/secret.svg) tab.

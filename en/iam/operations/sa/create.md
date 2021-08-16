@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a service account
 
 Create a [service account](../../concepts/users/service-accounts.md) to manage resources under a different account.

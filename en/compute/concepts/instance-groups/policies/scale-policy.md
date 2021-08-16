@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Scaling policy
 
 When creating an instance group, you can choose how to increase and decrease the number of VM in the group.

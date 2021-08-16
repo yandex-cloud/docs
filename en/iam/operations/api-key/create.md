@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating API keys
 
 Instructions for how to create [API keys](../../concepts/authorization/api-key.md) for [service accounts](../../concepts/users/service-accounts.md). _The API key_ is a private key used for simplified authorization in the Yandex.Cloud API.

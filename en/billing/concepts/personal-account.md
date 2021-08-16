@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Personal account
 
 The personal account is your unique ID in the Billing service, which is used to pay for resources during the entire term of your [agreement](contract.md). It holds the funds that you credit to it using a bank card or bank transfer (the crediting method depends on your legal status).

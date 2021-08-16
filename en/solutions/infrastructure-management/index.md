@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Tutorials for working with infrastructure management systems
 
 * [{#T}](terraform-quickstart.md)

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Search using {{ ES }}
 
 {{ ES }} acts not only as document storage, but also as a tool for searching and analyzing data in the documents using:

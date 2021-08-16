@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Updating a trigger
 
 You can change the [name](#update-name) and [description](#update-description) of a trigger and [manage trigger labels](#manage-label).

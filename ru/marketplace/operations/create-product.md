@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Создание продукта 
 
 Чтобы добавить продукт в Marketplace, нужно загрузить образ на базе ОС [Linux](create-image.md#create) или [Windows Server](create-image-ms.md) в {{ yandex-cloud }}.

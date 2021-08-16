@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Enabling machine learning models
 
 {{ mch-short-name }} lets you analyze data by applying [CatBoost](https://catboost.ai/) machine learning models without additional tools. To apply a model, add it to your cluster and call it in an SQL query using the built-in [`modelEvaluate()`](https://clickhouse.yandex/docs/en/query_language/functions/other_functions/#function-modelevaluate) function. After running this query, you get model predictions for each row of input data. For more information about machine learning, {{ CH }} see the [documentation](https://clickhouse.yandex/docs/en/guides/apply_catboost_model/).

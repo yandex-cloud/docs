@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc application-load-balancer load-balancer remove-listener
 
 Removes the listener from the specified application load balancer.

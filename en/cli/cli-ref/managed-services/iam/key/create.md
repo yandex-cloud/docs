@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc iam key create
 
 Create an IAM key for for authenticated account or the specified service account. Created key will be written to file in JSON format.

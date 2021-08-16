@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Structuring issues
 
 There are several ways to structure issues in {{ tracker-name }}. You can apply them individually or use several at the same time.

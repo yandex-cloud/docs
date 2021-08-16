@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Change your billing account data
 
 Billing account data can only be changed by the account owner. For more information, see [Access management](../security/index.md).

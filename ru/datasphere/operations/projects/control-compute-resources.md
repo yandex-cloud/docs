@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Управление вычислительными ресурсами
 
 {% include [include](../../../_includes/datasphere/control-compute-resources-intro.md) %}

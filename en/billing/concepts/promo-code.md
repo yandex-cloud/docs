@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Promo code
 
 **A promo code** is a password that allows you to get an additional discount on using Yandex.Cloud services.

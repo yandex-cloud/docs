@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Using hybrid storage
 
 Hybrid storage allows you to store frequently used data in the network storage of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage levels is only supported for [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) tables. To learn more, see [{#T}](../concepts/storage.md).

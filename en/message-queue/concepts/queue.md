@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Message queues
 
 Message queues enable messaging between components of  distributed applications. Messages can be sent to queues using the [API](../api-ref/index.md) or any of the [supported tools](../instruments/index.md).

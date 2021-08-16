@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Key version
 
 Key versions are the cryptographic material that you can use for encrypting and decrypting data.

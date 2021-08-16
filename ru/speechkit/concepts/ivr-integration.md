@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Интеграция телефонии
 
 Вы можете интегрировать вашу [IVR-платформу](https://en.wikipedia.org/wiki/Interactive_voice_response) телефонии (например, [Asterisk](https://www.asterisk.org), [Freeswitch](https://freeswitch.com), [Genesys](https://www.genesys.com/), [Avaya](https://www.avaya.com/)) с {{ speechkit-full-name }}. Например, чтобы настроить интерактивное голосовое меню для звонков и разгрузить ваш call-центр.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Text recognition
 
 To recognize text in an image or from a PDF file, use the [Text recoginiton](../../concepts/ocr/index.md).

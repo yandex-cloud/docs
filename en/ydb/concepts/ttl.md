@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Time to Live (TTL)
 
 This section describes how the TTL mechanism works and what its limits are. It also gives examples of commands and code snippets that can be used to enable, configure, and disable TTL.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # System views
 
 To enable internal introspection of the DB state, the user can make queries to special service tables (system views). These tables are accessible from the root of the database tree and use the `.sys` system path prefix.

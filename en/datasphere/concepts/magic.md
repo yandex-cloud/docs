@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Available commands
 
 The list of commands available in the notebook is made up of standard commands with some restrictions and additions. View the list of standard commands in the [IPython documentation](https://ipython.readthedocs.io/en/stable/interactive/magics.html). Restrictions and additions are given below.

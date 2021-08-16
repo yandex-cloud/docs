@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # ChangeMessageVisibilityBatchRequestEntry
 
 Структура данных для возврата параметров `ReceiptHandle` и идентификаторов для сообщений из запроса [ChangeMessageVisibilityBatch](../message/ChangeMessageVisibilityBatch.md).

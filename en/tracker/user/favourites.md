@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Favorite issues, boards, and dashboards
 
 You can add any issue, queue, dashboard, or agile board to favorites so that you can find them quickly. Only you can see the list of your favorites.

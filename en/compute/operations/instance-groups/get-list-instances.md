@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting a list of instances in a group
 
 After creating an instance group, you can get a list of instances in the group.

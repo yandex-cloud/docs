@@ -1,10 +1,7 @@
 ---
 title: "Deleting Data Proc clusters"
 description: "You can delete a Data Proc cluster along with all the data stored in it. Keep in mind that backups are not created automatically – if you want to save data for cluster recovery or later use, for example, use the Yandex Object Storage service."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Deleting clusters
 

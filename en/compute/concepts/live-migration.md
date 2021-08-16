@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Live migration
 
 {{ compute-full-name }} uses a live migration mechanism that allows the service to move running VMs between physical servers without stopping or restarting them. Interruptions are usually less than 10 seconds long.

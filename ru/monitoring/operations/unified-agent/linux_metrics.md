@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Поставка системных метрик Linux
 
 Для поставки в {{ monitoring-full-name }} системных метрик виртуальных машин, работающих на Linux-совместимых операционных системах, используется вход [linux_metrics](../../concepts/data-collection/unified-agent/configuration.md#linux_metrics_input).

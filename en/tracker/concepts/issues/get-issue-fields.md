@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Get issue field parameters
 
 ## Request format {#section_nrf_1vp_4gb}

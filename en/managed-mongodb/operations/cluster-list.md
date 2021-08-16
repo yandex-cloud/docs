@@ -1,10 +1,7 @@
 ---
 title: "Information about clusters in {{ mmg-short-name }}"
 description: "You can request detailed information about each {{ mmg-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mmg-name }} service."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 
 # Information about existing clusters

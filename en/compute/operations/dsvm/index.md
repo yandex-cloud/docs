@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Yandex Data Science Virtual Machine
 
 Yandex Data Science Virtual Machine (DSVM) is a virtual machine with pre-installed popular libraries for data analytics and machine learning. A DSVM can be used as an environment for training models and experimenting with data.

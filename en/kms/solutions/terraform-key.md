@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing {{ kms-short-name }} keys with Hashicorp Terraform
 
 [The Terraform provider for Yandex.Cloud](https://www.terraform.io/docs/providers/yandex/index.html) supports the use of {{ kms-short-name }} keys.

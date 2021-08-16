@@ -1,10 +1,7 @@
 ---
 title: Dashboards in Yandex DataLens
 description: 'Dashboard in Yandex DataLens — a page or a set of pages on which widgets are located. Allows you to collect charts in one place, add explanatory captions and titles to them. New dashboard pages can be created using the tab element. DataLens allows you to display your dashboard in full screen mode.'
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Dashboards in Yandex DataLens
 

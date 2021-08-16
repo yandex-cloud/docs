@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Установка зависимостей
 
 {% include [include](../../../_includes/datasphere/install-dependencies-intro.md) %}

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc load-balancer network-load-balancer attach-target-group
 
 Attaches a target group to the specified network load balancer.

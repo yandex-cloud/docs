@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc iam access-key list
 
 List access keys for the specified service account Access keys are used for the authentication by Yandex Object Storage API to provide compatibility with Amazon S3 API.

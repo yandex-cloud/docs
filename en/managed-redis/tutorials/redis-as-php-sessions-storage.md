@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Using {{ mrd-name }} clusters as PHP session storage
 
 You can use {{ mrd-name }} clusters for storing PHP session data.

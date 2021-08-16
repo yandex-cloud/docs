@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc organization-manager federation saml list-user-accounts
 
 List user accounts of the specified federation

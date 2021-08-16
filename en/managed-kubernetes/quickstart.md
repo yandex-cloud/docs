@@ -1,10 +1,7 @@
 ---
 title: "Getting started with managed Kubernetes"
 description: "In this tutorial, you will create a Kubernetes cluster, and a node group, learn how to manage them using kubectl - the Kubernetes shell. First, create a Kubernetes cluster, add credentials to the kubectl configuration file, create a node group"
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Getting started with {{ managed-k8s-name }}
 

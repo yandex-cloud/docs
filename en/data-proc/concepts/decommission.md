@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Decommissioning subclusters and hosts
 
 Decommissioning is the procedure for reducing the capacity of a cluster (the number of hosts and their class) without stopping it and interrupting the workload. Decommissioning is supported for {{ dataproc-name }} clusters version 1.2 and higher.

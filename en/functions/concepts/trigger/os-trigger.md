@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Triggers for {{ objstorage-name }}
 
 [Triggers](../trigger/) for {{ objstorage-name }} run a function when certain events occur with an [object](../../../storage/concepts/object.md) from {{ objstorage-full-name }}. The trigger must be in the same cloud as the bucket whose events it's subscribed to.

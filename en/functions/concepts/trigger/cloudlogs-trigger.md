@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Triggers for {{ cloud-logs-name }}
 
 A trigger for {{ cloud-logs-name }} runs a function when messages are received in a [log group](../../../functions/concepts/log-group.md). The trigger must be in the same folder as the log groups it is subscribed to.

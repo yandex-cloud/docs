@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Yandex Message Queue concepts
 
 Yandex Message Queue is a message queue service that enables distributed applications and microservices to interact through messaging.

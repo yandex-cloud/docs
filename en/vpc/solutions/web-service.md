@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Architecture and protection of a basic internet service
 
 This scenario describes how the infrastructure of a basic internet service with multiple VMs is built. Access to VMs will be restricted using security groups. A network load balancer will distribute the load across web app servers.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc load-balancer network-load-balancer start
 
 Starts load balancing and health checking with the specified network load balancer.

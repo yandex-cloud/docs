@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Working with component network interfaces
 
 {{ dataproc-name }} enables you to create clusters with just {{ yandex-cloud }} internal addresses. However, you can't access component network or web interfaces externally. To connect externally to components like HDFS NameNode and YARN ResourceManager, you have to route traffic via an intermediate VM with a public IP address.

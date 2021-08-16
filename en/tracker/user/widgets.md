@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Widgets
 
 Widgets are small cards with useful information. They can show lists of issues, statistics on issue completion, pivot tables, or notes. Widget content is generated automatically. The list of issues that a widget is based on is set using [filters](filters.md). You can go to [{#T}](../support-process-dashboards.md) to find sample widgets for the support service dashboard.

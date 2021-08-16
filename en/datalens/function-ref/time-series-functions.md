@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Time series functions
 Time series functions provide various ways to look up values corresponding to a specific time or offset along a given time axis.
