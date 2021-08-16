@@ -476,8 +476,6 @@ items:
             href: yql/reference/udf/list/math.md
           - name: Histogram
             href: yql/reference/udf/list/histogram.md
-      - name: Работа с текстовым представлением типов данных
-        href: yql/reference/types/text.md
   - name: Туториал YQL
     when: audience == "external"
     items:
