@@ -25,6 +25,8 @@ items:
         href: solutions/data-from-appmetrica-visualization.md
       - name: Analyzing Yandex Music podcast statistics (for podcast authors)
         href: solutions/data-from-podcasts.md
+      - name: Web analytics with funnels and cohorts calculated based on Yandex.Metrica data
+        href: solutions/data-from-metrica-yc-visualization.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
