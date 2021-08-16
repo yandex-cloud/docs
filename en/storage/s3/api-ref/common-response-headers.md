@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Common response headers
 
 Apart from [standard HTTP headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields), Yandex {{ objstorage-name }} uses additional headers that can be present in responses.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Incremental update
 
 You might need to update your service incrementally, undeploying no more than *N* instances at a time:

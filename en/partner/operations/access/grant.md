@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Granting a partner access to a customer's cloud
 
 In this section, you'll learn how to grant access and permissions to a cloud and verify the access granted.

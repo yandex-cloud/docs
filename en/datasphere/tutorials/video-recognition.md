@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Classification of images in video frames
 
 {{ ml-platform-full-name }} lets you build machine learning (ML) models using the Jupyter Notebook interface in {{ yandex-cloud }}.

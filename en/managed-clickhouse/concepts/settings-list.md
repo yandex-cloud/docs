@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # {{ CH }} settings
 
 For {{ mch-name }} clusters, you can configure settings that relate to {{ CH }}. Some settings are set [at the cluster level](#dbms-cluster-settings) and others [at the user level](#user-level-settings).

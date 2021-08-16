@@ -1,10 +1,7 @@
 ---
 title: Development in Bash at Yandex Cloud Functions. Overview
 description: 'With the Cloud Functions service, you can run applications written in Bash. Bash runtime has utilities installed by default - jq, YC CLI, AWS CLI version 2.'
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Development in Bash. Overview
 

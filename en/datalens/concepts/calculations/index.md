@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Calculated fields
 
 A calculated field is an additional [data field](../dataset/index.md#field) with values calculated using a formula.

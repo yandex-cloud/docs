@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Запуск заданий с удаленных хостов, не входящих в кластер {{ dataproc-name }}
 
 Чтобы запускать Spark-задания в кластере {{ dataproc-name }} с хостов, не входящих в кластер {{ dataproc-name }}, с помощью [утилиты spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications) необходимо [выполнить требования для удаленного запуска](#requirements), а также [установить и настроить](#setup-vm) spark-submit.

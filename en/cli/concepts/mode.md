@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Synchronous and asynchronous command execution modes
 
 The CLI provides two command execution modes: synchronous and asynchronous.

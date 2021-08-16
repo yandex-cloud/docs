@@ -1,10 +1,7 @@
 ---
 title: Development on Node.js in Yandex Cloud Functions. Overview
 description: 'With the Cloud Functions service, you can run applications written in Node.js. The service provides several runtimes with different versions.'
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Development on Node.js. Overview
 

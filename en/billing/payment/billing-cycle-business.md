@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Billing cycle for businesses and individual entrepreneurs
 
 The diagram shows the cycle of issuing and paying invoices for businesses and individual entrepreneurs, as well as suspending and blocking access to the use of resources.

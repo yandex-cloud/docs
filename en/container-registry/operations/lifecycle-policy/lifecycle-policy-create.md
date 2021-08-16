@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a lifecycle policy
 
 To create a lifecycle policy, specify the [repository ID](../repository/repository-list.md#repository-get).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with Packer
 
 Packer lets you create [virtual machine images](../../compute/concepts/image.md) with parameters specified in the configuration file. Below, we describe how to create a disk image using Packer.

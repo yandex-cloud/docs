@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Invocation context
 
 _Invocation context_ is an object that contains certain parameters of the [execution context](../../concepts/runtime/execution-context.md) and parameters for invoking the function itself. It's accepted by the [request handler](handler.md) as the second argument.

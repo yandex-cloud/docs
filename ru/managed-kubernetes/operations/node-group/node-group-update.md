@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Изменение группы узлов
 
 {% include [yc-node-group-list](../../../_includes/managed-kubernetes/node-group-list.md) %}

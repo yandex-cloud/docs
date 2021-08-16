@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a node group
 
 To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kubernetes-cluster-create.md) first.

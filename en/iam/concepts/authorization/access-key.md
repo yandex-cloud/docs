@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Static access keys compatible with the AWS API
 
 _Static access keys_ consist of a private key and a key ID used for authentication in services with an AWS-compatible API, such as {{ objstorage-name }}, {{ message-queue-name }}, and {{ ydb-name }} when using Document API. Access keys are only used for [service accounts](../users/service-accounts.md).

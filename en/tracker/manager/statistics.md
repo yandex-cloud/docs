@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Queue statistics
 
 To view statistics on queue issues, open the queue page and go to the **Statistics** tab. This tab includes:

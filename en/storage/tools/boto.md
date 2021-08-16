@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # boto3 and boto
 
 [The boto3](https://github.com/boto/boto3) and [boto](https://github.com/boto/boto) development tools offer SDKs for the Python 2.x and 3.x programming languages. The SDKs are designed for working with AWS services.

@@ -5,10 +5,7 @@ keywords:
   - Elasticsearch settings
   - Elasticsearch cluster settings
   - Elasticsearch
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Changing cluster settings
 
@@ -25,6 +22,7 @@ After creating a cluster, you can:
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mes-name }}**.
   1. Select the cluster and click **Edit** in the top panel.
   1. To change the class of {{ ES }} hosts with the *Data node* role:
@@ -34,6 +32,30 @@ After creating a cluster, you can:
      1. Go to the **Master node** tab.
      1. Under **Host class**, select the desired class for the host.
   1. Click **Save**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To change the [host class](../concepts/instance-types.md) for the cluster:
+
+    1. View a description of the CLI's update cluster command:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update --help
+        ```
+
+    1. Set the desired host class with the _Data node_ and _Master node_ roles in the update cluster command:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update <cluster name or ID> \
+           --datanode-resource-preset <host class with Data node role> \
+           --masternode-resource-preset <host class with Master node role>
+        ```
+
+    You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -53,6 +75,7 @@ After creating a cluster, you can:
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mes-name }}**.
   1. Select the cluster and click **Edit** in the top panel.
   1. To increase the disk size for {{ ES }} hosts with the *Data node* role:
@@ -62,6 +85,30 @@ After creating a cluster, you can:
      1. Go to the **Master node** tab.
      1. Under **Storage**, specify the disk size.
   1. Click **Save**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To increase the storage size for a cluster:
+
+    1. View a description of the CLI update configuration command:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update --help
+        ```
+
+    1. Specify new [storage settings](../concepts/storage.md) for hosts with the _Data node_ and _Master node_ roles in the update cluster command:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update <cluster name or ID> \
+           --datanode-disk-size <storage size in gigabytes for hosts with the Data node role> \
+           --masternode-disk-size <storage size in gigabytes for hosts with the Master node role> \
+        ```
+
+    You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
 - API
@@ -80,6 +127,7 @@ After creating a cluster, you can:
 {% list tabs %}
 
 - Management console
+
     1. Go to the folder page and select **{{ mes-name }}**.
     1. Select the cluster and click **Edit** in the top panel.
     1. To change the service account used to work with the cluster, select an account from the drop-down list.
@@ -113,4 +161,3 @@ After creating a cluster, you can:
     * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
-

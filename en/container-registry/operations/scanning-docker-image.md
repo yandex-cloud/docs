@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Scanning Docker images for vulnerabilities
 
 These instructions describe how to [scan](../concepts/vulnerability-scanner.md) a Docker image for vulnerabilities.

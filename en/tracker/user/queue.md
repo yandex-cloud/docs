@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # List of queue issues
 
 Each issue in {{ tracker-name }} belongs to a [queue](../queue-intro.md). Issues with a common topic are usually put in the same queue. They might be issues for a specific project, department, or team.

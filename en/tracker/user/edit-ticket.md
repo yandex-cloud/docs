@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # How to edit an issue
 
 To change an issue, go to the issue page. If you don't have sufficient rights to edit the issue, [request permissions](../faq.md#section_xgr_zng_4bb) from the queue owner oryour organization's administrator.

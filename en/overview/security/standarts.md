@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Security measures on the Yandex.Cloud side
 
 Here you'll find information about how the cloud platform operation and security processes work.

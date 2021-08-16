@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Operation object
 
 Each operation that changes the state of a resource results in the creation of the [Operation](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/operation/operation.proto) object. This object contains information about the operation: its status, ID, call time, and so on.

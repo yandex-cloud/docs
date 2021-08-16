@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Bucket encryption
 
 In {{ objstorage-short-name }}, you can encrypt objects in the bucket using [{{ kms-short-name }} keys](../../../kms/concepts/key.md):

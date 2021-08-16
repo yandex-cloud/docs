@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Notifications about your subscriptions
 
 For subscriptions that inform you about changes to queues, components, or versions, you can select the roles and events you want to be notified about.

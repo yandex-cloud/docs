@@ -5,10 +5,7 @@ keywords:
   - сreating skills for Alice
   - skills for Alice
   - Alice skiils
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Creating skills for Alice
 

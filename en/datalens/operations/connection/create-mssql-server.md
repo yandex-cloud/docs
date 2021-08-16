@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating an MS SQL Server connection
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}

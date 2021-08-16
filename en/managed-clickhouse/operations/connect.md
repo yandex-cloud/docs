@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Connecting to a database in a {{ CH }} cluster
 
 You can connect to {{ mch-short-name }} cluster hosts:

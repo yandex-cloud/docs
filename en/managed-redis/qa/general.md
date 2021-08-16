@@ -1,10 +1,7 @@
 ---
 title: "Managed Service for Redis. FAQ"
 description: "What is Managed Service for Redis? For which tasks should you use Managed Service for Redis, and for which virtual machines with databases? How much of the management and maintenance of databases does Managed Service for Redis take on? Answers to these and other questions in this article."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # General questions about {{ mrd-name }}
 

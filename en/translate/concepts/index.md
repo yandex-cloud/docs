@@ -1,10 +1,7 @@
 ---
 title: Overview of Yandex Translate
 description: 'Yandex Translate service needs to integrate Yandex.Translate algorithms into custom applications or web projects. Yandex Translate supports over 90 languages and can translate single words and whole texts. If you do not know the language of the source text, the service will automatically detect it during translation. You can also use the service just to detect the language of the text.'
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Overview of {{ translate-full-name }}
 

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # {{ sf-name }} overview
 
 {{ sf-name }} lets you run your code in a serviceable environment as a [function](function.md). The service allocates the resources required for the function the be executed. When you increase the number of function calls, the service automatically scales and creates additional instances of your function.

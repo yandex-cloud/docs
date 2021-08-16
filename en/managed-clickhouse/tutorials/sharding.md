@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Sharding tables {{ CH }}
 
 {{ mch-name }} automatically creates a cluster with a single shard. This shard includes all the hosts in the cluster.

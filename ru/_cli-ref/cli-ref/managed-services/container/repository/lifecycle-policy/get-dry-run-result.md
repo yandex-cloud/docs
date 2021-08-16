@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc container repository lifecycle-policy get-dry-run-result
 
 Get information about a dry run result for a lifecycle policy

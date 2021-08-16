@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Method streamLogs
 Same as [listLogs](/docs/managed-elasticsearch/api-ref/Cluster/listLogs) but using server-side streaming. Also supports `tail -f` semantics.

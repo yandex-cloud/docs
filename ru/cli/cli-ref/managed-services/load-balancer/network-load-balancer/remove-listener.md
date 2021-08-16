@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc load-balancer network-load-balancer remove-listener
 
 Removes the listener from the specified network load balancer.

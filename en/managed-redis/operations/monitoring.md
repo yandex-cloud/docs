@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Monitoring the state of a cluster and hosts
 
 Using monitoring tools in the management console, you can track the status of a {{ mrd-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.

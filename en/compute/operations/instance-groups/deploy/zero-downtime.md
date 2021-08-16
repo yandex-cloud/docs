@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Updating without downtime
 
 To avoid service unavailability, you can update an instance group by creating additional instances with a new configuration.

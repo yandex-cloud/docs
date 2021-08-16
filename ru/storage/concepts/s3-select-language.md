@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Синтаксис языка запросов S3 Select
 
 {% note info %}
@@ -306,7 +302,7 @@ SELECT s.CAST FROM S3Object s
     SUM(CAST(request_time AS FLOAT)) AS "sum", 
     AVG(CAST(request_time AS FLOAT)) AS "avg"
   FROM S3Object
-  WHERE status = 200
+  WHERE status = '200'
   ```
     
   Так как все значения во входных CSV-файлах считаются строками, их нужно приводить к нужным типам с помощью функции `CAST`.

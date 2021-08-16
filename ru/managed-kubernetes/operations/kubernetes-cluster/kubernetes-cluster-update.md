@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Изменение кластера {{ k8s }}
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}

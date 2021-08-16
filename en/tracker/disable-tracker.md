@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # How to disable paid features in {{ tracker-name }}
 
 To stop using paid {{ tracker-full-name }} features, revoke full access to {{ tracker-name }} from your employees. If no more than 5 users have full access, {{ tracker-name }} can be used free of charge. For more information, see [{#T}](pricing.md).

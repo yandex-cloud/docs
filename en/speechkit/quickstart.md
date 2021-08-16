@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with {{ speechkit-short-name }}
 
 If you want to see how the service synthesizes or recognizes speech, use the demo on the [service page](https://cloud.yandex.com/services/speechkit#demo).

@@ -2,10 +2,7 @@
 description: Image classification is an opportunity to evaluate how an image corresponds to a certain characteristic, for example, whether the image contains adult content. This will reduce the cost of manual moderation – you can block such images automatically.
 keywords:
   - image classification
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Image classification
 

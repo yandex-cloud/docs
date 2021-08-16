@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Get expense details by folder
 
 You can get a CSV file with your general or per-resource spending details.

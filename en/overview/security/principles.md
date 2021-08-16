@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Key principles of Yandex.Cloud security
 
 ## Openness and transparency {#opennes}

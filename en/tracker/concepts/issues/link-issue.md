@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Link issues
 
 Use this request to create links between two issues. A link is created between the current issue (specified in the [issue-id](#id) request parameter) and the linked one (specified in the [issue](#issue) field of the request body).

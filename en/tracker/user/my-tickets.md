@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # My issues
 
 To find issues you're working on, choose **Issues** → **All issues** on the top panel in {{ tracker-name }}. This opens the [filter page](default-filters.md), where you can see issues that list you as the reporter, assignee, or follower.

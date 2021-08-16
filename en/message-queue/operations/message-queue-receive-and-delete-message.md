@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Receiving and deleting messages
 
 After messages are received and processed, they should be deleted from a queue:

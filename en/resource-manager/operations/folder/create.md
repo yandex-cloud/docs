@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a folder
 
 _A folder_ is an isolated space where Yandex.Cloud resources are created and grouped.

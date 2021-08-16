@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # DNS zones
 
 A DNS zone is a logical space with domain names of your resources. You can use DNS zones to manage the hierarchy of your cloud resources and route DNS requests. For example, you can place your test VMs in a zone named `testing.` and production VMs in a zone named `production.`. DNS zones contain [resource records](resource-record.md).

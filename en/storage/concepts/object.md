@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Objects
 
 Objects are hosted in buckets and contain user data in the format it was uploaded in.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting data from {{ RMQ }}
 
 A {{ mch-name }} cluster can get data from {{ RMQ }} in real time. {{ mch-name }} will automatically insert the data sent to certain exchanges of the specified {{ RMQ }} queues into the table run on the [{{ RMQ }} engine](https://clickhouse.tech/docs/en/engines/table-engines/integrations/rabbitmq/).

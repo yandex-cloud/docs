@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Dynamic resource allocation
 
 Nodes need resources to run the {{ k8s }} components in charge of running the node as part of the {{ k8s }} cluster. This is why the resulting amount of node resources may not match the resources allocated for the jobs in the {{ k8s }} cluster.

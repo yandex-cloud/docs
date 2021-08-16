@@ -1,10 +1,7 @@
 ---
 title: Access management in Yandex Network Load Balancer
 description: "Access management in the service of the network balancer — Yandex Network Load Balancer. The section describes which resources you can assign a role to, which roles act in the service, which roles are required for this or that action."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Access management in {{ network-load-balancer-name }}
 

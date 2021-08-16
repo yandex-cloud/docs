@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 # prometheusMetrics method
 
 Exports Yandex Monitoring metrics in [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/). All the metrics from the folder are exported.

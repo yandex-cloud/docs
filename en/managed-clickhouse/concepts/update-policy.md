@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # {{ CH }} versioning policy
 
 {{ CH }} has a frequent release policy. In {{ mch-name }}, a limited set of {{ CH }} versions is available, which is continually updated. If the {{ CH }} version used in a {{ mch-name }} cluster becomes obsolete, it gets updated.

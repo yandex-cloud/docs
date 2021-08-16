@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # View service usage details
 
 You can see graphs and tables showing information about Yandex.Cloud service usage:

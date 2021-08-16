@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Интеграция системы управления доменами с сервисами {{ yandex-cloud }}
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}

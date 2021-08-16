@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Get the history of issue changes
 
 Use this request to get the history of changes to issues. If there are more than 50 records in the response, use the [`perPage` parameter](#params).

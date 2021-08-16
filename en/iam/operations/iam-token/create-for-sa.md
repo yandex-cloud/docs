@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting an IAM token for a service account
 
 There are several ways to get an [IAM token](../../concepts/authorization/iam-token.md) for a [service account](../../concepts/users/service-accounts.md):

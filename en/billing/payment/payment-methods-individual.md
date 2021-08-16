@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Payment methods for individuals
 
 Individuals can top up their personal account and pay for the resources they use with a [bank card](#debit-card) linked to their billing account.

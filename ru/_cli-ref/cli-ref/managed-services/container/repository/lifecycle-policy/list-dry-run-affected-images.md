@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc container repository lifecycle-policy list-dry-run-affected-images
 
 List images affected by dry run for a lifecycle policy.

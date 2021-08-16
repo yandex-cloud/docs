@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating static access keys
 
 Instructions for how to create [static access keys](../../concepts/authorization/access-key.md) for [service accounts](../../concepts/users/service-accounts.md).

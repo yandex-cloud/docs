@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Updating a device
 
 You can update the [name](device-update.md#update-name) or [description](device-update.md#update-description) of a device.

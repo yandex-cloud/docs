@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Working with issues
 
 By default, your issues are listed on the [home page](startpage.md) or in **Issues** → **All issues**. To start working with an issue, go to its page.

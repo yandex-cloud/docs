@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Configuring HTTPS
 
 If a bucket is used for [hosting a static website](../../concepts/hosting.md), to access the website via [HTTPS](https://en.wikipedia.org/wiki/HTTPS), you should upload your own security certificate and the applicable secret key.

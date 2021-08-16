@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Key version management
 
 You can make key versions primary (the default key version is used for encryption and decryption) and destroy them. To create a new key version, [rotate](key.md#rotate) the key.

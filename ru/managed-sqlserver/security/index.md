@@ -8,10 +8,7 @@ keywords:
   - доступ {{ MS }}
   - ms sql server
   - {{ MS }}
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Управление доступом в {{ mms-name }}
 
@@ -33,12 +30,14 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/security/service-roles-hierarchy.svg)
+![image](../../_assets/mdb/service-roles-hierarchy.svg)
 
 Роли, действующие в сервисе:
 * Сервисные роли:
   * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
   * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+  * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
+  * {% include [mdb.admin](../../_includes/iam/roles/short-descriptions/mdb.admin.md) %}  
 * Примитивные роли:
   * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
   * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
@@ -53,8 +52,9 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 **Просмотр информации** | |
 Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer` на каталог с кластером
 **Управление ресурсами** | |
-Создание кластеров и бэкапов в каталоге | `create` | `editor` на каталог
-Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `editor` на каталог с кластером
+Создание кластеров и бэкапов в каталоге | `create` | `mdb.admin` или `editor` на каталог
+Создание кластеров с хостами, для которых включен публичный доступ | `create` | Либо `vpc.publicAdmin` вместе с `mdb.admin`, либо `editor` на каталог
+Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `mdb.admin` или `editor` на каталог с кластером
 **Управление доступом к ресурсам** | |
 [Добавление](../operations/cluster-users.md#adduser), [изменение](../operations/cluster-users.md#updateuser), [удаление](../operations/cluster-users.md#removeuser) пользователей в кластере | `create`, `update`, `delete` | `editor` на каталог с кластером
 [Управление доступом к базам данных](../operations/grant.md) в кластере | `grantPermission`, `revokePermission` | `editor` на каталог с кластером

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Keys
 
 A key is a set of [versions](version.md), each of which defines an algorithm and cryptographic material for data encryption or decryption operations.

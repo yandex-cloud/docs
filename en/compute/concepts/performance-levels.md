@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # vCPU performance levels
 
 Choose the vCPU performance level when creating a VM. It sets the guaranteed vCPU share to be allocated to the VM. Available configurations of computing resources may change for different levels, depending on the selected [platform](vm-platforms.md).

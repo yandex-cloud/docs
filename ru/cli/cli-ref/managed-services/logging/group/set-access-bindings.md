@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc logging group set-access-bindings
 
 Set access bindings for the specified log group and delete all existing access bindings if there were any

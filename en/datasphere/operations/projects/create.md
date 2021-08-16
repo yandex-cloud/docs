@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating an empty project
 
 A {{ ml-platform-name }} project is a [JupyterLab](https://jupyter.org/) development environment that runs on {{ yandex-cloud }} VMs.

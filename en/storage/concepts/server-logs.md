@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Logging actions with a bucket
 
 In {{ objstorage-name }}, there is an option to log all actions with a [bucket](../concepts/bucket.md). You can record logs, for example, to run an internal security audit or get more granular information about bucket operations.

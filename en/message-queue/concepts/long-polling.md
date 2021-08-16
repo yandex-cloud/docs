@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Long Polling
 
 The Long Polling technique is implemented to optimize the use of {{ message-queue-full-name }} by reducing the number of [ReceiveMessage](../api-ref/message/ReceiveMessage.md) requests sent to empty queues. Instead of making repeated requests, {{ message-queue-full-name }} lets consumers wait for messages to arrive in a queue and read them immediately. In addition, a longer poll time allows Long Polling to avoid false empty responses.

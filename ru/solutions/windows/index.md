@@ -1,10 +1,7 @@
 ---
 title: Сценарии использования Windows в Yandex.Cloud
 description: 'Различные сценарии использования Windows в облаке Yandex.Cloud. Развертывание Active Directory, развертывание Microsoft Exchange, развертывание Remote Desktop Services, развертывание шлюза Remote Desktop Gateway, развертывание группы доступности Always On, развертывание группы доступности Always On с внутренним сетевым балансировщиком.'
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Сценарии использования Windows в Yandex.Cloud
 

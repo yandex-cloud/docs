@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Standard fields
 
 This section lists standard fields that can be found in Yandex.Cloud resource views. These fields have the same names and semantics for all services.

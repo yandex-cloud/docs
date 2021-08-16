@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing shards
 
 You can enable sharding for a cluster as well as add and configure individual shards.

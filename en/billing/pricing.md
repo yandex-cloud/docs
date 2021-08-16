@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 # Pricing policy
 
 In Yandex.Cloud, you can use resources of both billable and non-billable services.

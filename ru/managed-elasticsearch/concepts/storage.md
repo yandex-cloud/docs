@@ -5,10 +5,7 @@ keywords:
   - хранилище Elasticsearch
   - хранилища Elasticsearch
   - Elasticsearch
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Типы хранилища
 

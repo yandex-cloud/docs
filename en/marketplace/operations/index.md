@@ -1,10 +1,7 @@
 ---
 title: "How to work with the cloud marketplace. Step-by-Step Instructions"
 description: "Step-by-step instructions for working with a Marketplace partner's account in Yandex.Cloud. From the article you will learn about the registration procedure, creating tariffs and product images based on Linux or Windows Server. We will tell you in detail about managing a product on Cloud Marketplace."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Step-by-step instructions
 

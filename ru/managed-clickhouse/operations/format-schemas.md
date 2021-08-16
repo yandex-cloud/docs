@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Управление схемами формата данных
 
 {% include [mch-format-schemas-intro](../../_includes/mdb/mch-format-schemas-intro.md) %}

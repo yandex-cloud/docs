@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Request handler script
 
 _Request handler_ is a script that is run to handle each function call. When creating a function version, you should specify the entry point: the name of a file with an extension (for example, `handler.sh`).

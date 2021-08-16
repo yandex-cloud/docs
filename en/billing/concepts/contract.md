@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Agreement
 
 In Yandex.Cloud, all services are rendered under an agreement that you accept when you create a [billing account](billing-account.md). The agreement does not need to be signed by both parties.

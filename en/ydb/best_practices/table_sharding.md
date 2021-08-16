@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Table partitioning recommendations
 
 YDB tables are sorted by primary key in ascending order. Tables are partitioned by splitting the range of key values into consecutive non-overlapping ranges called partitions.

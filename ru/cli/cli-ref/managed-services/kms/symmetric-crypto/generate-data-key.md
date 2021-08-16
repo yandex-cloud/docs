@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc kms symmetric-crypto generate-data-key
 
 Generate data key and encrypt it with specified symmetric key

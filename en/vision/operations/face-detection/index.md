@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Detecting faces in images
 
 _Face detection is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._

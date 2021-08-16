@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Concepts {{ container-registry-name }}
 
 {{ container-registry-name }} is a service for storing and distributing Docker images.

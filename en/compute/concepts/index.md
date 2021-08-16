@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Relationships between resources in {{ compute-full-name }}
 
 All resources in {{ compute-short-name }} can be divided into three types:

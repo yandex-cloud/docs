@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Resource identification
 
 Each resource in the Yandex.Cloud API has its own unique ID. IDs are generated on the service side. An ID is a string consisting of Latin letters and numbers.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Background operations
 
 You can run time-consuming operations like model training in the background. To do this, use special cells where your code is executed asynchronously. In this case, you can continue working with a notebook.

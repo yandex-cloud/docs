@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Epics
 
 An epic is a type of issue that allows you to group other issues based on a shared theme. Epics can include issues from different queues and sprints.

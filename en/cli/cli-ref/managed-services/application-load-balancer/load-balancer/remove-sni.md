@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc application-load-balancer load-balancer remove-sni
 
 Removes sni match from application load balancer's listener.

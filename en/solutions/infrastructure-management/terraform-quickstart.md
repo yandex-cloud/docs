@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with Terraform
 
 {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}

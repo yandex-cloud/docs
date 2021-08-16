@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Version update {{ MG }}
 
 You can upgrade {{ mmg-name }} clusters to versions 4.0, 4.2, or 4.4.

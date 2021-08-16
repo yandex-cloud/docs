@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Exporting metrics in Prometheus format
 
 To export metrics in the {{ prometheus-name }} format, use the method [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md). Before uploading metrics to {{ prometheus-name }}, set up metric collection in {{ prometheus-name }}.

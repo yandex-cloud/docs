@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Using the SDK
 
 The runtime has the [YC CLI](../../../cli) for working with the {{ yandex-cloud }} API.

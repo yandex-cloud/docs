@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # x-yc-apigateway-any-method extension
 
 The `x-yc-apigateway-any-method` extension defines operations performed by any HTTP method that is not defined in the specification.

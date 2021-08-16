@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # OpenCart online shop
 
 [OpenCart](https://en.wikipedia.org/wiki/OpenCart) is a platform where you can create your own online store. The platform is free and open-source. With OpenCart, you can create an online store of any complexity using a wide selection of community-supported extensions.

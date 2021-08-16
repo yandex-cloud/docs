@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Service
 
 Each pod in the {{ k8s }} cluster is assigned an internal IP address. Since pods are created and deleted and their IP addresses change, it doesn't make sense to use IP addresses for pods directly. Use a _service_ to get permanent access to the pods and stop using internal IP addresses.

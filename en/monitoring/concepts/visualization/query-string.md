@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Query string
 
 [The query language](../querying.md) of {{monitoring-full-name}} is used to configure [dashboards](./dashboard.md) and [alerts](../alerting.md). In the query string, you enter an expression written in the query language in tokenized or text mode. The query string lets you to apply functions to a set of metrics uploaded from a specific service. To display metrics from different services on a dashboard's chart, create multiple query strings.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Preparing your disk image
 
 You can use your own file with a Linux-based VM disk image. After preparing your image, [upload it](upload.md) to {{ compute-name }}.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Configuring an identity federation
 
 If your company has a user and access management system (for example, Active Directory or Google Workspace), you can use it to authorize employees in {{org-full-name}}. In this case, you don't need to create a new Yandex account for every company employee. They can get access to {{yandex-cloud}} services using their corporate accounts.

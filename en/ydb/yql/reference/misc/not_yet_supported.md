@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Clauses from classic SQL not supported yet
 
 ## \[NOT\] \[EXISTS|INTERSECT\|EXCEPT] {#not-exists}

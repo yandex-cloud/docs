@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Text markup functions
 Markup functions are used for creating marked up text (hypertext) from string values and/or other marked up text.

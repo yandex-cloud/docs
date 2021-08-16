@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Basic terms
 
 In this section, you'll find the basic terms and concepts used in {{ tracker-name }} and this Help.

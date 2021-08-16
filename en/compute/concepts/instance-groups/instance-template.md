@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Instance template
 
 When creating a group, you need to describe an _instance template_, which is the basic instance configuration used for deploying all the instances in the group.

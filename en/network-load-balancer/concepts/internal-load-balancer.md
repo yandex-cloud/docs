@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Internal network load balancer
 
 The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).

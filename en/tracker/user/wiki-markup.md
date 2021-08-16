@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Format text in issues
 
 Use wiki markup when formatting text in issue descriptions or comments. For example, you can format text with italics or bold, as well as add lists and tables.

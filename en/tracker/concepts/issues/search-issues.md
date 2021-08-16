@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Find issues
 
 Use this request to get a list of issues that meet specific criteria. If there are more than 50 issues in the response, use [paging](#section_mtj_ldk_p1b).

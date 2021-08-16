@@ -1,10 +1,7 @@
 ---
 title: PHP Development at Yandex Cloud Functions. Overview
 description: 'With the Cloud Functions service, you can run applications written in the PHP programming language. The service provides runtimes with the following versions — php74, 7.4.3, Ubuntu 18.04 LTS.'
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # PHP Development. Overview
 

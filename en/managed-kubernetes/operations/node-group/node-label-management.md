@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing {{ k8s }} cluster node labels
 
 You can add labels to all nodes in a node group at the same time. To do this, specify a set of labels using the `node_labels` parameter when creating a node group.

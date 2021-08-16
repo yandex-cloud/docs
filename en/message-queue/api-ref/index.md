@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Yandex Message Queue API
 
 Yandex Message Queue provides an HTTP API that is partially compatible with the Amazon SQS API.

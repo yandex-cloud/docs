@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a configuration file
 
 Static configuration files let you access a {{ k8s }} cluster without using the CLI (for example, from continuous integration systems).

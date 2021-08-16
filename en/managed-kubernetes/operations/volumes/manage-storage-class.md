@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing storage classes
 
 _Storage class_ (`StorageClass`) allows administrators to divide the stores they provision into classes with defined parameters.

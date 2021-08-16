@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Concepts {{ ig-name }}
 
 {{ ig-name }} is a {{ compute-name }} component that lets you create and manage instance groups.

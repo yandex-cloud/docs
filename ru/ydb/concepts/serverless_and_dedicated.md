@@ -6,10 +6,7 @@ keywords:
   - serverless
   - dedicated
 editable: false
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Serverless и Dedicated режимы работы Yandex Database
 

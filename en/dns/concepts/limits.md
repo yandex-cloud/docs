@@ -3,10 +3,7 @@ title: Quotas and Limits in Cloud DNS
 description: 'The Cloud DNS service has limits and quotas for the number of zones in one cloud, the number of record sets in one cloud, the number of record sets in one zone. You will learn more about the limitations of the service in this article.'
 
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Quotas and limits
 

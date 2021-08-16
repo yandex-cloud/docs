@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Sorting and filtering
 
 Select the first three episodes from every season of "IT Crowd", except the first season.

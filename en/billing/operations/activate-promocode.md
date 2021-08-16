@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Activate a promo code
 
 If you received a [promo code](../concepts/promo-code.md) as part of a Yandex promotional offer, activate it:

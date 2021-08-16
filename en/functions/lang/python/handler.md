@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Request handler
 
 _A request handler_ is a method used to handle each function invocation. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `main.handler`).

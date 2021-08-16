@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Pricing plan
 
 Service plans let the Marketplace partner define the cost of using their Marketplace product.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Testing a lifecycle policy
 
 A dry run lets you check which Docker images meet the policy rules. Docker images are not actually deleted during dry runs.

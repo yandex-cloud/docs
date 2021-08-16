@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Cluster autoscaler
 
 The cluster autoscaler resizes the node group based on resource requests for the pods running on the nodes of that group. The autoscaler is available as of {{ k8s }} version 1.15.

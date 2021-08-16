@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Пополнить лицевой счет
 
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Marketplace
 
 {{ datalens-short-name }} Marketplace is a platform that contains ready-made solutions and extensions for {{ datalens-short-name }}. These solutions and extensions are called _products_. They enhance the {{ datalens-short-name }} functionality and let you add more datasets.

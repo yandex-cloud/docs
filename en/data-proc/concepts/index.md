@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Relationship between {{ dataproc-name }} service resources
 
 {{ dataproc-name }} lets you use distributed data storage and processing for data using [Apache Hadoop](http://hadoop.apache.org) ecosystem services.

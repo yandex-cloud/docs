@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting started with {{ kms-name }}
 
 In this guide, you create your first [key](../concepts/index.md) and encrypt and decrypt text using {{ kms-short-name }}.

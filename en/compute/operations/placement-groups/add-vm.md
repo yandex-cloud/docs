@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Adding a VM to a placement group
 
 Add an existing instance to a [placement group](../../concepts/placement-groups.md).

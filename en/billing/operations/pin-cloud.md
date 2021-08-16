@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Link a new cloud
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}

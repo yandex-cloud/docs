@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Receiving update reports
 
 To regularly receive reports for issues you're subscribed to via email:

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Using cluster network policies in {{ k8s }}
 
 To check how {{ k8s }} network policies run, follow these steps.

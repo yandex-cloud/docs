@@ -8,10 +8,7 @@ keywords:
   - configure wordpress
   - mysql wordpress
   - mysql
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # WordPress website on a MySQL database cluster
 

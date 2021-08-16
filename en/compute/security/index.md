@@ -1,10 +1,7 @@
 ---
 title: Access management in Yandex Compute Cloud
 description: "Access management in a service that provides scalable computing power for creating and managing virtual machines — Yandex Compute Cloud. The section describes which resources can be assigned a role, which roles operate in the service."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Access management in {{ compute-name }} 
 

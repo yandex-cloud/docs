@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a Linux-based product image to upload to {{ marketplace-name }}
 
 To add a product to the Marketplace, you need to upload an image to {{ yandex-cloud }}. The products can be based on Linux and Windows Server. These instructions will help you create an image based on Linux. To create an image with Windows, see [{#T}](create-image-ms.md).

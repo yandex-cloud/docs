@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc iam key
 
 Manage IAM keys. IAM keys can be issued for authenticated user account or a service account. IAM key may be used to authorize service account in CLI and API.

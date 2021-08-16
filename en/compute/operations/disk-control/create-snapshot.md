@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a disk snapshot
 
 _A disk snapshot_ is a copy of the disk file system at a certain point in time.

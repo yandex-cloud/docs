@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # s3fs
 
 [s3fs](https://github.com/s3fs-fuse/s3fs-fuse) is a utility that lets Linux and macOS mount an {{ objstorage-name }} bucket via [FUSE](https://en.wikipedia.org/wiki/Fuse_ESB).

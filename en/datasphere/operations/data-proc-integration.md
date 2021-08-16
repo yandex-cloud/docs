@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Setting up computations on Apache Spark™ clusters
 
 To start computing on Apache Spark™ clusters, prepare a {{ ml-platform-name }} project. To run computations, create a new {{ dataproc-name }} cluster or use an existing one.

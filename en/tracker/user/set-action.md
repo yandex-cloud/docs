@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Configuring trigger actions
 
 Configure one or more actions under **Trigger actions** by clicking **Add new action**:

@@ -1,10 +1,7 @@
 ---
 title: "How to Stop, Start or Restart a Virtual Machine"
 description: "The Stop command turns off the virtual machine. After shutdown, the virtual machine goes into the STOPPED status. You can turn on the machine at any time to continue working. The Start command turns on the stopped virtual machine. After turning on, the virtual machine enters the RUNNING state, and the operating room starts loading system."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Stopping, starting, or restarting a VM
 

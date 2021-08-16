@@ -3,10 +3,7 @@ description: MTU (The maximum transmission unit ) is the maximum size of a data 
 keywords:
   - mtu
   - what is mtu
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # MTU and TCP MSS
 

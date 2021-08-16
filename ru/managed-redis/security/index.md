@@ -1,10 +1,7 @@
 ---
 title: Управление доступом в Yandex Managed Service for Redis
 description: "Управление доступом в сервисе по созданию и управлению базами данных Redis. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия."
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Управление доступом в {{ mrd-name }}
 
@@ -27,13 +24,14 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/security/service-roles-hierarchy.svg)
+![image](../../_assets/mdb/service-roles-hierarchy.svg)
 
 Роли, действующие в сервисе:
 
 * Сервисные роли:
     * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
     * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+    * {% include [mdb.admin](../../_includes/iam/roles/short-descriptions/mdb.admin.md) %}  
 * Примитивные роли:
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
@@ -48,8 +46,8 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 **Просмотр информации** | |
 Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer` на каталог с кластером
 **Управление ресурсами** | |
-Создание кластеров и бэкапов в каталоге | `create` | `editor` на каталог
-Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `editor` на каталог с кластером
+Создание кластеров и бэкапов в каталоге | `create` | `mdb.admin` или `editor` на каталог
+Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `mdb.admin` или `editor` на каталог с кластером
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот каталог или облако
 

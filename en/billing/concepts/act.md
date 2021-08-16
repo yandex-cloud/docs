@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Report
 
 A report is a primary accounting document that confirms services rendered. It contains aggregate data on the cost of the services actually rendered. Detailed information about the services rendered is available on the [Usage details](../operations/check-charges.md) page.

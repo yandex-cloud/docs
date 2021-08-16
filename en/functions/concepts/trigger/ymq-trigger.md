@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Triggers for {{ message-queue-short-name }}
 
 [The trigger](../trigger/) for {{ message-queue-short-name }} is used to process the message queue. It picks up messages from the queue and passes them to a function for processing. The trigger must be in the same cloud with the queue it reads messages from. Only one trigger can be created for each message queue.

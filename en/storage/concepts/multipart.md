@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Multipart upload
 
 {{ objstorage-name }} lets you store objects that are up to several terabytes in size (see [{#T}](limits.md)). The larger the object, the more likely the upload will fail with a network error. For this reason, it is more efficient to upload larger objects in smaller parts. Sending objects to {{ objstorage-name }} like this is called a multipart upload. For more information about multipart upload support, see [{#T}](../s3/api-ref/multipart.md).

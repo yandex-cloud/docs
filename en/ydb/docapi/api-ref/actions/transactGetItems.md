@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # TransactGetItems method
 
 A synchronous operation that atomically retrieves multiple items from tables.

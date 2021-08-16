@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Пример использования {{ message-queue-full-name }} с Celery
 
 [Celery](https://docs.celeryproject.org/en/stable/) — это очередь задач для языка программирования Python, которую можно использовать в работе с {{ message-queue-name }}.

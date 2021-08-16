@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Assigning roles to a service account
 
 This section describes how to assign a [role](../../concepts/access-control/roles.md) to a service account for a resource. To assign another user a role to a [service account](../../concepts/users/service-accounts.md) like to a resource, follow the instructions in [{#T}](set-access-bindings.md).

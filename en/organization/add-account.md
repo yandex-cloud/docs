@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Adding Yandex users
 
 If your employees have Yandex accounts (for example, `{{login-example}}`), they can use them to access {{yandex-cloud}} services enabled in your organization.

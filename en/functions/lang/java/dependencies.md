@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Building and managing dependencies
 
 {{ sf-name }} supports two ways to manage dependencies: automatic installation using `Maven` and manual delivery of dependencies along with the source code. However, you can't configure dependencies using both methods at the same time.

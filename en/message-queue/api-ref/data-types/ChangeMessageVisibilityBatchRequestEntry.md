@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # ChangeMessageVisibilityBatchRequestEntry
 
 Data structure for returning the `ReceiptHandle` and IDs for messages from the [ChangeMessageVisibilityBatch](../message/ChangeMessageVisibilityBatch.md) request.

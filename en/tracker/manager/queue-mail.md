@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Mail
 
 You can use {{ tracker-name }} to [create issues from emails sent to the queue mailbox](../user/create-ticket-by-mail.md) or [communicate with external users from the issue page](../user/comments.md#section_zpd_ph5_wdb). This lets you [register user requests sent to the support team](../support-process-send-mail.md).

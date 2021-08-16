@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Granting permissions
 
 Only a user with `Admin` permission can grant permissions to an object or directory. By default, objects inherit the access rights of the parent folder.

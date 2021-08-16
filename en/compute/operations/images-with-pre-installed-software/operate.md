@@ -1,10 +1,7 @@
 ---
 title: "Working with a virtual machine"
 description: "The article describes how to work with a virtual machine based on a public image in Yandex.Cloud. Let's consider such operations as connecting to a virtual machine using SSH, creating a key pair via SSH in Linux/MacOS, Windows 7,8,10, using SSL certificates, filtering network traffic, and installing updates."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Working with a VM based on a public image
 

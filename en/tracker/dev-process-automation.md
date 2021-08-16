@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Automate recurring actions
 
 You can automate common actions related to {{ tracker-name }} issues using [triggers, auto actions, and macros](automation.md). This lets you change issue parameters in response to certain events (whether by sending a command or setting up a recurring trigger) as well as create scheduled issues.

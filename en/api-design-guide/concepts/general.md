@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Basic principles
 
 Yandex.Cloud APIs are based on the [gRPC](https://grpc.io/docs/) mechanism. Methods and data structures in APIs are described using [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating issues
 
 You can create issues in any of the available [queues](../queue-intro.md). Select the queue that best matches the topic of the issue. If you don't know which queue to create the issue in, check with the project manager or your organization's admin.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Начало работы с Terraform
 
 {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}

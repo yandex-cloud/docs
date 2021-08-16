@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Использование класса HttpServlet для задания обработчика на Java
 
 Вы можете задать обработчик на Java, переопределив выбранные методы класса [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing rights to access functions
 
 You can make a function [public](#public) or [private](#private), [view](#list) roles assigned to a function, [revoke](#revoke) them, or [assign](#add-access) new roles.

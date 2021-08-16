@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # x-yc-apigateway-integration:object_storage extension
 
 The `x-yc-apigateway-integration:object_storage` extension passes the request handling control to {{ objstorage-short-name }} for distributing static files. Lets you manage the object access key and enables static data distribution directly from {{ objstorage-short-name }} by redirecting to a signed URL.

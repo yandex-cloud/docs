@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Using the YDB Docker container
 
 For debugging or tests, you can create a local {{ ydb-full-name }} instance in a Docker container. Docker containers use the current {{ ydb-short-name }} build version, but the build revision may differ.

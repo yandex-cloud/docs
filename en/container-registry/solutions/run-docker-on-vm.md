@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Running a Docker image on a VM
 
 This example describes the steps required to run a Docker image on a virtual machine using a registry.

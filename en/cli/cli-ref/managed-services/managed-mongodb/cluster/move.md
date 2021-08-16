@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc managed-mongodb cluster move
 
 Move the specified MongoDB cluster into the folder

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Replication
 
 Data in {{ mpg-name }} clusters is replicated synchronously: the transaction is confirmed only when the data is written to the disk on both the master host and the synchronous replica (the highest priority host replica). In the other cluster replicas, data is replicated asynchronously.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a VM with a GPU
 
 This section provides guidelines for creating VMs with a GPU. For more information about VM configurations, see [{#T}](../../concepts/gpus.md).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Asynchronous operations
 
 Any operations that change the state of a resource (create, change, or delete it) are asynchronous operations. This means that when they are called, the server returns the [Operation](operation.md) object.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Using the Function interface to set a handler function
 
 You can set a handler function by implementing the [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface.

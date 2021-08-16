@@ -1,9 +1,6 @@
 ---
 editable: false
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 # Trial period restrictions
 
 The free trial is intended for testing and exploring the features of the cloud infrastructure. During the trial period, you can use {{ yandex-cloud }} resources with some restrictions.

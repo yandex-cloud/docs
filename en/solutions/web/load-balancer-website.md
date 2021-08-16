@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Fault-tolerant website with load balancing by {{ network-load-balancer-full-name }}
 
 This scenario describes how to set up a website on a LAMP (Linux, Apache, MySQL, PHP) or LEMP (Linux, nginx, MySQL, PHP) stack with load balancing from [{{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/index.md) between two availability zones and fault tolerance in one zone.

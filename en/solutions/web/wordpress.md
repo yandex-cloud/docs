@@ -4,10 +4,7 @@ description: "A step-by-step guide to quickly create a WordPress website in the 
 
 author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/content-program/icons/aplana-logo.png", "name": "Аплана Диджитал", "url": "https://aplanadigital.ru" }
 
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Creating a website in WordPress
 

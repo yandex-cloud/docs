@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Logging in to {{ tracker-name }}
 
 To log in to {{ tracker-full-name }}:

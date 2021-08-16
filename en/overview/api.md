@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Yandex.Cloud APIs
 
 Yandex.Cloud services offer APIs that you can use to create automated systems, plugins, and other applications for managing cloud resources.

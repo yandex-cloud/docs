@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # YC CLI Releases
 
 ## Version 0.79.0 (13.07.21) {#latest-release}

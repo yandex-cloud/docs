@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc managed-kubernetes node-group remove-metadata
 
 Remove keys from metadata of the node template of the specified node group.

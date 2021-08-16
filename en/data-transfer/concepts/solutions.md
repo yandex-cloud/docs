@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # What tasks is the service used for?
 
 {{ data-transfer-name }} is designed for a variety of application tasks for migrating databases.

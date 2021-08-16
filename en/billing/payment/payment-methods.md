@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Payment methods
 
 Resources are paid for by crediting funds to an individual [personal account](../concepts/personal-account.md) as per the [agreement](../concepts/contract.md).

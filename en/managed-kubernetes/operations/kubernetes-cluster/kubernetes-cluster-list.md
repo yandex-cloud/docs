@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Getting information about existing clusters {{ k8s }}
 
 To find out the {{ k8s }} cluster `ID` or `NAME`, get a list of {{ k8s }} clusters from the folder or detailed information about the {{ k8s }} cluster.

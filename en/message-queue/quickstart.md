@@ -1,10 +1,7 @@
 ---
 title: "Getting started with Yandex Message Queue"
 description: "In this tutorial, you will learn how to perform basic operations with message queues in Yandex Message Queue. First, install the AWS CLI, a command line utility for working with Message Queue."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Getting started with {{ message-queue-name }}
 

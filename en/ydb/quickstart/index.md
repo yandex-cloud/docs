@@ -1,10 +1,7 @@
 ---
 title: Getting Started with Yandex Database (YDB). Overview
 description: 'To get started with YDB use the following instructions. Creating a database, working with data through the management console, working with the YDB CLI, working with the YDB SDK, setting up AWS tools, working with data via the HTTP interface, working with the AWS CLI, working with the AWS SDK. '
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Getting started with {{ ydb-name }}
 

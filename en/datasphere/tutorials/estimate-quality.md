@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Evaluating the quality of STT models
 
 Speech-to-Text (STT) recognition results on the {{ speechkit-full-name }} platform depend on the choice of [recognition model](../../speechkit/stt/models.md). To evaluate the quality of speech recognition, use a common [WER](https://en.wikipedia.org/wiki/Word_error_rate) (Word Error Rate) metric. The lower the metric value, the more accurately a speech fragment is recognized. The metric in {{ speechkit-name}} is calculated using a special library named `stt_metrics`.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Create a checklist
 
 A checklist is a list of items that need to be completed for an issue to be solved. Once you complete an item, mark it in the checklist to make sure you didn't miss anything during your work.

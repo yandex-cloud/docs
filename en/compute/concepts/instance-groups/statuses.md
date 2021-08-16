@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Statuses
 
 This section lists possible [instance group statuses](#group-statuses) and [statuses of instances](#vm-statuses) in groups.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # ChangeMessageVisibilityBatchResultEntry
 
 Идентификатор записи в группе сообщений запроса [ChangeMessageVisibilityBatch](../message/ChangeMessageVisibilityBatch.md).

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Changing the master
 
 If a cluster consists of multiple hosts, you can make a replica of the master if necessary. It takes about two minutes on average to switch, and the cluster is available during that time.

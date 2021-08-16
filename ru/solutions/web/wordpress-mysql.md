@@ -8,10 +8,7 @@ keywords:
   - настройка wordpress сайта
   - wordpress mysql
   - wordpress сайт на mysql
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Сайт на WordPress с кластером БД MySQL
 

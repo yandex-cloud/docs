@@ -1,10 +1,7 @@
 ---
 title: How to work with Yandex Object Storage (S3). Instructions
 description: "In the article you will learn how to work with Yandex Object Storage (S3) in Yandex.Cloud. You will learn how to work with buckets (create, delete and edit them), objects (upload, download, receive download links, delete objects), place static sites (set up hosting, custom domain, set up https protocol)"
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Step-by-step for {{ objstorage-name }}
 

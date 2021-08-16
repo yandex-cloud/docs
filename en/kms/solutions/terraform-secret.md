@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Encrypting secrets in Hashicorp Terraform
 
 [The Terraform provider for Yandex.Cloud](https://www.terraform.io/docs/providers/yandex/index.html) lets you encrypt secrets with a {{ kms-short-name }} key to use them later in a Terraform configuration.

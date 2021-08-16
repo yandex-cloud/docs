@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Track the time it takes to process a request
 
 When gauging the efficiency of your support team, the most common method is to track the time of their first response and the total time it takes to process a request. The lower these indicators are, the faster your team is at resolving users' issues.

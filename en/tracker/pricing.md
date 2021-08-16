@@ -1,10 +1,7 @@
 ---
 title: Pricing for Yandex Tracker
 description: "The cost of using Tracker is based on the number of users with full access to the platform. You don't have to pay for Tracker if you have a small team. You can subscribe up to 5 employees to Tracker for free."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Pricing for {{ tracker-full-name }}
 

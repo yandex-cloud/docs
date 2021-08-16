@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Attaching a disk to a VM
 
 You can attach a disk to either a running or stopped VM.

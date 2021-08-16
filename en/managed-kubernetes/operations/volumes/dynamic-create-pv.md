@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Dynamic volume provisioning
 
 Create a pod with a dynamically provisioned [volume](../../concepts/volume.md):

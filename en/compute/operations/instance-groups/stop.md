@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Stop an instance group
 
 If you don't need instances in a group for a while, stop the group. All instances in the group are stopped. If the instance group is very large and it would take a long time to create that many instances afterwards, stopping a group is more effective than deleting it or reducing its size to zero.

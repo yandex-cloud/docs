@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Policies
 
 When creating an instance group, you need to define _policies_ for [zone allocation](allocation-policy.md), [deployment](deploy-policy.md), and [scaling](scale-policy.md) of instances in the instance group.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Start your terminal in the Windows serial console (SAC)
 
 To connect to the serial console and start the terminal:

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Delay queues
 
 You can hide messages when they're sent to a queue. This lets you postpone their delivery for a defined period time. You can configure the delay for an entire queue or an individual message.

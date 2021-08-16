@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 #  1C-Bitrix Online Store: Site Management
 
 [1C-Bitrix: Site Management](https://ru.wikipedia.org/wiki/1%D0%A1-%D0%91%D0%B8%D1%82%D1%80%D0%B8%D0%BA%D1%81:_%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%BC) is a content management system (CMS) that lets you create an online store, corporate site, or news portal and easily manage your site structure and content.

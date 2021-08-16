@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Templates
 
 To create preset issues and comments, configure personal templates. If you want to share your templates with colleagues, set up template sharing.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Making a dynamic public IP address static
 
 You can make a dynamic public IP address static. Static public IP addresses are reserved and remain attached to respective resources when VMs and load balancers are stopped.

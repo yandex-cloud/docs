@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # yc kms symmetric-key rotate
 
 Rotate the specified symmetric key: creates a new key version and makes it the primary version

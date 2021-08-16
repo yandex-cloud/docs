@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Allocation policy
 
 When creating an instance group, you can choose the {{ yandex-cloud }} regions and availability zones to host your instances.

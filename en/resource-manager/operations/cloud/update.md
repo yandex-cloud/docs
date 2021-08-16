@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Rename a cloud
 
 To rename a cloud, you must have the [`editor`](../../../iam/concepts/access-control/roles.md#editor) role or higher for that cloud. You can't rename a suspended cloud. If you can't perform this operation, contact the [administrator](../../../iam/concepts/access-control/roles.md#admin) or [cloud owner](../../concepts/resources-hierarchy.md#owner).

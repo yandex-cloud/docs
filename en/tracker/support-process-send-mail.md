@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Send emails from the issue page
 
 If you want to respond to a user request, you can send them an email right from the issue page in {{ tracker-name }}. Their response to you will then be added as a comment to the corresponding issue. This lets you keep all correspondence right on the issue page, so you don't have to waste time with a dedicated email client.

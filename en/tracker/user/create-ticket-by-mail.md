@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating an issue via email
 
 To create an issue via email, send a message with the issue description to the [queue address](../manager/queue-mail.md):

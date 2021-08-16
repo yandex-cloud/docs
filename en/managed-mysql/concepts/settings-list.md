@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # {{ MY }} settings
 
 For {{ mmy-name }} clusters, you can configure settings that relate to {{ MY }}. Some settings are set [at the cluster level](#dbms-cluster-settings) and others [at the user level](#dbms-user-settings).

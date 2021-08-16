@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Data insert by INSERT
 
 Add data to the table using [INSERT INTO](../reference/syntax/insert_into.md):

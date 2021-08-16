@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Agile development tools
 
 You can use various agile tools and methods to manage issues and projects in {{ tracker-name }}, such as issue boards, sprints, burn down charts, and poker planning.

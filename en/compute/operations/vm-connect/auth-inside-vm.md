@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Working with Yandex.Cloud from inside a VM
 
 This section describes how to work with Yandex.Cloud from inside a VM via the API or CLI.

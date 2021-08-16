@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Резервное копирование в {{ objstorage-full-name }} через Acronis Backup Gateway
 
 Чтобы настроить резервное копирование в {{ objstorage-name }} через Acronis Backup Gateway:

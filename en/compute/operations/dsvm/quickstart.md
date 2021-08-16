@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a VM from a public DSVM image
 
 Create a DSVM [virtual machine](../../concepts/vm.md) using {{ compute-name }} from the Yandex.Cloud management console and connect to the VM over SSH.

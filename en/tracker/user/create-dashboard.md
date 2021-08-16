@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # How to create a dashboard
 
 You can create multiple dashboards with different sets of widgets and switch between them as necessary. You can make any of your dashboards your home page or share it with a coworker.

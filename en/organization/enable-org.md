@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating an organization
 
 To let your employees use {{yandex-cloud}} services, create an organization and add them to it. Any Yandex user can create an organization in {{org-full-name}}.

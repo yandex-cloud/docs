@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Visualization
 
 The primary visual component in {{ monitoring-full-name }} is the [dashboard](dashboard.md). With dashboards, you can combine multiple [widgets](widget.md) on one page.

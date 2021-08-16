@@ -8,10 +8,7 @@ keywords:
   - графический процессор
   - графические карты
   - видео карты
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Graphics accelerators (GPUs and vGPUs)
 

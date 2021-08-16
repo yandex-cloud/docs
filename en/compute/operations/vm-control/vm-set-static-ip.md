@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Making a VM's public IP address static
 
 _A static IP address_ is a permanent IP address that does not change when a VM is stopped.

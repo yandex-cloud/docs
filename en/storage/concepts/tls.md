@@ -4,10 +4,7 @@ description: "TLS (Transport Layer Security) is a protocol that supports secure 
 keywords:
   - tls
   - transport layer security
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # TLS protocol
 

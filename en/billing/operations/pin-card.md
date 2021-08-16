@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Link another bank card to your billing account
 
 The owner of a billing account of a **Individual account** or **Business account** may link several bank cards to it.

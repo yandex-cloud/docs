@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Yandex Translate API v1
 
 {% include [speechkit-v1-disclaimer.md](../../../_includes/speechkit-v1-disclaimer.md) %}

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing connections
 
 {{ PG }} [allocates a separate process](https://www.postgresql.org/docs/current/connect-estab.html) for each established connection. With numerous client connections, the DBMS creates multiple processes and manages shared data structures. As a result, there may be insufficient computing resources, which affects the DBMS performance.

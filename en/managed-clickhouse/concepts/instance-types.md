@@ -1,10 +1,7 @@
 ---
 title: "Managed Service for ClickHouse host classes"
 description: "The host class defines the processing power that is allocated to each host in the ClickHouse cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Host classes
 

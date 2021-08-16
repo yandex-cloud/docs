@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing dependencies
 
 {{ sf-name }} can automatically install dependencies necessary for a function to run when creating a new [function version](../../operations/function/version-manage.md#func-version-create).

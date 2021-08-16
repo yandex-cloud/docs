@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Reporting documents
 
 The Billing service sends out financial documents regarding any and all payments made on behalf of individual entrepreneurs, individuals, and businesses.

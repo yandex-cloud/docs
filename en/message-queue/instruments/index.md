@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Tools for working with Yandex Message Queue
 
 To work with the API, you can use any tools that are compatible with Amazon SQS: AWS CLI, Boto3, and other tools [supported by the SDK](https://aws.amazon.com/en/tools/#sdk).

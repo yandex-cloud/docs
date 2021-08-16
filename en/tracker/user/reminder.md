@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Set up an issue reminder
 
 {{ tracker-name }} can send issue reminders. You can send reminders to yourself or other users. Only the sender and the recipient will be able to see the reminder.

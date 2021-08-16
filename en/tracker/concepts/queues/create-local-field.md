@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Create a local queue field
 
 Use this request to create an issue [local field](../../local-fields.md) linked to the specified queue.

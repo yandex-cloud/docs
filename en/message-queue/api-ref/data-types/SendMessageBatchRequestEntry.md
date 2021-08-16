@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # SendMessageBatchRequestEntry
 
 Contains the details of a message being sent and its ID. For more information about attributes, see the description of the [SendMessage](../message/SendMessage.md#array-parameters) method.

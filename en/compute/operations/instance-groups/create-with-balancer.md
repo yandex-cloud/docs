@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Creating a fixed-size instance group with a network load balancer
 
 You can create a group of fixed-size instances along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [{#T}](../../../network-load-balancer/concepts/index.md) in the {{ network-load-balancer-full-name }} documentation.

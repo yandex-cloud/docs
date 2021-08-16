@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Python client
 
 To help you get started using the [{{ tracker-name }} API](../about.md), we created [yandex_tracker_client](https://github.com/yandex/yandex_tracker_client), a dedicated package that lets you easily add API calls to programs written in Python.

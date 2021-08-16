@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Changing VM computing resources
 
 After you create a VM, you can change its computing resources. For more information about how to change a VM name, description, and tags, see [{#T}](vm-update.md).

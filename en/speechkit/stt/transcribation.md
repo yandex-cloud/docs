@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Recognition of long audio fragments
 
 Long audio fragment recognition can be used for multi-channel audio files up to {{ stt-long-fileSize }}.

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Speech synthesis
 
 _Speech synthesis_ in {{ speechkit-name }} lets you convert any text to speech in multiple languages. You can choose the voice and manage speech parameters.

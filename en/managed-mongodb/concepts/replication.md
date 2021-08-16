@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Replication and fault tolerance {{ MG }}
 
 {{ mmg-name }} supports replication by default: if a cluster has multiple active hosts, the primary replica to process write queries is automatically elected.

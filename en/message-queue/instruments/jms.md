@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Example of using {{ message-queue-full-name }} on JMS
 
 [JMS](https://www.oracle.com/technetwork/java/jms/index.html) is an API for sending messages between application components. With the AWS SQS Java Messaging Library, you can use {{ message-queue-name }} to send and receive messages via JMS.

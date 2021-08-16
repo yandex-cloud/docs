@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Make bulk changes to issue statuses
 
 Use this request to switch multiple issues to a new status at once.

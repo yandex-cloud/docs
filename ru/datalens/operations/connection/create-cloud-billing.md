@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Создание подключения к Yandex Cloud Billing
 
 ## Подключение к Yandex Cloud Billing {#ya-cloud-billing}

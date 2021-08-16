@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Running instance groups with auto scaling
 
 To create an [instance group with auto scaling](../concepts/instance-groups/scale.md#auto-scale) and [network load balancer](../../network-load-balancer/concepts/index.md), do the following.

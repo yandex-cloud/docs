@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Managing {{ ZK }} hosts
 
 [A shard](../concepts/sharding.md) with a single host in the {{ mch-name }} cluster isn't fault tolerant and doesn't provide [data replication](../concepts/replication.md). To make a cluster with this shard more reliable, you can [add additional {{ CH }} hosts](hosts.md) to the shard, but before managing them, first you need to [enable fault tolerance](#add-zk) (as a result, the minimum number of {{ ZK }} hosts, which is 3, will be added to the cluster).

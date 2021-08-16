@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Viewing a list of addresses used in a subnet
 
 You can view internal IP addresses that are assigned to cloud resources in your folder.

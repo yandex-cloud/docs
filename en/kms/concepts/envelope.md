@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Envelope encryption
 
 Encryption with the [encrypt](../api-ref/SymmetricCrypto/encrypt) method is limited to a maximum amount of data that can be encrypted (32 KB). Larger data volumes cause a number of problems:

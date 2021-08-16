@@ -1,10 +1,7 @@
 ---
 title: Data Types in Yandex DataLens
 description: 'DataLens uses different data sources with various field data types. To streamline the data operations, DataLens converts the source data types to its own types. This optimizes data operations. You can change the field data type in the dataset interface and in the wizard.'
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Data types in Yandex DataLens
 

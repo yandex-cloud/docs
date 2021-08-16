@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Authentication in {{ container-registry-short-name }}
 
 Before you start using {{ container-registry-short-name }}, you need to authenticate for the corresponding interface:

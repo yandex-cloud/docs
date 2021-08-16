@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Использование интерфейса YcFunction для задания функции-обработчика на Java
 
 Вы можете задать функцию-обработчик на Java, реализовав интерфейс [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java). Для этого дополнительно нужно добавить [SDK](../sdk.md) в [зависимости](../dependencies.md).

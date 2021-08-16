@@ -1,10 +1,7 @@
 ---
 title: "How to work with Yandex Application Load Balancer. Step-by-step instructions"
 description: "Step-by-step instructions for working with Yandex Application Load Balancer in Yandex.Cloud. From the article you will learn how to create and manage an L7 balancer, how to work with HTTP routers and target groups."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Step-by-step instructions for {{ alb-name }}
 

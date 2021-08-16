@@ -1,10 +1,7 @@
 ---
 title: Access management in Yandex Database
 description: "Access control in the service for creating and managing databases Yandex Database. To allow access to the resources of the YDB service (databases and their users), assign the user the necessary roles from the list below."
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Access management in {{ ydb-name }}
 

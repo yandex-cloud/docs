@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # CORS
 
 {{ objstorage-full-name }} supports [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to objects in a bucket.

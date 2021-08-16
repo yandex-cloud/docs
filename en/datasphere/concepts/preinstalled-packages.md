@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # List of pre-installed software
 
 Packages for data analysis and machine learning are pre-installed in {{ ml-platform-short-name }}. If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell.

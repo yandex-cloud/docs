@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Installing the NGINX Ingress Controller with a Let's Encrypt<sup>®</sup> certificate manager
 
 To use [{{ k8s }}](https://kubernetes.io/) to create the [NGINX Ingress Controller](https://www.nginx.com/products/nginx-ingress-controller/) and protect it with a [Let's Encrypt<sup>®</sup>](https://letsencrypt.org/) certificate, follow these steps.

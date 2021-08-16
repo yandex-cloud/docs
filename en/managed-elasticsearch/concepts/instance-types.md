@@ -4,10 +4,7 @@ description: 'The Elasticsearch host class defines the processing power that is 
 keywords:
   - Elasticsearch host classes
   - Elasticsearch
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Host classes
 

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Questions and answers about {{ container-registry-short-name }}
 
 #### Why is the "latest" tag missing or why is it assigned to a Docker image that wasn't the last one pushed? {#latest}

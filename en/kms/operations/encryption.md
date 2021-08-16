@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Encrypting data using the Yandex.Cloud CLI and API
 
 In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up to 32 KB). For more information about available encryption methods, see [{#T}](../solutions/encrypt/index.md)

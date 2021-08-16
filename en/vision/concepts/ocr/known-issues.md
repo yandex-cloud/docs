@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # Restrictions for the current version of text recognition
 
 The service is currently running with a number of restrictions. Please read them before you start working:

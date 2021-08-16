@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
----
 # Удаление триггера
 
 {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}

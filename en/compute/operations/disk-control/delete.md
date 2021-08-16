@@ -1,10 +1,7 @@
 ---
 title: "How to remove a disc"
 description: "You can only delete a disk that is not connected to the virtual machine. Deleting a disk is an irreversible and irreversible operation, it is impossible to recover a deleted disk. Deleting a disk does not delete snapshots of this disk. Snapshots must be deleted separately. To delete a disk in the management console, select the directory, which owns the disk, select the Compute Cloud service, on the Virtual Machines page, go to the Disks tab. In the row with the required disk, click the selection icon and click Delete. "
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
 ---
-
 
 # Deleting a disk
 

@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # GetQueueUrl method
 
 Returns the URL of the specified queue. Specify the queue name to get its URL.

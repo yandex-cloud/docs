@@ -4,10 +4,7 @@ description: "Пошаговая инструкция, с помощью кот�
 
 author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructor/content-program/icons/aplana-logo.png", "name": "Аплана Диджитал", "url": "https://aplanadigital.ru" }
 
-
-__system: {"dislikeVariants":["Нет ответа на мой вопрос","Рекомендации не помогли","Содержание не соответствует заголовку","Другое"]}
 ---
-
 
 # Создание сайта на WordPress
 

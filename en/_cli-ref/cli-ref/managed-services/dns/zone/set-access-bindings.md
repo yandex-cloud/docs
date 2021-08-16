@@ -1,7 +1,3 @@
----
-
-__system: {"dislikeVariants":["No answer to my question","Recomendations didn't help","The content doesn't match title","Other"]}
----
 # yc dns zone set-access-bindings
 
 Set access bindings to the specified dns zone and delete all existing access bindings if there are any.
