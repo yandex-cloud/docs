@@ -39,6 +39,8 @@ items:
     items:
     - name: Создание кластера PostgreSQL для 1С
       href: solutions/1c-postgresql
+    - name: Анализ производительности и оптимизация
+      href: solutions/profiling.md
     - name: Репликация и миграция
       items:
       - name: Логическая репликация PostgreSQL
@@ -61,6 +63,8 @@ items:
       href: concepts/network.md
     - name: Квоты и лимиты
       href: concepts/limits.md
+    - name: Дисковое пространство в Managed Service for PostgreSQL
+      href: concepts/disk-space.md
     - name: Резервные копии
       href: concepts/backup.md
     - name: Назначение ролей
