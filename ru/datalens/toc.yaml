@@ -141,10 +141,10 @@ items:
             href: operations/connection/create-cloud-billing.md
             when: audience == "external"
           - name: Создание подключения к Greenplum
-            href: operations/connection/create-greenplum.md                
+            href: operations/connection/create-greenplum.md
           - name: Управление доступом к подключению
             when: audience == "external"
-            href: operations/connection/manage-access.md      
+            href: operations/connection/manage-access.md
       - name: Работа с датасетами
         items:
           - name: Создание датасета
@@ -157,6 +157,8 @@ items:
             href: operations/dataset/create-filter.md
           - name: Обновление полей в датасете
             href: operations/dataset/update-field.md
+          - name: Добавление данных в датасет с помощью SQL
+            href: operations/dataset/add-data.md
           - name: Материализация датасета
             href: operations/dataset/materialize.md
           - name: Управление доступом к датасету
