@@ -25,8 +25,6 @@ Datasets can work with data sources in the following modes:
 
 ### Direct access {#direct}
 
-For direct access, {{ datalens-short-name }} materializes only a part of the data for dataset preview.
-
 All data requests are executed on the data source side.
 
 {% note info %}

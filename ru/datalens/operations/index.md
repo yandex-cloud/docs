@@ -24,6 +24,7 @@
 - [{#T}](dataset/create-calculated-field.md)
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
+- [{#T}](dataset/add-data.md)
 - [{#T}](dataset/materialize.md)
 - [{#T}](dataset/manage-row-level-security.md)
 - [{#T}](dataset/manage-access.md)
@@ -43,7 +44,7 @@
 - [{#T}](chart/create-tree-chart.md)
 - [{#T}](chart/add-hierarchy.md)
 - [{#T}](chart/publish.md)
-- [{#T}](chart/manage-access.md) 
+- [{#T}](chart/manage-access.md)
 
 ## Работа с дашбордами {#working-with-dashboards}
 
@@ -53,4 +54,4 @@
 - [{#T}](dashboard/publish.md)
 - [{#T}](dashboard/create-alias.md)
 - [{#T}](dashboard/edit-alias.md)
-- [{#T}](dashboard/manage-access.md) 
+- [{#T}](dashboard/manage-access.md)
