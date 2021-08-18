@@ -7,44 +7,48 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Создание проекта
-        href: operations/projects/create.md
-      - name: Установка зависимостей
-        href: operations/projects/install-dependencies.md
-      - name: Запуск примеров кода в ноутбуке
-        href: operations/projects/snippets.md
-      - name: Версионирование. Работа с контрольными точками
-        href: operations/projects/checkpoints.md
-      - name: Управление вычислительными ресурсами
-        href: operations/projects/control-compute-resources.md
+      - name: Управление проектом
+        items:
+        - name: Создание проекта
+          href: operations/projects/create.md
+        - name: Установка зависимостей
+          href: operations/projects/install-dependencies.md
+        - name: Управление вычислительными ресурсами
+          href: operations/projects/control-compute-resources.md
+        - name: Изменение имени или описания
+          href: operations/projects/update.md
+        - name: Удаление проекта
+          href: operations/projects/delete.md
+      - name: Поделиться ноутбуком
+        items:
+        - name: Публикация ноутбука
+          href: operations/projects/publication.md
+        - name: Экспорт проекта
+          href: operations/projects/export.md
+      - name: Работа с ноутбуком
+        items:
+        - name: Запуск примеров кода в ноутбуке
+          href: operations/projects/snippets.md
+        - name: Версионирование. Работа с контрольными точками
+          href: operations/projects/checkpoints.md
+        - name: Очистка состояния интерпретатора
+          href: operations/projects/clear-kernel-state.md
+        - name: Работа с Git
+          href: operations/projects/work-with-git.md
       - name: Управление Docker‑образами
         items:
           - name: Docker-образ для проекта
             href: operations/user-images.md
           - name: Docker-образ в ячейке
             href: operations/user-images-cell.md
-      - name: Очистка состояния интерпретатора
-        href: operations/projects/clear-kernel-state.md
-      - name: Поделиться ноутбуком
-        items:
-          - name: Публикация ноутбука
-            href: operations/projects/publication.md
-          - name: Экспорт проекта
-            href: operations/projects/export.md
-      - name: Изменение имени или описания
-        href: operations/projects/update.md
-      - name: Удаление проекта
-        href: operations/projects/delete.md
-      - name: Работа с Git
-        href: operations/projects/work-with-git.md
-      - name: Настройка интеграции с Data Proc
-        href: operations/data-proc-integration.md
       - name: Подключение к источникам данных
         items:
           - name: Подключение к базе данных {{ CH }}
             href: operations/data/connect-to-clickhouse.md
           - name: Подключение к базе данных {{ PG }}
             href: operations/data/connect-to-postgresql.md
+      - name: Настройка интеграции с Data Proc
+        href: operations/data-proc-integration.md
       - name: Работа с приватными данными
         items:
           - name: Создание секрета

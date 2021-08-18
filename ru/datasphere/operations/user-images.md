@@ -11,7 +11,8 @@
 1. На открывшейся вкладке:
     1. Введите имя репозитория, например `cuda`.
     1. Задайте тег образа, например `1.0.0`.
-    1. Отредактируйте содержимое блока **Build script**. Например, для установки пакетов платформы CUDA<sup>®</sup> добавьте следующий код после строки `# Write your instructions here`:
+    1. Выберите шаблон скрипта для установки Python: `python_3_7` или `python_3_8`.
+    1. Отредактируйте содержимое блока **Dockerfile**. Например, для установки пакетов платформы CUDA<sup>®</sup> добавьте следующий код после строки `# Write your instructions here`:
 
         ```bash
         ENV LD_LIBRARY_PATH /usr/local/cuda-11.2/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64
