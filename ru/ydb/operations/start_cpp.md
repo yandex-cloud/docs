@@ -537,4 +537,4 @@ static TStatus ExplicitTclTransaction(TSession session, const TString& path, con
 
 ## Обработка ошибок {#error-handling}
 
-Подробно об обработке ошибок написано в разделе [Обработка ошибок в API](../api/error_handling.md)
+Подробно об обработке ошибок написано в разделе [Обработка ошибок в API](../ydb-sdk/error_handling.md)

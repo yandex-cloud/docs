@@ -567,4 +567,4 @@ Finished preparing query: PreparedSelectTransaction
 
 ## Обработка ошибок
 
-Подробно об обработке ошибок написано в разделе ["Обработка ошибок в API"](../api/error_handling.md)
+Подробно об обработке ошибок написано в разделе ["Обработка ошибок в API"](../ydb-sdk/error_handling.md)

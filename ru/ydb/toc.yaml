@@ -228,9 +228,13 @@ items:
 #                href: ydb-cli/commands/tools/dump.md
 #              - name: restore
 #                href: ydb-cli/commands/tools/restore.md
-  - name: Работа с SDK
-    href: sdk/index.md
-    when: audience == "external"
+  - name: YDB SDK
+    items:
+      - name: Работа с SDK
+        href: ydb-sdk/index.md
+        when: audience == "external"
+      - name: Обработка ошибок в API
+        href: ydb-sdk/error_handling.md
   - name: Сценарии использования
     items:
       - name: Развертывание веб-приложения
@@ -265,6 +269,8 @@ items:
         href: concepts/databases.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Ограничения базы данных
+        href: concepts/limits-ydb.md
   - name: Управление доступом
     href: operations/start_auth.md
     when: audience == "external"
@@ -325,10 +331,6 @@ items:
       - name: Prepared Statements
         href: api/yql_prepared_statements.md
         when: audience == "tech"
-      - name: Ограничения базы данных
-        href: api/limits.md
-      - name: Обработка ошибок в API
-        href: api/error_handling.md
   - name: HTTP API, совместимый с Amazon DynamoDB
     when: audience == "external"
     items:

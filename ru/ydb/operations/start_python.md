@@ -298,4 +298,4 @@ def explicit_tcl(session, path, series_id, season_id, episode_id):
 
 ## Обработка ошибок {#error-handling}
 
-Подробно об обработке ошибок написано в разделе [Обработка ошибок в API](../api/error_handling.md).
+Подробно об обработке ошибок написано в разделе [Обработка ошибок в API](../ydb-sdk/error_handling.md).

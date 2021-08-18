@@ -44,7 +44,7 @@
 
 * Success – успешное выполнение запроса, в нормальной ситуации почти все ответы должны быть этого типа;
 
-Подробно типы статусов опасны в разделе [Статусы завершения YDB](../api/error_handling.md#termination-statuses).
+Подробно типы статусов опасны в разделе [Статусы завершения YDB](../ydb-sdk/error_handling.md#termination-statuses).
 
 **Queries size**
 
