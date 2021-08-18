@@ -24,6 +24,8 @@ items:
       href: manage-users.md
     - name: Добавить пользователя
       href: add-account.md
+    - name: Получить идентификатор или почту пользователя
+      href: users-get.md
     - name: Назначить права доступа
       href: roles.md
     - name: Удалить аккаунт пользователя
