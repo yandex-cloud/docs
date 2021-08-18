@@ -27,7 +27,7 @@ editable: false
 
 Бессерверный режим работы {{ ydb-full-name }} поддерживает несколько способов работы с данными:
 * Document API — HTTP API, совместимое с Amazon DynamoDB. С помощью этого API можно выполнять операции над документными таблицами.
-* YDB API и его реализации в виде [YDB CLI](../quickstart/yql-api/ydb-cli.md) и [YDB SDK](../sdk/index.md) для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk). С помощью этого API можно выполнять операции над YDB-таблицами.
+* YDB API и его реализации в виде [YDB CLI](../quickstart/yql-api/ydb-cli.md) и [YDB SDK](../ydb-sdk/index.md) для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk). С помощью этого API можно выполнять операции над YDB-таблицами.
 
 Для расчета стоимости запросов в {{ ydb-short-name }} используется понятие **единица запроса** (**RU** — request unit). Каждый выполненный запрос в зависимости от его типа, сложности и размера данных приводит к потреблению определенного количества RU. Итоговая стоимость всех выполненных запросов к {{ ydb-short-name }} складывается из стоимости каждого запроса, выраженной в RU.
 

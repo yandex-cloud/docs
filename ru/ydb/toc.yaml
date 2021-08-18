@@ -109,8 +109,12 @@ items:
             href: ydb-cli/commands/operations-index.md
           - name: Работа с директориями
             href: ydb-cli/commands/scheme-mkdir.md
-  - name: Работа с SDK
-    href: sdk/index.md
+  - name: YDB SDK
+    items:
+      - name: Работа с SDK
+        href: ydb-sdk/index.md
+      - name: Обработка ошибок в API
+        href: ydb-sdk/error_handling.md
   - name: Сценарии использования
     items:
       - name: Развертывание веб-приложения
@@ -143,6 +147,8 @@ items:
         href: concepts/databases.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Ограничения базы данных
+        href: concepts/limits-ydb.md
   - name: Управление доступом
     href: operations/start_auth.md
   - name: Правила тарификации
@@ -167,12 +173,6 @@ items:
         href: best_practices/batch_upload.md
       - name: Использование таймаутов
         href: best_practices/timeouts.md
-  - name: YDB API и справочник
-    items:
-      - name: Ограничения базы данных
-        href: api/limits.md
-      - name: Обработка ошибок в API
-        href: api/error_handling.md
   - name: HTTP API, совместимый с Amazon DynamoDB
     items:
       - name: Справочник API
