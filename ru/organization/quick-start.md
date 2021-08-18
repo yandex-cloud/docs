@@ -4,7 +4,7 @@
 
 {% note warning %}
 
-Сервис {{org-full-name}} находится на стадии [Preview](../overview/concepts/launch-stages.md), управление сервисами организации недоступно.
+Сервис {{org-full-name}} находится на стадии [Preview](../overview/concepts/launch-stages.md). На этой стадии доступны функции: управление [аккаунтами пользователей](manage-users.md), настройка [прав доступа](roles.md), а также работа с [федерациями удостоверений](add-federation.md).
 
 {% endnote %}
 
