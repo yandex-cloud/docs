@@ -1,5 +1,6 @@
 default:
   region: ru
+  lang: ru
   audience: external
   iam-full-name: Yandex Identity and Access Management
   resmgr-full-name: Yandex Resource Manager

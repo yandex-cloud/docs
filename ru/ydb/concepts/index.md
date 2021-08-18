@@ -32,7 +32,7 @@ description: 'Yandex Database (YDB) — это горизонтально мас
 
    Бессерверный режим {{ ydb-full-name }} поддерживает работу с данными не только с помощью YDB API, но и с помощью [Document API](../docapi/api-ref/index.md) — HTTP API, совместимого с Amazon DynamoDB. С помощью этого API можно выполнять операции над документными таблицами.
 
-{{ ydb-short-name }} предоставляет YDB API и его реализации в виде [YDB CLI](../quickstart/yql-api/ydb-cli.md) и [YDB SDK](../sdk/index.md) для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk)
+{{ ydb-short-name }} предоставляет YDB API и его реализации в виде [YDB CLI](../quickstart/yql-api/ydb-cli.md) и [YDB SDK](../ydb-sdk/index.md) для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk)
 
 {{ ydb-short-name }} поддерживает реляционную [модель данных](datamodel.md) и оперирует таблицами с предопределённой схемой. Для удобства организации таблиц поддерживается создание директорий по аналогии с файловой системой.
 
