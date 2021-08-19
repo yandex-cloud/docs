@@ -21,12 +21,14 @@ editable: false
 Стоимость одного тарифицирующего юнита — это стоимость использования 1 ядра СPU в течение 1 секунды. Количество юнитов зависит от [конфигурации вычислительных ресурсов](concepts/configurations.md). 
 
 Конфигурация | Количество юнитов в секунду
- ----- | ---- 
-  c1.4 | 4 
-  c1.8 | 8 
-  c1.80 | 80 
-  g1.1 | 72 
-  g1.4 | 288 
+----- | ---- 
+c1.4 | 4 
+c1.8 | 8 
+c1.32 | 32
+c1.80 | 80 
+g1.1 | 72 
+g1.2 | 144
+g1.4 | 288 
 
 [Стоимость фоновых операций](#async) рассчитывается отдельно.
 
@@ -64,8 +66,32 @@ editable: false
 
 ### Хранение данных в проекте {#storage}
 
-Хранение данных внутри {{ ml-platform-name }} не тарифицируется в рамках установленных [квот и лимитов](concepts/limits.md).
+Хранение данных внутри проекта {{ ml-platform-name }} не тарифицируется в рамках установленных [квот и лимитов](concepts/limits.md).
  Если вам требуется хранить большие объемы данных, превышающие указанные лимиты, используйте сервис {{ objstorage-full-name }}. В этом случае хранение данных будет тарифицироваться по [правилам тарификации {{ objstorage-name }}](../storage/pricing.md).
+
+{% note warning %}
+
+С 1 сентября 2021 года изменяется стоимость использования датасетов.
+
+{% endnote %}
+
+{% if region == "ru"%}
+
+{% include [rub-data-storage.md](../_pricing/datasphere/rub-data-storage.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt-data-storage.md](../_pricing/datasphere/kzt-data-storage.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-data-storage.md](../_pricing/datasphere/usd-data-storage.md) %}
+
+{% endif %}
 
 ## Цены {#prices}
 
@@ -106,6 +132,34 @@ editable: false
 {% if region == "int"%}
 
 {% include [usd-async.md](../_pricing/datasphere/usd-async.md) %}
+
+{% endif %}
+
+#### Выполнение фоновых операций после 1 сентября 2021 года {#async-new}
+
+{% note warning %}
+
+С 1 сентября 2021 года вступают в силу новые правила тарификации фоновых операций.
+
+{% endnote %}
+
+Подробнее про [фоновые операции](concepts/async.md).
+
+{% if region == "ru"%}
+
+{% include [rub-async.md](../_pricing/datasphere/rub-async-new.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt-async.md](../_pricing/datasphere/kzt-async-new.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-async.md](../_pricing/datasphere/usd-async-new.md) %}
 
 {% endif %}
 

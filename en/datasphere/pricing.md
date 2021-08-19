@@ -20,12 +20,14 @@ A billing measure is a one billing unit. The number of billing units spent on ca
 The cost of one billing unit is the cost of using 1 CPU core for 1 second. The number of units depends on [computing resource configuration](concepts/configurations.md).
 
 Configuration | Units per second
- ----- | ---- 
-  c1.4 | 4 
-  c1.8 | 8 
-  c1.80 | 80 
-  g1.1 | 72 
-  g1.4 | 288 
+----- | ---- 
+c1.4 | 4
+c1.8 | 8
+c1.32 | 32
+c1.80 | 80
+g1.1 | 72
+g1.2 | 144
+g1.4 | 288
 
 {% if region == "int"%}
 
@@ -53,8 +55,7 @@ Where:
 
 The cost of using integration with the {{ dataproc-name}} service takes into account:
 * Configuration c1.4 computing resources {{ml-platform-name }}.
-
-    These resources are created for integration with the {{ dataproc-name}} cluster and are charged while the cluster is being calculated.
+  These resources are created for integration with the {{ dataproc-name}} cluster and are charged while the cluster is being calculated.
 * The entire lifetime of the cluster {{ dataproc-name }} according to [pricing rules {{ dataproc-full-name }}](../data-proc/pricing.md).
 
 Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
@@ -63,6 +64,30 @@ Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
 
 Data storage inside {{ ml-platform-name }} is not charged within the established [quotas and limits](concepts/limits.md).
 If you need to store large amounts of data that exceed the specified limits, use the {{ objstorage-full-name }} service. In this case, data storage will be charged according to [pricing rules {{ objstorage-name }}](../storage/pricing.md).
+
+{% note warning %}
+
+From September 1, 2021, new rules for charging datasets will come into effect.
+
+{% endnote %}
+
+{% if region == "ru"%}
+
+{% include [rub-data-storage.md](../_pricing/datasphere/rub-data-storage.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt-data-storage.md](../_pricing/datasphere/kzt-data-storage.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-data-storage.md](../_pricing/datasphere/usd-data-storage.md) %}
+
+{% endif %}
 
 ## Pricing {#prices}
 
@@ -97,6 +122,38 @@ More about [background operations](concepts/async.md).
 {% if region == "kz"%}
 
 {% include [kzt-async.md](../_pricing/datasphere/kzt-async.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-async.md](../_pricing/datasphere/usd-async.md) %}
+
+{% endif %}
+
+#### Performing background operations after 1st September 2021 {#async-new}
+
+{% note warning %}
+
+From September 1, 2021, new rules for charging background operations will come into effect.
+
+{% endnote %}
+
+{% if region == "ru"%}
+
+{% include [rub-async.md](../_pricing/datasphere/rub-async-new.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt-async.md](../_pricing/datasphere/kzt-async-new.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-async.md](../_pricing/datasphere/usd-async-new.md) %}
 
 {% endif %}
 
