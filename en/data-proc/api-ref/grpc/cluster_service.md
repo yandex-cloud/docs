@@ -55,6 +55,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
 
 
 ### Monitoring {#Monitoring}
@@ -128,6 +129,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
 
 
 ### Monitoring {#Monitoring1}
@@ -182,6 +184,7 @@ ui_proxy | **bool**<br>Enable UI Proxy feature.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups to place VMs of cluster on. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
 
 
 ### CreateClusterConfigSpec {#CreateClusterConfigSpec}
@@ -280,6 +283,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
 
 
 ### Monitoring {#Monitoring2}
@@ -334,6 +338,7 @@ decommission_timeout | **int64**<br>Timeout to gracefully decommission nodes. In
 ui_proxy | **bool**<br>Enable UI Proxy feature. 
 security_group_ids[] | **string**<br>User security groups. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
 
 
 ### UpdateClusterConfigSpec {#UpdateClusterConfigSpec}
@@ -430,6 +435,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
 
 
 ### Monitoring {#Monitoring3}
@@ -560,6 +566,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
 
 
 ### Monitoring {#Monitoring4}
@@ -650,6 +657,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
 
 
 ### Monitoring {#Monitoring5}

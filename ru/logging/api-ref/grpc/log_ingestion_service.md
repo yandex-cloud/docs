@@ -51,7 +51,7 @@ Field | Description
 --- | ---
 timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the entry. 
 level | **[LogLevel.Level](#LogLevel)**<br>Entry severity. <br>See [LogLevel.Level](#LogLevel) for details. 
-message | **string**<br>Entry text message. The maximum string length in characters is 65536.
+message | **string**<br>Entry text message. 
 json_payload | **google.protobuf.Struct**<br>Entry annotation. 
 
 
@@ -60,7 +60,7 @@ json_payload | **google.protobuf.Struct**<br>Entry annotation.
 Field | Description
 --- | ---
 level | **[LogLevel.Level](#LogLevel)**<br>Default entry severity. Will be applied if entry level is unspecified. <br>See [LogLevel.Level](#LogLevel) for details. 
-json_payload | **google.protobuf.Struct**<br>Default entry annotation. Will be merged with entry annotation. Any conflict will be resolved in favor of entry own annotaion. 
+json_payload | **google.protobuf.Struct**<br>Default entry annotation. Will be merged with entry annotation. Any conflict will be resolved in favor of entry own annotation. 
 
 
 ### WriteResponse {#WriteResponse}

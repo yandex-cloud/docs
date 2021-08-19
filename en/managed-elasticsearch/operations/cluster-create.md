@@ -38,21 +38,20 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
         - `PRODUCTION`: For stable versions of your apps.
         - `PRESTABLE`: For testing, including the {{ mes-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-     1. Select the {{ ES }} version. The current supported version is `7.6`.
+     1. Select the {{ ES }} version. Supported versions: `7.6` and `7.10`.
 
-  1. Under **Network settings**, select [network](../../vpc/concepts/network.md).
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
   1. Under **User**, specify the `admin` user password.
 
-     {% include [mes-superuser](../../_includes/mdb/mes-superuser.md)%}
+     {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
 
   1. Configure hosts with the _Data node_ role by opening the **Data node** tab:
-
      1. Under **Host class**, select the platform, host type, and host class.
 
         The host class defines the technical characteristics of virtual machines that {{ ES }} nodes are deployed on. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
      1. Under **Storage**:
-
+     
         * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
 
           When selecting a storage type, remember that:
@@ -65,15 +64,13 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         1. To add a host, click **Add host**.
         1. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg) icon.
 
-          When changing the host, you can: {#change-data-node-settings}
-
-          1. Select the availability zone and subnet.
-
-          1. Enable public access. If public access is enabled for the {{ ES }} host with the _Data node_ role, you can connect to this {{ ES }} host or Kibana on the host over the internet. To learn more, see [{#T}](cluster-connect.md).
+            When changing the host, you can: {#change-data-node-settings}
+            1. Select the availability zone and subnet.
+            1. Enable public access. If public access is enabled for the {{ ES }} host with the _Data node_ role, you can connect to this {{ ES }} host or Kibana on the host over the internet. To learn more, see [{#T}](cluster-connect.md).
 
             {% include [mes-tip-public-kibana](../../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
-        When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+            When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
   1. If necessary, configure the hosts with the _Master node_ role by opening the **Master node** tab:
 
@@ -89,7 +86,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
              {% note tip %}
 
-             It's not recommended to enable public access for hosts with the _Master node_ role. Change this setting only if you know exactly what you want to do.
+             It's not recommended to enable public access for hosts with the _Master node_ role, because it's unsafe.
 
              {% endnote %}
 
@@ -148,6 +145,51 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         - Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
     - Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
     - Network ID, in the `networkId` parameter.
+    - Security group IDs in the parameter `securityGroupIds`.
+
+{% endlist %}
+
+{% note warning %}
+
+If you specified security group IDs when creating a cluster, you may also need to [re-configure security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endnote %}
+
+## Examples {#examples}
+
+### Creating a single-host cluster {#creating-a-single-host-cluster}
+
+{% list tabs %}
+
+- CLI
+
+    To create a cluster with a single host, pass a single `--host` parameter.
+
+    Let's say we need to create a {{ ES }} cluster with the following characteristics:
+    - Name: `my-es-clstr`.
+    - Version: `7.10`.
+    - In the `PRODUCTION` environment.
+    - In the `default` network.
+    - Belonging to the security group with the ID `enpp2s8l3irhk5eromd7`.
+    - With a single publicly available host acting as a `{{ host-class }}`-class _Data node_ in subnet `{{ subnet-id }}` in availability zone `{{ zone-id }}`.
+    - With 20 GB of fast network storage (`{{ disk-type-example }}`).
+    - With password `esadminpwd` and username `admin`.
+
+    Run the command:
+
+    ```bash
+    {{ yc-mdb-es }} cluster create \
+       --name my-es-clstr \
+       --environment production \
+       --network-name default \
+       --host zone-id={{ zone-id }},assign-public-ip=true,type=datanode \
+       --datanode-resource-preset {{ host-class }} \
+       --datanode-disk-type={{ disk-type-example }} \
+       --datanode-disk-size=20 \
+       --admin-password=esadminpwd \
+       --security-group-ids enpp2s8l3irhk5eromd7 \
+       --version 7.10
+    ```
 
 {% endlist %}
 

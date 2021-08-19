@@ -18,3 +18,7 @@ keywords:
 ## Ошибки {#errors}
 
 {% include notitle [errors](faq/errors.md) %}
+
+## Serverless {#serverless}
+
+{% include notitle [common](faq/serverless.md) %}

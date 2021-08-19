@@ -44,6 +44,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mes-name }}**.
   1. Click on the name of the cluster you need.
 
@@ -76,6 +77,7 @@ The operation list shows operations with clusters and related resources (for exa
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mes-name }}**.
   1. Click on the name of the cluster you need.
   1. Go to the **Operations** tab.

@@ -44,7 +44,8 @@ A set of methods for managing Data Proc clusters.
   "hostGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "logGroupId": "string"
 }
 ```
  
@@ -75,6 +76,7 @@ uiProxy | **boolean** (boolean)<br><p>Whether UI Proxy feature is enabled.</p>
 securityGroupIds[] | **string**<br><p>User security groups.</p> 
 hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+logGroupId | **string**<br><p>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service</p> 
 
 ## Methods {#methods}
 Method | Description

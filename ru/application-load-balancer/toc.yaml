@@ -57,9 +57,9 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Балансировщик нагрузки
+      - name: Балансировщики нагрузки
         href: concepts/application-load-balancer.md
-      - name: HTTP-роутер
+      - name: HTTP-роутеры
         href: concepts/http-router.md
       - name: Группы бэкендов
         href: concepts/backend-group.md

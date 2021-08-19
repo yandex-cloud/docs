@@ -21,28 +21,21 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
-
   1. Select **{{ mmg-name }}**.
-
   1. Click **Create cluster**.
-
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
      - `PRODUCTION`: For stable versions of your apps.
      - `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-
   1. Select the DBMS version.
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
   1. Under **Storage size**:
       - Select the [type of storage](../concepts/storage.md), either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
-
   1. Under **Database**, specify the DB attributes:
       - DB name.
       - Username.
       - User password. At least 8 characters.
-
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
   1. If necessary, configure additional cluster settings:
@@ -118,12 +111,12 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
      }
      
      provider "yandex" {
-       token = "<OAuth or static key of service account>"
+       token     = "<OAuth or static key of service account>"
        cloud_id  = "<cloud ID>"
        folder_id = "<folder ID>"
        zone      = "<availability zone>"
      }
-
+     
      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
        name               = "<cluster name>"
        environment        = "<PRESTABLE or PRODUCTION>"
@@ -143,13 +136,14 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
          password = "<user password>"
          permission {
            database_name = "<database name>"
+           roles         = [ "<list of user roles>" ]
          }
        }
      
        resources {
          resource_preset_id = "<host class>"
          disk_type_id       = "<storage type>"
-         disk_size          = "<storage size in GB>"
+         disk_size          = "<storage size, GB>"
        }
      
        host {
@@ -168,15 +162,15 @@ In April 2021, all existing clusters with this {{ MG }} version will be [forcibl
      }
      ```
 
-     For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_mongodb_cluster.html).
+     For more information about resources that you can create using Terraform, see the [provider's documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
   1. Make sure that the configuration files are correct.
 
-     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
   1. Create a cluster.
 
-     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 {% endlist %}
 
@@ -194,16 +188,17 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-  To create a cluster with a single host, you should pass a single `--host` parameter.
+  To create a cluster with a single host, pass a single `--host` parameter.
 
   Let's say we need to create a {{ MG }} cluster with the following characteristics:
 
-    - Named `mymg`.
+  
+  - Named `mymg`.
   - In the `production` environment.
   - In the `{{ network-name }}` network.
   - In the security group with the ID `{{ security-group }}`.
   - With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
-  - With 20 GB fast network storage (`{{ disk-type-example }}`).
+  - With 20 GB of fast network storage (`{{ disk-type-example }}`).
   - With one user, `user1`, with the password `user1user1`.
   - With one database, `db1`.
 
@@ -236,7 +231,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     - Network: `mynet`.
     - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
     - In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
-    - With 20 GB fast network storage (`{{ disk-type-example }}`).
+    - With 20 GB of fast network storage (`{{ disk-type-example }}`).
     - With one user, `user1`, with the password `user1user1`.
     - With one database, `db1`.
 
@@ -252,7 +247,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   }
   
   provider "yandex" {
-    token = "<OAuth or static key of service account>"
+    token     = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"

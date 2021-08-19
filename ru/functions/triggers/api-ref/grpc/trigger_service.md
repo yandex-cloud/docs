@@ -50,13 +50,14 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs)**<br> 
+&nbsp;&nbsp;logging | **[Logging](#Logging)**<br> 
 
 
 ### Timer {#Timer}
@@ -132,6 +133,20 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
+### Logging {#Logging}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
+resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
 ## List {#List}
 
 Retrieves the list of triggers in the specified folder.
@@ -174,13 +189,14 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer1)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue1)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage1)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage1)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry1)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs1)**<br> 
+&nbsp;&nbsp;logging | **[Logging](#Logging1)**<br> 
 
 
 ### Timer {#Timer1}
@@ -256,6 +272,20 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
+### Logging {#Logging1}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
+resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
 ## Create {#Create}
 
 Creates a trigger in the specified folder.
@@ -318,13 +348,14 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer2)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue2)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage2)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage2)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry2)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs2)**<br> 
+&nbsp;&nbsp;logging | **[Logging](#Logging2)**<br> 
 
 
 ### Timer {#Timer2}
@@ -400,6 +431,20 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
+### Logging {#Logging2}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
+resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
 ## Update {#Update}
 
 Updates the specified trigger.
@@ -462,13 +507,14 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer3)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue3)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage3)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage3)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry3)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs3)**<br> 
+&nbsp;&nbsp;logging | **[Logging](#Logging3)**<br> 
 
 
 ### Timer {#Timer3}
@@ -539,6 +585,20 @@ Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
 batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### Logging {#Logging3}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
+resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
@@ -642,13 +702,14 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer4)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue4)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage4)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage4)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry4)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs4)**<br> 
+&nbsp;&nbsp;logging | **[Logging](#Logging4)**<br> 
 
 
 ### Timer {#Timer4}
@@ -724,6 +785,20 @@ action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
 
 
+### Logging {#Logging4}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
+resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
 ## Resume {#Resume}
 
 Restarts the specified trigger.
@@ -782,13 +857,14 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry` or `cloud_logs`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer5)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue5)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage5)**<br>Rule for a Yandex IoT Core trigger. 
 &nbsp;&nbsp;object_storage | **[ObjectStorage](#ObjectStorage5)**<br> 
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry5)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs5)**<br> 
+&nbsp;&nbsp;logging | **[Logging](#Logging5)**<br> 
 
 
 ### Timer {#Timer5}
@@ -859,6 +935,20 @@ Field | Description
 --- | ---
 log_group_id[] | **string**<br>Log group identifiers, at least one value is required. 
 batch_settings | **[CloudLogsBatchSettings](#CloudLogsBatchSettings)**<br>Required. Batch settings for processing log events. 
+action | **oneof:** `invoke_function` or `invoke_container`<br>
+&nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
+&nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 
+
+
+### Logging {#Logging5}
+
+Field | Description
+--- | ---
+log_group_id | **string**<br>Log events filter settings. The maximum string length in characters is 50.
+resource_type[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+resource_id[] | **string**<br> Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+levels[] | **`yandex.cloud.logging.v1.LogLevel.Level`**<br> The maximum number of elements is 10.
+batch_settings | **[LoggingBatchSettings](#LoggingBatchSettings)**<br>Required. Batch settings for processing log events. 
 action | **oneof:** `invoke_function` or `invoke_container`<br>
 &nbsp;&nbsp;invoke_function | **[InvokeFunctionWithRetry](#InvokeFunctionWithRetry)**<br>Instructions for invoking a function with retries as needed. 
 &nbsp;&nbsp;invoke_container | **[InvokeContainerWithRetry](#InvokeContainerWithRetry)**<br>Instructions for invoking a container with retries as needed. 

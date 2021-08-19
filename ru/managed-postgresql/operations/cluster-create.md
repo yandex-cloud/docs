@@ -114,17 +114,17 @@
 
   
       ```bash
-     {{ yc-mdb-pg }} cluster create \
-      --name <имя кластера> \
-      --environment <окружение, prestable или production> \
-      --network-name <имя сети> \
-      --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
-      --resource-preset <класс хоста> \
-      --user name=<имя пользователя>,password=<пароль пользователя> \
-      --database name=<имя базы данных>,owner=<имя владельца базы данных> \
-      --disk-size <объем хранилища, ГБ> \
-      --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
-      --security-group-ids <список идентификаторов групп безопасности>
+      {{ yc-mdb-pg }} cluster create \
+         --name <имя кластера> \
+         --environment <окружение, prestable или production> \
+         --network-name <имя сети> \
+         --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети> \
+         --resource-preset <класс хоста> \
+         --user name=<имя пользователя>,password=<пароль пользователя> \
+         --database name=<имя базы данных>,owner=<имя владельца базы данных> \
+         --disk-size <объем хранилища, ГБ> \
+         --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
+         --security-group-ids <список идентификаторов групп безопасности>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -169,9 +169,9 @@
      }
 
      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
-       name        = "<имя кластера>"
-       environment = "<окружение, PRESTABLE или PRODUCTION>"
-       network_id  = "<идентификатор сети>"
+       name               = "<имя кластера>"
+       environment        = "<окружение, PRESTABLE или PRODUCTION>"
+       network_id         = "<идентификатор сети>"
        security_group_ids = [ "<список групп безопасности>" ]
 
        config {
@@ -318,9 +318,9 @@
   }
 
   resource "yandex_mdb_postgresql_cluster" "mypg" {
-    name        = "mypg"
-    environment = "PRESTABLE"
-    network_id  = yandex_vpc_network.mynet.id
+    name               = "mypg"
+    environment        = "PRESTABLE"
+    network_id         = yandex_vpc_network.mynet.id
     security_group_ids = [ yandex_vpc_security_group.pgsql-sg.id ]
 
     config {

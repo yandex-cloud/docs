@@ -65,7 +65,8 @@ filter | A filter expression that filters clusters listed in the response.  The 
       "hostGroupIds": [
         "string"
       ],
-      "deletionProtection": true
+      "deletionProtection": true,
+      "logGroupId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -101,4 +102,5 @@ clusters[].<br>uiProxy | **boolean** (boolean)<br><p>Whether UI Proxy feature is
 clusters[].<br>securityGroupIds[] | **string**<br><p>User security groups.</p> 
 clusters[].<br>hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 clusters[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+clusters[].<br>logGroupId | **string**<br><p>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/data-proc/api-ref/Cluster/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/data-proc/api-ref/Cluster/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

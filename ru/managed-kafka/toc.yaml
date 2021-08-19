@@ -27,10 +27,16 @@ items:
         href: operations/cluster-delete.md
   - name: Сценарии использования
     items:
+      - name: Все сценарии
+        href: tutorials/index.md
       - name: Поставка данных в Managed Service for ClickHouse
         href: tutorials/send-data-to-mch.md
       - name: Поставка данных в ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
+      - name: >-
+          Использование Confluent Schema Registry с Managed Service for Apache
+          Kafka®
+        href: tutorials/confluent-schema-registry.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
