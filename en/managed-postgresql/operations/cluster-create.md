@@ -10,7 +10,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
 {% if audience != "internal" %}
 
-The number of hosts that can be created with a {{ PG }} cluster depends on the [storage option](../concepts/storage.md) selected:
+The number of hosts that can be created together with a {{ PG }} cluster depends on the selected [type of storage](../concepts/storage.md):
 
 * With **local storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
 * When using network storage:
@@ -25,6 +25,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
+
 ## How to create a {{ PG }} cluster {#create-cluster}
 
 {% list tabs %}
@@ -32,24 +33,19 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 - Management console
 
   1. In the management console, select the folder where you want to create a database cluster.
-
   1. Select **{{ mpg-name }}**.
-
   1. Click **Create cluster**.
-
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
       - `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-
   1. Select the DBMS version.
 
       {% note info %}
 
-      Select your host class under Version `12-1c` ({{ PG }} 12 for 1C) based on the number of users in your 1C:Enterprise installation:
+      When you select the host class version `12-1c` ({{ PG }} 12 for 1C), consider the number of users in your 1C:Enterprise installation:
       * For 50 or more users connecting at the same time, we recommend using `s2.medium`.
-      * For fewer than 50 users `s2.small` is sufficient.
+      * For fewer than 50 users, `s2.small` is sufficient.
 
       {% endnote %}
 
@@ -63,19 +59,15 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
         When selecting a storage type, remember that:
         - The size of the local storage can only be changed in 100 GB increments.
         - The size of non-replicated network storage can only be changed in 93 GB increments.
-
 {% endif %}
 
-      - Select the amount of space to use for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the database attributes:
 
       - Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
-
       - Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
-
       - User password (from 8 to 128 characters).
-
       - Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual database level.
 
            {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
@@ -122,20 +114,20 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
   1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
-      {% if audience != "internal" %}
+  {% if audience != "internal" %}
 
       ```bash
       {{ yc-mdb-pg }} cluster create \
-      --name <cluster name> \
-      --environment <prestable or production> \
-      --network-name <network name> \
-      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-      --resource-preset <host class> \
-      --user name=<username>,password=<user password> \
-      --database name=<database name>,owner=<database owner name> \
-      --disk-size <storage size in GB> \
-      --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-      --security-group-ids <list of security group IDs>
+         --name <cluster name> \
+         --environment <prestable or production> \
+         --network-name <network name> \
+         --host zone-id=<availability zone>,subnet-id=<subnet ID> \
+         --resource-preset <host class> \
+         --user name=<username>,password=<user password> \
+         --database name=<database name>,owner=<database owner name> \
+         --disk-size <storage size, GB> \
+         --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
+         --security-group-ids <list of security group IDs>
       ```
       
       The `subnet-id` should be specified if the selected availability zone contains two or more subnets.
@@ -144,31 +136,18 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       ```bash
       {{ yc-mdb-pg }} cluster create \
-      --name <cluster name> \
-      --environment <prestable or production> \
-      --network-id {{ network-name }} \
-      --host zone-id=<availability zone> \
-      --resource-preset <host class> \
-      --user name=<username>,password=<user password> \
-      --database name=<database name>,owner=<database owner name> \
-      --disk-size <storage size in GB> \
-      --security-group-ids <list of security group IDs>
+         --name <cluster name> \
+         --environment <prestable or production> \
+         --network-id {{ network-name }} \
+         --host zone-id=<availability zone> \
+         --resource-preset <host class> \
+         --user name=<username>,password=<user password> \
+         --database name=<database name>,owner=<database owner name> \
+         --disk-size <storage size, GB> \
+         --security-group-ids <list of security group IDs>
       ```
 
   {% endif %}
-
-      You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
-      - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
-      - Host priority in the `priority` option to [influence the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
-        - The host with the highest priority in the cluster becomes a synchronous replica.
-        - If the cluster has multiple hosts with the highest priority, a synchronous replica is selected among them. 
-        - The lowest and default priority is `0` and the highest is `100`.
-      
-      {% note warning %}
-      
-      When using the `--security-group-ids` option, you may need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
-      
-      {% endnote %}  
 
       You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
       - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
@@ -186,13 +165,29 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
   To create a cluster:
 
   1. In the configuration file, describe the parameters of resources that you want to create:
-     * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
+
+     * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md).
      * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
      * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
      Example configuration file structure:
 
-     ```
+     ```hcl
+     terraform {
+       required_providers {
+         yandex = {
+           source = "yandex-cloud/yandex"
+         }
+       }
+     }
+     
+     provider "yandex" {
+       token     = "<OAuth or static key of service account>"
+       cloud_id  = "<cloud ID>"
+       folder_id = "<folder ID>"
+       zone      = "<availability zone>"
+     }
+     
      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
        name               = "<cluster name>"
        environment        = "<PRESTABLE or PRODUCTION>"
@@ -204,7 +199,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          resources {
            resource_preset_id = "<host class>"
            disk_type_id       = "<storage type>"
-           disk_size          = "<storage size in GB>"
+           disk_size          = "<storage size, GB>"
          }
        }
      
@@ -263,7 +258,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-  To create a cluster with a single host, you should pass a single `--host` parameter.
+  To create a cluster with a single host, pass a single `--host` parameter.
 
   Let's say we need to create a {{ PG }} cluster with the following characteristics:
 
@@ -274,7 +269,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   - In the `default` network.
   - In the security group `{{ security-group }}`.
   - With one `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ zone-id }}` availability zone.
-  - With 20 GB fast network storage (`{{ disk-type-example }}`).
+  - With 20 GB of fast network storage (`{{ disk-type-example }}`).
   - With one user (`user1`) with the password `user1user1`.
   - With one `db1` database owned by the user `user1`.
 
@@ -296,32 +291,32 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   ```
   {{ yc-mdb-pg }} cluster create \
-  --name mypg \
-  --environment production \
-  --network-name default \
-  --resource-preset {{ host-class }} \
-  --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
-  --disk-type {{ disk-type-example }} \
-  --disk-size 20 \
-  --user name=user1,password=user1user1 \
-  --database name=db1,owner=user1 \
-  --security-group-ids {{ security-group }}
+    --name mypg \
+    --environment production \
+    --network-name default \
+    --resource-preset {{ host-class }} \
+    --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+    --disk-type {{ disk-type-example }} \
+    --disk-size 20 \
+    --user name=user1,password=user1user1 \
+    --database name=db1,owner=user1 \
+    --security-group-ids {{ security-group }}
   ```
 
   {% else %}
 
   ```
   {{ yc-mdb-pg }} cluster create \
-  --name mypg \
-  --environment production \
-  --network-id ' ' \
-  --host zone-id=man \
-  --resource-preset db1.micro \
-  --disk-type local-ssd \
-  --disk-size 20 \
-  --user name=user1,password=user1user1 \
-  --database name=db1,owner=user1 \
-  --security-group-ids {{ security-group }}
+    --name mypg \
+    --environment production \
+    --network-id ' ' \
+    --host zone-id=man \
+    --resource-preset db1.micro \
+    --disk-type local-ssd \
+    --disk-size 20 \
+    --user name=user1,password=user1user1 \
+    --database name=db1,owner=user1 \
+    --security-group-ids {{ security-group }}
   ```
 
   {% endif %}
@@ -333,17 +328,25 @@ If you specified security group IDs when creating a cluster, you may also need t
   - Version `13`.
   - In the `PRESTABLE` environment.
   - In the cloud with the ID `{{ tf-cloud-id }}`.
-  - In a folder named `{{ tf-folder-id }}`.
+  - In the folder with the ID `{{ tf-folder-id }}`.
   - Network: `mynet`.
   - In the new security group `pgsql-sg` allowing connections to the cluster from the internet via port `6432`.
   - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-  - With 20 GB fast network storage (`{{ disk-type-example }}`).
+  - With 20 GB of fast network storage (`{{ disk-type-example }}`).
   - With one user (`user1`) with the password `user1user1`.
   - With one `db1` database owned by the user `user1`.
 
   The configuration file for the cluster looks like this:
 
   ```go
+  terraform {
+    required_providers {
+      yandex = {
+        source = "yandex-cloud/yandex"
+      }
+    }
+  }
+  
   provider "yandex" {
     token     = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
@@ -385,7 +388,9 @@ If you specified security group IDs when creating a cluster, you may also need t
     }
   }
   
-  resource "yandex_vpc_network" "mynet" {  name = "mynet" }
+  resource "yandex_vpc_network" "mynet" {
+    name = "mynet"
+  }
   
   resource "yandex_vpc_subnet" "mysubnet" {
     name           = "mysubnet"
@@ -408,3 +413,4 @@ If you specified security group IDs when creating a cluster, you may also need t
   ```
 
 {% endlist %}
+

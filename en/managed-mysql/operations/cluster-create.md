@@ -28,37 +28,29 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
-
   1. Select **{{ mmy-name }}**.
-
   1. Click **Create cluster**.
-
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
       - `PRESTABLE`: For testing, including the {{ mmy-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-
   1. Select the DBMS version.
-
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
-
   1. Under **Storage size**:
-
-      - Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
+      - Select the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
 
         When selecting a storage type, remember that:
         - The size of the local storage can only be changed in 100 GB increments.
         - The size of non-replicated network storage can only be changed in 93 GB increments.
 
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
-
   1. Under **Database**, specify the DB attributes:
+
       - Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
       - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
       - User password (from 8 to 128 characters).
 
-  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](connect.md#configuring-security-group) to connect to the cluster.
+  1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-group) to connect to the cluster.
 
   1. Under **Hosts**, select the parameters for the DB hosts created with the cluster. If you open the **Advanced settings** section, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
@@ -66,7 +58,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
   1. If necessary, configure additional cluster settings:
 
-     {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
+    {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
      When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
@@ -143,7 +135,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
      }
      
      provider "yandex" {
-       token = "<OAuth or static key of service account>"
+       token     = "<OAuth or static key of service account>"
        cloud_id  = "<cloud ID>"
        folder_id = "<folder ID>"
        zone      = "<availability zone>"
@@ -217,11 +209,12 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-  To create a cluster with a single host, you should pass a single `--host` parameter.
+  To create a cluster with a single host, pass a single `--host` parameter.
 
   Let's say we need to create a {{ MY }} cluster with the following characteristics:
 
     {% if audience != "internal" %}
+
     - Named `my-mysql`.
     - Version `8.0`.
     - In the `production` environment.
@@ -233,6 +226,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     - With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
 
     {% else %}
+
     - Named `my-mysql`.
     - Version `8.0`.
     - In the `production` environment.
@@ -292,6 +286,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ MY }} cluster and a network for it with the following characteristics:
+    
     - Named `my-mysql`.
     - Version `8.0`.
     - In the `PRESTABLE` environment.
@@ -316,7 +311,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   }
   
   provider "yandex" {
-    token = "<OAuth or static key of service account>"
+    token     = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
