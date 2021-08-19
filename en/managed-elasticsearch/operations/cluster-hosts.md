@@ -22,6 +22,7 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mes-name }}**.
   1. Click on the name of the cluster you need and select the **Hosts** tab.
 
@@ -54,11 +55,8 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 - Management console
 
     1. Go to the folder page and select **{{ mes-name }}**.
-
     1. Click on the name of the cluster you need and select the **Hosts** tab.
-
     1. Click **Add host**.
-
     1. Specify the host parameters:
         - Availability zone.
         - Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
@@ -90,6 +88,12 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 
 {% endlist %}
 
+{% note warning %}
+
+If you can't [connect](cluster-connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
+{% endnote %}
+
 ## Deleting hosts from a cluster {#delete-hosts}
 
 The following restrictions apply when deleting hosts:
@@ -100,6 +104,7 @@ The following restrictions apply when deleting hosts:
 {% list tabs %}
 
 - Management console
+
     1. Go to the folder page and select **{{ mes-name }}**.
     1. Click on the name of the cluster you need and select the **Hosts** tab.
     1. Click the ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Delete**.
@@ -120,11 +125,10 @@ The following restrictions apply when deleting hosts:
 
 - API
 
-  Use the `deleteHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
+    Use the `deleteHosts` API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
-  In one or more `hostNames[]` parameters, specify the names of the hosts you wish to delete from the cluster.
+    In one or more `hostNames[]` parameters, specify the names of the hosts you wish to delete from the cluster.
 
 {% endlist %}
-

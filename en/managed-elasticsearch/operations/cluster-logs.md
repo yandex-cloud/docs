@@ -96,4 +96,3 @@ This way of working with logs is different from [getting a simple log snippet](#
   Use the `streamLogs` API method: pass the ID of the required cluster in the `clusterId` request parameter.
 
 {% endlist %}
-
