@@ -1,6 +1,94 @@
 # Релизы YC CLI
 
-## Версия 0.79.0 (13.07.21) {#latest-release}
+## Версия 0.80.0 (19.08.21) {#latest-release}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ sf-name }} {#serverless-functions}
+
+- Добавлена команда `yc serverless trigger create logging` для создания триггеров на {{ cloud-logging-name }}.
+
+#### {{ alb-name }} {#alb}
+
+* Добавлены команды для работы с gRPC-маршрутами:
+  `yc application-load-balancer virtual-host append-grpc-route`
+  `yc application-load-balancer virtual-host prepend-grpc-route`
+  `yc application-load-balancer virtual-host insert-grpc-route`
+  `yc application-load-balancer virtual-host remove-grpc-route`
+  `yc application-load-balancer virtual-host update-grpc-route`
+* Добавлена команда `yc application-load-balancer virtual-host update-http-route` для обновления HTTP-маршрутов.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mch-name }}, {{ mes-name }}, {{ mkf-name }}, {{ mmg-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ mms-name }}**
+
+* Команды `yc <имя сервиса управляемой БД> cluster create`, `yc <имя сервиса управляемой БД> cluster update`.
+
+  Флаг `--deletion-protection` позволяет установить защиту от случайного удаления кластера. Для снятия защиты от удаления укажите `--deletion-protection=false`.
+
+**{{ mmg-name }}**
+
+* Добавлена команда `{{ yc-mdb-mg }} hosts stepdown`.
+
+  Команда переключает выбранный мастер в режим реплики, мастером в этом случае станет доступная реплика.
+* Команды  `{{ yc-mdb-mg }} cluster get` и `{{ yc-mdb-mg }} cluster update`.
+
+    Добавлено поле `backup-retain-period-days`, показывающее сколько дней хранятся автоматические резервные копии.
+
+**{{ mrd-name }}**
+
+* Добавлена поддержка {{ RD }} версии 6.2.
+
+**{{ mmy-name }}**
+
+* Команда `yc managed-mysql hosts update`.
+
+  Добавлена команда`yc managed-mysql hosts update HOST --replication-source HOST` для указания источника репликации каскадной реплики
+
+**{{ mms-name }}**
+
+* Добавлена команда `yc managed-sqlserver database restore`.
+  Команда позволяет восстановить заданную БД на существующем кластере из резервной копии. Возможно восстановление под другим именем.
+
+**{{ mkf-name }}**
+
+* Добавлена поддержка Kafka 2.8.
+
+#### {{ dataproc-name }} {#dataproc}
+
+* Команды `yc dataproc cluster create`, `yc dataproc cluster update`.
+
+  Флаг `--deletion-protection` позволяет установить/убирать для кластера защиту от случайного удаления.
+  Для снятия защиты от удаления укажите `--deletion-protection=false`.
+
+#### {{ resmgr-name }} {#resmgr}
+
+* Команда `yc resource-manager cloud list`.
+
+  Добавлено отображение организации облака.
+
+#### {{ org-name }} {#organization}
+
+Появилась поддержка сервиса организаций.
+
+{{ org-full-name }} — это решение для корпоративных клиентов, с помощью которого можно подключить к вашей организации сервисы {{ yandex-cloud }} и управлять доступом сотрудников к этим сервисам.
+
+Сервис {{ org-full-name }} находится на стадии Preview. Подробнее про сервис читайте в [документации](../organization/).
+
+
+#### {{ sf-name }} {#serverless-functions}
+
+* Команда `yc serverless trigger create`.
+
+  Флаги `--invoke-container-name`, `--invoke-container-id` и `--invoke-container-path` позволяют указывать для триггера контейнер {{ serverless-containers-name }}.
+
+
+
+
+
+## Предыдущие релизы {#previous-releases}
+
+## Версия 0.79.0 (13.07.21)
 
 ### Изменения в сервисах {{ yandex-cloud }}
 
@@ -28,8 +116,6 @@
 * Команда `yc managed-clickhouse cluster update`.
 
     Добавлен флаг `--cloud-storage` для включения хранения данных в {{ objstorage-name }}.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.78.0 (29.06.21) {#version0.78.0}
 
