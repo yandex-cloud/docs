@@ -2,7 +2,7 @@
 
 ## Версия 0.80.0 (19.08.21) {#latest-release}
 
-#### Изменения в сервисах {{ yandex-cloud }} {#services}
+### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -88,11 +88,11 @@
 
 ## Предыдущие релизы {#previous-releases}
 
-## Версия 0.79.0 (13.07.21)
+### Версия 0.79.0 (13.07.21)
 
-### Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
-### {{ cloud-logging-name }} {#logging}
+#### {{ cloud-logging-name }} {#logging}
 
 Добавлена поддержка сервиса {{ cloud-logging-name }}.
 
@@ -100,7 +100,7 @@
 
 Сервис {{ cloud-logging-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее о сервисе читайте в [документации](../logging/).
 
-### {{ sf-name }} {#serverless-functions}
+#### {{ sf-name }} {#serverless-functions}
 
 * Добавлена команда `yc serverless function set-scaling-policy` для задания настроек масштабирования функции.
 * Добавлена команда `yc serverless function list-scaling-policies` для просмотра настроек масштабирования функции.
@@ -109,7 +109,7 @@
 
   Исправлена обработка директорий для флага `--source-path` на Windows.
 
-### Сервисы управляемых баз данных {#managed-db}
+#### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}**
 
