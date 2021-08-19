@@ -516,6 +516,57 @@ components:
 
             Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
+    LogLevelLevel:
+      description: |-
+        Possible log levels for entries.
+
+         - LEVEL_UNSPECIFIED: Default log level.
+
+        Equivalent to not specifying log level at all.
+         - TRACE: Trace log level.
+
+        Possible use case: verbose logging of some business logic.
+         - DEBUG: Debug log level.
+
+        Possible use case: debugging special cases in application logic.
+         - INFO: Info log level.
+
+        Mostly used for information messages.
+         - WARN: Warn log level.
+
+        May be used to alert about significant events.
+         - ERROR: Error log level.
+
+        May be used to alert about errors in infrastructure, logic, etc.
+         - FATAL: Fatal log level.
+
+        May be used to alert about unrecoverable failures and events.
+      type: string
+      enum:
+      - TRACE
+      - DEBUG
+      - INFO
+      - WARN
+      - ERROR
+      - FATAL
+    LoggingBatchSettings:
+      type: object
+      properties:
+        size:
+          description: |-
+            Batch size. Trigger will send the batch of messages to the associated function
+            when the number of log events reaches this value, or the `cutoff` time has passed.
+
+            Acceptable values are 1 to 100, inclusive.
+          type: string
+          format: int64
+        cutoff:
+          description: |-
+            Maximum wait time. Trigger will send the batch of messages the time since the last batch
+            exceeds the `cutoff` value, regardless of the amount of log events.
+
+            Acceptable values are 1 seconds to 60 seconds, inclusive.
+          type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -759,6 +810,51 @@ components:
           invokeContainer:
             $ref: '#/components/schemas/InvokeContainerWithRetry'
             description: Instructions for invoking a container with retries as needed.
+    TriggerLogging:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          logGroupId:
+            description: |-
+              Log events filter settings.
+
+              The maximum string length in characters is 50.
+            type: string
+          resourceType:
+            description: |-
+              The maximum number of elements is 100.
+              Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
+            type: array
+            items:
+              type: string
+          resourceId:
+            description: |-
+              The maximum number of elements is 100.
+              Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
+            type: array
+            items:
+              type: string
+          levels:
+            description: The maximum number of elements is 10.
+            type: array
+            items:
+              $ref: '#/components/schemas/LogLevelLevel'
+          batchSettings:
+            $ref: '#/components/schemas/LoggingBatchSettings'
+            description: |-
+              Required.
+              Batch settings for processing log events.
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+            description: Instructions for invoking a function with retries as needed.
+          invokeContainer:
+            $ref: '#/components/schemas/InvokeContainerWithRetry'
+            description: Instructions for invoking a container with retries as needed.
     TriggerMessageQueue:
       description: Rule for activating a message queue trigger.
       type: object
@@ -860,6 +956,8 @@ components:
             $ref: '#/components/schemas/TriggerContainerRegistry'
           cloudLogs:
             $ref: '#/components/schemas/TriggerCloudLogs'
+          logging:
+            $ref: '#/components/schemas/TriggerLogging'
     TriggerStatus:
       type: string
       enum:
@@ -975,6 +1073,8 @@ components:
             $ref: '#/components/schemas/TriggerContainerRegistry'
           cloudLogs:
             $ref: '#/components/schemas/TriggerCloudLogs'
+          logging:
+            $ref: '#/components/schemas/TriggerLogging'
     RetrySettings_in_InvokeContainerWithRetry_retrySettings:
       description: |-
         Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
@@ -1068,6 +1168,8 @@ components:
             $ref: '#/components/schemas/TriggerContainerRegistry'
           cloudLogs:
             $ref: '#/components/schemas/TriggerCloudLogs'
+          logging:
+            $ref: '#/components/schemas/TriggerLogging'
     TriggerStatus_in_Trigger_status:
       description: Trigger status.
       type: string

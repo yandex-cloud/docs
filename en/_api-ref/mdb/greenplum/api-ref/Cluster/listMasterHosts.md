@@ -59,7 +59,7 @@ hosts[].<br>clusterId | **string**<br><p>ID of the Greenplum cluster. The ID is 
 hosts[].<br>zoneId | **string**<br><p>ID of the availability zone where the Greenplum host resides.</p> 
 hosts[].<br>type | **string**<br><p>Type of the host.</p> <ul> <li>MASTER: Greenplum master host.</li> <li>REPLICA: Greenplum master host.</li> <li>SEGMENT: Greenplum segment host.</li> </ul> 
 hosts[].<br>resources | **object**<br><p>Resources allocated to the Greenplum host.</p> 
-hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-sqlserver/concepts/instance-types">documentation</a>.</p> 
+hosts[].<br>resources.<br>resourcePresetId | **string**<br><p>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the <a href="/docs/managed-greenplum/concepts/instance-types">documentation</a>.</p> 
 hosts[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host.</p> 
 hosts[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storage environment for the host.</p> <p>Possible values:</p> <ul> <li>network-hdd - network HDD drive,</li> <li>network-ssd - network SSD drive,</li> <li>local-ssd - local SSD storage.</li> </ul> 
 hosts[].<br>health | **string**<br><p>Status code of the aggregated health of the host.</p> <ul> <li>UNKNOWN: Health of the host is unknown.</li> <li>ALIVE: The host is performing all its functions normally.</li> <li>DEAD: The host is inoperable, and cannot perform any of its essential functions.</li> <li>DEGRADED: The host is working below capacity or not fully functional.</li> </ul> 

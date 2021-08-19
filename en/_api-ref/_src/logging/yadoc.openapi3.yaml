@@ -560,7 +560,7 @@ components:
             Empty list disables filter.
 
             The maximum number of elements is 100.
-            Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
+            Each value must match the regular expression `` |[a-zA-Z][-a-zA-Z0-9_.]{0,63} ``.
           type: array
           items:
             type: string
@@ -571,7 +571,7 @@ components:
             Empty list disables filter.
 
             The maximum number of elements is 100.
-            Each value must match the regular expression `` [a-zA-Z][-a-zA-Z0-9_.]{1,62} ``.
+            Each value must match the regular expression `` |[a-zA-Z0-9][-a-zA-Z0-9_.]{0,63} ``.
           type: array
           items:
             type: string
@@ -680,10 +680,7 @@ components:
         level:
           $ref: '#/components/schemas/LogLevelLevel_in_IncomingLogEntry_level'
         message:
-          description: |-
-            Entry text message.
-
-            The maximum string length in characters is 65536.
+          description: Entry text message.
           type: string
         jsonPayload:
           description: Entry annotation.
@@ -796,7 +793,7 @@ components:
           description: |-
             Default entry annotation.
             Will be merged with entry annotation.
-            Any conflict will be resolved in favor of entry own annotaion.
+            Any conflict will be resolved in favor of entry own annotation.
           type: object
     LogEntryResource:
       description: |-

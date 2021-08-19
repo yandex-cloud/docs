@@ -60,7 +60,8 @@ clusterId | Required. ID of the Data Proc cluster.  To get a cluster ID make a [
   "hostGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "logGroupId": "string"
 }
 ```
 A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
@@ -92,3 +93,4 @@ uiProxy | **boolean** (boolean)<br><p>Whether UI Proxy feature is enabled.</p>
 securityGroupIds[] | **string**<br><p>User security groups.</p> 
 hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+logGroupId | **string**<br><p>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service</p> 

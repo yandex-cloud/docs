@@ -997,6 +997,10 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        logGroupId:
+          description: ID of the cloud logging log group to write logs. If not set,
+            logs will not be sent to logging service
+          type: string
     ClusterConfig:
       type: object
       properties:
@@ -1122,6 +1126,10 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        logGroupId:
+          description: ID of the cloud logging log group to write logs. If not set,
+            logs will not be sent to logging service
+          type: string
     CreateJobMetadata:
       type: object
       properties:
@@ -2000,6 +2008,10 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        logGroupId:
+          description: ID of the cloud logging log group to write logs. If not set,
+            logs will not be sent to logging service
+          type: string
     UpdateSubclusterConfigSpec:
       type: object
       properties:

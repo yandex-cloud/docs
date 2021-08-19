@@ -102,7 +102,7 @@ config | **[GreenplumMasterConfigSet](#GreenplumMasterConfigSet)**<br>Configurat
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -137,7 +137,7 @@ config | **[GreenplumSegmentConfigSet](#GreenplumSegmentConfigSet)**<br>Configur
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -281,7 +281,7 @@ config | **[GreenplumMasterConfigSet](#GreenplumMasterConfigSet1)**<br>Configura
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -316,7 +316,7 @@ config | **[GreenplumSegmentConfigSet](#GreenplumSegmentConfigSet1)**<br>Configu
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -431,7 +431,7 @@ config | **[GreenplumMasterConfig](#GreenplumMasterConfig2)**<br>Configuration s
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -457,7 +457,7 @@ config | **[GreenplumSegmentConfig](#GreenplumSegmentConfig2)**<br>Configuration
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -562,7 +562,7 @@ config | **[GreenplumMasterConfigSet](#GreenplumMasterConfigSet2)**<br>Configura
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -597,7 +597,7 @@ config | **[GreenplumSegmentConfigSet](#GreenplumSegmentConfigSet2)**<br>Configu
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -797,7 +797,7 @@ config | **[GreenplumMasterConfigSet](#GreenplumMasterConfigSet3)**<br>Configura
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -832,7 +832,7 @@ config | **[GreenplumSegmentConfigSet](#GreenplumSegmentConfigSet3)**<br>Configu
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -992,7 +992,7 @@ config | **[GreenplumMasterConfigSet](#GreenplumMasterConfigSet4)**<br>Configura
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -1027,7 +1027,7 @@ config | **[GreenplumSegmentConfigSet](#GreenplumSegmentConfigSet4)**<br>Configu
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -1158,7 +1158,7 @@ assign_public_ip | **bool**<br>Flag showing public IP assignment status to this 
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 
@@ -1204,7 +1204,7 @@ assign_public_ip | **bool**<br>Flag showing public IP assignment status to this 
 
 Field | Description
 --- | ---
-resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-sqlserver/concepts/instance-types). 
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
 

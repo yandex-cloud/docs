@@ -2287,7 +2287,7 @@ components:
               Weights must be set either for all backends of a group or for none of them.
               Setting no weights is the same as setting equal non-zero weights for all backends.
 
-              If set to `0`, traffic is not sent to the backend.
+              If the weight is non-positive, traffic is not sent to the backend.
             type: integer
             format: int64
           loadBalancingConfig:
@@ -2467,7 +2467,9 @@ components:
             type: boolean
             format: boolean
           rename:
-            description: Replaces the name of the header with the specified string.
+            description: |-
+              Replaces the name of the header with the specified string.
+              This operation is only supported for ALB Virtual Hosts.
             type: string
     HealthCheck:
       description: |-
@@ -2607,7 +2609,7 @@ components:
               Weights must be set either for all backends in a group or for none of them.
               Setting no weights is the same as setting equal non-zero weights for all backends.
 
-              If set to `0`, traffic is not sent to the backend.
+              If the weight is non-positive, traffic is not sent to the backend.
             type: integer
             format: int64
           loadBalancingConfig:
@@ -2650,10 +2652,17 @@ components:
         properties:
           targetGroups:
             $ref: '#/components/schemas/TargetGroupsBackend'
-            description: Target groups that belong to the backend.
+            description: |-
+              Target groups that belong to the backend. For details about target groups, see
+              [documentation](/docs/application-load-balancer/concepts/target-group).
           storageBucket:
             $ref: '#/components/schemas/StorageBucketBackend'
-            description: Storage bucket to use as a backend.
+            description: |-
+              Object Storage bucket to use as the backend. For details about buckets, see
+              [documentation](/docs/storage/concepts/bucket).
+
+              If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly
+              accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability).
     HttpBackendGroup:
       description: An HTTP backend group resource.
       type: object
@@ -2831,6 +2840,8 @@ components:
             String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
           type: string
           format: date-time
+        routeOptions:
+          $ref: '#/components/schemas/RouteOptions_in_HttpRouter_routeOptions'
     InternalIpv4Address:
       description: An internal IPv4 endpoint address resource.
       type: object
@@ -3492,6 +3503,8 @@ components:
               Required.
               Name of the route.
             type: string
+          routeOptions:
+            $ref: '#/components/schemas/RouteOptions'
       - title: route
         type: object
         maxProperties: 1
@@ -3502,6 +3515,19 @@ components:
           grpc:
             $ref: '#/components/schemas/GrpcRoute'
             description: gRPC route configuration.
+    RouteOptions:
+      type: object
+      properties:
+        modifyRequestHeaders:
+          description: Apply the following modifications to the request headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        modifyResponseHeaders:
+          description: Apply the following modifications to the response headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
     SniMatch:
       description: A SNI handler resource.
       type: object
@@ -3535,13 +3561,15 @@ components:
           description: ID of the application load balancer that is being stopped.
           type: string
     StorageBucketBackend:
+      description: |-
+        A resource for Object Storage bucket used as a backend. For details about the concept,
+        see [documentation](/docs/storage/concepts/bucket).
       type: object
       properties:
         bucket:
           description: |-
             Required.
-            Cloud S3 bucket name.
-            Should have public access.
+            Name of the bucket.
           type: string
     StringMatch:
       description: A string matcher resource.
@@ -4216,18 +4244,17 @@ components:
           items:
             $ref: '#/components/schemas/Route'
         modifyRequestHeaders:
-          description: Modifications that are made to the headers of incoming HTTP
-            requests before they are forwarded to backends.
+          description: Deprecated, use route_options.modify_request_headers.
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
         modifyResponseHeaders:
-          description: |-
-            Modifications that are made to the headers of HTTP responses received from backends
-            before responses are forwarded to clients.
+          description: Deprecated, use route_options.modify_response_headers.
           type: array
           items:
             $ref: '#/components/schemas/HeaderModification'
+        routeOptions:
+          $ref: '#/components/schemas/RouteOptions_in_VirtualHost_routeOptions'
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -4512,6 +4539,19 @@ components:
           prefixMatch:
             description: Prefix match string.
             type: string
+    RouteOptions_in_HttpRouter_routeOptions:
+      type: object
+      properties:
+        modifyRequestHeaders:
+          description: Apply the following modifications to the request headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        modifyResponseHeaders:
+          description: Apply the following modifications to the response headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
     LoadBalancerStatus_in_LoadBalancer_status:
       description: |-
         Status of the application load balancer.
@@ -4827,6 +4867,19 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    RouteOptions_in_VirtualHost_routeOptions:
+      type: object
+      properties:
+        modifyRequestHeaders:
+          description: Apply the following modifications to the request headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
+        modifyResponseHeaders:
+          description: Apply the following modifications to the response headers.
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderModification'
 tags:
 - name: BackendGroup
   description: A set of methods for managing backend groups.
