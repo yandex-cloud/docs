@@ -40,7 +40,7 @@ editable: false
 
 {% endif %}
 
-#### Document API
+#### Document API {#document-api}
 
 {% if audience != "external" %}
 
@@ -61,7 +61,7 @@ editable: false
 Удаление (`DeleteItem`)                                                              | 2 RU              | Не применяется |
 Работа со схемой базы данных (`CreateTable`, `DeleteTable`, `DescribeTable`, `ListTables`) | 0 RU              | Не применяется |
 
-#### YDB API {#cost-ydb-api}
+#### YDB API {#ydb-api}
 
 {% if audience != "external" %}
 

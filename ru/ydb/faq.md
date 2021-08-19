@@ -20,6 +20,10 @@ keywords:
 
 {% include notitle [errors](faq/errors.md) %}
 
+## Serverless {#serverless}
+
+{% include notitle [common](faq/serverless.md) %}
+
 {% else %}
 ## Общие вопросы {#common}
 
