@@ -97,6 +97,10 @@ items:
         href: dataplatform/index.md
       - name: Синхронизация данных из MySQL с помощью Yandex DataTransfer
         href: dataplatform/sync-mysql.md
+      - name: >-
+          Использование Confluent Schema Registry с Yandex Managed Service for
+          Apache Kafka®
+        href: dataplatform/confluent-schema-registry.md
   - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии

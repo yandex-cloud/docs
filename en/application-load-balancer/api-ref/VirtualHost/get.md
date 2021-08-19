@@ -31,6 +31,34 @@ virtualHostName | Required. Name of the virtual host to return.  To get the virt
   "routes": [
     {
       "name": "string",
+      "routeOptions": {
+        "modifyRequestHeaders": [
+          {
+            "name": "string",
+
+            // `routes[].routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+            "append": "string",
+            "replace": "string",
+            "remove": true,
+            "rename": "string",
+            // end of the list of possible fields`routes[].routeOptions.modifyRequestHeaders[]`
+
+          }
+        ],
+        "modifyResponseHeaders": [
+          {
+            "name": "string",
+
+            // `routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+            "append": "string",
+            "replace": "string",
+            "remove": true,
+            "rename": "string",
+            // end of the list of possible fields`routes[].routeOptions.modifyResponseHeaders[]`
+
+          }
+        ]
+      },
 
       // `routes[]` includes only one of the fields `http`, `grpc`
       "http": {
@@ -145,7 +173,35 @@ virtualHostName | Required. Name of the virtual host to return.  To get the virt
       // end of the list of possible fields`modifyResponseHeaders[]`
 
     }
-  ]
+  ],
+  "routeOptions": {
+    "modifyRequestHeaders": [
+      {
+        "name": "string",
+
+        // `routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+        "append": "string",
+        "replace": "string",
+        "remove": true,
+        "rename": "string",
+        // end of the list of possible fields`routeOptions.modifyRequestHeaders[]`
+
+      }
+    ],
+    "modifyResponseHeaders": [
+      {
+        "name": "string",
+
+        // `routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`
+        "append": "string",
+        "replace": "string",
+        "remove": true,
+        "rename": "string",
+        // end of the list of possible fields`routeOptions.modifyResponseHeaders[]`
+
+      }
+    ]
+  }
 }
 ```
 A virtual host resource.
@@ -157,6 +213,19 @@ name | **string**<br><p>Required. Name of the virtual host. The name is unique w
 authority[] | **string**<br><p>List of domains that are attributed to the virtual host.</p> <p>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 ``Host`` header or the HTTP/2 ``:authority`` pseudo-header matches a domain specified in the host.</p> <p>A wildcard asterisk character (``*``) matches 0 or more characters.</p> <p>If not specified, all domains are attributed to the host, which is the same as specifying a ``*`` value. An HTTP router must not contain more than one virtual host to which all domains are attributed.</p> 
 routes[] | **object**<br><p>A route resource. For details about the concept, see <a href="/docs/application-load-balancer/concepts/http-router#routes">documentation</a>.</p> 
 routes[].<br>name | **string**<br><p>Required. Name of the route.</p> 
+routes[].<br>routeOptions | **object**<br>
+routes[].<br>routeOptions.<br>modifyRequestHeaders[] | **object**<br><p>A header modification resource.</p> 
+routes[].<br>routeOptions.<br>modifyRequestHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
+routes[].<br>routeOptions.<br>modifyRequestHeaders[].<br>append | **string** <br>`routes[].routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routes[].<br>routeOptions.<br>modifyRequestHeaders[].<br>replace | **string** <br>`routes[].routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routes[].<br>routeOptions.<br>modifyRequestHeaders[].<br>remove | **boolean** (boolean) <br>`routes[].routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
+routes[].<br>routeOptions.<br>modifyRequestHeaders[].<br>rename | **string** <br>`routes[].routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
+routes[].<br>routeOptions.<br>modifyResponseHeaders[] | **object**<br><p>A header modification resource.</p> 
+routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
+routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>append | **string** <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>replace | **string** <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
+routes[].<br>routeOptions.<br>modifyResponseHeaders[].<br>rename | **string** <br>`routes[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
 routes[].<br>http | **object**<br>HTTP route configuration. <br>`routes[]` includes only one of the fields `http`, `grpc`<br><br><p>An HTTP route configuration resource.</p> 
 routes[].<br>http.<br>match | **object**<br>Condition (predicate) used to select the route.<br><p>An HTTP route condition (predicate) resource.</p> 
 routes[].<br>http.<br>match.<br>httpMethod[] | **string**<br><p>HTTP method specified in the request.</p> 
@@ -201,10 +270,23 @@ modifyRequestHeaders[].<br>name | **string**<br><p>Name of the header.</p>
 modifyRequestHeaders[].<br>append | **string** <br>`modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
 modifyRequestHeaders[].<br>replace | **string** <br>`modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
 modifyRequestHeaders[].<br>remove | **boolean** (boolean) <br>`modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
-modifyRequestHeaders[].<br>rename | **string** <br>`modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string.</p> 
+modifyRequestHeaders[].<br>rename | **string** <br>`modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
 modifyResponseHeaders[] | **object**<br><p>A header modification resource.</p> 
 modifyResponseHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
 modifyResponseHeaders[].<br>append | **string** <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
 modifyResponseHeaders[].<br>replace | **string** <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
 modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
-modifyResponseHeaders[].<br>rename | **string** <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string.</p> 
+modifyResponseHeaders[].<br>rename | **string** <br>`modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
+routeOptions | **object**<br>
+routeOptions.<br>modifyRequestHeaders[] | **object**<br><p>A header modification resource.</p> 
+routeOptions.<br>modifyRequestHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
+routeOptions.<br>modifyRequestHeaders[].<br>append | **string** <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routeOptions.<br>modifyRequestHeaders[].<br>replace | **string** <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routeOptions.<br>modifyRequestHeaders[].<br>remove | **boolean** (boolean) <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
+routeOptions.<br>modifyRequestHeaders[].<br>rename | **string** <br>`routeOptions.modifyRequestHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
+routeOptions.<br>modifyResponseHeaders[] | **object**<br><p>A header modification resource.</p> 
+routeOptions.<br>modifyResponseHeaders[].<br>name | **string**<br><p>Name of the header.</p> 
+routeOptions.<br>modifyResponseHeaders[].<br>append | **string** <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Appends the specified string to the header value.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routeOptions.<br>modifyResponseHeaders[].<br>replace | **string** <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
+routeOptions.<br>modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
+routeOptions.<br>modifyResponseHeaders[].<br>rename | **string** <br>`routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 

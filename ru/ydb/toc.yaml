@@ -363,6 +363,8 @@ items:
         href: faq/errors.md
       - name: YQL
         href: faq/yql.md
+      - name: Serverless
+        href: faq/serverless.md
       - name: Все вопросы на одной странице
         href: faq.md
   - name: Публичные материалы

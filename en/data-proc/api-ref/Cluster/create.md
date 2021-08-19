@@ -64,7 +64,8 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
   "hostGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "logGroupId": "string"
 }
 ```
 
@@ -105,6 +106,7 @@ uiProxy | **boolean** (boolean)<br><p>Enable UI Proxy feature.</p>
 securityGroupIds[] | **string**<br><p>User security groups.</p> 
 hostGroupIds[] | **string**<br><p>Host groups to place VMs of cluster on.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+logGroupId | **string**<br><p>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

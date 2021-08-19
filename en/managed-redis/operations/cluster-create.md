@@ -15,19 +15,13 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
-
   1. Select **{{ mrd-name }}**.
-
   1. Click **Create cluster**.
-
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-
   1. Select the DBMS version.
-
   1. If necessary, enable [cluster sharding](../concepts/sharding.md).
 
      {% note warning %}
@@ -49,9 +43,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
       * Select the amount of RAM for the host.
       * Select the disk size. The available disk size depends on the amount of RAM and is limited by [quotas and limits](../concepts/limits.md#limits). The minimum disk size is twice the selected amount of RAM, while the maximum disk size is 8 times the selected amount of RAM.
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
-
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
-
   1. Under **Hosts**, click **Add host** and select the availability zone and subnet to connect the host to. Create the necessary number of hosts. To change the availability zone and the added host, click the pencil icon in the host line.
 
      If you enabled sharding, enter names for the shards.
@@ -119,7 +111,6 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   * Security group IDs in the parameter `securityGroupIds`.
   * The `tlsEnabled=true` flag to create a cluster with support for encrypted SSL connections (for {{ RD }} version 6 or higher).
 
-
 - Terraform
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
@@ -129,7 +120,8 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
-       * Database cluster: Description of the cluster and its hosts. If necessary, you can also configure the [DBMS settings](../concepts/settings-list.md#dbms-settings) here.
+    
+       * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md).
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
@@ -145,12 +137,12 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
        }
        
        provider "yandex" {
-         token = "<OAuth or static key of service account>"
+         token     = "<OAuth or static key of service account>"
          cloud_id  = "<cloud ID>"
          folder_id = "<folder ID>"
          zone      = "<availability zone>"
        }
-
+       
        resource "yandex_mdb_redis_cluster" "<cluster name>" {
          name               = "<cluster name>"
          environment        = "<PRESTABLE or PRODUCTION>"
@@ -214,9 +206,10 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-  To create a cluster with a single host, you should pass a single `--host` parameter.
+  To create a cluster with a single host, pass a single `--host` parameter.
 
   Let's say we need to create a {{ RD }} cluster with the following characteristics:
+
   * Named `myredis`.
   * With version `6.0`.
   * In the `production` environment.
@@ -246,6 +239,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
+
     * Named `myredis`.
     * With version `6.0`.
     * In the `PRODUCTION` environment.
@@ -268,9 +262,9 @@ If you specified security group IDs when creating a cluster, you may also need t
       }
     }
   }
-    
+  
   provider "yandex" {
-    token = "<OAuth or static key of service account>"
+    token     = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
@@ -338,7 +332,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
     Let's say we need to create a [sharded](../concepts/sharding.md) {{RD}} cluster with the following characteristics:
-    
+
     * Named `myredis`.
     * In the `PRODUCTION` environment.
     * In the cloud with the ID `{{ tf-cloud-id }}`.
@@ -365,7 +359,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     }
     
     provider "yandex" {
-      token = "<OAuth or static key of service account>"
+      token     = "<OAuth or static key of service account>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
       zone      = "{{ zone-id }}"

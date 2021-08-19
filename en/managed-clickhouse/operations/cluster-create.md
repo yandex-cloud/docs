@@ -16,7 +16,7 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 * When using network storage:
     * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
     * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
-* With **hybrid storage**, you can only create a single-host cluster. After creating this cluster, you can [add shards](shards.md#add-shard) consisting of only one host. Such clusters aren't tolerant to host failures, but if this happens, the data in the shard or cluster is saved. Hybrid storage is at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage.
+* With **hybrid storage**, you can only create a single-host cluster. After creating this cluster, you can [add shards](shards.md#add-shard) consisting of only one host. Such clusters aren't tolerant to host failures, but if this happens, the data in the shard or cluster is saved. Hybrid storage is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
@@ -25,17 +25,13 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
-  
-  1. Select **{{ mch-name }}**.
-
+    1. Select **{{ mch-name }}**.
   1. Click **Create cluster**.
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
   1. From the **Version** drop-down list, select the version of {{ CH }} which the {{ mch-name }} cluster will use:
      1. For most clusters, it's recommended to select the latest LTS version.
      1. If you plan to use hybrid storage in a cluster, it's recommended to select the latest version. This type of storage is supported starting from {{ CH }} {{ mch-hs-version }}.
-
   1. If you plan to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up a service account to access data in a bucket, see [{#T}](s3-access.md).
-
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
@@ -258,7 +254,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-  To create a cluster with a single host, you should pass a single `--host` parameter.
+  To create a cluster with a single host, pass a single `--host` parameter.
 
   Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
@@ -268,7 +264,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   * In the `default` network.
   * In the security group `{{ security-group }}`.
   * With a single `{{ host-class }}` class ClickHouse host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
-  * With 20 GB fast network storage (`{{ disk-type-example }}`).
+  * With 20 GB of fast network storage (`{{ disk-type-example }}`).
   * With one user, `user1`, with the password `user1user1`.
   * With one database, `db1`.
 
@@ -307,7 +303,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   ```hcl
   provider "yandex" {
-    token = "<OAuth or static key of service account>"
+    token     = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "ru-central1-c"

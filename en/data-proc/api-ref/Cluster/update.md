@@ -65,7 +65,8 @@ clusterId | ID of the cluster to update.  To get the cluster ID, make a [list](/
   "securityGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "logGroupId": "string"
 }
 ```
 
@@ -103,6 +104,7 @@ decommissionTimeout | **string** (int64)<br><p>Timeout to gracefully decommissio
 uiProxy | **boolean** (boolean)<br><p>Enable UI Proxy feature.</p> 
 securityGroupIds[] | **string**<br><p>User security groups.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+logGroupId | **string**<br><p>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

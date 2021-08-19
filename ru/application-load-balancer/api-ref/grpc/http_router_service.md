@@ -41,6 +41,7 @@ folder_id | **string**<br>ID of the folder that the router belongs to.
 labels | **map<string,string>**<br>Router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 virtual_hosts[] | **[VirtualHost](#VirtualHost)**<br>Virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+route_options | **[RouteOptions](#RouteOptions)**<br> 
 
 
 ### VirtualHost {#VirtualHost}
@@ -50,8 +51,9 @@ Field | Description
 name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
 authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
 routes[] | **[Route](#Route)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification)**<br>Modifications that are made to the headers of incoming HTTP requests before they are forwarded to backends. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification)**<br>Modifications that are made to the headers of HTTP responses received from backends before responses are forwarded to clients. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification)**<br>Deprecated, use route_options.modify_request_headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification)**<br>Deprecated, use route_options.modify_response_headers. 
+route_options | **[RouteOptions](#RouteOptions)**<br> 
 
 
 ### Route {#Route}
@@ -62,6 +64,7 @@ name | **string**<br>Required. Name of the route.
 route | **oneof:** `http` or `grpc`<br>Route configuration.
 &nbsp;&nbsp;http | **[HttpRoute](#HttpRoute)**<br>HTTP route configuration. 
 &nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute)**<br>gRPC route configuration. 
+route_options | **[RouteOptions](#RouteOptions)**<br> 
 
 
 ### HttpRoute {#HttpRoute}
@@ -181,6 +184,14 @@ Field | Description
 status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
 
 
+### RouteOptions {#RouteOptions}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification)**<br>Apply the following modifications to the response headers. 
+
+
 ### HeaderModification {#HeaderModification}
 
 Field | Description
@@ -190,7 +201,59 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to
 &nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### HeaderModification {#HeaderModification1}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### RouteOptions {#RouteOptions1}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification2)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification2)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification2}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### RouteOptions {#RouteOptions2}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification3)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification3}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
 
 
 ## List {#List}
@@ -228,6 +291,7 @@ folder_id | **string**<br>ID of the folder that the router belongs to.
 labels | **map<string,string>**<br>Router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 virtual_hosts[] | **[VirtualHost](#VirtualHost1)**<br>Virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+route_options | **[RouteOptions](#RouteOptions3)**<br> 
 
 
 ### VirtualHost {#VirtualHost1}
@@ -237,8 +301,9 @@ Field | Description
 name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
 authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
 routes[] | **[Route](#Route1)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute1), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification1)**<br>Modifications that are made to the headers of incoming HTTP requests before they are forwarded to backends. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification1)**<br>Modifications that are made to the headers of HTTP responses received from backends before responses are forwarded to clients. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification4)**<br>Deprecated, use route_options.modify_request_headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification4)**<br>Deprecated, use route_options.modify_response_headers. 
+route_options | **[RouteOptions](#RouteOptions3)**<br> 
 
 
 ### Route {#Route1}
@@ -249,6 +314,7 @@ name | **string**<br>Required. Name of the route.
 route | **oneof:** `http` or `grpc`<br>Route configuration.
 &nbsp;&nbsp;http | **[HttpRoute](#HttpRoute1)**<br>HTTP route configuration. 
 &nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute1)**<br>gRPC route configuration. 
+route_options | **[RouteOptions](#RouteOptions3)**<br> 
 
 
 ### HttpRoute {#HttpRoute1}
@@ -368,7 +434,15 @@ Field | Description
 status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
 
 
-### HeaderModification {#HeaderModification1}
+### RouteOptions {#RouteOptions3}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification4)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification4)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification4}
 
 Field | Description
 --- | ---
@@ -377,7 +451,59 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to
 &nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### HeaderModification {#HeaderModification5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### RouteOptions {#RouteOptions4}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification6)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification6)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification6}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### RouteOptions {#RouteOptions5}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification7)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification7)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification7}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
 
 
 ## Create {#Create}
@@ -409,8 +535,9 @@ Field | Description
 name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
 authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
 routes[] | **[Route](#Route2)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute2), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification2)**<br>Modifications that are made to the headers of incoming HTTP requests before they are forwarded to backends. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification2)**<br>Modifications that are made to the headers of HTTP responses received from backends before responses are forwarded to clients. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification8)**<br>Deprecated, use route_options.modify_request_headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification8)**<br>Deprecated, use route_options.modify_response_headers. 
+route_options | **[RouteOptions](#RouteOptions6)**<br> 
 
 
 ### Route {#Route2}
@@ -421,6 +548,7 @@ name | **string**<br>Required. Name of the route.
 route | **oneof:** `http` or `grpc`<br>Route configuration.
 &nbsp;&nbsp;http | **[HttpRoute](#HttpRoute2)**<br>HTTP route configuration. 
 &nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute2)**<br>gRPC route configuration. 
+route_options | **[RouteOptions](#RouteOptions6)**<br> 
 
 
 ### HttpRoute {#HttpRoute2}
@@ -540,7 +668,15 @@ Field | Description
 status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
 
 
-### HeaderModification {#HeaderModification2}
+### RouteOptions {#RouteOptions6}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification8)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification8)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification8}
 
 Field | Description
 --- | ---
@@ -549,7 +685,39 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to
 &nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### HeaderModification {#HeaderModification9}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### RouteOptions {#RouteOptions7}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification10)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification10)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification10}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
 
 
 ### Operation {#Operation}
@@ -586,6 +754,7 @@ folder_id | **string**<br>ID of the folder that the router belongs to.
 labels | **map<string,string>**<br>Router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 virtual_hosts[] | **[VirtualHost](#VirtualHost3)**<br>Virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+route_options | **[RouteOptions](#RouteOptions8)**<br> 
 
 
 ### VirtualHost {#VirtualHost3}
@@ -595,8 +764,9 @@ Field | Description
 name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
 authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
 routes[] | **[Route](#Route3)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute3), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification3)**<br>Modifications that are made to the headers of incoming HTTP requests before they are forwarded to backends. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification3)**<br>Modifications that are made to the headers of HTTP responses received from backends before responses are forwarded to clients. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification11)**<br>Deprecated, use route_options.modify_request_headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification11)**<br>Deprecated, use route_options.modify_response_headers. 
+route_options | **[RouteOptions](#RouteOptions8)**<br> 
 
 
 ### Route {#Route3}
@@ -607,6 +777,7 @@ name | **string**<br>Required. Name of the route.
 route | **oneof:** `http` or `grpc`<br>Route configuration.
 &nbsp;&nbsp;http | **[HttpRoute](#HttpRoute3)**<br>HTTP route configuration. 
 &nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute3)**<br>gRPC route configuration. 
+route_options | **[RouteOptions](#RouteOptions8)**<br> 
 
 
 ### HttpRoute {#HttpRoute3}
@@ -726,7 +897,15 @@ Field | Description
 status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
 
 
-### HeaderModification {#HeaderModification3}
+### RouteOptions {#RouteOptions8}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification11)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification11)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification11}
 
 Field | Description
 --- | ---
@@ -735,7 +914,59 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to
 &nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### HeaderModification {#HeaderModification12}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### RouteOptions {#RouteOptions9}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification13)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification13)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification13}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### RouteOptions {#RouteOptions10}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification14)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification14)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification14}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
 
 
 ## Update {#Update}
@@ -768,8 +999,9 @@ Field | Description
 name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
 authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
 routes[] | **[Route](#Route4)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute4), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification4)**<br>Modifications that are made to the headers of incoming HTTP requests before they are forwarded to backends. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification4)**<br>Modifications that are made to the headers of HTTP responses received from backends before responses are forwarded to clients. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification15)**<br>Deprecated, use route_options.modify_request_headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification15)**<br>Deprecated, use route_options.modify_response_headers. 
+route_options | **[RouteOptions](#RouteOptions11)**<br> 
 
 
 ### Route {#Route4}
@@ -780,6 +1012,7 @@ name | **string**<br>Required. Name of the route.
 route | **oneof:** `http` or `grpc`<br>Route configuration.
 &nbsp;&nbsp;http | **[HttpRoute](#HttpRoute4)**<br>HTTP route configuration. 
 &nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute4)**<br>gRPC route configuration. 
+route_options | **[RouteOptions](#RouteOptions11)**<br> 
 
 
 ### HttpRoute {#HttpRoute4}
@@ -899,7 +1132,15 @@ Field | Description
 status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
 
 
-### HeaderModification {#HeaderModification4}
+### RouteOptions {#RouteOptions11}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification15)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification15)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification15}
 
 Field | Description
 --- | ---
@@ -908,7 +1149,39 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to
 &nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### HeaderModification {#HeaderModification16}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### RouteOptions {#RouteOptions12}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification17)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification17)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification17}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
 
 
 ### Operation {#Operation1}
@@ -945,6 +1218,7 @@ folder_id | **string**<br>ID of the folder that the router belongs to.
 labels | **map<string,string>**<br>Router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). 
 virtual_hosts[] | **[VirtualHost](#VirtualHost5)**<br>Virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+route_options | **[RouteOptions](#RouteOptions13)**<br> 
 
 
 ### VirtualHost {#VirtualHost5}
@@ -954,8 +1228,9 @@ Field | Description
 name | **string**<br>Required. Name of the virtual host. The name is unique within the HTTP router. 
 authority[] | **string**<br>List of domains that are attributed to the virtual host. <br>The host is selected to process the request received by the load balancer if the domain specified in the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header matches a domain specified in the host. <br>A wildcard asterisk character (`*`) matches 0 or more characters. <br>If not specified, all domains are attributed to the host, which is the same as specifying a `*` value. An HTTP router must not contain more than one virtual host to which all domains are attributed. 
 routes[] | **[Route](#Route5)**<br>Routes of the virtual host. <br>A route contains a set of conditions (predicates) that are used by the load balancer to select the route for the request and an action on the request. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#routes). <br>The order of routes matters: the first route whose predicate matches the request is selected. The most specific routes should be at the top of the list, so that they are not overridden. For example, if the first HTTP route is configured, via [HttpRoute.match](#HttpRoute5), to match paths prefixed with just `/`, other routes are never matched. 
-modify_request_headers[] | **[HeaderModification](#HeaderModification5)**<br>Modifications that are made to the headers of incoming HTTP requests before they are forwarded to backends. 
-modify_response_headers[] | **[HeaderModification](#HeaderModification5)**<br>Modifications that are made to the headers of HTTP responses received from backends before responses are forwarded to clients. 
+modify_request_headers[] | **[HeaderModification](#HeaderModification18)**<br>Deprecated, use route_options.modify_request_headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification18)**<br>Deprecated, use route_options.modify_response_headers. 
+route_options | **[RouteOptions](#RouteOptions13)**<br> 
 
 
 ### Route {#Route5}
@@ -966,6 +1241,7 @@ name | **string**<br>Required. Name of the route.
 route | **oneof:** `http` or `grpc`<br>Route configuration.
 &nbsp;&nbsp;http | **[HttpRoute](#HttpRoute5)**<br>HTTP route configuration. 
 &nbsp;&nbsp;grpc | **[GrpcRoute](#GrpcRoute5)**<br>gRPC route configuration. 
+route_options | **[RouteOptions](#RouteOptions13)**<br> 
 
 
 ### HttpRoute {#HttpRoute5}
@@ -1085,7 +1361,15 @@ Field | Description
 status | enum **Status**<br>gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses. <ul><li>`OK`: `OK` (0) status code.</li><li>`INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.</li><li>`NOT_FOUND`: `NOT_FOUND` (5) status code.</li><li>`PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.</li><li>`UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.</li><li>`UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.</li><li>`INTERNAL`: `INTERNAL` (13) status code.</li><li>`UNAVAILABLE`: `UNAVAILABLE` (14) status code.</li><ul/>
 
 
-### HeaderModification {#HeaderModification5}
+### RouteOptions {#RouteOptions13}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification18)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification18)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification18}
 
 Field | Description
 --- | ---
@@ -1094,7 +1378,59 @@ operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to
 &nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
 &nbsp;&nbsp;remove | **bool**<br>Removes the header. 
-&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### HeaderModification {#HeaderModification19}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### RouteOptions {#RouteOptions14}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification20)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification20)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification20}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
+
+
+### RouteOptions {#RouteOptions15}
+
+Field | Description
+--- | ---
+modify_request_headers[] | **[HeaderModification](#HeaderModification21)**<br>Apply the following modifications to the request headers. 
+modify_response_headers[] | **[HeaderModification](#HeaderModification21)**<br>Apply the following modifications to the response headers. 
+
+
+### HeaderModification {#HeaderModification21}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the header. 
+operation | **oneof:** `append`, `replace`, `remove` or `rename`<br>Operation to perform on the header.
+&nbsp;&nbsp;append | **string**<br>Appends the specified string to the header value. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;replace | **string**<br>Replaces the value of the header with the specified string. <br>Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers) are supported. 
+&nbsp;&nbsp;remove | **bool**<br>Removes the header. 
+&nbsp;&nbsp;rename | **string**<br>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts. 
 
 
 ## Delete {#Delete}
