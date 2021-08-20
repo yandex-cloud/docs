@@ -1,3 +1,5 @@
+
+
 - Создайте виртуальную машину в {{ compute-name }}:
   - [Linux](../compute/quickstart/quick-create-linux.md).
   - [Windows](../compute/quickstart/quick-create-windows.md).

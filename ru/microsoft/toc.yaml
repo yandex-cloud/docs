@@ -23,6 +23,8 @@ items:
         href: tutorials/mssql-alwayson-lb.md
       - name: Развертывание Remote Desktop Gateway
         href: tutorials/rds-gw
+      - name: Обновление редакции Windows Server до Datacenter
+        href: tutorials/edition-update-datacenter.md
   - name: Лицензирование
     items:
       - name: Лицензии Microsoft в Yandex.Cloud

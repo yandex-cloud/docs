@@ -9,14 +9,16 @@
 
    {% note info %}
    
-   On June 20, 2021, restrictions on the use of VMs with GPUs, available by default for individuals, will take effect. To use a VM with a g1.1 GPU configuration, top up your billing account balance to at least $10, or write to Support and tell us about your task.
+   To use a VM with a g1.1 GPU configuration, top up your billing account balance to at least $10, or write to Support and tell us about your task.
    
    {% endnote %}
 
 Type of limit | Value
 ----- | -----
-g1.4 VMs available for use | 0
+c1.32 VMs available for use | 0
 c1.80 VMs available for use | 0
+g1.2 VMs available for use | 0
+g1.4 VMs available for use | 0
 
 #### Limits {#datasphere-limits}
 
