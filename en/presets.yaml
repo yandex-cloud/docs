@@ -145,6 +145,7 @@ default:
   at-short-name: Audit Trails
   tracker-short-name: Tracker
   speechkit-pro-short-name: SpeechKit Pro
+  cdn-short-name: Cloud CDN
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing is on a per-second basis.
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
@@ -270,6 +271,8 @@ default:
   s2-4xlarge: s2.4xlarge(40 vCPU, 160 GB)
   s2-5xlarge: s2.5xlarge (48 vCPU, 192 GB)
   s2-6xlarge: s2.6xlarge (64 vCPU, 256 GB)
+  graph-update: 15 seconds
+  graph-update-burstable: 150 seconds
   mch-backup-retention: 7
   mch-dedup-retention: 30
   stt-short-fileSize: 1 MB
@@ -320,7 +323,12 @@ default:
   tf-provider-mpg: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
   tf-provider-mrd: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
 
-# Ports
+  # Data Transfer
+  dt-copy: Copy
+  dt-repl: Replicate
+  dt-copy-repl: Copy and replicate
+  
+  # Ports
   port-any: 0-65535
   port-http: 80
   port-https: 443

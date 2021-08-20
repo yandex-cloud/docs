@@ -5,7 +5,12 @@ description: "You can monitor the health of a Managed Service for PostgreSQL clu
 
 # Monitoring the state of a cluster and hosts
 
-Using monitoring tools in the management console, you can track the status of a{{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+Using monitoring tools in the management console, you can track the status of a {{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+
+Chart update rate:
+
+* Standard hosts and hosts with an increased RAM to vCPU ratio (`memory-optimized`): {{ graph-update }}.
+* Hosts with a guaranteed vCPU share under 100% (`burstable`): {{ graph-update-burstable }}.
 
 ## Cluster status monitoring {#monitoring-cluster}
 
@@ -25,10 +30,15 @@ The following charts open on the page:
 - **Average transaction time, (ms)**: The average transaction execution time in milliseconds.
 
 - **PostgreSQL connections, (count)**: The number of DB connections:
+
     - **Active**: Active connections.
+
     - **Waiting**: Pending connections.
+
     - **Idle**: Idle server connections.
+
     - **Idle in transaction**: Idle connections in a transaction.
+
     - **Aborted**: Aborted connections.
 
       A large number of **Aborted** or **Idle in transaction** connections may indicate that the cluster is overloaded.
@@ -48,7 +58,9 @@ The following charts open on the page:
 - **Sessions per wait events, (count)**: The number of server connections waiting for certain events.
 
 - **Disk capacity on primary, (bytes)**: The primary node's disk capacity in bytes:
+
     - **Free**: Free disk space.
+
     - **Used**: Used disk space.
 
       If the memory usage chart has a saw-tooth shape, this may indicate a high load on the cluster.
