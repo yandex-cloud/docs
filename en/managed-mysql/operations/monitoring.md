@@ -5,7 +5,12 @@ description: "You can monitor the health of a Managed Service for MySQL cluster 
 
 # Monitoring the state of a cluster and hosts
 
-Using monitoring tools in the management console, you can track the status of a{{ mmy-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+Using monitoring tools in the management console, you can track the status of a {{ mmy-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+
+Chart update rate:
+
+* Standard hosts and hosts with an increased RAM to vCPU ratio (`memory-optimized`): {{ graph-update }}.
+* Hosts with a guaranteed vCPU share under 100% (`burstable`): {{ graph-update-burstable }}.
 
 ## Cluster status monitoring {#monitoring-cluster}
 
@@ -32,10 +37,10 @@ The following charts open on the page:
 
        During normal cluster operation, the `mysqld` process caches most of the connections.
 
-- **Is Alive**: Shows the cluster availability as the sum of states of its hosts.
+- **Is Alive**: Shows cluster availability as the sum of its hosts' states.
 
     Each **Alive** host increases the overall availability by 1. When one of the hosts fails, the overall availability is reduced by 1.
-To increase the availability of a cluster, you can [add hosts](hosts.md#add).
+    To increase the availability of a cluster, [add hosts](hosts.md#add).
 
 - **Queries**: The average number of requests sent to the cluster (per second).
 
@@ -77,3 +82,4 @@ This page displays charts showing the load on an individual host in the cluster:
 The **Read** and **Write** characteristics on the **Disk Bytes** and **Disk IOPS** charts grow with the active reading from the database and the writing to it, respectively.
 
 For hosts with the **Replica** role, it's normal that **Received** is greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
+

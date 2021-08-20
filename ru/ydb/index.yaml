@@ -48,7 +48,7 @@ links:
     href: operations/create_manage_database
   - title: Работа с SDK
     description: Описание принципов работы с SDK
-    href: sdk/
+    href: ydb-sdk/
   - title: Концепции
     description: Узнайте про концепции и возможности сервиса
     href: concepts/

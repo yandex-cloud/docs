@@ -1,6 +1,16 @@
+---
+title: "Monitoring the state of a Redis cluster and hosts"
+description: "You can monitor the health of a Managed Service for Redis cluster and its individual hosts using the monitoring tools in the management console. These tools provide diagnostic information in the form of graphs."
+---
+
 # Monitoring the state of a cluster and hosts
 
 Using monitoring tools in the management console, you can track the status of a {{ mrd-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts.
+
+Chart update rate:
+
+* Standard hosts (`high-memory`): {{ graph-update }}.
+* Hosts with a guaranteed vCPU share under 100% (`burstable`): {{ graph-update-burstable }}.
 
 ## Cluster status monitoring {#monitoring-cluster}
 

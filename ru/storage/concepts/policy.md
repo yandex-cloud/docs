@@ -46,7 +46,7 @@
 
 ## Примеры конфигурации
 
-- Следующая политика дает доступ анонимному пользователю на чтение объектов бакета `samplebucket` при условии шифрованного подключения.
+* Политика, которая разрешает анонимному пользователю чтение объектов бакета `samplebucket` по зашифрованному подключению:
 
 ```json
 {
@@ -69,7 +69,7 @@
 }
 ```
 
-- Политика, которая разрешает скачивать объекты только из указанного диапазона IP-адресов:
+* Политика, которая разрешает скачивать объекты только из указанного диапазона IP-адресов:
 
 ```json
 {
@@ -90,7 +90,7 @@
 }
 ```
 
-- Политика, которая запрещает скачивать объекты с указанного IP-адреса:
+* Политика, которая запрещает скачивать объекты с указанного IP-адреса:
 
 ```json
 {
@@ -117,29 +117,57 @@
 }
 ```
 
-- Раздельный доступ к ресурсам бакета для разных пользователей:
+* Политика, которая разрешает разным пользователям доступ только к определенным папкам, каждому пользователю — к своей:
 
 ```json
 {
   "Version":"2012-10-17",
   "Statement":[
     {
-      "Sid":"User1Permissions",
+      "Sid":"User1PermissionsResource",
       "Effect":"Allow",
       "Principal": {
-        "CanonicalUser": "ajeanexampleusername"
+          "CanonicalUser": "ajeanexampleusername"
       },
       "Action": "*",
       "Resource":["arn:aws:s3:::common-bucket/user1path/*"]
     },
     {
-      "Sid":"User2Permissions",
+      "Sid":"User1PermissionsPrefix",
       "Effect":"Allow",
       "Principal": {
-        "CanonicalUser": "ajesomeotherusername"
+          "CanonicalUser": "ajeanexampleusername"
+      },
+      "Action": "s3:ListBucket",
+      "Resource":["arn:aws:s3:::common-bucket"],
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": "user1path/*"
+        }
+      }
+    },
+    {
+      "Sid":"User2PermissionsResource",
+      "Effect":"Allow",
+      "Principal": {
+          "CanonicalUser": "ajesomeotherusername"
       },
       "Action": "*",
       "Resource":["arn:aws:s3:::common-bucket/user2path/*"]
+    },
+    {
+      "Sid":"User2PermissionsPrefix",
+      "Effect":"Allow",
+      "Principal": {
+          "CanonicalUser": "ajesomeotherusername"
+      },
+      "Action": "s3:ListBucket",
+      "Resource":["arn:aws:s3:::common-bucket"],
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": "user2path/*"
+        }
+      }
     }
   ]
 }
