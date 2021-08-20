@@ -109,7 +109,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
 
 1. Сохраните следующую спецификацию для создания объекта `ServiceAccount` в YAML-файл с названием `sa.yaml`.
 
-    Подробную спецификацию объекта `ServiceAccount` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#serviceaccount-v1-core).  
+    Подробную спецификацию объекта `ServiceAccount` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/service-account-v1/).  
 
     ```
     apiVersion: v1
