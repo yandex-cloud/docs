@@ -371,7 +371,7 @@
 
    ```bash
    FROM ubuntu:latest
-    MD echo "Hi, I'm inside"
+   CMD echo "Hi, I'm inside"
    ```
 
 1. Соберите Docker-образ:
