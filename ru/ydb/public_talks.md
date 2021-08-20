@@ -8,7 +8,7 @@
 
 - Тема: Миграция приложения с PostgreSQL на {{ ydb-full-name }} Serverless. Производительность, стоимость, риски.
   - [О мероприятии](https://cloud.yandex.ru/events/408#about).
-  - [Презентация](https://storage.yandexcloud.net/ydb-public-talks/pg2ydb.pptx)
+  - [Презентация](https://storage.yandexcloud.net/ydb-public-talks/pg2ydb.pdf)
   - [Запись трансляции](https://www.youtube.com/watch?v=8bgtMxkduV8&t=3946s).
   - Описание: в исследовании, которое провела команда {{ ydb-full-name }}, рассмотрены аспекты миграции Е-commerce приложения, изначально разработанного для PostgreSQL, на {{ ydb-full-name }}. Основная тема исследования — сравнение производительности и стоимости решений на PostgreSQL и {{ ydb-short-name }}.
 
