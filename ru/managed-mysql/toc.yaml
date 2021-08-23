@@ -28,7 +28,7 @@ items:
         href: operations/databases.md
       - name: Управление пользователями
         href: operations/cluster-users.md
-      - name: Назначение привилегий и ролей
+      - name: Управление правами пользователей
         href: operations/grant.md
       - name: Управление резервными копиями
         href: operations/cluster-backups.md
@@ -64,6 +64,8 @@ items:
         href: concepts/backup.md
       - name: Репликация
         href: concepts/replication.md
+      - name: Права пользователей
+        href: concepts/user-rights.md
       - name: Настройки MySQL
         href: concepts/settings-list.md
   - name: Сценарии использования

@@ -1,27 +1,67 @@
 ## Примеры {#examples}
 
-### Добавить пользователя с правами только на чтение {#user-read-only}
+### Создать пользователя с правами только на чтение {#user-read-only}
 
-Чтобы добавить в существующий кластер нового пользователя `user2` с доступом только на чтение к базе данных `db1`:
+Чтобы в существующем кластере `cluster1` создать нового пользователя `user2` с паролем `SecretPassword` и доступом к базе данных `db1` только для чтения:
 
-1. [Создайте пользователя](../../managed-mysql/operations/cluster-users.md#adduser) с именем `user2`. При этом выберите базы данных, к которым должен иметь доступ пользователь.
-1. [Подключитесь](../../managed-mysql/operations/connect.md#connection-string) к базе данных `db1` с помощью учетной записи владельца БД.
-1. Чтобы выдать права доступа только к таблице `Products` в базе данных `db1`, выполните команду:
+{% list tabs %}
 
-    ```sql
-    GRANT SELECT ON Products TO user2;
-    ```
+- Консоль управления
 
-1. Чтобы выдать права доступа к базе данных `db1`, выполните команду:
-   
-    ```sql
-    GRANT SELECT ON db1.* TO user2;
-    ```
+  [Создайте пользователя](../../managed-mysql/operations/cluster-users.md#adduser) с именем `user2`. При создании пользователя:
 
-Для отзыва выданных привилегий выполните команды:
+  1. Добавьте базу `db1` в список баз данных.
+  1. Добавьте роль `SELECT` для базы `db1`.
 
-```sql
-REVOKE SELECT ON Products FROM user2;
+- CLI
 
-REVOKE SELECT ON db1.* FROM user2;
-```
+  1. Создайте пользователя `user2`:
+
+      ```bash
+      yc managed-mysql user create "user2" \
+        --cluster-name "cluster1" \
+        --password "SecretPassword"
+      ```
+
+  1. Добавьте роль `SELECT` для базы `db1`:
+
+      ```bash
+      yc managed-mysql users grant-permission "user2" \
+        --cluster-name "cluster1" \
+        --database "db1" \
+        --permissions "SELECT"
+      ```
+
+- Terraform
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+      О том, как создать такой файл, см. в разделе [{#T}](../../managed-mysql/operations/cluster-create.md).
+
+  1. Добавьте в описание кластера `cluster1` блок `user`:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "cluster1" {
+        ...
+        user {
+          name     = "user2"
+          password = "SecretPassword"
+          permission {
+            database_name = "db1"
+            roles         = ["SELECT"]
+          }
+        }
+        ...
+      }
+      ```
+  1. Проверьте корректность настроек.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+
+{% endlist %}
