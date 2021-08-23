@@ -2,4 +2,4 @@
 
 * [{#T}](./send-data-to-mch.md)
 * [{#T}](./use-ksqldb-with-mkf.md)
-* [{#T}](./confluent-schema-registry.md)
+* [Использование Confluent Schema Registry с {{ mkf-short-name }}](./confluent-schema-registry.md)

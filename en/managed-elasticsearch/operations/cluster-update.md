@@ -13,6 +13,7 @@ After creating a cluster, you can:
 
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
+* [{#T}](#change-admin-password).
 * [{#T}](#update-additional-settings).
 
 ## Changing the host class {#change-resource-preset}
@@ -116,6 +117,65 @@ After creating a cluster, you can:
   * Required disk size (in bytes) in the parameters:
     * `configSpec.elasticsearchSpec.dataNode.resources.diskSize` (for hosts with the *Data node* role).
     * `configSpec.elasticsearchSpec.masterNode.resources.diskSize`  (for hosts with the *Master node* role).
+  * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+
+{% endlist %}
+
+## Changing the admin password {#change-admin-password}
+
+{% list tabs %}
+
+- Management console
+
+  1. Go to the folder page and select **{{ mes-name }}**.
+  1. Select the cluster and click **Edit** in the top panel.
+  1. Enter a new password for `admin` in the **User** section.
+  1. Click **Save**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To change the `admin` password for a cluster:
+
+    1. View a description of the CLI's update cluster command:
+
+        ```bash
+        {{ yc-mdb-es }} cluster update --help
+        ```
+
+    1. Specify a new password in the cluster update command using one of the available methods:
+
+       - Entering a password in interactive mode.
+
+         ```
+         {{ yc-mdb-es }} cluster update <cluster name> \
+            --read-admin-password
+         ```
+
+       - Entering a password as plain text (less secure method).
+
+         ```
+         {{ yc-mdb-es }} cluster update <cluster name> \
+            --admin-password <new password>
+         ```
+
+       - Generating a password automatically. The generated password will be output to the console.
+
+         ```
+         {{ yc-mdb-es }} cluster update <cluster name> \
+            --generate-admin-password
+         ```
+
+    {{ mes-short-name }} will launch the `admin` password update for a cluster.
+
+- API
+
+  To update the `admin` password for a cluster, use the [update](../api-ref/Cluster/update.md) method and pass the following in the request:
+  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * The new password in the `configSpec.adminPassword` parameter. The maximum password length is 128 characters.
   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}

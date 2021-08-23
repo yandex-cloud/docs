@@ -1,7 +1,7 @@
-title: Кабинет партнера Marketplace
+title: Кабинет партнера Cloud Marketplace
 href: index.yaml
 items:
-  - name: Начало работы
+  - name: Новым партнерам Marketplace
     href: quickstart.md
   - name: Пошаговые инструкции
     items:

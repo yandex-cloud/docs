@@ -2,8 +2,8 @@
 
 {{ mch-name }} lets you manage cluster databases two ways:
 
-- {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Choose this method if you want to use all the features of the {{ yandex-cloud }} managed service.
-- SQL queries to the cluster. Choose this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.
+- {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create and delete cluster databases using {{ mch-full-name }} features.
+- SQL queries to the cluster. Select this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.
 
 ## Managing databases via SQL {#sql-database-management}
 
@@ -41,7 +41,7 @@ In a cluster with DB management via SQL enabled:
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 
@@ -91,7 +91,7 @@ There are no limits to the number of databases in a cluster.
 
   {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 
@@ -164,7 +164,7 @@ There are no limits to the number of databases in a cluster.
        --cluster-name=<cluster name>
   ```
 
-  The cluster name can be requested with a [list of folder clusters](cluster-list.md#list-clusters).
+  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 
