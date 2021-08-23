@@ -2,8 +2,8 @@
 
 {{ mch-name }} lets you manage users and their individual settings in two ways:
 
-- {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Choose this method if you want to use all the features of the {{ yandex-cloud }} managed service.
-- SQL queries to the cluster. Choose this method if you want to use an existing solution for creating and managing users, or if you need [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control) support.
+- {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
+- SQL queries to the cluster. Select this method if you wish to use your existing solution to create and manage users or if you are using [RBAC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Управление_доступом_на_основе_ролей){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Role-based_access_control){% endif %}.
 
 ## Managing users via SQL {#sql-user-management}
 
@@ -158,7 +158,7 @@ For more information about managing users using SQL, see the [{{ CH }} documenta
   1. Create a user:
 
       ```sql
-      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user password>';
+      CREATE USER <username> IDENTIFIED WITH sha256_password BY '<user's password>';
       ```
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
