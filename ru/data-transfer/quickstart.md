@@ -18,6 +18,7 @@
 
 Подготовьте базу данных-приемник к получению данных:
 
+* [{{ CH }}](operations/prepare.md#prepare-target-ch);
 * [{{ MY }}](operations/prepare.md#prepare-target-my);
 * [{{ PG }}](operations/prepare.md#prepare-target-pg).
 
@@ -65,7 +66,7 @@
 Чтобы начать процесс переноса данных, активируйте трансфер:
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
-1. Перейдите на вкладке **Трансферы**.
+1. Выберите вкладку **Трансферы**.
 1. Нажмите на значок ![ellipsis](../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Активировать**.
 
 Подробнее об управлении трансферами см. в разделе [{#T}](operations/transfer.md).
