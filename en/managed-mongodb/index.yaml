@@ -1,7 +1,7 @@
 title: Yandex Managed Service for MongoDB
 description:
   - >-
-    With Yandex Managed Service for MongoDB, you can deploy and maintain <a href="https://www.mongodb.com/">MongoDB</a> 3.6, 4.0, 4.2, and 4.4 server clusters in the Yandex.Cloud infrastructure. MongoDB is a high-performance open-source NoSQL DBMS.
+    With Yandex Managed Service for MongoDB, you can deploy and maintain <a href="https://www.mongodb.com/">MongoDB</a> 4.0, 4.2, and 4.4 server clusters in the Yandex.Cloud infrastructure. MongoDB is a high-performance open-source NoSQL DBMS.
   - >-
     Managed Service for MongoDB lets you: <ul> <li>Create systems, without specifying a format schema, that require processing and storing large amounts of semi-structured and unstructured data.</li> <li>Support and operate systems with horizontal and vertical scaling.</li> <li>Analyze data, including big data, in real time.</li> <li>Use a full-text search.</li> </ul>
   - >-

@@ -1,6 +1,6 @@
 # Managing shards
 
-You can enable [sharding](../concepts/sharding.md) for clusters that have {{ MG }} version 4.0 or higher. You can also add and configure individual shards.
+You can enable [sharding](../concepts/sharding.md) for clusters as well as add and configure individual shards.
 
 {% note alert %}
 
@@ -117,4 +117,3 @@ You can delete a shard from a {{ MG }} cluster provided that it's not the only s
   Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method to delete a host.
 
 {% endlist %}
-

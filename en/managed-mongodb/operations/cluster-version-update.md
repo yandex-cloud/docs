@@ -1,26 +1,29 @@
 # Version update {{ MG }}
 
-You can upgrade {{ mmg-name }} clusters to versions 4.0, 4.2, or 4.4.
+You can upgrade {{ mmg-name }} clusters to versions 4.2 or 4.4.
 
 You can upgrade only to the version that immediately follows the current one, namely:
 
-- From version 3.6 to version 4.0.
 - From version 4.0 to version 4.2.
 - From version 4.2 to version 4.4.
 
 You need multiple steps to upgrade between versions that are farther apart. For example, to upgrade a cluster from 4.0 to 4.4, you need two steps: 4.0 → 4.2 → 4.4.
 
+{% if policy != "keep" %}
+
 {% note info %}
 
-In April 2021, clusters running {{ MG }} 3.6 will be [forcibly upgraded](../qa/general.md#dbms-deprecated) to version 4.0 due to the version 3.6 [End of Life](https://www.mongodb.com/support-policy). We recommend that you upgrade to the latest {{ MG }} versions in advance.
+In January 2022, clusters running {{ MG }} 4.0 will be [forcibly upgraded](../qa/general.md#dbms-deprecated) to version 4.2 due to the version 4.0 [End of Life](https://www.mongodb.com/support-policy). We recommend that you upgrade to the latest {{ MG }} versions in advance.
 
 {% endnote %}
+
+{% endif %}
 
 ## Before upgrading {#before-update}
 
 Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
-1. View the revision history for {{ MG }} versions [4.0](https://docs.mongodb.com/v4.0/release-notes/4.0/), [4.2](https://docs.mongodb.com/v4.0/release-notes/), or [4.4](https://docs.mongodb.com/v4.4/release-notes/4.4/) and check if any of the revisions may affect your applications.
+1. View the revision history for {{ MG }} versions [4.2](https://docs.mongodb.com/v4.2/release-notes/4.2/) or [4.4](https://docs.mongodb.com/v4.4/release-notes/4.4/) and check if any of the revisions affect your applications.
 1. Try upgrading a test cluster (you can try [deploying](cluster-backups.md#restore) it from a backup of the main cluster).
 1. [Back up](cluster-backups.md#create-backup) the main cluster prior to upgrading.
 
@@ -33,7 +36,7 @@ To upgrade a {{ mmg-name }} cluster:
 - Management console
   1. Open the **{{ mmg-name }}** page in the folder with the cluster to be updated.
   1. Select the cluster from the list and click **Edit cluster**.
-  1. In the **Version** field, click *4.0*, *4.2*, or *4.4*.
+  1. In the **Version** field, click *4.2* or *4.4*.
   1. Click **Save changes**.
 
   Once the update is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
@@ -80,7 +83,7 @@ To upgrade a {{ mmg-name }} cluster:
 
 ## Examples {#examples}
 
-Let's say you need to update the cluster from version 3.6 to version 4.0.
+Let's say you need to upgrade your cluster from version 4.0 to version 4.2.
 
 {% list tabs %}
 
@@ -111,21 +114,21 @@ Let's say you need to update the cluster from version 3.6 to version 4.0.
           description: Console charts
           link: https://console.cloud.yandex.com/folders/b1g0itj57rbjk9thrinv/managed-mongodb/cluster/c9qut3k64b2o9umqogr7?section=monitoring
         config:
-          version: "3.6"
-          feature_compatibility_version: "3.6"
+          version: "4.0"
+          feature_compatibility_version: "4.0"
           ...
       ```
 
-   1. To update the `c9qutgkd4b2o9umqog97` cluster to version 4.0, run the command:
+   1. To upgrade the cluster `c9qutgkd4b2o9umqog97` to version 4.2, run the command:
 
       ```bash
-      $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --mongodb-version=4.0
+      $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --mongodb-version=4.2
       ```
 
-   1. To enable all 4.0 features in the `c9qutgkd4b2o9umqog97` cluster, run the command:
+   1. To enable all 4.2 features in the cluster `c9qutgkd4b2o9umqog97`, run the command:
 
       ```bash
-      $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --feature-compatibility-version=4.0
+      $ yc managed-mongodb cluster update c9qutgkd4b2o9umqog97 --feature-compatibility-version=4.2
       ```
 
 {% endlist %}
