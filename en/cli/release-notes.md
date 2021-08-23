@@ -215,7 +215,7 @@ Added commands for managing the allowed IP addresses for pushing and pulling Doc
 
 * Command `yc managed-kafka user create`
 
-   Added the `admin` role to enable management of {{ KF }} cluster topics via AdminAPI.
+  Added the `admin` role to enable management of {{ KF }} cluster topics via AdminAPI.
 
 **{{ mrd-name }}**
 
@@ -862,15 +862,14 @@ The {{ api-gw-full-name }} service is at the Preview stage. Read more about the 
 
 **Improved**
 
-* When you start `yc` using the `--help` or `-h` flag, interactive help opens:
-in `less` (`$PAGER`) on Linux and macOS, and in `more` on Windows. Now you no longer have to scroll up through the help output.
+* When you start `yc` with the `--help` or `-h` flag, interactive help opens:
+in `less` (`$PAGER`) on Linux and macOS and in `more` on Windows. Now you no longer have to scroll up through the help output.
 
 * Debug logs for execution and API interaction are now saved to the
-`$HOME/.config/yandex-cloud/logs` configuration directory rather than the installation directory. This fixes the problem when `yc`, which is installed as a stand-alone binary file,
+`$HOME/.config/yandex-cloud/logs` configuration directory rather than installation directory. This fixes the problem when `yc`, which was installed as a stand-alone binary file,
 suddenly tries to save its log in the same directory without the rights to it.
 
-* Debug logs are also saved for successful requests. If you contact support about an issue with a
-`yc` command, we may be able to help you faster if you attach your log file.
+* Debug logs are also saved for successful requests. If you contact support about an issue with the `yc` command, we may be able to help you faster if you attach your log file.
 
 **Fixed**
 
@@ -904,7 +903,7 @@ suddenly tries to save its log in the same directory without the rights to it.
 * Command `yc managed-kubernetes cluster create`
 
   Added the `--enable-network-policy` flag to create a Kubernetes cluster with
-[Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) support.
+[Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
 
 * Command `yc k8s cluster get-credentials`
 
