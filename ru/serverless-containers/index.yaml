@@ -1,6 +1,9 @@
 title: Yandex Serverless Containers
 description:
   - >-
+    <em>Сервис Yandex Serverless Containers находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - >-
     Сервис Yandex Serverless Containers позволяет запускать контейнеризированные приложения в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин.
 meta:
   title: Serverless Containers
