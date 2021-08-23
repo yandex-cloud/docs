@@ -1,8 +1,9 @@
 # Sharding collections {{ MG }}
 
-Sharding in {{ mmg-name }} is available for clusters running {{ MG }} version 4.0 or higher. If your cluster is deployed with version 3.6, you can [upgrade it](../operations/cluster-version-update.md).
+When you shard a {{ mmg-name }} cluster, the following service hosts are automatically created and [billed](../pricing.md) separately from the main DBMS hosts:
 
-Please note that when you shard a {{ mmg-name }} cluster, `MONGOS` and `MONGOCFG` or `MONGOINFRA` service hosts are automatically created and [billed](../pricing.md) separately from the main DBMS hosts.
+- Either `MONGOS` and `MONGOCFG`
+- Or `MONGOINFRA`
 
 {% include [irreversible-sharding-note.md](../../_includes/mdb/irreversible-sharding-note.md) %}
 
