@@ -17,6 +17,7 @@
     1. Задайте параметры эндпоинта:
 
         * [{#T}](#settings-clickhouse).
+        * [{#T}](#settings-mongodb).
         * [{#T}](#settings-mysql).
         * [{#T}](#settings-postgresql).
 
@@ -35,6 +36,7 @@
     1. Отредактируйте параметры эндпоинта:
 
         * [{#T}](#settings-clickhouse).
+        * [{#T}](#settings-mongodb).
         * [{#T}](#settings-mysql).
         * [{#T}](#settings-postgresql).
 
@@ -78,6 +80,22 @@
     * **Политика очистки** при активации, повторной активации или перезагрузке трансфера. Используются настройки `DISABLED`, `DROP` и `TRUNCATE`.
 
 {% endlist %}
+
+### {{ MG }} {#settings-mongodb}
+
+* **Настройки подключения** — выбор типа подключения к БД:
+
+    {% include  [mongodb-connection-necessary-settings.md](../../_includes/data-transfer/mongodb-connection-necessary-settings.md) %}
+
+* Дополнительные настройки:
+
+    * **Идентификатор подсети** — выберите подсеть, через которую сервис должен соединяться с кластером-приемником.
+    * Для шифрования передаваемых данных в поле **PEM-сертификат** нажмите кнопку **Загрузить файл**.
+        Загрузите файл [PEM-сертификата](../../managed-mongodb/operations/connect.md#get-ssl-cert) или добавьте его содержимое в текстовом виде.
+    * **Политика очистки** данных в базе-приемнике перед переносом:
+        * `DISABLED` — не очищать;
+        * `DROP` — полная очистка базы;
+        * `TRUNCATE` — удалить только данные, но оставить схему.
 
 ### {{ MY }} {#settings-mysql}
 

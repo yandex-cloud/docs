@@ -25,6 +25,82 @@
 
 {% endif %}
 
+### {{ MG }} {#prepare-source-mg}
+
+{% list tabs %}
+
+* Кластер MDB
+
+    Чтобы подготовить источник к трансферу, [создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью `readWrite` на базу источник.
+
+* Пользовательская инсталляция:
+
+    1. Убедитесь, что мажорная версия {{ MG }} на приемнике не ниже `4.0`.
+    1. [Измените настройки кластера](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) таким образом, чтобы к нему можно было подключиться из интернета. Для этого:
+
+        1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
+
+            ```yaml
+            # network interfaces
+            net:
+              port: 27017
+              bindIp: 0.0.0.0
+            ```
+
+        1. Перезапустите сервис `mongod`:
+
+            ```bash
+            sudo systemctl restart mongod.service
+            ```
+
+    1. Если кластер-источник не использует репликацию, включите ее. Для этого:
+
+        1. Добавьте в конфигурационный файл `/etc/mongod.conf` настройки репликации:
+
+            ```yaml
+            replication:
+              replSetName: <имя набора реплик>
+            ```
+
+        1. Перезапустите сервис `mongod`:
+
+            ```bash
+            sudo systemctl restart mongod.service
+            ```
+
+        1. Подключитесь к {{ MG }} и инициализируйте набор реплик командой:
+
+            ```javascript
+            rs.initiate({
+                _id: "<имя набора реплик>",
+                members: [{
+                    _id: 0,
+                    host: "<IP-адрес, который слушает mongod>:<порт>"
+                }]
+            });
+            ```
+
+    1. Создайте пользователя с ролью `readWrite` на базу-источник:
+
+        ```javascript
+        use <имя базы>
+        db.createUser({
+            user: "<имя пользователя>",
+            pwd: "<пароль>",
+            mechanisms: ["SCRAM-SHA-1"],
+            roles: [
+                {
+                    db: "<имя базы-источника>",
+                    role: "readWrite"
+                }
+            ]
+        });
+        ```
+
+        После старта трансфер подключится к источнику от имени этого пользователя.
+
+{% endlist %}
+
 ### {{ MY }} {#prepare-source-my}
 
 Чтобы подготовить источник к трансферу:
@@ -225,6 +301,92 @@
 {% endlist %}
 
 Если кластер-приемник состоит из нескольких хостов, для переносимых таблиц будут автоматически выбраны движки `ReplacingMergeTree` и `ReplicatedReplacingMergeTree`.
+
+### {{ MG }} {#prepare-target-mg}
+
+{% list tabs %}
+
+* Кластер MDB
+
+    Чтобы подготовить приемник к трансферу:
+
+    1. [Создайте базу данных](../../managed-mongodb/operations/databases.md#add-db) с тем же именем, что и на источнике.
+    1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу.
+
+* Пользовательская инсталляция
+
+    Чтобы подготовить приемник к трансферу:
+
+    1. Убедитесь, версия {{ MG }} на приемнике не ниже чем на источнике.
+    1. [Измените настройки кластера](https://docs.mongodb.com/manual/core/security-mongodb-configuration/) таким образом, чтобы к нему можно было подключиться из интернета. Для этого:
+
+        1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
+
+            ```yaml
+            # network interfaces
+            net:
+              port: 27017
+              bindIp: 0.0.0.0
+            ```
+
+        1. Перезапустите сервис `mongod`:
+
+            ```bash
+            sudo systemctl restart mongod.service
+            ```
+
+    1. Если кластер-приемник не использует репликацию, включите ее. Для этого:
+
+        1. Добавьте в конфигурационный файл `/etc/mongod.conf` настройки репликации:
+
+            ```yaml
+            replication:
+              replSetName: <имя набора реплик>
+            ```
+
+        1. Перезапустите сервис `mongod`:
+
+            ```bash
+            sudo systemctl restart mongod.service
+            ```
+
+        1. Подключитесь к {{ MG }} и инициализируйте набор реплик командой:
+
+            ```javascript
+            rs.initiate({
+                _id: "<имя набора реплик>",
+                members: [{
+                    _id: 0,
+                    host: "<IP-адрес, который слушает mongod>:<порт>"
+                }]
+            });
+            ```
+
+    1. Подключитесь к кластеру и создайте базу-приемник с тем же именем, что и на источнике:
+
+        ```javascript
+        use <имя базы>
+        ```
+
+    1. Создайте пользователя с правами `readWrite` на базу-приемник:
+
+        ```javascript
+        db.createUser({
+            user: "<имя пользователя>",
+            pwd: "<пароль>",
+            mechanisms: ["SCRAM-SHA-1"],
+            roles: [
+                {
+                    db: "<имя базы-приемника>",
+                    role: "readWrite"
+                }
+            ]
+        });
+        ```
+
+        После старта трансфер подключится к приемнику от имени этого пользователя.
+
+{% endlist %}
 
 ### {{ MY }} {#prepare-target-my}
 
