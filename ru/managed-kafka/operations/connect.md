@@ -110,7 +110,7 @@
 
 ```bash
 sudo wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
 ```
 
 {% endif %}
