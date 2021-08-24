@@ -16,13 +16,13 @@ A backup is automatically created once a day. You currently can't disable automa
 
 The backup process start time is set when a cluster is created or updated. The backup will start within half an hour of the specified time. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time).
 
-{{ mms-name }} supports Point-in-Time Recovery (PITR) of the cluster state to a given point in time between creating the oldest full backup and archiving the most recent transaction log. For this purpose, the backup selected as the starting point of recovery is updated with entries from the cluster transaction log. This log is archived in the running cluster every 20 minutes. For more information about PITR, see the [{{ MS }} documentation]{% if region =="int" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% else %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}.
+{{ mms-name }} supports Point-in-Time Recovery (PITR) of the cluster state to a given point in time between creating the oldest full backup and archiving the most recent transaction log. For this purpose, the backup selected as the starting point of recovery is updated with entries from the cluster transaction log. This log is archived in the running cluster every 20 minutes. For more information about PITR, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}.
 
 To restore a cluster from a backup, [follow the instructions](../operations/cluster-backups.md).
 
 {% note warning %}
 
-You can't use SQL commands to change the [recovery model]{% if region =="int" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% else %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %} for backup and recovery operations.
+You can't use SQL commands to change the [recovery model]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %} for backup and recovery operations.
 
 {% endnote %}
 

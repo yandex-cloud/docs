@@ -8,7 +8,7 @@ The {{ marketplace-name }} offers a wide choice of products:
 
 ## Windows Server images {#win-server}
 
-In the [{{ marketplace-name }}]{% if region == "int" %}(https://cloud.yandex.com/marketplace?categories=os&operationSystems=WINDOWS){% else %}(https://cloud.yandex.ru/marketplace?categories=os&operationSystems=WINDOWS){% endif %}, you can choose from images with Microsoft Windows Server Standard and Datacenter editions:
+In the [{{ marketplace-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?categories=os&operationSystems=WINDOWS){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?categories=os&operationSystems=WINDOWS){% endif %}, you can choose from images with Microsoft Windows Server Standard and Datacenter editions:
 
 * Windows Server 2012 R2
 * Windows Server 2016
@@ -41,14 +41,14 @@ To work in the cloud, changes have been made to the operating system to anonymiz
 
 #### Time settings {#time-settings}
 
-* The `RealTimeIsUniversal` parameter is set, meaning that the hardware time is [UTC+0]{% if region == "int" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% else %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}.
+* The `RealTimeIsUniversal` parameter is set, meaning that the hardware time is [UTC+0]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
 
 #### Other conversions {#conversions}
 
 * The `ShutDownWithoutLogon` registry parameter allows responding to ACPI Call without having an interactive session.
 * SMBv1 is disabled.
-* The [serial console]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% else %}(https://docs.microsoft.com/ru-ru/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %} is enabled.
-* The system is optimized using the [Ngen]{% if region == "int" %}(https://en.wikipedia.org/wiki/Native_Image_Generator){% else %}(https://ru.wikipedia.org/wiki/Ngen){% endif %} utility.
+* The [serial console]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %} is enabled.
+* The system is optimized using the [Ngen]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Ngen){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Native_Image_Generator){% endif %} utility.
 * The `cloud-init` utility is installed to automate operations when initializing VMs.
 
 ### Drivers {#drivers}

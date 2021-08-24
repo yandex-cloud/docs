@@ -1,4 +1,4 @@
-The instructions below describe how to configure an external DNS service using [reg.com]{% if region == "int" %}(https://www.reg.com/){% else %}(https://www.reg.ru/){% endif %} for the `www.example.com` and `example.com` domain names:
+The instructions below describe how to configure an external DNS service using [reg.com]{% if lang == "ru" %}(https://www.reg.ru/){% endif %}{% if lang == "en" %}(https://www.reg.com/){% endif %} for the `www.example.com` and `example.com` domain names:
 
   * An A record allows you to map the `example.com` domain name to its IP address.
   * A CNAME (Canonical Name) record  for `www` allows you to access your website via `www.example.com`.
@@ -6,7 +6,7 @@ The instructions below describe how to configure an external DNS service using [
 To configure the external DNS service, do the following:
 
 1. You can learn the IP address of the VM under **Network** on the VM page in [management console]({{ link-console-main }}).
-1. Log in to the control panel of the external DNS service. Go to the [list of your domains]{% if region == "int" %}(https://www.reg.com/user/domain_list){% else %}(https://www.reg.ru/user/domain_list){% endif %} and click on the required domain name.
+1. Log in to the control panel of the external DNS service. Go to the [list of your domains]{% if lang == "ru" %}(https://www.reg.ru/user/domain_list){% endif %}{% if lang == "en" %}(https://www.reg.com/user/domain_list){% endif %} and click on the required domain name.
 1. Follow the **Zone management** link in the **Domain management** section.
 1. Create or edit an A record:
    * **IP Address**: your VM's public IP address.

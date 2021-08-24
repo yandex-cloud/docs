@@ -98,7 +98,7 @@ Using the above-mentioned data format, create a table to accept data received fr
 
 This table will be automatically filled with messages read from the `datastore` topic of the {{ mkf-name }} cluster. When reading the data, {{ mch-name }} uses the [existing settings](#configure-mch-for-kf) for the [`reader` consumer account](#before-you-begin).
 
-To learn more about creating a table on the {{ KF }} engine, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% else %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}.
+To learn more about creating a table on the {{ KF }} engine, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% endif %}.
 
 ## Send the test data to the {{ mkf-name }} cluster {#send-sample-data-to-kf}
 
@@ -201,4 +201,4 @@ To get all the data from the `db1.data_view` materialized view:
 
 After you execute the query, you should get the {{ mkf-name }} data in the table format.
 
-To learn more about how to work with data received from {{ KF }}, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% else %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}.
+To learn more about how to work with data received from {{ KF }}, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% endif %}.

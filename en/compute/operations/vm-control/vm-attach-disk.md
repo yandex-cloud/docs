@@ -136,7 +136,7 @@ To use the attached disk:
 
 - Windows
   1. Connect to the VM [via RDP](../vm-connect/rdp.md).
-  1. Assign a letter to the attached disk. For information about how to do this, see the {% if region == "int" %}[Microsoft documentation](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% else %}[Microsoft documentation](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}.
+  1. Assign a letter to the attached disk. For information about how to do this, see the [Microsoft documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% endif %}.
 
 {% endlist %}
 
@@ -166,7 +166,7 @@ To partition and mount an empty disk yourself:
 
      An empty disk is usually labeled /dev/vdb.
 
-  1. Partition your disk. To do  this, create {% if region == "int" %}[partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% else %}[partitions](https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %} using {% if region == "int" %}[cfdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% else %}[cfdisk](https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}, {% if region == "int" %}[fdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% else %}[fdisk](https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}, or {% if region == "int" %}[parted](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% else %}[parted](https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}.
+  1. Partition your disk. To do  this, create [partitions]{% if lang == "ru" %}(https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %}{% if lang == "en" %}(https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% endif %} using [cfdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% endif %}, [fdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% endif %}, or [parted]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% endif %}.
 
   1. Format the disk for the appropriate file system. For example, you can use the [mkfs](https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html) utility.
 
@@ -206,9 +206,9 @@ To partition and mount an empty disk yourself:
 
   1. Initialize the disk. To do this, right-click on the empty disk and select **Initialize Disk**. This opens the **Initialize Disk** dialog.
 
-  1. Select a {% if region == "int" %}[partition style](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% else %}[partition style](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% endif %} and click **ОК**.
+  1. Select a [partition style]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% endif %} and click **ОК**.
 
   1. Create partitions on the disk. To do this, right-click on the empty disk and select **New Simple Volume**.
 
-  1. Use the **New Simple Volume Wizard** to set the desired partition size, {% if region == "int" %}[assign a drive letter](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% else %}[assign a drive letter](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}, and specify the file system type.
+  1. Use the **New Simple Volume Wizard** to set the desired partition size, [assign a drive letter]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% endif %}, and specify the file system type.
 

@@ -4,10 +4,10 @@
 
 {{ compute-full-name }} предоставляет инструменты, которые помогут вам создать Windows-приложения и сервисы в облаке:
 
-* Создавайте виртуальные машины под управлением операционной системы Microsoft Windows из готовых образов [{{ marketplace-name }}]{% if region == "int" %}(https://cloud.yandex.com/marketplace){% else %}(https://cloud.yandex.ru/marketplace){% endif %}.
-* Используйте возможности SQL Server в [{{ mms-short-name }}]{% if region == "int" %}(https://cloud.yandex.com/services/managed-sqlserver){% else %}(https://cloud.yandex.ru/services/managed-sqlserver){% endif %} или заранее настроенных продуктах {{ marketplace-name }}. Также вы можете использовать свои лицензии SQL Server в инфраструктуре {{ yandex-cloud }}.
+* Создавайте виртуальные машины под управлением операционной системы Microsoft Windows из готовых образов [{{ marketplace-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace){% endif %}.
+* Используйте возможности SQL Server в [{{ mms-short-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-sqlserver){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-sqlserver){% endif %} или заранее настроенных продуктах {{ marketplace-name }}. Также вы можете использовать свои лицензии SQL Server в инфраструктуре {{ yandex-cloud }}.
 * Настраивайте Active Directory и Microsoft Exchange на ВМ.
-* Запускайте .NET приложения на виртуальных машинах [{{ compute-name }}]{% if region == "int" %}(https://cloud.yandex.com/services/compute){% else %}(https://cloud.yandex.ru/services/compute){% endif %} или в виде функции в [{{ sf-name }}]{% if region == "int" %}(https://cloud.yandex.com/services/functions){% else %}(https://cloud.yandex.ru/services/functions){% endif %}.
+* Запускайте .NET приложения на виртуальных машинах [{{ compute-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/compute){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/compute){% endif %} или в виде функции в [{{ sf-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/functions){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/functions){% endif %}.
 
 Об особенностях образов виртуальных машин в {{ yandex-cloud }} можно узнать на странице [{#T}](list-of-instances.md).
 
@@ -37,7 +37,7 @@ Windows Server 2016 и Windows Server 2019 в редакции Datacenter дос
  
 Remote Desktop Licensing Server (RDS) — это служба Windows Server, с помощью которой можно настроить безопасный доступ к виртуальным и удалённым рабочим столам в облаке. RDS позволяет запускать одновременно несколько сессий подключения к виртуальным машинам.
 
-Все образы виртуальных машин, доступные в {{ marketplace-name }}, имеют две лицензии RDS для администрирования. Если для решения ваших задач необходима возможность поддерживать большее количество удаленных сессий, воспользуйтесь образами с заранее активированной службой RDS, [доступными]{% if region == "int" %}(https://cloud.yandex.com/marketplace?search=rds){% else %}(https://cloud.yandex.ru/marketplace?search=rds){% endif %} в {{ marketplace-name }}.
+Все образы виртуальных машин, доступные в {{ marketplace-name }}, имеют две лицензии RDS для администрирования. Если для решения ваших задач необходима возможность поддерживать большее количество удаленных сессий, воспользуйтесь образами с заранее активированной службой RDS, [доступными]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?search=rds){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?search=rds){% endif %} в {{ marketplace-name }}.
 
 Образы с активированной службой RDS основаны на Windows Server 2019 Datacenter и подходят для увеличения числа сессий для всех доступных в {{ marketplace-name }} версий Windows Server.
 

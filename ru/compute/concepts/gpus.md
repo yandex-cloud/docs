@@ -7,7 +7,7 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 {{ compute-short-name }} предоставляет графические ускорители (GPU) и виртуальные графические ускорители (vGPU) в составе графических карт. GPU обрабатывают некоторые типы данных эффективнее, чем vCPU, и могут использоваться для сложных вычислений.
 
-В {{ compute-short-name }} доступны графические карты [NVIDIA® Tesla® V100]{% if region =="int" %}(https://www.nvidia.com/en-us/data-center/v100/){% else %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %} с 32 ГБ памяти HBM2 (High Bandwidth Memory).
+В {{ compute-short-name }} доступны графические карты [NVIDIA® Tesla® V100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/v100/){% endif %} с 32 ГБ памяти HBM2 (High Bandwidth Memory).
 
 {% note warning %}
 
@@ -19,7 +19,7 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 ## Графические ускорители (GPU)
 
-Графическая карта NVIDIA® Tesla® V100 содержит 5120 ядер CUDA®, позволяющих выполнять [высокопроизводительные вычисления]{% if region =="int" %}(https://www.nvidia.com/en-us/high-performance-computing/){% else %}(https://www.nvidia.com/ru-ru/high-performance-computing/){% endif %} (High Performance Computing, HPC), а также 640 ядер Tensor, позволяющих решать задачи глубокого обучения (Deep Learning, DL).
+Графическая карта NVIDIA® Tesla® V100 содержит 5120 ядер CUDA®, позволяющих выполнять [высокопроизводительные вычисления]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/high-performance-computing/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/high-performance-computing/){% endif %} (High Performance Computing, HPC), а также 640 ядер Tensor, позволяющих решать задачи глубокого обучения (Deep Learning, DL).
 
 Кроме того, графические ускорители подходят для задач машинного обучения (Machine Learning, ML), искусственного интеллекта (Artificial Intelligence, AI) и обработки трехмерной графики (3D Rendering).
 
@@ -54,14 +54,14 @@ description: "GPU (Graphics Processing Unit) – это графический �
 
 ## Виртуальные графические ускорители (vGPU) {#vgpu}
 
-{{ compute-short-name }} предоставляет возможность виртуализации графических ускорителей (GPU). Виртуализация машин с GPU основана на технологии [NVIDIA® vGPU]{% if region =="int" %}(https://www.nvidia.com/en-us/data-center/virtual-solutions/){% else %}(https://www.nvidia.com/ru-ru/data-center/virtualization/){% endif %}.
+{{ compute-short-name }} предоставляет возможность виртуализации графических ускорителей (GPU). Виртуализация машин с GPU основана на технологии [NVIDIA® vGPU]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/virtualization/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/virtual-solutions/){% endif %}.
 
 Технология NVIDIA® vGPU позволяет использовать карты с GPU как для решения графических, так и для вычислительных задач на vGPU. Для этого вам понадобятся соответствующие [лицензии](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 
 Чтобы воспользоваться технологией vGPU, необходимы:
 * ВМ на [платформе](vm-platforms.md) `vgpu-standard-v1` с одним из образов:
-  * [Ubuntu 18.04 lts vGPU]{% if region =="int" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% else %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %};
-  * [Windows Server 2019 Datacenter vGPU]{% if region =="int" %}(https://cloud.yandex.com/marketplace/products/f2ent6cnb49sf5n9s1u2){% else %}(https://cloud.yandex.ru/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}.
+  * [Ubuntu 18.04 lts vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %};
+  * [Windows Server 2019 Datacenter vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}.
 * Лицензия для использования технологии [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 * Сервер лицензий [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
 

@@ -35,7 +35,7 @@
 
 {% include [prepare-register-billing](includes/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]{% if region == "int" %}(https://console.cloud.yandex.com/cloud){% else %}(https://console.cloud.yandex.ru/cloud){% endif %}.
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -126,9 +126,9 @@
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<ваш пароль>" -AsPlainText -Force)
 ```
 
-Пароль должен соответствовать [требованиям к сложности]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% else %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}.
+Пароль должен соответствовать [требованиям к сложности]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){% endif %}.
 
-Подробные рекомендации по защите Active Directory читайте на [сайте разработчика]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% else %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
+Подробные рекомендации по защите Active Directory читайте на [сайте разработчика]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
 
 ## Создайте ВМ для Active Directory {#ad-vm}
 
@@ -375,7 +375,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
    mkdir c:\distrib
    ```
 
-1. Загрузите [дистрибутив Exchange Server]{% if region == "int" %}(https://docs.microsoft.com/en-us/exchange/new-features/updates?view=exchserver-2016){% else %}(https://docs.microsoft.com/ru-ru/exchange/new-features/updates?view=exchserver-2016){% endif %} и необходимые зависимости:
+1. Загрузите [дистрибутив Exchange Server]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/exchange/new-features/updates?view=exchserver-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/exchange/new-features/updates?view=exchserver-2016){% endif %} и необходимые зависимости:
    1. [.NET Framework 4.7.1](https://go.microsoft.com/fwlink/p/?linkid=863265).
    1. [Visual C++ Redistributable Package for Visual Studio 2012](https://go.microsoft.com/fwlink/?linkid=327788). Переименуйте скачанный файл в `vcredist_x64_2012.exe`.
    1. [Visual C++ Redistributable Package for Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=2002913). Переименуйте скачанный файл в `vcredist_x64_2013.exe`.

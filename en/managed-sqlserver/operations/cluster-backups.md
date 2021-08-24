@@ -9,7 +9,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {% note warning %}
 
-You can't use SQL commands to change the [recovery model]{% if region =="int" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% else %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %} for backup and recovery operations.
+You can't use SQL commands to change the [recovery model]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016){% endif %} for backup and recovery operations.
 
 {% endnote %}
 

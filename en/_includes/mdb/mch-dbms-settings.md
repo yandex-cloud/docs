@@ -4,7 +4,7 @@
 
 * **Keep alive timeout**{#setting-} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Amount of time in seconds after the last request to {{ CH }}, during which the server waits for a new request. If no requests are received during this time, {{ CH }} breaks the connection. To learn more, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#keep-alive-timeout){% else %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#keep-alive-timeout){% endif %}.
+  Amount of time in seconds after the last request to {{ CH }}, during which the server waits for a new request. If no requests are received during this time, {{ CH }} breaks the connection. To learn more, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#keep-alive-timeout){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#keep-alive-timeout){% endif %}.
 
 * **Log level**{#setting-log-level} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
@@ -15,109 +15,109 @@
   1. `DEBUG`: System information to be used later in debugging.
   1. `TRACE`: All available information about cluster performance.
 
-  For more information about log levels, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger){% else %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger){% endif %}.
+  For more information about log levels, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger){% endif %}.
 
 * **Mark cache size**{#setting-mark-cache-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Approximate size (in bytes) of the mark cache used by MergeTree table engines. The cache is shared by the server and memory is allocated as needed.
 
-  To learn more about logging in {{ CH }}, see the [documentation]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server-mark-cache-size){% else %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server-mark-cache-size){% endif %}.
+  To learn more about logging in {{ CH }}, see the [documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server-mark-cache-size){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server-mark-cache-size){% endif %}.
 
 * **Max concurrent queries**{#setting-max-concurrent-queries} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Maximum number of simultaneously processed requests.
 
-  To learn more, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max-concurrent-queries){% else %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max-concurrent-queries){% endif %}.
+  To learn more, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max-concurrent-queries){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max-concurrent-queries){% endif %}.
 
 * **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Maximum number of inbound connections.
 
-  To learn more, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max-connections){% else %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max-connections){% endif %}.
+  To learn more, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max-connections){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max-connections){% endif %}.
 
 * **Max partition size to drop**{#setting-max-partition-size-to-drop} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Maximum size (in bytes) of a [partition]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/table_engines/custom_partitioning_key/){% else %}(https://clickhouse.yandex/docs/ru/operations/table_engines/custom_partitioning_key/){% endif %} in a [MergeTree]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/){% else %}(https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/){% endif %} table, which you can delete using a `DROP` query.
+  Maximum size (in bytes) of a [partition]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/table_engines/custom_partitioning_key/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/table_engines/custom_partitioning_key/){% endif %} in a [MergeTree]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/){% endif %} table, which you can delete using a `DROP` query.
 
 * **Max table size to drop**{#setting-max-table-size-to-drop} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Maximum size (in bytes) of a [MergeTree]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/){% else %}(https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/){% endif %} table, which you can delete using a `DROP` query.
+  Maximum size (in bytes) of a [MergeTree]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/){% endif %} table, which you can delete using a `DROP` query.
 
   Default value: `53687091200` (50 GB).
 
   If 0, you can delete all tables without restrictions.
 
-  To learn more, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max-table-size-to-drop){% else %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max-table-size-to-drop){% endif %}.
+  To learn more, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#max-table-size-to-drop){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max-table-size-to-drop){% endif %}.
 
 * **Metric log enabled**{#setting-metric-log-enabled} {{ tag-con }} {{ tag-tf }}
 
-  Enables or disables logging of the history of metric values from the [system.metrics]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/metrics){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/metrics){% endif %} and [system.events]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/events){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/events){% endif %} tables to the [system.metric_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/metric_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/metric_log){% endif %} table.
+  Enables or disables logging of the history of metric values from the [system.metrics]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/metrics){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/metrics){% endif %} and [system.events]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/events){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/events){% endif %} tables to the [system.metric_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/metric_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/metric_log){% endif %} table.
 
   Logging is enabled by default (`true`).
 
 * **Metric log retention size**{#setting-metric-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.metric_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/metric_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/metric_log){% endif %} table can reach before old records start being deleted from it.
+  The maximum size in bytes that the [system.metric_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/metric_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/metric_log){% endif %} table can reach before old records start being deleted from it.
 
   A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
 
 * **Metric log retention time**{#setting-metric-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.metric_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/metric_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/metric_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table.
+  The period of time in milliseconds after which a record in the [system.metric_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/metric_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/metric_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table.
 
   A value of 0 means that records aren't deleted when the time elapses. The value must be a multiple of 1000. Default value: 2592000000 (30 days).
 
 * **Part log retention size**{#setting-part-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.part_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/part_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/part_log){% endif %} table can reach before old records start being deleted from it.
+  The maximum size in bytes that the [system.part_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/part_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/part_log){% endif %} table can reach before old records start being deleted from it.
 
   A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
 
 * **Part log retention time**{#setting-part-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.part_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/part_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/part_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
+  The period of time in milliseconds after which a record in the [system.part_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/part_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/part_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
 
   A value of 0 means that records aren't deleted when the time elapses. Default value: 2592000000 (30 days).
 
 * **Query log retention size**{#setting-query-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.query_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_log){% endif %} table can reach before old records start being deleted from it.
+  The maximum size in bytes that the [system.query_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_log){% endif %} table can reach before old records start being deleted from it.
 
   A value of 0 means that the old records aren't deleted as the table size grows. Default value: 1073741824 (1 GB).
 
 * **Query log retention time**{#setting-query-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.query_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
+  The period of time in milliseconds after which a record in the [system.query_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
 
   A value of 0 means that records aren't deleted when the time elapses. Default value: 2592000000 (30 days).
 
 * **Query thread log enabled**{#setting-query-thread-log-enabled} {{ tag-con }} {{ tag-tf }}
 
-  Enables or disables logging of information about the threads that execute requests, such as the name of the thread, time it was started, and how long a request was processed. Logs are written to the [system.query_thread_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_thread_log){% endif %} table.
+  Enables or disables logging of information about the threads that execute requests, such as the name of the thread, time it was started, and how long a request was processed. Logs are written to the [system.query_thread_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_thread_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log){% endif %} table.
 
   Logging is enabled by default (`true`).
 
 * **Query thread log retention size**{#setting-query-thread-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.query_thread_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_thread_log){% endif %} table can reach before old records start being deleted from it.
+  The maximum size in bytes that the [system.query_thread_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_thread_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log){% endif %} table can reach before old records start being deleted from it.
 
   A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
 
 * **Query thread log retention time**{#setting-query-thread-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.query_thread_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_thread_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
+  The period of time in milliseconds after which a record in the [system.query_thread_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/query_thread_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
 
   A value of 0 means that records aren't deleted when the time elapses. Default value: 2592000000 (30 days).
 
 * **Text log enabled**{#setting-text-log-enabled} {{ tag-con }} {{ tag-tf }}
 
-  Enables or disables writing of system logs to the [system.text_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/text_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/text_log){% endif %} table.
+  Enables or disables writing of system logs to the [system.text_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/text_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/text_log){% endif %} table.
 
   Logging is disabled by default (`false`).
 
 * **Text log level**{#setting-text-log-level} {{ tag-con }} {{ tag-tf }}
 
-  The level of event logging in the [system.text_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/text_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/text_log){% endif %} table. At each next level, the log will contain complete information from the previous one:
+  The level of event logging in the [system.text_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/text_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/text_log){% endif %} table. At each next level, the log will contain complete information from the previous one:
   1. `ERROR`: Information about errors in the DBMS.
   1. `WARNING`: Information about events that may cause errors in the DBMS.
   1. `INFORMATION`: Confirmation and information about events that don't lead to errors in the DBMS.
@@ -126,13 +126,13 @@
 
 * **Text log retention size**{#setting-text-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.text_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/text_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/text_log){% endif %} table can reach before old records start being deleted from it.
+  The maximum size in bytes that the [system.text_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/text_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/text_log){% endif %} table can reach before old records start being deleted from it.
 
   A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
 
 * **Text log retention time**{#setting-text-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.text_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/text_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/text_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
+  The period of time in milliseconds after which a record in the [system.text_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/text_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/text_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
 
   A value of 0 means that records aren't deleted when the time elapses. Default value: 2592000000 (30 days).
 
@@ -140,23 +140,23 @@
 
   Server time zone. Specified by the IANA identifier as the UTC time zone or geographical location (for example, Africa/Abidjan).
 
-  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone){% else %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone){% endif %}.
+  For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone){% endif %}.
 
 * **Trace log enabled**{#setting-trace-log-enabled} {{ tag-con }} {{ tag-tf }}
 
-  Enables or disables logging of stack traces collected by the request profiler to the [system.trace_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/trace_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/trace_log){% endif %} table.
+  Enables or disables logging of stack traces collected by the request profiler to the [system.trace_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/trace_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/trace_log){% endif %} table.
 
   Logging is enabled by default (`true`).
 
 * **Trace log retention size**{#setting-trace-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.trace_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/trace_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/trace_log){% endif %} table can reach before old records start being deleted from it.
+  The maximum size in bytes that the [system.trace_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/trace_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/trace_log){% endif %} table can reach before old records start being deleted from it.
 
   A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
 
 * **Trace log retention time**{#setting-trace-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.trace_log]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/system-tables/trace_log){% else %}(https://clickhouse.tech/docs/ru/operations/system-tables/trace_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
+  The period of time in milliseconds after which a record in the [system.trace_log]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/system-tables/trace_log){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/system-tables/trace_log){% endif %} table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
 
   A value of 0 means that records aren't deleted when the time elapses. Default value: 2592000000 (30 days).
 
@@ -164,22 +164,22 @@
 
   Cache size in bytes for uncompressed data used by the MergeTree table engines.
 
-  To learn more, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server-settings-uncompressed_cache_size){% else %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server-settings-uncompressed_cache_size){% endif %}.
+  To learn more, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#server-settings-uncompressed_cache_size){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server-settings-uncompressed_cache_size){% endif %}.
 
 * **Compression**{#setting-compression} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Rules for compressing data in [MergeTree]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% else %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %} tables:
+  Rules for compressing data in [MergeTree]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %} tables:
    * **Method**: Compression method. Two methods are available: [LZ4](https://lz4.github.io/lz4/) and [zstd](https://facebook.github.io/zstd/).
-   * **Min part size**: Minimum size (in bytes) of a [data part]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/#mergetree-data-storage){% else %}(https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/#mergetree-data-storage){% endif %} in a table. {{ CH }} only applies the rule to tables with data parts greater than or equal to the **Min part size** value.
+   * **Min part size**: Minimum size (in bytes) of a [data part]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/#mergetree-data-storage){% endif %} in a table. {{ CH }} only applies the rule to tables with data parts greater than or equal to the **Min part size** value.
    * **Min part size ratio**: Minimum ratio of table part size to total table size. {{ CH }} only applies the rule to tables in which this ratio is greater than or equal to the **Min part size ratio** value.
 
    You can add multiple compression rules. {{ CH }} checks the **Min part size** and **Min part size ratio** conditions and applies the rules to those tables that meet both of them. If multiple rules can be applied to the same table, {{ CH }} applies the first one. If none of the rules are applicable, {{ CH }} uses the LZ4 compression method.
 
-   To learn more, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression){% else %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression){% endif %}.
+   To learn more, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/#compression){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression){% endif %}.
 
 * **Graphite rollup**{#setting-graphite-rollup} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  [GraphiteMergeTree]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/table_engines/graphitemergetree/){% else %}(https://clickhouse.yandex/docs/ru/operations/table_engines/graphitemergetree/){% endif %} engine configurations for thinning and aggregating/averaging (rollup) [Graphite](http://graphite.readthedocs.io/en/latest/index.html) data:
+  [GraphiteMergeTree]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/table_engines/graphitemergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/table_engines/graphitemergetree/){% endif %} engine configurations for thinning and aggregating/averaging (rollup) [Graphite](http://graphite.readthedocs.io/en/latest/index.html) data:
   * **Name**: Configuration name.
   * **Patterns**: Set of thinning rules. A rule applies if the metric name matches the **Regexp** parameter value and the age of the data matches the **Retention** parameter group value.
      * **Function**: Aggregation function name.
@@ -190,11 +190,11 @@
 
   You can set up multiple configurations and use them for different tables.
 
-  To learn more about Graphite support in {{ CH }}, see the [documentation]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/table_engines/graphitemergetree/){% else %}(https://clickhouse.yandex/docs/ru/operations/table_engines/graphitemergetree/){% endif %}.
+  To learn more about Graphite support in {{ CH }}, see the [documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/table_engines/graphitemergetree/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/table_engines/graphitemergetree/){% endif %}.
 
 * **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-tf }}
 
-  Global authentication settings for [integration with {{ KF }}]{% if region =="int" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% else %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}:
+  Global authentication settings for [integration with {{ KF }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% endif %}:
   * **Sasl mechanism**: SASL authentication mechanism:
     - `GSSAPI`: Authentication [using Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
     - `PLAIN`: Authentication [using the "username-password" pair passed as plain text](https://kafka.apache.org/documentation/#security_sasl_plain).
@@ -211,18 +211,18 @@
 
 * **Kafka topics**{#setting-kafka-topics} {{ tag-con }} {{ tag-tf }}
 
-  Authentication settings at the level of [topics](../../managed-kafka/concepts/topics.md) for [integration with {{ KF }}]{% if region =="int" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% else %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}:
+  Authentication settings at the level of [topics](../../managed-kafka/concepts/topics.md) for [integration with {{ KF }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% endif %}:
   * **Name**: {{ KF }} topic name.
   * **Settings**: Topic-level authentication settings similar to the global authentication settings in the [**Kafka**](#setting-kafka) section.
 
-  If no topic authentication data is found for a table that runs on the [Kafka engine]{% if region =="int" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% else %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}, the global settings from the **Kafka** section are used.
+  If no topic authentication data is found for a table that runs on the [Kafka engine]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/kafka/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/){% endif %}, the global settings from the **Kafka** section are used.
 
   For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#security).
 
 * **Merge tree**{#setting-merge-tree} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   MergeTree engine configuration:
-  * **Max bytes to merge at min space in pool**: Maximum total size of a [data part]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/#mergetree-data-storage){% else %}(https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/#mergetree-data-storage){% endif %} to merge when the number of free threads in the background pool is minimum.
+  * **Max bytes to merge at min space in pool**: Maximum total size of a [data part]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/#mergetree-data-storage){% endif %} to merge when the number of free threads in the background pool is minimum.
   * **Max replicated merges in queue**: Maximum number of merge tasks that can be in the `ReplicatedMergeTree` queue at the same time.
   * **Number of free entries in pool to lower max size of merge**: Threshold value of free entries in the pool. If the number of entries in the pool falls below this value, {{ CH }} reduces the maximum size of a data part to merge. This helps handle small merges faster, rather than filling the pool with lengthy merges.
   * **Parts to delay insert**: Number of active data parts in a table. When exceed, {{ CH }} starts artificially reducing the rate of inserting data into the table.
@@ -230,11 +230,11 @@
   * **Replicated deduplication window**: Number of recent hash blocks that {{ ZK }} stores (old ones are deleted).
   * **Replicated deduplication window seconds**: Time during which {{ ZK }} stores hash blocks (old ones are deleted).
 
-  For more information, see the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% else %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %}.
+  For more information, see the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree){% endif %}.
 
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-tf }}
 
-  Global authentication settings for [integration with {{ RMQ }}]{% if region =="int" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/rabbitmq/){% else %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/rabbitmq/){% endif %}:
+  Global authentication settings for [integration with {{ RMQ }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/integrations/rabbitmq/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/integrations/rabbitmq/){% endif %}:
   * **Password**: Password of an {{ RMQ }} account.
   * **Username**: Username of an {{ RMQ }} account.
 

@@ -13,7 +13,7 @@ Purchasing images with a pre-installed Microsoft software license from {{ yandex
 
 ## Using your own licenses in {{ yandex-cloud }} {#byol}
 
-If you already have Microsoft enterprise licenses under Microsoft Software Assurance ([SA]{% if region == "int" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% else %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}) agreements or a Microsoft Enterprise Agreement ([EA]{% if region == "int" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% else %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}), you can use them in {{ yandex-cloud }}. In this case, you'll be charged under the [BYOL](pricing.md) plan.
+If you already have Microsoft enterprise licenses under Microsoft Software Assurance ([SA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}) agreements or a Microsoft Enterprise Agreement ([EA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}), you can use them in {{ yandex-cloud }}. In this case, you'll be charged under the [BYOL](pricing.md) plan.
 
 You can use your license in the shared infrastructure according to the [License Mobility through Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) program rules and as part of the dedicated hardware under the Microsoft Product Terms.
 
@@ -42,7 +42,7 @@ A number of restrictions apply to the License Mobility through Software Assuranc
     * Forefront Unified Access Gateway
     * Remote Desktop Services
 
-    For the full terms of the License Mobility through Software Assurance program, see the official [Microsoft]{% if region == "int" %}(https://www.microsoft.com/en-us/licensing/product-licensing/products){% else %}(https://www.microsoft.com/ru-ru/licensing/product-licensing/products){% endif %} documentation.
+    For the full terms of the License Mobility through Software Assurance program, see the official [Microsoft]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/product-licensing/products){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/product-licensing/products){% endif %} documentation.
 
 #### License Mobility through Software Assurance program requirements for Microsoft SQL Server {#SQLmobility}
 

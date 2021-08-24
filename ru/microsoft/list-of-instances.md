@@ -8,7 +8,7 @@
 
 ## Образы Windows Server {#win-server}
 
-В [{{ marketplace-name }}]{% if region == "int" %}(https://cloud.yandex.com/marketplace?categories=os&operationSystems=WINDOWS){% else %}(https://cloud.yandex.ru/marketplace?categories=os&operationSystems=WINDOWS){% endif %} на выбор доступны образы Microsoft Windows Server в редакциях Standart и Datacenter: 
+В [{{ marketplace-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?categories=os&operationSystems=WINDOWS){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?categories=os&operationSystems=WINDOWS){% endif %} на выбор доступны образы Microsoft Windows Server в редакциях Standart и Datacenter: 
 
 * Windows Server 2012 R2
 * Windows Server 2016
@@ -41,14 +41,14 @@
 
 #### Настройки времени {#time-settings}
 
-* Установлено значение параметра `RealTimeIsUniversal`, при котором аппаратное время в системе равно [UTC+0]{% if region == "int" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% else %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}. 
+* Установлено значение параметра `RealTimeIsUniversal`, при котором аппаратное время в системе равно [UTC+0]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}. 
 
 #### Прочие преобразования {#conversions}
 
 * Параметр реестра `ShutDownWithoutLogon` разрешает реагировать на ACPI Call без наличия интерактивной сессии.
 * Отключена поддержка SMBv1.
-* Разрешено использование [серийной консоли]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% else %}(https://docs.microsoft.com/ru-ru/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}.
-* Проведена оптимизация системы с помощью утилиты [Ngen]{% if region == "int" %}(https://en.wikipedia.org/wiki/Native_Image_Generator){% else %}(https://ru.wikipedia.org/wiki/Ngen){% endif %}.
+* Разрешено использование [серийной консоли]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/boot-parameters-to-enable-ems-redirection){% endif %}.
+* Проведена оптимизация системы с помощью утилиты [Ngen]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Ngen){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Native_Image_Generator){% endif %}.
 * Установлена утилита `cloudbase-init` для автоматизации операций в процессе запуска виртуальной машины.
 
 ### Драйверы {#drivers}

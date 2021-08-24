@@ -21,7 +21,7 @@ Before deploying servers, you need to sign up for {{ yandex-cloud }} and create 
 
 {% include [prepare-register-billing](includes/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page]{% if region == "int" %}(https://console.cloud.yandex.com/cloud){% else %}(https://console.cloud.yandex.ru/cloud){% endif %}.
+If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -110,9 +110,9 @@ Create a file named `setpass` with a script that sets a password for the local a
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
 ```
 
-The password must meet the [complexity requirements]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% else %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}.
+The password must meet the [complexity requirements]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}.
 
-Read more about the best practices for securing Active Directory on the [official website]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% else %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
+Read more about the best practices for securing Active Directory on the [official website]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
 
 ## Create a VM for Active Directory {#ad-vm}
 

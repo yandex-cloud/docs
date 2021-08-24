@@ -117,7 +117,7 @@ description: "Вы можете отслеживать состояние кла
     Если значение параметра **buffer** возрастет до **soft_limit**, кластер в течение нескольких секунд будет ожидать его снижения. Если значение параметра **buffer** не уменьшится, подключение будет закрыто.
     Если значение параметра **buffer** достигнет значения параметра **hard_limit**, соединение будет закрыто сразу же.
 
-* **Copy-on-write allocation** — потребление памяти процессами {{ RD }} при использовании механизма [COW (Copy-on-write)]{% if region =="int" %}(https://en.wikipedia.org/wiki/Copy-on-write){% else %}(https://ru.wikipedia.org/wiki/Копирование_при_записи){% endif %}.
+* **Copy-on-write allocation** — потребление памяти процессами {{ RD }} при использовании механизма [COW (Copy-on-write)]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Копирование_при_записи){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Copy-on-write){% endif %}.
 
     На графике показаны последние измеренные {{ RD }} значения параметров:
 

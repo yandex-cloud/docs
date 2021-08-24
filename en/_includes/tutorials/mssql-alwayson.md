@@ -30,7 +30,7 @@ Before deploying an availability group, sign up for {{ yandex-cloud }} and creat
 
 {% include [prepare-register-billing](includes/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page]{% if region == "int" %}(https://console.cloud.yandex.com/cloud){% else %}(https://console.cloud.yandex.ru/cloud){% endif %}.
+If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -252,9 +252,9 @@ Create a file named `setpass` with a script to set the administrator's local acc
 
 The set password is only used for testing. Use your own complex password when deploying a cluster to work in a product environment.
 
-The password must meet the [complexity requirements]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% else %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}.
+The password must meet the [complexity requirements]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}.
 
-Read more about the best practices for securing Active Directory on the [official website]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% else %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
+Read more about the best practices for securing Active Directory on the [official website]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
 
 {% endnote %}
 

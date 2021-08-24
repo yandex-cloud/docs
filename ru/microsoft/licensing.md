@@ -13,7 +13,7 @@
 
 ## Использование собственных лицензий в {{ yandex-cloud }} {#byol}
 
-Если у вас уже есть корпоративные лицензии Microsoft в рамках соглашений Microsoft Software Assurance ([SA]{% if region == "int" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% else %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}) или Microsoft Enterprise Agreement ([EA]{% if region == "int" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% else %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}), вы можете воспользоваться ими в {{ yandex-cloud }}. При этом оплата будет начисляться по тарифу [BYOL](pricing.md).
+Если у вас уже есть корпоративные лицензии Microsoft в рамках соглашений Microsoft Software Assurance ([SA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}) или Microsoft Enterprise Agreement ([EA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}), вы можете воспользоваться ими в {{ yandex-cloud }}. При этом оплата будет начисляться по тарифу [BYOL](pricing.md).
 
 Воспользоваться лицензией можно в общей инфраструктуре по правилам программы [Мобильности лицензий](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-license-mobility) и в пределах выделенного оборудования в соответствии с правилами Microsoft Product Terms.
 
@@ -43,7 +43,7 @@
     * Forefront Unified Access Gateway
     * Remote Desktop Services
     
-    Полные правила программы Мобильности лицензий представлены в официальной документации [Microsoft]{% if region == "int" %}(https://www.microsoft.com/en-us/licensing/product-licensing/products){% else %}(https://www.microsoft.com/ru-ru/licensing/product-licensing/products){% endif %}.
+    Полные правила программы Мобильности лицензий представлены в официальной документации [Microsoft]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/product-licensing/products){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/product-licensing/products){% endif %}.
 
 #### Требования программы Мобильности лицензий для Microsoft SQL Server {#SQLmobility}
 

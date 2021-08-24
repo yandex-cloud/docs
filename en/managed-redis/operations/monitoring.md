@@ -111,7 +111,7 @@ The following charts open on the page:
     If the value of **buffer** reaches the **soft_limit**, the cluster will wait a few seconds for it to decrease. If the value of **buffer** does not decrease, the connection will be closed.
     If the value of **buffer** becomes equal to the value of **hard_limit**, the connection will shut down immediately.
 
-* **Copy-on-write allocation**: Memory usage by {{ RD }} processes for [COW (Copy-on-write)]{% if region =="int" %}(https://en.wikipedia.org/wiki/Copy-on-write){% else %}(https://ru.wikipedia.org/wiki/Копирование_при_записи){% endif %}.
+* **Copy-on-write allocation**: Memory usage by {{ RD }} processes for [COW (Copy-on-write)]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Копирование_при_записи){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Copy-on-write){% endif %}.
 
     The graph shows the most recent parameter values measured by {{ RD }}:
     * **module_fork_last_cow_size**: Amount of data copied during a `fork()` call using the COW mechanism.

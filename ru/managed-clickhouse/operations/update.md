@@ -8,7 +8,7 @@
 
 * [{#T}](#change-disk-size) (доступно только для стандартного `network-hdd` и быстрого сетевого `network-ssd` хранилищ).
 
-* [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% else %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}.
+* [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% endif %}.
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
@@ -392,7 +392,7 @@
 
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
 
-    * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер]{% if region =="int" %}(https://appmetrica.yandex.com/docs/cloud/index.html){% else %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}. Значение по умолчанию — `false`.
+    * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/cloud/index.html){% endif %}. Значение по умолчанию — `false`.
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
 

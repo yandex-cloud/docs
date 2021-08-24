@@ -8,7 +8,7 @@ After creating a cluster, you can:
 
 * [{#T}](#change-disk-size) (available only for standard network storage, `network-hdd`, and fast network storage, `network-ssd`).
 
-* [Configure {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation]{% if region =="int" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% else %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}.
+* [Configure {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% endif %}.
 
 * [Change additional cluster settings](#change-additional-settings).
 * [Change cluster security groups](#change-sg-set).
@@ -404,7 +404,7 @@ After creating a cluster, you can:
 
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
 
-    * `--metrika-access`: Enables the [import of AppMetrica data to a cluster]{% if region =="int" %}(https://appmetrica.yandex.com/docs/cloud/index.html){% else %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}. Default value: `false`.
+    * `--metrika-access`: Enables the [import of AppMetrica data to a cluster]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/cloud/index.html){% endif %}. Default value: `false`.
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. Default value: `false`.
 

@@ -14,7 +14,7 @@ keywords:
 
 {{ compute-short-name }} provides graphics accelerators (GPUs) and virtual graphics accelerators (vGPUs) as part of graphics cards. GPUs outperform vCPUs in processing certain types of data and can be used for complex computing.
 
-{{ compute-short-name }} uses [NVIDIA® Tesla® V100]{% if region =="int" %}(https://www.nvidia.com/en-us/data-center/v100/){% else %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %} GPUs with 32 GB HBM2 (High Bandwidth Memory).
+{{ compute-short-name }} uses [NVIDIA® Tesla® V100]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/tesla-v100/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/v100/){% endif %} GPUs with 32 GB HBM2 (High Bandwidth Memory).
 
 {% note warning %}
 
@@ -26,7 +26,7 @@ By default, the cloud has a zero [quota](../concepts/limits.md#quotas) for creat
 
 ## Graphics accelerators (GPUs)
 
-The NVIDIA® Tesla® V100 graphics card contains 5120 CUDA® cores that perform [high-performance computing]{% if region =="int" %}(https://www.nvidia.com/en-us/high-performance-computing/){% else %}(https://www.nvidia.com/ru-ru/high-performance-computing/){% endif %} (HPC), and 640 Tensor cores for deep learning (DL) tasks.
+The NVIDIA® Tesla® V100 graphics card contains 5120 CUDA® cores that perform [high-performance computing]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/high-performance-computing/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/high-performance-computing/){% endif %} (HPC), and 640 Tensor cores for deep learning (DL) tasks.
 
 Graphics accelerators are also suitable for machine learning (ML), artificial intelligence (AI), and 3D rendering tasks.
 
@@ -61,15 +61,15 @@ For more information about organizational and technical limits for VMs, see [Quo
 
 ## Virtual graphics accelerators (vGPUs) {#vgpu}
 
-{{ compute-short-name }} lets you virtualize graphics accelerators (GPUs). Virtual GPUs are created based on [NVIDIA® vGPU]{% if region =="int" %}(https://www.nvidia.com/en-us/data-center/virtual-solutions/){% else %}(https://www.nvidia.com/ru-ru/data-center/virtualization/){% endif %} technology.
+{{ compute-short-name }} lets you virtualize graphics accelerators (GPUs). Virtual GPUs are created based on [NVIDIA® vGPU]{% if lang == "ru" %}(https://www.nvidia.com/ru-ru/data-center/virtualization/){% endif %}{% if lang == "en" %}(https://www.nvidia.com/en-us/data-center/virtual-solutions/){% endif %} technology.
 
 NVIDIA® vGPU software lets you use cards with GPUs for both graphics and computing tasks on vGPUs. This requires the appropriate [licenses](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 
 To use vGPU technology, you need:
 
 * A VM running on the [platform](vm-platforms.md) `vgpu-standard-v1` with one of the following images:
-  * [Ubuntu 18.04 lts vGPU]{% if region =="int" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% else %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}.
-  * [Windows Server 2019 Datacenter vGPU]{% if region =="int" %}(https://cloud.yandex.com/marketplace/products/f2ent6cnb49sf5n9s1u2){% else %}(https://cloud.yandex.ru/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}.
+  * [Ubuntu 18.04 lts vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}.
+  * [Windows Server 2019 Datacenter vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}.
 * License to use [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf) technology.
 * [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
 

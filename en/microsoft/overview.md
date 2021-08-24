@@ -4,10 +4,10 @@ You can run familiar software and your Windows-based products in {{ yandex-cloud
 
 {{ compute-full-name }} provides tools to help you create Windows applications and services in the cloud:
 
-* Create VMs running Microsoft Windows from ready-made images in the [{{ marketplace-name }}]{% if region == "int" %}(https://cloud.yandex.com/marketplace){% else %}(https://cloud.yandex.ru/marketplace){% endif %}.
-* Use the features of SQL Server in [{{ mms-short-name }}]{% if region == "int" %}(https://cloud.yandex.com/services/managed-sqlserver){% else %}(https://cloud.yandex.ru/services/managed-sqlserver){% endif %} or in pre-configured {{ marketplace-name }} products. You can also use your SQL Server licenses in the {{ yandex-cloud }} infrastructure.
+* Create VMs running Microsoft Windows from ready-made images in the [{{ marketplace-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace){% endif %}.
+* Use the features of SQL Server in [{{ mms-short-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-sqlserver){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-sqlserver){% endif %} or in pre-configured {{ marketplace-name }} products. You can also use your SQL Server licenses in the {{ yandex-cloud }} infrastructure.
 * Configure Active Directory and Microsoft Exchange on a VM.
-* Run .Net applications on VMs in [{{ compute-name }}]{% if region == "int" %}(https://cloud.yandex.com/services/compute){% else %}(https://cloud.yandex.ru/services/compute){% endif %} or as a function in [{{ sf-name }}]{% if region == "int" %}(https://cloud.yandex.com/services/functions){% else %}(https://cloud.yandex.ru/services/functions){% endif %}.
+* Run .Net applications on VMs in [{{ compute-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/compute){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/compute){% endif %} or as a function in [{{ sf-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/functions){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/functions){% endif %}.
 
 To learn more about the features of VM images in {{ yandex-cloud }}, go to [{#T}](list-of-instances.md).
 
@@ -37,7 +37,7 @@ The performance of vGPUs running on {{ yandex-cloud }} has some specifics. For m
 
 Remote Desktop Licensing Server (RDS) is a Windows Server service that lets you configure secure access to virtual and remote desktops in the cloud. With RDS, you can simultaneously run multiple sessions to connect to your VMs.
 
-All VM images available in the {{ marketplace-name }} have two RDS licenses for administration. If you need a larger number of remote sessions, use images with pre-activated Remote Desktop Services. These images are [available]{% if region == "int" %}(https://cloud.yandex.com/marketplace?search=rds){% else %}(https://cloud.yandex.ru/marketplace?search=rds){% endif %} in the {{ marketplace-name }}.
+All VM images available in the {{ marketplace-name }} have two RDS licenses for administration. If you need a larger number of remote sessions, use images with pre-activated Remote Desktop Services. These images are [available]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?search=rds){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?search=rds){% endif %} in the {{ marketplace-name }}.
 
 They are based on Windows Server 2019 Datacenter and are suitable for increasing the number of sessions for all Windows Server versions available in the {{ marketplace-name }}.
 

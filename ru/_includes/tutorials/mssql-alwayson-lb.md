@@ -1,6 +1,6 @@
 # Развертывание группы доступности Always On с внутренним сетевым балансировщиком
 
-Сценарий описывает развертывание в {{ yandex-cloud }} группы доступности Always On с балансировкой нагрузки между узлами с помощью внутреннего сетевого балансировщика. Несколько подсетей будут объединены в одну общую подсеть с помощью настройки сетевых интерфейсов. Благодаря этому не потребуется использование [Multisubnet Failover]{% if region == "int" %}(https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% else %}(https://docs.microsoft.com/ru-ru/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% endif %}. Основной IP-адрес будет назначаться реплике, в которую ведется запись. У этой же реплики будет открыт порт, на который балансировщик будет направлять трафик. Поскольку порт, указанный для подключения к балансировщику, становится недоступным, для приема трафика будет использоваться дополнительный нестандартный порт.
+Сценарий описывает развертывание в {{ yandex-cloud }} группы доступности Always On с балансировкой нагрузки между узлами с помощью внутреннего сетевого балансировщика. Несколько подсетей будут объединены в одну общую подсеть с помощью настройки сетевых интерфейсов. Благодаря этому не потребуется использование [Multisubnet Failover]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15){% endif %}. Основной IP-адрес будет назначаться реплике, в которую ведется запись. У этой же реплики будет открыт порт, на который балансировщик будет направлять трафик. Поскольку порт, указанный для подключения к балансировщику, становится недоступным, для приема трафика будет использоваться дополнительный нестандартный порт.
 
 Чтобы создать и настроить группу доступности Always On с внутренним сетевым балансировщиком:
 
@@ -33,7 +33,7 @@
 
 {% include [prepare-register-billing](includes/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]{% if region == "int" %}(https://console.cloud.yandex.com/cloud){% else %}(https://console.cloud.yandex.ru/cloud){% endif %}.
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваша виртуальная машина, на [странице облака]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %}.
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -317,9 +317,9 @@
 
 Указанный пароль используется только для тестирования. Используйте собственный сложный пароль при развертывании кластера для работы в продуктовом окружении.
 
-Пароль должен соответствовать [требованиям к сложности]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% else %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}.
+Пароль должен соответствовать [требованиям к сложности]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник){% endif %}.
 
-Подробные рекомендации по защите Active Directory читайте на [сайте разработчика]{% if region == "int" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% else %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
+Подробные рекомендации по защите Active Directory читайте на [сайте разработчика]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory){% endif %}.
 
 {% endnote %}
 

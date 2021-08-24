@@ -137,7 +137,7 @@
 - Windows
 
   1. Подключитесь к ВМ [по RDP](../vm-connect/rdp.md).
-  1. Назначьте букву подключенному диску. Как это сделать читайте в {% if region == "int" %}[документации Microsoft](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% else %}[документации Microsoft](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}.
+  1. Назначьте букву подключенному диску. Как это сделать читайте в [документации Microsoft]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% endif %}.
 
 {% endlist %}
 
@@ -167,7 +167,7 @@
 
      Обычно пустой диск имеет метку вида /dev/vdb.
 
-  1. Разметьте диск. Для этого создайте на нем {% if region == "int" %}[разделы](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% else %}[разделы](https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %} с помощью {% if region == "int" %}[cfdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% else %}[cfdisk](https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}, {% if region == "int" %}[fdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% else %}[fdisk](https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}, или {% if region == "int" %}[parted](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% else %}[parted](https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}.
+  1. Разметьте диск. Для этого создайте на нем [разделы]{% if lang == "ru" %}(https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %}{% if lang == "en" %}(https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% endif %} с помощью [cfdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% endif %}, [fdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% endif %}, или [parted]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% endif %}.
 
   1. Отформатируйте диск в нужную файловую систему, например, с помощью утилиты [mkfs](https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0).
 
@@ -206,6 +206,6 @@
      {% endnote %}
 
   1. Инициализируйте диск. Для этого нажмите правой кнопкой мыши на пустой диск и выберите пункт **Инициализировать диск**. Откроется окно **Инициализация диска**.
-  1. Выберите {% if region == "int" %}[стиль разделов](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% else %}[стиль разделов](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% endif %} и нажмите **ОК**.
+  1. Выберите [стиль разделов]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr){% endif %} и нажмите **ОК**.
   1. Создайте разделы на диске. Для этого нажмите правой кнопкой мыши на пустой диск и выберите пункт **Создать простой том**.
-  1. С помощью **Мастера создания простых томов** задайте размер раздела, {% if region == "int" %}[назначьте букву](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% else %}[назначьте букву](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %} диска и укажите файловую систему.
+  1. С помощью **Мастера создания простых томов** задайте размер раздела, [назначьте букву]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter){% endif %} диска и укажите файловую систему.
