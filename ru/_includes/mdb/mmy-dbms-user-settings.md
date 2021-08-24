@@ -8,20 +8,25 @@
 
 - **Global permissions**{#setting-global-permissions} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-  Привилегии пользователя на уровне сервера (глобальные привилегии). Одному пользователю можно задать несколько глобальных привилегий. Доступные привилегии:
-  - [REPLICATION CLIENT](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-client) — используйте эту глобальную привилегию если вы хотите подключиться к потоку репликации извне {{ yandex-cloud }}. В этом случае выдайте ее пользователю, под которым клиент репликации будет подключаться к кластеру. Привилегия позволяет использовать следующие операторы:
+  Глобальные полномочия — [права пользователя](../../managed-mysql/concepts/user-rights.md), которые действуют на уровне всего сервера баз данных.
+
+  Пользователю можно предоставить полномочия:
+
+  - [REPLICATION CLIENT](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-client) — разрешает использовать операторы:
+
     - [SHOW MASTER STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html) — предоставляет информацию о состоянии бинарных логов мастера.
     - [SHOW REPLICA | SLAVE STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html) — предоставляет информацию о состоянии основных параметров потока репликации.
     - [SHOW BINARY LOGS](https://dev.mysql.com/doc/refman/8.0/en/show-binary-logs.html) — выводит список бинарных логов на сервере.
-  
-  - [REPLICATION SLAVE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-slave) — используйте эту глобальную привилегию если вы хотите подключиться к потоку репликации извне {{ yandex-cloud }}. В этом случае выдайте ее пользователю, под которым клиент репликации будет подключаться к кластеру. Привилегия позволяет использовать следующие операторы:
+
+  - [REPLICATION SLAVE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-slave) — позволяет подключиться к потоку репликации извне {{ yandex-cloud }}. Разрешает использовать операторы:
+
     - [SHOW REPLICAS | SHOW SLAVE HOSTS](https://dev.mysql.com/doc/refman/8.0/en/show-replicas.html) — выводит список зарегистрированных в данный момент реплик.
     - [SHOW RELAYLOG EVENTS](https://dev.mysql.com/doc/refman/8.0/en/show-relaylog-events.html) — выводит события в логе ретрансляции реплики.
     - [SHOW BINLOG EVENTS](https://dev.mysql.com/doc/refman/8.0/en/show-binlog-events.html) — выводит события в бинарном логе.
-  
+
   - [PROCESS](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) — позволяет получать информацию о всех выполняемых на сервере потоках и использовать оператор [SHOW ENGINE](https://dev.mysql.com/doc/refman/8.0/en/show-engine.html) для доступа к [INNODB_-таблицам](https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-system-tables.html).
 
-  Значение по умолчанию — не задано (глобальные привилегии не выданы пользователю).
+  Значение по умолчанию — не задано (у пользователя нет глобальных полномочий). Возможно предоставить несколько полномочий одновременно.
 
 - **Connection limits**{#setting-connection-limits} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 

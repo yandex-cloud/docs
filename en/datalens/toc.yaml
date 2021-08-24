@@ -23,14 +23,14 @@ items:
         href: solutions/data-from-metrica-visualization.md
       - name: Web analytics with a connection to Yandex.Metrica via the Logs API
         href: solutions/data-from-metrica-logsapi-visualization.md
-      - name: Mobile app analytics based on AppMetrica data
-        href: solutions/data-from-appmetrica-visualization.md
-      - name: Analyzing Yandex Music podcast statistics (for podcast authors)
-        href: solutions/data-from-podcasts.md
       - name: >-
           Web analytics with funnels and cohorts calculated based on
           Yandex.Metrica data
         href: solutions/data-from-metrica-yc-visualization.md
+      - name: Mobile app analytics based on AppMetrica data
+        href: solutions/data-from-appmetrica-visualization.md
+      - name: Analyzing Yandex Music podcast statistics (for podcast authors)
+        href: solutions/data-from-podcasts.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -65,7 +65,7 @@ items:
             href: operations/connection/manage-access.md
       - name: Working with datasets
         items:
-          - name: Create dataset
+          - name: Creating a dataset
             href: operations/dataset/create.md
           - name: Creating a data field
             href: operations/dataset/create-field.md
@@ -155,6 +155,8 @@ items:
         href: concepts/markdown.md
       - name: DataLens Public
         href: concepts/datalens-public.md
+      - name: Aggregations in DataLens
+        href: concepts/aggregation-tutorial.md
       - name: Calculated fields
         items:
           - name: Overview
