@@ -2764,7 +2764,7 @@ components:
             type: string
           prefixRewrite:
             description: |-
-              Replacement for the path prefix matched by [StringMatch.match].
+              Replacement for the path prefix matched by `StringMatch`.
 
               For instance, if `prefixMatch` value is `/foo` and `replace_prefix` value is `/bar`,
               a request with `/foobaz` path is forwarded with `/barbaz` path.
@@ -3350,7 +3350,7 @@ components:
             type: string
           replacePrefix:
             description: |-
-              Replacement for the path prefix matched by [StringMatch.match].
+              Replacement for the path prefix matched by `StringMatch`.
 
               For instance, if `prefixMatch` value is `/foo` and `replace_prefix` value is `/bar`,
               a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`.
