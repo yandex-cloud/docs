@@ -105,7 +105,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch1). <br>For instance, if [StringMatch.prefix_match](#StringMatch1) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch1), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch1). <br>For instance, if [StringMatch.prefix_match](#StringMatch1) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch1), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -118,7 +118,7 @@ replace_host | **string**<br>URI host replacement. <br>If not specified, the ori
 replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
 path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch1). <br>For instance, if [StringMatch.prefix_match](#StringMatch1) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch1), the whole path is replaced. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch1). <br>For instance, if [StringMatch.prefix_match](#StringMatch1) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch1), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
 response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
 
@@ -355,7 +355,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -368,7 +368,7 @@ replace_host | **string**<br>URI host replacement. <br>If not specified, the ori
 replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
 path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch3). <br>For instance, if [StringMatch.prefix_match](#StringMatch3) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch3), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
 response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
 
@@ -589,7 +589,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch5). <br>For instance, if [StringMatch.prefix_match](#StringMatch5) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch5), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch5). <br>For instance, if [StringMatch.prefix_match](#StringMatch5) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch5), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -602,7 +602,7 @@ replace_host | **string**<br>URI host replacement. <br>If not specified, the ori
 replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
 path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch5). <br>For instance, if [StringMatch.prefix_match](#StringMatch5) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch5), the whole path is replaced. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch5). <br>For instance, if [StringMatch.prefix_match](#StringMatch5) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch5), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
 response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
 
@@ -818,7 +818,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch7). <br>For instance, if [StringMatch.prefix_match](#StringMatch7) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch7), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch7). <br>For instance, if [StringMatch.prefix_match](#StringMatch7) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch7), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -831,7 +831,7 @@ replace_host | **string**<br>URI host replacement. <br>If not specified, the ori
 replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
 path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch7). <br>For instance, if [StringMatch.prefix_match](#StringMatch7) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch7), the whole path is replaced. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch7). <br>For instance, if [StringMatch.prefix_match](#StringMatch7) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch7), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
 response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
 
@@ -1053,7 +1053,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch9). <br>For instance, if [StringMatch.prefix_match](#StringMatch9) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch9), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch9). <br>For instance, if [StringMatch.prefix_match](#StringMatch9) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch9), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -1066,7 +1066,7 @@ replace_host | **string**<br>URI host replacement. <br>If not specified, the ori
 replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
 path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch9). <br>For instance, if [StringMatch.prefix_match](#StringMatch9) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch9), the whole path is replaced. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch9). <br>For instance, if [StringMatch.prefix_match](#StringMatch9) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch9), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
 response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
 
@@ -1282,7 +1282,7 @@ idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protoc
 host_rewrite_specifier | **oneof:** `host_rewrite` or `auto_host_rewrite`<br>Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers. <br>If not specified, the host is not changed.
 &nbsp;&nbsp;host_rewrite | **string**<br>Host replacement. 
 &nbsp;&nbsp;auto_host_rewrite | **bool**<br>Automatically replaces the host with that of the target. 
-prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch11). <br>For instance, if [StringMatch.prefix_match](#StringMatch11) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch11), the whole path is replaced. <br>If not specified, the path is not changed. 
+prefix_rewrite | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch11). <br>For instance, if [StringMatch.prefix_match](#StringMatch11) value is `/foo` and `replace_prefix` value is `/bar`, a request with `/foobaz` path is forwarded with `/barbaz` path. For [StringMatch.exact_match](#StringMatch11), the whole path is replaced. <br>If not specified, the path is not changed. 
 upgrade_types[] | **string**<br>Supported values for HTTP `Upgrade` header. E.g. `websocket`. 
 
 
@@ -1295,7 +1295,7 @@ replace_host | **string**<br>URI host replacement. <br>If not specified, the ori
 replace_port | **int64**<br>URI host replacement. <br>If not specified, the original host is used. 
 path | **oneof:** `replace_path` or `replace_prefix`<br>URI path replacement. <br>If not specified, the original path is used.
 &nbsp;&nbsp;replace_path | **string**<br>Replacement for the whole path. 
-&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch.match](#StringMatch11). <br>For instance, if [StringMatch.prefix_match](#StringMatch11) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch11), the whole path is replaced. 
+&nbsp;&nbsp;replace_prefix | **string**<br>Replacement for the path prefix matched by [StringMatch](#StringMatch11). <br>For instance, if [StringMatch.prefix_match](#StringMatch11) value is `/foo` and `replace_prefix` value is `/bar`, a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`. For [StringMatch.exact_match](#StringMatch11), the whole path is replaced. 
 remove_query | **bool**<br>Removes URI query. 
 response_code | enum **RedirectResponseCode**<br>HTTP status code to use in redirect responses. <ul><li>`MOVED_PERMANENTLY`: `301 Moved Permanently` status code.</li><li>`FOUND`: `302 Found` status code.</li><li>`SEE_OTHER`: `303 See Other` status code.</li><li>`TEMPORARY_REDIRECT`: `307 Temporary Redirect` status code.</li><li>`PERMANENT_REDIRECT`: `308 Permanent Redirect` status code.</li><ul/>
 
