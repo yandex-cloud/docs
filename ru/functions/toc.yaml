@@ -283,6 +283,8 @@ items:
         href: solutions/data-recording.md
       - name: Разработка Slack-бота
         href: solutions/slack-bot-serverless.md
+      - name: Разработка Telegram-бота
+        href: solutions/telegram-bot-serverless.md
       - name: Подключение к базе данных YDB из функции на Python
         href: solutions/connect-to-ydb.md
   - name: Правила тарификации
