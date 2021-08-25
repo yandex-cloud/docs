@@ -19,6 +19,12 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](volumes/volume-expansion.md)
 * [{#T}](volumes/mode-block.md)
 
+## Сетевые сценарии {#network-scenarios}
+
+* [{#T}](create-load-balancer.md)
+* [{#T}](calico.md)
+* [{#T}](cilium.md)
+
 ## Управление кластером {{ k8s }} {#kubernetes-cluster}
 
 * [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)

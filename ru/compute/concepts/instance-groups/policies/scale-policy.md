@@ -71,7 +71,7 @@ scale_policy:
 ```yaml
 scale_policy:
   fixed_scale:
-    size : 5
+    size: 5
   test_auto_scale:
     initial_size: 5
     max_size: 15

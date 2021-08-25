@@ -15,6 +15,7 @@ Available extensions:
 * [Invoking a function](../concepts/extensions/cloud-functions.md).
 * [Access via HTTP](../concepts/extensions/http.md).
 * [Integration with Object Storage](../concepts/extensions/object-storage.md).
+* [DataSphere integration](../concepts/extensions/datasphere.md).
 * [Greedy parameters](../concepts/extensions/greedy-parameters.md).
 * [Generalized HTTP method](../concepts/extensions/any-method.md).
 
@@ -25,6 +26,10 @@ Available extensions:
 You can use domains with confirmed rights when accessing the API. In this case, a certificate linked to the domain is used to provide a TLS connection.
 
 For more information about domains, see [{#T}](../../certificate-manager/concepts/domains/services.md).
+
+## Authorization {#authorization}
+
+{{ api-gw-short-name }} enables you to implement standard [authentication and authorization mechanisms](https://swagger.io/docs/specification/authentication/) as described in the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) specification. At present, [authorization using a function](../concepts/extensions/function-authorizer.md) is available.
 
 #### See also {#see-also}
 
