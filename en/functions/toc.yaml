@@ -55,6 +55,8 @@ items:
             href: operations/function/function-invoke.md
           - name: Updating a function
             href: operations/function/function-update.md
+          - name: Scaling a function
+            href: operations/function/function-scale.md
           - name: View monitoring charts
             href: operations/function/function-monitoring.md
           - name: Viewing the execution log

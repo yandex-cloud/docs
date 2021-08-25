@@ -21,6 +21,8 @@ items:
             href: operations/create-load-balancer.md
           - name: Настройка контроллера сетевых политик Calico
             href: operations/calico.md
+          - name: Настройка контроллера сетевых политик Cilium
+            href: operations/cilium.md
       - name: Шифрование секретов
         href: operations/encrypting-secrets.md
       - name: Работа с постоянными томами

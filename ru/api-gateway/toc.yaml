@@ -27,6 +27,8 @@ items:
         href: solutions/alice-shareable-todolist.md
       - name: Разработка Slack-бота
         href: solutions/slack-bot-serverless.md
+      - name: Разработка Telegram-бота
+        href: solutions/telegram-bot-serverless.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

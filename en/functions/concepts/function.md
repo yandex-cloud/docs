@@ -45,7 +45,7 @@ To enable a function call, describe a _handler_ in it. It's defined when writing
 
 _Context_ lets your function code interact with {{ sf-name }}. For example, the function can use it to find how much time is left before {{ sf-name }} completes its execution.
 
-Incoming requests are processed by the function one at a time. If the function is called faster than one instance can process the request, the service scales the function by running additional function instances. This ensures _concurrent  request processing_.
+Incoming requests are processed by the function one at a time. If the function is called faster than one instance can process the request, the service scales the function by running additional function instances. This ensures _concurrent  request processing_. You can [limit](../operations/function/function-scale.md) the number of function instances and concurrent requests to it.
 
 To let your function process multiple requests simultaneously, use _asynchronous code execution_ provided by the [runtime environment](runtime/index.md).
 

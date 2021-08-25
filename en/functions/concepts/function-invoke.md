@@ -60,6 +60,7 @@ Detailed description of a request:
         "requestId": "<request ID generated in the router>",
         "requestTime": "<request time in CLF format>",
         "requestTimeEpoch": "<request time in Unix format>"
+        "authorizer": "<dictionary with authorization context>"
     }
     ```
 
@@ -289,12 +290,12 @@ Your function receives and passes the contents of HTTP headers as JSON fields (s
         - "Proxy-Authenticate"
         - "Transfer-Encoding"
         - "Via"
-        - "Www-Authenticate"
 
     - Overwritten by adding the `X-Yf-Remapped-` prefix:
         - "Content-Md5"
         - "Date"
         - "Server"
+        - "Www-Authenticate"
 
 {% endlist %}
 
