@@ -16,5 +16,6 @@ description: "From this article you will learn how to work with machine learning
 - [{#T}](projects/update.md)
 - [{#T}](projects/delete.md)
 - [{#T}](projects/work-with-git.md)
+- [{#T}](data/connect-to-clickhouse.md)
+- [{#T}](data/connect-to-postgresql.md)
 - [{#T}](data-proc-integration.md)
-

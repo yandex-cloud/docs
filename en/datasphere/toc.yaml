@@ -33,6 +33,12 @@ items:
         href: operations/projects/delete.md
       - name: Working with Git
         href: operations/projects/work-with-git.md
+      - name: Connecting to data sources
+        items:
+          - name: Connecting to a {{ CH }} database
+            href: operations/data/connect-to-clickhouse.md
+          - name: Connecting to a {{ PG }} database
+            href: operations/data/connect-to-postgresql.md
       - name: Setting up integration with Data Proc
         href: operations/data-proc-integration.md
   - name: Concepts
@@ -92,7 +98,7 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref/datasphere/toc.yaml        
+          path: en/_api-ref/datasphere/toc.yaml
   - name: Access management
     href: security/index.md
   - name: Pricing policy
