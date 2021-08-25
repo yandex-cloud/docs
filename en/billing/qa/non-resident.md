@@ -4,7 +4,7 @@
 
 Yes, but only if your legal status is a business.
 
-#### Residents of what countries do you work with? {#countries}
+#### What countries do you work with? {#countries}
 
 Residents of the countries listed below can enter into an agreement and create a billing account.
 
