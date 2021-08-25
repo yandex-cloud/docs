@@ -39,10 +39,14 @@ items:
             href: concepts/extensions/http.md
           - name: Integration with Object Storage
             href: concepts/extensions/object-storage.md
+          - name: DataSphere integration
+            href: concepts/extensions/datasphere.md
           - name: Greedy parameters
             href: concepts/extensions/greedy-parameters.md
           - name: Generalized HTTP method
             href: concepts/extensions/any-method.md
+          - name: Authorization using a function
+            href: concepts/extensions/function-authorizer.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
