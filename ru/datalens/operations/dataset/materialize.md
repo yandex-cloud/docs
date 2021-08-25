@@ -54,3 +54,6 @@
 Уведомления будут приходить вам в Telegram при падении или задержке материализации. Эта информация необходима при обращении в [чат DataLens Community](https://t.me/joinchat/BbHwRD-yeFhOUcVS1_fdsA).
 
 {% endif %}
+
+#### См. также {#see-also}
+- [{#T}](../../concepts/dataset/settings.md#materializaton)
