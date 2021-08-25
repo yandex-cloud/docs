@@ -138,8 +138,8 @@
      }
 
      resource "yandex_kubernetes_cluster" "zonal_cluster_resource_name" {
-       name        = "MyCluster"
-       description = "MyCluster description"
+       name        = "my-cluster"
+       description = "my-cluster description"
        network_id = "${yandex_vpc_network.this.id}"
 
        master {
