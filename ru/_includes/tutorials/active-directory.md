@@ -142,7 +142,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
   1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
   1. В блоке **Диски** укажите размер загрузочного диска 35 ГБ.
   1. В блоке **Вычислительные ресурсы**:
-      - Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       - Укажите необходимое количество vCPU и объем RAM:
          * **vCPU** — 4.
          * **Гарантированная доля vCPU** — 100%.
@@ -195,7 +195,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
   1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
   1. В блоке **Диски** укажите размер загрузочного диска 35 ГБ.
   1. В блоке **Вычислительные ресурсы**:
-      - Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       - Укажите необходимое количество vCPU и объем RAM:
          * **vCPU** — 2.
          * **Гарантированная доля vCPU** — 100%.

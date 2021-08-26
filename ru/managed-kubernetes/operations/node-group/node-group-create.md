@@ -22,7 +22,7 @@
   yc managed-kubernetes node-group create \
     --name my-node-group \
     --cluster-name test-k8s \
-    --platform-id standard-v2 \
+    --platform-id standard-v3 \
     --network-interface security-group-ids=[my-security-group1,my-security-group2],subnets=[yc-auto-subnet-0],ipv4-address=nat \
     --cores 2 \
     --memory 4 \

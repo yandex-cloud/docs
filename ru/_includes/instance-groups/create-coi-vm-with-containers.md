@@ -125,7 +125,7 @@
    service_account_id: ajeabccde01d23efl1v5 # Идентификатор сервисного аккаунта.
    instance_template:
      service_account_id: ajeabccde01d23efl1v5 # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
-     platform_id: standard-v2 # Идентификатор платформы.
+     platform_id: standard-v3 # Идентификатор платформы.
      resources_spec:
        memory: 2G # Количество памяти (RAM).
        cores: 2 # Количество ядер процессора (vCPU).

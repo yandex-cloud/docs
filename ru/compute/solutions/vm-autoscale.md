@@ -159,7 +159,7 @@
        name: auto-group-tg
    instance_template:
      service_account_id: <Идентификатор сервисного аккаунта>
-     platform_id: standard-v1
+     platform_id: standard-v3
      resources_spec:
        memory: 2G
        cores: 2

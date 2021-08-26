@@ -131,7 +131,7 @@
         "folderId": "b1gvmob95yysaplct532",
         "name": "instance-demo-no-pwauth",
         "zoneId": "ru-central1-c",
-        "platformId": "standard-v1",
+        "platformId": "standard-v3",
         "resourcesSpec": {
           "memory": "2147483648",
           "cores": "2",
@@ -198,7 +198,7 @@
      resource "yandex_compute_instance" "vm-1" {
 
        name        = "linux-vm"
-       platform_id = "standard-v2"
+       platform_id = "standard-v3"
 
        resources {
          cores  = <количество ядер vCPU>

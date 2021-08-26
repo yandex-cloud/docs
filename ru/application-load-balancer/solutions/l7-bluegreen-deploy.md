@@ -43,7 +43,7 @@
      * В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **Cloud Marketplace** и выберите публичный образ LEMP.
      * В блоке **Диски** выберите **Тип диска**: `HDD` и укажите **Размер диска**: `13 ГБ`.
      * В блоке **Вычислительные ресурсы** укажите конфигурацию ВМ:
-       * [Платформа](../../compute/concepts/vm-platforms.md): — Intel Cascade Lake.
+       * [Платформа](../../compute/concepts/vm-platforms.md): — Intel Ice Lake.
        * **vCPU** — 2.
        * [Гарантированная доля vCPU](../../compute/concepts/performance-levels.md) — 20%.
        * **RAM** — 1 ГБ.

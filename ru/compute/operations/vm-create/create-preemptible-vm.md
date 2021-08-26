@@ -110,7 +110,7 @@
      resource "yandex_compute_instance" "vm-1" {
 
        name        = "preemptible-vm"
-       platform_id = "standard-v2"
+       platform_id = "standard-v3"
 
        resources {
          cores  = <количество ядер vCPU>

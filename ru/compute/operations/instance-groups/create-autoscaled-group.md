@@ -62,7 +62,7 @@
 
           ```
           instance_template:
-              platform_id: standard-v1
+              platform_id: standard-v3
               resources_spec:
                   memory: 2g
                   cores: 2
@@ -131,7 +131,7 @@
           service_account_id: ajed6ilf11qg839dcl1e
           description: "This instance group was created from YAML config."
           instance_template:
-              platform_id: standard-v1
+              platform_id: standard-v3
               resources_spec:
                   memory: 2g
                   cores: 2
@@ -247,7 +247,7 @@
        folder_id          = "<идентификатор каталога>"
        service_account_id = "${yandex_iam_service_account.ig-sa.id}"
        instance_template {
-         platform_id = "standard-v1"
+         platform_id = "standard-v3"
          resources {
            memory = <объем RAM в ГБ>
            cores  = <количество ядер vCPU>

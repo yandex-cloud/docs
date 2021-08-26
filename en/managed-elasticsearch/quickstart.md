@@ -10,7 +10,7 @@ To get started with the service:
 
 ## Before you start {#before-you-begin}
 
-1. Log in [management console]({{ link-console-main }}) or sign up if you aren't registered yet.
+1. Log in the [management console]({{ link-console-main }}) or sign up if you aren't registered yet.
 
 1. If you don't have a folder yet, create one:
 
@@ -18,11 +18,11 @@ To get started with the service:
 
 1. You can connect to an {{ ES }} cluster from both inside and outside {{ yandex-cloud }}:
     - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
-    - To connect to a cluster from the internet, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_](concepts/hosts-roles.md#data-node) role when creating a cluster.
+    - To connect to a cluster from the internet, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_ role](concepts/hosts-roles.md#data-node) when creating a cluster.
 
 {% note info %}
 
-These instructions assume that you're connecting to the cluster from the internet.
+This instruction assumes that you're connecting to the cluster from the internet.
 
 {% endnote %}
 
@@ -41,7 +41,7 @@ These instructions assume that you're connecting to the cluster from the interne
    1. Select **Public access**.
    1. Click **Save**.
 
-   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. You may need to additionally [set up security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster.
+   Public access can be requested for one or more hosts with the _Data node_ role. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. You may need to additionally [set up security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster.
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
@@ -49,7 +49,7 @@ These instructions assume that you're connecting to the cluster from the interne
 
 1. Wait until the cluster is ready: its status on the {{ mes-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
-## Configure security groups{#configuring-security-groups}
+## Configure security groups {#configuring-security-groups}
 
 [Configure security groups](operations/cluster-connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 

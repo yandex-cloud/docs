@@ -7,3 +7,5 @@ RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram|string }}
 **Intel Cascade Lake** |
 1 GPU | {{ sku|RUB|compute.vm.gpu.gpu-standard.v2|string }}
 RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.v2|string }}
+**Intel Ice Lake** |
+RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.v3|string }}
