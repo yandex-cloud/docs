@@ -240,7 +240,7 @@
      folder_id = "<идентификатор каталога>"
      service_account_id = "<идентификатор сервисного аккаунта>"
      instance_template {
-       platform_id = "standard-v1"
+       platform_id = "standard-v3"
        resources {
          memory = 2
          cores  = 2

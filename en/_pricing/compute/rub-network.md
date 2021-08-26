@@ -6,3 +6,6 @@ For VMs with 18 or more cores | ₽5.36
 **Intel Cascade Lake** |
 For VMs with less than 20 cores | ₽2.68
 For VMs with 20 or more cores | ₽5.36
+**Intel Ice Lake** |
+For VMs with less than 32 cores | ₽2.68
+For VMs with 32 or more cores | ₽5.36

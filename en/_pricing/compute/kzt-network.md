@@ -6,3 +6,6 @@ For VMs with 18 or more cores | ₸32.16
 **Intel Cascade Lake** |
 For VMs with less than 20 cores | ₸16.08
 For VMs with 20 or more cores | ₸32.16
+**Intel Ice Lake** |
+For VMs with less than 32 cores | ₸16.08
+For VMs with 32 or more cores | ₸32.16
