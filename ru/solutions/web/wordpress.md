@@ -49,7 +49,7 @@ author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructo
    ![add-vm-name](../_assets/wordpress/vm-create-2.png)
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ **WordPress**.
+1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [WordPress]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eugfso8lh4ch2g2m9h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eugfso8lh4ch2g2m9h){% endif %}.
 
    ![choose-image](../_assets/wordpress/vm-create-3.png)
 

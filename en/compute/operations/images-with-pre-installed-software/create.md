@@ -22,7 +22,7 @@ To create a VM:
 
     {% note info %}
 
-    To create a VM from a **GitLab** image, at least 4 virtual cores (100% vCPU) and 4 GB of RAM are required.
+    To create a VM from a [GitLab]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eb5e8deq602ccak537){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537){% endif %} image, at least 4 virtual cores (100% vCPU) and 4 GB of RAM are required.
 
     {% endnote %}
 

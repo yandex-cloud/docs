@@ -44,7 +44,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.  If you don't know which availability zone you need, leave the default.
 
-1. Under **Images from {{ marketplace-name }}**, select the Ubuntu 18.04 LTS image.
+1. Under **Images from {{ marketplace-name }}**, select the [Ubuntu 18.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %} image.
 
 1. Under **Disks**, select an SSD with 13 GB.
 

@@ -31,7 +31,7 @@ Create a VM where the test application will be installed, the set of components 
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to locate the VM in.
 
-1. Select a public image of Ubuntu 18.04.
+1. Select a public image of [Ubuntu 18.04]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}.
 
 1. In the **Computing resources** section, select the following configuration:
    * **Platform**: Intel Cascade Lake.
@@ -282,7 +282,7 @@ One of the ways to set up CI in Yandex.Cloud is to take advantage of a public im
 
 1. In the window that opens, open the **DevTools** tab.
 
-1. Choose the **GitLab** image.
+1. Choose the [GitLab]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eb5e8deq602ccak537){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537){% endif %} image.
 
 1. In the **Computing resources** section, select the following configuration:
    * **Guaranteed vCPU share**: 100%.

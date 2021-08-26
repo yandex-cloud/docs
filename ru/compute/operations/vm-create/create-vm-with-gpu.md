@@ -43,7 +43,7 @@
       - [Размер RAM](../../concepts/gpus.md).
       - [Количество GPU](../../concepts/gpus.md).
       - При необходимости сделайте виртуальную машину [прерываемой](../../concepts/preemptible-vm.md) с помощью опции `--preemptible`.
-      - [Образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ Ubuntu 16.04.6 LTS c CUDA драйверами.
+      - [Образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04.6 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e0e2jmj38nmqe3cagl){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e0e2jmj38nmqe3cagl){% endif %} c CUDA драйверами.
       - Публичный IP. Чтобы создать виртуальную машину без публичного IP, исключите опцию `nat-ip-version=ipv4`.
 
       Например:

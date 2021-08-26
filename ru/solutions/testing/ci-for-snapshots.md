@@ -46,7 +46,7 @@
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 1. В поле **Имя** введите имя виртуальной машины: `ci-tutorial-test-app`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-1. Выберите публичный образ Ubuntu 18.04.
+1. Выберите публичный образ [Ubuntu 18.04]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}.
 1. В блоке **Вычислительные ресурсы** выберите следующую конфигурацию:
    * **Платформа** — Intel Ice Lake.
    * **Гарантированная доля vCPU** — 20%.
@@ -291,7 +291,7 @@
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 1. В разделе **Образы** нажмите кнопку **Выбрать**.
 1. В открывшемся окне откройте вкладку **DevTools**.
-1. Выберите образ **GitLab**.
+1. Выберите образ [GitLab]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eb5e8deq602ccak537){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eb5e8deq602ccak537){% endif %}.
 1. В блоке **Вычислительные ресурсы** выберите следующую конфигурацию:
 
    * **Гарантированная доля vCPU** — 100%.

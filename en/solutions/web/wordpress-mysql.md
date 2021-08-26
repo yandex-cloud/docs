@@ -49,7 +49,7 @@ To create a VM:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public image of **Debian 10**, **Ubuntu 18.04**, or **CentOS 7**.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public image of [Debian 10]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eec74qhul8dvtq413l){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eec74qhul8dvtq413l){% endif %}, [Ubuntu 18.04 lts]{% if lang == "ru" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}, or [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}.
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).

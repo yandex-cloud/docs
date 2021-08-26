@@ -54,7 +54,7 @@ Create a VM in Yandex.Cloud to serve as a gateway for a VPN tunnel.
 
 1. Select the subnet availability zone to connect the OpenVPN instance to and where the test VM is already located.
 
-1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the **OpenVPN** image.
+1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the [OpenVPN]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e1aee242rtv6lsrfea){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e1aee242rtv6lsrfea){% endif %} image.
 
 1. In the **Network settings** section, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically.
 

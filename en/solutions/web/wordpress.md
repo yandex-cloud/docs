@@ -47,7 +47,7 @@ To create a VM:
 
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-1. Under **Images from {{ marketplace-name }}**, click **Select**. Select the **WordPress** public image.
+1. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [WordPress]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eugfso8lh4ch2g2m9h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eugfso8lh4ch2g2m9h){% endif %} public image.
 
 1. Under **Computing resources**:
    * Choose a [platform](../../compute/concepts/vm-platforms.md).

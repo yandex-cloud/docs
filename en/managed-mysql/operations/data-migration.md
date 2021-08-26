@@ -63,7 +63,7 @@ The required amount of RAM and processor cores depends on the amount of data to 
 
 To prepare the virtual machine to restore the dump:
 
-1. In the management console, create a new VM from an Ubuntu 18.04 image. The VM parameters depend on the size of the DB you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a DB up to 1 GB in size. The size of the DB you are migrating determines how much RAM and disk space is necessary (you need at least twice the size of the DB).
+1. In the management console, create a new VM from an [Ubuntu 18.04]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %} image. The VM parameters depend on the size of the DB you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a DB up to 1 GB in size. The size of the DB you are migrating determines how much RAM and disk space is necessary (you need at least twice the size of the DB).
 
     The virtual machine must be in the same network and availability zone as the {{ MY }} cluster master host. Additionally, the VM must be assigned an external IP address so that you can load the dump from outside {{ yandex-cloud }}.
 

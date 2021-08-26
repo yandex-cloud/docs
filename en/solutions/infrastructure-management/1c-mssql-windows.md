@@ -64,7 +64,7 @@ Create two VMs for the 1C server and the license server:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the **Windows 2016 Datacenter** public image.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [Windows 2016 Datacenter]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2ep1515h63fnvqh6hkl){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2ep1515h63fnvqh6hkl){% endif %} public image.
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).
@@ -93,7 +93,7 @@ To create an infobase VM:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the **SQL Server 2016 Standard** public image.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select the [SQL Server 2016 Standard]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2epngblcno76k5st39r){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2epngblcno76k5st39r){% endif %} public image.
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).

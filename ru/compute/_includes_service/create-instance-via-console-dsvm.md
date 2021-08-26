@@ -1,4 +1,4 @@
-Чтобы создать виртуальную машину из публичного образа DSVM:
+Чтобы создать виртуальную машину из публичного образа [DSVM]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e4v304qn35mhilnsbc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e4v304qn35mhilnsbc){% endif %}:
 1. В [консоли управления](https://console.cloud.yandex.ru) выберите каталог, в котором будет создана виртуальная машина.
 1. В списке сервисов выберите {{ compute-name }}.
 1. Нажмите кнопку **Создать ВМ**.

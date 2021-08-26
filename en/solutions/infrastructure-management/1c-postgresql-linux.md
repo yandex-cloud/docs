@@ -64,7 +64,7 @@ To create a VM:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public **CentOS 8** image.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [CentOS 8]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2eb5s1m9o1fs5t35ttf){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2eb5s1m9o1fs5t35ttf){% endif %} image.
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).

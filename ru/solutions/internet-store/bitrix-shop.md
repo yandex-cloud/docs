@@ -43,7 +43,7 @@
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.  Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-1. В блоке **Образы из {{ marketplace-name }}** выберите образ операционной системы Ubuntu 18.04 lts.
+1. В блоке **Образы из {{ marketplace-name }}** выберите образ операционной системы [Ubuntu 18.04 lts]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}.
 1. В блоке **Диски** выберите диск SSD размером 13 ГБ.
 1. В блоке **Вычислительные ресурсы** укажите конфигурацию, которая необходима для корректной работы 1С-Битрикс:
    * **Платформа** — Intel Ice Lake.
