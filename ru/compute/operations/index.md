@@ -46,6 +46,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-control/vm-attach-disk.md)
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
+* [{#T}](vm-control/vm-attach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
