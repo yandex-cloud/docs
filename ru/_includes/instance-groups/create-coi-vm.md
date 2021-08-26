@@ -74,7 +74,7 @@
 
      ```yaml
      instance_template:
-       platform_id: standard-v1
+       platform_id: standard-v3
        resources_spec:
          memory: 2G
          cores: 2
@@ -141,7 +141,7 @@
      description: "This instance group was created from YAML config."
      instance_template:
        service_account_id: aje3932acd8avp6edhbt # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
-       platform_id: standard-v1
+       platform_id: standard-v3
        resources_spec:
          memory: 2G
          cores: 2

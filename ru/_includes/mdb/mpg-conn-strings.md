@@ -48,7 +48,7 @@ sudo apt update && sudo apt install -y postgresql-client
 
       ```bash
       SELECT version();
-      ```     
+      ```
 
 {% endlist %}
 
@@ -97,51 +97,51 @@ go mod init example && go get github.com/jackc/pgx/v4
       package main
 
       import (
-        "context"
-        "fmt"
-        "os"
+          "context"
+          "fmt"
+          "os"
 
-        "github.com/jackc/pgx/v4"
+          "github.com/jackc/pgx/v4"
       )
 
       const (
-        host     = "<FQDN одного или нескольких хостов {{ PG }}>"
-        port     = 6432
-        user     = "<имя пользователя>"
-        password = "<пароль пользователя>"
-        dbname   = "<имя БД>"
+          host     = "<FQDN одного или нескольких хостов {{ PG }}>"
+          port     = 6432
+          user     = "<имя пользователя>"
+          password = "<пароль пользователя>"
+          dbname   = "<имя БД>"
       )
 
       func main() {
 
-        connstring := fmt.Sprintf(
-          "host=%s port=%d dbname=%s user=%s password=%s target_session_attrs=read-write",
-          host, port, dbname, user, password)
+          connstring := fmt.Sprintf(
+              "host=%s port=%d dbname=%s user=%s password=%s target_session_attrs=read-write",
+              host, port, dbname, user, password)
 
-        connConfig, err := pgx.ParseConfig(connstring)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
-          os.Exit(1)
-        }
+          connConfig, err := pgx.ParseConfig(connstring)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
+              os.Exit(1)
+          }
 
-        conn, err := pgx.ConnectConfig(context.Background(), connConfig)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-          os.Exit(1)
-        }
+          conn, err := pgx.ConnectConfig(context.Background(), connConfig)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+              os.Exit(1)
+          }
 
-        defer conn.Close(context.Background())
+          defer conn.Close(context.Background())
 
-        var version string
+          var version string
 
-        err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
-          os.Exit(1)
-        }
+          err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
+              os.Exit(1)
+          }
 
-        fmt.Println(version)  
-      }  
+          fmt.Println(version)
+      }
       ```
 
   1. Подключение:
@@ -153,80 +153,80 @@ go mod init example && go get github.com/jackc/pgx/v4
 - Подключение с SSL
 
   1. Пример кода:
-    
+
       `connect.go`
 
       ```go
       package main
 
       import (
-        "context"
-        "crypto/tls"
-        "crypto/x509"
-        "fmt"
-        "io/ioutil"
-        "os"
+          "context"
+          "crypto/tls"
+          "crypto/x509"
+          "fmt"
+          "io/ioutil"
+          "os"
 
-        "github.com/jackc/pgx/v4"
+          "github.com/jackc/pgx/v4"
       )
 
       const (
-        host     = "<FQDN одного или нескольких хостов {{ PG }}>"
-        port     = 6432
-        user     = "<имя пользователя>"
-        password = "<пароль пользователя>"
-        dbname   = "<имя БД>"
-        ca       = "/home/<домашняя директория>/.postgresql/root.crt"
+          host     = "<FQDN одного или нескольких хостов {{ PG }}>"
+          port     = 6432
+          user     = "<имя пользователя>"
+          password = "<пароль пользователя>"
+          dbname   = "<имя БД>"
+          ca       = "/home/<домашняя директория>/.postgresql/root.crt"
       )
 
       func main() {
 
-        rootCertPool := x509.NewCertPool()
-        pem, err := ioutil.ReadFile(ca)
-        if err != nil {
-          panic(err)
-        }
+          rootCertPool := x509.NewCertPool()
+          pem, err := ioutil.ReadFile(ca)
+          if err != nil {
+              panic(err)
+          }
 
-        if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
-          panic("Failed to append PEM.")
-        }
+          if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
+              panic("Failed to append PEM.")
+          }
 
-        connstring := fmt.Sprintf(
-          "host=%s port=%d dbname=%s user=%s password=%s sslmode=verify-full target_session_attrs=read-write",
-          host, port, dbname, user, password)
+          connstring := fmt.Sprintf(
+              "host=%s port=%d dbname=%s user=%s password=%s sslmode=verify-full target_session_attrs=read-write",
+              host, port, dbname, user, password)
 
-        connConfig, err := pgx.ParseConfig(connstring)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
-          os.Exit(1)
-        }
+          connConfig, err := pgx.ParseConfig(connstring)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
+              os.Exit(1)
+          }
 
-        connConfig.TLSConfig = &tls.Config{
-          RootCAs:            rootCertPool,
-          InsecureSkipVerify: true,
-        }
+          connConfig.TLSConfig = &tls.Config{
+              RootCAs:            rootCertPool,
+              InsecureSkipVerify: true,
+          }
 
-        conn, err := pgx.ConnectConfig(context.Background(), connConfig)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-          os.Exit(1)
-        }
+          conn, err := pgx.ConnectConfig(context.Background(), connConfig)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+              os.Exit(1)
+          }
 
-        defer conn.Close(context.Background())
+          defer conn.Close(context.Background())
 
-        var version string
+          var version string
 
-        err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
-          os.Exit(1)
-        }
+          err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
+              os.Exit(1)
+          }
 
-        fmt.Println(version)
+          fmt.Println(version)
       }
       ```
 
-      Необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
+      При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
 
   1. Подключение:
 
@@ -326,6 +326,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       </build>
     </project>
     ```
+
     {% endcut %}
 
     Актуальная версия зависимости для Maven: [postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql).
@@ -373,7 +374,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 - Подключение с SSL
 
   1. Пример кода:
-    
+
       `src/java/com/example/App.java`
 
       ```java
@@ -408,8 +409,6 @@ go mod init example && go get github.com/jackc/pgx/v4
       java -jar target/app-0.1.0-jar-with-dependencies.jar
       ```
 
-{% endlist %}
-
 ### Node.js {#nodejs}
 
 Перед подключением установите зависимости:
@@ -423,76 +422,72 @@ npm install pg
 
 - Подключение без SSL
 
-  1. Пример кода:
+    `app.js`
 
-      `app.js`
+    ```javascript
+    "use strict";
+    const pg = require("pg");
 
-      ```js
-      "use strict"
-      const pg = require('pg');
+    const config = {
+        connectionString:
+            "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.mdb. yandexcloud.net:6432/<имя БД>"
+    };
 
-      const config = {
-        connectionString: 'postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.mdb. yandexcloud.net:6432/<имя БД>',
-      }
+    const conn = new pg.Client(config);
 
-      const conn = new pg.Client(config)
-
-      conn.connect(err => {if (err) throw err})
-      conn.query('SELECT version()', (err, q) => {
-        if (err) throw err
-        console.log(q.rows[0])
-        conn.end()
-      })
-      ```
-
-      Идентификатор кластера можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters).
-
-  1. Подключение:
-
-      ```bash
-      node app.js
-      ```
+    conn.connect((err) => {
+        if (err) throw err;
+    });
+    conn.query("SELECT version()", (err, q) => {
+        if (err) throw err;
+        console.log(q.rows[0]);
+        conn.end();
+    });
+    ```
 
 - Подключение с SSL
 
-  1. Пример кода:
-  
-      `app.js`
+    `app.js`
 
-      ```js
-      "use strict"
-      const fs = require('fs');
-      const pg = require('pg');
+    ```javascript
+    "use strict";
+    const fs = require("fs");
+    const pg = require("pg");
 
-      const config = {
-        connectionString: 'postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.mdb.yandexcloud.net:6432/<имя БД>',
+    const config = {
+        connectionString:
+            "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.mdb.yandexcloud.net:6432/<имя БД>",
         ssl: {
-          rejectUnauthorized: true,
-          ca: fs.readFileSync('/home/<домашняя директория>/.postgresql/root.crt').toString(),
+            rejectUnauthorized: true,
+            ca: fs
+                .readFileSync("/home/<домашняя директория>/.postgresql/root.crt")
+                .toString(),
         },
-      }
+    };
 
-      const conn = new pg.Client(config)
+    const conn = new pg.Client(config);
 
-      conn.connect(err => {if (err) throw err})
-      conn.query('SELECT version()', (err, q) => {
-        if (err) throw err
-        console.log(q.rows[0])
-        conn.end()
-      })
-      ```
+    conn.connect((err) => {
+        if (err) throw err;
+    });
+    conn.query("SELECT version()", (err, q) => {
+        if (err) throw err;
+        console.log(q.rows[0]);
+        conn.end();
+    });
+    ```
 
-      Идентификатор кластера можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters).
-
-      Необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
-
-  1. Подключение:
-
-      ```bash
-      node app.js
-      ```
+    При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
 
 {% endlist %}
+
+Идентификатор кластера можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters).
+
+Подключение:
+
+```bash
+node app.js
+```
 
 ### ODBC {#odbc}
 
@@ -577,7 +572,7 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ```php
       <?php
-        $conn = pg_connect("
+      $conn = pg_connect("
             host=<FQDN одного или нескольких хостов {{ PG }}>
             port=6432
             sslmode=disable
@@ -587,13 +582,13 @@ sudo apt update && sudo apt install -y php php-pgsql
             target_session_attrs=read-write
         ");
 
-        $q = pg_query($conn, "SELECT version()");
-        $result = pg_fetch_row($q);
-        echo($result[0]);
+      $q = pg_query($conn, "SELECT version()");
+      $result = pg_fetch_row($q);
+      echo $result[0];
 
-        pg_close($conn);
+      pg_close($conn);
       ?>
-      ```  
+      ```
 
   1. Подключение:
 
@@ -609,7 +604,7 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ``` php
       <?php
-        $conn = pg_connect("
+      $conn = pg_connect("
             host=<FQDN одного или нескольких хостов {{ PG }}>
             port=6432
             sslmode=verify-full
@@ -619,11 +614,11 @@ sudo apt update && sudo apt install -y php php-pgsql
             target_session_attrs=read-write
         ");
 
-        $q = pg_query($conn, "SELECT version()");
-        $result = pg_fetch_row($q);
-        echo($result[0]);
-      
-        pg_close($conn);
+      $q = pg_query($conn, "SELECT version()");
+      $result = pg_fetch_row($q);
+      echo $result[0];
+
+      pg_close($conn);
       ?>
       ```
 
@@ -663,7 +658,7 @@ sudo apt update && sudo apt install -y php php-pgsql
 
   1. Для проверки успешности подключения выполните запрос:
 
-     ```powershell
+     ```sql
      SELECT version();
      ```
 
@@ -689,7 +684,7 @@ sudo apt update && sudo apt install -y php php-pgsql
 
   1. Для проверки успешности подключения выполните запрос:
 
-     ```powershell
+     ```sql
      SELECT version();
      ```
 

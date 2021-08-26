@@ -127,7 +127,7 @@
      resource "yandex_compute_instance" "vm-1" {
 
        name        = "vm-from-disks"
-       platform_id = "standard-v2"
+       platform_id = "standard-v3"
 
        resources {
          cores  = <количество ядер vCPU>

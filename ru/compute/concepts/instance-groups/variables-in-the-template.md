@@ -96,7 +96,7 @@ _Пользовательская переменная_ — значение, к
    instance_template:
      name: production-{shot_zone_var_{instance.zone_id}}-{instance.index}
      hostname: production-{instance.index}
-     platform_id: standard-v2
+     platform_id: standard-v3
    ...
    ```
 
@@ -119,7 +119,7 @@ _Пользовательская переменная_ — значение, к
    instance_template:
      name: production-{shot_zone_var_ru-central1-a}-1
      hostname: production-1
-     platform_id: standard-v2
+     platform_id: standard-v3
    ...
    ```
 
@@ -139,6 +139,6 @@ _Пользовательская переменная_ — значение, к
    instance_template:
      name: production-rc1a-1
      hostname: production-1
-     platform_id: standard-v2
+     platform_id: standard-v3
    ...
    ```
