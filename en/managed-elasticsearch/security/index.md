@@ -14,7 +14,7 @@ In this section, you'll learn:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-To allow access to {{ mes-name }} service resources (clusters and hosts, cluster backups, and accounts), assign the user the appropriate roles for a folder or a cloud hosting the resources.
+To allow access to {{ mes-name }} service resources (clusters and hosts, cluster backups, and accounts), assign the user the appropriate roles for a folder or cloud hosting the resources.
 
 ## What roles exist in the service {#roles-list}
 
@@ -47,7 +47,7 @@ The table below shows what you can do with cluster resources and the roles you n
 | [Create](../operations/cluster-users.md#adduser), [edit](../operations/cluster-users.md#updateuser), or [remove](../operations/cluster-users.md#removeuser) cluster accounts | `create`, `update`, `delete` | `editor` or `admin` for the folder hosting the cluster |
 | [Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the resource or cloud | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the folder hosting the cluster or the cloud |
 
-## What's next
+## What's next {#whats-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).

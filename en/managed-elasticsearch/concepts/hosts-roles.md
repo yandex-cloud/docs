@@ -11,7 +11,7 @@ keywords:
 
 Each {{ mes-name }} cluster consists of one or more {{ ES }} hosts with different roles: _Data node_ or _Master node_.
 
-## Dedicated hosts with the _Data node_ role {#data-node}
+## Dedicated hosts with the Data node role {#data-node}
 
 Hosts with this role store one or more indexes and handle search and analysis queries. To ensure index scalability and fault tolerance, configure [sharding and replication](scalability-and-resilience.md) for this index.
 
@@ -23,7 +23,7 @@ There should be at least one host with the _Data node_ role in the cluster.
 
 {% endnote %}
 
-## Dedicated hosts with the _Master node_ role {#master-node}
+## Dedicated hosts with the Master node role {#master-node}
 
 Hosts with this role monitor the state of the cluster and manage its configuration, ensuring the performance of all {{ ES }} components.
 
