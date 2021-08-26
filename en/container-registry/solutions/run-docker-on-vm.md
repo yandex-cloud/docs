@@ -122,7 +122,7 @@ This example describes the steps required to run a Docker image on a VM using a 
 
      1. Prepare the key pair (public and private keys) for SSH access to the VM.
 
-     1. Select one of the [public images](../../compute/operations/images-with-pre-installed-software/get-list.md) with a Linux OS (for example, CentOS 7).
+     1. Select one of the [public images](../../compute/operations/images-with-pre-installed-software/get-list.md) with a Linux OS (for example, [CentOS 7](https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo)).
 
         {% include [standard-images](../../_includes/standard-images.md) %}
 

@@ -42,7 +42,7 @@
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться виртуальная машина.
-1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ **OpenCart**.
+1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [OpenCart](https://cloud.yandex.ru/marketplace/products/f2ent1o0am6abue061ph).
 
    На загрузочном диске будет предустановлена платформа OpenCart и необходимые для ее работы компоненты, включая PHP и MySQL.
 

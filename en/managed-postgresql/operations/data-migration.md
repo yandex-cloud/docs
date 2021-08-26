@@ -230,7 +230,7 @@ The required amount of RAM and processor cores depends on the amount of data to 
 
 To prepare the virtual machine to restore the dump:
 
-1. In the management console, [create a new virtual machine](../../compute/operations/vm-create/create-linux-vm.md) from the Ubuntu 18.04 image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. In the management console, [create a new virtual machine](../../compute/operations/vm-create/create-linux-vm.md) from the [Ubuntu 20.04](https://cloud.yandex.com/en-ru/marketplace/products/f2eanb2gaki4us67hn9q) image. The VM parameters depend on the size of the database you want to migrate. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) should be sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
     The virtual machine must be in the same network and availability zone as the {{ PG }} cluster. Additionally, the VM must be assigned an external IP address so that you can load the dump from outside {{ yandex-cloud }}.
 

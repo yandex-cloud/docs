@@ -21,7 +21,7 @@ This section provides guidelines for creating a VM with a Linux OS. To create a 
       ```
 
   1. Prepare the key pair (public and private keys) for SSH access to the VM.
-  1. Select a public [image](../images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, CentOS 7).
+  1. Select a public [image](../images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, [CentOS 7](https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
   1. Select a subnet:

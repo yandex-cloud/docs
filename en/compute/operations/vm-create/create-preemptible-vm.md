@@ -57,7 +57,7 @@ You need to create a key pair for SSH connection yourself. Learn more in [{#T}](
 
   1. Prepare the key pair (public and private keys) for SSH access to the VM.
 
-  1. Select a public [image](../images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, CentOS 7).
+  1. Select a public [image](../images-with-pre-installed-software/get-list.md) based on a Linux OS (for example, [CentOS 7](https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
 

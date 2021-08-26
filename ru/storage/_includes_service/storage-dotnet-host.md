@@ -1,5 +1,5 @@
 {% note info %}
 
-Если вы используете SDK для .NET, обращайтесь к хосту `s3.yandexcloud.net`.
+Если вы используете [AWS SDK для .NET](../tools/aws-sdk-net.md), обращайтесь к хосту `s3.yandexcloud.net`.
 
 {% endnote %}

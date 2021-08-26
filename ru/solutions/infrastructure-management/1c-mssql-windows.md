@@ -64,7 +64,7 @@
 
 3. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ **Windows 2016 Datacenter**.
+4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [Windows 2016 Datacenter](https://cloud.yandex.ru/marketplace/products/f2ep1515h63fnvqh6hkl).
 
 5. В блоке **Вычислительные ресурсы**:
     - Выберите [платформу](../../compute/concepts/vm-platforms.md).
@@ -93,7 +93,7 @@
 
 3. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ **SQL Server 2016 Standard**.
+4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [SQL Server 2016 Standard](https://cloud.yandex.ru/marketplace/products/f2epngblcno76k5st39r).
 
 5. В блоке **Вычислительные ресурсы**:
     - Выберите [платформу](../../compute/concepts/vm-platforms.md).
