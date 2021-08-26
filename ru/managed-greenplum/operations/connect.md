@@ -37,7 +37,7 @@
 {% include [note-sg-detail-rules](../../_includes/mdb/note-sg-detail-rules.md) %}
 
 
-## Настройка SSL-сертификата {#configuring-an-ssl-certificate}
+## Получение SSL-сертификата {#get-ssl-cert}
 
 TODO: Написать про настройку SSL-сертификата
 
