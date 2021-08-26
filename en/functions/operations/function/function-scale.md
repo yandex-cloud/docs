@@ -64,7 +64,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
     ```
 
     * `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
-    * `0.tag`: [Tag](../../concepts/function.md#tag) of the function version.
+    * `--tag`: [Tag](../../concepts/function.md#tag) of the function version.
     * `zone-instances-limit`: Number of function instances.
     * `zone-requests-limit`: Number of calls-in-progress.
 
@@ -153,6 +153,6 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
     ```
 
 	* `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
-	* `0.tag`: [Tag](../../concepts/function.md#tag) of the function version.
+	* `--tag`: [Tag](../../concepts/function.md#tag) of the function version.
 
 {% endlist %}
