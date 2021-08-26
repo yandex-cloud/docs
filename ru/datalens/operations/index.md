@@ -35,6 +35,7 @@
 - [{#T}](chart/create-column-chart.md)
 - [{#T}](chart/create-area-chart.md)
 - [{#T}](chart/create-pie-chart.md)
+- [{#T}](chart/create-ring-chart.md)
 - [{#T}](chart/create-bar-chart.md)
 - [{#T}](chart/create-scatter-chart.md)
 - [{#T}](chart/create-map-chart.md)

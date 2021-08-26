@@ -60,7 +60,7 @@ For your internet service to run, you need two static public IP addresses: one t
     1. In the [management console]({{ link-console-main }}), open your folder and click **Create resource**. Select **Virtual machine**.
     1. Enter the VM name: `web-node-a`.
     1. Select the `ru-central1-a` availability zone.
-    1. Under **Images from {{ marketplace-name }}**, click **Select** and select the **Drupal** image.
+    1. Under **Images from {{ marketplace-name }}**, click **Select** and select the [Drupal](https://cloud.yandex.com/en-ru/marketplace/products/f2e90bncf96u25a9cirp) image.
     1. Under **Network settings**, select `subnet-a`. Under **Public address**, select **No address**.
     1. In the **Access** field, enter the login and SSH key to access the VM.
     1. Click **Create VM**.
@@ -78,7 +78,7 @@ To provide secure access to your resources, create an IPSec instance.
     1. In the [management console]({{ link-console-main }}), open your folder and click **Create resource**. Select **Virtual machine**.
     1. Enter the VM name: `vpc`.
     1. Select the `ru-central1-a` availability zone.
-    1. In the **Images from {{ marketplace-name }}** section, click **Select** and choose the **IPSec instance** image.
+    1. In the **Images from {{ marketplace-name }}** section, click **Select** and choose the [IPSec instance](https://cloud.yandex.com/marketplace/products/f2e70ohdvsd0jgp2302j) image.
     1. Under **Network settings**, select `subnet-a`. Under **Public address**, select a reserved IP address from the list.
     1. In the **Access** field, enter the login and SSH key to access the VM.
     1. Click **Create VM**.

@@ -90,7 +90,7 @@ To create an instance group with a network load balancer:
 
       If there aren't any, [create one](../../../vpc/operations/network-create.md).
 
-  1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, CentOS 7).
+  1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, [CentOS 7](https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 

@@ -16,7 +16,7 @@ In the [{{ marketplace-name }}](https://cloud.yandex.com/marketplace?categories=
 
 ### Remote Desktop Services (RDS) {#rds}
 
-All the images available in the {{ marketplace-name }} have Windows Server 2019 Datacenter pre-installed with the Remote Desktop Licensing Server role pre-activated and a custom license package. You can choose from RDS license packages of 5, 10, 25, 50, 100, 250, or 500 licenses.
+All the images available in the {{ marketplace-name }} have [Windows Server 2019 Datacenter](https://cloud.yandex.com/en-ru/marketplace/products/f2evussurs3m1v2turq6) pre-installed with the Remote Desktop Licensing Server role pre-activated and a custom license package. You can choose from RDS license packages of 5, 10, 25, 50, 100, 250, or 500 licenses.
 
 {% note warning %}
 

@@ -21,7 +21,7 @@
       ```
 
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на виртуальную машину.
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, CentOS 7).
+  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7](https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo)).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
   1. Выберите подсеть:

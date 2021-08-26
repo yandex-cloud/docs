@@ -49,7 +49,7 @@ keywords:
 
 3. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ **Debian 10**, **Ubuntu 18.04** или **CentOS 7**.
+4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [Debian 10](https://cloud.yandex.ru/marketplace/products/f2eec74qhul8dvtq413l), [Ubuntu 18.04 lts](https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc) или [CentOS 7](https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo).
 
 5. В блоке **Вычислительные ресурсы**:
     - Выберите [платформу](../../compute/concepts/vm-platforms.md).

@@ -50,7 +50,7 @@ VMs with GPUs are available in availability zones `ru‑central1‑a` and `ru‑
 
       - If necessary, make your VM [preemptible](../../concepts/preemptible-vm.md) with the `--preemptible` option.
 
-      - [Image](../images-with-pre-installed-software/get-list.md) of the OS. `ubuntu-1604-lts-gpu`: Ubuntu 16.04.6 LTS with CUDA drivers.
+      - [Image](../images-with-pre-installed-software/get-list.md) of the OS. `ubuntu-1604-lts-gpu`: [Ubuntu 16.04.6 LTS](https://cloud.yandex.com/en-ru/marketplace/products/f2e0e2jmj38nmqe3cagl) with CUDA drivers.
 
       - Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
 
