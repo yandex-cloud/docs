@@ -8,6 +8,10 @@
 
 {% endnote %}
 
+На скорость чтения и записи файлов в бакеты влияют настройки компонентов:
+
+* Настройки, заданные при [создании](../operations/cluster-create.md) кластера, влияют на все запущенные в кластере задания.
+* Настройки, заданные при создании заданий, переопределяют настройки уровня кластера и могут быть индивидуальными для каждого задания.
 
 ## DistCp {#distcp}
 
@@ -16,7 +20,7 @@
 Для аутентификации в {{objstorage-name}} можно использовать два подхода:
 
 1. Использовать [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html).
-1. Передавать параметры `access key` и `secret key` при запуске задачи.
+1. Передавать параметры `access key` и `secret key` при создании задачи.
 
 ### Копирование с использованием CredentialProvider {#copying-via-credentialprovider}
 
@@ -28,6 +32,7 @@
     hadoop credential create fs.s3a.access.key -value <access key> -provider localjceks://file/home/jack/yc.jceks
     hadoop credential create fs.s3a.secret.key -value <secret key> -provider localjceks://file/home/jack/yc.jceks
     ```
+
 1. Перенесите файл секрета в локальный HDFS:
 
     ```bash
@@ -82,9 +87,38 @@ hadoop distcp \
        hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
 ```
 
+
+## Оптимизация чтения файлов из {{ objstorage-name }} {#optimize-s3-reading}
+
+Способ чтения данных из бакета определяется [настройкой](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html#Improving_data_input_performance_through_fadvise) `fs.s3a.experimental.input.fadvise`. Ее значение зависит от версии используемого образа:
+
+* В образах версий `1.0`—`1.4` по умолчанию используется значение `sequential`. Оно подходит для операций последовательного чтения файлов, но для произвольного работает медленно. Если вы чаще используете произвольный доступ к файлам, добавьте в свойства компонентов кластера или укажите в настройках задания значение `random`.
+* В образе версии `2.0` по умолчанию используется значение `normal`: работа с файлами происходит в последовательном режиме, но если приложение выполняет операции произвольного доступа, режим автоматически переключается на `random`.
+
+Подробнее об используемых версиях компонентов см. в разделе [{#T}](../concepts/environment.md).
+
+## Оптимизация записи файлов в {{objstorage-name}} {#optimize-s3-writing}
+
+Способ записи данных в бакет {{ objstorage-name }} определяется настройкой `core:fs.s3a.fast.upload`. Ее значение зависит от версии используемого образа:
+
+* В образах версий `1.0`—`1.4` по умолчанию используется значение `false` для экономии RAM. Укажите для этой настройки значение `true` в свойствах компонентов кластера или настройках задания. Это ускорит запись в бакет больших файлов и предотвратит переполнение хранилищ узлов.
+* В образе версии `2.0` настройка `fs.s3a.fast.upload` включена по умолчанию.
+
+При необходимости укажите значения [других настроек](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html), отвечающих за режим записи в {{ objstorage-name }}:
+
+* `fs.s3a.fast.upload.active.blocks` — максимальное количество блоков в одном потоке вывода.
+* `fs.s3a.fast.upload.buffer` — тип буфера, используемого для временного хранения загружаемых данных:
+    * `disk` — данные сохраняются в каталог, указанный в настройке `fs.s3a.buffer.dir`;
+    * `array` — используются массивы в куче JVM;
+    * `bytebuffer` — используется RAM вне кучи JVM.
+* `fs.s3a.multipart.size` — размер кусков (chunk) в байтах, на которые будут разбиты данные при копировании или выгрузке в бакет.
+
+Подробнее об используемых версиях компонентов см. в разделе [{#T}](../concepts/environment.md).
+
+
 ## Использование s3fs {#s3fs}
 
-`s3fs` позволяет монтировать бакеты {{objstorage-name}} посредством Fuse. Более подробно о ее использовании можно узнать на странице [s3fs](../../storage/tools/s3fs.md)
+`s3fs` позволяет монтировать бакеты {{objstorage-name}} посредством Fuse. Более подробно о ее использовании можно узнать на странице [s3fs](../../storage/tools/s3fs.md).
 
 ## Использование {{objstorage-name}} в Spark {#objstorage-spark}
 
