@@ -100,5 +100,5 @@
 [DeleteBucketPolicy](policy/delete.md) | Удаляет политику доступа заданного бакета.
 
 ## См. также {#see-also}
-- [{#T}](../../s3/index.md)
-- [{#T}](../../tools/index.md)
+* [{#T}](../../s3/index.md)
+* [{#T}](../../tools/index.md)

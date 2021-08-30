@@ -33,6 +33,12 @@ You can add and remove databases, view information about them, and manage some d
 
 There are no limits to the number of databases in a cluster.
 
+{% note info %}
+
+Created databases are not available to cluster users by default. To connect to a new database, [grant roles to the appropriate users](grant.md#grant-role).
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -42,6 +48,8 @@ There are no limits to the number of databases in a cluster.
   1. Select the **Databases** tab.
   1. Click **Add**.
   1. Enter a name for the database and click **Add**.
+
+  {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
 - CLI
 
@@ -63,17 +71,42 @@ There are no limits to the number of databases in a cluster.
      $ {{ yc-mdb-my }} database create <database name> --cluster-name=<cluster name>
      ```
 
+     {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
      {{ mmy-short-name }} runs the create database operation.
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Add a `database` description block to the {{ mmy-name }} cluster description:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        database {
+          name = "<DB name>"
+        }
+      }
+      ```
+
+      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
 {% endlist %}
-
-{% note info %}
-
-[Grant roles to the appropriate users](grant.md#grant-role) to access the created database.
-
-{% endnote %}
 
 ## Deleting a database {#remove-db}
 
@@ -97,6 +130,26 @@ There are no limits to the number of databases in a cluster.
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Delete the `database` description block from the {{ mmy-name }} cluster description.
+
+  1. Delete from the user description the `permission` blocks containing the `database_name` field pointing to the database to delete.
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation ]({{ tf-provider-mmy }}).
 
 {% endlist %}
 
@@ -131,13 +184,41 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
   ```bash
   $ {{ yc-mdb-my }} cluster update-config
-       --name=<cluster name>
+       --name <cluster name>
        --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
   ```
 
   Pay close attention to quotation marks: the entire string must constitute the parameter value, including `sql_mode=`.
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- Terraform
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](./cluster-create.md).
+
+    1. Set the SQL modes in the `sql_mode` parameter under `mysql_config`, for example:
+
+        ```hcl
+        resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+          ...
+          mysql_config = {
+            sql_mode = "<list of SQL modes>"
+            ...
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster#mysql-config).
 
 - API
 

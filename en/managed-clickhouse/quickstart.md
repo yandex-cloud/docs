@@ -2,8 +2,8 @@
 
 To get started with the service:
 
-- [Create a DB cluster](#cluster-create).
-- [Connect to the DB](#connect).
+* [Create a DB cluster](#cluster-create).
+* [Connect to the DB](#connect).
 
 
 ## Before you start {#before-you-begin}
@@ -15,8 +15,8 @@ To get started with the service:
     {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-   - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine in the same network as the DB cluster.
-   - To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine in the same network as the DB cluster.
+   * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
 
@@ -53,9 +53,11 @@ To get started with the service:
 1. Select **{{ mch-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. When the cluster is ready to operate, its status on the {{ mch-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. When the cluster is ready, its status on the {{ mch-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
+
+1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 
 1. To connect to the DB server, get an SSL certificate:
 
@@ -108,9 +110,8 @@ To get started with the service:
                       --port 9440 
     ```
 
-## What's next
+## What's next {#whats-next}
 
-- Read about [service concepts](./concepts/index.md).
-- Learn more about [creating a cluster](./operations/cluster-create.md) and [connecting to the database](./operations/connect.md).
-- Read [questions and answers](./qa/general.md).
-
+* Read about [service concepts](./concepts/index.md).
+* Learn more about [creating a cluster](./operations/cluster-create.md) and [connecting to the database](./operations/connect.md).
+* Read [questions and answers](./qa/general.md).

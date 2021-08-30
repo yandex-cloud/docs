@@ -25,7 +25,7 @@ items:
             href: operations/buckets/cors.md
           - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
-          - name: Logging actions with the bucket
+          - name: Enabling logging
             href: operations/buckets/enable-logging.md
       - name: Objects
         items:
@@ -87,6 +87,8 @@ items:
         href: concepts/backup.md
       - name: TLS protocol
         href: concepts/tls.md
+      - name: S3 Select query language
+        href: concepts/s3-select-language.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Tools
@@ -175,6 +177,8 @@ items:
                 href: s3/api-ref/object/deletemultipleobjects.md
               - name: options
                 href: s3/api-ref/object/options.md
+              - name: selectObjectContent
+                href: s3/api-ref/object/select.md
           - name: Multipart upload
             items:
               - name: General multipart upload procedure

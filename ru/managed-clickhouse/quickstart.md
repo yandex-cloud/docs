@@ -2,8 +2,8 @@
 
 Чтобы начать работу с сервисом:
 
-- [Создайте кластер БД](#cluster-create).
-- [Подключитесь к БД](#connect).
+* [Создайте кластер БД](#cluster-create).
+* [Подключитесь к БД](#connect).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -14,8 +14,8 @@
     {% include [create-folder](../_includes/create-folder.md) %}
 
 1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
-   - Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md) в той же сети, что и кластер БД.
-   - Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
+   * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md) или [Windows](../compute/quickstart/quick-create-windows.md) в той же сети, что и кластер БД.
+   * Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
    {% note info %}
 
@@ -111,6 +111,6 @@
 
 ## Что дальше {#whats-next}
 
-- Изучите [концепции сервиса](./concepts/index.md).
-- Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к БД](./operations/connect.md).
-- Ознакомьтесь с [вопросами и ответами](./qa/general.md).
+* Изучите [концепции сервиса](./concepts/index.md).
+* Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к БД](./operations/connect.md).
+* Ознакомьтесь с [вопросами и ответами](./qa/general.md).

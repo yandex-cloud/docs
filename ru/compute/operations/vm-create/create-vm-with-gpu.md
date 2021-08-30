@@ -3,8 +3,8 @@
 В этом разделе приведена инструкция для создания виртуальной машины с GPU. Подробнее с конфигурациями виртуальных машин вы можете ознакомиться в разделе [{#T}](../../concepts/gpus.md).
 
 По умолчанию в облаке установлена нулевая [квота](../../concepts/limits.md#quotas) на создание виртуальных машин с GPU. Чтобы изменить квоту, обратитесь в [техническую поддержку]({{ link-console-support }}).
-
-Виртуальные машины с GPU доступны в зонах `ru‑central1‑a` и `ru‑central1‑b`.
+     
+{% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 {% list tabs %}
 
@@ -33,18 +33,21 @@
 
   1. Создайте виртуальную машину в каталоге по умолчанию. Укажите следующие параметры:
 
-      - Имя виртуальной машины.
+      * Имя виртуальной машины.
 
           {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      - [Зону доступности](../../../overview/concepts/geo-scope.md).
-      - Идентификатор [платформы](../../concepts/vm-platforms.md), `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.
-      - [Количество vCPU](../../concepts/gpus.md).
-      - [Размер RAM](../../concepts/gpus.md).
-      - [Количество GPU](../../concepts/gpus.md).
-      - При необходимости сделайте виртуальную машину [прерываемой](../../concepts/preemptible-vm.md) с помощью опции `--preemptible`.
-      - [Образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04.6 LTS](https://cloud.yandex.ru/marketplace/products/f2e0e2jmj38nmqe3cagl) c CUDA драйверами.
-      - Публичный IP. Чтобы создать виртуальную машину без публичного IP, исключите опцию `nat-ip-version=ipv4`.
+      * [Зону доступности](../../../overview/concepts/geo-scope.md).
+      * Идентификатор [платформы](../../concepts/vm-platforms.md):
+        * `gpu-standard-v1` для платформы {{ v100-broadwell }},
+        * `gpu-standard-v2` для платформы {{ v100-cascade-lake }},
+        * `gpu-standard-v3` для платформы {{ a100-epyc }}.
+      * [Количество vCPU](../../concepts/gpus.md).
+      * [Размер RAM](../../concepts/gpus.md).
+      * [Количество GPU](../../concepts/gpus.md).
+      * При необходимости сделайте виртуальную машину [прерываемой](../../concepts/preemptible-vm.md) с помощью опции `--preemptible`.
+      * [Образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ Ubuntu 16.04.6 LTS c CUDA драйверами.
+      * Публичный IP. Чтобы создать виртуальную машину без публичного IP, исключите опцию `nat-ip-version=ipv4`.
 
       Например:
 
@@ -96,7 +99,10 @@
 
      * `yandex_compute_instance` — описание [виртуальной машины](../../concepts/vm.md):
        * `name` — имя виртуальной машины.
-       * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md), `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100.
+       * `platform_id` — идентификатор [платформы](../../concepts/vm-platforms.md):
+         * `gpu-standard-v1` для платформы Intel Broadwell with NVIDIA® Tesla® V100,
+         * `gpu-standard-v2` для платформы Intel Cascade Lake with NVIDIA® Tesla® V100,
+         * `gpu-standard-v3` для платформы AMD Epyc 7662 with NVIDIA® Ampere® A100.
        * `resources` — количество ядер vCPU и объем RAM, доступные виртуальной машине. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
        * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
 

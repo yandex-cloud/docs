@@ -19,7 +19,6 @@ The user created with a **{{ mmy-name }}** cluster is automatically assigned the
 
 - Management console
 
-  To change a user's list of roles:
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure**.

@@ -3,7 +3,9 @@
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
+
 * [Increase the storage size](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
+
 * [Configure the {{ MY }} servers](#change-mysql-config).
 
     {% note warning %}
@@ -14,9 +16,11 @@ After creating a cluster, you can:
 
 * [Change additional cluster settings](#change-additional-settings).
 
-* [{#T}](#change-sg-set).
+* [Change security groups](#change-sg-set).
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
+
+The choice of a host class in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **Managed Databases** section.
 
 {% list tabs %}
 
@@ -64,6 +68,34 @@ After creating a cluster, you can:
 
       {{ mmy-short-name }} will run the update host class command for the cluster.
 
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](./cluster-create.md).
+
+  1. In the {{ mmy-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        resources {
+          resource_preset_id = "<host class>"
+          ...
+        }
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
 - API
 
   You can change the [host class](../concepts/instance-types.md) using the API [update](../api-ref/Cluster/update.md) method: pass the necessary value in the request parameter `configSpec.resources.resourcePresetId`.
@@ -73,6 +105,8 @@ After creating a cluster, you can:
 {% endlist %}
 
 ## Increasing storage size {#change-disk-size}
+
+Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD storage size quotas available to DB clusters in your cloud. To check the storage size in use, open the [Quotas]({{ link-console-quotas }}) page and find the **Managed Databases** section.
 
 {% list tabs %}
 
@@ -96,9 +130,7 @@ After creating a cluster, you can:
       $ {{ yc-mdb-my }} cluster update --help
       ```
 
-  1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
-
-  1. Make sure the required cluster uses standard or fast network storage (it's not possible to increase the size of local or non-replicated network storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
+  1. Make sure the required cluster uses standard or fast network storage. To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-my }} cluster get <cluster name>
@@ -115,6 +147,12 @@ After creating a cluster, you can:
       ...
       ```
 
+      {% note warning %}
+
+      It's not possible to increase the size of local or non-replicated network storage.
+
+      {% endnote %}
+
   1. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
 
       ```
@@ -124,11 +162,45 @@ After creating a cluster, you can:
 
       If all these conditions are met, {{ mmy-short-name }} launches the operation to increase storage space.
 
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](./cluster-create.md).
+
+  1. Make sure the required cluster uses standard or fast network storage. To do this, find the `disk_type_id` parameter in the configuration file: it should be set to `network-hdd` or `network-ssd`.
+
+      {% note warning %}
+
+      It's not possible to increase the size of local or non-replicated network storage.
+
+      {% endnote %}
+
+  1. Change the `disk_size` parameter value under `resources`:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        resources {
+          disk_size = <storage size in GB>
+          ...
+        }
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
 - API
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.resources.diskSize`.
-
-  Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmy-full-name }} section still has space available in the **space** line.
 
 {% endlist %}
 
@@ -168,6 +240,34 @@ After creating a cluster, you can:
 
      {{ mmy-short-name }} runs the update cluster settings operation.
 
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](./cluster-create.md).
+
+  1. In the {{ mmy-name }} cluster description, add or update the [DBMS settings](../concepts/settings-list.md) under `mysql_config`:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        mysql_config = {
+          <{{ MY }} setting name> = <value>
+          ...
+        }
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster#mysql-config).
+
 - API
 
   You can update the [{{ MY }} settings](../concepts/settings-list.md#dbms-settings) for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate values in the request parameter `configSpec.mysql_config_5_7`.
@@ -178,7 +278,7 @@ After creating a cluster, you can:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
   1. Go to the folder page and select **{{ mmy-name }}**.
 
@@ -188,7 +288,7 @@ After creating a cluster, you can:
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -222,7 +322,50 @@ After creating a cluster, you can:
 
     You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-* API
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. To change the backup start time, add the `backup_window_start` block to the {{ mmy-name }} cluster description:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        backup_window_start {
+          hours   = <backup starting hour>
+          minutes = <backup starting minute>
+        }
+        ...
+      }
+      ```
+
+  1. To allow access to [SQL queries from the management console](web-sql-query.md) and [DataLens](datalens-connect.md), add a block named `access` to the {{ mmy-name }} cluster description:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        access {
+          web_sql   = <true or false>
+          data_lens = <true or false>
+          ...
+        }
+        ...
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+- API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
 
@@ -232,12 +375,12 @@ After creating a cluster, you can:
 
 {% list tabs %}
 
-* Management console
+- Management console
     1. Go to the folder page and select **{{ mmy-name }}**.
     1. Select the cluster and click **Edit cluster** in the top panel.
     1. Under **Network settings**, select security groups for cluster network traffic.
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -258,7 +401,32 @@ After creating a cluster, you can:
            --security-group-ids <list of security groups>
         ```
 
-* API
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](./cluster-create.md).
+
+  1. In the {{ mmy-name }} cluster description, change the `security_group_ids` parameter value:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        security_group_ids = [<list of security group IDs>]
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+- API
 
     To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
     * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).

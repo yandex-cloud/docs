@@ -30,7 +30,7 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](dat
 
 ## Step 1. Create a connection to a CSV file {#step1}
 
-1. Download the [file with traffic accident statistics](https://h.yandex-team.ru/?https%3A%2F%2Fstorage.yandexcloud.net%2Fdatalens%2Fdtp201804.csv) for April-December 2018 in CSV format.
+1. Download the [file with traffic accident statistics](https://storage.yandexcloud.net/doc-files/dtp201804.csv) for April-December 2018 in CSV format.
 
 1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage and click **Create connection**.
 
