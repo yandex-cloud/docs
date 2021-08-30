@@ -87,6 +87,8 @@ items:
         href: concepts/backup.md
       - name: TLS protocol
         href: concepts/tls.md
+      - name: S3 Select query language
+        href: concepts/s3-select-language.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Tools
