@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-Before creating a connection to the Yandex.Metrica Logs API, you need to create a ClickHouse cluster in {{ yandex-cloud }}. {{ datalens-short-name }} saves Logs API data to a dataset in the created cluster.
+Before creating a connection to the Metrica Logs API, you need to create a ClickHouse cluster in {{ yandex-cloud }}. {{ datalens-short-name }} will automatically upload Yandex.Metrica data via the Logs API to the specified cluster.
 
 {% endnote %}
 
@@ -10,19 +10,11 @@ Before creating a connection to the Yandex.Metrica Logs API, you need to create 
 
 To create a connection to the Logs API:
 
-{% if audience == "internal" %}
-
-1. Go to the [connections page](https://datalens.yandex-team.ru/connections).
-
-{% else %}
-
 1. Go to the [connections page](https://datalens.yandex.com/connections).
-
-{% endif %}
 
 1. Click **Create connection**.
 
-1. Select the **Metrica** connection.
+1. Select **Metrica** as the connection type.
 
 1. Specify the connection parameters:
 
