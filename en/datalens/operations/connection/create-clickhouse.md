@@ -13,15 +13,7 @@
 
 To create a {{ CH }} connection:
 
-{% if audience == "internal" %}
-
-1. Go to the [connections page](https://datalens.yandex-team.ru/connections).
-
-{% else %}
-
 1. Go to the [connections page](https://datalens.yandex.com/connections).
-
-{% endif %}
 
 1. Click **Create connection**.
 
@@ -33,19 +25,9 @@ To create a {{ CH }} connection:
 
    {% list tabs %}
 
-    - Select in Yandex.Cloud
-
-      {% if audience != "internal" %}
+    - Select in the catalog
 
       Specify the connection parameters for the {{ CH }} DB available in {{ yandex-cloud }}:
-
-      {% endif %}
-
-      {% if audience == "internal" %}
-
-      Specify the connection parameters for the {{ CH }} database:
-
-      {% endif %}
 
       - **Cluster**. Specify a cluster from the list of available {{ CH }} clusters. If you don't have an available cluster, click **Create new**.
 
