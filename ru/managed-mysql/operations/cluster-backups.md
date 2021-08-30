@@ -143,10 +143,10 @@ description: "Вы можете создавать резервные копии
     
   Используйте Terraform для восстановления:
 
-  - Существующего кластера из резервной копии.
-  - Кластера, созданного и удаленного через Консоль управления, CLI или API.
+  * Существующего кластера из резервной копии.
+  * Кластера, созданного и удаленного через Консоль управления, CLI или API.
   
-  Для восстановления потребуется ID резервной копии. Получите список доступных резервных копий {{ MY }}-кластеров [с помощью CLI](https://cloud.yandex.ru/docs/managed-mysql/operations/cluster-backups#list-backups):
+  Для восстановления потребуется ID резервной копии. Получите список доступных резервных копий {{ MY }}-кластеров [с помощью CLI]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/managed-mysql/operations/cluster-backups#list-backups){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/docs/managed-mysql/operations/cluster-backups#list-backups){% endif %}:
 
   ```bash
   {{ yc-mdb-my }} backup list
@@ -161,7 +161,7 @@ description: "Вы можете создавать резервные копии
 
   **Чтобы восстановить из резервной копии существующий кластер:**
 
-  1. Создайте [конфигурационный файл Terraform](https://cloud.yandex.ru/docs/managed-mysql/operations/cluster-create#create-cluster) для нового кластера.
+  1. Создайте [конфигурационный файл Terraform]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/managed-mysql/operations/cluster-create#create-cluster){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/docs/managed-mysql/operations/cluster-create#create-cluster){% endif %} для нового кластера.
 
      {% note info %}
 
@@ -201,7 +201,7 @@ description: "Вы можете создавать резервные копии
 
   **Чтобы восстановить из резервной копии удаленный ранее кластер:**
 
-  1. Создайте [конфигурационный файл Terraform](https://cloud.yandex.ru/docs/managed-mysql/operations/cluster-create#create-cluster) для нового кластера.
+  1. Создайте [конфигурационный файл Terraform]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/managed-mysql/operations/cluster-create#create-cluster){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/docs/managed-mysql/operations/cluster-create#create-cluster){% endif %} для нового кластера.
 
      {% note info %}
 

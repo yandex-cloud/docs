@@ -60,7 +60,7 @@ When restoring to the state from the current time point:
 
   1. Click **Restore cluster**.
 
-  {{ mmy-name }} launches the operation to create a cluster from a backup.
+  {{ mmy-name }} launches the operation to create a cluster from the backup.
 
 - CLI
 
@@ -84,7 +84,7 @@ When restoring to the state from the current time point:
      +--------------------------+----------------------+----------------------+----------------------+
      |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
      +--------------------------+----------------------+----------------------+----------------------+
-     | c9qgo11pud7kb3cdomeg... | 2020-08-10T12:00:00Z | c9qgo11pud7kb3cdomeg | 2020-08-10T11:55:17Z  |
+     | c9qgo11pud7kb3cdomeg...  | 2020-08-10T12:00:00Z | c9qgo11pud7kb3cdomeg | 2020-08-10T11:55:17Z |
      | ...                                                                                           |
      +--------------------------+----------------------+----------------------+----------------------+
      ```
@@ -98,8 +98,8 @@ When restoring to the state from the current time point:
       ```
       $ {{ yc-mdb-my }} cluster restore \
              --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
-             --time 2018-11-02T10:09:38Z \
-             --cluster-name=mynewmy \
+             --time 2020-08-10T12:00:10Z \
+             --name=mynewmy \
              --environment=PRODUCTION \
              --network-id {{ network-name }} \
              --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
@@ -113,8 +113,8 @@ When restoring to the state from the current time point:
       ```
       $ {{ yc-mdb-my }} cluster restore \
              --backup-id c9qgo11pud7kb3cdomeg:stream_20190213T093643Z \
-             --time 2018-11-02T10:09:38Z \
-             --cluster-name=mynewmy \
+             --time 2020-08-10T12:00:10Z \
+             --name=mynewmy \
              --environment=PRODUCTION \
              --network-name {{ network-name }} \
              --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch63 \
@@ -125,9 +125,9 @@ When restoring to the state from the current time point:
 
       {% endif %}
 
-      In the `--time` parameter, specify the time point from which you want to restore the original state of the {{ PG }} cluster, in the `yyyy-mm-ddThh:mm:ssZ` format.
+      In the `--time` parameter, specify the time point from which you want to restore the original state of the {{ MY }} cluster, in the `yyyy-mm-ddThh:mm:ssZ` format.
 
-      In the example above, the cluster will be restored to the state it was 10 seconds after the `c9qlk4v13uq79r9cgcku...` backup was created. This backup was selected as the starting point for recovery (the `--time 2020-08-10T12:00:10Z` parameter).
+      In the example above, the cluster will be restored to the state it was 10 seconds after the `c9qgo11pud7kb3cdomeg...` backup was created. This backup was selected as the starting point for recovery (the `--time 2020-08-10T12:00:10Z` parameter).
 
       This results in a new {{ MY }} cluster with the following characteristics:
 
@@ -150,9 +150,102 @@ When restoring to the state from the current time point:
 
       {% endif %}
 
+- Terraform
+
+  Use Terraform to restore:
+
+  * An existing cluster from a backup.
+  * A cluster created and deleted via the management console, CLI, or API.
+
+  To restore a cluster, you'll need the backup ID. Get a list of available {{ MY }} cluster backups [using the CLI]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/managed-mysql/operations/cluster-backups#list-backups){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/docs/managed-mysql/operations/cluster-backups#list-backups){% endif %}:
+
+  ```bash
+  {{ yc-mdb-my }} backup list
+  
+  +--------------------------+----------------------+----------------------+----------------------+
+  |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
+  +--------------------------+----------------------+----------------------+----------------------+
+  | c9qgo11pud7kb3cdomeg...  | 2020-08-10T12:00:00Z | c9qgo11pud7kb3cdomeg | 2020-08-10T11:55:17Z |
+  | ...                                                                                           |
+  +--------------------------+----------------------+----------------------+----------------------+
+  ```
+
+  **To restore an existing cluster from a backup:**
+
+  1. Create a [Terraform configuration file]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/managed-mysql/operations/cluster-create#create-cluster){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/docs/managed-mysql/operations/cluster-create#create-cluster){% endif %} for a new cluster.
+
+     {% note info %}
+
+     Do not specify DB and user settings under `database` and `user`, they will be restored from the backup.
+
+     {% endnote %}
+
+  1. Add a block named `restore` to this configuration file:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        restore {
+          backup_id = "<name of the desired backup>"
+          time      = "<timestamp of the time of recovery in yyyy-mm-ddThh:mm:ssZ format>"
+        }
+      }
+      ```
+
+      In the `time` parameter, specify the time point from which you want to restore the state of the {{ MY }} cluster, starting from the time when the selected backup was created to the current time.
+
+      {% note info %}
+
+      The `time` parameter is optional. If you don't specify it, the cluster is restored to the state when the backup was completed.
+
+      {% endnote %}
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Terraform creates a copy of the existing cluster. The databases and users are deployed from the selected backup.
+
+  **To restore a previously deleted cluster from a backup:**
+
+  1. Create a [Terraform configuration file]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/managed-mysql/operations/cluster-create#create-cluster){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/docs/managed-mysql/operations/cluster-create#create-cluster){% endif %} for a new cluster.
+
+     {% note info %}
+
+     Do not specify DB and user settings under `database` and `user`, they will be restored from the backup.
+
+     {% endnote %}
+
+  1. In the configuration file, add a `restore` block with the name of the backup to restore the cluster from:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        restore {
+            backup_id = "<ID of the deleted cluster's backup>"
+        }
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  Terraform creates a new cluster. The databases and users are deployed from the backup.
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
 {% endlist %}
 
-## Creating backups {#create-backup}
+## Creating a backup {#create-backup}
 
 {% list tabs %}
 
@@ -169,7 +262,7 @@ When restoring to the state from the current time point:
 
   To create a cluster backup:
 
-  1. View a description of the CLI create {{ MG }} backup command:
+  1. View a description of the CLI command to create a {{ MY }} cluster backup:
 
       ```
       $ {{ yc-mdb-my }} cluster backup --help
@@ -205,7 +298,7 @@ When restoring to the state from the current time point:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ MG }} cluster backups available in the default folder, run the command:
+  To get a list of {{ MY }} cluster backups available in the default folder, run the command:
 
   ```
   $ {{ yc-mdb-my }} backup list
@@ -240,7 +333,7 @@ When restoring to the state from the current time point:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ MG }} cluster backup, run the command:
+  To get information about a {{ MY }} cluster backup, run the command:
 
   ```bash
   {{ yc-mdb-my }} backup get <backup ID>
@@ -260,25 +353,40 @@ When restoring to the state from the current time point:
 
 - CLI
 
-  To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
-
-  ```bash
-  {{ yc-mdb-my }} cluster create \
-     --cluster-name=<cluster name> \
-     --environment <prestable or production> \
-     --network-name <network name> \
-     --host zone-id=<availability zone>,subnet-id=<subnet ID> \
-     --mongodb-version <database version> \
-     --backup-window-start 10:25:00  
-  ```
-
   To change the backup start time in an existing cluster, use the `update` command:
 
   ```bash
   {{ yc-mdb-my }} cluster update \
-     --cluster-name=<cluster name> \
+     --name=<cluster name> \
      --backup-window-start 11:25:00
   ```
 
-{% endlist %}
+- Terraform
 
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Add a block named `backup_window_start` to the {{ mmy-name }} cluster description:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        backup_window_start {
+          hours   = <backup starting hour (UTC)>
+          minutes = <backup starting minute (UTC)>
+        }
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+{% endlist %}

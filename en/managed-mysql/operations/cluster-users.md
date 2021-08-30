@@ -73,6 +73,42 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](./cluster-create.md).
+
+  1. Add a `user` block to the {{ mmy-name }} cluster description.
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        user {
+          name     = "<username>"
+          password = "<password>"
+          permission {
+            database_name = "<name of the DB the user can access>"
+            roles         = [<list of user roles for the DB>]
+            ...
+          }
+          ...
+        }
+      }
+      ```
+
+      {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
 {% endlist %}
 
 ## Changing a password {#updateuser}
@@ -85,6 +121,8 @@ You can use SQL commands to assign privileges to users, but you can't use them t
   1. Click on the name of the cluster you need and select the tab **Users**.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Change password**.
   1. Set a new password and click **Edit**.
+
+  {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
 
 - CLI
 
@@ -100,7 +138,42 @@ You can use SQL commands to assign privileges to users, but you can't use them t
        --password=<new password>
   ```
 
+  {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
+
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](./cluster-create.md).
+
+  1. In the {{ mmy-name }} cluster description, find the `user` block for the required user.
+
+  1. Change the value of the `password` field:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        user {
+          name     = "<username>"
+          password = "<new password>"
+          ...
+        }
+      }
+      ```
+
+     {% include [passwords-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
 {% endlist %}
 
@@ -139,6 +212,54 @@ To change a list of databases available to the user and the database access leve
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](./cluster-create.md).
+
+  1. In the {{ mmy-name }} cluster description, find the `user` block for the required user.
+
+  1. To set limits on the number of connections and requests, add a block named `connection_limits` to its description:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        user {
+          ...
+          connection_limits {
+            max_questions_per_hour   = <maximum number of requests per hour>
+            max_updates_per_hour     = <maximum number of UPDATE requests per hour>
+            max_connections_per_hour = <maximum number of connections per hour>
+            max_user_connections     = <maximum number of simultaneous connections>
+            ...
+          }
+        }
+      }
+      ```
+
+  1. To configure a user authentication plugin, add a block named `authentication_plugin` to its description:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        user {
+          ...
+          authentication_plugin = "<authentication plugin>"
+        }
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
 {% endlist %}
 
 ## Deleting a user {#removeuser}
@@ -165,6 +286,24 @@ To change a list of databases available to the user and the database access leve
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Delete the `user` block with a description of the required user from the {{ mmy-name  }} cluster description.
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
 {% endlist %}
 
