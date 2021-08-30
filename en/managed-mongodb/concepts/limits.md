@@ -19,13 +19,14 @@ editable: false
 
 # Technical restrictions of {{ mmg-name }}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Lowest host class | s2.nano (1 vCPU, 4 GB RAM) |
-| Highest host class | s3.6xlarge (64 vCPU, 256 GB RAM) |
-| Maximum number of hosts per {{ MG }} shard | 7 |
-| Maximum number of {{ MG }} shards | 10 |
-| Maximum storage capacity for a {{ MG }} cluster | 512 GB |
+| Type of limit | Minimum value | Maximum value |
+| ---- | ---- | ---- |
+| Host class | s2.nano (1 Intel Broadwell vCPU, 4 GB RAM) | s3.6xlarge (64 Intel Cascade Lake vCPUs, 257 GB RAM) |
+| Number of shards in a cluster | 1 | 10 |
+| Number of hosts in a shard when using network storage | 1 | 7 |
+| Number of hosts in a shard when using local storage | 3 | 7 |
+| Number of hosts per cluster | 1 host (clusters are unsharded at [creation](../operations/cluster-create.md)) | 70 (10 shards × 7 hosts) |
+| Amount of data on the host when using network storage | 10 GB | 300 GB |
+| Amount of data on the host when using local storage | 100 GB | 300 GB |
 
 {% endif %}
-
