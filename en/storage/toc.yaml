@@ -25,7 +25,7 @@ items:
             href: operations/buckets/cors.md
           - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
-          - name: Logging actions with the bucket
+          - name: Enabling logging
             href: operations/buckets/enable-logging.md
       - name: Objects
         items:
@@ -109,10 +109,10 @@ items:
             href: tools/winscp.md
       - name: SDK
         items:
-          - name: AWS SDK for Java
-            href: tools/aws-sdk-java.md
-          - name: Python SDK (boto)
-            href: tools/boto.md
+        - name: AWS SDK for Java
+          href: tools/aws-sdk-java.md
+        - name: Python SDK (boto)
+          href: tools/boto.md
       - name: FUSE
         items:
           - name: s3fs
@@ -177,6 +177,8 @@ items:
                 href: s3/api-ref/object/deletemultipleobjects.md
               - name: options
                 href: s3/api-ref/object/options.md
+              - name: selectObjectContent
+                href: s3/api-ref/object/select.md
           - name: Multipart upload
             items:
               - name: General multipart upload procedure
