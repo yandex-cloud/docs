@@ -38,8 +38,8 @@ If you plan to use the CLI, install and configure it according to the [instructi
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to an {{ KF }} cluster from both inside and outside {{ yandex-cloud }}:
-   - To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
-   - To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)- or [Windows](../compute/quickstart/quick-create-windows.md)-based virtual machine, which must be in the same network as the cluster.
+   * To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
 
    {% note info %}
 
@@ -49,7 +49,7 @@ If you plan to use the CLI, install and configure it according to the [instructi
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 
-1. Install the `kafkacat` utility, an open source application that can function as a universal data producer or consumer:
+1. Install the `kafkacat` utility, an open source application that can work as a universal data producer or consumer:
 
    ```bash
    $ sudo apt-get install kafkacat
@@ -65,13 +65,13 @@ To create a cluster:
 1. Select **{{ mkf-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state becomes **Alive**. This may take some time.
 
 Then create a topic in the cluster.
 
 ## Create the topic {#topic-create}
 
-[Topic](./concepts/topics.md) is a way to group message streams into categories. [Producers](./concepts/producers-consumers.md) write messages to topics and [consumers](./concepts/producers-consumers.md) read messages from them.
+[Topic](./concepts/topics.md) is a way to group message streams into categories. [Producers](./concepts/producers-consumers.md) write messages to a topic and [consumers](./concepts/producers-consumers.md) read messages from it.
 
 To create a topic:
 
@@ -163,8 +163,7 @@ To connect to a cluster:
 
 For more information about connecting to {{ mkf-name }} clusters, see [{#T}](operations/connect.md).
 
-## What's next
+## What's next {#whats-next}
 
-- Read about [service concepts](./concepts/index.md).
-- Learn more about [creating clusters](./operations/cluster-create.md) and [connecting to clusters](./operations/connect.md).
-
+* Read about [service concepts](./concepts/index.md).
+* Learn more about [creating clusters](./operations/cluster-create.md) and [connecting to clusters](./operations/connect.md).

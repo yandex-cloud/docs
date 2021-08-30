@@ -4,19 +4,19 @@
 
 After creating an {{ KF }} cluster, you can:
 
-- [{#T}](#change-resource-preset).
-- [{#T}](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
-- [Change {{ KF }} settings](#change-kafka-settings).
-- [Move the cluster](#move-cluster) from the current folder to another one.
-- [Change cluster security groups](#change-sg-set).
+* [{#T}](#change-resource-preset).
+* [{#T}](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
+* [Change {{ KF }} settings](#change-kafka-settings).
+* [Move the cluster](#move-cluster) from the current folder to another one.
+* [Change cluster security groups](#change-sg-set).
 
 {% else %}
 
 After creating an {{ KF }} cluster, you can:
 
-- [{#T}](#change-resource-preset).
-- [{#T}](#change-disk-size).
-- [Change {{ KF }} settings](#change-kafka-settings).
+* [{#T}](#change-resource-preset).
+* [{#T}](#change-disk-size).
+* [Change {{ KF }} settings](#change-kafka-settings).
 
 {% endif %}
 
@@ -24,8 +24,8 @@ After creating an {{ KF }} cluster, you can:
 
 You can change:
 
-- {{ KF }} broker host class and number.
-- {{ ZK }} hosts class.
+* {{ KF }} broker host class and number.
+* {{ ZK }} hosts class.
 
 {% note warning %}
 
@@ -44,8 +44,8 @@ You can't decrease the number of {{ KF }} broker hosts.
   1. Select the cluster and click **Edit** in the top panel.
 
   1. Change the required settings:
-     - To change the class of [broker hosts](../concepts/brokers.md), select a new [host class](../concepts/instance-types.md) in the corresponding section.
-     - To change the number of broker hosts in each availability zone that was chosen when [creating a cluster](cluster-create.md#create-cluster), change the value of the corresponding setting.
+     * To change the class of [broker hosts](../concepts/brokers.md), select a new [host class](../concepts/instance-types.md) in the corresponding section.
+     * To change the number of broker hosts in each availability zone that was chosen when [creating a cluster](cluster-create.md#create-cluster), change the value of the corresponding setting.
 
   1. Click **Save**.
 
@@ -96,9 +96,9 @@ You can't decrease the number of {{ KF }} broker hosts.
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  - In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
-  - The new cluster configuration in the `configSpec` parameter.
+  * The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+  * The new cluster configuration in the `configSpec` parameter.
 
 {% endif %}
 
@@ -108,7 +108,7 @@ You can't decrease the number of {{ KF }} broker hosts.
 
 {% note warning %}
 
-Currently, you can't change the disk type for {{ KF }} clusters after creation.
+Currently, you can't change the disk type for the {{ KF }} cluster after creation.
 
 {% endnote %}
 
@@ -167,9 +167,9 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 - API
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
-  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  - In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
-  - The new cluster configuration in the `configSpec` parameter.
+  * The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+  * The new cluster configuration in the `configSpec` parameter.
 
 {% endif %}
 
@@ -236,8 +236,8 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 - API
 
   To move a cluster from the current folder to a different one, use the [move](../api-ref/Cluster/move.md) API method and pass the following in the request:
-  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  - The ID of the destination folder in the `destinationFolderId` parameter.
+  * The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * The ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endif %}
 
@@ -271,15 +271,15 @@ Currently, you can't change the disk type for {{ KF }} clusters after creation.
 - API
 
   To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
-  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-  - The list of groups in the `securityGroupIds` parameter.
-  - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+  * The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+  * The list of groups, in the `securityGroupIds` parameter.
+  * The list of settings to update, in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
 

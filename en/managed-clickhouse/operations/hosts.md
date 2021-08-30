@@ -240,4 +240,3 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
   To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
 
 {% endlist %}
-

@@ -11,7 +11,6 @@ After creating a cluster, you can:
 * [Configure {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% endif %}.
 
 * [Change additional cluster settings](#change-additional-settings).
-* [Change cluster security groups](#change-sg-set).
 
 * [Change cluster security groups](#change-sg-set).
 
@@ -19,13 +18,13 @@ After creating a cluster, you can:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
     1. Go to the folder page and select **{{ mch-name }}**.
 
     1. Select the cluster and click **Edit cluster** in the top panel.
 
-    1. Select the desired service account from the list or create a new one. For more information about setting up service accounts, see [{#T}](s3-access.md).
+    1. Select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
         {% note warning %}
 
@@ -42,8 +41,11 @@ After creating a cluster, you can:
 - Management console
 
   1. Go to the folder page and select **{{ mch-name }}**.
+
   1. Select the cluster and click **Edit cluster** in the top panel.
+
   1. To change the class of {{ CH }} hosts, under **Host class**, select the required class.
+
   1. To change the class of {{ ZK }} hosts:
 
       1. Click **Configure{{ ZK }}**.
@@ -54,7 +56,7 @@ After creating a cluster, you can:
 
   {% note info %}
 
-  You can change the class of {{ ZK }} hosts only if [fault tolerance](zk-hosts.md#add-zk) is enabled for the cluster.
+  You can change the class of {{ ZK }} hosts only if [fault tolerance is enabled](zk-hosts.md#add-zk) for the cluster.
 
   {% endnote %}
 
@@ -119,8 +121,6 @@ After creating a cluster, you can:
      You can change the {{ZK}} host class using a similar parameter: `--zookeeper-resource-preset`.
 
 - Terraform
-
-    To change the [host class](../concepts/instance-types.md) for the cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -224,8 +224,6 @@ After creating a cluster, you can:
 
 - Terraform
 
-    To increase the storage size for a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -279,8 +277,6 @@ After creating a cluster, you can:
   1. Click **Save changes**.
 
 - Terraform
-
-    To change [cluster settings](../concepts/settings-list.md#dbms-cluster-settings):
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -465,22 +461,6 @@ After creating a cluster, you can:
 {% list tabs %}
 
 - Management console
-
-  1. Go to the folder page and select **{{ mch-name }}**.
-  1. Select the cluster and click **Edit cluster** in the top panel.
-  1. Under **Network settings**, select security groups for cluster network traffic.
-
-- CLI
-
-  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
-
-{% endlist %}
-
-## Changing security groups {#change-sg-set}
-
-{% list tabs %}
-
-- Management console
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
   1. Under **Network settings**, select security groups for cluster network traffic.
@@ -508,8 +488,6 @@ After creating a cluster, you can:
 
 - Terraform
 
-    To change cluster security groups:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -536,15 +514,14 @@ After creating a cluster, you can:
 - API
 
   To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
-  - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-  - The list of groups in the `securityGroupIds` parameter.
-  - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+  * The list of groups in the `securityGroupIds` parameter.
+  * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 
 {% note warning %}
 
-You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
-
