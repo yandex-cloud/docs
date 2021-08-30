@@ -35,6 +35,8 @@ items:
     items:
       - name: Шардирование коллекций
         href: tutorials/sharding.md
+      - name: Анализ производительности и оптимизация
+        href: tutorials/profiling.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

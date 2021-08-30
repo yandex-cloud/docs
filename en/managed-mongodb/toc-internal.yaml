@@ -19,6 +19,8 @@ items:
         href: operations/cluster-version-update.md
       - name: Database management
         href: operations/databases.md
+      - name: Cluster monitoring and diagnostics tools
+        href: operations/monitoring.md
       - name: Managing database users
         href: operations/cluster-users.md
       - name: Managing backups
@@ -33,6 +35,8 @@ items:
     items:
       - name: Sharding collections
         href: tutorials/sharding.md
+      - name: Performance analysis and tuning
+        href: tutorials/profiling.md
   - name: Concepts
     items:
       - name: Relationship between service resources
@@ -43,6 +47,8 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Disk space in Managed Service for MongoDB
+        href: concepts/disk-space.md
       - name: Backups
         href: concepts/backup.md
       - name: Replication
@@ -79,3 +85,4 @@ items:
         href: qa/mongodb.md
       - name: All questions on the same page
         href: qa/all.md
+        
