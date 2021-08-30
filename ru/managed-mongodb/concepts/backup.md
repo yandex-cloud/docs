@@ -52,7 +52,7 @@ keywords:
 
 Особенности хранения резервных копий в {{ mmg-name }}:
 
-* Резервные копии хранятся во внутреннем хранилище Яндекса в виде логических дампов и шифруются с помощью [GPG](https://ru.wikipedia.org/wiki/GnuPG). У каждого кластера свои ключи шифрования.
+* Резервные копии хранятся во внутреннем хранилище Яндекса в виде логических дампов и шифруются с помощью [GPG]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/GnuPG){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/GNU_Privacy_Guard){% endif %}. У каждого кластера свои ключи шифрования.
 * Автоматические резервные копии по умолчанию хранятся {{ mmg-backup-retention }} дней. При [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-additional-settings) кластера можно задать другой срок хранения в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} дней. Автоматические резервные копии удаляются по истечении срока хранения. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 * Созданные вручную резервные копии хранятся бессрочно. Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}

@@ -10,11 +10,11 @@ keywords:
 
 # Backups
 
-{{ mms-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. If the total amount of data and backups exceeds the amount of storage space, the excess is [billed](../pricing.md).
+{{ mms-short-name }} provides automatic and manual database backups.
 
-A backup is automatically created once a day. You currently can't disable automatic backups or change the storage period for automatic backups (7 days by default).
+A backup is automatically created once a day and stored for 7 days. You can't disable automatic backups or change the retention period.
 
-The backup process start time is set when a cluster is created or updated. The backup will start within half an hour of the specified time. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time).
+The backup start time is set when [creating](../operations/cluster-create.md) or [updating](../operations/update.md) a cluster. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
 
 {{ mms-name }} supports Point-in-Time Recovery (PITR) of the cluster state to a given point in time between creating the oldest full backup and archiving the most recent transaction log. For this purpose, the backup selected as the starting point of recovery is updated with entries from the cluster transaction log. This log is archived in the running cluster every 20 minutes. For more information about PITR, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}.
 
@@ -28,26 +28,37 @@ You can't use SQL commands to change the [recovery model]{% if lang == "ru" %}(h
 
 ## Creating backups {#size}
 
-Backups can be made automatically and manually. Regardless of their type, they follow the same guidelines:
+Backups can be automatic or manual. In both cases, the following scheme is used:
 
-- The first backup and every seventh backup are full backups of all databases.
-- Other backups are incremental and only store data that has changed since the previous backup to save storage space.
+* The first backup and every seventh backup are full backups of all databases.
+* Other backups are incremental and store only the data that has changed since the previous backup to save space.
 
-After a backup is created, it's compressed for storage. The exact backup size currently isn't displayed.
+After a backup is created, it's compressed for storage. The exact backup size isn't displayed.
+
+Backups are only created on running clusters. If you don't use a {{ mch-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
+
+To learn how to manually create a backup, see [{#T}](../operations/cluster-backups.md).
 
 ## Storing backups {#storage}
 
-Backups are stored in Yandex internal storage as binary files and are encrypted using GMS. Each cluster has its own encryption keys.
+Storing backups in {{ mms-name }}:
 
-All backups (automatic or manual) are stored for 7 days. You can store one or two full backups to ensure recovery from an automatic seven-day-old backup.
+* Backups are stored in Yandex internal storage as binary files.
+
+* All backups (automatic or manual) are stored for 7 days. You can store one or two full backups to ensure cluster state recovery from a seven-day-old backup.
+
+* {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
+
+* {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
+
+    For more information, see the [Pricing policy for {{ mms-name }}](../pricing.md#rules-storage).
 
 ## Checking backups {#verify}
 
 ### Checking backup integrity {#integrity}
 
-Backup integrity is checked on synthetic data using integration tests available in the service. For user clusters, backups currently aren't checked.
+Backup integrity is checked on synthetic data using integration tests available in the service.
 
 ### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
-

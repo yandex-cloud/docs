@@ -22,10 +22,10 @@ keywords:
 
 Резервные копии могут быть созданы автоматически и вручную, в обоих случаях используется инкрементальная схема:
 
-* При создании очередной резервной копии [куски данных](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) проверяются на уникальность.
-* Если идентичные [куски данных](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) уже есть в одной из существующих резервных копий и они не старше {{ mch-dedup-retention }} дней, то они не дублируются.
+* При создании очередной резервной копии [куски данных]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %} проверяются на уникальность.
+* Если идентичные [куски данных]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %} уже есть в одной из существующих резервных копий и они не старше {{ mch-dedup-retention }} дней, то они не дублируются.
 
-В резервной копии хранятся данные только для движков семейства `MergeTree`. Для остальных движков хранятся только схемы таблиц. Подробнее про движки см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/).
+В резервной копии хранятся данные только для движков семейства `MergeTree`. Для остальных движков хранятся только схемы таблиц. Подробнее про движки см. в [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/){% endif %}.
 
 Время начала резервного копирования задается при [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-additional-settings) кластера. По умолчанию время начала — 22:00 UTC (Coordinated Universal Time). Резервное копирование начнется в течение получаса от указанного времени.
 
@@ -37,7 +37,7 @@ keywords:
 
 Особенности хранения резервных копий в {{ mch-name }}:
 
-* Резервные копии хранятся в объектном хранилище в виде бинарных файлов и шифруются с помощью [GPG](https://ru.wikipedia.org/wiki/GnuPG). У каждого кластера свои ключи шифрования.
+* Резервные копии хранятся в объектном хранилище в виде бинарных файлов и шифруются с помощью [GPG]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/GnuPG){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/GNU_Privacy_Guard){% endif %}. У каждого кластера свои ключи шифрования.
 
 * Все резервные копии (автоматические и созданные вручную) хранятся {{ mch-backup-retention }} дней.
 
