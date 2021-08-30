@@ -9,16 +9,14 @@
 
 #### Limits {#mmg-limits}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Lowest host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) |
-| Highest host class | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
-| Maximum number of shards per {{ MG }} cluster | 10 |
-| Maximum number of hosts per shard | 7 |
-| Maximum number of hosts per cluster | 70 (10 shards × 7 hosts) |
-| Maximum amount of data on the host when using network storage | 605 GB |
-| Maximum amount of data on the host when using local storage | 500 GB |
-| Maximum number of simultaneous connections to a single cluster host | Depends on the total amount of RAM on the host, see below |
+| Type of limit | Minimum value | Maximum value |
+| ----- | ----- | ----- |
+| Host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
+| Number of shards in a cluster | 1 | 10 |
+| Number of hosts in a shard when using network storage | 1 | 7 |
+| Number of hosts in a shard when using local storage | 3 | 7 |
+| Number of hosts per cluster | 1 host (clusters are unsharded at [creation](../../managed-mongodb/operations/cluster-create.md)) | 70 (10 shards × 7 hosts) |
+| Amount of data on the host when using network storage | 10 GB | 605 GB |
+| Amount of data on the host when using local storage | 100 GB | 600 GB |
 
 {% include [mmg-conn-limits](mmg-conn-limits.md) %}
-

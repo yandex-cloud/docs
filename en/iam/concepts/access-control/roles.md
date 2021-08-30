@@ -93,6 +93,8 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
 
+{% include [functions-roles-mdbproxy](../../../_includes/roles-functions-mdbproxy.md) %}
+
 ## {{ iam-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
@@ -102,6 +104,12 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [iot-devices-writer](../../../_includes/roles-iot-devices-writer.md) %}
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
+
+## {{ kms-name }} {#kms-roles}
+
+{% include [kms-admin](../../../_includes/roles-kms-admin.md) %}
+
+{% include [kms-keys-encrypterdecrypter](../../../_includes/roles-kms-keys-encrypterdecrypter.md) %}
 
 ## {{ monitoring-name }} {#monitoring-roles}
 

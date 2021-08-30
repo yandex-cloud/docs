@@ -3,7 +3,6 @@ title: "Information about clusters in {{ mmg-short-name }}"
 description: "You can request detailed information about each {{ mmg-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mmg-name }} service."
 ---
 
-
 # Information about existing clusters
 
 You can request detailed information about each {{ mmg-short-name }} cluster you created.
@@ -25,7 +24,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
   To request a list of {{ MG }} clusters in the default folder, run the command:
 
   ```
-  $ yc managed-postgresql cluster list
+  $ yc managed-mongodb cluster list
   
   +----------------------+------------+-----------------------------+--------+---------+
   |          ID          |    NAME    |         CREATED AT          | HEALTH | STATUS  |

@@ -10,15 +10,15 @@ To add a new user `user2` to an existing cluster with read-only access to the `d
 
 1. To assign access rights for the `Products` table only, in the `db1` database, run the command:
 
-   ```sql
-   GRANT SELECT ON Products TO user2;
-   ```
+    ```sql
+    GRANT SELECT ON Products TO user2;
+    ```
 
 1. To grant access rights to the `db1` database, run the command:
 
-   ```sql
-   GRANT SELECT ON db1.* TO user2;
-   ```
+    ```sql
+    GRANT SELECT ON db1.* TO user2;
+    ```
 
 To revoke the granted privileges, run the commands:
 

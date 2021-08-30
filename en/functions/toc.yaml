@@ -41,6 +41,8 @@ items:
         href: operations/index.md
       - name: Using functions to get an IAM token for a service account
         href: operations/function-sa.md
+      - name: Connecting to managed databases from functions
+        href: operations/database-connection.md
       - name: Managing rights to access functions
         href: operations/function-public.md
       - name: Managing functions
@@ -61,7 +63,7 @@ items:
             href: operations/function/function-monitoring.md
           - name: Viewing the execution log
             href: operations/function/function-logs.md
-          - name: Delete function
+          - name: Deleting a function
             href: operations/function/function-delete.md
       - name: Managing triggers
         items:

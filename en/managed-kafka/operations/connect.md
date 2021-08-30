@@ -2,8 +2,8 @@
 
 You can connect to {{ mkf-name }} cluster hosts:
 
-- Over the internet if you configured public access for the cluster [when creating it](cluster-create.md). You can only connect to such clusters over an [SSL connection](#get-ssl-cert).
-- From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../vpc/concepts/network.md). If the cluster isn't publicly available, you don't need to use an SSL connection to connect to such VMs.
+* Over the internet if you configured public access for the cluster [when creating it](cluster-create.md). You can only connect to such clusters over an [SSL connection](#get-ssl-cert).
+* From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../vpc/concepts/network.md). If the cluster isn't publicly available, you don't need to use an SSL connection to connect to such VMs.
 
 
 You can connect to the {{ KF }} cluster both with encryption (`SASL_SSL`, port 9091) and without it (`SASL_PLAINTEXT`, port 9092).
@@ -25,39 +25,39 @@ Settings of rules depend on the connection method you select:
 
 {% list tabs %}
 
-- Over the internet
+- Over the Internet
 
-  [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 9091 from any IP address. To do this, create the following rule for incoming traffic:
-  - Protocol: `TCP`.
-  - Port range: `9091`.
-  - Source type: `CIDR`.
-  - Source: `0.0.0.0/0`.
+  [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 9091 from any IP addresses. To do this, create the following rule for incoming traffic:
+  * Protocol: `TCP`.
+  * Port range: `9091`.
+  * Source type: `CIDR`.
+  * Source: `0.0.0.0/0`.
 
 - With a VM in Yandex.Cloud
 
   1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on ports 9091, 9092 from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
-     - Protocol: `TCP`.
-     - Port range: `9091`.
-     - Source type: `Security group`.
-     - Source: Security group assigned to the VM. If it is the same as the configured group, specify **Current**.
+     * Protocol: `TCP`.
+     * Port range: `9091`.
+     * Source type: `Security group`.
+     * Source: Security group assigned to the VM. If it is the same as the configured group, specify **Current**.
 
   1. [Set up the security group](../../vpc/operations/security-group-update.md#add-rule) assigned to the VM to allow connections to the VM and traffic between the VM and the cluster hosts.
 
      Example of rules for a VM:
 
-     - For incoming traffic:
-       - Protocol: `TCP`.
-       - Port range: `22`.
-       - Source type: `CIDR`.
-       - Source: `0.0.0.0/0`.
+     * For incoming traffic:
+       * Protocol: `TCP`.
+       * Port range: `22`.
+       * Source type: `CIDR`.
+       * Source: `0.0.0.0/0`.
 
        This rule lets you connect to the VM over SSH.
 
-     - For outgoing traffic:
-        - Protocol: `Any`.
-        - Port range: `0-65535`.
-        - Destination type: `CIDR`.
-        - Destination: `0.0.0.0/0`.
+     * For outgoing traffic:
+        * Protocol: `Any`.
+        * Port range: `0-65535`.
+        * Destination type: `CIDR`.
+        * Destination: `0.0.0.0/0`.
 
        This rule allows any outgoing traffic: this lets you both connect to the cluster and install certificates and utilities you might need to connect to the cluster.
 
@@ -67,7 +67,7 @@ Settings of rules depend on the connection method you select:
 
 You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
 
-Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access the cluster.
+Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might fail to access the cluster.
 
 {% endnote %}
 

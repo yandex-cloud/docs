@@ -1,6 +1,6 @@
 # Managing hosts in a cluster
 
-You can add and remove cluster hosts and manage {{ MY }} settings for individual clusters.
+You can add and remove cluster hosts.
 
 ## Getting a list of cluster hosts {#list}
 
@@ -40,7 +40,7 @@ You can add and remove cluster hosts and manage {{ MY }} settings for individual
 
 ## Adding a host {#add}
 
-The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ mmy-full-name }}** block.
+The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **Managed Databases** section.
 
 {% list tabs %}
 
@@ -102,6 +102,38 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mmy-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Add the `host` block to the {{ mmy-name }} cluster description.
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        host {
+          zone             = "<availability zone>"
+          subnet_id        = <subnet ID>
+          assign_public_ip = <public access to the host: true or false>
+          ...
+        }
+      }
+      ```
+
+      You can't request public access after creating a host, but you can [remove](#remove) one of the existing hosts and create a new one with a public address.
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
 - API
 
   To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
@@ -142,9 +174,26 @@ If the host is the master when deleted, {{ mmy-short-name }} automatically assig
 
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Delete the `host` block from the {{ mmy-name }} cluster description.
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the deletion of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
 - API
 
   To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
 
 {% endlist %}
-

@@ -13,3 +13,5 @@
 20% | {{ sku|RUB|compute.vm.cpu.c20.v3|string }}
 50% | {{ sku|RUB|compute.vm.cpu.c50.v3|string }}
 100% | {{ sku|RUB|compute.vm.cpu.c100.v3|string }}
+**AMD Epyc 7702** |
+100% | 0,5600 ₽

@@ -280,6 +280,9 @@ default:
   s2-5xlarge: s2.5xlarge (48 vCPU, 192 ГБ)
   s2-6xlarge: s2.6xlarge (64 vCPU, 256 ГБ)
   s2-7xlarge: s2.7xlarge (80 vCPU, 320 ГБ)
+  v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
+  v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  a100-epyc: AMD Epyc 7702 with NVIDIA® Ampere® A100
   graph-update: 15 секунд
   graph-update-burstable: 150 секунд
   mch-backup-retention: 7

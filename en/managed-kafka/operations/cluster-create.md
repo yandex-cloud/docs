@@ -20,7 +20,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
   To create a cluster, follow these steps:
 
   1. In the management console, select the folder where you want to create a cluster.
-  
+
   1. Select **{{ mkf-name }}**.
 
   1. Click **Create cluster**.
@@ -28,30 +28,32 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
   1. Under **Basic parameters**:
      1. Enter a name for the cluster and, if necessary, a description. The cluster name must be unique within the folder.
      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
-        - `PRODUCTION`: For stable versions of your apps.
-        - `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+        * `PRODUCTION`: For stable versions of your apps.
+        * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
      1. Select the {{ KF }} version.
-  
+
   1. Under **Host class**, select the platform, host type, and host class.
 
      The host class defines the technical specifications of the VMs where the [{{ KF }} brokers](../concepts/brokers.md) will be deployed. All available options are listed in [Host classes](../concepts/instance-types.md).
 
-     When you [change the host class](cluster-update.md#update-cluster) for the cluster, the characteristics of all existing instances change.
+     When you [change the host class](cluster-update.md#change-resource-preset) for the cluster, the characteristics of all existing instances change.
 
   1. Under **Storage**:
 
      * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
 
         When selecting a storage type, remember that:
-        - The size of the local storage can only be changed in 100 GB increments.
-        - The size of non-replicated network storage can only be changed in 93 GB increments.
+        * The size of the local storage can only be changed in 100 GB increments.
+        * The size of non-replicated network storage can only be changed in 93 GB increments.
 
      * Select the size of storage to be used for data.
 
   1. Under **Network settings**:
 
      1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) where the {{ KF }} brokers will reside.
+
      1. Select the [network](../../vpc/concepts/network.md).
+
      1. Select subnets in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new subnet** next to the desired availability zone.
 
         {% note info %}
@@ -62,11 +64,11 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
      1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. For more information, see [{#T}](connect.md).
 
-    {% note warning %}
+        {% note warning %}
 
-You can't request public access after creating a cluster.
+        You can't request public access after creating a cluster.
 
-{% endnote %}
+        {% endnote %}
 
      1. Select security groups to control the cluster's network traffic.
 
@@ -84,7 +86,7 @@ You can't request public access after creating a cluster.
 
   1. Click **Create cluster**.
 
-  1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+  1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state becomes **Alive**. This may take some time.
 
 - CLI
 
@@ -194,14 +196,12 @@ You can't request public access after creating a cluster.
 
         {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
-    For more information about resources that can be created using Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
-
 - API
 
   To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
-  - In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-  - The cluster name, in the `name` parameter.
-  - Security group IDs in the parameter `securityGroupIds`.
+  * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+  * The cluster name, in the `name` parameter.
+  * Security group IDs in the parameter `securityGroupIds`.
 
 {% endlist %}
 
@@ -221,15 +221,15 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
 
-    - With the name `mykf`.
-  - In the `production` environment.
-  - With {{ KF }} version `2.6`.
-  - In the `{{ network-name }}` network.
-  - In the security group `{{ security-group }}`.
-  - With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
-  - With one broker.
-  - With 10 GB fast network storage (`{{ disk-type-example }}`).
-  - With public access.
+    * With the name `mykf`.
+  * In the `production` environment.
+  * With {{ KF }} version `2.6`.
+  * In the `{{ network-name }}` network.
+  * In the security group `{{ security-group }}`.
+  * With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
+  * With one broker.
+  * With 10 GB fast network storage (`{{ disk-type-example }}`).
+  * With public access.
 
   Run the command:
 
@@ -252,17 +252,17 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
-    - In the cloud with the ID `{{ tf-cloud-id }}`.
-    - In the folder with the ID `{{ tf-folder-id }}`.
-    - With the name `mykf`.
-    - In the `PRODUCTION` environment.
-    - With {{ KF }} version `2.6`.
-    - In the new `mynet` network with the subnet `mysubnet`.
-    - In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
-    - With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
-    - With one broker.
-    - With 10 GB fast network storage (`{{ disk-type-example }}`).
-    - With public access.
+    * In the cloud with the ID `{{ tf-cloud-id }}`.
+    * In the folder with the ID `{{ tf-folder-id }}`.
+    * With the name `mykf`.
+    * In the `PRODUCTION` environment.
+    * With {{ KF }} version `2.6`.
+    * In the new `mynet` network with the subnet `mysubnet`.
+    * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
+    * With one `{{ host-class }}` host in the `{{ zone-id }}` availability zone.
+    * With one broker.
+    * With 10 GB fast network storage (`{{ disk-type-example }}`).
+    * With public access.
 
   The configuration file for the cluster looks like this:
 
@@ -276,7 +276,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     }
     
     provider "yandex" {
-      token = "<OAuth or static key of service account>"
+      token     = "<OAuth or static key of service account>"
       cloud_id  = "{{ tf-cloud-id }}"
       folder_id = "{{ tf-folder-id }}"
       zone      = "{{ zone-id }}"
@@ -331,3 +331,4 @@ If you specified security group IDs when creating a cluster, you may also need t
     ```
 
 {% endlist %}
+

@@ -4,20 +4,26 @@ href: index.yaml
 items:
   - name: Сценарии использования
     items:
+      - name: Работа с заданиями
+        items:
+          - name: Обзор
+            href: solutions/job-overview.md
+          - name: Использование Apache Hive
+            href: solutions/how-to-use-hive.md
+          - name: Запуск Spark-приложений
+            href: solutions/run-spark-job.md
+          - name: Запуск приложений с удаленного хоста
+            href: solutions/remote-run-job.md
       - name: Настройка сети для кластеров Data Proc
         href: solutions/configure-network.md
-      - name: Использование Apache Hive
-        href: solutions/how-to-use-hive.md
-      - name: Запуск Spark-приложений
-        href: solutions/run-spark-job.md
-      - name: Запуск приложений с удаленного хоста
-        href: solutions/remote-run-job.md
       - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
         href: solutions/copy-files-from-object-storage.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Информация об имеющихся кластерах
+        href: operations/cluster-list.md
       - name: Создание кластера
         href: operations/cluster-create.md
       - name: Подключение к кластеру
@@ -26,6 +32,18 @@ items:
         href: operations/subcluster-update.md
       - name: Управление подкластерами
         href: operations/subclusters.md
+      - name: Управление заданиями
+        items:
+          - name: Все задания
+            href: operations/jobs.md
+          - name: Задания Spark
+            href: operations/jobs-spark.md
+          - name: Задания PySpark
+            href: operations/jobs-pyspark.md
+          - name: Задания MapReduce
+            href: operations/jobs-mapreduce.md
+          - name: Задания Hive
+            href: operations/jobs-hive.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
   - name: Концепции
@@ -40,6 +58,8 @@ items:
         href: concepts/interfaces.md
       - name: Веб-интерфейсы компонентов
         href: concepts/ui-proxy.md
+      - name: Задания в Data Proc
+        href: concepts/jobs.md
       - name: Автоматическое масштабирование
         href: concepts/autoscaling.md
       - name: Декомиссия подкластеров и хостов

@@ -216,6 +216,21 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
      {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
+- API
+
+  To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
+
+    * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+    * The cluster name, in the `name` parameter.
+    * The environment of the cluster, in the `environment` parameter.
+    * Network ID, in the `networkId` parameter.
+    * Cluster configuration, in the `configSpec` parameter.
+    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+    * [Security group](../concepts/network.md#security-groups) identifiers, in the `securityGroupIds` parameter.
+    * Database configuration, in one or more `databaseSpecs` parameters.
+    * User settings, in one or more `userSpecs` parameters.
+
+
 {% endlist %}
 
 {% note warning %}

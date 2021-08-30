@@ -26,6 +26,8 @@ The list below shows all roles that are considered when verifying access rights 
 
 {% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
 
+{% include [functions-roles-mdbproxy](../../_includes/roles-functions-mdbproxy.md) %}
+
 ### {{ roles-viewer }} {#viewer}
 
 The user with the `{{ roles-viewer }}` role can view information about resources, such as the list of functions or their versions and the function execution log.

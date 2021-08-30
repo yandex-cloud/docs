@@ -13,7 +13,6 @@
 
 To create a {{ CH }} connection:
 
-
 1. Go to the [connections page](https://datalens.yandex.com/connections).
 
 1. Click **Create connection**.
@@ -26,11 +25,9 @@ To create a {{ CH }} connection:
 
    {% list tabs %}
 
-    - Select in Yandex.Cloud
+    - Select in the catalog
 
-      
       Specify the connection parameters for the {{ CH }} DB available in {{ yandex-cloud }}:
-
 
       - **Cluster**. Specify a cluster from the list of available {{ CH }} clusters. If you don't have an available cluster, click **Create new**.
 
