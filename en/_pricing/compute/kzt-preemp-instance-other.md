@@ -9,3 +9,6 @@ RAM (for 1 GB) | {{ sku|KZT|compute.vm.ram.preemptible|string }}
 RAM (for 1 GB) | {{ sku|KZT|compute.vm.ram.preemptible.v2|string }}
 **Intel Ice Lake** |
 RAM (for 1 GB) | {{ sku|KZT|compute.vm.ram.preemptible.v3|string }}
+**AMD Epyc 7702** |
+1 GPU | ₸557.5440
+RAM (for 1 GB) | ₸0.4200

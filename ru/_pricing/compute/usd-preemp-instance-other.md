@@ -9,3 +9,6 @@ RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.preemptible|string }}
 RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.preemptible.v2|string }}
 **Intel Ice Lake** |
 RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.preemptible.v3|string }}
+**AMD Epyc 7702** |
+1 GPU | $1.191333
+RAM (for 1 GB) | $0.000897
