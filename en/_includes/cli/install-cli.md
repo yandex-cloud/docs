@@ -5,7 +5,7 @@
     1. Run the command:
 
         ```
-        $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+        curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
         ```
 
         The script will install the CLI and add the executable file path to the environment variable `PATH`.
@@ -25,7 +25,7 @@
     1. Run the command:
 
         ```
-        $ curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
+        curl https://{{ s3-storage-host }}{{ yc-install-path }} | bash
         ```
 
         The script will install the CLI and add the executable file path to the environment variable `PATH`.
@@ -39,7 +39,7 @@
     1. Install the `bash-completion` package:
 
         ```
-        $ brew install bash-completion
+        brew install bash-completion
         ```
 
         The installation script will update the ` ~/.bash_profile` file:

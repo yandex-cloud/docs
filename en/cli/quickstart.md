@@ -8,13 +8,13 @@ _The {{ yandex-cloud }} command-line interface (CLI)_ provides downloadable soft
 
 Inside Yandex, the {{ yandex-cloud }} command-line interface (CLI) lets you use:
 
-- [{{mch-name}}](../managed-clickhouse/)
-- [{{mes-name}}](../managed-elasticsearch/)
-- [{{mkf-name}}](../managed-kafka/)
-- [{{mmg-name}}](../managed-mongodb/)
-- [{{mmy-name}}](../managed-mysql/)
-- [{{mpg-name}}](../managed-postgresql/)
-- [{{mrd-name}}](../managed-redis/)
+* [{{mch-name}}](../managed-clickhouse/)
+* [{{mes-name}}](../managed-elasticsearch/)
+* [{{mkf-name}}](../managed-kafka/)
+* [{{mmg-name}}](../managed-mongodb/)
+* [{{mmy-name}}](../managed-mysql/)
+* [{{mpg-name}}](../managed-postgresql/)
+* [{{mrd-name}}](../managed-redis/)
 
 {% endif %}
 
@@ -91,7 +91,7 @@ If you aren't connected to the management console yet, log in to the [management
   1. View your CLI profile settings:
 
      ```
-     $ yc config list
+     yc config list
      ```
 
 - As a service account
@@ -117,12 +117,12 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 1. View the description of the CLI commands for working with cloud networks:
 
    ```
-   $ yc vpc network --help
+   yc vpc network --help
    ```
 1. Create a cloud network in the folder specified in your CLI profile:
 
    ```
-   $ yc vpc network create \
+   yc vpc network create \
        --name my-yc-network \
        --labels my-label=my-value \
        --description "my first network via yc"
@@ -130,7 +130,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 1. Create a subnet in the cloud network `my-yc-network`:
 
    ```
-   $ yc vpc subnet create \
+   yc vpc subnet create \
        --name my-yc-subnet-b \
        --zone ru-central1-b \
        --range 10.1.2.0/24 \
@@ -140,7 +140,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
 1. Get a list of all cloud networks in the directory specified in your CLI profile:
 
    ```
-   $ yc vpc network list
+   yc vpc network list
    
    +----------------------+------------------+-------------------------+
    |          ID          |       NAME       |       DESCRIPTION       |
@@ -153,7 +153,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
    Get the same list with more details in YAML format:
 
    ```
-   $ yc vpc network list --format yaml
+   yc vpc network list --format yaml
    
    - id: skesdqhkc6449hbqqar1
      folder_id: ijkl9012
@@ -171,10 +171,10 @@ The following steps describe how to create a cloud network, subnet, and virtual 
    ```
 1. Create a virtual machine and connect it to the subnet `my-yc-subnet-b`:
    1. Prepare the key pair (public and private keys) for SSH access to the VM.
-   1. Create a virtual machine:
+   1. Create a Linux virtual machine:
 
       ```
-      $ yc compute instance create \
+      yc compute instance create \
           --name my-yc-instance \
           --network-interface subnet-name=my-yc-subnet-b,nat-ip-version=ipv4 \
           --zone ru-central1-b \
@@ -186,7 +186,7 @@ The following steps describe how to create a cloud network, subnet, and virtual 
    1. Find out the public IP address of the virtual machine. To do this, view detailed information about your virtual machine:
 
       ```
-      $ yc compute instance get my-yc-instance
+      yc compute instance get my-yc-instance
       ```
 
       In the command output, find the address of the VM in the `one_to_one_nat` section:
@@ -196,17 +196,17 @@ The following steps describe how to create a cloud network, subnet, and virtual 
           address: 130.193.32.90
           ip_version: IPV4
       ```
-   2. Connect to the virtual machine over SSH on behalf of the `yc-user` user, using the private key:
+   1. Connect to the virtual machine over SSH on behalf of the `yc-user` user, using the private key:
 
       ```
-      $ ssh yc-user@130.193.32.90
+      ssh yc-user@130.193.32.90
       ```
 1. Delete the `my-yc-instance` virtual machine, the `my-yc-subnet-b` subnet and the `my-yc-network` network:
 
    ```
-   $ yc compute instance delete my-yc-instance
-   $ yc vpc subnet delete my-yc-subnet-b
-   $ yc vpc network delete my-yc-network
+   yc compute instance delete my-yc-instance
+   yc vpc subnet delete my-yc-subnet-b
+   yc vpc network delete my-yc-network
    ```
 
 {% endif %}

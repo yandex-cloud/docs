@@ -42,7 +42,7 @@ To authenticate using an [SAML-compatible identity federation](../../iam/concept
 1. View your CLI profile settings:
 
    ```
-   $ yc config list
+   yc config list
    federation-id: aje1f0hs6ojais2f6ai2
    ...
    ```

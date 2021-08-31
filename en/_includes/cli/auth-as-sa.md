@@ -3,7 +3,7 @@ To authenticate as a service account:
 1. Get a list of service accounts that exist in your cloud:
 
     ```
-    $ yc iam service-account --folder-id <folder ID> list
+    yc iam service-account --folder-id <folder ID> list
     +----------------------+------------+
     |          ID          |    NAME    |
     +----------------------+------------+
@@ -14,7 +14,7 @@ To authenticate as a service account:
 1. Create an authorized key for the service account and save it to the `key.json` file:
 
     ```
-    $ yc iam key create --service-account-name default-sa --output key.json
+    yc iam key create --service-account-name default-sa --output key.json
     id: aje83v701b1un777sh40
     service_account_id: aje3932acd0c5ur7dagp
     created_at: "2019-08-26T12:31:25Z"
@@ -26,19 +26,19 @@ To authenticate as a service account:
     1. Create a new CLI profile:
 
         ```
-        $ yc config profile create sa-profile
+        yc config profile create sa-profile
         ```
 
     1. Add an authorized key:
 
         ```
-        $ yc config set service-account-key key.json
+        yc config set service-account-key key.json
         ```
 
 1. Make sure that the service account parameters are added correctly:
 
     ```
-    $ yc config list
+    yc config list
     service-account-key:
       id: aje83v701b1un777sh40
       service_account_id: aje3932acd0c5ur7dagp
