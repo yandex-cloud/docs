@@ -19,6 +19,8 @@ items:
         href: stt/formats.md
       - name: Recognition models
         href: stt/models.md
+      - name: Extending a speech recognition model
+        href: stt/additional-training.md
       - name: Marking up audio files
         href: stt/markup.md
   - name: Speech synthesis
