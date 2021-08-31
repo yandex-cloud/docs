@@ -35,6 +35,21 @@ items:
         href: tts/ssml.md
       - name: List of supported SSML phonemes
         href: tts/supported-phonemes.md
+      - name: SpeechKit Brand Voice
+        items:
+          - name: About SpeechKit Brand Voice
+            href: tts/brand-voice/index.md
+          - name: Input data format for Brand Voice Adaptive
+            href: tts/brand-voice/income-data-format.md
+      - name: APIv3 reference
+        items:
+        - name: API authentication
+          href: api-ref/authentication.md
+        - name: gRPC
+          items: null
+          include:
+            repo: docs
+            path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
   - name: IVR integration
     href: concepts/ivr-integration.md
   - name: Using the API

@@ -27,9 +27,15 @@ links:
   - title: Speech synthesis
     description: Find out how text-to-speech conversion works
     href: tts/
+  - title: SpeechKit Brand Voice
+    description: Speech synthesis technology with a unique voice
+    href: tts/brand/voice
   - title: Authentication in the API
     description: Get an access token and use it in requests
     href: concepts/auth
+  - title: APIv3 reference
+    description: API method descriptions
+    href: api-ref/authentication
   - title: Response format
     description: Response headers and response codes
     href: concepts/response
@@ -43,5 +49,5 @@ links:
     description: Service pricing and cost calculations
     href: pricing
   - title: SpeechKit releases
-    description: SpeeсhKit releases and versions
+    description: SpeechKit releases and versions
     href: release-notes
