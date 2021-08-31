@@ -29,17 +29,11 @@ To create a Greenplum connection:
         {% endnote %}
 
       * **Hostname**. Select the host name from the list of hosts available in the Greenplum cluster.
-
       * **Port**. Specify the Greenplum connection port. The default port is 5432.
-
       * **Database name**. Specify the name of the database to connect to.
-
       * **Username**. Specify the username for the Greenplum connection.
-
       * **Password**. Enter the password for the user.
-
       * **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-
       * **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
     - Specify manually
@@ -55,7 +49,7 @@ To create a Greenplum connection:
 
     {% endlist %}
 
+1. If necessary, enable the **Allow the use of subqueries as a source** option.
 1. Click **Create**.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
-

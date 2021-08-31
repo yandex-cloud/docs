@@ -14,13 +14,9 @@
 To create a {{ CH }} connection:
 
 1. Go to the [connections page](https://datalens.yandex.com/connections).
-
 1. Click **Create connection**.
-
 1. Select the **ClickHouse** connection.
-
 1. Enter a **Connection name**. You can set any name.
-
 1. Select the connection type:
 
    {% list tabs %}
@@ -29,7 +25,7 @@ To create a {{ CH }} connection:
 
       Specify the connection parameters for the {{ CH }} DB available in {{ yandex-cloud }}:
 
-      - **Cluster**. Specify a cluster from the list of available {{ CH }} clusters. If you don't have an available cluster, click **Create new**.
+      - **Cluster**. Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **DataLens access** flag set. If you don't have an available cluster, click **Create new**.
 
         {% note info %}
 
@@ -40,19 +36,14 @@ To create a {{ CH }} connection:
         {% endnote %}
 
       - **Hostname**. Select the host name from the list of hosts available in the {{ CH }} cluster.
-
       - **HTTP interface port**. Specify the {{ CH }} connection port. The default port is 8443.
-
       - **Username**. Specify the username for the {{ CH }} connection.
 
            {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
 
       - **Password**. Enter the password for the user.
-
       - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-
       - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
-
       - **HTTPS**. Be sure that the secure connection option is enabled.
 
     - Specify manually
@@ -60,19 +51,14 @@ To create a {{ CH }} connection:
       Specify the connection parameters for the external {{ CH }} database:
 
       - **Hostname**. Specify the path to the master host or the {{ CH }} master host IP address.
-
       - **HTTP interface port**. Specify the {{ CH }} connection port. The default port is 8443.
-
       - **Username**. Specify the username for the {{ CH }} connection.
 
          {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
 
       - **Password**. Enter the password for the user.
-
       - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-
       - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
-
       - **HTTPS**. Enable the secure connection option if your server supports HTTPS.
 
    {% endlist %}

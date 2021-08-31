@@ -21,4 +21,3 @@ To create an MS SQL Server connection:
 1. Click **Connect**. The connection appears in the list.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
-
