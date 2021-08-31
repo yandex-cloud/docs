@@ -11,13 +11,13 @@ keywords:
 
 # Загрузить свой образ диска в {{ yandex-cloud }}
 
-Эта инструкция описывает, как загрузить в {{ objstorage-full-name }} файл образа с ОС Linux, а также создать из него [образ](../../concepts/image.md) и виртуальную машину в сервисе {{ compute-name }}. 
+Эта инструкция описывает, как загрузить в {{ objstorage-full-name }} файл образа с ОС Linux, а также создать из него [образ](../../concepts/image.md) и виртуальную машину в сервисе {{ compute-name }}.
 
 Поддерживаются известные системы виртуализации.
 
 {% note warning %}
 
-В {{ compute-name }} создать образ по ссылке можно только из файла, загруженного в {{ objstorage-name }}.
+В {{ compute-name }} создать образ можно только из файла, загруженного в {{ objstorage-name }}. Также вы можете мигрировать виртуальную машину с помощью [Hystax Acura](../../../solutions/infrastructure-management/hystax-migration.md).
 
 {% endnote %}
 
