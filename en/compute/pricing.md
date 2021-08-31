@@ -213,26 +213,6 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% if region == "ru" %}
 
-{% include [rub-os-win-server.md](../_pricing/compute/rub-os-win-server.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include [kzt-os-win-server.md](../_pricing/compute/kzt-os-win-server.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include [usd-os-win-server.md](../_pricing/compute/usd-os-win-server.md) %}
-
-{% endif %}
-
-\* Windows Server Standard is provided at a fixed price that doesn't depend on the VM configuration.
-
-{% if region == "ru" %}
-
 {% include [rub-os-rds.md](../_pricing/compute/rub-os-rds.md) %}
 
 {% include [rub-os-sql.md](../_pricing/compute/rub-os-sql.md) %}
@@ -241,8 +221,6 @@ For the following products, funds are debited once for the calendar month in adv
 
 {% if region == "kz" %}
 
-{% include [kzt-os-win-server.md](../_pricing/compute/kzt-os-win-server.md) %}
-
 {% include [kzt-os-rds.md](../_pricing/compute/kzt-os-rds.md) %}
 
 {% include [kzt-os-sql.md](../_pricing/compute/kzt-os-sql.md) %}
@@ -250,8 +228,6 @@ For the following products, funds are debited once for the calendar month in adv
 {% endif %}
 
 {% if region == "int" %}
-
-{% include [usd-os-win-server.md](../_pricing/compute/usd-os-win-server.md) %}
 
 {% include [usd-os-rds.md](../_pricing/compute/usd-os-rds.md) %}
 

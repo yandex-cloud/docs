@@ -191,26 +191,6 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% if region == "ru" %}
 
-{% include [rub-os-win-server.md](../_pricing/compute/rub-os-win-server.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include [kzt-os-win-server.md](../_pricing/compute/kzt-os-win-server.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include [usd-os-win-server.md](../_pricing/compute/usd-os-win-server.md) %}
-
-{% endif %}
-
-\* Стоимость Windows Server Standard является фиксированной и не зависит от конфигурации ВМ.
-
-{% if region == "ru" %}
-
 {% include [rub-os-rds.md](../_pricing/compute/rub-os-rds.md) %}
 
 {% include [rub-os-sql.md](../_pricing/compute/rub-os-sql.md) %}
