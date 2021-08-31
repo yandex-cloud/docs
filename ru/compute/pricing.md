@@ -140,13 +140,6 @@ vCPU и память ВМ, запущенных на выделенном хос
 Списание средств для следующих продуктов происходит единовременно в момент запуска ВМ из расчета за один календарный месяц вперед, вне зависимости от времени фактической работы ВМ:
 
 
-{% include [rub-os-win-server.md](../_pricing/compute/rub-os-win-server.md) %}
-
-
-
-\* Стоимость Windows Server Standard является фиксированной и не зависит от конфигурации ВМ.
-
-
 {% include [rub-os-rds.md](../_pricing/compute/rub-os-rds.md) %}
 
 {% include [rub-os-sql.md](../_pricing/compute/rub-os-sql.md) %}

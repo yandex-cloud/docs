@@ -3,14 +3,14 @@
 1. Укажите облако в профиле: 
 
     ```
-    $ yc config set cloud-id <ID облака>
+    yc config set cloud-id <ID облака>
     ```
     
     Или [запускайте команды](../cli/concepts/index.md#manage-properties) с параметром `--cloud-id`.
 1. Укажите каталог в профиле: 
 
     ```
-    $ yc config set folder-id <ID каталога>
+    yc config set folder-id <ID каталога>
     ```
     
     Или [запускайте команды](../cli/concepts/index.md#manage-properties) с параметром `--folder-id`.

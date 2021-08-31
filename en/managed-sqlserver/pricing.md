@@ -23,7 +23,7 @@ Pricing is applied differently depending on the cluster status:
 
 The cost of {{ mms-name }} usage is based on:
 
-* The cost of licenses for Microsoft Windows Server Standard and Microsoft SQL Server.
+* The cost of licenses for Microsoft Windows Server Datacenter and Microsoft SQL Server.
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
@@ -72,13 +72,3 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
-## Estimated prices for host classes {#calculated-prices}
-
-Prices for the time of host uptime are calculated based on [host classes](concepts/instance-types.md) and the aforementioned prices for using software licenses, vCPU, and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.ru/services/managed-sqlserver#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-
-
-
-{% include [usd-licence.md](../_pricing/managed-sqlserver/usd-licence.md) %}

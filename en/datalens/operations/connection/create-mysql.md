@@ -6,15 +6,10 @@
 
 To create a {{ MY }} connection:
 
-
 1. Go to the [connections page](https://datalens.yandex.com/connections).
-
 1. Click **Create connection**.
-
-1. Select the **MySQL** connection.
-
+1. Select **MySQL** as the connection type.
 1. Enter a **Connection name**. You can set any name.
-
 1. Select the connection type:
 
    {% list tabs %}
@@ -23,7 +18,7 @@ To create a {{ MY }} connection:
 
       Specify the connection parameters for the {{ MY }} DB available in {{ yandex-cloud }}:
 
-      - **Cluster**. Specify a cluster from the list of available {{ MY }} clusters. If you don't have an available cluster, click **Create new**.
+      - **Cluster**. Specify a cluster from the list of available {{ MY }} clusters. Cluster settings must have the **DataLens access** flag set. If you don't have an available cluster, click **Create new**.
 
         {% note info %}
 
@@ -34,23 +29,23 @@ To create a {{ MY }} connection:
         {% endnote %}
 
       - **Hostname**. Select the host name from the list of hosts available in the {{ MY }} cluster.
-
       - **Port**. Specify the {{ MY }} connection port. The default port is 3306.
-
       - **Database name**. Specify the name of the database to connect to.
-
       - **Username**. Specify the username for the {{ MY }} connection.
-
       - **Password**. Enter the password for the user.
+      - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
     - Specify manually
 
       Specify the connection parameters for the external {{ MY }} database:
-      - **Hostname**. Specify the {{ MY }} host path or IP address.
+      - **Hostname**. Specify the path to the master host or the {{ MY }} master host IP address.
       - **Port**. Specify the {{ MY }} connection port. The default port is 3306.
       - **Username**. Specify the username for the {{ MY }} connection.
       - **Database name**. Specify the name of the database to connect to.
       - **Password**. Enter the password for the user.
+      - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    {% endlist %}
 
