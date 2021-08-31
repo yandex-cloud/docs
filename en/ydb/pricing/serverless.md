@@ -305,5 +305,3 @@ When calculating the actual consumption: the number of requests is averaged ever
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
-
-{% if audience != "external" %}
