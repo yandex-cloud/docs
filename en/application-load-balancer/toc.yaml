@@ -39,6 +39,10 @@ items:
             href: operations/application-load-balancer-update.md
           - name: Delete an L7 load balancer
             href: operations/application-load-balancer-delete.md
+  - name: Use cases
+    items:
+      - name: Setting up virtual hosting
+        href: solutions/virtual-hosting.md
   - name: Concepts
     items:
       - name: Overview

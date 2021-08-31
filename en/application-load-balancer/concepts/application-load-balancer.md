@@ -8,11 +8,7 @@ For convenience and security, you can use the load balancer together with {{ cer
 
 ## Security groups {#security-groups}
 
-{% note info %}
-
-Security groups are at the [Preview stage](../../overview/concepts/launch-stages.md). If they aren't available in your network, all incoming and outgoing traffic will be allowed for the L7 load balancer and backend VMs, and no additional configuration is required.
-
-{% endnote %}
+{% include [security-groups-note](../_includes_service/security-groups-note.md) %}
 
 When you create a load balancer, specify [security groups](../../vpc/concepts/security-groups.md) as they contain a set of rules for the load balancer to receive incoming traffic and send it to backend VMs. Security groups are also assigned to each VM.
 

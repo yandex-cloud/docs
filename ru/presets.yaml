@@ -304,7 +304,7 @@ default:
   yc-windows-path: /yandexcloud-yc/install.ps1
   link-console-billing: https://console.cloud.yandex.ru/billing
   link-console-cloud: https://console.cloud.yandex.ru/cloud
-  link-console-main: https://console.cloud.yandex.ru/
+  link-console-main: https://console.cloud.yandex.ru
   link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.ru/iam
   link-console-support: https://console.cloud.yandex.ru/support

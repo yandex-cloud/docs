@@ -294,7 +294,7 @@ default:
   yc-install-path: /yandexcloud-yc/install.sh
   yc-windows-path: /yandexcloud-yc/install.ps1
   link-console-billing: https://console.cloud.yandex.com/billing
-  link-console-main: https://console.cloud.yandex.com/
+  link-console-main: https://console.cloud.yandex.com
   link-console-cloud: https://console.cloud.yandex.com/cloud
   link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.com/iam
@@ -328,7 +328,7 @@ default:
   dt-copy: Copy
   dt-repl: Replicate
   dt-copy-repl: Copy and replicate
-  
+
   # Ports
   port-any: 0-65535
   port-http: 80
