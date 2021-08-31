@@ -49,13 +49,17 @@ To create a {{ CH }} connection:
 
       - **Password**. Enter the password for the user.
 
+      - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+
+      - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+
       - **HTTPS**. Be sure that the secure connection option is enabled.
 
     - Specify manually
 
       Specify the connection parameters for the external {{ CH }} database:
 
-      - **Hostname**. Specify the {{ CH }} host path or IP address.
+      - **Hostname**. Specify the path to the master host or the {{ CH }} master host IP address.
 
       - **HTTP interface port**. Specify the {{ CH }} connection port. The default port is 8443.
 
@@ -64,6 +68,10 @@ To create a {{ CH }} connection:
          {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
 
       - **Password**. Enter the password for the user.
+
+      - **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+
+      - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
       - **HTTPS**. Enable the secure connection option if your server supports HTTPS.
 
