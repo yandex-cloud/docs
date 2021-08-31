@@ -1,15 +1,15 @@
 ### Лицензии {#licence}
 
+Ресурс | Цена за 1 vCPU в час 
+----- | ----- 
+Windows Server Datacenter для 100% vCPU | 7,6146 ₸
+
 Списание средств для следующих продуктов происходит единовременно в момент запуска ВМ из расчета за один календарный месяц вперед, вне зависимости от времени фактической работы ВМ:
 
-Ресурс | Цена в месяц 
------ | ----- 
-Windows Server Standard* | 36 120 ₸ за хост 
-Microsoft SQL Server Standard |  141 516 ₸ за каждые 4 vCPU  
-Microsoft SQL Server Enterprise | 483 912 ₸ за каждые 4 vCPU
-
-\* Стоимость Windows Server Standard является фиксированной и не зависит от конфигурации ВМ
-
+| Продукт | Цена за 1 vCPU в месяц
+| --- | ---
+| Microsoft SQL Server Standard | 35 379 ₸
+| Microsoft SQL Server Enterprise | 12 0978 ₸
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
@@ -21,6 +21,8 @@ RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mssql.v2.ram|string }}
 
 
 ### Хранилище и резервные копии {#prices-storage}
+
+{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
 
 Услуга | Цена за ГБ в месяц
 ----- | -----

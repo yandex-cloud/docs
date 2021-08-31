@@ -1,14 +1,16 @@
 ### Licenses {#licence}
 
+| Resource | Cost per hour, with VAT
+| ----- | -----
+| Windows Server Datacenter for 100% vCPU | ₽1,2691
+
 For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
 
-| Resource | Cost per month, with VAT |
+| Resource | Cost per vCPU per month, with VAT |
 | ----- | ----- |
-| Windows Server Standard* | ₽6020 per host |
-| Microsoft SQL Server Standard | ₽23586 for every 4 vCPUs |
-| Microsoft SQL Server Enterprise | ₽80652 for every 4 vCPUs |
+| Microsoft SQL Server Standard | ₽5896,5 |
+| Microsoft SQL Server Enterprise | ₽20163 |
 
-\* Windows Server Standard is provided at a fixed price that doesn't depend on VM configurations.
 
 ### Host computing resources {#prices-hosts}
 

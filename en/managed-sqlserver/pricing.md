@@ -23,7 +23,7 @@ Pricing is applied differently depending on the cluster status:
 
 The cost of {{ mms-name }} usage is based on:
 
-* The cost of licenses for Microsoft Windows Server Standard and Microsoft SQL Server.
+* The cost of licenses for Microsoft Windows Server Datacenter and Microsoft SQL Server.
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
@@ -100,6 +100,8 @@ All prices are shown with VAT.
 
 {% endif %}
 
+{% if audience == "draft" %}
+
 ## Estimated prices for host classes {#calculated-prices}
 
 Prices for the time of host uptime are calculated based on [host classes](concepts/instance-types.md) and the aforementioned prices for using software licenses, vCPU, and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.ru/services/managed-sqlserver#calculator).
@@ -121,5 +123,7 @@ Prices for the time of host uptime are calculated based on [host classes](concep
 {% if region == "int"%}
 
 {% include [usd-licence.md](../_pricing/managed-sqlserver/usd-licence.md) %}
+
+{% endif %}
 
 {% endif %}

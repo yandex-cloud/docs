@@ -1,15 +1,15 @@
 ### Лицензии {#licence}
 
+Ресурс | Цена за 1 vCPU в час
+--- | ---
+Windows Server Datacenter | 1,2691 ₽
+
 Списание средств для следующих продуктов происходит единовременно в момент запуска ВМ из расчета за один календарный месяц вперед, вне зависимости от времени фактической работы ВМ:
 
-Ресурс | Цена в месяц 
------ | ----- 
-Windows Server Standard* | 6 020 ₽ за хост 
-Microsoft SQL Server Standard |  23 586 ₽ за каждые 4 vCPU  
-Microsoft SQL Server Enterprise | 80 652 ₽ за каждые 4 vCPU
-
-\* Стоимость Windows Server Standard является фиксированной и не зависит от конфигурации ВМ
-
+Ресурс | Цена за 1 vCPU в месяц
+--- | ---
+Microsoft SQL Server Standard | 5 896,5 ₽
+Microsoft SQL Server Enterprise | 20 163 ₽
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 

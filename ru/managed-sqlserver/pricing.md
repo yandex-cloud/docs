@@ -22,7 +22,7 @@ editable: false
 
 Расчет стоимости использования {{ mms-name }} учитывает:
 
-* стоимость лицензий ПО Windows Server Standard и Microsoft SQL Server;
+* стоимость лицензий ПО Windows Server Datacenter и Microsoft SQL Server;
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
@@ -106,6 +106,8 @@ editable: false
 
 {% endif %}
 
+{% if audience == "draft" %}
+
 ## Расчетные цены для классов хостов {#calculated-prices}
 
 Цены за время работы хостов рассчитаны исходя из конфигураций [классов хостов](concepts/instance-types.md) и приведенных выше цен за использование лицензий ПО, vCPU и RAM для соответствующей платформы. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-sqlserver#calculator).
@@ -129,5 +131,7 @@ editable: false
 {% if region == "int"%}
 
 {% include [usd-licence.md](../_pricing/managed-sqlserver/usd-licence.md) %}
+
+{% endif %}
 
 {% endif %}
