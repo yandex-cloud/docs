@@ -26,7 +26,7 @@
 
 {% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваш балансировщик, на [странице облака](https://console.cloud.yandex.ru/cloud). Все действия сценария нужно производить в этом каталоге.
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет работать ваш балансировщик, на [странице облака]({{ link-console-cloud }}). Все действия сценария нужно производить в этом каталоге.
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -196,7 +196,7 @@
   
 Аналогично создайте для сайта `site-b.com` вторую группу ВМ с именем `vhosting-ig-b` и целевую группу с именем `vhosting-tg-b`.
 
-Создание группы ВМ может занять несколько минут. Когда группа перейдет в [статус](../../compute/concepts/instance-groups/statuses.md#group-statuses) `RUNNING`, а все ВМ в ней — в [статус](../../compute/concepts/instance-groups/statuses.md#vm-statuses) `RUNNING_ACTUAL`, вы можете [загрузить на них файлы веб-сайта](#upload-files).
+Создание группы ВМ может занять несколько минут. Когда группа перейдет в [статус](../../compute/concepts/instance-groups/statuses.md#group-statuses) `RUNNING`, а все ВМ в ней — в [статус](../../compute/concepts/instance-groups/statuses.md#vm-statuses) `RUNNING_ACTUAL`, вы можете [загрузить на них файлы веб-сайта](#upload-sites-files).
 
 ![ig-running](../../_assets/application-load-balancer/solutions/virtual-hosting/ig-running.png)
 

@@ -145,15 +145,6 @@ For the following products, funds are debited once for the calendar month in adv
 
 
 
-{% include [usd-os-win-server.md](../_pricing/compute/usd-os-win-server.md) %}
-
-\* Windows Server Standard is provided at a fixed price that doesn't depend on the VM configuration.
-
-
-
-
-{% include [usd-os-win-server.md](../_pricing/compute/usd-os-win-server.md) %}
-
 {% include [usd-os-rds.md](../_pricing/compute/usd-os-rds.md) %}
 
 {% include [usd-os-sql.md](../_pricing/compute/usd-os-sql.md) %}

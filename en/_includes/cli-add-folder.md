@@ -3,7 +3,7 @@ Some commands require that you specify unique IDs for your cloud and folder. You
 1. Specify the cloud in your profile:
 
     ```
-    $ yc config set cloud-id <cloud ID>
+    yc config set cloud-id <cloud ID>
     ```
 
     Or [run commands](../cli/concepts/index.md#manage-properties) with the `--cloud-id` parameter.
@@ -11,7 +11,7 @@ Some commands require that you specify unique IDs for your cloud and folder. You
 1. Specify a folder in the profile:
 
     ```
-    $ yc config set folder-id <folder ID>
+    yc config set folder-id <folder ID>
     ```
 
     Or use the `--folder-id` parameter [in your commands](../cli/concepts/index.md#manage-properties).

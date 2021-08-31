@@ -18,7 +18,7 @@ To create a Greenplum connection:
 
       Specify the connection parameters for the Greenplum DB available in {{ yandex-cloud }}:
 
-      * **Cluster**. Specify a cluster from the list of available Greenplum clusters. If you don't have an available cluster, click **Create new**.
+      * **Cluster**. Specify a cluster from the list of available Greenplum clusters. Cluster settings must have the **DataLens access** flag set. If you don't have an available cluster, click **Create new**.
 
         {% note info %}
 
@@ -34,16 +34,18 @@ To create a Greenplum connection:
       * **Username**. Specify the username for the Greenplum connection.
       * **Password**. Enter the password for the user.
       * **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      * **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
     - Specify manually
 
       Specify the connection parameters for the external Greenplum database:
-      * **Hostname**. Specify the path to the Greenplum host.
+      * **Hostname**. Specify the path to the master host or the IP address of the Greenplum master host.
       * **Port**. Specify the Greenplum connection port. The default port is 5432.
       * **Database name**. Specify the name of the database to connect to.
       * **Username**. Specify the username for the Greenplum connection.
       * **Password**. Enter the password for the user.
       * **Cache lifetime in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+      * **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
     {% endlist %}
 
