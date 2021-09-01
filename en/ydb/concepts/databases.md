@@ -31,7 +31,7 @@ For more information about how to create and manage databases, see ["Creating an
 
 ## Cluster {#cluster}
 
-You can host databases in single data center [clusters](clusters.md) located in the VLA (Vladimir, Russia), MYT (Mytischi, Russia), MAN (Mäntsälä, Finland), and SAS (Sasovo, Russia) data centers. You can also use geographically distributed clusters that span three data centers: VLA-SAS-MAN and VLA-SAS-MYT. If quick write query execution is key for your project (low-latency for transactions), choose single data center clusters. If your projects have higher reliability requirements (data survivability if a data center goes offline), use geographically distributed clusters. One database is fully hosted in one cluster. A single cluster can host multiple databases.
+You can host databases in single data center clusters located in the VLA (Vladimir, Russia), MYT (Mytischi, Russia), MAN (Mäntsälä, Finland), and SAS (Sasovo, Russia) data centers. You can also use geographically distributed clusters that span three data centers: VLA-SAS-MAN and VLA-SAS-MYT. If quick write query execution is key for your project (low-latency for transactions), choose single data center clusters. If your projects have higher reliability requirements (data survivability if a data center goes offline), use geographically distributed clusters. One database is fully hosted in one cluster. A single cluster can host multiple databases.
 
 {% note warning %}
 
@@ -74,7 +74,7 @@ At the top hierarchy level, the cluster contains a single domain that hosts one 
 
 {% if audience != "external" %}
 
-In {{ ydb-short-name }} clusters, compute units are represented with **slots**. A slot is a single process that handles user queries to a specific database. One slot can only serve one DB. A query to a specific database can be handled by any of the slots allocated to this database. You can see a list of DB slots on the [Info](https://ydb.yandex-team.ru/db/ydb-ru/tutorial/home/testdb/info) tab of the {{ ydb-short-name }} web interface or in the results of running the `discovery list` command in the {{ ydb-short-name }} console client. Read more about the `discovery` command in the [documentation](../getting_started/ydb_cli.md#discovery_list).
+In {{ ydb-short-name }} clusters, compute units are represented with **slots**. A slot is a single process that handles user queries to a specific database. One slot can only serve one DB. A query to a specific database can be handled by any of the slots allocated to this database. You can see a list of DB slots on the [Info](https://ydb.yandex-team.ru/db/ydb-ru/tutorial/home/testdb/info) tab of the {{ ydb-short-name }} web interface or in the results of running the `discovery list` command in the {{ ydb-short-name }} console client.
 
 {% note info %}
 

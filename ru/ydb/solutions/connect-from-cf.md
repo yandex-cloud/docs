@@ -19,7 +19,7 @@
 В стоимость поддержки инфраструктуры для этого сценария входит:
 
 * плата за использование функции (см. [тарифы {{ sf-full-name }}](../../compute/pricing.md));
-* плата за выполнение запросов к базе данных (см. [тарифы {{ ydb-full-name }}](../pricing/serverless.md)).
+* плата за выполнение запросов к базе данных (см. [тарифы {{ ydb-full-name }}]{% if audience == "external" %}(../pricing/serverless.md){% else %}(https://cloud.yandex.ru/docs/ydb/pricing/serverless){% endif %}.
 
 ## Создайте сервисный аккаунт {#create-sa}
 

@@ -70,7 +70,8 @@ select if($found is not null, unwrap($found), -1);
 
 Для представления множеств следует использовать словарь с значениями типа `Void` — `Dict<T, Void>`.
 
-Для обращения к элементам контейнера используется [точка или фигурные скобки](../yql/reference/syntax/expressions.md#items-access), в зависимости от его типа.
+Для обращения к элементам контейнера используется [точка или фигурные скобки]{% if audience == "external" %}(../yql/reference/syntax/expressions.md#items-access){% else %}(https://yql.yandex-team.ru/docs/ydb/syntax/expressions){% endif %}
+, в зависимости от его типа.
 
 ## Специальные типы данных {#special}
 

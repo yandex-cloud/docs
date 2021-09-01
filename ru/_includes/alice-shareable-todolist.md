@@ -20,7 +20,7 @@
 
 1. Установите и инициализируйте следующие программы:
 	* [Yandex Cloud CLI](../cli/quickstart.md);
-	* [Yandex Database CLI](../ydb/quickstart/yql-api/ydb-cli.md);
+	* [Yandex Database CLI]{% if audience == "external" %}(../ydb/quickstart/yql-api/ydb-cli.md){% else %}(https://cloud.yandex.ru/docs/ydb/quickstart/yql-api/ydb-cli){% endif %};
 	* [Командный интерпретатор Bash](http://www.gnu.org/software/bash/);
 	* [AWS CLI](../storage/tools/aws-cli);
 	* [jq](https://stedolan.github.io/jq/download/);

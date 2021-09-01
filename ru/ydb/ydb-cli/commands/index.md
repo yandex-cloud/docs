@@ -12,7 +12,10 @@
 
 Перед выполнением примеров:
 
-1. [Создайте](../../operations/create_manage_database.md#create-db) базу данных.
-1. [Создайте](../../yql/tutorial/create_demo_tables.md) таблицу и [добавьте](../../yql/tutorial/fill_tables_with_data.md) в нее данные.
+1. [Создайте]{% if audience == "external" %}(../../operations/create_manage_database.md#create-db){% else %}(https://cloud.yandex.ru/docs/ydb/operations/create_manage_database#create-db){% endif %}
+ базу данных.
+1. [Создайте]{% if audience == "external" %}(../../yql/tutorial/create_demo_tables.md){% else %}(https://cloud.yandex.ru/docs/ydb/yql/tutorial/create_demo_tables){% endif %}
+ таблицу и [добавьте]{% if audience == "external" %}(../../yql/tutorial/fill_tables_with_data.md){% else %}(https://cloud.yandex.ru/docs/ydb/yql/tutorial/fill_tables_with_data){% endif %}
+ в нее данные.
 1. [Установите](../install.md) {{ ydb-short-name }} CLI.
 1. [Настройте](../profile/create.md) профиль {{ ydb-short-name }} CLI.
