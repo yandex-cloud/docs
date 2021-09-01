@@ -38,4 +38,4 @@ _Подключение_ содержит информацию о парамет
 - [{#T}](../operations/connection/create-metrica-api.md)
 - [{#T}](../operations/connection/create-metrica-logs-api.md)
 - [{#T}](../operations/connection/create-appmetrica.md)
-- [{#T}](../operations/connection/create-cloud-billing.md)
+{% if audience != "internal" %} - [{#T}](../operations/connection/create-cloud-billing.md) {% endif %}
