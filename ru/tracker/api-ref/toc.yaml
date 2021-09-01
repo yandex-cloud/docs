@@ -24,7 +24,7 @@ items:
     - name: Получить связи задачи
       href: concepts/issues/get-links.md
     - name: Связать задачи
-      href: concepts/issues/link-issue.md
+      href: concepts/issues/link-issue.md 
     - name: Получить переходы
       href: concepts/issues/get-transitions.md
     - name: Выполнить переход в статус
@@ -77,6 +77,16 @@ items:
       href: patch-macros.md
     - name: Удалить макрос
       href: delete-macros.md
+- name: Внешние связи
+  items:
+    - name: Получить список внешних приложений
+      href: concepts/issues/get-applications.md
+    - name: Получить список внешних связей задачи
+      href: concepts/issues/get-external-links.md
+    - name: Добавить внешнюю связь
+      href: concepts/issues/add-external-link.md
+    - name: Удалить внешнюю связь
+      href: concepts/issues/delete-external-link.md 
 - name: Прикрепленные файлы
   items:  
     - name: Получить список прикрепленных файлов

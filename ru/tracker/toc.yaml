@@ -356,6 +356,14 @@ items:
     - name: Код-ревью
       when: audience == "internal"
       href: user/review.md
+    - name: Настроить связи с внешним приложением
+      items:
+        - name: Обзор
+          href: external-links.md
+        - name: Подготовить внешнее приложение
+          href: ext-app-setup.md
+        - name: Передать данные приложения команде Tracker
+          href: ext-app-info.md
 - name: Инструменты разработчика
   items:
     - name: Плагин для  IDE
