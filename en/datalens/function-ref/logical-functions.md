@@ -1,4 +1,5 @@
 ---
+title: Logical functions
 editable: false
 ---
 

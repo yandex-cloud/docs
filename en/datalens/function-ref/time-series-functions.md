@@ -1,4 +1,6 @@
 ---
+title: Time series functions
+description: Time series functions provide various ways to look up values corresponding to a specific time or offset along a given time axis.
 editable: false
 ---
 
