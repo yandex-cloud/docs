@@ -309,6 +309,14 @@ items:
             href: slack.md
           - name: Telegram
             href: telegram.md
+      - name: Настроить связи с внешним приложением
+        items:
+          - name: Обзор
+            href: external-links.md
+          - name: Подготовить внешнее приложение
+            href: ext-app-setup.md
+          - name: Передать данные приложения команде Tracker
+            href: ext-app-info.md
   - name: Инструменты разработчика
     items:
       - name: Плагин для  IDE
@@ -401,6 +409,16 @@ items:
             href: patch-macros.md
           - name: Удалить макрос
             href: delete-macros.md
+      - name: Внешние связи
+        items:
+          - name: Получить список внешних приложений
+            href: concepts/issues/get-applications.md
+          - name: Получить список внешних связей задачи
+            href: concepts/issues/get-external-links.md
+          - name: Добавить внешнюю связь
+            href: concepts/issues/add-external-link.md
+          - name: Удалить внешнюю связь
+            href: concepts/issues/delete-external-link.md
       - name: Прикрепленные файлы
         items:
           - name: Получить список прикрепленных файлов

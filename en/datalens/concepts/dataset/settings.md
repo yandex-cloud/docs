@@ -25,7 +25,7 @@ Datasets can work with data sources in the following modes:
 
 {% note info %}
 
-Materialization mode is not available for Metrica API and AppMetrica API sources.
+Materialization mode is not available for Yandex.Metrica API and AppMetrica API sources.
 To configure the database to populate from these sources, you can use [connections via the Logs API](#metrica-appmetrica-logs-api).
 
 {% endnote %}
@@ -59,7 +59,7 @@ For example, every second week on Thursday at 03:00.
 
 The minimum available interval is once a day.
 
-#### Connecting via the Logs API for Metrica and AppMetrica sources {#metrica-appmetrica-logs-api}
+#### Connecting via the Logs API for Yandex.Metrica and AppMetrica sources {#metrica-appmetrica-logs-api}
 
 For Metrica and AppMetrica sources, the {{ datalens-short-name }} materialization database is unavailable for populating with data. To set up automatic data loading from these sources, you can create a connection to the [Metrica Logs API](../../operations/connection/create-metrica-logs-api.md) or the [AppMetrica Logs API](../../operations/connection/create-appmetrica-logs-api.md) and set the data update frequency. This will load data from Yandex.Metrica or AppMetrica into the {{ CH }} database, which will serve as the dataset source.
 
@@ -83,7 +83,7 @@ Default filters for new charts will enable you:
 
 ## Access management {#access-management}
 
-You can configure permissions for an entire dataset.
+You can configure permissions for an entire dataset. For more information, see [{#T}](../../operations/dataset/manage-access.md).
 
 You can also set data permissions at the row level (_Row-level security_ or _RLS_). Learn more in [{#T}](../../operations/dataset/manage-row-level-security.md).
 

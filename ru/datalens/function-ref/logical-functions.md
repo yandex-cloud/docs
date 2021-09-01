@@ -1,4 +1,5 @@
 ---
+title: Логические функции
 editable: false
 ---
 

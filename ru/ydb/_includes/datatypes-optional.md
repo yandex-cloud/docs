@@ -4,7 +4,8 @@
 
 Наиболее часто на опциональных типах данных выполняются следующие операции:
 
-* [UNWRAP](../yql/reference/builtins/basic.md#unwrap) — извлечь значение оригинального типа из опционального, `T?` преобразуется в `T`.
+* [UNWRAP](../yql/reference/builtins/basic.md#unwrap)
+ — извлечь значение оригинального типа из опционального, `T?` преобразуется в `T`.
 
   Пример записи:
 
@@ -18,7 +19,8 @@
 
   {% endnote %}
 
-* [COALESCE](../yql/reference/builtins/basic.md#coalesce) — проверить значение на `NULL`, если да, то заменить `NULL` значением `value`.
+* [COALESCE](../yql/reference/builtins/basic.md#coalesce)
+ — проверить значение на `NULL`, если да, то заменить `NULL` значением `value`.
 
   Примеры записи:
   
@@ -36,7 +38,8 @@
 
   Приведенные примеры записи эквивалентны.
 
-* [IF](../yql/reference/builtins/basic.md#if) — вычислить выражение, если значение `x` не является `NULL`.
+* [IF](../yql/reference/builtins/basic.md#if)
+ — вычислить выражение, если значение `x` не является `NULL`.
 
   Пример записи:
   
@@ -46,7 +49,8 @@
   
   В этом примере можно вызвать функцию `f` на оригинальном значении, так как в предикате `IF` уже проверено, что `x` не `NULL`.
 
-* [JUST](../yql/reference/builtins/basic.md#just) — изменить тип данных на опциональный текущего, `T` преобразуется в `T?`.
+* [JUST](../yql/reference/builtins/basic.md#just)
+ — изменить тип данных на опциональный текущего, `T` преобразуется в `T?`.
 
   Пример записи:
 
@@ -54,7 +58,8 @@
   JUST(x)
   ```
 
-* [NOTHING](../yql/reference/builtins/basic.md#nothing) — создать пустое значение с указанным типом.
+* [NOTHING](../yql/reference/builtins/basic.md#nothing)
+ — создать пустое значение с указанным типом.
 
   Пример записи:
 

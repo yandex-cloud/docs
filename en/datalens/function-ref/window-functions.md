@@ -1,4 +1,6 @@
 ---
+title: Window functions
+description: Window functions are calculated in the same way as aggregations, but they do not merge multiple entries into one.
 editable: false
 ---
 
