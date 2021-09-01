@@ -1,4 +1,10 @@
 ---
+title: Aggregate functions
+description: Aggregate functions (or aggregations) are functions that combine multiple values from a group of entries into one, thus collapsing the group into a single entry.
+keywords:
+- aggregate functions
+- aggregations
+- aggregate data
 editable: false
 ---
 

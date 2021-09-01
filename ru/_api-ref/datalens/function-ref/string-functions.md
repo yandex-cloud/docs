@@ -1,4 +1,5 @@
 ---
+title: Строковые функции
 editable: false
 ---
 

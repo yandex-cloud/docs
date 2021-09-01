@@ -1,4 +1,5 @@
 ---
+title: String functions
 editable: false
 ---
 

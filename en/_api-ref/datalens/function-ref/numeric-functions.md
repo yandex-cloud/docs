@@ -1,4 +1,5 @@
 ---
+title: Mathematical functions
 editable: false
 ---
 
