@@ -13,12 +13,15 @@
 
 Подготовьте базу данных-источник к отправке данных:
 
+* [{{ CH }}](operations/prepare.md#prepare-source-ch);
+* [{{ MG }}](operations/prepare.md#prepare-source-mg);
 * [{{ MY }}](operations/prepare.md#prepare-source-my);
 * [{{ PG }}](operations/prepare.md#prepare-source-pg).
 
 Подготовьте базу данных-приемник к получению данных:
 
 * [{{ CH }}](operations/prepare.md#prepare-target-ch);
+* [{{ MG }}](operations/prepare.md#prepare-target-mg);
 * [{{ MY }}](operations/prepare.md#prepare-target-my);
 * [{{ PG }}](operations/prepare.md#prepare-target-pg).
 
