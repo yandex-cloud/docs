@@ -13,5 +13,5 @@
 20% | {{ sku|KZT|compute.vm.cpu.c20.preemptible.v3|string }}
 50% | {{ sku|KZT|compute.vm.cpu.c50.preemptible.v3|string }}
 100% | {{ sku|KZT|compute.vm.cpu.c100.preemptible.v3|string }}
-**AMD Epyc 7702** |
+**AMD EPYC™** |
 100% | 1,3440 ₸
