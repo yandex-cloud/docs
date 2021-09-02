@@ -38,7 +38,7 @@ items:
         href: operations/get-folder-report.md
       - name: Посмотреть детализацию в {{ datalens-full-name }}
         href: operations/dashbord.md
-      - name: Установить уведомления о потреблении
+      - name: Установить уведомления
         href: operations/budgets.md
   - name: Концепции
     items:
@@ -62,6 +62,8 @@ items:
         href: concepts/cvos.md
       - name: Free tier экосистемы бессерверных вычислений
         href: concepts/serverless-free-tier.md
+      - name: Бюджет
+        href: concepts/budget.md 
       - name: Договор
         href: concepts/contract.md
       - name: Глоссарий
