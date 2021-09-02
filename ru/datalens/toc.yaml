@@ -128,7 +128,11 @@ items:
             href: operations/connection/create-ydb.md
           - name: Создание подключения к ClickHouse over YT
             when: audience == "internal"
-            href: operations/connection/create-chyt.md
+            items:
+              - name: Подключение
+                href: operations/connection/chyt/create-chyt.md
+              - name: Рекомендации
+                href: operations/connection/chyt/chyt-recommendations.md
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
           - name: Создание подключения к Metrica Logs API
