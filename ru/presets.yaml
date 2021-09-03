@@ -55,6 +55,7 @@ default:
   cdn-full-name: Yandex Cloud CDN
   serverless-containers-full-name: Yandex Serverless Containers
   org-full-name: Yandex Cloud Organization
+  forms-full-name: Yandex Forms
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -109,6 +110,7 @@ default:
   cdn-name: Cloud CDN
   serverless-containers-name: Serverless Containers
   org-name: Organization
+  forms-name: Forms
 
   # Короткие имена
   iam-short-name: IAM

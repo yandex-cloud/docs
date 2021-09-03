@@ -1,0 +1,59 @@
+default:
+
+  #Перенес в общий файл ru/presets.yaml
+  #forms-full-name: Yandex Forms
+  #forms-name: Forms
+
+  locale: ru
+  
+  #Ссылки на Формы:
+  link-forms-admin: https://forms.yandex.ru/admin/
+  link-forms-admin-ya: https://forms.yandex-team.ru/admin/
+  link-forms-ext-ya: https://forms.yandex-team.ru/ext/admin/
+  link-forms-b2b: https://forms.yandex.ru/b2b/admin
+  #на будущее docs-forms: https://cloud.yandex.ru/docs/forms/
+  
+  #Ссылки на Tracker
+  link-tracker: https://tracker.yandex.ru/
+
+  #Ссылки на wiki
+  link-wiki: https://wiki.yandex.ru/
+  
+  #Ссылки на справку на yandex.ru/support и wiki.yandex-team.ru
+  support-disk-main: https://yandex.ru/support/disk/
+  support-passport-auth: https://yandex.ru/support/passport/authorization/twofa-on.html
+  support-metrica-counter: https://yandex.ru/support/metrica/general/creating-counter.html
+  support-metrica-java: https://yandex.ru/support/metrica/general/goal-js-event.html
+  support-metrica-goals: https://yandex.ru/support/metrica/general/goals.html
+  support-troubleshooting-screen: https://yandex.ru/support/common/troubleshooting/screenshot.html
+  support-zen-widget: https://yandex.ru/support/zen/channel/widget.html
+  support-zen-widget-add: https://yandex.ru/support/zen/channel/widget.html#adding
+  support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
+  
+  #Внешние ссылки
+  link-wikipedia-markdown: https://ru.wikipedia.org/wiki/Markdown
+  link-wikipedia-expressions: https://ru.wikipedia.org/wiki/Регулярные_выражения # в _includes/forms
+  link-wikipedia-url: https://ru.wikipedia.org/wiki/URL#Структура_URL
+  link-wikipedia-captcha: https://ru.wikipedia.org/wiki/Капча
+  link-wikipedia-utm: https://ru.wikipedia.org/wiki/UTM-метки
+  link-yoomoney: https://yoomoney.ru/
+
+  #Прочее
+  link-passport: https://passport.yandex.ru/auth
+  link-metrika: https://metrika.yandex.ru
+  link-forms-legal: https://yandex.ru/legal/forms_creators/
+  example-account: login@yndex.ru
+
+  #Сервисы
+  #Должны быть в общем ru/presets.yaml
+  #tracker-full-name: Yandex Tracker
+  #tracker-name: Tracker
+  wiki-full-name: Yandex Wiki
+  wiki-name: Wiki
+  
+external:
+# По дефолту
+
+internal:
+  link-tracker: https://st.yandex-team.ru/
+  link-wiki: https://wiki.yandex-team.ru/
