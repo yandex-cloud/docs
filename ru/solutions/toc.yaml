@@ -102,6 +102,8 @@ items:
           Использование Confluent Schema Registry с Yandex Managed Service for
           Apache Kafka®
         href: dataplatform/confluent-schema-registry.md
+      - name: Поставка данных с помощью Debezium
+        href: dataplatform/kafka-cdc.md
   - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии
