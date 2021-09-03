@@ -1,0 +1,48 @@
+default:
+
+  service: Yandex.Wiki
+
+  wiki-full-name: Yandex Wiki
+  wiki-name: Wiki
+  wiki-short-name: Wiki
+
+  locale: en
+  
+  #Ссылки на сервисы
+  link-yandex: https://yandex.com
+  link-wiki: https://wiki.yandex.com/
+  link-connect: https://connect.yandex.com/ #то же самое https://connect.yandex.ru/portal/home
+  link-tracker: https://tracker.yandex.com/
+  link-homepage: https://wiki.yandex.com/homepage/
+  link-homepage-access: https://wiki.yandex.com/homepage/.access
+  link-support: https://support.cloud.yandex.com/
+  
+
+  #Ссылки на справку на yandex.ru/support
+  support-enable-connect: https://yandex.com/support/connect/enable-connect.html
+  support-enable-wiki: https://yandex.com/support/connect/wiki.html
+  support-admin-connect: https://yandex.com/support/connect/administrators.html
+  
+  #Внешние ссылки
+  link-about-markdown: https://en.wikipedia.org/wiki/Markdown
+  link-about-graphviz: https://en.wikipedia.org/wiki/Graphviz
+  link-about-diagram: https://en.wikipedia.org/wiki/Sequence_diagram
+  link-about-tex: https://en.wikipedia.org/wiki/TeX
+  
+  #Тексты из примеров
+  yandex-logo-link: http://img.yandex.net/i/logo95x37x8.png
+  wiki-host-name: wiki.yandex.com
+  wiki-username: wiki.yandex.com/users/userName
+  wiki-notes: wiki.yandex.com/users/userName/notes
+  username-oleg: oleg
+  oleg-notes-title: Oleg's notes
+  example-link-mail: "[Oleg's email](mailto:oleg@yandex.com)"
+  exapmlle-anchor: m-mojjrazdel
+
+  #Сервисы
+  tracker-full-name: Yandex Tracker
+  tracker-name: Tracker
+  
+internal:
+  link-wiki: https://wiki.yandex-team.ru/
+  wiki-host-name: wiki.yandex-team.ru

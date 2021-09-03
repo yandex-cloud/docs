@@ -1,0 +1,118 @@
+title: Yandex Wiki
+stage: preview
+href: index.yaml
+items:
+- name: Getting started
+  href: quick-guide.md
+- name: How Wiki works
+  href: structure.md
+- name: Creating pages
+  items:
+  - name: Overview
+    href: create-and-edit.md
+  - name: Creating pages
+    href: create-page.md
+  - name: Creating a page from a file
+    href: import-page.md
+  - name: Creating notes
+    href: create-note.md
+  - name: Creating dynamic tables
+    href: create-grid.md
+  - name: Uploading a table from a file
+    href: import-export-grid.md
+- name: Page formatting
+  items:
+  - name: Editing pages
+    href: edit-page.md
+  - name: Editing dynamic tables
+    href: edit-grid.md
+  - name: History
+    href: history.md
+  - name: Formatting page text
+    href: basic-markup.md
+  - name: Attaching files to pages
+    href: attach-file.md
+  - name: Embedding images
+    href: add-image.md
+  - name: Inserting a table
+    href: add-grid.md
+  - name: Inserting a video
+    href: add-video.md
+  - name: Inserting a table of contents
+    href: add-toc.md
+  - name: Adding links to Tracker issues
+    href: add-tickets-list.md
+  - name: Inserting formulas
+    href: formulas.md
+  - name: Diagrams and flowcharts
+    href: diagram.md
+- name: Managing pages
+  items:
+  - name: Restricting page view
+    href: page-managment/access-setup.md
+  - name: Prohibit page editing
+    href: page-managment/read-only.md
+  - name: Assigning page authors
+    href: page-managment/edit-owner.md
+  - name: Moving pages between clusters
+    href: page-managment/move-page.md
+  - name: Adding keywords
+    href: add-key-words.md
+  - name: Marking outdated pages
+    href: exp-page.md
+  - name: Deleting pages
+    href: delete-page.md
+- name: Wiki navigation
+  items:
+  - name: Search Wiki
+    href: search.md
+  - name: Subscriptions and favorites
+    href: notifications.md
+  - name: Viewing a page and cluster structure
+    href: cluster-overview.md
+  - name: Viewing the list of my pages
+    href: my-pages.md
+  - name: Viewing pages you edited
+    href: edited-pages-list.md
+- name: Markup guide
+  items:
+  - name: Markdown markup
+    items:
+    - name: Overview
+      href: static-markup.md
+    - name: Page structure
+      href: static-markup/document-strucuture.md
+    - name: Formatting text
+      href: static-markup/formatting.md
+    - name: Lists
+      href: static-markup/lists.md
+    - name: Links
+      href: static-markup/links.md
+    - name: Images and files
+      href: static-markup/files.md
+    - name: Table
+      href: static-markup/grids.md
+    - name: Quotations
+      href: static-markup/quoting.md
+    - name: Separating text blocks
+      href: static-markup/wrappers.md
+    - name: Source code formatting
+      href: static-markup/source.md
+    - name: HTML elements
+      href: static-markup/html-code.md
+    - name: Escaping characters
+      href: static-markup/escaping.md
+  - name: Dynamic blocks
+    items:
+    - name: Overview
+      href: actions.md
+    - name: Creating page lists
+      href: actions/page-lists.md
+    - name: Embedding dynamic tables
+      href: actions/grid-reference.md
+    - name: Embedding objects
+      href: actions/objects.md
+- name: Pricing
+  href: pricing.md
+- name: Support
+  href: troubleshooting.md
