@@ -18,7 +18,7 @@ default:
   link-settings: https://tracker.yandex.ru/settings
   link-tracker-promo: https://cloud.yandex.ru/services/tracker
   link-services-tracker: https://connect.yandex.ru/portal/services/tracker
-  link-forms: https://forms.yandex.ru/
+  link-forms: https://forms.yandex.ru/b2b/admin
   link-passport: https://passport.yandex.ru/
   link-500-users: https://cloud.yandex.ru/services/tracker#contact-form
   link-tracker-support: https://support.cloud.yandex.ru/
@@ -29,15 +29,6 @@ default:
   support-connect-domain: https://yandex.ru/support/connect/add-domain.html
   support-connect-domains: https://yandex.ru/support/connect/domains.html#proof
   support-connect-services: https://yandex.ru/support/connect/services.html#services__mail-settings
-  support-forms-main: https://yandex.ru/support/connect-forms/
-  support-forms-create: https://yandex.ru/support/connect-forms/common/new-form.html
-  support-forms-tracker: https://yandex.ru/support/connect-forms/common/create-task.html
-  support-forms-access: https://yandex.ru/support/connect-forms/common/restrictions.html#restrictions__sec_access
-  support-forms-notify: https://yandex.ru/support/connect-forms/common/notifications.html
-  support-forms-publish: https://yandex.ru/support/connect-forms/common/publish.html#publish__section_link
-  support-forms-wiki: https://yandex.ru/support/connect-forms/common/publish.html#publish__section_xvx_g2c_tbb
-  support-forms-embed: https://yandex.ru/support/connect-forms/common/publish.html##publish__section_c21_gdb_42b
-  support-forms-question-id: https://yandex.ru/support/connect-forms/common/question-id.html#question-id__sec_question
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
   support-business-domain: https://yandex.ru/support/business/domains.html
   support-business-users: https://yandex.ru/support/business/add-users.html

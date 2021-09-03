@@ -2,6 +2,24 @@
 
 ## Подготовка источника {#prepare-source}
 
+### {{ CH }} {#prepare-source-ch}
+
+Чтобы подготовить источник к трансферу:
+
+{% list tabs %}
+
+* {{ mch-name }}
+
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
+    1. [Создайте пользователя](../../managed-clickhouse/operations/cluster-users.md). При создании выдайте ему доступ к базе источника.
+
+* {{ CH }}
+
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
+    1. Настройте кластер-источник таким образом, чтобы к нему можно было подключиться из интернета.
+    1. Создайте пользователя. При создании выдайте ему доступ к базе источника.
+
+{% endlist %}
 
 ### {{ MG }} {#prepare-source-mg}
 
@@ -230,6 +248,107 @@
 
 {% endlist %}
 
+### {{ yds-full-name }} {#prepare-source-yds}
+
+Чтобы подготовить источник к трансферу:
+
+* [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
+* (Опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
+
+    {% cut "Пример функции обработки" %}
+
+    ```javascript
+    const yc = require("yandex-cloud");
+    const { Parser } = require("@robojones/nginx-log-parser");
+    module.exports.handler = async function (event, context) {
+        const schema =
+            '$remote_addr - $remote_user [$time_local] "$request" $status $bytes_sent "$http_referer" "$http_user_agent"';
+        const parser = new Parser(schema);
+        return {
+            Records: event.Records.map((record) => {
+                const decodedData = new Buffer(record.kinesis.data, "base64")
+                    .toString("ascii")
+                    .trim();
+                try {
+                    const result = parser.parseLine(decodedData);
+                    if (result.request == "") {
+                        // empty request - drop message
+                        return {
+                            eventID: record.eventID,
+                            invokeIdentityArn: record.invokeIdentityArn,
+                            eventVersion: record.eventVersion,
+                            eventName: record.eventName,
+                            eventSourceARN: record.eventSourceARN,
+                            result: "Dropped"
+                        };
+                    }
+                    return {
+                        // successfully parsed message
+                        eventID: record.eventID,
+                        invokeIdentityArn: record.invokeIdentityArn,
+                        eventVersion: record.eventVersion,
+                        eventName: record.eventName,
+                        eventSourceARN: record.eventSourceARN,
+                        kinesis: {
+                            data: new Buffer(JSON.stringify(result)).toString(
+                                "base64"
+                            ),
+                        },
+                        result: "Ok"
+                    };
+                } catch (err) {
+                    // error - fail message
+                    return {
+                        eventID: record.eventID,
+                        invokeIdentityArn: record.invokeIdentityArn,
+                        eventVersion: record.eventVersion,
+                        eventName: record.eventName,
+                        eventSourceARN: record.eventSourceARN,
+                        result: "ProcessingFailed",
+                    };
+                }
+            })
+        };
+    };
+    ```
+
+    {% endcut %}
+
+* (Опционально) Подготовьте файл схемы данных в формате JSON.
+
+    Пример файла со схемой данных:
+
+    ```json
+    [
+        {
+            "name": "<имя поля>",
+            "type": "<тип>"
+        },
+        ...
+        {
+            "name": "<имя поля>",
+            "type": "<тип>"
+        }
+    ]
+    ```
+
+    Список допустимых типов:
+
+    * `int64`
+    * `int32`
+    * `int16`
+    * `int8`
+    * `uint64`
+    * `uint32`
+    * `uint16`
+    * `uint8`
+    * `double`
+    * `boolean`
+    * `string`
+    * `utf8`
+    * `any`
+    * `datetime`
+
 ## Подготовка приемника {#prepare-target}
 
 ### {{ CH }} {#prepare-target-ch}
@@ -246,7 +365,7 @@
 
     1. [Создайте пользователя](../../managed-clickhouse/operations/cluster-users.md#adduser). При создании выдайте ему доступ к базе приемника.
 
-        После старта трансфер подключится к приемнику от имени этого пользователя. Если на приемнике включен {{ ZK }}, таблицы на приемнике будут созданы в версии `Replicated*MergeTree`. Подробнее см. в разделе [{#T}](../../managed-clickhouse/concepts/replication.md).
+        После старта трансфер подключится к приемнику от имени этого пользователя.
 
 * {{ CH }}
 
@@ -254,11 +373,9 @@
 
     1. Создайте пользователя с доступом к базе-приемнику.
 
-        После старта трансфер подключится к приемнику от имени этого пользователя. Если на приемнике включен {{ ZK }}, таблицы на приемнике будут созданы в версии `Replicated*MergeTree`. Подробнее см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/replication/).
+        После старта трансфер подключится к приемнику от имени этого пользователя.
 
 {% endlist %}
-
-Если кластер-приемник состоит из нескольких хостов, для переносимых таблиц будут автоматически выбраны движки `ReplacingMergeTree` и `ReplicatedReplacingMergeTree`.
 
 ### {{ MG }} {#prepare-target-mg}
 

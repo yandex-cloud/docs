@@ -8,3 +8,28 @@ To create a column chart:
 1. Drag a dimension from the dataset to the **X** section. The values are displayed in the lower part of the chart on the X-axis.
 1. Drag one or more indicators from the dataset to the **Y** section. The values are displayed as columns on the Y-axis.
 
+A stacked column chart is displayed by default.
+
+## Creating a grouped column chart {#grouped-column-chart}
+
+To display an X-axis grouped column chart:
+
+1. Go to the column chart that you created.
+
+1. Depending on the number of measures in the **Y** section, follow these steps:
+
+    {% list tabs %}
+
+    - One measure
+        1. Check if there is a dimension in the **Colors** section.
+        1. Duplicate this dimension in the **X** section. The sequence of dimensions affects the grouping order.
+
+      <iframe src="https://datalens.yandex/3qmmquiu7i1ux?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
+
+    - Two or more measures
+        1. Drag the `Measure Names` dimension to the **Colors** section.
+        1. Drag the `Measure Names` dimension to the **X** section. The sequence of dimensions affects the grouping order.
+
+      <iframe src="https://datalens.yandex/tgc7ep00pz26n?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
+
+    {% endlist %}

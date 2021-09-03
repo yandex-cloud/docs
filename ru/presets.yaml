@@ -54,6 +54,7 @@ default:
   cdn-full-name: Yandex Cloud CDN
   serverless-containers-full-name: Yandex Serverless Containers
   org-full-name: Yandex Cloud Organization
+  forms-full-name: Yandex Forms
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -106,6 +107,7 @@ default:
   cdn-name: Cloud CDN
   serverless-containers-name: Serverless Containers
   org-name: Organization
+  forms-name: Forms
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -282,7 +284,7 @@ default:
   s2-7xlarge: s2.7xlarge (80 vCPU, 320 ГБ)
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
-  a100-epyc: AMD Epyc 7702 with NVIDIA® Ampere® A100
+  a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   graph-update: 15 секунд
   graph-update-burstable: 150 секунд
   mch-backup-retention: 7
