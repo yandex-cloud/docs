@@ -18,8 +18,6 @@ You can recover the cluster data _from a given point in time_ (Point-in-Time-Rec
 
 {{ mmg-name }} lets you restore the cluster state to any point in time from the creation of the oldest full backup. For this purpose, the backup selected as the starting point of recovery is updated by `oplog` entries for the later backups and the cluster itself.
 
-Learn more about PITR and its limitations in the [{{ MG }} documentation](https://docs.mongodb.com/database-tools/mongodump/#cmdoption-mongodump-oplog).
-
 To restore a cluster from a backup, [follow the instructions](../operations/cluster-backups.md#restore).
 
 ## Creating backups {#size}

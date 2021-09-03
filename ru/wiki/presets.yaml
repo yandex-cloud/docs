@@ -1,0 +1,30 @@
+default:
+  service: Yandex Wiki
+  wiki-full-name: Yandex Wiki
+  wiki-name: Wiki
+  wiki-short-name: Wiki
+  link-wiki: https://wiki.yandex.ru/
+  locale: ru
+  link-yandex: https://yandex.ru
+  link-homepage: https://wiki.yandex.ru/homepage/
+  link-homepage-access: https://wiki.yandex.ru/homepage/.access
+  link-support: https://support.cloud.yandex.ru/?referral=wiki
+  link-passport: https://passport.yandex.ru/
+  support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
+  link-about-markdown: https://ru.wikipedia.org/wiki/Markdown
+  link-about-graphviz: https://ru.wikipedia.org/wiki/Graphviz
+  link-about-diagram: https://ru.wikipedia.org/wiki/Диаграмма_последовательности
+  link-about-tex: https://ru.wikipedia.org/wiki/TeX
+  yandex-logo-link: http://img.yandex.net/i/logo95x37x8.png
+  wiki-host-name: wiki.yandex.ru
+  wiki-username: wiki.yandex.ru/users/имяПользователя
+  wiki-notes: wiki.yandex.ru/users/имяПользователя/notes
+  username-oleg: oleg
+  oleg-notes-title: Заметки Олега
+  example-link-mail: '[Почта Олега](mailto:oleg@yandex.ru)'
+  exapmlle-anchor: m-mojjrazdel
+  example-account: login@yandex.ru
+  forms-full-name: Yandex Forms
+  forms-name: Forms
+  link-forms-b2b: https://forms.yandex.ru/b2b/admin
+  link-forms-int: https://forms.yandex-team.ru/admin/

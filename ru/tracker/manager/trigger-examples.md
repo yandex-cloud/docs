@@ -180,7 +180,7 @@
 
     ![](../../_assets/tracker/trigger-example-form-constructor.png)
 
-1. Настройте для формы [интеграцию с {{ tracker-name }}]({{ support-forms-tracker }}):        
+1. Настройте для формы [интеграцию с {{ tracker-name }}](../../forms/create-task.md):        
 
     1. Укажите очередь и другие параметры задачи.
 
@@ -192,7 +192,7 @@
 
     ![image](../../_assets/tracker/trigger-example-form-integration.png)
 
-1. [Опубликуйте]({{ support-forms-publish }}) форму.
+1. [Опубликуйте](../../forms/publish.md#section_link) форму.
 
 #### Шаг 3. Настроить триггер для отправки писем
 

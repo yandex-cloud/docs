@@ -25,6 +25,8 @@ items:
     href: data-proc/index.yaml
   - name: Data Transfer
     href: data-transfer/index.yaml
+  - name: Data Streams
+    href: data-streams/index.yaml
   - name: DataLens
     href: datalens/index.yaml
   - name: DataLens Partner API

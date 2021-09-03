@@ -7,7 +7,7 @@ editable: false
 
 When using the {{ ml-platform-name}} service, you pay for the actual use of computing resources: the calculation time is charged per second.
 
-If you do not perform computational operations in the project, the service usage time {{ml-platform-name }} is not charged. However, if you perform calculations using {{ dataproc-name}} clusters, they are charged separately. For more information, see [using clusters {{dataproc-name }}](#data-proc).
+If you do not perform computational operations in the project, the service usage time {{ml-platform-name }} is not charged. However, if you perform calculations using {{ dataproc-name}} clusters, they are charged separately. For more information, see [using clusters {{dataproc-name }}](#data-proc). Also storage of [datasets](#storage) is charged separately.
 
 ### Pricing unit {#unit}
 
@@ -59,14 +59,8 @@ Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
 
 ### Storing data in the project {#storage}
 
-Data storage inside {{ ml-platform-name }} is not charged within the established [quotas and limits](concepts/limits.md).
+Data storage inside {{ ml-platform-name }} is not charged within the established [quotas and limits](concepts/limits.md) but datasets are nor included into project storage.
 If you need to store large amounts of data that exceed the specified limits, use the {{ objstorage-full-name }} service. In this case, data storage will be charged according to [pricing rules {{ objstorage-name }}](../storage/pricing.md).
-
-{% note warning %}
-
-From September 1, 2021, new rules for charging datasets will come into effect.
-
-{% endnote %}
 
 
 
@@ -81,21 +75,6 @@ From September 1, 2021, new rules for charging datasets will come into effect.
 {% include [usd-unit-and-resource.md](../_pricing/datasphere/usd-unit-and-resource.md) %}
 
 ### Performing background operations {#async}
-
-More about [background operations](concepts/async.md).
-
-
-
-
-{% include [usd-async.md](../_pricing/datasphere/usd-async.md) %}
-
-#### Performing background operations after 1st September 2021 {#async-new}
-
-{% note warning %}
-
-From September 1, 2021, new rules for charging background operations will come into effect.
-
-{% endnote %}
 
 
 

@@ -1,0 +1,138 @@
+title: Yandex Forms
+stage: preview
+href: index.yaml
+items:
+  - name: Getting started
+    items:
+      - name: Choose a version of Yandex Forms
+        href: go-to-forms.md
+      - name: Create your first form
+        href: quick-guide.md
+      - name: Enable Yandex Forms for business
+        href: enable-forms.md
+      - name: Log in to Yandex Forms for business
+        href: login.md
+  - name: Concepts
+    items:
+      - name: Service overview
+        href: overview.md
+      - name: Personal forms
+        href: personal-forms.md
+      - name: Yandex Forms for business
+        href: forms-for-org.md
+  - name: Create a form
+    items:
+      - name: Overview
+        href: new-form.md
+      - name: Add prompts
+        href: add-questions.md
+      - name: Make a test
+        href: tests.md
+      - name: Customize the form appearance
+        href: appearance.md
+      - name: Configure conditions for submitting a response
+        href: send-condition.md
+      - name: Customize the result page
+        href: success-page.md
+      - name: Response validation
+        href: option-validation.md
+  - name: Integration with other services
+    items:
+      - name: Overview
+        href: notifications.md
+      - name: Send message
+        href: send-mail.md
+      - name: Publish the form on Yandex.Zen
+        href: forms-lite.md
+      - name: Connect Yandex.Metrica
+        href: metrica.md
+      - name: Create a task in Yandex Tracker
+        href: create-task.md
+      - name: Add a response to Wiki
+        href: send-wiki.md
+      - name: Send an HTTP request
+        href: send-request.md
+      - name: Variables in integration settings
+        href: vars.md
+  - name: Publish a form
+    href: null
+    items:
+      - name: Publish a form
+        href: publish.md
+      - name: Limit responses
+        href: restrictions.md
+      - name: Configure pre-filling forms
+        items:
+          - name: Overview
+            href: pre-fill.md
+          - name: GET parameters
+            href: get-params.md
+          - name: Get question and response IDs
+            href: question-id.md
+  - name: Get responses
+    href: answers.md
+  - name: Manage forms
+    href: forms-settings.md
+  - name: Prompt blocks reference
+    items:
+      - name: Overview
+        href: blocks-ref/blocks-reference.md
+      - name: Cities and countries
+        href: blocks-ref/cities.md
+      - name: Date
+        href: blocks-ref/date.md
+      - name: Departments
+        href: blocks-ref/departments.md
+      - name: Drop-down list
+        href: blocks-ref/dropdown.md
+      - name: Email
+        href: blocks-ref/email.md
+      - name: File
+        href: blocks-ref/file.md
+      - name: Integer
+        href: blocks-ref/integer.md
+      - name: Link
+        href: blocks-ref/link.md
+      - name: Long text
+        href: blocks-ref/long-text.md
+      - name: Multiple answers
+        href: blocks-ref/multiple.md
+      - name: Number
+        href: blocks-ref/number.md
+      - name: One answer
+        href: blocks-ref/radiobutton.md
+      - name: People
+        href: blocks-ref/people.md
+      - name: Phone
+        href: blocks-ref/phone.md
+      - name: Rate on a scale
+        href: blocks-ref/rating.md
+      - name: Series of questions
+        href: blocks-ref/series.md
+      - name: Text with no questions
+        href: blocks-ref/no-question.md
+      - name: Short text
+        href: blocks-ref/short-text.md
+      - name: Teams
+        href: blocks-ref/teams.md
+      - name: Tests and quizzes
+        items:
+          - name: Overview
+            href: blocks-ref/tests-ref.md
+          - name: Multiple answers
+            href: blocks-ref/test-multiple.md
+          - name: Number
+            href: blocks-ref/test-number.md
+          - name: One answer
+            href: blocks-ref/test-single.md
+      - name: TIN
+        href: blocks-ref/inn.md
+      - name: Wiki
+        href: blocks-ref/wiki.md
+      - name: Yes / No
+        href: blocks-ref/yes-no.md
+  - name: Pricing rules
+    href: pricing.md
+  - name: Support
+    href: feedback.md
+base: en/forms

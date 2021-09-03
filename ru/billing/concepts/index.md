@@ -13,5 +13,3 @@ description: "В биллинге Yandex.Cloud используются след
 - [Платежный аккаунт](billing-account.md)
 - [Промокод](promo-code.md)
 - [Резервируемое потребление (CVoS)](cvos.md)
-
-

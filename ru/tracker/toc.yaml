@@ -127,6 +127,8 @@ items:
             href: user/create-ticket.md
           - name: Создать задачу по почте
             href: user/create-ticket-by-mail.md
+          - name: Создать задачу из формы
+            href: user/create-ticket-with-forms.md
           - name: Клонировать задачу
             href: user/clone.md
       - name: Редактировать задачу
@@ -285,6 +287,8 @@ items:
             href: user/delete-template.md
           - name: Использовать общие шаблоны
             href: user/share-template.md
+      - name: Использовать форму как шаблон для создания задач
+        href: manager/attach-form.md
   - name: Настроить SLA для задач
     items:
       - name: Обзор

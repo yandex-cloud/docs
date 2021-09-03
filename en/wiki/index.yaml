@@ -1,0 +1,31 @@
+title: Yandex Wiki
+description:
+  - Yandex Wiki is a user-generated hub for all your company information.
+  - >-
+    Wiki consists of pages, each of which can be edited. The pages use Markdown
+    formatting. Any Wiki user can create pages, add comments, and edit them. All
+    corrections made by users are saved in the change history, so there's no
+    risk of losing anything important.
+meta:
+  title: Yandex Wiki
+links:
+  - title: Concepts
+    description: Learn how the work is organized in Wiki.
+    href: structure
+  - title: Quick start
+    description: Set up your personal section in the Wiki.
+    href: quick-guide
+  - title: Configure access
+    description: By default, all users who have access to a page can edit it.
+    href: access-setup
+  - title: Create pages
+    description: In Wiki, you can create simple pages, notes, and tables.
+    href: create-and-edit
+  - title: Edit pages
+    description: You can change any Wiki page that you have access to.
+    href: formatting
+  - title: Markup guide
+    description: >-
+      Wiki supports additional formatting elements that are not present in the
+      standard Markdown syntax.
+    href: static-markup
