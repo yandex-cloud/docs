@@ -43,7 +43,7 @@ chmod 600  ~/.passwd-s3fs
 You can configure mounting a bucket at system startup. To do this, open the `/etc/fstab` file and add a line in the following format:
 
 ```
-s3fs#<bucket name> /mount/<folder path> fuse _netdev,allow_other,use_path_request_style,url=http://storage.yandexcloud.net 0 0
+s3fs#<bucket name> /mount/<folder path> fuse _netdev,allow_other,use_path_request_style,url=http://storage.yandexcloud.net,passwd_file=/path/.passwd-s3fs 0 0
 ```
 
 For descriptions of all s3fs parameters, see the [project's wiki page](https://github.com/s3fs-fuse/s3fs-fuse/wiki/Fuse-Over-Amazon) on GitHub.
