@@ -13,11 +13,9 @@ default:
   link-forms-b2b: https://forms.yandex.ru/b2b/admin
   #на будущее docs-forms: https://cloud.yandex.ru/docs/forms/
   
-  #Ссылки на Tracker
-  link-tracker: https://tracker.yandex.ru/
-
-  #Ссылки на wiki
-  link-wiki: https://wiki.yandex.ru/
+  #Ссылки на сервисы
+  link-passport: https://passport.yandex.ru/auth
+  link-metrika: https://metrika.yandex.ru
   
   #Ссылки на справку на yandex.ru/support и wiki.yandex-team.ru
   support-disk-main: https://yandex.ru/support/disk/
@@ -39,17 +37,9 @@ default:
   link-yoomoney: https://yoomoney.ru/
 
   #Прочее
-  link-passport: https://passport.yandex.ru/auth
-  link-metrika: https://metrika.yandex.ru
   link-forms-legal: https://yandex.ru/legal/forms_creators/
   example-account: login@yndex.ru
 
-  #Сервисы
-  #Должны быть в общем ru/presets.yaml
-  #tracker-full-name: Yandex Tracker
-  #tracker-name: Tracker
-  wiki-full-name: Yandex Wiki
-  wiki-name: Wiki
   
 external:
 # По дефолту

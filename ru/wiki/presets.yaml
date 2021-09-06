@@ -2,11 +2,11 @@ default:
 
   service: Yandex Wiki
 
-  #перенести в общий файл ru/presets.yaml
-  wiki-full-name: Yandex Wiki
-  wiki-name: Wiki
-  wiki-short-name: Wiki
-  link-wiki: https://wiki.yandex.ru/
+  #В общем файле ru/presets.yaml
+  #wiki-full-name: Yandex Wiki
+  #wiki-name: Wiki
+  #wiki-short-name: Wiki
+  #link-wiki: https://wiki.yandex.ru/
 
   locale: ru
   
@@ -16,6 +16,7 @@ default:
   link-homepage-access: https://wiki.yandex.ru/homepage/.access
   link-support: https://support.cloud.yandex.ru/?referral=wiki
   link-passport: https://passport.yandex.ru/
+  link-forms-int: https://forms.yandex-team.ru/admin/
   
 
   #Ссылки на справку на yandex.ru/support
@@ -38,15 +39,6 @@ default:
   exapmlle-anchor: m-mojjrazdel
   example-account: login@yandex.ru
 
-  #Сервисы
-  #Будет в общем файле ru/presets.yaml
-  #tracker-full-name: Yandex Tracker
-  #tracker-name: Tracker
-  #link-tracker: https://tracker.yandex.ru/
-  forms-full-name: Yandex Forms
-  forms-name: Forms
-  link-forms-b2b: https://forms.yandex.ru/b2b/admin
-  link-forms-int: https://forms.yandex-team.ru/admin/
 
 internal:
   link-wiki: https://wiki.yandex-team.ru/  

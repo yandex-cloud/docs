@@ -56,6 +56,7 @@ default:
   serverless-containers-full-name: Yandex Serverless Containers
   org-full-name: Yandex Cloud Organization
   forms-full-name: Yandex Forms
+  wiki-full-name: Yandex Wiki
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -111,6 +112,7 @@ default:
   serverless-containers-name: Serverless Containers
   org-name: Organization
   forms-name: Forms
+  wiki-name: Wiki
 
   # Короткие имена
   iam-short-name: IAM
@@ -155,6 +157,8 @@ default:
   lockbox-short-name: Lockbox
   at-short-name: Audit Trails
   tracker-short-name: Tracker
+  forms-short-name: Forms
+  wiki-short-name: Wiki
   speechkit-pro-short-name: SpeechKit Pro
   cdn-short-name: Cloud CDN
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
@@ -323,6 +327,8 @@ default:
   link-datalens-main: https://datalens.yandex.ru
   link-org-main: https://org.cloud.yandex.ru/
   link-tracker: https://tracker.yandex.ru/
+  link-wiki: https://wiki.yandex.ru/
+  link-forms-b2b: https://forms.yandex.ru/b2b/admin
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud

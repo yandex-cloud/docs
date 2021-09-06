@@ -54,6 +54,8 @@ items:
   - name: Cloud Functions
     href: functions/index.yaml
     when: audience == "external"
+  - name: Forms
+    href: forms/index.yaml
   - name: Identity and Access Management
     href: iam/index.yaml
     when: audience == "external"
@@ -139,6 +141,8 @@ items:
   - name: Virtual Private Cloud
     href: vpc/index.yaml
     when: audience == "external"
+  - name: Wiki
+    href: wiki/index.yaml
   - name: Yandex Database
     href: ydb/index.yaml
     when: audience == "external"
