@@ -3,9 +3,19 @@ stage: preview
 href: index.yaml
 items:
 - name: Getting started
-  href: quick-guide.md
-- name: How Wiki works
-  href: structure.md
+  items:
+  - name: Enabling Yandex Wiki
+    href: enable-wiki.md
+  - name: Logging in to Yandex Wiki
+    href: login.md
+  - name: Creating your first page
+    href: quick-guide.md
+- name: Concepts
+  items:
+  - name: Service overview
+    href: overview.md
+  - name: Yandex Wiki structure
+    href: structure.md
 - name: Creating pages
   items:
   - name: Overview

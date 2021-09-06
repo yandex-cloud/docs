@@ -41,12 +41,12 @@ If you want to link to a Wiki page, you can use that page's relative address ins
 
 Each page title automatically gets its own *anchor*, which is the cluster ID. Anchors are used as direct links to the page's sections.
 
-Anchors are based on section headings. For example, to the cluster `My cluster`, the anchor `not_var{{ example-anchor }}` will be assigned.
+Anchors are based on section headings. For example, to the cluster `My cluster`, the anchor `{{ example-anchor }}` will be assigned.
 
 To add a link to a cluster, enter the page address followed by the `#` symbol and the anchor:
 
 ```
-[link text](/page url/#not_var{{ example-anchor }})
+[link text](/page url/#{{ example-anchor }})
 ```
 
 To view the anchor value for a section:
