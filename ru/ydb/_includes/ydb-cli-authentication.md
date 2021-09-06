@@ -6,7 +6,7 @@
 
     При запуске команды {{ ydb-short-name }} CLI в параметре `--yc-token-file` укажите путь к файлу, в котором содержится ваш {% if deploy != "arc" %}[OAuth-токен](../../iam/concepts/authorization/oauth-token.md){%else%}OAuth-токен{% endif %}.
 
-    Чтобы не указывать эту опцию при каждом вызове команды, сохраните значение OAuth-токена в переменную окружения `YC_TOKEN` или [настройте профиль](../ydb-cli/profile/create.md) {{ ydb-short-name }} CLI.
+    Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение OAuth-токена в переменную окружения `YC_TOKEN` или [настройте профиль](../ydb-cli/profile/create.md) {{ ydb-short-name }} CLI.
 
 - IAM-токен
 
