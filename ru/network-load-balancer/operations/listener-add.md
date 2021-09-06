@@ -60,17 +60,18 @@
 
 ## Примеры
 
-### Добавление обработчика внутреннему сетевому балансировщику {#without-listener}
+### Добавление обработчика внутреннему сетевому балансировщику {#internal-listener}
 
 {% list tabs %}
 
 - CLI
   
-  Выполните команду, указав имя обработчика, порт и идентификатор подсети:
+  Выполните команду, указав имя обработчика, порт, идентификатор подсети и внутренний адрес из диапазона адресов подсети:
   
   ```
-  $ yc load-balancer network-load-balancer add-listener b7rc2h753djb3a5dej1i \
-  --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj
+  yc load-balancer network-load-balancer add-listener b7rc2h753djb3a5dej1i \
+  --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14
   ```
   
 {% endlist %}
+
