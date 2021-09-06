@@ -2,7 +2,7 @@ title: Yandex Serverless Containers
 stage: tech-preview
 href: index.yaml
 items:
-  - name: Начало работы
+  - name: Getting started
     href: quickstart.md
-  - name: Правила тарификации
+  - name: Pricing policy
     href: pricing.md

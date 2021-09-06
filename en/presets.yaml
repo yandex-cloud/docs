@@ -51,6 +51,7 @@ default:
   speechkit-pro-full-name: Yandex SpeechKit Pro
   cdn-full-name: Yandex Cloud CDN
   org-full-name: Yandex Cloud Organization
+  serverless-containers-full-name: Yandex Serverless Containers
 
   # Full services names without Yandex
   iam-name: Identity and Access Management
@@ -101,6 +102,7 @@ default:
   at-name: Audit Trails
   speechkit-pro-name: SpeechKit Pro
   cdn-name: Cloud CDN
+  serverless-containers-name: Serverless Containers
   org-name: Organization
 
   # Short names
@@ -128,6 +130,7 @@ default:
   cloud-logs-short-name: Cloud Logs
   cloud-logging-short-name: Cloud Logging
   container-registry-short-name: Container Registry
+  serverless-containers-short-name: Serverless Containers
   dataproc-short-name: Data Proc
   vision-short-name: Vision
   datalens-short-name: DataLens
