@@ -227,6 +227,9 @@
        members   = [
          "serviceAccount:${yandex_iam_service_account.ig-sa.id}",
        ]
+       depends_on = [
+         yandex_iam_service_account.ig-sa,
+       ]
      }
 
      resource "yandex_compute_instance_group" "ig-1" {
