@@ -31,6 +31,7 @@ links:
     href: concepts/limits
   - title: Решение проблем
     description: Часто возникающие ошибки и способы их решения
+    href: troubleshooting/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
