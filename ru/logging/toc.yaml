@@ -49,4 +49,3 @@ items:
         include:
           repo: docs
           path: en/_api-ref/logging/toc.yaml
-base: ru/logging

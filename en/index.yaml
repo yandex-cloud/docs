@@ -5,27 +5,191 @@ meta:
   title: Yandex.Cloud
   noIndex: true
 links:
-  - title: Yandex Datalens
-    description: ''
+  - title: Yandex.Cloud API
+    description: Yandex.Cloud API architecture
+    href: api-design-guide/
+    when: audience == "external"
+  - title: API Gateway
+    description: Integration with Yandex.Cloud services using the API
+    href: api-gateway/
+    when: audience == "external"
+  - title: Application Load Balancer
+    description: Application-level load balancers
+    href: application-load-balancer/
+    when: audience == "external"
+  - title: Billing
+    description: Managing a billing account
+    href: billing/
+    when: audience == "external"
+  - title: Certificate Manager
+    description: Managing TLS certificates
+    href: certificate-manager/
+    when: audience == "external"
+  - title: Yandex.Cloud CLI
+    description: Command line interface
+    href: cli/
+  - title: Cloud Logging
+    description: Logs of services and user applications
+    href: logging/
+    when: audience == "external"
+  - title: Compute Cloud
+    description: Virtual machines and disks
+    href: compute/
+    when: audience == "external"
+  - title: Container Registry
+    description: Docker image management
+    href: container-registry/
+    when: audience == "external"
+  - title: Container Solution
+    description: VM use cases
+    href: cos/
+    when: audience == "external"
+  - title: Data Proc
+    description: Apache Hadoop® cluster management
+    href: data-proc/
+    when: audience == "external"
+  - title: DataLens
+    description: Data visualization and analytics
     href: datalens/
-  - title: Yandex Managed Service for ClickHouse
-    description: ''
+  - title: DataLens Partner API
+    description: A service for creating partner connections to upload data
+    href: datalens-api/
+    when: audience == "external"
+  - title: Data Transfer
+    description: A tool for database migration
+    href: data-transfer/
+  - title: DataSphere
+    description: A service for developing ML models
+    href: datasphere/
+    when: audience == "external"
+  - title: Cloud DNS
+    description: Domain name management
+    href: dns/
+    when: audience == "external"
+  - title: Trial period
+    description: Description of the Yandex.Cloud trial period
+    href: free-trial/
+    when: audience == "external"
+  - title: Cloud Functions
+    description: Run code as a function
+    href: functions/
+    when: audience == "external"
+  - title: Identity and Access Management
+    description: Identification and access control to cloud resources
+    href: iam/
+    when: audience == "external"
+  - title: IoT Core
+    description: Solutions for the internet of things
+    href: iot-core/
+    when: audience == "external"
+  - title: Key Management Service
+    description: Encryption key management
+    href: kms/
+    when: audience == "external"
+  - title: Yandex Lockbox
+    description: Creating and storing secrets
+    href: lockbox/
+    when: audience == "external"
+  - title: Managed Service for ClickHouse
+    description: ClickHouse database management
     href: managed-clickhouse/
-  - title: Yandex Managed Service for Elasticsearch
-    description: ''
-    href: managed-elasticsearch/    
-  - title: Yandex Managed Service for Apache Kafka
-    description: ''
+  - title: Managed Service for Elasticsearch
+    description: Elasticsearch cluster management
+    href: managed-elasticsearch/
+  - title: Managed Service for Apache Kafka®
+    description: Apache Kafka® cluster management
     href: managed-kafka/
-  - title: Yandex Managed Service for MongoDB
-    description: ''
+  - title: Managed Service for Kubernetes®
+    description: Kubernetes cluster management
+    href: managed-kubernetes/
+    when: audience == "external"
+  - title: Managed Service for MongoDB
+    description: MongoDB database management
     href: managed-mongodb/
-  - title: Yandex Managed Service for MySQL
-    description: ''
+  - title: Managed Service for MySQL®
+    description: MySQL database management
     href: managed-mysql/
-  - title: Yandex Managed Service for PostgreSQL
-    description: ''
+  - title: Managed Service for PostgreSQL
+    description: PostgreSQL database management
     href: managed-postgresql/
-  - title: Yandex Managed Service for Redis
-    description: ''
+  - title: Managed Service for Redis™
+    description: Redis database management
     href: managed-redis/
+  - title: Managed Service for SQL Server™
+    description: SQL Server™ database management
+    href: managed-sqlserver/
+    when: audience == "external"
+  - title: Marketplace partner interface
+    description: Marketplace partner interface
+    href: marketplace/
+    when: audience == "external"
+  - title: MDB
+    description: A group of database management services
+    href: mdb/
+  - title: Message Queue
+    description: Queues for messaging between applications
+    href: message-queue/
+    when: audience == "external"
+  - title: Using Microsoft products
+    description: Using Microsoft products
+    href: microsoft/
+    when: audience == "external"
+  - title: Monitoring
+    description: Metric collection and visualization
+    href: monitoring/
+    when: audience == "external"
+  - title: Network Load Balancer
+    description: Network load balancers
+    href: network-load-balancer/
+    when: audience == "external"
+  - title: Cloud Organization
+    description: Cloud services for corporate clients
+    href: organization/
+    when: audience == "external"
+  - title: Yandex.Cloud overview
+    description: Overview of Yandex.Cloud resources
+    href: overview/
+    when: audience == "external"
+  - title: Yandex.Cloud partner program
+    description: Partner program description
+    href: partner/
+    when: audience == "external"
+  - title: Resource Manager
+    description: Resource management in folders and clouds
+    href: resource-manager/
+    when: audience == "external"
+  - title: Yandex.Cloud use cases
+    description: Instructions for handling various tasks using cloud services
+    href: solutions/
+    when: audience == "external"
+  - title: SpeechKit
+    description: Speech recognition and speech synthesis technologies
+    href: speechkit/
+    when: audience == "external"
+  - title: Object Storage
+    description: Scalable data storage
+    href: storage/
+    when: audience == "external"
+  - title: Yandex.Cloud technical support
+    description: Support
+    href: support/
+    when: audience == "external"
+  - title: Tracker
+    description: A tool for effective team collaboration
+    href: tracker/
+  - title: Translate
+    description: Machine translation with support for over 90 languages
+    href: translate/
+    when: audience == "external"
+  - title: Vision
+    description: Image analysis using machine learning models
+    href: vision/
+    when: audience == "external"
+  - title: Virtual Private Cloud
+    description: Cloud-based network management
+    href: vpc/
+    when: audience == "external"
+  - title: Yandex Database
+    description: Fault-tolerant distributed NewSQL DBMS
+    href: ydb/
+    when: audience == "external"

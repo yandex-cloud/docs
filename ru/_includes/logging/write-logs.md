@@ -3,7 +3,7 @@
 - CLI
 
 	{% include [cli-install](../cli-install.md) %}
-    
+
     {% include [default-catalogue](../default-catalogue.md) %}
 
 	Чтобы добавить записи в лог-группу, выполните команду:

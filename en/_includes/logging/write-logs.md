@@ -1,0 +1,26 @@
+{% list tabs %}
+
+- CLI
+
+  {% include [cli-install](../cli-install.md) %}
+
+  {% include [default-catalogue](../default-catalogue.md) %}
+
+  To add records to a log group, run the command:
+
+  ```
+  yc logging write \
+    --group-name=default \
+    --message="My message" \
+    --timestamp="2021-06-08T19:10:40.000Z" \
+    --level=INFO \
+    --json-payload='{"request_id": "1234"}'
+  ```
+
+  * `--group-name`: Name of the log group to add records to. Optional parameter. If this parameter is omitted, records are added to the [default log group](../../logging/concepts/log-group.md) of the current folder.
+  * `--message`: Message.
+  * `--timestamp`: Time when the record is sent.
+  * `--level`: Logging level.
+  * `--json-payload`: Additional information in JSON format.
+
+{% endlist %}

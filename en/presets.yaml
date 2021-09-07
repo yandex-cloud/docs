@@ -14,22 +14,25 @@ default:
   mkf-full-name: Yandex Managed Service for Apache Kafka<sup>®</sup>
   mes-full-name: Yandex Managed Service for Elasticsearch
   mms-full-name: Yandex Managed Service for SQL Server
+  mgp-full-name: Yandex Managed Service for Greenplum<sup>®</sup>
   vpc-full-name: Yandex Virtual Private Cloud
   ddos-protection-full-name: Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
   unified-agent-full-name: Yandex Unified Agent
   prometheus-name: Prometheus
   dsvm-full-name: Yandex Data Science Virtual Machine
-  speechkit-full-name: Yandex SpeechKit
-  brand-voice-full-name: Yandex SpeechKit Brand Voice
   translate-full-name: Yandex Translate
+  vision-full-name: Yandex Vision
+  ml-platform-full-name: Yandex DataSphere
+  speechkit-full-name: Yandex SpeechKit
+  speechkit-pro-full-name: Yandex SpeechKit Pro
+  brand-voice-full-name: Yandex SpeechKit Brand Voice
   network-load-balancer-full-name: Yandex Network Load Balancer
   message-queue-full-name: Yandex Message Queue
   cloud-logs-full-name: Yandex Cloud Logs
   cloud-logging-full-name: Yandex Cloud Logging
   container-registry-full-name: Yandex Container Registry
   dataproc-full-name: Yandex Data Proc
-  vision-full-name: Yandex Vision
   datalens-full-name: Yandex DataLens
   managed-k8s-full-name: Yandex Managed Service for Kubernetes
   iot-full-name: Yandex IoT Core
@@ -38,7 +41,6 @@ default:
   kms-full-name: Yandex Key Management Service
   interconnect-full-name: Yandex Cloud Interconnect
   cos-full-name: Yandex Container Solution
-  ml-platform-full-name: Yandex DataSphere
   certificate-manager-full-name: Yandex Certificate Manager
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
@@ -48,7 +50,7 @@ default:
   alb-full-name: Yandex Application Load Balancer
   dns-full-name: Yandex Cloud DNS
   at-full-name: Yandex Audit Trails
-  speechkit-pro-full-name: Yandex SpeechKit Pro
+  yds-full-name: Yandex Data Streams
   cdn-full-name: Yandex Cloud CDN
   org-full-name: Yandex Cloud Organization
   serverless-containers-full-name: Yandex Serverless Containers

@@ -1,19 +1,139 @@
 title: Yandex.Cloud Documentation
 href: index.yaml
 items:
-  - name: Datalens
-    href: datalens/
-  - name: Yandex Managed Service for ClickHouse
-    href: managed-clickhouse/
-  - name: Managed Elasticsearch
-    href: managed-elasticsearch/    
-  - name: Yandex Managed Service for Apache Kafka
-    href: managed-kafka/
-  - name: Yandex Managed Service for MongoDB
-    href: managed-mongodb/
-  - name: Yandex Managed Service for MySQL
-    href: managed-mysql/
-  - name: Yandex Managed Service for PostgreSQL
-    href: managed-postgresql/
-  - name: Yandex Managed Service for Redis
-    href: managed-redis/
+  - name: Yandex.Cloud API
+    href: api-design-guide/index.yaml
+    when: audience == "external"
+  - name: API Gateway
+    href: api-gateway/index.yaml
+    when: audience == "external"
+  - name: Application Load Balancer
+    href: application-load-balancer/index.yaml
+    when: audience == "external"
+  - name: Billing
+    href: billing/index.yaml
+    when: audience == "external"
+  - name: Certificate Manager
+    href: certificate-manager/index.yaml
+    when: audience == "external"
+  - name: Yandex.Cloud CLI
+    href: cli/index.yaml
+  - name: Cloud Logging
+    href: logging/index.yaml
+    when: audience == "external"
+  - name: Compute Cloud
+    href: compute/index.yaml
+    when: audience == "external"
+  - name: Container Registry
+    href: container-registry/index.yaml
+    when: audience == "external"
+  - name: Container Solution
+    href: cos/index.yaml
+    when: audience == "external"
+  - name: Data Proc
+    href: data-proc/index.yaml
+    when: audience == "external"
+  - name: Data Transfer
+    href: data-transfer/index.yaml
+  - name: DataLens
+    href: datalens/index.yaml
+  - name: DataSphere
+    href: datasphere/index.yaml
+    when: audience == "external"
+  - name: Cloud DNS
+    href: dns/index.yaml
+    when: audience == "external"
+  - name: Trial period
+    href: free-trial/index.yaml
+    when: audience == "external"
+  - name: Cloud Functions
+    href: functions/index.yaml
+    when: audience == "external"
+  - name: Identity and Access Management
+    href: iam/index.yaml
+    when: audience == "external"
+  - name: IoT Core
+    href: iot-core/index.yaml
+    when: audience == "external"
+  - name: Key Management Service
+    href: kms/index.yaml
+    when: audience == "external"
+  - name: Lockbox
+    href: lockbox/index.yaml
+    when: audience == "external"
+  - name: Managed Service for ClickHouse
+    href: managed-clickhouse/index.yaml
+  - name: Managed Service for Elasticsearch
+    href: managed-elasticsearch/index.yaml
+  - name: Managed Service for Apache Kafka<sup>®</sup>
+    href: managed-kafka/index.yaml
+  - name: Managed Service for Kubernetes<sup>®</sup>
+    href: managed-kubernetes/index.yaml
+    when: audience == "external"
+  - name: Managed Service for MongoDB
+    href: managed-mongodb/index.yaml
+  - name: Managed Service for MySQL<sup>®</sup>
+    href: managed-mysql/index.yaml
+  - name: Managed Service for PostgreSQL
+    href: managed-postgresql/index.yaml
+  - name: Managed Service for Redis
+    href: managed-redis/index.yaml
+  - name: Managed Service for SQL Server™
+    href: managed-sqlserver/index.yaml
+    when: audience == "external"
+  - name: Marketplace partner interface
+    href: marketplace/index.yaml
+    when: audience == "external"
+  - name: MDB
+    href: mdb/index.yaml
+    when: audience == "internal"
+  - name: Message Queue
+    href: message-queue/index.yaml
+    when: audience == "external"
+  - name: Using Microsoft products
+    href: microsoft/index.yaml
+    when: audience == "external"
+  - name: Monitoring
+    href: monitoring/index.yaml
+    when: audience == "external"
+  - name: Network Load Balancer
+    href: network-load-balancer/index.yaml
+    when: audience == "external"
+  - name: Cloud Organization
+    href: organization/index.yaml
+    when: audience == "external"
+  - name: Yandex.Cloud overview
+    href: overview/index.yaml
+    when: audience == "external"
+  - name: Yandex.Cloud partner program
+    href: partner/index.yaml
+    when: audience == "external"
+  - name: Resource Manager
+    href: resource-manager/index.yaml
+    when: audience == "external"
+  - name: Yandex.Cloud use cases
+    href: solutions/index.yaml
+    when: audience == "external"
+  - name: SpeechKit
+    href: speechkit/index.yaml
+    when: audience == "external"
+  - name: Object Storage
+    href: storage/index.yaml
+    when: audience == "external"
+  - name: Yandex.Cloud technical support
+    href: support/index.yaml
+    when: audience == "external"
+  - name: Tracker
+    href: tracker/index.yaml
+  - name: Translate
+    href: translate/index.yaml
+    when: audience == "external"
+  - name: Vision
+    href: vision/index.yaml
+    when: audience == "external"
+  - name: Virtual Private Cloud
+    href: vpc/index.yaml
+    when: audience == "external"
+  - name: Yandex Database
+    href: ydb/index.yaml
+    when: audience == "external"
