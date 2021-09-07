@@ -21,23 +21,23 @@
   1. Посмотрите описание команды CLI для создания сетевого балансировщика:
   
      ```
-     $ yc load-balancer network-load-balancer create --help
+     yc load-balancer network-load-balancer create --help
      ```
   
   1. Чтобы создать внутренний балансировщик с [обработчиком](../concepts/listener.md), выполните команду:
   
      ```
-     $ yc load-balancer network-load-balancer create \
+     yc load-balancer network-load-balancer create \
      --name internal-lb-test \
      --type internal \
      --region-id ru-central1 \
-     --listener name=test-listener,port=80,internal-subnet-id=<идентификатор подсети>
+     --listener name=test-listener,port=80,internal-subnet-id=<идентификатор подсети>,internal-address=<внутренний IP-адрес из диапазона подсети>
      ```
   
   1. Получите список всех балансировщиков, чтобы убедиться, что балансировщик создан:
    
      ```
-     $ yc load-balancer network-load-balancer list
+     yc load-balancer network-load-balancer list
      ```
   
 - API
@@ -60,10 +60,9 @@
        * `name` — имя обработчика.
        * `port` — порт для приема трафика.
        * `intenal_address_spec` — спецификация обработчика для внутреннего балансировщика.
+         * `address` — внутренний IP-адрес из диапазона выбранной подсети. 
          * `subnet_id` — идентификатор подсети.
 
-
-            
      Пример структуры конфигурационного файла:
      
      ```
@@ -81,7 +80,8 @@
          name = "my-listener"
          port = 8080
          internal_address_spec {
-           subnet_id = "<Идентификатор подсети>"
+           address = "<внутренний IP-адрес>"
+           subnet_id = "<идентификатор подсети>"
          }
        }
      ```
@@ -93,7 +93,7 @@
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      2. Выполните проверку с помощью команды:
         ```
-        $ terraform plan
+        terraform plan
         ```
      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
         
@@ -101,7 +101,7 @@
 
      1. Если в конфигурации нет ошибок, выполните команду:
         ```
-        $ terraform apply
+        terraform apply
         ```
      2. Подтвердите создание ресурсов.
      
@@ -120,7 +120,7 @@
   Чтобы создать внутренний балансировщик без обработчика, выполните команду:
   
   ```
-  $ yc load-balancer network-load-balancer create \
+  yc load-balancer network-load-balancer create \
   --name internal-lb-test-1 \
   --type internal \
   --region-id ru-central1
@@ -137,7 +137,7 @@
   1. Чтобы создать внутренний балансировщик с [обработчиком](../concepts/listener.md) и сразу подключить к нему целевую группу, получите список целевых групп:
   
      ```
-     $ yc load-balancer target-group list
+     yc load-balancer target-group list
      +----------------------+------------------+---------------------+-------------+--------------+
      |          ID          |       NAME       |       CREATED       |  REGION ID  | TARGET COUNT |
      +----------------------+------------------+---------------------+-------------+--------------+
@@ -148,11 +148,11 @@
   1. Выполните команду, используя идентификатор целевой группы в параметре `target-group-id`:
   
      ```
-     $ load-balancer network-load-balancer create \
+     load-balancer network-load-balancer create \
      --name internal-lb-test-3 \
      --type internal \
      --region-id ru-central1 \
-     --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj \
+     --listener name=test-listener,port=80,internal-subnet-id=e9b81t3kjmi0auoi0vpj,internal-address=10.10.0.14 \
      --target-group target-group-id=b7rv80bfibkph3ekqqle,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
      ```
      Обратите внимание на формат параметров `healthcheck-interval` и `healthcheck-timeout`: необходимо указывать значение в формате `Ns`, где `N` — значение в секундах.

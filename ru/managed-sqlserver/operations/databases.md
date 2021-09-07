@@ -2,9 +2,10 @@
 
 - [Получить список баз данных в кластере](#list-db).
 - [Создать базу данных](#add-db).
+- [Изменить параметры сортировки базы данных](#collation).
 - [Удалить базу данных](#remove-db).
 
-{% include [db-sql](../../_includes/mdb/mdb-db-sql-limits.md) %}
+{% include [db-sql](../../_includes/mdb/mms/db-sql-limits.md) %}
 
 ## Получить список баз данных в кластере {#list-db}
 
@@ -100,6 +101,19 @@
 Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+## Изменить параметры сортировки базы данных {#collation}
+
+1. [Подключитесь](connect.md) к базе данных с помощью учетной записи ее владельца.
+1. Выполните запрос `ALTER DATABASE` и укажите имя новых параметров сортировки.
+
+{% note info %}
+
+Запрос изменит параметры сортировки только для новых объектов БД. О том, как изменить параметры сортировки для существующих баз данных, читайте в [документации {{ MS }}](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-database-collation).
+
+{% endnote %}
+
+Подробнее см. в [документации {{ MS }}](https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-database-collation).
 
 ## Удалить базу данных {#remove-db}
 

@@ -12,9 +12,7 @@
 
     {% note info %}
 
-    Скрипт дополнит переменную `PATH` только если его запустить в командной оболочке bash или zsh.
-
-    Если вы запустили скрипт в другой оболочке, добавьте путь до CLI в переменную `PATH` самостоятельно.
+    Скрипт дополнит переменную `PATH`, только если его запустить в командной оболочке bash или zsh. Если вы запустили скрипт в другой оболочке, добавьте путь до CLI в переменную `PATH` самостоятельно.
 
     {% endnote %}
 
@@ -34,9 +32,9 @@
 
 - Windows
 
-    {{ ydb-short-name }} CLI можно установить с помощью PowerShell или cmd.
+    {{ ydb-short-name }} CLI можно установить с помощью:
 
-    * Чтобы установить через PowerShell, выполните команду:
+    * PowerShell. Для этого выполните команду:
 
         ```powershell
         iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-ydb/install.ps1')
@@ -48,7 +46,7 @@
         Add ydb installation dir to your PATH? [Y/n]
         ```
 
-    * Чтобы установить через cmd, выполните команду:
+    * cmd. Для этого выполните команду:
 
         ```cmd
         @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-ydb/install.ps1'))"
@@ -64,7 +62,7 @@
 
     {% note info %}
 
-    {{ ydb-short-name }} CLI использует символы юникода в выводе некоторых команд. При некорректном отображении таких символов в консоли Windows, переключите кодировку на UTF-8:
+    {{ ydb-short-name }} CLI использует символы Юникода в выводе некоторых команд. При некорректном отображении таких символов в консоли Windows, переключите кодировку на UTF-8:
 
     ```cmd
     chcp 65001

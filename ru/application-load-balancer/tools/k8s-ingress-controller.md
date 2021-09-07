@@ -1,6 +1,6 @@
-# Ingress Controller для {{ managed-k8s-name }}
+# Ingress-контроллер для {{ managed-k8s-name }}
 
-{{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — {{ alb-name }} Ingress Controller.
+{{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — Ingress-контроллер {{ alb-name }}.
 
 После установки контроллера вы сможете создать с его помощью объект [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), отвечающий за прием входящего трафика. По конфигурации Ingress будет автоматически развернут [L7-балансировщик](../concepts/application-load-balancer.md) с нужными [целевыми группами](../concepts/target-group.md), [группами бэкендов](../concepts/backend-group.md), [HTTP-роутерами](../concepts/http-router.md) и [обработчиками](../concepts/application-load-balancer.md#listener).
 

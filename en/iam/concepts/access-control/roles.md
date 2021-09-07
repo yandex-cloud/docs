@@ -4,9 +4,8 @@ _A role_ is a set of user permissions to perform operations with {{ yandex-cloud
 
 There are two types of roles:
 
-- _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
-
-- _Service roles_ contain permissions only for a specific type of resource in a particular service. Service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in Yandex Compute Cloud.
+* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
+* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in Yandex Compute Cloud.
 
     A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
 
@@ -20,9 +19,9 @@ The `{{ roles-viewer }}` role grants permission to read resources.
 
 For example, the `{{ roles-viewer }}` role lets you perform the following operations:
 
-- View information about a resource.
-- Get a list of nested resources, such as a list of VMs in a folder.
-- View a list of operations with a resource.
+* View information about a resource.
+* Get a list of nested resources, such as a list of VMs in a folder.
+* View a list of operations with a resource.
 
 ### {{ roles-editor }} {#editor}
 
@@ -30,9 +29,9 @@ The `{{ roles-editor }}` role grants permissions to perform any operation relate
 
 For example, the `{{ roles-editor }}` role lets you perform the following operations:
 
-- Create a resource.
-- Update a resource.
-- Delete a resource.
+* Create a resource.
+* Update a resource.
+* Delete a resource.
 
 ### {{ roles-admin }} {#admin}
 
@@ -42,8 +41,8 @@ The `{{ roles-admin }}` role includes all permissions granted by the `{{ roles-e
 
 For example, the `{{ roles-admin }}` role lets you perform the following operations:
 
-- Set permissions to the resource.
-- Change permissions to the resource.
+* Set permissions to the resource.
+* Change permissions to the resource.
 
 ## {{ certificate-manager-name }} {#certificate-manager-roles}
 
@@ -105,6 +104,18 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [iot-registries-writer](../../../_includes/roles-iot-registries-writer.md) %}
 
+## {{ cloud-logging-name }} {#logging}
+
+{% include [logging-roles-viewer](../../../_includes/roles-logging-viewer.md) %}
+
+{% include [logging-roles-editor](../../../_includes/roles-logging-editor.md) %}
+
+{% include [logging-roles-reader](../../../_includes/roles-logging-reader.md) %}
+
+{% include [logging-roles-writer](../../../_includes/roles-logging-writer.md) %}
+
+{% include [logging-roles-admin](../../../_includes/roles-logging-admin.md) %}
+
 ## {{ kms-name }} {#kms-roles}
 
 {% include [kms-admin](../../../_includes/roles-kms-admin.md) %}
@@ -158,4 +169,3 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
-

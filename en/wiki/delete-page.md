@@ -1,6 +1,6 @@
 # Deleting pages
 
-A page can be deleted by the author or organization's admin in [Yandex.Connect]({{ support-admin-connect }}).
+A page can be deleted by the author or the administrator [of the organization](overview.md#access).
 
 {% note alert %}
 

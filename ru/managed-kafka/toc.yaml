@@ -39,6 +39,8 @@ items:
         href: tutorials/confluent-schema-registry.md
       - name: Миграция с помощью MirrorMaker 2.0
         href: tutorials/mirrormaker-unmanaged-topics.md
+      - name: Поставка данных с помощью Debezium
+        href: tutorials/kafka-cdc.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
