@@ -45,7 +45,7 @@
 
     Задать фильтр можно с помощью метода API [read](../api-ref/grpc/log_reading_service.md).
 
-}
+{% endlist %}
 
 #### Примеры фильтров {#examples}
 

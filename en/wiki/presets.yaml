@@ -3,17 +3,15 @@ default:
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
   wiki-short-name: Wiki
+  link-wiki: https://wiki.yandex.com/
   locale: en
   link-yandex: https://yandex.com
-  link-wiki: https://wiki.yandex.com/
-  link-connect: https://connect.yandex.com/
   link-tracker: https://tracker.yandex.com/
   link-homepage: https://wiki.yandex.com/homepage/
   link-homepage-access: https://wiki.yandex.com/homepage/.access
   link-support: https://support.cloud.yandex.com/
-  support-enable-connect: https://yandex.com/support/connect/enable-connect.html
-  support-enable-wiki: https://yandex.com/support/connect/wiki.html
-  support-admin-connect: https://yandex.com/support/connect/administrators.html
+  link-passport: https://passport.yandex.com/
+  support-passport-create: https://yandex.com/support/passport/authorization/registration.html
   link-about-markdown: https://en.wikipedia.org/wiki/Markdown
   link-about-graphviz: https://en.wikipedia.org/wiki/Graphviz
   link-about-diagram: https://en.wikipedia.org/wiki/Sequence_diagram
@@ -22,9 +20,11 @@ default:
   wiki-host-name: wiki.yandex.com
   wiki-username: wiki.yandex.com/users/userName
   wiki-notes: wiki.yandex.com/users/userName/notes
-  username-oleg: oleg
-  oleg-notes-title: Oleg's notes
-  example-link-mail: '[Oleg''s email](mailto:oleg@yandex.com)'
-  exapmlle-anchor: m-mojjrazdel
+  username-oleg: John
+  oleg-notes-title: John's notes
+  example-link-mail: '[John''s email](mailto:john@yandex.com)'
+  example-anchor: m-mycluster
+  example-account: login@yandex.com
   tracker-full-name: Yandex Tracker
   tracker-name: Tracker
+  forms-full-name: Yandex Forms

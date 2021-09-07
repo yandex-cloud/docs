@@ -24,6 +24,12 @@ Make sure the module name in the `go.mod` file is not `main`.
 
 ### dep
 
+{% note warning %}
+
+This way of dependency management is deprecated and no longer supported since version 1.16.
+
+{% endnote %}
+
 [Dep](https://golang.github.io/dep/docs/introduction.html) is the dependency management system for `Go`.
 
 To install dependencies using the `dep` utility, import the `Gopkg.toml` and `Gopkg.lock` files together with the function source code. In this case, the `dep ensure` command is run just before the code is built.

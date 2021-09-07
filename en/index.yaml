@@ -5,27 +5,153 @@ meta:
   title: Yandex.Cloud
   noIndex: true
 links:
-  - title: Yandex Datalens
-    description: ''
+  - title: Yandex.Cloud API
+    description: Yandex.Cloud API architecture
+    href: api-design-guide/
+  - title: API Gateway
+    description: Integration with Yandex.Cloud services using the API
+    href: api-gateway/
+  - title: Application Load Balancer
+    description: Application-level load balancers
+    href: application-load-balancer/
+  - title: Billing
+    description: Managing a billing account
+    href: billing/
+  - title: Certificate Manager
+    description: Managing TLS certificates
+    href: certificate-manager/
+  - title: Yandex.Cloud CLI
+    description: Command line interface
+    href: cli/
+  - title: Cloud Logging
+    description: Logs of services and user applications
+    href: logging/
+  - title: Compute Cloud
+    description: Virtual machines and disks
+    href: compute/
+  - title: Container Registry
+    description: Docker image management
+    href: container-registry/
+  - title: Container Solution
+    description: VM use cases
+    href: cos/
+  - title: Data Proc
+    description: Apache Hadoop® cluster management
+    href: data-proc/
+  - title: DataLens
+    description: Data visualization and analytics
     href: datalens/
-  - title: Yandex Managed Service for ClickHouse
-    description: ''
+  - title: DataLens Partner API
+    description: A service for creating partner connections to upload data
+    href: datalens-api/
+  - title: Data Transfer
+    description: A tool for database migration
+    href: data-transfer/
+  - title: DataSphere
+    description: A service for developing ML models
+    href: datasphere/
+  - title: Cloud DNS
+    description: Domain name management
+    href: dns/
+  - title: Trial period
+    description: Description of the Yandex.Cloud trial period
+    href: free-trial/
+  - title: Cloud Functions
+    description: Run code as a function
+    href: functions/
+  - title: Identity and Access Management
+    description: Identification and access control to cloud resources
+    href: iam/
+  - title: IoT Core
+    description: Solutions for the internet of things
+    href: iot-core/
+  - title: Key Management Service
+    description: Encryption key management
+    href: kms/
+  - title: Yandex Lockbox
+    description: Creating and storing secrets
+    href: lockbox/
+  - title: Managed Service for ClickHouse
+    description: ClickHouse database management
     href: managed-clickhouse/
-  - title: Yandex Managed Service for Elasticsearch
-    description: ''
+  - title: Managed Service for Elasticsearch
+    description: Elasticsearch cluster management
     href: managed-elasticsearch/
-  - title: Yandex Managed Service for Apache Kafka
-    description: ''
+  - title: Managed Service for Apache Kafka®
+    description: Apache Kafka® cluster management
     href: managed-kafka/
-  - title: Yandex Managed Service for MongoDB
-    description: ''
+  - title: Managed Service for Kubernetes®
+    description: Kubernetes cluster management
+    href: managed-kubernetes/
+  - title: Managed Service for MongoDB
+    description: MongoDB database management
     href: managed-mongodb/
-  - title: Yandex Managed Service for MySQL
-    description: ''
+  - title: Managed Service for MySQL®
+    description: MySQL database management
     href: managed-mysql/
-  - title: Yandex Managed Service for PostgreSQL
-    description: ''
+  - title: Managed Service for PostgreSQL
+    description: PostgreSQL database management
     href: managed-postgresql/
-  - title: Yandex Managed Service for Redis
-    description: ''
+  - title: Managed Service for Redis™
+    description: Redis database management
     href: managed-redis/
+  - title: Managed Service for SQL Server™
+    description: SQL Server™ database management
+    href: managed-sqlserver/
+  - title: Marketplace partner interface
+    description: Marketplace partner interface
+    href: marketplace/
+  - title: MDB
+    description: A group of database management services
+    href: mdb/
+  - title: Message Queue
+    description: Queues for messaging between applications
+    href: message-queue/
+  - title: Using Microsoft products
+    description: Using Microsoft products
+    href: microsoft/
+  - title: Monitoring
+    description: Metric collection and visualization
+    href: monitoring/
+  - title: Network Load Balancer
+    description: Network load balancers
+    href: network-load-balancer/
+  - title: Cloud Organization
+    description: Cloud services for corporate clients
+    href: organization/
+  - title: Yandex.Cloud overview
+    description: Overview of Yandex.Cloud resources
+    href: overview/
+  - title: Yandex.Cloud partner program
+    description: Partner program description
+    href: partner/
+  - title: Resource Manager
+    description: Resource management in folders and clouds
+    href: resource-manager/
+  - title: Yandex.Cloud use cases
+    description: Instructions for handling various tasks using cloud services
+    href: solutions/
+  - title: SpeechKit
+    description: Speech recognition and speech synthesis technologies
+    href: speechkit/
+  - title: Object Storage
+    description: Scalable data storage
+    href: storage/
+  - title: Yandex.Cloud technical support
+    description: Support
+    href: support/
+  - title: Tracker
+    description: A tool for effective team collaboration
+    href: tracker/
+  - title: Translate
+    description: Machine translation with support for over 90 languages
+    href: translate/
+  - title: Vision
+    description: Image analysis using machine learning models
+    href: vision/
+  - title: Virtual Private Cloud
+    description: Cloud-based network management
+    href: vpc/
+  - title: Yandex Database
+    description: Fault-tolerant distributed NewSQL DBMS
+    href: ydb/

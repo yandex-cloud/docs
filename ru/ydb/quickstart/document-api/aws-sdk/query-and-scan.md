@@ -356,7 +356,7 @@
   1. Запустите программу:
 
       ```bash
-      php SeriesItemQuery01.php
+      php SeriesQuery01.php
       ```
 
       Результат выполнения:
@@ -849,7 +849,7 @@
   1. Запустите программу:
 
       ```bash
-      php SeriesItemQuery02.php
+      php SeriesQuery02.php
       ```
 
       Результат выполнения:

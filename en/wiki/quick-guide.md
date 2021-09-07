@@ -1,12 +1,8 @@
-# Getting started
+# Creating your first page
 
 Try out the features of {{ wiki-name }} by creating your first page. The page will be created in your personal cluster, so feel free to experiment.
 
-{% note alert %}
 
-To use {{ wiki-name }}, you need an account in [Yandex.Connect]({{ link-connect }}). Before you start working, make sure that the service is enabled. Learn more about how to enable or disable {{ wiki-name }} in [Yandex.Connect Help]({{ support-enable-wiki }}).
-
-{% endnote %}
 
 ## Creating pages {#section_qvp_th2_sy}
 

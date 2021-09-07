@@ -1,14 +1,65 @@
 # Релизы YC CLI
 
-## Версия 0.80.0 (19.08.21) {#latest-release}
+## Версия 0.81.0 (06.09.21) {#latest-release}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+### Изменения в CLI {#cli}
+
+- Добавлено описание флагов и команд в автодополнении по умолчанию.
+- Команда `yc completion <SHELL>`
+   
+   Добавлен флаг `--without-desc` для отключения описания в автодополнении.
+- Поддержено автодополнение флагов: `folder-id`, `folder-name`, `cloud-id`, `format`, `profile`.
+
+### Изменения в сервисах Облака {#services}
 
 #### {{ sf-name }} {#serverless-functions}
 
+- Добавлена команда `yc serverless trigger create billing-budget` для создания триггеров на события от биллинга.
+
+- Добавлены команды для управления подключениями к управляемым БД
+  `yc serverless mdbproxy update clickhouse`
+  `yc serverless mdbproxy create clickhouse`
+
+#### {{ cloud-logging-name }} {#logging}
+
+- Исключена суб-команда `get-default` из `logging group`
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.80.0 (19.08.21) {#version0.80.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ ig-name }} {#instance-groups}
+
+- Добавлены новые флаги для команды обновления группы виртуальных машин (`yc compute instance-group update`):
+  `--new-name`,
+  `--description`,
+  `--labels`,
+  `--variables`,
+  `--service-account-name`,
+  `--service-account-id`,
+  `--scale-policy-fixed-scale-size`,
+  `--scale-policy-auto-scale-min-zone-size`,
+  `--scale-policy-auto-scale-max-size`,
+  `--template-name`,
+  `--template-description`,
+  `--template-labels`,
+  `--template-metadata`,
+  `--template-metadata-files`,
+  `--template-memory`,
+  `--template-cores`,
+  `--template-core-fraction`,
+  `--template-gpus`,
+  `--template-platform`,
+  `--template-placement-group`,
+  `--template-service-account`.
+
+##### {{ sf-name }} {#serverless-functions}
+
 - Добавлена команда `yc serverless trigger create logging` для создания триггеров на {{ cloud-logging-name }}.
 
-#### {{ alb-name }} {#alb}
+##### {{ alb-name }} {#alb}
 
 * Добавлены команды для работы с gRPC-маршрутами:
   `yc application-load-balancer virtual-host append-grpc-route`
@@ -18,7 +69,7 @@
   `yc application-load-balancer virtual-host update-grpc-route`
 * Добавлена команда `yc application-load-balancer virtual-host update-http-route` для обновления HTTP-маршрутов.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mch-name }}, {{ mes-name }}, {{ mkf-name }}, {{ mmg-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ mms-name }}**
 
@@ -33,7 +84,7 @@
   Команда переключает выбранный мастер в режим реплики, мастером в этом случае станет доступная реплика.
 * Команды  `{{ yc-mdb-mg }} cluster get` и `{{ yc-mdb-mg }} cluster update`.
 
-    Добавлено поле `backup-retain-period-days`, показывающее сколько дней хранятся автоматические резервные копии.
+  Добавлено поле `backup-retain-period-days`, показывающее сколько дней хранятся автоматические резервные копии.
 
 **{{ mrd-name }}**
 
@@ -54,20 +105,20 @@
 
 * Добавлена поддержка Kafka 2.8.
 
-#### {{ dataproc-name }} {#dataproc}
+##### {{ dataproc-name }} {#dataproc}
 
 * Команды `yc dataproc cluster create`, `yc dataproc cluster update`.
 
   Флаг `--deletion-protection` позволяет установить/убирать для кластера защиту от случайного удаления.
   Для снятия защиты от удаления укажите `--deletion-protection=false`.
 
-#### {{ resmgr-name }} {#resmgr}
+##### {{ resmgr-name }} {#resmgr}
 
 * Команда `yc resource-manager cloud list`.
 
   Добавлено отображение организации облака.
 
-#### {{ org-name }} {#organization}
+##### {{ org-name }} {#organization}
 
 Появилась поддержка сервиса организаций.
 
@@ -76,19 +127,13 @@
 Сервис {{ org-full-name }} находится на стадии Preview. Подробнее про сервис читайте в [документации](../organization/).
 
 
-#### {{ sf-name }} {#serverless-functions}
+##### {{ sf-name }} {#serverless-functions}
 
 * Команда `yc serverless trigger create`.
 
   Флаги `--invoke-container-name`, `--invoke-container-id` и `--invoke-container-path` позволяют указывать для триггера контейнер {{ serverless-containers-name }}.
 
-
-
-
-
-## Предыдущие релизы {#previous-releases}
-
-### Версия 0.79.0 (13.07.21)
+### Версия 0.79.0 (13.07.21) {#version0.79.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
 

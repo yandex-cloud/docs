@@ -10,7 +10,7 @@ By default, all users who have access to a page can edit it. You can make the pa
 
     {% note info %}
 
-    The organization admin in [Yandex.Connect]({{ support-admin-connect }}) will be able to edit the page, even if the author has prohibited editing.
+    The administrator [of the organization](../overview.md#access) will be able to edit the page, even if the author has prohibited editing.
 
     {% endnote %}
 

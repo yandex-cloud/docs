@@ -9,16 +9,16 @@ description: 'Quotas and limits may apply to Yandex.Cloud services. Quotas are o
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-When designing your infrastructure in {{ yandex-cloud }}, plan for the limits as the maximum that {{ yandex-cloud }} can provide you with. Quotas are restrictions that can potentially be increased up to their limit.
+When designing your infrastructure in {{ yandex-cloud }}, consider the limits as the maximum amount of resources that {{ yandex-cloud }} can provide. Quotas are restrictions that can potentially be increased up to their limit.
 
 ## Why quotas are needed {#quotas}
 
-Quotas serve as a soft restriction for requesting resources and let {{ yandex-cloud }} guarantee service stability because new users can't take up too many resources for testing purposes. If you're willing to use more resources, you can increase them in the following ways:
+Quotas serve as a soft restriction for requesting resources and enable {{ yandex-cloud }} to guarantee service stability, because new users can't take up too many resources for testing purposes. If you're willing to use more resources, you can increase them in the following ways:
 
-* [Submit an increase request]({{ link-console-quotas }});
-* Contact the [technical support]({{ link-console-support }}) and tell us which consumed quotas you need to increase and by how much.
+* [Submit an increase request]({{ link-console-quotas }}).
+* Contact the [technical support]({{ link-console-support }}) and tell us which quotas you need to increase and by how much.
 
-## Default quotas and limits for services {{ yandex-cloud }} {#quotas-limits-default}
+## Default quotas and limits for {{ yandex-cloud }} services {#quotas-limits-default}
 
 Quotas are listed with default values that match the quotas of the [trial period](../../free-trial/).
 
@@ -146,3 +146,6 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 {% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
 
+### {{ cloud-logging-name }} {#logging}
+
+{% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
