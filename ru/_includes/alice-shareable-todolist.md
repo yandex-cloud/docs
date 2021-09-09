@@ -2,7 +2,7 @@
 
 В этом сценарии вы разработаете навык Алисы и развернете веб-приложение, которое позволит создавать, читать и редактировать списки дел с помощью Алисы, а также делиться списками с другими пользователями на сайте.
 
-<iframe width="794" height="447" src="https://www.youtube.com/embed/PMWMDTBKFAc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+@[youtube](PMWMDTBKFAc)
 
 Чтобы развернуть проект:
 1. [Подготовьте окружение](#prepare)

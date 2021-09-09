@@ -41,6 +41,8 @@ items:
     items:
       - name: Deploying a web application
         href: solutions/java-servlet-todo-list.md
+      - name: Developing a Slack bot
+        href: solutions/slack-bot-serverless.md
       - name: Using the YDB Docker container
         href: solutions/ydb_docker.md
   - name: Concepts
