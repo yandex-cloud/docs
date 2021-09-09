@@ -2,7 +2,7 @@
 
 ## Using Microsoft software in {{ yandex-cloud }}
 
-{{ yandex-cloud }} provides ready-made images with pre-installed Microsoft Windows Server Standard and Datacenter editions and Microsoft SQL Server. The software licenses in these images are fully compliant with Microsoft requirements. When using ready-made {{ yandex-cloud }} images, you pay for the required licenses and {{ compute-name }} resources. You'll be charged depending on your [service plan](pricing.md).
+{{ yandex-cloud }} provides ready-made images with pre-installed Microsoft Windows Server Datacenter edition and Microsoft SQL Server. The software licenses in these images are fully compliant with Microsoft requirements. When using ready-made {{ yandex-cloud }} images, you pay for the required licenses and {{ compute-name }} resources. You'll be charged depending on your [service plan](pricing.md).
 
 Purchasing images with a pre-installed Microsoft software license from {{ yandex-cloud }} has a number of advantages:
 

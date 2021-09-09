@@ -17,8 +17,12 @@ items:
         href: operations/projects/checkpoints.md
       - name: Managing computing resources
         href: operations/projects/control-compute-resources.md
-      - name: Creating a custom image
-        href: operations/user-images.md
+      - name: Managing Docker images
+        items:
+          - name: Docker image for a project
+            href: operations/user-images.md
+          - name: Docker image in a cell
+            href: operations/user-images-cell.md
       - name: Clearing the interpreter state
         href: operations/projects/clear-kernel-state.md
       - name: Sharing a notebook
@@ -41,6 +45,18 @@ items:
             href: operations/data/connect-to-postgresql.md
       - name: Setting up integration with Data Proc
         href: operations/data-proc-integration.md
+      - name: Working with confidential data
+        items:
+          - name: Creating a secret
+            href: operations/data/secret-create.md
+          - name: Referencing a secret
+            href: operations/data/secret-call.md
+          - name: Editing a secret
+            href: operations/data/secret-change.md
+          - name: Copying a secret
+            href: operations/data/secret-copy.md
+          - name: Destroying a secret
+            href: operations/data/secret-delete.md
   - name: Concepts
     items:
       - name: Overview

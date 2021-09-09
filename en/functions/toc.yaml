@@ -279,6 +279,8 @@ items:
         href: solutions/java-servlet-todo-list.md
       - name: Writing data from a device to Managed Service for PostgreSQL
         href: solutions/data-recording.md
+      - name: Developing a Slack bot
+        href: solutions/slack-bot-serverless.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

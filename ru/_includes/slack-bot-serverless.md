@@ -1,6 +1,6 @@
 В этом сценарии вы узнаете, как с помощью serverless-технологий создать Slack-бота, который будет выполнять команды в чате и отвечать на сообщения пользователей.
 
-<iframe width="794" height="447" src="https://www.youtube.com/embed/VmqFGYAPN_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+@[youtube](VmqFGYAPN_4)
 
 ## Подготовьте окружение {#start}
 
