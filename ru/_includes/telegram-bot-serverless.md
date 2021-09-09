@@ -2,7 +2,7 @@
 
 В этом сценарии вы узнаете, как с помощью serverless-технологий создать Telegram-бота, который будет отвечать на сообщения в чате.
 
-<iframe width="794" height="447" src="https://www.youtube.com/embed/C2Ahit2EBo0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+@[youtube](C2Ahit2EBo0)
 
 Чтобы создать бота:
 1. [Подготовьте окружение](#start)
