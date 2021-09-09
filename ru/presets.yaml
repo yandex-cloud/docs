@@ -346,6 +346,7 @@ default:
   stt-streaming-audioLength: 5 минут
   ya-client-app: https://oauth.yandex.ru/client/new
   ya-oauth: https://oauth.yandex.ru/verification_code
+  ds-api-addr: datasphere.api.cloud.yandex.net:443
 
   # Data Transfer
   dt-copy: Копировать

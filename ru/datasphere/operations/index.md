@@ -10,6 +10,7 @@ description: "Из статьи вы узнаете как работать с Y
 * [{#T}](projects/snippets.md)
 * [{#T}](projects/checkpoints.md)
 * [{#T}](projects/control-compute-resources.md)
+* [{#T}](projects/custom-limits.md)
 * [{#T}](user-images.md)
 * [{#T}](user-images-cell.md)
 * [{#T}](projects/clear-kernel-state.md)
