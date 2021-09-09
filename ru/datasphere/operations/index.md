@@ -22,11 +22,11 @@ description: "Из статьи вы узнаете как работать с Y
 
 ## Работа с данными внутри проекта {#data-in-project}
 
-* [{#T}](../operations/data/secret-create.md)
-* [{#T}](../operations/data/secret-call.md)
-* [{#T}](../operations/data/secret-copy.md)
-* [{#T}](../operations/data/secret-change.md)
-* [{#T}](../operations/data/secret-delete.md)
+* [{#T}](data/secret-create.md)
+* [{#T}](data/secret-call.md)
+* [{#T}](data/secret-copy.md)
+* [{#T}](data/secret-change.md)
+* [{#T}](data/secret-delete.md)
   
 ## Получение данных из источников {#data-source}
 
