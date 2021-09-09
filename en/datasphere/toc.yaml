@@ -17,8 +17,12 @@ items:
         href: operations/projects/checkpoints.md
       - name: Managing computing resources
         href: operations/projects/control-compute-resources.md
-      - name: Creating a custom image
-        href: operations/user-images.md
+      - name: Managing Docker images
+        items:
+          - name: Docker image for a project
+            href: operations/user-images.md
+          - name: Docker image in a cell
+            href: operations/user-images-cell.md
       - name: Clearing the interpreter state
         href: operations/projects/clear-kernel-state.md
       - name: Sharing a notebook

@@ -10,6 +10,8 @@ description: "From this article you will learn how to work with machine learning
 * [{#T}](projects/snippets.md)
 * [{#T}](projects/checkpoints.md)
 * [{#T}](projects/control-compute-resources.md)
+* [{#T}](user-images.md)
+* [{#T}](user-images-cell.md)
 * [{#T}](projects/clear-kernel-state.md)
 * [{#T}](projects/publication.md)
 * [{#T}](projects/export.md)
@@ -20,11 +22,11 @@ description: "From this article you will learn how to work with machine learning
 
 ## Working with data inside a project {#data-in-project}
 
-* [{#T}](data/secret-create.md)
-* [{#T}](data/secret-call.md)
-* [{#T}](data/secret-copy.md)
-* [{#T}](data/secret-change.md)
-* [{#T}](data/secret-delete.md)
+* [{#T}](../operations/data/secret-create.md)
+* [{#T}](../operations/data/secret-call.md)
+* [{#T}](../operations/data/secret-copy.md)
+* [{#T}](../operations/data/secret-change.md)
+* [{#T}](../operations/data/secret-delete.md)
 
 ## Getting data from sources {#data-source}
 
