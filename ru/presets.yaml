@@ -237,6 +237,7 @@ default:
   RMQ: RabbitMQ
   TF: Terraform
   ZK: ZooKeeper
+  ssms: SQL Server Management Studio
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -538,3 +539,4 @@ external:
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1go92dnv7b9u8f21mnj
+  

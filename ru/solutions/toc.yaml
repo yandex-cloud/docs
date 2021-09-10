@@ -104,6 +104,8 @@ items:
         href: dataplatform/confluent-schema-registry.md
       - name: Поставка данных с помощью Debezium
         href: dataplatform/kafka-cdc.md
+      - name: Миграция базы данных в Managed Service for Microsoft SQL Server
+        href: dataplatform/mssql-data-migration.md
   - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии
