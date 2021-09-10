@@ -19,12 +19,11 @@ editable: false
 
 # Technical restrictions of {{ mpg-name }}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Lowest host class | s2.nano (1 vCPU, 4 GB RAM) |
-| Highest host class | s3.6xlarge (64 vCPU, 256 GB RAM) |
-| Maximum number of hosts per {{ PG }} cluster | 7 |
-| Maximum storage capacity for a {{ PG }} cluster | 4096 GB |
+| Type of limit                                   | Value                             |
+|-------------------------------------------------|-----------------------------------|
+| Lowest host class                               | s2.nano (1 vCPU, 4 GB RAM)        |
+| Highest host class                              | m3-c80-m640 (80 vCPU, 640 GB RAM) |
+| Maximum number of hosts per {{ PG }} cluster    | 7                                 |
+| Maximum storage capacity for a {{ PG }} cluster | 4096 GB                           |
 
 {% endif %}
-

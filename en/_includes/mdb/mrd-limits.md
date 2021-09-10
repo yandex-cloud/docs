@@ -1,11 +1,11 @@
 #### Quotas {#mrd-quotas}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Number of clusters per cloud | 16 |
-| Total number of processor cores for all DB hosts per cloud | 64 |
-| Total virtual memory for all hosts per cloud | 512 GB |
-| Total disk storage capacity for all clusters per cloud | 4096 GB |
+| Type of limit                                              | Value   |
+|------------------------------------------------------------|---------|
+| Number of clusters per cloud                               | 16      |
+| Total number of processor cores for all DB hosts per cloud | 64      |
+| Total virtual memory for all hosts per cloud               | 512 GB  |
+| Total disk storage capacity for all clusters per cloud     | 4096 GB |
 
 #### Limits {#mrd-limits}
 
@@ -13,7 +13,7 @@
 
 | Type of limit | Minimum value | Maximum value |
 | ---- | ----- | ---- |
-| Host class | b1.nano (`burstable` with 2 GB RAM) | hm2.512xlarge (`high-memory` with 512 GB RAM) |
+| Host class | b1.nano (`burstable` with 2 GB RAM) | hm3-c32-m512 (32 vCPU Intel Ice Lake, 512 GB RAM) |
 | Number of hosts in an unsharded cluster | 1 | 7 |
 | Number of shards in a sharded cluster | 3 | 10 |
 | Number of hosts in a shard when using network storage | 1 | 7 |
@@ -26,7 +26,7 @@
 
 | Type of limit | Minimum value | Maximum value |
 | ----- | ----- | ---- |
-| Host class | b1.nano (`burstable` with 2 GB RAM) | hm2.512xlarge (`high-memory` with 512 GB RAM) |
+| Host class | b1.nano (`burstable` with 2 GB RAM) | hm3-c32-m512 (32 vCPU Intel Ice Lake, 512 GB RAM) |
 | Number of hosts in an unsharded cluster | 1 | 7 |
 | Number of shards in a sharded cluster | 3 | 10 |
 | Number of hosts in a shard when using network storage | 1 | 7 |
@@ -36,4 +36,3 @@
 | Amount of data on the host when using local storage | Twice the amount of RAM selected | 1400 GB |
 
 {% endif %}
-

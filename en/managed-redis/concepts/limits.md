@@ -10,4 +10,3 @@ description: 'Managed Service for Redis has limits and quotas for the number of 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
-

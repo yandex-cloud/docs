@@ -10,21 +10,23 @@
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
-Ресурс | Цена за 1 час
------ | ----- 
-**Intel Cascade Lake** |
-100% vCPU | {{ sku|KZT|mdb.cluster.mssql.v2.cpu.c100|string }}
-RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mssql.v2.ram|string }}
-
+| Ресурс        | Цена за 1 час                                      |
+|---------------|----------------------------------------------------|
+| **Intel Cascade Lake**                                             |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.mssql.v2.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mssql.v2.ram|string }}      |
+| **Intel Ice Lake**                                                 |
+| 100% vCPU     | {{ sku|KZT|mdb.cluster.mssql.v3.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mssql.v3.ram|string }}      |
 
 ### Хранилище и резервные копии {#prices-storage}
 
-{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
+{% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
-Услуга | Цена за ГБ в месяц
------ | -----
-Стандартное сетевое хранилище | {{ sku|KZT|mdb.cluster.network-hdd.mssql|month|string }}
-Нереплицируемое сетевое хранилище | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.mssql|month|string }}
-Быстрое сетевое хранилище | {{ sku|KZT|mdb.cluster.network-nvme.mssql|month|string }}
-Быстрое локальное хранилище | {{ sku|KZT|mdb.cluster.local-nvme.mssql|month|string }}
-Резервные копии сверх размера хранилища | 15,2544 ₸
+| Услуга                                  | Цена за ГБ в месяц                                                     |
+|-----------------------------------------|------------------------------------------------------------------------|
+| Стандартное сетевое хранилище           | {{ sku|KZT|mdb.cluster.network-hdd.mssql|month|string }}               |
+| Нереплицируемое сетевое хранилище       | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.mssql|month|string }} |
+| Быстрое сетевое хранилище               | {{ sku|KZT|mdb.cluster.network-nvme.mssql|month|string }}              |
+| Быстрое локальное хранилище             | {{ sku|KZT|mdb.cluster.local-nvme.mssql|month|string }}                |
+| Резервные копии сверх размера хранилища | 15,2544 ₸                                                              |

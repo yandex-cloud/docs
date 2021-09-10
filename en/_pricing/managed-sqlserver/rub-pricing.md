@@ -4,27 +4,30 @@ For the following products, funds are debited once for the calendar month in adv
 
 | Resource | Cost per vCPU per month, with VAT |
 | ----- | ----- |
-| Windows Server Datacenter | ₽913,752
-| Microsoft SQL Server Standard | ₽5896,5 |
+| Windows Server Datacenter | ₽913.752
+| Microsoft SQL Server Standard | ₽5896.5 |
 | Microsoft SQL Server Enterprise | ₽20163 |
 
 
 ### Host computing resources {#prices-hosts}
 
-| Resource | Cost for 1 hour, with VAT |
-| ----- | ----- |
-| **Intel Cascade Lake** |
-| 100% vCPU | {{ sku|RUB|mdb.cluster.mssql.v2.cpu.c100|string }} |
-| RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.mssql.v2.ram|string }} |
+| Resource       | Cost for 1 hour, with VAT                          |
+|----------------|----------------------------------------------------|
+| **Intel Cascade Lake**                                              |
+| 100% vCPU      | {{ sku|RUB|mdb.cluster.mssql.v2.cpu.c100|string }} |
+| RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.mssql.v2.ram|string }}      |
+| **Intel Ice Lake**                                                  |
+| 100% vCPU      | {{ sku|RUB|mdb.cluster.mssql.v3.cpu.c100|string }} |
+| RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.mssql.v3.ram|string }}      |
 
 ### Storage and backups {#prices-storage}
 
-{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
+{% include [local-ssd for Ice Lake only by request](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Service | Cost of 1 GB per month, with VAT |
-| ----------------------------------------- | ------------------------------------------------------------------------ |
-| Standard network storage | {{ sku|RUB|mdb.cluster.network-hdd.mssql|month|string }} |
-| Non-replicated network storage | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.mssql|month|string }} |
-| Fast network storage | {{ sku|RUB|mdb.cluster.network-nvme.mssql|month|string }} |
-| Fast local storage | {{ sku|RUB|mdb.cluster.local-nvme.mssql|month|string }} |
-| Backups beyond the storage size | ₽2.5424 |
+| Service                         | Cost of 1 GB per month, with VAT                                       |
+|---------------------------------|------------------------------------------------------------------------|
+| Standard network storage        | {{ sku|RUB|mdb.cluster.network-hdd.mssql|month|string }}               |
+| Non-replicated network storage  | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.mssql|month|string }} |
+| Fast network storage            | {{ sku|RUB|mdb.cluster.network-nvme.mssql|month|string }}              |
+| Fast local storage              | {{ sku|RUB|mdb.cluster.local-nvme.mssql|month|string }}                |
+| Backups beyond the storage size | ₽2.5424                                                                |

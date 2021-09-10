@@ -29,4 +29,3 @@ For more information about the editions available, {{ MS }} see [{#T}](../concep
 | Maximum storage capacity for a cluster {{ MS }} | 4096 GB |
 
 {% endif %}
-

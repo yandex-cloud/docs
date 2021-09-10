@@ -19,11 +19,11 @@ editable: false
 
 # Technical restrictions {{ mkf-name }}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Lowest host class | s2.micro (1 vCPU, 4 GB RAM) |
-| Highest host class | s3.6xlarge (64 vCPU, 256 GB RAM) |
-| Maximum number of hosts per cluster {{ KF }} | 7 |
-| Maximum storage capacity for a cluster {{ KF }} | 4096 GB |
+| Type of limit                                   | Value                             |
+|-------------------------------------------------|-----------------------------------|
+| Lowest host class                               | s2.micro (1 vCPU, 4 GB RAM)       |
+| Highest host class                              | m3-c80-m640 (80 vCPU, 640 GB RAM) |
+| Maximum number of hosts per cluster {{ KF }}    | 7                                 |
+| Maximum storage capacity for a cluster {{ KF }} | 4096 GB                           |
 
 {% endif %}

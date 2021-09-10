@@ -244,6 +244,8 @@ default:
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
   zone-id: ru-central1-c
+
+  # Классы хостов
   host-class: s2.micro
   b1-nano: b1.nano (2 vCPU × 5%, 2 ГБ)
   b1-micro: b1.micro (2 vCPU × 20%, 2 ГБ)
@@ -294,6 +296,82 @@ default:
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
+  b3-c1-m4: b3-c1-m4 (2 vCPU × 50%, 4 ГБ)
+  m3-c2-m16: m3-c2-m16 (2 vCPU, 16 ГБ)
+  m3-c4-m32: m3-c4-m32 (4 vCPU, 32 ГБ)
+  m3-c6-m48: m3-c6-m48 (6 vCPU, 48 ГБ)
+  m3-c8-m64: m3-c8-m64 (8 vCPU, 64 ГБ)
+  m3-c12-m96: m3-c12-m96 (12 vCPU, 96 ГБ)
+  m3-c16-m128: m3-c16-m128 (16 vCPU, 128 ГБ)
+  m3-c24-m192: m3-c25-m192 (24 vCPU, 192 ГБ)
+  m3-c32-m256: m3-c32-m256 (32 vCPU, 256 ГБ)
+  m3-c40-m320: m3-c40-m320 (40 vCPU, 320 ГБ)
+  m3-c48-m384: m3-c48-m384 (48 vCPU, 384 ГБ)
+  m3-c56-m448: m3-c56-m448 (56 vCPU, 448 ГБ)
+  m3-c64-m512: m3-c64-m512 (64 vCPU, 512 ГБ)
+  m3-c80-m640: m3-c80-m640 (80 vCPU, 640 ГБ)
+  s3-c2-m8: s3-c2-m8 (2 vCPU, 8 ГБ)
+  s3-c4-m16: s3-c4-m16 (4 vCPU, 16 ГБ)
+  s3-c8-m32: s3-c8-m32 (8 vCPU, 32 ГБ)
+  s3-c12-m48: s3-c12-m48 (12 vCPU, 48 ГБ)
+  s3-c16-m64: s3-c16-m64 (16 vCPU, 64 ГБ)
+  s3-c24-m96: s3-c24-m96 (24 vCPU, 96 ГБ)
+  s3-c32-m128: s3-c32-m128 (32 vCPU, 128 ГБ)
+  s3-c40-m160: s3-c40-m160 (40 vCPU, 160 ГБ)
+  s3-c48-m192: s3-c48-m192 (48 vCPU, 192 ГБ)
+  s3-c64-m256: s3-c64-m256 (64 vCPU, 256 ГБ)
+  s3-c80-m320: s3-c80-m320 (80 vCPU, 320 ГБ)
+  s3-c96-m576: s3-c96-m576 (96 vCPU, 576 ГБ)
+  hm1-nano: hm1.nano (2 vCPU, 8 ГБ)
+  hm1-micro: hm1.micro (2 vCPU, 12 ГБ)
+  hm1-small: hm1.small (2 vCPU, 16 ГБ)
+  hm1-medium: hm1.medium (4 vCPU, 24 ГБ)
+  hm1-large: hm1.large (4 vCPU, 32 ГБ)
+  hm1-xlarge: hm1.xlarge (4 vCPU, 48 ГБ)
+  hm1-2xlarge: hm1.2xlarge (4 vCPU, 64 ГБ)
+  hm1-3xlarge: hm1.3xlarge (4 vCPU, 80 ГБ)
+  hm1-4xlarge: hm1.4xlarge (8 vCPU, 96 ГБ)
+  hm1-5xlarge: hm1.5xlarge (8 vCPU, 128 ГБ)
+  hm1-6xlarge: hm1.6xlarge (8 vCPU, 160 ГБ)
+  hm1-7xlarge: hm1.7xlarge (8 vCPU, 192 ГБ)
+  hm1-8xlarge: hm1.8xlarge (8 vCPU, 224 ГБ)
+  hm1-9xlarge: hm1.9xlarge (8 vCPU, 256 ГБ)
+  hm2-nano: hm2.nano (2 vCPU, 8 ГБ)
+  hm2-micro: hm2.micro (2 vCPU, 12 ГБ)
+  hm2-small: hm2.small (4 vCPU, 16 ГБ)
+  hm2-medium: hm2.medium (4 vCPU, 24 ГБ)
+  hm2-large: hm2.large (4 vCPU, 32 ГБ)
+  hm2-xlarge: hm2.xlarge (4 vCPU, 48 ГБ)
+  hm2-60xlarge: hm2.60xlarge (6 vCPU, 60 ГБ)
+  hm2-78xlarge: hm2.78xlarge (6 vCPU, 78 ГБ)
+  hm2-96xlarge: hm2.96xlarge (6 vCPU, 96 ГБ)
+  hm2-128xlarge: hm2.128xlarge (8 vCPU, 128 ГБ)
+  hm2-160xlarge: hm2.160xlarge (10 vCPU, 160 ГБ)
+  hm2-192xlarge: hm2.192xlarge (12 vCPU, 192 ГБ)
+  hm2-224xlarge: hm2.224xlarge (14 vCPU, 224 ГБ)
+  hm2-256xlarge: hm2.256xlarge (16 vCPU, 256 ГБ)
+  hm2-320xlarge: hm2.320xlarge (20 vCPU, 320 ГБ)
+  hm2-384xlarge: hm2.384xlarge (24 vCPU, 384 ГБ)
+  hm2-448xlarge: hm2.448xlarge (28 vCPU, 448 ГБ)
+  hm2-512xlarge: hm2.512xlarge (32 vCPU, 512 ГБ)
+  hm3-c2-m8: hm3.nano (2 vCPU, 8 ГБ)
+  hm3-c2-m12: hm3.micro (2 vCPU, 12 ГБ)
+  hm3-c4-m16: hm3.small (4 vCPU, 16 ГБ)
+  hm3-c4-m24: hm3.medium (4 vCPU, 24 ГБ)
+  hm3-c4-m32: hm3.large (4 vCPU, 32 ГБ)
+  hm3-c4-m48: hm3.xlarge (4 vCPU, 48 ГБ)
+  hm3-c6-m60: hm3.60xlarge (6 vCPU, 60 ГБ)
+  hm3-c6-m78: hm3.78xlarge (6 vCPU, 78 ГБ)
+  hm3-c6-m96: hm3.96xlarge (6 vCPU, 96 ГБ)
+  hm3-c8-m128: hm3.128xlarge (8 vCPU, 128 ГБ)
+  hm3-c8-m160: hm3.160xlarge (8 vCPU, 160 ГБ)
+  hm3-c12-m192: hm3.192xlarge (12 vCPU, 192 ГБ)
+  hm3-c14-m224: hm3.224xlarge (14 vCPU, 224 ГБ)
+  hm3-c16-m256: hm3.256xlarge (16 vCPU, 256 ГБ)
+  hm3-c20-m320: hm3.320xlarge (20 vCPU, 320 ГБ)
+  hm3-c24-m384: hm3.384xlarge (24 vCPU, 384 ГБ)
+  hm3-c28-m448: hm3.448xlarge (28 vCPU, 448 ГБ)
+  hm3-c32-m512: hm3.512xlarge (32 vCPU, 512 ГБ)
   graph-update: 15 секунд
   graph-update-burstable: 150 секунд
   mch-backup-retention: 7
@@ -460,4 +538,3 @@ external:
   link-cloud-partners: https://partners.cloud.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1go92dnv7b9u8f21mnj
-  
