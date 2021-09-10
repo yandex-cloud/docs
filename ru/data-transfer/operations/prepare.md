@@ -272,7 +272,11 @@
 
 Чтобы подготовить источник к трансферу:
 
+{% if audience == "external" %}
 * [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
+{% else %}
+* Создайте поток данных.
+{% endif %}
 * (Опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
 
     {% cut "Пример функции обработки" %}
