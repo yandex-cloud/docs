@@ -35,8 +35,6 @@ You can't decrease the number of {{ KF }} broker hosts.
 
 {% list tabs %}
 
-{% if ui != "noshow" %}
-
 - Management console
 
   1. Go to the folder page and select **{{ mkf-name }}**.
@@ -48,8 +46,6 @@ You can't decrease the number of {{ KF }} broker hosts.
      * To change the number of broker hosts in each availability zone that was chosen when [creating a cluster](cluster-create.md#create-cluster), change the value of the corresponding setting.
 
   1. Click **Save**.
-
-{% endif %}
 
 - CLI
 
@@ -91,6 +87,56 @@ You can't decrease the number of {{ KF }} broker hosts.
      --zookeeper-resource-preset <host class>
      ```
 
+- Terraform
+
+    To change the [class and number of hosts](../concepts/instance-types.md) for the cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, change the `brokers_count` parameter to increase the number of broker hosts:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+          config {
+            brokers_count  = <number of broker hosts>
+            ...
+          }
+          ...
+        }
+        ```
+
+    1. In the {{ mkf-name }} cluster description, change the `resource_preset_id` parameter in the `kafka.resources` and `zookeeper.resources` sections for the {{ KF }} and {{ ZK }} hosts, respectively:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+          ...
+          kafka {
+            resources {
+              resource_preset_id = "<class of Apache Kafka hosts>"
+              ...
+            }
+          }
+          zookeeper {
+            resources {
+              resource_preset_id = "<class of {{ ZK }} hosts>"
+              ...
+            }
+          }
+         }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 {% if api != "noshow" %}
 
 - API
@@ -114,15 +160,11 @@ Currently, you can't change the disk type for the {{ KF }} cluster after creatio
 
 {% list tabs %}
 
-{% if ui != "noshow" %}
-
 - Management console
   1. Go to the folder page and select **{{ mkf-name }}**.
   1. Select the cluster and click **Edit** in the top panel.
-  1. To change storage settings, select the [storage type](../concepts/storage.md) and its size in the corresponding section.
+  1. Change the storage size in the relevant section.
   1. Click **Save**.
-
-{% endif %}
 
 - CLI
 
@@ -162,6 +204,44 @@ Currently, you can't change the disk type for the {{ KF }} cluster after creatio
 
      If no size units are specified, gigabytes are used.
 
+- Terraform
+
+    To increase the storage size for a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, change the `disk_size` parameter in the `kafka.resources` and `zookeeper.resources` sections for the {{ KF }} and {{ ZK }} hosts, respectively:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+          ...
+          kafka {
+            resources {
+              disk_size = <storage size in GB>
+              ...
+            }
+          }
+          zookeeper {
+            resources {
+              disk_size = <storage size in GB>
+              ...
+            }
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 {% if api != "noshow" %}
 
 - API
@@ -182,7 +262,9 @@ Currently, you can't change the disk type for the {{ KF }} cluster after creatio
 - Management console
 
     1. Go to the folder page and select **{{ mkf-name }}**.
+
     1. Select the cluster and click **Edit** in the top panel.
+
     1. Change the {{ KF }} settings by clicking **Configure** under **DBMS settings**:
 
         For more information, see [{{ KF }} settings](../concepts/settings-list.md).
@@ -197,7 +279,7 @@ Currently, you can't change the disk type for the {{ KF }} cluster after creatio
 
     To change {{ KF }} settings:
 
-    1. View a description of the CLI's update cluster settings command:
+    1. View a description of the CLI update cluster settings command:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -211,6 +293,42 @@ Currently, you can't change the disk type for the {{ KF }} cluster after creatio
            --log-flush-interval-messages <number of messages in the log to trigger flushing to disk> \
            --log-flush-interval-ms <maximum time a message can be stored in memory before flushing to disk>
         ```
+
+- Terraform
+
+    To change the [cluster settings](../concepts/settings-list.md#cluster-settings):
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, change the parameter values in the `kafka.kafka_config` section (not all the settings are listed in the example):
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+          ...
+          config {
+            kafka {
+              ...
+              kafka_config {
+                compression_type            = "<compression type>"
+                log_flush_interval_messages  = <maximum number of messages in memory>
+                ...
+              }
+            }
+          }
+        }
+        ```
+
+    2. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    3. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 {% if api != "noshow" %}
 
@@ -247,6 +365,11 @@ Currently, you can't change the disk type for the {{ KF }} cluster after creatio
 
 {% list tabs %}
 
+- Management console
+  1. Go to the folder page and select **{{ mkf-name }}**.
+  1. Select the cluster and click **Edit cluster** in the top panel.
+  1. Under **Network settings**, select security groups for cluster network traffic.
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -267,6 +390,33 @@ Currently, you can't change the disk type for the {{ KF }} cluster after creatio
       $ {{ yc-mdb-kf }} cluster update <cluster name>
            --security-group-ids <list of security groups>
       ```
+
+- Terraform
+
+    To change cluster security groups:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Change the value of the `security_group_ids` parameter in the cluster description:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+          ...
+          security_group_ids = [ <list of IDs of cluster security groups> ]
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [Terraform provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 - API
 

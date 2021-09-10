@@ -6,27 +6,95 @@ You can use the same account for multiple producers or consumers: the former get
 
 After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
-- [Create an account](#create-account).
-- [Update the account password](#update-password).
-- [Update account settings](#update-account).
-- [Grant account permissions](#grant-permission).
-- [Revoke account permissions](#revoke-permission).
-- [Delete an account](#delete-account).
-- [Get a list of cluster accounts](#list-accounts).
+- [{#T}](#create-account).
+- [{#T}](#update-password).
+- [{#T}](#update-account).
+- [{#T}](#grant-permission).
+- [{#T}](#revoke-permission).
+- [{#T}](#delete-account).
+- [{#T}](#list-accounts).
 
-## Create an account {#create-account}
+## Creating an account {#create-account}
 
 {% list tabs %}
 
 - Management console
 
   To create an account in a cluster:
+
   1. Go to the folder page and select **{{ mkf-name }}**.
+
   1. Click the name of the cluster and go to the **Users** tab.
+
   1. Click **Add**.
-  1. Enter a name for the account (username) and password (from 8 to 128 characters).
+
+  1. Enter the account name (username) and password.
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+
   1. [Grant permissions](#grant-permission) to the necessary topics.
+
   1. Click **Add**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To create an account:
+
+  1. Read the description of the CLI create account command:
+
+     ```
+     {{ yc-mdb-kf }} user create --help
+     ```
+
+  1. Create an account and grant permissions for the desired topics:
+
+     ```
+     {{ yc-mdb-kf }} user create <username> \
+     --cluster-name <cluster name>
+     --password <user password> \
+     --permission topic=<topic name>,role=<user role: producer or consumer>
+     ```
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+
+- Terraform
+
+    To create an account:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `user` section to the {{ mkf-name }} cluster description:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+           user {
+             name     = "<username>"
+             password = "<password>"
+             ...
+           }
+           ...
+        }
+        ```
+
+        {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+
+    1. [Grant permissions](#grant-permission) to the necessary topics.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 {% if api != "noshow" %}
 
@@ -41,11 +109,13 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
       - The topic name in the `topicName` parameter. To find out the name, [get a list of topics in the cluster](cluster-topics.md#list-topics).
       - Topic permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
 
+  {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+
 {% endif %}
 
 {% endlist %}
 
-## Update the account password {#update-password}
+## Updating an account password {#update-password}
 
 {% list tabs %}
 
@@ -57,6 +127,58 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired account and select **Change password**.
   1. Set a new password and click **Edit**.
 
+  {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To update an account password, run the command below:
+
+  ```
+  {{ yc-mdb-kf }} user update <username> \
+  --cluster-name <cluster name>
+  --password <new password>
+  ```
+
+  {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
+- Terraform
+
+    To change the account password:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, find the `user` block for the required user.
+
+    1. Change the value of the `password` field:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+           user {
+             ...
+             password = "<password>"
+           }
+           ...
+        }
+        ```
+
+        {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 {% if api != "noshow" %}
 
 - API
@@ -67,11 +189,13 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   - The name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any account settings that aren't explicitly specified in the request to their default values.
   - The new password for the account in the `password` parameter.
 
+  {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
 {% endif %}
 
 {% endlist %}
 
-## Update account settings {#update-account}
+## Updating account settings {#update-account}
 
 {% list tabs %}
 
@@ -83,6 +207,34 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired account and select **Configure**.
   1. [Grant](#grant-permission) or [revoke](#revoke-permission) permissions to topics, if necessary.
   1. Click **Save**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Using the CLI, you can [grant](#grant-permission) and [revoke](#revoke-permission) topic permissions.
+
+- Terraform
+
+    To change account settings:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, edit the `permission` section nested in the `user` section to [grant](#grant-permission) or [revoke](#revoke-permission) topic permissions.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 {% if api != "noshow" %}
 
@@ -98,7 +250,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
 {% endlist %}
 
-## Grant account permissions {#grant-permission}
+## Granting permissions to an account {#grant-permission}
 
 {% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
 
@@ -116,7 +268,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
      1. Click **+ Add topic**. If there is no such button, it means that all existing cluster topics are added to this account.
      1. Select the desired topic from the drop-down list.
 
-  1. Click ![image](../../_assets/plus.svg) in the **Roles** column for the topic and select:
+  1. Click the ![image](../../_assets/plus.svg) in the **Roles** column for the topic and select:
      - `ACCESS_ROLE_CONSUMER`: Consumers who use this account will be granted access to the topic.
      - `ACCESS_ROLE_PRODUCER`: Producers who use this account will be granted access to the topic.
 
@@ -125,6 +277,79 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   1. To grant permissions to other topics, repeat the steps.
 
   1. (optional) If you granted permissions to a topic by mistake, [revoke them](#revoke-permission).
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To grant permissions to an account:
+
+  1. Retrieve a list of cluster topics:
+
+     ```
+     {{ yc-mdb-kf }} topic list --cluster-name <cluster name>
+     ```
+
+  1. Grant permissions to the required topics by passing the `--permission` parameters:
+
+     ```
+     {{ yc-mdb-kf }} user update <username> \
+     --cluster-name <cluster name>
+     --permission topic=<topic name>,role=<user role: producer or consumer>
+     ```
+
+     The following `--permission` parameters are available:
+     - **`topic`**: The name of the topic that the permissions are granted for.
+     - **`role`**: User role, such as producer or consumer.
+
+     When you update account permissions, the existing permissions are revoked and replaced with the new ones. That is, the command must always include a complete list of permissions to be assigned to the account.
+
+     For example, to grant the `test-user` the permissions in the `kafka-cli` cluster for `topic2` with the `producer` role, but keep the existing permissions for `topic1`, run the command:
+
+     ```
+     {{ yc-mdb-kf }} user update test-user \
+     --cluster-name kafka-cli \
+     --permission topic=topic1,role=consumer \
+     --permission topic=topic2,role=producer
+     ```
+
+- Terraform
+
+    To grant permissions to an account:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, add a `permission` section to the `user` section:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+           user {
+             name     = "<username>"
+             password = "<password>"
+             permission {
+               topic_name = "<topic name>"
+               role       = "<user role: ACCESS_ROLE_CONSUMER, ACCESS_ROLE_PRODUCER, or ACCESS_ROLE_ADMIN>"
+             }
+           }
+           ...
+        }
+        ```
+
+        The `ACCESS_ROLE_ADMIN` role is only available in a cluster with [topic management via the Admin API](../concepts/topics.md) enabled and all topics selected (`topic_name = "*"`).
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 {% if api != "noshow" %}
 
@@ -139,7 +364,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
 {% endlist %}
 
-## Revoke account permissions {#revoke-permission}
+## Revoking permissions from an account {#revoke-permission}
 
 {% list tabs %}
 
@@ -150,6 +375,44 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   To revoke topic permissions:
   1. Find the desired topic in the list of topics.
   1. Delete the role that you no longer need by clicking ![image](../../_assets/cross.svg) next to the role name. To revoke all permissions to a topic, delete it from the list: hover over the topic name and click ![image](../../_assets/cross.svg) at the end of the line.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To revoke permissions for certain topics, pass an updated list of the `--permission` parameters:
+
+  ```
+  {{ yc-mdb-kf }} user update <username> \
+  --cluster-name <cluster name>
+  --permission topic=<topic name>,role=<user role: producer or consumer>
+  ```
+
+  When you update account permissions, the existing permissions are revoked and replaced with the new ones. That is, the command must always include a complete list of permissions to be assigned to the account.
+
+  The `--permission` flag must contain at least one topic/role pair. To revoke all the permissions from an account, use the console or delete the account.
+
+- Terraform
+
+    To revoke permissions from an account:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, edit or delete the `permission` section nested in the `user` section.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 {% if api != "noshow" %}
 
@@ -164,7 +427,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
 {% endlist %}
 
-## Delete an account {#delete-account}
+## Deleting an account {#delete-account}
 
 {% list tabs %}
 
@@ -175,6 +438,38 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   1. Click the name of the cluster and go to the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the account and select **Delete**.
   1. Confirm deletion and click **Delete**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To delete an account, run the command below:
+
+  ```
+  {{ yc-mdb-kf }} user delete <username> --cluster-name <cluster name>
+  ```
+
+- Terraform
+
+    To delete an account:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Delete the `user` block with a description of the required user from the {{ mkf-name }} cluster description.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 {% if api != "noshow" %}
 
@@ -188,7 +483,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 
 {% endlist %}
 
-## Get a list of cluster accounts {#list-accounts}
+## Getting a list of cluster accounts {#list-accounts}
 
 {% list tabs %}
 
@@ -197,6 +492,26 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   To get a list of accounts:
   1. Go to the folder page and select **{{ mkf-name }}**.
   1. Click the name of the cluster and go to the **Users** tab.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To get a list of accounts:
+
+  1. To get a list of accounts, run the command below:
+
+     ```
+     {{ yc-mdb-kf }} user list --cluster-name <cluster name>
+     ```
+
+  1. To get detailed information for a specific account, run the command below:
+
+     ```
+     {{ yc-mdb-kf }} user get <username> --cluster-name <cluster name>
+     ```
 
 {% if api != "noshow" %}
 
@@ -209,3 +524,4 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
 {% endif %}
 
 {% endlist %}
+
