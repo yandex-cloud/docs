@@ -27,6 +27,10 @@ items:
         href: operations/cluster-backups.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
+  - name: Use cases
+    items:
+      - name: Migrating to Managed Service for Elasticsearch using snapshots
+        href: tutorials/migration-via-snapshots.md
   - name: Concepts
     items:
       - name: Relationship between service resources
