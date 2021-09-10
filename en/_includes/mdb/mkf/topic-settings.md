@@ -81,9 +81,11 @@
 
     In the management console, this setting corresponds to **Number of partitions**.
 
-    The number of log sections per topic.
+    The number of log partitions per topic.
 
-    The minimum and default value is `1`.
+    The minimum value is `1` (default).
+
+    See also the [Num partitions](#settings-num-partitions) cluster-level setting.
 
     For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 
@@ -97,11 +99,11 @@
 
     In the management console, this setting corresponds to **Replication factor**.
 
-    Amount of data copies (replicas) for the topic in the cluster.
+    The number of [data copies](../../../managed-kafka/concepts/brokers.md) for a topic.
 
-    The minimum value depends on the number of [broker hosts](../../../managed-kafka/concepts/brokers.md):
-    * For clusters with a single broker host: `1`.
-    * For clusters with at least two broker hosts: `3`.
+    The minimum value is `1` (default). The maximum value is equal to the number of broker hosts in the cluster.
+
+    See also the [Default replication factor](#settings-default-replication-factor) cluster-level setting.
 
     For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#streamsconfigs_replication.factor).
 
