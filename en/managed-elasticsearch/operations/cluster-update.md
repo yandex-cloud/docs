@@ -11,10 +11,27 @@ keywords:
 
 After creating a cluster, you can:
 
+* [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
 * [{#T}](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
 * [{#T}](#change-admin-password).
 * [{#T}](#update-additional-settings).
+
+
+## Changing service account settings {#change-service-account}
+
+{% list tabs %}
+
+- Management console
+
+    1. Go to the folder page and select **{{ mes-name }}**.
+    1. Select the cluster and click **Edit** in the top panel.
+    1. Select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
+
+       {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
+{% endlist %}
+
 
 ## Changing the host class {#change-resource-preset}
 
@@ -148,21 +165,21 @@ After creating a cluster, you can:
 
     1. Specify a new password in the cluster update command using one of the available methods:
 
-       - Entering a password in interactive mode.
+       * Entering a password in interactive mode.
 
          ```
          {{ yc-mdb-es }} cluster update <cluster name> \
             --read-admin-password
          ```
 
-       - Entering a password as plain text (less secure method).
+       * Entering a password as plain text (less secure method).
 
          ```
          {{ yc-mdb-es }} cluster update <cluster name> \
             --admin-password <new password>
          ```
 
-       - Generating a password automatically. The generated password will be output to the console.
+       * Generating a password automatically. The generated password will be output to the console.
 
          ```
          {{ yc-mdb-es }} cluster update <cluster name> \
@@ -185,7 +202,6 @@ After creating a cluster, you can:
 {% list tabs %}
 
 - Management console
-
     1. Go to the folder page and select **{{ mes-name }}**.
     1. Select the cluster and click **Edit** in the top panel.
     1. To change the service account used for working with the cluster, select it from the drop-down list.
@@ -203,7 +219,7 @@ After creating a cluster, you can:
         {{ yc-mdb-es }} cluster update --help
         ```
 
-    1. To change the list of [plugins{{ ES }}](../concepts/plugins.md) available in the cluster, pass their list in the `--plugins` argument of a CLI command. In this case, extensions that are not included in the list will be disabled.
+    1. To change the list of [{{ ES }} plugins](../concepts/plugins.md) available in a cluster, pass the list in the `--plugins` argument of the CLI command. In this case, plugins that are not included in the list will be disabled.
 
         ```bash
         {{ yc-mdb-es }} cluster update <cluster name> \

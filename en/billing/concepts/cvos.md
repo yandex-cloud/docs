@@ -39,7 +39,7 @@ During the selected validity period, you must pay for the CVoS even if you don't
 
 See details of using and paying for your CVoS below.
 
-![image](../_assets/cud-scheme.svg)
+![image](../../_assets/billing/cud-scheme.svg)
 
 1. You can purchase a CVoS for 1 or 3 years. The CVoS is valid from the date you selected when purchasing it.
 
@@ -69,15 +69,15 @@ The amount charged for the CVoS is determined using the following formulas:
 
 - Amount charged per hour
 
-  ![image](../_assets/cud-hour-amount.svg)
+  ![image](../../_assets/billing/cud-hour-amount.svg)
 
 - Amount charged per day
 
-  ![image](../_assets/cud-day-amount.svg)
+  ![image](../../_assets/billing/cud-day-amount.svg)
 
 - Amount charged per month
 
-  ![image](../_assets/cud-month-amount.svg)
+  ![image](../../_assets/billing/cud-month-amount.svg)
 
 {% endlist %}
 

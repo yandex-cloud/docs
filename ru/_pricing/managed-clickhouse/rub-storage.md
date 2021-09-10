@@ -1,4 +1,4 @@
-{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
+{% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
 | Услуга                                  | Цена за ГБ в месяц                                                  |
 |-----------------------------------------|---------------------------------------------------------------------|

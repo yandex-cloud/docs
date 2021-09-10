@@ -76,7 +76,7 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
   1. Run PuTTY.
      1. In the **Host Name (or IP address)** field, enter the public IP address of the VM you want to connect to. Specify port `22` and **SSH** as the connection type.
 
-        ![ssh_add_ip](../../_assets/ssh-putty/ssh_add_ip.png)
+        ![ssh_add_ip](../../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
      1. In the tree on the left, select **Connection** - **SSH** - **Auth**.
 
@@ -84,19 +84,19 @@ You can also use the internal IP addresses and FQDNs to establish an SSH connect
 
      1. In the **Private key file for authentication** field, select the file with the private key.
 
-        ![ssh_choose_private_key](../../_assets/ssh-putty/ssh_choose_private_key.png)
+        ![ssh_choose_private_key](../../../_assets/compute/ssh-putty/ssh_choose_private_key.png)
 
      1. Go back to the **Sessions** menu. In the **Saved sessions** field, enter any session name and click **Save**. The session settings are saved under the specified name. You can use this session profile to connect using Pageant.
 
-        ![ssh_save_session](../../_assets/ssh-putty/ssh_save_session.png)
+        ![ssh_save_session](../../../_assets/compute/ssh-putty/ssh_save_session.png)
 
      1. Click **Open**. If this is the first time you connect to a VM, you might see a warning about an unknown host:
 
-        ![ssh_unknown_host_warning](../../_assets/ssh-putty/ssh_unknown_host_warning.png)
+        ![ssh_unknown_host_warning](../../../_assets/compute/ssh-putty/ssh_unknown_host_warning.png)
 
         Click **Yes**. A terminal window opens suggesting that you enter the login of the user on whose behalf the connection is being established. Type the user name that you specified when creating the VM and press `Enter`. If everything is configured correctly, the connection with the server will be established.
 
-        ![ssh_login](../../_assets/ssh-putty/ssh_login.png)
+        ![ssh_login](../../../_assets/compute/ssh-putty/ssh_login.png)
 
   If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
   1. Right-click on the Pageant icon in the task bar.

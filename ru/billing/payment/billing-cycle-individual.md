@@ -2,7 +2,7 @@
 
 Цикл списания средств с банковской карты физических лиц, а также приостановки и блокировки использования ресурсов представлен на схеме ниже.
 
-![image](../_assets/billing-cycle-individual.svg)
+![image](../../_assets/billing/billing-cycle-individual.svg)
 
 1. Вы [активируете платную версию](../operations/activate-commercial.md) до истечения срока действия пробного периода.
 

@@ -6,7 +6,7 @@ After creating a cluster, you can:
 
 * [{#T}](#change-resource-preset).
 
-* [{#T}](#change-disk-size) (available only for standard network storage, `network-hdd`, and fast network storage, `network-ssd`).
+* [{#T}](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
 
 * [Configure {{ CH }} servers](#change-clickhouse-config) according to the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/).
 
@@ -26,11 +26,7 @@ After creating a cluster, you can:
 
     1. Select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
-        {% note warning %}
-
-        If the cluster already uses objects from {{ objstorage-name }} which can be accessed using a service account, then changing the current service account to a different one may make these objects unavailable and interrupt the cluster operation. Delete these objects before changing accounts.
-
-        {% endnote %}
+       {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 {% endlist %}
 
@@ -491,6 +487,7 @@ After creating a cluster, you can:
 - API
 
   To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
+
   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
   * The list of groups in the `securityGroupIds` parameter.
   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.

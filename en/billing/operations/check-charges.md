@@ -51,11 +51,11 @@ Point the cursor to a line on the chart to see a popup. Each cloud, service, and
 
 | Chart | Usage data |
 | ----- | ----- |
-| ![image](../_assets/graph-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, product, or service. <br/>- The name of the product, cloud, or service. |
-| ![image](../_assets/gistogram-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
-| ![image](../_assets/norm-gistogram-icon.png) | - The date that the value at the current point is valid for.<br/>- The percentage (%) of consumption within the cloud, product, or service relative to the total consumption.<br/>- The cost of services consumed within the cloud, product, or service. <br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
-| ![image](../_assets/diagram-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
-| ![image](../_assets/norm-diagram-icon.png) | - The date that the value at the current point is valid for.<br/>- The percentage (%) of consumption within the cloud, product, or service relative to the total consumption.<br/>- The cost of services consumed within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
+| ![image](../../_assets/billing/graph-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, product, or service. <br/>- The name of the product, cloud, or service. |
+| ![image](../../_assets/billing/gistogram-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
+| ![image](../../_assets/billing/norm-gistogram-icon.png) | - The date that the value at the current point is valid for.<br/>- The percentage (%) of consumption within the cloud, product, or service relative to the total consumption.<br/>- The cost of services consumed within the cloud, product, or service. <br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
+| ![image](../../_assets/billing/diagram-icon.png) | - The date that the value at the current point is valid for.<br/>- The cost of services consumed within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
+| ![image](../../_assets/billing/norm-diagram-icon.png) | - The date that the value at the current point is valid for.<br/>- The percentage (%) of consumption within the cloud, product, or service relative to the total consumption.<br/>- The cost of services consumed within the cloud, product, or service.<br/>- The name of the product, cloud, or service.<br/>- The total cost of consumption. |
 
 ## Interpret the table {#tab}
 

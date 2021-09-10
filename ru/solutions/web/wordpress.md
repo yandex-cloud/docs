@@ -40,18 +40,18 @@ author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructo
 Чтобы создать ВМ:
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 
-   ![create-vm](../_assets/wordpress/vm-create-1.png)
+   ![create-vm](../../_assets/solutions/wordpress/vm-create-1.png)
 
 1. В поле **Имя** введите имя ВМ: `wordpress`.
 
    {% include [name-format](../../_includes/name-format.md) %}
 
-   ![add-vm-name](../_assets/wordpress/vm-create-2.png)
+   ![add-vm-name](../../_assets/solutions/wordpress/vm-create-2.png)
 
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [WordPress](https://cloud.yandex.ru/marketplace/products/f2eugfso8lh4ch2g2m9h).
 
-   ![choose-image](../_assets/wordpress/vm-create-3.png)
+   ![choose-image](../../_assets/solutions/wordpress/vm-create-3.png)
 
 1. В блоке **Вычислительные ресурсы**:
    * Выберите [платформу](../../compute/concepts/vm-platforms.md).
@@ -66,7 +66,7 @@ author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructo
 1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
 1. В пункте **Публичный адрес** выберите **Автоматически**.
 
-   ![choose-network](../_assets/wordpress/vm-create-4.png)
+   ![choose-network](../../_assets/solutions/wordpress/vm-create-4.png)
 
 1. Укажите данные для доступа на ВМ:
    * В поле **Логин** введите имя пользователя.
@@ -85,12 +85,12 @@ author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructo
 После того как ВМ `wordpress` перейдет в статус `RUNNING`, выполните:
 1. В блоке **Сеть** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
 
-   ![add-ssh](../_assets/wordpress/vm-create-5.png)
+   ![add-ssh](../../_assets/solutions/wordpress/vm-create-5.png)
 
 1. Перейдите по адресу ВМ в браузере.
 1. Выберите язык и нажмите кнопку **Продолжить**.
 
-   ![choose-language](../_assets/wordpress/wordpress-1.png)
+   ![choose-language](../../_assets/solutions/wordpress/wordpress-1.png)
 
 1. Заполните информацию для доступа к сайту:
    1. Укажите любое название сайта, например, `yc-wordpress`.
@@ -98,12 +98,12 @@ author: { "avatar": "https://storage.yandexcloud.net/cloud-www-assets/constructo
    1. Укажите пароль, который будет использоваться для входа в административную панель.
    1. Укажите вашу электронную почту.
 
-   ![credentials](../_assets/wordpress/wordpress-2.png)
+   ![credentials](../../_assets/solutions/wordpress/wordpress-2.png)
 
 1. Нажмите кнопку **Установить WordPress**.
 1. Если установка прошла успешно, нажмите кнопку **Войти**.
 
-   ![login](../_assets/wordpress/wordpress-3.png)
+   ![login](../../_assets/solutions/wordpress/wordpress-3.png)
 
 1. Войдите на сайт, используя указанные на прошлых шагах имя пользователя и пароль. После этого откроется административная панель, в которой можно приступать к работе с вашим сайтом.
 1. Убедитесь, что сайт доступен, открыв публичный IP-адрес ВМ в браузере.

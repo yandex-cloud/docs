@@ -27,6 +27,18 @@
 
     For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_compression.type).
 
+* **Default replication factor** {{ tag-all }} {#settings-default-replication-factor}
+
+    The number of [data copies](../../../managed-kafka/concepts/brokers.md) for a topic in the cluster.
+
+    The setting applies only to [automatically created topics](#settings-auto-create-topics).
+
+    The minimum value is `1` (default). The maximum value is equal to the number of broker hosts in the cluster.
+
+    See also the [Replication factor](#settings-topic-replication-factor) topic-level setting.
+
+    For more information, see the [{{ KF }} documentation](http://kafka.apache.org/documentation/#brokerconfigs_default.replication.factor).
+
 * **Log flush interval messages** {{ tag-all }} {#settings-log-flush-interval-messages}
 
     In the management console, this setting corresponds to **Flush messages**.
@@ -125,9 +137,21 @@
 
     The minimum value is `14` and the maximum value is `2147483647`. Defaults to `1073741824` (1 GB).
 
-    This is a global cluster-level setting. It can be overridden at the [topic level](#settings-topic-log-segment-bytes).
+    This is a global cluster-level setting. It can be overridden at the [topic level](#settings-topic-segment-bytes).
 
     For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#brokerconfigs_log.segment.bytes).
+
+* **Num partitions** {{ tag-all }} {#settings-num-partitions}
+
+    The number of log partitions per topic in the cluster.
+
+    The setting applies only to [automatically created topics](#settings-auto-create-topics).
+
+    The minimum value is `1` (default).
+
+    See also the [Num partitions](#settings-topic-num-partitions) topic-level setting.
+
+    For more information, see the [{{ KF }} documentation](http://kafka.apache.org/documentation/#brokerconfigs_num.partitions).
 
 * **Socket receive buffer bytes** {{ tag-con }} {#settings-socket-receive-buffer-bytes}
 

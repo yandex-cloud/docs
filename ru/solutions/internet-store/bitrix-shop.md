@@ -196,19 +196,19 @@
 
 1. На стартовом экране установки нажмите кнопку **Далее**.
 
-   ![Шаг 1](../_assets/bitrix-shop/bitrix-shop1.png)
+   ![Шаг 1](../../_assets/solutions/bitrix-shop/bitrix-shop1.png)
 
 1. Ознакомьтесь с лицензионным соглашением и выберите опцию **Я принимаю лицензионное соглашение**. Затем нажмите кнопку **Далее**.
 
-   ![Шаг 2](../_assets/bitrix-shop/bitrix-shop2.png)
+   ![Шаг 2](../../_assets/solutions/bitrix-shop/bitrix-shop2.png)
 
 1. Регистрировать продукт необязательно (вы можете отключить соответствующую опцию). Убедитесь, что опция **Установить в кодировке UTF-8** выбрана и нажмите кнопку **Далее**.
 
-   ![Шаг 3](../_assets/bitrix-shop/bitrix-shop3.png)
+   ![Шаг 3](../../_assets/solutions/bitrix-shop/bitrix-shop3.png)
 
 1. 1С-Битрикс проверит, верно ли сконфигурирован сервер. Нажмите кнопку **Далее** внизу страницы.
 
-   ![Шаг 4](../_assets/bitrix-shop/bitrix-shop4.png)
+   ![Шаг 4](../../_assets/solutions/bitrix-shop/bitrix-shop4.png)
 
 1. Настройка базы данных.
 
@@ -223,63 +223,63 @@
    1. В остальных полях оставьте значения по умолчанию.
    1. Нажмите кнопку **Далее**.
 
-   ![Шаг 5](../_assets/bitrix-shop/bitrix-shop5.png)
+   ![Шаг 5](../../_assets/solutions/bitrix-shop/bitrix-shop5.png)
 
 1. Дождитесь окончания процесса установки и инциализации базы данных.
 
-   ![Шаг 6](../_assets/bitrix-shop/bitrix-shop6.png)
+   ![Шаг 6](../../_assets/solutions/bitrix-shop/bitrix-shop6.png)
 
 1. Создайте администратора (пользователя, который сможет управлять системой). Заполните поля в соответствии с вашими персональными данными и нажмите кнопку **Далее**.
 
-   ![Шаг 7](../_assets/bitrix-shop/bitrix-shop7.png)
+   ![Шаг 7](../../_assets/solutions/bitrix-shop/bitrix-shop7.png)
 
 1. Выберите шаблон **Интернет-магазин** и нажмите кнопку **Далее**.
 
-   ![Шаг 8](../_assets/bitrix-shop/bitrix-shop8.png)
+   ![Шаг 8](../../_assets/solutions/bitrix-shop/bitrix-shop8.png)
 
 1. Подтвердите выбор единственного шаблона, нажмите кнопку **Далее**.
 
-   ![Шаг 9](../_assets/bitrix-shop/bitrix-shop9.png)
+   ![Шаг 9](../../_assets/solutions/bitrix-shop/bitrix-shop9.png)
 
 1. Выберите цветовое оформление выбранного ранее шаблона и нажмите кнопку **Далее**.
 
-   ![Шаг 10](../_assets/bitrix-shop/bitrix-shop10.png)
+   ![Шаг 10](../../_assets/solutions/bitrix-shop/bitrix-shop10.png)
 
 1. Заполните поля в соответствии с требованиями к интернет-магазину и нажмите кнопку **Далее**.
 
-   ![Шаг 11](../_assets/bitrix-shop/bitrix-shop11.png)
+   ![Шаг 11](../../_assets/solutions/bitrix-shop/bitrix-shop11.png)
 
 1. При необходимости включите функцию складского учета и укажите, в какой момент нужно резервировать товар на складе. Нажмите кнопку **Далее**.
 
-   ![Шаг 12](../_assets/bitrix-shop/bitrix-shop12.png)
+   ![Шаг 12](../../_assets/solutions/bitrix-shop/bitrix-shop12.png)
 
 1. Укажите данные о компании и нажмите кнопку **Далее**.
 
-   ![Шаг 13](../_assets/bitrix-shop/bitrix-shop13.png)
+   ![Шаг 13](../../_assets/solutions/bitrix-shop/bitrix-shop13.png)
 
 1. Выберите типы плательщиков, с которыми должен работать ваш интернет-магазин, и нажмите кнопку **Далее**.
 
-   ![Шаг 14](../_assets/bitrix-shop/bitrix-shop14.png)
+   ![Шаг 14](../../_assets/solutions/bitrix-shop/bitrix-shop14.png)
 
 1. Выберите доступные в вашем интернет-магазине способы оплаты и доставки товаров, затем нажмите кнопку **Далее**.
 
-   ![Шаг 15](../_assets/bitrix-shop/bitrix-shop15.png)
+   ![Шаг 15](../../_assets/solutions/bitrix-shop/bitrix-shop15.png)
 
 1. Дождитесь окончания установки системы.
 
-   ![Шаг 16](../_assets/bitrix-shop/bitrix-shop16.png)
+   ![Шаг 16](../../_assets/solutions/bitrix-shop/bitrix-shop16.png)
 
 1. Когда установка завершится, нажмите кнопку **Перейти на сайт**.
 
-   ![Шаг 17](../_assets/bitrix-shop/bitrix-shop17.png)
+   ![Шаг 17](../../_assets/solutions/bitrix-shop/bitrix-shop17.png)
 
 1. Откроется интерфейс интернет-магазина в режиме редактирования.
 
-   ![Шаг 18](../_assets/bitrix-shop/bitrix-shop18.png)
+   ![Шаг 18](../../_assets/solutions/bitrix-shop/bitrix-shop18.png)
 
 1. Нажмите кнопку **Выйти** в правом верхнем углу страницы, и вы увидите главную страницу сайта глазами обычного посетителя. Чтобы вернуться в режим редактирования, необходимо авторизоваться на сайте с теми учетными данными, которые вы указали для администратора 1С-Битрикс.
 
-   ![Шаг 19](../_assets/bitrix-shop/bitrix-shop19.png)
+   ![Шаг 19](../../_assets/solutions/bitrix-shop/bitrix-shop19.png)
 
 {% note tip %}
 

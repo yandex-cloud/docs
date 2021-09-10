@@ -10,16 +10,18 @@ Microsoft SQL Server Enterprise | 20 163 ₽
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
-Ресурс | Цена за 1 час
------ | ----- 
-**Intel Cascade Lake** |
-100% vCPU | {{ sku|RUB|mdb.cluster.mssql.v2.cpu.c100|string }}
-RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.mssql.v2.ram|string }}
-
+| Ресурс        | Цена за 1 час                                      |
+|---------------|----------------------------------------------------|
+| **Intel Cascade Lake**                                             |
+| 100% vCPU     | {{ sku|RUB|mdb.cluster.mssql.v2.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.mssql.v2.ram|string }}      |
+| **Intel Ice Lake**                                                 |
+| 100% vCPU     | {{ sku|RUB|mdb.cluster.mssql.v3.cpu.c100|string }} |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.mssql.v3.ram|string }}      |
 
 ### Хранилище и резервные копии {#prices-storage}
 
-{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
+{% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
 | Услуга                                  | Цена за ГБ в месяц                                                     |
 |-----------------------------------------|------------------------------------------------------------------------|

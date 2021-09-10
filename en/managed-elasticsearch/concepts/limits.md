@@ -11,4 +11,3 @@ description: 'Managed Service for Elasticsearch has limits and quotas for the nu
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 {% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
-
