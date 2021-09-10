@@ -21,3 +21,4 @@
 
     - [s3fs](s3fs.md)
     - [goofys](goofys.md)
+    - [geesefs](https://github.com/yandex-cloud/geesefs)
