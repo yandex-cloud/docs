@@ -318,9 +318,9 @@ items:
   items:
     - name: Почта
       href: manager/queue-mail.md
-    - name: Формы
+    - name: Yandex Forms
       href: manager/forms-integration.md
-    - name: Вики
+    - name: Yandex Wiki
       href: user/wiki.md
     - name: Мессенджеры
       items:
