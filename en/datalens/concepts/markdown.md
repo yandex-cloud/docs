@@ -1,7 +1,7 @@
 # Using Markdown in DataLens
 
-{{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](dashboard.md#text) widget on the dashboard.
-You can insert explanatory text, links, tables, or use formatting to highlight key points.
+{{ datalens-short-name }} lets you use the Markdown markup language in the [{#T}](dashboard.md#text) widget on the dashboard.
+You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
 
 In text widgets, you can use the following elements:
 
@@ -17,6 +17,7 @@ In text widgets, you can use the following elements:
 - [Code formatting](#code)
   - [Inline code snippet](#inline-code)
   - [Code block](#codeblock)
+- [Image](#image)
 
 ## Headings {#headings}
 
@@ -61,7 +62,7 @@ You can use multiple list types to arrange the data on the dashboard.
 
 ### Simple unordered list {#unordered-list}
 
-To make an unordered bulleted list, use such characters as `*`, `-`, or `+`.
+To make an unordered bulleted list, use characters such as `*`, `-`, or `+`.
 
 For example, the following markup:
 
@@ -99,7 +100,7 @@ will be displayed as:
 
 ### Simple ordered list {#ordered-list}
 
-To make an ordered list, use numbers with the `.` or `)` character.
+To make an ordered list, use numbers with a `.` or `)`.
 
 For example, the following markup:
 
@@ -134,13 +135,14 @@ will be displayed as:
 
    1.1. Nested item<br>
    1.2. Nested item
+
 1. Second item
 
 ## Tables {#tables}
 
 A table consists of a single row with headers, a separator row, and rows with data.
 
-Each row in a table consists of cells that are separated from each other by `|` characters.
+Each row in a table consists of cells that are separated from each other by a `|`.
 
 The cells of the separator row only allow the `-` character and `:` character. The colon (`:`) is used at the beginning, end, or on both sides of the cell content of the separator row to indicate left, right, or center alignment of text in the corresponding column, respectively.
 
@@ -216,3 +218,20 @@ will be displayed as a highlighted Kotlin code snippet:
 val a: Int = 1
 ```
 
+## Image {#image}
+
+To insert an image in the widget, use [{{ objstorage-full-name }}](../../storage/quickstart.md). You can use it for free for up to 1 GB of standard storage per month.
+
+To upload an image to the widget:
+
+1. Open the [management console]({{ link-console-main }}) and select **{{ objstorage-short-name }}** in the menu on the left.
+1. [Create a bucket](../../storage/operations/buckets/create.md) with public access.
+1. [Upload an image](../../storage/operations/objects/upload.md) to the bucket.
+1. Go to the resulting object and click **Get link**.
+1. Copy the link to the image.
+1. Go to your {{ service-name }} dashboard and create a widget named **Text**.
+1. Paste the following code in the widget:
+
+    ```markdown
+    ![alt text](https://image_link "Text of a hint displayed when hovering over the image")
+    ```

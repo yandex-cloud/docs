@@ -21,7 +21,7 @@ description: "Управление доступом в сервисе для р�
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](service-roles-hierarchy.svg)
+![image](../../_assets/managed-kubernetes/security/service-roles-hierarchy.svg)
 
 ### Роли {{ managed-k8s-name }} {#yc-api}
 

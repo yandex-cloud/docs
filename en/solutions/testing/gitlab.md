@@ -98,12 +98,12 @@ To create a project:
    * If necessary, give a description and the scope of the project.
 
 1. Click **Create project**.
-![Creating a project](../_assets/gitlab/gitlab1.png)
+![Creating a project](../../_assets/solutions/gitlab/gitlab1.png)
 
 1. Once you create the project, in the left panel, go to **Settings** and select **CI/CD**.
 
 1. Under **Auto DevOps**, click **Expand**, disable the option **Default to Auto DevOps pipeline**, and save changes by clicking **Save changes**.
-![Disabling Auto DevOps](../_assets/gitlab/gitlab2.png)
+![Disabling Auto DevOps](../../_assets/solutions/gitlab/gitlab2.png)
 
 1. Add a project file.
 
@@ -124,7 +124,7 @@ To create a project:
       }
       ```
 
-      ![Adding a file](../_assets/gitlab/gitlab3.png)
+      ![Adding a file](../../_assets/solutions/gitlab/gitlab3.png)
 
    2. Enter a name for the commit in the **Commit message** field.
 
@@ -186,7 +186,7 @@ A Runner is a special program that tests and builds projects in the GitLab envir
       <token>
       ```
 
-      ![Getting a token](../_assets/gitlab/gitlab4.png)
+      ![Getting a token](../../_assets/solutions/gitlab/gitlab4.png)
 
    1. When prompted:
 
@@ -208,7 +208,7 @@ A Runner is a special program that tests and builds projects in the GitLab envir
 
 Runner installation and setup is complete. If everything is done correctly, the **Runners activated for this project** section with the registered Runner should appear on the page where you copied the registration token.
 
-![Successful setup](../_assets/gitlab/gitlab5.png)
+![Successful setup](../../_assets/solutions/gitlab/gitlab5.png)
 
 ### Create a test script {#create-test-case}
 
@@ -266,7 +266,7 @@ To create a test script:
 
       In the `cache`, the files and directories that are transferred between stages are specified. If you omit it, the `hello` file won't be available at the `test` stage and an error will occur.
 
-      ![Test script](../_assets/gitlab/gitlab6.png)
+      ![Test script](../../_assets/solutions/gitlab/gitlab6.png)
 
    2. Click **Commit changes**
 
@@ -292,7 +292,7 @@ Open the **CI/CD** section. In the **Stages** column, you can see that, as a res
 
 If you click the `failed` progress status and go to **Failed Jobs**, you can see the error text saying that `assertion` failed:
 
-![Runtime error](../_assets/gitlab/gitlab7.png)
+![Runtime error](../../_assets/solutions/gitlab/gitlab7.png)
 
 ## How to delete created resources {#clear-out}
 

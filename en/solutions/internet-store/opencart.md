@@ -102,11 +102,11 @@ Creating the DB cluster may take several minutes.
 
 1. Read the license and click **Continue**.
 
-   ![Step 1](../_assets/opencart/opencart1.png)
+   ![Step 1](../../_assets/solutions/opencart/opencart1.png)
 
 1. Make sure that all the lines with system requirements are marked green and click **Continue**.
 
-   ![Step 2](../_assets/opencart/opencart2.png)
+   ![Step 2](../../_assets/solutions/opencart/opencart2.png)
 
 1. Configure database access:
 
@@ -149,11 +149,11 @@ Leave the other fields as they are.
 
 1. Enter the administrator's name, their password, and current email address. Then click **Continue**.
 
-   ![Step 3](../_assets/opencart/opencart3.png)
+   ![Step 3](../../_assets/solutions/opencart/opencart3.png)
 
 1. A page opens notifying you that the system configuration is  complete. To set up the online store, click **Login to your administration** and enter your admin username and password.
 
-   ![Step 4](../_assets/opencart/opencart4.png)
+   ![Step 4](../../_assets/solutions/opencart/opencart4.png)
 
 1. When the installation is complete, log in to the VM via SSH and delete the installation files you don't need anymore:
 
@@ -164,7 +164,7 @@ Leave the other fields as they are.
 
 1. To check the home page, go to `http://<VM-public-IP-address>/`. You see the home page of your website as users visiting your online store see it.
 
-   ![Step 5](../_assets/opencart/opencart5.png)
+   ![Step 5](../../_assets/solutions/opencart/opencart5.png)
 
 ## How to delete created resources {#clear-out}
 

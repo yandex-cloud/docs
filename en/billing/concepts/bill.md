@@ -4,7 +4,7 @@ A payment invoice is a document issued for you to pay for the resources consumed
 
 The relationship between the payment invoice, billing account, and cloud is shown in the diagram below.
 
-![image](../_assets/1-1-cloud.png)
+![image](../../_assets/billing/1-1-cloud.png)
 
 ## Issuing a payment invoice {#agregate}
 
@@ -24,7 +24,7 @@ Yandex.Cloud reserves the right to issue a payment invoice during the current re
 
 {% include [bill-amount](../_includes/bill-amount.md) %}
 
-<br/>![image](../_assets/formula.png)
+<br/>![image](../../_assets/billing/formula.png)
 
 {% list tabs %}
 

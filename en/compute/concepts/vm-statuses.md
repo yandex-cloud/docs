@@ -29,7 +29,7 @@ The diagram does not show the following intermediate statuses:
 - `DELETING` ([deletion](#delete))
 - `CRASHED` and `ERROR` ([error occurrence](#error)).
 
-![image](../_assets/create-and-run.svg)
+![image](../../_assets/compute/create-and-run.svg)
 
 ### Creation {#create}
 

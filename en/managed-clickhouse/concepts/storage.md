@@ -16,8 +16,6 @@ Local storage doesn't provide fault tolerance for data storage and affects the o
 
 ## Non-replicated network storage features {#network-nrd-storage-features}
 
-{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
-
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
 ## Hybrid storage {#hybrid-storage-features}

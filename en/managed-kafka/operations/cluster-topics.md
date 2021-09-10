@@ -2,11 +2,11 @@
 
 In {{ mkf-name }} clusters, you can:
 
-- [Create topics and their partitions](#create-topic).
-- [Update topic and partition settings](#update-topic).
-- [Delete topics](#delete-topic).
-- [Get a list of topics in a cluster](#list-topics).
-- [Get detailed information about a topic](#get-topic).
+- [{#T}](#create-topic).
+- [{#T}](#update-topic).
+- [{#T}](#delete-topic).
+- [{#T}](#list-topics).
+- [{#T}](#get-topic).
 
 ## Creating a topic {#create-topic}
 
@@ -22,8 +22,8 @@ In {{ mkf-name }} clusters, you can:
      - The topic name (must be unique in the {{ KF }} cluster).
      - The number of topic partitions.
      - The replication factor. This parameter value should not exceed the number of brokers in the cluster. Minimum value: `1`. Default:
-   - For a cluster with one or two brokers: `1`.
-   - For a cluster with three or more brokers: `3`.
+       - For a cluster with one or two brokers: `1`.
+       - For a cluster with three or more brokers: `3`.
   1. Under **Topic settings**, specify the [topic settings](../concepts/settings-list.md#topic-settings).
   1. Click **Create**.
 
@@ -51,6 +51,56 @@ In {{ mkf-name }} clusters, you can:
      ```
 
      If necessary, specify the [topic settings](../concepts/settings-list.md#topic-settings) here.
+
+- Terraform
+
+    To create a topic:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, add a `topic` section:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+           topic {
+             name               = "<topic name>"
+             partitions         = <number of partitions>
+             replication_factor = <replication factor>
+           }
+           ...
+        }
+        ```
+
+    1. If required, specify the [topic settings](../concepts/settings-list.md#topic-settings) in the `topic_config` section:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+           topic {
+             name               = "<topic name>"
+             partitions         = <number of partitions>
+             replication_factor = <replication factor>
+        
+             topic_config {
+               compression_type = "<compression type>"
+               flush_messages   = <maximum number of messages in memory>
+               ...
+             }
+           }
+           ...
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 
 - API
@@ -108,6 +158,43 @@ The number of {{ KF }} topic partitions can only be increased.
      --replication-factor <replication factor>
      ```
 
+- Terraform
+
+    To update the [topic settings](../concepts/settings-list.md#dbms-settings):
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, edit the parameters in the `topic` or `topic_config` sections:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+          topic {
+            name               = "<topic name>"
+            partitions         = <number of partitions>
+            replication_factor = <replication factor>
+        
+            topic_config {
+              compression_type = "<compression type>"
+              flush_messages   = <maximum number of messages in memory>
+              ...
+            }
+          }
+          ...
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
+
 
 - API
 
@@ -152,6 +239,26 @@ The number of {{ KF }} topic partitions can only be increased.
      ```
      {{ yc-mdb-kf }} topic delete <topic name> --cluster-name <cluster name>
      ```
+
+- Terraform
+
+    To delete a topic:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, delete the `topic` section that describes the topic.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster).
 
 
 - API

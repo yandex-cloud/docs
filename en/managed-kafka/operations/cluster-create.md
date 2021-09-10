@@ -39,7 +39,6 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
      When you [change the host class](cluster-update.md#change-resource-preset) for the cluster, the characteristics of all existing instances change.
 
   1. Under **Storage**:
-
      * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
 
         When selecting a storage type, remember that:
@@ -156,7 +155,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
           environment        = "<PRESTABLE or PRODUCTION>"
           name               = "<cluster name>"
           network_id         = "<network ID>"
-          security_group_ids = ["<list of security groups>"]
+          security_group_ids = ["<list of cluster security group IDs>"]
         
           config {
             assign_public_ip = "<public access to the cluster: true or false>"
@@ -165,7 +164,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
             kafka {
               resources {
                 disk_size          = <storage size in GB>
-                disk_type_id       = "<storage type: network-ssd, network-hdd, or local-ssd>"
+                disk_type_id       = "<storage type: network-ssd, network-hdd, network-ssd-nonreplicated, or local-ssd>"
                 resource_preset_id = "<host class>"
               }
             }
@@ -188,9 +187,9 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
         }
         ```
 
-    1. Make sure that the configuration files are correct.
+    1. Make sure the settings are correct.
 
-        {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
     1. Create a cluster.
 

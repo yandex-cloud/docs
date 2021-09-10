@@ -46,7 +46,7 @@ Prepare the keys for use with your virtual machines. To do this:
   
   1. Select **RSA** for the type of pair to generate and set the length to `2048`. Click **Generate** and move the cursor in the field above it until key creation is complete.
   
-     ![ssh_generate_key](../compute/_assets/ssh-putty/ssh_generate_key.png)
+     ![ssh_generate_key](../_assets/compute/ssh-putty/ssh_generate_key.png)
   
   1. In the **Key passphrase** field, enter a strong password. Enter it again in the field below.
   

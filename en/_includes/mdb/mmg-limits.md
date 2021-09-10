@@ -1,17 +1,17 @@
 #### Quotas {#mmg-quotas}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Number of clusters per cloud | 16 |
-| Total number of processor cores for all DB hosts per cloud | 64 |
-| Total virtual memory for all DB hosts per cloud | 512 GB |
-| Total storage capacity for all clusters per cloud | 4096 GB |
+| Type of limit                                              | Value   |
+|------------------------------------------------------------|---------|
+| Number of clusters per cloud                               | 16      |
+| Total number of processor cores for all DB hosts per cloud | 96      |
+| Total virtual memory for all DB hosts per cloud            | 640 GB  |
+| Total storage capacity for all clusters per cloud          | 4096 GB |
 
 #### Limits {#mmg-limits}
 
 | Type of limit | Minimum value | Maximum value |
 | ----- | ----- | ----- |
-| Host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) | m2.8xlarge (64 vCPU Intel Cascade Lake, 512 GB RAM) |
+| Host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
 | Number of shards in a cluster | 1 | 10 |
 | Number of hosts in a shard when using network storage | 1 | 7 |
 | Number of hosts in a shard when using local storage | 3 | 7 |

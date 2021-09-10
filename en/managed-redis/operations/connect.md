@@ -80,6 +80,48 @@ sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexIntern
 sudo chmod 655 ~/.redis/YandexInternalRootCA.crt
 ```
 
+{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+
+## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+
+{% include [ide-environments](../../_includes/mdb/mrd-ide-envs.md) %}
+
+You can only use graphical IDEs to connect to cluster hosts through an SSL tunnel using a [created VM](#connect). Before connecting, [prepare a certificate](#get-ssl-cert).
+
+{% list tabs %}
+
+- DBeaver
+
+  Connections to {{ RD }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
+
+  To connect to a cluster:
+
+  1. Create a new DB connection:
+     1. In the **Database** menu, select **New connection**.
+     1. Select the **{{ RD }}** database from the list.
+     1. Click **Next**.
+     1. Specify the connection parameters on the **Main** tab:
+        * **Host**: FQDN of the master host or a [special FQDN](#special-fqdns).
+        * **Port**: `{{ port-mrd }}` for a regular cluster or `{{ port-mrd-tls }}` for a cluster with TLS encryption enabled.
+        * Under **Authentication**, specify the cluster password.
+     1. On the **SSH** tab:
+        1. Enable the **Use SSL tunnel** setting.
+        1. Specify the SSH tunnel parameters:
+           * **Host/IP**: Public IP address of the [VM to connect to](#connect).
+           * **Username**: Username for connecting to the VM.
+           * **Authentication method**: `Public key`.
+           * **Secret key**: Path to the file with the private key used for connecting to the VM.
+           * **Passphrase**: Password of the private key.
+     1. On the **SSL** tab:
+        1. Enable the **Use SSL** and **Skip hostname validation** settings.
+        1. Under **Method**:
+           1. Enable the **Set of certificates** setting.
+           1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+  1. Click **Test Connection ...** to test the DB connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+  1. Click **Done** to save the database connection settings.
+
+{% endlist %}
+
 ## Sample connection strings {#connection-string}
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}

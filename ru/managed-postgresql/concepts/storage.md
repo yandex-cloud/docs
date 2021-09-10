@@ -13,8 +13,6 @@
 
 ## Особенности нереплицируемого сетевого хранилища {#network-nrd-storage-features}
 
-{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
-
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
 ## Управление дисковым пространством {#manage-storage-space}

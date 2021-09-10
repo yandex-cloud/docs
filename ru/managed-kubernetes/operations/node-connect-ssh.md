@@ -65,7 +65,7 @@
   1. Запустите приложение PuTTYgen.
   1. В качестве типа генерируемой пары выберите **RSA** и укажите длину `2048`. Нажмите **Generate** и поводите курсором в поле выше до тех пор, пока не закончится создание ключа.
 
-     ![ssh_generate_key](../../compute/_assets/ssh-putty/ssh_generate_key.png)
+     ![ssh_generate_key](../../_assets/compute/ssh-putty/ssh_generate_key.png)
 
   1. В поле **Key passphrase** введите надежный пароль. Повторно введите его в поле ниже.
   1. Нажмите кнопку **Save private key** и сохраните закрытый ключ. Никогда его никому не передавайте и не говорите никому ключевую фразу от него.
@@ -228,25 +228,25 @@ yc managed-kubernetes node-group add-metadata \
   1. Запустите приложение PuTTY.
      1. В поле **Host Name (or IP address)** введите публичный IP-адрес ВМ, к которой вы хотите подключиться. Укажите порт `22` и тип соединения **SSH**.
 
-        ![ssh_add_ip](../../compute/_assets/ssh-putty/ssh_add_ip.png)
+        ![ssh_add_ip](../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
      1. Откройте в дереве слева пункт **Connection** - **SSH** - **Auth**.
      1. Установите флаг **Allow agent forwarding**.
      1. В поле **Private key file for authentication** выберите файл с приватным ключом.
 
-        ![ssh_choose_private_key](../../compute/_assets/ssh-putty/ssh_choose_private_key.png)
+        ![ssh_choose_private_key](../../_assets/compute/ssh-putty/ssh_choose_private_key.png)
 
      1. Вернитесь в меню **Sessions**. В поле **Saved sessions** введите любое название для сессии и нажмите кнопку **Save**. Настройки сессии сохранятся под указанным именем. Вы сможете использовать этот профиль сессии для подключения с помощью Pageant.
 
-        ![ssh_save_session](../../compute/_assets/ssh-putty/ssh_save_session.png)
+        ![ssh_save_session](../../_assets/compute/ssh-putty/ssh_save_session.png)
 
      1. Нажмите кнопку **Open**. Если вы подключаетесь к узлу в первый раз, может появиться предупреждение о неизвестном хосте:
 
-        ![ssh_unknown_host_warning](../../compute/_assets/ssh-putty/ssh_unknown_host_warning.png)
+        ![ssh_unknown_host_warning](../../_assets/compute/ssh-putty/ssh_unknown_host_warning.png)
 
         Нажмите кнопку **Да**. Откроется окно терминала с предложением ввести логин пользователя, от имени которого устанавливается соединение. Введите имя пользователя, которое вы указали в файле с публичным ключом и нажмите `Enter`. Если все настроено верно, будет установлено соединение с сервером.
 
-        ![ssh_login](../../compute/_assets/ssh-putty/ssh_login.png)
+        ![ssh_login](../../_assets/compute/ssh-putty/ssh_login.png)
 
   Если вы сохранили профиль сессии в PuTTY, в дальнейшем для установки соединения можно использовать Pageant:
   1. Нажмите правой кнопкой мыши на значок pageant на панели задач.

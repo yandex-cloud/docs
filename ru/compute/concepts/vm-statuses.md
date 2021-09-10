@@ -29,7 +29,7 @@
 - `DELETING` ([удаление](#delete));
 - `CRASHED` и `ERROR` ([возникновение ошибки](#error)).
 
-![image](../_assets/create-and-run.svg)
+![image](../../_assets/compute/create-and-run.svg)
 
 ### Создание {#create}
 

@@ -20,17 +20,13 @@ To access {{ objstorage-name }} bucket data from a cluster:
 1. Go to the **Buckets** tab.
 1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md):
     1. In the **Select user** drop-down list, specify the service account [connected to the cluster](#connect-service-account).
-    1. Select the `READ + WRITE` permissions for a service account from the drop-down list.
+    1. Select the `READ + WRITE` permissions for the selected service account.
     1. Click **Add**.
     1. Click **Save**.
 
 ## Connecting a snapshot repository {#register-snapshot-repository}
 
-{% note alert %}
-
-If a bucket is registered in an {{ ES }} cluster as a snapshot repository, do not edit the bucket contents manually as this will disrupt the {{ ES }} snapshot mechanism.
-
-{% endnote %}
+{% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
 1. When [creating](./cluster-create.md) or [updating](./cluster-update.md#update-additional-settings) a cluster, enable the [repository-s3](../concepts/plugins.md) plugin.
 

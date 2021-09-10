@@ -6,7 +6,7 @@
 
 Взаимосвязь между облаками, платежным аккаунтом, лицевым счетом и способом оплаты представлена на схеме ниже.
 
-![image](../_assets/cloud-billing-account-svg.svg)
+![image](../../_assets/billing/cloud-billing-account-svg.svg)
 
 {% note info %}
 

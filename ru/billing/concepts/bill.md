@@ -4,7 +4,7 @@
 
 Взаимосвязь между счетом, платежным аккаунтом и облаком представлена на схеме ниже.
 
-![image](../_assets/1-1-cloud.png)
+![image](../../_assets/billing/1-1-cloud.png)
 
 ## Выставление счета {#agregate}
 
@@ -22,7 +22,7 @@
 
 {% include [bill-amount](../_includes/bill-amount.md) %}
 
-![image](../_assets/formula.png)
+![image](../../_assets/billing/formula.png)
 
 {% list tabs %}
 

@@ -20,6 +20,4 @@ keywords:
 
 ## Non-replicated network storage features {#network-nrd-storage-features}
 
-{% include [nrd-disks-preview](../../_includes/mdb/non-replicated-disks-preview.md) %}
-
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
