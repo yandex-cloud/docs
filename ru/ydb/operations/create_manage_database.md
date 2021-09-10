@@ -13,7 +13,7 @@
 
 1. Перейдите в [консоль управления](https://ydb.yandex-team.ru) и нажмите кнопку **Create database**.
 
-    ![Create database](../_assets/db_ui_create_database_button.png)
+    ![Create database](../../_assets/ydb/db_ui_create_database_button.png)
 
 1. Настройте параметры базы в диалоговом окне:
 
@@ -51,14 +51,14 @@
 
 Пример формы создания базы данных:
 
-![Create new database](../_assets/db_ui_create_new_database.png)
+![Create new database](../../_assets/ydb/db_ui_create_new_database.png)
 
 ## Посмотреть список баз данных {#db-list}
 
 Для просмотра списка баз данных зайдите на главную страницу [вeб-интерфейса](https://ydb.yandex-team.ru).
 На странице появится список созданных БД. Для каждой базы указаны полное имя БД, расположение (кластер), количество зарезервированных под БД ресурсов и количество используемых ресурсов.
 
-![List databases](../_assets/db_ui_list_databases.png)
+![List databases](../../_assets/ydb/db_ui_list_databases.png)
 
 ## Создать базу данных требуемого размера {#create-custom-db}
 
@@ -130,7 +130,7 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить настройки базы данных.
    1. В списке сервисов выберите **{{ ydb-name }}**.
-   1. Нажмите значок ![horizontal-ellipsis](../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Изменить**.
+   1. Нажмите значок ![horizontal-ellipsis](../../_assets/ydb/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Изменить**.
    1. Настройте параметры БД:
       1. В блоке **Вычислительные ресурсы** выберите тип и количество [вычислительных ресурсов](../concepts/databases.md#compute-units).
       1. В блоке **Группы хранения** выберите тип диска и количество [групп хранения](../concepts/databases.md#storage-groups), определяющее суммарный объем хранилища.
@@ -175,7 +175,7 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить базу данных.
    1. В списке сервисов выберите **{{ ydb-name }}**.
-   1. Нажмите значок ![horizontal-ellipsis](../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+   1. Нажмите значок ![horizontal-ellipsis](../../_assets/ydb/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
    1. Подтвердите удаление.
 
 * CLI

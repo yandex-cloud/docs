@@ -7,7 +7,7 @@
 
  **YDB** представляет собой распределенное отказоустойчивое strict consistent хранилище, в том числе распределенное между датацентрами, которое может использоваться в инсталляциях, состоящих как из нескольких машин, так и из тысяч вычислительных узлов. Отличительной особенностью **YDB** является встроенная возможность эффективно выполнять [транзакционные операции](../concepts/transactions.md) c уровнем изоляции  serializable как над отдельными объектами (single-row transactions) так и над группами распределенных объектов хранилища (cross-row/cross-table transactions).
 
-![kikimrstructure1.png](../_assets/kikimrstructure1.png)
+![kikimrstructure1.png](../../_assets/ydb/kikimrstructure1.png)
 
            (Рис. 1 Мультидатацентровое хранилище YDB)
   **YDB** позволяет строить кластера с общим объемом хранилища в сотни петабайт данных, используя  [эффективные схемы хранения](erasure.md), а также предоставляет встроенные механизмы отказоустойчивости на всех уровнях, позволяющие выдерживать сбои как на отдельном жестком диске, так и отказ целого датацентра. При добавлении или удалении новых узлов в процессе эксплуатации, данные автоматически перераспределяются без существенного негативного эффекта для текущих операций.
@@ -78,7 +78,7 @@
 ## Общая схема и основные понятия
 Все основные термины, понятия и определения описаны в разделе [Glossary](glossary.md). Для того, чтобы читателю было проще ориентироваться, ниже представлено краткое описание основных сущностей.
 
-![kikimrstructure2.png](../_assets/kikimrstructure2.png)
+![kikimrstructure2.png](../../_assets/ydb/kikimrstructure2.png)
 
                   (Рис.2 Набор компонент YDB)
 
@@ -107,7 +107,7 @@
 
 Более подробно про [модель данных](../concepts/datamodel.md)
 
-![kikimrstructure3.png](../_assets/kikimrstructure3.png)
+![kikimrstructure3.png](../../_assets/ydb/kikimrstructure3.png)
 
                    (Рис. 3 Строение базы данных)
 
@@ -125,7 +125,7 @@
 ## Детали внутреннего устройства YDB
 ### Процесс загрузки YDB
 
-![kikimrstructure4.png](../_assets/kikimrstructure4.png)
+![kikimrstructure4.png](../../_assets/ydb/kikimrstructure4.png)
                 (Рис. 4 Процесс загрузки YDB)
 
 
@@ -138,7 +138,7 @@
 * акторы Warden по первому требованию от таблеток запускают DS-Proxy динамически сконфигурированных груп.
 ### Внутренняя структура таблетки
 
-![kikimrstructure5.png](../_assets/kikimrstructure5.png)
+![kikimrstructure5.png](../../_assets/ydb/kikimrstructure5.png)
                 (Рис. 5 Таблетка)
 
 Таблетка состоит из двух основных компонент: **Executor** и **User-specific**.
@@ -148,14 +148,14 @@
 С каждой таблеткой может быть связано несколько каналов, являющихся логическим мостом между бизнес-логикой таблетки и Blob Storage. Основной характеристикой канала является метод хранения данных (репликация или вид erasure кодирования)
 ### Внутренняя структура Blob Storage
 
-![kikimrstructure6.png](../_assets/kikimrstructure6.png)
+![kikimrstructure6.png](../../_assets/ydb/kikimrstructure6.png)
                     (Рис. 6 Blob Storage группа)
 
 Таблетка [BlobStorage Controller](tablet_blobstorage_controller.md) управляет динамической конфигурацией распределенного хранилища [BlobStorage](tablet_blobstorage_overview.md) и контролирует все динамические BlobStorage группы в [домене](domains.md). Каждая BlobStorage группа состоит из множества VDisk-ов, объединенных в fail domains (например, к одному fail domain относятся VDisk-и из одной стойки с серверами), fail domains в свою очередь обьединены в Кольца (например, к одному кольцу относятся fail-domain-ы одного датацентра). Таким образом, группа состоит из Колец, каждое кольцо состоит и набора fail domains, каждый fail domain содержит множество VDisk'ов.
 С другой стороны, VDisk-и связаны с акторами PDisk, каждый из которых управляюет одним конкретным блочным устройством и позволяет нескольким VDisk'ам (как правило принадлежащим разным Группам) оперировать одним физическим диском.
 ### Обработка операции ввода/вывода
 
-![kikimrstructure7.png](../_assets/kikimrstructure7.png)
+![kikimrstructure7.png](../../_assets/ydb/kikimrstructure7.png)
                (Рис. 7 Операция ввода/вывода)
 
 На Рис.7 представлен процесс обработки клиентских операций чтения/записи. Локальный актор [BSProxy](tablet_dsproxy.md) вместе с таблеткой [BlobStorage Controller](tablet_blobstorage_controller.md) обеспечивают гарантированную обработку клиентских операций: определение нужной BlobStorage группы, определение требуемых VDisk'ов и выполнение операции на все требуемые VDisk'и.
@@ -163,7 +163,7 @@
 
 ### Выполнение транзакций в YDB
 
-![kikimrstructure8.png](../_assets/kikimrstructure8.png)
+![kikimrstructure8.png](../../_assets/ydb/kikimrstructure8.png)
               (Рис. 8 Выполнение транзакций в YDB)
 
 #### [Transaction Proxy (TxProxy)](tablet_txproxy.md)

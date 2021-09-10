@@ -21,7 +21,7 @@
 
 <!-- Картинка с иерархией ролей. Её можно хранить рядом с разделом или в _assets, вместе с другими картинками. -->
 
-![image](service-roles-hierarchy.svg)
+![image](../../_assets/_templates/security/service-roles-hierarchy.svg)
 
 Роли, действующие в сервисе:
 

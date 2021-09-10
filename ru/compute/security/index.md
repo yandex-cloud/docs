@@ -19,7 +19,7 @@ description: "Управление доступом в сервисе предо
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](service-roles-hierarchy.svg)
+![image](../../_assets/compute/security/service-roles-hierarchy.svg)
 
 ### Сервисные роли
 

@@ -48,7 +48,7 @@
 
 Подробная схема использования и оплаты CVoS представлена ниже.
 
-![image](../_assets/cud-scheme.svg)
+![image](../../_assets/billing/cud-scheme.svg)
 
 1. Вы подключаете CVoS на 1 или 3 года. CVoS начинает действовать с даты, выбранной вами при подключении.
 1. В течение всего отчетного периода проверяется срок действия CVoS:
@@ -77,15 +77,15 @@
 
 - Сумма списания в час
 
-  ![image](../_assets/cud-hour-amount.svg)
+  ![image](../../_assets/billing/cud-hour-amount.svg)
 
 - Сумма списания в день
 
-  ![image](../_assets/cud-day-amount.svg)
+  ![image](../../_assets/billing/cud-day-amount.svg)
 
 - Сумма списания в месяц
 
-  ![image](../_assets/cud-month-amount.svg)
+  ![image](../../_assets/billing/cud-month-amount.svg)
 
 {% endlist %}
 

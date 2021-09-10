@@ -9,7 +9,7 @@
 * Зайти в [web-интерфейс https://ydb.yandex-team.ru](https://ydb.yandex-team.ru).
 * Нажать на кнопку "Create database".
 
-![Create database](../_assets/db_ui_create_database_button.png)
+![Create database](../../_assets/ydb/db_ui_create_database_button.png)
 
 <small>Рисунок 1 — Кнопка создать БД</small>
 
@@ -37,7 +37,7 @@
 
 Ниже приведен внешний вид формы создания новой базы данных:
 
-![Create new database](../_assets/db_ui_create_new_database.png)
+![Create new database](../../_assets/ydb/db_ui_create_new_database.png)
 
 <small>Рисунок 2 — Внешний вид формы создания БД</small>
 
@@ -45,7 +45,7 @@
 
 Для просмотра списка баз данных следует зайти на главную страницу [web-интерфейса](https://ydb.yandex-team.ru). На появившейся странице будет отображен список созданных БД. Для каждой базы указаны: полное имя БД, расположение (кластер), количество зарезервированных под БД ресурсов и количество используемых ресурсов.
 
-![List databases](../_assets/db_ui_list_databases.png)
+![List databases](../../_assets/ydb/db_ui_list_databases.png)
 
 <small>Рисунок 3 — Список БД</small>
 

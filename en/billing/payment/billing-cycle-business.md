@@ -2,7 +2,7 @@
 
 The diagram shows the cycle of issuing and paying invoices for businesses and individual entrepreneurs, as well as suspending and blocking access to the use of resources.
 
-![image](../_assets/billing-cycle-business-credit_60.png)
+![image](../../_assets/billing/billing-cycle-business-credit_60.png)
 
 1. You [activate the paid version](../operations/activate-commercial.md) before the end of the trial period.
 

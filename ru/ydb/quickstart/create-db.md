@@ -24,7 +24,7 @@
 
 1. Нажмите кнопку **Create database**.
 
-    ![Create database](../_assets/db_ui_create_database_button.png)
+    ![Create database](../../_assets/ydb/db_ui_create_database_button.png)
 
 1. В поле **Cluster** выберите кластер *ydb-ru*.
 
@@ -32,13 +32,13 @@
 
     Пример создания новой базы данных:
 
-    ![Create new database](../_assets/db_ui_create_home_database.png)
+    ![Create new database](../../_assets/ydb/db_ui_create_home_database.png)
 
 1. Нажмите кнопку **Create**.
 
     Появится страница с сообщением об успешном создании базы данных.
 
-    ![New database entrance](../_assets/db_ui_entrance_home_database.png)
+    ![New database entrance](../../_assets/ydb/db_ui_entrance_home_database.png)
 
 {% else if audience == "external" %}
 

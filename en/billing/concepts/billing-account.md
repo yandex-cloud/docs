@@ -6,7 +6,7 @@ The billing account can be linked to multiple clouds and one [personal account](
 
 The relationship between clouds, billing accounts, personal accounts, and payment methods is shown in the diagram below.
 
-![image](../_assets/cloud-billing-account-svg.svg)
+![image](../../_assets/billing/cloud-billing-account-svg.svg)
 
 {% note info %}
 

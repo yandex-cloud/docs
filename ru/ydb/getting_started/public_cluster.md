@@ -5,7 +5,7 @@
 ### Попробовать YDB
 Если вы хотите попробовать YDB, достаточно зайти в [web-интерфейс](https://ydb.yandex-team.ru) и нажать кнопку "Create database"
 
-![Create database](../_assets/db_ui_create_database_button.png)
+![Create database](../../_assets/ydb/db_ui_create_database_button.png)
 
 1. Выберите расположение базы данных
 
@@ -47,7 +47,7 @@
 
 Ниже можно увидеть пример формы создания новой базы данных
 
-![Create new database](../_assets/db_ui_create_new_database.png)
+![Create new database](../../_assets/ydb/db_ui_create_new_database.png)
 
 
 

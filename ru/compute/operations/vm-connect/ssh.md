@@ -82,25 +82,25 @@
   1. Запустите приложение PuTTY.
      1. В поле **Host Name (or IP address)** введите публичный IP-адрес виртуальной машины, к которой вы хотите подключиться. Укажите порт `22` и тип соединения **SSH**.
 
-        ![ssh_add_ip](../../_assets/ssh-putty/ssh_add_ip.png)
+        ![ssh_add_ip](../../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
      1. Откройте в дереве слева пункт **Connection** - **SSH** - **Auth**.
      1. Установите флаг **Allow agent forwarding**.
      1. В поле **Private key file for authentication** выберите файл с приватным ключом.
 
-        ![ssh_choose_private_key](../../_assets/ssh-putty/ssh_choose_private_key.png)
+        ![ssh_choose_private_key](../../../_assets/compute/ssh-putty/ssh_choose_private_key.png)
 
      1. Вернитесь в меню **Sessions**. В поле **Saved sessions** введите любое название для сессии и нажмите кнопку **Save**. Настройки сессии сохранятся под указанным именем. Вы сможете использовать этот профиль сессии для подключения с помощью Pageant.
 
-        ![ssh_save_session](../../_assets/ssh-putty/ssh_save_session.png)
+        ![ssh_save_session](../../../_assets/compute/ssh-putty/ssh_save_session.png)
 
      1. Нажмите кнопку **Open**. Если вы подключаетесь к машине в первый раз, может появиться предупреждение о неизвестном хосте:
 
-        ![ssh_unknown_host_warning](../../_assets/ssh-putty/ssh_unknown_host_warning.png)
+        ![ssh_unknown_host_warning](../../../_assets/compute/ssh-putty/ssh_unknown_host_warning.png)
 
         Нажмите кнопку **Да**. Откроется окно терминала с предложением ввести логин пользователя, от имени которого устанавливается соединение. Введите имя пользователя, которое вы указали при создании виртуальной машины и нажмите `Enter`. Если все настроено верно, будет установлено соединение с сервером.
 
-        ![ssh_login](../../_assets/ssh-putty/ssh_login.png)
+        ![ssh_login](../../../_assets/compute/ssh-putty/ssh_login.png)
 
   Если вы сохранили профиль сессии в PuTTY, в дальнейшем для установки соединения можно использовать Pageant:
 

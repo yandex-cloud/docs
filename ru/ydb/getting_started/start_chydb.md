@@ -113,7 +113,7 @@ $ curl -H "Authorization: OAuth $TOKEN" \
 
 Для того, чтобы выполнить запросы к кластеру ydb-ru через [YQL UI](https://yql.yandex-team.ru/) нужно создать запрос в синтаксисе ClickHouse, добавить свой токен в качестве токена по-умолчанию (```default_token```) для ClickHouse с префиксом "```basic#default:```", а в запросе добавить ```use ydb_ch;```.
 
-![ch_over_ydb_yql_ui](../_assets/ch_over_ydb_yql_ui.png)
+![ch_over_ydb_yql_ui](../../_assets/ydb/ch_over_ydb_yql_ui.png)
 
 <small>Рисунок 1 — Выполнение запроса ClickHouse over YDB с помощью [YQL UI](https://yql.yandex-team.ru/)</small>
 

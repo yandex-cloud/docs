@@ -20,7 +20,7 @@ description: "Управление доступом в сервисе сетев
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-![image](service-roles-hierarchy.png)
+![image](../../_assets/network-load-balancer/security/service-roles-hierarchy.png)
 
 Роли, действующие в сервисе:
 

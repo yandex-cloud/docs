@@ -14,7 +14,7 @@
 В основном меню веб-интерфейса YDB на странице базы данных есть пункт [Metrics](https://ydb.yandex-team.ru/db/ydb-ru-prestable/tutorial/home/testdb/metrics).
 На странице Metrics расположены ссылки на дашборды с графиками.
 
-![Monitoring_Metrics_Tab](../_assets/monitoring_tab_view.png)
+![Monitoring_Metrics_Tab](../../_assets/ydb/monitoring_tab_view.png)
 <small>Рисунок 1 — Пункт меню Metrics и ссылки на дашборды</small>
 
 Нажатие на заголовок графика откроет соответствующий график в [Соломоне](https://wiki.yandex-team.ru/solomon/).
@@ -92,7 +92,7 @@
 
 На каждой вкладке в разделе Метрики веб-интерфейса YDB есть ссылка, нажатие на которую откроет соответствующий дашборд в Соломоне, на рисунке показан пример такой ссылки.
 
-![Monitoring_Solomon_Link](../_assets/monitoring_solomon_link.png)
+![Monitoring_Solomon_Link](../../_assets/ydb/monitoring_solomon_link.png)
 
 <small>Рисунок 1 — примерный вид графика использования CPU шардами таблиц базы</small>
 

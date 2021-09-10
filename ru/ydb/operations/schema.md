@@ -88,7 +88,7 @@
 
    В [консоли управления](https://ydb.yandex-team.ru) можно убедиться, что таблицы были созданы.
 
-   ![Create table](../_assets/ydb_example_create_table_full.png)
+   ![Create table](../../_assets/ydb/ydb_example_create_table_full.png)
 
    {% endif %}
 

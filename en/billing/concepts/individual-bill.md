@@ -13,7 +13,7 @@ The payment receipt amount is equal to the amount debited from the bank card lin
 The total debited amount depends on whether you have used your [grant](../concepts/bonus-account.md) and topped up your [personal account](../concepts/personal-account.md#balance) during the reporting period.
 
 The amount charged is calculated using the formula:
-<br/> ![image](../_assets/formula.png)
+<br/> ![image](../../_assets/billing/formula.png)
 
   {% list tabs %}
 

@@ -2,7 +2,7 @@
 
 Цикл выставления и оплаты счетов для организаций и ИП, а также приостановки и блокировки использования ресурсов представлен на схеме ниже.
 
-![image](../_assets/billing-cycle-business-credit.svg)
+![image](../../_assets/billing/billing-cycle-business-credit.svg)
 
 1. Вы [активируете платную версию](../operations/activate-commercial.md) до истечения срока действия пробного периода.
 

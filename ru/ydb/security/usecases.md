@@ -21,7 +21,7 @@
 На рисунке 1 приведён общий вид размещения компонентов YDB в облаке.
 Эту схему демонстрируют аудиторам по ИБ.
 
-![General Arrangement](../_assets/security/usecases/general_arrangement.png)
+![General Arrangement](../../_assets/ydb/security/usecases/general_arrangement.png)
 
 <small>Рисунок 1 — Общий вид</small>
 
@@ -82,7 +82,7 @@
 
 На рисунке 2 показана схема взаимодействия компонентов при выполнении проверок определённого типа. Последовательность взаимодействия проиллюстрирована цифрами в подписях к стрелкам.
 
-![Checks](../_assets/security/usecases/checks.png)
+![Checks](../../_assets/ydb/security/usecases/checks.png)
 
 <small>Рисунок 2 — Проверки</small>
 
@@ -105,7 +105,7 @@ Rolling restart нужен для перезапуска всех процесс
 
 На рисунке 3 показана схема взаимодействия компонетов при выполнении трёх видов ролинг рестарта.
 
-![Rolling Restart](../_assets/security/usecases/rolling_restart.png)
+![Rolling Restart](../../_assets/ydb/security/usecases/rolling_restart.png)
 
 <small>Рисунок 3 — Rolling restart</small>
 
@@ -123,7 +123,7 @@ Rolling restart нужен для перезапуска всех процесс
 
 На рисунке 4 показана схема регистрации в кластере разных типов нод.
 
-![Rolling Restart](../_assets/security/usecases/register_node.png)
+![Rolling Restart](../../_assets/ydb/security/usecases/register_node.png)
 
 <small>Рисунок 3 — Регистрация ноды в кластере</small>
 
@@ -153,7 +153,7 @@ Control Plane хранит свои данные в базе YDB c именем 
 
 На рисунке 4 схематично показан процесс взаимодействия YDB Control plane с кластером YDB для выполнения операций создания, получения описания, изменения и удаления базы данных.
 
-![Control_Plane](../_assets/security/usecases/control_plane.png)
+![Control_Plane](../../_assets/ydb/security/usecases/control_plane.png)
 
 <small>Рисунок 4 — Взаимодействие Control Plane с кластером</small>
 
@@ -179,6 +179,6 @@ L7-бастион проксирует запросы по https из сетей
 
 На рисунке 5 схематично показан процесс взаимодействия компонентов в процессе обращения к странице хайва во вьюере на произвольном кластере YDB в облаке через бастион.
 
-![L7 bastion](../_assets/security/usecases/l7_bastion.png)
+![L7 bastion](../../_assets/ydb/security/usecases/l7_bastion.png)
 
 <small>Рисунок 5 — Схема доступа ко вьюеру через бастион</small>
