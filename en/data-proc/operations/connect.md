@@ -16,20 +16,20 @@ When you [configure security groups](../../vpc/operations/security-group-update.
 
 {% list tabs %}
 
-* SSH
+- SSH
 
     1. Add the rules to the intermediate VM security groups:
 
         * For incoming traffic:
             
-			* Protocol: `TCP`.
+            * Protocol: `TCP`.
             * Port range: `{{ port-ssh }}`.
             * Source type: `CIDR`.
             * Destination: `0.0.0.0/0`.
 
         * For outgoing traffic:
             
-			* Protocol: `TCP`.
+            * Protocol: `TCP`.
             * Port range: `{{ port-ssh }}`.
             * Source type: `CIDR`.
             * Purpose: the address range of the subnet where the hosts of the main subcluster are located.
@@ -41,7 +41,7 @@ When you [configure security groups](../../vpc/operations/security-group-update.
         * Source type: `CIDR`.
         * Purpose: the address range of the subnet where the hosts of the main subcluster are located.
 
-* UI Proxy
+- UI Proxy
 
     To use [**UI Proxy**](../concepts/ui-proxy.md), add rules to the main subcluster host security group that allow incoming traffic via port `{{ port-https }}`:
     
@@ -54,7 +54,7 @@ When you [configure security groups](../../vpc/operations/security-group-update.
 
     * For incoming traffic:
         
-		* Protocol: `TCP`.
+        * Protocol: `TCP`.
         * Port range: `{{ port-https }}`.
         * Source type: `CIDR`.
         * Destination: `0.0.0.0/0`.
@@ -66,7 +66,7 @@ When you [configure security groups](../../vpc/operations/security-group-update.
         * Source type: `CIDR`.
         * Purpose: the address range of the subnet where the hosts of the main subcluster are located.
 
-* Connecting with port forwarding
+- Connecting with port forwarding
 
     When using [port forwarding](../concepts/interfaces.md#routing), add rules to the intermediate VM security group that allow incoming and outgoing traffic via the required components' ports:
 
@@ -129,3 +129,75 @@ To connect to a {{ dataproc-name }} host from your VM, make sure the SSH key tha
     This command was run using /usr/lib/hadoop/hadoop-common-2.8.5.jar
     ```
 
+## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+
+{% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
+
+You can only use graphical IDEs to connect to cluster hosts through an SSL tunnel using an intermediate VM.
+
+{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+
+{% list tabs %}
+
+- DataGrip
+
+  1. Create a data source:
+     1. Select **File** → **New** → **Data Source** → **Apache Hive**.
+
+        {% note info %}
+
+        Select the data source depending on the {{ dataproc-name }} component you're connecting to:
+
+         * Hive: Select **Apache Hive**.
+         * HBase: Select **Apache Phoenix**.
+         * Spark: Select **Apache Spark**.
+
+        The list of settings doesn't change.
+
+        {% endnote %}
+
+     1. Specify the connection parameters on the **General** tab:
+        * **Host**: FQDN of the cluster master host.
+        * Click **Download** to download the connection driver.
+     1. On the **SSH/SSL** tab:
+        1. Configure the parameters of the SSH tunnel and SSL connection to the VM:
+           * Select **Use SSH tunnel**, create an SSH configuration, and specify the parameters:
+              * **Host**: IP address of the VM.
+              * **User name**: VM user's name.
+              * **Private key file**, **Passphrase**: File with the private key required to connect to the VM and its password.
+        1. Click **Test Connection** to test the connection to the VM from DataGrip.
+        1. Click **OK** to save the configuration.
+        1. Enable the **Use SSL** setting and specify the SSL connection parameters:
+           * **CA file**: Downloaded SSL certificate for the connection.
+           * **Client key file**, **Client key password**: File with the private key required to connect to the {{ dataproc-name }} cluster and its password.
+  1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the **OK** connection status and information about the DBMS and driver.
+  1. Click **OK** to save the data source.
+
+- DBeaver
+
+  1. [Download the SSH key](#data-proc-ssh) to the VM to connect to the {{ dataproc-name }} cluster.
+  1. Create a new DB connection:
+     1. In the **Database** menu, select **New connection**.
+     1. Select the **Apache Hive** database from the list.
+
+        {% note info %}
+
+        Depending on the {{ dataproc-name }} service you're connecting to, you may need to select **Apache Phoenix** (for HBase) or  **Apache Spark** instead of **Apache Hive**. The list of settings doesn't change.
+
+        {% endnote %}
+
+     1. Click **Next**.
+     1. Specify the connection parameters on the **Main** tab:
+        * **Host**: FQDN of the cluster master host.
+     1. On the **SSH** tab:
+        1. Enable the **Use SSL tunnel** setting.
+        1. Specify the SSH tunnel configuration parameters:
+           * **Host/IP**: Public IP address of the VM to connect to.
+           * **Username**: Username for connecting to the VM.
+           * **Authentication method**: `Public key`.
+           * **Secret key**: Path to the file with the private key used for connecting to the VM.
+           * **Passphrase**: Password of the private key.
+  1. Click **Test Connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+  1. Click **Done** to save the database connection settings.
+
+{% endlist %}
