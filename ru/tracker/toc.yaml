@@ -35,6 +35,9 @@ items:
     - name: Отключить платные услуги
       when: audience == "external"
       href: disable-tracker.md
+- name: Мобильное приложение Tracker
+  hidden: true
+  href: mobile.md
 - name: Сценарии использования
   items:
     - name: Настроить Tracker для команды разработки
