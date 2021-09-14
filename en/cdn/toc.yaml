@@ -4,7 +4,63 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Quotas and limits
-    href: limits.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Resources
+        items:
+          - name: Creating a resource
+            href: operations/resources/create-resource.md
+          - name: Editing basic settings of a resource
+            href: operations/resources/configure-basics.md
+          - name: Disabling a resource
+            href: operations/resources/disable-resource.md
+          - name: Configuring resource caching
+            href: operations/resources/configure-caching.md
+          - name: Pre-loading files to CDN servers
+            href: operations/resources/prefetch-files.md
+          - name: Purging resource cache
+            href: operations/resources/purge-cache.md
+          - name: Configuring request and response headers
+            href: operations/resources/configure-headers.md
+          - name: Configuring CORS for responses to clients
+            href: operations/resources/configure-cors.md
+          - name: Configuring HTTP methods
+            href: operations/resources/configure-http.md
+          - name: Enabling file compression
+            href: operations/resources/enable-compression.md
+          - name: Enabling file segmentation
+            href: operations/resources/enable-segmentation.md
+      - name: Origin groups
+        items:
+          - name: Creating an origin group
+            href: operations/origin-groups/create-group.md
+          - name: Editing an origin group
+            href: operations/origin-groups/edit-group.md
+          - name: Connecting an origin group to a resource
+            href: operations/origin-groups/bind-group-to-resource.md
+          - name: Deleting an origin group
+            href: operations/origin-groups/delete-group.md
+  - name: Concepts
+    items:
+      - name: Service overview
+        href: concepts/index.md
+      - name: Resource
+        href: concepts/resource.md
+      - name: Caching content
+        href: concepts/caching.md
+      - name: CORS
+        href: concepts/cors.md
+      - name: Compressing content
+        href: concepts/compression.md
+      - name: Segmenting content
+        href: concepts/slicing.md
+      - name: Origins and origin groups
+        href: concepts/origins.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Troubleshooting
+    href: troubleshooting.md
   - name: Pricing policy
     href: pricing.md

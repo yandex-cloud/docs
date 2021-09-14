@@ -89,7 +89,7 @@ items:
     href: managed-sqlserver/index.yaml
     when: audience == "external"
   - name: Кабинет партнера Marketplace
-    href: marketplace/index.yaml
+    href: marketplace/index.md
     when: audience == "external"
   - name: MDB
     href: mdb/index.yaml

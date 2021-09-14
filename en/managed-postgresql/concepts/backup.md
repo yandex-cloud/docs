@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL backups
-description: {{ mpg-short-name }} provides automatic and manual PostgreSQL database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created once a day. 
+description: {{ mpg-short-name }} provides automatic and manual PostgreSQL database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created once a day.
 keywords:
   - backup
   - backup PostgreSQL
@@ -13,7 +13,15 @@ keywords:
 
 A backup is automatically created once a day and stored for 7 days. You can't disable automatic backups or change the retention period.
 
-{{ mpg-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the write-ahead logs (WAL) of later backups and the cluster. For more information about PITR, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/continuous-archiving.html).
+{{ mpg-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the write-ahead logs (WAL) of later backups and the cluster.
+
+When creating backups and restoring data from them to a given point in time, keep in mind the following:
+
+* A WAL consists of 16 MB files that are archived in a running cluster when the desired size is reached or if the time specified by the [archive timeout](settings-list.md#setting-archive-timeout) cluster-level DBMS setting has passed since the last archiving. The archive is then uploaded to object storage.
+
+* It takes some time to create and upload a WAL archive to object storage. This is why the cluster state stored in object storage may differ from the actual one.
+
+For more information about PITR, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/continuous-archiving.html).
 
 To restore a cluster from a backup, [follow the instructions](../operations/cluster-backups.md#restore).
 

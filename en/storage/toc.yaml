@@ -53,6 +53,14 @@ items:
             href: operations/hosting/multiple-domains.md
           - name: Configuring HTTPS
             href: operations/hosting/certificate.md
+  - name: Use cases
+    items:
+      - name: Getting object query statistics with S3 Select
+        href: solutions/server-logs.md
+      - name: Getting website traffic statistics with S3 Select
+        href: solutions/user-agent-statistics.md
+      - name: Generating a billing report with resource break-down using S3 Select
+        href: solutions/billing-resource-detailing.md
   - name: Concepts
     items:
       - name: Overview
@@ -113,6 +121,8 @@ items:
           href: tools/aws-sdk-java.md
         - name: Python SDK (boto)
           href: tools/boto.md
+        - name: The AWS SDK for.NET
+          href: tools/aws-sdk-net.md
       - name: FUSE
         items:
           - name: s3fs

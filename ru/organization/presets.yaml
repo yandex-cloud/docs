@@ -21,4 +21,4 @@ default:
   #Внешние ссылки
   #link-saml: https://ru.wikipedia.org/wiki/SAML  в общем presets
   link-base64: https://ru.wikipedia.org/wiki/Base64
-  link-adfs-add-claim: https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/add-a-claim-description
+  link-adfs-add-claim: https://docs.microsoft.com/ru-ru/windows-server/identity/ad-fs/operations/add-a-claim-description

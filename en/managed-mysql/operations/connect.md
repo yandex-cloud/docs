@@ -74,25 +74,98 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
-{{ MY }} hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
+{{ MY }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
 
-{% if audience != "internal" %}
+{% list tabs %}
 
-```bash
-mkdir ~/.mysql && \
-wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt && \
-chmod 0600 ~/.mysql/root.crt
-```
+- Linux (Bash)
 
-{% else %}
+  {% if audience != "internal" %}
 
-```bash
-mkdir ~/.mysql && \
-wget "{{ pem-path }}" -O ~/.mysql/root.crt && \
-chmod 0600 ~/.mysql/root.crt
-```
+  ```bash
+  mkdir ~/.mysql && \
+  wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt && \
+  chmod 0600 ~/.mysql/root.crt
+  ```
 
-{% endif %}
+  {% else %}
+
+  ```bash
+  mkdir ~/.mysql && \
+  wget "{{ pem-path }}" -O ~/.mysql/root.crt && \
+  chmod 0600 ~/.mysql/root.crt
+  ```
+
+  {% endif %}
+
+  The certificate will be saved in the `$HOME/.mysql/root.crt` directory.
+
+- Windows (PowerShell)
+
+  {% if audience != "internal" %}
+
+  ```PowerShell
+  mkdir ~/.mysql; curl -o ~/.mysql/root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  ```
+
+  {% else %}
+
+  ```PowerShell
+  mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ pem-path }}
+  ```
+
+  {% endif %}
+
+  The certificate will be saved in the `$HOME\.mysql\root.crt` directory.
+
+{% endlist %}
+
+{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+
+## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+
+{% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
+
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
+
+{% list tabs %}
+
+- DataGrip
+  1. Create a data source:
+     1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
+     1. On the **General** tab:
+        1. Specify the connection parameters:
+           * **Host**: FQDN of the host or a [special FQDN](#special-fqdns).
+           * **Port**: `{{ port-mmy }}`.
+           * **User**, **Password**: DB user's name and password.
+           * **Database**: Name of the DB to connect to.
+        1. Click **Download** to download the connection driver.
+     1. On the **SSH/SSL** tab:
+         1. Enable the **Use SSL** setting.
+         1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+  1. To test the connection, click **Test Connection**. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+  1. Click **OK** to save the data source.
+
+- DBeaver
+  1. Create a new DB connection:
+     1. In the **Database** menu, select **New connection**.
+     1. Select the **{{ MY }}** database from the list.
+     1. Click **Next**.
+     1. Specify the connection parameters on the **Main** tab:
+        * **Server**: FQDN of the host or a [special FQDN](#special-fqdns).
+        * **Port**: `{{ port-mmy }}`.
+        * **Database**: Name of the DB to connect to.
+        * **User**, **Password**: DB user's name and password.
+     1. On the **SSL** tab:
+         1. Enable the **Use SSL** setting.
+         1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+         1. Under **Additional**:
+            1. Enable the **SSL only** setting.
+            1. Select **Check the server certificate**.
+  1. Click **Test Connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+  1. Click **Done** to save the database connection settings.
+
+{% endlist %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
