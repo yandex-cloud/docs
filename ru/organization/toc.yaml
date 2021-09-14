@@ -4,10 +4,6 @@ href: index.yaml
 items:
 - name: Начало работы
   href: quick-start.md
-#- name: Переезд из Яндекс.Коннекта
-#  href: migration.md
-#- name: Подключение сервисов
-#  href: services.md
 - name: Управление организациями
   items:
     - name: Создать организацию
@@ -16,8 +12,6 @@ items:
       href: org-profile.md
     - name: Переключиться на другую организацию
       href: manage-organizations.md
-#    - name: Удалить организацию
-#      href: delete-organisation.md
 - name: Управление пользователями
   items:
     - name: Обзор
@@ -30,12 +24,6 @@ items:
       href: roles.md
     - name: Удалить аккаунт пользователя
       href: edit-account.md
-#    - name: Карточка сотрудника
-#      href: personal.md
-#    - name: Отделы
-#      href: manage-departments.md
-#    - name: Команды
-#      href: teams.md
 - name: Управление федерациями удостоверений
   items:
     - name: Настроить федерацию удостоверений
