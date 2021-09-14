@@ -83,25 +83,101 @@ If your database connection driver doesn't support passing multiple hosts in the
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
-{{ PG }} hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
+{{ PG }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
 
-{% if audience != "internal" %}
+{% list tabs %}
 
-```bash
-mkdir ~/.postgresql && \
-wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt && \
-chmod 0600 ~/.postgresql/root.crt
-```
+- Linux (Bash)
 
-{% else %}
+  {% if audience != "internal" %}
 
-```bash
-mkdir ~/.postgresql && \
-wget "{{ pem-path }}" -O ~/.postgresql/root.crt && \
-chmod 0600 ~/.postgresql/root.crt
-```
+  ```bash
+  mkdir ~/.postgresql && \
+  wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.postgresql/root.crt && \
+  chmod 0600 ~/.postgresql/root.crt
+  ```
 
-{% endif %}
+  {% else %}
+
+  ```bash
+  mkdir ~/.postgresql && \
+  wget "{{ pem-path }}" -O ~/.postgresql/root.crt && \
+  chmod 0600 ~/.postgresql/root.crt
+  ```
+
+  {% endif %}
+
+- Windows (PowerShell)
+
+  {% if audience != "internal" %}
+
+  ```powershell
+  mkdir $HOME\AppData\Roaming\postgresql; curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  ```
+
+  {% else %}
+
+  ```powershell
+  mkdir $HOME\AppData\Roaming\postgresql; curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ pem-path }}
+  ```
+
+  {% endif %}
+
+{% endlist %}
+
+{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+
+## Connecting to cluster hosts from graphical IDEs {#connection-ide}
+
+{% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
+
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
+
+{% list tabs %}
+
+- DataGrip
+
+  1. Create a data source:
+     1. Select **File** → **New** → **Data Source** → **{{ PG }}**.
+     1. Specify the connection parameters on the **General** tab:
+        * **User**, **Password**: DB user's name and password.
+
+        * **URL**: Connection string:
+
+          ```http
+          jdbc:postgresql://<{{ PG }} host 1:{{ port-mpg }}>,...,<{{ PG }} host N:{{ port-mpg }}>/<DB name>
+          ```
+
+          You can also use [special FQDNs](#special-fqdns) in the connection string:
+
+          ```http
+          jdbc:postgresql://<special FQDN:{{ port-mpg }}>/<DB name>
+          ```
+
+        * Click **Download** to download the connection driver.
+     1. On the **SSH/SSL** tab:
+         1. Enable the **Use SSL** setting.
+         1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+  1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+  1. Click **OK** to save the data source.
+
+- DBeaver
+  1. Create a new DB connection:
+     1. In the **Database** menu, select **New connection**.
+     1. Select the **{{ PG }}** database from the list.
+     1. Click **Next**.
+     1. Specify the connection parameters on the **Main** tab:
+        * **Host**: FQDN of the host or a [special FQDN](#special-fqdns).
+        * **Port**: `{{ port-mpg}}`.
+        * **Database**: Name of the DB to connect to.
+        * Under **Authentication**, specify the DB user's name and password.
+     1. On the **SSL** tab:
+         1. Enable the **Use SSL** setting.
+         1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+  1. Click **Test Connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+  1. Click **Done** to save the database connection settings.
+
+{% endlist %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -163,7 +239,9 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 You can connect to public {{ PG }} hosts only if you use an SSL certificate. Before connecting to such hosts, [prepare the certificate](#configuring-an-ssl-certificate).
 
-These examples assume that the `root.crt` SSL certificate is located in the `/home/<home directory>/.postgresql/` folder.
+The examples below assume that the `root.crt` SSL certificate is located in the directory:
+* `/home/<home directory>/.postgresql/` for Ubuntu.
+* `$HOME\AppData\Roaming\postgresql` for Windows.
 
 Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. For connections to the database, traffic inside the virtual network isn't encrypted in this case.
 
