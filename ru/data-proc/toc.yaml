@@ -81,6 +81,8 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Свойства компонентов
+        href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
