@@ -1,9 +1,9 @@
 ---
 editable: false
 ---
-# Pricing policy for Yandex CDN
+# Pricing for {{ cdn-full-name }}
 
-Calculating the cost of using {{ cdn-full-name }} only includes outgoing traffic from the CDN to the internet. Data exchanged between {{ yandex-cloud }} services and incoming internet traffic are free.
+The {{ cdn-full-name }} usage cost estimation counts only the outgoing traffic from CDN servers, including the traffic requested from user resources of the {{ yandex-cloud }} services: for example, from  [virtual machines](../compute/concepts/vm.md) of {{ compute-full-name}}. The incoming traffic received by CDN servers from the {{ yandex-cloud }} services and resources or from the Internet, is not charged.
 
 ## Pricing {#prices}
 
@@ -24,4 +24,3 @@ Calculating the cost of using {{ cdn-full-name }} only includes outgoing traffic
 {% include notitle [usd.md](../_pricing/cdn/usd.md) %}
 
 {% endif %}
-
