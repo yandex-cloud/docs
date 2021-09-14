@@ -67,11 +67,11 @@ To prepare a container's Docker image:
 	status: ACTIVE
 	```
 
-1. Upload a container version:
+1. Upload a container revision:
 
 	{% note info %}
 
-	To upload the version, make the image public or pass the [ID of the service account](../iam/operations/sa/get-id.md) with permission to pull the image in the command.
+	To upload the revision, make the image public or pass the [ID of the service account](../iam/operations/sa/get-id.md) with permission to pull the image in the command.
 
 	{% endnote %}
 

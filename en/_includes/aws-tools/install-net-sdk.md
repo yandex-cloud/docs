@@ -1,0 +1,1 @@
+To install the AWS SDK for.NET, follow the [instructions](https://docs.aws.amazon.com/sdk-for-net/latest/developer-guide/net-dg-setup.html) on the manufacturer's website.

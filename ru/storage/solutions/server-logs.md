@@ -11,7 +11,6 @@
 ## Перед началом работы {#before-you-begin}
 
 1. Установите и настройте интерфейс командной строки [AWS CLI](../tools/aws-cli.md).
-
 1. Скачайте и установите утилиту [jq](https://stedolan.github.io/jq/download/).
 
 ## Получение статистики запросов {#request-stat}
@@ -40,27 +39,27 @@
 
             Примеры выражений:
 
-            * Поиск запросов по коду ответа:
+             * Поиск запросов по коду ответа:
             
-              ```sql
-              SELECT "timestamp", request_id, handler, object_key, status, request_time
-              FROM S3Object
-              WHERE status >= 400
-              ```
+                ```sql
+                SELECT "timestamp", request_id, handler, object_key, status, request_time
+                FROM S3Object
+                WHERE status >= 400
+                ```
 
-            * Поиск долго обрабатываемых запросов:
+             * Поиск долго обрабатываемых запросов:
 
-              ```sql
-              SELECT "timestamp", request_id, handler, object_key, status, request_time
-              FROM S3Object
-              WHERE request_time >= 1000
-              ```
+                ```sql
+                SELECT "timestamp", request_id, handler, object_key, status, request_time
+                FROM S3Object
+                WHERE request_time >= 1000
+                ```
             
-            * Среднее время обработки запросов (с использованием [агрегатной функции](../concepts/s3-select-language.md#aggregate-functions) `AVG`):
+             * Среднее время обработки запросов (с использованием [агрегатной функции](../concepts/s3-select-language.md#aggregate-functions) `AVG`):
             
-              ```sql
-              SELECT AVG(request_time) AS "avg" FROM S3Object
-              ```
+                ```sql
+                SELECT AVG(request_time) AS "avg" FROM S3Object
+                ```
 
     1. Выполните команду:
 
@@ -90,4 +89,3 @@
     1 "path/logs/2020-12-09-08-11-10-123f57b5-1773-9310-1d2a-5bcc1e9e9b4f"
     1 "path/logs/2020-12-01-14-42-11-493f57b5-1093-4120-8d7a-5bcc1e9e9b4f"
     ```
- 

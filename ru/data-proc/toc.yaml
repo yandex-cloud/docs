@@ -12,14 +12,13 @@ items:
           - name: Работа с заданиями Hive
             when: audience == "draft"
             href: solutions/hive-job-basics.md
-          - name: Использование Apache Hive
-            href: solutions/how-to-use-hive.md
           - name: Работа с заданиями MapReduce
             when: audience == "draft"
             href: solutions/mapreduce-job-basics.md
           - name: Работа с заданиями PySpark
-            when: audience == "draft"
             href: solutions/pyspark-job-basics.md
+          - name: Использование Apache Hive
+            href: solutions/how-to-use-hive.md
           - name: Работа с заданиями Spark
             when: audience == "draft"
             href: solutions/spark-job-basics.md
@@ -81,6 +80,8 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Свойства компонентов
+        href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

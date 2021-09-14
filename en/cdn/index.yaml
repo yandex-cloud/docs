@@ -6,7 +6,7 @@ description:
     Yandex Cloud CDN lets you organize the delivery of content to your end users using a content delivery network (CDN).
 
   - >-
-    This helps you: <ul> <li>Decrease the load on your main content servers by employing caching.</li> <li>Decrease content waiting time for the consumer.</li> </ul>
+    This helps you: <ul> <li>Shift part of the load from content origins to CDN servers by employing caching.</li> <li>Decrease content waiting time for the end user.</li> </ul>
   - >-
     You can manage the service using the management console.
 meta:
@@ -15,9 +15,18 @@ links:
   - title: Getting started
     description: How to get started with CDN content delivery
     href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: CDN operation and basic terminology
+    href: concepts/
   - title: Quotas and limits
-    description: The service's technical and organizational limitations
-    href: limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: Troubleshooting
+    description: Common errors and how to fix them
+    href: troubleshooting/
   - title: Pricing policy
-    description: Prices and rules for calculating the service cost
+    description: Service pricing and cost calculations
     href: pricing

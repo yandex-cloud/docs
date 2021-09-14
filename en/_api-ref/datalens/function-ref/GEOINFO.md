@@ -14,14 +14,6 @@ GEOINFO( address, scale )
 ```
 
 #### Description {#description}
-
-{% note warning %}
-
-- The geocoding quota is no more than 25 000 unique entries per day. Records in excess of the quota will be processed the next day.
-- Function is available only with the Standard billing plan.
-
-{% endnote %}
-
 Converts `address` to geographical name corresponding to the specified `scale`.
 
 Possible values for `scale` parameter:
@@ -29,6 +21,8 @@ Possible values for `scale` parameter:
 - `"country_code"`;
 - `"region"`;
 - `"locality"`.
+
+To enable the function, go to the [Service Settings](https://datalens.yandex.com/settings) page.
 
 **Argument types:**
 - `address` — `String`
