@@ -18,7 +18,6 @@ items:
             when: audience == "draft"
             href: solutions/mapreduce-job-basics.md
           - name: Работа с заданиями PySpark
-            when: audience == "draft"
             href: solutions/pyspark-job-basics.md
           - name: Работа с заданиями Spark
             when: audience == "draft"
