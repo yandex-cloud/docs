@@ -5,7 +5,7 @@ description: "Вы можете посмотреть график монитор
 
 # Просмотр журнала выполнения
 
-Логи выполнения функции хранятся 14 дней. Время в журнале указано по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+Логи выполнения функции хранятся 14 дней. Время в журнале указано по [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
 
 {% list tabs %}
 

@@ -5,7 +5,7 @@ description: "You can view the monitoring schedule in Yandex Cloud Functions usi
 
 # Viewing the execution log
 
-Function execution logs are stored for 14 days. The log uses Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+Function execution logs are stored for 14 days. The log uses Coordinated Universal Time, [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
 
 {% list tabs %}
 
@@ -50,4 +50,6 @@ Function execution logs are stored for 14 days. The log uses Coordinated Univers
     {% endnote %}
 
 {% endlist %}
+
+Learn more about working with logs in the [{{ cloud-logging-full-name }} documentation](../../../logging/).
 

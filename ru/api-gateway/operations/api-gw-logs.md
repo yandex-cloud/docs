@@ -5,7 +5,7 @@ description: "Вы можете Просмотр журнала выполнен
 
 # Просмотр журнала выполнения
 
-Время в журнале выполнения указано по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+Время в журнале выполнения указано по [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
 
 {% list tabs %}
 
