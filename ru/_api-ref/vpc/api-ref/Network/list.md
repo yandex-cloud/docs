@@ -45,7 +45,7 @@ filter | Параметры фильтрации ресурсов в ответ�
  
 Поле | Описание
 --- | ---
-networks[] | **object**<br><p>Ресурс Network. Подробнее см. <a href="/vpc/concepts/network">Сети</a>.</p> 
+networks[] | **object**<br><p>Ресурс Network. Подробнее см. <a href="/docs/vpc/concepts/network">Сети</a>.</p> 
 networks[].<br>id | **string**<br><p>Идентификатор облачной сети.</p> 
 networks[].<br>folderId | **string**<br><p>Идентификатор каталога, которому принадлежит сеть.</p> 
 networks[].<br>createdAt | **string** (date-time)<br><p>Время создания ресурса в формате в <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 

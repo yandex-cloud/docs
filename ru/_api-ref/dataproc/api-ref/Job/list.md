@@ -129,7 +129,7 @@ filter | Параметры фильтрации задач в ответе.  В
  
 Поле | Описание
 --- | ---
-jobs[] | **object**<br><p>Задача Data Proc. Дополнительные сведения о концепции см. в <a href="/docs/dataproc/concepts/jobs">документации</a>.</p> 
+jobs[] | **object**<br><p>Задача Data Proc. Дополнительные сведения о концепции см. в <a href="/docs/data-proc/concepts">документации</a>.</p> 
 jobs[].<br>id | **string**<br><p>Идентификатор задачи. Генерируется во время создания.</p> 
 jobs[].<br>clusterId | **string**<br><p>Идентификатор кластера Data Proc, которому принадлежит задача.</p> 
 jobs[].<br>createdAt | **string** (date-time)<br><p>Время создания.</p> <p>Строка в формате <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a>.</p> 
