@@ -101,7 +101,7 @@ To create a device:
 
 1. Save the password locally or remember it. The service doesn't show the password after you create it.
 1. (optional) In the **Description** field, add additional information about the device.
-1. (optional) Add [aliases](../../iot-core/concepts/topic.md#----aliases):
+1. (optional) Add [aliases](../../iot-core/concepts/topic/usage.md#aliases):
 
     1. Click **Add alias**.
     1. Click **Edit**.
@@ -237,12 +237,12 @@ If you subscribe to the {{ iot-short-name }} device topic, you get the following
        {"Type":"Float", "Id":"2","Name":"Item 2","Fullness":"80.97"},
        {"Type":"Float", "Id":"3","Name":"Item 3","Fullness":"30.33"},
        {"Type":"Float", "Id":"4","Name":"Item 4","Fullness":"15.15"},
-	]}
-	]
+    ]}
+    ]
 }
 ```
 
-Learn more about [MQTT topics in {{ iot-short-name }}](../../iot-core/concepts/topic.md).
+Learn more about [MQTT topics in {{ iot-short-name }}](../../iot-core/concepts/topic/index.md).
 
 ### Create a trigger that invokes the function once per minute {#minute-trigger}
 
@@ -393,7 +393,7 @@ If the function is successful, the **Function status** field shows **Done** and 
 {
 "statusCode" : 200 ,
     "headers" : {
-	    "Content-Type" : "text/plain"
+        "Content-Type" : "text/plain"
     },
 "isBase64Encoded" : false
 }
@@ -411,7 +411,7 @@ A table with data processing results is displayed in the right part of the windo
 
 ### Create a trigger to invoke the data processing function {#processing-function-trigger}
 
-The trigger invokes the function when [the device topic](../../iot-core/concepts/topic.md) gets messages.
+The trigger invokes the function when [the device topic](../../iot-core/concepts/topic/devices-topic.md) gets messages.
 
 To create a trigger:
 
@@ -427,7 +427,7 @@ To create a trigger:
     * **Device**: `Any device`.
     * **MQTT topic**: `$devices/#`.
 
-        Learn more about [MQTT topics in {{ iot-short-name }}](../../iot-core/concepts/topic.md).
+        Learn more about [MQTT topics in {{ iot-short-name }}](../../iot-core/concepts/topic/index.md).
 1. Under **Function settings**, enter the parameters previously set for the function:
     * **Function**: `my-database-function`.
     * **Function version tag**: `$latest`.
@@ -505,7 +505,7 @@ To create a chart for temperature and mains voltage:
     * `temperature` and `power_voltage` to the **Y** section.
 
         The temperature and mains voltage values will appear on the Y-axis of the chart.
-	
+
 1. Click **Save**.
 1. In the window that opens, set the chart name or use the generated name `My-pg-dataset — Line chart` and click **Save**.
 
@@ -530,7 +530,7 @@ To create a chart with a map:
     * `item1_fullness`, `item1_fullness`, `item1_fullness`, `item1_fullness`, `cash_drawer`, and `coin_drawer` to the **Tooltips** section.
 
         In the right part of the window, you'll see a scalable map with vending machines marked with points on the map and tooltips marked with legend lines.
-	
+
 1. Click **Save**.
 1. In the window that opens, set the chart name or use the generated name `My-pg-dataset — Map` and click **Save**.
 
