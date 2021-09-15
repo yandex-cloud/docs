@@ -8,8 +8,8 @@
 | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.kafka.v2.ram|string }}      | {{ sku|KZT|v1.commitment.y1.mdb.kafka.ram.v2|string }} (-36%)      | {{ sku|KZT|v1.commitment.y3.mdb.kafka.ram.v2|string }} (-50%)      |
 | **Intel Ice Lake**                                                                                                                                                                                            |
 | 50% vCPU       | {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c50|string }}  | —                                                                  | —                                                                  |
-| 100% vCPU      | {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|string }} | ₸4.0020 (-29%)                                                     | —                                                                  |
-| RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.kafka.v3.ram|string }}      | ₸0.9720 (-10%)                                                     | —                                                                  |
+| 100% vCPU      | {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|string }} | ₸4.0020 (-29%)                                                     | ₸3.0780 (-46%)                                                     |
+| RAM (for 1 GB) | ₸1.5120                                            | ₸0.9720 (-36%)                                                     | ₸0.7560 (-50%)                                                     |
 
 ### {{ ZK }} host computing resources {#prices-zookeeper}
 
