@@ -9,18 +9,18 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ## Restoring clusters from backups {#restore}
 
-Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time in the interval from its backup to the current time. If the cluster you are trying to restore is already deleted, the recovery interval is limited by the time point the last backup was created. To learn more about this technology, see [{#T}](../concepts/backup.md).
+Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time in the interval from creating the oldest full backup to archiving the most recent binary log. For more information, see [{#T}](../concepts/backup.md).
 
-For example, if the backup operation ended August 10, 2020, 12:00:00 UTC and the current date is August 15, 2020, 19:00:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:59:59 UTC inclusive.
+For example, if the backup operation ended August 10, 2020, 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the latest binary log was saved August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC inclusive.
 
 When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
 For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ MY }} cluster).
 
-When restoring to the state from the current time point:
+When restoring to the current state, the new cluster will reflect the state of:
 
-- The new cluster reflects the state of the cluster at the time of recovery if the cluster still exists.
-- The new cluster reflects the state of the cluster at the time of the creation of the newest backup if the cluster is already deleted.
+* An existing cluster at the time of recovery.
+* A deleted cluster at the time of archiving the last binary log.
 
 {% list tabs %}
 
@@ -107,7 +107,7 @@ When restoring to the state from the current time point:
              --resource-preset {{ host-class }}
       ```
 
-      In the `--time` parameter, specify the time point from which you want to restore the original state of the {{ MY }} cluster, in the `yyyy-mm-ddThh:mm:ssZ` format.
+      In the `--time` parameter, specify the time point from which you want to restore the original state of the {{ MY }} cluster, in `yyyy-mm-ddThh:mm:ssZ` format.
 
       In the example above, the cluster will be restored to the state it was 10 seconds after the `c9qgo11pud7kb3cdomeg...` backup was created. This backup was selected as the starting point for recovery (the `--time 2020-08-10T12:00:10Z` parameter).
 
@@ -124,11 +124,10 @@ When restoring to the state from the current time point:
 - Terraform
 
   Use Terraform to restore:
-
   * An existing cluster from a backup.
   * A cluster created and deleted via the management console, CLI, or API.
 
-  To restore a cluster, you'll need the backup ID. Get a list of available {{ MY }} cluster backups [using the CLI](https://cloud.yandex.com/en/docs/managed-mysql/operations/cluster-backups#list-backups):
+  To restore a cluster, you'll need the backup ID. Get a list of available {{ MY }} cluster backups [using the CLI](#list-backups):
 
   ```bash
   {{ yc-mdb-my }} backup list
@@ -143,7 +142,7 @@ When restoring to the state from the current time point:
 
   **To restore an existing cluster from a backup:**
 
-  1. Create a [Terraform configuration file](https://cloud.yandex.com/en/docs/managed-mysql/operations/cluster-create#create-cluster) for a new cluster.
+  1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
 
      {% note info %}
 
@@ -183,7 +182,7 @@ When restoring to the state from the current time point:
 
   **To restore a previously deleted cluster from a backup:**
 
-  1. Create a [Terraform configuration file](https://cloud.yandex.com/en/docs/managed-mysql/operations/cluster-create#create-cluster) for a new cluster.
+  1. Create a [Terraform configuration file](cluster-create.md#create-cluster) for a new cluster.
 
      {% note info %}
 
@@ -361,3 +360,4 @@ When restoring to the state from the current time point:
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
 {% endlist %}
+

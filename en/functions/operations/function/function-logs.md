@@ -51,3 +51,5 @@ Function execution logs are stored for 14 days. The log uses Coordinated Univers
 
 {% endlist %}
 
+Learn more about working with logs in the [{{ cloud-logging-full-name }} documentation](../../../logging/).
+

@@ -13,7 +13,15 @@ keywords:
 
 [A physical backup](https://dev.mysql.com/doc/refman/5.7/en/backup-types.html) of all cluster data is automatically created once a day and stored for 7 days. You can't disable automatic backups or change the retention period.
 
-{{ mmy-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the write-ahead logs (WAL) of later backups and the cluster. To learn more about PITR, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery.html).
+{{ mmy-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup. This is achieved by supplementing the backup selected as the starting point for recovery with entries from the write-ahead logs (WAL) of later backups and the cluster.
+
+When creating backups and restoring data from them to a given point in time, keep in mind the following:
+
+* A binary log consists of files with a size of 100 MB, which are archived in a running cluster as soon as the desired size is reached and then uploaded to object storage. Transactions are only logged to the binary log entirely, so sometimes the file size exceeds the specified one and it takes more time to archive them.
+
+* It takes some time to create and upload a binary log archive to object storage. This is why the cluster state stored in object storage may differ from the actual one.
+
+To learn more about PITR, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/point-in-time-recovery.html).
 
 To restore a cluster from a backup, [follow the instructions](../operations/cluster-backups.md).
 
@@ -55,3 +63,4 @@ Backup integrity is checked on synthetic data using integration tests available 
 ### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+

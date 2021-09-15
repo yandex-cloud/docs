@@ -4,7 +4,7 @@ Use {{org-full-name}} to manage your employees' access to {{yandex-cloud}} servi
 
 {% note warning %}
 
-The {{org-full-name}} service is running in [Preview](../overview/concepts/launch-stages.md) mode. Managing organization services is unavailable.
+The {{org-full-name}} service is in the [Preview](../overview/concepts/launch-stages.md) stage. Managing organization services is unavailable.
 
 {% endnote %}
 

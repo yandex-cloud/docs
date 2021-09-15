@@ -1,23 +1,9 @@
 default:
   service-name: Yandex Cloud Organization
-  org-full-name: Yandex Cloud Organization
-  org-name: Organization
-  org-short-name: Organization
-  link-org-main: https://org.cloud.yandex.com
   link-org-users: https://org.cloud.yandex.com/users
   link-org-settings: https://org.cloud.yandex.com/settings
   link-org-federations: https://org.cloud.yandex.com/federations
   link-passport: https://passport.yandex.com/
   login-example: login@yandex.com
-  link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
-  resmgr-full-name: Yandex Resource Manager
-  compute-full-name: Yandex Compute Cloud
-  managed-postgresql-full-name: Yandex Managed Service for PostgreSQL
-  managed-redis-full-name: Yandex Managed Service for Redis
-  managed-clickhouse-full-name: Yandex Managed Service for ClickHouse
-  managed-mysql-full-name: Yandex Managed Service for MySQL<sup>®</sup>
-  managed-mongodb-full-name: Yandex Managed Service for MongoDB
-  permission-admin: Admin
-  permission-write: Write
-  permission-read: Read
-  permission-execute: Execute
+  link-base64: https://en.wikipedia.org/wiki/Base64
+  link-adfs-add-claim: https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/add-a-claim-description

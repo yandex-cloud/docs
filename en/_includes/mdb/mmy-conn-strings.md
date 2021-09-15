@@ -31,7 +31,39 @@
         <DB name>
   ```
 
-  After running any of the commands, enter the user password to complete the connection procedure.
+  When running any command, enter the DB user password.
+
+  After connecting to the DBMS, run the command `SELECT version();`.
+
+- PowerShell
+
+  **Before connecting, [download](https://dev.mysql.com/downloads/shell/) and install the `MySQL Shell` utility**.
+
+  **Connecting via SSL:**
+
+  ```PowerShell
+  mysqlsh --host=<{{ MY }} host FQDN> `
+          --port=3306 `
+          --ssl-ca=<absolute path to certificate file> `
+          --ssl-mode=VERIFY_IDENTITY `
+          --user=<username> `
+          --password `
+          --database=<DB name> `
+          --sql
+  ```
+
+  **Connecting without SSL:**
+
+  ```PowerShell
+  mysqlsh --host=<{{ MY }} host FQDN> `
+          --port=3306 `
+          --ssl-mode=DISABLED `
+          --user=<username> `
+          --password `
+          --database=<DB name>
+  ```
+
+  When running any command, enter the DB user password.
 
   After connecting to the DBMS, run the command `SELECT version();`.
 

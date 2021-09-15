@@ -2,9 +2,9 @@
 
 You can create a trigger:
 
-* For a [standard topic](../../iot-core/concepts/topic.md) implemented by the service except for the `$monitoring/<device ID>/json` topic.
-* For a topic with any [subtopics](../../iot-core/concepts/topic.md#subtopic) and wildcards.
-* For an [alias](../../iot-core/concepts/topic.md#aliases) of a topic.
+* For a [standard topic](../../iot-core/concepts/topic/index.md) implemented by the service except for the `$monitoring/<device ID>/json` topic.
+* For a topic with any [subtopics](../../iot-core/concepts/topic/subtopic.md) and wildcards.
+* For an [alias](../../iot-core/concepts/topic/usage.md#aliases) of a topic.
 
 A trigger for {{ iot-short-name }} needs a [service account](../../iam/concepts/users/service-accounts.md) to invoke the function.
 

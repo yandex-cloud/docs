@@ -11,19 +11,19 @@
    1. In the left part of the window, select **Devices**.
    1. Click **Add device**.
    1. Specify **basic parameters** for the device:
-      - Enter a device **Name**. For example, `my-device`.
-      - (optional) Add a **Description** with additional information about the device.
-      - Set a **Password** that you'll use to access the device.<br/>To do this, you can use the [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
-   1. (optional) Add [aliases](../../concepts/topic.md#aliases):
+      * Enter a device **Name**. For example, `my-device`.
+      * (optional) Add a **Description** with additional information about the device.
+      * Set a **Password** that you'll use to access the device.<br/>To do this, you can use the [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
+   1. (optional) Add [aliases](../../concepts/topic/usage.md#aliases):
       1. Click **Add alias**.
       1. Fill in the fields: enter an alias (for example, `events`) and the topic type after `$devices/<deviceID>` (for example, `events`).<br/>You can use the `events` alias instead of the `$devices/<deviceID>/events` topic.
    1. (optional) Add [certificates](../../operations/certificates/create-certificates.md):
-      - To add a file:
+      * To add a file:
          1. Choose the **File** method.
          1. Click **Select file**.
          1. Specify the certificate file on your computer and click **Open**.
          1. Click **Add**.
-      - To add text:
+      * To add text:
          1. Choose the **Text** method.
          1. Insert the certificate body in the **Contents** field.
          1. Click **Add**.
@@ -109,9 +109,9 @@
 
       For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 
-   2. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
-      2. Run the check using the command:
+      1. Run the check using the command:
 
          ```
          $ terraform plan
@@ -119,13 +119,13 @@
 
       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 
-   3. Deploy the cloud resources.
+   1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:
 
          ```
          $ terraform apply
          ```
-      2. Confirm that you want to create the resources.
+      1. Confirm that you want to create the resources.
 
       Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
 

@@ -191,16 +191,16 @@
 "":"0e3ce1d0-1504-4325-972f-55c961319814",
 "TimeStamp":"2020-05-21T22:38:12Z",
 "Values":[
-	{"Type":"Float","Name":"Humidity","Value":"25.33"},
-	{"Type":"Float","Name":"Temperature","Value":"80.90"},
-	{"Type":"Bool","Name":"Water sensor","Value":"False"},
-	{"Type":"Bool","Name":"Smoke sensor","Value":"False"},
-	{"Type":"Bool","Name":"Room door sensor","Value":"False"},
-	{"Type":"Bool","Name":"Rack door sensor","Value":"False"}
-	]
+    {"Type":"Float","Name":"Humidity","Value":"25.33"},
+    {"Type":"Float","Name":"Temperature","Value":"80.90"},
+    {"Type":"Bool","Name":"Water sensor","Value":"False"},
+    {"Type":"Bool","Name":"Smoke sensor","Value":"False"},
+    {"Type":"Bool","Name":"Room door sensor","Value":"False"},
+    {"Type":"Bool","Name":"Rack door sensor","Value":"False"}
+    ]
 }
 ```
-	
+
 Подробнее об [MQTT-топиках в сервисе {{ iot-short-name }}](../../iot-core/concepts/topic/index.md).
 
 ### Создайте триггер вызова функции один раз в минуту {#minute-trigger}
@@ -271,7 +271,7 @@
 1. В списке **Тег версии** выберите `$latest` — последнюю созданную функцию.
 1. В поле **Входные данные** вставьте данные:
 
-	```json
+    ```json
     {
         "messages": [
             {
@@ -290,16 +290,16 @@
             }
         ]
     }
-	```
+    ```
 1. Нажмите кнопку **Запустить тест**.
 
 При успешном выполнении функции в поле **Состояние функции** отобразится статус **Выполнена**, а в поле **Ответ функции** появится результат:
-	
+
 ```json
 {
 "statusCode" : 200 ,
     "headers" : {
-	    "Content-Type" : "text/plain"
+        "Content-Type" : "text/plain"
     },
 "isBase64Encoded" : false
 }

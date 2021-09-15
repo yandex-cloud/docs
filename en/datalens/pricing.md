@@ -3,6 +3,22 @@ editable: false
 ---
 # Pricing for {{ datalens-full-name }}
 
+## Pricing policy from September 27 to October 27, 2021
+
+Starting October 27, 2021, {{ datalens-short-name }} will be available to all users free of charge.
+
+If you subscribed to the **Standard** plan before September 27, it will be valid until the end of the billing period.
+
+> For example, you paid for the **Standard** plan on September 26.
+>
+> Your billing period ends on October 26 and your account will be switched to free {{ datalens-short-name }} mode.
+
+If you use [geocoding functions](concepts/limits.md), add a geo key in the [Service settings](https://datalens.yandex.com/settings) section until the end of your billing period for the **Standard** plan.
+
+You don't have to enable geocoding functions on the service page while using a paid plan.
+
+## Pricing policy before September 27, 2021
+
 In {{ datalens-short-name }}, you pay for:
 
 * The number of ten-minute sessions to the data source. The session considers requests from charts and dashboards.

@@ -70,7 +70,17 @@ items:
       - name: Sending messages to an MQTT broker via gRPC
         href: concepts/mqtt-grpc.md
       - name: Topic
-        href: concepts/topic.md
+        items:
+          - name: Overview
+            href: concepts/topic/index.md
+          - name: Device topics
+            href: concepts/topic/devices-topic.md
+          - name: Registry topics
+            href: concepts/topic/registries-topic.md
+          - name: Subtopic
+            href: concepts/topic/subtopic.md
+          - name: Using topics
+            href: concepts/topic/usage.md
       - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits

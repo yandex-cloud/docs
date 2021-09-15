@@ -14,4 +14,4 @@ To access the device, use the `ID` or `NAME` parameters from the [previous](#dev
 
 {% include [device-get](../../../_includes/iot-core/device-get.md) %}
 
-Device monitoring data is updated when accessing the device via gRPCS and MQTT. QoS: At most once.
+Device monitoring data is updated when accessing the device via gRPCS and MQTT. QoS: [At most once](../../concepts/index.md#qos).

@@ -29,16 +29,16 @@ _MQTT clients_ are devices and registries that exchange messages containing data
 
 To make sure devices and registries receive each other's messages via the MQTT broker, [subscribe them to the appropriate topics](../operations/subscribe).
 
-If you have devices with sensor readings that you need to quickly respond to and you may face network communication problems and a broken connection between your devices and the MQTT broker, you can subscribe your devices and registries to [permanent topics](topic.md#permanent).
+If you have devices with sensor readings that you need to quickly respond to and you may face network communication problems and a broken connection between your devices and the MQTT broker, you can subscribe your devices and registries to [permanent topics](./topic/index.md).
 For example, use permanent topics for temperature sensors on devices that need to be turned off quickly when heated to a certain temperature.
 
 ## QoS levels {#qos}
 
 When exchanging messages, {{ iot-name }} supports the following quality of service (QoS) levels for MQTT:
 
-- `QoS 0: At most once`. A message is sent no more than once and there is no guarantee of delivery.
+* `QoS 0: At most once`. A message is sent no more than once and there is no guarantee of delivery.
 
-- `QoS 1: At least once`. This level guarantees that a message is delivered to a client at least once. There is a chance of receiving duplicate messages.
+* `QoS 1: At least once`. This level guarantees that a message is delivered to a client at least once. There is a chance of receiving duplicate messages.
 
 For more information about {{ iot-name }} service limits, see [{#T}](limits.md).
 

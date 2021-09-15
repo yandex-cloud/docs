@@ -196,17 +196,17 @@ If you subscribe to the {{ iot-short-name }} device topic, you get the following
 "":"0e3ce1d0-1504-4325-972f-55c961319814",
 "TimeStamp":"2020-05-21T22:38:12Z",
 "Values":[
-	{"Type":"Float","Name":"Humidity","Value":"25.33"},
-	{"Type":"Float","Name":"Temperature","Value":"80.90"},
-	{"Type":"Bool","Name":"Water sensor","Value":"False"},
-	{"Type":"Bool","Name":"Smoke sensor","Value":"False"},
-	{"Type":"Bool","Name":"Room door sensor","Value":"False"},
-	{"Type":"Bool","Name":"Rack door sensor","Value":"False"}
-	]
+    {"Type":"Float","Name":"Humidity","Value":"25.33"},
+    {"Type":"Float","Name":"Temperature","Value":"80.90"},
+    {"Type":"Bool","Name":"Water sensor","Value":"False"},
+    {"Type":"Bool","Name":"Smoke sensor","Value":"False"},
+    {"Type":"Bool","Name":"Room door sensor","Value":"False"},
+    {"Type":"Bool","Name":"Rack door sensor","Value":"False"}
+    ]
 }
 ```
 
-Learn more about [MQTT topics in {{ iot-short-name }}](../../iot-core/concepts/topic.md).
+Learn more about [MQTT topics in {{ iot-short-name }}](../../iot-core/concepts/topic/index.md).
 
 ### Create a trigger that invokes the function once per minute {#minute-trigger}
 
@@ -306,7 +306,7 @@ If the function is successful, the **Function status** field shows **Done** and 
 {
 "statusCode" : 200 ,
     "headers" : {
-	    "Content-Type" : "text/plain"
+        "Content-Type" : "text/plain"
     },
 "isBase64Encoded" : false
 }
@@ -314,7 +314,7 @@ If the function is successful, the **Function status** field shows **Done** and 
 
 ### Create a trigger to call the data processing function with a signal {#signal-trigger}
 
-The trigger invokes the function when [the device topic](../../iot-core/concepts/topic.md) gets messages.
+The trigger invokes the function when [the device topic](../../iot-core/concepts/topic/devices-topic.md) gets messages.
 
 To create a trigger:
 1. In the [management console]({{ link-console-main }}), select the folder where you are running the scenario.​

@@ -4,7 +4,7 @@ To let your employees use {{yandex-cloud}} services, create an organization and 
 
 To create an organization, follow these steps:
 
-1. [Log in]({{link-passport}}) to your Yandex account. If you don't have an account yet, [create](https://yandex.ru/support/passport/authorization/registration.html) one.
+1. [Log in]({{link-passport}}) to your Yandex account. If you don't have an account yet, [create](https://yandex.com/support/passport/authorization/registration.html) one.
 1. Go to [{{org-full-name}}]({{link-org-main}}).
 1. Read the {{yandex-cloud}} terms of use and click **Log in**.
 1. Enter your company name and description.
@@ -19,7 +19,7 @@ To get started:
 
 {% note warning %}
 
-The {{org-full-name}} service is running in [Preview](../overview/concepts/launch-stages.md) mode. Managing organization services is unavailable.
+The {{org-full-name}} service is in the [Preview](../overview/concepts/launch-stages.md) stage. Managing organization services is unavailable.
 
 {% endnote %}
 

@@ -63,30 +63,7 @@
   1. Вставьте в поле **Публичный ключ** публичную часть вашего SSH-ключа. Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md).
   1. Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру.
   1. Выберите зону доступности для кластера.
-
-  1. (Опционально) В блоке **Свойства** укажите настройки компонентов, например: {#properties}
-  
-     ```text
-     hdfs:dfs.replication : 2
-     hdfs:dfs.blocksize : 1073741824
-     spark:spark.driver.cores : 1
-     ```
-
-     Доступные свойства перечислены в официальной документации компонентов:
-
-     * [Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml)
-     * [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml)
-     * [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-common/yarn-default.xml)
-     * [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml)
-     * [Spark](https://spark.apache.org/docs/2.2.3/configuration.html#available-properties)
-     * [Flume 1.8.0](https://flume.apache.org/releases/content/1.8.0/FlumeUserGuide.html#flume-properties)
-     * [HBASE](https://hbase.apache.org/book.html#hbase_default_configurations)
-     * [HIVE](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
-     * [SQOOP](https://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html#_additional_import_configuration_properties)
-     * [Tez 0.9.1](https://tez.apache.org/releases/0.9.1/tez-api-javadocs/configs/TezConfiguration.html)
-     * [Zeppelin 0.7.3](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html)
-     * [ZooKeeper 3.4.6](http://zookeeper.apache.org/doc/r3.4.6/zookeeperAdmin#sc_configuration)
-
+  1. При необходимости задайте [свойства компонентов кластера, заданий и среды окружения](../concepts/settings-list.md).
   1. Выберите или создайте сеть для кластера.
   1. Выберите группы безопасности, в которых имеются необходимые разрешения.
 

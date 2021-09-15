@@ -4,7 +4,7 @@ To get started, create an organization and add users to it.
 
 {% note warning %}
 
-The {{org-full-name}} service is running in [Preview](../overview/concepts/launch-stages.md) mode. Managing organization services is unavailable.
+The {{org-full-name}} service is in the [Preview](../overview/concepts/launch-stages.md) stage. Managing organization services is unavailable.
 
 {% endnote %}
 
@@ -41,7 +41,7 @@ Identity federation is a technology with which you can implement a single sign-o
 
 To configure your identity federation, follow these steps:
 
-1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.png).
+1. In the left panel, select the [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.png) section.
 
 1. Click **Create federation**.
 
@@ -63,5 +63,14 @@ To configure your identity federation, follow these steps:
 
 1. Add the [identity provider certificate](#add-cert) to the created federation.
 
-All users who log in to {{org-full-name}} through the identity federation using their work accounts are automatically added to the list of the organization's users.
+1. Enable **Automatically create users** to add authenticated users to your organization automatically.
+
+   If you don't enable this option, you will need to [manually add](add-account.md#add-user-sso) your federated users.
+
+1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{yandex-cloud}}.
+
+   User attributes supported by {{org-full-name}} services are listed in identity federation setup guides for different identity providers:
+   * [Active Directory](operations/federations/integration-adfs.md).
+   * [Google Workspace](operations/federations/integration-gworkspace.md).
+   * [Other SAML-compatible identity providers](operations/federations/integration-common.md).
 

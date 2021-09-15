@@ -1,86 +1,54 @@
-# Configuring an identity federation
+# SAML-compatible identity federations
 
-If your company has a user and access management system (for example, Active Directory or Google Workspace), you can use it to authorize employees in {{org-full-name}}. In this case, you don't need to create a new Yandex account for every company employee. They can get access to {{yandex-cloud}} services using their corporate accounts.
+{{ yandex-cloud }} supports [SAML 2.0](https://wiki.oasis-open.org/security)-based identity federations. This is a popular markup language to enable Single Sign-On (SSO), a technology that lets users access multiple apps without having to enter their username and password every time. For example, whenever you visit a site and see the _Sign in with Yandex_, _Google_, or _Facebook_ buttons, these are examples of the Single Sign-On system at work.
+
+This approach is called _identity federation_, it's when all the information about usernames and passwords is stored by a trusted _Identity Provider_ (IdP). While a service provider (SP), such {{ yandex-cloud }}, sends users to the identity provider's (IdP's) server for authentication.
+
+If your company has a user and access management system (for example, Active Directory or Google Workspace), you can use it to authorize employees in {{ org-full-name }}. In this case, you don't need to create a new Yandex account for every company employee. They can get access to {{ yandex-cloud }} services using their corporate accounts.
 
 {% note warning %}
 
-The {{org-full-name}} service is running in [Preview](../overview/concepts/launch-stages.md) mode. Managing organization services is unavailable.
+The {{org-full-name}} service is in the [Preview](../overview/concepts/launch-stages.md) stage. Managing organization services is unavailable.
 
 {% endnote %}
 
-Identity federation is a technology with which you can implement a single sign-on system (SSO) and use corporate accounts for authorization in {{org-name}}. In this case, your corporate account management system acts as an identity provider (IdP).
+## Configuring up federations in {{ org-full-name }} {#federation-usage}
 
-In {{org-name}}, you can create an identity federation with any credential management service (identity provider) that supports the [SAML]({{link-saml}}) protocol.
+Using identity federations, you can configure a Single Sign-On system (Single Sign-On, SSO) and use corporate accounts to authorize in {{org-name}}. In this case, your corporate account management system acts as an identity provider (IdP).
 
-Information about user logins and passwords is stored by the identity provider. When a user logs in to {{org-name}}, they're directed to the identity provider (IdP) server for authentication. If authentication is successful, the user gets access to {{yandex-cloud}} services.
+In {{ org-name }} you are able to create an identity federation with any credential management service (identity provider) that supports the [SAML]({{ link-saml }}) protocol.
 
-## Creating a federation {#create}
+Information about user logins and passwords is stored by the identity provider. When a user logs in to {{org-name}}, they're directed to the identity provider (IdP) server for authentication. If authentication is successful, the user gets access to {{ yandex-cloud }} services.
 
-1. [Log in]({{link-passport}}) to the organization's administrator account.
+Since authentication takes place on the IdP server's side, you can configure a more secure user data verification, such as two-factor authentication or USB tokens.
 
-1. Go to [{{org-full-name}}]({{link-org-main}}).
+You can set up identity federations for different identity providers:
 
-1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.png).
+* [Active Directory](operations/federations/integration-adfs.md).
+* [Google Workspace](operations/federations/integration-gworkspace.md).
+* [Other SAML-compatible identity providers](operations/federations/integration-common.md).
 
-1. Click **Create federation**.
+## Authenticating in a federation {#saml-authentication}
 
-1. Enter the federation name and description.
+{% include [federated-user-auth](../_includes/iam/federated-user-auth.md) %}
 
-1. In the **Cookie lifetime** field, specify the period of time during which the browser won't ask the user to re-authenticate.
+The authentication process is shown in the diagram:
 
-1. In the **IdP Issuer** field, specify the IdP server ID to be used for authentication. The IdP server must send the same ID in its response to {{org-name}} during user authentication.
+![image](../_assets/iam/federations/saml-authentication.svg)
 
-    {% note info %}
+1. The user opens a console login link in the browser.
 
-    ID format depends on the type of IdP server you use (for example, Active Directory or Google Workspace).
+1. If this is the first time the user authenticates, the console redirects them to the IdP server for authentication.
 
-    {% endnote %}
+    If the user was already authenticated, this information is saved in the browser cookie. If the cookie is still valid, the management console authenticates the user immediately and redirects them to the home page. The cookie lifetime is specified when the federation is created.
 
-1. In the **SSO method** field, choose **POST**.
+    If the cookie expires, the console forwards the user to the IdP server for re-authentication.
 
-1. In the **Link to the IdP login page** field, specify the address of the page where the browser redirects the user for authentication.
+1. The IdP server shows the authentication page to the user. For example, it prompts them to enter their username and password.
 
-1. Add the [identity provider certificate](#add-cert) to the created federation.
+1. The user enters the data required for authentication on the IdP server.
 
-All users who log in to {{org-full-name}} through the identity federation using their work accounts are automatically added to the list of the organization's users.
+1. If authentication is successful, the IdP server sends the user's browser back to the management console login page.
 
-To learn more about configuring an identity federation for different identity providers, see the [Yandex Identity and Access Management](../iam/index.yaml) documentation:
-
-* [Active Directory](../iam/operations/federations/integration-adfs.md).
-* [Google Workspace](../iam/operations/federations/integration-gsuite.md).
-* [Other SAML-compatible identity providers](../iam/operations/federations/integration-common.md).
-
-## Adding a certificate {#add-cert}
-
-When the identity provider (IdP) informs {{org-full-name}} that a user has been authenticated, they sign the message with their certificate. To enable {{org-name}} to verify this certificate, add it to the created federation.
-
-1. Get your identity provider certificate.
-
-    {% note info %}
-
-    To find out how to get a certificate, see the documentation or go to the support service of your identity provider.
-
-    {% endnote %}
-
-1. Go to [{{org-full-name}}]({{link-org-main}}).
-
-1. In the left panel, select [Federations]({{link-org-federations}}) ![icon-federation](../_assets/organization/icon-federation.png).
-
-1. Click the name of the federation you need to add a certificate to.
-
-1. At the bottom of the page, click **Add certificate**.
-
-1. Enter the certificate's name and description.
-
-1. Choose how to add the certificate:
-    * To add a certificate as a file, click **Choose a file** and specify the path to it.
-    * To paste the contents of a copied certificate, select the **Text** method and paste the contents.
-
-1. Click **Add**.
-
-{% note tip %}
-
-Certificates have limited validity periods. Before the current certificate expires, we recommend adding a new certificate.
-
-{% endnote %}
+1. The management console asks IAM whether this user is added to the cloud. If the user is added, the management console authenticates the user and redirects them to the home page.
 

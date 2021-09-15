@@ -16,7 +16,15 @@ A backup is automatically created once a day and stored for 7 days. You can't di
 
 The backup start time is set when [creating](../operations/cluster-create.md) or [updating](../operations/update.md) a cluster. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
 
-{{ mms-name }} supports Point-in-Time Recovery (PITR) of the cluster state to a given point in time between creating the oldest full backup and archiving the most recent transaction log. For this purpose, the backup selected as the starting point of recovery is updated with entries from the cluster transaction log. This log is archived in the running cluster every 20 minutes. For more information about PITR, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016).
+{{ mms-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup until the moment when the most recent transaction log is archived. For this purpose, the backup selected as the recovery starting point is updated with entries from the cluster transaction log.
+
+When creating backups and restoring data from them to a given point in time, keep in mind the following:
+
+* The transaction log is archived in a running cluster every 20 minutes and then uploaded to object storage.
+
+* It takes some time to create and upload a transaction log archive to object storage. This is why the cluster state stored in object storage may differ from the actual one.
+
+For more information about PITR, see the [{{ MS }} documentation](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016).
 
 To restore a cluster from a backup, [follow the instructions](../operations/cluster-backups.md).
 
@@ -62,3 +70,4 @@ Backup integrity is checked on synthetic data using integration tests available 
 ### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+
