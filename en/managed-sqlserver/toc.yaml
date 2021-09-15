@@ -29,6 +29,8 @@ items:
         href: operations/cluster-backups.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
+      - name: Performance diagnostics
+        href: operations/performance-diagnostics.md
   - name: Concepts
     items:
       - name: Relationship between service resources
