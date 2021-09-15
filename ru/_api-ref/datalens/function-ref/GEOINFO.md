@@ -22,7 +22,7 @@ GEOINFO( address, scale )
 - `"region"`;
 - `"locality"`.
 
-Чтобы подключить функцию, перейдите на страницу [Настройки сервиса](https://datalens.yandex.ru/settings).
+Чтобы подключить функцию, перейдите на страницу [Настройки сервиса](https://datalens.yandex.ru/settings) page.
 
 **Типы аргументов:**
 - `address` — `Строка`
