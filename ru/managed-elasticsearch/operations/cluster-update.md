@@ -17,6 +17,7 @@ keywords:
 * [{#T}](#change-admin-password).
 * [{#T}](#update-additional-settings).
 
+Вы также можете обновить версию и изменить редакцию {{ ES }}. Подробнее см. в разделе [{#T}](./cluster-version-update.md).
 
 ## Изменить настройки сервисного аккаунта {#change-service-account}
 

@@ -15,16 +15,16 @@ To get started with {{ iot-name }}:
 ## Before you start {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
-2. [On the billing page]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-3. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md).
+1. [On the billing page]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md).
 
 ## Create a certificate {#create-ca}
 
 Devices and registries interact using X.509 certificates:
 
-- If you have a certificate, just add it to the device in the registry.
+* If you have a certificate, just add it to the device in the registry.
 
-- If don't have one, you can create a certificate, for example, with [OpenSSL](https://www.openssl.org):
+* If don't have one, you can create a certificate, for example, with [OpenSSL](https://www.openssl.org):
 
     ```
     $ openssl req -x509 \
@@ -37,13 +37,13 @@ Devices and registries interact using X.509 certificates:
     ```
 
     Where:
-    - `-x509`: X.509 certificate.
-    - `newkey`: Encryption algorithm.
-    - `-keyout`: File to write the private key to.
-    - `-out`: File to save the certificate to.
-    - `-nodes`: This flag is set when no public key encryption is required.
-    - `-days`: Certificate validity period in days.
-    - `-subj`: Request object.
+    * `-x509`: X.509 certificate.
+    * `newkey`: Encryption algorithm.
+    * `-keyout`: File to write the private key to.
+    * `-out`: File to save the certificate to.
+    * `-nodes`: This flag is set when no public key encryption is required.
+    * `-days`: Certificate validity period in days.
+    * `-subj`: Request object.
 
 ## Create a registry {#create-registry}
 
@@ -56,17 +56,17 @@ Devices and registries interact using X.509 certificates:
    1. Select **{{ iot-name }}**.
    1. Click **Create registry**.
    1. Specify **basic parameters** for the registry:
-      - Enter the registry **Name**. For example, `my-registry`.
-      - (optional) Add a **Description** with additional information about the registry.
-      - Set a **Password** that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
-      - (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
+      * Enter the registry **Name**. For example, `my-registry`.
+      * (optional) Add a **Description** with additional information about the registry.
+      * Set a **Password** that you'll use to access the registry.<br/>To do this, you can use a [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
+      * (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
    1. (optional) Add [certificates](operations/certificates/create-certificates.md):
-      - To add a file:
+      * To add a file:
          1. Choose the **File** method.
          1. Click **Select file**.
          1. Specify the certificate file on your computer and click **Open**.
          1. Click **Add**.
-      - To add text:
+      * To add text:
          1. Choose the **Text** method.
          1. Insert the certificate body in the **Contents** field.
          1. Click **Add**.
@@ -91,7 +91,7 @@ Devices and registries interact using X.509 certificates:
         name: my-registry
         ```
 
-    2. Add a certificate to the registry:
+    1. Add a certificate to the registry:
 
         ```
         $ yc iot registry certificate add \
@@ -122,19 +122,19 @@ Devices and registries interact using X.509 certificates:
    1. In the left part of the window, select **Devices**.
    1. Click **Add device**.
    1. Specify **basic parameters** for the device:
-      - Enter a device **Name**. For example, `my-device`.
-      - (optional) Add a **Description** with additional information about the device.
-      - Set a **Password** that you'll use to access the device.<br/>To do this, you can use the [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
-   1. (optional) Add [aliases](concepts/topic.md#aliases):
+      * Enter a device **Name**. For example, `my-device`.
+      * (optional) Add a **Description** with additional information about the device.
+      * Set a **Password** that you'll use to access the device.<br/>To do this, you can use the [password generator](https://passwordsgenerator.net/).<br/>Don't forget to save your password because you'll need it later.
+   1. (optional) Add [aliases](concepts/topic/usage.md#aliases):
       1. Click **Add alias**.
       1. Fill in the fields: enter an alias (for example, `events`) and the topic type after `$devices/<deviceID>` (for example, `events`).<br/>You can use the `events` alias instead of the `$devices/<deviceID>/events` topic.
    1. (optional) Add [certificates](operations/certificates/create-certificates.md):
-      - To add a file:
+      * To add a file:
          1. Choose the **File** method.
          1. Click **Select file**.
          1. Specify the certificate file on your computer and click **Open**.
          1. Click **Add**.
-      - To add text:
+      * To add text:
          1. Choose the **Text** method.
          1. Insert the certificate body in the **Contents** field.
          1. Click **Add**.
@@ -183,11 +183,11 @@ Devices and registries interact using X.509 certificates:
 
 Find out how to:
 
-- [Send a message](operations/publish.md).
-- [Subscribe a device or registry to receive messages](operations/subscribe.md).
+* [Send a message](operations/publish.md).
+* [Subscribe a device or registry to receive messages](operations/subscribe.md).
 
 ## What's next {#what-is-next}
 
-- Read about [service concepts](concepts/index.md).
-- Find out how to [work with registries and devices](operations/index.md).
+* Read about [service concepts](concepts/index.md).
+* Find out how to [work with registries and devices](operations/index.md).
 

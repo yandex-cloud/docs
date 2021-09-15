@@ -212,11 +212,11 @@
        {"Type":"Float", "Id":"2","Name":"Item 2","Fullness":"80.97"},
        {"Type":"Float", "Id":"3","Name":"Item 3","Fullness":"30.33"},
        {"Type":"Float", "Id":"4","Name":"Item 4","Fullness":"15.15"},
-	]}
-	]
+    ]}
+    ]
 }
 ```
-	
+
 Подробнее об [MQTT-топиках в сервисе {{ iot-short-name }}](../../iot-core/concepts/topic/index.md).
 
 ### Создайте триггер вызова функции один раз в минуту {#minute-trigger}
@@ -353,12 +353,12 @@
 1. Нажмите кнопку **Запустить тест**.
 
 При успешном выполнении функции в поле **Состояние функции** отобразится статус **Выполнена**, а в поле **Ответ функции** результат:
-	
+
 ```json
 {
 "statusCode" : 200 ,
     "headers" : {
-	    "Content-Type" : "text/plain"
+        "Content-Type" : "text/plain"
     },
 "isBase64Encoded" : false
 }

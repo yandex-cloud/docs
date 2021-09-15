@@ -16,13 +16,23 @@ items:
     items:
       - name: Overview
         href: manage-users.md
-      - name: Adding Yandex users
+      - name: Add users
         href: add-account.md
+      - name: Assigning access rights
+        href: roles.md
+      - name: Deleting a user account
+        href: edit-account.md
+  - name: Managing identity federations
+    items:
       - name: Configuring an identity federation
         href: add-federation.md
-      - name: Editing or deleting a user account
-        href: edit-account.md
-  - name: API Reference
+      - name: Authentication using Active Directory
+        href: operations/federations/integration-adfs.md
+      - name: Authentication using Google Workspace
+        href: operations/federations/integration-gworkspace.md
+      - name: Authentication using an SAML-compatible identity federation
+        href: operations/federations/integration-common.md
+  - name: API reference
     items:
       - name: Authentication
         href: api-authentication.md
@@ -106,4 +116,6 @@ items:
                 href: api-ref/Certificate/listOperations.md
               - name: create
                 href: api-ref/Certificate/create.md
+  - name: Pricing policy
+    href: pricing.md
 base: en/organization

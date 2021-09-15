@@ -9,18 +9,18 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ## Restoring clusters from backups {#restore}
 
-Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time in the interval from its backup to the current point. If the cluster you are trying to restore is already deleted, the recovery interval is limited by the time point the last backup was created. To learn more about this technology, see [{#T}](../concepts/backup.md).
+Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time in the interval from creating the oldest full backup to archiving the most recent write ahead log (WAL). For more information, see [{#T}](../concepts/backup.md).
 
-For example, if the backup operation ended August 10, 2020, 12:00:00 UTC and the current date is August 15, 2020, 19:00:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:59:59 UTC inclusive.
+For example, if the backup operation ended August 10, 2020, 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the latest write ahead log was saved August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC inclusive.
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
+When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
 When creating a new cluster, set all required parameters.
 
-When restoring to the state from the current time point:
+When restoring to the current state, the new cluster will reflect the state of:
 
-- The new cluster reflects the state of the cluster at the time of recovery if the cluster still exists.
-- The new cluster reflects the state of the cluster at the time of the creation of the newest backup if the cluster is already deleted.
+* An existing cluster at the time of recovery.
+* A deleted cluster at the time of archiving the last write ahead log.
 
 {% list tabs %}
 
@@ -60,7 +60,7 @@ When restoring to the state from the current time point:
 
   1. Click **Restore cluster**.
 
-  {{ mpg-name }} launches the operation to create a cluster from a backup.
+  {{ mpg-name }} launches the operation to create a cluster from the backup.
 
 - CLI
 
@@ -70,7 +70,7 @@ When restoring to the state from the current time point:
 
   To restore a cluster from a backup:
 
-  1. View the description of the CLI's restore cluster command {{ PG }}:
+  1. View a description of the CLI restore {{ PG }} cluster command:
 
       ```
       $ {{ yc-mdb-pg }} cluster restore --help
@@ -91,7 +91,7 @@ When restoring to the state from the current time point:
 
      The time when the backup was completed is shown in the `CREATED AT` column of a list of available backups, in `yyyy-mm-ddThh:mm:ssZ` format (`2020-08-10T12:00:00Z` in the example above). You can restore a cluster to any state from the specified point in time to the current time.
 
-  1. Request creation of a cluster from a backup:
+  1. Request the creation of a cluster from a backup:
 
       ```bash
       $ {{ yc-mdb-pg }} cluster restore \
@@ -106,7 +106,7 @@ When restoring to the state from the current time point:
              --resource-preset {{ host-class }}
       ```
 
-      In the `--time` parameter, specify the time point from which you want to restore the original state of the {{ PG }} cluster, in the `yyyy-mm-ddThh:mm:ssZ` format.
+      In the `--time` parameter, specify the time point from which you want to restore the original state of the {{ PG }} cluster, in `yyyy-mm-ddThh:mm:ssZ` format.
 
       In the example above, the cluster will be restored to the state it was 10 seconds after the `c9qlk4v13uq79r9cgcku...` backup was created. This backup was selected as the starting point for recovery (the `--time 2020-08-10T12:00:10Z` parameter).
 
@@ -117,18 +117,18 @@ When restoring to the state from the current time point:
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With databases and users that existed in the cluster at the time of recovery.
-      - With 20 GB fast network storage (`{{ disk-type-example }}`).
+      - With 20 GB of fast network storage (`{{ disk-type-example }}`).
 
 {% endlist %}
 
-## Creating backups {#create-backup}
+## Creating a backup {#create-backup}
 
 {% list tabs %}
 
 - Management console
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-  1. Click **Create a backup**.
+  1. Click **Create backup**.
 
 - CLI
 
@@ -144,7 +144,7 @@ When restoring to the state from the current time point:
       $ {{ yc-mdb-pg }} cluster backup --help
       ```
 
-  1. Request creation of a backup specifying the cluster name or ID:
+  1. Request the creation of a backup specifying the cluster name or ID:
 
       ```
       $ {{ yc-mdb-pg }} cluster backup my-pg-cluster
@@ -215,7 +215,7 @@ When restoring to the state from the current time point:
   $ {{ yc-mdb-pg }} backup get <backup ID>
   ```
 
-  The backup ID can be retrieved with the [list of backups](#list-backups) .
+  The backup ID can be retrieved with the [list of backups](#list-backups).
 
 {% endlist %}
 
@@ -240,7 +240,7 @@ When restoring to the state from the current time point:
      --resource-preset <host class> \
      --user name=<username>,password=<user password> \
      --database name=<database name>,owner=<database owner name> \
-     --disk-size <storage size in GB> \
+     --disk-size <storage size in GB>
      --backup-window-start 10:00:00
   ```
 

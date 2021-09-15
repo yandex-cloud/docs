@@ -1,4 +1,4 @@
-Create a trigger for the device [topic](../../iot-core/concepts/topic.md) or {{ iot-name }} service registry, and process message copies using a [function](../../functions/concepts/function.md) {{ sf-name }}.
+Create a trigger for the device [topic](../../iot-core/concepts/topic/index.md) or {{ iot-name }} service registry, and process message copies using a [function](../../functions/concepts/function.md) {{ sf-name }}.
 
 {% note warning %}
 
