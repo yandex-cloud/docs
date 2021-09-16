@@ -19,6 +19,7 @@
         * [{#T}](#settings-clickhouse).
         * [{#T}](#settings-mongodb).
         * [{#T}](#settings-mysql).
+        * [{#T}](#settings-storage).
         * [{#T}](#settings-postgresql).
 
     1. Нажмите кнопку **Создать**.
@@ -38,6 +39,7 @@
         * [{#T}](#settings-clickhouse).
         * [{#T}](#settings-mongodb).
         * [{#T}](#settings-mysql).
+        * [{#T}](#settings-storage).
         * [{#T}](#settings-postgresql).
 
     1. Нажмите кнопку **Применить**.
@@ -114,6 +116,22 @@
      {% endnote %}
 
    * **Часовой пояс базы**, указывается как идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
+
+### {{ objstorage-name }} {#settings-storage}
+
+* **Бакет** — имя [бакета](../../storage/concepts/bucket.md), в который будут загружаться данные из источника.
+
+* **SA Аккаунт** — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролью `storage.uploader`, под которым будет осуществляться доступ к [{{ yds-full-name }}](../../data-streams).
+
+* **Выходной формат** — формат, в котором данные будут записаны в бакет, `JSON` или `CSV`.
+
+* **Паттерн раскладки данных** — путь к каталогу в бакете, в который будут сохранены данные.
+
+* **Размер файла** — разделение данных на файлы указанного размера.
+
+* **Интервал отправки** — интервал отправки данных в бакет, в секундах.
+
+* **Формат сжатия** — сжатие выходных данных, `GZIP` или `UNCOMPRESSED` (отключено).
 
 ### {{ PG }} {#settings-postgresql}
 

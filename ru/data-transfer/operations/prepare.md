@@ -520,6 +520,13 @@
 
 {% endlist %}
 
+### {{ objstorage-name }} {#prepare-target-storage}
+
+Чтобы подготовить приемник к трансферу:
+
+   1. [Создайте бакет](../../storage/operations/buckets/create.md) нужной вам конфигурации.
+   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader`.
+
 ### {{ PG }} {#prepare-target-pg}
 
 Чтобы подготовить приемник к трансферу:
