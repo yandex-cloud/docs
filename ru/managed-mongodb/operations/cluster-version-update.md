@@ -29,8 +29,6 @@
 
 ## Обновить кластер {#start-update}
 
-Чтобы обновить кластер {{ mmg-name }}:
-
 {% list tabs %}
 
 - Консоль управления
@@ -73,9 +71,7 @@
      Подробнее об обратной совместимости читайте в [документации MongoDB](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
 - Terraform
-  
-  Чтобы изменить версию {{ MG }}:
-  
+
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
