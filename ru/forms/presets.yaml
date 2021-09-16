@@ -12,6 +12,9 @@ default:
   link-forms-ext-ya: https://forms.yandex-team.ru/ext/admin/
   link-forms-b2b: https://forms.yandex.ru/b2b/admin
   #на будущее docs-forms: https://cloud.yandex.ru/docs/forms/
+
+  #Ссылки на wiki
+  link-wiki: https://wiki.yandex.ru/
   
   #Ссылки на сервисы
   link-passport: https://passport.yandex.ru/auth

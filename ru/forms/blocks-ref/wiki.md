@@ -31,11 +31,11 @@
 
 {% if audience == "internal" %}
 
-`https://wiki.yandex-team.ru/users/<имя-пользователя>/<имя-страницы>`
+`{{ link-wiki }}users/<имя-пользователя>/<имя-страницы>`
 
 {% else %}
 
-`https://wiki.yandex.ru/users/<имя-пользователя>/<имя-страницы>`
+`{{ link-wiki }}users/<имя-пользователя>/<имя-страницы>`
 
 {% endif %}
 

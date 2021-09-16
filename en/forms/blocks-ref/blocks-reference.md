@@ -1,4 +1,4 @@
-# Prompt blocks
+# Prompt guide
 
 This section is about prompt blocks and parameters:
 

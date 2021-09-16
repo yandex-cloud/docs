@@ -1,4 +1,4 @@
-- To add an image to the prompt, click (../../_assets/forms/add-picture.png).
+- To add an image to the prompt, click ![](../../_assets/forms/add-picture.png).
 
 - To add a comment or hint to the prompt, click **+ Add comment**. The comment is displayed in a small font.
 
