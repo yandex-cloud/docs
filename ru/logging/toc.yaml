@@ -11,16 +11,16 @@ items:
         href: operations/write-logs.md
       - name: Чтение записей
         href: operations/read-logs.md
-      - name: Изменение срока хранения записей
-        href: operations/retention-period.md
-      - name: Управление правами доступа к лог-группе
-        href: operations/access-rights.md
-      - name: Получение списка лог-групп
-        href: operations/list.md
-      - name: Управление пользовательской лог-группой
+      - name: Управление лог-группой
         items:
         - name: Создание лог-группы
           href: operations/create-group.md
+        - name: Управление правами доступа к лог-группе
+          href: operations/access-rights.md
+        - name: Изменение срока хранения записей
+          href: operations/retention-period.md
+        - name: Получение списка лог-групп
+          href: operations/list.md
         - name: Удаление лог-группы
           href: operations/delete-group.md
   - name: Концепции
