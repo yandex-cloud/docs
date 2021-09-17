@@ -1,0 +1,2 @@
+We recommend that you track spending on your personal account and [top up the balance so that it is always positive](../operations/pay-the-bill.md). If the funds for the resources consumed can't be debited from any of your linked bank cards or your personal account balance exceeds the maximum allowed credit limit, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md).
+

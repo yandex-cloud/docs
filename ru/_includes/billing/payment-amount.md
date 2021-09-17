@@ -39,7 +39,7 @@
 
 {% endif %}
 
-{% if region == "ru" %}
+{% if region == "kz" %}
 
 - Пример 1
   
