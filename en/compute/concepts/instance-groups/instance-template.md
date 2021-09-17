@@ -35,6 +35,10 @@ You can create a group without specifying any subnets for its instances if the a
 
 You can also configure a public IP address for each instance. This allows the instance to interact with other services over the internet. For more information, see [{#T}](../network.md).
 
+You can specify the [appropriate security groups](../../../vpc/concepts/security-groups.md) in a template or configure them individually for each instance in the group.
+
+{% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
+
 ## Metadata {#metadata}
 
 The template can be used to describe the metadata for the instances in the group. For example, you can use the `user-data` key to describe the system users to be created on new instance startup. Read more about the metadata supported by {{compute-name}} in [{#T}](../vm-metadata.md).

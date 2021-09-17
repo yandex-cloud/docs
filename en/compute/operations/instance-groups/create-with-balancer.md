@@ -1,6 +1,6 @@
 # Creating a fixed-size instance group with a network load balancer
 
-You can create a group of fixed-size instances along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [{#T}](../../../network-load-balancer/concepts/index.md) in the {{ network-load-balancer-full-name }} documentation.
+You can create a group of fixed-size instances along with a network load balancer that will evenly distribute the load across cloud resources. For more information, see [Network load balancer](../../../network-load-balancer/concepts/index.md) in the {{ network-load-balancer-full-name }} documentation.
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
@@ -11,7 +11,7 @@ To create an instance group with a network load balancer:
 {% list tabs %}
 
 - Management console
-  1. In [management console]({{ link-console-main }}), select the folder where you want to create your instance group.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your instance group.
   1. From the list of services, select {{ compute-name }}.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click **Create group**.
@@ -41,6 +41,7 @@ To create an instance group with a network load balancer:
           - In the **Public IP** field, choose a method for assigning an IP address:
               - **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
               - **No address**: Don't assign a public IP address.
+          - Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
       - Under **Access**, specify the data required to access the VM:
           - Specify a **Service account** to be linked to the instance.
           - Enter the username in the **Login** field.
@@ -56,7 +57,7 @@ To create an instance group with a network load balancer:
           - **Proactive**: {{ ig-name }} selects which instances to stop when updating or reducing the group on its own.
           - **Opportunistic**: {{ ig-name }} waits for the instances to stop on their own or by the user.
   1. In the **Scalability** section:
-      - Select the **Proactive** [type of scaling](../../concepts/instance-groups/scale.md).
+      - Select the **Fixed** [type of scaling](../../concepts/instance-groups/scale.md).
       - Specify the group size.
   1. Under **Integration with {{ network-load-balancer-name }}**, toggle the switch to the right of the **Create target group** field.
   1. Enter any **Name of the target group** and **Description of the target group**.
@@ -90,7 +91,7 @@ To create an instance group with a network load balancer:
 
       If there aren't any, [create one](../../../vpc/operations/network-create.md).
 
-  1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}).
+  1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) (for example, [CentOS 7]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2esfplfav536pn90mdo){% endif %})).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
@@ -144,7 +145,7 @@ To create an instance group with a network load balancer:
           | `platform_id` | Platform ID. |
           | `memory` | Amount of memory (RAM). |
           | `cores` | Number of processor cores (vCPUs). |
-          | `mode` | Disk access mode.</br> - `READ_ONLY`: read-only access.</br>- `READ_WRITE`: read/write access. |
+          | `mode` | Disk access mode.</br> - `READ_ONLY`: Read-only access.</br>- `READ_WRITE`: Read/write access. |
           | `image_id` | ID of the public image. |
           | `type_id` | Disk type. |
           | `size` | Disk size. |
@@ -239,7 +240,7 @@ To create an instance group with a network load balancer:
       - With a 32 GB network HDD.
       - With a target group named `first-target-group`.
 
-  1. Create a [load balancer](../../../network-load-balancer/operations/load-balancer-create.md) and add the `first-target-group` target group to it .
+  1. Create a [load balancer](../../../network-load-balancer/operations/load-balancer-create.md) and add the `first-target-group` target group to it.
 
 - API
 
@@ -401,7 +402,7 @@ To create an instance group with a network load balancer:
 
      2. Confirm that you want to create the resources.
 
-     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

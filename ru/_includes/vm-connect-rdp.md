@@ -25,7 +25,7 @@
 
   #### См. также
 
-  * [Подключение к удаленному рабочему столу](https://support.microsoft.com/ru-ru/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection).
+  * [Подключение к удаленному рабочему столу]{% if lang == "ru" %}(https://support.microsoft.com/ru-ru/help/17463/windows-7-connect-to-another-computer-remote-desktop-connection){% endif %}{% if lang == "en" %}(https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c){% endif %}.
 
 - macOS
 
@@ -41,7 +41,7 @@
 
   #### См. также
 
-  * [Начало работы с удаленного рабочего стола в Mac](https://docs.microsoft.com/ru-ru/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
+  * [Начало работы с удаленного рабочего стола в Mac]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac){% endif %}.
 
 - Linux
 

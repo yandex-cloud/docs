@@ -26,7 +26,7 @@ To create a VM:
      If you want to create an instance from an existing disk, go to **Disks** [add a disk](../../../compute/operations/vm-create/create-from-disks.md).
 
 1. Under **Computing resources**:
-   - Choose the [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms) Intel Broadwell with NVIDIA® Tesla® v100.
+   - Choose a [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms) Intel Broadwell with NVIDIA® Tesla® v100.
    - Choose the [configuration](../../../compute/concepts/gpus.md#config) of the VM by specifying the required number of GPUs.
    - If necessary, make your VM [preemptible](../../../compute/concepts/preemptible-vm.md).
 
@@ -38,6 +38,7 @@ To create a VM:
      - **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
      - **No address**: Don't assign a public IP address.
    - (optional) Enable [DDoS protection](../../../vpc/ddos-protection/index.md).
+   - Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
 
 1. Under **Access**, specify the data required to access the VM:
 
@@ -54,3 +55,4 @@ To create a VM:
 1. Click **Create VM**.
 
 The virtual machine appears in the list.
+
