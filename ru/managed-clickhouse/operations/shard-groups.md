@@ -274,7 +274,7 @@
 
 - API
 
-  Чтобы удалить группу шардов в кластере, воспользуйтесь методом API [deleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) и передайте в запросе:
+  Воспользуйтесь методом API [deleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) и передайте в запросе:
   - Идентификатор кластера, из которого требуется удалить группу, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   - Имя группы шардов в параметре `shardGroupName`. Чтобы узнать имя, [получите список групп шардов](#list-shard-groups) в кластере.
 

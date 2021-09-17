@@ -129,7 +129,7 @@ filter | A filter expression that filters jobs listed in the response.  The expr
  
 Field | Description
 --- | ---
-jobs[] | **object**<br><p>A Data Proc job. For details about the concept, see <a href="/docs/dataproc/concepts/jobs">documentation</a>.</p> 
+jobs[] | **object**<br><p>A Data Proc job. For details about the concept, see <a href="/docs/data-proc/concepts">documentation</a>.</p> 
 jobs[].<br>id | **string**<br><p>ID of the job. Generated at creation time.</p> 
 jobs[].<br>clusterId | **string**<br><p>ID of the Data Proc cluster that the job belongs to.</p> 
 jobs[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

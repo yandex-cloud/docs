@@ -4,6 +4,12 @@ editable: false
 
 # Правила тарификации для {{ mms-name }}
 
+{% note warning %}
+
+Правила тарификации, описанные на этой странице, действуют до 30 сентября 2021 года включительно. С 01 октября 2021 года будут действовать правила, описанные в разделе [{#T}](pricing-01-10-2021.md).
+
+{% endnote %}
+
 ## Статус кластера {#running-stopped}
 
 В зависимости от статуса кластера тарифы применяются различным образом:
@@ -69,7 +75,7 @@ editable: false
 Все цены указаны с включением НДС.
 
 
-{% include [rub-pricing.md](../_pricing/managed-sqlserver/rub-pricing.md) %}
+{% include [rub-pricing.md](../_pricing/managed-sqlserver/rub-pricing-old.md) %}
 
 
 

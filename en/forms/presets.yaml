@@ -12,7 +12,6 @@ default:
   link-tracker-ya: https://st.yandex-team.ru/
   docs-tracker-field-ya: https://doc.yandex-team.ru/tracker/external/user/create-param.html
   link-wiki: https://wiki.yandex.com/
-  link-wiki-ya: https://wiki.yandex-team.ru/
   support-connect-main: https://yandex.com/support/connect/
   support-disk-main: https://yandex.com/support/disk/
   support-passport-auth: https://yandex.com/support/passport/authorization/twofa-on.html

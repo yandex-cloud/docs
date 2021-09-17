@@ -115,6 +115,8 @@ items:
                 href: docapi/api-ref/actions/deleteTable.md
               - name: DescribeTable
                 href: docapi/api-ref/actions/describeTable.md
+              - name: DescribeTimeToLive
+                href: docapi/api-ref/actions/describeTimeToLive.md
               - name: GetItem
                 href: docapi/api-ref/actions/getItem.md
               - name: ListTables
@@ -131,6 +133,8 @@ items:
                 href: docapi/api-ref/actions/transactWriteItems.md
               - name: UpdateItem
                 href: docapi/api-ref/actions/updateItem.md
+              - name: UpdateTimeToLive
+                href: docapi/api-ref/actions/updateTimeToLive.md
           - name: Common errors
             href: docapi/api-ref/common-errors.md
   - name: YQL reference guide

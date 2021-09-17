@@ -39,7 +39,7 @@ Make sure the uploaded image is in the `READY` status.
       - Choose a [platform](../../concepts/vm-platforms.md).
       - Specify the necessary number of vCPUs and amount of RAM.
 
-  1. In the **Network settings** section, click **Add network**.
+  1. Under **Network settings**, select a network from the list or create a new one by clicking **Create new network**.
 
   1. In the window that opens, select the subnet to connect the VM to while being created.
 
@@ -48,10 +48,12 @@ Make sure the uploaded image is in the `READY` status.
       - **List** — to select a public IP address from the list of static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md) in the {{ vpc-name }} documentation.
       - **No address** — don't assign a public IP address.
 
+  1. Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
+
   1. Specify data required for accessing the VM:
       - Enter the username in the **Login** field.
       - In the **SSH key** field, paste the contents of the public key file.
-        You need to create a key pair for SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
+          You need to create a key pair for an SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
 
   1. Click **Create VM**.
 
@@ -193,6 +195,6 @@ Make sure the uploaded image is in the `READY` status.
 
      2. Confirm that you want to create the resources.
 
-     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 {% endlist %}

@@ -9,7 +9,7 @@
 
 ## Активировать {{ datalens-name }} {#activate-datalens}
 
-{% include [mdb-activate-datalens](../../_includes/mdb/datalens-activate.md) %}
+  {% include [mdb-activate-datalens](../../_includes/mdb/datalens-activate.md) %}
 
 ## Разрешить доступ из {{ datalens-name }} к кластеру {#allow-access}
 

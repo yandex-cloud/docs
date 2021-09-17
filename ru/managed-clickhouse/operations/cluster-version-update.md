@@ -128,6 +128,6 @@
 
 - API
 
-    Изменить версию {{ CH }} для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужное значение в параметре `configSpec.clickhouse.config.version`.
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужное значение в параметре `configSpec.clickhouse.config.version`.
 
 {% endlist %}

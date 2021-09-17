@@ -4,6 +4,12 @@ editable: false
 
 # Pricing for {{ mms-name }}
 
+{% note warning %}
+
+The billing rules described on this page are valid until and including September 30, 2021. Starting from October 01, 2021 the rules described in section [{#T}](pricing-01-10-2021.md) will come into effect.
+
+{% endnote %}
+
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Cluster status {#running-stopped}
@@ -63,7 +69,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 
 
-{% include [usd-pricing.md](../_pricing/managed-sqlserver/usd-pricing.md) %}
+{% include [usd-pricing.md](../_pricing/managed-sqlserver/usd-pricing-old.md) %}
 
 ### Outgoing traffic {#prices-traffic}
 

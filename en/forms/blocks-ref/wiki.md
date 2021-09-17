@@ -17,38 +17,16 @@ If multiple {{ wiki-name }} blocks are used in the form, you can [configure resp
 
 Enter the field name or the prompt.
 
-* To add an image to the prompt, click ![](../../_assets/forms/add-picture.png).
+{% include [question](../../_includes/forms/question.md) %}
 
-* To add a comment or hint to the prompt, click **+ Add comment**. The comment is displayed in a small font.
-
-* To format the text of your prompt or comment, use [Markdown](../appearance.md#section_pzm_m1j_j3b).
-
-### Question ID
-
-Use the question ID to [pre-fill forms](../pre-fill.md).
-
-You can edit the ID. All questions in the same form must have unique IDs.
-
-### Required prompt
-
-Turn this option on to mark required prompts with an <q>asterisk</q>. If the user doesn't respond to this prompt, they can't submit the completed form.
-
-### Hidden question
-
-Turn on this option if you don't want to show a prompt on the form. You can use hidden questions to [send technical parameters](../pre-fill.md#hidden-query).
-
-{% note warning %}
-
-Don't turn on **Hidden question** and **Required prompt** at the same time, otherwise users won't be able to submit the completed form.
-
-{% endnote %}
+{% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 
 ### Link to the table of responses
 
 In **Settings**, insert an absolute or relative link to the [dynamic table of response options](#sec_table). Examples:
 
+`{{ link-wiki }}users/<user-name>/<page-name>`
 
-`https://wiki.yandex.ru/users/<user-name>/<page-name>`
 
 `/users/<user-name>/<page-name>`
 
@@ -79,7 +57,7 @@ The table of responses for the {{ wiki-name }} block must use a special format. 
 
 1. In [{{ wiki-full-name }}]({{ link-wiki }}), create [a dynamic table](../../wiki/create-grid.md).
 
-1. Add a column named `name` to the table.
+1. Add a column named `name`.
 
    If there are other columns in the table, they won't affect the response options in the {{ wiki-name }} block.
 

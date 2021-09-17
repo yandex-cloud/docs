@@ -26,17 +26,27 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
   1. Click **Create cluster**.
 
   1. Under **Basic parameters**:
+
      1. Enter a name for the cluster and, if necessary, a description. The cluster name must be unique within the folder.
+
      1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your apps.
         * `PRESTABLE`: For testing, including the {{ mkf-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+
      1. Select the {{ KF }} version.
+
+     1. To manage topics via the {{ KF }} Admin API:
+
+         {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
+
+         1. Enable **Manage topics via the API**.
+         1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
   1. Under **Host class**, select the platform, host type, and host class.
 
      The host class defines the technical specifications of the VMs where the [{{ KF }} brokers](../concepts/brokers.md) will be deployed. All available options are listed in [Host classes](../concepts/instance-types.md).
 
-     When you [change the host class](cluster-update.md#change-resource-preset) for the cluster, the characteristics of all existing instances change.
+     When you [change the host class](cluster-update.md#update-cluster) for the cluster, the characteristics of all existing instances change.
 
   1. Under **Storage**:
      * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
@@ -85,7 +95,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
   1. Click **Create cluster**.
 
-  1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state becomes **Alive**. This may take some time.
+  1. Wait until the cluster is ready: its status on the {{ mkf-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 - CLI
 
@@ -118,6 +128,20 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
       ```
 
       If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
+
+  1. To manage topics via the {{ KF }} Admin API:
+
+      {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
+
+      1. When creating a cluster, set the `--unmanaged-topics` parameter to `true`:
+
+          ```bash
+          {{ yc-mdb-kf }} cluster create \
+             ...
+             --unmanaged-topics true
+          ```
+
+      1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
 - Terraform
 
@@ -193,7 +217,11 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
     1. Create a cluster.
 
-        {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
 - API
 
@@ -201,6 +229,13 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
   * The cluster name, in the `name` parameter.
   * Security group IDs in the parameter `securityGroupIds`.
+
+  To manage topics via the {{ KF }} Admin API:
+
+  {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
+
+  1. Pass `true` for the `unmanagedTopics` parameter.
+  1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
 {% endlist %}
 

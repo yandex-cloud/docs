@@ -27,7 +27,7 @@ keywords:
    1. Войдите в свой Яндекс ID или аккаунт в Яндекс.Коннекте. Если у вас еще нет аккаунта, зарегистрируйтесь.
 
       * К аккаунту обязательно должен быть привязан ваш номер телефона. Подробные инструкции смотрите в Справке [Яндекс ID](https://yandex.ru/support/passport/authorization/registration.html) и [Яндекс.Коннекта](https://yandex.ru/support/connect/personal.html#personal__section_aq5_hcq_23b).
-      * Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1). 
+      * Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
@@ -60,7 +60,7 @@ keywords:
    1. Войдите в свой Яндекс ID или аккаунт в Яндекс.Коннекте. Если у вас еще нет аккаунта, зарегистрируйтесь.
 
       - К аккаунту обязательно должен быть привязан ваш номер телефона. Подробные инструкции смотрите в Справке [Яндекс ID](https://yandex.ru/support/passport/authorization/registration.html) и [Яндекс.Коннекта](https://yandex.ru/support/connect/personal.html#personal__section_aq5_hcq_23b).
-      - Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1). 
+      - Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 

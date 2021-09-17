@@ -34,6 +34,7 @@
      kinesis {
        stream_name => "/ru-central1/aoegtvhtp8ob9rqq8sto/cc8004q4lbo6bv9iivr0/test"
        region => "ru-central-1"
+       verify_certificate => false
        codec => json_lines
        randomized_partition_key => true
        access_key => "<key_id>"
