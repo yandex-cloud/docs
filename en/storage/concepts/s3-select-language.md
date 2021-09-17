@@ -1,5 +1,11 @@
 # S3 Select query language syntax
 
+{% note info %}
+
+To be able to make S3 Select queries, contact [support](../../support/overview.md).
+
+{% endnote %}
+
 The S3 Select language only uses the `SELECT` operator from the standard SQL. It supports the following standard ANSI clauses:
 
 * SELECT
@@ -7,11 +13,7 @@ The S3 Select language only uses the `SELECT` operator from the standard SQL. It
 * WHERE
 * LIMIT
 
-{% note info %}
-
-S3 Select does not support nested queries or joins.
-
-{% endnote %}
+Nested queries and connections are not supported.
 
 ## SELECT {#select-list}
 
@@ -24,8 +26,7 @@ SELECT *
 SELECT projection [ AS column_alias | column_alias ] [, ...]
 ```
 
-The first form returns each line that satisfies the condition in the `WHERE` clause as is. The second returns a row with a custom projection of the output scalar expressions for each column.
-
+The first form of a clause returns each line that satisfies the condition in the `WHERE` clause as is. The second returns a row with a custom projection of the output scalar expressions for each column.
 
 ## FROM {#from-clause}
 
@@ -41,7 +42,6 @@ FROM S3Object AS alias
 
 As in standard SQL, the `FROM` clause creates rows filtered using the `WHERE` clause and returned as a list of the data specified in `SELECT`.
 
-
 ## WHERE {#where-clause}
 
 Filters rows based on a specified condition. The condition is set as a logical expression. The result returned only contains rows for which the expression evaluates to `TRUE`.
@@ -52,7 +52,6 @@ Syntax:
 WHERE condition
 ```
 
-
 ## LIMIT {#limit-clause}
 
 Limits the number of records returned by a query.
@@ -62,7 +61,6 @@ Syntax:
 ```sql
 LIMIT number
 ```
-
 
 ## Attribute access {#attribute-access}
 
@@ -87,7 +85,6 @@ JSON file attributes:
 * Document.
 
   You can access fields in a JSON file by field name, such as `alias.name`.
-
 
 **Examples**
 
@@ -123,7 +120,6 @@ Query result:
 {"timestamp":"2021-02-26T01:27:19Z","object_key":"name1","status":404,"request_time":16}
 {"timestamp":"2021-02-26T01:27:19Z","object_key":"name2","status":200,"request_time":12}
 ```
-
 
 ## Case sensitivity of headers and attribute names {#sensitivity}
 
@@ -230,3 +226,86 @@ SELECT s.CAST FROM S3Object s
   ```sql
   SELECT x FROM S3Object WHERE x BETWEEN -1 AND 1
   ```
+
+## Aggregate functions {#aggregate-functions}
+
+In the `SELECT` clause, you can use _aggregate functions_ that are calculated using values of multiple or all rows and return a single resulting value.
+
+The following functions are supported:
+
+| Function | Description | Input type | Output type |
+| ----- | ----- | ----- | ----- |
+| `COUNT` | Number of rows | Any | `INT` |
+| `MIN` | The minimum value in a given set of values | `INT` or `DECIMAL` | Same as input |
+| `MAX` | The maximum value in a given set of values | `INT` or `DECIMAL` | Same as input |
+| `SUM` | Sum of values | `INT`, `FLOAT`, or `DECIMAL` | Same as input |
+| `AVG` | Average value | `INT`, `FLOAT`, or `DECIMAL` | If the input type is `INT`, then `DECIMAL`.<br/>Otherwise, same as input. |
+
+Examples:
+
+{% list tabs %}
+
+- JSON
+
+  Sample data:
+
+  ```json
+  {"timestamp":"2021-02-26T01:27:19Z","object_key":"name1","status":404,"request_time":16}
+  {"timestamp":"2021-02-26T01:27:19Z","object_key":"name2","status":200,"request_time":12}
+  {"timestamp":"2021-02-26T01:27:20Z","object_key":"name3","status":200,"request_time":6}
+  ```
+
+  Query using all aggregate functions:
+
+  ```sql
+  SELECT 
+    COUNT(*) AS "count", 
+    MIN(request_time) AS "min", 
+    MAX(request_time) AS "max", 
+    SUM(request_time) AS "sum", 
+    AVG(request_time) AS "avg"
+  FROM S3Object
+  WHERE status = 200
+  ```
+
+  Query result:
+
+  ```json
+  {"count": 2, "min": 6, "max": 12, "sum": 18, "avg": 9.0}
+  ```
+
+- CSV
+
+  Sample data:
+
+  ```
+  timestamp,object_key,status,request_time
+  2021-02-26T01:27:19Z,name1,404,16
+  2021-02-26T01:27:19Z,name2,200,12
+  2021-02-26T01:27:20Z,name3,200,6
+  ```
+
+  Query using all aggregate functions:
+
+  ```sql
+  SELECT 
+    COUNT(*) AS "count", 
+    MIN(CAST(request_time AS FLOAT)) AS "min", 
+    MAX(CAST(request_time AS FLOAT)) AS "max", 
+    SUM(CAST(request_time AS FLOAT)) AS "sum", 
+    AVG(CAST(request_time AS FLOAT)) AS "avg"
+  FROM S3Object
+  WHERE status = '200'
+  ```
+
+  Since all the values in the input CSV files are considered strings, they should be converted to the appropriate types using the `CAST` function.
+
+  Query result:
+
+  ```
+  count,min,max,sum,avg
+  2,6,12,18,9.0
+  ```
+
+{% endlist %}
+

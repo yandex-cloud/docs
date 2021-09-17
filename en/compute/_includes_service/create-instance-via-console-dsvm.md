@@ -1,6 +1,6 @@
 Creating an instance from a public [DSVM](https://cloud.yandex.com/en-ru/marketplace/products/f2e4v304qn35mhilnsbc) image
 
-1. In the [management console](https://console.cloud.yandex.com), select a folder to create a VM in.
+1. In the [management console]({{ link-console-main }}), select a folder to create a VM in.
 1. From the list of services, select {{ compute-name }}.
 1. Click **Create VM**.
 1. Under **Basic parameters**:
@@ -28,6 +28,7 @@ Creating an instance from a public [DSVM](https://cloud.yandex.com/en-ru/marketp
         - **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
         - **No address**: Don't assign a public IP address.
     - (optional) If necessary, enable [DDoS protection](../../vpc/ddos-protection/).
+    - Select the [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
 1. Under **Access**, specify the data required to access the VM:
     - Enter the username in the **Login** field.
     - In the **SSH key** field, paste the contents of the [public key file](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).

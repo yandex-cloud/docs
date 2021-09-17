@@ -121,7 +121,7 @@
    Получить информацию о виртуальной машине вместе с пользовательскими метаданными можно с помощью команды:
 
    ```bash
-   $ yc compute instance get --full <имя-виртуальной-машины>
+   yc compute instance get --full <имя-виртуальной-машины>
    ```
 
    {% endnote %}
@@ -129,38 +129,38 @@
 1. Создайте нового пользователя и укажите для него оболочку `bash` для использования по умолчанию:
 
    ```bash
-   $ sudo useradd -m -d /home/testuser -s /bin/bash testuser
+   sudo useradd -m -d /home/testuser -s /bin/bash testuser
    ```
 
 1. Переключитесь на созданного пользователя:
 
    ```bash
-   $ sudo su - testuser
+   sudo su - testuser
    ```
 
 1. Создайте папку `.ssh` в домашней директории нового пользователя:
 
    ```bash
-   $ mkdir .ssh
+   mkdir .ssh
    ```
 
 1. Создайте в папке `.ssh` файл `authorized_keys`:
 
    ```bash
-   $ touch .ssh/authorized_keys
+   touch .ssh/authorized_keys
    ```
 
 1. Добавьте в файл `authorized_keys` публичный ключ нового пользователя:
 
    ```bash
-   $ echo "<публичный_ключ>" > /home/testuser/.ssh/authorized_keys
+   echo "<публичный_ключ>" > /home/testuser/.ssh/authorized_keys
    ```
 
 1. Измените права доступа к файлу `authorized_keys` и каталогу `.ssh`:
 
    ```bash
-   $ chmod 700 ~/.ssh
-   $ chmod 600 ~/.ssh/authorized_keys
+   chmod 700 ~/.ssh
+   chmod 600 ~/.ssh/authorized_keys
    ```
 
 1. Отключитесь от виртуальной машины командой `exit`.
@@ -168,7 +168,7 @@
 1. Проверьте подключение для нового пользователя:
 
    ```bash
-   $ ssh testuser@<публичный-IP-адрес-ВМ>
+   ssh testuser@<публичный-IP-адрес-ВМ>
    ```
 
 #### Что дальше {#what-is-next}

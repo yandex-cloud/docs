@@ -15,6 +15,8 @@ editable: false
 Результаты выполнения функции кешируются, поэтому при повторном запросе {{ datalens-short-name }} не выполнит геокодирование. Время хранения кеша — 30 дней.
 После 30 дней {{ datalens-short-name }} автоматически вызовет функцию `GEOCODE` для преобразования адреса.
 
+Чтобы подключить функцию, перейдите на страницу [Настройки сервиса](https://datalens.yandex.ru/settings).
+
 
 
 ## [GEOINFO](GEOINFO.md)
@@ -28,6 +30,8 @@ editable: false
 - `"country_code"`;
 - `"region"`;
 - `"locality"`.
+
+Чтобы подключить функцию, перейдите на страницу [Настройки сервиса](https://datalens.yandex.ru/settings) page.
 
 
 

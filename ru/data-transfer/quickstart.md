@@ -24,6 +24,7 @@
 * [{{ CH }}](operations/prepare.md#prepare-target-ch);
 * [{{ MG }}](operations/prepare.md#prepare-target-mg);
 * [{{ MY }}](operations/prepare.md#prepare-target-my);
+* [{{ objstorage-name }}](operations/prepare.md#prepare-target-storage);
 * [{{ PG }}](operations/prepare.md#prepare-target-pg).
 
 ## Создайте эндпоинт-источник {#source}

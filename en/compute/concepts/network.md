@@ -1,6 +1,8 @@
 # Network on a VM
 
-When creating a VM, you need to specify settings for the network interface connected to it: select the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to and configure its [internal](#internal-ip) and [public](#public-ip) IP addresses. This allows the VM to interact with other services on the intranet and internet.
+When creating a VM, you need to specify settings for the network interface connected to it: select the [subnet](../../vpc/concepts/network.md#subnet) to connect the VM to, configure its [internal](#internal-ip) and [public](#public-ip) IP addresses, and add the necessary [security groups](../../vpc/concepts/security-groups.md). This allows the VM to interact with other services on the intranet and internet.
+
+{% include [security-groups-note](../_includes_service/security-groups-note.md) %}
 
 When the network interface is connected, the VM will be assigned the internal IP address in the subnet and [FQDN](#hostname). The public IP address will only be assigned if this was set when creating the VM.
 
@@ -8,7 +10,7 @@ You can find out the IP addresses, FQDN and other information in the management 
 
 On VMs created from public Linux images, the IP address and hostname (FQDN) are not automatically written to the `/etc/hosts` file. This can affect the execution of the `sudo` command.
 
-You can change the network interface settings on the stopped VMs: assign a public IP address, change the subnet, or configure the DNS settings.
+You can change the network interface settings on stopped VMs: assign a public IP address, change the subnet, select other security groups, or configure the DNS settings.
 
 ## Internal IP address {#internal-ip}
 

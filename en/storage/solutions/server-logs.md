@@ -39,21 +39,28 @@ To get information on object queries, [enable logging](../operations/buckets/ena
 
             Sample expressions:
 
-             * Retrieving queries by response code:
+            * Retrieving queries by response code:
 
-                ```sql
-                select "timestamp",request_id,handler,object_key,status,request_time \
-                from S3Object \
-                where status >= 400
-                ```
+              ```sql
+              SELECT "timestamp", request_id, handler, object_key, status, request_time
+              FROM S3Object
+              WHERE status >= 400
+              ```
 
-             * Searching for long-running queries:
+            * Searching for long-running queries:
 
-                ```sql
-                select "timestamp",request_id,handler,object_key,status,request_time \
-                from S3Object \
-                where request_time >= 1000
-                ```
+              ```sql
+              SELECT "timestamp", request_id, handler, object_key, status, request_time
+              FROM S3Object
+              WHERE request_time >= 1000
+              ```
+
+            * Average time for processing queries (using [aggregate functions](../concepts/s3-select-language.md#aggregate-functions) `AVG`):
+
+              ```sql
+              SELECT AVG(request_time) AS "avg" FROM S3Object
+              ```
+
 
     1. Run the command:
 
@@ -68,7 +75,7 @@ To get information on object queries, [enable logging](../operations/buckets/ena
           "output.json"
         ```
 
-1. To display the number of queries by object key, run an aggregation request using the `jq` utility:
+1. If a query uses no aggregate functions, output the number of queries for each object key. To do this, run an aggregation query using the `jq` utility:
 
     ```bash
     jq .object_key output.json | uniq -c | sort -nr

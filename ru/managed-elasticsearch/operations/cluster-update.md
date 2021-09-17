@@ -76,7 +76,7 @@ keywords:
 
 - API
 
-  Чтобы изменить [класс хостов](../concepts/instance-types.md) кластера, воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Класс хостов в параметрах:
     * `configSpec.elasticsearchSpec.dataNode.resources.resourcePresetId`  — для хостов с ролью *Data node*.
@@ -130,7 +130,7 @@ keywords:
 
 - API
 
-  Чтобы изменить размер диска для кластера, воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Необходимый размер диска (в байтах) в параметрах:
     * `configSpec.elasticsearchSpec.dataNode.resources.diskSize`  — для хостов с ролью *Data node*.
@@ -191,7 +191,7 @@ keywords:
 
 - API
 
-  Чтобы изменить пароль пользователя `admin` для кластера, воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   * Новый пароль в параметре `configSpec.adminPassword`. Длина пароля — до 128 символов.
   * Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.
@@ -230,7 +230,7 @@ keywords:
 
 - API
 
-    Чтобы изменить дополнительные настройки кластера {{ ES }}, воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+    Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
     * Список [расширений {{ ES }}](../concepts/plugins.md) в параметре `plugins`.
     * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером, в параметре `serviceAccountId`.

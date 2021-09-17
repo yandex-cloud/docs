@@ -13,14 +13,14 @@ A demo **Sample ClickHouse** connection is used.
 
 To visualize and analyze the data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
 
-1. [Define the data source for the dataset](#step1).
-1. [Configure the dataset fields](#step2).
+1. [Define the data source for a dataset](#step1).
+1. [Configure dataset fields](#step2).
 1. [Create a line chart](#step3).
 1. [Create a column chart](#step4).
 1. [Create a pivot table chart](#step5).
 1. [Create a heat map chart](#step6).
 1. [Create a dashboard](#step7).
-1. [Add the charts to the dashboard](#step8).
+1. [Add charts to the dashboard](#step8).
 1. [Add selectors to the dashboard](#step9).
 
 Create a [connection](../../datalens/concepts/connection.md) to the ClickHouse database with the table.
@@ -29,11 +29,11 @@ Create a [connection](../../datalens/concepts/connection.md) to the ClickHouse d
 
 {% include [before-you-begin](includes/before-you-begin-datalens.md) %}
 
-## Step 1. Define the data source for the dataset {#step1}
+## Step 1. Define the data source for a dataset {#step1}
 
 Create a [dataset](../../datalens/concepts/dataset/index.md) using the [connection](../../datalens/concepts/connection.md) **Sample ClickHouse** created from a ClickHouse database.
 
-1. Go to [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}).
 
 1. Click **Create dataset**.
 
@@ -67,7 +67,7 @@ Create a [dataset](../../datalens/concepts/dataset/index.md) using the [connecti
 
     ![image](../../_assets/datalens/solution-02/07-autolink3.png)
 
-## Step 2. Configure the dataset fields {#step2}
+## Step 2. Configure dataset fields {#step2}
 
 1. Go to the **Fields** tab.
 
@@ -153,16 +153,15 @@ To visualize sales dynamics by month, create a [chart](../../datalens/concepts/c
 
 1. Add a sales measure to the chart. To do this, drag the **Sales** field from the **Measures** section to the **Y** section.
 
-1. Add the delivery type to the chart. To do this, drag the **PaymentType** field from the **Dimensions** section to the **Colors** section.
+1. Add the delivery type to the chart. To do this, drag the **PaymentType** field from the **Dimensions** to the **Colors** section.
 
     ![image](../../_assets/datalens/solution-02/20-line-diagram1.png)
 
 1. Display the chart by month.
     1. Click the calendar icon next to the **OrderDate** field in the **X** section.
-    1. In the drop-down list of grouping options, select **Month** under **Rounding**.
-    1. Click **Apply**.
+    1. In the **Grouping** field, select **Rounding** ⟶ **Month** and click **Apply**.
 
-     ![image](../../_assets/datalens/solution-02/21-date-to-month.png)
+    ![image](../../_assets/datalens/solution-02/21-date-to-month.png)
 
 1. Save the chart.
 
@@ -184,19 +183,19 @@ To visualize sales by brands and product categories, create a [chart](../../data
 
         ![image](../../_assets/datalens/solution-02/23-save-as.png)
 
-    1. In the window that opens, enter the name **Sales by brand and category** for the new chart and click **Save**.
+    1. In the window that opens, enter the **Sales by brand and category** name for the new chart and click **Save**.
 
 1. For the visualization type, choose **Column chart**.
 
     ![image](../../_assets/datalens/solution-02/24-choose-barchart.png)
 
-1. The **OrderDate**, **Sales**, and **PaymentType** fields are copied automatically to the **X**, **Y**, and **Colors** sections, respectively.
+1. The **OrderDate**, **Sales**, and **PaymentType** fields are automatically added to the **X**, **Y**, and **Colors** sections, respectively.
 
 1. Replace the months with brands on the X-axis. From the **Dimensions** section, drag the **ProductBrand** field to the **X** section and hold it over the **OrderDate** field until it turns red.
 
     ![image](../../_assets/datalens/solution-02/25-replace-field1.png)
 
-1. Replace payment types for product categories in **Colors**. Drag **ProductCategory** from the **Dimensions** section to the **Colors** section and hold it over the **PaymentType** field until it turns red.
+1. Replace payment types for product categories in the **Colors** section. Drag **ProductCategory** from the **Dimensions** to the **Colors** section and hold it over the **PaymentType** field until it turns red.
 
     ![image](../../_assets/datalens/solution-02/26-replace-field2.png)
 
@@ -214,7 +213,7 @@ To visualize sales in terms of products and time, create a [chart](../../datalen
     1. Click the down arrow next to the **Save** button in the upper-right corner.
     1. Click **Save as**.
     1. In the window that opens, enter the name **Sales by year and product** for the new chart.
-    1. Click **Ready**.
+    1. Click **Save**.
 
 1. Choose the **Pivot table** visualization type.
 
@@ -229,14 +228,10 @@ To visualize sales in terms of products and time, create a [chart](../../datalen
 1. Add the order date to the table. To do this, drag the **OrderDate** field from the **Dimensions** section to the **Columns** section.
 
 1. Change the display format in the **OrderDate** field to years.
-
     1. Click the calendar icon next to the **OrderDate** field in the **Columns** section.
+    1. In the **Grouping** field, select **Date part** ⟶ **Year** and click **Apply**.
 
-    1. In the drop-down list of grouping options, select **Year** under **Date part**.
-
-    1. Click **Apply**.
-
-        ![image](../../_assets/datalens/solution-02/30-date-to-year.png)
+    ![image](../../_assets/datalens/solution-02/30-date-to-year.png)
 
 1. Add the product category and subcategory to the table. To do this, drag the **ProductCategory** and **ProductSubcategory** fields from the **Dimensions** section to the **Rows** section.
 
@@ -255,7 +250,7 @@ To visualize the density of orders on the Moscow map, create a [chart](../../dat
 1. Copy the chart from the previous step.
     1. Click the icon next to the **Save** button in the upper-right corner and select **Save as**.
     1. In the window that opens, enter the name **Sales heat map** for the new chart.
-    1. Click **Ready**.
+    1. Click **Save**.
 
 1. Select the **Map** visualization type.
 
@@ -271,9 +266,9 @@ To visualize the density of orders on the Moscow map, create a [chart](../../dat
 
 ## Step 7. Create a dashboard {#step7}
 
-Create a [Dashboard](../../datalens/concepts/dashboard.md) to add your charts to.
+Create a [dashboard](../../datalens/concepts/dashboard.md) to add your charts to.
 
-1. Go to the DataLens homepage.
+1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
 
 1. Click **Create dashboard**.
 
@@ -281,7 +276,7 @@ Create a [Dashboard](../../datalens/concepts/dashboard.md) to add your charts to
 
 1. Enter the name **Moscow Shops dashboard** for the dashboard and click **Create**.
 
-## Step 8. Add the charts to the dashboard {#step8}
+## Step 8. Add charts to the dashboard {#step8}
 
 1. The first time you open the dashboard after saving, it opens in edit mode. If you open it later, click **Edit** in the upper-right corner.
 
@@ -337,7 +332,7 @@ Add [selectors](../../datalens/concepts/dashboard.md#selector) to filter the cha
 
     ![image](../../_assets/datalens/solution-02/42-selector2.png)
 
-1. Similarly, add selectors for the following field:
+1. Similarly, add selectors for the following fields:
     * **ProductBrand**
     * **DeliveryDistrictName**
     * **DeliveryType**

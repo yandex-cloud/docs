@@ -5,9 +5,17 @@ editable: false
 
 ## What goes into the cost of using {{ ml-platform-name }} {#rules}
 
-When using the {{ ml-platform-name}} service, you pay for the actual use of computing resources: the calculation time is charged per second.
+When using the {{ ml-platform-name}} service, you pay for the actual use of computing resources: the calculation time or the operation of instances is charged per second.
 
-If you do not perform computational operations in the project, the service usage time {{ml-platform-name }} is not charged. However, if you perform calculations using {{ dataproc-name}} clusters, they are charged separately. For more information, see [using clusters {{dataproc-name }}](#data-proc). Also storage of [datasets](#storage) is charged separately.
+1. When performing calculations and experiments or training models, you pay for the calculation time. If you do not perform computational operations in the project, the service usage time {{ ml-platform-name }} is not charged. However, if you perform calculations using {{ dataproc-name}} clusters, they are charged separately. For more information, see [using clusters {{dataproc-name }}](#data-proc). Also, storage of [datasets](#storage) is charged separately.
+
+1. When deploying models, the cost of using {{ ml-platform-name }} consists of the operating time and capacity of all node instances. The operating time of each instance begins at the time of its launch and ends after the instance is deleted.
+
+  {% note warning %}
+  
+  The pricing rules for the deployment of services for the operation of models will enter into force on October 4, 2021.
+  
+  {% endnote %}
 
 ### Pricing unit {#unit}
 

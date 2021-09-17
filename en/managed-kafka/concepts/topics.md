@@ -23,3 +23,23 @@ Using partitions, you can:
 
 For more information about topics and partitions, see the [documentation for {{ KF }}](https://kafka.apache.org/documentation/#intro_topics).
 
+## Managing topics and partitions {#management}
+
+{% note warning %}
+
+You select a topic management method once when creating a cluster and cannot change it afterwards.
+
+{% endnote %}
+
+A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions:
+
+* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, delete, and configure topics and partitions using {{ mkf-name }} service features.
+
+* Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you already have a solution for managing topics and partitions or if you do not plan to use {{ yandex-cloud }} interfaces. Restrictions apply when using the Admin API:
+
+    * You cannot create or delete topics or manage them using standard {{ yandex-cloud }} interfaces. Use the administrator account instead. This account includes the `ACCESS_ROLE_ADMIN` role that applies to all the topics in a cluster.
+
+        For information on creating this account, see [{#T}](../operations/cluster-accounts.md).
+
+    * You can configure permissions for [producer and consumer](./producers-consumers.md) accounts using standard {{ yandex-cloud }} interfaces rather than the {{ KF }} Admin API.
+

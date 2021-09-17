@@ -4,6 +4,7 @@ default:
   link-forms-admin-ya: https://forms.yandex-team.ru/admin/
   link-forms-ext-ya: https://forms.yandex-team.ru/ext/admin/
   link-forms-b2b: https://forms.yandex.ru/b2b/admin
+  link-wiki: https://wiki.yandex.ru/
   link-passport: https://passport.yandex.ru/auth
   link-metrika: https://metrika.yandex.ru
   support-disk-main: https://yandex.ru/support/disk/

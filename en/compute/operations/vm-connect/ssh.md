@@ -12,6 +12,10 @@ The recommended method for connecting to a virtual machine over SSH is based on 
 
 You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). You can use the `ssh` tool in Linux/macOS/Windows 10 or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows 7/8.
 
+[Security groups](../../../vpc/concepts/security-groups.md) of the VM must allow incoming TCP traffic to port 22.
+
+  {% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
+
 To connect to the VM, specify its public address. You can find out the public IP address in the management console. On the VM's page, go to the **Network** section and find the **Public IPv4** field. If you created a VM with only an internal address, you need to create a new VM with a public address to make it accessible over the internet.
 
 You can also use the internal IP addresses and FQDNs to establish an SSH connection between the VMs on a single {{ yandex-cloud }} cloud network.
@@ -116,7 +120,7 @@ You can add SSH keys for another VM user. To do this, create a new user and add 
    To get information about a VM with user metadata, run the command:
 
    ```bash
-   yc compute instance get --full <VM-name>
+   yc compute instance get --full <VM_name>
    ```
 
    {% endnote %}

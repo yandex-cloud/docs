@@ -1,10 +1,10 @@
 # selectObjectContent method
 
-Filters and returns the contents of an {{ objstorage-name }} object based on an SQL query.
+Filters and returns the contents of an {{ objstorage-name }} object based on an [S3 Select query](../../../concepts/s3-select-language.md).
 
 {% note warning %}
 
-To execute queries, you must have permission to perform `s3:GetObject` and `s3:ObjectsSelect` actions. For more information, see [{#T}](../../../concepts/policy.md).
+To be able to make S3 Select queries, contact [support](../../../../support/overview.md). You must also have the `s3:GetObject` permission. For more information, see [{#T}](../../../concepts/policy.md).
 
 {% endnote %}
 
@@ -98,7 +98,7 @@ Request parameters are passed in XML format:
 | `ExpressionType` | Type of expression used for the request.<br/><br/>Data type: string.<br/><br/>Acceptable values: `SQL`.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest/ExpressionType`. |
 | `InputSerialization` | Requested object data format description.<br/><br/>Data type: `InputSerialization`.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest/InputSerialization`. |
 | `OutputSerialization` | Returned data format description.<br/><br/>Data type: `OutputSerialization`.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest/OutputSerialization`. |
-| `RequestProgress` | Indicates whether regular notifications of the request execution progress are enabled.<br/><br/>Data type: `RequestProgress`.<br/><br/>Required: no.<br/><br/>Path: `/SelectObjectContentRequest/RequestProgress`. |
+| `RequestProgress` | Indicates whether regular notifications of request execution progress are enabled.<br/><br/>Data type: `RequestProgress`.<br/><br/>Required: no.<br/><br/>Path: `/SelectObjectContentRequest/RequestProgress`. |
 | `ScanRange` | Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained in the range. Used only for objects in CSV format.<br/><br/>Data type: `ScanRange`.<br/><br/>Required: no.<br/><br/>Path: `/SelectObjectContentRequest/ScanRange`. |
 
 ## Response {#response}
@@ -148,5 +148,5 @@ A successful response contains additional data in XML format with the schema des
 | `End` | Message indicating that the request has been processed.<br/><br/>Path: `/Payload/End`. |
 | `Progress` | Information about the progress of request execution.<br/><br/>Path: `/Payload/Progress`. |
 | `Records` | Request execution results.<br/>Path: `/Payload/Records`. |
-| `Stats` | Statistics on the processed data. Sent once at the end of the request.<br/>Path: `/Payload/Stats`. |
+| `Stats` | Statistics on processed data. Sent once at the end of the request.<br/>Path: `/Payload/Stats`. |
 

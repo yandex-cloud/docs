@@ -29,6 +29,7 @@
        * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
        * **No address**: Don't assign a public IP address.
      * (optional) Create a record for the VM in the [DNS zone](../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section and specify the zone, FQDN, and TTL for the record. For more information, see [Yandex Cloud DNS integration with Yandex Compute Cloud](../../dns/concepts/compute-integration.md).
+     * Select the [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
    * Under **Access**, specify the information required to access the instance:
      * Specify a **Service account** to be linked to the instance.
      * Enter the username in the **Login** field.
@@ -55,3 +56,4 @@
    * In the **Performance threshold** field, specify the number of successful health checks required for the instance to be considered healthy.
    * In the **Failure threshold** field, specify the number of failed health checks for the instance to be considered unhealthy.
 1. Click **Create**.
+

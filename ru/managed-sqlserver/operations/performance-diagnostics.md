@@ -10,7 +10,7 @@
 
     {% list tabs %}
 
-    * SQL
+    - SQL
 
       Выполните запрос к базе данных:
 
@@ -19,7 +19,7 @@
       SET QUERY_STORE = ON (OPERATION_MODE = READ_WRITE);
       ```
 
-    * SQL Server Management Studio
+    - SQL Server Management Studio
 
       1. Выберите базу данных в окне **Обозреватель объектов**.
       1. Нажмите правой кнопкой мыши и выберите пункт **Свойства**.

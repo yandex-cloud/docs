@@ -65,9 +65,7 @@
       {{ mmg-short-name }} запустит операцию изменения класса хостов для кластера.
 
 - Terraform
-  
-  Чтобы изменить [класс хостов](../concepts/instance-types.md) для кластера:
-  
+
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
@@ -96,7 +94,7 @@
 
 - API
 
-  Изменить [класс хостов](../concepts/instance-types.md) кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.resources.resourcePresetId`.
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.resources.resourcePresetId`.
 
   Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
 
@@ -159,9 +157,7 @@
       Если все условия выполнены, {{ mmg-short-name }} запустит операцию по увеличению объема хранилища.
   
 - Terraform
-    
-  Чтобы увеличить размер хранилища для кластера:
-    
+
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
     
       О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
@@ -190,7 +186,7 @@
 
 - API
 
-  Изменить размер хранилища для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.resources.diskSize`.
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.resources.diskSize`.
 
   Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции {{ mmg-full-name }} не исчерпано место в строке **space**.
 
@@ -234,7 +230,7 @@
 
 - API
 
-  Изменить [настройки {{ MG }}](../concepts/settings-list.md#dbms-cluster-settings) для кластера можно с помощью метода API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.config`.
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.mongodbSpec_4_2.mongod.config`.
 
   Все поддерживаемые настройки описаны [в справочнике API](../api-ref/Cluster/update.md).
 
@@ -294,8 +290,6 @@
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - Terraform
-
-  Чтобы изменить дополнительные настройки кластера:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
       
@@ -380,8 +374,6 @@
 
 - Terraform
 
-  Чтобы изменить список [групп безопасности](../concepts/network.md#security-groups) кластера:
-
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
       
        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
@@ -408,7 +400,7 @@
 
 - API
 
-  Чтобы изменить список [групп безопасности](../concepts/network.md#security-groups) кластера, воспользуйтесь методом API `update` и передайте в запросе:
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
     - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
     - Список групп в параметре `securityGroupIds`.

@@ -12,6 +12,7 @@ To use an encrypted connection, get an SSL certificate:
 {% list tabs %}
 
 - Ubuntu 20.04
+
   
   ```bash
   $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
@@ -27,7 +28,7 @@ To use an encrypted connection, get an SSL certificate:
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to publicly accessible cluster hosts. Before connecting with DataGrip, [generate a certificate](#get-ssl-cert).
 
 {% list tabs %}
 
@@ -62,6 +63,23 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
      1. On the **SSL** tab, enable the **Use SSL** and **Always trust the server certificate** settings.
   1. Click **Test Connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
   1. Click **Done** to save the connection settings.
+
+- SQL Server Management Studio
+
+  1. Create a new connection:
+      1. Specify the connection parameters in the **Connect to server** window:
+          * **Server type**: Database Engine.
+          * **Server name**: `<host FQDN>,1433`. The host FQDN is available from the [cluster host list](../operations/hosts#list).
+          * **Authentication**: SQL Server authentication.
+          * **Login**, **Password**: User's login and password.
+      1. Click **Options**.
+      1. Click the **Connection Properties** tab.
+      1. Select **Encrypt connection** and **Trust server certificate**.
+  1. Click **Connect** to connect to the {{ MS }} host.
+
+  For more information about connecting, see the developer [documentation](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux).
+
+  If the connection is successful, **Object Explorer** will display information about all {{ MS }} objects.
 
 {% endlist %}
 

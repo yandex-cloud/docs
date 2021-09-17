@@ -18,7 +18,7 @@ If the 'cloud-init' or network configuration was changed for the VM, the describ
 
 ## Unable to connect to a VM via SSH or RDP {#serial-console}
 
-The problem may occur due to an error in the SSH, RDP, or network settings. To restore access, connect to the VM using the [serial console](../serial-console/index.md) and adjust the settings.
+The problem may occur due to an error in the SSH, RDP, [security group](../../../vpc/concepts/security-groups.md), or network settings. To restore access, connect to the VM using the [serial console](../serial-console/index.md) and adjust the settings.
 
 {% list tabs %}
 
@@ -29,17 +29,15 @@ The problem may occur due to an error in the SSH, RDP, or network settings. To r
   You may use the serial console only if the user password is set. Otherwise, see [{#T}](#os-recovery).
 
   {% endnote %}
-  
   1. [Enable access](../serial-console/index.md#turn-on-for-current-instance) to the VM serial console.
   1. [Connect](../serial-console/connect-cli.md#connect-to-serial-console) to the serial console.
-  1. Change the SSH or network settings.
+  1. Change the SSH or network settings. If you have [security groups](../../../vpc/concepts/security-groups.md) set up, make sure that their rules allow incoming TCP traffic to port 22.
   1. Connect to the VM via SSH.
 
 - Windows
-
   1. [Enable access](../serial-console/index.md#turn-on-for-current-instance) to the VM serial console.
   1. [Connect](../serial-console/connect-cli.md#connect-to-serial-console) to the serial console.
-  1. Change the RDP or network settings.
+  1. Change the RDP or network settings. If you have [security groups](../../../vpc/concepts/security-groups.md) set up, make sure that their rules allow incoming TCP traffic to port 3389.
   1. Connect to the VM via RDP.
 
 {% endlist %}

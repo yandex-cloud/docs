@@ -37,6 +37,10 @@ items:
         href: concepts/compute-integration.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Practical guidelines
+    items:
+      - name: Migrating DNS zones from Yandex.Connect
+        href: solutions/connect-migration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

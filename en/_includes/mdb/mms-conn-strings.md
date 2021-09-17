@@ -243,7 +243,7 @@ go get github.com/denisenkom/go-mssqldb
 
      If you are connected to the cluster, a message will display saying `Connected!`.
 
-- Connecting without using SSL
+- Connecting via SSL
 
   1. Code example:
 

@@ -7,8 +7,8 @@ You can create a VM with disks restored from the snapshots that exist in the fol
 - Management console
 
   To create a VM:
-  1. In the [management console](https://console.cloud.yandex.com), select a folder to create a VM in.
-  1. In the list of services, select {{ compute-name }}.
+  1. In the [management console]({{ link-console-main }}), select a folder to create a VM in.
+  1. From the list of services, select {{ compute-name }}.
   1. Click **Create VM**.
   1. Under **Basic parameters**:
       - Enter a name and description for the VM. Naming requirements:
@@ -30,13 +30,15 @@ You can create a VM with disks restored from the snapshots that exist in the fol
   1. Under **Network settings**:
       - Specify the subnet ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list.
       - In the **Public IP** field, choose a method for assigning an IP address:
-          - **Auto**: Assign a random IP address from the Yandex.Cloud IP pool.
+          - **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
           - **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
           - **No address**: Don't assign a public IP address.
       - (optional) If necessary, enable [DDoS protection](../../../vpc/ddos-protection/).
+      - Select the [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
   1. Under **Access**, specify the data required to access the VM:
       - Enter the username in the **Login** field.
-      - In the **SSH key** field, paste the contents of the [public key file](../../quickstart/quick-create-linux.md#create-ssh). — (optional) If necessary, enable access to the [serial console](../index.md#serial-console).
+      - In the **SSH key** field, paste the contents of the [public key file](../../quickstart/quick-create-linux.md#create-ssh).
+      - (optional) If necessary, enable access to the [serial console](../index.md#serial-console).
   1. Click **Create VM**.
 
   The virtual machine appears in the list. When a VM is being created, it is assigned an [IP address](../../../vpc/concepts/address) and [hostname](../../../vpc/concepts/address#imya-hosta-(fqdn)) (FQDN).

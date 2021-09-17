@@ -1,6 +1,6 @@
 To create a VM:
 
-1. In the [management console]({{ link-console-main }}), select a folder to create a VM in.
+1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
 
 1. In the list of services, select **{{ compute-name }}**.
 
@@ -39,6 +39,7 @@ To create a VM:
         - **No address**: Don't assign a public IP address.
     - (optional) Create a record for the VM in the [DNS zone](../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section and specify the zone, FQDN, and TTL for the record. For more information, see [Yandex Cloud DNS integration with Yandex Compute Cloud](../../dns/concepts/compute-integration.md).
     - (optional) Enable [DDoS protection](../../vpc/ddos-protection/).
+    - Select the [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the VM).
 
 1. Under **Access**, specify the data required to access the VM:
 

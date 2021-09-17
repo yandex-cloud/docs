@@ -1,12 +1,19 @@
 # Working with topics and partitions
 
-In {{ mkf-name }} clusters, you can:
+A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions:
 
-- [{#T}](#create-topic).
-- [{#T}](#update-topic).
-- [{#T}](#delete-topic).
-- [{#T}](#list-topics).
-- [{#T}](#get-topic).
+* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, delete, and configure topics and partitions using {{ mkf-full-name }} service features.
+* Using the {{ KF }} [Admin API](https://kafka.apache.org/documentation/#adminapi). Select this method if you wish to use your existing solution to manage topics and partitions.
+
+## Managing topics and partitions with the {{ KF }} Admin API {#admin-api}
+
+To manage topics via the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi):
+
+1. [Create a cluster](./cluster-create.md) with **Manage topics via the API** enabled.
+1. [Create](./cluster-accounts.md#create-account) an administrator account in the cluster.
+1. Manage topics with this account using [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi) calls. Review your favorite programming language manual for information on working with the Admin API.
+
+Read more about working with the Admin API and the existing limitations in [{#T}](../concepts/topics.md#management) and in the [{{ KF }} documentation](https://kafka.apache.org/documentation/#adminapi).
 
 ## Creating a topic {#create-topic}
 
@@ -37,7 +44,7 @@ In {{ mkf-name }} clusters, you can:
 
   1. View a description of the CLI create topic command:
 
-     ```
+     ```bash
      {{ yc-mdb-kf }} topic create --help
      ```
 
@@ -60,7 +67,7 @@ In {{ mkf-name }} clusters, you can:
 
         For information about how to create this file, see [{#T}](cluster-create.md).
 
-    1. In the {{ mkf-name }} cluster description, add a `topic` section:
+    1. In the {{ mkf-name }} cluster description, add a `topic` block:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster name>" {
@@ -73,7 +80,7 @@ In {{ mkf-name }} clusters, you can:
         }
         ```
 
-    1. If required, specify the [topic settings](../concepts/settings-list.md#topic-settings) in the `topic_config` section:
+    1. If required, specify [topic settings](../concepts/settings-list.md#topic-settings) in the `topic_config` section:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster name>" {
@@ -160,13 +167,13 @@ The number of {{ KF }} topic partitions can only be increased.
 
 - Terraform
 
-    To update the [topic settings](../concepts/settings-list.md#dbms-settings):
+    To update [topic settings](../concepts/settings-list.md#topic-settings):
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
 
-    1. In the {{ mkf-name }} cluster description, edit the parameters in the `topic` or `topic_config` sections:
+    1. In the {{ mkf-name }} cluster description, edit the values of parameters in the `topic` or the `topic_config` sections:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster name>" {
@@ -248,7 +255,7 @@ The number of {{ KF }} topic partitions can only be increased.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
 
-    1. In the {{ mkf-name }} cluster description, delete the `topic` section that describes the topic.
+    1. In the {{ mkf-name }} cluster description, delete the `topic` section containing the topic description.
 
     1. Make sure the settings are correct.
 
