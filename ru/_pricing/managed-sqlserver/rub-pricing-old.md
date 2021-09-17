@@ -4,9 +4,9 @@
 
 Ресурс | Цена за 1 vCPU в месяц
 --- | ---
-Windows Server Datacenter | 1 051,00 ₽
-Microsoft SQL Server Standard | 6 792,00 ₽
-Microsoft SQL Server Enterprise | 23 227,35 ₽
+Windows Server Datacenter | 913,752 ₽
+Microsoft SQL Server Standard | 5 896,5 ₽
+Microsoft SQL Server Enterprise | 20 163 ₽
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
