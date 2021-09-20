@@ -26,7 +26,7 @@ There are the following product categories in {{ datalens-short-name }} Marketpl
 
 * **Datasets**: Sets of data with pre-configured dashboards. You can use them to create your own charts and dashboards, and enrich your data.
 
-* **Geolayers**: Datasets linked to location (regions, cities, districts, and smaller areas inside cities). You can use geolayers to create different [maps](chart.md#map-chart) and add them to dashboards.
+* **Geolayers**: Datasets linked to location (regions, cities, districts, and smaller areas inside cities). You can use geolayers to create different [maps](chart/types.md#map-chart) and add them to dashboards.
 
 * **Connectors**: Additional types of connections. They let you create connections to external systems not supported in {{ datalens-short-name }} by default.
 

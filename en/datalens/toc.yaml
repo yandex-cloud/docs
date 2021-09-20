@@ -152,7 +152,13 @@ items:
           - name: Dataset settings
             href: concepts/dataset/settings.md
       - name: Charts
-        href: concepts/chart.md
+        items:
+          - name: Overview
+            href: concepts/chart/index.md
+          - name: Chart types
+            href: concepts/chart/types.md
+          - name: Chart settings
+            href: concepts/chart/settings.md
       - name: Dashboards
         href: concepts/dashboard.md
       - name: Using Markdown in DataLens

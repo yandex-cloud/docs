@@ -31,7 +31,7 @@ Visualization as a table or chart.
 You can place charts anywhere on a dashboard and change their size.
 Charts can be linked to selectors.
 
-For more information about charts, see [{#T}](chart.md).
+For more information about charts, see [{#T}](chart/index.md).
 
 ### Selector {#selector}
 

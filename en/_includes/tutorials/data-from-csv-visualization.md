@@ -90,7 +90,7 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
 ## Step 3. Create the first chart {#step3}
 
-To visualize data by gender, create a [chart](../../datalens/concepts/chart.md): column chart.
+To visualize data by gender, create a [chart](../../datalens/concepts/chart/index.md): column chart.
 
 1. Add the names of superheroes to the chart. To do this, drag the **Name** field from the **Dimensions** section to the **X** section.
 
