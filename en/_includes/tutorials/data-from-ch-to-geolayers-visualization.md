@@ -38,7 +38,7 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](#be
 
 1. Click **Open**.
 
-1. The window that opens will display a set of {{ datalens-short-name }} objects: a [connection](../../datalens/concepts/connection.md), [dataset](../../datalens/concepts/dataset/index.md), [chart](../../datalens/concepts/chart.md), and [dashboard](../../datalens/concepts/dashboard.md). Click the yellow dashboard icon at the end of the list.
+1. The window that opens will display a set of {{ datalens-short-name }} objects: a [connection](../../datalens/concepts/connection.md), [dataset](../../datalens/concepts/dataset/index.md), [chart](../../datalens/concepts/chart/index.md), and [dashboard](../../datalens/concepts/dashboard.md). Click the yellow dashboard icon at the end of the list.
 
     ![organization-list](../../_assets/datalens/solution-09/00-organization-list.png)
 

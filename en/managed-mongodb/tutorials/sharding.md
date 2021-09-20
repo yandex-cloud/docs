@@ -40,13 +40,13 @@ Run all your sharding setup commands via the `mongo` CLI from a user granted the
 1. Define an index for the sharded collection:
 
    ```
-   db.<collection name>.ensureIndex( { "<index>": "hashed" } )
+   db.getSiblingDB("<database name>").<collection name>.createIndex( { "<index>": <index type> } )
    ```
 
 1. Enable collection sharding:
 
    ```
-   sh.shardCollection( "<collection>", { "<index>": "hashed" } )
+   sh.shardCollection( "<database name>.<collection>", { "<index>": <index type> } )
    ```
 
    For a detailed description of the `shardCollection` command, see the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#definition).
@@ -88,5 +88,5 @@ Sequence of operations:
    sh.shardCollection( "billing.payments", { "_id": "hashed" } )
    ```
 
-Sharding is now enabled and configured. To make sure, try listing the available shards using the command `db.adminCommand( { listShards: 1 } )`.
+Sharding is now enabled and configured. To make sure, try listing the available shards using the command `sh.status()`.
 

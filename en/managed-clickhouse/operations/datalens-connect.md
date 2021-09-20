@@ -53,7 +53,7 @@ Once the connection is created, you can:
 
 - [Update](#update-connector) or [delete](#delete-connector) this connection.
 - [Create datasets](../../datalens/concepts/dataset/index.md) with the cluster data using the connection.
-- Visualize the datasets using [charts](../../datalens/concepts/chart.md) and [dashboards](../../datalens/concepts/dashboard.md).
+- Visualize the datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
 
 See an [example of data visualization from {{ CH }}](../../solutions/datalens/data-from-ch-visualization.md).

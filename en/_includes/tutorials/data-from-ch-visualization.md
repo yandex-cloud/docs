@@ -143,7 +143,7 @@ Create a [dataset](../../datalens/concepts/dataset/index.md) using the [connecti
 
 ## Step 3. Create a line chart {#step3}
 
-To visualize sales dynamics by month, create a [chart](../../datalens/concepts/chart.md): line chart.
+To visualize sales dynamics by month, create a [chart](../../datalens/concepts/chart/index.md): line chart.
 
 1. For the visualization type, choose **Line chart**.
 
@@ -173,7 +173,7 @@ To visualize sales dynamics by month, create a [chart](../../datalens/concepts/c
 
 ## Step 4. Create a column chart {#step4}
 
-To visualize sales by brands and product categories, create a [chart](../../datalens/concepts/chart.md): column chart.
+To visualize sales by brands and product categories, create a [chart](../../datalens/concepts/chart/index.md): column chart.
 
 1. Copy the chart from the previous step.
 
@@ -207,7 +207,7 @@ To visualize sales by brands and product categories, create a [chart](../../data
 
 ## Step 5. Create a pivot table chart {#step5}
 
-To visualize sales in terms of products and time, create a [chart](../../datalens/concepts/chart.md): pivot table.
+To visualize sales in terms of products and time, create a [chart](../../datalens/concepts/chart/index.md): pivot table.
 
 1. Copy the chart from the previous step.
     1. Click the down arrow next to the **Save** button in the upper-right corner.
@@ -245,7 +245,7 @@ To visualize sales in terms of products and time, create a [chart](../../datalen
 
 ## Step 6. Create a heat map {#step6}
 
-To visualize the density of orders on the Moscow map, create a [chart](../../datalens/concepts/chart.md): heat map.
+To visualize the density of orders on the Moscow map, create a [chart](../../datalens/concepts/chart/index.md): heat map.
 
 1. Copy the chart from the previous step.
     1. Click the icon next to the **Save** button in the upper-right corner and select **Save as**.
