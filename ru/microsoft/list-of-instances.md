@@ -8,7 +8,7 @@
 
 ## Образы Windows Server {#win-server}
 
-В [{{ marketplace-name }}]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?categories=os&operationSystems=WINDOWS){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace?categories=os&operationSystems=WINDOWS){% endif %} на выбор доступны образы Microsoft Windows Server в редакциях Standart и Datacenter: 
+В [{{ marketplace-name }}](https://cloud.yandex.ru/marketplace?categories=os&operationSystems=WINDOWS) доступен образ Microsoft Windows Server только в редакции Datacenter: 
 
 * Windows Server 2012 R2
 * Windows Server 2016
