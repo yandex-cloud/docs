@@ -33,7 +33,7 @@
   ```
 
   * `--name`: Name of the log group.
-  * `--retention-period`: Log group record retention period. Optional parameter. By default, the retention period is 3 days.
+  * `--retention-period`: Log group record retention period. Optional parameter. The maximum retention period is 7 days and the minimum is 1 hour. By default, the retention period is 7 days.
 
   Result:
 
