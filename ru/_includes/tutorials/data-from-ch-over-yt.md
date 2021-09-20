@@ -198,3 +198,9 @@
 Используемая YT таблица не имеет схемы. Использование таких таблиц в {{ datalens-short-name }} невозможно. Пересоздайте таблицу со схемой (указанием типов данных)
 
 {% endcut %}
+
+{% cut "Ошибка в интерфейсе Requested database column does not exist" %}
+
+См. [подробнее](../../datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md).
+
+{% endcut %}

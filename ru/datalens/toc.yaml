@@ -65,6 +65,9 @@ items:
           - name: Data source timed out
             hidden: true
             href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
+          - name: Requested database column does not exist
+            hidden: true
+            href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
