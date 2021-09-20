@@ -83,7 +83,7 @@ items:
       - name: Datasets
         href: concepts/dataset.md
       - name: Charts
-        href: concepts/chart.md
+        href: concepts/chart/index.md
       - name: Dashboards
         href: concepts/dashboard.md
       - name: Quotas and limits

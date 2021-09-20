@@ -37,7 +37,7 @@ Calculated fields are marked with ![image](../../_assets/datalens/formula-datase
 
 {% note warning %}
 
-In [multi-dataset charts](chart.md#multi-dataset-charts), calculated fields are not applicable to fields from multiple datasets.
+In [multi-dataset charts](chart/index.md#multi-dataset-charts), calculated fields are not applicable to fields from multiple datasets.
 
 {% endnote %}
 
