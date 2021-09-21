@@ -46,6 +46,7 @@
 - [{#T}](chart/create-indicator-chart.md)
 - [{#T}](chart/create-tree-chart.md)
 - [{#T}](chart/add-hierarchy.md)
+{% if audience == "internal" %} - [{#T}](chart/create-alert.md){% endif %}
 {% if audience != "internal" %} - [{#T}](chart/publish.md) {% endif %}
 - [{#T}](chart/manage-access.md)
 
