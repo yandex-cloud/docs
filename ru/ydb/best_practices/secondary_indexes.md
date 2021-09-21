@@ -5,7 +5,7 @@
 В общем случае транзакции с использованием глобального индекса являются [распределенными](../concepts/transactions.md#distributed-tx). Запрос на чтение может быть выполнен как одношардовая транзакция в следующих случаях:
 
 * точечное чтение по первичному ключу;
-* точечное чтение по индексной колонке, если запрашиваемые данные представляют собой первичный ключ или его часть.
+* точечное чтение по индексной колонке, если запрашиваемые данные представляют собой первичный ключ, его часть или имеется копия данных в индексе (cover index).
 
 {% note warning %}
 
@@ -56,12 +56,12 @@ CREATE TABLE series
     release_date Uint64,
     views Uint64,
     PRIMARY KEY (series_id),
-    INDEX views_index GLOBAL ON (views),
+    INDEX views_index GLOBAL ON (views) COVER (release_date),
     INDEX date_index GLOBAL ON (release_date)
 );
 ```
 
-Здесь созданы два вторичных индекса: `views_index` к колонке `views` и `date_index` к колонке `release_date`.
+Здесь созданы два вторичных индекса: `views_index` к колонке `views` и `date_index` к колонке `release_date`. Причем индекс `views_index` содержит копию данных из колонки `release_date`.
 
 {% note info %}
 
