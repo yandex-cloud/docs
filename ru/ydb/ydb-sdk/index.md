@@ -1,13 +1,14 @@
 # Работа с SDK
 
-При написании своего приложения можно использовать SDK, доступные для языков [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Java](https://github.com/yandex-cloud/ydb-java-sdk).
+При написании своего приложения можно использовать SDK, доступные для языков [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk), [Java](https://github.com/yandex-cloud/ydb-java-sdk) и [.NET](https://github.com/ydb-platform/ydb-dotnet-sdk).
 
 На этой странице подробно разбирается код тестового приложения, доступного в составе SDK:
 
-* Для [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/examples/basic_example_v1)
-* Для [Go](https://github.com/yandex-cloud/ydb-go-sdk/tree/master/example/basic_example_v1)
-* Для [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/basic_example)
-* Для [NodeJS](https://github.com/yandex-cloud/ydb-nodejs-sdk/tree/master/examples/basic-example-v1)
+* Для [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/examples/basic_example_v1).
+* Для [Go](https://github.com/yandex-cloud/ydb-go-sdk/tree/master/example/basic_example_v1).
+* Для [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/basic_example).
+* Для [NodeJS](https://github.com/yandex-cloud/ydb-nodejs-sdk/tree/master/examples/basic-example-v1).
+* Для [.NET](https://github.com/ydb-platform/ydb-dotnet-examples/tree/main/src/BasicExample).
 
 {% if audience == "internal" %}
 * Для [C++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/python/examples/basic_example)
@@ -127,6 +128,30 @@
   +-------------+------------+-----------+-----------+-------------+
   ```
 
+- .NET
+
+  ```bash
+  $ ./Ydb.Sdk.Examples.BasicExample -e <endpoint> -d <database>
+
+  > SimpleSelect, columns: 3, rows: 1, truncated: False
+  > Series, series_id: 1, title: IT Crowd, release_date: 02/03/2006 00:00:00
+  > SimpleSelect, columns: 3, rows: 1, truncated: False
+  > Series, series_id: 10, title: Comming soon, release_date: 09/20/2021 00:00:00
+  > ReadTable seasons, series_id: 1, season_id: 1, first_aired: 02/03/2006 00:00:00
+  > ReadTable seasons, series_id: 1, season_id: 2, first_aired: 08/24/2007 00:00:00
+  > ReadTable seasons, series_id: 1, season_id: 3, first_aired: 11/23/2008 00:00:00
+  > ReadTable seasons, series_id: 1, season_id: 4, first_aired: 06/25/2010 00:00:00
+  > ReadTable seasons, series_id: 2, season_id: 1, first_aired: 04/06/2014 00:00:00
+  > ScanQuery, series_id: 1, season_id: 2, episodes_count: 5
+  > ScanQuery, series_id: 1, season_id: 3, episodes_count: 6
+  > ScanQuery, series_id: 1, season_id: 4, episodes_count: 6
+  > ScanQuery, series_id: 2, season_id: 1, episodes_count: 8
+  > ScanQuery, series_id: 2, season_id: 2, episodes_count: 10
+  > ScanQuery, series_id: 2, season_id: 3, episodes_count: 10
+  > ScanQuery, series_id: 2, season_id: 4, episodes_count: 10
+  > ScanQuery, series_id: 2, season_id: 5, episodes_count: 8
+  ```
+
 {% endlist %}
 
 ## Создание экземпляра драйвера, клиента и сессии {#driver-client-session-init}
@@ -177,6 +202,28 @@
   	defer driver.Close()
   ```
 
+- C#
+
+  ```c#
+  public static async Task Run(
+      string endpoint,
+      string database,
+      ICredentialsProvider credentialsProvider)
+  {
+      var config = new DriverConfig(
+          endpoint: endpoint,
+          database: database,
+          credentials: credentialsProvider
+      );
+
+      using var driver = new Driver(
+          config: config
+      );
+
+      await driver.Initialize();
+  }
+  ```
+
 {% endlist %}
 
 ### Инициализация клиента и сессии {{ ydb-short-name }} {#client-session-init}
@@ -212,6 +259,12 @@
   this.session = tableClient.createSession()
       .join()
       .expect("cannot create session");
+  ```
+
+- C#
+
+  ```c#
+  using var tableClient = new TableClient(driver, new TableClientConfig());
   ```
 
 {% endlist %}
@@ -344,6 +397,45 @@
           System.out.println();
       }
   }
+  ```
+
+- C#
+
+  Для создания таблиц используется метод `session.ExecuteSchemeQuery` с DDL (Data Definition Language) YQL-запросом.
+
+  ```c#
+  var response = await tableClient.SessionExec(async session =>
+  {
+      return await session.ExecuteSchemeQuery(@"
+          CREATE TABLE series (
+              series_id Uint64,
+              title Utf8,
+              series_info Utf8,
+              release_date Date,
+              PRIMARY KEY (series_id)
+          );
+
+          CREATE TABLE seasons (
+              series_id Uint64,
+              season_id Uint64,
+              title Utf8,
+              first_aired Date,
+              last_aired Date,
+              PRIMARY KEY (series_id, season_id)
+          );
+
+          CREATE TABLE episodes (
+              series_id Uint64,
+              season_id Uint64,
+              episode_id Uint64,
+              title Utf8,
+              air_date Date,
+              PRIMARY KEY (series_id, season_id, episode_id)
+          );
+      ");
+  });
+
+  response.Status.EnsureSuccess();
   ```
 
 {% endlist %}
@@ -491,6 +583,39 @@ SELECT * FROM episodes;
   }
   ```
 
+- C#
+
+  Для выполнения YQL-запросов используется метод `session.ExecuteDataQuery()`. SDK позволяет в явном виде контролировать выполнение транзакций и настраивать необходимый режим выполнения транзакций с помощью класса `TxControl`. В фрагменте кода, приведенном ниже, используется транзакция с режимом `SerializableRW` и автоматическим коммитом после выполнения запроса. Значения параметров запроса передаются в виде словаря имя-значение в аргументе `parameters`.
+
+  ```c#
+  var response = await tableClient.SessionExec(async session =>
+  {
+      var query = @"
+          DECLARE $id AS Uint64;
+
+          SELECT
+              series_id,
+              title,
+              release_date
+          FROM series
+          WHERE series_id = $id;
+      ";
+
+      return await session.ExecuteDataQuery(
+          query: query,
+          txControl: TxControl.BeginSerializableRW().Commit(),
+          parameters: new Dictionary<string, YdbValue>
+              {
+                  { "$id", YdbValue.MakeUint64(id) }
+              },
+      );
+  });
+
+  response.Status.EnsureSuccess();
+  var queryResponse = (ExecuteDataQueryResponse)response;
+  var resultSet = queryResponse.Result.ResultSets[0];
+  ```
+
 {% endlist %}
 
 ## Обработка результатов выполнения {#results-processing}
@@ -540,6 +665,21 @@ SELECT * FROM episodes;
   new TablePrinter(result.getResultSet(0)).print();
   ```
 
+- C#
+
+  Результат выполнения запроса (ResultSet) состоит из упорядоченного набора строк (Rows). Пример обработки результата выполнения запроса:
+
+  ```c#
+  foreach (var row in resultSet.Rows)
+  {
+      Console.WriteLine($"> Series, " +
+          $"series_id: {(ulong?)row["series_id"]}, " +
+          $"title: {(string?)row["title"]}, " +
+          $"release_date: {(DateTime?)row["release_date"]}");
+  }
+  ```
+
+
 {% endlist %}
 
 ## Запросы на запись и изменение данных {#write-queries}
@@ -581,6 +721,37 @@ SELECT * FROM episodes;
           .join()
           .toStatus());
   }
+  ```
+
+- C#
+
+  Фрагмент кода, демонстрирующий выполнение запроса на запись/изменение данных:
+
+  ```c#
+  var response = await tableClient.SessionExec(async session =>
+  {
+      var query = @"
+          DECLARE $id AS Uint64;
+          DECLARE $title AS Utf8;
+          DECLARE $release_date AS Date;
+
+          UPSERT INTO series (series_id, title, release_date) VALUES
+              ($id, $title, $release_date);
+      ";
+
+      return await session.ExecuteDataQuery(
+          query: query,
+          txControl: TxControl.BeginSerializableRW().Commit(),
+          parameters: new Dictionary<string, YdbValue>
+              {
+                  { "$id", YdbValue.MakeUint64(1) },
+                  { "$title", YdbValue.MakeUtf8("NewTitle") },
+                  { "$release_date", YdbValue.MakeDate(DateTime.UtcNow) }
+              }
+      );
+  });
+
+  response.Status.EnsureSuccess();
   ```
 
 {% endlist %}
