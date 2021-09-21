@@ -30,11 +30,11 @@ To configure a hidden parameter for this example:
 
     - Example of a link to a form without a GET parameter:
 
-    `https://forms.yandex.ru/u/6191b18d99e21b1b45b9c82/`
+    `{{ link-forms }}u/6191b18d99e21b1b45b9c82/`
 
     - Example of a link to a form with a GET parameter:
 
-    `https://forms.yandex.ru/u/6191b18d99e21b1b45b9c82?utm_source=site_name_1`
+    `{{ link-forms }}u/6191b18d99e21b1b45b9c82?utm_source=site_name_1`
 
 1. Post a link to the form with the GET parameter on the website.
 

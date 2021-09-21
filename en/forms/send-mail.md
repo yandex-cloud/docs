@@ -46,9 +46,9 @@ To send multiple email notifications at the same time, add them using the ![](..
 
 If you want notifications to only be sent to users who gave certain responses, [set your conditions](notifications.md#section_xlw_rjc_tbb).
 
-<!-- Example of a notification for a job application form. After the form is filled out, responses to the prompts are sent to the email of the HR department.
+<!-- > Example of a notification for a job application form. After the form is filled out, responses to the prompts are sent to the email of the HR department.
 
-![](../_assets/forms/email-example.png) -->
+  >![](../_assets/forms/email-example.png) -->
 
 ## Troubleshooting {#troubleshooting}
 
@@ -70,7 +70,7 @@ The mail server can block an email if its text is missing or looks like spam. Ad
 
 1. Check for an error message in your notification settings.
 
-    <!-- ![](../_assets/forms/mail-error.png) -->
+   <!-- ![](../_assets/forms/mail-error.png) -->
 
 1. If there's an error message:
 

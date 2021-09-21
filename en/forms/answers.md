@@ -2,6 +2,8 @@
 
 You can view responses in the {{ forms-full-name }} interface, download them as a file, or save them to Yandex.Disk.
 
+To have responses sent to your mailbox, [set up integration with email](send-mail.md).
+
 ## Download or view all responses {#download}
 
   1. Select a form and go to the **Responses** tab.
@@ -35,19 +37,14 @@ You can view responses in the {{ forms-full-name }} interface, download them as 
        {% cut "Save responses on Yandex.Disk" %}
 
        Click **Upload to Yandex.Disk**. To save attachments from the form to Yandex.Disk, select **Save to Yandex.Disk with attached files**.
-
        * If you choose the XLSX file format, the table with responses opens in the Yandex.Disk online editor.
-
        * If you select the CSV or JSON format, a folder on Yandex.Disk containing the saved file opens.
-
        * If new tabs are blocked from opening in your browser, a link to the saved file appears next to the **Upload to Yandex.Disk** button.
-
        * The attached files will be available in the `Yandex.Forms/<Form ID>/Files` folder on Yandex.Disk and via the [link from the list of responses](#files).
 
        You can access the responses saved on Yandex.Disk from any device, and you can share them with other users. To learn more about using Yandex.Disk, go to [Help]({{ support-disk-main }}).
 
        {% endcut %}
-       
 
 
 ## View responses individually {#answer-in-detail}
@@ -67,12 +64,11 @@ If the responses to the form [have been moved to the archive](#archive), you won
 
 1. To switch between responses, use the ![](../_assets/forms/icon-prev.png) and ![](../_assets/forms/icon-next.png) buttons.
 Responses to [tests and quizzes](tests.md) are color-coded:
-
     * If the user gave a correct response, it's green.
-
     * If the user gave an incorrect response, it's red.
 
 1. To send a link to another user, select a response and click **Share**.
+
    Any user will be able to access the response via the link without logging in.
 
 ## Get files that are attached to the form {#files}

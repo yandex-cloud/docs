@@ -15,7 +15,7 @@ You can use GET parameters to add attributes to the [URL address]({{link-wikiped
         If there are multiple words in the response text, replace the spaces with a `+` sign. Examples:
 
         ```
-        https://forms.yandex.ru/u/5e2ac2d850bdb705c38ed14f/?answer_short_text_1685088=Planet+Earth
+        {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_short_text_1685088=Planet+Earth
         ```
     * For questions with response options like <q>One answer</q> or <q>Several answers</q>:
 
@@ -26,7 +26,7 @@ You can use GET parameters to add attributes to the [URL address]({{link-wikiped
         Examples:
 
         ```
-        https://forms.yandex.ru/u/5e2ac2d850bdb705c38ed14f/?answer_choices_1685184=1958524
+        {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_choices_1685184=1958524
         ```
     * For a <q>Date</q> question:
 
@@ -37,7 +37,7 @@ You can use GET parameters to add attributes to the [URL address]({{link-wikiped
         Examples:
 
         ```
-        https://forms.yandex.ru/u/5e2ac2d850bdb705c38ed14f/?answer_date_1685200=2020-01-27
+        {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_date_1685200=2020-01-27
         ```
     * For a <q>Yes/No</q> question:
 
@@ -48,7 +48,7 @@ You can use GET parameters to add attributes to the [URL address]({{link-wikiped
         Examples:
 
         ```
-        https://forms.yandex.ru/u/5e2ac2d850bdb705c38ed14f/?answer_boolean_1685199=True
+        {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_boolean_1685199=True
         ```
     * For a <q>Rate on a scale</q> question.
     
@@ -67,16 +67,16 @@ You can use GET parameters to add attributes to the [URL address]({{link-wikiped
         Examples:
 
         ```
-        https://forms.yandex.ru/u/5e2ac2d850bdb705c38ed14f/?answer_choices_1686274=231035_231038
+        {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_choices_1686274=231035_231038
         ```
 
         ```
-        https://forms.yandex.ru/u/5e2ac2d850bdb705c38ed14f/?answer_choices_1686274[231034]=231034_231037&answer_choices_1686274[231035]=231035_231038
+        {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_choices_1686274[231034]=231034_231037&answer_choices_1686274[231035]=231035_231038
         ```
 
 1. To fill in multiple form fields at once, add multiple GET parameters separated by the `&` symbol:
 
     ```
-    https://forms.yandex.ru/u/5e2ac2d850bdb705c38ed14f/?answer_short_text_1685088=John+Smith&answer_choices_1685184=1958524
+    {{ link-forms }}u/5e2ac2d850bdb705c38ed14f/?answer_short_text_1685088=John+Smith&answer_choices_1685184=1958524
     ```
 

@@ -26,3 +26,8 @@ To request permission to a directory or object that:
 
 {% endlist %}
 
+{% note info %}
+
+A request is stored for a year. The expiration of this period triggers an automatic denial, which is recorded in the change history.
+
+{% endnote %}

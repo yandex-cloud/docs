@@ -2,6 +2,22 @@
 
 ## Подготовка источника {#prepare-source}
 
+### {{ KF }} {#prepare-source-kf}
+
+{% list tabs %}
+
+* Managed Service for Apache Kafka®
+
+    [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с ролью `ACCESS_ROLE_CONSUMER` на топик-источник.
+
+* Apache Kafka®
+
+    1. Настройте кластер-источник таким образом, чтобы к нему можно было подключиться из интернета.
+    1. [Настройте права доступа](https://kafka.apache.org/documentation/#multitenancy-security) для учетной записи на нужный топик.
+    1. Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/documentation/#security_sasl).
+
+{% endlist %}
+
 ### {{ CH }} {#prepare-source-ch}
 
 Чтобы подготовить источник к трансферу:
@@ -27,7 +43,7 @@
 
 * {{ mmg-name }}
 
-    Чтобы подготовить источник к трансферу, [создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью `readWrite` на базу источник.
+    [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) с ролью `readWrite` на базу источник.
 
 * {{ MG }}
 

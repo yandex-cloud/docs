@@ -18,9 +18,9 @@ When [integrating the form with {{ tracker-short-name }}](create-task.md), you c
 
 {% endnote %}
 
-<!-- For example, this is the text of an email containing all the user's responses to the form prompts.
+<!-- >For example, this is the text of an email containing all the user's responses to the form prompts.
 
-![](../_assets/forms/variables-example.png) -->
+>![](../_assets/forms/variables-example.png) -->
 
 You can use the following variables in action settings:
 

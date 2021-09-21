@@ -1,6 +1,6 @@
 # Limit responses
 
-When publishing a form, you can limit the date range for submitting responses and the total number of respondents . You can also restrict access by only allowing responses from employees in your organization.
+When publishing a form, you can limit the date range for submitting responses and the total number of responses. You can also restrict access by only allowing responses from employees in your organization in {{ org-full-name }}.
 
 ## Limit the date range for responses {#sec_period}
 

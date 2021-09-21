@@ -1,6 +1,6 @@
 # Make a test
 
- You can use {{ forms-full-name }} to make a test or quiz. You can test people's knowledge on some topic or make a humorous quiz that can be shared on social media. Users get points for correct responses, and after completing the test, they can see their results.
+You can use {{ forms-full-name }} to make a test or quiz. You can test people's knowledge on some topic or make a humorous quiz that can be shared on social media. Users get points for correct responses, and after completing the test, they can see their results.
 
 ## Add prompts for the test {#test-questions}
 
@@ -12,7 +12,7 @@ To create a test, add prompt blocks from the **Tests and quizzes** category to t
 
 1. To add a prompt for the test, select a block in the left panel under **Tests and quizzes** and drag it to the workspace.
 
-    ![](../_assets/forms/test-questions.png)
+    ![image](../_assets/forms/test-questions.png)
 
 1. In the **Edit a response** window that opens, set the block parameters:
 
