@@ -61,7 +61,7 @@
 Если вы часто проводите согласования с одинаковыми параметрами, настройте в очереди [макрос](create-macroses.md) с кодом для запуска согласования. Например:
 
 ```
-{{iframe src="https://ok.yandex-team.ru/tracker?_embedded=1&author=<%currentUser.login%>&object_id=<%issue.key%>&uid=<%currentDateTime.iso8601%>&text=Согласуй, пожалуйста&users=<user_login>&users=<user_login2>" frameborder=0 width=100% height=400px scrolling=no}}
+{{=<% %>=}}{{iframe src="https://ok.yandex-team.ru/tracker?_embedded=1&author=<%currentUser.login%>&object_id=<%issue.key%>&uid=<%currentDateTime.iso8601%>&text=Согласуй, пожалуйста&users=<user_login>&users=<user_login2>" frameborder=0 width=100% height=400px scrolling=no}}
 ```
 
 В коде согласования можно использовать дополнительные параметры:
