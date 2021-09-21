@@ -13,13 +13,14 @@
 
 Подготовьте сервис-источник к отправке данных:
 
+* [{{ KF }}](operations/prepare.md#prepare-source-kf);
 * [{{ CH }}](operations/prepare.md#prepare-source-ch);
 * [{{ MG }}](operations/prepare.md#prepare-source-mg);
 * [{{ MY }}](operations/prepare.md#prepare-source-my);
 * [{{ PG }}](operations/prepare.md#prepare-source-pg);
 * [{{ yds-full-name }}](operations/prepare.md#prepare-source-yds).
 
-Подготовьте базу сервис-приемник к получению данных:
+Подготовьте сервис-приемник к получению данных:
 
 * [{{ CH }}](operations/prepare.md#prepare-target-ch);
 * [{{ MG }}](operations/prepare.md#prepare-target-mg);
