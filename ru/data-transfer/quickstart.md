@@ -28,6 +28,8 @@
 * [{{ objstorage-name }}](operations/prepare.md#prepare-target-storage);
 * [{{ PG }}](operations/prepare.md#prepare-target-pg).
 
+Чтобы принимать данные в сервисе {{ ydb-name }}, подготовка не требуется.
+
 ## Создайте эндпоинт-источник {#source}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
