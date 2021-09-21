@@ -1,6 +1,6 @@
 # Limit responses
 
-When publishing a form, you can limit the date range for submitting responses and the total number of respondents {% if audience == "external" %}. You can also restrict access by only allowing responses from employees in your organization{% endif %}.
+When publishing a form, you can limit the date range for submitting responses and the total number of responses{% if audience == "external" %}. You can also restrict access by only allowing responses from employees in your organization in {{ org-full-name }}{% endif %}.
 
 ## Limit the date range for responses {#sec_period}
 

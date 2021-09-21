@@ -20,7 +20,8 @@ There are three admin panels {{ forms-full-name }}. To create a form, select the
 
 - If you're creating a form for Yandex employees, use the internal admin panel [{{ link-forms-admin-ya }}]({{ link-forms-admin-ya }}).
 
-  The form will be available on the `forms.yandex-team.ru` domain only for Yandex employees. Forms created in this admin panel can be used for anonymous surveys. To do that, [publish the form using an anonymous link](publish.md#section_link).
+  The form will be available on the `forms.yandex-team.ru` domain only for Yandex employees.
+ Forms created in this admin panel can be used for anonymous surveys. To do that, [publish the form using an anonymous link](publish.md#section_link).
 
 - If you want to create a form for personal purposes, use the admin panel for external users [{{ link-forms-admin }}]({{ link-forms-admin }}).
 

@@ -45,19 +45,15 @@ By default, only the owner (creator) of the form can edit it. To give others acc
 
 1. Select who can edit the form:
 
-{% if audience == "external" %}
-
-    * **All employees**: All employees of your organization can edit the form.
+   {% if audience == "external" %}
+   - **All employees**: All employees of your organization can edit the form.
 
 {% else %}
-
-    * **All employees**: all Yandex employees can edit the form.
+   - **All employees**: all Yandex employees can edit the form.
 
 {% endif %}
-
-    * **Owner only**.
-
-    * **Selected employees**: Only the listed employees can edit the form. To add a new user to the list, enter their name or username.
+   - **Owner only**.
+   - **Selected employees**: Only the listed employees can edit the form. To add a new user to the list, enter their name or username.
 
 1. Click **Save**.
 
@@ -68,6 +64,8 @@ By default, only the owner (creator) of the form can edit it. To give others acc
 If you connect a form to an organization in [{{ org-full-name }}]({{ link-org-main }}), you can let the organization's employees edit it. You can also configure [integration with {{ tracker-name }} and {{ wiki-name }}](notifications.md) in the form.
 
 To connect a form to an organization:
+
+1. [Enable {{ forms-full-name }}.](enable-forms.md)
 
 1. In the upper panel in {{ forms-name }}, go to **My forms**.
 
@@ -86,7 +84,6 @@ To connect a form to an organization:
 If you 're using  [{{ forms-full-name }} for business](forms-for-org.md), you can group forms by topic, project, team, or other feature:
 
 {% else %}
-
 Forms can be grouped by topic, project, team, or other feature:{% endif %}
 
 1. In the upper panel of {{ forms-name }}, select the **Groups** tab.
@@ -96,9 +93,7 @@ Forms can be grouped by topic, project, team, or other feature:{% endif %}
 1. In the **Access** section on the group page, specify who can edit the group.
 
 1. Add forms to the group in one of the following ways:
-
    * In the **Manage group** section on the group page, enter the name of the form and click **Save**.
-
    * On the form editing page, go to **Settings** and select **Access**. On the **Group** list, select the group you want your form to be part of.
 
 ## View the change history {#log}

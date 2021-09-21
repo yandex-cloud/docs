@@ -174,11 +174,11 @@ To set up filters for variables:
 
 1. Save the integration settings.
 
-### I can't attach a file to the task in {{ tracker-full-name }}
+### I can't attach a file to the issue in {{ tracker-full-name }}
 
-If you need to attach a file from the response to a question in the form to the task in {{ tracker-short-name }}, the easiest way is to add the file to the comment. To do this, create a **HTTP.Request to endpoint** request with the following parameters:
+If you need to attach a file from the response to a question in the form to the issue in {{ tracker-short-name }}, the easiest way is to add the file to the comment. To do this, create a **HTTP.Request to endpoint** request with the following parameters:
 
-- URL: `https://st-api.yandex-team.ru/v2/issues/<task_key>/comments`
+- URL: `https://st-api.yandex-team.ru/v2/issues/<issue_key>/comments`
 
 - Request method: **POST**
 
@@ -194,19 +194,19 @@ If you need to attach a file from the response to a question in the form to the 
 
     ![](../_assets/forms/http-add-file.png)
 
-### I can't create a task with a {#resolve-problems-checklist}  checklist in {{ tracker-full-name }} 
+### I can't create an issue with a {#resolve-problems-checklist}  checklist in {{ tracker-full-name }}
 
-To create a task with a checklist in {{ tracker-short-name }}, use the **HTTP.Request to endpoint** integration with the following parameters:
+To create an issue with a checklist in {{ tracker-short-name }}, use the **HTTP.Request to endpoint** integration with the following parameters:
 
 - URL: `https://st-api.yandex-team.ru/v2/issues`
 
 - Request method: **POST**
 
-- Request body: Specify the parameters of the task in JSON format. Examples:
+- Request body: Specify the parameters of the issue in JSON format. Examples:
 
     ```
     {"queue":"<Queue_key>",
-    "summary":"Task heading",     
+    "summary":"issue heading",     
     "checklistItems":[                     
         {"text":"Item 1"},
         {"text":"Item 2"},
@@ -214,11 +214,11 @@ To create a task with a checklist in {{ tracker-short-name }}, use the **HTTP.Re
     }
     ```
 
-    To add form data to the request body, use [variables](vars.md). For example, to make the user who filled out the form the owner of the task, add a variable as the `createdBy` parameter value
+    To add form data to the request body, use [variables](vars.md). For example, to make the user who filled out the form the owner of the issue, add a variable as the `createdBy` parameter value
 
     {% note info %}
 
-    The `queue` and `summary` task parameters are required. To learn more about the request structure [go to {{ wiki-name }}](https://wiki.yandex-team.ru/tracker/api/issues/create/).
+    The `queue` and `summary` issue parameters are required. To learn more about the request structure [go to {{ wiki-name }}](https://wiki.yandex-team.ru/tracker/api/issues/create/).
 
     {% endnote %}
 

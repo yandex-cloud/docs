@@ -9,13 +9,11 @@ To make the form available to be filled out, click **Publish** above the prompt 
 
 {% endif %}
 
-When publishing a form, you can [limit](restrictions.md) the date range for submitting responses and the total number of respondents{% if audience == "external" %}. You can also restrict access by only allowing responses from employees in your organization.
+When publishing a form, you can [limit](restrictions.md) the date range for submitting responses and the total number of responses{% if audience == "external" %}. You can also restrict access by only allowing responses from employees in your {{ org-full-name }} organization{% endif %}.
 
 {% if locale == "ru" %}
 
 If you're using the form to collect respondents' personal data, please comply with [Условия использования сервиса]({{ link-forms-legal }}).
-
-{% endif %}
 
 {% endif %}
 
@@ -57,7 +55,7 @@ To publish a form on your site:
 
 1. Copy the form code from the **Iframe embed code** field.
 
-1. Paste it into the HTML code of the page where you want to put the form.
+1. Paste it into the HTML code of the page where you want to place the form.
 
 To adjust the size, change the `width` parameter value. You can specify the size in percentages or pixels. For example, if you want the form to fit the page width, specify `width="100%"`.
 

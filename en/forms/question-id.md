@@ -1,6 +1,6 @@
 # Get question and response IDs
 
-Question and response IDs are used for pre-filling forms. There are several ways to get IDs for different question types.
+Question and response IDs are used for pre-filling forms. There are several ways to get IDs for different prompt types.
 
 ## Question ID {#sec_question}
 
@@ -64,7 +64,7 @@ If you can't find the response IDs in the {{ forms-name }} admin panel, you can 
 
 {% if locale == "ru" %}
 
-[Watch a video with an example.](https://frontend.vh.yandex.ru/player/vTD3KXHFG8jc)
+[Watch a video with an example.](https://frontend.vh.yandex.ru/player/4f65d1fbb351d66f900ec5d6d0aecdac?from=partner&mute=1&autoplay=1&tv=0&no_ad=false&loop=true&play_on_visible=false)
 
 {% endif %}
 

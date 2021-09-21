@@ -61,7 +61,11 @@
 
 {% endif %}
 
+{% if locale == "ru" %}
+
 [Посмотреть видео с примером.](https://frontend.vh.yandex.ru/player/4f65d1fbb351d66f900ec5d6d0aecdac?from=partner&mute=1&autoplay=1&tv=0&no_ad=false&loop=true&play_on_visible=false)
+
+{% endif %}
 
 Рассмотрим получение идентификаторов на примере Яндекс.Браузера:
 

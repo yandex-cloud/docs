@@ -32,6 +32,8 @@ To send responses to {{ wiki-name }}:
 
     - Select a [variable](vars.md) from the list that you want to add. For instance, you can add a user's name and email to the text.
 
+    ![](../_assets/forms/wiki-var-example.png)
+
 1. For the user to get a link to the wiki page after filling out the form, turn on the **Show result to user** option under the name of the action.
 
 1. Click **Save**.

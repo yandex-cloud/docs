@@ -34,6 +34,8 @@ You can integrate your form with [{{ tracker-short-name }}]{% if audience == "ex
 
     - Specify user logins in the **Owner**, **Assignee**, and **Followers** fields.
 
+      To specify multiple users in the **Followers** field, enter their logins separated by commas (for example, `smith,johnson`).
+
     - Enter values in other fields exactly as they are in {{ tracker-short-name }}.
 
     - To add multiple values to **Components** or **Tags**, separate them by commas.
@@ -58,13 +60,11 @@ You can integrate your form with [{{ tracker-short-name }}]{% if audience == "ex
 
     {% note warning %}
 
-    You can add an employee specified in a response to a {% if audience == "external" %}<q>People</q>. {% else %}<q>Staff data</q> prompt to the **Owner**, **Assignee**, and **Followers** fields. {% endif %}To do so, add a **Response ID** variable to the field. If you're using a **Response to prompt** variable, integration won't work.
+    You can add an employee specified in a response to a {% if audience == "external" %}<q>People</q>{% else %}, <q>Staff data</q> prompt to the **Owner**, **Assignee**, and **Followers** fields{% endif %}. To do so, add a **Response ID** variable to the field. If you're using a **Response to prompt** variable, integration won't work.
 
     {% endnote %}
-
-    For example, if you use a form to collect error messages, you can add the user's message and technical information to the task description.
-
-    <!-- ![](../_assets/forms/tracker-var-example.png) -->
+   <!-- For example, if you use a form to collect error messages, you can add the user's message and technical information to the task description.
+   ![](../_assets/forms/tracker-var-example.png) -->
 
 1. For the user to get a link to the created task after filling out the form, turn on the **Show result to user** option under the action name.
 
@@ -74,15 +74,15 @@ To create multiple tasks at the same time, add them using the ![](../_assets/for
 
 If you want a task to only be created for users who give certain responses, [set your conditions](notifications.md#section_xlw_rjc_tbb).
 
-<!-- Example of a notification for a request form for buying equipment. Employees can use this form to make equipment requests in the form of tasks for the purchasing department.
+<!-- > Example of a notification for a request form for buying equipment. Employees can use this form to make equipment requests in the form of tasks for the purchasing department.
 
-![](../_assets/forms/tracker-example.png) -->
+>![](../_assets/forms/tracker-example.png) -->
 
 {% if audience == "internal" %}
 
 ## Embed a form in the interface {{ tracker-full-name }} {#embed}
 
-In the [internal admin panel for forms](new-form.md#instance), you can [configure the form for creating tasks](create-task.md#setup) and embed it in the interface {{ tracker-short-name }}. This form will be displayed on the task creation page next to the standard form. It will help users create tasks based on a specific template without being distracted by unnecessary fields and parameters. To learn more about forms in {{ tracker-short-name }}, go to [{{ tracker-full-name }} Help](../tracker/manager/attach-form.md).
+In the [internal admin panel for forms](new-form.md#instance), you can [configure the form for creating tasks](create-task.md#setup) and embed it in the interface {{ tracker-short-name }}. This form will be displayed on the task creation page next to the standard form. It will help users create tasks based on a specific template without being distracted by unnecessary fields and parameters. To learn more about forms in {{ tracker-short-name }}, go to [Help {{ tracker-full-name }}](../tracker/manager/attach-form.md).
 
 {% endif %}
 
@@ -92,9 +92,7 @@ If tasks aren't created in {{ tracker-short-name }} or if they're created incorr
 
 1. Open the form tasks couldn't be created for and go to **Integration**.
 
-1. Check for an error message in the {{ tracker-short-name }} integration settings.
-
-    <!-- ![](../_assets/forms/tracker-error.png) -->
+1. Check for an error message in the {{ tracker-short-name }} integration settings. <!-- ![](../_assets/forms/tracker-error.png) -->
 
 1. Check if there's a description of the error below on that page. If you couldn't resolve the issue, [contact support](feedback.md).
 
@@ -103,6 +101,8 @@ If tasks aren't created in {{ tracker-short-name }} or if they're created incorr
 The error may be caused by invalid data being sent from the form to the **Owner**, **Assignee**, or **Followers** task fields. Fill in these fields in the following way:
 
 - To add an employee manually, enter the user's login. For example: `smith`.
+
+- To specify multiple users in the **Followers** field, enter their logins separated by commas (for example, `smith,johnson`).
 
 - To add an employee specified in a response to a {% if audience == "external" %}<q>People</q>,{% else %}<q>Staff data</q>,{% endif %} prompt, insert the [Response ID](vars.md) variable in the field. **Response option ID**. If you're using a **Response to prompt** variable, integration won't work.
 

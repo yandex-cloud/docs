@@ -79,7 +79,7 @@ The `value` parameter value depends on the question type:
   Select responses for multiple criteria:
 
     ```
-    value: {'<criteria id X>': '<question id X>', '<criteria id Y>': '<response id Y>'}
+    value: {'<X criterion id>': '<X response id>', '<Y criterion id>': '<Y response id>'}
     ```
 
     Examples:

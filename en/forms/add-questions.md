@@ -114,7 +114,7 @@ If you aren't sure which prompt block is right for your form, use the table:
 | Phone number | [{#T}](blocks-ref/phone.md) |
 | A link, like the link to a social media profile. | [{#T}](blocks-ref/link.md) |
 | A file uploaded by the user, like a photo. | [{#T}](blocks-ref/file.md) |
-{% if locale == "ru" %}| Money transfer, such as payment for attending an event. | [{#T}](blocks-ref/payment.md) |{% endif %}
+{% if locale == "ru" %}| Money transfer, For example, as payment for attending an event. | [{#T}](blocks-ref/payment.md) |{% endif %}
 | A response selected from the suggested options, like a product color. | [{#T}](blocks-ref/dropdown.md)<br/> [{#T}](blocks-ref/radiobutton.md) |
 | Multiple responses selected from the suggested options, like a request for multiple services. | [{#T}](blocks-ref/multiple.md) |
 | A name of a city or country, like the user's place of residence. | [{#T}](blocks-ref/cities.md) |
@@ -126,8 +126,8 @@ If you aren't sure which prompt block is right for your form, use the table:
 | Responses to a group of repeating prompts. For example, you may need to specify the details of several participants to register them for an event. | [{#T}](blocks-ref/series.md) |
 | {% if audience == "external" %}The name of an employee of a {{ org-full-name }} organization | [{#T}](blocks-ref/people.md){% endif %} |
 | {% if audience == "external" %}The name of a department or team in a {{ org-full-name }} organization | [{#T}](blocks-ref/departments.md)<br/>[{#T}](blocks-ref/teams.md){% endif %} |
-| {% if audience == "internal" %}The name of an employee at Yandex or a Yandex department | [Staff data](blocks-ref/staff.md){% endif %} |
-| {% if audience == "internal" %}[ABC service](https://abc.yandex-team.ru/) | [Service catalog](blocks-ref/abc.md){% endif %} |
+{% if audience == "internal" %}| The name of an employee at Yandex or a Yandex department | [Staff data](blocks-ref/staff.md) |{% endif %}
+{% if audience == "internal" %}| [ABC service](https://abc.yandex-team.ru/) | [Service catalog](blocks-ref/abc.md) |{% endif %}
 | A block with response options that are loaded from a [dynamic {{ wiki-name }} table](../wiki/create-grid.md) | [{#T}](blocks-ref/wiki.md) |
-| {% if audience == "internal" %}A block with response options that are pulled from the [YT table](https://yt.yandex-team.ru/) | [YT list](blocks-ref/yt.md){% endif %} |
+{% if audience == "internal" %}| A block with response options that are pulled from the [YT table](https://yt.yandex-team.ru/) | [YT list](blocks-ref/yt.md) |{% endif %}
 

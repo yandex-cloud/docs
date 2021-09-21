@@ -16,5 +16,5 @@ To work with [{{ forms-full-name }} for business](forms-for-org.md), log in to y
 
    {% endnote %}
 
-1. If you are registered in several organizations, choose the one you're going to use to work with {{ forms-full-name }}. To do this, click (../_assets/forms/settings-faded.png) in the upper-right corner of the page and select the organization.
+1. If you are registered in several organizations, choose the one you're going to use to work with {{ forms-full-name }}. To do this, click ![](../_assets/forms/settings-faded.png) in the upper-right corner of the page and select the organization.
 

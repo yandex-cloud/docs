@@ -3,9 +3,9 @@
 Integrate your form with other services to use their features for processing user responses and other form data. You can:
 
 {% if audience == "external" %}
-
-{% if locale == "ru" %}- [Publish the form on Yandex.Zen.](forms-lite.md){% endif %}
-
+{% if locale == "ru" %}
+- [Publish the form on Yandex.Zen.](forms-lite.md)
+{% endif %}
 {% endif %}
 
 - [Set up actions](#add-integration) that are performed automatically when the user fills out the form:
@@ -55,6 +55,7 @@ To integrate the form with other services, you can configure one or more actions
     - To delete a group of actions, click ![](../_assets/forms/context-menu.png) in the upper-right corner and select **Delete group of actions**.
 
 1. If necessary, [set up action conditions for the group](#section_xlw_rjc_tbb).
+
 To configure multiple actions to be performed under different conditions, add multiple groups.
 
 1. To add an action to a group, click a button at the bottom of the group and configure action parameters:
@@ -97,15 +98,18 @@ You can set conditions for integrating your form with other services. Then the a
 
     1. Select a relational operator: **equal** or **not equal**.
 
-    1. Select or enter a response the user's response needs to match.
-![](../_assets/forms/integration-condition.png)
+    1. Select or enter a response that the user's response needs to match.
 
-        - If you want the actions to be triggered by any response (if the form field is filled in), select the relational operator **not equal** in the condition and leave the response field empty.
+    ![](../_assets/forms/integration-condition.png)
 
-        - If you want the actions to be triggered when a user doesn't respond (if the form field isn't filled in), select the relational operator **equal** in the condition and leave the response field empty.
 
-       For example, you can have an email sent to a user if they fill in the **Email** field in the form.
-![](../_assets/forms/condition-empty.png)
+    - If you want the actions to be triggered by any response (if the form field is filled in), select the relational operator **not equal** in the condition and leave the response field empty.
+
+    - If you want the actions to be triggered when a user doesn't respond (if the form field isn't filled in), select the relational operator **equal** in the condition and leave the response field empty.
+
+    For example, you can have an email sent to a user if they fill in the **Email** field in the form.
+
+    ![](../_assets/forms/condition-empty.png)
 
 1. To add multiple conditions, click **Add condition** and set a logical operator.
 
