@@ -199,6 +199,8 @@ items:
             href: operations/chart/create-indicator-chart.md
           - name: Создание древовидной диаграммы
             href: operations/chart/create-tree-chart.md
+          - name: Создание SQL-чарта
+            href: operations/chart/create-sql-chart.md
           - name: Добавление иерархии
             href: operations/chart/add-hierarchy.md
           - name: Публикация чарта
