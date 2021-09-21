@@ -125,8 +125,5 @@ If you aren't sure which prompt block is right for your form, use the table:
 | Responses to a group of repeating prompts. For example, you may need to specify the details of several participants to register them for an event. | [{#T}](blocks-ref/series.md) |
 | The name of an employee of a {{ org-full-name }} organization | [{#T}](blocks-ref/people.md) |
 | The name of a department or team in a {{ org-full-name }} organization | [{#T}](blocks-ref/departments.md)<br/>[{#T}](blocks-ref/teams.md) |
-|  |
-|  |
 | A block with response options that are loaded from a [dynamic {{ wiki-name }} table](../wiki/create-grid.md) | [{#T}](blocks-ref/wiki.md) |
-|  |
 

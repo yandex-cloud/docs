@@ -1,7 +1,5 @@
 # Create a form
 
-
-
 ## Create a form {#create-form}
 
 To conduct a survey, collect votes, accept requests, or take orders, create a form:
@@ -13,6 +11,8 @@ To conduct a survey, collect votes, accept requests, or take orders, create a fo
 1. To change the name of the form, hover over **New form** and click the ![](../_assets/forms/edit.png) icon.
 
 1. On the **Constructor** tab, [add prompts](add-questions.md) for the user to respond to.
+
+
 To [create a test or quiz](tests.md), use prompts from the **Tests and quizzes** category.
 
 1. Customize the [appearance of the form](appearance.md).
@@ -48,7 +48,7 @@ To create a new form based on an existing one, copy the form and edit it:
 
 {{ forms-full-name }} has several templates for popular form types. To create a form based on a template:
 
-1. Go to the [{{ forms-full-name }} home page]({{ link-forms-admin }}).
+1. Go to [{{ forms-full-name }} home page]({{ link-forms-admin }}).
 
 1. Select a template:
     - **Feedback form**: For collecting user reviews.

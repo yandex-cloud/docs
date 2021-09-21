@@ -17,3 +17,5 @@ default:
   datalens-name: DataLens
   datalens-short-name: DataLens
   datalens-public: DataLens Public
+  variable: variable
+  category: category

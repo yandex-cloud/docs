@@ -18,10 +18,10 @@ Learn your way around Yandex.Forms by creating a simple form:
 
     | No. | Blocks | Settings |
     | ----- | ----- | ----- |
-    | 1 | ![](../_assets/forms/text-block.png) | Enter text:<br/>`Please fill out this trial form.`<br/>Add your comments:<br/>` Required fields are marked with an asterisk.` |
+    | 1 | ![](../_assets/forms/text-block.png) | Enter text:<br/>`Please fill out this trial form.`<br/>Add a comment:<br/>` Required fields are marked with an asterisk.` |
     | 2 | ![](../_assets/forms/short-text-block.png) | Enter a prompt:<br/>`Last name:`<br/>Enable the **Required prompt** option. |
     | 3 | ![](../_assets/forms/single-option-block.png) | Enter a prompt:<br/>`Gender:`<br/>Add responses:<ul><li>`male`<li>`female`<ul/> |
-    | 4 | ![](../_assets/forms/drop-down-list-block.png) | Enter a prompt:<br/>`Marital status:`<br/>Add responses:<br/><ul><li>`single`<li>` married`<ul/> |
+    | 4 | ![](../_assets/forms/drop-down-list-block.png) | Enter a prompt:<br/>`Marital status:`<br/>Add responses:<ul><li>`single`<li>`married`<ul/> |
     | 5 | ![](../_assets/forms/short-text-block.png) | Enter a prompt:<br/>`Maiden name:` |
 
 1. Set the conditions for showing the <q>Maiden name</q> prompt:

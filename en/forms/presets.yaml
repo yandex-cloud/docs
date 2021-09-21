@@ -2,6 +2,7 @@ default:
   forms-full-name: Yandex Forms
   forms-name: Forms
   locale: en
+  link-forms: https://forms.yandex.ru/
   link-forms-admin: https://forms.yandex.com/admin/
   link-forms-admin-ya: https://forms.yandex-team.ru/admin/
   link-forms-ext-ya: https://forms.yandex-team.ru/ext/admin/
