@@ -5,6 +5,8 @@ keywords:
 - aggregate functions
 - aggregations
 - aggregate data
+- level of detail
+- lod
 editable: false
 ---
 
@@ -13,10 +15,71 @@ Aggregate functions (or aggregations) are functions that combine multiple values
 
 If you add an aggregation to a dimension, it becomes a measure.
 
+## Syntax {#syntax}
+
+In most cases aggregate functions have the same syntax as regular functions:
+```
+AGGREGATE_FUNCTION_NAME(arg1, [arg2, ...])
+```
+
+For advanced cases, extended syntax may be required to indicate a custom level of detail (LOD):
+```
+<AGGREGATE_FUNCTION_NAME>(
+    arg1, [arg2, ...]
+
+    [ FIXED dim1, dim2, ...
+    | INCLUDE dim1, dim2, ...
+    | EXCLUDE dim1, dim2, ... ]
+
+    [ BEFORE FILTER BY filtered_field1, ... ]
+)
+```
+### Level of Detail (LOD) {#syntax-lod}
+
+Custom LOD make possible nested aggregations and aggregations over the entire set of rows or groups that are different from the grouping at the chart's level.
+
+LOD can be specified using one of three keywords:
+- `FIXED` — data is grouped using the listed dimensions (`dim1, dim2, ...`) regardless of the dimensions used by the chart;
+- `INCLUDE` — the listed dimensions (`dim1, dim2, ...`) are combined with the chart's dimensions;
+- `EXCLUDE` — all of the chart's dimensions are used with the exception of those listed (`dim1, dim2, ...`).
+
+For any of these keywords the list may have any number of dimensions, or even be empty.
+
+#### Dimension Inheritance {#syntax-lod-inheritance}
+Dimensions are inherited by nested aggregations from the ones they are inside of. The expression
+```
+AVG(MAX(SUM([Sales] INCLUDE [City]) INCLUDE [Category]))
+```
+in a chart with the additional dimension `[Date]` is equivalent to
+```
+AVG(MAX(SUM([Sales] FIXED [City], [Category], [Date]) FIXED [Category], [Date]) FIXED [Date])
+```
+`INCLUDE` or `EXCLUDE` without a list of dimensions results in the same dimensions as the aggregation above or dimensions of the chart if it is the topmost aggregation. `FIXED` without a list means that all data is aggregated in a single group, which can be used to calculate total values.
+
+#### LOD Examples {#syntax-lod-examples}
+
+- average daily sum of `[Sales]`: `AVG(SUM([Sales] INCLUDE [Date]))`;
+- ratio of the (daily) sum of `[Sales]` to the total sum: `SUM([Sales]) / SUM([Sales] FIXED)`;
+- sum of `[Sales]` of all orders that are smaller than average: `SUM_IF(SUM([Sales] INCLUDE [Order ID]), SUM([Sales] INCLUDE [Order ID]) < AVG([Sales] FIXED))`.
+
+### BEFORE FILTER BY {#syntax-before-filter-by}
+
+If any fields are listed in `BEFORE FILTER BY`, then this aggregate function is calculated before data is filtered using these fields.
+
+`BEFORE FILTER BY` applies to all nested aggregate functions too.
+Example:
+- Formula — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]))`.
+- Equivalent — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [Category])`.
+
+Do not use conflicting `BEFORE FILTER BY` clauses:
+- Valid: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City], [Category]) BEFORE FILTER BY [City])` — functions are nested and (`[City]`) is a subset of (`[City], [Category]`).
+- Valid: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [Category]) BEFORE FILTER BY [City])` — functions are nested, so field lists are combined in the second of the two functions.
+- Valid: `SUM([Sales] BEFORE FILTER BY [City], [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — (`[City]`) is a subset of (`[City], [Category]`).
+- Not valid: `SUM([Sales] BEFORE FILTER BY [Category]) - SUM([Sales] BEFORE FILTER BY [City])` — functions are not nested and neither of (`[Category]`) and (`[City]`) is a subset of the other.
+
 ## Usage Restrictions {#usage-restrictions}
 
 There are the following features of using aggregations:
-1. An aggregate function cannot be nested into another aggregation. The following usage is forbidden: `MAX(SUM([Sales]))`. Any expression can be aggregated only once.
 1. A function or operator cannot have aggregate and non-aggregate expressions as its arguments simultaneously. The following usage is forbidden: `CONCAT([Profit], SUM([Profit]))`.
 
 
