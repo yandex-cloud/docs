@@ -1,0 +1,31 @@
+---
+title: Yandex Managed Service for Greenplum<sup>®</sup>
+description:
+  - >-
+    <em>Yandex Managed Service for Greenplum<sup>®</sup> is at the <a href="/docs/overview/concepts/launch-stages">Preview</a> stage.</em>
+  - >-
+    Managed Service for Greenplum<sup>®</sup> enables you to deploy and maintain Greenplum clusters<sup>®</sup> under the Yandex.Cloud infrastructure.
+  - >-
+    The Yandex.Cloud infrastructure  <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">
+    complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
+  - >-
+    <em>Greenplum<sup>®</sup> and Greenplum Database<sup>®</sup> are
+    registered trademarks or trademarks of VMware, Inc
+    in the United States and/or other countries.</em>
+meta:
+  title: Yandex Managed Service for Greenplum<sup>®</sup>
+links:
+  - title: Getting started
+    description: Create your first cluster
+    href: quickstart
+  - title: Concepts
+    description: Learn about basic concepts and how the service works
+    href: concepts/
+    when: state != "public-preview"
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

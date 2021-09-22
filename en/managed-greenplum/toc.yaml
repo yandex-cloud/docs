@@ -1,0 +1,15 @@
+title: Yandex Managed Service for Greenplum<sup>®</sup>
+href: index.yaml
+stage: preview
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Concepts
+    items:
+      - name: Relationship between service resources
+        href: concepts/index.md
+        when: state != "public-preview"
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md

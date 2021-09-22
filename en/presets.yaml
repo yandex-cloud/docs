@@ -70,6 +70,7 @@ default:
   mkf-name: Managed Service for Apache Kafka<sup>®</sup>
   mes-name: Managed Service for Elasticsearch
   mms-name: Managed Service for SQL Server
+  mgp-name: Managed Service for Greenplum<sup>®</sup>
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
@@ -120,6 +121,7 @@ default:
   mkf-short-name: Managed Service for Apache Kafka<sup>®</sup>
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
+  mgp-short-name: Managed Service for Greenplum<sup>®</sup>
   monitoring-short-name: Monitoring
   unified-agent-short-name: Unified Agent
   vpc-short-name: VPC
@@ -215,6 +217,7 @@ default:
   mrd-max-disk-size: 4096 GB
   CH: ClickHouse
   ES: Elasticsearch
+  GP: Greenplum<sup>®</sup>
   KF: Apache Kafka<sup>®</sup>
   MG: MongoDB
   MS: SQL Server
