@@ -1,10 +1,10 @@
 # Диагностика производительности
 
-{{ mms-name }} использует встроенные [инструменты диагностики производительности](https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/query-store-usage-scenarios) {{ MS }}.
+{{ mms-name }} использует встроенные [инструменты диагностики производительности]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/query-store-usage-scenarios){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-store-usage-scenarios){% endif %} {{ MS }}.
 
 ## Активировать сбор статистики {#activate-stats-collector}
 
-Чтобы активировать сбор статистики, включите *[хранилище запросов](https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)* (query store):
+Чтобы активировать сбор статистики, включите [хранилище запросов]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store){% endif %} (query store):
 1. [Подключитесь к кластеру {{ MS }}](../operations/connect.md#connection-ide).
 1. Включите хранилище запросов одним из способов:
 
@@ -32,5 +32,5 @@
 ## Получить информацию о сессиях и запросах {#get-sessions-queries}
 
 Чтобы посмотреть эти данные:
-* [Выполните SQL-запрос](https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting) напрямую к хранилищу запросов.
-* Используйте [SQL Server Management Studio](https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15).
+* [Выполните SQL-запрос]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting){% endif %} напрямую к хранилищу запросов.
+* Используйте [SQL Server Management Studio]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15){% endif %}.

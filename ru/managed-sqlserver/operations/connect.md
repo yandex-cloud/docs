@@ -1,8 +1,24 @@
 # Подключение к базе данных в кластере {{ MS }}
 
 К хостам кластера {{ mms-short-name }} можно подключиться:
+
 * Через интернет, если вы настроили публичный доступ для нужного хоста. К такому кластеру можно подключиться только используя [SSL-соединение](#get-ssl-cert).
 * С виртуальных машин {{ yandex-cloud }}, расположенных в той же [виртуальной сети](../../vpc/concepts/network.md). Если к кластеру нет публичного доступа, для подключения с таких ВМ SSL-соединение использовать необязательно.
+
+Если кластер состоит из нескольких хостов, вы можете подключаться:
+
+* к первичной реплике для операций чтения и записи;
+* ко вторичным репликам для операций чтения, если при [создании кластера](./cluster-create.md) или [изменении его дополнительных настроек](./update.md#change-additional-settings) были включены [читаемые реплики](../concepts/replication.md#readable-and-non-readable-replicas)
+
+Подключаться к кластеру из одного хоста можно как на чтение, так и на запись.
+
+Подробнее см. в разделе [{#T}](../concepts/replication.md).
+
+{% note info %}
+
+Если публичный доступ в вашем кластере настроен только для некоторых хостов, автоматическая смена первичной реплики может привести к невозможности подключиться к ней из интернета.
+
+{% endnote %}
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
@@ -14,7 +30,7 @@
   {% if audience != "internal" %}
 
   ```bash
-  $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
+  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
   sudo update-ca-certificates
   ```
@@ -22,7 +38,7 @@
   {% else %}
 
   ```bash
-  $ sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
+  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
   sudo wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
   sudo update-ca-certificates
   ```
@@ -47,7 +63,7 @@
      1. Выберите в меню **File** → **New** → **Data Source** → **Microsoft SQL Server**.
      1. На вкладке **General**:
         1. Укажите параметры подключения:
-           * **Host** — FQDN любого хоста {{ MS }};
+           * **Host** — FQDN первичной реплики либо один из [особых FQDN](#special-fqdns);
            * **Port** — `{{ port-mms }}`;
            * **User**, **Password** — имя и пароль пользователя БД;
            * **Database** — имя БД для подключения.
@@ -65,7 +81,7 @@
      1. Выберите из списка БД **{{ MS }}**.
      1. Нажмите кнопку **Далее**.
      1. Укажите параметры подключения на вкладке **Главное**:
-        * **Хост** — FQDN любого хоста {{ MS }};
+        * **Хост** — FQDN первичной реплики либо один из [особых FQDN](#special-fqdns);
         * **Порт** — `{{ port-mms }}`;
         * **База данных/Схема** — имя БД для подключения;
         * **Имя пользователя**, **Пароль** — имя и пароль пользователя БД.
@@ -78,7 +94,7 @@
   1. Создайте новое подключение:
       1. Укажите параметры подключения в окне **Соединение с сервером**:
           * **Тип сервера** — ядро СУБД.
-          * **Имя сервера** — `<FQDN хоста>,1433`. FQDN хоста можно получить со [списком хостов в кластере](../operations/hosts#list).
+          * **Имя сервера** — `<FQDN хоста>,1433`. Укажите FQDN первичной реплики либо один из [особых FQDN](#special-fqdns).
           * **Проверка подлинности** — проверка подлинности SQL Server.
           * **Имя для входа**, **Пароль** — имя и пароль пользователя.
       1. Нажмите кнопку **Параметры**.
@@ -86,7 +102,7 @@
       1. Выберите опции **Шифровать соединение** и **Доверять сертификату сервера**.
   1. Нажмите **Соединить**, чтобы подключиться к хосту {{ MS }}.
 
-  Подробнее про подключение см. в [документации](https://docs.microsoft.com/ru-ru/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux) разработчика.
+  Подробнее про подключение см. в [документации]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux){% endif %} разработчика.
 
   При успешном подключении в окне **Обозреватель объектов** будет отображена информация обо всех объектах {{ MS }}.
 
@@ -94,8 +110,26 @@
 
 ## Примеры строк подключения {#connection-string}
 
-{% include [conn-strings-environment](../../_includes/mdb/mms-conn-strings-env.md) %}
+{% include [параметры окружения](../../_includes/mdb/mms-conn-strings-env.md) %}
 
-{% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
+{% include [see-sqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [mms-connection-strings](../../_includes/mdb/mms-conn-strings.md) %}
+
+## Особые FQDN {#special-fqdns}
+
+Наравне с обычными FQDN, которые можно запросить со [списком хостов в кластере](hosts.md#list), {{ mms-name }} предоставляет несколько особых FQDN, которые также можно использовать при подключении к кластеру.
+
+### Текущая первичная реплика {#fqdn-primary-replica}
+
+FQDN вида `c-<идентификатор кластера>.rw.{{ dns-zone }}` всегда указывает на первичную реплику в кластере. Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+При подключении к этому FQDN разрешено выполнять операции чтения и записи.
+
+Пример подключения к первичной реплике для кластера с идентификатором `c9qash3nb1v9ulc8j9nm`:
+
+```bash
+mssql-cli --username <имя пользователя> \
+          --database <имя базы данных> \
+          --server c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }},1433
+```
