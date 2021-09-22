@@ -57,6 +57,7 @@ default:
   org-full-name: Yandex Cloud Organization
   forms-full-name: Yandex Forms
   wiki-full-name: Yandex Wiki
+  load-testing-full-name: Yandex Load Testing
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -113,6 +114,7 @@ default:
   org-name: Organization
   forms-name: Forms
   wiki-name: Wiki
+  load-testing-name: Load Testing
 
   # Короткие имена
   iam-short-name: IAM
