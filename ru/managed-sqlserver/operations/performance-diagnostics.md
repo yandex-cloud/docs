@@ -4,7 +4,7 @@
 
 ## Активировать сбор статистики {#activate-stats-collector}
 
-Чтобы активировать сбор статистики, включите *[хранилище запросов](https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)* (query store):
+Чтобы активировать сбор статистики, включите [хранилище запросов](https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) (query store):
 1. [Подключитесь к кластеру {{ MS }}](../operations/connect.md#connection-ide).
 1. Включите хранилище запросов одним из способов:
 

@@ -53,6 +53,8 @@ items:
         href: concepts/storage.md
       - name: Резервные копии
         href: concepts/backup.md
+      - name: Репликация
+        href: concepts/replication.md
       - name: Настройки SQL Server
         href: concepts/settings-list.md
   - name: Управление доступом

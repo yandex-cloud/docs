@@ -35,6 +35,8 @@ items:
         href: operations/message-queue-receive-and-delete-message.md
       - name: Удаление очереди сообщений
         href: operations/message-queue-delete-queue.md
+      - name: Мониторинг процессов в очереди
+        href: operations/monitoring.md
   - name: Концепции
     items:
       - name: Обзор
