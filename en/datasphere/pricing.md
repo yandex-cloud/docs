@@ -36,6 +36,8 @@ c1.80 | 80
 g1.1 | 72
 g1.2 | 144
 g1.4 | 288
+g2.1 | 116
+g2.8 | 928
 
 
 ### Example of cost calculation {#price-example}

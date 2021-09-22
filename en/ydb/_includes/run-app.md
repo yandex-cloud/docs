@@ -131,13 +131,13 @@ To launch the app and connect to the database:
   1. Set the environment variables required for app authentication:
 
       ```bash
-      export SA_JSON_FILE=~/.ydb/sa_name.json
+      export YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS=~/.ydb/sa_name.json
       export IAM_ENDPOINT=iam.api.cloud.yandex.net:443
       export ENTRYPOINT=grpcs://YOURENDPOINT
       export DB=YOUR_DATABASE
       export YDB_SDK_LOGLEVEL=debug
       ```
-      * `SA_JSON_FILE`: Local path to the IAM token file.
+      * `YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS`: Local path to the IAM token file.
       * `IAM_ENDPOINT`: IAM endpoint. Set it to `iam.api.cloud.yandex.net:443`.
       * `ENTRYPOINT`: Database endpoint.
       * `DB`: Yandex database (YDB).

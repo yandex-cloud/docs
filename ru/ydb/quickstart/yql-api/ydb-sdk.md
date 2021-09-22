@@ -165,10 +165,10 @@
       npm run build
       ```
 
-  1. Установите переменную окружения `SA_JSON_FILE` для аутентификации приложения:
+  1. Установите переменную окружения `YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS` для аутентификации приложения:
 
       ```bash
-      export SA_JSON_FILE=~/sa_authorized.json
+      export YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS=~/sa_authorized.json
       ```
 
       {% note info %}
