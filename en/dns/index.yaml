@@ -3,6 +3,15 @@ description:
   - "<em>Yandex Cloud DNS is at the <a href=\"/docs/overview/concepts/launch-stages\">Preview</a> stage.</em>"
   - >-
     Yandex Cloud DNS is used for managing DNS zones and domain names of your resources.
+  - >-
+    The Yandex.Cloud infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
+    complies</a> with the Russian Federal Law on Personal Data (No. 152-FZ).
+  - >-
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_dns">Service Level for Yandex Cloud DNS</a>.
 meta:
   title: Yandex Cloud DNS
 links:
