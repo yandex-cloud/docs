@@ -24,29 +24,27 @@ description: Среда выполнения выбирается при соз�
 
 Среды выполнения, доступные в {{ sf-name }}.
 
-| Имя | Идентификатор |
-| ---- | ---- |
-| **Node.js** |  |
-| Node.js 16 | `nodejs16` |
-| Node.js 14 | `nodejs14` |
-| Node.js 12 | `nodejs12` |
-| Node.js 10 | `nodejs10` |
-| **PHP** |  |
-| PHP 7.4 | `php74` |
-| **Python** |  |
-| Python 3.9 | `python39` |
-| Python 3.8 | `python38` |
-| Python 3.7 | `python37` |
-| Python 2.7 | `python27` |
-| **Go** |  |
-| Go 1.16 | `golang116` |
-| Go 1.14 | `golang114` |
-| **Java** |  |
-| Java 11 | `java11` |
-| **.NET Core** |  |
-| .NET Core 3.1 | `dotnetcore31` |
-| **R** |  |
-| R 4.0.2 | `r402` |
-| **Other** |  |
-| Bash | `bash` |
+| Имя | Идентификатор | Предзагружаемая |
+| ---- | ---- | ---- |
+| **Node.js** |  |  |
+| Node.js 16 | `nodejs16-preview` | да |
+| Node.js 14 | `nodejs14` | нет |
+| Node.js 12 | `nodejs12` | нет |
+| **PHP** |  |  |
+| PHP 7.4 | `php74` | нет |
+| **Python** |  |  |
+| Python 3.9 | `python39-preview` | да |
+| Python 3.8 | `python38` | нет |
+| Python 3.7 | `python37` | нет |
+| **Go** |  |  |
+| Go 1.16 | `golang116` | нет |
+| Go 1.14 | `golang114` | нет |
+| **Java** |  |  |
+| Java 11 | `java11` | нет |
+| **.NET Core** |  |  |
+| .NET Core 3.1 | `dotnetcore31` | нет |
+| **R** |  |  |
+| R 4.0.2 | `r402` | нет |
+| **Other** |  |  |
+| Bash | `bash` | нет |
 

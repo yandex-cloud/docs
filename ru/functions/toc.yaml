@@ -101,6 +101,8 @@ items:
             href: concepts/runtime/environment-variables.md
           - name: Контекст выполнения
             href: concepts/runtime/execution-context.md
+          - name: Предзагружаемая среда выполнения
+            href: concepts/runtime/preload-runtime.md
       - name: Сборщик
         href: concepts/builder.md
       - name: Триггер
