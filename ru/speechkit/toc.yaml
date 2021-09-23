@@ -52,6 +52,19 @@ items:
           include:
             repo: docs
             path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
+  - name: SpeechKit Hybrid
+    items:
+        - name: О технологии
+          href: hybrid-speechkit/conception.md
+        - name: Системные требования
+          href: hybrid-speechkit/system-requirements.md
+        - name: Синтез речи
+          href: hybrid-speechkit/synthesis.md
+        - name: Распознавание речи
+          href: hybrid-speechkit/asr.md
+        - name: Мониторинг
+          hidden: true
+          href: hybrid-speechkit/monitoring.md
   - name: Интеграция телефонии
     href: concepts/ivr-integration.md
   - name: Использование API

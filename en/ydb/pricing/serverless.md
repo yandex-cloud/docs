@@ -133,6 +133,7 @@ The total cost of the request is calculated as the sum of all components.
 | CPU usage time | 1.5 ms | 4 |
 | Creating, updating, and deleting table schemas, getting a table description, getting a list of tables, creating and deleting directories | Free | Free |
 
+
 ##### Specifics of cost calculation for certain operations
 
 * **ReadTable**
