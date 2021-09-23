@@ -49,16 +49,14 @@ items:
         href: security/user-side.md
       - name: Построение безопасной инфраструктуры
         items:
+          - name: Аутентификация и управление доступом
+            href: security/domains/access.md
           - name: Безопасная конфигурация
             href: security/domains/secure-config.md
       - name: Бюллетени безопасности
         href: security-bulletins/index.md
       - name: Правила проведения внешних сканирований безопасности
         href: compliance/pentest.md
-      - name: Домены безопасности
-        items:
-        - name: Аутентификация и управление доступом
-          href: security/domains/access.md
   - name: Удаление данных пользователей
     href: concepts/data-deletion.md
   - name: SLA
