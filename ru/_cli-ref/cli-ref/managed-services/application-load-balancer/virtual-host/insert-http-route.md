@@ -24,7 +24,6 @@ Syntax:
 |`--request-timeout`|<b>`duration`</b><br/> Specifies request timeout for the route.|
 |`--request-idle-timeout`|<b>`duration`</b><br/> Specifies request idle timeout for the route.|
 |`--upgrade-types`|<b>`value[,value]`</b><br/> Specifies allowed HTTP upgrade types for the route (e.g. websocket).|
-|`--auto-host-rewrite`| If specified, authority/host header sent to the backend will be replaced with target ip address (target hostname in future)|
 |`--host-rewrite`|<b>`string`</b><br/> Specifies host rewrite for the route. Authority/host header sent to the backend will be replace with this value|
 |`--path-prefix-rewrite`|<b>`string`</b><br/> Specifies path prefix rewrite for the route. Its value will be prepended to the request path.|
 |`--direct-response-code`|<b>`int`</b><br/> Specifies direct response http status code for the route.|
@@ -37,8 +36,8 @@ Syntax:
 |`--redirect-path`|<b>`string`</b><br/> Specifies redirect path rewrite for the route.|
 |`--redirect-prefix`|<b>`string`</b><br/> Specifies path prefix to be appended to the request uri for the redirect.|
 |`--redirect-strip-query`| If specified, original request query will be stripped from redirect location for the route.|
-|`--before`|<b>`string`</b><br/> Specifies the name of the virtual host for the route.|
-|`--after`|<b>`string`</b><br/> Specifies the name of the virtual host for the route.|
+|`--before`|<b>`string`</b><br/> Specifies the name of the route to append the new route before.|
+|`--after`|<b>`string`</b><br/> Specifies the name of the route to append the new route after.|
 
 #### Flags
 

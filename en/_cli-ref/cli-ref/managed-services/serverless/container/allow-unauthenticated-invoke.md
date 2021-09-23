@@ -1,12 +1,20 @@
-# yc logging group get-default
+# yc serverless container allow-unauthenticated-invoke
 
-Show information about the default log group
+Allow unauthenticated invoke for the specified container
 
 #### Command Usage
 
 Syntax: 
 
-`yc logging group get-default [Flags...] [Global Flags...]`
+`yc serverless container allow-unauthenticated-invoke <CONTAINER-NAME>|<CONTAINER-ID> [Flags...] [Global Flags...]`
+
+#### Global Flags
+
+| Flag | Description |
+|----|----|
+|`--id`|<b>`string`</b><br/>Container id.|
+|`--name`|<b>`string`</b><br/>Container name.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags
 

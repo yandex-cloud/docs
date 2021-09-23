@@ -11,7 +11,6 @@ Syntax:
 #### Command Tree
 
 - [yc logging group get](get.md) — Show information about the specified log group
-- [yc logging group get-default](get-default.md) — Show information about the default log group
 - [yc logging group list](list.md) — List log groups
 - [yc logging group create](create.md) — Create log group
 - [yc logging group update](update.md) — Update log group

@@ -18,7 +18,6 @@ Aliases:
 - [yc logging write](write.md) — Write to log
 - [yc logging group](group/index.md) — Manage log groups
 	- [yc logging group get](group/get.md) — Show information about the specified log group
-	- [yc logging group get-default](group/get-default.md) — Show information about the default log group
 	- [yc logging group list](group/list.md) — List log groups
 	- [yc logging group create](group/create.md) — Create log group
 	- [yc logging group update](group/update.md) — Update log group
