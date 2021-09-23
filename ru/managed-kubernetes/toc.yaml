@@ -109,6 +109,8 @@ items:
         href: concepts/network-policy.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Рекомендации по использованию {{ managed-k8s-name }}
+        href: concepts/usage-recommendations.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
