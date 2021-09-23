@@ -67,6 +67,26 @@ AVG(MAX(SUM([Sales] FIXED [City], [Category], [Date]) FIXED [Category], [Date]) 
 - отношение (дневной) суммы `[Sales]` к общей сумме: `SUM([Sales]) / SUM([Sales] FIXED)`;
 - сумма `[Sales]` всех заказов, которые меньше среднего: `SUM_IF(SUM([Sales] INCLUDE [Order ID]), SUM([Sales] INCLUDE [Order ID]) < AVG([Sales] FIXED))`.
 
+#### Совместимость измерений {#syntax-lod-compatibility}
+
+Если несколько агрегаций с разными наборами измерений (LOD) находятся внутри другой агрегации, то их наборы измерений должны быть совместимы. То есть один из этих наборов должен содержать все остальные.
+
+Некорректное выражение:
+```
+SUM(AVG([Sales] INCLUDE [City]) - AVG([Sales] INCLUDE [Category]))
+```
+У одной из вложенных агрегаций измерение `[City]`, а у другой — `[Category]`. При этом нет другой агрегации, которая содержала бы оба эти измерения.
+
+Корректное выражение:
+```
+SUM(
+    AVG([Sales] INCLUDE [City], [Category])
+    - (AVG([Sales] INCLUDE [City]) + AVG([Sales] INCLUDE [Category])) / 2
+)
+```
+
+У одной из вложенных агрегаций множество измерений содержит остальные.
+
 ### BEFORE FILTER BY {#syntax-before-filter-by}
 
 Если какие-либо поля перечислены в `BEFORE FILTER BY`, то эта агрегатная функция будет рассчитана до фильтрации данных по этим полям.

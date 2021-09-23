@@ -44,6 +44,16 @@
 
       {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
+  * `--network-acceleration-type` — выбор типа ускорения сети:
+      * `standard` — без ускорения;
+      * `software-accelerated` — [программно-ускоренная сеть](../../../vpc/concepts/software-accelerated-network.md).
+
+      {% note warning %}
+
+      Перед включением программно-ускоренной сети убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md) для создания одного дополнительного узла.
+
+      {% endnote %}
+
   * `--latest-revision` — получить все доступные обновления для текущей версии мастера.
   * `--auto-upgrade` — управлять автоматическими обновлениями.
   * Управление окном обновлений:

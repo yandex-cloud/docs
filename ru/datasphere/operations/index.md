@@ -28,6 +28,7 @@ description: "Из статьи вы узнаете как работать с Y
 * [{#T}](data/secret-copy.md)
 * [{#T}](data/secret-change.md)
 * [{#T}](data/secret-delete.md)
+* [{#T}](taas-run.md)
   
 ## Получение данных из источников {#data-source}
 

@@ -18,8 +18,10 @@ Syntax:
 - [yc serverless mdbproxy list-operations](list-operations.md) — Show history of the tag for the specified proxy
 - [yc serverless mdbproxy update](update/index.md) — Update the specified proxy
 	- [yc serverless mdbproxy update postgresql](update/postgresql.md) — Update the specified proxy
+	- [yc serverless mdbproxy update clickhouse](update/clickhouse.md) — Update the specified proxy
 - [yc serverless mdbproxy create](create/index.md) — Create proxies
 	- [yc serverless mdbproxy create postgresql](create/postgresql.md) — Create postgres proxy
+	- [yc serverless mdbproxy create clickhouse](create/clickhouse.md) — Create clickhouse proxy
 
 #### Flags
 

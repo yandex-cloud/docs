@@ -72,6 +72,8 @@ Aliases:
 	- [yc serverless container set-access-bindings](container/set-access-bindings.md) — Set access bindings for the specified container and delete all existing access bindings if there were any
 	- [yc serverless container add-access-binding](container/add-access-binding.md) — Add access binding for the specified container
 	- [yc serverless container remove-access-binding](container/remove-access-binding.md) — Remove access binding for the specified container
+	- [yc serverless container allow-unauthenticated-invoke](container/allow-unauthenticated-invoke.md) — Allow unauthenticated invoke for the specified container
+	- [yc serverless container deny-unauthenticated-invoke](container/deny-unauthenticated-invoke.md) — Deny unauthenticated invoke for the specified container
 - [yc serverless mdbproxy](mdbproxy/index.md) — Manage proxies
 	- [yc serverless mdbproxy get](mdbproxy/get.md) — Show information about the specified proxy
 	- [yc serverless mdbproxy list](mdbproxy/list.md) — List proxies

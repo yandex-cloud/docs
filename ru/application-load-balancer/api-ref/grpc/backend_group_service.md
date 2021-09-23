@@ -53,6 +53,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### HttpBackend {#HttpBackend}
@@ -78,6 +82,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend}
@@ -151,11 +156,37 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### GrpcBackendGroup {#GrpcBackendGroup}
 
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity1)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity1)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity1)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### GrpcBackend {#GrpcBackend}
@@ -179,6 +210,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend1}
@@ -245,6 +277,28 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity1}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity1}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity1}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ## List {#List}
 
 Lists backend groups in the specified folder.
@@ -289,6 +343,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend1)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity2)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity2)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity2)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### HttpBackend {#HttpBackend1}
@@ -314,6 +372,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend2}
@@ -387,11 +446,37 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity2}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity2}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity2}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### GrpcBackendGroup {#GrpcBackendGroup1}
 
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend1)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity3)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity3)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity3)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### GrpcBackend {#GrpcBackend1}
@@ -415,6 +500,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend3}
@@ -481,6 +567,28 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity3}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity3}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity3}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ## Create {#Create}
 
 Creates a backend group in the specified folder.
@@ -509,6 +617,10 @@ backend | **oneof:** `http` or `grpc`<br>Backends that the backend group will co
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend2)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity4)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity4)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity4)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### HttpBackend {#HttpBackend2}
@@ -534,6 +646,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend4}
@@ -607,11 +720,37 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity4}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity4}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity4}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### GrpcBackendGroup {#GrpcBackendGroup2}
 
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend2)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity5)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity5)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity5)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### GrpcBackend {#GrpcBackend2}
@@ -635,6 +774,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend5}
@@ -701,6 +841,28 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity5}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity5}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity5}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -744,6 +906,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend3)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity6)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity6)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity6)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### HttpBackend {#HttpBackend3}
@@ -769,6 +935,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend6}
@@ -842,11 +1009,37 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity6}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity6}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity6}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### GrpcBackendGroup {#GrpcBackendGroup3}
 
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend3)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity7)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity7)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity7)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### GrpcBackend {#GrpcBackend3}
@@ -870,6 +1063,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend7}
@@ -936,6 +1130,28 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity7}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity7}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity7}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ## Update {#Update}
 
 Updates the specified backend group.
@@ -965,6 +1181,10 @@ backend | **oneof:** `http` or `grpc`<br>New list of backends in the backend gro
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend4)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity8)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity8)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity8)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### HttpBackend {#HttpBackend4}
@@ -990,6 +1210,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend8}
@@ -1063,11 +1284,37 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity8}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity8}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity8}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### GrpcBackendGroup {#GrpcBackendGroup4}
 
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend4)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity9)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity9)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity9)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### GrpcBackend {#GrpcBackend4}
@@ -1091,6 +1338,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend9}
@@ -1157,6 +1405,28 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity9}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity9}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity9}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -1200,6 +1470,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend5)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity10)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity10)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity10)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### HttpBackend {#HttpBackend5}
@@ -1225,6 +1499,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend10}
@@ -1298,11 +1573,37 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity10}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity10}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity10}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### GrpcBackendGroup {#GrpcBackendGroup5}
 
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend5)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity11)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity11)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity11)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### GrpcBackend {#GrpcBackend5}
@@ -1326,6 +1627,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend11}
@@ -1390,6 +1692,28 @@ Field | Description
 trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
 &nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
+### ConnectionSessionAffinity {#ConnectionSessionAffinity11}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity11}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity11}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
 
 
 ## Delete {#Delete}
@@ -1475,6 +1799,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend12}
@@ -1569,6 +1894,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend13}
@@ -1679,6 +2005,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend7)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity12)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity12)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity12)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### HttpBackend {#HttpBackend7}
@@ -1704,6 +2034,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend14}
@@ -1777,11 +2108,37 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity12}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity12}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity12}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### GrpcBackendGroup {#GrpcBackendGroup6}
 
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend7)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity13)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity13)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity13)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### GrpcBackend {#GrpcBackend7}
@@ -1805,6 +2162,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend15}
@@ -1871,6 +2229,28 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity13}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity13}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity13}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ## RemoveBackend {#RemoveBackend}
 
 Removes backends from the specified backend group.
@@ -1933,6 +2313,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend8)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity14)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity14)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity14)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### HttpBackend {#HttpBackend8}
@@ -1958,6 +2342,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend16}
@@ -2031,11 +2416,37 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity14}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity14}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity14}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### GrpcBackendGroup {#GrpcBackendGroup7}
 
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend8)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity15)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity15)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity15)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### GrpcBackend {#GrpcBackend8}
@@ -2059,6 +2470,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend17}
@@ -2125,6 +2537,28 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity15}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity15}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity15}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ## UpdateBackend {#UpdateBackend}
 
 Updates the specified backend.
@@ -2169,6 +2603,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend18}
@@ -2263,6 +2698,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend19}
@@ -2373,6 +2809,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend10)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity16)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity16)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity16)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### HttpBackend {#HttpBackend10}
@@ -2398,6 +2838,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend20}
@@ -2471,11 +2912,37 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### ConnectionSessionAffinity {#ConnectionSessionAffinity16}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity16}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity16}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+
+
 ### GrpcBackendGroup {#GrpcBackendGroup8}
 
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend10)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity17)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity17)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity17)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
 
 
 ### GrpcBackend {#GrpcBackend10}
@@ -2499,6 +2966,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend21}
@@ -2563,6 +3031,28 @@ Field | Description
 trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
 &nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
+### ConnectionSessionAffinity {#ConnectionSessionAffinity17}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br> 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity17}
+
+Field | Description
+--- | ---
+header_name | **string**<br> The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity17}
+
+Field | Description
+--- | ---
+name | **string**<br> The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
 
 
 ## ListOperations {#ListOperations}

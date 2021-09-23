@@ -10,7 +10,7 @@
 
 ### Установите virtio-драйверы {#virtio}
 
-Для успешной загрузки в системе должны присутствовать драйверы `virtio-blk` и `virtio-net`. На этапе загрузки с `initramfs` необходим, как минимум, драйвер `virtio-blk`. Во время окончательной загрузки необходимы оба драйвера — `virtio-blk` и `virtio-net`.
+Для успешной загрузки в системе должны присутствовать драйверы `virtio-blk` и `virtio-net`, а для работы с файловыми хранилищами {{ compute-name }} — `virtiofs`.
 
 Большинство современных дистрибутивов по умолчанию содержит драйверы `virtio`. Драйверы могут быть скомпилированы в виде отдельных файлов `.ko` или входить в состав самого ядра.
 
@@ -22,28 +22,28 @@
 
    Выполните команду:
    ```sh
-   grep -E -i "(VIRTIO_BLK|VIRTIO_NET)" /boot/config-$(uname -r)
+   grep -E -i "VIRTIO_(BLK|NET|FS)" /boot/config-$(uname -r)
    ```
 
-   Если на экране не появились строки, начинающиеся на `CONFIG_VIRTIO_BLK=` и `CONFIG_VIRTIO_NET=`, нужно заново скомпилировать ядро Linux с virtio-драйверами. В противном случае переходите к следующим шагам.
+   Если на экране не появились строки, начинающиеся на `CONFIG_VIRTIO_BLK=`, `CONFIG_VIRTIO_NET=` и `CONFIG_VIRTIO_FS=`, нужно заново скомпилировать ядро Linux с virtio-драйверами. В противном случае переходите к следующим шагам.
 
    {% endcut %}
 
-1. Если на шаге 1 на экране появились строки `CONFIG_VIRTIO_BLK=y` и `CONFIG_VIRTIO_NET=y`, проверьте, что драйверы входят в состав ядра:
+1. Если на шаге 1 на экране появились строки `CONFIG_VIRTIO_BLK=y`, `CONFIG_VIRTIO_NET=y` и `CONFIG_VIRTIO_FS=y`, проверьте, что драйверы входят в состав ядра:
 
    {% cut "Как проверить драйверы в составе ядра" %}
 
    Выполните команду:
    ```sh
-   grep -E "(virtio_blk|virtio_net)" /lib/modules/"$(uname -r)"/modules.builtin
+   grep -E "virtio(_blk|_net|fs)" /lib/modules/"$(uname -r)"/modules.builtin
    ```
 
-   * Если на экране появились строки с файлами `virtio_net.ko` и `virtio_blk.ko`, драйверы входят в состав ядра, устанавливать их не нужно.
+   * Если на экране появились строки с файлами `virtio_net.ko`, `virtio_blk.ko` и `virtiofs.ko`, драйверы входят в состав ядра, устанавливать их не нужно.
    * Если на экране не появились такие строки, нужно заново скомпилировать ядро Linux с virtio-драйверами.
 
    {% endcut %}
 
-1. Если на шаге 1 на экране появились строки `CONFIG_VIRTIO_BLK=m` и `CONFIG_VIRTIO_NET=m`, проверьте, что драйверы установлены в качестве модулей ядра:
+1. Если на шаге 1 на экране появились строки `CONFIG_VIRTIO_BLK=m`, `CONFIG_VIRTIO_NET=m` и `CONFIG_VIRTIO_FS=m`, проверьте, что драйверы установлены в качестве модулей ядра:
 
    {% cut "Как проверить модули ядра" %}
 
@@ -54,49 +54,49 @@
      Выполните следующую команду:
 
      ```sh
-     sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "(virtio_blk|virtio_net)"
+     sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|fs)"
      ```
 
-     * Если на экране появились строки с файлами `virtio_net.ko.xz` и `virtio_blk.ko.xz`, драйверы установлены в качестве модулей ядра.
+     * Если на экране появились строки с файлами `virtio_net.ko.xz`, `virtio_blk.ko.xz` и `virtiofs.ko.xz`, драйверы установлены в качестве модулей ядра.
      * Если на экране не появились такие строки, создайте резервную копию файла `initramfs` и установите драйверы:
 
        ```sh
        sudo cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
-       sudo mkinitrd -f --with=virtio_blk --with=virtio_net /boot/initramfs-$(uname -r).img $(uname -r)
+       sudo mkinitrd -f --with=virtio_blk --with=virtio_net --with=virtiofs /boot/initramfs-$(uname -r).img $(uname -r)
        ```
 
        После этого перезапустите ОС и проверьте, что драйверы появились в файле `initramfs` и загрузились:
 
        ```sh
-       sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "(virtio_blk|virtio_net)"
-       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net)"
+       sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|fs)"
+       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|fs)"
        ```
 
-       После каждой из команд на экране должны появиться строки с файлами `virtio_net.ko.xz` и `virtio_blk.ko.xz`.
+       После каждой из команд на экране должны появиться строки с файлами `virtio_net.ko.xz`, `virtio_blk.ko.xz` и `virtiofs.ko.xz`.
 
    - Debian, Ubuntu
 
      Выполните следующую команду:
 
      ```sh
-     lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "(virtio_blk|virtio_net)"
+     lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
      ```
-     * Если на экране появились строки с файлами `virtio_net.ko` и `virtio_blk.ko`, драйверы установлены в качестве модулей ядра.
+     * Если на экране появились строки с файлами `virtio_net.ko`, `virtio_blk.ko` и `virtiofs.ko`, драйверы установлены в качестве модулей ядра.
      * Если на экране не появились такие строки, установите драйверы:
 
        ```sh
-       echo -e "virtio_blk\nvirtio_net" | sudo tee -a /etc/initramfs-tools/modules
+       echo -e "virtio_blk\nvirtio_net\nvirtiofs" | sudo tee -a /etc/initramfs-tools/modules
        sudo update-initramfs -u
        ```
 
        После этого перезапустите ОС и проверьте, что драйверы появились в файле `initrd` и загрузились:
 
        ```sh
-       lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "(virtio_blk|virtio_net)"
-       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net)"
+       lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
+       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|fs)"
        ```
 
-       После каждой из команд на экране должны появиться строки с файлами `virtio_net.ko` и `virtio_blk.ko`.
+       После каждой из команд на экране должны появиться строки с файлами `virtio_net.ko`, `virtio_blk.ko` и `virtiofs.ko`.
 
    {% endlist %}
 

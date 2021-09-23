@@ -1,6 +1,67 @@
 # Релизы YC CLI
 
-## Версия 0.81.0 (06.09.21) {#latest-release}
+## Версия 0.82.0 (23.09.21) {#latest-release}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ compute-name }} {#compute}
+
+* Добавлен флаг `--pooled` в команду `yc compute image create` для создания образа, оптимизированного для развертывания.
+* Добавлена группа команд `yc compute filesystem` для управления файловыми хранилищами.
+* Добавлены новые команды для подключения и отключения файловых хранилищ от виртуальных машин: `yc compute instance attach-filesystem` и `yc compute instance detach-filesystem`.
+* Добавлен параметр `--attach-filesystem` в команду `yc compute instance create` для создания виртуальной машины с подключенным файловым хранилищем.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+* Добавлен параметр `--node-labels` в команду `yc k8s node-group update` — он меняет весь набор меток для узлов группы.
+* Добавлена команда `yc k8s node-group add-node-labels` для добавления меток к узлам группы.
+* Добавлена команда `yc k8s node-group remove-node-labels` для удаления меток для узлов группы.
+
+#### {{ sf-name }} {#serverless-functions}
+
+* Добавлена команда `yc serverless trigger create yds` для создания триггеров для {{ yds-name }}.
+
+#### {{ serverless-containers-name }} {#serverless-containers}
+
+* Добавлена группа команд `yc serverless containers` для поддержки сервиса {{ serverless-containers-name }} — он позволяет запускать контейнеры без необходимости работы с Kubernetes или разворачивания виртуальных машин.
+
+#### {{ vpc-name }} {#vpc}
+
+* Добавлена команда `yc vpc network list-route-tables` для списка таблиц роутинга в сети.
+* Добавлена команда `yc vpc network list-security-groups` для списка групп безопасности в сети.
+
+#### {{ dataproc-name }} {#dataproc}
+
+* Добавлен параметр `--log-group-id` в команды `yc dataproc cluster create` и `yc dataproc cluster update` для привязки лог-группы {{ cloud-logging-name }} к кластеру. Чтобы остановить отправку логов кластера в {{ cloud-logging-name }}, укажите пустое значение в качестве идентификатора лог-группы: `--log-group-id=""`.
+
+#### {{ ydb-name }} {#ydb}
+
+* Добавлены параметры для управления лимитами баз данных в режиме Serverless в команды `yc ydb database create`и `yc ydb database update`:
+
+  * `--sls-storage-size`
+  * `--sls-throttling-rcu`
+  * `--sls-enable-throttling-rcu`
+  * `--sls-provisioned-rcu`
+
+#### {{ mrd-name }}
+
+* Значение параметра `--redis-version` по умолчанию в команде `yc managed-redis cluster create` изменено на 6.2.
+
+#### {{ mmy-name }}
+
+* Добавлено отображение настройки `replication source` в команду `yc managed-mysql hosts list`.
+
+#### {{ mpg-name }}
+
+* Добавлено отображение настройки `replication source` в команду `yc managed-postgresql hosts list`.
+  
+#### {{ data-transfer-name }}
+
+* Добавлены группы команд `yc datatransfer endpoint` и `yc datatransfer transfer` для управления эндпоинтами и трансферами сервиса Data Transfer.
+
+## Предыдущие релизы {#previous-releases}
+
+## Версия 0.81.0 (06.09.21) {#version0.81.0}
 
 ### Изменения в CLI {#cli}
 
@@ -10,7 +71,7 @@
    Добавлен флаг `--without-desc` для отключения описания в автодополнении.
 - Поддержено автодополнение флагов: `folder-id`, `folder-name`, `cloud-id`, `format`, `profile`.
 
-### Изменения в сервисах Облака {#services}
+### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -23,8 +84,6 @@
 #### {{ cloud-logging-name }} {#logging}
 
 - Исключена суб-команда `get-default` из `logging group`
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.80.0 (19.08.21) {#version0.80.0}
 

@@ -6,7 +6,7 @@ Show information about the specified container revision
 
 Syntax: 
 
-`yc serverless container revision get [--id] <VERSION-ID> [Global Flags...]`
+`yc serverless container revision get [--id] <REVISION-ID> [Global Flags...]`
 
 Aliases: 
 

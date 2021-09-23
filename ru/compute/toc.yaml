@@ -133,6 +133,18 @@ items:
         items:
           - name: Удалить образ
             href: operations/image-control/delete.md
+      - name: Файловые хранилища
+        items:
+          - name: Создать файловое хранилище
+            href: operations/filesystem/create.md
+          - name: Подключить файловое хранилище к ВМ
+            href: operations/filesystem/attach-to-vm.md
+          - name: Отключить файловое хранилище от ВМ
+            href: operations/filesystem/detach-from-vm.md
+          - name: Изменить файловое хранилище
+            href: operations/filesystem/update.md
+          - name: Удалить файловое хранилище
+            href: operations/filesystem/delete.md
       - name: Управление серийной консолью
         items:
           - name: Начало работы
@@ -233,14 +245,20 @@ items:
             href: concepts/vm-metadata.md
       - name: Графические ускорители GPU и vGPU
         href: concepts/gpus.md
-      - name: Диски
+      - name: Диски и файловые хранилища
         items:
           - name: Обзор
+            href: concepts/storage-overview.md
+          - name: Диски
             href: concepts/disk.md
           - name: Снимки дисков
             href: concepts/snapshot.md
           - name: Группы размещения нереплицируемых дисков
             href: concepts/disk-placement-group.md
+          - name: Файловые хранилища
+            href: concepts/filesystem.md
+          - name: Операции чтения и записи
+            href: concepts/storage-read-write.md
       - name: Образы
         href: concepts/image.md
       - name: Группы виртуальных машин
@@ -317,6 +335,8 @@ items:
             href: api-ref/grpc/disk_service.md
           - name: DiskTypeService
             href: api-ref/grpc/disk_type_service.md
+          - name: FilesystemService
+            href: api-ref/grpc/filesystem_service.md
           - name: HostGroupService
             href: api-ref/grpc/host_group_service.md
           - name: HostTypeService
@@ -381,6 +401,22 @@ items:
                 href: api-ref/DiskType/get.md
               - name: list
                 href: api-ref/DiskType/list.md
+          - name: Filesystem
+            items:
+              - name: Overview
+                href: api-ref/Filesystem/index.md
+              - name: create
+                href: api-ref/Filesystem/create.md
+              - name: delete
+                href: api-ref/Filesystem/delete.md
+              - name: get
+                href: api-ref/Filesystem/get.md
+              - name: list
+                href: api-ref/Filesystem/list.md
+              - name: listOperations
+                href: api-ref/Filesystem/listOperations.md
+              - name: update
+                href: api-ref/Filesystem/update.md
           - name: HostGroup
             items:
               - name: Overview
@@ -435,12 +471,16 @@ items:
                 href: api-ref/Instance/addOneToOneNat.md
               - name: attachDisk
                 href: api-ref/Instance/attachDisk.md
+              - name: attachFilesystem
+                href: api-ref/Instance/attachFilesystem.md
               - name: create
                 href: api-ref/Instance/create.md
               - name: delete
                 href: api-ref/Instance/delete.md
               - name: detachDisk
                 href: api-ref/Instance/detachDisk.md
+              - name: detachFilesystem
+                href: api-ref/Instance/detachFilesystem.md
               - name: get
                 href: api-ref/Instance/get.md
               - name: getSerialPortOutput

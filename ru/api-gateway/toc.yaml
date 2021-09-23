@@ -41,12 +41,16 @@ items:
             href: concepts/extensions/dummy.md
           - name: Вызов функции
             href: concepts/extensions/cloud-functions.md
+          - name: Интеграция с Serverless Containers
+            href: concepts/extensions/containers.md
           - name: Обращение по HTTP
             href: concepts/extensions/http.md
           - name: Интеграция с Object Storage
             href: concepts/extensions/object-storage.md
           - name: Интеграция с DataSphere
             href: concepts/extensions/datasphere.md
+          - name: Интеграция с Data Streams
+            href: concepts/extensions/datastreams.md
           - name: Жадные параметры
             href: concepts/extensions/greedy-parameters.md
           - name: Обобщенный HTTP-метод

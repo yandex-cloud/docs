@@ -1,5 +1,7 @@
 # Logstash
 
+{% include [trigger](../../_includes/data-streams/trigger.md) %}
+
 1. Скачайте и установите [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html).
 1. Установите плагин для поддержки протокола AWS Kinesis Data Streams. По этому протоколу будет осуществляться поставка данных.
 

@@ -1,0 +1,34 @@
+title: Yandex Load Testing
+description:
+  - >-
+    <em>Cервис Yandex Load Testing находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - >-
+    Yandex Load Testing позволяет проводить нагрузочное тестирование, чтобы
+    анализировать производительность ваших сервисов и приложений.
+  - >-
+    С помощью сервиса вы можете: <ul>
+      <li>Создать в своем облаке заранее настроенный генератор нагрузки на базе <a
+    href="https://cloud.yandex.ru/docs/load-testing/concepts/tank">Яндекс.Танка</a>.
+      <li>Сконфигурировать тест в интерфейсе и подать нагрузку с созданного генератора.</li>
+      <li>Посмотреть отчет о проведенном тесте.</li>
+      <li>Хранить ранее проведенные отчеты и управлять ими.</li>
+    </ul> Управлять сервисом можно с помощью консоли управления.
+meta:
+  title: Yandex Load Testing
+links:
+  - title: Начало работы
+    description: Как начать нагрузочное тестирование с Yandex Load Testing
+    href: quickstart
+  - title: Концепции
+    description: Принципы работы и основные понятия сервиса
+    href: concepts/
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing

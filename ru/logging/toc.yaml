@@ -21,6 +21,8 @@ items:
             href: operations/retention-period.md
           - name: Получение списка лог-групп
             href: operations/list.md
+          - name: Мониторинг
+            href: operations/monitoring.md
           - name: Удаление лог-группы
             href: operations/delete-group.md
   - name: Концепции
@@ -65,8 +67,6 @@ items:
                 href: api-ref/LogGroup/delete.md
               - name: get
                 href: api-ref/LogGroup/get.md
-              - name: getDefault
-                href: api-ref/LogGroup/getDefault.md
               - name: list
                 href: api-ref/LogGroup/list.md
               - name: listAccessBindings

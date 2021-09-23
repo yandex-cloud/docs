@@ -1,13 +1,13 @@
 # Какие задачи решает сервис {{ data-transfer-full-name }}
 
-Сервис {{ data-transfer-name }} решает различные прикладные задачи по миграции баз данных.
+Сервис {{ data-transfer-name }} решает различные прикладные задачи по переносу данных.
 
-Для всех задач в качестве источника могут выступать типы баз данных, развернутых:
+Для всех задач в качестве источника могут выступать базы данных и брокеры сообщений, развернутые:
 
 * локально (On-premise);
 * в других облаках;
 * в сервисе [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute);
-* в сервисах [{{ mmy-full-name }}](https://cloud.yandex.ru/services/managed-mysql) и [{{ mpg-full-name }}](https://cloud.yandex.ru/services/managed-postgresql).
+* в сервисах управляемых баз данных.
 
 ## Тестирование {{ yandex-cloud }} {#testing}
 

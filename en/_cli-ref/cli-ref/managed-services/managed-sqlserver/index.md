@@ -35,6 +35,7 @@ Aliases:
 	- [yc managed-sqlserver database get](database/get.md) — Show information about the specified SQLServer database
 	- [yc managed-sqlserver database list](database/list.md) — List SQLServer databases
 	- [yc managed-sqlserver database create](database/create.md) — Create SQLServer database
+	- [yc managed-sqlserver database restore](database/restore.md) — Restore SQLServer database
 	- [yc managed-sqlserver database delete](database/delete.md) — Delete the specified SQLServer database
 - [yc managed-sqlserver user](user/index.md) — Manage SQLServer users
 	- [yc managed-sqlserver user get](user/get.md) — Show information about the specified SQLServer user

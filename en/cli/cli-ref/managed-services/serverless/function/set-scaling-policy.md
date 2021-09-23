@@ -12,12 +12,13 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--tag`|<b>`string`</b><br/>Version tag|
-|`--zone-instances-limit`|<b>`int`</b><br/>Upper limit for instance count in each zone|
-|`--zone-requests-limit`|<b>`int`</b><br/>Upper limit for requests count in each zone|
-|`--id`|<b>`string`</b><br/>Function id.|
-|`--name`|<b>`string`</b><br/>Function name.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--tag`|<b>`string`</b><br/> Version tag|
+|`--zone-instances-limit`|<b>`int`</b><br/> Upper limit for instance count in each zone|
+|`--zone-requests-limit`|<b>`int`</b><br/> Upper limit for requests count in each zone|
+|`--provisioned-instances-count`|<b>`int`</b><br/> Provisioned instances count in each zone|
+|`--id`|<b>`string`</b><br/> Function id.|
+|`--name`|<b>`string`</b><br/> Function name.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags
 

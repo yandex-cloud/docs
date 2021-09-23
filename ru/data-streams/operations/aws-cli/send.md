@@ -1,5 +1,7 @@
 # Отправка данных в поток
 
+{% include [trigger](../../../_includes/data-streams/trigger.md) %}
+
 {% list tabs %}
 
 - CLI

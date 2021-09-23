@@ -1,0 +1,67 @@
+# Чтение данных из потока
+
+{% list tabs %}
+
+- CLI
+
+  Чтобы получить данные из [потока](../../concepts/glossary.md#stream-concepts) из _первого_ сегмента, выполните команду:
+
+  ```bash
+  SHARD_ITERATOR=$(aws kinesis get-shard-iterator \
+    --endpoint <эндпоинт> \
+    --shard-id shard-000001 \ 
+    --shard-iterator-type LATEST \ 
+    --stream-name <идентификатор_потока_данных> \ 
+    --query 'ShardIterator'| tr -d \")
+  aws kinesis get-records \
+    --endpoint <эндпоинт> \
+    --shard-iterator $SHARD_ITERATOR  
+  ```
+
+  * `--endpoint` — для чтения данных из потока по протоколу AWS Kinesis Data Streams укажите эндпоинт `https://yds.serverless.yandexcloud.net`.
+  * `--stream-name` — состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока.
+
+     >Например, укажите идентификатор потока `/ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream`, если:
+     >* `aws_stream` — имя потока;
+     >* `ru-central1` — зона доступности;
+     >* `aoeu1kuk2dhtaupdb1es` — идентификатор каталога;
+     >* `cc8029jgtuabequtgtbv` — идентификатор базы данных {{ ydb-short-name }}.
+
+  Пример команды:
+
+  ```bash
+  SHARD_ITERATOR=$(aws kinesis get-shard-iterator \
+    --endpoint https://yds.serverless.yandexcloud.net \ 
+    --shard-id shard-000001 \
+    --shard-iterator-type LATEST \ 
+    --stream-name /ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream 
+    --query 'ShardIterator'| tr -d \")
+  aws kinesis get-records \ 
+    --endpoint https://yds.serverless.yandexcloud.net \  
+    --shard-iterator $SHARD_ITERATOR
+  ```
+
+  Пример результата:
+  ```json
+  {
+    "Records": [
+        {
+            "SequenceNumber": "0",
+            "Data": "eyJ1c2VyX2lkIjoidXNlcjEiLCJzY29yZSI6MTAwfQ==",
+            "PartitionKey": "1"
+        },
+        {
+            "SequenceNumber": "1",
+            "Data": "eyJ1c2VyX2lkIjoidXNlcjEiLCJzY29yZSI6MTAwfQ==",
+            "PartitionKey": "1"
+        },
+    ...
+  }
+  ```
+  В примере выше данные в поле `Data` выводятся закодированными в кодировке BASE64, если данные декодировать, то будет выведена строка:
+
+  ```json
+    {"user_id":"user1","score":100}
+  ```
+
+{% endlist %}

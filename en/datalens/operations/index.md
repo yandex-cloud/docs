@@ -52,5 +52,6 @@
 - [{#T}](dashboard/add-chart.md)
 - [{#T}](dashboard/add-selector.md)
 - [{#T}](dashboard/publish.md)
+- [{#T}](dashboard/create-alias.md)
+- [{#T}](dashboard/edit-alias.md)
 - [{#T}](dashboard/manage-access.md)
-

@@ -28,6 +28,7 @@ Syntax:
 |`--disk-size`|<b>`byteSize`</b><br/> Volume of the storage available to a host.|
 |`--disk-type`|<b>`string`</b><br/> Type of the storage environment for the host.|
 |`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
+|`--backup-retain-period-days`|<b>`int`</b><br/> Retention policy of automated backups.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the PostgreSQL cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|

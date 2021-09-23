@@ -1,0 +1,41 @@
+title: Yandex Load Testing
+stage: preview
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Концепции
+    items:
+      - name: Обзор сервиса
+        href: concepts/index.md
+      - name: Агент
+        href: concepts/agent.md
+      - name: Яндекс.Танк
+        href: concepts/tank.md
+      - name: Генератор нагрузки
+        href: concepts/load-generator.md
+      - name: Профиль нагрузки
+        href: concepts/load-profile.md
+      - name: Тестовые данные и их типы
+        items:
+          - name: Обзор
+            href: concepts/payload.md
+          - name: URI
+            href: concepts/payloads/uri.md
+          - name: URIPOST
+            href: concepts/payloads/uripost.md
+          - name: PHANTOM
+            href: concepts/payloads/phantom.md
+          - name: RAW
+            href: concepts/payloads/raw.md
+          - name: HTTP_JSON
+            href: concepts/payloads/http-json.md
+      - name: Отчеты
+        href: concepts/reports.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/load-testing

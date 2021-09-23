@@ -36,6 +36,7 @@ Aliases:
 - [yc managed-mysql hosts](hosts/index.md) — Manage MySQL cluster hosts
 	- [yc managed-mysql hosts list](hosts/list.md) — List hosts for the specified MySQL cluster
 	- [yc managed-mysql hosts add](hosts/add.md) — Create new hosts for the cluster in the specified availability zones
+	- [yc managed-mysql hosts update](hosts/update.md) — Update the specified hosts
 	- [yc managed-mysql hosts delete](hosts/delete.md) — Delete the specified hosts
 - [yc managed-mysql database](database/index.md) — Manage MySQL databases
 	- [yc managed-mysql database get](database/get.md) — Show information about the specified MySQL database

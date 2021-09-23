@@ -77,6 +77,7 @@ zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside.
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
+schema_registry | **bool**<br>Enables managed schema registry on cluster 
 
 
 ### Kafka {#Kafka}
@@ -162,6 +163,7 @@ zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside.
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
+schema_registry | **bool**<br>Enables managed schema registry on cluster 
 
 
 ### Kafka {#Kafka1}
@@ -222,6 +224,7 @@ zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside.
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
+schema_registry | **bool**<br>Enables managed schema registry on cluster 
 
 
 ### Kafka {#Kafka2}
@@ -393,6 +396,7 @@ zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside.
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
+schema_registry | **bool**<br>Enables managed schema registry on cluster 
 
 
 ### Kafka {#Kafka3}
@@ -448,6 +452,7 @@ zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside.
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
+schema_registry | **bool**<br>Enables managed schema registry on cluster 
 
 
 ### Kafka {#Kafka4}
@@ -532,6 +537,7 @@ zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside.
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
+schema_registry | **bool**<br>Enables managed schema registry on cluster 
 
 
 ### Kafka {#Kafka5}
@@ -676,6 +682,7 @@ zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside.
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
+schema_registry | **bool**<br>Enables managed schema registry on cluster 
 
 
 ### Kafka {#Kafka6}
@@ -777,6 +784,7 @@ zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside.
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
+schema_registry | **bool**<br>Enables managed schema registry on cluster 
 
 
 ### Kafka {#Kafka7}
@@ -878,6 +886,7 @@ zone_id[] | **string**<br>IDs of availability zones where Kafka brokers reside.
 brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of Kafka brokers deployed in each availability zone. 
 assign_public_ip | **bool**<br>The flag that defines whether a public IP address is assigned to the cluster. If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. 
 unmanaged_topics | **bool**<br>Allows to manage topics via AdminAPI 
+schema_registry | **bool**<br>Enables managed schema registry on cluster 
 
 
 ### Kafka {#Kafka8}

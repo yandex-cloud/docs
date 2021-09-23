@@ -1,5 +1,7 @@
 # Fluentd
 
+{% include [trigger](../../_includes/data-streams/trigger.md) %}
+
 1. Скачайте и установите [Fluentd](https://www.fluentd.org/download).
 1. Установите плагин Fluentd для поддержки протокола AWS Kinesis Data Streams. По этому протоколу будет осуществляться поставка данных.
 

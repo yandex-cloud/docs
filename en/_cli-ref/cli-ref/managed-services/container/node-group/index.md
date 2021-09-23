@@ -22,6 +22,8 @@ Aliases:
 - [yc container node-group remove-metadata](remove-metadata.md) — Remove keys from metadata of the node template of the specified node group.
 - [yc container node-group add-labels](add-labels.md) — Add labels to the specified node group.
 - [yc container node-group remove-labels](remove-labels.md) — Remove labels from the specified node group.
+- [yc container node-group add-node-labels](add-node-labels.md) — Add NODE labels to the specified node group.
+- [yc container node-group remove-node-labels](remove-node-labels.md) — Remove NODE labels from the specified node group.
 - [yc container node-group delete](delete.md) — Delete a node group.
 - [yc container node-group list-operations](list-operations.md) — List operations for the specified node group.
 - [yc container node-group list-nodes](list-nodes.md) — List nodes for the specified node group.

@@ -25,20 +25,51 @@
   - Используя идентификатор ключа:
 
       ```bash
-      yc k8s create --kms-key-id <идентификатор ключа шифрования> \
-      ...
+      {{ yc-k8s }} cluster create \
+         ...
+         --kms-key-id <идентификатор ключа шифрования> \
+         ...
       ```
 
   - Используя имя ключа:
 
       ```bash
-      yc k8s create --kms-key-name <имя ключа шифрования> \
-      ...
+      {{ yc-k8s }} cluster create \
+         ...
+         --kms-key-name <имя ключа шифрования> \
+         ...
       ```
+
+- {{ TF }}
+
+    {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+
+    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Укажите ключ при [создании кластера]((../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md)) {{ k8s }}:
+
+    1. Добавьте блок `kms_provider` в описание кластера:
+
+        ```hcl
+        resource "yandex_kubernetes_cluster" "<имя кластера>" {
+          ...
+          kms_provider {
+            key_id = "<идентификатор ключа шифрования>"
+          }
+        }
+        ```
+
+    1. Проверьте корректность конфигурационных файлов.
+
+        {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+
+    1. Создайте кластер.
+
+        {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 - API
 
-    Укажите ключ шифрования при [создании](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) кластера {{ k8s }}. Для этого воспользуйтесь методом [create](../../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster).
+    Укажите ключ шифрования при [создании](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) кластера {{ k8s }}. Для этого воспользуйтесь методом [create](../../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster) и передайте идентификатор ключа в параметре `kmsProvider.keyId`.
 
 {% endlist %}
 

@@ -219,7 +219,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -600,7 +600,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -960,7 +960,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -1297,7 +1297,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -1694,7 +1694,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -2054,7 +2054,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -2374,7 +2374,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -2771,7 +2771,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -3167,7 +3167,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -3563,7 +3563,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -4089,7 +4089,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -4486,7 +4486,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -5115,7 +5115,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.
@@ -5511,7 +5511,7 @@ Field | Description
 --- | ---
 min_zone_size | **int64**<br>Lower limit for instance count in each zone. Acceptable values are 0 to 100, inclusive.
 max_size | **int64**<br>Upper limit for total instance count (across all zones). 0 means maximum limit = 100. Acceptable values are 0 to 100, inclusive.
-measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Time in seconds allotted for averaging metrics. Acceptable values are 1m to 10m, inclusive.
+measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Time in seconds allotted for averaging metrics. 1 minute by default. Acceptable values are 1m to 10m, inclusive.
 warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected. The maximum value is 10m.
 stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should. Acceptable values are 1m to 30m, inclusive.
 initial_size | **int64**<br>Target group size. The minimum value is 1.

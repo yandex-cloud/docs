@@ -18,6 +18,7 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/> New name of the node group.|
 |`--description`|<b>`string`</b><br/> New description for the node group.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> List of node group labels as key-value pairs.|
+|`--node-labels`|<b>`key=value[,key=value...]`</b><br/> List of node group NODE labels as key-value pairs.|
 |`--metadata`|<b>`key=value[,key=value...]`</b><br/> Metadata for instances in the node group.|
 |`--metadata-from-file`|<b>`key=value[,key=value...]`</b><br/> Same as --metadata except that the value for the entry will be read from a local file.|
 |`--platform`|<b>`string`</b><br/> Specifies platform for instances in the node group.|

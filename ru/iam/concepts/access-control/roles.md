@@ -40,11 +40,27 @@ _Роль_ — это набор разрешений, который опре�
 * Установить права доступа к ресурсу;
 * Изменить права доступа к ресурсу.
 
+## {{ alb-name }} {#alb-roles}
+
+{% include [roles-alb-viewer](../../../_includes/roles-alb-viewer.md) %}
+
+{% include [roles-alb-editor](../../../_includes/roles-alb-editor.md) %}
+
+{% include [roles-alb-admin](../../../_includes/roles-alb-admin.md) %}
+
 ## {{ certificate-manager-name }} {#certificate-manager-roles}
 
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
+
+## {{ cdn-name }} {#cdn-roles}
+
+{% include [roles-cdn-viewer](../../../_includes/roles-cdn-viewer.md) %}
+
+{% include [roles-cdn-editor](../../../_includes/roles-cdn-editor.md) %}
+
+{% include [roles-cdn-admin](../../../_includes/roles-cdn-admin.md) %}
 
 ## {{ compute-name }} {#compute-roles}
 
@@ -155,6 +171,16 @@ _Роль_ — это набор разрешений, который опре�
 ## {{ resmgr-name }} {#yrm-roles}
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
+
+## {{ serverless-containers-name }} {#serverless-containers}
+
+{% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}
+
+{% include [serverless-containers-roles-invoker](../../../_includes/roles-serverless-containers-invoker.md) %}
+
+{% include [serverless-containers-roles-editor](../../../_includes/roles-serverless-containers-editor.md) %}
+
+{% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
 
 ## {{ vpc-name }} {#vpc-roles}
 

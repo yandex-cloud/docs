@@ -30,6 +30,8 @@ Syntax:
 	- [yc compute instance attach-disk](instance/attach-disk.md) — Attach existing disk to the the specified virtual machine instance
 	- [yc compute instance attach-new-disk](instance/attach-new-disk.md) — Attach new disk to the the specified virtual machine instance
 	- [yc compute instance detach-disk](instance/detach-disk.md) — Detach disk from the the specified virtual machine instance
+	- [yc compute instance attach-filesystem](instance/attach-filesystem.md) — Attach existing filesystem to the the specified virtual machine instance
+	- [yc compute instance detach-filesystem](instance/detach-filesystem.md) — Detach filesystem from the the specified virtual machine instance
 	- [yc compute instance update-network-interface](instance/update-network-interface.md) — Update the specified network interface of virtual machine instance
 	- [yc compute instance add-one-to-one-nat](instance/add-one-to-one-nat.md) — Add one-to-one NAT to the the specified network interface of virtual machine instance
 	- [yc compute instance remove-one-to-one-nat](instance/remove-one-to-one-nat.md) — Remove one-to-one NAT to the the specified network interface of virtual machine instance
@@ -124,6 +126,15 @@ Syntax:
 	- [yc compute disk-placement-group delete](disk-placement-group/delete.md) — Delete the specified disk placement group
 	- [yc compute disk-placement-group list-disks](disk-placement-group/list-disks.md) — List disks of the specified disk placement group
 	- [yc compute disk-placement-group list-operations](disk-placement-group/list-operations.md) — List operations for the specified disk placement group
+- [yc compute filesystem](filesystem/index.md) — Manage filesystems
+	- [yc compute filesystem get](filesystem/get.md) — Show information about the specified filesystem
+	- [yc compute filesystem list](filesystem/list.md) — List filesystems
+	- [yc compute filesystem list-operations](filesystem/list-operations.md) — List operations for the specified filesystem
+	- [yc compute filesystem create](filesystem/create.md) — Create a filesystem
+	- [yc compute filesystem delete](filesystem/delete.md) — Delete the specified filesystem
+	- [yc compute filesystem update](filesystem/update.md) — Update the specified filesystem
+	- [yc compute filesystem add-labels](filesystem/add-labels.md) — Add labels to specified filesystem
+	- [yc compute filesystem remove-labels](filesystem/remove-labels.md) — Remove labels from specified filesystem
 
 #### Flags
 

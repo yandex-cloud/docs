@@ -24,6 +24,19 @@ description: "Управление доступом в сервисе для р�
 
 Роли, действующие в сервисе:
 
+* Сервисные роли:
+    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
+    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+    * {% include [alb.viewer](../../_includes/iam/roles/short-descriptions/alb.viewer.md) %}
+    * {% include [alb.editor](../../_includes/iam/roles/short-descriptions/alb.editor.md) %}
+    * {% include [alb.admin](../../_includes/iam/roles/short-descriptions/alb.admin.md) %}
+
+    {% note info %}
+
+    Чтобы к новому или существующему L7-балансировщику можно было подключить публичный IP-адрес, помимо роли `alb.editor` или `alb.admin` также требуется роль `vpc.publicAdmin` на сеть, в которой находится балансировщик.
+
+    {% endnote %}
+
 * Примитивные роли:
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
@@ -36,10 +49,29 @@ description: "Управление доступом в сервисе для р�
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
 **Просмотр информации** | |
-Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
-**Управление ресурсами** | |
-Создание ресурсов в каталоге | `create` | `editor` на каталог
-Изменение, удаление ресурсов | `update`, `delete` | `editor`
+Просмотр информации о любом ресурсе | `get`, `list`, `listOperations` | `alb.viewer` на этот ресурс
+**Управление L7-балансировщиками** | |
+[Создание](../operations/application-load-balancer-create.md) и [изменение](../operations/application-load-balancer-update.md) L7-балансировщиков с публичным IP-адресом | `create` | `alb.editor` и `vpc.publicAdmin` на сеть, в которой находится балансировщик
+Создание и изменение L7-балансировщиков без публичного IP-адреса | `create` | `alb.editor`
+[Удаление L7-балансировщиков](../operations/application-load-balancer-delete.md) | `update`, `delete` | `alb.editor`
+Получение состояний целевых групп | `getTargetStates` | `alb.viewer`
+Добавление, изменение и удаление обработчиков | `addListener`, `updateListener`, `removeListener` | `alb.editor`
+Добавление, изменение и удаление SNI-обработчиков | `addSniMatch`, `updateSniMatch`, `removeSniMatch` | `alb.editor`
+Остановка и запуск L7-балансировщика | `stop`, `start` | `alb.editor`
+**Управление HTTP-роутерами** | |
+[Создание HTTP-роутера](../operations/http-router-create.md) | `create` | `alb.editor`
+[Изменение HTTP-роутера](../operations/http-router-update.md) | `update` | `alb.editor`
+[Удаление HTTP-роутера](../operations/http-router-delete.md) | `delete` | `alb.editor`
+**Управление группами бэкендов** | |
+[Создание](../operations/backend-group-create.md) и [изменение](../operations/backend-group-update.md) групп бэкендов | `create`, `update`, `updateBackend` | `alb.editor`
+[Удаление групп бэкендов](../operations/backend-group-delete.md) | `delete` | `alb.editor`
+Добавление ресурсов в группе бэкендов | `addBackend` | `alb.editor`
+Удаление ресурсов в группе бэкендов | `removeBackend` | `alb.editor`
+**Управление целевыми группами** | |
+[Создание](../operations/target-group-create.md) и [изменение](../operations/target-group-update.md) целевых групп в каталоге | `create`, `update` | `alb.editor`
+[Удаление целевых групп](../operations/target-group-delete.md) | `delete` | `alb.editor`
+Добавление ресурсов в целевой группе | `addTargets` | `alb.editor`
+Удаление ресурсов в целевой группе | `removeTargets` | `alb.editor`
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 

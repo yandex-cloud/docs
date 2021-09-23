@@ -38,7 +38,7 @@
       ],
       "Condition": {
         "StringLike": {
-           "aws:referer": "https://console.cloud.yandex.*/folders/*/storage/bucket/your-bucket-name*"
+           "aws:referer": "https://console.cloud.yandex.*/folders/*/storage/buckets/your-bucket-name*"
         }
       }
     }

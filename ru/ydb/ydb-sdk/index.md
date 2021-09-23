@@ -830,6 +830,150 @@ SELECT * FROM episodes;
 
 {% endlist %}
 
+## Скан запросы {#scan-query}
+
+Результатом выполнения [скан запроса](../concepts/scan_query.md) является стрим данных. Далее приведены примеры обработки результата таких запросов различными SDK.
+
+{% list tabs %}
+
+- Python
+
+  ```python
+  def executeScanQuery(driver):
+    query = ydb.ScanQuery("""
+      SELECT series_id, season_id, COUNT(*) AS episodes_count
+      FROM episodes
+      GROUP BY series_id, season_id
+      ORDER BY series_id, season_id
+    """, {})
+
+    it = driver.table_client.scan_query(query)
+
+    while True:
+      try:
+          result = next(it)
+          print result.result_set.rows
+      except StopIteration:
+          break
+  ```
+
+- Java
+
+  ```java
+  private void executeScanQuery(Session session) {
+      String query =
+          "SELECT series_id, season_id, COUNT(*) AS episodes_count\n" +
+          "FROM episodes\n" +
+          "GROUP BY series_id, season_id\n" +
+          "ORDER BY series_id, season_id;";
+
+      ExecuteScanQuerySettings settings = ExecuteScanQuerySettings.newBuilder().build();
+      Consumer<ResultSetReader> printer = (ResultSetReader reader) -> {
+          while (reader.next()) {
+              for (int i = 0; i < reader.getColumnCount(); i++) {
+                  if (i > 0) {
+                      System.out.print(" ");
+                  }
+                  System.out.print(reader.getColumn(i).toString());
+              }
+              System.out.print("\n");
+          }
+      };
+
+      session.executeScanQuery(query, Params.empty(), settings, printer).join();
+  }
+  ```
+
+- Go
+
+  ```go
+  func executeScanQuery(ctx context.Context, sp *table.SessionPool, prefix string) (err error) {
+	query := `
+		SELECT series_id, season_id, COUNT(*) AS episodes_count
+		FROM episodes
+		GROUP BY series_id, season_id
+		ORDER BY series_id, season_id;`
+
+	var res *table.Result
+	err = table.Retry(ctx, sp,
+		table.OperationFunc(func(ctx context.Context, s *table.Session) (err error) {
+			res, err = s.StreamExecuteScanQuery(ctx, query, table.NewQueryParameters())
+			return err
+		}),
+	)
+	if err != nil {
+		return err
+	}
+	var (
+		seriesID uint64
+		seasonID uint64
+		count    uint64
+	)
+	log.Print("\n> scan_query_select:")
+	for res.NextResultSet(ctx, "series_id", "season_id", "episodes_count") {
+		for res.NextRow() {
+			err = res.ScanWithDefaults(&seriesID, &seasonID, &count)
+			if err != nil {
+				return err
+			}
+			log.Printf("#  Season, SeriesId: %d, SeasonId: %d, Count: %d", seriesID, seasonID, count)
+		}
+	}
+	if err = res.Err(); err != nil {
+		return err
+	}
+	return nil
+  }
+  ```
+
+- C#
+
+  ```c#
+  public void executeScanQuery()
+  {
+    var scanStream = TableClient.ExecuteScanQuery(@$"
+      SELECT series_id, season_id, COUNT(*) AS episodes_count
+      FROM episodes
+      GROUP BY series_id, season_id
+      ORDER BY series_id, season_id;
+    ");
+
+    while (await scanStream.Next())
+    {
+      scanStream.Response.EnsureSuccess();
+
+      var resultSet = scanStream.Response.Result.ResultSetPart;
+      if (resultSet != null)
+      {
+        foreach (var row in resultSet.Rows)
+        {
+          Console.WriteLine($"> ScanQuery, " +
+            $"series_id: {(ulong?)row["series_id"]}, " +
+            $"season_id: {(ulong?)row["season_id"]}, " +
+            $"episodes_count: {(ulong)row["episodes_count"]}");
+        }
+      }
+    }
+  }
+  ```
+
+- JavaScript
+
+  ```js
+  let count = 0;
+
+  const consumer = (result: ExecuteScanQueryPartialResult) => {
+    count += result.resultSet?.rows?.length || 0;
+  };
+
+  await session.streamExecuteScanQuery(`
+    DECLARE $value as Utf8;
+    SELECT * FROM table WHERE value=$value;
+  `, consumer, {'$value': Primitive.utf8('ttt')});
+  ```
+
+{% endlist %}
+
 ## Явное использование вызовов TCL Begin/Commit {#tcl-usage}
 
 {% list tabs %}

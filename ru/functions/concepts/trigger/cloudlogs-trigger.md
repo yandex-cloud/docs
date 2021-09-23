@@ -1,5 +1,11 @@
 # Триггер для {{ cloud-logs-name }}
 
+{% note alert %}
+
+Триггер для {{ cloud-logs-name }} устарел. Используйте [триггер для {{ cloud-logging-name }}](./cloud-logging-trigger.md).
+
+{% endnote %}
+
 Триггер для {{ cloud-logs-name }} запускает функцию, когда в [лог-группу](../../../functions/concepts/log-group.md) поступают сообщения. Триггер должен находиться в одном каталоге с лог-группами, на которые он подписан.
 
 {% note alert %}

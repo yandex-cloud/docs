@@ -8,7 +8,7 @@
   1. Open **{{ cloud-logging-name }}**.
   1. In the line with the log group, click ![image](../../_assets/horizontal-ellipsis.svg).
   1. In the menu that opens, click **Edit**.
-  1. Update the log group record retention period. The maximum retention period is 7 days and the minimum is 1 hour.
+  1. Update the log group record retention period. The maximum retention period is 3 days and the minimum is 1 hour.
   1. Click **Save**.
 
 - CLI

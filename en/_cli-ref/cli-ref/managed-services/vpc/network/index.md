@@ -23,6 +23,8 @@ Aliases:
 - [yc vpc network remove-labels](remove-labels.md) — Remove labels from a network.
 - [yc vpc network delete](delete.md) — Delete a network.
 - [yc vpc network list-subnets](list-subnets.md) — List subnets in a network.
+- [yc vpc network list-security-groups](list-security-groups.md) — List security groups in a network.
+- [yc vpc network list-route-tables](list-route-tables.md) — List route tables in a network.
 - [yc vpc network list-operations](list-operations.md) — List operations for a network.
 - [yc vpc network move](move.md) — Move a network to another folder.
 

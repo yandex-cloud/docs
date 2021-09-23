@@ -15,6 +15,7 @@ default:
   mes-full-name: Yandex Managed Service for Elasticsearch
   mms-full-name: Yandex Managed Service for SQL Server
   mgp-full-name: Yandex Managed Service for Greenplum<sup>®</sup>
+  mgl-full-name: Yandex Managed Service for GitLab
   vpc-full-name: Yandex Virtual Private Cloud
   ddos-protection-full-name: Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
@@ -56,6 +57,8 @@ default:
   org-full-name: Yandex Cloud Organization
   forms-full-name: Yandex Forms
   wiki-full-name: Yandex Wiki
+  load-testing-full-name: Yandex Load Testing
+  cloud-desktop-full-name: Yandex Cloud Desktop
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -71,6 +74,7 @@ default:
   mes-name: Managed Service for Elasticsearch
   mms-name: Managed Service for SQL Server
   mgp-name: Managed Service for Greenplum<sup>®</sup>
+  mgl-name: Managed Service for GitLab
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
@@ -81,6 +85,7 @@ default:
   speechkit-name: SpeechKit
   speechkit-pro-name: SpeechKit Pro
   brand-voice-name: SpeechKit Brand Voice
+  sk-hybrid-name: SpeechKit Hybrid
   network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
   cloud-logs-name: Cloud Logs
@@ -89,6 +94,10 @@ default:
   dataproc-name: Data Proc
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
+  k8s-ca: Cluster Autoscaler
+  k8s-hpa: Horizontal Pod Autoscaler
+  k8s-vpa: Vertical Pod Autoscaler
+  k8s-decomission-timeout: 7 минут
   iot-name: Yandex IoT Core
   sf-name: Cloud Functions
   ydb-name: Yandex Database
@@ -110,6 +119,8 @@ default:
   org-name: Organization
   forms-name: Forms
   wiki-name: Wiki
+  load-testing-name: Load Testing
+  cloud-desktop-name: Cloud Desktop
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -123,6 +134,7 @@ default:
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
   mgp-short-name: Managed Service for Greenplum<sup>®</sup>
+  mgl-short-name: Managed Service for GitLab
   monitoring-short-name: Monitoring
   unified-agent-short-name: Unified Agent
   vpc-short-name: VPC
@@ -156,7 +168,11 @@ default:
   wiki-short-name: Wiki
   speechkit-pro-short-name: SpeechKit Pro
   cdn-short-name: Cloud CDN
+  cloud-desktop-short-name: Cloud Desktop
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
+  roles-alb-viewer: alb.viewer
+  roles-alb-editor: alb.editor
+  roles-alb-admin: alb.admin
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
@@ -220,8 +236,10 @@ default:
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
   mrd-max-disk-size: 4096 ГБ
+  CSI: Container Storage Interface
   CH: ClickHouse
   ES: Elasticsearch
+  GL: GitLab
   GP: Greenplum<sup>®</sup>
   KF: Apache Kafka<sup>®</sup>
   MG: MongoDB
@@ -418,6 +436,8 @@ default:
   ya-client-app: https://oauth.yandex.ru/client/new
   ya-oauth: https://oauth.yandex.ru/verification_code
   ds-api-addr: datasphere.api.cloud.yandex.net:443
+  taas-name: Training as a Service
+  taas: TaaS
   dt-copy: Копировать
   dt-repl: Реплицировать
   dt-copy-repl: Копировать и реплицировать

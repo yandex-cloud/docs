@@ -23,6 +23,12 @@ Aliases:
 - [yc application-load-balancer virtual-host prepend-http-route](prepend-http-route.md) — Prepends http route to the specified virtual host of the http router
 - [yc application-load-balancer virtual-host remove-http-route](remove-http-route.md) — Removes http route from the specified virtual host of the http router
 - [yc application-load-balancer virtual-host insert-http-route](insert-http-route.md) — Removes http route from the specified virtual host of the http router
+- [yc application-load-balancer virtual-host update-http-route](update-http-route.md) — Updates http route in the specified virtual host of the http router
+- [yc application-load-balancer virtual-host append-grpc-route](append-grpc-route.md) — Appends grpc route to the specified virtual host of the http router
+- [yc application-load-balancer virtual-host prepend-grpc-route](prepend-grpc-route.md) — Prepends grpc route to the specified virtual host of the http router
+- [yc application-load-balancer virtual-host remove-grpc-route](remove-grpc-route.md) — Removes grpc route from the specified virtual host of the http router
+- [yc application-load-balancer virtual-host insert-grpc-route](insert-grpc-route.md) — Removes grpc route from the specified virtual host of the http router
+- [yc application-load-balancer virtual-host update-grpc-route](update-grpc-route.md) — Updates grpc route in the specified virtual host of the http router
 
 #### Flags
 

@@ -39,6 +39,8 @@ Aliases:
 	- [yc managed-kubernetes node-group remove-metadata](node-group/remove-metadata.md) — Remove keys from metadata of the node template of the specified node group.
 	- [yc managed-kubernetes node-group add-labels](node-group/add-labels.md) — Add labels to the specified node group.
 	- [yc managed-kubernetes node-group remove-labels](node-group/remove-labels.md) — Remove labels from the specified node group.
+	- [yc managed-kubernetes node-group add-node-labels](node-group/add-node-labels.md) — Add NODE labels to the specified node group.
+	- [yc managed-kubernetes node-group remove-node-labels](node-group/remove-node-labels.md) — Remove NODE labels from the specified node group.
 	- [yc managed-kubernetes node-group delete](node-group/delete.md) — Delete a node group.
 	- [yc managed-kubernetes node-group list-operations](node-group/list-operations.md) — List operations for the specified node group.
 	- [yc managed-kubernetes node-group list-nodes](node-group/list-nodes.md) — List nodes for the specified node group.

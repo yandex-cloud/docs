@@ -19,6 +19,7 @@
    Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 
 1. Создайте нужные [группы безопасности](../security-groups.md).
+1. Изучите [рекомендации по использованию {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
 ## Создайте кластер {{ k8s }} {#kubernetes-cluster-create}
 
@@ -47,12 +48,14 @@
        --version 1.13 \
        --cluster-ipv4-range 10.1.0.0/16 \
        --service-ipv4-range 10.2.0.0/16 \
+       --security-group-ids enpe5sdn7vs5mu6udl7i,enpj6c5ifh755o6evmu4 \
        --service-account-name default-sa \
        --node-service-account-name default-sa \
        --daily-maintenance-window start=22:00,duration=10h
      ```
 
      Где:
+
      * `--name` — имя кластера {{ k8s }}.
      * `--network-name` — имя сети.
      * `--zone` — зона доступности.
@@ -90,6 +93,18 @@
      --enable-network-policy
      ```
 
+  1. Чтобы использовать [ключ шифрования](../../concepts/encryption.md) для защиты конфиденциальной информации, передайте в команде создания кластера его имя или идентификатор:
+
+     ```bash
+     {{ yc-k8s }} cluster create \
+        ...
+        --kms-key-name <имя ключа шифрования> \
+        --kms-key-id <идентификатор ключа шифрования> \
+        ...
+     ```
+
+     {% include [write-once-setitng.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+
 - Terraform
 
   Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -100,6 +115,10 @@
      * `description` — описание кластера {{ k8s }}.
      * `network_id` — идентификатор сети.
      * `version` — версия {{ k8s }}.
+     * (Опционально) `kms_provider` — [ключ шифрования](../../concepts/encryption.md) {{ kms-full-name }}, который будет использоваться для защиты секретов.
+
+        {% include [write-once-setitng.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+
      * `zonal` — параметры зонального мастера:
        * `zone` — зона доступности.
        * `subnet_id` — идентификатор подсети. Если он не указан, а в указанной зоне есть только одна подсеть, будет выделен адрес в этой подсети.
@@ -155,6 +174,9 @@
        node_service_account_id = "${yandex_iam_service_account.this.id}"
        release_channel = "STABLE"
        depends_on = ["yandex_resourcemanager_folder_iam_member.this"]
+       kms_provider {
+         key_id = "<идентификатор ключа шифрования>"
+       }
      }
 
      resource "yandex_vpc_network" "this" {}
@@ -296,5 +318,7 @@
 - API
 
   Чтобы создать кластер {{ k8s }}, воспользуйтесь методом [create](../../api-ref/Cluster/create.md) для ресурса [Cluster](../../api-ref/Cluster).
+
+  Чтобы использовать для защиты секретов [ключ шифрования KMS](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
 
 {% endlist %}

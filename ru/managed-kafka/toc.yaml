@@ -75,6 +75,8 @@ items:
             href: api-ref/grpc/index.md
           - name: ClusterService
             href: api-ref/grpc/cluster_service.md
+          - name: ConnectorService
+            href: api-ref/grpc/connector_service.md
           - name: ResourcePresetService
             href: api-ref/grpc/resource_preset_service.md
           - name: TopicService
@@ -115,6 +117,22 @@ items:
                 href: api-ref/Cluster/streamLogs.md
               - name: update
                 href: api-ref/Cluster/update.md
+          - name: Connector
+            items:
+              - name: Overview
+                href: api-ref/Connector/index.md
+              - name: create
+                href: api-ref/Connector/create.md
+              - name: delete
+                href: api-ref/Connector/delete.md
+              - name: get
+                href: api-ref/Connector/get.md
+              - name: list
+                href: api-ref/Connector/list.md
+              - name: pause
+                href: api-ref/Connector/pause.md
+              - name: resume
+                href: api-ref/Connector/resume.md
           - name: ResourcePreset
             items:
               - name: Overview

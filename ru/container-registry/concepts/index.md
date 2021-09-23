@@ -4,6 +4,7 @@
 
 Сервис позволяет управлять следующими объектами:
 * [Docker-образ](docker-image.md)
+* [Том Docker](docker-volume.md)
 * [Реестр](registry.md)
 * [Репозиторий](repository.md)
 

@@ -8,6 +8,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 Resource | Description
 --- | ---
 [Cluster](Cluster/index.md) | A set of methods for managing Apache Kafka® clusters.
+[Connector](Connector/index.md) | A set of methods for managing Apache Kafka Connectors resources.
 [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing Kafka resource presets.
 [Topic](Topic/index.md) | A set of methods for managing Kafka topics.
 [User](User/index.md) | A set of methods for managing Kafka users.

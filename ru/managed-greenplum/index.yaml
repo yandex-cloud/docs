@@ -2,7 +2,7 @@ title: Yandex Managed Service for Greenplum<sup>®</sup>
 description:
   - >-
     <em>Сервис Yandex Managed Service for Greenplum<sup>®</sup> находится на
-    стадии <a href=\"/docs/overview/concepts/launch-stages\">Preview</a>.</em>
+    стадии <a href="/docs/overview/concepts/launch-stages">Preview</a>.</em>
   - >-
     Сервис Managed Service for Greenplum<sup>®</sup> помогает разворачивать и
     поддерживать кластеры Greenplum<sup>®</sup> в инфраструктуре Yandex.Cloud.

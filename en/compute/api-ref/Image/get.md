@@ -38,7 +38,8 @@ imageId | Required. ID of the Image resource to return. To get the image ID, use
   "status": "string",
   "os": {
     "type": "string"
-  }
+  },
+  "pooled": true
 }
 ```
 An Image resource.
@@ -58,3 +59,4 @@ productIds[] | **string**<br><p>License IDs that indicate which licenses are att
 status | **string**<br><p>Current status of the image.</p> <ul> <li>CREATING: Image is being created.</li> <li>READY: Image is ready to use.</li> <li>ERROR: Image encountered a problem and cannot operate.</li> <li>DELETING: Image is being deleted.</li> </ul> 
 os | **object**<br><p>Operating system that is contained in the image.</p> 
 os.<br>type | **string**<br><p>Operating system type. The default is ``LINUX``.</p> <p>This field is used to correctly emulate a vCPU and calculate the cost of using an instance.</p> <ul> <li>LINUX: Linux operating system.</li> <li>WINDOWS: Windows operating system.</li> </ul> 
+pooled | **boolean** (boolean)<br><p>When true, indicates there is an image pool for fast creation disks from the image.</p> 

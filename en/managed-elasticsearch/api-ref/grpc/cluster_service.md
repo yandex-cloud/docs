@@ -225,7 +225,7 @@ Field | Description
 version | **string**<br>Elasticsearch version. 
 elasticsearch_spec | **[ElasticsearchSpec](#ElasticsearchSpec)**<br>Configuration and resource allocation for Elasticsearch nodes. 
 edition | **string**<br>ElasticSearch edition. 
-admin_password | **string**<br>ElasticSearch admin password. 
+admin_password | **string**<br>Required. ElasticSearch admin password. 
 
 
 ### ElasticsearchSpec {#ElasticsearchSpec}
@@ -377,14 +377,14 @@ cluster_id | **string**<br>Required. ID of the Elasticsearch cluster to update. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br> 
 description | **string**<br>New description of the Elasticsearch cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Elasticsearch cluster as `key:value` pairs. <br>For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-config_spec | **[ConfigSpec](#ConfigSpec)**<br>New configuration and resources for hosts in the Elasticsearch cluster. <br>Use `update_mask` to prevent reverting all cluster settings that are not listed in `config_spec` to their default values. 
+config_spec | **[ConfigSpecUpdate](#ConfigSpecUpdate)**<br>New configuration and resources for hosts in the Elasticsearch cluster. <br>Use `update_mask` to prevent reverting all cluster settings that are not listed in `config_spec` to their default values. 
 name | **string**<br>New name for the Elasticsearch cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 security_group_ids[] | **string**<br>User security groups 
 service_account_id | **string**<br>ID of the service account used for access to Yandex Object Storage. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 
 
-### ConfigSpec {#ConfigSpec1}
+### ConfigSpecUpdate {#ConfigSpecUpdate}
 
 Field | Description
 --- | ---
