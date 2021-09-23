@@ -9,13 +9,29 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
+      - name: Трейл
+        href: concepts/trail.md
       - name: Аудитный лог событий
         href: concepts/format.md
       - name: Справочник событий
         href: concepts/events.md
-      - name: Поиск событий
-        href: concepts/search.md
+      - name: Экспорт в SIEM
+        href: concepts/export-siem.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Загрузка аудитных логов в лог-группу
+        href: operations/export-cloud-logging.md
+      - name: Загрузка аудитных логов в бакет
+        href: operations/export-bucket.md
+  - name: Сценарии использования
+    items:
+      - name: Поиск в бакете
+        href: solutions/search-bucket.md
+      - name: Поиск в лог-группе
+        href: solutions/search-cloud-logging.md  
+  - name: Управление доступом
+    href: security/index.md
   - name: Правила тарификации
     href: pricing.md

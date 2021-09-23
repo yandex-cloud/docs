@@ -1,32 +1,11 @@
-# Поиск по аудитным логам в бакете
+# Поиск в бакете
 
-## Настройка {#setup}
-
-Чтобы начать поиск по [аудитным логам](format.md) в [бакете](../../storage/concepts/bucket.md) необходимо выполнить следующие действия:
-
+## Перед началом работы {#before-you-begin}
 1. Установите и настройте программу [s3fs](../../storage/tools/s3fs.md) или [goofys](../../storage/tools/goofys.md), позволяющую монтировать бакеты {{ objstorage-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
-
-1. Подключите бакет с аудитными логами к файловой системе:
-
-   {% list tabs %}
-
-    - s3fs
-
-      ```bash
-      s3fs <имя бакета> <путь к папке> -o passwd_file=$HOME/.passwd-s3fs \
-        -o url=http://storage.yandexcloud.net \
-        -o use_path_request_style -o use_cache=<путь к папке для кеширования>
-      ```
-
-   - goofys
-
-     ```bash
-     goofys --endpoint=https://storage.yandexcloud.net <имя бакета> <путь к папке>
-     ```
-
-   {% endlist %}
-
+1. Смонтируйте бакет с аудитными логами к вашей файловой системе через [s3fs](https://cloud.yandex.ru/docs/storage/tools/s3fs#mounting-bucket) или [goofys](https://cloud.yandex.ru/docs/storage/tools/goofys#bucket-mounting).
 1. Установите утилиту [jq](https://stedolan.github.io/jq) для поиска по формату JSON.
+
+## Сценарии поиска {#search}
 
 1. Для поиска по нескольким файлам используйте команду `find`. В качестве аргумента командной строки укажите путь к папке, к которой подключен бакет с аудитными логами, или ее подпапку с логами за определенный месяц или сутки.
 
@@ -36,7 +15,6 @@
     find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "yandex.cloud.audit.iam.CreateServiceAccount")'
     ```
 
-## Сценарии поиска {#search}
 
 1. Чтобы найти, кто удалил [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) в облаке, необходимо искать по полю `eventType` (_тип события_) по всем файлам за период с фильтром по идентификатору каталога:
 
@@ -76,7 +54,7 @@
 
 #### См. также {#see-also}
 
-* [Аудитный лог событий](format.md)
+* [Аудитный лог](../concepts/format.md)
 * [Документация jq](https://stedolan.github.io/jq/tutorial)
 * [s3fs](../../storage/tools/s3fs.md)
 * [goofys](../../storage/tools/goofys.md)
