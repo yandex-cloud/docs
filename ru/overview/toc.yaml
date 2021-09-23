@@ -51,6 +51,10 @@ items:
         href: security-bulletins/index.md
       - name: Правила проведения внешних сканирований безопасности
         href: compliance/pentest.md
+      - name: Домены безопасности
+        items:
+        - name: Аутентификация и управление доступом
+          href: security/domains/access.md
   - name: Удаление данных пользователей
     href: concepts/data-deletion.md
   - name: SLA
