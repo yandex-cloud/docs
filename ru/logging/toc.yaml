@@ -21,6 +21,8 @@ items:
           href: operations/retention-period.md
         - name: Получение списка лог-групп
           href: operations/list.md
+        - name: Мониторинг
+          href: operations/monitoring.md
         - name: Удаление лог-группы
           href: operations/delete-group.md
   - name: Концепции
