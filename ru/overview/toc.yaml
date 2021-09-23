@@ -47,6 +47,10 @@ items:
         href: security/conform.md
       - name: Средства защиты, доступные пользователям облачных сервисов
         href: security/user-side.md
+      - name: Построение безопасной инфраструктуры
+        items:
+          - name: Безопасная конфигурация
+            href: security/domains/secure-config.md
       - name: Бюллетени безопасности
         href: security-bulletins/index.md
       - name: Правила проведения внешних сканирований безопасности
