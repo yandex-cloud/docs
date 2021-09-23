@@ -24,6 +24,7 @@
     --cluster-name test-k8s \
     --platform-id standard-v3 \
     --network-interface security-group-ids=[my-security-group1,my-security-group2],subnets=[yc-auto-subnet-0],ipv4-address=nat \
+    --network-acceleration-type <standard или software-accelerated> \
     --cores 2 \
     --memory 4 \
     --core-fraction 50 \
@@ -47,6 +48,7 @@
   ```
 
   Где:
+
   * `--name` — имя группы узлов.
   * `--cluster-name` — имя кластера {{ k8s }}, в котором будет создана группа узлов.
   * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
@@ -54,15 +56,18 @@
 
     {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
-   * `--memory` — количество памяти для узлов.
-   * `--cores` — количество vCPU для узлов.
-   * `--core-fraction` — [гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) для узлов.
-   * `--preemptible` — флаг, который указывается, если [виртуальные машины](../../../compute/concepts/vm.md) должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
-   * `--disk-type` — тип диска узла.
-   * `--disk-size` — размер диска узла.
-   * `--fixed-size` — количество узлов в группе узлов.
-   * `--version` — версия {{ k8s }} для узлов.
-   * `--daily-maintenance-window` — настройки окна обновлений.
+  * `--network-acceleration-type` — выбор типа ускорения сети:
+       * `standard` — без ускорения;
+       * `software-accelerated` — [программно-ускоренная сеть](../../../vpc/concepts/software-accelerated-network.md).
+  * `--memory` — количество памяти для узлов.
+  * `--cores` — количество vCPU для узлов.
+  * `--core-fraction` — [гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) для узлов.
+  * `--preemptible` — флаг, который указывается, если [виртуальные машины](../../../compute/concepts/vm.md) должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
+  * `--disk-type` — тип диска узла.
+  * `--disk-size` — размер диска узла.
+  * `--fixed-size` — количество узлов в группе узлов.
+  * `--version` — версия {{ k8s }} для узлов.
+  * `--daily-maintenance-window` — настройки окна обновлений.
 
   {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
