@@ -14,7 +14,7 @@ keywords:
 
 {{ mch-short-name }} обеспечивает автоматическое и ручное резервное копирование баз данных.
 
-Резервная копия автоматически создается раз в день и хранится 7 дней. Отключить автоматическое создание резервных копий и изменить их срок хранения нельзя.
+Резервная копия автоматически создается раз в день и хранится {{ mch-backup-retention }} дней. Отключить автоматическое создание резервных копий и изменить их срок хранения нельзя.
 
 Чтобы восстановить кластер из резервной копии, [следуйте инструкциям](../operations/cluster-backups.md#restore).
 
@@ -23,7 +23,7 @@ keywords:
 Резервные копии могут быть созданы автоматически и вручную, в обоих случаях используется инкрементальная схема:
 
 * При создании очередной резервной копии [куски данных]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %} проверяются на уникальность.
-* Если идентичные [куски данных]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %} уже есть в одной из существующих резервных копий и они не старше {{ mch-dedup-retention }} дней, то они не дублируются.
+* Если идентичные [куски данных]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage){% endif %} уже есть в одной из существующих резервных копий и они не старше {{ mch-dedup-retention }} дней, то они не дублируются. Для холодных данных [гибридного хранилища](storage .md#hybrid-storage-features) этот срок составляет {{ mch-backup-retention }} дней.
 
 В резервной копии хранятся данные только для движков семейства `MergeTree`. Для остальных движков хранятся только схемы таблиц. Подробнее про движки см. в [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/){% endif %}.
 
@@ -35,17 +35,19 @@ keywords:
 
 ## Хранение резервной копии {#storage}
 
-Особенности хранения резервных копий в {{ mch-name }}:
+* Резервные копии данных [локального](storage.md) и [сетевых](storage.md) хранилищ содержатся в отдельном бакете {{ objstorage-name }} и не занимают место в хранилище кластера. При этом, если в кластере есть N свободных гигабайт места, то хранение первых N гигабайт резервных копий не тарифицируется.
 
-* Резервные копии хранятся в объектном хранилище в виде бинарных файлов и шифруются с помощью [GPG]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/GnuPG){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/GNU_Privacy_Guard){% endif %}. У каждого кластера свои ключи шифрования.
+* Резервные копии холодных данных [гибридного хранилища](storage.md#hybrid-storage-features) хранятся в том же бакете {{ objstorage-name }}, что и сами данные. Объем, который занимают резервные копии, учитывается при расчете стоимости использования Object Storage так же, как и объем самих данных.
+
+    Подробнее см. в разделе [Правила тарификации для {{ mch-short-name }}](../pricing.md#rules-storage).
+
+* Резервные копии холодных данных [гибридного хранилища](storage.md#hybrid-storage-features) содержат только инкремент — историю изменений кусков данных за последние {{ mch-backup-retention }} дней. Резервирование данных, которые не были модифицированы, обеспечивается средствами {{ objstorage-name }}.
+
+* Резервные копии хранятся в виде бинарных файлов и шифруются с помощью [GPG]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/GnuPG){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/GNU_Privacy_Guard){% endif %}. У каждого кластера свои ключи шифрования.
 
 * Все резервные копии (автоматические и созданные вручную) хранятся {{ mch-backup-retention }} дней.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
-
-* {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
-
-    Подробнее см. в разделе [Правила тарификации для {{ mch-short-name }}](../pricing.md#rules-storage).
 
 ## Проверка резервной копии {#verify}
 

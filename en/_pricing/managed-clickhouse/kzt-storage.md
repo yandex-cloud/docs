@@ -6,4 +6,5 @@
 | Non-replicated network storage  | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.ch|month|string }} |
 | Fast network storage            | {{ sku|KZT|mdb.cluster.network-nvme.ch|month|string }}              |
 | Fast local storage              | {{ sku|KZT|mdb.cluster.local-nvme.ch|month|string }}                |
-| Backups beyond the storage size | ₸15.2544                                                            |
+| Hybrid storage cold data and backups  | {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|string }} |
+| Local and network storage backups size | ₸15.2544                                                            |
