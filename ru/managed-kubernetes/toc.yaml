@@ -25,6 +25,8 @@ items:
             href: operations/cilium.md
           - name: Настройка Node Local DNS для контроллера сетевых политик Cilium
             href: operations/cilium-node-local-dns.md
+      - name: Настройка автомасштабирования
+        href: operations/autoscale.md
       - name: Работа с постоянными томами
         items:
           - name: Динамическая подготовка тома
@@ -103,8 +105,6 @@ items:
             href: concepts/service.md
       - name: Группа узлов
         items:
-          - name: Автоматическое масштабирование группы узлов
-            href: concepts/node-group/cluster-autoscaler.md
           - name: Расселение подов с узла
             href: concepts/node-group/node-drain.md
           - name: Динамическое резервирование ресурсов для узла
@@ -115,6 +115,8 @@ items:
         href: concepts/external-nodes.md
       - name: Сетевые настройки и политики кластера
         href: concepts/network-policy.md
+      - name: Автоматическое масштабирование
+        href: concepts/autoscale.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Рекомендации по использованию {{ managed-k8s-name }}

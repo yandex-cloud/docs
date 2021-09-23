@@ -97,6 +97,10 @@ default:
   dataproc-name: Data Proc
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
+  k8s-ca: Cluster Autoscaler
+  k8s-hpa: Horizontal Pod Autoscaler
+  k8s-vpa: Vertical Pod Autoscaler
+  k8s-decomission-timeout: 7 минут
   iot-name: Yandex IoT Core
   sf-name: Cloud Functions
   ydb-name: Yandex Database
