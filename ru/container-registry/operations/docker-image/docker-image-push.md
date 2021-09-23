@@ -21,16 +21,16 @@
       ubuntu                                  latest              1d9c17228a9e        2 weeks ago         86.7MB
       ```
   
-  1. (опционально) Присвойте Docker-образу тег вида `cr.yandex/<ID реестра>/<имя Docker-образа>:<тег>`:
+  1. (опционально) Присвойте Docker-образу URL вида `cr.yandex/<ID реестра>/<имя Docker-образа>:<тег>`:
 
       ```
       $ docker tag ubuntu \
-      cr.yandex/crpd50616s9a2t7gr8mi/ubuntu:example
+      cr.yandex/crpd50616s9a2t7gr8mi/ubuntu:hello
       ```
 
       {% note info %}
 
-      Загрузить в {{ container-registry-name }} можно только Docker-образы с тегом вида `cr.yandex/<ID реестра>/<имя Docker-образа>:<тег>`.
+      Загрузить в {{ container-registry-name }} можно только Docker-образы с URL вида `cr.yandex/<ID реестра>/<имя Docker-образа>:<тег>`.
 
       {% endnote %}
 

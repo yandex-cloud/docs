@@ -172,6 +172,16 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
 
+## {{ serverless-containers-name }} {#serverless-containers}
+
+{% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}
+
+{% include [serverless-containers-roles-invoker](../../../_includes/roles-serverless-containers-invoker.md) %}
+
+{% include [serverless-containers-roles-editor](../../../_includes/roles-serverless-containers-editor.md) %}
+
+{% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
+
 ## {{ vpc-name }} {#vpc-roles}
 
 {% include [roles-vpc-viewer](../../../_includes/roles-vpc-viewer.md) %}
