@@ -29,7 +29,6 @@ items:
         href: concepts/consistency.md
       - name: Аппаратный модуль безопасности (HSM)
         href: concepts/hsm.md
-        when: audience == "internal"
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Сценарии использования
