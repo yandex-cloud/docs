@@ -15,8 +15,8 @@ DescribeStreamConsumer | Получает описание указанного 
 DescribeStreamSummary | Получает обобщенное описание указанного потока без списка сегментов. | Не&nbsp;поддерживается Yandex&nbsp;Data&nbsp;Streams.
 DisableEnhancedMonitoring | Отключает расширенный мониторинг. | Не&nbsp;поддерживается Yandex&nbsp;Data&nbsp;Streams.
 EnableEnhancedMonitoring | Включает расширенный мониторинг потока для метрик уровня сегментов. | Не&nbsp;поддерживается Yandex&nbsp;Data&nbsp;Streams.
-GetRecords | Получает данные из потока. | Не&nbsp;поддерживается Yandex&nbsp;Data&nbsp;Streams.
-GetShardIterator | Получает значение итератора. | Не&nbsp;поддерживается Yandex&nbsp;Data&nbsp;Streams.
+[GetRecords](methods/getrecords.md) | Получает сообщения из потока. |
+[GetShardIterator](methods/getsharditerator.md) | Получает значение итератора. |
 [IncreaseStreamRetentionPeriod](methods/increasestreamretentionperiod.md) | Увеличивает время хранения сообщений в потоке данных.</br>Доступные варианты времени хранения: 4 часа, 12 часов, 24 часа. |
 ListShards | Выводит список сегментов и информацию о них. | Не&nbsp;поддерживается Yandex&nbsp;Data&nbsp;Streams.
 ListStreamConsumers | Выводит список выделенных потребителей, которые зарегистрированы для получения данных из потока, и информацию о них. | Не&nbsp;поддерживается Yandex&nbsp;Data&nbsp;Streams.

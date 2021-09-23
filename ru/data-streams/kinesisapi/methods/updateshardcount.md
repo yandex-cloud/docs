@@ -1,4 +1,4 @@
-# Метод UpdateShardCount
+# UpdateShardCount
 
 Обновляет количество [сегментов](../../concepts/glossary.md#shard) указанного [потока данных](../../concepts/glossary.md#stream-concepts). Доступно только увеличение числа сегментов.
 

@@ -71,6 +71,10 @@ items:
             href: kinesisapi/methods/describestream.md
           - name: IncreaseStreamRetentionPeriod
             href: kinesisapi/methods/increasestreamretentionperiod.md
+          - name: GetRecords
+            href: kinesisapi/methods/getrecords.md
+          - name: GetShardIterator
+            href: kinesisapi/methods/getsharditerator.md
           - name: ListStreams
             href: kinesisapi/methods/liststreams.md
           - name: PutRecord
