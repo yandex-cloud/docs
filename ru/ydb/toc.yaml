@@ -248,6 +248,18 @@ items:
         href: solutions/connect-from-cf.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: solutions/alice-shareable-todolist.md
+  - name: Развертывание YDB
+    items:
+      - name: С использованием оркестратора
+        items:
+          - name: Обзор
+            href: deploy/orchestrated/concepts.md
+          - name: Развертывание в Yandex Managed Service for Kubernetes
+            href: deploy/orchestrated/yc_managed_kubernetes.md
+          - name: Развертывание в AWS Elastic Kubernetes Service
+            href: deploy/orchestrated/aws_eks.md
+          - name: Эксплуатация
+            href: deploy/orchestrated/operate.md
   - name: Концепции
     when: audience == "external"
     items:
