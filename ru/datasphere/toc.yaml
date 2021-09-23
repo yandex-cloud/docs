@@ -65,6 +65,8 @@ items:
             href: operations/data/secret-copy.md
           - name: Удаление секрета
             href: operations/data/secret-delete.md
+      - name: Запуск распределенного обучения
+        href: operations/taas-run.md
   - name: Концепции
     items:
       - name: Обзор
@@ -91,6 +93,8 @@ items:
         href: concepts/secrets.md
       - name: Использование TensorBoard в DataSphere
         href: concepts/tensorboard.md
+      - name: Распределенное обучение
+        href: concepts/taas.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Ранний доступ

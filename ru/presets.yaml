@@ -434,6 +434,8 @@ default:
   ya-client-app: https://oauth.yandex.ru/client/new
   ya-oauth: https://oauth.yandex.ru/verification_code
   ds-api-addr: datasphere.api.cloud.yandex.net:443
+  taas-name: Training as a Service
+  taas: TaaS
 
   # Data Transfer
   dt-copy: Копировать
