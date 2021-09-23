@@ -46,6 +46,14 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
+## {{ cdn-name }} {#cdn-roles}
+
+{% include [roles-cdn-viewer](../../../_includes/roles-cdn-viewer.md) %}
+
+{% include [roles-cdn-editor](../../../_includes/roles-cdn-editor.md) %}
+
+{% include [roles-cdn-admin](../../../_includes/roles-cdn-admin.md) %}
+
 ## {{ compute-name }} {#compute-roles}
 
 {% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
