@@ -31,6 +31,8 @@ items:
             href: operations/aws-cli/describe.md
           - name: Отправка данных в поток
             href: operations/aws-cli/send.md
+          - name: Чтение данных из потока
+            href: operations/aws-cli/get-records.md
           - name: Удаление потока данных
             href: operations/aws-cli/delete.md
       - name: Работа с AWS SDK
@@ -41,6 +43,8 @@ items:
             href: operations/aws-sdk/create.md
           - name: Отправка данных в поток
             href: operations/aws-sdk/send.md
+          - name: Чтение данных из потока
+            href: operations/aws-sdk/get-records.md
           - name: Удаление потока данных
             href: operations/aws-sdk/delete.md
   - name: Концепции
