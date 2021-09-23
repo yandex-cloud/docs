@@ -14,4 +14,6 @@
 
 {% endnote %}
 
+См. также статью в разделе [Вопросы и ответы](../../qa/cluster-autoscaler.md).
+
 Автоматическое масштабирование группы узлов не тоже самое, что горизонтальное масштабирование подов ([Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)). В последнем случае контроллер периодически запрашивает информацию об использовании ресурсов по метрикам, указанным в каждом описании объекта API {{ k8s }} [HorizontalPodAutoscaler](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#horizontalpodautoscaler-v1-autoscaling). Вы можете использовать оба механизма одновременно.

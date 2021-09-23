@@ -128,4 +128,8 @@ items:
           repo: docs
           path: en/_api-ref/k8s/toc.yaml
   - name: Вопросы и ответы
-    href: qa/index.md
+    items:
+      - name: Общие вопросы
+        href: qa/index.md
+      - name: Автоматическое масштабирование
+        href: qa/cluster-autoscaler.md
