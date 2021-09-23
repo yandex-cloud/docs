@@ -58,6 +58,10 @@ items:
         href: concepts/slicing.md
       - name: Источники и их группы
         href: concepts/origins.md
+      - name: Экранирование источников
+        href: concepts/origins-shielding.md
+      - name: Выгрузка логов
+        href: concepts/logs.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
