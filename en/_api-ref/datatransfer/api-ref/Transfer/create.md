@@ -33,7 +33,7 @@ targetId | **string**<br>
 name | **string**<br>
 description | **string**<br>
 folderId | **string**<br>
-type | **string**<br>
+type | **string**<br><ul> <li>SNAPSHOT_AND_INCREMENT: Snapshot and increment</li> <li>SNAPSHOT_ONLY: Snapshot</li> <li>INCREMENT_ONLY: Increment</li> </ul> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
