@@ -8,7 +8,16 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](security-groups.md)
 * [{#T}](node-connect-ssh.md)
 * [{#T}](create-static-conf.md)
+
+## Сетевые сценарии {#network-scenarios}
+
 * [{#T}](create-load-balancer.md)
+* [{#T}](calico.md)
+* [{#T}](cilium.md)
+
+## Шифрование {#encrypting}
+
+* [{#T}](encrypting-secrets.md)
 
 ## Работа с постоянными томами {#persistent-volumes}
 
@@ -27,8 +36,8 @@ description: "Из статьи вы узнаете, как работать с 
 
 ## Управление кластером {{ k8s }} {#kubernetes-cluster}
 
-* [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-get-credetials.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-delete.md)
@@ -38,4 +47,9 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](node-group/node-group-list.md)
 * [{#T}](node-group/node-group-create.md)
 * [{#T}](node-group/node-group-update.md)
+* [{#T}](node-group/node-label-management.md)
 * [{#T}](node-group/node-group-delete.md)
+
+## Работа с внешними узлами {#external-nodes}
+
+* [{#T}](external-nodes-connect.md)

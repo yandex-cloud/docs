@@ -67,6 +67,8 @@ items:
             href: operations/node-group/node-label-management.md
           - name: Удаление группы узлов
             href: operations/node-group/node-group-delete.md
+      - name: Подключение внешних узлов к кластеру
+        href: operations/external-nodes-connect.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
@@ -111,7 +113,9 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Группы узлов с GPU
             href: concepts/node-group/node-group-gpu.md
-      - name: Сетевые политики кластера Kubernetes
+      - name: Внешние узлы кластера
+        href: concepts/external-nodes.md
+      - name: Сетевые настройки и политики кластера
         href: concepts/network-policy.md
       - name: Квоты и лимиты
         href: concepts/limits.md
