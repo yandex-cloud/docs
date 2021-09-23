@@ -1,4 +1,4 @@
-The maximum record retention period is 7 days. The log uses Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+The maximum record retention period is 3 days. The log uses Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 You can filter records using the [language of filter expressions](../../logging/concepts/filter.md).
 

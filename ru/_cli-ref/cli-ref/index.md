@@ -42,6 +42,7 @@ Syntax:
 - [yc managed-kafka](managed-services/managed-kafka/index.md) — Manage Apache Kafka clusters, brokers, topics and users.
 - [yc container](managed-services/container/index.md) — Manage Container resources.
 - [yc load-balancer](managed-services/load-balancer/index.md) — Manage Yandex Load Balancer resources
+- [yc datatransfer](managed-services/datatransfer/index.md) — Manage Data Transfer endpoints and transfers
 - [yc serverless](managed-services/serverless/index.md) — Manage Serverless resources.
 - [yc iot](managed-services/iot/index.md) — Manage Yandex IoT Core resources
 - [yc dataproc](managed-services/dataproc/index.md) — Manage data processing clusters.

@@ -46,7 +46,10 @@ Method | Description
 --- | ---
 [create](create.md) | Creates a project in the specified folder.
 [delete](delete.md) | Deletes the specified project.
+[execute](execute.md) | Executes code in the specified cell or notebook.
 [get](get.md) | Returns the specified project.
+[getCellOutputs](getCellOutputs.md) | Returns outputs of the specified cell.
+[getStateVariables](getStateVariables.md) | Returns state variables of the specified notebook.
 [getUnitBalance](getUnitBalance.md) | Returns the unit balance of the specified project.
 [list](list.md) | Lists projects for the specified folder.
 [open](open.md) | Opens the specified project.

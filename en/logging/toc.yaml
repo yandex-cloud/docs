@@ -65,8 +65,6 @@ items:
                 href: api-ref/LogGroup/delete.md
               - name: get
                 href: api-ref/LogGroup/get.md
-              - name: getDefault
-                href: api-ref/LogGroup/getDefault.md
               - name: list
                 href: api-ref/LogGroup/list.md
               - name: listAccessBindings

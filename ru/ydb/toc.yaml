@@ -109,6 +109,8 @@ items:
             href: ydb-cli/commands/operations-index.md
           - name: Работа с директориями
             href: ydb-cli/commands/scheme-mkdir.md
+          - name: Скан запросы
+            href: ydb-cli/commands/scan-query.md
   - name: YDB SDK
     items:
       - name: Работа с SDK
@@ -127,6 +129,32 @@ items:
         href: solutions/connect-from-cf.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: solutions/alice-shareable-todolist.md
+  - name: Развертывание YDB
+    items:
+      - name: Подготовка
+        href: deploy/production_checklist.md
+      - name: С использованием оркестратора
+        items:
+          - name: Обзор
+            href: deploy/orchestrated/concepts.md
+          - name: Развертывание в Yandex Managed Service for Kubernetes
+            href: deploy/orchestrated/yc_managed_kubernetes.md
+          - name: Развертывание в AWS Elastic Kubernetes Service
+            href: deploy/orchestrated/aws_eks.md
+          - name: Эксплуатация
+            href: deploy/orchestrated/operate.md
+      - name: Средства интроспекции
+        items:
+          - name: Обзор средств интроспекции
+            href: deploy/monitoring/overview.md
+          - name: YDB Monitoring
+            href: deploy/monitoring/ydb_monitoring.md
+          - name: Логи
+            href: deploy/monitoring/logs.md
+          - name: Графики
+            href: deploy/monitoring/charts.md
+      - name: Возможные проблемы
+        href: deploy/common_issues.md
   - name: Концепции
     items:
       - name: Обзор
@@ -145,6 +173,8 @@ items:
         href: concepts/ttl.md
       - name: Термины и определения
         href: concepts/databases.md
+      - name: Скан запросы
+        href: concepts/scan_query.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Ограничения базы данных
@@ -156,7 +186,15 @@ items:
       - name: Обзор
         href: pricing.md
       - name: Бессерверный режим
-        href: pricing/serverless.md
+        items:
+          - name: Правила тарификации для бессерверного режима
+            href: pricing/serverless.md
+          - name: Стоимость запроса для YQL
+            href: pricing/request_units_yql.md
+          - name: Стоимость запроса для Document API
+            href: pricing/request_units_docapi.md
+          - name: Стоимость запроса для специальных API
+            href: pricing/request_units_special.md
       - name: Режим с выделенными инстансами
         href: pricing/dedicated.md
   - name: Рекомендации

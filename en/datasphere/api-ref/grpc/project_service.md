@@ -16,6 +16,9 @@ A set of methods for managing Project resources.
 | [List](#List) | Lists projects for the specified folder. |
 | [GetUnitBalance](#GetUnitBalance) | Returns the unit balance of the specified project. |
 | [SetUnitBalance](#SetUnitBalance) | Sets the unit balance of the specified project. |
+| [Execute](#Execute) | Executes code in the specified cell or notebook. |
+| [GetCellOutputs](#GetCellOutputs) | Returns outputs of the specified cell. |
+| [GetStateVariables](#GetStateVariables) | Returns state variables of the specified notebook. |
 
 ## Calls ProjectService {#calls}
 
@@ -388,5 +391,107 @@ Field | Description
 --- | ---
 project_id | **string**<br>Required. ID of the project to set the unit balance for. The maximum string length in characters is 200.
 unit_balance | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The number of units available to the project. 
+
+
+## Execute {#Execute}
+
+Executes code in the specified cell or notebook.
+
+**rpc Execute ([ProjectExecutionRequest](#ProjectExecutionRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[ProjectExecutionMetadata](#ProjectExecutionMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[ProjectExecutionResponse](#ProjectExecutionResponse)<br>
+
+### ProjectExecutionRequest {#ProjectExecutionRequest}
+
+Field | Description
+--- | ---
+project_id | **string**<br>Required. ID of the project to execute notebook/cell in. The maximum string length in characters is 200.
+target | **oneof:** `notebook_id` or `cell_id`<br>
+&nbsp;&nbsp;notebook_id | **string**<br>ID of the notebook to execute. The maximum string length in characters is 200.
+&nbsp;&nbsp;cell_id | **string**<br>ID of the cell to execute. The maximum string length in characters is 200.
+input_variables | **google.protobuf.Struct**<br>Values of input variables. 
+output_variable_names[] | **string**<br>Names of output variables. 
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ProjectExecutionMetadata](#ProjectExecutionMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[ProjectExecutionResponse](#ProjectExecutionResponse)>**<br>if operation finished successfully. 
+
+
+### ProjectExecutionMetadata {#ProjectExecutionMetadata}
+
+Field | Description
+--- | ---
+project_id | **string**<br>ID of the project in which notebook is being executed. 
+target | **oneof:** `notebook_id` or `cell_id`<br>
+&nbsp;&nbsp;notebook_id | **string**<br>ID of the notebook that is being executed The maximum string length in characters is 200.
+&nbsp;&nbsp;cell_id | **string**<br>ID of the cell that is being executed The maximum string length in characters is 200.
+
+
+### ProjectExecutionResponse {#ProjectExecutionResponse}
+
+Field | Description
+--- | ---
+checkpoint_id | **string**<br>ID of the checkpoint resulting from the execution. 
+output_variables | **google.protobuf.Struct**<br>Values of output variables resulting from the execution. 
+
+
+## GetCellOutputs {#GetCellOutputs}
+
+Returns outputs of the specified cell.
+
+**rpc GetCellOutputs ([CellOutputsRequest](#CellOutputsRequest)) returns ([CellOutputsResponse](#CellOutputsResponse))**
+
+### CellOutputsRequest {#CellOutputsRequest}
+
+Field | Description
+--- | ---
+project_id | **string**<br>Required. ID of the project to return cell outputs for. The maximum string length in characters is 200.
+cell_id | **string**<br>Required. ID of the cell to return outputs for. The maximum string length in characters is 200.
+checkpoint_id | **string**<br>ID of the checkpoint to return cell outputs for. 
+start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp from which to return outputs. 
+
+
+### CellOutputsResponse {#CellOutputsResponse}
+
+Field | Description
+--- | ---
+outputs[] | **string**<br>List of outputs. 
+
+
+## GetStateVariables {#GetStateVariables}
+
+Returns state variables of the specified notebook.
+
+**rpc GetStateVariables ([GetStateVariablesRequest](#GetStateVariablesRequest)) returns ([GetStateVariablesResponse](#GetStateVariablesResponse))**
+
+### GetStateVariablesRequest {#GetStateVariablesRequest}
+
+Field | Description
+--- | ---
+project_id | **string**<br>Required. ID of the project, for which to return state variables. The maximum string length in characters is 200.
+notebook_id | **string**<br>Required. ID of the notebook, for which to return state variables. The maximum string length in characters is 200.
+variable_names[] | **string**<br>Names of variables to return. 
+checkpoint_id | **string**<br>ID of the checkpoint, for which to return state variables. 
+
+
+### GetStateVariablesResponse {#GetStateVariablesResponse}
+
+Field | Description
+--- | ---
+variables | **google.protobuf.Struct**<br>Values of the specified variables. 
 
 

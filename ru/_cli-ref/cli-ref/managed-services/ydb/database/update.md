@@ -26,6 +26,10 @@ Syntax:
 |`--region`|<b>`string`</b><br/> Specifies database type - regional.|
 |`--location`|<b>`string`</b><br/> Specifies database location.|
 |`--dedicated`| Specifies database type - dedicated.|
+|`--sls-enable-throttling-rcu`| Enable RU/s throttling limit for a serverless database, true/false.|
+|`--sls-throttling-rcu`|<b>`int`</b><br/> Throttling limit for a serverless database, RU/s. Use sls-enable-throttling-rcu flag to trigger throttling on/off.|
+|`--sls-provisioned-rcu`|<b>`int`</b><br/> Provisioned capacity limit for a serverless database, RU/s. Set to zero to disable provisioned capacity hourly billing.|
+|`--sls-storage-size`|<b>`byteSize`</b><br/> Maximum size for a serverless database. Example: 10GB, 100GB. Units are in GB if not specified. Default value for a new database is 50GB.|
 |`--serverless`| Specifies database type - serverless.|
 |`--backup`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> YDB database backup config options.  Possible property names:  source Adds source path to backup.  exclude Exclude path from backup.  ttl Specify backup time to live. Example: '120m', '15m', '7200s'  name Specify backup settings name.  description Specify backup settings description.  daily-execute-time Time of day in UTC time zone, HH:MM 24-hour clock format, when daily backup should be executed. Example: '02:30  weekly-execute-time Time of day in UTC time zone, HH:MM 24-hour clock format, when weekly backup should be executed. Example: '02:30  weekly-days Specify days when weekly backup should be executed.  |
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

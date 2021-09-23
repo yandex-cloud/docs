@@ -25,6 +25,7 @@ Syntax:
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--service-account-id`|<b>`string`</b><br/> New service account id.|
 |`--service-account-name`|<b>`string`</b><br/> New service account name.|
+|`--log-group-id`|<b>`string`</b><br/> Id of a log group to write cluster logs to.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

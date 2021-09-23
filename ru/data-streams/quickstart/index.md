@@ -6,14 +6,14 @@
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роль `editor` на ваш каталог.
 1. [Создайте](../../iam/operations/sa/create-access-key.md) статический ключ доступа.
 1. Настройте AWS CLI:
-	1. Установите [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) и выполните команду:
+    1. Установите [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) и выполните команду:
 
-		```bash
-		aws configure
-		```
+        ```bash
+        aws configure
+        ```
 
-	1. Последовательно введите:
+    1. Последовательно введите:
 
-		* `AWS Access Key ID [None]:` — [идентификатор ключа](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
-		* `AWS Secret Access Key [None]:` — [секретный ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
-		* `Default region name [None]:` — зону доступности `ru-central1`.
+        * `AWS Access Key ID [None]:` — [идентификатор ключа](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
+        * `AWS Secret Access Key [None]:` — [секретный ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
+        * `Default region name [None]:` — зону доступности `ru-central1`.

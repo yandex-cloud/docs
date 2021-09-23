@@ -1,11 +1,17 @@
+{% note alert %}
+
+Триггер для {{ cloud-logs-name }} устарел. Используйте [триггер для {{ cloud-logging-name }}](../../functions/concepts/trigger/cloud-logging-trigger.md).
+
+{% endnote %}
+
 Создайте [триггер для {{ cloud-logs-name }}](../../functions/concepts/trigger/cloudlogs-trigger.md), который будет вызывать вашу функцию при поступлении сообщений в [лог-группу](../../functions/concepts/log-group.md).
 
 Для создания триггера вам понадобятся:
-1. [Функция](../../functions/concepts/function.md), которую триггер будет запускать. Если у вас еще нет функции:
+* [Функция](../../functions/concepts/function.md), которую триггер будет запускать. Если у вас еще нет функции:
     * [Создайте функцию](../../functions/operations/function/function-create.md).
     * [Создайте версию функции](../../functions/operations/function/version-manage.md#func-version-create).
-1. (опционально) Очередь [Dead Letter Queue](../../functions/concepts/dlq.md), куда будут перенаправляться сообщения, которые не смогла обработать функция. Если у вас нет очереди, [создайте ее](../../message-queue/operations/message-queue-new-queue.md).
-1. Сервисный аккаунт с правами на вызов функции и (опционально) запись в очередь [Dead Letter Queue](../../functions/concepts/dlq.md). Вы можете использовать один и тот же сервисный аккаунт или разные. Если у вас нет сервисного аккаунта, [создайте его](../../iam/operations/sa/create.md).
+* (опционально) Очередь [Dead Letter Queue](../../functions/concepts/dlq.md), куда будут перенаправляться сообщения, которые не смогла обработать функция. Если у вас нет очереди, [создайте ее](../../message-queue/operations/message-queue-new-queue.md).
+* Сервисный аккаунт с правами на вызов функции и (опционально) запись в очередь [Dead Letter Queue](../../functions/concepts/dlq.md). Вы можете использовать один и тот же сервисный аккаунт или разные. Если у вас нет сервисного аккаунта, [создайте его](../../iam/operations/sa/create.md).
 
 ## Создать триггер {#trigger-create}
 

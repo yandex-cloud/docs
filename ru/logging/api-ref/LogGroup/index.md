@@ -37,7 +37,6 @@ Method | Description
 [create](create.md) | Creates a log group in the specified folder.
 [delete](delete.md) | Deletes the specified log group.
 [get](get.md) | Returns the specified log group.
-[getDefault](getDefault.md) | Returns default log group for the folder.
 [list](list.md) | Retrieves the list of log groups in the specified folder.
 [listAccessBindings](listAccessBindings.md) | Lists existing access bindings for the specified log group.
 [listOperations](listOperations.md) | Lists operations for the specified log group.

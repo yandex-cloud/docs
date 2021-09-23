@@ -32,6 +32,8 @@ Aliases:
 - [yc compute instance attach-disk](attach-disk.md) — Attach existing disk to the the specified virtual machine instance
 - [yc compute instance attach-new-disk](attach-new-disk.md) — Attach new disk to the the specified virtual machine instance
 - [yc compute instance detach-disk](detach-disk.md) — Detach disk from the the specified virtual machine instance
+- [yc compute instance attach-filesystem](attach-filesystem.md) — Attach existing filesystem to the the specified virtual machine instance
+- [yc compute instance detach-filesystem](detach-filesystem.md) — Detach filesystem from the the specified virtual machine instance
 - [yc compute instance update-network-interface](update-network-interface.md) — Update the specified network interface of virtual machine instance
 - [yc compute instance add-one-to-one-nat](add-one-to-one-nat.md) — Add one-to-one NAT to the the specified network interface of virtual machine instance
 - [yc compute instance remove-one-to-one-nat](remove-one-to-one-nat.md) — Remove one-to-one NAT to the the specified network interface of virtual machine instance

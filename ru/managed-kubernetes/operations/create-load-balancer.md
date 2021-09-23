@@ -1,3 +1,7 @@
+---
+title: "Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}"
+---
+
 # Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
 
 Для предоставления доступа к приложению, запущенному в кластере {{ k8s }}, вы можете использовать публичные и внутренние [сервисы различных типов](../concepts/service.md).
@@ -292,3 +296,41 @@ spec:
   type: LoadBalancer
   externalTrafficPolicy: <Local или Cluster>
 ```
+
+## Параметры проверки состояния узлов {#healthcheck}
+
+Сервисы типа `LoadBalancer` в {{ managed-k8s-short-name }} могут выполнять запросы проверки состояния [целевой группы](../../network-load-balancer/concepts/target-resources.md) узлов {{ k8s }}. На основании полученных метрик {{ managed-k8s-short-name }} принимает решение о доступности узлов.
+
+Чтобы включить режим проверки состояния узлов, укажите набор параметров `yandex.cloud/load-balancer-healthcheck` в спецификации сервиса, например:
+
+```yaml
+---
+apiVersion: v1
+...
+  annotations:
+    yandex.cloud/load-balancer-healthcheck-healthy-threshold: "2"
+    yandex.cloud/load-balancer-healthcheck-interval: "2s"
+    yandex.cloud/load-balancer-healthcheck-timeout: "1s"
+    yandex.cloud/load-balancer-healthcheck-unhealthy-threshold: "2"
+...
+```
+
+Где:
+
+* `yandex.cloud/load-balancer-healthcheck-healthy-threshold` — число последовательных удачных проверок, по достижении которого узел будет считаться доступным.
+
+    Минимальное значение — `2`, максимальное значение — `10`.
+
+* `yandex.cloud/load-balancer-healthcheck-interval` — интервал выполнения проверок (в секундах).
+
+    Минимальное значение — `2s`, максимальное значение — `300s`.
+
+* `yandex.cloud/load-balancer-healthcheck-timeout` — таймаут выполнения проверки (в секундах). Узел считается недоступным, если он не ответил за отведенное время.
+
+    Минимальное значение — `1s`, максимальное значение — `60s`.
+
+* `yandex.cloud/load-balancer-healthcheck-unhealthy-threshold` — число последовательных неудачных проверок, по достижении которого узел будет считаться недоступным.
+
+    Минимальное значение — `2`, максимальное значение — `10`.
+
+Подробнее см. в разделе [{#T}](../../network-load-balancer/concepts/health-check.md).

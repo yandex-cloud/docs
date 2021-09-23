@@ -26,6 +26,8 @@ Aliases:
 - [yc serverless container set-access-bindings](set-access-bindings.md) — Set access bindings for the specified container and delete all existing access bindings if there were any
 - [yc serverless container add-access-binding](add-access-binding.md) — Add access binding for the specified container
 - [yc serverless container remove-access-binding](remove-access-binding.md) — Remove access binding for the specified container
+- [yc serverless container allow-unauthenticated-invoke](allow-unauthenticated-invoke.md) — Allow unauthenticated invoke for the specified container
+- [yc serverless container deny-unauthenticated-invoke](deny-unauthenticated-invoke.md) — Deny unauthenticated invoke for the specified container
 - [yc serverless container revision](revision/index.md) — Manage container revisions
 	- [yc serverless container revision list](revision/list.md) — List container revisions
 	- [yc serverless container revision get](revision/get.md) — Show information about the specified container revision

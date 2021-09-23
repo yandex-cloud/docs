@@ -17,8 +17,9 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--memory`|<b>`byteSize`</b><br/>Required memory. Example: '1GB', '128MB'. The default value is 128MB.|
 |`--cores`|<b>`int`</b><br/>Number of cores that will be available to a container instance.|
-|`--core-fraction`|<b>`int`</b><br/>|
+|`--core-fraction`|<b>`int`</b><br/>If provided, specifies baseline performance for a core in percent.|
 |`--execution-timeout`|<b>`duration`</b><br/>Execution timeout. The default value is 3s|
+|`--concurrency`|<b>`int`</b><br/>Set the maximum number of concurrent requests allowed per container instance.|
 |`--service-account-id`|<b>`string`</b><br/>Service account id.|
 |`--description`|<b>`string`</b><br/>Revision description.|
 |`--environment`|<b>`stringToString`</b><br/>Revision environment variables.|

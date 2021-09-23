@@ -1,0 +1,150 @@
+title: Yandex Cloud CDN
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Resources
+        items:
+          - name: Creating a resource
+            href: operations/resources/create-resource.md
+          - name: Editing basic settings of a resource
+            href: operations/resources/configure-basics.md
+          - name: Disabling a resource
+            href: operations/resources/disable-resource.md
+          - name: Configuring resource caching
+            href: operations/resources/configure-caching.md
+          - name: Pre-loading files to CDN servers
+            href: operations/resources/prefetch-files.md
+          - name: Purging resource cache
+            href: operations/resources/purge-cache.md
+          - name: Configuring request and response headers
+            href: operations/resources/configure-headers.md
+          - name: Configuring CORS for responses to clients
+            href: operations/resources/configure-cors.md
+          - name: Configuring HTTP methods
+            href: operations/resources/configure-http.md
+          - name: Enabling file compression
+            href: operations/resources/enable-compression.md
+          - name: Enabling file segmentation
+            href: operations/resources/enable-segmentation.md
+      - name: Origin groups
+        items:
+          - name: Creating an origin group
+            href: operations/origin-groups/create-group.md
+          - name: Editing an origin group
+            href: operations/origin-groups/edit-group.md
+          - name: Connecting an origin group to a resource
+            href: operations/origin-groups/bind-group-to-resource.md
+          - name: Deleting an origin group
+            href: operations/origin-groups/delete-group.md
+  - name: Concepts
+    items:
+      - name: Service overview
+        href: concepts/index.md
+      - name: Resource
+        href: concepts/resource.md
+      - name: Caching content
+        href: concepts/caching.md
+      - name: CORS
+        href: concepts/cors.md
+      - name: Compressing content
+        href: concepts/compression.md
+      - name: Segmenting content
+        href: concepts/slicing.md
+      - name: Origins and origin groups
+        href: concepts/origins.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Troubleshooting
+    href: troubleshooting.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: CacheService
+            href: api-ref/grpc/cache_service.md
+          - name: OriginGroupService
+            href: api-ref/grpc/origin_group_service.md
+          - name: OriginService
+            href: api-ref/grpc/origin_service.md
+          - name: ProviderService
+            href: api-ref/grpc/provider_service.md
+          - name: ResourceService
+            href: api-ref/grpc/resource_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Cache
+            items:
+              - name: Overview
+                href: api-ref/Cache/index.md
+              - name: prefetch
+                href: api-ref/Cache/prefetch.md
+              - name: purge
+                href: api-ref/Cache/purge.md
+          - name: OriginGroup
+            items:
+              - name: Overview
+                href: api-ref/OriginGroup/index.md
+              - name: create
+                href: api-ref/OriginGroup/create.md
+              - name: delete
+                href: api-ref/OriginGroup/delete.md
+              - name: get
+                href: api-ref/OriginGroup/get.md
+              - name: list
+                href: api-ref/OriginGroup/list.md
+              - name: update
+                href: api-ref/OriginGroup/update.md
+          - name: Origin
+            items:
+              - name: Overview
+                href: api-ref/Origin/index.md
+              - name: create
+                href: api-ref/Origin/create.md
+              - name: delete
+                href: api-ref/Origin/delete.md
+              - name: get
+                href: api-ref/Origin/get.md
+              - name: list
+                href: api-ref/Origin/list.md
+              - name: update
+                href: api-ref/Origin/update.md
+          - name: Provider
+            items:
+              - name: Overview
+                href: api-ref/Provider/index.md
+              - name: activate
+                href: api-ref/Provider/activate.md
+              - name: listActivated
+                href: api-ref/Provider/listActivated.md
+          - name: Resource
+            items:
+              - name: Overview
+                href: api-ref/Resource/index.md
+              - name: create
+                href: api-ref/Resource/create.md
+              - name: delete
+                href: api-ref/Resource/delete.md
+              - name: get
+                href: api-ref/Resource/get.md
+              - name: getProviderCName
+                href: api-ref/Resource/getProviderCName.md
+              - name: list
+                href: api-ref/Resource/list.md
+              - name: update
+                href: api-ref/Resource/update.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/cdn

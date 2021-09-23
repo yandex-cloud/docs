@@ -28,6 +28,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Data Proc cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/> A list of host groups to place VMs of cluster on.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
+|`--log-group-id`|<b>`string`</b><br/> Id of a log group to write cluster logs to.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

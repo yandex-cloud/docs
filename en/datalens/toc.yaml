@@ -123,6 +123,10 @@ items:
             href: operations/dashboard/add-chart.md
           - name: Adding selectors to dashboards
             href: operations/dashboard/add-selector.md
+          - name: Creating an alias
+            href: operations/dashboard/create-alias.md
+          - name: Deleting an alias field
+            href: operations/dashboard/edit-alias.md
           - name: Publishing dashboards
             href: operations/dashboard/publish.md
           - name: Managing dashboard access

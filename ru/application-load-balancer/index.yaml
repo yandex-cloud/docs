@@ -1,9 +1,6 @@
 title: Yandex Application Load Balancer
 description:
   - >-
-    <em>Сервис Yandex Application Load Balancer находится на стадии <a
-    href="/docs/overview/concepts/launch-stages">Preview</a>.</em>
-  - >-
     Yandex Application Load Balancer служит для распределения запросов по
     бэкендам ваших сетевых приложений и терминирования TLS-шифрования.
   - 'С помощью Application Load Balancer вы можете:'
@@ -21,6 +18,12 @@ description:
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a
+    href="https://yandex.ru/legal/cloud_sla_apploadbalancer">Уровень
+    обслуживания Yandex Application Load Balancer</a>.
 meta:
   title: Yandex Application Load Balancer
 links:

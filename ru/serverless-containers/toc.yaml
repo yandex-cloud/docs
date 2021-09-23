@@ -1,0 +1,50 @@
+title: Yandex Serverless Containers
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Получение IAM-токена сервисного аккаунта
+        href: operations/sa.md
+      - name: Управление контейнером
+        items:
+          - name: Создание контейнера
+            href: operations/create.md
+          - name: Получение списка контейнеров
+            href: operations/list.md
+          - name: Управление ревизиями контейнера
+            href: operations/manage-revision.md
+          - name: Управление правами доступа к контейнеру
+            href: operations/access-rights.md
+          - name: Вызов контейнера
+            href: operations/invoke.md
+          - name: Изменение контейнера
+            href: operations/update.md
+          - name: Удаление контейнера
+            href: operations/delete.md
+  - name: Концепции
+    items:
+      - name: Обзор
+        href: concepts/index.md
+      - name: Контейнер
+        href: concepts/container.md
+      - name: Вызов контейнера
+        href: concepts/invoke.md
+      - name: Среда выполнения
+        href: concepts/runtime.md
+      - name: Логи контейнера
+        href: concepts/logs.md
+      - name: Мониторинг
+        href: concepts/monitoring.md
+      - name: Резервное копирование
+        href: concepts/backup.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+base: ru/serverless-containers

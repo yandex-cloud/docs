@@ -23,8 +23,10 @@ items:
             href: operations/calico.md
           - name: Настройка контроллера сетевых политик Cilium
             href: operations/cilium.md
-      - name: Шифрование секретов
-        href: operations/encrypting-secrets.md
+          - name: Настройка Node Local DNS для контроллера сетевых политик Cilium
+            href: operations/cilium-node-local-dns.md
+      - name: Настройка автомасштабирования
+        href: operations/autoscale.md
       - name: Работа с постоянными томами
         items:
           - name: Динамическая подготовка тома
@@ -37,6 +39,8 @@ items:
             href: operations/volumes/volume-expansion.md
           - name: Подключение тома в блочном режиме
             href: operations/volumes/mode-block.md
+          - name: Интеграция с Object Storage
+            href: operations/volumes/s3-csi-integration.md
       - name: Управление кластером Kubernetes
         items:
           - name: >-
@@ -63,6 +67,8 @@ items:
             href: operations/node-group/node-label-management.md
           - name: Удаление группы узлов
             href: operations/node-group/node-group-delete.md
+      - name: Подключение внешних узлов к кластеру
+        href: operations/external-nodes-connect.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
@@ -79,6 +85,8 @@ items:
         href: solutions/backup.md
       - name: Интеграция с корпоративной зоной DNS
         href: solutions/custom-dns.md
+      - name: Автоматическое масштабирование DNS по размеру кластера
+        href: solutions/dns-autoscaler.md
       - name: Настройка локального кеширования DNS
         href: solutions/node-local-dns.md
   - name: Концепции
@@ -87,6 +95,8 @@ items:
         href: concepts/index.md
       - name: Релизные каналы и обновления
         href: concepts/release-channels-and-updates.md
+      - name: Шифрование секретов
+        href: concepts/encryption.md
       - name: Использование объектов API Kubernetes
         items:
           - name: Том
@@ -95,18 +105,22 @@ items:
             href: concepts/service.md
       - name: Группа узлов
         items:
-          - name: Автоматическое масштабирование группы узлов
-            href: concepts/node-group/cluster-autoscaler.md
           - name: Расселение подов с узла
             href: concepts/node-group/node-drain.md
           - name: Динамическое резервирование ресурсов для узла
             href: concepts/node-group/allocatable-resources.md
           - name: Группы узлов с GPU
             href: concepts/node-group/node-group-gpu.md
-      - name: Сетевые политики кластера Kubernetes
+      - name: Внешние узлы кластера
+        href: concepts/external-nodes.md
+      - name: Сетевые настройки и политики кластера
         href: concepts/network-policy.md
+      - name: Автоматическое масштабирование
+        href: concepts/autoscale.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Рекомендации по использованию {{ managed-k8s-name }}
+        href: concepts/usage-recommendations.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -180,5 +194,9 @@ items:
               - name: list
                 href: api-ref/Version/list.md
   - name: Вопросы и ответы
-    href: qa/index.md
+    items:
+      - name: Общие вопросы
+        href: qa/index.md
+      - name: Автоматическое масштабирование
+        href: qa/cluster-autoscaler.md
 base: ru/managed-kubernetes

@@ -101,7 +101,8 @@ clusterId | Required. ID of the Apache Kafka® cluster to update.  To get the Ap
     ],
     "brokersCount": "integer",
     "assignPublicIp": true,
-    "unmanagedTopics": true
+    "unmanagedTopics": true,
+    "schemaRegistry": true
   },
   "name": "string",
   "securityGroupIds": [
@@ -181,6 +182,7 @@ configSpec.<br>zoneId[] | **string**<br><p>IDs of availability zones where Kafka
 configSpec.<br>brokersCount | **integer** (int64)<br><p>The number of Kafka brokers deployed in each availability zone.</p> 
 configSpec.<br>assignPublicIp | **boolean** (boolean)<br><p>The flag that defines whether a public IP address is assigned to the cluster. If the value is ``true``, then Apache Kafka® cluster is available on the Internet via it's public IP address.</p> 
 configSpec.<br>unmanagedTopics | **boolean** (boolean)<br><p>Allows to manage topics via AdminAPI</p> 
+configSpec.<br>schemaRegistry | **boolean** (boolean)<br><p>Enables managed schema registry on cluster</p> 
 name | **string**<br><p>New name for the Apache Kafka® cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 

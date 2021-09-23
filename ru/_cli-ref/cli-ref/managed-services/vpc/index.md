@@ -19,6 +19,8 @@ Syntax:
 	- [yc vpc network remove-labels](network/remove-labels.md) — Remove labels from a network.
 	- [yc vpc network delete](network/delete.md) — Delete a network.
 	- [yc vpc network list-subnets](network/list-subnets.md) — List subnets in a network.
+	- [yc vpc network list-security-groups](network/list-security-groups.md) — List security groups in a network.
+	- [yc vpc network list-route-tables](network/list-route-tables.md) — List route tables in a network.
 	- [yc vpc network list-operations](network/list-operations.md) — List operations for a network.
 	- [yc vpc network move](network/move.md) — Move a network to another folder.
 - [yc vpc route-table](route-table/index.md) — Manage route tables.

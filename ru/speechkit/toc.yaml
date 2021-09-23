@@ -51,8 +51,21 @@ items:
             items:
               - name: Overview
                 href: api-ref/grpc/index.md
-              - name: Synthesizer
-                href: api-ref/grpc/tts_service.md
+              - name: Recognizer
+                href: api-ref/grpc/stt_service.md
+  - name: SpeechKit Hybrid
+    items:
+      - name: О технологии
+        href: hybrid-speechkit/conception.md
+      - name: Системные требования
+        href: hybrid-speechkit/system-requirements.md
+      - name: Синтез речи
+        href: hybrid-speechkit/synthesis.md
+      - name: Распознавание речи
+        href: hybrid-speechkit/asr.md
+      - name: Мониторинг
+        hidden: true
+        href: hybrid-speechkit/monitoring.md
   - name: Интеграция телефонии
     href: concepts/ivr-integration.md
   - name: Использование API

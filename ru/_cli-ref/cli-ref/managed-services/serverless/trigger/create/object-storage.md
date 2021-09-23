@@ -24,6 +24,11 @@ Syntax:
 |`--invoke-function-tag`|<b>`string`</b><br/> Function tag.|
 |`--invoke-function-service-account-id`|<b>`string`</b><br/> Service account to be used by the worker to invoke the function.|
 |`--invoke-function-service-account-name`|<b>`string`</b><br/> Service account to be used by the worker to invoke the function.|
+|`--invoke-container-id`|<b>`string`</b><br/> Container to be invoked by worker on the data from Object Storage.|
+|`--invoke-container-name`|<b>`string`</b><br/> Container to be invoked by worker on the data from Object Storage.|
+|`--invoke-container-path`|<b>`string`</b><br/> Container endpoint path.|
+|`--invoke-container-service-account-id`|<b>`string`</b><br/> Service account to be used by the worker to invoke the container.|
+|`--invoke-container-service-account-name`|<b>`string`</b><br/> Service account to be used by the worker to invoke the container.|
 |`--retry-attempts`|<b>`int`</b><br/> Retry attempts, Default: 0|
 |`--retry-interval`|<b>`duration`</b><br/> Retry interval. Examples: '10s', '1m'.|
 |`--dlq-queue-id`|<b>`string`</b><br/> Dead letter queue identifier.|

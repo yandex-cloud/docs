@@ -15,6 +15,8 @@ API-шлюз задается декларативно при помощи сп�
 * [Обращение по HTTP](../concepts/extensions/http.md).
 * [Интеграция с Object Storage](../concepts/extensions/object-storage.md).
 * [Интеграция с DataSphere](../concepts/extensions/datasphere.md).
+* [Интеграция с Data Streams](../concepts/extensions/datastreams.md).
+* [Интеграция с Serverless Containers](../concepts/extensions/containers.md).
 * [Жадные параметры](../concepts/extensions/greedy-parameters.md).
 * [Обобщенный HTTP-метод](../concepts/extensions/any-method.md).
 

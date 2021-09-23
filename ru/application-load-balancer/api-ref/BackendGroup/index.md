@@ -23,7 +23,8 @@ A set of methods for managing backend groups.
         "loadBalancingConfig": {
           "panicThreshold": "string",
           "localityAwareRoutingPercent": "string",
-          "strictLocality": true
+          "strictLocality": true,
+          "mode": "string"
         },
         "port": "string",
         "healthchecks": [
@@ -81,7 +82,21 @@ A set of methods for managing backend groups.
         // end of the list of possible fields`http.backends[]`
 
       }
-    ]
+    ],
+
+    // `http` includes only one of the fields `connection`, `header`, `cookie`
+    "connection": {
+      "sourceIp": true
+    },
+    "header": {
+      "headerName": "string"
+    },
+    "cookie": {
+      "name": "string",
+      "ttl": "string"
+    },
+    // end of the list of possible fields`http`
+
   },
   "grpc": {
     "backends": [
@@ -91,7 +106,8 @@ A set of methods for managing backend groups.
         "loadBalancingConfig": {
           "panicThreshold": "string",
           "localityAwareRoutingPercent": "string",
-          "strictLocality": true
+          "strictLocality": true,
+          "mode": "string"
         },
         "port": "string",
         "healthchecks": [
@@ -141,7 +157,21 @@ A set of methods for managing backend groups.
           ]
         }
       }
-    ]
+    ],
+
+    // `grpc` includes only one of the fields `connection`, `header`, `cookie`
+    "connection": {
+      "sourceIp": true
+    },
+    "header": {
+      "headerName": "string"
+    },
+    "cookie": {
+      "name": "string",
+      "ttl": "string"
+    },
+    // end of the list of possible fields`grpc`
+
   },
   // end of the list of possible fields
 
@@ -164,6 +194,7 @@ http.<br>backends[].<br>loadBalancingConfig | **object**<br><p>A load balancing 
 http.<br>backends[].<br>loadBalancingConfig.<br>panicThreshold | **string** (int64)<br><p>Threshold for panic mode.</p> <p>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see <a href="/docs/application-load-balancer/concepts/backend-group#panic-mode">documentation</a>.</p> <p>If the value is ``0``, panic mode will never be activated and traffic is routed only to healthy backends at all times.</p> <p>Default value: ``0``.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 http.<br>backends[].<br>loadBalancingConfig.<br>localityAwareRoutingPercent | **string** (int64)<br><p>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see <a href="/docs/application-load-balancer/concepts/backend-group#locality">documentation</a>.</p> <p>If there are no healthy backends in an availability zone, all the traffic is divided between other zones.</p> <p>If ``strictLocality`` is ``true``, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health.</p> <p>Default value: ``0``.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 http.<br>backends[].<br>loadBalancingConfig.<br>strictLocality | **boolean** (boolean)<br><p>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones.</p> <p>If set to ``true`` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see <a href="/docs/application-load-balancer/concepts/backend-group#locality">documentation</a>.</p> <p>If ``strict_locality`` is ``true``, the value specified in ``localityAwareRoutingPercent`` is ignored.</p> <p>Default value: ``false``.</p> 
+http.<br>backends[].<br>loadBalancingConfig.<br>mode | **string**<br><p>Specifies algorithm the load balancer uses for target selection in particular backend.</p> <ul> <li>LEAST_REQUEST: Using power of two choices.</li> <li>MAGLEV_HASH: MAGLEV_HASH allows session affinity for that backend.</li> </ul> 
 http.<br>backends[].<br>port | **string** (int64)<br><p>Port used by all targets to receive traffic.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 http.<br>backends[].<br>healthchecks[] | **object**<br><p>A health check resource. For details about the concept, see <a href="/docs/application-load-balancer/concepts/backend-group#health-checks">documentation</a>.</p> 
 http.<br>backends[].<br>healthchecks[].<br>timeout | **string**<br><p>Required. Health check timeout.</p> <p>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed.</p> 
@@ -193,6 +224,13 @@ http.<br>backends[].<br>targetGroups | **object** <br>`http.backends[]` includes
 http.<br>backends[].<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. List of ID's of target groups that belong to the backend.</p> <p>To get the ID's of all available target groups, make a <a href="/docs/application-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>Must contain at least one element.</p> 
 http.<br>backends[].<br>storageBucket | **object** <br>`http.backends[]` includes only one of the fields `targetGroups`, `storageBucket`<br><br><p>A resource for Object Storage bucket used as a backend. For details about the concept, see <a href="/docs/storage/concepts/bucket">documentation</a>.</p> 
 http.<br>backends[].<br>storageBucket.<br>bucket | **string**<br><p>Required. Name of the bucket.</p> 
+http.<br>connection | **object** <br>`http` includes only one of the fields `connection`, `header`, `cookie`<br><br>
+http.<br>connection.<br>sourceIp | **boolean** (boolean)<br>
+http.<br>header | **object** <br>`http` includes only one of the fields `connection`, `header`, `cookie`<br><br>
+http.<br>header.<br>headerName | **string**<br><p>The string length in characters must be 1-256.</p> 
+http.<br>cookie | **object** <br>`http` includes only one of the fields `connection`, `header`, `cookie`<br><br>
+http.<br>cookie.<br>name | **string**<br><p>The string length in characters must be 1-256.</p> 
+http.<br>cookie.<br>ttl | **string**<br><p>If not set, session cookie will be used (not persisted between browser restarts).</p> 
 grpc | **object** <br> includes only one of the fields `http`, `grpc`<br><br><p>A gRPC backend group resource.</p> 
 grpc.<br>backends[] | **object**<br><p>A gRPC backend resource.</p> 
 grpc.<br>backends[].<br>name | **string**<br><p>Required. Name of the backend.</p> <p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
@@ -201,6 +239,7 @@ grpc.<br>backends[].<br>loadBalancingConfig | **object**<br>Load balancing confi
 grpc.<br>backends[].<br>loadBalancingConfig.<br>panicThreshold | **string** (int64)<br><p>Threshold for panic mode.</p> <p>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see <a href="/docs/application-load-balancer/concepts/backend-group#panic-mode">documentation</a>.</p> <p>If the value is ``0``, panic mode will never be activated and traffic is routed only to healthy backends at all times.</p> <p>Default value: ``0``.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 grpc.<br>backends[].<br>loadBalancingConfig.<br>localityAwareRoutingPercent | **string** (int64)<br><p>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see <a href="/docs/application-load-balancer/concepts/backend-group#locality">documentation</a>.</p> <p>If there are no healthy backends in an availability zone, all the traffic is divided between other zones.</p> <p>If ``strictLocality`` is ``true``, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health.</p> <p>Default value: ``0``.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 grpc.<br>backends[].<br>loadBalancingConfig.<br>strictLocality | **boolean** (boolean)<br><p>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones.</p> <p>If set to ``true`` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see <a href="/docs/application-load-balancer/concepts/backend-group#locality">documentation</a>.</p> <p>If ``strict_locality`` is ``true``, the value specified in ``localityAwareRoutingPercent`` is ignored.</p> <p>Default value: ``false``.</p> 
+grpc.<br>backends[].<br>loadBalancingConfig.<br>mode | **string**<br><p>Specifies algorithm the load balancer uses for target selection in particular backend.</p> <ul> <li>LEAST_REQUEST: Using power of two choices.</li> <li>MAGLEV_HASH: MAGLEV_HASH allows session affinity for that backend.</li> </ul> 
 grpc.<br>backends[].<br>port | **string** (int64)<br><p>Port used by all targets to receive traffic.</p> <p>Acceptable values are 0 to 65535, inclusive.</p> 
 grpc.<br>backends[].<br>healthchecks[] | **object**<br><p>A health check resource. For details about the concept, see <a href="/docs/application-load-balancer/concepts/backend-group#health-checks">documentation</a>.</p> 
 grpc.<br>backends[].<br>healthchecks[].<br>timeout | **string**<br><p>Required. Health check timeout.</p> <p>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed.</p> 
@@ -227,6 +266,13 @@ grpc.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaId | **string** <
 grpc.<br>backends[].<br>tls.<br>validationContext.<br>trustedCaBytes | **string** <br>`grpc.backends[].tls.validationContext` includes only one of the fields `trustedCaId`, `trustedCaBytes`<br><br><p>X.509 certificate contents in PEM format.</p> 
 grpc.<br>backends[].<br>targetGroups | **object**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group).<br><p>A resource for target groups that belong to the backend.</p> 
 grpc.<br>backends[].<br>targetGroups.<br>targetGroupIds[] | **string**<br><p>Required. List of ID's of target groups that belong to the backend.</p> <p>To get the ID's of all available target groups, make a <a href="/docs/application-load-balancer/api-ref/TargetGroup/list">list</a> request.</p> <p>Must contain at least one element.</p> 
+grpc.<br>connection | **object** <br>`grpc` includes only one of the fields `connection`, `header`, `cookie`<br><br>
+grpc.<br>connection.<br>sourceIp | **boolean** (boolean)<br>
+grpc.<br>header | **object** <br>`grpc` includes only one of the fields `connection`, `header`, `cookie`<br><br>
+grpc.<br>header.<br>headerName | **string**<br><p>The string length in characters must be 1-256.</p> 
+grpc.<br>cookie | **object** <br>`grpc` includes only one of the fields `connection`, `header`, `cookie`<br><br>
+grpc.<br>cookie.<br>name | **string**<br><p>The string length in characters must be 1-256.</p> 
+grpc.<br>cookie.<br>ttl | **string**<br><p>If not set, session cookie will be used (not persisted between browser restarts).</p> 
 
 ## Methods {#methods}
 Method | Description

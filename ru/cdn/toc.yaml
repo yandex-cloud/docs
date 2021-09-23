@@ -1,5 +1,4 @@
 title: Yandex Cloud CDN
-stage: preview
 href: index.yaml
 items:
   - name: Начало работы
@@ -58,10 +57,100 @@ items:
         href: concepts/slicing.md
       - name: Источники и их группы
         href: concepts/origins.md
+      - name: Экранирование источников
+        href: concepts/origins-shielding.md
+      - name: Выгрузка логов
+        href: concepts/logs.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Решение проблем
     href: troubleshooting.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: CacheService
+            href: api-ref/grpc/cache_service.md
+          - name: OriginGroupService
+            href: api-ref/grpc/origin_group_service.md
+          - name: OriginService
+            href: api-ref/grpc/origin_service.md
+          - name: ProviderService
+            href: api-ref/grpc/provider_service.md
+          - name: ResourceService
+            href: api-ref/grpc/resource_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Cache
+            items:
+              - name: Overview
+                href: api-ref/Cache/index.md
+              - name: prefetch
+                href: api-ref/Cache/prefetch.md
+              - name: purge
+                href: api-ref/Cache/purge.md
+          - name: OriginGroup
+            items:
+              - name: Overview
+                href: api-ref/OriginGroup/index.md
+              - name: create
+                href: api-ref/OriginGroup/create.md
+              - name: delete
+                href: api-ref/OriginGroup/delete.md
+              - name: get
+                href: api-ref/OriginGroup/get.md
+              - name: list
+                href: api-ref/OriginGroup/list.md
+              - name: update
+                href: api-ref/OriginGroup/update.md
+          - name: Origin
+            items:
+              - name: Overview
+                href: api-ref/Origin/index.md
+              - name: create
+                href: api-ref/Origin/create.md
+              - name: delete
+                href: api-ref/Origin/delete.md
+              - name: get
+                href: api-ref/Origin/get.md
+              - name: list
+                href: api-ref/Origin/list.md
+              - name: update
+                href: api-ref/Origin/update.md
+          - name: Provider
+            items:
+              - name: Overview
+                href: api-ref/Provider/index.md
+              - name: activate
+                href: api-ref/Provider/activate.md
+              - name: listActivated
+                href: api-ref/Provider/listActivated.md
+          - name: Resource
+            items:
+              - name: Overview
+                href: api-ref/Resource/index.md
+              - name: create
+                href: api-ref/Resource/create.md
+              - name: delete
+                href: api-ref/Resource/delete.md
+              - name: get
+                href: api-ref/Resource/get.md
+              - name: getProviderCName
+                href: api-ref/Resource/getProviderCName.md
+              - name: list
+                href: api-ref/Resource/list.md
+              - name: update
+                href: api-ref/Resource/update.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/cdn

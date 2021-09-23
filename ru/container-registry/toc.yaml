@@ -75,18 +75,24 @@ items:
         href: solutions/run-docker-on-vm.md
       - name: Создание триггера с помощью Yandex Cloud Functions
         href: solutions/trigger-create.md
+      - name: Настройка автоматического сканирования Docker-образа
+        href: solutions/image-auto-scan.md
   - name: Концепции
     items:
       - name: Обзор
         href: concepts/index.md
       - name: Docker-образ
         href: concepts/docker-image.md
+      - name: Том Docker
+        href: concepts/docker-volume.md
       - name: Реестр
         href: concepts/registry.md
       - name: Репозиторий
         href: concepts/repository.md
       - name: Политика автоматического удаления Docker-образов
         href: concepts/lifecycle-policy.md
+      - name: Сканер уязвимостей
+        href: concepts/vulnerability-scanner.md
       - name: Триггер Yandex Cloud Functions
         href: concepts/trigger.md
       - name: Резервное копирование

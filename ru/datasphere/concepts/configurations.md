@@ -17,7 +17,7 @@
 
 #### Конфигурации вычислительных ресурсов, доступные только для обучения {#a100}
 
-Имя | Количество vCPU на<br>[платформе AMD EPYC™](../../compute/concepts/gpus.md) | Количество GPU <br> [NVIDIA® Ampere®](https://www.nvidia.com/ru-ru/data-center/ampere-architecture/)
+Имя | Количество vCPU на<br>[платформе AMD EPYC™](../../compute/concepts/gpus.md) | Количество GPU <br> [NVIDIA® Ampere® A100](https://www.nvidia.com/ru-ru/data-center/a100/)
 ---- | ---- | ----
 **g2.1** (доступна по запросу в техническую поддержку) | 28 | 1
 **g2.8** (доступна по запросу в техническую поддержку) | 224 | 8

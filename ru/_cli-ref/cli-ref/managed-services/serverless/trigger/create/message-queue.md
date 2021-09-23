@@ -20,11 +20,16 @@ Syntax:
 |`--queue-service-account-name`|<b>`string`</b><br/> Service account to be used by the worker to access the Message Queue.|
 |`--batch-size`|<b>`int`</b><br/> Batch size, 1 - 10. Default: 1|
 |`--batch-cutoff`|<b>`duration`</b><br/> Batch cutoff. 0 - 20s. Default: 10s.|
-|`--invoke-function-id`|<b>`string`</b><br/> Function to be invoked by worker on the data from the Message Queue.|
-|`--invoke-function-name`|<b>`string`</b><br/> Function to be invoked by worker on the data from the Message Queue.|
+|`--invoke-function-id`|<b>`string`</b><br/> Function to be invoked by worker to access the Message Queue.|
+|`--invoke-function-name`|<b>`string`</b><br/> Function to be invoked by worker to access the Message Queue.|
 |`--invoke-function-tag`|<b>`string`</b><br/> Function tag.|
 |`--invoke-function-service-account-id`|<b>`string`</b><br/> Service account to be used by the worker to invoke the function.|
 |`--invoke-function-service-account-name`|<b>`string`</b><br/> Service account to be used by the worker to invoke the function.|
+|`--invoke-container-id`|<b>`string`</b><br/> Container to be invoked by worker to access the Message Queue.|
+|`--invoke-container-name`|<b>`string`</b><br/> Container to be invoked by worker to access the Message Queue.|
+|`--invoke-container-path`|<b>`string`</b><br/> Container endpoint path.|
+|`--invoke-container-service-account-id`|<b>`string`</b><br/> Service account to be used by the worker to invoke the container.|
+|`--invoke-container-service-account-name`|<b>`string`</b><br/> Service account to be used by the worker to invoke the container.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

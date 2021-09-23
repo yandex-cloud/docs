@@ -10,6 +10,7 @@ Resource | Description
 [Disk](Disk/index.md) | A set of methods for managing Disk resources.
 [DiskPlacementGroup](DiskPlacementGroup/index.md) | A set of methods for managing DiskPlacementGroup resources.
 [DiskType](DiskType/index.md) | A set of methods to retrieve information about disk types.
+[Filesystem](Filesystem/index.md) | A set of methods for managing filesystems.
 [HostGroup](HostGroup/index.md) | A set of methods for managing groups of dedicated hosts.
 [HostType](HostType/index.md) | Set of methods to view possible host configurations.
 [Image](Image/index.md) | A set of methods for managing Image resources.
