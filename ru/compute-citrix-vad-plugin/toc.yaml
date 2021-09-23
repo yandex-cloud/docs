@@ -1,0 +1,7 @@
+title: Плагин Yandex.Cloud для Citrix Virtual Apps and Desktops
+stage: tech-preview
+href: index.yaml
+editable: false
+items:
+  - name: Начало работы
+    href: quickstart.md
