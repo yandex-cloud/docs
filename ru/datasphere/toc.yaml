@@ -67,6 +67,12 @@ items:
             href: operations/data/secret-delete.md
       - name: Запуск распределенного обучения
         href: operations/taas-run.md
+      - name: Развертывание эксплуатации моделей
+        items:
+          - name: Создание ноды из ячейки с кодом на Python
+            href: operations/node-cell.md
+          - name: Запросы в ноды
+            href: operations/node-api.md
   - name: Концепции
     items:
       - name: Обзор
@@ -91,6 +97,8 @@ items:
         href: concepts/dataset.md
       - name: Хранение приватных данных
         href: concepts/secrets.md
+      - name: Развертывание эксплуатации моделей
+        href: concepts/deploy/index.md
       - name: Использование TensorBoard в DataSphere
         href: concepts/tensorboard.md
       - name: Распределенное обучение
