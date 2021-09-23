@@ -1,6 +1,8 @@
-# Free tier serverless ecosystem
+# Free-tier serverless ecosystem usage
 
-Until October 2021, special pricing applies to serverless computing ecosystem services. This means you can try our {{ yandex-cloud }} serverless solutions free of charge. We calculated the amount of free services so that you could develop and launch a small service, website, or app.
+Special rates are applicable to services within the serverless computing ecosystem that include certain quantities of services at no extra charge. These are selected to enable you to develop and launch a small service, website, or application.
+
+{% if audience != "internal" %}
 
 Free tier applies to the following services:
 
@@ -12,67 +14,68 @@ Free tier applies to the following services:
 * [{{ iot-full-name }}](#iot)
 * [{{ vpc-full-name }}](#vpc)
 
-## {{ api-gw-full-name }}{#api-gw}
+## {{ api-gw-full-name }} {#api-gw}
 
-The first 100,000 requests to API gateways are provided free of charge every month. Then they are charged the applicable [rate](../../api-gateway/pricing.md).
+The first 100,000 requests to API gateways each month are not charged. They are then charged at the applicable [rate](../../api-gateway/pricing.md).
 
-If you don't spend the free amount of services before the end of the month, the balance is reset.
+The unused balance of free services is reset at the end of the month.
 
-## {{ sf-full-name }}{#sf}
+## {{ sf-full-name }} {#sf}
 
-The follow is provided free of charge every month:
+The following is offered at no extra charge each month:
 
 * The first 1,000,000 function invocations.
 * The first 10 GB×hour of function execution.
 
-After you spend the free amount of services, you will be charged the applicable [rate](../../functions/pricing.md).
+After you spend the free amount of services, you will be charged at the applicable [rate](../../functions/pricing.md).
 
-If you don't spend the free amount of services before the end of the month, the balance is reset.
+The unused balance of free services is reset at the end of the month.
 
-## Serverless mode {{ ydb-full-name }}{#ydb}
+## {{ ydb-full-name }} serverless mode {#ydb}
 
-The follow is provided free of charge every month:
+The following is offered at no extra charge each month:
 
-* The first 1,000,000 operations (in RU units).
+* The first 1,000,000 operations (in Request Units).
 * The first 1 GB/month of data storage.
 
-After you spend the free amount of services, you will be charged the applicable [rate](https://cloud.yandex.ru/docs/ydb/pricing/serverless).
+After you spend the free amount of services, you will be charged at the applicable [rate](../../ydb/pricing/serverless.md).
 
-If you don't spend the free amount of services before the end of the month, the balance is reset.
+The unused balance of free services is reset at the end of the month.
 
-## {{ objstorage-full-name }}{#objstorage}
+## {{ objstorage-full-name }} {#objstorage}
 
-The standard storage resources are provided free of charge each month:
+Standard storage resources are provided free of charge every month:
 
-* The first 1 GB/month of data storage.
+* The first 1 GB of storage a month.
 * The first 10,000 PUT, POST operations.
 * The first 100,000 GET, HEAD operations.
 
-After you spend the free amount of services, you will be charged the applicable [rate](../../storage/pricing.md).
+After you spend the free amount of services, you will be charged at the applicable [rate](../../storage/pricing.md).
 
-If you don't spend the free amount of services before the end of the month, the balance is reset.
+The unused balance of free services is reset at the end of the month.
 
-## {{ message-queue-full-name }}{#message-queue}
+## {{ message-queue-full-name }} {#message-queue}
 
-The first 100,000 queue requests are provided free of charge each month.
+The first 100,000 queue requests are free of charge every month.
 
-After you spend the free amount of services, you will be charged the applicable [rate](../../message-queue/pricing.md).
+After you spend the free amount of services, you will be charged at the applicable [rate](../../message-queue/pricing.md).
 
-If you don't spend the free amount of services before the end of the month, the balance is reset.
+The unused balance of free services is reset at the end of the month.
 
-## {{ iot-full-name }}{#iot}
+## {{ iot-full-name }} {#iot}
 
-The first 100,000 queue messages are provided free of charge each month.
+The first 100,000 queue messages each month are free of charge.
 
-After you spend the free amount of services, you will be charged the applicable [rate](../../iot-core/pricing.md).
+After you spend the free amount of services, you will be charged at the applicable [rate](../../iot-core/pricing.md).
 
-If you don't spend the free amount of services before the end of the month, the balance is reset.
+The unused balance of free services is reset at the end of the month.
 
-## {{ vpc-full-name }}{#vpc}
+## {{ vpc-full-name }} {#vpc}
 
-The first 10 GB of outgoing traffic is provided for free each month.
+The first 10 GB of outgoing traffic are provided free of charge every month.
 
-After you spend the free amount of services, you will be charged the applicable [rate](../../vpc/pricing.md).
+After you spend the free amount of services, you will be charged at the applicable [rate](../../vpc/pricing.md).
 
-If you don't spend the free amount of services before the end of the month, the balance is reset.
+The unused balance of free services is reset at the end of the month.
 
+{% endif %}
