@@ -79,6 +79,8 @@ items:
         href: solutions/backup.md
       - name: Интеграция с корпоративной зоной DNS
         href: solutions/custom-dns.md
+      - name: Автоматическое масштабирование DNS по размеру кластера
+        href: solutions/dns-autoscaler.md
       - name: Настройка локального кеширования DNS
         href: solutions/node-local-dns.md
   - name: Концепции
