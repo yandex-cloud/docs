@@ -62,6 +62,26 @@ AVG(MAX(SUM([Sales] FIXED [City], [Category], [Date]) FIXED [Category], [Date]) 
 - ratio of the (daily) sum of `[Sales]` to the total sum: `SUM([Sales]) / SUM([Sales] FIXED)`;
 - sum of `[Sales]` of all orders that are smaller than average: `SUM_IF(SUM([Sales] INCLUDE [Order ID]), SUM([Sales] INCLUDE [Order ID]) < AVG([Sales] FIXED))`.
 
+#### Dimension Compatibility {#syntax-lod-compatibility}
+
+If several aggregations with custom LODs are nested inside another, their sets of dimensions must be compatible, i.e. one of them must contain all of the others.
+
+Invalid expression:
+```
+SUM(AVG([Sales] INCLUDE [City]) - AVG([Sales] INCLUDE [Category]))
+```
+One of the nested aggregations has dimension `[City]`, while the other has `[Category]`, and there is no other that would contain both of these.
+
+Valid expression:
+```
+SUM(
+    AVG([Sales] INCLUDE [City], [Category])
+    - (AVG([Sales] INCLUDE [City]) + AVG([Sales] INCLUDE [Category])) / 2
+)
+```
+
+One of the nested aggregations' set of dimensions contains all of the others.
+
 ### BEFORE FILTER BY {#syntax-before-filter-by}
 
 If any fields are listed in `BEFORE FILTER BY`, then this aggregate function is calculated before data is filtered using these fields.
