@@ -1,9 +1,6 @@
 title: Yandex Cloud CDN
 description:
   - >-
-    <em>Cервис Yandex Cloud CDN находится на <a
-    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
-  - >-
     Yandex Cloud CDN позволяет организовать доставку контента до конечных потребителей с помощью сети распространения контента (Content Delivery Network, CDN).
 
   - >-
@@ -14,6 +11,11 @@ description:
     </ul>
   - >-
     Управлять сервисом можно с помощью консоли управления.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a href="https://yandex.ru/legal/cloud_sla_cdn">Уровень
+    обслуживания Yandex Cloud CDN</a>.
 meta:
   title: Yandex Cloud CDN
 links:

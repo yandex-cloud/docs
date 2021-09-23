@@ -1,14 +1,18 @@
 title: Yandex Cloud CDN
 description:
   - >-
-    <em>Yandex Cloud CDN is currently in the <a href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
-  - >-
     Yandex Cloud CDN lets you organize the delivery of content to your end users using a content delivery network (CDN).
 
   - >-
     This helps you: <ul> <li>Shift part of the load from content origins to CDN servers by employing caching.</li> <li>Decrease content waiting time for the end user.</li> </ul>
   - >-
     You can manage the service using the management console.
+  - >-
+    The service is subject to the <a
+    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is defined in the <a
+    href="https://yandex.com/legal/cloud_sla_cdn">Service Level for Yandex
+    Cloud CDN</a>.
 meta:
   title: Yandex Cloud CDN
 links:
