@@ -50,7 +50,8 @@ target | **[Target](#Target)**<br>MDB specific settings.
 
 Field | Description
 --- | ---
-mdb | **oneof:** `postgresql`<br>
+mdb | **oneof:** `clickhouse` or `postgresql`<br>
+&nbsp;&nbsp;clickhouse | **[ClickHouse](#ClickHouse)**<br>Clickhouse settings for proxy. 
 &nbsp;&nbsp;postgresql | **[PostgreSQL](#PostgreSQL)**<br>PostgreSQL settings for proxy. 
 
 
@@ -63,6 +64,17 @@ user | **string**<br>Required. PostgreSQL user. The maximum string length in cha
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
+
+
+### ClickHouse {#ClickHouse}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Cluster identifier for clickhouse. The maximum string length in characters is 50.
+user | **string**<br>Required. Clickhouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Clickhouse password, input only field. 
+db | **string**<br>Required. Clickhouse database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+endpoint | **string**<br>Clickhouse proxy-host for connection, output only field. 
 
 
 ## List {#List}
@@ -106,7 +118,8 @@ target | **[Target](#Target1)**<br>MDB specific settings.
 
 Field | Description
 --- | ---
-mdb | **oneof:** `postgresql`<br>
+mdb | **oneof:** `clickhouse` or `postgresql`<br>
+&nbsp;&nbsp;clickhouse | **[ClickHouse](#ClickHouse1)**<br>Clickhouse settings for proxy. 
 &nbsp;&nbsp;postgresql | **[PostgreSQL](#PostgreSQL1)**<br>PostgreSQL settings for proxy. 
 
 
@@ -119,6 +132,17 @@ user | **string**<br>Required. PostgreSQL user. The maximum string length in cha
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
+
+
+### ClickHouse {#ClickHouse1}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Cluster identifier for clickhouse. The maximum string length in characters is 50.
+user | **string**<br>Required. Clickhouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Clickhouse password, input only field. 
+db | **string**<br>Required. Clickhouse database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+endpoint | **string**<br>Clickhouse proxy-host for connection, output only field. 
 
 
 ## Create {#Create}
@@ -146,7 +170,8 @@ target | **[Target](#Target2)**<br>Required. Proxy target.
 
 Field | Description
 --- | ---
-mdb | **oneof:** `postgresql`<br>
+mdb | **oneof:** `clickhouse` or `postgresql`<br>
+&nbsp;&nbsp;clickhouse | **[ClickHouse](#ClickHouse2)**<br>Clickhouse settings for proxy. 
 &nbsp;&nbsp;postgresql | **[PostgreSQL](#PostgreSQL2)**<br>PostgreSQL settings for proxy. 
 
 
@@ -159,6 +184,17 @@ user | **string**<br>Required. PostgreSQL user. The maximum string length in cha
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
+
+
+### ClickHouse {#ClickHouse2}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Cluster identifier for clickhouse. The maximum string length in characters is 50.
+user | **string**<br>Required. Clickhouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Clickhouse password, input only field. 
+db | **string**<br>Required. Clickhouse database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+endpoint | **string**<br>Clickhouse proxy-host for connection, output only field. 
 
 
 ### Operation {#Operation}
@@ -201,7 +237,8 @@ target | **[Target](#Target3)**<br>MDB specific settings.
 
 Field | Description
 --- | ---
-mdb | **oneof:** `postgresql`<br>
+mdb | **oneof:** `clickhouse` or `postgresql`<br>
+&nbsp;&nbsp;clickhouse | **[ClickHouse](#ClickHouse3)**<br>Clickhouse settings for proxy. 
 &nbsp;&nbsp;postgresql | **[PostgreSQL](#PostgreSQL3)**<br>PostgreSQL settings for proxy. 
 
 
@@ -214,6 +251,17 @@ user | **string**<br>Required. PostgreSQL user. The maximum string length in cha
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
+
+
+### ClickHouse {#ClickHouse3}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Cluster identifier for clickhouse. The maximum string length in characters is 50.
+user | **string**<br>Required. Clickhouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Clickhouse password, input only field. 
+db | **string**<br>Required. Clickhouse database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+endpoint | **string**<br>Clickhouse proxy-host for connection, output only field. 
 
 
 ## Update {#Update}
@@ -242,7 +290,8 @@ target | **[Target](#Target4)**<br>Proxy target.
 
 Field | Description
 --- | ---
-mdb | **oneof:** `postgresql`<br>
+mdb | **oneof:** `clickhouse` or `postgresql`<br>
+&nbsp;&nbsp;clickhouse | **[ClickHouse](#ClickHouse4)**<br>Clickhouse settings for proxy. 
 &nbsp;&nbsp;postgresql | **[PostgreSQL](#PostgreSQL4)**<br>PostgreSQL settings for proxy. 
 
 
@@ -255,6 +304,17 @@ user | **string**<br>Required. PostgreSQL user. The maximum string length in cha
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
+
+
+### ClickHouse {#ClickHouse4}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Cluster identifier for clickhouse. The maximum string length in characters is 50.
+user | **string**<br>Required. Clickhouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Clickhouse password, input only field. 
+db | **string**<br>Required. Clickhouse database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+endpoint | **string**<br>Clickhouse proxy-host for connection, output only field. 
 
 
 ### Operation {#Operation1}
@@ -297,7 +357,8 @@ target | **[Target](#Target5)**<br>MDB specific settings.
 
 Field | Description
 --- | ---
-mdb | **oneof:** `postgresql`<br>
+mdb | **oneof:** `clickhouse` or `postgresql`<br>
+&nbsp;&nbsp;clickhouse | **[ClickHouse](#ClickHouse5)**<br>Clickhouse settings for proxy. 
 &nbsp;&nbsp;postgresql | **[PostgreSQL](#PostgreSQL5)**<br>PostgreSQL settings for proxy. 
 
 
@@ -310,6 +371,17 @@ user | **string**<br>Required. PostgreSQL user. The maximum string length in cha
 password | **string**<br>PostgreSQL password, input only field. 
 db | **string**<br>Required. PostgreSQL database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 endpoint | **string**<br>PostgreSQL proxy-host for connection, output only field. 
+
+
+### ClickHouse {#ClickHouse5}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Cluster identifier for clickhouse. The maximum string length in characters is 50.
+user | **string**<br>Required. Clickhouse user. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+password | **string**<br>Clickhouse password, input only field. 
+db | **string**<br>Required. Clickhouse database name. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+endpoint | **string**<br>Clickhouse proxy-host for connection, output only field. 
 
 
 ## Delete {#Delete}

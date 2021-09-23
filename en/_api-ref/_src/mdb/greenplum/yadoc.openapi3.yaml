@@ -440,6 +440,11 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        hostGroupIds:
+          description: Host groups hosting VMs of the cluster.
+          type: array
+          items:
+            type: string
     ClusterEnvironment:
       description: |-
         Deployment environment.
@@ -575,6 +580,11 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        hostGroupIds:
+          description: Host groups to place VMs of cluster on.
+          type: array
+          items:
+            type: string
     DeleteClusterMetadata:
       type: object
       properties:

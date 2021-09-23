@@ -685,9 +685,44 @@ components:
         type: object
         maxProperties: 1
         properties:
+          clickhouse:
+            $ref: '#/components/schemas/TargetClickHouse'
+            description: Clickhouse settings for proxy.
           postgresql:
             $ref: '#/components/schemas/TargetPostgreSQL'
             description: PostgreSQL settings for proxy.
+    TargetClickHouse:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Required.
+            Cluster identifier for clickhouse.
+
+            The maximum string length in characters is 50.
+          type: string
+        user:
+          description: |-
+            Required.
+            Clickhouse user.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_]* ``.
+          type: string
+        password:
+          description: Clickhouse password, input only field.
+          type: string
+        db:
+          description: |-
+            Required.
+            Clickhouse database name.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        endpoint:
+          description: Clickhouse proxy-host for connection, output only field.
+          type: string
     TargetPostgreSQL:
       type: object
       properties:
@@ -853,6 +888,9 @@ components:
         type: object
         maxProperties: 1
         properties:
+          clickhouse:
+            $ref: '#/components/schemas/TargetClickHouse'
+            description: Clickhouse settings for proxy.
           postgresql:
             $ref: '#/components/schemas/TargetPostgreSQL'
             description: PostgreSQL settings for proxy.
@@ -864,6 +902,9 @@ components:
         type: object
         maxProperties: 1
         properties:
+          clickhouse:
+            $ref: '#/components/schemas/TargetClickHouse'
+            description: Clickhouse settings for proxy.
           postgresql:
             $ref: '#/components/schemas/TargetPostgreSQL'
             description: PostgreSQL settings for proxy.
@@ -888,6 +929,9 @@ components:
         type: object
         maxProperties: 1
         properties:
+          clickhouse:
+            $ref: '#/components/schemas/TargetClickHouse'
+            description: Clickhouse settings for proxy.
           postgresql:
             $ref: '#/components/schemas/TargetPostgreSQL'
             description: PostgreSQL settings for proxy.

@@ -7,6 +7,8 @@ items:
     href: api-ref/grpc/disk_service.md
   - name: DiskTypeService
     href: api-ref/grpc/disk_type_service.md
+  - name: FilesystemService
+    href: api-ref/grpc/filesystem_service.md
   - name: HostGroupService
     href: api-ref/grpc/host_group_service.md
   - name: HostTypeService

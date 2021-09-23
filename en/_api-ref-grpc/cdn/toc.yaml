@@ -1,0 +1,15 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: CacheService
+    href: api-ref/grpc/cache_service.md
+  - name: OriginGroupService
+    href: api-ref/grpc/origin_group_service.md
+  - name: OriginService
+    href: api-ref/grpc/origin_service.md
+  - name: ProviderService
+    href: api-ref/grpc/provider_service.md
+  - name: ResourceService
+    href: api-ref/grpc/resource_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

@@ -553,6 +553,231 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListDiskTypesResponse'
       x-y-navtitle: list
+  /compute/v1/filesystems/{filesystemId}:
+    get:
+      tags:
+      - Filesystem
+      summary: Returns the specified filesystem.
+      description: To get the list of available filesystems, make a [list](/docs/compute/api-ref/Filesystem/list)
+        request.
+      operationId: FilesystemGet
+      parameters:
+      - name: filesystemId
+        in: path
+        description: |-
+          Required.
+          ID of the filesystem to return.
+
+          To get the filesystem ID, make a [list](/docs/compute/api-ref/Filesystem/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Filesystem'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Filesystem
+      summary: Deletes the specified filesystem.
+      description: |-
+        Deleting a filesystem removes its data permanently and is irreversible.
+
+        It is not possible to delete a filesystem that is attached to an instance.
+      operationId: FilesystemDelete
+      parameters:
+      - name: filesystemId
+        in: path
+        description: |-
+          Required.
+          ID of the filesystem to delete.
+
+          To get the filesystem ID, make a [list](/docs/compute/api-ref/Filesystem/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteFilesystemMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Filesystem
+      summary: Updates the specified filesystem.
+      operationId: FilesystemUpdate
+      parameters:
+      - name: filesystemId
+        in: path
+        description: |-
+          Required.
+          ID of the filesystem to update.
+
+          To get the filesystem ID, make a [list](/docs/compute/api-ref/Filesystem/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFilesystemRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateFilesystemMetadata'
+      x-y-operation-response: '[Filesystem](/docs/compute/api-ref/Filesystem#representation)'
+  /compute/v1/filesystems:
+    get:
+      tags:
+      - Filesystem
+      summary: Lists filesystems in the specified folder.
+      operationId: FilesystemList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list filesystems in.
+
+          To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`,
+          the service returns a [nextPageToken](/docs/compute/api-ref/Filesystem/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/compute/api-ref/Filesystem/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters filesystems listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on the [Filesystem.name](/docs/compute/api-ref/Filesystem#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`.
+          Example of a filter: `name=my-filesystem`.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFilesystemsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Filesystem
+      summary: Creates a filesystem in the specified folder.
+      operationId: FilesystemCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFilesystemRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateFilesystemMetadata'
+      x-y-operation-response: '[Filesystem](/docs/compute/api-ref/Filesystem#representation)'
+  /compute/v1/filesystems/{filesystemId}/operations:
+    get:
+      tags:
+      - Filesystem
+      summary: Lists operations for the specified filesystem.
+      operationId: FilesystemListOperations
+      parameters:
+      - name: filesystemId
+        in: path
+        description: |-
+          Required.
+          ID of the filesystem to list operations for.
+
+          To get the filesystem ID, make a [list](/docs/compute/api-ref/Filesystem/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/compute/api-ref/Filesystem/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/compute/api-ref/Filesystem/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFilesystemOperationsResponse'
+      x-y-navtitle: listOperations
   /compute/v1/hostGroups/{hostGroupId}:
     get:
       tags:
@@ -1589,6 +1814,91 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DetachInstanceDiskMetadata'
       x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}:attachFilesystem:
+    post:
+      tags:
+      - Instance
+      summary: Attaches the filesystem to the instance.
+      description: |-
+        The instance and the filesystem must reside in the same availability zone.
+
+        To attach a filesystem, the instance must have a `STOPPED` status ([Instance.status](/docs/compute/api-ref/Instance#representation)).
+        To check the instance status, make a [get](/docs/compute/api-ref/Instance/get) request.
+        To stop the running instance, make a [stop](/docs/compute/api-ref/Instance/stop) request.
+
+        To use the instance with an attached filesystem, the latter must be mounted.
+        For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
+      operationId: InstanceAttachFilesystem
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the instance to attach the filesystem to.
+
+          To get the instance ID, make a [list](/docs/compute/api-ref/Instance/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AttachInstanceFilesystemRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: attachFilesystem
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AttachInstanceFilesystemMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
+  /compute/v1/instances/{instanceId}:detachFilesystem:
+    post:
+      tags:
+      - Instance
+      summary: Detaches the filesystem from the instance.
+      description: |-
+        To detach a filesystem, the instance must have a `STOPPED` status ([Instance.status](/docs/compute/api-ref/Instance#representation)).
+        To check the instance status, make a [get](/docs/compute/api-ref/Instance/get) request.
+        To stop the running instance, make a [stop](/docs/compute/api-ref/Instance/stop) request.
+      operationId: InstanceDetachFilesystem
+      parameters:
+      - name: instanceId
+        in: path
+        description: |-
+          Required.
+          ID of the instance to detach the filesystem from.
+
+          To get the instance ID, make a [list](/docs/compute/api-ref/Instance/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DetachInstanceFilesystemRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: detachFilesystem
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DetachInstanceFilesystemMetadata'
+      x-y-operation-response: '[Instance](/docs/compute/api-ref/Instance#representation)'
   /compute/v1/instances/{instanceId}/addOneToOneNat:
     post:
       tags:
@@ -2279,6 +2589,20 @@ components:
       properties:
         attachedDiskSpec:
           $ref: '#/components/schemas/AttachedDiskSpec_in_AttachInstanceDiskRequest_attachedDiskSpec'
+    AttachInstanceFilesystemMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the instance that the filesystem is being attached to.
+          type: string
+        filesystemId:
+          description: ID of the filesystem that is being attached to the instance.
+          type: string
+    AttachInstanceFilesystemRequest:
+      type: object
+      properties:
+        attachedFilesystemSpec:
+          $ref: '#/components/schemas/AttachedFilesystemSpec_in_AttachInstanceFilesystemRequest_attachedFilesystemSpec'
     AttachedDisk:
       type: object
       properties:
@@ -2400,6 +2724,59 @@ components:
               The maximum string length in characters is 50.
             type: string
     AttachedDiskSpecMode:
+      description: |2-
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access. Default value.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    AttachedFilesystem:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/AttachedFilesystemMode_in_AttachedFilesystem_mode'
+        deviceName:
+          description: |-
+            Name of the device representing the filesystem on the instance.
+
+            The name should be used for referencing the filesystem from within the instance
+            when it's being mounted, resized etc.
+          type: string
+        filesystemId:
+          description: ID of the filesystem that is attached to the instance.
+          type: string
+    AttachedFilesystemMode:
+      description: |2-
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    AttachedFilesystemSpec:
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/AttachedFilesystemSpecMode_in_AttachedFilesystemSpec_mode'
+        deviceName:
+          description: |-
+            Name of the device representing the filesystem on the instance.
+
+            The name should be used for referencing the filesystem from within the instance
+            when it's being mounted, resized etc.
+
+            If not specified, a random value will be generated.
+
+            Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.
+          type: string
+        filesystemId:
+          description: |-
+            ID of the filesystem that should be attached.
+
+            The maximum string length in characters is 50.
+          type: string
+    AttachedFilesystemSpecMode:
       description: |2-
          - READ_ONLY: Read-only access.
          - READ_WRITE: Read/Write access. Default value.
@@ -2557,6 +2934,88 @@ components:
 
               The maximum string length in characters is 50.
             type: string
+    CreateFilesystemMetadata:
+      type: object
+      properties:
+        filesystemId:
+          description: ID of the filesystem that is being created.
+          type: string
+    CreateFilesystemRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a filesystem in.
+
+            To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the filesystem. The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            Description of the filesystem.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Filesystem labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        typeId:
+          description: |-
+            ID of the filesystem type.
+
+            To get a list of available filesystem types, make a [list](/docs/compute/api-ref/DiskType/list) request.
+
+            The filesystem type cannot be updated after the filesystem creation.
+
+            The maximum string length in characters is 50.
+          type: string
+        zoneId:
+          description: |-
+            Required.
+            ID of the availability zone where the filesystem resides.
+
+            To get a list of available zones, make a [list](/docs/compute/api-ref/Zone/list) request.
+
+            A filesystem can be attached only to virtual machines residing in the same availability zone.
+            The filesystem availability zone cannot be updated after the filesystem creation.
+
+            The maximum string length in characters is 50.
+          type: string
+        size:
+          description: |-
+            Required.
+            Size of the filesystem, specified in bytes.
+
+            The size of the filesystem cannot be updated after the filesystem creation.
+          type: string
+          format: int64
+        blockSize:
+          description: |-
+            Block size used for the filesystem, specified in bytes.
+
+            The block size cannot be updated after the filesystem creation.
+
+            Default value: 4096.
+          type: string
+          format: int64
     CreateHostGroupMetadata:
       type: object
       properties:
@@ -2696,6 +3155,11 @@ components:
               Operating system that is contained in the image.
 
               If not specified and you used the `image_id` or `disk_id` field to set the source, then the value can be inherited from the source resource.
+          pooled:
+            description: When true, an image pool will be created for fast creation
+              disks from the image.
+            type: boolean
+            format: boolean
       - title: source
         type: object
         maxProperties: 1
@@ -2811,6 +3275,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AttachedDiskSpec'
+        filesystemSpecs:
+          description: |-
+            Array of filesystems to attach to the instance.
+
+            The filesystems must reside in the same availability zone as the instance.
+
+            To use the instance with an attached filesystem, the latter must be mounted.
+            For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedFilesystemSpec'
         networkInterfaceSpecs:
           description: |-
             Required.
@@ -2943,6 +3418,12 @@ components:
         diskPlacementGroupId:
           description: ID of the placement group that is being deleted.
           type: string
+    DeleteFilesystemMetadata:
+      type: object
+      properties:
+        filesystemId:
+          description: ID of the filesystem that is being deleted.
+          type: string
     DeleteHostGroupMetadata:
       type: object
       properties:
@@ -3002,6 +3483,34 @@ components:
 
               Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.
             type: string
+    DetachInstanceFilesystemMetadata:
+      type: object
+      properties:
+        instanceId:
+          description: ID of the instance that the filesystem is being detached from.
+          type: string
+        filesystemId:
+          description: ID of the filesystem that is being detached from the instance.
+          type: string
+    DetachInstanceFilesystemRequest:
+      type: object
+      allOf:
+      - title: filesystem
+        type: object
+        maxProperties: 1
+        properties:
+          filesystemId:
+            description: |-
+              ID of the filesystem that should be detached.
+
+              The maximum string length in characters is 50.
+            type: string
+          deviceName:
+            description: |-
+              Name of the device used for mounting the filesystem that should be detached.
+
+              Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.
+            type: string
     Disk:
       description: A Disk resource. For more information, see [Disks](/docs/compute/concepts/disk).
       type: object
@@ -3041,7 +3550,7 @@ components:
             type: string
             format: int64
           blockSize:
-            description: Block size of the disk, specifiedin bytes.
+            description: Block size of the disk, specified in bytes.
             type: string
             format: int64
           productIds:
@@ -3222,6 +3731,72 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    Filesystem:
+      description: |-
+        A filesystem resource.
+        For details about the concept, see [documentation](/docs/compute/concepts/filesystem).
+      type: object
+      properties:
+        id:
+          description: ID of the filesystem. Generated at creation time.
+          type: string
+        folderId:
+          description: ID of the folder that the filesystem belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        name:
+          description: Name of the filesystem. The name is unique within the folder.
+          type: string
+        description:
+          description: Description of the filesystem.
+          type: string
+        labels:
+          description: |-
+            Filesystem labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+          type: object
+          additionalProperties:
+            type: string
+        typeId:
+          description: |-
+            ID of the filesystem type.
+
+            To get a list of available filesystem types, make a [list](/docs/compute/api-ref/DiskType/list) request.
+          type: string
+        zoneId:
+          description: |-
+            ID of the availability zone where the filesystem resides.
+
+            A filesystem can be attached only to instances residing in the same availability zone.
+          type: string
+        size:
+          description: Size of the filesystem, specified in bytes.
+          type: string
+          format: int64
+        blockSize:
+          description: Block size used for the filesystem, specified in bytes.
+          type: string
+          format: int64
+        status:
+          $ref: '#/components/schemas/FilesystemStatus_in_Filesystem_status'
+    FilesystemStatus:
+      description: |2-
+         - CREATING: The filesystem is being created.
+         - READY: The filesystem is ready to use.
+         - ERROR: The filesystem encountered a problem and cannot operate.
+         - DELETING: The filesystem is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
     GetInstanceSerialPortOutputResponse:
       type: object
       properties:
@@ -3371,6 +3946,11 @@ components:
           $ref: '#/components/schemas/ImageStatus_in_Image_status'
         os:
           $ref: '#/components/schemas/Os_in_Image_os'
+        pooled:
+          description: When true, indicates there is an image pool for fast creation
+            disks from the image.
+          type: boolean
+          format: boolean
     ImageStatus:
       description: |2-
          - CREATING: Image is being created.
@@ -3435,6 +4015,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AttachedDisk'
+        filesystems:
+          description: Array of filesystems that are attached to the instance.
+          type: array
+          items:
+            $ref: '#/components/schemas/AttachedFilesystem'
         networkInterfaces:
           description: Array of network interfaces that are attached to the instance.
           type: array
@@ -3595,6 +4180,38 @@ components:
             for the [pageToken](/docs/compute/api-ref/Disk/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
             [nextPageToken](/docs/compute/api-ref/Disk/list#responses) to continue paging through the results.
+          type: string
+    ListFilesystemOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified filesystem.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/compute/api-ref/Filesystem/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/compute/api-ref/Filesystem/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListFilesystemsResponse:
+      type: object
+      properties:
+        filesystems:
+          description: List of filesystems in the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/Filesystem'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/compute/api-ref/Filesystem/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/compute/api-ref/Filesystem/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
     ListHostGroupHostsResponse:
       type: object
@@ -4370,6 +4987,48 @@ components:
           format: int64
         diskPlacementPolicy:
           $ref: '#/components/schemas/DiskPlacementPolicy_in_UpdateDiskRequest_diskPlacementPolicy'
+    UpdateFilesystemMetadata:
+      type: object
+      properties:
+        filesystemId:
+          description: ID of the filesystem that is being updated.
+          type: string
+    UpdateFilesystemRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateFilesystemRequest_updateMask'
+        name:
+          description: |-
+            New name of the filesystem. The name must be unique within the folder.
+
+            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
+          type: string
+        description:
+          description: |-
+            New description of the filesystem.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            New filesystem labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [get](/docs/compute/api-ref/Filesystem/get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
     UpdateHostGroupMetadata:
       type: object
       properties:
@@ -4731,12 +5390,57 @@ components:
 
               The maximum string length in characters is 50.
             type: string
+    AttachedFilesystemSpec_in_AttachInstanceFilesystemRequest_attachedFilesystemSpec:
+      description: |-
+        Required.
+        Filesystem to attach to the instance.
+      type: object
+      properties:
+        mode:
+          $ref: '#/components/schemas/AttachedFilesystemSpecMode_in_AttachedFilesystemSpec_mode'
+        deviceName:
+          description: |-
+            Name of the device representing the filesystem on the instance.
+
+            The name should be used for referencing the filesystem from within the instance
+            when it's being mounted, resized etc.
+
+            If not specified, a random value will be generated.
+
+            Value must match the regular expression `` [a-z][a-z0-9-_]{,19} ``.
+          type: string
+        filesystemId:
+          description: |-
+            ID of the filesystem that should be attached.
+
+            The maximum string length in characters is 50.
+          type: string
     AttachedDiskMode_in_AttachedDisk_mode:
       description: |-
         Access mode to the Disk resource.
 
          - READ_ONLY: Read-only access.
          - READ_WRITE: Read/Write access.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    AttachedFilesystemMode_in_AttachedFilesystem_mode:
+      description: |-
+        Access mode to the filesystem.
+
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access.
+      type: string
+      enum:
+      - READ_ONLY
+      - READ_WRITE
+    AttachedFilesystemSpecMode_in_AttachedFilesystemSpec_mode:
+      description: |-
+        Mode of access to the filesystem that should be attached.
+
+         - READ_ONLY: Read-only access.
+         - READ_WRITE: Read/Write access. Default value.
       type: string
       enum:
       - READ_ONLY
@@ -4870,6 +5574,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PlacementPolicyHostAffinityRule'
+    FilesystemStatus_in_Filesystem_status:
+      description: |-
+        Current status of the filesystem.
+
+         - CREATING: The filesystem is being created.
+         - READY: The filesystem is ready to use.
+         - ERROR: The filesystem encountered a problem and cannot operate.
+         - DELETING: The filesystem is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
     HostStatus_in_Host_status:
       description: Current status of the host. New instances are unable to start on
         host in DOWN status.
@@ -5218,6 +5936,19 @@ components:
         placementGroupId:
           description: Placement group ID.
           type: string
+    FieldMask_in_UpdateFilesystemRequest_updateMask:
+      description: |-
+        Field mask that specifies which attributes of the filesystem should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     FieldMask_in_UpdateHostGroupRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the HostGroup resource are going to be updated.
@@ -5427,6 +6158,8 @@ tags:
   description: A set of methods for managing Disk resources.
 - name: DiskType
   description: A set of methods to retrieve information about disk types.
+- name: Filesystem
+  description: A set of methods for managing filesystems.
 - name: HostGroup
   description: A set of methods for managing groups of dedicated hosts.
 - name: HostType

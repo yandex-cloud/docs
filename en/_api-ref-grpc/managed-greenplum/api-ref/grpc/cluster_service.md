@@ -59,6 +59,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Mainten
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### GreenplumConfig {#GreenplumConfig}
@@ -238,6 +239,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Mainte
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### GreenplumConfig {#GreenplumConfig1}
@@ -397,6 +399,7 @@ user_password | **string**<br>Required. Owner user password The string length in
 network_id | **string**<br>Required. ID of the network to create the cluster in. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+host_group_ids[] | **string**<br>Host groups to place VMs of cluster on. 
 
 
 ### GreenplumConfig {#GreenplumConfig2}
@@ -519,6 +522,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Mainte
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### GreenplumConfig {#GreenplumConfig3}
@@ -754,6 +758,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Mainte
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### GreenplumConfig {#GreenplumConfig4}
@@ -949,6 +954,7 @@ planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Mainte
 security_group_ids[] | **string**<br>User security groups 
 user_name | **string**<br>Owner user name 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### GreenplumConfig {#GreenplumConfig5}

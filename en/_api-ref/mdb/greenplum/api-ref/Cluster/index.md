@@ -107,7 +107,10 @@ A set of methods for managing Greenplum clusters.
     "string"
   ],
   "userName": "string",
-  "deletionProtection": true
+  "deletionProtection": true,
+  "hostGroupIds": [
+    "string"
+  ]
 }
 ```
  
@@ -187,6 +190,7 @@ plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>String in <a hr
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 userName | **string**<br><p>Owner user name</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 
 ## Methods {#methods}
 Method | Description

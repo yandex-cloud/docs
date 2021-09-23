@@ -1398,6 +1398,22 @@ components:
           description: ElasticSearch edition.
           type: string
         adminPassword:
+          description: |-
+            Required.
+            ElasticSearch admin password.
+          type: string
+    ConfigSpecUpdate:
+      type: object
+      properties:
+        version:
+          description: Elasticsearch version.
+          type: string
+        elasticsearchSpec:
+          $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpecUpdate_elasticsearchSpec'
+        edition:
+          description: ElasticSearch edition.
+          type: string
+        adminPassword:
           description: ElasticSearch admin password.
           type: string
     CreateClusterMetadata:
@@ -2161,7 +2177,7 @@ components:
           additionalProperties:
             type: string
         configSpec:
-          $ref: '#/components/schemas/ConfigSpec_in_UpdateClusterRequest_configSpec'
+          $ref: '#/components/schemas/ConfigSpecUpdate_in_UpdateClusterRequest_configSpec'
         name:
           description: |-
             New name for the Elasticsearch cluster.
@@ -2335,6 +2351,22 @@ components:
           type: array
           items:
             type: string
+    ElasticsearchSpec_in_ConfigSpecUpdate_elasticsearchSpec:
+      description: Configuration and resource allocation for Elasticsearch nodes.
+      type: object
+      properties:
+        dataNode:
+          $ref: '#/components/schemas/ElasticsearchSpecDataNode_in_ElasticsearchSpec_dataNode'
+        masterNode:
+          $ref: '#/components/schemas/ElasticsearchSpecMasterNode_in_ElasticsearchSpec_masterNode'
+        plugins:
+          description: |-
+            Cluster wide plugins
+
+            The maximum string length in characters for each value is 50.
+          type: array
+          items:
+            type: string
     ClusterEnvironment_in_CreateClusterRequest_environment:
       description: |-
         Deployment environment of the Elasticsearch cluster.
@@ -2360,7 +2392,9 @@ components:
           description: ElasticSearch edition.
           type: string
         adminPassword:
-          description: ElasticSearch admin password.
+          description: |-
+            Required.
+            ElasticSearch admin password.
           type: string
     UserSpec_in_CreateUserRequest_userSpec:
       description: |-
@@ -2718,7 +2752,7 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
-    ConfigSpec_in_UpdateClusterRequest_configSpec:
+    ConfigSpecUpdate_in_UpdateClusterRequest_configSpec:
       description: |-
         New configuration and resources for hosts in the Elasticsearch cluster.
 
@@ -2729,7 +2763,7 @@ components:
           description: Elasticsearch version.
           type: string
         elasticsearchSpec:
-          $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
+          $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpecUpdate_elasticsearchSpec'
         edition:
           description: ElasticSearch edition.
           type: string

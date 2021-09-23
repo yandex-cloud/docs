@@ -50,7 +50,7 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging` or `billing_budget`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage)**<br>Rule for a Yandex IoT Core trigger. 
@@ -58,6 +58,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
 
 
 ### Timer {#Timer}
@@ -189,7 +190,7 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging` or `billing_budget`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer1)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue1)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage1)**<br>Rule for a Yandex IoT Core trigger. 
@@ -197,6 +198,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry1)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs1)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging1)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
 
 
 ### Timer {#Timer1}
@@ -348,7 +350,7 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging` or `billing_budget`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer2)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue2)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage2)**<br>Rule for a Yandex IoT Core trigger. 
@@ -356,6 +358,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry2)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs2)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging2)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
 
 
 ### Timer {#Timer2}
@@ -507,7 +510,7 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging` or `billing_budget`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer3)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue3)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage3)**<br>Rule for a Yandex IoT Core trigger. 
@@ -515,6 +518,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry3)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs3)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging3)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
 
 
 ### Timer {#Timer3}
@@ -702,7 +706,7 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging` or `billing_budget`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer4)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue4)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage4)**<br>Rule for a Yandex IoT Core trigger. 
@@ -710,6 +714,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry4)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs4)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging4)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
 
 
 ### Timer {#Timer4}
@@ -857,7 +862,7 @@ status | enum **Status**<br>Trigger status. <ul><ul/>
 
 Field | Description
 --- | ---
-rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs` or `logging`<br>
+rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging` or `billing_budget`<br>
 &nbsp;&nbsp;timer | **[Timer](#Timer5)**<br>Rule for a timed trigger. 
 &nbsp;&nbsp;message_queue | **[MessageQueue](#MessageQueue5)**<br>Rule for a message queue trigger. 
 &nbsp;&nbsp;iot_message | **[IoTMessage](#IoTMessage5)**<br>Rule for a Yandex IoT Core trigger. 
@@ -865,6 +870,7 @@ rule | **oneof:** `timer`, `message_queue`, `iot_message`, `object_storage`, `co
 &nbsp;&nbsp;container_registry | **[ContainerRegistry](#ContainerRegistry5)**<br> 
 &nbsp;&nbsp;cloud_logs | **[CloudLogs](#CloudLogs5)**<br> 
 &nbsp;&nbsp;logging | **[Logging](#Logging5)**<br> 
+&nbsp;&nbsp;billing_budget | **[BillingBudget](#BillingBudget)**<br> 
 
 
 ### Timer {#Timer5}

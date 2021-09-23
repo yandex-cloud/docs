@@ -1,0 +1,9 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: EndpointService
+    href: api-ref/grpc/endpoint_service.md
+  - name: TransferService
+    href: api-ref/grpc/transfer_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

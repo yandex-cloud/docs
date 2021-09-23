@@ -27,13 +27,24 @@ proxyId | Required. ID of the proxy to update.
   "description": "string",
   "labels": "object",
   "target": {
+
+    // `target` includes only one of the fields `clickhouse`, `postgresql`
+    "clickhouse": {
+      "clusterId": "string",
+      "user": "string",
+      "password": "string",
+      "db": "string",
+      "endpoint": "string"
+    },
     "postgresql": {
       "clusterId": "string",
       "user": "string",
       "password": "string",
       "db": "string",
       "endpoint": "string"
-    }
+    },
+    // end of the list of possible fields`target`
+
   }
 }
 ```
@@ -46,7 +57,13 @@ name | **string**<br><p>New name for the proxy. The name must be unique within t
 description | **string**<br><p>New description for the proxy.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Proxy labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 target | **object**<br><p>Proxy target.</p> 
-target.<br>postgresql | **object**<br>PostgreSQL settings for proxy.<br>
+target.<br>clickhouse | **object**<br>Clickhouse settings for proxy. <br>`target` includes only one of the fields `clickhouse`, `postgresql`<br><br>
+target.<br>clickhouse.<br>clusterId | **string**<br><p>Required. Cluster identifier for clickhouse.</p> <p>The maximum string length in characters is 50.</p> 
+target.<br>clickhouse.<br>user | **string**<br><p>Required. Clickhouse user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+target.<br>clickhouse.<br>password | **string**<br><p>Clickhouse password, input only field.</p> 
+target.<br>clickhouse.<br>db | **string**<br><p>Required. Clickhouse database name.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
+target.<br>clickhouse.<br>endpoint | **string**<br><p>Clickhouse proxy-host for connection, output only field.</p> 
+target.<br>postgresql | **object**<br>PostgreSQL settings for proxy. <br>`target` includes only one of the fields `clickhouse`, `postgresql`<br><br>
 target.<br>postgresql.<br>clusterId | **string**<br><p>Required. Cluster identifier for postgresql.</p> <p>The maximum string length in characters is 50.</p> 
 target.<br>postgresql.<br>user | **string**<br><p>Required. PostgreSQL user.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 target.<br>postgresql.<br>password | **string**<br><p>PostgreSQL password, input only field.</p> 

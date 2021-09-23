@@ -1,0 +1,2111 @@
+openapi: "3.0"
+info:
+  title: Yandex CDN management API
+  description: This API reference is organized around CDN resources. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://cdn.api.cloud.yandex.net
+paths:
+  /cdn/v1/cache/{resourceId}:purge:
+    post:
+      tags:
+      - Cache
+      operationId: CachePurge
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          Resource ID to perform cache operation on.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurgeCacheRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: purge
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/PurgeCacheMetadata'
+      x-y-operation-response: Empty
+  /cdn/v1/cache/{resourceId}:prefetch:
+    post:
+      tags:
+      - Cache
+      operationId: CachePrefetch
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          Resource ID to perform cache operation on.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrefetchCacheRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: prefetch
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/PrefetchCacheMetadata'
+      x-y-operation-response: Empty
+  /cdn/v1/origin_groups/{originGroupId}:
+    get:
+      tags:
+      - OriginGroup
+      summary: Get origin group with specified origin group id.
+      operationId: OriginGroupGet
+      parameters:
+      - name: originGroupId
+        in: path
+        description: |-
+          ID of origins group to request for.
+
+          Value must be greater than 0.
+        required: true
+        schema:
+          type: string
+          format: int64
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Origin group owner's Folder ID.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OriginGroup'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - OriginGroup
+      summary: Delete origin group with specified origin group id.
+      operationId: OriginGroupDelete
+      parameters:
+      - name: originGroupId
+        in: path
+        description: |-
+          Origin Group ID.
+
+          Value must be greater than 0.
+        required: true
+        schema:
+          type: string
+          format: int64
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Origin Group owner's Folder ID.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteOriginGroupMetadata'
+      x-y-operation-response: Empty
+  /cdn/v1/origin_groups:
+    get:
+      tags:
+      - OriginGroup
+      summary: List clients origin groups.
+      operationId: OriginGroupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Origin group owner's Folder ID.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/cdn/api-ref/OriginGroup/list#query_params),
+          the service returns a [nextPageToken](/docs/cdn/api-ref/OriginGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/cdn/api-ref/OriginGroup/list#query_params) to the [nextPageToken](/docs/cdn/api-ref/OriginGroup/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOriginGroupsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - OriginGroup
+      summary: Create clients origin group.
+      operationId: OriginGroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOriginGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateOriginGroupMetadata'
+      x-y-operation-response: '[OriginGroup](/docs/cdn/api-ref/OriginGroup#representation)'
+    patch:
+      tags:
+      - OriginGroup
+      summary: Update clients origin group.
+      operationId: OriginGroupUpdate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOriginGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateOriginGroupMetadata'
+      x-y-operation-response: '[OriginGroup](/docs/cdn/api-ref/OriginGroup#representation)'
+  /cdn/v1/origins/{originId}:
+    get:
+      tags:
+      - Origin
+      summary: Get origin in origin group.
+      operationId: OriginGet
+      parameters:
+      - name: originId
+        in: path
+        description: |-
+          [originId](/docs/cdn/api-ref/Origin/get#path_params) group ID to request origin from.
+
+          Value must be greater than 0.
+        required: true
+        schema:
+          type: string
+          format: int64
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Origin's owner Folder ID.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1Origin'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Origin
+      summary: Delete origin from origin group
+      operationId: OriginDelete
+      parameters:
+      - name: originId
+        in: path
+        description: |-
+          Origin ID.
+
+          Value must be greater than 0.
+        required: true
+        schema:
+          type: string
+          format: int64
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Origin's owner Folder ID.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteOriginMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Origin
+      summary: Update origin from origin group.
+      operationId: OriginUpdate
+      parameters:
+      - name: originId
+        in: path
+        description: |-
+          Origin ID.
+
+          Value must be greater than 0.
+        required: true
+        schema:
+          type: string
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOriginRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateOriginMetadata'
+      x-y-operation-response: '[Origin](/docs/cdn/api-ref/Origin#representation)'
+  /cdn/v1/origins:
+    get:
+      tags:
+      - Origin
+      summary: List origins of origin group.
+      operationId: OriginList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Origin's owner Folder ID.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: originGroupId
+        in: query
+        description: |-
+          [originGroupId](/docs/cdn/api-ref/Origin/list#query_params) group ID to request origins from.
+
+          Value must be greater than 0.
+        schema:
+          type: string
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOriginsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Origin
+      summary: Create origin inside origin group.
+      operationId: OriginCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOriginRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateOriginMetadata'
+      x-y-operation-response: '[Origin](/docs/cdn/api-ref/Origin#representation)'
+  /cdn/v1/providers:activate:
+    post:
+      tags:
+      - Provider
+      summary: Activate provider for specified client.
+      operationId: ProviderActivate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivateProviderRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: activate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ActivateProviderMetadata'
+      x-y-operation-response: Empty
+  /cdn/v1/providers:
+    get:
+      tags:
+      - Provider
+      summary: List activated providers for specified client.
+      operationId: ProviderListActivated
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListActivatedProvidersResponse'
+      x-y-navtitle: listActivated
+  /cdn/v1/resources/{resourceId}:
+    get:
+      tags:
+      - Resource
+      summary: Get client's CDN resource by resource id.
+      operationId: ResourceGet
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          Requested resourc
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resource'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Resource
+      summary: Delete client's CDN resource.
+      operationId: ResourceDelete
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of resource to delete.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteResourceMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Resource
+      summary: Update of client's CDN resource. (PATCH behavior)
+      operationId: ResourceUpdate
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateResourceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateResourceMetadata'
+      x-y-operation-response: '[Resource](/docs/cdn/api-ref/Resource#representation)'
+  /cdn/v1/resources:
+    get:
+      tags:
+      - Resource
+      summary: List all client's CDN resources.
+      operationId: ResourceList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Folder ID to request listing for.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/cdn/api-ref/Resource/list#query_params),
+          the service returns a [nextPageToken](/docs/cdn/api-ref/Resource/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results,
+          set [pageToken](/docs/cdn/api-ref/Resource/list#query_params) to the [nextPageToken](/docs/cdn/api-ref/Resource/list#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListResourcesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Resource
+      summary: Create client's CDN resource.
+      operationId: ResourceCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateResourceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateResourceMetadata'
+      x-y-operation-response: '[Resource](/docs/cdn/api-ref/Resource#representation)'
+  /cdn/v1/cname/{folderId}:
+    get:
+      tags:
+      - Resource
+      summary: |-
+        Get Provider's CNAME (edge endpoint) binded to specified folder id.
+        Return UNIMPLEMENTED error, if provider doesn't support CNAME request.
+      operationId: ResourceGetProviderCName
+      parameters:
+      - name: folderId
+        in: path
+        description: |-
+          Required.
+          Folder ID to get provider's CNAME.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetProviderCNameResponse'
+      x-y-navtitle: getProviderCName
+components:
+  schemas:
+    ActivateProviderMetadata:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            Activate provider for Folder iD.
+
+            The maximum string length in characters is 50.
+          type: string
+    ActivateProviderRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            Activate provider for Folder iD.
+
+            The maximum string length in characters is 50.
+          type: string
+        providerType:
+          description: |-
+            Required.
+            Specify provider brand/type.
+
+            The maximum string length in characters is 50.
+          type: string
+    CreateOriginGroupMetadata:
+      type: object
+      properties:
+        originGroupId:
+          description: |-
+            ID of created Origin Group.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    CreateOriginGroupRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            Origin group owner's Folder ID.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: Origin Group Name.
+          type: string
+        useNext:
+          description: |-
+            [useNext](/docs/cdn/api-ref/OriginGroup/create#body_params) This option have two possible conditions:
+             true - The option is active. In case the origin responds with 4XX or 5XX codes,
+                    use the next origin from the list.
+             false - The option is disabled.
+
+             default value is true
+          type: boolean
+          format: boolean
+        origins:
+          description: |-
+            List of origins: IP addresses or Domain names of your origins and the port
+            (if custom).
+          type: array
+          items:
+            $ref: '#/components/schemas/OriginParams'
+    CreateOriginMetadata:
+      type: object
+      properties:
+        originId:
+          description: |-
+            Origin ID.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+        originGroupId:
+          description: |-
+            Parent origins group ID.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    CreateOriginRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            Origin's owner Folder ID.
+
+            The maximum string length in characters is 50.
+          type: string
+        originGroupId:
+          description: |-
+            [originGroupId](/docs/cdn/api-ref/Origin/create#body_params) group ID to request origins from.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+        source:
+          description: |-
+            Required.
+            IP address or Domain name of your origin and the port (if custom).
+
+            The maximum string length in characters is 50.
+          type: string
+        enabled:
+          description: Default value true.
+          type: boolean
+          format: boolean
+        backup:
+          description: 'Default value: false.'
+          type: boolean
+          format: boolean
+        meta:
+          $ref: '#/components/schemas/OriginMeta_in_CreateOriginRequest_meta'
+    CreateResourceMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            Required.
+            ID of created resource.
+
+            The maximum string length in characters is 50.
+          type: string
+    CreateResourceRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            Folder ID to bind with new resource.
+
+            The maximum string length in characters is 50.
+          type: string
+        cname:
+          description: |-
+            Required.
+            CDN endpoint CNAME, must be unique among clients's resources.
+          type: string
+        origin:
+          $ref: '#/components/schemas/CreateResourceRequestOrigin_in_CreateResourceRequest_origin'
+        secondaryHostnames:
+          $ref: '#/components/schemas/SecondaryHostnames_in_CreateResourceRequest_secondaryHostnames'
+        originProtocol:
+          $ref: '#/components/schemas/OriginProtocol_in_CreateResourceRequest_originProtocol'
+        active:
+          description: "Flag to create Resource either in active or disabled state.\nIn
+            active state Origins payload could be transmitted from CDN CNAME requests.
+            \nDefault value: true"
+          type: boolean
+          format: boolean
+        options:
+          $ref: '#/components/schemas/ResourceOptions_in_CreateResourceRequest_options'
+        sslCertificate:
+          $ref: '#/components/schemas/SSLTargetCertificate_in_CreateResourceRequest_sslCertificate'
+    CreateResourceRequestOrigin:
+      type: object
+      allOf:
+      - title: origin_variant
+        type: object
+        maxProperties: 1
+        properties:
+          originGroupId:
+            description: ID of pre-created origin group.
+            type: string
+            format: int64
+          originSource:
+            description: "Create new Origins group with single source, it's id will
+              be \nreturned in result."
+            type: string
+          originSourceParams:
+            $ref: '#/components/schemas/ResourceOriginParams'
+    DeleteOriginGroupMetadata:
+      type: object
+      properties:
+        originGroupId:
+          description: |-
+            Origin Group ID.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    DeleteOriginMetadata:
+      type: object
+      properties:
+        originId:
+          description: |-
+            Origin ID.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    DeleteResourceMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of deleted resource.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    GetProviderCNameResponse:
+      type: object
+      properties:
+        cname:
+          description: Provider's CNAME.
+          type: string
+        folderId:
+          description: Owner folder id.
+          type: string
+    ListActivatedProvidersResponse:
+      type: object
+      properties:
+        providers:
+          type: array
+          items:
+            type: string
+    ListOriginGroupsResponse:
+      type: object
+      properties:
+        originGroups:
+          description: List of all Origin Groups associated with folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/OriginGroup'
+        nextPageToken:
+          description: |-
+            [nextPageToken](/docs/cdn/api-ref/OriginGroup/list#responses) token allows you to get the next page of results for list requests.
+            If the number of results is larger than [pageSize](/docs/cdn/api-ref/OriginGroup/list#query_params), use
+            the [nextPageToken](/docs/cdn/api-ref/OriginGroup/list#responses) as the value for the [pageToken](/docs/cdn/api-ref/OriginGroup/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/cdn/api-ref/OriginGroup/list#responses) to continue paging through the results.
+          type: string
+    ListOriginsResponse:
+      type: object
+      properties:
+        origins:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1Origin'
+    ListResourcesResponse:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+        nextPageToken:
+          description: |-
+            [nextPageToken](/docs/cdn/api-ref/Resource/list#responses) token allows you to get the next page of results for list requests.
+            If the number of results is larger than [pageSize](/docs/cdn/api-ref/Resource/list#query_params), use
+            the [nextPageToken](/docs/cdn/api-ref/Resource/list#responses) as the value for the [pageToken](/docs/cdn/api-ref/Resource/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/cdn/api-ref/Resource/list#responses) to continue paging through the results.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    OriginBalancerMeta:
+      type: object
+      properties:
+        id:
+          type: string
+    OriginGroup:
+      type: object
+      properties:
+        id:
+          description: Origin Group ID.
+          type: string
+          format: int64
+        folderId:
+          description: Origin Folder ID.
+          type: string
+        name:
+          description: Origin Group Name.
+          type: string
+        useNext:
+          description: |-
+            use_next. This option have two possible conditions:
+            true - the option is active. In case the origin responds with 4XX or 5XX codes,
+                   use the next origin from the list.
+            false - the option is disabled.
+          type: boolean
+          format: boolean
+        origins:
+          description: List of origins.
+          type: array
+          items:
+            $ref: '#/components/schemas/v1Origin'
+    OriginMeta:
+      type: object
+      allOf:
+      - title: origin_meta_variant
+        type: object
+        maxProperties: 1
+        properties:
+          common:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          bucket:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          website:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          balancer:
+            $ref: '#/components/schemas/OriginBalancerMeta'
+    OriginNamedMeta:
+      type: object
+      properties:
+        name:
+          type: string
+    OriginParams:
+      description: Origin manipulation definition.
+      type: object
+      properties:
+        source:
+          description: 'Source: IP address or Domain name of your origin and the port
+            (if custom).'
+          type: string
+        enabled:
+          description: |-
+            The setting allows to enable or disable an Origin source in the Origins group.
+
+            It has two possible values:
+
+            True - The origin is enabled and used as a source for the CDN. An origins
+            group must contain at least one enabled origins. False - The origin is disabled
+            and the CDN is not using it to pull content.
+          type: boolean
+          format: boolean
+        backup:
+          description: |-
+            backup option has two possible values:
+
+              True - The option is active. The origin will not be used until one of
+                     active origins become unavailable.
+              False - The option is disabled.
+          type: boolean
+          format: boolean
+        meta:
+          $ref: '#/components/schemas/OriginMeta_in_OriginParams_meta'
+    OriginProtocol:
+      description: |-
+        This option defines the protocol that will be used by CDN servers to request
+        content from an origin source. If not specified, we will use HTTP to connect
+        to an origin server.
+
+        Possible values are:
+
+            HTTPS - CDN servers will connect to your origin via HTTPS.
+            HTTP  - CDN servers will connect to your origin via HTTP.
+            MATCH - Connection protocol will be chosen automatically (content on the
+                    origin source should be available for the CDN both through HTTP and HTTPS).
+      type: string
+      enum:
+      - HTTP
+      - HTTPS
+      - MATCH
+    PrefetchCacheMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            Required.
+            Resource ID.
+
+            The maximum string length in characters is 50.
+          type: string
+    PrefetchCacheRequest:
+      type: object
+      properties:
+        paths:
+          description: Set of paths to prefetch.
+          type: array
+          items:
+            type: string
+    PurgeCacheMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            Required.
+            Resource ID.
+
+            The maximum string length in characters is 50.
+          type: string
+    PurgeCacheRequest:
+      type: object
+      properties:
+        paths:
+          description: "Set of paths:\n  1. empty array - purge all files.\n  2. wildcard
+            \n  3. file-path to purge."
+          type: array
+          items:
+            type: string
+    Resource:
+      description: Resource - representation of providers resource.
+      type: object
+      properties:
+        id:
+          description: Resource id.
+          type: string
+        folderId:
+          description: Folder id.
+          type: string
+        cname:
+          description: CDN endpoint CNAME, must be unique among resources.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        updatedAt:
+          description: |-
+            Update timestamp.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        active:
+          description: Resource state.
+          type: boolean
+          format: boolean
+        options:
+          $ref: '#/components/schemas/ResourceOptions_in_Resource_options'
+        secondaryHostnames:
+          type: array
+          items:
+            type: string
+        originGroupId:
+          type: string
+          format: int64
+        originGroupName:
+          type: string
+        originProtocol:
+          $ref: '#/components/schemas/OriginProtocol_in_Resource_originProtocol'
+        sslCertificate:
+          $ref: '#/components/schemas/SSLCertificate_in_Resource_sslCertificate'
+    ResourceOptions:
+      description: ResourceOptions major set of various Resource options.
+      type: object
+      properties:
+        disableCache:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_disableCache'
+        edgeCacheSettings:
+          $ref: '#/components/schemas/ResourceOptionsEdgeCacheSettings_in_ResourceOptions_edgeCacheSettings'
+        browserCacheSettings:
+          $ref: '#/components/schemas/ResourceOptionsInt64Option_in_ResourceOptions_browserCacheSettings'
+        cacheHttpHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_cacheHttpHeaders'
+        queryParamsOptions:
+          $ref: '#/components/schemas/ResourceOptionsQueryParamsOptions_in_ResourceOptions_queryParamsOptions'
+        slice:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_slice'
+        compressionOptions:
+          $ref: '#/components/schemas/ResourceOptionsCompressionOptions_in_ResourceOptions_compressionOptions'
+        redirectOptions:
+          $ref: '#/components/schemas/ResourceOptionsRedirectOptions_in_ResourceOptions_redirectOptions'
+        hostOptions:
+          $ref: '#/components/schemas/ResourceOptionsHostOptions_in_ResourceOptions_hostOptions'
+        staticHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsMapOption_in_ResourceOptions_staticHeaders'
+        cors:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_cors'
+        stale:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_stale'
+        allowedHttpMethods:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_allowedHttpMethods'
+        proxyCacheMethodsSet:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_proxyCacheMethodsSet'
+        disableProxyForceRanges:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_disableProxyForceRanges'
+        staticRequestHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsMapOption_in_ResourceOptions_staticRequestHeaders'
+        customServerName:
+          $ref: '#/components/schemas/ResourceOptionsStringOption_in_ResourceOptions_customServerName'
+        ignoreCookie:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_ignoreCookie'
+        rewrite:
+          $ref: '#/components/schemas/ResourceOptionsRewriteOption_in_ResourceOptions_rewrite'
+    ResourceOptionsBoolOption:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: boolean
+          format: boolean
+    ResourceOptionsCachingTimes:
+      type: object
+      properties:
+        simpleValue:
+          type: string
+          format: int64
+        customValues:
+          type: object
+          additionalProperties:
+            type: string
+            format: int64
+    ResourceOptionsCompressionOptions:
+      type: object
+      allOf:
+      - title: compression_variant
+        type: object
+        maxProperties: 1
+        properties:
+          fetchCompressed:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+          gzipOn:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+          brotliCompression:
+            $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+    ResourceOptionsEdgeCacheSettings:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          enabled:
+            type: boolean
+            format: boolean
+      - title: values_variant
+        type: object
+        maxProperties: 1
+        properties:
+          value:
+            $ref: '#/components/schemas/ResourceOptionsCachingTimes'
+          defaultValue:
+            type: string
+            format: int64
+    ResourceOptionsHostOptions:
+      type: object
+      allOf:
+      - title: host_variant
+        type: object
+        maxProperties: 1
+        properties:
+          host:
+            $ref: '#/components/schemas/ResourceOptionsStringOption'
+          forwardHostHeader:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+    ResourceOptionsInt64Option:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: string
+          format: int64
+    ResourceOptionsQueryParamsOptions:
+      type: object
+      allOf:
+      - title: query_params_variant
+        type: object
+        maxProperties: 1
+        properties:
+          ignoreQueryString:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+          queryParamsWhitelist:
+            $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+          queryParamsBlacklist:
+            $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+    ResourceOptionsRedirectOptions:
+      type: object
+      allOf:
+      - title: redirect_variant
+        type: object
+        maxProperties: 1
+        properties:
+          redirectHttpToHttps:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+          redirectHttpsToHttp:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+    ResourceOptionsRewriteOption:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        body:
+          type: string
+        flag:
+          $ref: '#/components/schemas/RewriteFlag_in_ResourceOptionsRewriteOption_flag'
+    ResourceOptionsStringOption:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: string
+    ResourceOptionsStringsListOption:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: array
+          items:
+            type: string
+    ResourceOptionsStringsMapOption:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: object
+          additionalProperties:
+            type: string
+    ResourceOriginParams:
+      type: object
+      properties:
+        source:
+          type: string
+        meta:
+          $ref: '#/components/schemas/OriginMeta_in_ResourceOriginParams_meta'
+    RewriteFlag:
+      description: |-
+        RewriteFlag defines flag for the Rewrite option.
+        Possible values are:
+          last - stops processing of the current set of ngx_http_rewrite_module directives and
+                 starts a search for a new location matching changed URI.
+          break - stops processing of the current set of the Rewrite option.
+          redirect - returns a temporary redirect with the 302 code; It is used when a replacement string does not start
+                     with "http://", "https://", or "$scheme".
+          permanent - returns a permanent redirect with the 301 code.
+      type: string
+      enum:
+      - LAST
+      - BREAK
+      - REDIRECT
+      - PERMANENT
+    SSLCertificate:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/SSLCertificateType_in_SSLCertificate_type'
+        status:
+          $ref: '#/components/schemas/SSLCertificateStatus_in_SSLCertificate_status'
+        data:
+          $ref: '#/components/schemas/SSLCertificateData_in_SSLCertificate_data'
+    SSLCertificateCMData:
+      type: object
+      properties:
+        id:
+          type: string
+    SSLCertificateData:
+      type: object
+      allOf:
+      - title: ssl_certificate_data_variant
+        type: object
+        maxProperties: 1
+        properties:
+          cm:
+            $ref: '#/components/schemas/SSLCertificateCMData'
+    SSLCertificateStatus:
+      type: string
+      enum:
+      - READY
+      - CREATING
+    SSLCertificateType:
+      type: string
+      enum:
+      - DONT_USE
+      - LETS_ENCRYPT_GCORE
+      - CM
+    SSLTargetCertificate:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/SSLCertificateType_in_SSLTargetCertificate_type'
+        data:
+          $ref: '#/components/schemas/SSLCertificateData_in_SSLTargetCertificate_data'
+    SecondaryHostnames:
+      description: List of secondary (alternative) CNAMEs.
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: string
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    UpdateOriginGroupMetadata:
+      type: object
+      properties:
+        originGroupId:
+          description: |-
+            Origin Group ID.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    UpdateOriginGroupRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            Origin Group owner's Folder ID.
+
+            The maximum string length in characters is 50.
+          type: string
+        originGroupId:
+          description: |-
+            Origin Group ID.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+        groupName:
+          description: Origin Group name.
+          type: string
+        useNext:
+          description: |-
+            This option have two possible values:
+
+              True - The option is active. In case the origin responds with 4XX or 5XX
+                     codes, use the next origin from the list.
+              False - The option is disabled.
+          type: boolean
+          format: boolean
+        origins:
+          description: |-
+            List of origins: IP addresses or Domain names of your origins and the port
+            (if custom).
+          type: array
+          items:
+            $ref: '#/components/schemas/OriginParams'
+    UpdateOriginMetadata:
+      type: object
+      properties:
+        originId:
+          description: |-
+            Origin ID.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+        originGroupId:
+          description: |-
+            Parent origins group ID.
+
+            Value must be greater than 0.
+          type: string
+          format: int64
+    UpdateOriginRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            Origin's owner Folder ID.
+
+            The maximum string length in characters is 50.
+          type: string
+        source:
+          description: |-
+            IP address or Domain name of your origin and the port (if custom).
+            Required.
+          type: string
+        enabled:
+          description: Required
+          type: boolean
+          format: boolean
+        backup:
+          description: Required
+          type: boolean
+          format: boolean
+        meta:
+          $ref: '#/components/schemas/OriginMeta_in_UpdateOriginRequest_meta'
+    UpdateResourceMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            Required.
+            ID of updated resource.
+
+            The maximum string length in characters is 50.
+          type: string
+    UpdateResourceRequest:
+      type: object
+      properties:
+        originGroupId:
+          type: integer
+          format: int64
+        secondaryHostnames:
+          $ref: '#/components/schemas/SecondaryHostnames_in_UpdateResourceRequest_secondaryHostnames'
+        options:
+          $ref: '#/components/schemas/ResourceOptions_in_UpdateResourceRequest_options'
+        originProtocol:
+          $ref: '#/components/schemas/OriginProtocol_in_UpdateResourceRequest_originProtocol'
+        active:
+          type: boolean
+          format: boolean
+        sslCertificate:
+          $ref: '#/components/schemas/SSLTargetCertificate_in_UpdateResourceRequest_sslCertificate'
+    v1Origin:
+      description: Origin object definition.
+      type: object
+      properties:
+        id:
+          description: Origin unique ID.
+          type: string
+          format: int64
+        originGroupId:
+          description: Parent origin group ID.
+          type: string
+          format: int64
+        source:
+          description: 'Source: IP address or Domain name of your origin and the port
+            (if custom).'
+          type: string
+        enabled:
+          description: |-
+            The setting allows to enable or disable an Origin source in the Origins group.
+
+            It has two possible values:
+
+            True - The origin is enabled and used as a source for the CDN. An origins
+            group must contain at least one enabled origins. False - The origin is disabled
+            and the CDN is not using it to pull content.
+          type: boolean
+          format: boolean
+        backup:
+          description: |-
+            backup option has two possible values:
+
+              True - The option is active. The origin will not be used until one of
+                     active origins become unavailable.
+              False - The option is disabled.
+          type: boolean
+          format: boolean
+        meta:
+          $ref: '#/components/schemas/OriginMeta_in_v1Origin_meta'
+    OriginMeta_in_CreateOriginRequest_meta:
+      type: object
+      allOf:
+      - title: origin_meta_variant
+        type: object
+        maxProperties: 1
+        properties:
+          common:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          bucket:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          website:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          balancer:
+            $ref: '#/components/schemas/OriginBalancerMeta'
+    CreateResourceRequestOrigin_in_CreateResourceRequest_origin:
+      description: |-
+        Required.
+        Specify the origins to be used for CDN resources requests.
+      type: object
+      allOf:
+      - title: origin_variant
+        type: object
+        maxProperties: 1
+        properties:
+          originGroupId:
+            description: ID of pre-created origin group.
+            type: string
+            format: int64
+          originSource:
+            description: "Create new Origins group with single source, it's id will
+              be \nreturned in result."
+            type: string
+          originSourceParams:
+            $ref: '#/components/schemas/ResourceOriginParams'
+    SecondaryHostnames_in_CreateResourceRequest_secondaryHostnames:
+      description: |-
+        List of additional CNAMEs.
+
+        List of secondary (alternative) CNAMEs.
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: string
+    OriginProtocol_in_CreateResourceRequest_originProtocol:
+      description: |-
+        Specify the protocol schema to be used in communication with origin .
+
+        This option defines the protocol that will be used by CDN servers to request
+        content from an origin source. If not specified, we will use HTTP to connect
+        to an origin server.
+
+        Possible values are:
+
+            HTTPS - CDN servers will connect to your origin via HTTPS.
+            HTTP  - CDN servers will connect to your origin via HTTP.
+            MATCH - Connection protocol will be chosen automatically (content on the
+                    origin source should be available for the CDN both through HTTP and HTTPS).
+      type: string
+      enum:
+      - HTTP
+      - HTTPS
+      - MATCH
+    ResourceOptions_in_CreateResourceRequest_options:
+      description: |-
+        Resource settings and options to tune CDN edge behavior. Most is unset.
+
+        ResourceOptions major set of various Resource options.
+      type: object
+      properties:
+        disableCache:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_disableCache'
+        edgeCacheSettings:
+          $ref: '#/components/schemas/ResourceOptionsEdgeCacheSettings_in_ResourceOptions_edgeCacheSettings'
+        browserCacheSettings:
+          $ref: '#/components/schemas/ResourceOptionsInt64Option_in_ResourceOptions_browserCacheSettings'
+        cacheHttpHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_cacheHttpHeaders'
+        queryParamsOptions:
+          $ref: '#/components/schemas/ResourceOptionsQueryParamsOptions_in_ResourceOptions_queryParamsOptions'
+        slice:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_slice'
+        compressionOptions:
+          $ref: '#/components/schemas/ResourceOptionsCompressionOptions_in_ResourceOptions_compressionOptions'
+        redirectOptions:
+          $ref: '#/components/schemas/ResourceOptionsRedirectOptions_in_ResourceOptions_redirectOptions'
+        hostOptions:
+          $ref: '#/components/schemas/ResourceOptionsHostOptions_in_ResourceOptions_hostOptions'
+        staticHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsMapOption_in_ResourceOptions_staticHeaders'
+        cors:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_cors'
+        stale:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_stale'
+        allowedHttpMethods:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_allowedHttpMethods'
+        proxyCacheMethodsSet:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_proxyCacheMethodsSet'
+        disableProxyForceRanges:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_disableProxyForceRanges'
+        staticRequestHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsMapOption_in_ResourceOptions_staticRequestHeaders'
+        customServerName:
+          $ref: '#/components/schemas/ResourceOptionsStringOption_in_ResourceOptions_customServerName'
+        ignoreCookie:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_ignoreCookie'
+        rewrite:
+          $ref: '#/components/schemas/ResourceOptionsRewriteOption_in_ResourceOptions_rewrite'
+    SSLTargetCertificate_in_CreateResourceRequest_sslCertificate:
+      description: SSL Certificate options.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/SSLCertificateType_in_SSLTargetCertificate_type'
+        data:
+          $ref: '#/components/schemas/SSLCertificateData_in_SSLTargetCertificate_data'
+    OriginMeta_in_OriginParams_meta:
+      type: object
+      allOf:
+      - title: origin_meta_variant
+        type: object
+        maxProperties: 1
+        properties:
+          common:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          bucket:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          website:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          balancer:
+            $ref: '#/components/schemas/OriginBalancerMeta'
+    ResourceOptions_in_Resource_options:
+      description: ResourceOptions major set of various Resource options.
+      type: object
+      properties:
+        disableCache:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_disableCache'
+        edgeCacheSettings:
+          $ref: '#/components/schemas/ResourceOptionsEdgeCacheSettings_in_ResourceOptions_edgeCacheSettings'
+        browserCacheSettings:
+          $ref: '#/components/schemas/ResourceOptionsInt64Option_in_ResourceOptions_browserCacheSettings'
+        cacheHttpHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_cacheHttpHeaders'
+        queryParamsOptions:
+          $ref: '#/components/schemas/ResourceOptionsQueryParamsOptions_in_ResourceOptions_queryParamsOptions'
+        slice:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_slice'
+        compressionOptions:
+          $ref: '#/components/schemas/ResourceOptionsCompressionOptions_in_ResourceOptions_compressionOptions'
+        redirectOptions:
+          $ref: '#/components/schemas/ResourceOptionsRedirectOptions_in_ResourceOptions_redirectOptions'
+        hostOptions:
+          $ref: '#/components/schemas/ResourceOptionsHostOptions_in_ResourceOptions_hostOptions'
+        staticHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsMapOption_in_ResourceOptions_staticHeaders'
+        cors:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_cors'
+        stale:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_stale'
+        allowedHttpMethods:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_allowedHttpMethods'
+        proxyCacheMethodsSet:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_proxyCacheMethodsSet'
+        disableProxyForceRanges:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_disableProxyForceRanges'
+        staticRequestHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsMapOption_in_ResourceOptions_staticRequestHeaders'
+        customServerName:
+          $ref: '#/components/schemas/ResourceOptionsStringOption_in_ResourceOptions_customServerName'
+        ignoreCookie:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_ignoreCookie'
+        rewrite:
+          $ref: '#/components/schemas/ResourceOptionsRewriteOption_in_ResourceOptions_rewrite'
+    OriginProtocol_in_Resource_originProtocol:
+      description: |-
+        This option defines the protocol that will be used by CDN servers to request
+        content from an origin source. If not specified, we will use HTTP to connect
+        to an origin server.
+
+        Possible values are:
+
+            HTTPS - CDN servers will connect to your origin via HTTPS.
+            HTTP  - CDN servers will connect to your origin via HTTP.
+            MATCH - Connection protocol will be chosen automatically (content on the
+                    origin source should be available for the CDN both through HTTP and HTTPS).
+      type: string
+      enum:
+      - HTTP
+      - HTTPS
+      - MATCH
+    SSLCertificate_in_Resource_sslCertificate:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/SSLCertificateType_in_SSLCertificate_type'
+        status:
+          $ref: '#/components/schemas/SSLCertificateStatus_in_SSLCertificate_status'
+        data:
+          $ref: '#/components/schemas/SSLCertificateData_in_SSLCertificate_data'
+    ResourceOptionsBoolOption_in_ResourceOptions_disableCache:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: boolean
+          format: boolean
+    ResourceOptionsEdgeCacheSettings_in_ResourceOptions_edgeCacheSettings:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          enabled:
+            type: boolean
+            format: boolean
+      - title: values_variant
+        type: object
+        maxProperties: 1
+        properties:
+          value:
+            $ref: '#/components/schemas/ResourceOptionsCachingTimes'
+          defaultValue:
+            type: string
+            format: int64
+    ResourceOptionsInt64Option_in_ResourceOptions_browserCacheSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: string
+          format: int64
+    ResourceOptionsStringsListOption_in_ResourceOptions_cacheHttpHeaders:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: array
+          items:
+            type: string
+    ResourceOptionsQueryParamsOptions_in_ResourceOptions_queryParamsOptions:
+      type: object
+      allOf:
+      - title: query_params_variant
+        type: object
+        maxProperties: 1
+        properties:
+          ignoreQueryString:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+          queryParamsWhitelist:
+            $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+          queryParamsBlacklist:
+            $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+    ResourceOptionsBoolOption_in_ResourceOptions_slice:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: boolean
+          format: boolean
+    ResourceOptionsCompressionOptions_in_ResourceOptions_compressionOptions:
+      type: object
+      allOf:
+      - title: compression_variant
+        type: object
+        maxProperties: 1
+        properties:
+          fetchCompressed:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+          gzipOn:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+          brotliCompression:
+            $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+    ResourceOptionsRedirectOptions_in_ResourceOptions_redirectOptions:
+      type: object
+      allOf:
+      - title: redirect_variant
+        type: object
+        maxProperties: 1
+        properties:
+          redirectHttpToHttps:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+          redirectHttpsToHttp:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+    ResourceOptionsHostOptions_in_ResourceOptions_hostOptions:
+      type: object
+      allOf:
+      - title: host_variant
+        type: object
+        maxProperties: 1
+        properties:
+          host:
+            $ref: '#/components/schemas/ResourceOptionsStringOption'
+          forwardHostHeader:
+            $ref: '#/components/schemas/ResourceOptionsBoolOption'
+    ResourceOptionsStringsMapOption_in_ResourceOptions_staticHeaders:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: object
+          additionalProperties:
+            type: string
+    ResourceOptionsStringsListOption_in_ResourceOptions_cors:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: array
+          items:
+            type: string
+    ResourceOptionsStringsListOption_in_ResourceOptions_stale:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: array
+          items:
+            type: string
+    ResourceOptionsStringsListOption_in_ResourceOptions_allowedHttpMethods:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: array
+          items:
+            type: string
+    ResourceOptionsBoolOption_in_ResourceOptions_proxyCacheMethodsSet:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: boolean
+          format: boolean
+    ResourceOptionsBoolOption_in_ResourceOptions_disableProxyForceRanges:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: boolean
+          format: boolean
+    ResourceOptionsStringsMapOption_in_ResourceOptions_staticRequestHeaders:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: object
+          additionalProperties:
+            type: string
+    ResourceOptionsStringOption_in_ResourceOptions_customServerName:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: string
+    ResourceOptionsBoolOption_in_ResourceOptions_ignoreCookie:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        value:
+          type: boolean
+          format: boolean
+    ResourceOptionsRewriteOption_in_ResourceOptions_rewrite:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          format: boolean
+        body:
+          type: string
+        flag:
+          $ref: '#/components/schemas/RewriteFlag_in_ResourceOptionsRewriteOption_flag'
+    RewriteFlag_in_ResourceOptionsRewriteOption_flag:
+      description: |-
+        RewriteFlag defines flag for the Rewrite option.
+        Possible values are:
+          last - stops processing of the current set of ngx_http_rewrite_module directives and
+                 starts a search for a new location matching changed URI.
+          break - stops processing of the current set of the Rewrite option.
+          redirect - returns a temporary redirect with the 302 code; It is used when a replacement string does not start
+                     with "http://", "https://", or "$scheme".
+          permanent - returns a permanent redirect with the 301 code.
+      type: string
+      enum:
+      - LAST
+      - BREAK
+      - REDIRECT
+      - PERMANENT
+    OriginMeta_in_ResourceOriginParams_meta:
+      type: object
+      allOf:
+      - title: origin_meta_variant
+        type: object
+        maxProperties: 1
+        properties:
+          common:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          bucket:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          website:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          balancer:
+            $ref: '#/components/schemas/OriginBalancerMeta'
+    SSLCertificateType_in_SSLCertificate_type:
+      type: string
+      enum:
+      - DONT_USE
+      - LETS_ENCRYPT_GCORE
+      - CM
+    SSLCertificateStatus_in_SSLCertificate_status:
+      type: string
+      enum:
+      - READY
+      - CREATING
+    SSLCertificateData_in_SSLCertificate_data:
+      type: object
+      allOf:
+      - title: ssl_certificate_data_variant
+        type: object
+        maxProperties: 1
+        properties:
+          cm:
+            $ref: '#/components/schemas/SSLCertificateCMData'
+    SSLCertificateType_in_SSLTargetCertificate_type:
+      type: string
+      enum:
+      - DONT_USE
+      - LETS_ENCRYPT_GCORE
+      - CM
+    SSLCertificateData_in_SSLTargetCertificate_data:
+      type: object
+      allOf:
+      - title: ssl_certificate_data_variant
+        type: object
+        maxProperties: 1
+        properties:
+          cm:
+            $ref: '#/components/schemas/SSLCertificateCMData'
+    OriginMeta_in_UpdateOriginRequest_meta:
+      type: object
+      allOf:
+      - title: origin_meta_variant
+        type: object
+        maxProperties: 1
+        properties:
+          common:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          bucket:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          website:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          balancer:
+            $ref: '#/components/schemas/OriginBalancerMeta'
+    SecondaryHostnames_in_UpdateResourceRequest_secondaryHostnames:
+      description: List of secondary (alternative) CNAMEs.
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            type: string
+    ResourceOptions_in_UpdateResourceRequest_options:
+      description: ResourceOptions major set of various Resource options.
+      type: object
+      properties:
+        disableCache:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_disableCache'
+        edgeCacheSettings:
+          $ref: '#/components/schemas/ResourceOptionsEdgeCacheSettings_in_ResourceOptions_edgeCacheSettings'
+        browserCacheSettings:
+          $ref: '#/components/schemas/ResourceOptionsInt64Option_in_ResourceOptions_browserCacheSettings'
+        cacheHttpHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_cacheHttpHeaders'
+        queryParamsOptions:
+          $ref: '#/components/schemas/ResourceOptionsQueryParamsOptions_in_ResourceOptions_queryParamsOptions'
+        slice:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_slice'
+        compressionOptions:
+          $ref: '#/components/schemas/ResourceOptionsCompressionOptions_in_ResourceOptions_compressionOptions'
+        redirectOptions:
+          $ref: '#/components/schemas/ResourceOptionsRedirectOptions_in_ResourceOptions_redirectOptions'
+        hostOptions:
+          $ref: '#/components/schemas/ResourceOptionsHostOptions_in_ResourceOptions_hostOptions'
+        staticHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsMapOption_in_ResourceOptions_staticHeaders'
+        cors:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_cors'
+        stale:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_stale'
+        allowedHttpMethods:
+          $ref: '#/components/schemas/ResourceOptionsStringsListOption_in_ResourceOptions_allowedHttpMethods'
+        proxyCacheMethodsSet:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_proxyCacheMethodsSet'
+        disableProxyForceRanges:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_disableProxyForceRanges'
+        staticRequestHeaders:
+          $ref: '#/components/schemas/ResourceOptionsStringsMapOption_in_ResourceOptions_staticRequestHeaders'
+        customServerName:
+          $ref: '#/components/schemas/ResourceOptionsStringOption_in_ResourceOptions_customServerName'
+        ignoreCookie:
+          $ref: '#/components/schemas/ResourceOptionsBoolOption_in_ResourceOptions_ignoreCookie'
+        rewrite:
+          $ref: '#/components/schemas/ResourceOptionsRewriteOption_in_ResourceOptions_rewrite'
+    OriginProtocol_in_UpdateResourceRequest_originProtocol:
+      description: |-
+        This option defines the protocol that will be used by CDN servers to request
+        content from an origin source. If not specified, we will use HTTP to connect
+        to an origin server.
+
+        Possible values are:
+
+            HTTPS - CDN servers will connect to your origin via HTTPS.
+            HTTP  - CDN servers will connect to your origin via HTTP.
+            MATCH - Connection protocol will be chosen automatically (content on the
+                    origin source should be available for the CDN both through HTTP and HTTPS).
+      type: string
+      enum:
+      - HTTP
+      - HTTPS
+      - MATCH
+    SSLTargetCertificate_in_UpdateResourceRequest_sslCertificate:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/SSLCertificateType_in_SSLTargetCertificate_type'
+        data:
+          $ref: '#/components/schemas/SSLCertificateData_in_SSLTargetCertificate_data'
+    OriginMeta_in_v1Origin_meta:
+      type: object
+      allOf:
+      - title: origin_meta_variant
+        type: object
+        maxProperties: 1
+        properties:
+          common:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          bucket:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          website:
+            $ref: '#/components/schemas/OriginNamedMeta'
+          balancer:
+            $ref: '#/components/schemas/OriginBalancerMeta'
+tags:
+- name: Cache
+- name: OriginGroup
+  description: Origin Groups management service.
+- name: Origin
+  description: |-
+    Origin management service.
+    Origin is not a standalone entity. It can live only within origin group.
+- name: Provider
+- name: Resource
+  description: Provider's resources management service.

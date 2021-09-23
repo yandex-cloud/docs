@@ -87,6 +87,14 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](image-control/delete.md)
 
+## Файловые хранилища {#filesystem}
+
+* [{#T}](filesystem/create.md)
+* [{#T}](filesystem/attach-to-vm.md)
+* [{#T}](filesystem/detach-from-vm.md)
+* [{#T}](filesystem/update.md)
+* [{#T}](filesystem/delete.md)
+
 ## Управление серийной консолью {#serial-console}
 
 * [{#T}](serial-console/index.md)

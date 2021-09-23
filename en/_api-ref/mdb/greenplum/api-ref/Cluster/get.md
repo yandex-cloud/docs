@@ -123,7 +123,10 @@ clusterId | Required. ID of the Greenplum Cluster resource to return. To get the
     "string"
   ],
   "userName": "string",
-  "deletionProtection": true
+  "deletionProtection": true,
+  "hostGroupIds": [
+    "string"
+  ]
 }
 ```
 A Greenplum Cluster resource. For more information, see the
@@ -204,3 +207,4 @@ plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>String in <a hr
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 userName | **string**<br><p>Owner user name</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 

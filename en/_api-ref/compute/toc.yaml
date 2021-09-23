@@ -43,6 +43,22 @@ items:
         href: api-ref/DiskType/get.md
       - name: list
         href: api-ref/DiskType/list.md
+  - name: Filesystem
+    items:
+      - name: Overview
+        href: api-ref/Filesystem/index.md
+      - name: create
+        href: api-ref/Filesystem/create.md
+      - name: delete
+        href: api-ref/Filesystem/delete.md
+      - name: get
+        href: api-ref/Filesystem/get.md
+      - name: list
+        href: api-ref/Filesystem/list.md
+      - name: listOperations
+        href: api-ref/Filesystem/listOperations.md
+      - name: update
+        href: api-ref/Filesystem/update.md
   - name: HostGroup
     items:
       - name: Overview
@@ -97,12 +113,16 @@ items:
         href: api-ref/Instance/addOneToOneNat.md
       - name: attachDisk
         href: api-ref/Instance/attachDisk.md
+      - name: attachFilesystem
+        href: api-ref/Instance/attachFilesystem.md
       - name: create
         href: api-ref/Instance/create.md
       - name: delete
         href: api-ref/Instance/delete.md
       - name: detachDisk
         href: api-ref/Instance/detachDisk.md
+      - name: detachFilesystem
+        href: api-ref/Instance/detachFilesystem.md
       - name: get
         href: api-ref/Instance/get.md
       - name: getSerialPortOutput

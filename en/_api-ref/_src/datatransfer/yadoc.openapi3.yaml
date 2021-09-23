@@ -1,0 +1,1039 @@
+openapi: "3.0"
+info:
+  title: Yandex DataTransfer API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://datatransfer.api.cloud.yandex.net
+paths:
+  /v1/endpoint/{endpointId}:
+    get:
+      tags:
+      - Endpoint
+      operationId: EndpointGet
+      parameters:
+      - name: endpointId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Endpoint'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Endpoint
+      operationId: EndpointDelete
+      parameters:
+      - name: endpointId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteEndpointMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Endpoint
+      operationId: EndpointUpdate
+      parameters:
+      - name: endpointId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateEndpointRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateEndpointMetadata'
+      x-y-operation-response: '[Endpoint](/docs/datatransfer/api-ref/Endpoint#representation)'
+  /v1/endpoint:
+    post:
+      tags:
+      - Endpoint
+      operationId: EndpointCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEndpointRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateEndpointMetadata'
+      x-y-operation-response: '[Endpoint](/docs/datatransfer/api-ref/Endpoint#representation)'
+  /v1/transfer:
+    post:
+      tags:
+      - Transfer
+      operationId: TransferCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTransferRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateTransferMetadata'
+      x-y-operation-response: '[Transfer](/docs/datatransfer/api-ref/Transfer#representation)'
+  /v1/transfer/{transferId}:
+    get:
+      tags:
+      - Transfer
+      operationId: TransferGet
+      parameters:
+      - name: transferId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transfer'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Transfer
+      operationId: TransferDelete
+      parameters:
+      - name: transferId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteTransferMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Transfer
+      operationId: TransferUpdate
+      parameters:
+      - name: transferId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTransferRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateTransferMetadata'
+      x-y-operation-response: '[Transfer](/docs/datatransfer/api-ref/Transfer#representation)'
+  /v1/transfer/{transferId}:deactivate:
+    post:
+      tags:
+      - Transfer
+      operationId: TransferDeactivate
+      parameters:
+      - name: transferId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeactivateTransferRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deactivate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeactivateTransferMetadata'
+      x-y-operation-response: Empty
+  /v1/transfer/{transferId}:activate:
+    post:
+      tags:
+      - Transfer
+      operationId: TransferActivate
+      parameters:
+      - name: transferId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivateTransferRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: activate
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ActivateTransferMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    ActivateTransferMetadata:
+      type: object
+      properties:
+        transferId:
+          type: string
+    ActivateTransferRequest:
+      type: object
+      properties: {}
+    CreateEndpointMetadata:
+      type: object
+      properties:
+        endpointId:
+          type: string
+    CreateEndpointRequest:
+      type: object
+      properties:
+        folderId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        settings:
+          $ref: '#/components/schemas/EndpointSettings_in_CreateEndpointRequest_settings'
+    CreateTransferMetadata:
+      type: object
+      properties:
+        transferId:
+          type: string
+    CreateTransferRequest:
+      type: object
+      properties:
+        sourceId:
+          type: string
+        targetId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        folderId:
+          type: string
+        type:
+          $ref: '#/components/schemas/TransferType_in_CreateTransferRequest_type'
+    DeactivateTransferMetadata:
+      type: object
+      properties:
+        transferId:
+          type: string
+    DeactivateTransferRequest:
+      type: object
+      properties: {}
+    DeleteEndpointMetadata:
+      type: object
+      properties:
+        endpointId:
+          type: string
+    DeleteTransferMetadata:
+      type: object
+      properties:
+        transferId:
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    Endpoint:
+      type: object
+      properties:
+        id:
+          type: string
+        folderId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        settings:
+          $ref: '#/components/schemas/EndpointSettings_in_Endpoint_settings'
+    EndpointSettings:
+      type: object
+      allOf:
+      - title: settings
+        type: object
+        maxProperties: 1
+        properties:
+          mysqlSource:
+            $ref: '#/components/schemas/MysqlSource'
+          postgresSource:
+            $ref: '#/components/schemas/PostgresSource'
+          mysqlTarget:
+            $ref: '#/components/schemas/MysqlTarget'
+          postgresTarget:
+            $ref: '#/components/schemas/PostgresTarget'
+    MysqlConnection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          mdbClusterId:
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremiseMysql'
+    MysqlObjectTransferSettings:
+      type: object
+      properties:
+        view:
+          $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_view'
+        routine:
+          $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_routine'
+        trigger:
+          $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_trigger'
+    MysqlSource:
+      type: object
+      properties:
+        connection:
+          $ref: '#/components/schemas/MysqlConnection_in_MysqlSource_connection'
+        database:
+          type: string
+        user:
+          type: string
+        password:
+          $ref: '#/components/schemas/Secret_in_MysqlSource_password'
+        includeTables:
+          type: array
+          items:
+            type: string
+        excludeTables:
+          type: array
+          items:
+            type: string
+        timezone:
+          type: string
+        objectTransferSettings:
+          $ref: '#/components/schemas/MysqlObjectTransferSettings_in_MysqlSource_objectTransferSettings'
+    MysqlTarget:
+      type: object
+      properties:
+        connection:
+          $ref: '#/components/schemas/MysqlConnection_in_MysqlTarget_connection'
+        database:
+          type: string
+        user:
+          type: string
+        password:
+          $ref: '#/components/schemas/Secret_in_MysqlTarget_password'
+        sqlMode:
+          type: string
+        skipConstraintChecks:
+          type: boolean
+          format: boolean
+        timezone:
+          type: string
+        serviceSchema:
+          type: string
+    ObjectTransferStage:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    OnPremiseMysql:
+      type: object
+      properties:
+        hosts:
+          type: array
+          items:
+            type: string
+        port:
+          type: string
+          format: int64
+        tlsMode:
+          $ref: '#/components/schemas/TLSMode_in_OnPremiseMysql_tlsMode'
+        subnetId:
+          type: string
+    OnPremisePostgres:
+      type: object
+      properties:
+        hosts:
+          type: array
+          items:
+            type: string
+        port:
+          type: string
+          format: int64
+        tlsMode:
+          $ref: '#/components/schemas/TLSMode_in_OnPremisePostgres_tlsMode'
+        subnetId:
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    PostgresConnection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          mdbClusterId:
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremisePostgres'
+    PostgresObjectTransferSettings:
+      type: object
+      properties:
+        sequence:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_sequence'
+        sequenceOwnedBy:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_sequenceOwnedBy'
+        table:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_table'
+        primaryKey:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_primaryKey'
+        fkConstraint:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_fkConstraint'
+        defaultValues:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_defaultValues'
+        constraint:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_constraint'
+        index:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_index'
+        view:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_view'
+        function:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_function'
+        trigger:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_trigger'
+        type:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_type'
+        rule:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_rule'
+        collation:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_collation'
+        policy:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_policy'
+        cast:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_cast'
+    PostgresSource:
+      type: object
+      properties:
+        connection:
+          $ref: '#/components/schemas/PostgresConnection_in_PostgresSource_connection'
+        database:
+          type: string
+        user:
+          type: string
+        password:
+          $ref: '#/components/schemas/Secret_in_PostgresSource_password'
+        includeTables:
+          type: array
+          items:
+            type: string
+        excludeTables:
+          type: array
+          items:
+            type: string
+        slotByteLagLimit:
+          type: string
+          format: int64
+        serviceSchema:
+          type: string
+        objectTransferSettings:
+          $ref: '#/components/schemas/PostgresObjectTransferSettings_in_PostgresSource_objectTransferSettings'
+    PostgresTarget:
+      type: object
+      properties:
+        connection:
+          $ref: '#/components/schemas/PostgresConnection_in_PostgresTarget_connection'
+        database:
+          type: string
+        user:
+          type: string
+        password:
+          $ref: '#/components/schemas/Secret_in_PostgresTarget_password'
+    Secret:
+      type: object
+      allOf:
+      - title: value
+        type: object
+        maxProperties: 1
+        properties:
+          raw:
+            type: string
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    TLSConfig:
+      type: object
+      properties:
+        caCertificate:
+          type: string
+    TLSMode:
+      type: object
+      allOf:
+      - title: tls_mode
+        type: object
+        maxProperties: 1
+        properties:
+          disabled:
+            $ref: '#/components/schemas/Empty'
+          enabled:
+            $ref: '#/components/schemas/TLSConfig'
+    Transfer:
+      type: object
+      properties:
+        id:
+          type: string
+        folderId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        source:
+          $ref: '#/components/schemas/Endpoint_in_Transfer_source'
+        target:
+          $ref: '#/components/schemas/Endpoint_in_Transfer_target'
+        status:
+          $ref: '#/components/schemas/TransferStatus_in_Transfer_status'
+        type:
+          $ref: '#/components/schemas/TransferType_in_Transfer_type'
+        warning:
+          type: string
+    TransferStatus:
+      type: string
+      enum:
+      - CREATING
+      - CREATED
+      - RUNNING
+      - STOPPING
+      - STOPPED
+      - ERROR
+      - SNAPSHOTTING
+      - DONE
+    TransferType:
+      type: string
+      enum:
+      - SNAPSHOT_AND_INCREMENT
+      - SNAPSHOT_ONLY
+      - INCREMENT_ONLY
+    UpdateEndpointMetadata:
+      type: object
+      properties:
+        endpointId:
+          type: string
+    UpdateEndpointRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        settings:
+          $ref: '#/components/schemas/EndpointSettings_in_UpdateEndpointRequest_settings'
+    UpdateTransferMetadata:
+      type: object
+      properties:
+        transferId:
+          type: string
+    UpdateTransferRequest:
+      type: object
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+    EndpointSettings_in_CreateEndpointRequest_settings:
+      type: object
+      allOf:
+      - title: settings
+        type: object
+        maxProperties: 1
+        properties:
+          mysqlSource:
+            $ref: '#/components/schemas/MysqlSource'
+          postgresSource:
+            $ref: '#/components/schemas/PostgresSource'
+          mysqlTarget:
+            $ref: '#/components/schemas/MysqlTarget'
+          postgresTarget:
+            $ref: '#/components/schemas/PostgresTarget'
+    TransferType_in_CreateTransferRequest_type:
+      type: string
+      enum:
+      - SNAPSHOT_AND_INCREMENT
+      - SNAPSHOT_ONLY
+      - INCREMENT_ONLY
+    EndpointSettings_in_Endpoint_settings:
+      type: object
+      allOf:
+      - title: settings
+        type: object
+        maxProperties: 1
+        properties:
+          mysqlSource:
+            $ref: '#/components/schemas/MysqlSource'
+          postgresSource:
+            $ref: '#/components/schemas/PostgresSource'
+          mysqlTarget:
+            $ref: '#/components/schemas/MysqlTarget'
+          postgresTarget:
+            $ref: '#/components/schemas/PostgresTarget'
+    ObjectTransferStage_in_MysqlObjectTransferSettings_view:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_MysqlObjectTransferSettings_routine:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_MysqlObjectTransferSettings_trigger:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    MysqlConnection_in_MysqlSource_connection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          mdbClusterId:
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremiseMysql'
+    Secret_in_MysqlSource_password:
+      type: object
+      allOf:
+      - title: value
+        type: object
+        maxProperties: 1
+        properties:
+          raw:
+            type: string
+    MysqlObjectTransferSettings_in_MysqlSource_objectTransferSettings:
+      type: object
+      properties:
+        view:
+          $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_view'
+        routine:
+          $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_routine'
+        trigger:
+          $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_trigger'
+    MysqlConnection_in_MysqlTarget_connection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          mdbClusterId:
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremiseMysql'
+    Secret_in_MysqlTarget_password:
+      type: object
+      allOf:
+      - title: value
+        type: object
+        maxProperties: 1
+        properties:
+          raw:
+            type: string
+    TLSMode_in_OnPremiseMysql_tlsMode:
+      type: object
+      allOf:
+      - title: tls_mode
+        type: object
+        maxProperties: 1
+        properties:
+          disabled:
+            $ref: '#/components/schemas/Empty'
+          enabled:
+            $ref: '#/components/schemas/TLSConfig'
+    TLSMode_in_OnPremisePostgres_tlsMode:
+      type: object
+      allOf:
+      - title: tls_mode
+        type: object
+        maxProperties: 1
+        properties:
+          disabled:
+            $ref: '#/components/schemas/Empty'
+          enabled:
+            $ref: '#/components/schemas/TLSConfig'
+    ObjectTransferStage_in_PostgresObjectTransferSettings_sequence:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_sequenceOwnedBy:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_table:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_primaryKey:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_fkConstraint:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_defaultValues:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_constraint:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_index:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_view:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_function:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_trigger:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_type:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_rule:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_collation:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_policy:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    ObjectTransferStage_in_PostgresObjectTransferSettings_cast:
+      type: string
+      enum:
+      - BEFORE_DATA
+      - AFTER_DATA
+      - NEVER
+    PostgresConnection_in_PostgresSource_connection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          mdbClusterId:
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremisePostgres'
+    Secret_in_PostgresSource_password:
+      type: object
+      allOf:
+      - title: value
+        type: object
+        maxProperties: 1
+        properties:
+          raw:
+            type: string
+    PostgresObjectTransferSettings_in_PostgresSource_objectTransferSettings:
+      type: object
+      properties:
+        sequence:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_sequence'
+        sequenceOwnedBy:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_sequenceOwnedBy'
+        table:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_table'
+        primaryKey:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_primaryKey'
+        fkConstraint:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_fkConstraint'
+        defaultValues:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_defaultValues'
+        constraint:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_constraint'
+        index:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_index'
+        view:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_view'
+        function:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_function'
+        trigger:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_trigger'
+        type:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_type'
+        rule:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_rule'
+        collation:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_collation'
+        policy:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_policy'
+        cast:
+          $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_cast'
+    PostgresConnection_in_PostgresTarget_connection:
+      type: object
+      allOf:
+      - title: connection
+        type: object
+        maxProperties: 1
+        properties:
+          mdbClusterId:
+            type: string
+          onPremise:
+            $ref: '#/components/schemas/OnPremisePostgres'
+    Secret_in_PostgresTarget_password:
+      type: object
+      allOf:
+      - title: value
+        type: object
+        maxProperties: 1
+        properties:
+          raw:
+            type: string
+    Endpoint_in_Transfer_source:
+      type: object
+      properties:
+        id:
+          type: string
+        folderId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        settings:
+          $ref: '#/components/schemas/EndpointSettings_in_Endpoint_settings'
+    Endpoint_in_Transfer_target:
+      type: object
+      properties:
+        id:
+          type: string
+        folderId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        settings:
+          $ref: '#/components/schemas/EndpointSettings_in_Endpoint_settings'
+    TransferStatus_in_Transfer_status:
+      type: string
+      enum:
+      - CREATING
+      - CREATED
+      - RUNNING
+      - STOPPING
+      - STOPPED
+      - ERROR
+      - SNAPSHOTTING
+      - DONE
+    TransferType_in_Transfer_type:
+      type: string
+      enum:
+      - SNAPSHOT_AND_INCREMENT
+      - SNAPSHOT_ONLY
+      - INCREMENT_ONLY
+    EndpointSettings_in_UpdateEndpointRequest_settings:
+      type: object
+      allOf:
+      - title: settings
+        type: object
+        maxProperties: 1
+        properties:
+          mysqlSource:
+            $ref: '#/components/schemas/MysqlSource'
+          postgresSource:
+            $ref: '#/components/schemas/PostgresSource'
+          mysqlTarget:
+            $ref: '#/components/schemas/MysqlTarget'
+          postgresTarget:
+            $ref: '#/components/schemas/PostgresTarget'
+tags:
+- name: Endpoint
+- name: Transfer

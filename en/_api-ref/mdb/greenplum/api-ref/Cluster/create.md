@@ -69,7 +69,10 @@ POST https://mdb.api.cloud.yandex.net/mdb/managed-greenplum/v1/clusters
   "securityGroupIds": [
     "string"
   ],
-  "deletionProtection": true
+  "deletionProtection": true,
+  "hostGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -119,6 +122,7 @@ userPassword | **string**<br><p>Required. Owner user password</p> <p>The string 
 networkId | **string**<br><p>Required. ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+hostGroupIds[] | **string**<br><p>Host groups to place VMs of cluster on.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -320,6 +320,27 @@ components:
             Maximum wait time. Trigger will send the batch of messages to the function when
             the number of messages in the queue reaches `size`, or the `cutoff` time has passed.
           type: string
+    BillingBudget:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          billingAccountId:
+            description: |-
+              Required.
+              The maximum string length in characters is 50.
+            type: string
+          budgetId:
+            description: The maximum string length in characters is 50.
+            type: string
+      - title: action
+        type: object
+        maxProperties: 1
+        properties:
+          invokeFunction:
+            $ref: '#/components/schemas/InvokeFunctionWithRetry'
+          invokeContainer:
+            $ref: '#/components/schemas/InvokeContainerWithRetry'
     CloudLogsBatchSettings:
       type: object
       properties:
@@ -958,6 +979,8 @@ components:
             $ref: '#/components/schemas/TriggerCloudLogs'
           logging:
             $ref: '#/components/schemas/TriggerLogging'
+          billingBudget:
+            $ref: '#/components/schemas/BillingBudget'
     TriggerStatus:
       type: string
       enum:
@@ -1075,6 +1098,8 @@ components:
             $ref: '#/components/schemas/TriggerCloudLogs'
           logging:
             $ref: '#/components/schemas/TriggerLogging'
+          billingBudget:
+            $ref: '#/components/schemas/BillingBudget'
     RetrySettings_in_InvokeContainerWithRetry_retrySettings:
       description: |-
         Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
@@ -1170,6 +1195,8 @@ components:
             $ref: '#/components/schemas/TriggerCloudLogs'
           logging:
             $ref: '#/components/schemas/TriggerLogging'
+          billingBudget:
+            $ref: '#/components/schemas/BillingBudget'
     TriggerStatus_in_Trigger_status:
       description: Trigger status.
       type: string

@@ -1831,6 +1831,22 @@ components:
           type: string
         validationContext:
           $ref: '#/components/schemas/ValidationContext_in_BackendTls_validationContext'
+    ConnectionSessionAffinity:
+      type: object
+      properties:
+        sourceIp:
+          type: boolean
+          format: boolean
+    CookieSessionAffinity:
+      type: object
+      properties:
+        name:
+          description: The string length in characters must be 1-256.
+          type: string
+        ttl:
+          description: If not set, session cookie will be used (not persisted between
+            browser restarts).
+          type: string
     CreateBackendGroupMetadata:
       type: object
       properties:
@@ -2327,12 +2343,24 @@ components:
     GrpcBackendGroup:
       description: A gRPC backend group resource.
       type: object
-      properties:
-        backends:
-          description: List of gRPC backends.
-          type: array
-          items:
-            $ref: '#/components/schemas/GrpcBackend'
+      allOf:
+      - type: object
+        properties:
+          backends:
+            description: List of gRPC backends.
+            type: array
+            items:
+              $ref: '#/components/schemas/GrpcBackend'
+      - title: session_affinity
+        type: object
+        maxProperties: 1
+        properties:
+          connection:
+            $ref: '#/components/schemas/ConnectionSessionAffinity'
+          header:
+            $ref: '#/components/schemas/HeaderSessionAffinity'
+          cookie:
+            $ref: '#/components/schemas/CookieSessionAffinity'
     GrpcRoute:
       description: A gRPC route configuration resource.
       type: object
@@ -2471,6 +2499,12 @@ components:
               Replaces the name of the header with the specified string.
               This operation is only supported for ALB Virtual Hosts.
             type: string
+    HeaderSessionAffinity:
+      type: object
+      properties:
+        headerName:
+          description: The string length in characters must be 1-256.
+          type: string
     HealthCheck:
       description: |-
         A health check resource.
@@ -2666,12 +2700,24 @@ components:
     HttpBackendGroup:
       description: An HTTP backend group resource.
       type: object
-      properties:
-        backends:
-          description: List of HTTP backends.
-          type: array
-          items:
-            $ref: '#/components/schemas/HttpBackend'
+      allOf:
+      - type: object
+        properties:
+          backends:
+            description: List of HTTP backends.
+            type: array
+            items:
+              $ref: '#/components/schemas/HttpBackend'
+      - title: session_affinity
+        type: object
+        maxProperties: 1
+        properties:
+          connection:
+            $ref: '#/components/schemas/ConnectionSessionAffinity'
+          header:
+            $ref: '#/components/schemas/HeaderSessionAffinity'
+          cookie:
+            $ref: '#/components/schemas/CookieSessionAffinity'
     HttpHandler:
       description: An HTTP handler resource.
       type: object
@@ -3208,6 +3254,19 @@ components:
             Default value: `false`.
           type: boolean
           format: boolean
+        mode:
+          $ref: '#/components/schemas/LoadBalancingMode_in_LoadBalancingConfig_mode'
+    LoadBalancingMode:
+      description: |2-
+         - LEAST_REQUEST: Using power of two choices.
+         - MAGLEV_HASH: MAGLEV_HASH allows session affinity for that backend.
+      type: string
+      enum:
+      - ROUND_ROBIN
+      - RANDOM
+      - LEAST_REQUEST
+      - MAGLEV_HASH
+      default: ROUND_ROBIN
     Location:
       description: |-
         An application load balancer location resource.
@@ -4588,6 +4647,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Location'
+    LoadBalancingMode_in_LoadBalancingConfig_mode:
+      description: |-
+        Specifies algorithm the load balancer uses for target selection in particular backend.
+
+         - LEAST_REQUEST: Using power of two choices.
+         - MAGLEV_HASH: MAGLEV_HASH allows session affinity for that backend.
+      type: string
+      enum:
+      - ROUND_ROBIN
+      - RANDOM
+      - LEAST_REQUEST
+      - MAGLEV_HASH
+      default: ROUND_ROBIN
     TlsHandler_in_SniMatch_handler:
       description: |-
         Required.
