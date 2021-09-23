@@ -4,18 +4,18 @@ editable: false
 
 # CacheService
 
-
+A set of methods for managing Cache Service resources.
 
 | Call | Description |
 | --- | --- |
-| [Purge](#Purge) |  |
-| [Prefetch](#Prefetch) |  |
+| [Purge](#Purge) | Removes specified files from the cache of the specified resource. |
+| [Prefetch](#Prefetch) | Uploads specified files from origins to cache of the specified resource. |
 
 ## Calls CacheService {#calls}
 
 ## Purge {#Purge}
 
-
+Removes specified files from the cache of the specified resource. For details about purging, see [documentation](/docs/cdn/concepts/caching#purge).
 
 **rpc Purge ([PurgeCacheRequest](#PurgeCacheRequest)) returns ([operation.Operation](#Operation))**
 
@@ -27,8 +27,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. Resource ID to perform cache operation on. The maximum string length in characters is 50.
-paths[] | **string**<br><ol><li>empty array - purge all files. </li><li>wildcard </li><li>file-path to purge.</li></ol> 
+resource_id | **string**<br>Required. ID of the resource to perform purge operation on. The maximum string length in characters is 50.
+paths[] | **string**<br>Set of paths: Paths of the files to remove from the cache. <br>You may use asterisk (`*`) as a wildcard character that substitutes any number of characters. <br>If an empty array of paths is specified, the cache is purged entirely. 
 
 
 ### Operation {#Operation}
@@ -51,12 +51,12 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. Resource ID. The maximum string length in characters is 50.
+resource_id | **string**<br>Required. ID of the resource. The maximum string length in characters is 50.
 
 
 ## Prefetch {#Prefetch}
 
-
+Uploads specified files from origins to cache of the specified resource. For defails about prefetching, see [documentation](/docs/cdn/concepts/caching#prefetch).
 
 **rpc Prefetch ([PrefetchCacheRequest](#PrefetchCacheRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -68,7 +68,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. Resource ID to perform cache operation on. The maximum string length in characters is 50.
+resource_id | **string**<br>Required. ID of the resource to perform prefetch operation on. The maximum string length in characters is 50.
 paths[] | **string**<br>Set of paths to prefetch. 
 
 
@@ -92,6 +92,6 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-resource_id | **string**<br>Required. Resource ID. The maximum string length in characters is 50.
+resource_id | **string**<br>Required. ID of the resource. The maximum string length in characters is 50.
 
 

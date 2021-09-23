@@ -8,17 +8,17 @@ Origin Groups management service.
 
 | Call | Description |
 | --- | --- |
-| [Get](#Get) | Get origin group with specified origin group id. |
-| [List](#List) | List clients origin groups. |
-| [Create](#Create) | Create clients origin group. |
-| [Update](#Update) | Update clients origin group. |
-| [Delete](#Delete) | Delete origin group with specified origin group id. |
+| [Get](#Get) | Gets origin group with specified origin group id. |
+| [List](#List) | Lists origins of origin group. |
+| [Create](#Create) | Creates origin group. |
+| [Update](#Update) | Updates origin group. |
+| [Delete](#Delete) | Deletes origin group with specified origin group id. |
 
 ## Calls OriginGroupService {#calls}
 
 ## Get {#Get}
 
-Get origin group with specified origin group id.
+Gets origin group with specified origin group id.
 
 **rpc Get ([GetOriginGroupRequest](#GetOriginGroupRequest)) returns ([OriginGroup](#OriginGroup))**
 
@@ -26,18 +26,18 @@ Get origin group with specified origin group id.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. Origin group owner's Folder ID. The maximum string length in characters is 50.
-origin_group_id | **int64**<br>ID of origins group to request for. Value must be greater than 0.
+folder_id | **string**<br>Required. ID of the folder that the origin group belongs to. The maximum string length in characters is 50.
+origin_group_id | **int64**<br>ID of the origin group to return. <br>To get a origin group ID, make a [OriginGroupService.List](#List) request. Value must be greater than 0.
 
 
 ### OriginGroup {#OriginGroup}
 
 Field | Description
 --- | ---
-id | **int64**<br>Origin Group ID. 
-folder_id | **string**<br>Origin Folder ID. 
-name | **string**<br>Origin Group Name. 
-use_next | **bool**<br>use_next. This option have two possible conditions: true - the option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - the option is disabled. 
+id | **int64**<br>ID of the origin group. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the origin group belongs to. 
+name | **string**<br>Name of the origin group. 
+use_next | **bool**<br>This option have two possible conditions: true - the option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - the option is disabled. 
 origins[] | **[Origin](#Origin)**<br>List of origins. 
 
 
@@ -45,42 +45,42 @@ origins[] | **[Origin](#Origin)**<br>List of origins.
 
 Field | Description
 --- | ---
-id | **int64**<br>Origin unique ID. 
-origin_group_id | **int64**<br>Parent origin group ID. 
-source | **string**<br>Source: IP address or Domain name of your origin and the port (if custom). 
-enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origins. False - The origin is disabled and the CDN is not using it to pull content. 
-backup | **bool**<br>backup option has two possible values: <br>True - The option is active. The origin will not be used until one of active origins become unavailable. False - The option is disabled. 
-meta | **[OriginMeta](#OriginMeta)**<br> 
+id | **int64**<br>ID of the origin. 
+origin_group_id | **int64**<br>ID of the parent origin group. 
+source | **string**<br>IP address or Domain name of your origin and the port (if custom). Used if `meta` variant is `common`. 
+enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origin. False - The origin is disabled and the CDN is not using it to pull content. 
+backup | **bool**<br>Specifies whether the origin is used in its origin group as backup. A backup origin is used when one of active origins becomes unavailable. 
+meta | **[OriginMeta](#OriginMeta)**<br>Set up origin of the content. 
 
 
 ### OriginMeta {#OriginMeta}
 
 Field | Description
 --- | ---
-origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>
-&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta)**<br> 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta)**<br> 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta)**<br> 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta)**<br> 
+origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
+&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta)**<br>A server with a domain name linked to it 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta}
 
 Field | Description
 --- | ---
-name | **string**<br> 
+name | **string**<br>Name of the origin. 
 
 
 ### OriginBalancerMeta {#OriginBalancerMeta}
 
 Field | Description
 --- | ---
-id | **string**<br> 
+id | **string**<br>ID of the origin. 
 
 
 ## List {#List}
 
-List clients origin groups.
+Lists origins of origin group.
 
 **rpc List ([ListOriginGroupsRequest](#ListOriginGroupsRequest)) returns ([ListOriginGroupsResponse](#ListOriginGroupsResponse))**
 
@@ -88,7 +88,7 @@ List clients origin groups.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. Origin group owner's Folder ID. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the origin group belongs to.. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListOriginGroupsResponse.next_page_token](#ListOriginGroupsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListOriginGroupsResponse.next_page_token](#ListOriginGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
 
@@ -105,10 +105,10 @@ next_page_token | **string**<br>`next_page_token` token allows you to get the ne
 
 Field | Description
 --- | ---
-id | **int64**<br>Origin Group ID. 
-folder_id | **string**<br>Origin Folder ID. 
-name | **string**<br>Origin Group Name. 
-use_next | **bool**<br>use_next. This option have two possible conditions: true - the option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - the option is disabled. 
+id | **int64**<br>ID of the origin group. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the origin group belongs to. 
+name | **string**<br>Name of the origin group. 
+use_next | **bool**<br>This option have two possible conditions: true - the option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - the option is disabled. 
 origins[] | **[Origin](#Origin1)**<br>List of origins. 
 
 
@@ -116,42 +116,42 @@ origins[] | **[Origin](#Origin1)**<br>List of origins.
 
 Field | Description
 --- | ---
-id | **int64**<br>Origin unique ID. 
-origin_group_id | **int64**<br>Parent origin group ID. 
-source | **string**<br>Source: IP address or Domain name of your origin and the port (if custom). 
-enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origins. False - The origin is disabled and the CDN is not using it to pull content. 
-backup | **bool**<br>backup option has two possible values: <br>True - The option is active. The origin will not be used until one of active origins become unavailable. False - The option is disabled. 
-meta | **[OriginMeta](#OriginMeta1)**<br> 
+id | **int64**<br>ID of the origin. 
+origin_group_id | **int64**<br>ID of the parent origin group. 
+source | **string**<br>IP address or Domain name of your origin and the port (if custom). Used if `meta` variant is `common`. 
+enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origin. False - The origin is disabled and the CDN is not using it to pull content. 
+backup | **bool**<br>Specifies whether the origin is used in its origin group as backup. A backup origin is used when one of active origins becomes unavailable. 
+meta | **[OriginMeta](#OriginMeta1)**<br>Set up origin of the content. 
 
 
 ### OriginMeta {#OriginMeta1}
 
 Field | Description
 --- | ---
-origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>
-&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta1)**<br> 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta1)**<br> 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta1)**<br> 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta1)**<br> 
+origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
+&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta1)**<br>A server with a domain name linked to it 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta1)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta1)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta1)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta1}
 
 Field | Description
 --- | ---
-name | **string**<br> 
+name | **string**<br>Name of the origin. 
 
 
 ### OriginBalancerMeta {#OriginBalancerMeta1}
 
 Field | Description
 --- | ---
-id | **string**<br> 
+id | **string**<br>ID of the origin. 
 
 
 ## Create {#Create}
 
-Create clients origin group.
+Creates origin group.
 
 **rpc Create ([CreateOriginGroupRequest](#CreateOriginGroupRequest)) returns ([operation.Operation](#Operation))**
 
@@ -163,9 +163,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. Origin group owner's Folder ID. The maximum string length in characters is 50.
-name | **string**<br>Origin Group Name. 
-use_next | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>`use_next` This option have two possible conditions: true - The option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - The option is disabled. <br>default value is true 
+folder_id | **string**<br>Required. ID of the folder that the origin group belongs to. The maximum string length in characters is 50.
+name | **string**<br>Name of the origin group. 
+use_next | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This option have two possible conditions: true - The option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - The option is disabled. <br>default value is true 
 origins[] | **[OriginParams](#OriginParams)**<br>List of origins: IP addresses or Domain names of your origins and the port (if custom). 
 
 
@@ -176,32 +176,32 @@ Field | Description
 source | **string**<br>Source: IP address or Domain name of your origin and the port (if custom). 
 enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origins. False - The origin is disabled and the CDN is not using it to pull content. 
 backup | **bool**<br>backup option has two possible values: <br>True - The option is active. The origin will not be used until one of active origins become unavailable. False - The option is disabled. 
-meta | **[OriginMeta](#OriginMeta2)**<br> 
+meta | **[OriginMeta](#OriginMeta2)**<br>Set up origin of the content. 
 
 
 ### OriginMeta {#OriginMeta2}
 
 Field | Description
 --- | ---
-origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>
-&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta2)**<br> 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta2)**<br> 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta2)**<br> 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta2)**<br> 
+origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
+&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta2)**<br>A server with a domain name linked to it 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta2)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta2)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta2)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta2}
 
 Field | Description
 --- | ---
-name | **string**<br> 
+name | **string**<br>Name of the origin. 
 
 
 ### OriginBalancerMeta {#OriginBalancerMeta2}
 
 Field | Description
 --- | ---
-id | **string**<br> 
+id | **string**<br>ID of the origin. 
 
 
 ### Operation {#Operation}
@@ -224,17 +224,17 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-origin_group_id | **int64**<br>ID of created Origin Group. Value must be greater than 0.
+origin_group_id | **int64**<br>ID of created origin group. Value must be greater than 0.
 
 
 ### OriginGroup {#OriginGroup2}
 
 Field | Description
 --- | ---
-id | **int64**<br>Origin Group ID. 
-folder_id | **string**<br>Origin Folder ID. 
-name | **string**<br>Origin Group Name. 
-use_next | **bool**<br>use_next. This option have two possible conditions: true - the option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - the option is disabled. 
+id | **int64**<br>ID of the origin group. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the origin group belongs to. 
+name | **string**<br>Name of the origin group. 
+use_next | **bool**<br>This option have two possible conditions: true - the option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - the option is disabled. 
 origins[] | **[Origin](#Origin2)**<br>List of origins. 
 
 
@@ -242,42 +242,42 @@ origins[] | **[Origin](#Origin2)**<br>List of origins.
 
 Field | Description
 --- | ---
-id | **int64**<br>Origin unique ID. 
-origin_group_id | **int64**<br>Parent origin group ID. 
-source | **string**<br>Source: IP address or Domain name of your origin and the port (if custom). 
-enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origins. False - The origin is disabled and the CDN is not using it to pull content. 
-backup | **bool**<br>backup option has two possible values: <br>True - The option is active. The origin will not be used until one of active origins become unavailable. False - The option is disabled. 
-meta | **[OriginMeta](#OriginMeta3)**<br> 
+id | **int64**<br>ID of the origin. 
+origin_group_id | **int64**<br>ID of the parent origin group. 
+source | **string**<br>IP address or Domain name of your origin and the port (if custom). Used if `meta` variant is `common`. 
+enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origin. False - The origin is disabled and the CDN is not using it to pull content. 
+backup | **bool**<br>Specifies whether the origin is used in its origin group as backup. A backup origin is used when one of active origins becomes unavailable. 
+meta | **[OriginMeta](#OriginMeta3)**<br>Set up origin of the content. 
 
 
 ### OriginMeta {#OriginMeta3}
 
 Field | Description
 --- | ---
-origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>
-&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta3)**<br> 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta3)**<br> 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta3)**<br> 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta3)**<br> 
+origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
+&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta3)**<br>A server with a domain name linked to it 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta3)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta3)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta3)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta3}
 
 Field | Description
 --- | ---
-name | **string**<br> 
+name | **string**<br>Name of the origin. 
 
 
 ### OriginBalancerMeta {#OriginBalancerMeta3}
 
 Field | Description
 --- | ---
-id | **string**<br> 
+id | **string**<br>ID of the origin. 
 
 
 ## Update {#Update}
 
-Update clients origin group.
+Updates origin group.
 
 **rpc Update ([UpdateOriginGroupRequest](#UpdateOriginGroupRequest)) returns ([operation.Operation](#Operation1))**
 
@@ -289,9 +289,9 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. Origin Group owner's Folder ID. The maximum string length in characters is 50.
-origin_group_id | **int64**<br>Origin Group ID. Value must be greater than 0.
-group_name | **google.protobuf.StringValue**<br>Origin Group name. 
+folder_id | **string**<br>Required. ID of the folder that the origin group belongs to. The maximum string length in characters is 50.
+origin_group_id | **int64**<br>ID of the origin group. Value must be greater than 0.
+group_name | **google.protobuf.StringValue**<br>Name of the origin group. 
 use_next | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This option have two possible values: <br>True - The option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. False - The option is disabled. 
 origins[] | **[OriginParams](#OriginParams1)**<br>List of origins: IP addresses or Domain names of your origins and the port (if custom). 
 
@@ -303,32 +303,32 @@ Field | Description
 source | **string**<br>Source: IP address or Domain name of your origin and the port (if custom). 
 enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origins. False - The origin is disabled and the CDN is not using it to pull content. 
 backup | **bool**<br>backup option has two possible values: <br>True - The option is active. The origin will not be used until one of active origins become unavailable. False - The option is disabled. 
-meta | **[OriginMeta](#OriginMeta4)**<br> 
+meta | **[OriginMeta](#OriginMeta4)**<br>Set up origin of the content. 
 
 
 ### OriginMeta {#OriginMeta4}
 
 Field | Description
 --- | ---
-origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>
-&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta4)**<br> 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta4)**<br> 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta4)**<br> 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta4)**<br> 
+origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
+&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta4)**<br>A server with a domain name linked to it 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta4)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta4)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta4)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta4}
 
 Field | Description
 --- | ---
-name | **string**<br> 
+name | **string**<br>Name of the origin. 
 
 
 ### OriginBalancerMeta {#OriginBalancerMeta4}
 
 Field | Description
 --- | ---
-id | **string**<br> 
+id | **string**<br>ID of the origin. 
 
 
 ### Operation {#Operation1}
@@ -351,17 +351,17 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-origin_group_id | **int64**<br>Origin Group ID. Value must be greater than 0.
+origin_group_id | **int64**<br>ID of the origin group. Value must be greater than 0.
 
 
 ### OriginGroup {#OriginGroup3}
 
 Field | Description
 --- | ---
-id | **int64**<br>Origin Group ID. 
-folder_id | **string**<br>Origin Folder ID. 
-name | **string**<br>Origin Group Name. 
-use_next | **bool**<br>use_next. This option have two possible conditions: true - the option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - the option is disabled. 
+id | **int64**<br>ID of the origin group. Generated at creation time. 
+folder_id | **string**<br>ID of the folder that the origin group belongs to. 
+name | **string**<br>Name of the origin group. 
+use_next | **bool**<br>This option have two possible conditions: true - the option is active. In case the origin responds with 4XX or 5XX codes, use the next origin from the list. false - the option is disabled. 
 origins[] | **[Origin](#Origin3)**<br>List of origins. 
 
 
@@ -369,42 +369,42 @@ origins[] | **[Origin](#Origin3)**<br>List of origins.
 
 Field | Description
 --- | ---
-id | **int64**<br>Origin unique ID. 
-origin_group_id | **int64**<br>Parent origin group ID. 
-source | **string**<br>Source: IP address or Domain name of your origin and the port (if custom). 
-enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origins. False - The origin is disabled and the CDN is not using it to pull content. 
-backup | **bool**<br>backup option has two possible values: <br>True - The option is active. The origin will not be used until one of active origins become unavailable. False - The option is disabled. 
-meta | **[OriginMeta](#OriginMeta5)**<br> 
+id | **int64**<br>ID of the origin. 
+origin_group_id | **int64**<br>ID of the parent origin group. 
+source | **string**<br>IP address or Domain name of your origin and the port (if custom). Used if `meta` variant is `common`. 
+enabled | **bool**<br>The setting allows to enable or disable an Origin source in the Origins group. <br>It has two possible values: <br>True - The origin is enabled and used as a source for the CDN. An origins group must contain at least one enabled origin. False - The origin is disabled and the CDN is not using it to pull content. 
+backup | **bool**<br>Specifies whether the origin is used in its origin group as backup. A backup origin is used when one of active origins becomes unavailable. 
+meta | **[OriginMeta](#OriginMeta5)**<br>Set up origin of the content. 
 
 
 ### OriginMeta {#OriginMeta5}
 
 Field | Description
 --- | ---
-origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>
-&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta5)**<br> 
-&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta5)**<br> 
-&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta5)**<br> 
-&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta5)**<br> 
+origin_meta_variant | **oneof:** `common`, `bucket`, `website` or `balancer`<br>Type of the origin.
+&nbsp;&nbsp;common | **[OriginNamedMeta](#OriginNamedMeta5)**<br>A server with a domain name linked to it 
+&nbsp;&nbsp;bucket | **[OriginNamedMeta](#OriginNamedMeta5)**<br>A Yandex Object Storage bucket not configured as a static site hosting. 
+&nbsp;&nbsp;website | **[OriginNamedMeta](#OriginNamedMeta5)**<br>A Yandex Object Storage bucket configured as a static site hosting. 
+&nbsp;&nbsp;balancer | **[OriginBalancerMeta](#OriginBalancerMeta5)**<br>An L7 load balancer from Yandex Application Load Balancer. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings. 
 
 
 ### OriginNamedMeta {#OriginNamedMeta5}
 
 Field | Description
 --- | ---
-name | **string**<br> 
+name | **string**<br>Name of the origin. 
 
 
 ### OriginBalancerMeta {#OriginBalancerMeta5}
 
 Field | Description
 --- | ---
-id | **string**<br> 
+id | **string**<br>ID of the origin. 
 
 
 ## Delete {#Delete}
 
-Delete origin group with specified origin group id.
+Deletes origin group with specified origin group id.
 
 **rpc Delete ([DeleteOriginGroupRequest](#DeleteOriginGroupRequest)) returns ([operation.Operation](#Operation2))**
 
@@ -416,8 +416,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. Origin Group owner's Folder ID. The maximum string length in characters is 50.
-origin_group_id | **int64**<br>Origin Group ID. Value must be greater than 0.
+folder_id | **string**<br>Required. ID of the folder that the origin group belongs to. The maximum string length in characters is 50.
+origin_group_id | **int64**<br>ID of the origin group. Value must be greater than 0.
 
 
 ### Operation {#Operation2}
@@ -440,6 +440,6 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-origin_group_id | **int64**<br>Origin Group ID. Value must be greater than 0.
+origin_group_id | **int64**<br>ID of the origin group. Value must be greater than 0.
 
 

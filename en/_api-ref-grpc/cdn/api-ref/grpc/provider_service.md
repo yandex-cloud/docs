@@ -4,7 +4,7 @@ editable: false
 
 # ProviderService
 
-
+A set of methods for managing Provider Service resources.
 
 | Call | Description |
 | --- | --- |
@@ -27,8 +27,8 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. Activate provider for Folder iD. The maximum string length in characters is 50.
-provider_type | **string**<br>Required. Specify provider brand/type. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the activate provider belongs to. The maximum string length in characters is 50.
+provider_type | **string**<br>Required. Specify provider brand/type. <br>Possible values: `gcore`. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation}
@@ -51,7 +51,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required. Activate provider for Folder iD. The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the activate provider belongs to. The maximum string length in characters is 50.
 
 
 ## ListActivated {#ListActivated}
@@ -64,13 +64,13 @@ List activated providers for specified client.
 
 Field | Description
 --- | ---
-folder_id | **string**<br>Required.  The maximum string length in characters is 50.
+folder_id | **string**<br>Required. ID of the folder that the activate provider belongs to. The maximum string length in characters is 50.
 
 
 ### ListActivatedProvidersResponse {#ListActivatedProvidersResponse}
 
 Field | Description
 --- | ---
-providers[] | **string**<br> 
+providers[] | **string**<br>Creates a list of providers. 
 
 

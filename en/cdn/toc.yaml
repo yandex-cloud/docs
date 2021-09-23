@@ -61,5 +61,19 @@ items:
         href: concepts/limits.md
   - name: Troubleshooting
     href: troubleshooting.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/cdn/toc.yaml
+      - name: REST
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/cdn/toc.yaml
   - name: Pricing policy
     href: pricing.md

@@ -24,8 +24,8 @@ POST https://cdn.api.cloud.yandex.net/cdn/v1/providers:activate
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>Required. Activate provider for Folder iD.</p> <p>The maximum string length in characters is 50.</p> 
-providerType | **string**<br><p>Required. Specify provider brand/type.</p> <p>The maximum string length in characters is 50.</p> 
+folderId | **string**<br><p>Required. ID of the folder that the activate provider belongs to.</p> <p>The maximum string length in characters is 50.</p> 
+providerType | **string**<br><p>Required. Specify provider brand/type.</p> <p>Possible values: ``gcore``.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

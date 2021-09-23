@@ -16,7 +16,7 @@ GET https://cdn.api.cloud.yandex.net/cdn/v1/providers
  
 Parameter | Description
 --- | ---
-folderId | Required. The maximum string length in characters is 50.
+folderId | Required. ID of the folder that the activate provider belongs to.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -32,4 +32,4 @@ folderId | Required. The maximum string length in characters is 50.
  
 Field | Description
 --- | ---
-providers[] | **string**<br>
+providers[] | **string**<br><p>Creates a list of providers.</p> 

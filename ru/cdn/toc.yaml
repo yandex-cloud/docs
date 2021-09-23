@@ -67,5 +67,19 @@ items:
     href: security/index.md
   - name: Решение проблем
     href: troubleshooting.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/cdn/toc.yaml
+      - name: REST (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/cdn/toc.yaml
   - name: Правила тарификации
     href: pricing.md

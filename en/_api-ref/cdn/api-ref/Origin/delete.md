@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Delete origin from origin group
+Deletes origin from origin group.
  
 
  
@@ -16,13 +16,13 @@ DELETE https://cdn.api.cloud.yandex.net/cdn/v1/origins/{originId}
  
 Parameter | Description
 --- | ---
-originId | Origin ID.  Value must be greater than 0.
+originId | ID of the origin.  Value must be greater than 0.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
-folderId | Required. Origin's owner Folder ID.  The maximum string length in characters is 50.
+folderId | Required. ID of the folder that the origin belongs to.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

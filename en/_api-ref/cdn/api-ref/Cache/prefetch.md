@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method prefetch
-
+Uploads specified files from origins to cache of the specified resource. For defails about prefetching, see [documentation](/docs/cdn/concepts/caching#prefetch).
  
 
  
@@ -16,7 +16,7 @@ POST https://cdn.api.cloud.yandex.net/cdn/v1/cache/{resourceId}:prefetch
  
 Parameter | Description
 --- | ---
-resourceId | Required. Resource ID to perform cache operation on.  The maximum string length in characters is 50.
+resourceId | Required. ID of the resource to perform prefetch operation on.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  

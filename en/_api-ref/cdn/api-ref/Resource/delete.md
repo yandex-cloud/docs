@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Delete client's CDN resource.
+Deletes client's CDN resource.
  
 
  

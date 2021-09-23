@@ -12,13 +12,15 @@ paths:
     post:
       tags:
       - Cache
+      summary: Removes specified files from the cache of the specified resource. For
+        details about purging, see [documentation](/docs/cdn/concepts/caching#purge).
       operationId: CachePurge
       parameters:
       - name: resourceId
         in: path
         description: |-
           Required.
-          Resource ID to perform cache operation on.
+          ID of the resource to perform purge operation on.
 
           The maximum string length in characters is 50.
         required: true
@@ -45,13 +47,15 @@ paths:
     post:
       tags:
       - Cache
+      summary: Uploads specified files from origins to cache of the specified resource.
+        For defails about prefetching, see [documentation](/docs/cdn/concepts/caching#prefetch).
       operationId: CachePrefetch
       parameters:
       - name: resourceId
         in: path
         description: |-
           Required.
-          Resource ID to perform cache operation on.
+          ID of the resource to perform prefetch operation on.
 
           The maximum string length in characters is 50.
         required: true
@@ -78,13 +82,15 @@ paths:
     get:
       tags:
       - OriginGroup
-      summary: Get origin group with specified origin group id.
+      summary: Gets origin group with specified origin group id.
       operationId: OriginGroupGet
       parameters:
       - name: originGroupId
         in: path
         description: |-
-          ID of origins group to request for.
+          ID of the origin group to return.
+
+          To get a origin group ID, make a [list](/docs/cdn/api-ref/OriginGroup/list) request.
 
           Value must be greater than 0.
         required: true
@@ -95,7 +101,7 @@ paths:
         in: query
         description: |-
           Required.
-          Origin group owner's Folder ID.
+          ID of the folder that the origin group belongs to.
 
           The maximum string length in characters is 50.
         schema:
@@ -111,13 +117,13 @@ paths:
     delete:
       tags:
       - OriginGroup
-      summary: Delete origin group with specified origin group id.
+      summary: Deletes origin group with specified origin group id.
       operationId: OriginGroupDelete
       parameters:
       - name: originGroupId
         in: path
         description: |-
-          Origin Group ID.
+          ID of the origin group.
 
           Value must be greater than 0.
         required: true
@@ -128,7 +134,7 @@ paths:
         in: query
         description: |-
           Required.
-          Origin Group owner's Folder ID.
+          ID of the folder that the origin group belongs to.
 
           The maximum string length in characters is 50.
         schema:
@@ -148,14 +154,14 @@ paths:
     get:
       tags:
       - OriginGroup
-      summary: List clients origin groups.
+      summary: Lists origins of origin group.
       operationId: OriginGroupList
       parameters:
       - name: folderId
         in: query
         description: |-
           Required.
-          Origin group owner's Folder ID.
+          ID of the folder that the origin group belongs to..
 
           The maximum string length in characters is 50.
         schema:
@@ -193,7 +199,7 @@ paths:
     post:
       tags:
       - OriginGroup
-      summary: Create clients origin group.
+      summary: Creates origin group.
       operationId: OriginGroupCreate
       requestBody:
         content:
@@ -215,7 +221,7 @@ paths:
     patch:
       tags:
       - OriginGroup
-      summary: Update clients origin group.
+      summary: Updates origin group.
       operationId: OriginGroupUpdate
       requestBody:
         content:
@@ -255,7 +261,7 @@ paths:
         in: query
         description: |-
           Required.
-          Origin's owner Folder ID.
+          ID of the folder that the origin belongs to.
 
           The maximum string length in characters is 50.
         schema:
@@ -271,13 +277,13 @@ paths:
     delete:
       tags:
       - Origin
-      summary: Delete origin from origin group
+      summary: Deletes origin from origin group.
       operationId: OriginDelete
       parameters:
       - name: originId
         in: path
         description: |-
-          Origin ID.
+          ID of the origin.
 
           Value must be greater than 0.
         required: true
@@ -288,7 +294,7 @@ paths:
         in: query
         description: |-
           Required.
-          Origin's owner Folder ID.
+          ID of the folder that the origin belongs to.
 
           The maximum string length in characters is 50.
         schema:
@@ -307,13 +313,13 @@ paths:
     patch:
       tags:
       - Origin
-      summary: Update origin from origin group.
+      summary: Updates origin from origin group.
       operationId: OriginUpdate
       parameters:
       - name: originId
         in: path
         description: |-
-          Origin ID.
+          ID of the origin.
 
           Value must be greater than 0.
         required: true
@@ -341,14 +347,14 @@ paths:
     get:
       tags:
       - Origin
-      summary: List origins of origin group.
+      summary: Lists origins of origin group.
       operationId: OriginList
       parameters:
       - name: folderId
         in: query
         description: |-
           Required.
-          Origin's owner Folder ID.
+          ID of the folder that the origin belongs to.
 
           The maximum string length in characters is 50.
         schema:
@@ -356,7 +362,7 @@ paths:
       - name: originGroupId
         in: query
         description: |-
-          [originGroupId](/docs/cdn/api-ref/Origin/list#query_params) group ID to request origins from.
+          ID of the group to request origins from.
 
           Value must be greater than 0.
         schema:
@@ -373,7 +379,7 @@ paths:
     post:
       tags:
       - Origin
-      summary: Create origin inside origin group.
+      summary: Creates origin inside origin group.
       operationId: OriginCreate
       requestBody:
         content:
@@ -426,6 +432,8 @@ paths:
         in: query
         description: |-
           Required.
+          ID of the folder that the activate provider belongs to.
+
           The maximum string length in characters is 50.
         schema:
           type: string
@@ -448,7 +456,7 @@ paths:
         in: path
         description: |-
           Required.
-          Requested resourc
+          ID of the requested resource.
 
           The maximum string length in characters is 50.
         required: true
@@ -465,7 +473,7 @@ paths:
     delete:
       tags:
       - Resource
-      summary: Delete client's CDN resource.
+      summary: Deletes client's CDN resource.
       operationId: ResourceDelete
       parameters:
       - name: resourceId
@@ -492,13 +500,15 @@ paths:
     patch:
       tags:
       - Resource
-      summary: Update of client's CDN resource. (PATCH behavior)
+      summary: Updates of client's CDN resource. (PATCH behavior)
       operationId: ResourceUpdate
       parameters:
       - name: resourceId
         in: path
         description: |-
           Required.
+          ID of updated resource.
+
           The maximum string length in characters is 50.
         required: true
         schema:
@@ -524,14 +534,14 @@ paths:
     get:
       tags:
       - Resource
-      summary: List all client's CDN resources.
+      summary: Lists CDN resources.
       operationId: ResourceList
       parameters:
       - name: folderId
         in: query
         description: |-
           Required.
-          Folder ID to request listing for.
+          ID of the folder to request listing for.
 
           The maximum string length in characters is 50.
         schema:
@@ -569,7 +579,7 @@ paths:
     post:
       tags:
       - Resource
-      summary: Create client's CDN resource.
+      summary: Creates client's CDN resource.
       operationId: ResourceCreate
       requestBody:
         content:
@@ -594,7 +604,7 @@ paths:
       - Resource
       summary: |-
         Get Provider's CNAME (edge endpoint) binded to specified folder id.
-        Return UNIMPLEMENTED error, if provider doesn't support CNAME request.
+        Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
       operationId: ResourceGetProviderCName
       parameters:
       - name: folderId
@@ -623,7 +633,7 @@ components:
         folderId:
           description: |-
             Required.
-            Activate provider for Folder iD.
+            ID of the folder that the activate provider belongs to.
 
             The maximum string length in characters is 50.
           type: string
@@ -633,7 +643,7 @@ components:
         folderId:
           description: |-
             Required.
-            Activate provider for Folder iD.
+            ID of the folder that the activate provider belongs to.
 
             The maximum string length in characters is 50.
           type: string
@@ -642,6 +652,8 @@ components:
             Required.
             Specify provider brand/type.
 
+            Possible values: `gcore`.
+
             The maximum string length in characters is 50.
           type: string
     CreateOriginGroupMetadata:
@@ -649,7 +661,7 @@ components:
       properties:
         originGroupId:
           description: |-
-            ID of created Origin Group.
+            ID of created origin group.
 
             Value must be greater than 0.
           type: string
@@ -660,16 +672,16 @@ components:
         folderId:
           description: |-
             Required.
-            Origin group owner's Folder ID.
+            ID of the folder that the origin group belongs to.
 
             The maximum string length in characters is 50.
           type: string
         name:
-          description: Origin Group Name.
+          description: Name of the origin group.
           type: string
         useNext:
           description: |-
-            [useNext](/docs/cdn/api-ref/OriginGroup/create#body_params) This option have two possible conditions:
+            This option have two possible conditions:
              true - The option is active. In case the origin responds with 4XX or 5XX codes,
                     use the next origin from the list.
              false - The option is disabled.
@@ -689,14 +701,14 @@ components:
       properties:
         originId:
           description: |-
-            Origin ID.
+            ID of the origin.
 
             Value must be greater than 0.
           type: string
           format: int64
         originGroupId:
           description: |-
-            Parent origins group ID.
+            ID pf the parent origins group.
 
             Value must be greater than 0.
           type: string
@@ -707,7 +719,7 @@ components:
         folderId:
           description: |-
             Required.
-            Origin's owner Folder ID.
+            ID of the folder that the origin belongs to.
 
             The maximum string length in characters is 50.
           type: string
@@ -722,15 +734,25 @@ components:
           description: |-
             Required.
             IP address or Domain name of your origin and the port (if custom).
+            Used if [meta](/docs/cdn/api-ref/Origin/create#body_params) variant is `common`.
 
             The maximum string length in characters is 50.
           type: string
         enabled:
-          description: Default value true.
+          description: |-
+            The setting allows to enable or disable an Origin source in the Origins group.
+
+            It has two possible values:
+
+            True - The origin is enabled and used as a source for the CDN. An origins
+            group must contain at least one enabled origin. Default value.
+            False - The origin is disabled and the CDN is not using it to pull content.
           type: boolean
           format: boolean
         backup:
-          description: 'Default value: false.'
+          description: "Specifies whether the origin is used in its origin group as
+            backup. \nA backup origin is used when one of active origins becomes unavailable.\n\nDefault
+            value: False."
           type: boolean
           format: boolean
         meta:
@@ -751,7 +773,7 @@ components:
         folderId:
           description: |-
             Required.
-            Folder ID to bind with new resource.
+            ID of the to bind with new resource.
 
             The maximum string length in characters is 50.
           type: string
@@ -793,12 +815,13 @@ components:
             type: string
           originSourceParams:
             $ref: '#/components/schemas/ResourceOriginParams'
+            description: Set up resourse origin parameters.
     DeleteOriginGroupMetadata:
       type: object
       properties:
         originGroupId:
           description: |-
-            Origin Group ID.
+            ID of the origin group.
 
             Value must be greater than 0.
           type: string
@@ -808,7 +831,7 @@ components:
       properties:
         originId:
           description: |-
-            Origin ID.
+            ID of the origin.
 
             Value must be greater than 0.
           type: string
@@ -830,12 +853,13 @@ components:
           description: Provider's CNAME.
           type: string
         folderId:
-          description: Owner folder id.
+          description: ID of the folder that the provider belongs to.
           type: string
     ListActivatedProvidersResponse:
       type: object
       properties:
         providers:
+          description: Creates a list of providers.
           type: array
           items:
             type: string
@@ -859,6 +883,7 @@ components:
       type: object
       properties:
         origins:
+          description: Origin from response.
           type: array
           items:
             $ref: '#/components/schemas/v1Origin'
@@ -866,6 +891,7 @@ components:
       type: object
       properties:
         resources:
+          description: List of the resources
           type: array
           items:
             $ref: '#/components/schemas/Resource'
@@ -935,26 +961,30 @@ components:
               Any method that returns a long-running operation should document the response type, if any.
             type: object
     OriginBalancerMeta:
+      description: Yandex Application Load Balancer origin info. For details about
+        the concept, see [documentation](/docs/cdn/concepts/origins).
       type: object
       properties:
         id:
+          description: ID of the origin.
           type: string
     OriginGroup:
+      description: Origin group parameters. For details about the concept, see [documentation](/docs/cdn/concepts/origins#groups).
       type: object
       properties:
         id:
-          description: Origin Group ID.
+          description: ID of the origin group. Generated at creation time.
           type: string
           format: int64
         folderId:
-          description: Origin Folder ID.
+          description: ID of the folder that the origin group belongs to.
           type: string
         name:
-          description: Origin Group Name.
+          description: Name of the origin group.
           type: string
         useNext:
           description: |-
-            use_next. This option have two possible conditions:
+            This option have two possible conditions:
             true - the option is active. In case the origin responds with 4XX or 5XX codes,
                    use the next origin from the list.
             false - the option is disabled.
@@ -966,6 +996,7 @@ components:
           items:
             $ref: '#/components/schemas/v1Origin'
     OriginMeta:
+      description: Origin type. For details about the concept, see [documentation](/docs/cdn/concepts/origins).
       type: object
       allOf:
       - title: origin_meta_variant
@@ -974,19 +1005,29 @@ components:
         properties:
           common:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket not configured as a static
+              site hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket configured as a static site
+              hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
+            description: |-
+              An L7 load balancer from Yandex Application Load Balancer.
+              CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
     OriginNamedMeta:
+      description: Origin info. For details about the concept, see [documentation](/docs/cdn/concepts/origins).
       type: object
       properties:
         name:
+          description: Name of the origin.
           type: string
     OriginParams:
-      description: Origin manipulation definition.
+      description: Origin parameters. For details about the concept, see [documentation](/docs/cdn/concepts/origins).
       type: object
       properties:
         source:
@@ -1021,12 +1062,10 @@ components:
         content from an origin source. If not specified, we will use HTTP to connect
         to an origin server.
 
-        Possible values are:
-
-            HTTPS - CDN servers will connect to your origin via HTTPS.
-            HTTP  - CDN servers will connect to your origin via HTTP.
-            MATCH - Connection protocol will be chosen automatically (content on the
-                    origin source should be available for the CDN both through HTTP and HTTPS).
+         - HTTP: CDN servers will connect to your origin via HTTP.
+         - HTTPS: CDN servers will connect to your origin via HTTPS.
+         - MATCH: Connection protocol will be chosen automatically (content on the
+        origin source should be available for the CDN both through HTTP and HTTPS).
       type: string
       enum:
       - HTTP
@@ -1038,7 +1077,7 @@ components:
         resourceId:
           description: |-
             Required.
-            Resource ID.
+            ID of the resource.
 
             The maximum string length in characters is 50.
           type: string
@@ -1056,7 +1095,7 @@ components:
         resourceId:
           description: |-
             Required.
-            Resource ID.
+            ID of the resource.
 
             The maximum string length in characters is 50.
           type: string
@@ -1064,17 +1103,22 @@ components:
       type: object
       properties:
         paths:
-          description: "Set of paths:\n  1. empty array - purge all files.\n  2. wildcard
-            \n  3. file-path to purge."
+          description: |-
+            Set of paths:
+            Paths of the files to remove from the cache.
+
+            You may use asterisk (`*`) as a wildcard character that substitutes any number of characters.
+
+            If an empty array of paths is specified, the cache is purged entirely.
           type: array
           items:
             type: string
     Resource:
-      description: Resource - representation of providers resource.
+      description: A CDN resource - representation of providers resource.
       type: object
       properties:
         id:
-          description: Resource id.
+          description: ID of the resource.
           type: string
         folderId:
           description: Folder id.
@@ -1097,26 +1141,32 @@ components:
           type: string
           format: date-time
         active:
-          description: Resource state.
+          description: |-
+            Flag to create Resource either in active or disabled state.
+            True - the content from CDN is available to clients.
+            False - the content from CDN isn't available to clients.
           type: boolean
           format: boolean
         options:
           $ref: '#/components/schemas/ResourceOptions_in_Resource_options'
         secondaryHostnames:
+          description: List of secondary hostname strings.
           type: array
           items:
             type: string
         originGroupId:
+          description: ID of the origin group.
           type: string
           format: int64
         originGroupName:
+          description: Name of the origin group.
           type: string
         originProtocol:
           $ref: '#/components/schemas/OriginProtocol_in_Resource_originProtocol'
         sslCertificate:
           $ref: '#/components/schemas/SSLCertificate_in_Resource_sslCertificate'
     ResourceOptions:
-      description: ResourceOptions major set of various Resource options.
+      description: A major set of various resource options.
       type: object
       properties:
         disableCache:
@@ -1158,26 +1208,41 @@ components:
         rewrite:
           $ref: '#/components/schemas/ResourceOptionsRewriteOption_in_ResourceOptions_rewrite'
     ResourceOptionsBoolOption:
+      description: Set up bool values.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: boolean
           format: boolean
     ResourceOptionsCachingTimes:
+      description: A set of the caching response time parameters.
       type: object
       properties:
         simpleValue:
+          description: "Caching time for a response with codes 200, 206, 301, 302.
+            \nResponses with codes 4xx, 5xx will not be cached. Use `0s` disable to
+            caching.\nUse `customValues` field to specify a custom caching time for
+            a response with specific codes."
           type: string
           format: int64
         customValues:
+          description: |-
+            Caching time for a response with specific codes. These settings have a higher priority than the value field.
+            Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes.
+            Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code.
           type: object
           additionalProperties:
             type: string
             format: int64
     ResourceOptionsCompressionOptions:
+      description: A set of the compression variant parameters.
       type: object
       allOf:
       - title: compression_variant
@@ -1186,16 +1251,31 @@ components:
         properties:
           fetchCompressed:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: "The Fetch compressed option helps you to reduce\nthe bandwidth
+              between origin and CDN servers. \nAlso, content delivery speed becomes
+              higher because of reducing the time\nfor compressing files in a CDN."
           gzipOn:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: Using `ResourceOptionsBoolOption`. GZip compression at CDN
+              servers reduces file size by 70% and can be as high as 90%.
           brotliCompression:
             $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+            description: |-
+              The option allows to compress content with brotli on the CDN's end.
+
+              Compression is performed on the Origin Shielding. If a pre-cache server doesn't active for a resource, compression does not occur even if the option is enabled.
+
+              Specify the content-type for each type of content you wish to have compressed. CDN servers will request only uncompressed content from the origin.
     ResourceOptionsEdgeCacheSettings:
+      description: A set of the edge cache parameters.
       type: object
       allOf:
       - type: object
         properties:
           enabled:
+            description: "True - the option is enabled and its `values_variant` is
+              applied to the resource. \nFalse - the option is disabled and its default
+              value is used for the resource."
             type: boolean
             format: boolean
       - title: values_variant
@@ -1204,10 +1284,16 @@ components:
         properties:
           value:
             $ref: '#/components/schemas/ResourceOptionsCachingTimes'
+            description: Value of the option.
           defaultValue:
+            description: "Content will be cached according to origin cache settings.
+              \nThe value applies for a response with codes 200, 201, 204, 206, 301,
+              302, 303, 304, 307, 308 \nif an origin server does not have caching
+              HTTP headers.\nResponses with other codes will not be cached."
             type: string
             format: int64
     ResourceOptionsHostOptions:
+      description: A set of the host parameters.
       type: object
       allOf:
       - title: host_variant
@@ -1216,18 +1302,30 @@ components:
         properties:
           host:
             $ref: '#/components/schemas/ResourceOptionsStringOption'
+            description: "Custom value for the Host header.\n\nYour server must be
+              able to process requests with the chosen header. \n\nDefault value (if
+              `enabled` is `false`) is [Resource.cname](/docs/cdn/api-ref/Resource#representation)."
           forwardHostHeader:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: "Using `ResourceOptionsBoolOption`. Choose the Forward Host
+              header option if is important to send in the request to the Origin \nthe
+              same Host header as was sent in the request to CDN server."
     ResourceOptionsInt64Option:
+      description: A set of the numeric parameters.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: string
           format: int64
     ResourceOptionsQueryParamsOptions:
+      description: A set of the query parameters.
       type: object
       allOf:
       - title: query_params_variant
@@ -1236,11 +1334,21 @@ components:
         properties:
           ignoreQueryString:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: Using `ResourceOptionsBoolOption`. Selected by default. Files
+              with different query parameters are cached as objects with the same
+              key regardless of the parameter value.
           queryParamsWhitelist:
             $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+            description: "Ignore All Except. \nFiles with the specified query parameters
+              are cached as objects with different keys, \nfiles with other parameters
+              are cached as objects with the same key."
           queryParamsBlacklist:
             $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+            description: "Ignore only. Files with the specified query parameters are
+              cached as objects with the same key, \nfiles with other parameters are
+              cached as objects with different keys."
     ResourceOptionsRedirectOptions:
+      description: A set of the redirect parameters.
       type: object
       allOf:
       - title: redirect_variant
@@ -1249,63 +1357,92 @@ components:
         properties:
           redirectHttpToHttps:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: Using `ResourceOptionsBoolOption`. Set up a redirect from
+              HTTPS to HTTP.
           redirectHttpsToHttp:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: Using `ResourceOptionsBoolOption`. Set up a redirect from
+              HTTP to HTTPS.
     ResourceOptionsRewriteOption:
+      description: An option for changing or redirecting query paths.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `flag` is applied to
+            the resource. \nFalse - the option is disabled and its default value of
+            the `flag` is used for the resource."
           type: boolean
           format: boolean
         body:
+          description: |-
+            Pattern for rewrite.
+
+            The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`.
           type: string
         flag:
           $ref: '#/components/schemas/RewriteFlag_in_ResourceOptionsRewriteOption_flag'
     ResourceOptionsStringOption:
+      description: A set of the string parameters.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: string
     ResourceOptionsStringsListOption:
+      description: A set of the string list parameters.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: array
           items:
             type: string
     ResourceOptionsStringsMapOption:
+      description: A set of the strings map parameters.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: object
           additionalProperties:
             type: string
     ResourceOriginParams:
+      description: A set of resourse origin parameters.
       type: object
       properties:
         source:
+          description: Sourse of the content.
           type: string
         meta:
           $ref: '#/components/schemas/OriginMeta_in_ResourceOriginParams_meta'
     RewriteFlag:
       description: |-
         RewriteFlag defines flag for the Rewrite option.
-        Possible values are:
-          last - stops processing of the current set of ngx_http_rewrite_module directives and
-                 starts a search for a new location matching changed URI.
-          break - stops processing of the current set of the Rewrite option.
-          redirect - returns a temporary redirect with the 302 code; It is used when a replacement string does not start
-                     with "http://", "https://", or "$scheme".
-          permanent - returns a permanent redirect with the 301 code.
+
+         - LAST: Stops processing of the current set of ngx_http_rewrite_module directives and
+        starts a search for a new location matching changed URI.
+         - BREAK: Stops processing of the current set of the Rewrite option.
+         - REDIRECT: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start
+        with "http://", "https://", or "$scheme".
+         - PERMANENT: Returns a permanent redirect with the 301 code.
       type: string
       enum:
       - LAST
@@ -1313,6 +1450,7 @@ components:
       - REDIRECT
       - PERMANENT
     SSLCertificate:
+      description: A SSL sertificate patameters.
       type: object
       properties:
         type:
@@ -1322,11 +1460,14 @@ components:
         data:
           $ref: '#/components/schemas/SSLCertificateData_in_SSLCertificate_data'
     SSLCertificateCMData:
+      description: A certificate data custom patameters.
       type: object
       properties:
         id:
+          description: ID of the custom sertificate.
           type: string
     SSLCertificateData:
+      description: A certificate data patameters.
       type: object
       allOf:
       - title: ssl_certificate_data_variant
@@ -1335,18 +1476,34 @@ components:
         properties:
           cm:
             $ref: '#/components/schemas/SSLCertificateCMData'
+            description: "Custom (add your SSL certificate by uploading the certificate
+              \nin PEM format and your private key)."
     SSLCertificateStatus:
+      description: |-
+        A certificate status patameters.
+
+         - SSL_CERTIFICATE_STATUS_UNSPECIFIED: SSL certificate is unspecified.
+         - READY: SSL certificate is ready to use.
+         - CREATING: SSL certificate is creating.
       type: string
       enum:
       - READY
       - CREATING
     SSLCertificateType:
+      description: |-
+        A certificate type patameters.
+
+         - SSL_CERTIFICATE_TYPE_UNSPECIFIED: SSL certificate is unspecified.
+         - DONT_USE: No SSL certificate is added, the requests are sent via HTTP.
+         - LETS_ENCRYPT_GCORE: Works only if you have already pointed your domain name to the protected IP address in your DNS
+         - CM: Add your SSL certificate by uploading the certificate in PEM format and your private key
       type: string
       enum:
       - DONT_USE
       - LETS_ENCRYPT_GCORE
       - CM
     SSLTargetCertificate:
+      description: A set of the personal SSL certificate patameters.
       type: object
       properties:
         type:
@@ -1358,6 +1515,7 @@ components:
       type: object
       properties:
         values:
+          description: List of secondary hostname values.
           type: array
           items:
             type: string
@@ -1382,7 +1540,7 @@ components:
       properties:
         originGroupId:
           description: |-
-            Origin Group ID.
+            ID of the origin group.
 
             Value must be greater than 0.
           type: string
@@ -1393,19 +1551,19 @@ components:
         folderId:
           description: |-
             Required.
-            Origin Group owner's Folder ID.
+            ID of the folder that the origin group belongs to.
 
             The maximum string length in characters is 50.
           type: string
         originGroupId:
           description: |-
-            Origin Group ID.
+            ID of the origin group.
 
             Value must be greater than 0.
           type: string
           format: int64
         groupName:
-          description: Origin Group name.
+          description: Name of the origin group.
           type: string
         useNext:
           description: |-
@@ -1428,7 +1586,7 @@ components:
       properties:
         originId:
           description: |-
-            Origin ID.
+            ID of the origin.
 
             Value must be greater than 0.
           type: string
@@ -1446,21 +1604,32 @@ components:
         folderId:
           description: |-
             Required.
-            Origin's owner Folder ID.
+            ID of the folder that the origin belongs to.
 
             The maximum string length in characters is 50.
           type: string
         source:
           description: |-
             IP address or Domain name of your origin and the port (if custom).
+            Used if [meta](/docs/cdn/api-ref/Origin/update#body_params) variant is `common`.
             Required.
           type: string
         enabled:
-          description: Required
+          description: |-
+            The setting allows to enable or disable an Origin source in the Origins group.
+
+            It has two possible values:
+
+            True - The origin is enabled and used as a source for the CDN. An origins
+            group must contain at least one enabled origin. Default value.
+            False - The origin is disabled and the CDN is not using it to pull content.
+
+            Required.
           type: boolean
           format: boolean
         backup:
-          description: Required
+          description: "Specifies whether the origin is used in its origin group as
+            backup. \nA backup origin is used when one of active origins becomes unavailable.\n\nRequired."
           type: boolean
           format: boolean
         meta:
@@ -1479,6 +1648,7 @@ components:
       type: object
       properties:
         originGroupId:
+          description: ID of updated origin group.
           type: integer
           format: int64
         secondaryHostnames:
@@ -1488,49 +1658,50 @@ components:
         originProtocol:
           $ref: '#/components/schemas/OriginProtocol_in_UpdateResourceRequest_originProtocol'
         active:
+          description: "Flag to create Resource either in active or disabled state.\nIn
+            active state Origins payload could be transmitted from CDN CNAME requests.
+            \nDefault value: true"
           type: boolean
           format: boolean
         sslCertificate:
           $ref: '#/components/schemas/SSLTargetCertificate_in_UpdateResourceRequest_sslCertificate'
     v1Origin:
-      description: Origin object definition.
+      description: An origin. For details about the concept, see [documentation](/docs/cdn/concepts/origins).
       type: object
       properties:
         id:
-          description: Origin unique ID.
+          description: ID of the origin.
           type: string
           format: int64
         originGroupId:
-          description: Parent origin group ID.
+          description: ID of the parent origin group.
           type: string
           format: int64
         source:
-          description: 'Source: IP address or Domain name of your origin and the port
-            (if custom).'
+          description: |-
+            IP address or Domain name of your origin and the port (if custom).
+            Used if [meta](/docs/cdn/api-ref/Origin#representation) variant is `common`.
           type: string
         enabled:
-          description: |-
-            The setting allows to enable or disable an Origin source in the Origins group.
-
-            It has two possible values:
-
-            True - The origin is enabled and used as a source for the CDN. An origins
-            group must contain at least one enabled origins. False - The origin is disabled
-            and the CDN is not using it to pull content.
+          description: "The setting allows to enable or disable an Origin source in
+            the Origins group.\n\nIt has two possible values:\n\nTrue - The origin
+            is enabled and used as a source for the CDN. An origins\ngroup must contain
+            at least one enabled origin. \nFalse - The origin is disabled and the
+            CDN is not using it to pull content."
           type: boolean
           format: boolean
         backup:
-          description: |-
-            backup option has two possible values:
-
-              True - The option is active. The origin will not be used until one of
-                     active origins become unavailable.
-              False - The option is disabled.
+          description: "Specifies whether the origin is used in its origin group as
+            backup. \nA backup origin is used when one of active origins becomes unavailable."
           type: boolean
           format: boolean
         meta:
           $ref: '#/components/schemas/OriginMeta_in_v1Origin_meta'
     OriginMeta_in_CreateOriginRequest_meta:
+      description: |-
+        Set up origin of the content.
+
+        Origin type. For details about the concept, see [documentation](/docs/cdn/concepts/origins).
       type: object
       allOf:
       - title: origin_meta_variant
@@ -1539,12 +1710,20 @@ components:
         properties:
           common:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket not configured as a static
+              site hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket configured as a static site
+              hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
+            description: |-
+              An L7 load balancer from Yandex Application Load Balancer.
+              CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
     CreateResourceRequestOrigin_in_CreateResourceRequest_origin:
       description: |-
         Required.
@@ -1565,6 +1744,7 @@ components:
             type: string
           originSourceParams:
             $ref: '#/components/schemas/ResourceOriginParams'
+            description: Set up resourse origin parameters.
     SecondaryHostnames_in_CreateResourceRequest_secondaryHostnames:
       description: |-
         List of additional CNAMEs.
@@ -1573,23 +1753,22 @@ components:
       type: object
       properties:
         values:
+          description: List of secondary hostname values.
           type: array
           items:
             type: string
     OriginProtocol_in_CreateResourceRequest_originProtocol:
       description: |-
-        Specify the protocol schema to be used in communication with origin .
+        Specify the protocol schema to be used in communication with origin.
 
         This option defines the protocol that will be used by CDN servers to request
         content from an origin source. If not specified, we will use HTTP to connect
         to an origin server.
 
-        Possible values are:
-
-            HTTPS - CDN servers will connect to your origin via HTTPS.
-            HTTP  - CDN servers will connect to your origin via HTTP.
-            MATCH - Connection protocol will be chosen automatically (content on the
-                    origin source should be available for the CDN both through HTTP and HTTPS).
+         - HTTP: CDN servers will connect to your origin via HTTP.
+         - HTTPS: CDN servers will connect to your origin via HTTPS.
+         - MATCH: Connection protocol will be chosen automatically (content on the
+        origin source should be available for the CDN both through HTTP and HTTPS).
       type: string
       enum:
       - HTTP
@@ -1599,7 +1778,7 @@ components:
       description: |-
         Resource settings and options to tune CDN edge behavior. Most is unset.
 
-        ResourceOptions major set of various Resource options.
+        A major set of various resource options.
       type: object
       properties:
         disableCache:
@@ -1641,7 +1820,10 @@ components:
         rewrite:
           $ref: '#/components/schemas/ResourceOptionsRewriteOption_in_ResourceOptions_rewrite'
     SSLTargetCertificate_in_CreateResourceRequest_sslCertificate:
-      description: SSL Certificate options.
+      description: |-
+        SSL Certificate options.
+
+        A set of the personal SSL certificate patameters.
       type: object
       properties:
         type:
@@ -1649,6 +1831,10 @@ components:
         data:
           $ref: '#/components/schemas/SSLCertificateData_in_SSLTargetCertificate_data'
     OriginMeta_in_OriginParams_meta:
+      description: |-
+        Set up origin of the content.
+
+        Origin type. For details about the concept, see [documentation](/docs/cdn/concepts/origins).
       type: object
       allOf:
       - title: origin_meta_variant
@@ -1657,14 +1843,25 @@ components:
         properties:
           common:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket not configured as a static
+              site hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket configured as a static site
+              hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
+            description: |-
+              An L7 load balancer from Yandex Application Load Balancer.
+              CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
     ResourceOptions_in_Resource_options:
-      description: ResourceOptions major set of various Resource options.
+      description: |-
+        Resource settings and options to tune CDN edge behavior.
+
+        A major set of various resource options.
       type: object
       properties:
         disableCache:
@@ -1707,22 +1904,26 @@ components:
           $ref: '#/components/schemas/ResourceOptionsRewriteOption_in_ResourceOptions_rewrite'
     OriginProtocol_in_Resource_originProtocol:
       description: |-
+        Specify the protocol schema to be used in communication with origin.
+
         This option defines the protocol that will be used by CDN servers to request
         content from an origin source. If not specified, we will use HTTP to connect
         to an origin server.
 
-        Possible values are:
-
-            HTTPS - CDN servers will connect to your origin via HTTPS.
-            HTTP  - CDN servers will connect to your origin via HTTP.
-            MATCH - Connection protocol will be chosen automatically (content on the
-                    origin source should be available for the CDN both through HTTP and HTTPS).
+         - HTTP: CDN servers will connect to your origin via HTTP.
+         - HTTPS: CDN servers will connect to your origin via HTTPS.
+         - MATCH: Connection protocol will be chosen automatically (content on the
+        origin source should be available for the CDN both through HTTP and HTTPS).
       type: string
       enum:
       - HTTP
       - HTTPS
       - MATCH
     SSLCertificate_in_Resource_sslCertificate:
+      description: |-
+        SSL certificate options.
+
+        A SSL sertificate patameters.
       type: object
       properties:
         type:
@@ -1732,20 +1933,35 @@ components:
         data:
           $ref: '#/components/schemas/SSLCertificateData_in_SSLCertificate_data'
     ResourceOptionsBoolOption_in_ResourceOptions_disableCache:
+      description: |-
+        Set up a cache status.
+
+        Set up bool values.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: boolean
           format: boolean
     ResourceOptionsEdgeCacheSettings_in_ResourceOptions_edgeCacheSettings:
+      description: |-
+        Set up `ResourceOptionsEdgeCacheSettings`.
+
+        A set of the edge cache parameters.
       type: object
       allOf:
       - type: object
         properties:
           enabled:
+            description: "True - the option is enabled and its `values_variant` is
+              applied to the resource. \nFalse - the option is disabled and its default
+              value is used for the resource."
             type: boolean
             format: boolean
       - title: values_variant
@@ -1754,29 +1970,56 @@ components:
         properties:
           value:
             $ref: '#/components/schemas/ResourceOptionsCachingTimes'
+            description: Value of the option.
           defaultValue:
+            description: "Content will be cached according to origin cache settings.
+              \nThe value applies for a response with codes 200, 201, 204, 206, 301,
+              302, 303, 304, 307, 308 \nif an origin server does not have caching
+              HTTP headers.\nResponses with other codes will not be cached."
             type: string
             format: int64
     ResourceOptionsInt64Option_in_ResourceOptions_browserCacheSettings:
+      description: "Using `ResourceOptionsInt64Option`. Set up a cache period for
+        the end-users browser.\nContent will be cached due to origin settings. \nIf
+        there are no cache settings on your origin, the content will not be cached.\nThe
+        list of HTTP response codes that can be cached in browsers: 200, 201, 204,
+        206, 301, 302, 303, 304, 307, 308. \nOther response codes will not be cached.\nThe
+        default value is 4 days.\n\nA set of the numeric parameters."
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: string
           format: int64
     ResourceOptionsStringsListOption_in_ResourceOptions_cacheHttpHeaders:
+      description: |-
+        List HTTP headers that must be included in responses to clients.
+
+        A set of the string list parameters.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: array
           items:
             type: string
     ResourceOptionsQueryParamsOptions_in_ResourceOptions_queryParamsOptions:
+      description: |-
+        Set up `ResourceOptionsQueryParamsOptions`.
+
+        A set of the query parameters.
       type: object
       allOf:
       - title: query_params_variant
@@ -1785,20 +2028,41 @@ components:
         properties:
           ignoreQueryString:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: Using `ResourceOptionsBoolOption`. Selected by default. Files
+              with different query parameters are cached as objects with the same
+              key regardless of the parameter value.
           queryParamsWhitelist:
             $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+            description: "Ignore All Except. \nFiles with the specified query parameters
+              are cached as objects with different keys, \nfiles with other parameters
+              are cached as objects with the same key."
           queryParamsBlacklist:
             $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+            description: "Ignore only. Files with the specified query parameters are
+              cached as objects with the same key, \nfiles with other parameters are
+              cached as objects with different keys."
     ResourceOptionsBoolOption_in_ResourceOptions_slice:
+      description: "Files larger than 10 MB will be requested and cached in parts
+        (no larger than 10 MB each part). It reduces time to first byte.\n\nThe origin
+        must support HTTP Range requests. \n\nBy default the option is disabled.\n\nSet
+        up bool values."
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: boolean
           format: boolean
     ResourceOptionsCompressionOptions_in_ResourceOptions_compressionOptions:
+      description: |-
+        Set up compression variant.
+
+        A set of the compression variant parameters.
       type: object
       allOf:
       - title: compression_variant
@@ -1807,11 +2071,26 @@ components:
         properties:
           fetchCompressed:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: "The Fetch compressed option helps you to reduce\nthe bandwidth
+              between origin and CDN servers. \nAlso, content delivery speed becomes
+              higher because of reducing the time\nfor compressing files in a CDN."
           gzipOn:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: Using `ResourceOptionsBoolOption`. GZip compression at CDN
+              servers reduces file size by 70% and can be as high as 90%.
           brotliCompression:
             $ref: '#/components/schemas/ResourceOptionsStringsListOption'
+            description: |-
+              The option allows to compress content with brotli on the CDN's end.
+
+              Compression is performed on the Origin Shielding. If a pre-cache server doesn't active for a resource, compression does not occur even if the option is enabled.
+
+              Specify the content-type for each type of content you wish to have compressed. CDN servers will request only uncompressed content from the origin.
     ResourceOptionsRedirectOptions_in_ResourceOptions_redirectOptions:
+      description: |-
+        Set up redirects.
+
+        A set of the redirect parameters.
       type: object
       allOf:
       - title: redirect_variant
@@ -1820,9 +2099,17 @@ components:
         properties:
           redirectHttpToHttps:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: Using `ResourceOptionsBoolOption`. Set up a redirect from
+              HTTPS to HTTP.
           redirectHttpsToHttp:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: Using `ResourceOptionsBoolOption`. Set up a redirect from
+              HTTP to HTTPS.
     ResourceOptionsHostOptions_in_ResourceOptions_hostOptions:
+      description: |-
+        Set up host parameters.
+
+        A set of the host parameters.
       type: object
       allOf:
       - title: host_variant
@@ -1831,113 +2118,207 @@ components:
         properties:
           host:
             $ref: '#/components/schemas/ResourceOptionsStringOption'
+            description: "Custom value for the Host header.\n\nYour server must be
+              able to process requests with the chosen header. \n\nDefault value (if
+              `enabled` is `false`) is [Resource.cname](/docs/cdn/api-ref/Resource#representation)."
           forwardHostHeader:
             $ref: '#/components/schemas/ResourceOptionsBoolOption'
+            description: "Using `ResourceOptionsBoolOption`. Choose the Forward Host
+              header option if is important to send in the request to the Origin \nthe
+              same Host header as was sent in the request to CDN server."
     ResourceOptionsStringsMapOption_in_ResourceOptions_staticHeaders:
+      description: |-
+        Set up static headers that CDN servers send in responses to clients.
+
+        A set of the strings map parameters.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: object
           additionalProperties:
             type: string
     ResourceOptionsStringsListOption_in_ResourceOptions_cors:
+      description: "Parameter that lets browsers get access to selected resources
+        from a domain \ndifferent to a domain from which the request is received.
+        \n[Read more](/docs/cdn/concepts/cors).\n\nA set of the string list parameters."
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: array
           items:
             type: string
     ResourceOptionsStringsListOption_in_ResourceOptions_stale:
+      description: |-
+        List of errors which instruct CDN servers to serve stale content to clients.
+
+        Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_502`, `http_503`, `http_504`, `invalid_header`, `timeout`, `updating`.
+
+        A set of the string list parameters.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: array
           items:
             type: string
     ResourceOptionsStringsListOption_in_ResourceOptions_allowedHttpMethods:
+      description: "HTTP methods for your CDN content. By default the following methods
+        \nare allowed: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS.\nIn case some
+        methods are not allowed to the user, they will get the 405 \n(Method Not Allowed)
+        response. If the method is not supported, \nthe user gets the 501 (Not Implemented)
+        response.\n\nA set of the string list parameters."
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: array
           items:
             type: string
     ResourceOptionsBoolOption_in_ResourceOptions_proxyCacheMethodsSet:
+      description: |-
+        Allows caching for GET, HEAD and POST requests.
+
+        Set up bool values.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: boolean
           format: boolean
     ResourceOptionsBoolOption_in_ResourceOptions_disableProxyForceRanges:
+      description: |-
+        Disabling proxy force ranges.
+
+        Set up bool values.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: boolean
           format: boolean
     ResourceOptionsStringsMapOption_in_ResourceOptions_staticRequestHeaders:
+      description: "Set up custom headers that CDN servers send in requests to origins.\nThe
+        Header name field can contain letters (A-Z, a-z), numbers (0-9), dashes (-)
+        and underscores (_).\nThe Value field can contain letters (A-Z, a-z), numbers
+        (0-9), dashes (-), \nunderscores (_), slashes (/), colons (:), equal (=),
+        dots (.), and spaces.\n\nA set of the strings map parameters."
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: object
           additionalProperties:
             type: string
     ResourceOptionsStringOption_in_ResourceOptions_customServerName:
+      description: "Wildcard additional CNAME. \nIf a resource has a wildcard additional
+        CNAME, you can use your own certificate for content delivery via HTTPS. Read-only.\n\nA
+        set of the string parameters."
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: string
     ResourceOptionsBoolOption_in_ResourceOptions_ignoreCookie:
+      description: |-
+        Using `ResourceOptionsBoolOption` for ignoring cookie.
+
+        Set up bool values.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `value` is applied to
+            the resource. \nFalse - the option is disabled and its default value is
+            used for the resource."
           type: boolean
           format: boolean
         value:
+          description: Value of the option.
           type: boolean
           format: boolean
     ResourceOptionsRewriteOption_in_ResourceOptions_rewrite:
+      description: |-
+        Changing or redirecting query paths.
+
+        An option for changing or redirecting query paths.
       type: object
       properties:
         enabled:
+          description: "True - the option is enabled and its `flag` is applied to
+            the resource. \nFalse - the option is disabled and its default value of
+            the `flag` is used for the resource."
           type: boolean
           format: boolean
         body:
+          description: |-
+            Pattern for rewrite.
+
+            The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`.
           type: string
         flag:
           $ref: '#/components/schemas/RewriteFlag_in_ResourceOptionsRewriteOption_flag'
     RewriteFlag_in_ResourceOptionsRewriteOption_flag:
       description: |-
+        Break flag is applied to the option by default.
+        It is not shown in the field.
+
         RewriteFlag defines flag for the Rewrite option.
-        Possible values are:
-          last - stops processing of the current set of ngx_http_rewrite_module directives and
-                 starts a search for a new location matching changed URI.
-          break - stops processing of the current set of the Rewrite option.
-          redirect - returns a temporary redirect with the 302 code; It is used when a replacement string does not start
-                     with "http://", "https://", or "$scheme".
-          permanent - returns a permanent redirect with the 301 code.
+
+         - LAST: Stops processing of the current set of ngx_http_rewrite_module directives and
+        starts a search for a new location matching changed URI.
+         - BREAK: Stops processing of the current set of the Rewrite option.
+         - REDIRECT: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start
+        with "http://", "https://", or "$scheme".
+         - PERMANENT: Returns a permanent redirect with the 301 code.
       type: string
       enum:
       - LAST
@@ -1945,6 +2326,10 @@ components:
       - REDIRECT
       - PERMANENT
     OriginMeta_in_ResourceOriginParams_meta:
+      description: |-
+        Set up type of the origin.
+
+        Origin type. For details about the concept, see [documentation](/docs/cdn/concepts/origins).
       type: object
       allOf:
       - title: origin_meta_variant
@@ -1953,24 +2338,53 @@ components:
         properties:
           common:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket not configured as a static
+              site hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket configured as a static site
+              hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
+            description: |-
+              An L7 load balancer from Yandex Application Load Balancer.
+              CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
     SSLCertificateType_in_SSLCertificate_type:
+      description: |-
+        Type of the sertificate.
+
+        A certificate type patameters.
+
+         - SSL_CERTIFICATE_TYPE_UNSPECIFIED: SSL certificate is unspecified.
+         - DONT_USE: No SSL certificate is added, the requests are sent via HTTP.
+         - LETS_ENCRYPT_GCORE: Works only if you have already pointed your domain name to the protected IP address in your DNS
+         - CM: Add your SSL certificate by uploading the certificate in PEM format and your private key
       type: string
       enum:
       - DONT_USE
       - LETS_ENCRYPT_GCORE
       - CM
     SSLCertificateStatus_in_SSLCertificate_status:
+      description: |-
+        Active status.
+
+        A certificate status patameters.
+
+         - SSL_CERTIFICATE_STATUS_UNSPECIFIED: SSL certificate is unspecified.
+         - READY: SSL certificate is ready to use.
+         - CREATING: SSL certificate is creating.
       type: string
       enum:
       - READY
       - CREATING
     SSLCertificateData_in_SSLCertificate_data:
+      description: |-
+        Certificate data.
+
+        A certificate data patameters.
       type: object
       allOf:
       - title: ssl_certificate_data_variant
@@ -1979,13 +2393,28 @@ components:
         properties:
           cm:
             $ref: '#/components/schemas/SSLCertificateCMData'
+            description: "Custom (add your SSL certificate by uploading the certificate
+              \nin PEM format and your private key)."
     SSLCertificateType_in_SSLTargetCertificate_type:
+      description: |-
+        Type of the sertificate.
+
+        A certificate type patameters.
+
+         - SSL_CERTIFICATE_TYPE_UNSPECIFIED: SSL certificate is unspecified.
+         - DONT_USE: No SSL certificate is added, the requests are sent via HTTP.
+         - LETS_ENCRYPT_GCORE: Works only if you have already pointed your domain name to the protected IP address in your DNS
+         - CM: Add your SSL certificate by uploading the certificate in PEM format and your private key
       type: string
       enum:
       - DONT_USE
       - LETS_ENCRYPT_GCORE
       - CM
     SSLCertificateData_in_SSLTargetCertificate_data:
+      description: |-
+        Certificate data.
+
+        A certificate data patameters.
       type: object
       allOf:
       - title: ssl_certificate_data_variant
@@ -1994,7 +2423,13 @@ components:
         properties:
           cm:
             $ref: '#/components/schemas/SSLCertificateCMData'
+            description: "Custom (add your SSL certificate by uploading the certificate
+              \nin PEM format and your private key)."
     OriginMeta_in_UpdateOriginRequest_meta:
+      description: |-
+        Set up type of the origin.
+
+        Origin type. For details about the concept, see [documentation](/docs/cdn/concepts/origins).
       type: object
       allOf:
       - title: origin_meta_variant
@@ -2003,22 +2438,37 @@ components:
         properties:
           common:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket not configured as a static
+              site hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket configured as a static site
+              hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
+            description: |-
+              An L7 load balancer from Yandex Application Load Balancer.
+              CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
     SecondaryHostnames_in_UpdateResourceRequest_secondaryHostnames:
-      description: List of secondary (alternative) CNAMEs.
+      description: |-
+        List of additional CNAMEs.
+
+        List of secondary (alternative) CNAMEs.
       type: object
       properties:
         values:
+          description: List of secondary hostname values.
           type: array
           items:
             type: string
     ResourceOptions_in_UpdateResourceRequest_options:
-      description: ResourceOptions major set of various Resource options.
+      description: |-
+        Resource settings and options to tune CDN edge behavior.
+
+        A major set of various resource options.
       type: object
       properties:
         disableCache:
@@ -2061,22 +2511,26 @@ components:
           $ref: '#/components/schemas/ResourceOptionsRewriteOption_in_ResourceOptions_rewrite'
     OriginProtocol_in_UpdateResourceRequest_originProtocol:
       description: |-
+        Specify the protocol schema to be used in communication with origin.
+
         This option defines the protocol that will be used by CDN servers to request
         content from an origin source. If not specified, we will use HTTP to connect
         to an origin server.
 
-        Possible values are:
-
-            HTTPS - CDN servers will connect to your origin via HTTPS.
-            HTTP  - CDN servers will connect to your origin via HTTP.
-            MATCH - Connection protocol will be chosen automatically (content on the
-                    origin source should be available for the CDN both through HTTP and HTTPS).
+         - HTTP: CDN servers will connect to your origin via HTTP.
+         - HTTPS: CDN servers will connect to your origin via HTTPS.
+         - MATCH: Connection protocol will be chosen automatically (content on the
+        origin source should be available for the CDN both through HTTP and HTTPS).
       type: string
       enum:
       - HTTP
       - HTTPS
       - MATCH
     SSLTargetCertificate_in_UpdateResourceRequest_sslCertificate:
+      description: |-
+        SSL Certificate options.
+
+        A set of the personal SSL certificate patameters.
       type: object
       properties:
         type:
@@ -2084,6 +2538,10 @@ components:
         data:
           $ref: '#/components/schemas/SSLCertificateData_in_SSLTargetCertificate_data'
     OriginMeta_in_v1Origin_meta:
+      description: |-
+        Set up origin of the content.
+
+        Origin type. For details about the concept, see [documentation](/docs/cdn/concepts/origins).
       type: object
       allOf:
       - title: origin_meta_variant
@@ -2092,14 +2550,23 @@ components:
         properties:
           common:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A server with a domain name linked to it
           bucket:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket not configured as a static
+              site hosting.
           website:
             $ref: '#/components/schemas/OriginNamedMeta'
+            description: A Yandex Object Storage bucket configured as a static site
+              hosting.
           balancer:
             $ref: '#/components/schemas/OriginBalancerMeta'
+            description: |-
+              An L7 load balancer from Yandex Application Load Balancer.
+              CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
 tags:
 - name: Cache
+  description: A set of methods for managing Cache Service resources.
 - name: OriginGroup
   description: Origin Groups management service.
 - name: Origin
@@ -2107,5 +2574,6 @@ tags:
     Origin management service.
     Origin is not a standalone entity. It can live only within origin group.
 - name: Provider
+  description: A set of methods for managing Provider Service resources.
 - name: Resource
   description: Provider's resources management service.

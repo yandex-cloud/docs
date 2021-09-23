@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method purge
-
+Removes specified files from the cache of the specified resource. For details about purging, see [documentation](/docs/cdn/concepts/caching#purge).
  
 
  
@@ -16,7 +16,7 @@ POST https://cdn.api.cloud.yandex.net/cdn/v1/cache/{resourceId}:purge
  
 Parameter | Description
 --- | ---
-resourceId | Required. Resource ID to perform cache operation on.  The maximum string length in characters is 50.
+resourceId | Required. ID of the resource to perform purge operation on.  The maximum string length in characters is 50.
  
 ## Body parameters {#body_params}
  
@@ -31,7 +31,7 @@ resourceId | Required. Resource ID to perform cache operation on.  The maximum s
  
 Field | Description
 --- | ---
-paths[] | **string**<br><p>Set of paths:</p> <ol> <li>empty array - purge all files.</li> <li>wildcard</li> <li>file-path to purge.</li> </ol> 
+paths[] | **string**<br><p>Set of paths: Paths of the files to remove from the cache.</p> <p>You may use asterisk (``*``) as a wildcard character that substitutes any number of characters.</p> <p>If an empty array of paths is specified, the cache is purged entirely.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

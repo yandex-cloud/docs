@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Provider
-
+A set of methods for managing Provider Service resources.
 
 ## Methods {#methods}
 Method | Description
