@@ -1,0 +1,24 @@
+title: Yandex Cloud Desktop
+description:
+  - >-
+    <em>Cервис Yandex Cloud Desktop находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - >-
+    Сервис Yandex Cloud Desktop позволяет организовать и управлять виртуальной инфраструктурой рабочих столов.
+  - >-
+    Работать с сервисом можно с помощью консоли управления Yandex.Cloud.
+meta:
+  title: Yandex Cloud Desktop
+links:
+  - title: Начало работы
+    description: Создайте рабочий стол и подключитесь к нему
+    href: quickstart/
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте об основных понятиях сервиса — рабочих столах и их группах
+    href: concepts/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits

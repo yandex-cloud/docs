@@ -58,6 +58,7 @@ default:
   forms-full-name: Yandex Forms
   wiki-full-name: Yandex Wiki
   load-testing-full-name: Yandex Load Testing
+  cloud-desktop-full-name: Yandex Cloud Desktop
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -115,6 +116,7 @@ default:
   forms-name: Forms
   wiki-name: Wiki
   load-testing-name: Load Testing
+  cloud-desktop-name: Cloud Desktop
 
   # Короткие имена
   iam-short-name: IAM
@@ -163,6 +165,7 @@ default:
   wiki-short-name: Wiki
   speechkit-pro-short-name: SpeechKit Pro
   cdn-short-name: Cloud CDN
+  cloud-desktop-short-name: Cloud Desktop
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   roles-alb-viewer: alb.viewer
   roles-alb-editor: alb.editor

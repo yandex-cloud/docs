@@ -1,0 +1,35 @@
+title: Yandex Cloud Desktop
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Группы рабочих столов
+        items:
+          - name: Создать группу рабочих столов
+            href: operations/desktop-groups/create.md
+          - name: Изменить права доступа к группе рабочих столов
+            href: operations/desktop-groups/update-acl.md
+          - name: Удалить группу рабочих столов
+            href: operations/desktop-groups/delete.md
+      - name: Рабочие столы
+        items:
+          - name: Создать рабочий стол
+            href: operations/desktops/create.md
+          - name: Подключиться к рабочему столу
+            href: operations/desktops/connect.md
+          - name: Сбросить пароль пользователя для рабочего стола
+            href: operations/desktops/password-reset.md
+          - name: Удалить рабочий стол
+            href: operations/desktops/delete.md
+  - name: Концепции
+    items:
+      - name: Рабочие столы и их группы
+        href: concepts/desktops-and-groups.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
