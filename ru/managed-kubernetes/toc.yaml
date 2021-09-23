@@ -23,8 +23,6 @@ items:
             href: operations/calico.md
           - name: Настройка контроллера сетевых политик Cilium
             href: operations/cilium.md
-      - name: Шифрование секретов
-        href: operations/encrypting-secrets.md
       - name: Работа с постоянными томами
         items:
           - name: Динамическая подготовка тома
@@ -89,6 +87,8 @@ items:
         href: concepts/index.md
       - name: Релизные каналы и обновления
         href: concepts/release-channels-and-updates.md
+      - name: Шифрование секретов
+        href: concepts/encryption.md
       - name: Использование объектов API Kubernetes
         items:
           - name: Том

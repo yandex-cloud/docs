@@ -9,7 +9,6 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](node-connect-ssh.md)
 * [{#T}](create-static-conf.md)
 * [{#T}](create-load-balancer.md)
-* [{#T}](encrypting-secrets.md)
 
 ## Работа с постоянными томами {#persistent-volumes}
 
