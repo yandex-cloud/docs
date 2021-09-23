@@ -1,0 +1,12 @@
+title: Yandex Managed Service for Gitlab
+href: index.yaml
+stage: tech-preview
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Концепции
+    items:
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+  - name: Правила тарификации
+    href: pricing.md
