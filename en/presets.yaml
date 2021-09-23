@@ -104,6 +104,7 @@ default:
   dns-name: Cloud DNS
   at-name: Audit Trails
   speechkit-pro-name: SpeechKit Pro
+  yds-name: Data Streams
   cdn-name: Cloud CDN
   serverless-containers-name: Serverless Containers
   org-name: Organization
@@ -403,6 +404,8 @@ default:
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
+  yds-short-name: Data Streams
+  yds: yds
 
   # Terraform providers
   tf-provider-mch: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster

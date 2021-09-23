@@ -1,0 +1,27 @@
+title: Yandex Data Streams
+href: index.yaml
+items:
+  - name: Getting started
+    items:
+      - name: Preparing the environment
+        href: quickstart/index.md
+      - name: Creating a stream
+        href: quickstart/create-stream.md
+      - name: Collecting and streaming data
+        items:
+          - name: Fluentd
+            href: quickstart/fluentd.md
+      - name: Saving data to ClickHouse
+        href: quickstart/send-to-clickhouse.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Terms and definitions
+        href: concepts/glossary.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md  
