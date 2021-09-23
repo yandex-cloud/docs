@@ -15,10 +15,6 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
 
-## Шифрование {#encrypting}
-
-* [{#T}](encrypting-secrets.md)
-
 ## Работа с постоянными томами {#persistent-volumes}
 
 * [{#T}](volumes/dynamic-create-pv.md)
