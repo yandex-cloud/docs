@@ -91,6 +91,8 @@ items:
         href: concepts/repository.md
       - name: Политика автоматического удаления Docker-образов
         href: concepts/lifecycle-policy.md
+      - name: Сканер уязвимостей
+        href: concepts/vulnerability-scanner.md
       - name: Триггер Yandex Cloud Functions
         href: concepts/trigger.md
       - name: Резервное копирование
