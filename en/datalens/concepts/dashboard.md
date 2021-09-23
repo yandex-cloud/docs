@@ -31,12 +31,13 @@ Visualization as a table or chart.
 You can place charts anywhere on a dashboard and change their size.
 Charts can be linked to selectors.
 
-For more information about charts, see [{#T}](chart/index.md).
+For more information about charts, see [{#T}](./chart/index.md).
 
 ### Selector {#selector}
 
 A filter that affects query results on its linked widgets. To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
-The selector can be linked to a chart or another selector. For more information, see [Link](#link).
+The selector can be linked to a chart or another selector.
+ For more information, see [Link](#link).
 A selector works within a single dashboard tab.
 
 ### Text {#text}
@@ -50,7 +51,7 @@ A widget represented as a heading. It lets you differentiate charts by meaning a
 
 ## Link {#link}
 
-Links determine how a selector affects one or more charts or other selectors. By default, selectors are linked with charts created within a single dataset. Selectors and charts based on different datasets can also be linked manually.
+Links determine how a selector affects one or more charts or other selectors. By default, selectors are linked with charts created within a single dataset. Selectors and charts based on different datasets can also be linked manually using [aliases](#alias).
 
 You can choose an existing dataset field as the link or create your own field where you manually set the selector values.
 
@@ -78,7 +79,28 @@ Some widgets can't affect other widgets. Possible types of links between widgets
 | **Selector** | Link<br/>Incoming link<br/>Outgoing link<br/>Ignore | Outgoing link<br/>Ignore |
 | **Chart** | Incoming link<br/>Ignore | — |
 
-{% if audience != "internal" %}
+## An alias {#alias}
+
+An alias is a link between fields of different datasets, which determines how widgets impact each other when you link them.
+
+Aliases let you link widgets that are based on different datasets. For example, if you create an alias using the `[Region]` and `[Country]` fields from different datasets, a selector by the `[Region]` field from one dataset will filter data in a chart with the `[Country]` field of another dataset. For widgets based on the same dataset, aliases are created automatically. Creating aliases is required when you need to:
+
+* Establish links between selectors that are based on different datasets, so that the values of one selector filter the list of available values of another selector.
+
+* Establish links between a selector of the **Based on datasets** type from one dataset and charts from another dataset, so that the selector values filter the values in the charts.
+
+* Establish links between a selector of the **Manual input** type and other selectors, so that the values of one selector filter the list of available values of another selector.
+
+You can specify an alias for a pair of linked widgets. In this case:
+
+* Multiple aliases can be set for a single pair of widgets.
+* An alias set for one pair of widgets is applied to all linked widgets that are based on the same datasets (which use the fields specified in the alias).
+* An alias works within a single dashboard tab.
+* To limit the use of an alias, set the **Ignore** type for a link between widgets.
+
+For more information about how to create aliases, see [{#T}](../operations/dashboard/create-alias.md).
+
+You can delete links from an alias where more than two fields are linked. For more information, see [{#T}](../operations/dashboard/edit-alias.md).
 
 ## Publishing dashboards {#public-access}
 
@@ -86,44 +108,6 @@ You can grant any internet user access to a dashboard using [{{ datalens-public 
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
-{% endif %}
-
-{% if audience == "internal" %}
-
-## Using parameters and limitations {#parameters}
-
-In the dashboard settings section, you can set the parameters to use. For each parameter, specify a key and value. Currently, there are some reserved keys that can't be used (see discussion in this [ticket](https://st.yandex-team.ru/CHARTS-3122)):
-
-* `tab`
-* `state`
-* `mode`
-* `focus`
-* `grid`
-* `scale`
-* `tz`
-* `timezone`
-* `date`
-* `datetime`
-
-Parameters with these keys are ignored and not saved. The saved dashboard parameters are inserted into all widgets (including charts and selectors) once they are uploaded.
-
-You can also specify parameter values in dashboard links. These values will be prioritized. For example, if the dashboard settings have the `region` parameter set to `RU` and the dashboard link indicates `?region=KZ`, the `KZ` value is inserted into widgets.
-
-Links can only use parameters that are set in the dashboard settings. Otherwise, they are ignored. For example, if a link contains `?product=Furniture`, while the dashboard settings have no `product` parameter (not even with a null value), this parameter is ignored.
-
-The following limitations apply when using parameters:
-
-- Dashboard parameters are applied to widgets anyway. This may lead to errors in data requests.
-
-- Parameters can't be used when creating links. To create a link, you can add a manual selector with the appropriate parameter key, set links using this selector by the desired parameters, and then delete it. The ability to configure links between dashboard parameters and charts will be implemented in this [ticket](https://st.yandex-team.ru/CHARTS-3118).
-
-- Parameter keys such as `region` or `product` are identifiers like `6c13d915-32f4-4a51-adef-1dc39bcac36d` and `36fed430-4bfd-11e9-95cb-53c8ddf502cd`. IDs like that should be specified as keys when setting parameters are used in wizards. You can only get IDs from requests on the Network tab in your browser's developer tools. The ability to copy the ID from a dataset will be then added in this [ticket](https://st.yandex-team.ru/CHARTS-3186). After implementing the [ticket](https://st.yandex-team.ru/YCDESIGN-871), you'll be able to get the ID by selecting a dataset and parameter.
-
-- Charts used in wizards can also accept and apply parameters in the form of a heading: both as `region` and `6c13d915-32f4-4a51-adef-1dc39bcac36d`. This behavior is considered incorrect and is not currently handled on the dashboard side (in particular in links). It may change in the future (see the discussion in this [ticket](https://st.yandex-team.ru/CHARTS-2905)).
-
-{% endif %}
-
 ## Access management {#access-management}
 
-You can configure dashboard permissions. {% if audience != "internal" %} For more information, see [{#T}](../security/index.md). {% endif %}
-
+You can configure dashboard permissions. For more information, see [{#T}](../security/index.md).
