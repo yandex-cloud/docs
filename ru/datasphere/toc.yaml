@@ -49,6 +49,8 @@ items:
             href: operations/data/connect-to-clickhouse.md
           - name: Подключение к базе данных {{ PG }}
             href: operations/data/connect-to-postgresql.md
+          - name: Подключение к хранилищу S3
+            href: operations/data/connect-to-s3.md
       - name: Настройка интеграции с Data Proc
         href: operations/data-proc-integration.md
       - name: Работа с приватными данными
@@ -83,6 +85,8 @@ items:
         href: concepts/data-proc.md
       - name: Фоновые операции
         href: concepts/async.md
+      - name: Датасеты
+        href: concepts/dataset.md
       - name: Хранение приватных данных
         href: concepts/secrets.md
       - name: Использование TensorBoard в DataSphere
@@ -95,10 +99,6 @@ items:
         href: early-access/index.md
       - name: Специальные фоновые операции
         href: early-access/repeat.md
-      - name: Подключение к хранилищу S3
-        href: operations/data/connect-to-s3.md
-      - name: Датасеты
-        href: concepts/dataset.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
