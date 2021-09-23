@@ -23,6 +23,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](create-load-balancer.md)
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
+* [{#T}](cilium-node-local-dns.md)
 
 ## Управление кластером {{ k8s }} {#kubernetes-cluster}
 
