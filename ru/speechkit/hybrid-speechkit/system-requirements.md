@@ -19,14 +19,14 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 || echo No AVX2
 
 {% list tabs %}
 
-- Контейнеры с **CPU**
+- Контейнеры с CPU
 
    | Контейнер | CPU | RAM | HDD |
    |---|---|---|---|
    | Распознавание речи (40 каналов) | 2 процессора [Intel Gold 6230R](https://ark.intel.com/content/www/ru/ru/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) | 128 ГБ | 300 ГБ |
    | Синтез речи (10–16 SPS^1^) | 1 процессор Intel Gold 6230R | 64 ГБ | 300 ГБ |
 
-- Контейнеры с **GPU**
+- Контейнеры с GPU
 
    | Контейнер | CPU | GPU | RAM | HDD |
    |---|---|---|---|---|
