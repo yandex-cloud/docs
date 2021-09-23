@@ -75,7 +75,7 @@ _SQL-чарты_ — чарты, созданные на основе подкл
 * позволяют применять операторы `JOIN`, `GROUP BY`, `SORT BY` и функции агрегации в SQL-запросе;
 * предоставляют возможность параметризации любой части SQL-запроса;
 * поддерживают ограниченный набор [типов визуализаций](types.md);
-* не поддерживают [материализацию](../dataset/settings.md#materializaton) и [публикацию](../datalens-public.md) данных;
+* не поддерживают [материализацию](../dataset/settings.md#materializaton) {% if audience != "internal" %} и [публикацию](../datalens-public.md) {% endif %} данных ;
 * не используют [RLS](../../security/row-level-security.md) и [вычисляемые поля](../calculations/index.md).
 
 {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
