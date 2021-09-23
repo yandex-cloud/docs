@@ -81,6 +81,8 @@ items:
         href: concepts/index.md
       - name: Docker-образ
         href: concepts/docker-image.md
+      - name: Том Docker
+        href: concepts/docker-volume.md
       - name: Реестр
         href: concepts/registry.md
       - name: Репозиторий
