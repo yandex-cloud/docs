@@ -11,6 +11,7 @@ A set of methods for managing Greenplum clusters.
 | [Get](#Get) | Returns the specified Greenplum cluster. |
 | [List](#List) | Retrieves a list of Greenplum clusters that belong to the specified folder. |
 | [Create](#Create) | Creates a Greenplum cluster in the specified folder. |
+| [Update](#Update) | Updates the specified Greenplum cluster. |
 | [Delete](#Delete) | Deletes the specified Greenplum cluster. |
 | [Start](#Start) | Starts the specified Greenplum cluster. |
 | [Stop](#Stop) | Stops the specified Greenplum cluster. |
@@ -41,7 +42,7 @@ id | **string**<br>ID of the Greenplum cluster. This ID is assigned by MDB at cr
 folder_id | **string**<br>ID of the folder that the Greenplum cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum cluster. The name is unique within the folder. 1-63 characters long. The maximum string length in characters is 63.
-config | **[GreenplumConfig](#GreenplumConfig)**<br>Green plum cluster config 
+config | **[GreenplumConfig](#GreenplumConfig)**<br>Greenplum cluster config 
 description | **string**<br>Description of the Greenplum cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the Greenplum cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -52,7 +53,7 @@ master_host_count | **int64**<br>Number of hosts of the master subcluster
 segment_host_count | **int64**<br>Number of hosts of the segment subcluster 
 segment_in_host | **int64**<br>Number of segments in the host 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation)**<br>Maintenance operation planned at nearest maintenance_window. 
@@ -221,7 +222,7 @@ id | **string**<br>ID of the Greenplum cluster. This ID is assigned by MDB at cr
 folder_id | **string**<br>ID of the folder that the Greenplum cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum cluster. The name is unique within the folder. 1-63 characters long. The maximum string length in characters is 63.
-config | **[GreenplumConfig](#GreenplumConfig1)**<br>Green plum cluster config 
+config | **[GreenplumConfig](#GreenplumConfig1)**<br>Greenplum cluster config 
 description | **string**<br>Description of the Greenplum cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the Greenplum cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -232,7 +233,7 @@ master_host_count | **int64**<br>Number of hosts of the master subcluster
 segment_host_count | **int64**<br>Number of hosts of the segment subcluster 
 segment_in_host | **int64**<br>Number of segments in the host 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow1)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation1)**<br>Maintenance operation planned at nearest maintenance_window. 
@@ -388,7 +389,7 @@ name | **string**<br>Required. Name of the Greenplum cluster. The name must be u
 description | **string**<br>Description of the Greenplum cluster. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Custom labels for the Greenplum cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 environment | **[Cluster.Environment](#Cluster2)**<br>Required. Deployment environment of the Greenplum cluster. 
-config | **[GreenplumConfig](#GreenplumConfig2)**<br>Green plum cluster config 
+config | **[GreenplumConfig](#GreenplumConfig2)**<br>Greenplum cluster config 
 master_config | **[MasterSubclusterConfigSpec](#MasterSubclusterConfigSpec)**<br>Configuration of the Greenplum master subcluster. 
 segment_config | **[SegmentSubclusterConfigSpec](#SegmentSubclusterConfigSpec)**<br>Configuration of the Greenplum segment subcluster. 
 master_host_count | **int64**<br>Number of hosts of the master subcluster 
@@ -504,7 +505,7 @@ id | **string**<br>ID of the Greenplum cluster. This ID is assigned by MDB at cr
 folder_id | **string**<br>ID of the folder that the Greenplum cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum cluster. The name is unique within the folder. 1-63 characters long. The maximum string length in characters is 63.
-config | **[GreenplumConfig](#GreenplumConfig3)**<br>Green plum cluster config 
+config | **[GreenplumConfig](#GreenplumConfig3)**<br>Greenplum cluster config 
 description | **string**<br>Description of the Greenplum cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the Greenplum cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -515,7 +516,7 @@ master_host_count | **int64**<br>Number of hosts of the master subcluster
 segment_host_count | **int64**<br>Number of hosts of the segment subcluster 
 segment_in_host | **int64**<br>Number of segments in the host 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Maintenance operation planned at nearest maintenance_window. 
@@ -652,21 +653,48 @@ info | **string**<br> The maximum string length in characters is 256.
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
-## Delete {#Delete}
+## Update {#Update}
 
-Deletes the specified Greenplum cluster.
+Updates the specified Greenplum cluster.
 
-**rpc Delete ([DeleteClusterRequest](#DeleteClusterRequest)) returns ([operation.Operation](#Operation1))**
+**rpc Update ([UpdateClusterRequest](#UpdateClusterRequest)) returns ([operation.Operation](#Operation1))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterMetadata](#DeleteClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateClusterMetadata](#UpdateClusterMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
 
-### DeleteClusterRequest {#DeleteClusterRequest}
+### UpdateClusterRequest {#UpdateClusterRequest}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Greenplum cluster to delete. To get the Greenplum cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Greenplum Cluster resource to update. To get the Greenplum cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Greenplum Cluster resource should be updated. 
+description | **string**<br>New description of the Greenplum cluster. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Custom labels for the Greenplum cluster as `key:value` pairs. Maximum 64 per resource. For example, "project": "mvp" or "source": "dictionary". <br>The new set of labels will completely replace the old ones. To add a label, request the current set with the [ClusterService.Get](#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+name | **string**<br>New name for the cluster. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+config | **[GreenplumConfig](#GreenplumConfig4)**<br>Greenplum cluster config 
+security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+
+
+### GreenplumConfig {#GreenplumConfig4}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the Greenplum server software. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access4)**<br>Access policy for external services. 
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster3). The maximum string length in characters is 50.
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the master hosts. </li><li>true - the master hosts should have a public IP address.</li></ul> 
+
+
+### Access {#Access4}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. 
 
 
 ### Operation {#Operation1}
@@ -679,57 +707,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterMetadata](#DeleteClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
-
-
-### DeleteClusterMetadata {#DeleteClusterMetadata}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>ID of the Greenplum cluster that is being deleted. 
-
-
-## Start {#Start}
-
-Starts the specified Greenplum cluster.
-
-**rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation2))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster3)<br>
-
-### StartClusterRequest {#StartClusterRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the Greenplum cluster to start. The maximum string length in characters is 50.
-
-
-### Operation {#Operation2}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateClusterMetadata](#UpdateClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster3)>**<br>if operation finished successfully. 
 
 
-### StartClusterMetadata {#StartClusterMetadata}
+### UpdateClusterMetadata {#UpdateClusterMetadata}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the Greenplum cluster being started. 
+cluster_id | **string**<br>ID of the Greenplum Cluster resource that is being updated. 
 
 
 ### Cluster {#Cluster3}
@@ -740,7 +728,7 @@ id | **string**<br>ID of the Greenplum cluster. This ID is assigned by MDB at cr
 folder_id | **string**<br>ID of the folder that the Greenplum cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum cluster. The name is unique within the folder. 1-63 characters long. The maximum string length in characters is 63.
-config | **[GreenplumConfig](#GreenplumConfig4)**<br>Green plum cluster config 
+config | **[GreenplumConfig](#GreenplumConfig5)**<br>Greenplum cluster config 
 description | **string**<br>Description of the Greenplum cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the Greenplum cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -751,7 +739,7 @@ master_host_count | **int64**<br>Number of hosts of the master subcluster
 segment_host_count | **int64**<br>Number of hosts of the segment subcluster 
 segment_in_host | **int64**<br>Number of segments in the host 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation3)**<br>Maintenance operation planned at nearest maintenance_window. 
@@ -761,19 +749,19 @@ deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the c
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
-### GreenplumConfig {#GreenplumConfig4}
+### GreenplumConfig {#GreenplumConfig5}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access4)**<br>Access policy for external services. 
+access | **[Access](#Access5)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster4). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the master hosts. </li><li>true - the master hosts should have a public IP address.</li></ul> 
 
 
-### Access {#Access4}
+### Access {#Access5}
 
 Field | Description
 --- | ---
@@ -888,21 +876,61 @@ info | **string**<br> The maximum string length in characters is 256.
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
-## Stop {#Stop}
+## Delete {#Delete}
 
-Stops the specified Greenplum cluster.
+Deletes the specified Greenplum cluster.
 
-**rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation3))**
+**rpc Delete ([DeleteClusterRequest](#DeleteClusterRequest)) returns ([operation.Operation](#Operation2))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteClusterMetadata](#DeleteClusterMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
 
-### StopClusterRequest {#StopClusterRequest}
+### DeleteClusterRequest {#DeleteClusterRequest}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>Required. ID of the Greenplum cluster to stop. The maximum string length in characters is 50.
+cluster_id | **string**<br>Required. ID of the Greenplum cluster to delete. To get the Greenplum cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+
+
+### Operation {#Operation2}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteClusterMetadata](#DeleteClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteClusterMetadata {#DeleteClusterMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the Greenplum cluster that is being deleted. 
+
+
+## Start {#Start}
+
+Starts the specified Greenplum cluster.
+
+**rpc Start ([StartClusterRequest](#StartClusterRequest)) returns ([operation.Operation](#Operation3))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StartClusterMetadata](#StartClusterMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster4)<br>
+
+### StartClusterRequest {#StartClusterRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the Greenplum cluster to start. The maximum string length in characters is 50.
 
 
 ### Operation {#Operation3}
@@ -915,17 +943,17 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StartClusterMetadata](#StartClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster4)>**<br>if operation finished successfully. 
 
 
-### StopClusterMetadata {#StopClusterMetadata}
+### StartClusterMetadata {#StartClusterMetadata}
 
 Field | Description
 --- | ---
-cluster_id | **string**<br>ID of the Greenplum cluster being stopped. 
+cluster_id | **string**<br>ID of the Greenplum cluster being started. 
 
 
 ### Cluster {#Cluster4}
@@ -936,7 +964,7 @@ id | **string**<br>ID of the Greenplum cluster. This ID is assigned by MDB at cr
 folder_id | **string**<br>ID of the folder that the Greenplum cluster belongs to. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
 name | **string**<br>Required. Name of the Greenplum cluster. The name is unique within the folder. 1-63 characters long. The maximum string length in characters is 63.
-config | **[GreenplumConfig](#GreenplumConfig5)**<br>Green plum cluster config 
+config | **[GreenplumConfig](#GreenplumConfig6)**<br>Greenplum cluster config 
 description | **string**<br>Description of the Greenplum cluster. 0-256 characters long. 
 labels | **map<string,string>**<br>Custom labels for the Greenplum cluster as `key:value` pairs. Maximum 64 per resource. 
 environment | enum **Environment**<br>Deployment environment of the Greenplum cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
@@ -947,7 +975,7 @@ master_host_count | **int64**<br>Number of hosts of the master subcluster
 segment_host_count | **int64**<br>Number of hosts of the segment subcluster 
 segment_in_host | **int64**<br>Number of segments in the host 
 network_id | **string**<br>ID of the network that the cluster belongs to. 
-health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><ul/>
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
 maintenance_window | **[MaintenanceWindow](#MaintenanceWindow4)**<br>Window of maintenance operations. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation4)**<br>Maintenance operation planned at nearest maintenance_window. 
@@ -957,19 +985,19 @@ deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the c
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
-### GreenplumConfig {#GreenplumConfig5}
+### GreenplumConfig {#GreenplumConfig6}
 
 Field | Description
 --- | ---
 version | **string**<br>Version of the Greenplum server software. 
 backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
-access | **[Access](#Access5)**<br>Access policy for external services. 
+access | **[Access](#Access6)**<br>Access policy for external services. 
 zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster5). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the master hosts. </li><li>true - the master hosts should have a public IP address.</li></ul> 
 
 
-### Access {#Access5}
+### Access {#Access6}
 
 Field | Description
 --- | ---
@@ -1084,6 +1112,202 @@ info | **string**<br> The maximum string length in characters is 256.
 delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
 
 
+## Stop {#Stop}
+
+Stops the specified Greenplum cluster.
+
+**rpc Stop ([StopClusterRequest](#StopClusterRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[StopClusterMetadata](#StopClusterMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Cluster](#Cluster5)<br>
+
+### StopClusterRequest {#StopClusterRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the Greenplum cluster to stop. The maximum string length in characters is 50.
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[StopClusterMetadata](#StopClusterMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Cluster](#Cluster5)>**<br>if operation finished successfully. 
+
+
+### StopClusterMetadata {#StopClusterMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the Greenplum cluster being stopped. 
+
+
+### Cluster {#Cluster5}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the Greenplum cluster. This ID is assigned by MDB at creation time. 
+folder_id | **string**<br>ID of the folder that the Greenplum cluster belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Required. Name of the Greenplum cluster. The name is unique within the folder. 1-63 characters long. The maximum string length in characters is 63.
+config | **[GreenplumConfig](#GreenplumConfig7)**<br>Greenplum cluster config 
+description | **string**<br>Description of the Greenplum cluster. 0-256 characters long. 
+labels | **map<string,string>**<br>Custom labels for the Greenplum cluster as `key:value` pairs. Maximum 64 per resource. 
+environment | enum **Environment**<br>Deployment environment of the Greenplum cluster. <ul><li>`PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.</li><li>`PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.</li><ul/>
+monitoring[] | **[Monitoring](#Monitoring5)**<br>Description of monitoring systems relevant to the Greenplum cluster. 
+master_config | **[MasterSubclusterConfig](#MasterSubclusterConfig5)**<br>Configuration of the Greenplum master subcluster. 
+segment_config | **[SegmentSubclusterConfig](#SegmentSubclusterConfig5)**<br>Configuration of the Greenplum segment subcluster. 
+master_host_count | **int64**<br>Number of hosts of the master subcluster 
+segment_host_count | **int64**<br>Number of hosts of the segment subcluster 
+segment_in_host | **int64**<br>Number of segments in the host 
+network_id | **string**<br>ID of the network that the cluster belongs to. 
+health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li><li>`UNBALANCED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is UNBALANCED).</li><ul/>
+status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li><ul/>
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow5)**<br>Window of maintenance operations. 
+planned_operation | **[MaintenanceOperation](#MaintenanceOperation5)**<br>Maintenance operation planned at nearest maintenance_window. 
+security_group_ids[] | **string**<br>User security groups 
+user_name | **string**<br>Owner user name 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
+
+
+### GreenplumConfig {#GreenplumConfig7}
+
+Field | Description
+--- | ---
+version | **string**<br>Version of the Greenplum server software. 
+backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**<br>Time to start the daily backup, in the UTC timezone. 
+access | **[Access](#Access7)**<br>Access policy for external services. 
+zone_id | **string**<br>ID of the availability zone where the host resides. To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/zone_service#List) request. The maximum string length in characters is 50.
+subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster6). The maximum string length in characters is 50.
+assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the master hosts. </li><li>true - the master hosts should have a public IP address.</li></ul> 
+
+
+### Access {#Access7}
+
+Field | Description
+--- | ---
+data_lens | **bool**<br>Allow to export data from the cluster to Yandex DataLens. 
+web_sql | **bool**<br>Allow SQL queries to the cluster databases from the Yandex.Cloud management console. 
+
+
+### Monitoring {#Monitoring5}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the monitoring system. 
+description | **string**<br>Description of the monitoring system. 
+link | **string**<br>Link to the monitoring system charts for the Greenplum cluster. 
+
+
+### MasterSubclusterConfig {#MasterSubclusterConfig5}
+
+Field | Description
+--- | ---
+resources | **[Resources](#Resources12)**<br>Resources allocated to Greenplum master subcluster hosts. 
+config | **[GreenplumMasterConfigSet](#GreenplumMasterConfigSet5)**<br>Configuration settings of a Greenplum master server. 
+
+
+### Resources {#Resources12}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host. 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### GreenplumMasterConfigSet {#GreenplumMasterConfigSet5}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumMasterConfig](#GreenplumMasterConfig6)**<br>Required. Effective settings for a Greenplum master subcluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumMasterConfig](#GreenplumMasterConfig6)**<br>User-defined settings for a Greenplum master subcluster. 
+default_config | **[GreenplumMasterConfig](#GreenplumMasterConfig6)**<br>Default configuration for a Greenplum master subcluster. 
+
+
+### GreenplumMasterConfig {#GreenplumMasterConfig6}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the Greenplum master subcluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. <ul><ul/>
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. 
+timezone | **google.protobuf.StringValue**<br>The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier. 
+
+
+### SegmentSubclusterConfig {#SegmentSubclusterConfig5}
+
+Field | Description
+--- | ---
+resources | **[Resources](#Resources13)**<br>Resources allocated to Greenplum segment subcluster hosts. 
+config | **[GreenplumSegmentConfigSet](#GreenplumSegmentConfigSet5)**<br>Configuration settings of a Greenplum segment server. 
+
+
+### Resources {#Resources13}
+
+Field | Description
+--- | ---
+resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
+disk_size | **int64**<br>Volume of the storage available to a host. 
+disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+### GreenplumSegmentConfigSet {#GreenplumSegmentConfigSet5}
+
+Field | Description
+--- | ---
+effective_config | **[GreenplumSegmentConfig](#GreenplumSegmentConfig6)**<br>Required. Effective settings for a Greenplum segment subcluster (a combination of settings defined in `user_config` and `default_config`). 
+user_config | **[GreenplumSegmentConfig](#GreenplumSegmentConfig6)**<br>User-defined settings for a Greenplum segment subcluster. 
+default_config | **[GreenplumSegmentConfig](#GreenplumSegmentConfig6)**<br>Default configuration for a Greenplum segment subcluster. 
+
+
+### GreenplumSegmentConfig {#GreenplumSegmentConfig6}
+
+Field | Description
+--- | ---
+log_level | enum **LogLevel**<br>Logging level for the Greenplum segment subcluster. Possible values: TRACE, DEBUG, INFORMATION, WARNING, ERROR. <ul><ul/>
+max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum number of inbound connections. 
+
+
+### MaintenanceWindow {#MaintenanceWindow5}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow5)**<br> 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow5)**<br> 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow5}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow5}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br> <ul><ul/>
+hour | **int64**<br>Hour of the day in UTC. Acceptable values are 1 to 24, inclusive.
+
+
+### MaintenanceOperation {#MaintenanceOperation5}
+
+Field | Description
+--- | ---
+info | **string**<br> The maximum string length in characters is 256.
+delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+
+
 ## ListOperations {#ListOperations}
 
 Retrieves the list of Operation resources for the specified cluster.
@@ -1103,11 +1327,11 @@ page_token | **string**<br>Page token.  To get the next page of results, set `pa
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation4)**<br>List of Operation resources for the specified Greenplum cluster. 
+operations[] | **[operation.Operation](#Operation5)**<br>List of Operation resources for the specified Greenplum cluster. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterOperationsRequest.page_size](#ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#ListClusterOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation4}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -1154,13 +1378,13 @@ name | **string**<br>Required. Name of the Greenplum host. The host name is assi
 cluster_id | **string**<br>ID of the Greenplum cluster. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the Greenplum host resides. 
 type | enum **Type**<br>Type of the host. <ul><li>`MASTER`: Greenplum master host.</li><li>`REPLICA`: Greenplum master host.</li><li>`SEGMENT`: Greenplum segment host.</li><ul/>
-resources | **[Resources](#Resources12)**<br>Resources allocated to the Greenplum host. 
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><ul/>
+resources | **[Resources](#Resources14)**<br>Resources allocated to the Greenplum host. 
+health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in prefer role.</li><ul/>
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 
 
-### Resources {#Resources12}
+### Resources {#Resources14}
 
 Field | Description
 --- | ---
@@ -1200,13 +1424,13 @@ name | **string**<br>Required. Name of the Greenplum host. The host name is assi
 cluster_id | **string**<br>ID of the Greenplum cluster. The ID is assigned by MDB at creation time. 
 zone_id | **string**<br>ID of the availability zone where the Greenplum host resides. 
 type | enum **Type**<br>Type of the host. <ul><li>`MASTER`: Greenplum master host.</li><li>`REPLICA`: Greenplum master host.</li><li>`SEGMENT`: Greenplum segment host.</li><ul/>
-resources | **[Resources](#Resources13)**<br>Resources allocated to the Greenplum host. 
-health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><ul/>
+resources | **[Resources](#Resources15)**<br>Resources allocated to the Greenplum host. 
+health | enum **Health**<br>Status code of the aggregated health of the host. <ul><li>`UNKNOWN`: Health of the host is unknown.</li><li>`ALIVE`: The host is performing all its functions normally.</li><li>`DEAD`: The host is inoperable, and cannot perform any of its essential functions.</li><li>`DEGRADED`: The host is working below capacity or not fully functional.</li><li>`UNBALANCED`: One or more segments are not in prefer role.</li><ul/>
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 
 
-### Resources {#Resources13}
+### Resources {#Resources15}
 
 Field | Description
 --- | ---

@@ -6,42 +6,52 @@ info:
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v3
   x-y-docUri: api-ref
-  x-y-baseUrl: https://tts.api.cloud.yandex.net
+  x-y-baseUrl: https://stt.api.cloud.yandex.net
 paths: {}
 components:
   schemas:
     Alternative:
+      description: recognition of specific time frame
       type: object
       properties:
         words:
+          description: words in time frame
           type: array
           items:
             $ref: '#/components/schemas/Word'
         text:
+          description: text in time frame
           type: string
         startTimeMs:
+          description: start of time frame
           type: string
           format: int64
         endTimeMs:
+          description: end of time frame
           type: string
           format: int64
         confidence:
+          description: hypothesis confidence. Currently is not used
           type: number
           format: double
     AlternativeUpdate:
+      description: update of hypothesis
       type: object
       properties:
         alternatives:
+          description: list of hypothesis for timeframes
           type: array
           items:
             $ref: '#/components/schemas/Alternative'
         channelTag:
+          description: tag for distinguish audio channels.
           type: string
     AudioChunk:
       description: data chunk with audio
       type: object
       properties:
         data:
+          description: bytes with audio data
           type: string
           format: byte
     AudioCursors:
@@ -91,8 +101,10 @@ components:
         properties:
           rawAudio:
             $ref: '#/components/schemas/RawAudio'
+            description: audio without container
           containerAudio:
             $ref: '#/components/schemas/ContainerAudio'
+            description: audio is wrapped in container
     CodeType:
       type: string
       enum:
@@ -116,6 +128,9 @@ components:
         type:
           $ref: '#/components/schemas/DefaultEouClassifierEouSensitivity_in_DefaultEouClassifier_type'
         maxPauseBetweenWordsHintMs:
+          description: hint for max pause between words. Our EoU detector could use
+            this information to distinguish between end of utterance and slow speech
+            (like one <long pause> two <long pause> three, etc)
           type: string
           format: int64
     DefaultEouClassifierEouSensitivity:
@@ -136,12 +151,16 @@ components:
         properties:
           defaultClassifier:
             $ref: '#/components/schemas/DefaultEouClassifier'
+            description: EOU classifier provided by SpeechKit. Default
           externalClassifier:
             $ref: '#/components/schemas/ExternalEouClassifier'
+            description: EoU is enforced by external messages from user
     EouUpdate:
+      description: Update information from
       type: object
       properties:
         timeMs:
+          description: end of utterance estimated time
           type: string
           format: int64
     ExternalEouClassifier:
@@ -149,11 +168,13 @@ components:
       type: object
       properties: {}
     FinalRefinement:
+      description: refinement for final hypo. For example, text normalization is refinement.
       type: object
       allOf:
       - type: object
         properties:
           finalIndex:
+            description: index of final for which server sends additional information
             type: string
             format: int64
       - title: Type
@@ -162,6 +183,7 @@ components:
         properties:
           normalizedText:
             $ref: '#/components/schemas/AlternativeUpdate'
+            description: normalized text instead of raw one
     RawAudio:
       description: RAW Audio format spec (no container to infer type). used in AudioFormat
         options
@@ -170,9 +192,12 @@ components:
         audioEncoding:
           $ref: '#/components/schemas/RawAudioAudioEncoding_in_RawAudio_audioEncoding'
         sampleRateHertz:
+          description: PCM sample rate
           type: string
           format: int64
         audioChannelCount:
+          description: PCM channel count. Currently only single channel audio is supported
+            in real-time recognition
           type: string
           format: int64
     RawAudioAudioEncoding:
@@ -190,24 +215,30 @@ components:
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
     SessionUuid:
+      description: session identifier
       type: object
       properties:
         uuid:
+          description: internal session identifier
           type: string
         userRequestId:
+          description: user session identifier
           type: string
     SilenceChunk:
       type: object
       properties:
         durationMs:
+          description: duration of silence chunk in ms
           type: string
           format: int64
     StatusCode:
+      description: status message
       type: object
       properties:
         codeType:
           $ref: '#/components/schemas/CodeType_in_StatusCode_codeType'
         message:
+          description: human readable message
           type: string
     StreamingOptions:
       type: object
@@ -228,8 +259,11 @@ components:
         properties:
           sessionUuid:
             $ref: '#/components/schemas/SessionUuid'
+            description: session identifier
           audioCursors:
             $ref: '#/components/schemas/AudioCursors'
+            description: 'progress bar for stream session recognition: how many data
+              we obtained; final and partial times; etc'
           responseWallTimeMs:
             description: wall clock on server side. This is time when server wrote
               results to stream
@@ -283,29 +317,35 @@ components:
       - TEXT_NORMALIZATION_ENABLED
       - TEXT_NORMALIZATION_DISABLED
     Word:
+      description: recognized word
       type: object
       properties:
         text:
+          description: word text
           type: string
         startTimeMs:
+          description: estimation of word start time in ms
           type: string
           format: int64
         endTimeMs:
+          description: estimation of word end time in ms
           type: string
           format: int64
     ContainerAudioContainerAudioType_in_ContainerAudio_containerAudioType:
+      description: type of audio container
       type: string
       enum:
       - WAV
       - OGG_OPUS
     DefaultEouClassifierEouSensitivity_in_DefaultEouClassifier_type:
-      description: EOU sensitivity. There'll be at least two levels, faster with more
-        error and more conservative (our default)
+      description: EOU sensitivity.  Currently two levels, faster with more error
+        and more conservative (our default)
       type: string
       enum:
       - DEFAULT
       - HIGH
     RawAudioAudioEncoding_in_RawAudio_audioEncoding:
+      description: type of audio encoding
       type: string
       enum:
       - LINEAR16_PCM
@@ -322,10 +362,15 @@ components:
         properties:
           rawAudio:
             $ref: '#/components/schemas/RawAudio'
+            description: audio without container
           containerAudio:
             $ref: '#/components/schemas/ContainerAudio'
+            description: audio is wrapped in container
     TextNormalizationOptions_in_RecognitionModelOptions_textNormalization:
-      description: options
+      description: |-
+        text normalization options
+
+        options
       type: object
       properties:
         textNormalization:
@@ -335,12 +380,14 @@ components:
           type: boolean
           format: boolean
     CodeType_in_StatusCode_codeType:
+      description: code type
       type: string
       enum:
       - WORKING
       - WARNING
       - CLOSED
     RecognitionModelOptions_in_StreamingOptions_recognitionModel:
+      description: configuration for speech recognition model
       type: object
       properties:
         model:
@@ -351,6 +398,7 @@ components:
         textNormalization:
           $ref: '#/components/schemas/TextNormalizationOptions_in_RecognitionModelOptions_textNormalization'
     EouClassifierOptions_in_StreamingOptions_eouClassifier:
+      description: configuration for end of utterance detection model
       type: object
       allOf:
       - title: Classifier
@@ -359,8 +407,10 @@ components:
         properties:
           defaultClassifier:
             $ref: '#/components/schemas/DefaultEouClassifier'
+            description: EOU classifier provided by SpeechKit. Default
           externalClassifier:
             $ref: '#/components/schemas/ExternalEouClassifier'
+            description: EoU is enforced by external messages from user
     TextNormalizationOptionsTextNormalization_in_TextNormalizationOptions_textNormalization:
       description: |-
         Normalization

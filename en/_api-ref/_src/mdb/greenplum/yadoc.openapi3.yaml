@@ -64,6 +64,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterMetadata'
       x-y-operation-response: Empty
+    patch:
+      tags:
+      - Cluster
+      summary: Updates the specified Greenplum cluster.
+      operationId: ClusterUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Greenplum Cluster resource to update.
+          To get the Greenplum cluster ID, use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-greenplum/api-ref/Cluster#representation)'
   /mdb/managed-greenplum/v1/clusters:
     get:
       tags:
@@ -463,12 +497,14 @@ components:
          - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
          - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
          - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
+         - UNBALANCED: Cluster is working below capacity (`health` for at least one host in the cluster is UNBALANCED).
       type: string
       enum:
       - HEALTH_UNKNOWN
       - ALIVE
       - DEAD
       - DEGRADED
+      - UNBALANCED
       default: HEALTH_UNKNOWN
     ClusterStatus:
       description: |2-
@@ -595,6 +631,17 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     GreenplumConfig:
       type: object
       properties:
@@ -735,12 +782,14 @@ components:
          - ALIVE: The host is performing all its functions normally.
          - DEAD: The host is inoperable, and cannot perform any of its essential functions.
          - DEGRADED: The host is working below capacity or not fully functional.
+         - UNBALANCED: One or more segments are not in prefer role.
       type: string
       enum:
       - UNKNOWN
       - ALIVE
       - DEAD
       - DEGRADED
+      - UNBALANCED
       default: UNKNOWN
     HostType:
       description: |2-
@@ -981,6 +1030,57 @@ components:
           description: Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
           type: integer
           format: int32
+    UpdateClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the Greenplum Cluster resource that is being updated.
+          type: string
+    UpdateClusterRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateClusterRequest_updateMask'
+        description:
+          description: |-
+            New description of the Greenplum cluster.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the Greenplum cluster as `key:value` pairs. Maximum 64 per resource.
+            For example, "project": "mvp" or "source": "dictionary".
+
+            The new set of labels will completely replace the old ones. To add a label, request the current
+            set with the [get](/docs/managed-greenplum/api-ref/Cluster/get) method, then send an [update](/docs/managed-greenplum/api-ref/Cluster/update) request with the new label added to the set.
+
+            No more than 64 per resource.
+            The maximum string length in characters for each key is 63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        name:
+          description: |-
+            New name for the cluster.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        config:
+          $ref: '#/components/schemas/GreenplumConfig_in_UpdateClusterRequest_config'
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
     WeeklyMaintenanceWindow:
       type: object
       properties:
@@ -1020,7 +1120,7 @@ components:
           items:
             type: object
     GreenplumConfig_in_Cluster_config:
-      description: Green plum cluster config
+      description: Greenplum cluster config
       type: object
       properties:
         version:
@@ -1101,12 +1201,14 @@ components:
          - ALIVE: Cluster is alive and well (`health` for every host in the cluster is ALIVE).
          - DEAD: Cluster is inoperable (`health` for every host in the cluster is DEAD).
          - DEGRADED: Cluster is working below capacity (`health` for at least one host in the cluster is not ALIVE).
+         - UNBALANCED: Cluster is working below capacity (`health` for at least one host in the cluster is UNBALANCED).
       type: string
       enum:
       - HEALTH_UNKNOWN
       - ALIVE
       - DEAD
       - DEGRADED
+      - UNBALANCED
       default: HEALTH_UNKNOWN
     ClusterStatus_in_Cluster_status:
       description: |-
@@ -1171,7 +1273,7 @@ components:
       - PRODUCTION
       - PRESTABLE
     GreenplumConfig_in_CreateClusterRequest_config:
-      description: Green plum cluster config
+      description: Greenplum cluster config
       type: object
       properties:
         version:
@@ -1440,12 +1542,14 @@ components:
          - ALIVE: The host is performing all its functions normally.
          - DEAD: The host is inoperable, and cannot perform any of its essential functions.
          - DEGRADED: The host is working below capacity or not fully functional.
+         - UNBALANCED: One or more segments are not in prefer role.
       type: string
       enum:
       - UNKNOWN
       - ALIVE
       - DEAD
       - DEGRADED
+      - UNBALANCED
       default: UNKNOWN
     Resources_in_MasterSubclusterConfig_resources:
       description: Resources allocated to Greenplum master subcluster hosts.
@@ -1589,6 +1693,57 @@ components:
           description: Maximum number of inbound connections.
           type: integer
           format: int64
+    FieldMask_in_UpdateClusterRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Greenplum Cluster resource should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    GreenplumConfig_in_UpdateClusterRequest_config:
+      description: Greenplum cluster config
+      type: object
+      properties:
+        version:
+          description: Version of the Greenplum server software.
+          type: string
+        backupWindowStart:
+          $ref: '#/components/schemas/TimeOfDay_in_GreenplumConfig_backupWindowStart'
+        access:
+          $ref: '#/components/schemas/Access_in_GreenplumConfig_access'
+        zoneId:
+          description: |-
+            ID of the availability zone where the host resides.
+            To get a list of available zones, use the [list](/docs/compute/api-ref/Zone/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        subnetId:
+          description: |-
+            ID of the subnet that the host should belong to. This subnet should be a part
+            of the network that the cluster belongs to.
+            The ID of the network is set in the field [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster#representation).
+
+            The maximum string length in characters is 50.
+          type: string
+        assignPublicIp:
+          description: |-
+            Whether the host should get a public IP address on creation.
+
+            After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
+            a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
+
+            Possible values:
+            * false - don't assign a public IP to the master hosts.
+            * true - the master hosts should have a public IP address.
+          type: boolean
+          format: boolean
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
       type: string
       enum:

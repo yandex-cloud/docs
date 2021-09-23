@@ -52,10 +52,10 @@ POST https://datatransfer.api.cloud.yandex.net/v1/endpoint
       "password": {
         "raw": "string"
       },
-      "includeTables": [
+      "includeTablesRegex": [
         "string"
       ],
-      "excludeTables": [
+      "excludeTablesRegex": [
         "string"
       ],
       "timezone": "string",
@@ -154,8 +154,7 @@ POST https://datatransfer.api.cloud.yandex.net/v1/endpoint
       },
       "sqlMode": "string",
       "skipConstraintChecks": true,
-      "timezone": "string",
-      "serviceSchema": "string"
+      "timezone": "string"
     },
     "postgresTarget": {
       "connection": {
@@ -217,8 +216,8 @@ settings.<br>mysqlSource.<br>database | **string**<br>
 settings.<br>mysqlSource.<br>user | **string**<br>
 settings.<br>mysqlSource.<br>password | **object**<br>
 settings.<br>mysqlSource.<br>password.<br>raw | **string**<br>
-settings.<br>mysqlSource.<br>includeTables[] | **string**<br>
-settings.<br>mysqlSource.<br>excludeTables[] | **string**<br>
+settings.<br>mysqlSource.<br>includeTablesRegex[] | **string**<br>
+settings.<br>mysqlSource.<br>excludeTablesRegex[] | **string**<br>
 settings.<br>mysqlSource.<br>timezone | **string**<br>
 settings.<br>mysqlSource.<br>objectTransferSettings | **object**<br>
 settings.<br>mysqlSource.<br>objectTransferSettings.<br>view | **string**<br>
@@ -280,7 +279,6 @@ settings.<br>mysqlTarget.<br>password.<br>raw | **string**<br>
 settings.<br>mysqlTarget.<br>sqlMode | **string**<br>
 settings.<br>mysqlTarget.<br>skipConstraintChecks | **boolean** (boolean)<br>
 settings.<br>mysqlTarget.<br>timezone | **string**<br>
-settings.<br>mysqlTarget.<br>serviceSchema | **string**<br>
 settings.<br>postgresTarget | **object** <br>`settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 settings.<br>postgresTarget.<br>connection | **object**<br>
 settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>

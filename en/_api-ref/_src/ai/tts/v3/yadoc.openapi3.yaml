@@ -6,7 +6,7 @@ info:
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v3
   x-y-docUri: api-ref
-  x-y-baseUrl: https://stt.api.cloud.yandex.net
+  x-y-baseUrl: https://tts.api.cloud.yandex.net
 paths: {}
 components:
   schemas:
@@ -145,6 +145,12 @@ components:
         variableValue:
           description: The text of the variable.
           type: string
+    UtteranceSynthesisRequestLoudnessNormalizationType:
+      description: Normalization type
+      type: string
+      enum:
+      - MAX_PEAK
+      - LUFS
     UtteranceSynthesisResponse:
       type: object
       properties:

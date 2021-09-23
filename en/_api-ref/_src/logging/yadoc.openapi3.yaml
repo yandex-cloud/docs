@@ -101,34 +101,6 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateLogGroupMetadata'
       x-y-operation-response: '[LogGroup](/docs/logging/api-ref/LogGroup#representation)'
-  /logging/v1/logGroups/default:
-    get:
-      tags:
-      - LogGroup
-      summary: Returns default log group for the folder.
-      description: To get the list of all available log groups, make a [list](/docs/logging/api-ref/LogGroup/list)
-        request.
-      operationId: LogGroupGetDefault
-      parameters:
-      - name: folderId
-        in: query
-        description: |-
-          Required.
-          Folder ID of the default log group to return.
-
-          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
-
-          The maximum string length in characters is 64.
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LogGroup'
-      x-y-navtitle: getDefault
   /logging/v1/logGroups/{logGroupId}/stats:
     get:
       tags:
@@ -536,9 +508,8 @@ components:
             Log group entry retention period.
 
             Entries will be present in group during this period.
-            Must be at least `1h`.
-
-            Acceptable values are 3600 seconds to 604800 seconds, inclusive.
+            If specified, must be non-negative.
+            Empty or zero value is treated as no limit.
           type: string
     Criteria:
       description: Read criteria. Should be used in initial `ReadRequest`.
@@ -1113,9 +1084,8 @@ components:
             New log group entry retention period.
 
             Entries will be present in group during this period.
-            Must be at least `1h`.
-
-            Acceptable values are 3600 seconds to 604800 seconds, inclusive.
+            If specified, must be non-negative.
+            Empty or zero value is treated as no limit.
           type: string
     WriteResponse:
       type: object

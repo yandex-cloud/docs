@@ -369,11 +369,11 @@ components:
           type: string
         password:
           $ref: '#/components/schemas/Secret_in_MysqlSource_password'
-        includeTables:
+        includeTablesRegex:
           type: array
           items:
             type: string
-        excludeTables:
+        excludeTablesRegex:
           type: array
           items:
             type: string
@@ -398,8 +398,6 @@ components:
           type: boolean
           format: boolean
         timezone:
-          type: string
-        serviceSchema:
           type: string
     ObjectTransferStage:
       type: string

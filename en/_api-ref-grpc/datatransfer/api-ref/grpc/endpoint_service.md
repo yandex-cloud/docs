@@ -58,8 +58,8 @@ connection | **[MysqlConnection](#MysqlConnection)**<br>
 database | **string**<br> 
 user | **string**<br> 
 password | **[Secret](#Secret)**<br> 
-include_tables[] | **string**<br> 
-exclude_tables[] | **string**<br> 
+include_tables_regex[] | **string**<br> 
+exclude_tables_regex[] | **string**<br> 
 timezone | **string**<br> 
 object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferSettings)**<br> 
 
@@ -207,7 +207,6 @@ password | **[Secret](#Secret2)**<br>
 sql_mode | **string**<br> 
 skip_constraint_checks | **bool**<br> 
 timezone | **string**<br> 
-service_schema | **string**<br> 
 
 
 ### MysqlConnection {#MysqlConnection1}
@@ -341,8 +340,8 @@ connection | **[MysqlConnection](#MysqlConnection2)**<br>
 database | **string**<br> 
 user | **string**<br> 
 password | **[Secret](#Secret4)**<br> 
-include_tables[] | **string**<br> 
-exclude_tables[] | **string**<br> 
+include_tables_regex[] | **string**<br> 
+exclude_tables_regex[] | **string**<br> 
 timezone | **string**<br> 
 object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferSettings1)**<br> 
 
@@ -490,7 +489,6 @@ password | **[Secret](#Secret6)**<br>
 sql_mode | **string**<br> 
 skip_constraint_checks | **bool**<br> 
 timezone | **string**<br> 
-service_schema | **string**<br> 
 
 
 ### MysqlConnection {#MysqlConnection3}
@@ -640,8 +638,8 @@ connection | **[MysqlConnection](#MysqlConnection4)**<br>
 database | **string**<br> 
 user | **string**<br> 
 password | **[Secret](#Secret8)**<br> 
-include_tables[] | **string**<br> 
-exclude_tables[] | **string**<br> 
+include_tables_regex[] | **string**<br> 
+exclude_tables_regex[] | **string**<br> 
 timezone | **string**<br> 
 object_transfer_settings | **[MysqlObjectTransferSettings](#MysqlObjectTransferSettings2)**<br> 
 
@@ -789,7 +787,6 @@ password | **[Secret](#Secret10)**<br>
 sql_mode | **string**<br> 
 skip_constraint_checks | **bool**<br> 
 timezone | **string**<br> 
-service_schema | **string**<br> 
 
 
 ### MysqlConnection {#MysqlConnection5}

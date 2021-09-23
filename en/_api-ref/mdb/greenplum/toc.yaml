@@ -23,6 +23,8 @@ items:
         href: api-ref/Cluster/start.md
       - name: stop
         href: api-ref/Cluster/stop.md
+      - name: update
+        href: api-ref/Cluster/update.md
   - name: Operation
     items:
       - name: Overview

@@ -152,6 +152,7 @@ dashboardId | Required. Required. Dashboard ID.  The maximum string length in ch
       {
         "name": "string",
         "title": "string",
+        "hidden": true,
 
         // `parametrization.parameters[]` includes only one of the fields `labelValues`, `custom`, `text`
         "labelValues": {
@@ -273,6 +274,7 @@ parametrization | **object**<br><p>Dashboard parametrization.</p> <p>Parametriza
 parametrization.<br>parameters[] | **object**<br><p>Parameter.</p> 
 parametrization.<br>parameters[].<br>name | **string**<br><p>Parameter identifier.</p> 
 parametrization.<br>parameters[].<br>title | **string**<br><p>UI-visible title of the parameter.</p> 
+parametrization.<br>parameters[].<br>hidden | **boolean** (boolean)<br><p>UI-visibility.</p> 
 parametrization.<br>parameters[].<br>labelValues | **object**<br>Label values parameter. <br>`parametrization.parameters[]` includes only one of the fields `labelValues`, `custom`, `text`<br><br><p>Label values parameter.</p> 
 parametrization.<br>parameters[].<br>labelValues.<br>folderId | **string**<br><p>Required. Folder ID.</p> 
 parametrization.<br>parameters[].<br>labelValues.<br>selectors | **string**<br><p>Required. Selectors to select metric label values.</p> 

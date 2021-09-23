@@ -29,6 +29,22 @@ items:
         href: api-ref/Cluster/streamLogs.md
       - name: update
         href: api-ref/Cluster/update.md
+  - name: Connector
+    items:
+      - name: Overview
+        href: api-ref/Connector/index.md
+      - name: create
+        href: api-ref/Connector/create.md
+      - name: delete
+        href: api-ref/Connector/delete.md
+      - name: get
+        href: api-ref/Connector/get.md
+      - name: list
+        href: api-ref/Connector/list.md
+      - name: pause
+        href: api-ref/Connector/pause.md
+      - name: resume
+        href: api-ref/Connector/resume.md
   - name: ResourcePreset
     items:
       - name: Overview

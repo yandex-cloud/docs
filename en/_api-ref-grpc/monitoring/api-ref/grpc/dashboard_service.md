@@ -233,6 +233,7 @@ data | **oneof:** `label_values`, `custom` or `text`<br>Parameter data.
 &nbsp;&nbsp;label_values | **[LabelValuesParameter](#LabelValuesParameter)**<br>Label values parameter. 
 &nbsp;&nbsp;custom | **[CustomParameter](#CustomParameter)**<br>Custom parameter. 
 &nbsp;&nbsp;text | **[TextParameter](#TextParameter)**<br>Text parameter. 
+hidden | **bool**<br>UI-visibility. 
 
 
 ### LabelValuesParameter {#LabelValuesParameter}
@@ -489,6 +490,7 @@ data | **oneof:** `label_values`, `custom` or `text`<br>Parameter data.
 &nbsp;&nbsp;label_values | **[LabelValuesParameter](#LabelValuesParameter1)**<br>Label values parameter. 
 &nbsp;&nbsp;custom | **[CustomParameter](#CustomParameter1)**<br>Custom parameter. 
 &nbsp;&nbsp;text | **[TextParameter](#TextParameter1)**<br>Text parameter. 
+hidden | **bool**<br>UI-visibility. 
 
 
 ### LabelValuesParameter {#LabelValuesParameter1}
@@ -729,6 +731,7 @@ data | **oneof:** `label_values`, `custom` or `text`<br>Parameter data.
 &nbsp;&nbsp;label_values | **[LabelValuesParameter](#LabelValuesParameter2)**<br>Label values parameter. 
 &nbsp;&nbsp;custom | **[CustomParameter](#CustomParameter2)**<br>Custom parameter. 
 &nbsp;&nbsp;text | **[TextParameter](#TextParameter2)**<br>Text parameter. 
+hidden | **bool**<br>UI-visibility. 
 
 
 ### LabelValuesParameter {#LabelValuesParameter2}
@@ -984,6 +987,7 @@ data | **oneof:** `label_values`, `custom` or `text`<br>Parameter data.
 &nbsp;&nbsp;label_values | **[LabelValuesParameter](#LabelValuesParameter3)**<br>Label values parameter. 
 &nbsp;&nbsp;custom | **[CustomParameter](#CustomParameter3)**<br>Custom parameter. 
 &nbsp;&nbsp;text | **[TextParameter](#TextParameter3)**<br>Text parameter. 
+hidden | **bool**<br>UI-visibility. 
 
 
 ### LabelValuesParameter {#LabelValuesParameter3}
@@ -1225,6 +1229,7 @@ data | **oneof:** `label_values`, `custom` or `text`<br>Parameter data.
 &nbsp;&nbsp;label_values | **[LabelValuesParameter](#LabelValuesParameter4)**<br>Label values parameter. 
 &nbsp;&nbsp;custom | **[CustomParameter](#CustomParameter4)**<br>Custom parameter. 
 &nbsp;&nbsp;text | **[TextParameter](#TextParameter4)**<br>Text parameter. 
+hidden | **bool**<br>UI-visibility. 
 
 
 ### LabelValuesParameter {#LabelValuesParameter4}
@@ -1480,6 +1485,7 @@ data | **oneof:** `label_values`, `custom` or `text`<br>Parameter data.
 &nbsp;&nbsp;label_values | **[LabelValuesParameter](#LabelValuesParameter5)**<br>Label values parameter. 
 &nbsp;&nbsp;custom | **[CustomParameter](#CustomParameter5)**<br>Custom parameter. 
 &nbsp;&nbsp;text | **[TextParameter](#TextParameter5)**<br>Text parameter. 
+hidden | **bool**<br>UI-visibility. 
 
 
 ### LabelValuesParameter {#LabelValuesParameter5}

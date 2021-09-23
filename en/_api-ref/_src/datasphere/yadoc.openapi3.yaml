@@ -296,8 +296,144 @@ paths:
               schema:
                 $ref: '#/components/schemas/Empty'
       x-y-navtitle: setUnitBalance
+  /datasphere/v1/projects/{projectId}:execute:
+    post:
+      tags:
+      - Project
+      summary: Executes code in the specified cell or notebook.
+      operationId: ProjectExecute
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the project to execute notebook/cell in.
+
+          The maximum string length in characters is 200.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectExecutionRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: execute
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ProjectExecutionMetadata'
+      x-y-operation-response: '`ProjectExecutionResponse`'
+  /datasphere/v1/projects/{projectId}:cellOutputs:
+    get:
+      tags:
+      - Project
+      summary: Returns outputs of the specified cell.
+      operationId: ProjectGetCellOutputs
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the project to return cell outputs for.
+
+          The maximum string length in characters is 200.
+        required: true
+        schema:
+          type: string
+      - name: cellId
+        in: query
+        description: |-
+          Required.
+          ID of the cell to return outputs for.
+
+          The maximum string length in characters is 200.
+        schema:
+          type: string
+      - name: checkpointId
+        in: query
+        description: ID of the checkpoint to return cell outputs for.
+        schema:
+          type: string
+      - name: startAt
+        in: query
+        description: |-
+          Timestamp from which to return outputs.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CellOutputsResponse'
+      x-y-navtitle: getCellOutputs
+  /datasphere/v1/projects/{projectId}:stateVariables:
+    get:
+      tags:
+      - Project
+      summary: Returns state variables of the specified notebook.
+      operationId: ProjectGetStateVariables
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the project, for which to return state variables.
+
+          The maximum string length in characters is 200.
+        required: true
+        schema:
+          type: string
+      - name: notebookId
+        in: query
+        description: |-
+          Required.
+          ID of the notebook, for which to return state variables.
+
+          The maximum string length in characters is 200.
+        schema:
+          type: string
+      - name: variableNames
+        in: query
+        description: Names of variables to return.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: checkpointId
+        in: query
+        description: ID of the checkpoint, for which to return state variables.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetStateVariablesResponse'
+      x-y-navtitle: getStateVariables
 components:
   schemas:
+    CellOutputsResponse:
+      type: object
+      properties:
+        outputs:
+          description: List of outputs.
+          type: array
+          items:
+            type: string
     CreateProjectMetadata:
       type: object
       properties:
@@ -353,6 +489,12 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    GetStateVariablesResponse:
+      type: object
+      properties:
+        variables:
+          description: Values of the specified variables.
+          type: object
     GetUnitBalanceResponse:
       type: object
       properties:
@@ -493,6 +635,68 @@ components:
           $ref: '#/components/schemas/ProjectSettings_in_Project_settings'
         limits:
           $ref: '#/components/schemas/ProjectLimits_in_Project_limits'
+    ProjectExecutionMetadata:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          projectId:
+            description: ID of the project in which notebook is being executed.
+            type: string
+      - title: target
+        type: object
+        maxProperties: 1
+        properties:
+          notebookId:
+            description: |-
+              ID of the notebook that is being executed
+
+              The maximum string length in characters is 200.
+            type: string
+          cellId:
+            description: |-
+              ID of the cell that is being executed
+
+              The maximum string length in characters is 200.
+            type: string
+    ProjectExecutionRequest:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          inputVariables:
+            description: Values of input variables.
+            type: object
+          outputVariableNames:
+            description: Names of output variables.
+            type: array
+            items:
+              type: string
+      - title: target
+        type: object
+        maxProperties: 1
+        properties:
+          notebookId:
+            description: |-
+              ID of the notebook to execute.
+
+              The maximum string length in characters is 200.
+            type: string
+          cellId:
+            description: |-
+              ID of the cell to execute.
+
+              The maximum string length in characters is 200.
+            type: string
+    ProjectExecutionResponse:
+      type: object
+      properties:
+        checkpointId:
+          description: ID of the checkpoint resulting from the execution.
+          type: string
+        outputVariables:
+          description: Values of output variables resulting from the execution.
+          type: object
     ProjectLimits:
       type: object
       properties:

@@ -36,7 +36,7 @@ filter | A filter expression that filters triggers listed in the response.  The 
       "labels": "object",
       "rule": {
 
-        // `triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`
+        // `triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`
         "timer": {
           "cronExpression": "string",
 
@@ -328,6 +328,46 @@ filter | A filter expression that filters triggers listed in the response.  The 
           // end of the list of possible fields`triggers[].rule.billingBudget`
 
         },
+        "dataStream": {
+          "endpoint": "string",
+          "database": "string",
+          "stream": "string",
+          "serviceAccountId": "string",
+          "batchSettings": {
+            "size": "string",
+            "cutoff": "string"
+          },
+
+          // `triggers[].rule.dataStream` includes only one of the fields `invokeFunction`, `invokeContainer`
+          "invokeFunction": {
+            "functionId": "string",
+            "functionTag": "string",
+            "serviceAccountId": "string",
+            "retrySettings": {
+              "retryAttempts": "string",
+              "interval": "string"
+            },
+            "deadLetterQueue": {
+              "queueId": "string",
+              "serviceAccountId": "string"
+            }
+          },
+          "invokeContainer": {
+            "containerId": "string",
+            "path": "string",
+            "serviceAccountId": "string",
+            "retrySettings": {
+              "retryAttempts": "string",
+              "interval": "string"
+            },
+            "deadLetterQueue": {
+              "queueId": "string",
+              "serviceAccountId": "string"
+            }
+          },
+          // end of the list of possible fields`triggers[].rule.dataStream`
+
+        },
         // end of the list of possible fields`triggers[].rule`
 
       },
@@ -349,7 +389,7 @@ triggers[].<br>name | **string**<br><p>Name of the trigger.</p> <p>The string le
 triggers[].<br>description | **string**<br><p>Description of the trigger.</p> <p>The string length in characters must be 0-256.</p> 
 triggers[].<br>labels | **object**<br><p>Trigger labels as ``key:value`` pairs.</p> 
 triggers[].<br>rule | **object**<br><p>Required. Rule for trigger activation (always consistent with the trigger type).</p> <p>Description of a rule for trigger activation.</p> 
-triggers[].<br>rule.<br>timer | **object**<br>Rule for a timed trigger. <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`<br><br><p>Rule for activating a timed trigger.</p> 
+triggers[].<br>rule.<br>timer | **object**<br>Rule for a timed trigger. <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`<br><br><p>Rule for activating a timed trigger.</p> 
 triggers[].<br>rule.<br>timer.<br>cronExpression | **string**<br><p>Required. Description of a schedule as a <a href="/docs/functions/concepts/trigger/timer">cron expression</a>.</p> <p>The maximum string length in characters is 100.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunction | **object**<br>Instructions for invoking a function once. <br>`triggers[].rule.timer` includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`<br><br><p>A single function invocation.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
@@ -375,7 +415,7 @@ triggers[].<br>rule.<br>timer.<br>invokeContainerWithRetry.<br>retrySettings.<br
 triggers[].<br>rule.<br>timer.<br>invokeContainerWithRetry.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 triggers[].<br>rule.<br>timer.<br>invokeContainerWithRetry.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 triggers[].<br>rule.<br>timer.<br>invokeContainerWithRetry.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>messageQueue | **object**<br>Rule for a message queue trigger. <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`<br><br><p>Rule for activating a message queue trigger.</p> 
+triggers[].<br>rule.<br>messageQueue | **object**<br>Rule for a message queue trigger. <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`<br><br><p>Rule for activating a message queue trigger.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>queueId | **string**<br><p>Required. ID of the message queue in Yandex Message Queue.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>serviceAccountId | **string**<br><p>Required. ID of the service account which has read access to the message queue.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>batchSettings | **object**<br>Required. Batch settings for processing messages in the queue.<br><p>Settings for batch processing of messages in a queue.</p> 
@@ -390,7 +430,7 @@ triggers[].<br>rule.<br>messageQueue.<br>invokeContainer | **object**<br>Instruc
 triggers[].<br>rule.<br>messageQueue.<br>invokeContainer.<br>containerId | **string**<br><p>Required. ID of the container to invoke.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>invokeContainer.<br>path | **string**<br><p>Endpoint HTTP path to invoke.</p> 
 triggers[].<br>rule.<br>messageQueue.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
-triggers[].<br>rule.<br>iotMessage | **object**<br>Rule for a Yandex IoT Core trigger. <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`<br><br><p>Rule for activating a Yandex IoT Core trigger.</p> 
+triggers[].<br>rule.<br>iotMessage | **object**<br>Rule for a Yandex IoT Core trigger. <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`<br><br><p>Rule for activating a Yandex IoT Core trigger.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>registryId | **string**<br><p>Required. ID of the Yandex IoT Core registry.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>deviceId | **string**<br><p>ID of the Yandex IoT Core device in the registry.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>mqttTopic | **string**<br><p>MQTT topic whose messages activate the trigger.</p> 
@@ -414,7 +454,7 @@ triggers[].<br>rule.<br>iotMessage.<br>invokeContainer.<br>retrySettings.<br>int
 triggers[].<br>rule.<br>iotMessage.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 triggers[].<br>rule.<br>iotMessage.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 triggers[].<br>rule.<br>iotMessage.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>objectStorage | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`<br><br>
+triggers[].<br>rule.<br>objectStorage | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`<br><br>
 triggers[].<br>rule.<br>objectStorage.<br>eventType[] | **string**<br><p>Required. Type (name) of events, at least one value is required.</p> <p>Must contain at least one element.</p> 
 triggers[].<br>rule.<br>objectStorage.<br>bucketId | **string**<br><p>ID of the bucket.</p> 
 triggers[].<br>rule.<br>objectStorage.<br>prefix | **string**<br><p>Prefix of the object key. Filter, optional.</p> 
@@ -439,7 +479,7 @@ triggers[].<br>rule.<br>objectStorage.<br>invokeContainer.<br>retrySettings.<br>
 triggers[].<br>rule.<br>objectStorage.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 triggers[].<br>rule.<br>objectStorage.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 triggers[].<br>rule.<br>objectStorage.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>containerRegistry | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`<br><br>
+triggers[].<br>rule.<br>containerRegistry | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`<br><br>
 triggers[].<br>rule.<br>containerRegistry.<br>eventType[] | **string**<br><p>Required. Type (name) of events, at least one value is required.</p> <p>Must contain at least one element.</p> 
 triggers[].<br>rule.<br>containerRegistry.<br>registryId | **string**<br><p>ID of the registry.</p> 
 triggers[].<br>rule.<br>containerRegistry.<br>imageName | **string**<br><p>Docker-image name. Filter, optional.</p> 
@@ -464,7 +504,7 @@ triggers[].<br>rule.<br>containerRegistry.<br>invokeContainer.<br>retrySettings.
 triggers[].<br>rule.<br>containerRegistry.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 triggers[].<br>rule.<br>containerRegistry.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 triggers[].<br>rule.<br>containerRegistry.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>cloudLogs | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`<br><br>
+triggers[].<br>rule.<br>cloudLogs | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`<br><br>
 triggers[].<br>rule.<br>cloudLogs.<br>logGroupId[] | **string**<br><p>Log group identifiers, at least one value is required.</p> 
 triggers[].<br>rule.<br>cloudLogs.<br>batchSettings | **object**<br>Required. Batch settings for processing log events.<br>
 triggers[].<br>rule.<br>cloudLogs.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size. Trigger will send the batch of messages to the function when the number of messages in the log group reaches ``size``, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
@@ -489,7 +529,7 @@ triggers[].<br>rule.<br>cloudLogs.<br>invokeContainer.<br>retrySettings.<br>inte
 triggers[].<br>rule.<br>cloudLogs.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 triggers[].<br>rule.<br>cloudLogs.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 triggers[].<br>rule.<br>cloudLogs.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>logging | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`<br><br>
+triggers[].<br>rule.<br>logging | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`<br><br>
 triggers[].<br>rule.<br>logging.<br>logGroupId | **string**<br><p>Log events filter settings.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>logging.<br>resourceType[] | **string**<br><p>The maximum number of elements is 100. Each value must match the regular expression ``[a-zA-Z][-a-zA-Z0-9_.]{1,62}``.</p> 
 triggers[].<br>rule.<br>logging.<br>resourceId[] | **string**<br><p>The maximum number of elements is 100. Each value must match the regular expression ``[a-zA-Z][-a-zA-Z0-9_.]{1,62}``.</p> 
@@ -517,7 +557,7 @@ triggers[].<br>rule.<br>logging.<br>invokeContainer.<br>retrySettings.<br>interv
 triggers[].<br>rule.<br>logging.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 triggers[].<br>rule.<br>logging.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 triggers[].<br>rule.<br>logging.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
-triggers[].<br>rule.<br>billingBudget | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`<br><br>
+triggers[].<br>rule.<br>billingBudget | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`<br><br>
 triggers[].<br>rule.<br>billingBudget.<br>billingAccountId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>billingBudget.<br>budgetId | **string**<br><p>The maximum string length in characters is 50.</p> 
 triggers[].<br>rule.<br>billingBudget.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed. <br>`triggers[].rule.billingBudget` includes only one of the fields `invokeFunction`, `invokeContainer`<br><br><p>A function invocation with retries.</p> 
@@ -540,5 +580,33 @@ triggers[].<br>rule.<br>billingBudget.<br>invokeContainer.<br>retrySettings.<br>
 triggers[].<br>rule.<br>billingBudget.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
 triggers[].<br>rule.<br>billingBudget.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
 triggers[].<br>rule.<br>billingBudget.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
+triggers[].<br>rule.<br>dataStream | **object** <br>`triggers[].rule` includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`<br><br>
+triggers[].<br>rule.<br>dataStream.<br>endpoint | **string**<br><p>Data stream endpoint.</p> 
+triggers[].<br>rule.<br>dataStream.<br>database | **string**<br><p>Data stream database.</p> 
+triggers[].<br>rule.<br>dataStream.<br>stream | **string**<br><p>Stream name.</p> 
+triggers[].<br>rule.<br>dataStream.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to read data stream.</p> 
+triggers[].<br>rule.<br>dataStream.<br>batchSettings | **object**<br>Batch settings for processing events.<br>
+triggers[].<br>rule.<br>dataStream.<br>batchSettings.<br>size | **string** (int64)<br><p>Batch size in bytes. Trigger will send the batch of messages to the associated function when size of log events reaches this value, or the ``cutoff`` time has passed.</p> <p>Acceptable values are 1 to 65536, inclusive.</p> 
+triggers[].<br>rule.<br>dataStream.<br>batchSettings.<br>cutoff | **string**<br><p>Maximum wait time. Trigger will send the batch of messages the time since the last batch exceeds the ``cutoff`` value, regardless of the amount of log events.</p> <p>Acceptable values are 1 seconds to 60 seconds, inclusive.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeFunction | **object**<br>Instructions for invoking a function with retries as needed. <br>`triggers[].rule.dataStream` includes only one of the fields `invokeFunction`, `invokeContainer`<br><br><p>A function invocation with retries.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeFunction.<br>functionId | **string**<br><p>Required. ID of the function to invoke.</p> <p>The maximum string length in characters is 50.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeFunction.<br>functionTag | **string**<br><p>Version tag of the function to execute.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeFunction.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the function.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeFunction.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeFunction.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeFunction.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeFunction.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeFunction.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeFunction.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeContainer | **object**<br>Instructions for invoking a container with retries as needed. <br>`triggers[].rule.dataStream` includes only one of the fields `invokeFunction`, `invokeContainer`<br><br><p>A container invocation with retries.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeContainer.<br>containerId | **string**<br><p>Required. ID of the container to invoke.</p> <p>The maximum string length in characters is 50.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeContainer.<br>path | **string**<br><p>Endpoint HTTP path to invoke.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeContainer.<br>serviceAccountId | **string**<br><p>ID of the service account which has permission to invoke the container.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeContainer.<br>retrySettings | **object**<br><p>Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.</p> <p>Settings for retrying to invoke a function.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeContainer.<br>retrySettings.<br>retryAttempts | **string** (int64)<br><p>Maximum number of retries (extra invokes) before the action is considered failed.</p> <p>Acceptable values are 1 to 5, inclusive.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeContainer.<br>retrySettings.<br>interval | **string**<br><p>Required. Time in seconds to wait between individual retries.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeContainer.<br>deadLetterQueue | **object**<br><p>DLQ policy (no value means discarding a message).</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeContainer.<br>deadLetterQueue.<br>queueId | **string**<br><p>ID of the queue.</p> 
+triggers[].<br>rule.<br>dataStream.<br>invokeContainer.<br>deadLetterQueue.<br>serviceAccountId | **string**<br><p>Required. Service account which has write permission on the queue.</p> <p>The maximum string length in characters is 50.</p> 
 triggers[].<br>status | **string**<br><p>Trigger status.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/triggers/api-ref/Trigger/list#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/triggers/api-ref/Trigger/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

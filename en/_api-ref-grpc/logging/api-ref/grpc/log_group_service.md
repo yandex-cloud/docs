@@ -9,7 +9,6 @@ A set of methods for managing log groups.
 | Call | Description |
 | --- | --- |
 | [Get](#Get) | Returns the specified log group. |
-| [GetDefault](#GetDefault) | Returns default log group for the folder. |
 | [Stats](#Stats) | Returns stats for the specified log group. |
 | [List](#List) | Retrieves the list of log groups in the specified folder. |
 | [Create](#Create) | Creates a log group in the specified folder. |
@@ -37,34 +36,6 @@ log_group_id | **string**<br>Required. ID of the log group to return. <br>To get
 
 
 ### LogGroup {#LogGroup}
-
-Field | Description
---- | ---
-id | **string**<br>Log group ID. 
-folder_id | **string**<br>Log group folder ID. 
-cloud_id | **string**<br>Log group cloud ID. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log group creation time. 
-name | **string**<br>Log group name. 
-description | **string**<br>Log group description. 
-labels | **map<string,string>**<br>Log group labels. 
-status | enum **Status**<br>Status of the log group. <ul><li>`STATUS_UNSPECIFIED`: Unknown status. <br>Should never occur.</li><li>`CREATING`: Log group is creating.</li><li>`ACTIVE`: Log group is ready to accept messages,</li><li>`DELETING`: Log group is being deleted. <br>No messages will be accepted.</li><li>`ERROR`: Log group is in failed state.</li><ul/>
-retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. 
-
-
-## GetDefault {#GetDefault}
-
-Returns default log group for the folder. <br>To get the list of all available log groups, make a [List](#List) request.
-
-**rpc GetDefault ([GetDefaultLogGroupRequest](#GetDefaultLogGroupRequest)) returns ([LogGroup](#LogGroup1))**
-
-### GetDefaultLogGroupRequest {#GetDefaultLogGroupRequest}
-
-Field | Description
---- | ---
-folder_id | **string**<br>Required. Folder ID of the default log group to return. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 64.
-
-
-### LogGroup {#LogGroup1}
 
 Field | Description
 --- | ---
@@ -114,18 +85,18 @@ Field | Description
 folder_id | **string**<br>Required. Folder ID of the log groups to return. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 64.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListLogGroupsResponse.next_page_token](#ListLogGroupsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListLogGroupsResponse.next_page_token](#ListLogGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [LogGroup.name](#LogGroup2) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [LogGroup.name](#LogGroup1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListLogGroupsResponse {#ListLogGroupsResponse}
 
 Field | Description
 --- | ---
-groups[] | **[LogGroup](#LogGroup2)**<br>List of log groups in the specified folder. 
+groups[] | **[LogGroup](#LogGroup1)**<br>List of log groups in the specified folder. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListLogGroupsRequest.page_size](#ListLogGroupsRequest), use `next_page_token` as the value for the [ListLogGroupsRequest.page_token](#ListLogGroupsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### LogGroup {#LogGroup2}
+### LogGroup {#LogGroup1}
 
 Field | Description
 --- | ---
@@ -148,7 +119,7 @@ Creates a log group in the specified folder.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[CreateLogGroupMetadata](#CreateLogGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LogGroup](#LogGroup3)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LogGroup](#LogGroup2)<br>
 
 ### CreateLogGroupRequest {#CreateLogGroupRequest}
 
@@ -158,7 +129,7 @@ folder_id | **string**<br>Required. ID of the folder to create a log group in. <
 name | **string**<br>Name of the log group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{1,61}[a-z0-9])?)? `.
 description | **string**<br>Description of the log group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Log group labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. Must be at least `1h`. Acceptable values are 1h to 168h, inclusive.
+retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Log group entry retention period. <br>Entries will be present in group during this period. If specified, must be non-negative. Empty or zero value is treated as no limit. 
 
 
 ### Operation {#Operation}
@@ -174,7 +145,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateLogGroupMetadata](#CreateLogGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LogGroup](#LogGroup3)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LogGroup](#LogGroup2)>**<br>if operation finished successfully. 
 
 
 ### CreateLogGroupMetadata {#CreateLogGroupMetadata}
@@ -184,7 +155,7 @@ Field | Description
 log_group_id | **string**<br>ID of the log group being created. 
 
 
-### LogGroup {#LogGroup3}
+### LogGroup {#LogGroup2}
 
 Field | Description
 --- | ---
@@ -207,7 +178,7 @@ Updates the specified log group.
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateLogGroupMetadata](#UpdateLogGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LogGroup](#LogGroup4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[LogGroup](#LogGroup3)<br>
 
 ### UpdateLogGroupRequest {#UpdateLogGroupRequest}
 
@@ -218,7 +189,7 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>New name of the log group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{1,61}[a-z0-9])?)? `.
 description | **string**<br>New Description of the log group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>New log group labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
-retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>New log group entry retention period. <br>Entries will be present in group during this period. Must be at least `1h`. Acceptable values are 1h to 168h, inclusive.
+retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>New log group entry retention period. <br>Entries will be present in group during this period. If specified, must be non-negative. Empty or zero value is treated as no limit. 
 
 
 ### Operation {#Operation1}
@@ -234,7 +205,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateLogGroupMetadata](#UpdateLogGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LogGroup](#LogGroup4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[LogGroup](#LogGroup3)>**<br>if operation finished successfully. 
 
 
 ### UpdateLogGroupMetadata {#UpdateLogGroupMetadata}
@@ -244,7 +215,7 @@ Field | Description
 log_group_id | **string**<br>ID of the log group being updated. 
 
 
-### LogGroup {#LogGroup4}
+### LogGroup {#LogGroup3}
 
 Field | Description
 --- | ---

@@ -5,4 +5,4 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
-[Recognizer](./stt_service.md) | 
+[TtsService](./tts_service.md) | 

@@ -33,7 +33,7 @@ networkId | Обязательное поле. Идентификатор воз
   "defaultSecurityGroupId": "string"
 }
 ```
-Ресурс Network. Подробнее см. [Сети](/docs/vpc/concepts/network).
+Ресурс Network. Подробнее см. [Сети](/vpc/concepts/network).
  
 Поле | Описание
 --- | ---

@@ -2645,6 +2645,10 @@ components:
           title:
             description: UI-visible title of the parameter.
             type: string
+          hidden:
+            description: UI-visibility.
+            type: boolean
+            format: boolean
       - title: data
         type: object
         maxProperties: 1

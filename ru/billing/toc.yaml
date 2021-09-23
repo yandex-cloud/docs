@@ -125,3 +125,17 @@ items:
         href: qa/non-resident.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/billing/toc.yaml
+      - name: REST (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/billing/toc.yaml

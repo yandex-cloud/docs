@@ -28,6 +28,7 @@ Utterance | **oneof:** `text` or `text_template`<br>Text to synthesis, one of te
 &nbsp;&nbsp;text_template | **[TextTemplate](#TextTemplate)**<br>Text template instalce, e.g. `{"Hello, {username}" with username="Alice"}`. 
 hints[] | **[Hints](#Hints)**<br>Optional hints for synthesis. 
 output_audio_spec | **[AudioFormatOptions](#AudioFormatOptions)**<br>Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header 
+loudness_normalization_type | enum **LoudnessNormalizationType**<br>Optional. Default: MAX_PEAK, type of loudness normalization. <ul><ul/>
 
 
 ### TextTemplate {#TextTemplate}

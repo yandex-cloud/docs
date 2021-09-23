@@ -23,18 +23,18 @@ Expects audio in real-time
 Field | Description
 --- | ---
 Event | **oneof:** `session_options`, `chunk`, `silence_chunk` or `eou`<br>
-&nbsp;&nbsp;session_options | **[StreamingOptions](#StreamingOptions)**<br> 
-&nbsp;&nbsp;chunk | **[AudioChunk](#AudioChunk)**<br> 
-&nbsp;&nbsp;silence_chunk | **[SilenceChunk](#SilenceChunk)**<br> 
-&nbsp;&nbsp;eou | **[Eou](#Eou)**<br> 
+&nbsp;&nbsp;session_options | **[StreamingOptions](#StreamingOptions)**<br>Session options. should be first message from user 
+&nbsp;&nbsp;chunk | **[AudioChunk](#AudioChunk)**<br>chunk with audio data 
+&nbsp;&nbsp;silence_chunk | **[SilenceChunk](#SilenceChunk)**<br>chunk with silence 
+&nbsp;&nbsp;eou | **[Eou](#Eou)**<br>request to end current utterance. Works only with external EoU detector 
 
 
 ### StreamingOptions {#StreamingOptions}
 
 Field | Description
 --- | ---
-recognition_model | **[RecognitionModelOptions](#RecognitionModelOptions)**<br> 
-eou_classifier | **[EouClassifierOptions](#EouClassifierOptions)**<br> 
+recognition_model | **[RecognitionModelOptions](#RecognitionModelOptions)**<br>configuration for speech recognition model 
+eou_classifier | **[EouClassifierOptions](#EouClassifierOptions)**<br>configuration for end of utterance detection model 
 
 
 ### RecognitionModelOptions {#RecognitionModelOptions}
@@ -43,7 +43,7 @@ Field | Description
 --- | ---
 model | **string**<br>model name 
 audio_format | **[AudioFormatOptions](#AudioFormatOptions)**<br>config for input audio 
-text_normalization | **[TextNormalizationOptions](#TextNormalizationOptions)**<br> 
+text_normalization | **[TextNormalizationOptions](#TextNormalizationOptions)**<br>text normalization options 
 
 
 ### AudioFormatOptions {#AudioFormatOptions}
@@ -51,24 +51,24 @@ text_normalization | **[TextNormalizationOptions](#TextNormalizationOptions)**<b
 Field | Description
 --- | ---
 AudioFormat | **oneof:** `raw_audio` or `container_audio`<br>
-&nbsp;&nbsp;raw_audio | **[RawAudio](#RawAudio)**<br> 
-&nbsp;&nbsp;container_audio | **[ContainerAudio](#ContainerAudio)**<br> 
+&nbsp;&nbsp;raw_audio | **[RawAudio](#RawAudio)**<br>audio without container 
+&nbsp;&nbsp;container_audio | **[ContainerAudio](#ContainerAudio)**<br>audio is wrapped in container 
 
 
 ### RawAudio {#RawAudio}
 
 Field | Description
 --- | ---
-audio_encoding | enum **AudioEncoding**<br> <ul><ul/>
-sample_rate_hertz | **int64**<br> 
-audio_channel_count | **int64**<br> 
+audio_encoding | enum **AudioEncoding**<br>type of audio encoding <ul><ul/>
+sample_rate_hertz | **int64**<br>PCM sample rate 
+audio_channel_count | **int64**<br>PCM channel count. Currently only single channel audio is supported in real-time recognition 
 
 
 ### ContainerAudio {#ContainerAudio}
 
 Field | Description
 --- | ---
-container_audio_type | enum **ContainerAudioType**<br> <ul><ul/>
+container_audio_type | enum **ContainerAudioType**<br>type of audio container <ul><ul/>
 
 
 ### TextNormalizationOptions {#TextNormalizationOptions}
@@ -83,17 +83,17 @@ profanity_filter | **bool**<br>Profanity filter
 
 Field | Description
 --- | ---
-Classifier | **oneof:** `default_classifier` or `external_classifier`<br>type of EOU classifier. default = speechkit internal. External - delegate to user side
-&nbsp;&nbsp;default_classifier | **[DefaultEouClassifier](#DefaultEouClassifier)**<br>type of EOU classifier. default = speechkit internal. External - delegate to user side 
-&nbsp;&nbsp;external_classifier | **[ExternalEouClassifier](#ExternalEouClassifier)**<br>type of EOU classifier. default = speechkit internal. External - delegate to user side 
+Classifier | **oneof:** `default_classifier` or `external_classifier`<br>type of EOU classifier.
+&nbsp;&nbsp;default_classifier | **[DefaultEouClassifier](#DefaultEouClassifier)**<br>EOU classifier provided by SpeechKit. Default 
+&nbsp;&nbsp;external_classifier | **[ExternalEouClassifier](#ExternalEouClassifier)**<br>EoU is enforced by external messages from user 
 
 
 ### DefaultEouClassifier {#DefaultEouClassifier}
 
 Field | Description
 --- | ---
-type | enum **EouSensitivity**<br>EOU sensitivity. There'll be at least two levels, faster with more error and more conservative (our default) <ul><ul/>
-max_pause_between_words_hint_ms | **int64**<br> 
+type | enum **EouSensitivity**<br>EOU sensitivity.  Currently two levels, faster with more error and more conservative (our default) <ul><ul/>
+max_pause_between_words_hint_ms | **int64**<br>hint for max pause between words. Our EoU detector could use this information to distinguish between end of utterance and slow speech (like one <long pause> two <long pause> three, etc) 
 
 
 ### ExternalEouClassifier {#ExternalEouClassifier}
@@ -104,14 +104,14 @@ max_pause_between_words_hint_ms | **int64**<br>
 
 Field | Description
 --- | ---
-data | **bytes**<br> 
+data | **bytes**<br>bytes with audio data 
 
 
 ### SilenceChunk {#SilenceChunk}
 
 Field | Description
 --- | ---
-duration_ms | **int64**<br> 
+duration_ms | **int64**<br>duration of silence chunk in ms 
 
 
 ### Eou {#Eou}
@@ -122,8 +122,8 @@ duration_ms | **int64**<br>
 
 Field | Description
 --- | ---
-session_uuid | **[SessionUuid](#SessionUuid)**<br> 
-audio_cursors | **[AudioCursors](#AudioCursors)**<br> 
+session_uuid | **[SessionUuid](#SessionUuid)**<br>session identifier 
+audio_cursors | **[AudioCursors](#AudioCursors)**<br>progress bar for stream session recognition: how many data we obtained; final and partial times; etc 
 response_wall_time_ms | **int64**<br>wall clock on server side. This is time when server wrote results to stream 
 Event | **oneof:** `partial`, `final`, `eou_update`, `final_refinement` or `status_code`<br>
 &nbsp;&nbsp;partial | **[AlternativeUpdate](#AlternativeUpdate)**<br>partial results, server will send them regularly after enough audio data was received from user. This are current text estimation from final_time_ms to partial_time_ms. Could change after new data will arrive 
@@ -137,8 +137,8 @@ Event | **oneof:** `partial`, `final`, `eou_update`, `final_refinement` or `stat
 
 Field | Description
 --- | ---
-uuid | **string**<br> 
-user_request_id | **string**<br> 
+uuid | **string**<br>internal session identifier 
+user_request_id | **string**<br>user session identifier 
 
 
 ### AudioCursors {#AudioCursors}
@@ -157,79 +157,79 @@ eou_time_ms | **int64**<br>Estimated time of EOU. Cursor is updated after each n
 
 Field | Description
 --- | ---
-alternatives[] | **[Alternative](#Alternative)**<br> 
-channel_tag | **string**<br> 
+alternatives[] | **[Alternative](#Alternative)**<br>list of hypothesis for timeframes 
+channel_tag | **string**<br>tag for distinguish audio channels. 
 
 
 ### Alternative {#Alternative}
 
 Field | Description
 --- | ---
-words[] | **[Word](#Word)**<br> 
-text | **string**<br> 
-start_time_ms | **int64**<br> 
-end_time_ms | **int64**<br> 
-confidence | **double**<br> 
+words[] | **[Word](#Word)**<br>words in time frame 
+text | **string**<br>text in time frame 
+start_time_ms | **int64**<br>start of time frame 
+end_time_ms | **int64**<br>end of time frame 
+confidence | **double**<br>hypothesis confidence. Currently is not used 
 
 
 ### Word {#Word}
 
 Field | Description
 --- | ---
-text | **string**<br> 
-start_time_ms | **int64**<br> 
-end_time_ms | **int64**<br> 
+text | **string**<br>word text 
+start_time_ms | **int64**<br>estimation of word start time in ms 
+end_time_ms | **int64**<br>estimation of word end time in ms 
 
 
 ### EouUpdate {#EouUpdate}
 
 Field | Description
 --- | ---
-time_ms | **int64**<br> 
+time_ms | **int64**<br>end of utterance estimated time 
 
 
 ### FinalRefinement {#FinalRefinement}
 
 Field | Description
 --- | ---
-final_index | **int64**<br> 
-Type | **oneof:** `normalized_text`<br>
-&nbsp;&nbsp;normalized_text | **[AlternativeUpdate](#AlternativeUpdate1)**<br> 
+final_index | **int64**<br>index of final for which server sends additional information 
+Type | **oneof:** `normalized_text`<br>type of refinement
+&nbsp;&nbsp;normalized_text | **[AlternativeUpdate](#AlternativeUpdate1)**<br>normalized text instead of raw one 
 
 
 ### AlternativeUpdate {#AlternativeUpdate1}
 
 Field | Description
 --- | ---
-alternatives[] | **[Alternative](#Alternative1)**<br> 
-channel_tag | **string**<br> 
+alternatives[] | **[Alternative](#Alternative1)**<br>list of hypothesis for timeframes 
+channel_tag | **string**<br>tag for distinguish audio channels. 
 
 
 ### Alternative {#Alternative1}
 
 Field | Description
 --- | ---
-words[] | **[Word](#Word1)**<br> 
-text | **string**<br> 
-start_time_ms | **int64**<br> 
-end_time_ms | **int64**<br> 
-confidence | **double**<br> 
+words[] | **[Word](#Word1)**<br>words in time frame 
+text | **string**<br>text in time frame 
+start_time_ms | **int64**<br>start of time frame 
+end_time_ms | **int64**<br>end of time frame 
+confidence | **double**<br>hypothesis confidence. Currently is not used 
 
 
 ### Word {#Word1}
 
 Field | Description
 --- | ---
-text | **string**<br> 
-start_time_ms | **int64**<br> 
-end_time_ms | **int64**<br> 
+text | **string**<br>word text 
+start_time_ms | **int64**<br>estimation of word start time in ms 
+end_time_ms | **int64**<br>estimation of word end time in ms 
 
 
 ### StatusCode {#StatusCode}
 
 Field | Description
 --- | ---
-code_type | enum **CodeType**<br> <ul><ul/>
-message | **string**<br> 
+code_type | enum **CodeType**<br>code type <ul><ul/>
+message | **string**<br>human readable message 
 
 

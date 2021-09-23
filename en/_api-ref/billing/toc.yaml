@@ -1,0 +1,57 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: BillingAccount
+    items:
+      - name: Overview
+        href: api-ref/BillingAccount/index.md
+      - name: bindBillableObject
+        href: api-ref/BillingAccount/bindBillableObject.md
+      - name: get
+        href: api-ref/BillingAccount/get.md
+      - name: list
+        href: api-ref/BillingAccount/list.md
+      - name: listAccessBindings
+        href: api-ref/BillingAccount/listAccessBindings.md
+      - name: listBillableObjectBindings
+        href: api-ref/BillingAccount/listBillableObjectBindings.md
+      - name: updateAccessBindings
+        href: api-ref/BillingAccount/updateAccessBindings.md
+  - name: Budget
+    items:
+      - name: Overview
+        href: api-ref/Budget/index.md
+      - name: create
+        href: api-ref/Budget/create.md
+      - name: get
+        href: api-ref/Budget/get.md
+      - name: list
+        href: api-ref/Budget/list.md
+  - name: Customer
+    items:
+      - name: Overview
+        href: api-ref/Customer/index.md
+      - name: activate
+        href: api-ref/Customer/activate.md
+      - name: invite
+        href: api-ref/Customer/invite.md
+      - name: list
+        href: api-ref/Customer/list.md
+      - name: suspend
+        href: api-ref/Customer/suspend.md
+  - name: Service
+    items:
+      - name: Overview
+        href: api-ref/Service/index.md
+      - name: get
+        href: api-ref/Service/get.md
+      - name: list
+        href: api-ref/Service/list.md
+  - name: Sku
+    items:
+      - name: Overview
+        href: api-ref/Sku/index.md
+      - name: get
+        href: api-ref/Sku/get.md
+      - name: list
+        href: api-ref/Sku/list.md

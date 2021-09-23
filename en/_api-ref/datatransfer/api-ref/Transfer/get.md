@@ -65,10 +65,10 @@ transferId |
         "password": {
           "raw": "string"
         },
-        "includeTables": [
+        "includeTablesRegex": [
           "string"
         ],
-        "excludeTables": [
+        "excludeTablesRegex": [
           "string"
         ],
         "timezone": "string",
@@ -167,8 +167,7 @@ transferId |
         },
         "sqlMode": "string",
         "skipConstraintChecks": true,
-        "timezone": "string",
-        "serviceSchema": "string"
+        "timezone": "string"
       },
       "postgresTarget": {
         "connection": {
@@ -243,10 +242,10 @@ transferId |
         "password": {
           "raw": "string"
         },
-        "includeTables": [
+        "includeTablesRegex": [
           "string"
         ],
-        "excludeTables": [
+        "excludeTablesRegex": [
           "string"
         ],
         "timezone": "string",
@@ -345,8 +344,7 @@ transferId |
         },
         "sqlMode": "string",
         "skipConstraintChecks": true,
-        "timezone": "string",
-        "serviceSchema": "string"
+        "timezone": "string"
       },
       "postgresTarget": {
         "connection": {
@@ -418,8 +416,8 @@ source.<br>settings.<br>mysqlSource.<br>database | **string**<br>
 source.<br>settings.<br>mysqlSource.<br>user | **string**<br>
 source.<br>settings.<br>mysqlSource.<br>password | **object**<br>
 source.<br>settings.<br>mysqlSource.<br>password.<br>raw | **string**<br>
-source.<br>settings.<br>mysqlSource.<br>includeTables[] | **string**<br>
-source.<br>settings.<br>mysqlSource.<br>excludeTables[] | **string**<br>
+source.<br>settings.<br>mysqlSource.<br>includeTablesRegex[] | **string**<br>
+source.<br>settings.<br>mysqlSource.<br>excludeTablesRegex[] | **string**<br>
 source.<br>settings.<br>mysqlSource.<br>timezone | **string**<br>
 source.<br>settings.<br>mysqlSource.<br>objectTransferSettings | **object**<br>
 source.<br>settings.<br>mysqlSource.<br>objectTransferSettings.<br>view | **string**<br>
@@ -481,7 +479,6 @@ source.<br>settings.<br>mysqlTarget.<br>password.<br>raw | **string**<br>
 source.<br>settings.<br>mysqlTarget.<br>sqlMode | **string**<br>
 source.<br>settings.<br>mysqlTarget.<br>skipConstraintChecks | **boolean** (boolean)<br>
 source.<br>settings.<br>mysqlTarget.<br>timezone | **string**<br>
-source.<br>settings.<br>mysqlTarget.<br>serviceSchema | **string**<br>
 source.<br>settings.<br>postgresTarget | **object** <br>`source.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 source.<br>settings.<br>postgresTarget.<br>connection | **object**<br>
 source.<br>settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`source.settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>
@@ -520,8 +517,8 @@ target.<br>settings.<br>mysqlSource.<br>database | **string**<br>
 target.<br>settings.<br>mysqlSource.<br>user | **string**<br>
 target.<br>settings.<br>mysqlSource.<br>password | **object**<br>
 target.<br>settings.<br>mysqlSource.<br>password.<br>raw | **string**<br>
-target.<br>settings.<br>mysqlSource.<br>includeTables[] | **string**<br>
-target.<br>settings.<br>mysqlSource.<br>excludeTables[] | **string**<br>
+target.<br>settings.<br>mysqlSource.<br>includeTablesRegex[] | **string**<br>
+target.<br>settings.<br>mysqlSource.<br>excludeTablesRegex[] | **string**<br>
 target.<br>settings.<br>mysqlSource.<br>timezone | **string**<br>
 target.<br>settings.<br>mysqlSource.<br>objectTransferSettings | **object**<br>
 target.<br>settings.<br>mysqlSource.<br>objectTransferSettings.<br>view | **string**<br>
@@ -583,7 +580,6 @@ target.<br>settings.<br>mysqlTarget.<br>password.<br>raw | **string**<br>
 target.<br>settings.<br>mysqlTarget.<br>sqlMode | **string**<br>
 target.<br>settings.<br>mysqlTarget.<br>skipConstraintChecks | **boolean** (boolean)<br>
 target.<br>settings.<br>mysqlTarget.<br>timezone | **string**<br>
-target.<br>settings.<br>mysqlTarget.<br>serviceSchema | **string**<br>
 target.<br>settings.<br>postgresTarget | **object** <br>`target.settings` includes only one of the fields `mysqlSource`, `postgresSource`, `mysqlTarget`, `postgresTarget`<br><br>
 target.<br>settings.<br>postgresTarget.<br>connection | **object**<br>
 target.<br>settings.<br>postgresTarget.<br>connection.<br>mdbClusterId | **string** <br>`target.settings.postgresTarget.connection` includes only one of the fields `mdbClusterId`, `onPremise`<br><br>

@@ -1,0 +1,193 @@
+openapi: "3.0"
+info:
+  title: Title not set.
+  description: Description not set.
+  version: Version not set.
+paths: {}
+components:
+  schemas:
+    ClaimJobStatusRequestJobStatus:
+      type: string
+      enum:
+      - POST_PROCESS
+      - INITIATED
+      - PREPARING
+      - NOT_FOUND
+      - RUNNING
+      - FINISHING
+      - FINISHED
+      - STOPPED
+      - FAILED
+    ClaimJobStatusResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          format: int64
+    ClaimTankStatusRequestStatus:
+      type: string
+      enum:
+      - READY_FOR_TEST
+      - PREPARING_TEST
+      - TESTING
+      - TANK_FAILED
+    ClaimTankStatusResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          format: int64
+    CreateTrailResponse:
+      type: object
+      properties:
+        trailId:
+          type: string
+        code:
+          type: string
+          format: int64
+    File:
+      type: object
+      properties:
+        name:
+          type: string
+        content:
+          type: string
+          format: byte
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+        config:
+          type: string
+        ammo:
+          $ref: '#/components/schemas/File_in_Job_ammo'
+    JobSignalResponse:
+      type: object
+      properties:
+        signal:
+          $ref: '#/components/schemas/JobSignalResponseSignal_in_JobSignalResponse_signal'
+    JobSignalResponseSignal:
+      type: string
+      enum:
+      - STOP
+    SayHelloResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          format: int64
+    Trail:
+      type: object
+      properties:
+        overall:
+          type: string
+          format: int64
+        caseId:
+          type: string
+        time:
+          type: string
+        reqps:
+          type: string
+          format: int64
+        resps:
+          type: string
+          format: int64
+        expect:
+          type: number
+          format: double
+        input:
+          type: string
+          format: int64
+        output:
+          type: string
+          format: int64
+        connectTime:
+          type: number
+          format: double
+        sendTime:
+          type: number
+          format: double
+        latency:
+          type: number
+          format: double
+        receiveTime:
+          type: number
+          format: double
+        threads:
+          type: string
+          format: int64
+        q50:
+          type: number
+          format: double
+        q75:
+          type: number
+          format: double
+        q80:
+          type: number
+          format: double
+        q85:
+          type: number
+          format: double
+        q90:
+          type: number
+          format: double
+        q95:
+          type: number
+          format: double
+        q98:
+          type: number
+          format: double
+        q99:
+          type: number
+          format: double
+        q100:
+          type: number
+          format: double
+        httpCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrailCodes'
+        netCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrailCodes'
+        timeIntervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrailIntervals'
+    TrailCodes:
+      type: object
+      properties:
+        code:
+          type: string
+          format: int64
+        count:
+          type: string
+          format: int64
+    TrailIntervals:
+      type: object
+      properties:
+        to:
+          type: number
+          format: double
+        count:
+          type: string
+          format: int64
+    File_in_Job_ammo:
+      type: object
+      properties:
+        name:
+          type: string
+        content:
+          type: string
+          format: byte
+    JobSignalResponseSignal_in_JobSignalResponse_signal:
+      type: string
+      enum:
+      - STOP
+tags:
+- name: Greeter
+- name: Job
+- name: Tank
+- name: Trail

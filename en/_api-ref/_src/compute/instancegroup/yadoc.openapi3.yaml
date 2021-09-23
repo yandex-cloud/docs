@@ -1872,8 +1872,8 @@ components:
           format: int64
         measurementDuration:
           description: |-
-            Required.
             Time in seconds allotted for averaging metrics.
+            1 minute by default.
 
             Acceptable values are 60 seconds to 600 seconds, inclusive.
           type: string

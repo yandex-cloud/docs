@@ -3,6 +3,8 @@ items:
     href: api-ref/grpc/index.md
   - name: ClusterService
     href: api-ref/grpc/cluster_service.md
+  - name: ConnectorService
+    href: api-ref/grpc/connector_service.md
   - name: ResourcePresetService
     href: api-ref/grpc/resource_preset_service.md
   - name: TopicService

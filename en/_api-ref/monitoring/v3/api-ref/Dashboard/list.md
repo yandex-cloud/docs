@@ -157,6 +157,7 @@ filter | The filter expression. Currently you can use filtering only on [Dashboa
           {
             "name": "string",
             "title": "string",
+            "hidden": true,
 
             // `dashboards[].parametrization.parameters[]` includes only one of the fields `labelValues`, `custom`, `text`
             "labelValues": {
@@ -282,6 +283,7 @@ dashboards[].<br>parametrization | **object**<br><p>Dashboard parametrization.</
 dashboards[].<br>parametrization.<br>parameters[] | **object**<br><p>Parameter.</p> 
 dashboards[].<br>parametrization.<br>parameters[].<br>name | **string**<br><p>Parameter identifier.</p> 
 dashboards[].<br>parametrization.<br>parameters[].<br>title | **string**<br><p>UI-visible title of the parameter.</p> 
+dashboards[].<br>parametrization.<br>parameters[].<br>hidden | **boolean** (boolean)<br><p>UI-visibility.</p> 
 dashboards[].<br>parametrization.<br>parameters[].<br>labelValues | **object**<br>Label values parameter. <br>`dashboards[].parametrization.parameters[]` includes only one of the fields `labelValues`, `custom`, `text`<br><br><p>Label values parameter.</p> 
 dashboards[].<br>parametrization.<br>parameters[].<br>labelValues.<br>folderId | **string**<br><p>Required. Folder ID.</p> 
 dashboards[].<br>parametrization.<br>parameters[].<br>labelValues.<br>selectors | **string**<br><p>Required. Selectors to select metric label values.</p> 

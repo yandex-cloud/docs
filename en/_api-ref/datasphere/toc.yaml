@@ -21,8 +21,14 @@ items:
         href: api-ref/Project/create.md
       - name: delete
         href: api-ref/Project/delete.md
+      - name: execute
+        href: api-ref/Project/execute.md
       - name: get
         href: api-ref/Project/get.md
+      - name: getCellOutputs
+        href: api-ref/Project/getCellOutputs.md
+      - name: getStateVariables
+        href: api-ref/Project/getStateVariables.md
       - name: getUnitBalance
         href: api-ref/Project/getUnitBalance.md
       - name: list
