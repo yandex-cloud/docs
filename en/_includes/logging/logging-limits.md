@@ -14,5 +14,5 @@
 | Maximum `json-payload` size | 64 KB |
 | **Other restrictions** |
 | Minimum record retention period | 1 hour |
-| Maximum record retention period | 7 days |
+| Maximum record retention period | 3 days |
 | Maximum length of a [filter](../../logging/concepts/filter.md#how-to) | 1000 characters |

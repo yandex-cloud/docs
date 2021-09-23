@@ -1,4 +1,4 @@
-The maximum record retention period is 7 days. The log uses Coordinated Universal Time, [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
+The maximum record retention period is 3 days. The log uses Coordinated Universal Time, [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
 
 You can filter records using the [language of filter expressions](../../logging/concepts/filter.md).
 

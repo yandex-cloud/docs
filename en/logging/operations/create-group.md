@@ -11,7 +11,7 @@
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Set the log group record retention period. The maximum retention period is 7 days and the minimum is 1 hour.
+  1. Set the log group record retention period. The maximum retention period is 3 days and the minimum is 1 hour.
   1. Click **Create group**.
 
 - CLI
@@ -33,7 +33,7 @@
   ```
 
   * `--name`: Name of the log group.
-  * `--retention-period`: Log group record retention period. Optional parameter. The maximum retention period is 7 days and the minimum is 1 hour. By default, the retention period is 7 days.
+  * `--retention-period`: Log group record retention period. Optional parameter. The maximum retention period is 3 days and the minimum is 1 hour. By default, the retention period is 3 days.
 
   Result:
 
