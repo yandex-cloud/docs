@@ -19,7 +19,8 @@
 
     1. [Назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
 
-       * `editor` — для создания необходимых ресурсов;
+       * `alb.editor` — для создания необходимых ресурсов;
+       * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list);
        * `certificate-manager.certificates.downloader` — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
     1. Создайте для него [авторизованный ключ](../../iam/operations/sa/create-access-key.md) и сохраните в файл `sa-key.json`:
@@ -142,12 +143,11 @@
 
 ```bash
 export HELM_EXPERIMENTAL_OCI=1
-helm chart pull cr.yandex/crpsjg1coh47p81vh2lc/yc-alb-ingress-controller-chart:v0.0.4
-helm chart export cr.yandex/crpsjg1coh47p81vh2lc/yc-alb-ingress-controller-chart:v0.0.4
+helm chart pull cr.yandex/crpsjg1coh47p81vh2lc/yc-alb-ingress-controller-chart:v0.0.5
+helm chart export cr.yandex/crpsjg1coh47p81vh2lc/yc-alb-ingress-controller-chart:v0.0.5
 helm install \
      --namespace yc-alb-ingress \
      --set folderId=<идентификатор каталога> \
-     --set "subnetIds={разделенные запятой идентификаторы подсетей, в которых размещены узлы кластера}" \
      --set clusterId=<идентификатор кластера> \
      yc-alb-ingress-controller ./yc-alb-ingress-controller/
 ```
@@ -189,7 +189,7 @@ helm install \
 
     {% endlist %}
 
-1. В отдельном каталоге создайте файл `ingress.yaml` и укажите в нем [делегированное ранее доменное имя](#before-you-begin) и идентификатор сертификата:
+1. В отдельном каталоге создайте файл `ingress.yaml` и укажите в нем [делегированное ранее доменное имя](#before-you-begin), идентификатор сертификата и настройки для {{ alb-name }}:
 
     ```yaml
     ---
@@ -197,6 +197,10 @@ helm install \
     kind: Ingress
     metadata:
       name: alb-demo-tls
+      annotations:
+        ingress.alb.yc.io/subnets: <список идентификаторов подсетей>
+        ingress.alb.yc.io/security-groups: <список идентификаторов групп безопасности>
+        ingress.alb.yc.io/external-ipv4-address: <auto или статический IP-адрес>
     spec:
       tls:
         - hosts:
@@ -228,6 +232,25 @@ helm install \
                     port:
                       number: 80
     ```
+
+    Где:
+
+    * `ingress.alb.yc.io/subnets` — одна или несколько подсетей, с которыми будет работать {{ alb-name }}.
+    * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию.
+    * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md), либо установите значение `auto`, чтобы получить новый.
+
+    (Опционально) Укажите дополнительные настройки контроллера:
+
+    * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
+
+      {% note info %}
+
+      Вы можете одновременно использовать только один тип доступа к {{ alb-name }}: `ingress.alb.yc.io/external-ipv4-address` или `ingress.alb.yc.io/internal-ipv4-address`.
+
+      {% endnote %}
+
+    * `ingress.alb.yc.io/internal-alb-subnet` — подсеть для размещения внутреннего IP-адреса {{ alb-name }}. Обязательно к заполнению, если выбран параметр `ingress.alb.yc.io/internal-ipv4-address`.
+    * `ingress.alb.yc.io/group-name` — объединение ресурсов {{ k8s }} Ingress в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}. Укажите имя группы. Если параметр не задан, балансировщик будет создан в группе `default`.
 
 1. В том же каталоге создайте файлы приложений `demo-app-1.yaml` и `demo-app-2.yaml`:
 
