@@ -40,6 +40,14 @@ _Роль_ — это набор разрешений, который опре�
 * Установить права доступа к ресурсу;
 * Изменить права доступа к ресурсу.
 
+## {{ alb-name }} {#alb-roles}
+
+{% include [roles-alb-viewer](../../../_includes/roles-alb-viewer.md) %}
+
+{% include [roles-alb-editor](../../../_includes/roles-alb-editor.md) %}
+
+{% include [roles-alb-admin](../../../_includes/roles-alb-admin.md) %}
+
 ## {{ certificate-manager-name }} {#certificate-manager-roles}
 
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
