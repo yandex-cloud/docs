@@ -1,9 +1,6 @@
 title: Yandex Cloud DNS
 description:
   - >-
-    <em>Сервис Yandex Cloud DNS находится на стадии <a
-    href="/docs/overview/concepts/launch-stages">Preview</a>.</em>
-  - >-
     Yandex Cloud DNS служит для управления зонами DNS и доменными именами ваших
     ресурсов.
   - >-

@@ -2,22 +2,23 @@
 
 {{ objstorage-name }} поддерживает некоторые методы HTTP API Amazon S3. Это позволяет использовать при работе с {{ objstorage-name }} не только инструменты {{ yandex-cloud }}, но и популярные инструменты для работы с Amazon S3.
 
-- Консольные клиенты
+* Консольные клиенты
+  
+  * [AWS CLI](aws-cli.md)
+  * [S3cmd](s3cmd.md)
 
-    - [AWS CLI](aws-cli.md)
-    - [S3cmd](s3cmd.md)
-
-- Файловые браузеры
+* Файловые браузеры
     
-    - [Cyberduck](cyberduck.md)
-    - [WinSCP](winscp.md)
+  * [Cyberduck](cyberduck.md)
+  * [WinSCP](winscp.md)
 
-- SDK
+* SDK
 
-    - [AWS Java SDK](aws-sdk-java.md)
-    - [Python SDK (boto)](boto.md)
+  * [AWS Java SDK](aws-sdk-java.md)
+  * [Python SDK (boto)](boto.md)
 
-- FUSE
+* FUSE
 
-    - [s3fs](s3fs.md)
-    - [goofys](goofys.md)
+  * [GeeseFS](geesefs.md)   
+  * [s3fs](s3fs.md)
+  * [goofys](goofys.md)
