@@ -399,6 +399,7 @@ default:
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-cloud-notifications: https://console.cloud.yandex.com/cloud?section=incident-notifications
   link-datalens-main: https://datalens.yandex.com
+  link-datalens-settings: https://datalens.yandex.com/settings
   link-org-main: https://org.cloud.yandex.com/
   link-tracker: https://tracker.yandex.com/
   tf-cloud-id: b1gq90dgh25bebiu75o
