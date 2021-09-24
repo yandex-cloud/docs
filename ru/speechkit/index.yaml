@@ -31,7 +31,7 @@ links:
     href: tts/brand-voice/
   - title: SpeechKit Hybrid
     description: Голосовые технологии Yandex.Cloud на собственной инфраструктуре
-    href: hybrid-speechkit
+    href: hybrid-speechkit/conception
   - title: Аутентификация в API
     description: Получите токен авторизации и используйте его в запросах
     href: concepts/auth
