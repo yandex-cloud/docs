@@ -18,7 +18,7 @@ links:
     href: operations/
   - title: Концепции
     description: Узнайте об основных понятиях сервиса — рабочих столах и их группах
-    href: concepts/
+    href: concepts/desktops-and-groups
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

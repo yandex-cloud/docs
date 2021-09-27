@@ -25,6 +25,8 @@ items:
         href: import.md
       - name: Deactivating paid services
         href: disable-tracker.md
+  - name: Yandex Tracker mobile app
+    href: mobile.md
   - name: Use cases
     items:
       - name: Setting up Tracker for a development team
