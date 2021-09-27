@@ -29,6 +29,8 @@ items:
     - name: Deactivating paid services
       when: audience == "external"
       href: disable-tracker.md
+- name: Yandex Tracker mobile app
+  href: mobile.md
 - name: Use cases
   items:
     - name: Setting up Tracker for a development team
