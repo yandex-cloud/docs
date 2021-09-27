@@ -1,6 +1,5 @@
 title: Yandex Cloud DNS
 description:
-  - "<em>Yandex Cloud DNS is at the <a href=\"/docs/overview/concepts/launch-stages\">Preview</a> stage.</em>"
   - >-
     Yandex Cloud DNS is used for managing DNS zones and domain names of your resources.
   - >-

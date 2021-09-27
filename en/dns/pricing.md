@@ -3,8 +3,6 @@ editable: false
 ---
 # Pricing for {{ dns-name }}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ dns-name }} can be used free of charge.
-
 After general availability of the service, you'll start seeing service resources consumption in your billing. However, until and including **October 31st of 2021**, Cloud DNS can be used free of charge.
 
 Since **November 1st of 2021**, service will become paid.
