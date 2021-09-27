@@ -78,4 +78,4 @@ DB_CAST([float_value], "numeric", 10, 5)
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 1.1`, `PostgreSQL 9.3`.
+`Materialized Dataset`, `ClickHouse 19.13`, `PostgreSQL 9.3`.

@@ -25,4 +25,4 @@ QUANTILE_APPROX( value, quant )
 
 #### Поддержка источников данных {#data-source-support}
 
-`Материализованный датасет`, `ClickHouse 1.1`.
+`Материализованный датасет`, `ClickHouse 19.13`.
