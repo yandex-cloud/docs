@@ -346,9 +346,17 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
+            description: |-
+              MDB cluster
+
+              Yandex.Cloud Managed MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
+            description: |-
+              On-premise
+
+              Connection options for on-premise MySQL
     MysqlObjectTransferSettings:
       type: object
       properties:
@@ -364,8 +372,17 @@ components:
         connection:
           $ref: '#/components/schemas/MysqlConnection_in_MysqlSource_connection'
         database:
+          description: |-
+            Database name
+
+            You can leave it empty, then it will be possible to transfer tables from several
+            databases at the same time from this source.
           type: string
         user:
+          description: |-
+            Username
+
+            User for database access.
           type: string
         password:
           $ref: '#/components/schemas/Secret_in_MysqlSource_password'
@@ -378,6 +395,11 @@ components:
           items:
             type: string
         timezone:
+          description: |-
+            Database timezone
+
+            Is used for parsing timestamps for saving source timezones. Accepts values from
+            IANA timezone database. Default: local timezone.
           type: string
         objectTransferSettings:
           $ref: '#/components/schemas/MysqlObjectTransferSettings_in_MysqlSource_objectTransferSettings'
@@ -387,17 +409,42 @@ components:
         connection:
           $ref: '#/components/schemas/MysqlConnection_in_MysqlTarget_connection'
         database:
+          description: |-
+            Database name
+
+            Allowed to leave it empty, then the tables will be created in databases with the
+            same names as on the source. If this field is empty, then you must fill below db
+            schema for service table.
           type: string
         user:
+          description: |-
+            Username
+
+            User for database access.
           type: string
         password:
           $ref: '#/components/schemas/Secret_in_MysqlTarget_password'
         sqlMode:
+          description: |-
+            sql_mode
+
+            Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION.
           type: string
         skipConstraintChecks:
+          description: |-
+            Disable constraints checks
+
+            Recommend to disable for increase replication speed, but if schema contain
+            cascading operations we don't recommend to disable. This option set
+            FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0.
           type: boolean
           format: boolean
         timezone:
+          description: |-
+            Database timezone
+
+            Is used for parsing timestamps for saving source timezones. Accepts values from
+            IANA timezone database. Default: local timezone.
           type: string
     ObjectTransferStage:
       type: string
@@ -413,11 +460,19 @@ components:
           items:
             type: string
         port:
+          description: |-
+            Database port
+
+            Will be used if the cluster ID is not specified. Default: 6432.
           type: string
           format: int64
         tlsMode:
           $ref: '#/components/schemas/TLSMode_in_OnPremiseMysql_tlsMode'
         subnetId:
+          description: |-
+            Network interface for endpoint
+
+            Default: public IPv4.
           type: string
     OnPremisePostgres:
       type: object
@@ -427,11 +482,19 @@ components:
           items:
             type: string
         port:
+          description: |-
+            Database port
+
+            Will be used if the cluster ID is not specified. Default: 6432.
           type: string
           format: int64
         tlsMode:
           $ref: '#/components/schemas/TLSMode_in_OnPremisePostgres_tlsMode'
         subnetId:
+          description: |-
+            Network interface for endpoint
+
+            Default: public IPv4.
           type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
@@ -498,9 +561,17 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
+            description: |-
+              MDB cluster
+
+              Yandex.Cloud Managed PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
+            description: |-
+              On-premise
+
+              Connection options for on-premise PostgreSQL
     PostgresObjectTransferSettings:
       type: object
       properties:
@@ -542,23 +613,49 @@ components:
         connection:
           $ref: '#/components/schemas/PostgresConnection_in_PostgresSource_connection'
         database:
+          description: Database name
           type: string
         user:
+          description: |-
+            Username
+
+            User for database access.
           type: string
         password:
           $ref: '#/components/schemas/Secret_in_PostgresSource_password'
         includeTables:
+          description: |-
+            List of tables
+
+            If none or empty list is presented, all tables are replicated. Can contain
+            regular expression.
           type: array
           items:
             type: string
         excludeTables:
+          description: |-
+            Excluded tables
+
+            If none or empty list is presented, all tables are replicated. Can contain
+            regular expression.
           type: array
           items:
             type: string
         slotByteLagLimit:
+          description: |-
+            Maximum WAL size for the replication slot
+
+            Maximum WAL size held by the replication slot. Exceeding this limit will result
+            in a replication failure and deletion of the replication slot. Unlimited by
+            default.
           type: string
           format: int64
         serviceSchema:
+          description: |-
+            Database schema for service table
+
+            Default: public. Here created technical tables (__consumer_keeper,
+            __data_transfer_mole_finder).
           type: string
         objectTransferSettings:
           $ref: '#/components/schemas/PostgresObjectTransferSettings_in_PostgresSource_objectTransferSettings'
@@ -568,8 +665,13 @@ components:
         connection:
           $ref: '#/components/schemas/PostgresConnection_in_PostgresTarget_connection'
         database:
+          description: Database name
           type: string
         user:
+          description: |-
+            Username
+
+            User for database access.
           type: string
         password:
           $ref: '#/components/schemas/Secret_in_PostgresTarget_password'
@@ -581,6 +683,7 @@ components:
         maxProperties: 1
         properties:
           raw:
+            description: Password
             type: string
     Status:
       description: The error result of the operation in case of failure or cancellation.
@@ -602,6 +705,12 @@ components:
       type: object
       properties:
         caCertificate:
+          description: |-
+            CA certificate
+
+            X.509 certificate of the certificate authority which issued the server's
+            certificate, in PEM format. When CA certificate is specified TLS is used to
+            connect to the server.
           type: string
     TLSMode:
       type: object
@@ -647,6 +756,10 @@ components:
       - SNAPSHOTTING
       - DONE
     TransferType:
+      description: |2-
+         - SNAPSHOT_AND_INCREMENT: Snapshot and increment
+         - SNAPSHOT_ONLY: Snapshot
+         - INCREMENT_ONLY: Increment
       type: string
       enum:
       - SNAPSHOT_AND_INCREMENT
@@ -694,6 +807,10 @@ components:
           postgresTarget:
             $ref: '#/components/schemas/PostgresTarget'
     TransferType_in_CreateTransferRequest_type:
+      description: |2-
+         - SNAPSHOT_AND_INCREMENT: Snapshot and increment
+         - SNAPSHOT_ONLY: Snapshot
+         - INCREMENT_ONLY: Increment
       type: string
       enum:
       - SNAPSHOT_AND_INCREMENT
@@ -715,24 +832,40 @@ components:
           postgresTarget:
             $ref: '#/components/schemas/PostgresTarget'
     ObjectTransferStage_in_MysqlObjectTransferSettings_view:
+      description: |-
+        Views
+
+        CREATE VIEW ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_MysqlObjectTransferSettings_routine:
+      description: |-
+        Routines
+
+        CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_MysqlObjectTransferSettings_trigger:
+      description: |-
+        Triggers
+
+        CREATE TRIGGER ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     MysqlConnection_in_MysqlSource_connection:
+      description: |-
+        Connection settings
+
+        Database connection settings
       type: object
       allOf:
       - title: connection
@@ -740,10 +873,22 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
+            description: |-
+              MDB cluster
+
+              Yandex.Cloud Managed MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
+            description: |-
+              On-premise
+
+              Connection options for on-premise MySQL
     Secret_in_MysqlSource_password:
+      description: |-
+        Password
+
+        Password for database access.
       type: object
       allOf:
       - title: value
@@ -751,8 +896,13 @@ components:
         maxProperties: 1
         properties:
           raw:
+            description: Password
             type: string
     MysqlObjectTransferSettings_in_MysqlSource_objectTransferSettings:
+      description: |-
+        Schema migration
+
+        Select database objects to be transferred during activation or deactivation.
       type: object
       properties:
         view:
@@ -762,6 +912,10 @@ components:
         trigger:
           $ref: '#/components/schemas/ObjectTransferStage_in_MysqlObjectTransferSettings_trigger'
     MysqlConnection_in_MysqlTarget_connection:
+      description: |-
+        Connection settings
+
+        Database connection settings
       type: object
       allOf:
       - title: connection
@@ -769,10 +923,22 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
+            description: |-
+              MDB cluster
+
+              Yandex.Cloud Managed MySQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremiseMysql'
+            description: |-
+              On-premise
+
+              Connection options for on-premise MySQL
     Secret_in_MysqlTarget_password:
+      description: |-
+        Password
+
+        Password for database access.
       type: object
       allOf:
       - title: value
@@ -780,8 +946,13 @@ components:
         maxProperties: 1
         properties:
           raw:
+            description: Password
             type: string
     TLSMode_in_OnPremiseMysql_tlsMode:
+      description: |-
+        TLS mode
+
+        TLS settings for server connection. Disabled by default.
       type: object
       allOf:
       - title: tls_mode
@@ -793,6 +964,10 @@ components:
           enabled:
             $ref: '#/components/schemas/TLSConfig'
     TLSMode_in_OnPremisePostgres_tlsMode:
+      description: |-
+        TLS mode
+
+        TLS settings for server connection. Disabled by default.
       type: object
       allOf:
       - title: tls_mode
@@ -804,102 +979,170 @@ components:
           enabled:
             $ref: '#/components/schemas/TLSConfig'
     ObjectTransferStage_in_PostgresObjectTransferSettings_sequence:
+      description: |-
+        Sequences
+
+        CREATE SEQUENCE ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_sequenceOwnedBy:
+      description: |-
+        Owned sequences
+
+        CREATE SEQUENCE ... OWNED BY ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_table:
+      description: |-
+        Tables
+
+        CREATE TABLE ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_primaryKey:
+      description: |-
+        Primary keys
+
+        ALTER TABLE ... ADD PRIMARY KEY ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_fkConstraint:
+      description: |-
+        Foreign keys
+
+        ALTER TABLE ... ADD FOREIGN KEY ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_defaultValues:
+      description: |-
+        Default values
+
+        ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_constraint:
+      description: |-
+        Constraints
+
+        ALTER TABLE ... ADD CONSTRAINT ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_index:
+      description: |-
+        Indexes
+
+        CREATE INDEX ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_view:
+      description: |-
+        Views
+
+        CREATE VIEW ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_function:
+      description: |-
+        Functions
+
+        CREATE FUNCTION ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_trigger:
+      description: |-
+        Triggers
+
+        CREATE TRIGGER ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_type:
+      description: |-
+        Types
+
+        CREATE TYPE ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_rule:
+      description: |-
+        Rules
+
+        CREATE RULE ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_collation:
+      description: |-
+        Collations
+
+        CREATE COLLATION ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_policy:
+      description: |-
+        Policies
+
+        CREATE POLICY ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     ObjectTransferStage_in_PostgresObjectTransferSettings_cast:
+      description: |-
+        Casts
+
+        CREATE CAST ...
       type: string
       enum:
       - BEFORE_DATA
       - AFTER_DATA
       - NEVER
     PostgresConnection_in_PostgresSource_connection:
+      description: |-
+        Connection settings
+
+        Database connection settings
       type: object
       allOf:
       - title: connection
@@ -907,10 +1150,22 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
+            description: |-
+              MDB cluster
+
+              Yandex.Cloud Managed PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
+            description: |-
+              On-premise
+
+              Connection options for on-premise PostgreSQL
     Secret_in_PostgresSource_password:
+      description: |-
+        Password
+
+        Password for database access.
       type: object
       allOf:
       - title: value
@@ -918,8 +1173,13 @@ components:
         maxProperties: 1
         properties:
           raw:
+            description: Password
             type: string
     PostgresObjectTransferSettings_in_PostgresSource_objectTransferSettings:
+      description: |-
+        Schema migration
+
+        Select database objects to be transferred during activation or deactivation.
       type: object
       properties:
         sequence:
@@ -955,6 +1215,10 @@ components:
         cast:
           $ref: '#/components/schemas/ObjectTransferStage_in_PostgresObjectTransferSettings_cast'
     PostgresConnection_in_PostgresTarget_connection:
+      description: |-
+        Connection settings
+
+        Database connection settings
       type: object
       allOf:
       - title: connection
@@ -962,10 +1226,22 @@ components:
         maxProperties: 1
         properties:
           mdbClusterId:
+            description: |-
+              MDB cluster
+
+              Yandex.Cloud Managed PostgreSQL cluster ID
             type: string
           onPremise:
             $ref: '#/components/schemas/OnPremisePostgres'
+            description: |-
+              On-premise
+
+              Connection options for on-premise PostgreSQL
     Secret_in_PostgresTarget_password:
+      description: |-
+        Password
+
+        Password for database access.
       type: object
       allOf:
       - title: value
@@ -973,6 +1249,7 @@ components:
         maxProperties: 1
         properties:
           raw:
+            description: Password
             type: string
     Endpoint_in_Transfer_source:
       type: object
@@ -1012,6 +1289,10 @@ components:
       - SNAPSHOTTING
       - DONE
     TransferType_in_Transfer_type:
+      description: |2-
+         - SNAPSHOT_AND_INCREMENT: Snapshot and increment
+         - SNAPSHOT_ONLY: Snapshot
+         - INCREMENT_ONLY: Increment
       type: string
       enum:
       - SNAPSHOT_AND_INCREMENT

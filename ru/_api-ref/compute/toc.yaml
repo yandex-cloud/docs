@@ -153,27 +153,27 @@ items:
     items:
       - name: Обзор
         href: api-ref/InstanceGroup/index.md
-      - name: createFromYaml
-        href: api-ref/InstanceGroup/createFromYaml.md
-      - name: update
-        href: api-ref/InstanceGroup/update.md
       - name: list
         href: api-ref/InstanceGroup/list.md
       - name: get
         href: api-ref/InstanceGroup/get.md
-      - name: delete
-        href: api-ref/InstanceGroup/delete.md
-      - name: start
-        href: api-ref/InstanceGroup/start.md
-      - name: stop
-        href: api-ref/InstanceGroup/stop.md
-      - name: create
-        href: api-ref/InstanceGroup/create.md
-      - name: updateFromYaml
-        href: api-ref/InstanceGroup/updateFromYaml.md
       - name: listLogRecords
         href: api-ref/InstanceGroup/listLogRecords.md
+      - name: updateFromYaml
+        href: api-ref/InstanceGroup/updateFromYaml.md
+      - name: stop
+        href: api-ref/InstanceGroup/stop.md
+      - name: start
+        href: api-ref/InstanceGroup/start.md
+      - name: delete
+        href: api-ref/InstanceGroup/delete.md
       - name: listInstances
         href: api-ref/InstanceGroup/listInstances.md
+      - name: createFromYaml
+        href: api-ref/InstanceGroup/createFromYaml.md
+      - name: update
+        href: api-ref/InstanceGroup/update.md
       - name: listOperations
         href: api-ref/InstanceGroup/listOperations.md
+      - name: create
+        href: api-ref/InstanceGroup/create.md

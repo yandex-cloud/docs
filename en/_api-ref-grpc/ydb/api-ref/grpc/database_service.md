@@ -60,6 +60,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig)**<br> 
 
 
 ### StorageConfig {#StorageConfig}
@@ -222,6 +223,87 @@ start_time | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
+### MonitoringConfig {#MonitoringConfig}
+
+Field | Description
+--- | ---
+alerts[] | **[Alert](#Alert)**<br> 
+
+
+### Alert {#Alert}
+
+Field | Description
+--- | ---
+alert_id | **string**<br>output only field. 
+alert_template_id | **string**<br>template of the alert. 
+name | **string**<br>name of the alert. 
+description | **string**<br>human readable description of the alert. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter)**<br>alert paratemers to override. 
+
+
+### NotificationChannel {#NotificationChannel}
+
+Field | Description
+--- | ---
+notification_channel_id | **string**<br> 
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+repeate_notify_delay_ms | **int64**<br> 
+
+
+### AlertParameter {#AlertParameter}
+
+Field | Description
+--- | ---
+parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue)**<br> 
+
+
+### DoubleParameterValue {#DoubleParameterValue}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **double**<br>Required. Parameter value 
+
+
+### IntegerParameterValue {#IntegerParameterValue}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **int64**<br>Required. Parameter value 
+
+
+### TextParameterValue {#TextParameterValue}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **string**<br>Required. Parameter value 
+
+
+### TextListParameterValue {#TextListParameterValue}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
+### LabelListParameterValue {#LabelListParameterValue}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
 ## List {#List}
 
 Retrieves a list of databases.
@@ -272,6 +354,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig1)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig1)**<br> 
 
 
 ### StorageConfig {#StorageConfig2}
@@ -434,6 +517,87 @@ start_time | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
+### MonitoringConfig {#MonitoringConfig1}
+
+Field | Description
+--- | ---
+alerts[] | **[Alert](#Alert1)**<br> 
+
+
+### Alert {#Alert1}
+
+Field | Description
+--- | ---
+alert_id | **string**<br>output only field. 
+alert_template_id | **string**<br>template of the alert. 
+name | **string**<br>name of the alert. 
+description | **string**<br>human readable description of the alert. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel1)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter1)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter1)**<br>alert paratemers to override. 
+
+
+### NotificationChannel {#NotificationChannel1}
+
+Field | Description
+--- | ---
+notification_channel_id | **string**<br> 
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+repeate_notify_delay_ms | **int64**<br> 
+
+
+### AlertParameter {#AlertParameter1}
+
+Field | Description
+--- | ---
+parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue1)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue1)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue1)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue1)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue1)**<br> 
+
+
+### DoubleParameterValue {#DoubleParameterValue1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **double**<br>Required. Parameter value 
+
+
+### IntegerParameterValue {#IntegerParameterValue1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **int64**<br>Required. Parameter value 
+
+
+### TextParameterValue {#TextParameterValue1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **string**<br>Required. Parameter value 
+
+
+### TextListParameterValue {#TextListParameterValue1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
+### LabelListParameterValue {#LabelListParameterValue1}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
 ## Create {#Create}
 
 Creates a new database.
@@ -465,6 +629,7 @@ assign_public_ips | **bool**<br>
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig2)**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig2)**<br> 
 
 
 ### StorageConfig {#StorageConfig4}
@@ -627,6 +792,87 @@ start_time | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
+### MonitoringConfig {#MonitoringConfig2}
+
+Field | Description
+--- | ---
+alerts[] | **[Alert](#Alert2)**<br> 
+
+
+### Alert {#Alert2}
+
+Field | Description
+--- | ---
+alert_id | **string**<br>output only field. 
+alert_template_id | **string**<br>template of the alert. 
+name | **string**<br>name of the alert. 
+description | **string**<br>human readable description of the alert. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel2)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter2)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter2)**<br>alert paratemers to override. 
+
+
+### NotificationChannel {#NotificationChannel2}
+
+Field | Description
+--- | ---
+notification_channel_id | **string**<br> 
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+repeate_notify_delay_ms | **int64**<br> 
+
+
+### AlertParameter {#AlertParameter2}
+
+Field | Description
+--- | ---
+parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue2)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue2)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue2)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue2)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue2)**<br> 
+
+
+### DoubleParameterValue {#DoubleParameterValue2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **double**<br>Required. Parameter value 
+
+
+### IntegerParameterValue {#IntegerParameterValue2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **int64**<br>Required. Parameter value 
+
+
+### TextParameterValue {#TextParameterValue2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **string**<br>Required. Parameter value 
+
+
+### TextListParameterValue {#TextListParameterValue2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
+### LabelListParameterValue {#LabelListParameterValue2}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
 ### Operation {#Operation}
 
 Field | Description
@@ -678,6 +924,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig3)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig3)**<br> 
 
 
 ### StorageConfig {#StorageConfig6}
@@ -840,6 +1087,87 @@ start_time | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
+### MonitoringConfig {#MonitoringConfig3}
+
+Field | Description
+--- | ---
+alerts[] | **[Alert](#Alert3)**<br> 
+
+
+### Alert {#Alert3}
+
+Field | Description
+--- | ---
+alert_id | **string**<br>output only field. 
+alert_template_id | **string**<br>template of the alert. 
+name | **string**<br>name of the alert. 
+description | **string**<br>human readable description of the alert. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel3)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter3)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter3)**<br>alert paratemers to override. 
+
+
+### NotificationChannel {#NotificationChannel3}
+
+Field | Description
+--- | ---
+notification_channel_id | **string**<br> 
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+repeate_notify_delay_ms | **int64**<br> 
+
+
+### AlertParameter {#AlertParameter3}
+
+Field | Description
+--- | ---
+parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue3)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue3)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue3)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue3)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue3)**<br> 
+
+
+### DoubleParameterValue {#DoubleParameterValue3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **double**<br>Required. Parameter value 
+
+
+### IntegerParameterValue {#IntegerParameterValue3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **int64**<br>Required. Parameter value 
+
+
+### TextParameterValue {#TextParameterValue3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **string**<br>Required. Parameter value 
+
+
+### TextListParameterValue {#TextListParameterValue3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
+### LabelListParameterValue {#LabelListParameterValue3}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
 ## Update {#Update}
 
 Modifies the specified database.
@@ -873,6 +1201,7 @@ assign_public_ips | **bool**<br>
 location_id | **string**<br> 
 labels | **map<string,string>**<br> 
 backup_config | **[BackupConfig](#BackupConfig4)**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig4)**<br> 
 
 
 ### StorageConfig {#StorageConfig8}
@@ -1035,6 +1364,87 @@ start_time | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
+### MonitoringConfig {#MonitoringConfig4}
+
+Field | Description
+--- | ---
+alerts[] | **[Alert](#Alert4)**<br> 
+
+
+### Alert {#Alert4}
+
+Field | Description
+--- | ---
+alert_id | **string**<br>output only field. 
+alert_template_id | **string**<br>template of the alert. 
+name | **string**<br>name of the alert. 
+description | **string**<br>human readable description of the alert. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel4)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter4)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter4)**<br>alert paratemers to override. 
+
+
+### NotificationChannel {#NotificationChannel4}
+
+Field | Description
+--- | ---
+notification_channel_id | **string**<br> 
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+repeate_notify_delay_ms | **int64**<br> 
+
+
+### AlertParameter {#AlertParameter4}
+
+Field | Description
+--- | ---
+parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue4)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue4)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue4)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue4)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue4)**<br> 
+
+
+### DoubleParameterValue {#DoubleParameterValue4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **double**<br>Required. Parameter value 
+
+
+### IntegerParameterValue {#IntegerParameterValue4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **int64**<br>Required. Parameter value 
+
+
+### TextParameterValue {#TextParameterValue4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **string**<br>Required. Parameter value 
+
+
+### TextListParameterValue {#TextListParameterValue4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
+### LabelListParameterValue {#LabelListParameterValue4}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -1086,6 +1496,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig5)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig5)**<br> 
 
 
 ### StorageConfig {#StorageConfig10}
@@ -1248,6 +1659,87 @@ start_time | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
+### MonitoringConfig {#MonitoringConfig5}
+
+Field | Description
+--- | ---
+alerts[] | **[Alert](#Alert5)**<br> 
+
+
+### Alert {#Alert5}
+
+Field | Description
+--- | ---
+alert_id | **string**<br>output only field. 
+alert_template_id | **string**<br>template of the alert. 
+name | **string**<br>name of the alert. 
+description | **string**<br>human readable description of the alert. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel5)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter5)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter5)**<br>alert paratemers to override. 
+
+
+### NotificationChannel {#NotificationChannel5}
+
+Field | Description
+--- | ---
+notification_channel_id | **string**<br> 
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+repeate_notify_delay_ms | **int64**<br> 
+
+
+### AlertParameter {#AlertParameter5}
+
+Field | Description
+--- | ---
+parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue5)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue5)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue5)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue5)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue5)**<br> 
+
+
+### DoubleParameterValue {#DoubleParameterValue5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **double**<br>Required. Parameter value 
+
+
+### IntegerParameterValue {#IntegerParameterValue5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **int64**<br>Required. Parameter value 
+
+
+### TextParameterValue {#TextParameterValue5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **string**<br>Required. Parameter value 
+
+
+### TextListParameterValue {#TextListParameterValue5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
+### LabelListParameterValue {#LabelListParameterValue5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
 ## Start {#Start}
 
 Starts the specified database.
@@ -1316,6 +1808,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig6)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig6)**<br> 
 
 
 ### StorageConfig {#StorageConfig12}
@@ -1478,6 +1971,87 @@ start_time | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
+### MonitoringConfig {#MonitoringConfig6}
+
+Field | Description
+--- | ---
+alerts[] | **[Alert](#Alert6)**<br> 
+
+
+### Alert {#Alert6}
+
+Field | Description
+--- | ---
+alert_id | **string**<br>output only field. 
+alert_template_id | **string**<br>template of the alert. 
+name | **string**<br>name of the alert. 
+description | **string**<br>human readable description of the alert. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel6)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter6)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter6)**<br>alert paratemers to override. 
+
+
+### NotificationChannel {#NotificationChannel6}
+
+Field | Description
+--- | ---
+notification_channel_id | **string**<br> 
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+repeate_notify_delay_ms | **int64**<br> 
+
+
+### AlertParameter {#AlertParameter6}
+
+Field | Description
+--- | ---
+parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue6)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue6)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue6)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue6)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue6)**<br> 
+
+
+### DoubleParameterValue {#DoubleParameterValue6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **double**<br>Required. Parameter value 
+
+
+### IntegerParameterValue {#IntegerParameterValue6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **int64**<br>Required. Parameter value 
+
+
+### TextParameterValue {#TextParameterValue6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **string**<br>Required. Parameter value 
+
+
+### TextListParameterValue {#TextListParameterValue6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
+### LabelListParameterValue {#LabelListParameterValue6}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
 ## Stop {#Stop}
 
 Stops the specified database.
@@ -1546,6 +2120,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig7)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig7)**<br> 
 
 
 ### StorageConfig {#StorageConfig14}
@@ -1708,6 +2283,87 @@ start_time | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
+### MonitoringConfig {#MonitoringConfig7}
+
+Field | Description
+--- | ---
+alerts[] | **[Alert](#Alert7)**<br> 
+
+
+### Alert {#Alert7}
+
+Field | Description
+--- | ---
+alert_id | **string**<br>output only field. 
+alert_template_id | **string**<br>template of the alert. 
+name | **string**<br>name of the alert. 
+description | **string**<br>human readable description of the alert. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel7)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter7)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter7)**<br>alert paratemers to override. 
+
+
+### NotificationChannel {#NotificationChannel7}
+
+Field | Description
+--- | ---
+notification_channel_id | **string**<br> 
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+repeate_notify_delay_ms | **int64**<br> 
+
+
+### AlertParameter {#AlertParameter7}
+
+Field | Description
+--- | ---
+parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue7)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue7)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue7)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue7)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue7)**<br> 
+
+
+### DoubleParameterValue {#DoubleParameterValue7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **double**<br>Required. Parameter value 
+
+
+### IntegerParameterValue {#IntegerParameterValue7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **int64**<br>Required. Parameter value 
+
+
+### TextParameterValue {#TextParameterValue7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **string**<br>Required. Parameter value 
+
+
+### TextListParameterValue {#TextListParameterValue7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
+### LabelListParameterValue {#LabelListParameterValue7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
 ## Delete {#Delete}
 
 Deletes the specified database.
@@ -1820,6 +2476,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig8)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig8)**<br> 
 
 
 ### StorageConfig {#StorageConfig16}
@@ -1982,6 +2639,87 @@ start_time | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
 
 
+### MonitoringConfig {#MonitoringConfig8}
+
+Field | Description
+--- | ---
+alerts[] | **[Alert](#Alert8)**<br> 
+
+
+### Alert {#Alert8}
+
+Field | Description
+--- | ---
+alert_id | **string**<br>output only field. 
+alert_template_id | **string**<br>template of the alert. 
+name | **string**<br>name of the alert. 
+description | **string**<br>human readable description of the alert. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel8)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter8)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter8)**<br>alert paratemers to override. 
+
+
+### NotificationChannel {#NotificationChannel8}
+
+Field | Description
+--- | ---
+notification_channel_id | **string**<br> 
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+repeate_notify_delay_ms | **int64**<br> 
+
+
+### AlertParameter {#AlertParameter8}
+
+Field | Description
+--- | ---
+parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue8)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue8)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue8)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue8)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue8)**<br> 
+
+
+### DoubleParameterValue {#DoubleParameterValue8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **double**<br>Required. Parameter value 
+
+
+### IntegerParameterValue {#IntegerParameterValue8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **int64**<br>Required. Parameter value 
+
+
+### TextParameterValue {#TextParameterValue8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **string**<br>Required. Parameter value 
+
+
+### TextListParameterValue {#TextListParameterValue8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
+### LabelListParameterValue {#LabelListParameterValue8}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
 ## Backup {#Backup}
 
 
@@ -2106,6 +2844,7 @@ labels | **map<string,string>**<br>
 backup_config | **[BackupConfig](#BackupConfig9)**<br> 
 document_api_endpoint | **string**<br> 
 kinesis_api_endpoint | **string**<br> 
+monitoring_config | **[MonitoringConfig](#MonitoringConfig9)**<br> 
 
 
 ### StorageConfig {#StorageConfig18}
@@ -2266,5 +3005,86 @@ Field | Description
 --- | ---
 start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Timestamp of the first recurrence. 
 recurrence | **string**<br>Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this backup reccurs. The FREQ values of MINUTELY, and SECONDLY are not supported. 
+
+
+### MonitoringConfig {#MonitoringConfig9}
+
+Field | Description
+--- | ---
+alerts[] | **[Alert](#Alert9)**<br> 
+
+
+### Alert {#Alert9}
+
+Field | Description
+--- | ---
+alert_id | **string**<br>output only field. 
+alert_template_id | **string**<br>template of the alert. 
+name | **string**<br>name of the alert. 
+description | **string**<br>human readable description of the alert. 
+notification_channels[] | **[NotificationChannel](#NotificationChannel9)**<br>the notification channels of the alert. 
+alert_parameters[] | **[AlertParameter](#AlertParameter9)**<br>alert parameters to override. 
+alert_thresholds[] | **[AlertParameter](#AlertParameter9)**<br>alert paratemers to override. 
+
+
+### NotificationChannel {#NotificationChannel9}
+
+Field | Description
+--- | ---
+notification_channel_id | **string**<br> 
+notify_about_statuses[] | enum **AlertEvaluationStatus**<br> <ul><ul/>
+repeate_notify_delay_ms | **int64**<br> 
+
+
+### AlertParameter {#AlertParameter9}
+
+Field | Description
+--- | ---
+parameter | **oneof:** `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value` or `label_list_parameter_value`<br>
+&nbsp;&nbsp;double_parameter_value | **[DoubleParameterValue](#DoubleParameterValue9)**<br> 
+&nbsp;&nbsp;integer_parameter_value | **[IntegerParameterValue](#IntegerParameterValue9)**<br> 
+&nbsp;&nbsp;text_parameter_value | **[TextParameterValue](#TextParameterValue9)**<br> 
+&nbsp;&nbsp;text_list_parameter_value | **[TextListParameterValue](#TextListParameterValue9)**<br> 
+&nbsp;&nbsp;label_list_parameter_value | **[LabelListParameterValue](#LabelListParameterValue9)**<br> 
+
+
+### DoubleParameterValue {#DoubleParameterValue9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **double**<br>Required. Parameter value 
+
+
+### IntegerParameterValue {#IntegerParameterValue9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **int64**<br>Required. Parameter value 
+
+
+### TextParameterValue {#TextParameterValue9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+value | **string**<br>Required. Parameter value 
+
+
+### TextListParameterValue {#TextListParameterValue9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
+
+
+### LabelListParameterValue {#LabelListParameterValue9}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Parameter name 
+values[] | **string**<br>Required. Parameter value 
 
 

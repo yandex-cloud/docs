@@ -1832,20 +1832,30 @@ components:
         validationContext:
           $ref: '#/components/schemas/ValidationContext_in_BackendTls_validationContext'
     ConnectionSessionAffinity:
+      description: A resource for connection-based session affinity configuration.
       type: object
       properties:
         sourceIp:
+          description: Specifies whether an IP address of the client is used to define
+            a connection for session affinity.
           type: boolean
           format: boolean
     CookieSessionAffinity:
+      description: A resource for cookie-based session affinity configuration.
       type: object
       properties:
         name:
-          description: The string length in characters must be 1-256.
+          description: |-
+            Name of the cookie that is used for session affinity.
+
+            The string length in characters must be 1-256.
           type: string
         ttl:
-          description: If not set, session cookie will be used (not persisted between
-            browser restarts).
+          description: |-
+            Maximum age of cookies that are generated for sessions (persistent cookies).
+
+            If not set, session cookies are used, which are stored by clients in temporary memory and are deleted
+            on client restarts.
           type: string
     CreateBackendGroupMetadata:
       type: object
@@ -2357,10 +2367,16 @@ components:
         properties:
           connection:
             $ref: '#/components/schemas/ConnectionSessionAffinity'
+            description: |-
+              Connection-based session affinity configuration.
+
+              For now, a connection is defined only by an IP address of the client.
           header:
             $ref: '#/components/schemas/HeaderSessionAffinity'
+            description: HTTP-header-field-based session affinity configuration.
           cookie:
             $ref: '#/components/schemas/CookieSessionAffinity'
+            description: Cookie-based session affinity configuration.
     GrpcRoute:
       description: A gRPC route configuration resource.
       type: object
@@ -2500,10 +2516,14 @@ components:
               This operation is only supported for ALB Virtual Hosts.
             type: string
     HeaderSessionAffinity:
+      description: A resource for HTTP-header-field-based session affinity configuration.
       type: object
       properties:
         headerName:
-          description: The string length in characters must be 1-256.
+          description: |-
+            Name of the HTTP header field that is used for session affinity.
+
+            The string length in characters must be 1-256.
           type: string
     HealthCheck:
       description: |-
@@ -2714,10 +2734,16 @@ components:
         properties:
           connection:
             $ref: '#/components/schemas/ConnectionSessionAffinity'
+            description: |-
+              Connection-based session affinity configuration.
+
+              For now, a connection is defined only by an IP address of the client.
           header:
             $ref: '#/components/schemas/HeaderSessionAffinity'
+            description: HTTP-header-field-based session affinity configuration.
           cookie:
             $ref: '#/components/schemas/CookieSessionAffinity'
+            description: Cookie-based session affinity configuration.
     HttpHandler:
       description: An HTTP handler resource.
       type: object
@@ -3257,9 +3283,32 @@ components:
         mode:
           $ref: '#/components/schemas/LoadBalancingMode_in_LoadBalancingConfig_mode'
     LoadBalancingMode:
-      description: |2-
-         - LEAST_REQUEST: Using power of two choices.
-         - MAGLEV_HASH: MAGLEV_HASH allows session affinity for that backend.
+      description: |-
+        A load balancing mode resource.
+        For details about the concept, see
+        [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode).
+
+         - ROUND_ROBIN: Round robin load balancing mode.
+
+        All endpoints of the backend take their turns to receive requests attributed to the backend.
+         - RANDOM: Random load balancing mode. Default value.
+
+        For a request attributed to the backend, an endpoint that receives it is picked at random.
+         - LEAST_REQUEST: Least request load balancing mode.
+
+        To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used;
+        that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active
+        requests.
+         - MAGLEV_HASH: Maglev hashing load balancing mode, used only if session affinity is working for the backend group.
+
+        Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies
+        the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend
+        group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the
+        table to determine the endpoint that receives the request.
+
+        If session affinity is not working for the backend group (i.e. it is not configured or the group contains more
+        than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at
+        `RANDOM` instead.
       type: string
       enum:
       - ROUND_ROBIN
@@ -4649,10 +4698,36 @@ components:
             $ref: '#/components/schemas/Location'
     LoadBalancingMode_in_LoadBalancingConfig_mode:
       description: |-
-        Specifies algorithm the load balancer uses for target selection in particular backend.
+        Load balancing mode for the backend.
 
-         - LEAST_REQUEST: Using power of two choices.
-         - MAGLEV_HASH: MAGLEV_HASH allows session affinity for that backend.
+        For detals about load balancing modes, see
+        [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode).
+
+        A load balancing mode resource.
+        For details about the concept, see
+        [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode).
+
+         - ROUND_ROBIN: Round robin load balancing mode.
+
+        All endpoints of the backend take their turns to receive requests attributed to the backend.
+         - RANDOM: Random load balancing mode. Default value.
+
+        For a request attributed to the backend, an endpoint that receives it is picked at random.
+         - LEAST_REQUEST: Least request load balancing mode.
+
+        To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used;
+        that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active
+        requests.
+         - MAGLEV_HASH: Maglev hashing load balancing mode, used only if session affinity is working for the backend group.
+
+        Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies
+        the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend
+        group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the
+        table to determine the endpoint that receives the request.
+
+        If session affinity is not working for the backend group (i.e. it is not configured or the group contains more
+        than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at
+        `RANDOM` instead.
       type: string
       enum:
       - ROUND_ROBIN

@@ -553,6 +553,112 @@ paths:
       x-y-navtitle: list
 components:
   schemas:
+    Alert:
+      type: object
+      properties:
+        alertId:
+          description: output only field.
+          type: string
+        alertTemplateId:
+          description: template of the alert.
+          type: string
+        name:
+          description: name of the alert.
+          type: string
+        description:
+          description: human readable description of the alert.
+          type: string
+        notificationChannels:
+          description: the notification channels of the alert.
+          type: array
+          items:
+            $ref: '#/components/schemas/NotificationChannel'
+        alertParameters:
+          description: alert parameters to override.
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertParameter'
+        alertThresholds:
+          description: alert paratemers to override.
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertParameter'
+    AlertEvaluationStatus:
+      type: string
+      enum:
+      - OK
+      - NO_DATA
+      - ERROR
+      - ALARM
+      - WARN
+    AlertParameter:
+      type: object
+      allOf:
+      - title: parameter
+        type: object
+        maxProperties: 1
+        properties:
+          doubleParameterValue:
+            $ref: '#/components/schemas/AlertParameterDoubleParameterValue'
+          integerParameterValue:
+            $ref: '#/components/schemas/AlertParameterIntegerParameterValue'
+          textParameterValue:
+            $ref: '#/components/schemas/AlertParameterTextParameterValue'
+          textListParameterValue:
+            $ref: '#/components/schemas/AlertParameterTextListParameterValue'
+          labelListParameterValue:
+            $ref: '#/components/schemas/AlertParameterLabelListParameterValue'
+    AlertParameterDoubleParameterValue:
+      type: object
+      properties:
+        name:
+          description: Required. Parameter name
+          type: string
+        value:
+          description: Required. Parameter value
+          type: number
+          format: double
+    AlertParameterIntegerParameterValue:
+      type: object
+      properties:
+        name:
+          description: Required. Parameter name
+          type: string
+        value:
+          description: Required. Parameter value
+          type: string
+          format: int64
+    AlertParameterLabelListParameterValue:
+      type: object
+      properties:
+        name:
+          description: Required. Parameter name
+          type: string
+        values:
+          description: Required. Parameter value
+          type: array
+          items:
+            type: string
+    AlertParameterTextListParameterValue:
+      type: object
+      properties:
+        name:
+          description: Required. Parameter name
+          type: string
+        values:
+          description: Required. Parameter value
+          type: array
+          items:
+            type: string
+    AlertParameterTextParameterValue:
+      type: object
+      properties:
+        name:
+          description: Required. Parameter name
+          type: string
+        value:
+          description: Required. Parameter value
+          type: string
     Backup:
       type: object
       properties:
@@ -758,6 +864,8 @@ components:
               type: string
           backupConfig:
             $ref: '#/components/schemas/BackupConfig'
+          monitoringConfig:
+            $ref: '#/components/schemas/MonitoringConfig'
       - title: database_type
         type: object
         maxProperties: 1
@@ -827,6 +935,8 @@ components:
             type: string
           kinesisApiEndpoint:
             type: string
+          monitoringConfig:
+            $ref: '#/components/schemas/MonitoringConfig'
       - title: database_type
         type: object
         maxProperties: 1
@@ -1025,6 +1135,25 @@ components:
           type: string
         description:
           type: string
+    MonitoringConfig:
+      type: object
+      properties:
+        alerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alert'
+    NotificationChannel:
+      type: object
+      properties:
+        notificationChannelId:
+          type: string
+        notifyAboutStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlertEvaluationStatus'
+        repeateNotifyDelayMs:
+          type: string
+          format: int64
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1310,6 +1439,8 @@ components:
               type: string
           backupConfig:
             $ref: '#/components/schemas/BackupConfig'
+          monitoringConfig:
+            $ref: '#/components/schemas/MonitoringConfig'
       - title: database_type
         type: object
         maxProperties: 1

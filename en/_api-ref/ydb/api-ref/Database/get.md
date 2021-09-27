@@ -105,6 +105,89 @@ databaseId | Required. Required. ID of the YDB cluster.  The maximum string leng
   },
   "documentApiEndpoint": "string",
   "kinesisApiEndpoint": "string",
+  "monitoringConfig": {
+    "alerts": [
+      {
+        "alertId": "string",
+        "alertTemplateId": "string",
+        "name": "string",
+        "description": "string",
+        "notificationChannels": [
+          {
+            "notificationChannelId": "string",
+            "notifyAboutStatuses": [
+              "string"
+            ],
+            "repeateNotifyDelayMs": "string"
+          }
+        ],
+        "alertParameters": [
+          {
+
+            // `monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`
+            "doubleParameterValue": {
+              "name": "string",
+              "value": "number"
+            },
+            "integerParameterValue": {
+              "name": "string",
+              "value": "string"
+            },
+            "textParameterValue": {
+              "name": "string",
+              "value": "string"
+            },
+            "textListParameterValue": {
+              "name": "string",
+              "values": [
+                "string"
+              ]
+            },
+            "labelListParameterValue": {
+              "name": "string",
+              "values": [
+                "string"
+              ]
+            },
+            // end of the list of possible fields`monitoringConfig.alerts[].alertParameters[]`
+
+          }
+        ],
+        "alertThresholds": [
+          {
+
+            // `monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`
+            "doubleParameterValue": {
+              "name": "string",
+              "value": "number"
+            },
+            "integerParameterValue": {
+              "name": "string",
+              "value": "string"
+            },
+            "textParameterValue": {
+              "name": "string",
+              "value": "string"
+            },
+            "textListParameterValue": {
+              "name": "string",
+              "values": [
+                "string"
+              ]
+            },
+            "labelListParameterValue": {
+              "name": "string",
+              "values": [
+                "string"
+              ]
+            },
+            // end of the list of possible fields`monitoringConfig.alerts[].alertThresholds[]`
+
+          }
+        ]
+      }
+    ]
+  },
 
   //  includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
   "zonalDatabase": {
@@ -200,6 +283,48 @@ backupConfig.<br>backupSettings[].<br>type | **string**<br>
 backupConfig.<br>backupSettings[].<br>storageClass | **string**<br>
 documentApiEndpoint | **string**<br>
 kinesisApiEndpoint | **string**<br>
+monitoringConfig | **object**<br>
+monitoringConfig.<br>alerts[] | **object**<br>
+monitoringConfig.<br>alerts[].<br>alertId | **string**<br><p>output only field.</p> 
+monitoringConfig.<br>alerts[].<br>alertTemplateId | **string**<br><p>template of the alert.</p> 
+monitoringConfig.<br>alerts[].<br>name | **string**<br><p>name of the alert.</p> 
+monitoringConfig.<br>alerts[].<br>description | **string**<br><p>human readable description of the alert.</p> 
+monitoringConfig.<br>alerts[].<br>notificationChannels[] | **object**<br><p>the notification channels of the alert.</p> 
+monitoringConfig.<br>alerts[].<br>notificationChannels[].<br>notificationChannelId | **string**<br>
+monitoringConfig.<br>alerts[].<br>notificationChannels[].<br>notifyAboutStatuses[] | **string**<br>
+monitoringConfig.<br>alerts[].<br>notificationChannels[].<br>repeateNotifyDelayMs | **string** (int64)<br>
+monitoringConfig.<br>alerts[].<br>alertParameters[] | **object**<br><p>alert parameters to override.</p> 
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>doubleParameterValue | **object** <br>`monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br><br>
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>doubleParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>doubleParameterValue.<br>value | **number** (double)<br><p>Required. Parameter value</p> 
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>integerParameterValue | **object** <br>`monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br><br>
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>integerParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>integerParameterValue.<br>value | **string** (int64)<br><p>Required. Parameter value</p> 
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textParameterValue | **object** <br>`monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br><br>
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textParameterValue.<br>value | **string**<br><p>Required. Parameter value</p> 
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textListParameterValue | **object** <br>`monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br><br>
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textListParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>textListParameterValue.<br>values[] | **string**<br><p>Required. Parameter value</p> 
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>labelListParameterValue | **object** <br>`monitoringConfig.alerts[].alertParameters[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br><br>
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>labelListParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
+monitoringConfig.<br>alerts[].<br>alertParameters[].<br>labelListParameterValue.<br>values[] | **string**<br><p>Required. Parameter value</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[] | **object**<br><p>alert paratemers to override.</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>doubleParameterValue | **object** <br>`monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br><br>
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>doubleParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>doubleParameterValue.<br>value | **number** (double)<br><p>Required. Parameter value</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>integerParameterValue | **object** <br>`monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br><br>
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>integerParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>integerParameterValue.<br>value | **string** (int64)<br><p>Required. Parameter value</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textParameterValue | **object** <br>`monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br><br>
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textParameterValue.<br>value | **string**<br><p>Required. Parameter value</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textListParameterValue | **object** <br>`monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br><br>
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textListParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>textListParameterValue.<br>values[] | **string**<br><p>Required. Parameter value</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue | **object** <br>`monitoringConfig.alerts[].alertThresholds[]` includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`<br><br>
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue.<br>name | **string**<br><p>Required. Parameter name</p> 
+monitoringConfig.<br>alerts[].<br>alertThresholds[].<br>labelListParameterValue.<br>values[] | **string**<br><p>Required. Parameter value</p> 
 zonalDatabase | **object**<br>deprecated field <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
 zonalDatabase.<br>zoneId | **string**<br><p>Required.</p> 
 regionalDatabase | **object**<br>deprecated field <br> includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`<br><br>
