@@ -13,7 +13,7 @@ If you subscribed to the **Standard** plan before September 27, it will be valid
 >
 > Your billing period ends on October 26 and your account will be switched to free {{ datalens-short-name }} mode.
 
-If you use [geocoding functions](concepts/limits.md), add a geo key in the [Service settings](https://datalens.yandex.com/settings) section until the end of your billing period for the **Standard** plan.
+If you use [geocoding functions](concepts/limits.md), add a geo key in the [Service settings]({{ link-datalens-settings }}) section until the end of your billing period for the **Standard** plan.
 
 You don't have to enable geocoding functions on the service page while using a paid plan.
 

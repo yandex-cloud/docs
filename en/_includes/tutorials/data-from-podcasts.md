@@ -80,9 +80,11 @@ You'll get access if you upload a podcast to Yandex Music. The podcast is linked
 
     ![image](../../_assets/datalens/solution-10/30-get-key-oauth.png)
 
-1. Check that the settings are correct by clicking **Check connection**. If verification fails, make sure that your current account has access to podcasts.
+1. Click **Check connection**.
 
 1. After successfully checking the connection, click **Create**.
+
+1. Go to the **Dashboards** menu and open the **Yandex Music podcast analytics** dashboard. If there is no data, make sure your current account has access to podcasts by writing to [Support](https://yandex.com/support/music/podcast-authors/statistics.html).
 
 ### 1.3. Analyze podcast statistics in {{ datalens-short-name }} {#podcasts-in-datalens}
 
@@ -96,7 +98,7 @@ You'll get access if you upload a podcast to Yandex Music. The podcast is linked
         * Dataset **D01. Podcast listens**: A dataset with listening statistics.
         * Dataset **D02. Podcast subscribers**: A dataset with data on subscribers.
     * ![image](../../_assets/datalens/solution-10/01-charts.png =20x20) Charts are sets of individual visualizations in the form of diagrams and tables used on the dashboard.
-    * ![image](../../_assets/datalens/solution-10/02-dashboard.png =20x20) The **Metrica Live Demo Dashboard** and **Sales Dashboard** are demo dashboards that may open in your connection. You can delete them if you wish.
+    * ![image](../../_assets/datalens/solution-10/02-dashboard.png =20x20) The **Metrica Live Demo Dashboard** and the **Sales Dashboard** are demos that may open in your connection. You can delete them if you wish.
 
     {% endcut %}
 
@@ -347,8 +349,9 @@ Choose which data you want to restrict access to:
 
         ![image](../../_assets/datalens/solution-10/27-podcast-access-dataset.png)
 
-    1. In the **Configuring access rights for a field** window, set a filter like:`* : my-login@yandex.com`
-where:
+    1. In the **Configuring access rights for a field** window, set a filter like:
+       `* : my-login@yandex.com`
+       where:
         * `*`: Access to all podcasts.
         * `my-login@yandex.com`: Your username.
 
@@ -366,8 +369,9 @@ where:
 
         ![image](../../_assets/datalens/solution-10/26-podcast-access-dataset.png)
 
-    1. In the **Configuring access rights for a field** window, set a filter like:`* : my-login@yandex.com`
-where:
+    1. In the **Configuring access rights for a field** window, set a filter like:
+       `* : my-login@yandex.com`
+       where:
         * `*`: Access to all episodes.
         * `my-login@yandex.com`: Your username.
 
@@ -409,8 +413,9 @@ To grant a user access to your {{ datalens-short-name }} instance:
 
             ![image](../../_assets/datalens/solution-10/26-podcast-access-dataset.png)
 
-        1. In the **Configuring permissions for a field** window, set a filter like:`'The most interesting podcast': partner-login@yandex.com`
-where:
+        1. In the **Configuring permissions for a field** window, set a filter like:
+           `'The most interesting podcast': partner-login@yandex.com`
+           where:
             * `The most interesting podcast`: The name of the podcast.
             * `partner-login@yandex.com`: A partner's username.
 
@@ -424,8 +429,9 @@ where:
 
             ![image](../../_assets/datalens/solution-10/27-podcast-access-dataset.png)
 
-        1. In the **Configuring permissions for a field** window, set a filter like:`'Episode No. 5': partner-login@yandex.com`
-where:
+        1. In the **Configuring permissions for a field** window, set a filter like:
+         `'Episode No. 5': partner-login@yandex.com`
+         where:
             * `Episode No. 5`: The name of the episode.
             * `partner-login@yandex.com`: A partner's username.
 
@@ -504,7 +510,7 @@ You can only embed individual charts. Embedding the entire dashboard is not supp
 
 {% endcut %}
 
-{% cut "Some people I know definitely listed to a podcast, but the data in statistics doesn't reflect this. Why?" %}   
+{% cut "Some people I know definitely listed to a podcast, but the data in statistics doesn't reflect this. Why?" %}
 
   Data is updated daily at 13:00. If someone listens to a podcast after this time, the data will only appear in the statistics the next day. Playbacks of less than 1 second are not included in the statistics.
 

@@ -32,4 +32,4 @@ ARG_MIN([Sales], [Profit])
 
 #### Data source support {#data-source-support}
 
-`Materialized Dataset`, `ClickHouse 1.1`.
+`Materialized Dataset`, `ClickHouse 19.13`.

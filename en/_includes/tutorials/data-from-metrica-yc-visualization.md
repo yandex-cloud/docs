@@ -3,7 +3,9 @@
 Yandex.Metrica data is used as the data source.
 In this scenario, you'll learn how to build conversion funnels, conduct a cohort analysis, and calculate the retention of the user base.
 
-To visualize and analyze the data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
+The scenario is also available as a [video](https://www.youtube.com/watch?v=fDeqtFRawdo) on the {{ yandex-cloud }} YouTube channel.
+
+To visualize and analyze data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
 
 1. [Connect {{ CH }} and {{ ml-platform-short-name }}](#ch-datasphere-connection)
     1. [Connect {{ CH }}](#ch-connection)
@@ -19,8 +21,8 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](#be
     1. [Connect to {{ datalens-short-name }}](#datalens-connection)
     1. [Create a connection to {{ CH }} in {{ datalens-short-name }}](#creation-datalens-connection-to-ch)
     1. [Create a dataset based on the connection](#creating-dataset-based-on-connection)
-    1. [Create a chart: area chart](#creating-column-chart)
-    1. [Create a chart: pivot table](#creating-pivot-table)
+    1. [Create an area chart](#creating-area-chart)
+    1. [Create a pivot table](#creating-pivot-table)
 1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard)
     1. [Create a dashboard](#creating-dashboard)
     1. [Configure a dashboard](#configuring-dashboard)
@@ -34,6 +36,7 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](#be
     1. [{{ ml-platform-short-name }}. Perform a cohort analysis](#cohort-analysis)
     1. [{{ datalens-short-name }}. Create a dataset and a chart with cohort visualization](#creating-dataset-chart-with-cohort)
     1. [{{ datalens-short-name }}. Configure a chart with cohort visualization](#creating-chart-with-cohort)
+    1. [{{ datalens-short-name }}. Create a chart with retention](#creating-chart-with-retention)
     1. [{{ datalens-short-name }}. Add charts to a new dashboard tab](#adding-charts-to-dashboard-tab)
     1. [{{ datalens-short-name }}. Create charts](#creating-chart)
     1. [{{ datalens-short-name }}. Add charts to a dashboard](#adding-chart-to-dashboard)
@@ -81,18 +84,18 @@ Now we see the JupyterLab development environment, where we'll continue to work.
 
 ### 1.3. Clone the repository to {{ ml-platform-short-name }} {#clone-repo-to-datasphere}
 
-1. In the upper-left corner, click ![git](../../_assets/datasphere/jupyterlab/git.svg). **Git Clone**.
+1. In the upper-left corner, click ![git](../../_assets/datasphere/jupyterlab/git.svg) **Git Clone**.
 1. In the window that opens, specify the **URI** of the repository`https://github.com/zhdanchik/yandex_metrika_cloud_case.git` and click **CLONE**.
 
 ## 2. Retrieve and upload data to {{ CH }} {#get-download-data-in-ch}
 
-If you don't have a Yandex.Metrica tag, it doesn't have enough data, or if you want to make sure and complete all the steps in the instructions and get a result, go to [2.3.](#uploading-data-counter-from-disk) (skip [2.1.](#create-metrica-app-token) and [2.2.](#uploading-data-logs-api)).
+If you don't have a Yandex.Metrica tag, it doesn't have enough data, or if you want to make sure and complete all the steps in the instructions and get a result, go to [2.3](#uploading-data-counter-from-disk) (skip [2.1](#create-metrica-app-token) and [2.2](#uploading-data-logs-api)).
 
-If you have a Yandex.Metrica tag and can access it, go to [2.1.](#create-metrica-app-token) and [2.2.](#uploading-data-logs-api) (skip [2.3.](#uploading-data-counter-from-disk)). We recommend these steps if you're an experienced user because the logic of calculating funnels and cohorts depends on the data itself and you may need to tweak the scripts.
+If you have a Yandex.Metrica tag and can access it, go to [2.1](#create-metrica-app-token) and [2.2](#uploading-data-logs-api) (skip [2.3](#uploading-data-counter-from-disk)). We recommend these steps if you're an experienced user because the logic of calculating funnels and cohorts depends on the data itself and you may need to tweak the scripts.
 
 ### 2.1. Yandex.Metrica. Create an app and get an access token {#create-metrica-app-token}
 
-1. To work with the API, get your [OAuth token](https://tech.yandex.ru/oauth/doc/dg/tasks/get-oauth-token-docpage/).
+1. To work with the API, get your [OAuth token](https://tech.yandex.com/oauth/doc/dg/tasks/get-oauth-token-docpage/).
 1. Create an application:
      1. Go to [https://oauth.yandex.com/client/new](https://oauth.yandex.com/client/new).
      1. Specify a name for the app.
@@ -101,7 +104,7 @@ If you have a Yandex.Metrica tag and can access it, go to [2.1.](#create-metrica
      1. Click **Create app**.
      1. A description of our application appears in the window that opens. Copy the ID of your app.
 1. Click `https://oauth.yandex.com/authorize?response_type=token&client_id=<app ID>`. For the `client_id` parameter, add the copied ID of your app.
-1. Click **Log in as …**
+1. Click **Log in as…**
 1. Copy the received access token.
 
 ### 2.2. {{ ml-platform-short-name }}. Upload data via the Yandex.Metrica Logs API {#uploading-data-logs-api}
@@ -138,6 +141,7 @@ Skip this section if you are using your own tag data.
 ### 2.5. {{ ml-platform-short-name }}. Upload the data to {{ CH }} {#uploading-data-counter-to-ch}
 
 1. Open the folder **yandex_metrika_cloud_case** → notebook **2. upload_data_to_{{ CH }}.ipynb**.
+
     1. Paste the copied hostname into the `CH_HOST_NAME` variable.
     1. Use the name of the logged-in user in the `CH_USER` variable.
     1. Use the name of the opened database in the `CH_DB_NAME` variable.
@@ -187,7 +191,7 @@ Skip this section if you are using your own tag data.
 1. In the upper-right corner, click **Save**.
 1. Name the dataset `ch_metrica_data_hits` and click **Create**.
 
-### 3.4. Create a chart: area chart {#creating-column-chart}
+### 3.4. Create an area chart {#creating-area-chart}
 
 Now create charts.
 
@@ -196,7 +200,6 @@ Now create charts.
     * Drag the **EventDate** field to the **X** section.
     * Drag the **Browser** field to the **Colors** section.
     * Drag the **Hits** field to the **Y** section.
-
 1. Change the chart type to Area chart.
 
     ![image](../../_assets/datalens/solution-11/10-change-diagram.png)
@@ -257,7 +260,6 @@ Create another chart based on the pre-existing chart: a pivot table.
     * samsung_internet
     * yandex_browser
     * yandexsearch
-
 1. Click **Add**.
 1. Drag the selector to the top of the dashboard and stretch it horizontally.
 1. In the upper-right corner, click **Save**.
@@ -287,6 +289,7 @@ Create a new dataset based on the new table and the connection to {{ CH }}.
 1. From the list of connections, select **metrica_analysis**.
 1. Drag the new table `metrica_data.funnels_by_bro` to the editing area.
 1. Open the **Fields** tab.
+    1. Rename the fields step X → Step X, where X is the step sequence number.
     1. Specify the value of the **Sum** aggregation for the **Step X** fields and click **Save**.
 
    ![image](../../_assets/datalens/solution-11/17-new-dataset-fields.png)
@@ -351,6 +354,7 @@ In {{ CH }}, the table `metrica_data.retention_users` is created, which contains
 ### 6.2. {{ datalens-short-name }}. Create a dataset and a chart with cohort visualization {#creating-dataset-chart-with-cohort}
 
 Create a dataset based on the new table and the connection to {{ CH }}.
+
 1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage and click **Create dataset**.
 1. In the **Connections** section, click **Add**.
 1. From the list of connections, select `metrica_analysis`.
@@ -359,6 +363,7 @@ Create a dataset based on the new table and the connection to {{ CH }}.
 This field indicates the number of weeks from the user's first visit.
 1. Click **Create**.
 1. For the **visits**, **purchases**, and **revenue** fields, enable the **Sum** aggregation.
+1. Rename the fields to **Visits**, **Purchases**, and **Revenue**, respectively.
 1. Save the dataset.
     1. Name the dataset **ch_metrica_data_users_visits**.
     1. Click **Create**.
@@ -380,7 +385,7 @@ Filter out incomplete weeks of June 29, 2020 and September 28, 2020.
         * Start date: July 06, 2020.
         * End date: September 27, 2020.
     1. Click **Apply filter**.
-1. To do this, in the **Columns** section, in the **week_num** field, click the grid icon. Format the numbers in the values of the **week_num** field by removing the decimal places. In the window that opens, set the following configuration:
+1. Format the numbers in the values of the **week_num** field by removing the decimal places. To do this, in the **Columns** section, in the **week_num**  field, click the grid icon. In the window that opens, set the following configuration:
     1. Set the **Precision** measure to **0**.
     1. Set the **Show delimeter** measure to **Hide**.
     1. Click **Apply**.
@@ -392,7 +397,26 @@ Filter out incomplete weeks of June 29, 2020 and September 28, 2020.
 1. Click **Save**.
 1. Name the chart **ch_metrica_data_users_visits_cohorts_abs** and click **Save**.
 
-### 6.4. {{ datalens-short-name }}. Add charts to a new dashboard tab {#adding-charts-to-dashboard-tab}
+### 6.4. {{ datalens-short-name }}. Create a chart with retention {#creating-chart-with-retention}
+
+Create a chart with retention based on the **ch_metrica_data_users_visits_cohorts_abs** chart. You can open the chart from the dashboard or find it in the [chart list](https://datalens.yandex.com/widgets).
+
+1. Click **Save as**.
+1. Enter **ch_metrica_data_users_visits_cohorts_rel** as the name of the chart and click **Save**.
+1. Create a new calculated field to calculate retention relative to the first week:
+    1. In the upper-left part of the screen, click ![image](../../_assets/plus-sign.svg) (above the dataset field list) and select **Add field**.
+    1. Name the field **Visits from the first week**.
+    1. Enter the following formula: `SUM([Visits])/RMAX(SUM([Visits]) among [week_num])`.
+    1. Click **Create**.
+1. Drag the **Visits from the first week** field to the **Measures** section.
+1. Drag the **Visits from the first week** field to the **Colors** section in place of the **Visits** field.
+1. Select the format for **Visits from the first week**. To do this, click the grid icon under **Measures** in the **Visits from the first week** field. In the window that opens, set the following configuration:
+    1. Set **Format** to **Percent**.
+    1. Click **Apply**.
+1. Edit the threshold values for the measure's colors. Under **Colors**, click the gear icon. In the resulting window, specify the threshold values of 0.01, 0.025, and 0.1 and click **Apply**.
+1. Click **Save**.
+
+### 6.5. {{ datalens-short-name }}. Add charts to a new dashboard tab {#adding-charts-to-dashboard-tab}
 
 Now return to the dashboard.
 
@@ -411,7 +435,7 @@ Now you have a chart with two switchable tabs.
 
    ![image](../../_assets/datalens/solution-11/24-chart-funnel-cohort-analysis.png =700x429)
 
-### 6.5. {{ datalens-short-name }}. Create charts {#creating-chart}
+### 6.6. {{ datalens-short-name }}. Create charts {#creating-chart}
 
 Create a new chart based on the chart **ch_metrica_data_users_visits_cohorts_abs**. You can open the chart from the dashboard or find it in the [chart list](https://datalens.yandex.com/widgets).
 
@@ -438,7 +462,7 @@ Create another chart based on the chart **ch_metrica_data_users_visits_cohorts_r
 
     ![image](../../_assets/datalens/solution-11/26-revenue-cohorts.png)
 
-### 6.6. {{ datalens-short-name }}. Add charts to the dashboard {#adding-chart-to-dashboard}
+### 6.7. {{ datalens-short-name }}. Add charts to the dashboard {#adding-chart-to-dashboard}
 
 Add charts with cohort visualization to the dashboard.
 

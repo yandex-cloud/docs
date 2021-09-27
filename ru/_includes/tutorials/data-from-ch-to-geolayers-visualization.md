@@ -77,7 +77,7 @@
     1. Для поля **Revenue** выберите в столбце **Агрегация** тип агрегации **Сумма**.
     1. Продублируйте поле **Pizzerias**. Нажмите кнопку ![add-field](../../_assets/datalens/solution-09/32-settings.png) и выберите вариант **Продублировать**.
       
-      ![dublicate-field](../../_assets/datalens/solution-09/13-dublicate-field.png)  
+       ![dublicate-field](../../_assets/datalens/solution-09/13-dublicate-field.png)  
     
     1. Переименуйте созданное поле **Pizzerias**→**The number of pizzerias**.
     1. Для поля **The number of pizzerias** выберите в столбце **Агрегация** тип агрегации **Количество уникальных**.

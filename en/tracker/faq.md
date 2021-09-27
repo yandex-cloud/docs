@@ -9,7 +9,13 @@ If you activated {{ tracker-name }} before {{release-date }}, the service is lin
 
 ## How to use {{ tracker-name }} on mobile devices {#mobile}
 
-You can use the mobile version of {{ tracker-name }}. To do this, simply open a web browser on your mobile device and visit [{{ link-tracker }}]({{ link-tracker }}).
+The {{ tracker-name }} mobile app is available:
+
+- In [Google Play]({{ mobile-google-link }}) for mobile devices powered by Android 8.0 or newer versions.
+
+- In the [App Store]({{ mobile-apple-link }}) for mobile devices powered by iOS 11.0 or newer versions.
+
+For more information see [{#T}](mobile.md).
 
 
 ## How to add users to {{ tracker-name }} {#section_yvw_tyk_nbb}

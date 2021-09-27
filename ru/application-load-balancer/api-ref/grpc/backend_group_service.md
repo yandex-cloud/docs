@@ -53,10 +53,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend)), its [HttpBackend.backend_type](#HttpBackend) should be [TargetGroupsBackend](#TargetGroupsBackend), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity)**<br>Cookie-based session affinity configuration. 
 
 
 ### HttpBackend {#HttpBackend}
@@ -82,7 +82,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend}
@@ -160,22 +160,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup}
@@ -183,10 +183,10 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity1)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity1)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity1)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig1) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity1)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity1)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity1)**<br>Cookie-based session affinity configuration. 
 
 
 ### GrpcBackend {#GrpcBackend}
@@ -210,7 +210,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend1}
@@ -281,22 +281,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity1}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity1}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ## List {#List}
@@ -343,10 +343,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend1)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity2)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity2)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity2)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend1)), its [HttpBackend.backend_type](#HttpBackend1) should be [TargetGroupsBackend](#TargetGroupsBackend2), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig2) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity2)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity2)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity2)**<br>Cookie-based session affinity configuration. 
 
 
 ### HttpBackend {#HttpBackend1}
@@ -372,7 +372,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend2}
@@ -450,22 +450,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity2}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity2}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup1}
@@ -473,10 +473,10 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend1)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity3)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity3)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity3)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend1)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig3) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity3)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity3)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity3)**<br>Cookie-based session affinity configuration. 
 
 
 ### GrpcBackend {#GrpcBackend1}
@@ -500,7 +500,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend3}
@@ -571,22 +571,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity3}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity3}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ## Create {#Create}
@@ -617,10 +617,10 @@ backend | **oneof:** `http` or `grpc`<br>Backends that the backend group will co
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend2)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity4)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity4)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity4)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend2)), its [HttpBackend.backend_type](#HttpBackend2) should be [TargetGroupsBackend](#TargetGroupsBackend4), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig4) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity4)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity4)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity4)**<br>Cookie-based session affinity configuration. 
 
 
 ### HttpBackend {#HttpBackend2}
@@ -646,7 +646,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend4}
@@ -724,22 +724,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity4}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity4}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup2}
@@ -747,10 +747,10 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend2)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity5)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity5)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity5)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend2)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig5) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity5)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity5)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity5)**<br>Cookie-based session affinity configuration. 
 
 
 ### GrpcBackend {#GrpcBackend2}
@@ -774,7 +774,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend5}
@@ -845,22 +845,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity5}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity5}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### Operation {#Operation}
@@ -906,10 +906,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend3)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity6)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity6)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity6)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend3)), its [HttpBackend.backend_type](#HttpBackend3) should be [TargetGroupsBackend](#TargetGroupsBackend6), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig6) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity6)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity6)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity6)**<br>Cookie-based session affinity configuration. 
 
 
 ### HttpBackend {#HttpBackend3}
@@ -935,7 +935,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend6}
@@ -1013,22 +1013,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity6}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity6}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup3}
@@ -1036,10 +1036,10 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend3)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity7)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity7)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity7)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend3)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig7) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity7)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity7)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity7)**<br>Cookie-based session affinity configuration. 
 
 
 ### GrpcBackend {#GrpcBackend3}
@@ -1063,7 +1063,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend7}
@@ -1134,22 +1134,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity7}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity7}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ## Update {#Update}
@@ -1181,10 +1181,10 @@ backend | **oneof:** `http` or `grpc`<br>New list of backends in the backend gro
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend4)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity8)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity8)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity8)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend4)), its [HttpBackend.backend_type](#HttpBackend4) should be [TargetGroupsBackend](#TargetGroupsBackend8), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig8) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity8)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity8)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity8)**<br>Cookie-based session affinity configuration. 
 
 
 ### HttpBackend {#HttpBackend4}
@@ -1210,7 +1210,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend8}
@@ -1288,22 +1288,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity8}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity8}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup4}
@@ -1311,10 +1311,10 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend4)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity9)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity9)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity9)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend4)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig9) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity9)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity9)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity9)**<br>Cookie-based session affinity configuration. 
 
 
 ### GrpcBackend {#GrpcBackend4}
@@ -1338,7 +1338,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend9}
@@ -1409,22 +1409,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity9}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity9}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### Operation {#Operation1}
@@ -1470,10 +1470,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend5)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity10)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity10)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity10)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend5)), its [HttpBackend.backend_type](#HttpBackend5) should be [TargetGroupsBackend](#TargetGroupsBackend10), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig10) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity10)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity10)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity10)**<br>Cookie-based session affinity configuration. 
 
 
 ### HttpBackend {#HttpBackend5}
@@ -1499,7 +1499,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend10}
@@ -1577,22 +1577,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity10}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity10}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup5}
@@ -1600,10 +1600,10 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend5)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity11)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity11)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity11)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend5)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig11) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity11)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity11)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity11)**<br>Cookie-based session affinity configuration. 
 
 
 ### GrpcBackend {#GrpcBackend5}
@@ -1627,7 +1627,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend11}
@@ -1698,22 +1698,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity11}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity11}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ## Delete {#Delete}
@@ -1799,7 +1799,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend12}
@@ -1894,7 +1894,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend13}
@@ -2005,10 +2005,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend7)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity12)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity12)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity12)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend7)), its [HttpBackend.backend_type](#HttpBackend7) should be [TargetGroupsBackend](#TargetGroupsBackend14), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig14) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity12)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity12)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity12)**<br>Cookie-based session affinity configuration. 
 
 
 ### HttpBackend {#HttpBackend7}
@@ -2034,7 +2034,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend14}
@@ -2112,22 +2112,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity12}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity12}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup6}
@@ -2135,10 +2135,10 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend7)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity13)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity13)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity13)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend7)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig15) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity13)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity13)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity13)**<br>Cookie-based session affinity configuration. 
 
 
 ### GrpcBackend {#GrpcBackend7}
@@ -2162,7 +2162,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend15}
@@ -2233,22 +2233,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity13}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity13}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ## RemoveBackend {#RemoveBackend}
@@ -2313,10 +2313,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend8)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity14)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity14)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity14)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend8)), its [HttpBackend.backend_type](#HttpBackend8) should be [TargetGroupsBackend](#TargetGroupsBackend16), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig16) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity14)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity14)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity14)**<br>Cookie-based session affinity configuration. 
 
 
 ### HttpBackend {#HttpBackend8}
@@ -2342,7 +2342,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend16}
@@ -2420,22 +2420,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity14}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity14}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup7}
@@ -2443,10 +2443,10 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend8)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity15)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity15)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity15)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend8)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig17) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity15)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity15)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity15)**<br>Cookie-based session affinity configuration. 
 
 
 ### GrpcBackend {#GrpcBackend8}
@@ -2470,7 +2470,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend17}
@@ -2541,22 +2541,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity15}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity15}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ## UpdateBackend {#UpdateBackend}
@@ -2603,7 +2603,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend18}
@@ -2698,7 +2698,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend19}
@@ -2809,10 +2809,10 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend10)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity16)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity16)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity16)**<br>session_affinity is applicable when   of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend10)), its [HttpBackend.backend_type](#HttpBackend10) should be [TargetGroupsBackend](#TargetGroupsBackend20), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig20) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity16)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity16)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity16)**<br>Cookie-based session affinity configuration. 
 
 
 ### HttpBackend {#HttpBackend10}
@@ -2838,7 +2838,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend20}
@@ -2916,22 +2916,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity16}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity16}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ### GrpcBackendGroup {#GrpcBackendGroup8}
@@ -2939,10 +2939,10 @@ ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffer
 Field | Description
 --- | ---
 backends[] | **[GrpcBackend](#GrpcBackend10)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity17)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity17)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity17)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. NOTE: session affinity does not work yet when multiple backends enabled in backend group. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend10)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig21) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity17)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity17)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity17)**<br>Cookie-based session affinity configuration. 
 
 
 ### GrpcBackend {#GrpcBackend10}
@@ -2966,7 +2966,7 @@ Field | Description
 panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
 strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Specifies algorithm the load balancer uses for target selection in particular backend. <ul><li>`LEAST_REQUEST`: Using power of two choices.</li><li>`MAGLEV_HASH`: MAGLEV_HASH allows session affinity for that backend.</li><ul/>
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
 
 
 ### TargetGroupsBackend {#TargetGroupsBackend21}
@@ -3037,22 +3037,22 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 Field | Description
 --- | ---
-source_ip | **bool**<br> 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
 ### HeaderSessionAffinity {#HeaderSessionAffinity17}
 
 Field | Description
 --- | ---
-header_name | **string**<br> The string length in characters must be 1-256.
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
 ### CookieSessionAffinity {#CookieSessionAffinity17}
 
 Field | Description
 --- | ---
-name | **string**<br> The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>If not set, session cookie will be used (not persisted between browser restarts). 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
 ## ListOperations {#ListOperations}
