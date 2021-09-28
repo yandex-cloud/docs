@@ -33,7 +33,7 @@ page_token | **string**<br>Page token. Set `page_token` to the [ListMembersRespo
 Field | Description
 --- | ---
 users[] | **OrganizationUser**<br>List of users for the specified organization. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListMembersResponse.page_size](#ListMembersResponse), use the `next_page_token` as the value for the [ListMembersRequest.page_token](#ListMembersRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListMembersRequest.page_size](#ListMembersRequest), use the `next_page_token` as the value for the [ListMembersRequest.page_token](#ListMembersRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### OrganizationUser {#OrganizationUser}
