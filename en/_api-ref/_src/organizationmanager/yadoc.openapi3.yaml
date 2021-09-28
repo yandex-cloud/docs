@@ -494,7 +494,7 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [ListMembersResponse.page_size], use the [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) as the value
+            is larger than [pageSize](/docs/organization-manager/api-ref/User/listMembers#query_params), use the [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) as the value
             for the [pageToken](/docs/organization-manager/api-ref/User/listMembers#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/User/listMembers#responses) to continue paging through the results.
           type: string
@@ -514,7 +514,7 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [ListOrganizationOperationsResponse.page_size], use the [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses) as the value
+            is larger than [pageSize](/docs/organization-manager/api-ref/Organization/listOperations#query_params), use the [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses) as the value
             for the [pageToken](/docs/organization-manager/api-ref/Organization/listOperations#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/organization-manager/api-ref/Organization/listOperations#responses) to continue paging through the results.
           type: string
