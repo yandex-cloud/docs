@@ -151,7 +151,7 @@ page_token | **string**<br>Page token. Set `page_token` to the [ListOrganization
 Field | Description
 --- | ---
 operations[] | **[operation.Operation](#Operation1)**<br>List of operations for the specified organization. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListOrganizationOperationsResponse.page_size](#ListOrganizationOperationsResponse), use the `next_page_token` as the value for the [ListOrganizationOperationsRequest.page_token](#ListOrganizationOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListOrganizationOperationsRequest.page_size](#ListOrganizationOperationsRequest), use the `next_page_token` as the value for the [ListOrganizationOperationsRequest.page_token](#ListOrganizationOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ### Operation {#Operation1}
