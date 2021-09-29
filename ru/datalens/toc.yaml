@@ -171,8 +171,6 @@ items:
         href: concepts/markdown.md
       - name: DataLens Public
         href: concepts/datalens-public.md
-      - name: Агрегации в DataLens
-        href: concepts/aggregation-tutorial.md
       - name: Вычисляемые поля
         items:
           - name: Обзор
@@ -565,6 +563,12 @@ items:
             href: function-ref/URL.md
       - name: Поддержка функций
         href: function-ref/availability.md
+  - name: Туториал по функциям
+    items:
+      - name: Агрегатные функции
+        href: concepts/aggregation-tutorial.md
+      - name: Оконные функции
+        href: concepts/window-function-tutorial.md
   - name: Публичные материалы
     items:
       - name: Образовательные проекты

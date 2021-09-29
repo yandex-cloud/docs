@@ -1,9 +1,6 @@
 title: Yandex Cloud Organization
 description:
   - >-
-    <em>Сервис Yandex Cloud Organization находится на стадии <a
-    href="/docs/overview/concepts/launch-stages">Preview</a>.</em>
-  - >-
     Yandex Cloud Organization — это решение для корпоративных клиентов, с
     помощью которого можно подключить к вашей организации сервисы Yandex.Cloud и
     управлять доступом сотрудников к этим сервисам.
@@ -23,3 +20,6 @@ links:
       Настройте федерацию удостоверений, чтобы сотрудники использовали свои
       рабочие аккаунты для доступа к сервисам
     href: add-federation
+  - title: Подключите сервисы
+    description: Подключите сервисы, которыми смогут пользоваться сотрудники организации
+    href: manage-services
