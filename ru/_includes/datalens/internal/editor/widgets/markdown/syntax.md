@@ -163,7 +163,7 @@ const a = 10;
 
 
 ```markdown
-![alt text](https://yastatic.net/q/logoaas/Yandex.Charts.svg "Текст для подсказки при ховере")
+![alt text](https://yastatic.net/q/logoaas/Yandex.Charts.svg "Текст для подсказки при ховере" =100x200)
 ```
 
 ![alt text](https://yastatic.net/q/logoaas/Yandex.Charts.svg "Текст для подсказки при ховере")
