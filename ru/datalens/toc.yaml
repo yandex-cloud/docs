@@ -268,8 +268,6 @@ items:
       - name: DataLens Public
         when: audience == "external"
         href: concepts/datalens-public.md
-      - name: Агрегации в DataLens
-        href: concepts/aggregation-tutorial.md
       - name: Вычисляемые поля
         items:
           - name: Обзор
@@ -308,6 +306,12 @@ items:
     include:
       repo: docs
       path: ru/_api-ref/datalens/toc.yaml
+  - name: Туториал по функциям
+    items:
+      - name: Агрегатные функции
+        href: concepts/aggregation-tutorial.md
+      - name: Оконные функции
+        href: concepts/window-function-tutorial.md
   - name: ChartEditor
     when: audience == "internal"
     items:
