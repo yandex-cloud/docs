@@ -1,6 +1,6 @@
 # Мониторинг
 
-Сервис {{ serverless-containers-name }} предоставляет возможность отслеживать состояние контейнеров и создавать [алерты](../../monitoring/concepts/alerting.md#alert) по метрикам в сервисе [{{ monitoring-full-name }}](../../monitoring/).
+{% if audience == "external" %} Сервис {{ serverless-containers-name }} предоставляет возможность отслеживать состояние контейнеров и создавать [алерты](../../monitoring/concepts/alerting.md#alert) по метрикам в сервисе [{{ monitoring-full-name }}](../../monitoring/). {% endif %}
 
 ## Пользовательские метрики {#metrics}
 
@@ -16,7 +16,7 @@
 
 ## Метки пользовательских метрик {#labels}
 
-Ознакомьтесь с концепцией меток в документации [{{ monitoring-full-name }}](../../monitoring/concepts/data-model.md#label).
+{% if audience == "external" %} Ознакомьтесь с концепцией меток в документации [{{ monitoring-full-name }}](../../monitoring/concepts/data-model.md#label). {% endif %}
 
 | Имя метки | Возможные значения | Пояснения |
 |----|----|----|

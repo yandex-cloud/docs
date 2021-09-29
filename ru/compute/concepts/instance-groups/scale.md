@@ -82,7 +82,7 @@
 
 В {{ ig-name }} при использовании метрик мониторинга необходимо указать:
 * _Имя метрики_, которое вы задали в {{ monitoring-name }}.
-* {% if audience == "external" %}_[Метки](../../../monitoring/concepts/data-model.md#label)_{% else %}_Метки_{% endif %}, которые вы задали в {{ monitoring-name }}:
+{% if audience == "external" %} * _[Метки](../../../monitoring/concepts/data-model.md#label)_{% else %}_Метки_{% endif %}, которые вы задали в {{ monitoring-name }}:
   * (опционально) `folder_id` — идентификатор каталога. По умолчанию — ID каталога, в котором находится группа.
   * (опционально) `service` — идентификатор сервиса. По умолчанию — `custom`. Метку можно использовать для указания метрик сервисов, например `service` со значением `compute` для {{ compute-short-name }}.
 

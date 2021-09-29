@@ -1,6 +1,6 @@
 # Триггер для {{ yds-full-name }}
 
-Триггер для {{ yds-full-name }} запускает [функцию](../function.md) {{ sf-name }} или [контейнер](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).
+{% if audience == "external" %} Триггер для {{ yds-full-name }} запускает [функцию](../function.md) {{ sf-name }} или [контейнер](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). {% endif %}
 
 ## Роли, необходимые для корректной работы триггера для {{ yds-name }} {#roles}
 

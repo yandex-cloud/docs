@@ -61,4 +61,4 @@
 
   В том числе настройка [триггеров](user/trigger.md), [автодействий](user/autoactions.md) и [макросов](manager/create-macroses.md).
 
-- [Управление доступом пользователей](access.md) в {{ tracker-name }}.
+{% if audience == "external" %} - [Управление доступом пользователей](access.md) в {{ tracker-name }}. {% endif %}
