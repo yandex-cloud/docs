@@ -1,8 +1,16 @@
 # Файловые хранилища
 
+{% note info %}
+
+Файловые хранилища находятся на стадии [Preview](../../overview/concepts/launch-stages.md).
+
+{% endnote %}
+
 _Файловое хранилище_ — это виртуальная файловая система, которую можно подключать к нескольким [виртуальным машинам](vm.md) {{ compute-name }} из одной зоны доступности. С файлами в хранилище можно работать совместно, с нескольких ВМ.
 
 Хранилище подключается к ВМ через интерфейс [Filesystem in Userspace]{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% else %}(https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)){% endif %} (FUSE) как устройство [virtiofs](https://www.kernel.org/doc/html/latest/filesystems/virtiofs.html), не связанное напрямую с файловой системой хоста.
+
+По умолчанию для файловых хранилищ установлена нулевые [квоты](limits.md#compute-quotas). Чтобы повысить квоты, обратитесь в [техническую поддержку](../../support/overview.md).
 
 ## Файловое хранилище как ресурс {{ yandex-cloud }} {#file-storage-as-resource}
 
