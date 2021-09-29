@@ -1,5 +1,4 @@
 title: "Yandex Cloud Organization"
-stage: preview
 href: index.yaml
 items:
 - name: Начало работы
@@ -34,6 +33,8 @@ items:
       href: operations/federations/integration-gworkspace.md
     - name: Аутентификация с помощью SAML-совместимой федерации удостоверений
       href: operations/federations/integration-common.md
+- name: Управление облаками и сервисами
+  href: manage-services.md
 - name: Справочник API
   items:
     - name: Аутентификация

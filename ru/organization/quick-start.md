@@ -2,12 +2,6 @@
 
 Чтобы начать работу, создайте организацию и добавьте в нее пользователей.
 
-{% note warning %}
-
-Сервис {{org-full-name}} находится на стадии [Preview](../overview/concepts/launch-stages.md). На этой стадии доступны функции: управление [аккаунтами пользователей](manage-users.md), настройка [прав доступа](roles.md), а также работа с [федерациями удостоверений](add-federation.md).
-
-{% endnote %}
-
 ## Создайте организацию {#create}
 
 1. [Войдите]({{link-passport}}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.

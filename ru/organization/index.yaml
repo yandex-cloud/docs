@@ -1,7 +1,6 @@
 # Yandex Cloud Organization
 title: "Yandex Cloud Organization"
 description:
-  - "<em>Сервис Yandex Cloud Organization находится на стадии <a href=\"/docs/overview/concepts/launch-stages\">Preview</a>.</em>"
   - "Yandex Cloud Organization — это решение для корпоративных клиентов, с помощью которого можно подключить к вашей организации сервисы Yandex.Cloud и управлять доступом сотрудников к этим сервисам."
 
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
@@ -18,8 +17,9 @@ links:
 - title: "Настройте федерацию удостоверений"
   description: "Настройте федерацию удостоверений, чтобы сотрудники использовали свои рабочие аккаунты для доступа к сервисам"
   href: "add-federation"
-#- title: "Подключить сервисы"
-#  description: "Подключите сервисы, которыми смогут пользоваться сотрудники организации"
+- title: "Подключите сервисы"
+  description: "Подключите сервисы, которыми смогут пользоваться сотрудники организации"
+  href: "manage-services"
 #  href: "services"
 #- title: "Квоты и лимиты"
 #  description: "Технические и организационные ограничения сервиса"
