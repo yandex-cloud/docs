@@ -11,6 +11,8 @@ At any given time, a single function instance processes only one request. This l
 
 {% endnote %}
 
+## Cloud Functions signature {#functions}
+
 When calling the handler, the runtime environment may pass the following arguments:
 
 1. The invocation context (the `context` parameter).
@@ -36,11 +38,41 @@ The runtime environment returns the function execution result as a data set:
 
     If an error occurs when calling a function, it's recommended to return an appropriate error message. If `error != nil`, the response body, if any, is ignored. **Important**: An error is a **mandatory** return value. In other words, if the response body is missing, an error must be returned as the only return value of the function, otherwise the error must be the last on the list of return values.
 
+## Standard Go signature {#go}
+
+As a handler, {{ sf-name }} supports:
+
+* Functions with the signature `func (http.ResponseWriter, *http.Request)`.
+* Objects that satisfy the [http.Handler](https://pkg.go.dev/net/http#Handler) interface.
+
+The function can take values that are passed in the request from the [http.Request](https://pkg.go.dev/net/http#Request) structure, and pass the response to the request via the [http.ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter) interface.
+
+{{ sf-name }} does not support paths in requests. For [http.ServeMux](https://pkg.go.dev/net/http#ServeMux) to work properly, the function must be [invoked via the API gateway](../../../api-gateway/quickstart/index.md#function).
+
+Function example:
+
+```golang
+package main
+
+import (
+  "fmt"
+  "io"
+  "net/http"
+)
+
+func Handler(rw http.ResponseWriter, req *http.Request) {
+  rw.Header().Set("X-Custom-Header", "Test")
+  rw.WriteHeader(200)
+  name := req.URL.Query().Get("name")
+  io.WriteString(rw, fmt.Sprintf("Hello, %s!", name))
+}
+```
+
 ## Examples {#examples}
 
 ### HTTP request structure output {#http-req}
 
-The following function receives a request with two fields (a string message and a number) as an input, outputs the request structure and invocation context to the execution log, and returns a string entry of a JSON document containing information about the context and request:
+The following function receives a request with two fields (a string and a number) as an input, outputs the request structure and invocation context to the execution log, and returns a string entry of a JSON document containing information about the context and request.
 
 {% note warning %}
 
@@ -160,7 +192,7 @@ Otherwise:
 
 ### Parsing an HTTP request
 
-The function is called using an HTTP request with the username, logs the request method and body, and returns a greeting.
+The function is invoked using an HTTP request with the username, logs the request method and body, and returns a greeting.
 
 {% note warning %}
 
