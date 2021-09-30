@@ -36,7 +36,7 @@
 
 [Scatter](https://charts.yandex-team.ru/editor/Examples/visual-types/scatter-plot)
 
-[Диаграмма рассеяния с линиями регрессии](https://charts.yandex-team.ru/editor/Examples/visual-types/scatter-plor-with-regression-lines)
+[Диаграмма рассеяния с линиями регрессии](https://datalens.yandex-team.ru/editor/56j1ynupu2g63-scatter-plot-with-regression-lines)
 
 [Treemap](https://charts.yandex-team.ru/editor/Examples/visual-types/treemap-coloraxis)
 
