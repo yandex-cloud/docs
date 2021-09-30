@@ -103,6 +103,9 @@ items:
       - name: Визуализация данных из отчетов Statface
         when: audience == "internal"
         href: solutions/data-from-statface-visualization.md
+      - name: Визуализация данных из Яндекс.Форм
+        when: audience == "internal"
+        href: solutions/data-from-forms-visualization.md
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         when: audience == "external"
         href: solutions/data-from-podcasts.md
