@@ -160,6 +160,7 @@ items:
     - name: Число
       href: blocks-ref/number.md
 - name: Правила тарификации
+  when: audience == "external"
   href: pricing.md
 - name: Служба поддержки
   href: feedback.md
