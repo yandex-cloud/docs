@@ -106,6 +106,52 @@ items:
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         when: audience == "external"
         href: solutions/data-from-podcasts.md
+  - name: Концепции
+    items:
+      - name: Обзор сервиса
+        href: concepts/index.md
+      - name: Подключение
+        href: concepts/connection.md
+      - name: Типы данных
+        href: concepts/data-types.md
+      - name: Датасет
+        items:
+          - name: Обзор
+            href: concepts/dataset/index.md
+          - name: Модель данных
+            href: concepts/dataset/data-model.md
+          - name: Настройки датасета
+            href: concepts/dataset/settings.md
+      - name: Чарт
+        items:
+          - name: Обзор
+            href: concepts/chart/index.md
+          - name: Типы чартов
+            href: concepts/chart/types.md
+          - name: Настройки чарта
+            href: concepts/chart/settings.md
+      - name: Дашборд
+        href: concepts/dashboard.md
+      - name: Использование Markdown в DataLens
+        href: concepts/markdown.md
+      - name: DataLens Public
+        when: audience == "external"
+        href: concepts/datalens-public.md
+      - name: Вычисляемые поля
+        items:
+          - name: Обзор
+            href: concepts/calculations/index.md
+          - name: Синтаксис формул
+            href: concepts/calculations/formula-syntax.md
+      - name: Marketplace
+        when: audience == "external"
+        href: concepts/marketplace.md
+      - name: Резервное копирование
+        href: concepts/backup.md
+      - name: Кеширование
+        href: concepts/caching.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -237,52 +283,6 @@ items:
             href: operations/permission/revoke.md
           - name: Запрос прав доступа
             href: operations/permission/request.md
-  - name: Концепции
-    items:
-      - name: Обзор сервиса
-        href: concepts/index.md
-      - name: Подключение
-        href: concepts/connection.md
-      - name: Типы данных
-        href: concepts/data-types.md
-      - name: Датасет
-        items:
-          - name: Обзор
-            href: concepts/dataset/index.md
-          - name: Модель данных
-            href: concepts/dataset/data-model.md
-          - name: Настройки датасета
-            href: concepts/dataset/settings.md
-      - name: Чарт
-        items:
-          - name: Обзор
-            href: concepts/chart/index.md
-          - name: Типы чартов
-            href: concepts/chart/types.md
-          - name: Настройки чарта
-            href: concepts/chart/settings.md
-      - name: Дашборд
-        href: concepts/dashboard.md
-      - name: Использование Markdown в DataLens
-        href: concepts/markdown.md
-      - name: DataLens Public
-        when: audience == "external"
-        href: concepts/datalens-public.md
-      - name: Вычисляемые поля
-        items:
-          - name: Обзор
-            href: concepts/calculations/index.md
-          - name: Синтаксис формул
-            href: concepts/calculations/formula-syntax.md
-      - name: Marketplace
-        when: audience == "external"
-        href: concepts/marketplace.md
-      - name: Резервное копирование
-        href: concepts/backup.md
-      - name: Кеширование
-        href: concepts/caching.md
-      - name: Квоты и лимиты
-        href: concepts/limits.md
   - name: Управление доступом
     items:
       - name: Управление доступом к DataLens

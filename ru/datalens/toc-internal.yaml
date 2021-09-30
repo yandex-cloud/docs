@@ -14,6 +14,20 @@ items:
         href: solutions/data-from-db-visualization.md
       - name: Визуализация данных из Metriсa
         href: solutions/data-from-metrica-visualization.md
+  - name: Концепции
+    items:
+      - name: Обзор сервиса
+        href: concepts/index.md
+      - name: Подключение
+        href: concepts/connection.md
+      - name: Датасет
+        href: concepts/dataset.md
+      - name: Чарт
+        href: concepts/chart.md
+      - name: Дашборд
+        href: concepts/dashboard.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -76,20 +90,6 @@ items:
             href: operations/dashboard/add-selector.md
           - name: Управление доступом к дашборду
             href: operations/dashboard/manage-access.md
-  - name: Концепции
-    items:
-      - name: Обзор сервиса
-        href: concepts/index.md
-      - name: Подключение
-        href: concepts/connection.md
-      - name: Датасет
-        href: concepts/dataset.md
-      - name: Чарт
-        href: concepts/chart.md
-      - name: Дашборд
-        href: concepts/dashboard.md
-      - name: Квоты и лимиты
-        href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Справочник функций

@@ -10,15 +10,15 @@ links:
     description: Getting started with DataLens
     when: audience == "external"
     href: quickstart
-  - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
-    href: operations/
+  - title: Use cases
+    description: See usage examples and tutorials for using DataLens
+    href: ../solutions/datalens
   - title: Concepts
     description: Learn about basic concepts and service functions
     href: concepts/
-  - title: Use cases
-    description: Use DataLens to perform common tasks for visualizing data
-    href: ../solutions/datalens
+  - title: Step-by-step instructions
+    description: Instructions on how to perform basic operations
+    href: operations/
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     when: audience == "external"

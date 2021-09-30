@@ -27,6 +27,52 @@ items:
         href: solutions/data-from-appmetrica-visualization.md
       - name: Analyzing Yandex Music podcast statistics (for podcast authors)
         href: solutions/data-from-podcasts.md
+  - name: Concepts
+    items:
+      - name: Service overview
+        href: concepts/index.md
+      - name: Connection
+        href: concepts/connection.md
+      - name: Data types
+        href: concepts/data-types.md
+      - name: Datasets
+        items:
+          - name: Overview
+            href: concepts/dataset/index.md
+          - name: Data model
+            href: concepts/dataset/data-model.md
+          - name: Dataset settings
+            href: concepts/dataset/settings.md
+      - name: Charts
+        items:
+          - name: Overview
+            href: concepts/chart/index.md
+          - name: Chart types
+            href: concepts/chart/types.md
+          - name: Chart settings
+            href: concepts/chart/settings.md
+      - name: Dashboards
+        href: concepts/dashboard.md
+      - name: Using Markdown in DataLens
+        href: concepts/markdown.md
+      - name: DataLens Public
+        href: concepts/datalens-public.md
+      - name: Aggregations in DataLens
+        href: concepts/aggregation-tutorial.md
+      - name: Calculated fields
+        items:
+          - name: Overview
+            href: concepts/calculations/index.md
+          - name: Formula syntax
+            href: concepts/calculations/formula-syntax.md
+      - name: Marketplace
+        href: concepts/marketplace.md
+      - name: Backups
+        href: concepts/backup.md
+      - name: Caching
+        href: concepts/caching.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -135,52 +181,6 @@ items:
             href: operations/permission/revoke.md
           - name: Request permissions
             href: operations/permission/request.md
-  - name: Concepts
-    items:
-      - name: Service overview
-        href: concepts/index.md
-      - name: Connection
-        href: concepts/connection.md
-      - name: Data types
-        href: concepts/data-types.md
-      - name: Datasets
-        items:
-          - name: Overview
-            href: concepts/dataset/index.md
-          - name: Data model
-            href: concepts/dataset/data-model.md
-          - name: Dataset settings
-            href: concepts/dataset/settings.md
-      - name: Charts
-        items:
-          - name: Overview
-            href: concepts/chart/index.md
-          - name: Chart types
-            href: concepts/chart/types.md
-          - name: Chart settings
-            href: concepts/chart/settings.md
-      - name: Dashboards
-        href: concepts/dashboard.md
-      - name: Using Markdown in DataLens
-        href: concepts/markdown.md
-      - name: DataLens Public
-        href: concepts/datalens-public.md
-      - name: Aggregations in DataLens
-        href: concepts/aggregation-tutorial.md
-      - name: Calculated fields
-        items:
-          - name: Overview
-            href: concepts/calculations/index.md
-          - name: Formula syntax
-            href: concepts/calculations/formula-syntax.md
-      - name: Marketplace
-        href: concepts/marketplace.md
-      - name: Backups
-        href: concepts/backup.md
-      - name: Caching
-        href: concepts/caching.md
-      - name: Quotas and limits
-        href: concepts/limits.md
   - name: Access management
     items:
       - name: Managing access to DataLens

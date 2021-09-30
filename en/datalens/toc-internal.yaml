@@ -14,6 +14,20 @@ items:
         href: solutions/data-from-db-visualization.md
       - name: Visualizing data from Yandex.Metriсa
         href: solutions/data-from-metrica-visualization.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Connections
+        href: concepts/connection.md
+      - name: Datasets
+        href: concepts/dataset.md
+      - name: Charts
+        href: concepts/chart.md
+      - name: Dashboards
+        href: concepts/dashboard.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -83,7 +97,7 @@ items:
       - name: Datasets
         href: concepts/dataset.md
       - name: Charts
-        href: concepts/chart/index.md
+        href: concepts/chart.md
       - name: Dashboards
         href: concepts/dashboard.md
       - name: Quotas and limits
