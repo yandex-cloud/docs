@@ -62,6 +62,8 @@ items:
         href: testing/ci-for-snapshots.md
       - name: Высокопроизводительные вычисления на прерываемых виртуальных машинах
         href: testing/hpc-on-preemptible.md
+      - name: Эмуляция множества IoT-устройств
+        href: testing/iot-emulation.md
   - name: Управление инфраструктурой
     items:
       - name: Все сценарии
