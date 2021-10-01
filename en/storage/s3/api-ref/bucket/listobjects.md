@@ -91,7 +91,7 @@ A successful response contains additional data in XML format with the schema des
 | Element | Description |
 | ----- | ----- |
 | `ListBucketResult` | Root element. |
-| `IsTruncated` | Flag indicating whether all results are returned in the response.<br/><br/>`True`: All.`False`: Not all.<br/><br/>Path: `/ListBucketResult/IsTruncated`. |
+| `IsTruncated` | Flag indicating whether all results are returned in the response.<br/><br/>`True`: Not all.`False`: All.<br/><br/>Path: `/ListBucketResult/IsTruncated`. |
 | `Contents` | Object description.<br/><br/>The response contains as many `Contents` elements as there are keys that meet the request criteria.<br/><br/>Path: `/ListBucketResult/Contents`. |
 | `ETag` | MD5 hash of the object. No metadata is included in the hash value calculation.<br/><br/>Path: `/ListBucketResult/Contents/ETag`. |
 | `Key` | Object key.<br/><br/>Path: `/ListBucketResult/Contents/Key`. |
@@ -182,7 +182,7 @@ A successful response contains additional data in XML format with the schema des
 | Element | Description |
 | ----- | ----- |
 | `ListBucketResult` | Root element. |
-| `IsTruncated` | Flag indicating whether all results are returned in the response.<br/><br/>`True`: All.`False`: Not all.<br/><br/>Path: `/ListBucketResult/IsTruncated`. |
+| `IsTruncated` | Flag indicating whether all results are returned in the response.<br/><br/>`True`: Not all.`False`: All.<br/><br/>Path: `/ListBucketResult/IsTruncated`. |
 | `Marker` | Value of the `marker` query parameter.<br/><br/>Path: `/ListBucketResult/Marker`. |
 | `NextMarker` | Value to insert in the `marker` query parameter to get the next part of the list if the entire list does not fit in the current response.<br/><br/>Path: `/ListBucketResult/NextMarker`. |
 | `Contents` | Object description.<br/><br/>The response contains as many `Contents` elements as there are keys that meet the request criteria.<br/><br/>Path: `/ListBucketResult/Contents`. |

@@ -89,7 +89,7 @@ GET /{bucket}?list-type=2&continuation-token=ContinuationToken&delimiter=Delimit
 Элемент | Описание
 ----- | -----
 `ListBucketResult` | Корневой элемент.
-`IsTruncated` | Флаг, показывающий все ли результаты возвращены в этом ответе.<br/><br/>`True` — все. `False` — не все.<br/><br/>Путь: `/ListBucketResult/IsTruncated`.
+`IsTruncated` | Флаг, показывающий все ли результаты возвращены в этом ответе.<br/><br/>`True` — не все. `False` — все.<br/><br/>Путь: `/ListBucketResult/IsTruncated`.
 `Contents` | Описание объекта.<br/><br/>Ответ будет содержать столько элементов `Contents`, сколько ключей попало под условия запроса.<br/><br/>Путь: `/ListBucketResult/Contents`.
 `ETag` | MD5-хэш объекта. Метаданные в расчете хэша не участвуют.<br/><br/>Путь: `/ListBucketResult/Contents/ETag`.
 `Key` | Ключ объекта.<br/><br/>Путь: `/ListBucketResult/Contents/Key`.
@@ -179,7 +179,7 @@ GET /{bucket}?delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-k
 Элемент | Описание
 ----- | -----
 `ListBucketResult` | Корневой элемент.
-`IsTruncated` | Флаг, показывающий все ли результаты возвращены в этом ответе.<br/><br/>`True` — все. `False` — не все.<br/><br/>Путь: `/ListBucketResult/IsTruncated`.
+`IsTruncated` | Флаг, показывающий все ли результаты возвращены в этом ответе.<br/><br/>`True` — не все. `False` — все.<br/><br/>Путь: `/ListBucketResult/IsTruncated`.
 `Marker` | Значение query-параметра `marker`.<br/><br/>Путь: `/ListBucketResult/Marker`.
 `NextMarker` | Значение, которое надо подставить в query-параметр `marker` для получения следующей части списка, если весь список не поместился в текущий ответ.<br/><br/>Путь: `/ListBucketResult/NextMarker`.
 `Contents` | Описание объекта.<br/><br/>Ответ будет содержать столько элементов `Contents`, сколько ключей попало под условия запроса.<br/><br/>Путь: `/ListBucketResult/Contents`.
