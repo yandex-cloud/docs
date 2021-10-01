@@ -1,6 +1,6 @@
-# Using the SpringBootApplication annotation to set a handler
+# Using the SpringBootApplication annotation to set a handler in Java
 
-You can set a handler by loading the `Spring Boot` application with a class entry point marked with the [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) annotation.
+You can set a Java handler by loading the `Spring Boot` application with a class entry point marked with the [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) annotation.
 
 When being executed, the {{ sf-name }} function has no data about the path that was used to invoke it. In other words, if there is an endpoint like `/api/v1/list` in your `Spring Boot` application, you can't invoke the function at `https://functions.yandexcloud.net/function-id/api/v1/list`. Instead, either pass the path data in the request body (the `url` parameter), or use integration with the [API Gateway](../../../../api-gateway/quickstart/index.md). We recommend the second method, because the `API Gateway` is most easy to use with the `Spring Boot` application and it allows you to access application endpoints the usual way.
 

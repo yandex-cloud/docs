@@ -1,6 +1,6 @@
-# Request handler
+# Go function request handler
 
-_A request handler_ is a method used to handle each function invocation. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.Handler`).
+A _request handler_ is a method used to handle each Go function invocation. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.Handler`).
 
 * To work properly, the handler must reside in the `main` package.
 * To make the handler available outside the module (file), export it by typing the first letter of its name in uppercase.

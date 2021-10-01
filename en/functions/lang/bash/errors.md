@@ -1,6 +1,6 @@
-# Handling errors
+# Bash function error handling
 
-The script standard error output stream, `stderr`, is sent to the [centralized logging system](logging.md).
+The standard error output stream, `stderr`, of a Bash script is sent to the [centralized logging system](logging.md).
 
 If the script is terminated with a code other than 0, it means that it failed. In this case, the content of the standard output stream is redirected to a log file and the function invocation results in the following error:
 

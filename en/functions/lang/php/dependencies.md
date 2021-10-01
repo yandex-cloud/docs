@@ -1,6 +1,6 @@
-# Managing dependencies
+# Managing PHP function dependencies
 
-{{ sf-name }} can automatically install dependencies necessary for a function to run when creating a new [function version](../../operations/function/version-manage.md#func-version-create).
+{{ sf-name }} can automatically install dependencies required for a PHP function to run when creating a new [function version](../../operations/function/version-manage.md#func-version-create).
 
 Dependencies are installed by the `composer install` command that is run in the project root (directory with the function). You can list the required libraries in the following ways:
 

@@ -1,8 +1,8 @@
-# Invocation context
+# Node.js function invocation context
 
 _Invocation context_ is an object that is accepted by the [request handler](handler.md) as the second argument.
 
-The invocation context provides additional information about function version properties:
+The invocation context provides additional information about a Node.js function version properties:
 
 * `functionName`: The function ID.
 * `functionVersion`: The function version ID.

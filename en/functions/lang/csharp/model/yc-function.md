@@ -1,6 +1,6 @@
-# Using the YcFunction interface to set a handler function
+# Using the YcFunction interface to set a handler function in C#
 
-You can set a handler function by implementing the [YcFunction](https://github.com/yandex-cloud/dotnet-sdk/blob/master/Yandex.Cloud.SDK/Functions/YcFunction.cs) interface. To do this, add an [SDK](../sdk.md) to the [dependencies](../dependencies.md).
+You can set a handler function in C# by implementing the [YcFunction](https://github.com/yandex-cloud/dotnet-sdk/blob/master/Yandex.Cloud.SDK/Functions/YcFunction.cs) interface. To do this, add an [SDK](../sdk.md) to the [dependencies](../dependencies.md).
 
 {% note warning %}
 

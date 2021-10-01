@@ -1,6 +1,6 @@
-# Logging
+# C# function runtime logging
 
-{{ sf-name }} automatically captures an application's standard output streams and sends them to the centralized logging system available in {{ yandex-cloud }}. In addition to the application run history, the system logs request execution events.
+{{ sf-name }} automatically captures a C# application's standard output streams and sends them to the centralized logging system available in {{ yandex-cloud }}. In addition to the application run history, the system logs request execution events.
 
 Additional messages are logged using standard language constructs:
 
