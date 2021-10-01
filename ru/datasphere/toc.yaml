@@ -142,7 +142,11 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Действующие правила
+        href: pricing.md
+      - name: Тарифы с 15.10.2021
+        href: pricing-15-10-2021.md  
   - name: Публичные материалы
     href: public-talks.md
   - name: Релизы
