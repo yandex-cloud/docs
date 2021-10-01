@@ -4,6 +4,8 @@
 
 ## Формат запроса {#query}
 
+Перед выполнением запроса [получите доступ к API](concepts/access.md).
+
 Для получения информации о текущем пользователе используйте HTTP-запрос с методом `GET`:
 
 ```json
@@ -17,94 +19,97 @@ Authorization: OAuth <OAuth-токен>
 
 ## Формат ответа {#answer}
 
-В случае успешного выполнения запроса API возвращает ответ с кодом 200. Тело ответа содержит JSON-массив с параметрами текущего пользователя.
+{% list tabs %}
 
-{% if audience == "external" %}
+- Запрос выполнен успешно
 
-```json
-[
-   {
-   "self": "{{ host }}/v2/users/1234567890",
-   "uid": 1234567890,
-   "login": "<user_login>",
-   "trackerUid": 1234567890>,
-   "passportUid": 1234567890,
-   "firstName": "<Имя>",
-   "lastName": "<Фамилия>",
-   "display": "<Имя Фамилия>",
-   "email": "<login@yandex.ru>",
-   "external": false,
-   "hasLicense": true,
-   "dismissed": false,
-   "useNewFilters": true,
-   "disableNotifications": false
-   }
-]
-```
+    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
+   
+    Тело ответа содержит JSON-массив с параметрами текущего пользователя.
 
-{% else %}
+    {% if audience == "external" %}
 
-```json
-[
-   {
-   "self": "{{ host }}/v2/users/1234567890",
-   "uid": 1234567890,
-   "login": "<user_login>",
-   "trackerUid": 1234567890,
-   "passportUid": 1234567890,
-   "firstName": "<Имя>",
-   "lastName": "<Фамилия>",
-   "display": "<Имя Фамилия>",
-   "email": "<login@yandex-team.ru>",
-   "office": {
-       "self": "https://st-api.test.yandex-team.ru/v2/offices/1",
-       "id": "1",
-       "display": "Москва, БЦ Морозов"
-   },
-   "external": false,
-   "hasLicense": true,
-   "dismissed": false,
-   "useNewFilters": true,
-   "disableNotifications": false,
-   "activeExperiments": [
-        <список экспериментов>
-    ]
-   }
-]
-```
+      ```json
+         [
+            {
+            "self": "{{ host }}/v2/users/1234567890",
+            "uid": 1234567890,
+            "login": "<user_login>",
+            "trackerUid": 1234567890>,
+            "passportUid": 1234567890,
+            "firstName": "<Имя>",
+            "lastName": "<Фамилия>",
+            "display": "<Имя Фамилия>",
+            "email": "<login@yandex.ru>",
+            "external": false,
+            "hasLicense": true,
+            "dismissed": false,
+            "useNewFilters": true,
+            "disableNotifications": false
+            }
+         ]
+      ```
 
-{% endif %}
+    {% else %}
 
-#### Параметры ответа {#answer-params}
+      ```json
+         [
+            {
+            "self": "{{ host }}/v2/users/1234567890",
+            "uid": 1234567890,
+            "login": "<user_login>",
+            "trackerUid": 1234567890,
+            "passportUid": 1234567890,
+            "firstName": "<Имя>",
+            "lastName": "<Фамилия>",
+            "display": "<Имя Фамилия>",
+            "email": "<login@yandex-team.ru>",
+            "office": {
+               "self": "https://st-api.test.yandex-team.ru/v2/offices/1",
+               "id": "1",
+               "display": "Москва, БЦ Морозов"
+            },
+            "external": false,
+            "hasLicense": true,
+            "dismissed": false,
+            "useNewFilters": true,
+            "disableNotifications": false,
+            "activeExperiments": [
+               <список экспериментов>
+            ]
+            }
+         ]
+      ```
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-self | Адрес ресурса API, который содержит информацию об учетной записи пользователя. | Строка
-uid | Уникальный идентификатор учетной записи пользователя. | Число
-login | Логин пользователя. | Строка
-trackerUid | Уникальный идентификатор аккаунта пользователя в {{ tracker-name }}. | Число
-passportUid | Уникальный идентификатор аккаунта пользователя на Яндексе. | Число
-firstName | Имя пользователя. | Строка
-lastName | Фамилия пользователя. | Строка
-display | Отображаемое имя пользователя. | Строка
-email | Электронная почта пользователя. | Строка
-external | Служебный параметр. | Логический
-hasLicense | Признак наличия у пользователя полного доступа к {{ tracker-name }}:<ul><li>`true` — полный доступ;</li><li>`false` — только чтение.</li></ul> | Логический
-dismissed | Статус пользователя в организации:<ul><li>`true` — пользователь удален из организации;</li><li>`false` — действующий сотрудник организации.</li></ul> | Логический
-useNewFilters | Служебный параметр. | Логический
-disableNotifications | Признак принудительного отключения уведомлений для пользователя:<ul><li>`true` — уведомления отключены;</li><li>`false` — уведомления включены.</li></ul> | Логический
+    {% endif %}
 
-## Возможные коды ответа {#answer-codes}
+    {% cut "Параметры ответа" %}
 
-200
-:   Запрос выполнен успешно.
+    Параметр | Описание | Тип данных
+    -------- | -------- | ----------
+    self | Адрес ресурса API, который содержит информацию об учетной записи пользователя. | Строка
+    uid | Уникальный идентификатор учетной записи пользователя. | Число
+    login | Логин пользователя. | Строка
+    trackerUid | Уникальный идентификатор аккаунта пользователя в {{ tracker-name }}. | Число
+    passportUid | Уникальный идентификатор аккаунта пользователя на Яндексе. | Число
+    firstName | Имя пользователя. | Строка
+    lastName | Фамилия пользователя. | Строка
+    display | Отображаемое имя пользователя. | Строка
+    email | Электронная почта пользователя. | Строка
+    external | Служебный параметр. | Логический
+    hasLicense | Признак наличия у пользователя полного доступа к {{ tracker-name }}:<ul><li>`true` — полный доступ;</li><li>`false` — только чтение.</li></ul> | Логический
+    dismissed | Статус пользователя в организации:<ul><li>`true` — пользователь удален из организации;</li><li>`false` — действующий сотрудник организации.</li></ul> | Логический
+    useNewFilters | Служебный параметр. | Логический
+    disableNotifications | Признак принудительного отключения уведомлений для пользователя:<ul><li>`true` — уведомления отключены;</li><li>`false` — уведомления включены.</li></ul> | Логический
+    
+    {% endcut %}
+    
+- Запрос выполнен с ошибкой
 
-401
-:   Пользователь не авторизован. Проверьте, были ли выполнены действия, описанные в разделе [{#T}](concepts/access.md).
+    {% include [answer-error-401](../_includes/tracker/api/answer-error-401.md) %}
 
-403
-:   У вас не хватает прав на выполнение этого действия. Наличие прав можно перепроверить в интерфейсе {{ tracker-name }} — для выполнения действия при помощи API и через интерфейс требуются одинаковые права.
+    {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
 
-404
-:   Запрошенный объект не был найден. Возможно, вы указали неверное значение идентификатора или ключа объекта.
+    {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
 
+{% endlist %}

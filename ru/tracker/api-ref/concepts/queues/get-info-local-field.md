@@ -17,14 +17,14 @@ Authorization: OAuth <OAuth-токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-
-**Ресурс**
+{% cut "Ресурс" %}
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
-\<queue-id\>| Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
-\<field-key>| Ключ локального поля. <br/>Чтобы получить ключ, используйте HTTP [запрос](get-local-fields.md):<br/>`GET /v2/queues/<queue-id>/localFields`| Строка
-  
+\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка
+\<field-key> | Ключ локального поля. <br/>Чтобы получить ключ, используйте HTTP [запрос](get-local-fields.md):<br/>`GET /v2/queues/<queue-id>/localFields`| Строка
+
+{% endcut %}
 
 ## Формат ответа {#answer}
 
@@ -32,7 +32,7 @@ Authorization: OAuth <OAuth-токен>
 
 - Запрос выполнен успешно
 
-    В случае успешного выполнения запроса API возвращает ответ с кодом `200 OK`.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %} 
 
     Тело ответа содержит информацию о локальном поле очереди в формате JSON.
 
@@ -80,7 +80,7 @@ Authorization: OAuth <OAuth-токен>
      }
     ```
 
-    #### Параметры ответа {#answer-params}
+    {% cut "Параметры ответа" %}
 
     Параметр | Описание | Тип данных
     ----- | ----- | -----
@@ -134,29 +134,27 @@ Authorization: OAuth <OAuth-токен>
     id | Идентификатор категории поля. | Строка
     display | Отображаемое название категории. | Строка
 
-    {% include [queue](../../../_includes/tracker/api/queue.md) %}
+    **Поля объекта** `queue` {#queue}
+    
+    {% include [queue](../../../_includes/tracker/api/queue.md) %} 
+    
+    {% endcut %}
  
 
  - Запрос выполнен с ошибкой
 
     Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
-    400
-    :   Один или несколько параметров запроса имеют недопустимое значение.
+    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    401
-    :   Пользователь не авторизован. Проверьте, были ли выполнены действия, описанные в разделе [Доступ к API](../access.md).
+    {% include [error](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    403
-    :   У пользователя или приложения нет прав на доступ к ресурсу, запрос отклонен.
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    404
-    :   Запрашиваемый объект не был найден. Возможно, вы указали неверное значение идентификатора или ключа объекта.
+    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
 
-    500
-    :   Внутренняя ошибка сервиса. Попробуйте повторно отправить запрос через некоторое время.
+    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
 
-    503
-    :   Сервис API временно недоступен.
+    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
