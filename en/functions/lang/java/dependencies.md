@@ -1,6 +1,6 @@
-# Building and managing dependencies
+# Building and managing Java function dependencies
 
-{{ sf-name }} supports two ways to manage dependencies: automatic installation using `Maven` and manual delivery of dependencies along with the source code. However, you can't configure dependencies using both methods at the same time.
+{{ sf-name }} supports two ways to manage dependencies for a Java function: automatic installation using `Maven` and manual delivery of dependencies along with the source code. However, you can't configure dependencies using both methods at the same time.
 
 ### Maven
 

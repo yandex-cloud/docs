@@ -124,6 +124,6 @@ Wait for the connection to be saved.
 
 ## What's next {#whats-next}
 
+* Learn more about [use cases](solutions/index.md).
 * Read about [service concepts](concepts/index.md).
 * See [step-by-step instructions](operations/index.md).
-* Learn more about [use cases](solutions/index.md).

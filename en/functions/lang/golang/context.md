@@ -1,6 +1,6 @@
-# Invocation context
+# Go function invocation context
 
-_Invocation context_ is an object that is optionally accepted by the [request handler](handler.md). The object type is `context.Context`. It provides an interface for getting more information about function version properties:
+_Invocation context_ is an object that is optionally accepted by the [request handler](handler.md). The object type is `context.Context`. It provides an interface for getting more information about Go function version properties:
 
 * `lambdaRuntimeFunctionName`: The function ID (`string`).
 * `lambdaRuntimeFunctionVersion`: The function version ID (`string`).

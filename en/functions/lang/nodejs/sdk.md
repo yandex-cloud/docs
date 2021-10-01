@@ -1,6 +1,6 @@
-# Using the SDK
+# Using the SDK for Node.js functions
 
-The runtime environment has a pre-installed library that lets you access the [{{ yandex-cloud }} API](../../../api-design-guide/). To use it, you don't need to add [dependencies](dependencies.md) to your application, except when a library version other than that of the pre-installed one is required. You can find the library source code on [GitHub](https://github.com/yandex-cloud/nodejs-sdk).
+The runtime environment has a pre-installed library that lets you access the [{{ yandex-cloud }} API](../../../api-design-guide/). To use it, you don't need to add [dependencies](dependencies.md) to your Node.js application, except when a library version other than that of the pre-installed one is required. You can find the library source code on [GitHub](https://github.com/yandex-cloud/nodejs-sdk).
 
 [Software development kits (SDK)](https://en.wikipedia.org/wiki/SDK) let you interact with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the function. For example, you can get a list of available clouds (similar to the `yc resource-manager cloud list` command):
 

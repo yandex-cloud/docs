@@ -2,11 +2,13 @@
 
 Запрос позволяет удалить доску задач.
 
-## Формат запроса {#section_vwy_qpv_4fb}
+## Формат запроса {#query}
 
-Чтобы удалить доску, используйте HTTP-запрос с методом `DELETE`:
+Перед выполнением запроса [получите доступ к API](concepts/access.md).
 
-```json
+Чтобы удалить доску, используйте HTTP-запрос с методом `DELETE`.
+
+```
 DELETE /{{ ver }}/boards/<board-id>
 Host: {{ host }}
 Authorization: OAuth <токен>
@@ -15,31 +17,34 @@ Authorization: OAuth <токен>
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-#### Ресурс {#req-resource}
+{% cut "Ресурс" %}
 
-- **\<board-id\>**
+Параметр | Описание | Тип данных
+----- | ----- | -----
+\<board-id\> | Идентификатор доски | Число
 
-    Идентификатор доски.
+{% endcut %}
 
-
-
-## Формат ответа {#section_t3s_btv_4fb}
+## Формат ответа {#answer}
 
 {% list tabs %}
 
 - Запрос выполнен успешно
 
-    В случае успешного выполнения запроса API возвращает ответ с кодом 204. Тело ответа отсутствует.
+    {% include [answer-204](../_includes/tracker/api/answer-204.md) %}
+    
+    Тело ответа отсутствует.
 
 - Запрос выполнен с ошибкой
 
-    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
-    HTTP-код ошибки | Описание ошибки
-    --------------- | ---------------
-    403 Forbidden | У пользователя или приложения нет прав на доступ к ресурсу, запрос отклонен.
-    404 Not Found | Запрашиваемый ресурс не найден.
-    500 Internal Server Error | Внутренняя ошибка сервиса. Попробуйте повторно отправить запрос через некоторое время.
-    503 Service Unavailable | Сервис API временно недоступен.
+    {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}

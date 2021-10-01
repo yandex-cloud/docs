@@ -1,6 +1,6 @@
-# Using the Function interface to set a handler function
+# Using the Function interface to set a handler function in Java
 
-You can set a handler function by implementing the [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface.
+You can set a handler in Java function by implementing the [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface.
 
 {% note warning %}
 

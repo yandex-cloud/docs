@@ -10,14 +10,14 @@ editable: false
 
 
 ```
-LEN( string )
+LEN( value )
 ```
 
 #### Description {#description}
-Returns the number of characters in the string `string`.
+Returns the number of characters in the string or items in array `value`.
 
 **Argument types:**
-- `string` — `String`
+- `value` — `Array of fractional numbers | Array of integer numbers | Array of strings | String`
 
 
 **Return type**: `Integer`

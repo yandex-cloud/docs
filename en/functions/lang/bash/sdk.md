@@ -1,8 +1,8 @@
-# Using the SDK
+# Using the SDK for Bash functions
 
 The runtime has the [YC CLI](../../../cli) for working with the {{ yandex-cloud }} API.
 
-The user interacts with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the function. This doesn't require any additional actions from the user: the utility applies the service account automatically.
+The user interacts with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the Bash function. This doesn't require any additional actions from the user: the utility applies the service account automatically.
 
 For example, you can get a list of available clouds using the following script:
 

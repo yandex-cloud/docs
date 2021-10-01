@@ -4,6 +4,8 @@
 
 ## Формат запроса {#section_rnm_x4j_p1b}
 
+Перед выполнением запроса [получите доступ к API](../access.md).
+
 Для освобождения результатов прокрутки используйте HTTP-запрос с методом `POST`:
 
 ```json
@@ -19,17 +21,18 @@ Authorization: OAuth <OAuth-токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-#### Параметры, передаваемые в теле запроса {#req-body-params}
+{% cut "Параметры тела запроса" %}
 
-- **srollId**
+**Обязательные параметры**
 
-    Идентификатор страницы результатов прокрутки. Значение идентификатора указывается из заголовка `X-Scroll-Id` ответа запрос [{#T}](search-issues.md).
-
-- **scrollToken**
-
-    Токен, удостоверяющий принадлежность запроса текущему пользователю. Значение идентификатора указывается из заголовка `X-Scroll-Token` ответа на запрос [{#T}](search-issues.md).
+Параметр | Описание | Тип данных
+----- | ----- | -----
+scrollId | Идентификатор страницы результатов прокрутки. Значение идентификатора указывается из заголовка `X-Scroll-Id` ответа на запрос [{#T}](search-issues.md). | Строка
+scrollToken | Токен, удостоверяющий принадлежность запроса текущему пользователю. Значение идентификатора указывается из заголовка `X-Scroll-Token` ответа на запрос [{#T}](search-issues.md). | Строка
 
 В запросе необходимо передать все пары `"srollId": "scrollToken"` вашего запроса. Количество таких пар равно количеству страниц с результатами поискового запроса.
+
+{% endcut %}
 
 > Освобождение результатов прокрутки:
 > 
@@ -40,7 +43,6 @@ Authorization: OAuth <OAuth-токен>
 > Host: {{ host }}
 > Authorization: OAuth <OAuth-токен>
 > {{ org-id }}
-> Cache-Control: no-cache
 > 
 > {
 >   "cXVlcnlUaGVuRmV0Y2g7NjsyNDU5MzpmQ0gwd0JOM1RvQ2NPM3ZJRkpfTnFBOzI0NTkyOmZDSDB3Qk4zVG9DY08zdklGSl9OcUE7MjQ1OTU6ZkNIMHdCTjNUb0NjTzN2SUZKX05xQTsyNDU5NDpmQ0gwd0JOM1RvQ2NPM3ZJRkpfTnFBOzIwMzg2OkNfVnFZdHZCU3Y2VUowT0N6dGVGdFE7MjAzODE6U3RqelpvSWZTYmVFX2VZYWRBcXlzZzswOw==": "c44356850f446b88e5b5cd65a34a1409aaaa0ec1b93f8925d6b1c91da0fe3804:1450339762515",
@@ -50,16 +52,20 @@ Authorization: OAuth <OAuth-токен>
 
 ## Формат ответа {#section_xc3_53j_p1b}
 
-В случае успешно выполненного запроса в ответ приходит пустое сообщение с кодом 200.
+{% list tabs %}
 
-## Возможные коды ответа {#section_otf_jrj_p1b}
+- Запрос выполнен успешно
 
-200
-:   Запрос выполнен успешно.
+  {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-401
-:   Пользователь не авторизован. Проверьте, были ли выполнены действия, описанные в разделе [{#T}](../access.md).
+- Запрос выполнен с ошибкой
 
-403
-:   У вас не хватает прав на выполнение этого действия. Наличие прав можно перепроверить в интерфейсе {{ tracker-name }} — для выполнения действия при помощи API и через интерфейс требуются одинаковые права.
+    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
 
+    {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
+
+    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
+
+{% endlist %}

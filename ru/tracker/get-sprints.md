@@ -15,12 +15,13 @@ Authorization: OAuth <токен>
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-#### Ресурс {#req-resource}
+{% cut "Ресурс" %}
 
-- **\<board-id\>**
+Параметр | Описание | Тип данных
+--- | --- | ---
+\<board-id\> | Идентификатор доски. | Строка
 
-    Идентификатор доски.
-
+{% endcut %}
 
 ## Формат ответа {#section_tns_n3z_pfb}
 
@@ -28,26 +29,26 @@ Authorization: OAuth <токен>
 
 - Запрос выполнен успешно
 
-    В случае успешного выполнения запроса API возвращает ответ с кодом 200. Тело ответа содержит JSON-массив с параметрами спринтов доски.
-
-    #### Тело ответа {#answer-body}
+    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
+    
+    Тело ответа содержит JSON-массив с параметрами спринтов доски.
 
     ```json
     [ 
       {
-      "self" : "http://api.tracker.yandex.net/v2/sprints/4469",
+      "self" : "{{ host }}/v2/sprints/4469",
       "id" : 4469,
       "version" : 1435288720018,
       "name" : "спринт1",
       "board" : {
-        "self" : "http://api.tracker.yandex.net/v2/boards/3",
+        "self" : "{{ host }}/v2/boards/3",
         "id" : "3",
         "display" : "Тестирование"
       },
       "status" : "in_progress",
       "archived" : false,
       "createdBy" : {
-        "self" : "http://api.tracker.yandex.net/v2/users/1120000000014425",
+        "self" : "{{ host }}/v2/users/1120000000014425",
         "id" : "1120000000014425",
         "display" : "Виктор Булдаков"
       },
@@ -61,7 +62,7 @@ Authorization: OAuth <токен>
     ]
     ```
 
-    #### Параметры ответа {#answer-params}
+    {% cut "Параметры ответа" %}
 
     Параметр | Описание | Тип данных
     -------- | -------- | ----------
@@ -95,16 +96,20 @@ Authorization: OAuth <токен>
     id | Идентификатор пользователя. | Строка
     display | Отображаемое имя пользователя. | Строка
 
+    {% endcut %}
+
 - Запрос выполнен с ошибкой
 
     Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
 
-    HTTP-код ошибки | Описание ошибки
-    --------------- | ---------------
-    400 Bad Request | Один из параметров запроса имеет недопустимое значение или формат данных.
-    403 Forbidden | У пользователя или приложения нет прав на доступ к ресурсу, запрос отклонен.
-    404 Not Found | Запрашиваемый ресурс не найден.
-    500 Internal Server Error | Внутренняя ошибка сервиса. Попробуйте повторно отправить запрос через некоторое время.
-    503 Service Unavailable | Сервис API временно недоступен.
+    {% include [error](../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}

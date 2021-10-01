@@ -1,6 +1,6 @@
-# Logging
+# Python function runtime logging
 
-{{ sf-name }} automatically captures an application's standard output streams and sends them to the centralized [logging system](../../operations/function/function-logs.md) available in {{ yandex-cloud }}. In addition to the application run history, the system logs request execution events.
+{{ sf-name }} automatically captures a Python application's standard output streams and sends them to the centralized [logging system](../../operations/function/function-logs.md) available in {{ yandex-cloud }}. In addition to the application run history, the system logs request execution events.
 
 Additional messages are logged using standard language constructs:
 

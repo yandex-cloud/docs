@@ -43,7 +43,7 @@ _Обработчик запросов_ — это метод, который и
 
 Функция может брать значения, которые передаются в запросе, из структуры [http.Request](https://pkg.go.dev/net/http#Request), и передавать ответ на запрос через интерфейс [http.ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter).
 
-{{ sf-name }} не поддерживает пути в запросах. Для корректной работы [http.ServeMux](https://pkg.go.dev/net/http#ServeMux) функцию нужно [вызывать через API-шлюз](../../../api-gateway/quickstart.md/#functions).
+{{ sf-name }} не поддерживает пути в запросах. Для корректной работы [http.ServeMux](https://pkg.go.dev/net/http#ServeMux) функцию нужно [вызывать через API-шлюз](../../../api-gateway/quickstart/index.md#function).
 
 Пример функции:
 

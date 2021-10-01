@@ -1,6 +1,6 @@
-# Request handler
+# Python function request handler
 
-_A request handler_ is a method used to handle each function invocation. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `main.handler`).
+A _request handler_ is a method used to handle each Python function invocation. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `main.handler`).
 
 {% note info %}
 

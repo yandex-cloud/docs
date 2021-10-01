@@ -11,7 +11,8 @@ Authorization: OAuth <токен>
 {{ org-id }}
 
 {"optionsProvider":
-      {"type": "FixedListOptionsProvider",
+      {
+       "type": "FixedListOptionsProvider",
        "values": 
           ["значение 1", "значение 2"]
       }
@@ -20,19 +21,18 @@ Authorization: OAuth <токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-#### Ресурс {#req-resource}
+{% cut "Ресурс" %}
 
-- **\<field-id\>**
+Параметр | Описание | Тип данных
+--- | --- | ---
+\<field-id\> | Идентификатор поля задачи. | Строка
+\<field-version\> | Версия поля задачи. | Строка
 
-    Идентификатор поля задачи.
+{% endcut %}
 
-- **\<field-version\>**
+{% cut "Параметры тела запроса" %}
 
-    Версия поля задачи.
-
-#### Тело запроса {#req-body-params}
-
-Тело запроса содержит параметры новых значений поля.
+**Обязательные параметры**
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
@@ -45,13 +45,17 @@ optionsProvider | Объект с информацией о допустимых
 type | Тип значений поля. | Строка
 values | Массив со значениями поля. | Массив
 
+{% endcut %}
+
 ## Формат ответа {#section_dcj_mx3_4gb}
 
 {% list tabs %}
 
 - Запрос выполнен успешно
 
-    В случае успешного выполнения запроса API возвращает ответ с кодом 200. Тело ответа содержит JSON-объект со всеми параметрами поля задачи.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %} 
+ 
+    Тело ответа содержит JSON-объект со всеми параметрами поля задачи.
 
     ```json
     {
@@ -90,7 +94,7 @@ values | Массив со значениями поля. | Массив
     }
     ```
 
-    #### Параметры ответа {#answer-params}
+    {% cut "Параметры ответа" %}
 
     Параметр | Описание | Тип данных
     -------- | -------- | ----------
@@ -144,19 +148,26 @@ values | Массив со значениями поля. | Массив
     id | Идентификатор категории поля. | Строка
     display | Отображаемое название категории. | Строка
 
+    {% endcut %}
+
 - Запрос выполнен с ошибкой
 
     Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
 
-    HTTP-код ошибки | Описание ошибки
-    --------------- | ---------------
-    400 Bad Request | Один из параметров запроса имеет недопустимое значение или формат данных.
-    403 Forbidden | У пользователя или приложения нет прав на доступ к ресурсу, запрос отклонен.
-    404 Not Found | Запрашиваемый ресурс не найден.
-    412 Precondition Failed | Некорректное значение заголовка.
-    422 Unprocessable Entity | Ошибка валидации JSON, запрос отклонен.
-    428 Precondition Required | Требуется заголовок.
-    500 Internal Server Error | Внутренняя ошибка сервиса. Попробуйте повторно отправить запрос через некоторое время.
-    503 Service Unavailable | Сервис API временно недоступен.
+    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-412.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-428.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
+    
+    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}

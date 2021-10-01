@@ -21,5 +21,5 @@ The runtime environment automatically loads and invokes the specified [request h
 
 {{ sf-name }} automatically captures the script's standard output stream, `stdout`, and interprets it as a response to the request. The standard error output stream, `stderr`, is sent to the centralized logging system available in {{ yandex-cloud }}. This system also logs service records about the start and end of each function and any errors that occur during its execution. For more information about the log format, see [{#T}](logging.md).
 
-To learn more about how to write `Bash` scripts, see the [Advanced Bash-Scripting Guide](https://www.opennet.ru/docs/RUS/bash_scripting_guide/).
+To learn more about how to write `Bash` scripts, see the [Advanced Bash-Scripting Guide](https://tldp.org/LDP/abs/abs-guide.pdf).
 

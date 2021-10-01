@@ -25,9 +25,9 @@ Authorization: OAuth <токен>
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-#### Тело запроса {#req-body-params}
+{% cut "Параметры тела запроса" %}
 
-Тело запроса содержит обязательные параметры спринта.
+**Обязательные параметры**
 
 Параметр | Описание | Тип данных
 -------- | -------- | ----------
@@ -42,31 +42,33 @@ endDate | Дата окончания спринта в формате: ```YYYY-
 -------- | -------- | ----------
 id | Идентификатор доски. | Строка
 
+{% endcut %}
+
 ## Формат ответа {#section_rqk_pvh_qfb}
 
 {% list tabs %}
 
 - Запрос выполнен успешно
 
-    В случае успешного выполнения запроса API возвращает ответ с кодом 200. Тело ответа содержит JSON-объект с параметрами созданного спринта.
-
-    #### Тело ответа {#answer-body}
+    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
+    
+    Тело ответа содержит JSON-объект с параметрами созданного спринта.
 
     ```json
     {
-      "self" : "http://api.tracker.yandex.net/v2/sprints/4469",
+      "self" : "{{ host }}/v2/sprints/4469",
       "id" : 4469,
       "version" : 1,
       "name" : "Новый Спринт",
       "board" : {
-        "self" : "http://api.tracker.yandex.net/v2/boards/3",
+        "self" : "{{ host }}/v2/boards/3",
         "id" : "1",
         "display" : "Тестирование"
       },
       "status" : "draft",
       "archived" : false,
       "createdBy" : {
-        "self" : "http://api.tracker.yandex.net/v2/users/1120000000014425",
+        "self" : "{{ host }}/v2/users/1120000000014425",
         "id" : "1120000000014425",
         "display" : "Виктор Булдаков"
       },
@@ -78,7 +80,7 @@ id | Идентификатор доски. | Строка
     }
     ```
 
-    #### Параметры ответа {#answer-params}
+    {% cut "Параметры ответа" %}
 
     Параметр | Описание | Тип данных
     -------- | -------- | ----------
@@ -112,17 +114,22 @@ id | Идентификатор доски. | Строка
     id | Идентификатор пользователя. | Строка
     display | Отображаемое имя пользователя. | Строка
 
+    {% endcut %}
+
 - Запрос выполнен с ошибкой
 
     Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
 
-    HTTP-код ошибки | Описание ошибки
-    --------------- | ---------------
-    400 Bad Request | Один из параметров запроса имеет недопустимое значение или формат данных.
-    403 Forbidden | У пользователя или приложения нет прав на доступ к ресурсу, запрос отклонен.
-    404 Not Found | Запрашиваемый ресурс не найден.
-    422 Unprocessable Entity | Ошибка валидации JSON, запрос отклонен.
-    500 Internal Server Error | Внутренняя ошибка сервиса. Попробуйте повторно отправить запрос через некоторое время.
-    503 Service Unavailable | Сервис API временно недоступен.
+    {% include [error](../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-422.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}

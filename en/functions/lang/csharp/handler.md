@@ -1,6 +1,6 @@
-# Request handler
+# C# function request handler
 
-_A request handler_ is a method used to handle each function invocation. When creating a function version, you should specify the entry point that consists of the name of the class that contains the handler (for example, `FunctionNamespace.Handler`).
+A _request handler_ is a method used to handle each C# function invocation. When creating a function version, you should specify the entry point that consists of the name of the class that contains the handler (for example, `FunctionNamespace.Handler`).
 
 {% note info %}
 

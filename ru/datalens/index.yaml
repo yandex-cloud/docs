@@ -13,15 +13,15 @@ links:
   - title: Начало работы
     description: Как начать работать с DataLens
     href: quickstart
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/
+  - title: Сценарии использования
+    description: Пройдите туториалы с примерами использования сервиса DataLens
+    href: ../solutions/datalens
   - title: Концепции
     description: Узнайте про устройство и возможности сервиса
     href: concepts/
-  - title: Сценарии использования
-    description: Решайте типовые задачи по визуализации данных с помощью DataLens
-    href: ../solutions/datalens
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению базовых операций
+    href: operations/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

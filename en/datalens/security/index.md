@@ -86,7 +86,7 @@ You can assign the following permissions to objects and directories in {{ datale
 
 A user with the `{{ permission-execute }}` permission for a connection can make requests to it, but can't create datasets. Regardless of dataset permissions, the user can't access a list of tables in a dataset or view the SQL subquery that the dataset is based on.
 
-A user with the `{{ permission-execute }}` permission for a dataset can make requests to it and create charts, but can't view the dataset.
+A user with the `{{ permission-execute }}` permission for a dataset can make requests to it, but can't create or edit charts and view the dataset.
 
 {% note warning %}
 
@@ -142,7 +142,7 @@ The `{{ permission-admin }}` permission includes everything included in the `{{ 
 | Edit permissions | - | - | - | ✔ |
 | **Dataset** |
 | Make requests<br/>to a dataset | ✔ | ✔ | ✔ | ✔ |
-| Create charts<br/>on a dataset | ✔ | ✔ | ✔ | ✔ |
+| Create charts<br/>on a dataset | - | ✔ | ✔ | ✔ |
 | View datasets | - | ✔ | ✔ | ✔ |
 | Edit datasets | - | - | ✔ | ✔ |
 | Delete datasets | - | - | - | ✔ |

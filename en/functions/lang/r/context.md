@@ -1,6 +1,6 @@
-# Invocation context
+# R function invocation context
 
-_Invocation context_ is an object that is optionally accepted by the [request handler](handler.md) if the list of parameters contains ycFunctionContext. It's a list type object with additional information about function version properties:
+_Invocation context_ is an object that is optionally accepted by the [request handler](handler.md) if the list of parameters contains ycFunctionContext. It's a list type object with additional information about the R function's version properties:
 
 * `functionId`: Returns the string ID of the function.
 * `functionVersion`: Returns the string ID of the function version.
