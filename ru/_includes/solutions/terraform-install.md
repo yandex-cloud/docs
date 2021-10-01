@@ -19,7 +19,7 @@
 
   Используйте один из способов:
 
-    * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://www.terraform.io/intro/getting-started/install.html)
+    * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://www.terraform.io/intro/getting-started/install.html).
     * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
 
       ```

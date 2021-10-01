@@ -1,4 +1,4 @@
-# Managing dependencies
+# Managing Node.js function dependencies
 
 {% note info %}
 
@@ -6,7 +6,7 @@ This section describes the functionality that is only available in the `nodejs12
 
 {% endnote %}
 
-{{ sf-name }} can automatically install dependencies necessary for a function to run when creating a new [function version](../../operations/function/version-manage.md#func-version-create).
+{{ sf-name }} can automatically install dependencies required for a Node.js function to run when creating a new [function version](../../operations/function/version-manage.md#func-version-create).
 
 Dependencies are installed by the `npm ci` command that is run in the project root (directory with the function). You can list the required libraries in the following ways:
 

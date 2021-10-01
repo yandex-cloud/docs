@@ -1,6 +1,6 @@
-# Invocation context
+# Python function invocation context
 
-_Invocation context_ is an object that contains certain parameters of the [execution context](../../concepts/runtime/execution-context.md) and parameters for invoking the function itself. It's accepted by the [request handler](handler.md) as the second argument.
+_Invocation context_ is an object that contains certain parameters of the [execution context](../../concepts/runtime/execution-context.md) and parameters for invoking the Python function itself. It's accepted by the [request handler](handler.md) as the second argument.
 
 The invocation context contains:
 

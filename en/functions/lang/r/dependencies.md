@@ -1,8 +1,8 @@
-# Building and managing dependencies
+# Building and managing R function dependencies
 
 ## Pre-installed packages {#pre-inst-pack}
 
-The runtime has the following set of pre-installed packages that can be used from the function code:
+The R function runtime has the following set of pre-installed packages that can be used from the function code:
 `httr`, `logging`, `data.table`, `dplyr`, `paws`, `rjson`, `stringr`, `BiocManager`, `ggplot2`, `plotly`, `devtools`, `Rcpp`, `tidyr`, `lubridate`, `e1071`, `caret`, `mongolite`, and `Rsamtools`.
 
 ## Installing additional packages {#inst-addit-pack}

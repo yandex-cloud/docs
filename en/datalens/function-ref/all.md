@@ -690,6 +690,14 @@ Converts the `value` expression to geopolygon format.
 
 
 
+## [GET_ITEM](GET_ITEM.md)
+
+**Syntax:**`GET_ITEM( array, index )`
+
+Returns the element with the index `index` from the array `array`. Index must be any integer. Indexes in an array begin with one.
+
+
+
 ## [GREATEST](GREATEST.md)
 
 **Syntax:**`GREATEST( value_1, value_2, value_3 [ , ... ] )`
@@ -860,9 +868,9 @@ Returns a string that contains the number of characters specified in `number` fr
 
 ## [LEN](LEN.md)
 
-**Syntax:**`LEN( string )`
+**Syntax:**`LEN( value )`
 
-Returns the number of characters in the string `string`.
+Returns the number of characters in the string or items in array `value`.
 
 
 
@@ -1581,6 +1589,14 @@ Converts the name of a geographical entity (country, region, city) `name` to the
 **Syntax:**`TRIM( string )`
 
 Returns the string `string` without spaces at the beginning or end of the string.
+
+
+
+## [UNNEST](UNNEST.md)
+
+**Syntax:**`UNNEST( array )`
+
+Expands the `array` array expression to a set of rows.
 
 
 

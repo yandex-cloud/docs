@@ -1,6 +1,6 @@
-# Using the SDK
+# Using the SDK for Go functions
 
-The runtime doesn't have a pre-installed library that lets you access the [{{ yandex-cloud }} API](../../../api-design-guide/).To use the library, add a [dependency](dependencies.md) to your application. You can find the source code of the library on [GitHub](https://github.com/yandex-cloud/go-sdk).
+The runtime doesn't have a pre-installed library that lets you access the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Go application. You can find the source code of the library on [GitHub](https://github.com/yandex-cloud/go-sdk).
 
 [Software development kits (SDK)](https://en.wikipedia.org/wiki/SDK) let you interact with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the function.
 

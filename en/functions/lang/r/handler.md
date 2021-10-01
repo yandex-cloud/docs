@@ -1,6 +1,6 @@
-# Request handler
+# R function request handler
 
-_A request handler_ is an R function that is used to handle each function invocation. When creating a function version, you should specify the entry point. It consists of the file name and the name of the R function where requests are sent (see example for the handler in the `function.R` or `function.handler` file).
+A _request handler_ is a function that is used to handle each R function invocation. When creating a function version, you should specify the entry point. It consists of the file name and the name of the R function where requests are sent (see example for the handler in the `function.R` or `function.handler` file).
 
 {% note info %}
 

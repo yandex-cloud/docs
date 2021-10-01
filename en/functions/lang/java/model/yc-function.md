@@ -1,6 +1,6 @@
-# Using the YcFunction interface to set a handler function
+# Using the YcFunction interface to set a handler function in Java
 
-You can set a handler function by implementing the [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java) interface. To do this, add an [SDK](../sdk.md) to the [dependencies](../dependencies.md).
+You can set a handler function in Java by implementing the [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java) interface. To do this, add an [SDK](../sdk.md) to the [dependencies](../dependencies.md).
 
 {% note warning %}
 

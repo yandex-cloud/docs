@@ -1,6 +1,6 @@
-# Request handler
+# Node.js function request handler
 
-_A request handler_ is a method used to handle each function invocation. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.myFunction`). To make the handler available outside the module (file), export it by adding a key to the `module.exports` object.
+A _request handler_ is a method used to handle each Node.js function invocation. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.myFunction`). To make the handler available outside the module (file), export it by adding a key to the `module.exports` object.
 
 {% note info %}
 

@@ -1,6 +1,6 @@
-# Building and managing dependencies
+# Building and managing C# function dependencies
 
-{{ sf-name }} supports two ways to manage dependencies: automatic installation using `nuget` and manual delivery of dependencies with the source code.
+{{ sf-name }} supports two ways to manage dependencies for a C# function: automatic installation using `nuget` and manual delivery of dependencies with the source code.
 
 ## NuGet
 

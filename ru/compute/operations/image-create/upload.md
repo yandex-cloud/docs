@@ -52,14 +52,15 @@ keywords:
 
   1. Если требуется, добавьте произвольное описание образа.
   1. Вставьте ссылку на образ, полученную в {{ objstorage-name }}.
+  1. Чтобы создать [оптимизированный образ](../../concepts/image.md#images-optimized-for-deployment) включите опцию **Оптимизировать для развертывания**.
   1. Нажмите кнопку **Загрузить**.
 
 - CLI
 
-  Чтобы создать новый образ по ссылке, воспользуйтесь флагом `--source-uri`.
+  Чтобы создать новый образ по ссылке, воспользуйтесь флагом `--source-uri`. Для создания [оптимизированного образа](../../concepts/image.md#images-optimized-for-deployment) используйте флаг `--pooled`.
 
   ```bash
-  yc compute image create --name <image-name> --source-uri <image-URL>
+  yc compute image create --name <image-name> --source-uri <image-URL> --pooled
   ```
 
   Где:
@@ -103,9 +104,10 @@ keywords:
 
      ```
      resource "yandex_compute_image" "image-1" {
-       name = "ubuntu-cosmic"
-       os_type = "LINUX"
+       name       = "ubuntu-cosmic"
+       os_type    = "LINUX"
        source_url = "<ссылка на образ в {{ objstorage-name }}>"
+       pooled     = "false"
      }
      ```
 

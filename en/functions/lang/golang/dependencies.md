@@ -1,6 +1,6 @@
-# Building and managing dependencies
+# Building and managing Go function dependencies
 
-At the build stage, {{ sf-name }} automatically installs dependencies necessary for a function to run. This is done when creating a new [function version](../../operations/function/version-manage.md#func-version-create).
+At the build stage, {{ sf-name }} automatically installs dependencies necessary for a Go function to run. This is done when creating a new [function version](../../operations/function/version-manage.md#func-version-create).
 
 {% note info %}
 
