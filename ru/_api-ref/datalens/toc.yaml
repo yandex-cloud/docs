@@ -321,6 +321,14 @@ items:
         href: function-ref/AGO.md
       - name: AT_DATE
         href: function-ref/AT_DATE.md
+  - name: Функции для работы с массивами
+    items:
+      - name: Обзор
+        href: function-ref/array-functions.md
+      - name: GET_ITEM
+        href: function-ref/GET_ITEM.md
+      - name: UNNEST
+        href: function-ref/UNNEST.md
   - name: Функции преобразования типов
     items:
       - name: Обзор

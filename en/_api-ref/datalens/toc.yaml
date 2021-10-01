@@ -51,6 +51,14 @@ items:
         href: function-ref/VAR.md
       - name: VARP
         href: function-ref/VARP.md
+  - name: Array functions
+    items:
+      - name: Overview
+        href: function-ref/array-functions.md
+      - name: GET_ITEM
+        href: function-ref/GET_ITEM.md
+      - name: UNNEST
+        href: function-ref/UNNEST.md
   - name: Date/Time functions
     items:
       - name: Overview

@@ -90,9 +90,9 @@ Returns a string that contains the number of characters specified in `number` fr
 
 ## [LEN](LEN.md)
 
-**Syntax:**`LEN( string )`
+**Syntax:**`LEN( value )`
 
-Returns the number of characters in the string `string`.
+Returns the number of characters in the string or items in array `value`.
 
 
 
