@@ -43,6 +43,8 @@ items:
     items:
       - name: Setting up virtual hosting
         href: solutions/virtual-hosting.md
+      - name: Blue-green deployment for switching between service versions
+        href: solutions/l7-bluegreen-deploy.md
   - name: Concepts
     items:
       - name: Overview
