@@ -953,7 +953,7 @@ END`<br/>или<br/>`IF(
 
 
 
-Аналогичное поведение у оконных функций [MCOUNT](MCOUNT.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MMAX](MMAX.md).
+Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MMAX](MMAX.md).
 
 См. также [AVG](AVG.md), [RAVG](RAVG.md).
 
@@ -1065,7 +1065,7 @@ END`<br/>или<br/>`IF(
 
 
 
-Аналогичное поведение у оконных функций [MCOUNT](MCOUNT.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MAVG](MAVG.md).
+Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MAVG](MAVG.md).
 
 См. также [MAX](MAX.md), [RMAX](RMAX.md).
 
@@ -1085,7 +1085,7 @@ END`<br/>или<br/>`IF(
 
 
 
-Аналогичное поведение у оконных функций [MCOUNT](MCOUNT.md), [MCOUNT](MCOUNT.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
+Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
 
 См. также [MIN](MIN.md), [RMIN](RMIN.md).
 
