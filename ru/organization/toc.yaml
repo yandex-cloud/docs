@@ -31,6 +31,8 @@ items:
       href: operations/federations/integration-adfs.md
     - name: Аутентификация с помощью Google Workspace
       href: operations/federations/integration-gworkspace.md
+    - name: Аутентификация с помощью Azure Active Directory
+      href: operations/federations/integration-azure.md
     - name: Аутентификация с помощью SAML-совместимой федерации удостоверений
       href: operations/federations/integration-common.md
 - name: Управление облаками и сервисами
