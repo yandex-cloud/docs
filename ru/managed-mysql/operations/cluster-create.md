@@ -90,8 +90,8 @@
 
   1. Укажите параметры кластера в команде создания:
 
-     ```
-     $ {{ yc-mdb-my }} cluster create \
+     ```bash
+     {{ yc-mdb-my }} cluster create \
         --name=<имя кластера> \
         --environment <окружение, prestable или production> \
         --network-name <имя сети> \
@@ -102,10 +102,13 @@
         --database name=<имя базы данных> \
         --disk-size <размер хранилища в гигабайтах> \
         --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-        --security-group-ids <список идентификаторов групп безопасности>
+        --security-group-ids <список идентификаторов групп безопасности> \
+        --deletion-protection=<защита от удаления кластера: true или fasle>
      ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+
+      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-settings).
 
@@ -140,11 +143,12 @@
      }
 
      resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
-       name               = "<имя кластера>"
-       environment        = "<окружение, PRESTABLE или PRODUCTION>"
-       network_id         = "<идентификатор сети>"
-       version            = "<версия MySQL: 5.7 или 8.0>"
-       security_group_ids = [ "<список групп безопасности>" ]
+       name                = "<имя кластера>"
+       environment         = "<окружение, PRESTABLE или PRODUCTION>"
+       network_id          = "<идентификатор сети>"
+       version             = "<версия MySQL: 5.7 или 8.0>"
+       security_group_ids  = [ "<список групп безопасности>" ]
+       deletion_protection = <защита от удаления кластера: true или false>
 
        resources {
          resource_preset_id = "<класс хоста>"
@@ -180,6 +184,8 @@
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
+
+     {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_mysql_cluster.html).
 
@@ -222,6 +228,7 @@
     - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 Гб.
     - С одним пользователем (`user1`), с паролем `user1user1`.
     - С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
+    - С защитой от случайного удаления кластера.
 
     {% else %}
 
@@ -232,6 +239,7 @@
     - С быстрым локальным хранилищем (`local-ssd`) объемом 20 Гб.
     - С одним пользователем (`user1`), с паролем `user1user1`.
     - С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
+    - С защитой от случайного удаления кластера.
 
     {% endif %}
 
@@ -251,7 +259,8 @@
          --disk-type {{ disk-type-example }} \
          --disk-size 20 \
          --user name=user1,password="user1user1" \
-         --database name=db1
+         --database name=db1 \
+         --deletion-protection=true
       ```
 
       {% else %}
@@ -267,7 +276,8 @@
          --disk-type local-ssd \
          --disk-size 20 \
          --user name=user1,password="user1user1" \
-         --database name=db1
+         --database name=db1 \
+         --deletion-protection=true
       ```
 
       {% endif %}
@@ -296,10 +306,11 @@
     - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
     - С одним пользователем (`user1`), с паролем `user1user1`.
     - С одной базой данных `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
+    - С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
 
-  ```go
+  ```hcl
   terraform {
     required_providers {
       yandex = {
@@ -316,11 +327,12 @@
   }
 
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
-    name               = "my-mysql"
-    environment        = "PRESTABLE"
-    network_id         = yandex_vpc_network.mynet.id
-    version            = "8.0"
-    security_group_ids = [ yandex_vpc_security_group.mysql-sg.id ]
+    name                = "my-mysql"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    version             = "8.0"
+    security_group_ids  = [ yandex_vpc_security_group.mysql-sg.id ]
+    deletion_protection = true
 
     resources {
       resource_preset_id = "{{ host-class }}"

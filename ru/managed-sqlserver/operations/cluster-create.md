@@ -93,11 +93,12 @@
 
         ```hcl
         resource "yandex_mdb_sqlserver_cluster" "<имя кластера>" {
-          name               = "<имя кластера>"
-          environment        = "<окружение: PRESTABLE или PRODUCTION>"
-          network_id         = "<идентификатор сети>"
-          version            = "<версия: 2016sp2std или 2016sp2ent>"
-          security_groups_id = ["<список идентификаторов групп безопасности>"]
+          name                = "<имя кластера>"
+          environment         = "<окружение: PRESTABLE или PRODUCTION>"
+          network_id          = "<идентификатор сети>"
+          version             = "<версия: 2016sp2std или 2016sp2ent>"
+          security_groups_id  = ["<список идентификаторов групп безопасности>"]
+          deletion_protection = <защита от удаления кластера: true или false>
 
           resources {
             resource_preset_id = "<класс хоста>"
@@ -140,6 +141,8 @@
         }
         ```
 
+       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mms }}).
 
     1. Проверьте корректность настроек.
@@ -163,6 +166,9 @@
   - Конфигурацию учетных записей баз данных кластера в одном или нескольких параметрах `userSpecs`.
   - Идентификатор сети в параметре `networkId`.
   - Имя параметров сортировки баз данных кластера в параметре `sqlcollation`.
+  - Настройки защиты от удаления кластера в параметре `deletionProtection`.
+
+      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
 {% endlist %}
 
@@ -187,6 +193,7 @@
     - С быстрым сетевым хранилищем объемом 32 Гб.
     - С базой данных `db1`.
     - С пользователем `user1` и паролем `user1user1`. Этот пользователь будет владельцем базы `db1` ([предопределенная роль `DB_OWNER`](./grant.md#predefined-db-roles)).
+    - С защитой от случайного удаления кластера.
 
     Конфигурационный файл для такого кластера выглядит так:
 
@@ -207,11 +214,12 @@
     }
 
     resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
-      name               = "mssql-1"
-      environment        = "PRODUCTION"
-      version            = "2016sp2std"
-      network_id         = yandex_vpc_network.mynet.id
-      security_group_ids = [yandex_vpc_security_group.ms-sql-sg.id]
+      name                = "mssql-1"
+      environment         = "PRODUCTION"
+      version             = "2016sp2std"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
+      deletion_protection = true
 
       resources {
         resource_preset_id = "s2.small"

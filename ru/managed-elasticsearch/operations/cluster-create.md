@@ -101,6 +101,10 @@ keywords:
 
             {% endnote %}
 
+  1. При необходимости задайте дополнительные настройки кластера:
+
+      {% include [Дополнительные настройки кластера MES](../../_includes/mdb/mes/extra-settings.md) %}
+
   1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -142,10 +146,13 @@ keywords:
            --security-group-ids <список идентификаторов групп безопасности> \
            --version <версия {{ ES }}> \
            --edition <редакция {{ ES }}: basic, gold или platinum> \
-           --admin-password <пароль пользователя admin>
+           --admin-password <пароль пользователя admin> \
+           --deletion-protection=<защита от удаления кластера: true или fasle>
         ```
 
         Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности больше одной подсети.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
 - API
 
@@ -190,6 +197,7 @@ keywords:
     - С одним публично доступным хостом с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ zone-id }}`.
     - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
     - С паролем `esadminpwd` для пользователя `admin`.
+    - С защитой от случайного удаления кластера.
 
     Запустите следующую команду:
 
@@ -205,7 +213,8 @@ keywords:
        --admin-password=esadminpwd \
        --security-group-ids enpp2s8l3irhk5eromd7 \
        --version 7.10 \
-       --edition platinum
+       --edition platinum \
+       --deletion-protection=true
     ```
 
 {% endlist %}

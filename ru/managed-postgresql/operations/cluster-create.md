@@ -132,8 +132,9 @@
          --user name=<имя пользователя>,password=<пароль пользователя> \
          --database name=<имя базы данных>,owner=<имя владельца базы данных> \
          --disk-size <объем хранилища, ГБ> \
-         --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
-         --security-group-ids <список идентификаторов групп безопасности>
+         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+         --security-group-ids <список идентификаторов групп безопасности> \
+         --deletion-protection=<защита от удаления кластера: true или false>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -154,6 +155,8 @@
       ```
 
   {% endif %}
+
+      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       Также вы можете указать несколько дополнительных опций в параметре `--host` для управления репликацией в кластере:
       - Источник репликации для хоста в опции `replication-source` для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
@@ -195,10 +198,11 @@
      }
 
      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
-       name               = "<имя кластера>"
-       environment        = "<окружение, PRESTABLE или PRODUCTION>"
-       network_id         = "<идентификатор сети>"
-       security_group_ids = [ "<список групп безопасности>" ]
+       name                = "<имя кластера>"
+       environment         = "<окружение, PRESTABLE или PRODUCTION>"
+       network_id          = "<идентификатор сети>"
+       security_group_ids  = [ "<список групп безопасности>" ]
+       deletion_protection = <защита от удаления кластера: true или false>
 
        config {
          version = "<версия PostgreSQL: 10, 10-1с, 11, 11-1c, 12, 12-1c или 13>"
@@ -238,6 +242,8 @@
      }
      ```
 
+     {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
   1. Проверьте корректность настроек.
@@ -261,7 +267,6 @@
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
     * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
-
 
 {% endlist %}
 
@@ -293,6 +298,7 @@
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   - С одним пользователем (`user1`), с паролем `user1user1`.
   - С одной базой данных `db1`, принадлежащей пользователю `user1`.
+  - С защитой от случайного удаления кластера.
 
   {% else %}
 
@@ -303,6 +309,7 @@
   - С быстрым локальным хранилищем (`local-ssd`) объемом 20 ГБ.
   - С одним пользователем (`user1`), с паролем `user1user1`.
   - С одной базой данных `db1`, принадлежащей пользователю `user1`.
+  - С защитой от случайного удаления кластера.
 
   {% endif %}
 
@@ -310,7 +317,7 @@
 
   {% if audience != "internal" %}
 
-  ```
+  ```bash
   {{ yc-mdb-pg }} cluster create \
     --name mypg \
     --environment production \
@@ -321,7 +328,8 @@
     --disk-size 20 \
     --user name=user1,password=user1user1 \
     --database name=db1,owner=user1 \
-    --security-group-ids {{ security-group }}
+    --security-group-ids {{ security-group }} \
+    --deletion-protection=true
   ```
 
   {% else %}
@@ -356,10 +364,11 @@
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   - С одним пользователем (`user1`), с паролем `user1user1`.
   - С одной базой данных `db1`, принадлежащей пользователю `user1`.
+  - С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
 
-  ```go
+  ```hcl
   terraform {
     required_providers {
       yandex = {
@@ -376,10 +385,11 @@
   }
 
   resource "yandex_mdb_postgresql_cluster" "mypg" {
-    name               = "mypg"
-    environment        = "PRESTABLE"
-    network_id         = yandex_vpc_network.mynet.id
-    security_group_ids = [ yandex_vpc_security_group.pgsql-sg.id ]
+    name                = "mypg"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.pgsql-sg.id ]
+    deletion_protection = true
 
     config {
       version = 13

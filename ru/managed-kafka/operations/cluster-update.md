@@ -249,6 +249,94 @@
 
 {% endlist %}
 
+## Изменить дополнительные настройки кластера {#change-additional-settings}
+
+{% list tabs %}
+
+- Консоль управления
+
+    1. Перейдите на страницу каталога и выберите сервис **{{ mkf-name }}**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. Измените дополнительные настройки кластера:
+
+        {% include [Дополнительные настройки кластера MKF](../../_includes/mdb/mkf/extra-settings.md) %}
+
+    1. Нажмите кнопку **Сохранить**.
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить дополнительные настройки кластера:
+
+    1. Посмотрите описание команды CLI для изменения кластера:
+
+        ```bash
+        {{ yc-mdb-kf }} cluster update --help
+        ```
+
+    1. Чтобы защитить кластер от непреднамеренного удаления пользователем вашего облака, задайте значение `true` для параметра `--deletion-protection`:
+
+        ```bash
+        {{ yc-mdb-kf }} cluster update <идентификатор или имя кластера> \
+           ...
+           --deletion-protection=true
+        ```
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
+          ...
+          deletion_protection = <защита от удаления кластера: true или false>
+        }
+        ```
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
+
+- API
+
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`.
+    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+    * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+
+    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    {% note warning %}
+
+    Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, обязательно передайте название полей, подлежащих изменению, в параметре `updateMask`.
+
+    {% endnote %}
+
+{% endlist %}
+
 ## Изменить настройки {{ KF }} {#change-kafka-settings}
 
 {% list tabs %}

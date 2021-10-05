@@ -40,6 +40,8 @@ items:
         href: operations/cluster-create.md
       - name: Подключение к кластеру
         href: operations/connect.md
+      - name: Изменение кластера
+        href: operations/cluster-update.md
       - name: Изменение подкластера
         href: operations/subcluster-update.md
       - name: Управление подкластерами

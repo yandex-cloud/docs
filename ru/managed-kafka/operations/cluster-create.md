@@ -81,6 +81,10 @@
 
   1. Если вы указали более одного хоста-брокера, то в блоке **Класс хоста {{ ZK }}** укажите характеристики [хостов {{ ZK }}](../concepts/index.md) для размещения в каждой выбранной зоне доступности.
 
+  1. При необходимости задайте дополнительные настройки кластера:
+
+      {% include [Дополнительные настройки кластера MKF](../../_includes/mdb/mkf/extra-settings.md) %}
+
   1. При необходимости задайте [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
 
   1. Нажмите кнопку **Создать кластер**.
@@ -100,9 +104,9 @@
       ```
       {{ yc-mdb-kf }} cluster create --help
       ```
-
-  1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
       
+  1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
+
       ```bash
       {{ yc-mdb-kf }} cluster create \
          --name <имя кластера> \
@@ -114,8 +118,11 @@
          --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --disk-size <размер хранилища в гигабайтах> \
          --assign-public-ip <публичный доступ> \
-         --security-group-ids <список идентификаторов групп безопасности>
+         --security-group-ids <список идентификаторов групп безопасности> \
+         --deletion-protection=<защита от удаления кластера: true или false>
       ```
+
+      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       При необходимости здесь же можно задать [настройки {{ KF }}](../concepts/settings-list.md#cluster-settings).
 
@@ -166,10 +173,11 @@
         }
 
         resource "yandex_mdb_kafka_cluster" "<имя кластера>" {
-          environment        = "<окружение: PRESTABLE или PRODUCTION>"
-          name               = "<имя кластера>"
-          network_id         = "<идентификатор сети>"
-          security_group_ids = ["<список идентификаторов групп безопасности кластера>"]
+          environment         = "<окружение: PRESTABLE или PRODUCTION>"
+          name                = "<имя кластера>"
+          network_id          = "<идентификатор сети>"
+          security_group_ids  = ["<список идентификаторов групп безопасности кластера>"]
+          deletion_protection = <защита от удаления кластера: true или false>
 
           config {
             assign_public_ip = "<публичный доступ к кластеру: true или false>"
@@ -201,6 +209,8 @@
         }
         ```
 
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
     1. Проверьте корректность настроек.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -219,6 +229,9 @@
   * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
   * Имя кластера в параметре `name`.
   * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+  * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+
+      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
   Чтобы управлять топиками через Admin API {{ KF }}:
 
@@ -256,6 +269,7 @@
   * С одним брокером.
   * С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 10 ГБ.
   * С публичным доступом.
+  * С защитой от случайного удаления кластера.
 
   {% else %}
 
@@ -268,6 +282,7 @@
   * С одним брокером.
   * С быстрым локальным хранилищем (`{{ disk-type-example }}`) объемом 10 ГБ.
   * С публичным доступом.
+  * С защитой от случайного удаления кластера.
 
   {% endif %}
 
@@ -287,24 +302,26 @@
   --disk-size 10 \
   --disk-type {{ disk-type-example }} \
   --assign-public-ip \
-  --security-group-ids {{ security-group }}
+  --security-group-ids {{ security-group }} \
+  --deletion-protection=true
   ```
 
   {% else %}
 
-  ```
+  ```bash
   {{ yc-mdb-kf }} cluster create \
-  --name mykf \
-  --environment production \
-  --version 2.6 \
-  --network-name {{ network-name }} \
-  --zone-ids {{ zone-id }} \
-  --brokers-count 1 \
-  --resource-preset {{ host-class }} \
-  --disk-size 10 \
-  --disk-type {{ disk-type-example }} \
-  --assign-public-ip \
-  --security-group-ids {{ security-group }}
+     --name mykf \
+     --environment production \
+     --version 2.6 \
+     --network-name {{ network-name }} \
+     --zone-ids {{ zone-id }} \
+     --brokers-count 1 \
+     --resource-preset {{ host-class }} \
+     --disk-size 10 \
+     --disk-type {{ disk-type-example }} \
+     --assign-public-ip \
+     --security-group-ids {{ security-group }} \
+     --deletion-protection=true
   ```
 
   {% endif %}
@@ -324,6 +341,7 @@
     * С одним брокером.
     * С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 10 ГБ.
     * С публичным доступом.
+    * С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
 
@@ -344,10 +362,11 @@
     }
 
     resource "yandex_mdb_kafka_cluster" "mykf" {
-      environment = "PRODUCTION"
-      name        = "mykf"
-      network_id  = yandex_vpc_network.mynet.id
-      security_group_ids = [ yandex_vpc_security_group.mykf-sg.id ]
+      environment         = "PRODUCTION"
+      name                = "mykf"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
+      deletion_protection = true
 
       config {
         assign_public_ip = true
