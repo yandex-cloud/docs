@@ -82,6 +82,8 @@ SUM(
 
 One of the nested aggregations' set of dimensions contains all of the others.
 
+Another important restriction for LOD is that top-level aggregations must not contain any dimensions not used in the chart.
+
 ### BEFORE FILTER BY {#syntax-before-filter-by}
 
 If any fields are listed in `BEFORE FILTER BY`, then this aggregate function is calculated before data is filtered using these fields.
