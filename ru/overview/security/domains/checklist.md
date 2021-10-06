@@ -103,7 +103,7 @@
 
 - **Server-side шифрование**: включите шифрование секретов в etcd, см. [инструкцию](../../../kms/solutions/k8s.md). Делайте это всегда, вне зависимости от того, будете ли вы использовать сервисы управления секретами.
 - **Управление секретами**: используйте [Yandex Lockbox](../../../lockbox/index.yaml) или [HashiCorp Vault c поддержкой KMS](https://cloud.yandex.ru/marketplace/products/f2eokige6vtlf94uvgs2) из Yandex Cloud Marketplace. <!-- или контейнер `cr.yandex/yc/vault` -->
-  ![](../../../_assets/overview/solution-library-icon.png)[Решение: управление секретами c SecretManager (Lockbox, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
+  ![](../../../_assets/overview/solution-library-icon.png)[Решение: управление секретами c SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
 
 ### Сетевая безопасность
 
