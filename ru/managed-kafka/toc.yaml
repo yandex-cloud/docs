@@ -23,6 +23,8 @@ items:
         href: operations/cluster-topics.md
       - name: Управление учетными записями Kafka
         href: operations/cluster-accounts.md
+      - name: Просмотр логов кластера
+        href: operations/cluster-logs.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
   - name: Сценарии использования

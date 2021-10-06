@@ -42,7 +42,7 @@
 
 Terraform позволяет управлять облачной инфраструктурой с помощью файлов конфигураций. При изменении файлов Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить. Подробнее в разделе [{#T}](../../../solutions/infrastructure-management/terraform-quickstart.md).
 
-В файлах конфигураций Terraform не рекомендуется указывать приватную информацию: пароли, секреты, персональные данные, данные платежных систем и др. Вместо этого необходимо использовать сервисы для хранения и использования в конфигурации секретов, например: [HashiCorp Vault](https://cloud.yandex.ru/marketplace/products/f2eokige6vtlf94uvgs2) или [{{ lockbox-full-name }}](https://cloud.yandex.ru/services/lockbox) (для передачи секретов в целевой объект без использования terraform).
+В файлах конфигураций Terraform не рекомендуется указывать приватную информацию: пароли, секреты, персональные данные, данные платежных систем и др. Вместо этого необходимо использовать сервисы для хранения и использования в конфигурации секретов, например: [HashiCorp Vault](https://cloud.yandex.ru/marketplace/products/f2eokige6vtlf94uvgs2) или [{{ lockbox-name }}](https://cloud.yandex.ru/services/lockbox) (для передачи секретов в целевой объект без использования terraform).
 
 Если все же требуется указать приватную информацию в конфигурации, необходимо принять меры безопасности:
 - Указывать для приватной информации параметр [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output), чтобы отключить ее вывод в консоль при выполнении команд `terraform plan`, `terraform apply`.

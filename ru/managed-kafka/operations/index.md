@@ -8,4 +8,5 @@
 - [{#T}](cluster-hosts.md)
 - [{#T}](cluster-topics.md)
 - [{#T}](cluster-accounts.md)
+- [{#T}](cluster-logs.md)
 - [{#T}](cluster-delete.md)

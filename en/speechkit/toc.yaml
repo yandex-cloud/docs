@@ -49,8 +49,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/grpc/index.md
-              - name: Recognizer
-                href: api-ref/grpc/stt_service.md
+              - name: Synthesizer
+                href: api-ref/grpc/tts_service.md
   - name: IVR integration
     href: concepts/ivr-integration.md
   - name: Using the API

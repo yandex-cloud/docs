@@ -11,7 +11,7 @@
 
 ## Подключить сервисный аккаунт к кластеру {#connect-service-account}
 
-1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#update-additional-settings) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
+1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#change-additional-settings) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
 1. Убедитесь, что этому аккаунту [назначена роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`.
 
 
@@ -31,7 +31,7 @@
 
 {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
-1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#update-additional-settings) кластера подключите расширение [repository-s3](../concepts/plugins.md).
+1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#change-additional-settings) кластера подключите расширение [repository-s3](../concepts/plugins.md).
 1. Зарегистрируйте бакет как репозиторий снапшотов, используя публичный [API {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/put-snapshot-repo-api.html):
 
     ```http

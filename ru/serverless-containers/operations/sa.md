@@ -2,7 +2,7 @@
 
 Если ревизия контейнера создана с сервисным аккаунтом, вы можете получить [IAM-токен](../../iam/concepts/authorization/iam-token.md) из сервиса метаданных в формате [Google Compute Engine](../../compute/operations/vm-info/get-info.md#gce-metadata) с помощью API.
 
-Для этого изнутри контейнера выполните GET-запрос по адресу `http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token` и укажите HTTPS-заголовок `Metadata-Flavor: Google`.
+Для этого изнутри контейнера выполните GET-запрос по адресу `http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token` и укажите HTTP-заголовок `Metadata-Flavor: Google`.
 
 Ниже приведен пример функции для получения IAM-токена.
 

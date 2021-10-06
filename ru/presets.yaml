@@ -46,7 +46,6 @@ default:
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
   ig-full-name: Yandex Instance Groups
-  lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
   alb-full-name: Yandex Application Load Balancer
   dns-full-name: Yandex Cloud DNS
@@ -108,7 +107,7 @@ default:
   marketplace-name: Cloud Marketplace
   data-transfer-name: Data Transfer
   api-gw-name: API Gateway
-  lockbox-name: Lockbox
+  lockbox-name: Yandex Lockbox
   tracker-name: Tracker
   alb-name: Application Load Balancer
   dns-name: Cloud DNS
@@ -161,7 +160,6 @@ default:
   certificate-manager-short-name: Certificate Manager
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
-  lockbox-short-name: Lockbox
   at-short-name: Audit Trails
   tracker-short-name: Tracker
   forms-short-name: Forms

@@ -41,6 +41,10 @@ items:
             href: operations/origin-groups/bind-group-to-resource.md
           - name: Удалить группу источников
             href: operations/origin-groups/delete-group.md
+  - name: Сценарии использования
+    items:
+      - name: Публикация обновлений для игр
+        href: solutions/prefetch.md
   - name: Концепции
     items:
       - name: Обзор сервиса

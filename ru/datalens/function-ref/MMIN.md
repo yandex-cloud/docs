@@ -31,7 +31,7 @@ MMIN( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY .
 
 
 
-Аналогичное поведение у оконных функций [MCOUNT](MCOUNT.md), [MCOUNT](MCOUNT.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
+Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
 
 См. также [MIN](MIN.md), [RMIN](RMIN.md).
 
