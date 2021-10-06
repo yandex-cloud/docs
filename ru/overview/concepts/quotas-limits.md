@@ -180,11 +180,11 @@ description: 'В сервисах Yandex.Cloud могут действовать
 {% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
 
 
-### {{ cloud-logging-name }} {#logging}
+### {{ cloud-logging-full-name }} {#logging}
 
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
 
 
-### {{ serverless-containers-name }} {#serverless-containers}
+### {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}

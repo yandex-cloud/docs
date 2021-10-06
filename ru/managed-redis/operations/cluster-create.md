@@ -89,7 +89,7 @@
   1. Укажите параметры кластера в команде создания (в примере приведены не все флаги):
   
       ```bash
-      $ {{ yc-mdb-rd }} cluster create \
+      {{ yc-mdb-rd }} cluster create \
          --name <имя кластера> \
          --environment <окружение, prestable или production> \
          --network-name <имя сети> \
@@ -100,10 +100,13 @@
          --disk-size <размер хранилища в гигабайтах> \
          --password=<пароль пользователя> \
          --backup-window-start <время начала резервного копирования в формате ЧЧ:ММ:СС>
+         --deletion-protection=<защита от удаления кластера: true или fasle>
       ```
-      
+
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-      
+
+      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
 - API
 
   Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
@@ -145,12 +148,13 @@
        }
 
        resource "yandex_mdb_redis_cluster" "<имя кластера>" {
-         name               = "<имя кластера>"
-         environment        = "<окружение: PRESTABLE или PRODUCTION>"
-         network_id         = "<идентификатор сети>"
-         security_group_ids = [ "<идентификаторы групп безопасности>" ]
-         tls_enabled        = true
-         sharded            = <шардирование: true или false>
+         name                = "<имя кластера>"
+         environment         = "<окружение: PRESTABLE или PRODUCTION>"
+         network_id          = "<идентификатор сети>"
+         security_group_ids  = [ "<идентификаторы групп безопасности>" ]
+         tls_enabled         = true
+         sharded             = <шардирование: true или false>
+         deletion_protection = <защита от удаления кластера: true или false>
 
          config {
            password = "<пароль>"
@@ -179,7 +183,9 @@
        }
        ```
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }}).
+       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }})
 
     1. Проверьте корректность настроек.
 
@@ -219,22 +225,24 @@
   * С поддержкой SSL-соединений.
   * С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
   * C паролем `user1user1`.
+  * С защитой от случайного удаления кластера.
   
   Запустите следующую команду:
   
-  ```
-  $ {{ yc-mdb-rd }} cluster create \
-       --name myredis \
-       --redis-version 6.0 \
-       --environment production \
-       --network-name default \
-       --resource-preset hm1.nano \
-       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
-       --security-group-ids {{ security-group }} \
-       --enable-tls \
-       --disk-type-id {{ disk-type-example }} \
-       --disk-size 16 \
-       --password=user1user1
+  ```bash
+  {{ yc-mdb-rd }} cluster create \
+     --name myredis \
+     --redis-version 6.0 \
+     --environment production \
+     --network-name default \
+     --resource-preset hm1.nano \
+     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+     --security-group-ids {{ security-group }} \
+     --enable-tls \
+     --disk-type-id {{ disk-type-example }} \
+     --disk-size 16 \
+     --password=user1user1 \
+     --deletion-protection=true
   ```
 
 - Terraform
@@ -252,6 +260,7 @@
     * С поддержкой SSL-соединений.
     * С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
     * C паролем `user1user1`.
+    * С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
 
@@ -272,11 +281,12 @@
   }
 
   resource "yandex_mdb_redis_cluster" "myredis" {
-    name               = "myredis"
-    environment        = "PRODUCTION"
-    network_id         = yandex_vpc_network.mynet.id
-    security_group_ids = [ yandex_vpc_security_group.redis-sg.id ]
-    tls_enabled        = true
+    name                = "myredis"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.redis-sg.id ]
+    tls_enabled         = true
+    deletion_protection = true
 
     config {
       password = "user1user1"
@@ -347,6 +357,7 @@
     * В новой группе безопасности `redis-sg`, разрешающей подключения через порты `{{ port-mrd }}` и `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect.md)) с любых адресов подсетей.
     * С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 16 ГБ.
     * C паролем `user1user1`.
+    * С защитой от случайного удаления кластера.
 
     Конфигурационный файл для такого кластера выглядит так:
 
@@ -367,11 +378,12 @@
     }
 
     resource "yandex_mdb_redis_cluster" "myredis" {
-      name               = "myredis"
-      environment        = "PRODUCTION"
-      network_id         = yandex_vpc_network.mynet.id
-      security_group_ids = [yandex_vpc_security_group.redis-sg.id]
-      sharded            = true
+      name                = "myredis"
+      environment         = "PRODUCTION"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [yandex_vpc_security_group.redis-sg.id]
+      sharded             = true
+      deletion_protection = true
 
       config {
         password = "user1user1"

@@ -336,7 +336,8 @@
             --backup-window-start <время начала резервного копирования> \
             --datalens-access=<true или false> \
             --maintenance-window type=<weekly или anytime> \
-            --websql-access=<true или false>
+            --websql-access=<true или false> \
+            --deletion-protection=<защита от удаления кластера: true или fasle>
         ```
 
     Вы можете изменить следующие настройки:
@@ -348,6 +349,8 @@
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
+
+    {% include [Защита от удаления кластера](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -387,6 +390,17 @@
       }
       ```
 
+  1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        ...
+        deletion_protection = <защита от удаления кластера: true или false>
+      }
+      ```
+
+      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
   1. Проверьте корректность настроек.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -399,7 +413,24 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md): передайте в запросе нужные значения в параметрах `configSpec.access` и `configSpec.backupWindowStart`.
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`.
+    * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
+    * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
+    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+
+        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+
+    Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    {% note warning %}
+
+    Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, обязательно передайте название полей, подлежащих изменению, в параметре `updateMask`.
+
+    {% endnote %}
 
 {% endlist %}
 

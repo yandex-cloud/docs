@@ -36,7 +36,7 @@ If you have an active billing account, you can create or select a folder to run 
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
-Make sure the selected folder has a network with subnets in the availability zones `ru-cental1-a`, `ru-central1-b`, and `ru-central1-c`. To do this, select **Yandex Virtual Private Cloud** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
+Make sure that the selected folder contains a network with subnets in the `ru-central1-a`, `ru-central1-b`, and `ru-central1-c` availability zones. To do this, select **{{ vpc-name }}** on the folder page. If the list contains a network, click on its name to see the list of subnets. If the subnets or network you need are not listed, [create them](../../vpc/quickstart.md).
 
 ### Required paid resources {#paid-resources}
 
@@ -47,8 +47,6 @@ The cost of hosting a website in Joomla includes:
 * The cost of outgoing traffic from Yandex.Cloud to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 ## Create a VM for Joomla {#create-vm}
-
-To create a VM:
 
 1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 
@@ -74,7 +72,7 @@ To create a VM:
    * Enter the username in the **Login** field.
    * In the **SSH key** field, paste the contents of the public key file.
 
-You need to create a key pair for an SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
+    You need to create a key pair for an SSH connection yourself. To generate keys, use third-party tools, such as `ssh-keygen` utilities on Linux and macOS or [PuTTygen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) on Windows.
 
 1. Click **Create VM**.
 
@@ -88,10 +86,10 @@ When a VM is created, it is assigned an IP address and hostname (FQDN). This dat
 1. In the **Name** field, enter the cluster name: `joomla-pg-tutorial-db-cluster`.
 1. In the **DB class** section, select **b2.medium**.
 1. In the **Storage size** section, enter 10 GB.
-1. In the **Database** section:
-   1. In the **DB name** field, enter `joomla-pg-tutorial-db`.
-   1. In the **Username** field, enter `joomla`.
-   1. In the **Password** field, enter the password you will use to access the DB.
+1. In the **Database** section, specify:
+   * **DB name**: `joomla-pg-tutorial-db`.
+   * **Username**: `joomla`.
+   * **Password**: The password you'll use to access the database.
 1. In the **Network** list, select the network your VM is connected to.
 1. In the **Hosts** section, add two more hosts in the other availability zones. When creating hosts, do not enable **Public access** to them.
 1. Click **Create cluster**.
@@ -106,7 +104,7 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`, do the foll
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. You can use the `ssh` tool in Linux and macOS or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows.
 
-   The recommended authentication method when connecting over SSH is using a key pair.  Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
+   The recommended authentication method when connecting over SSH is using a key pair. Don't forget to set up the created key pair: the private key must match the public key sent to the VM.
 
 1. Download and unpack the Joomla archive:
 
@@ -343,13 +341,14 @@ For security reasons, Joomla may ask you to delete a special test file. On the V
 
 The domain name that you want to use for your website must be associated with the created `joomla-pg-tutorial-web` VM.
 
-{% include [configure-a-record-and-cname](../_solutions_includes/configure-a-record-and-cname.md) %}
+{% include [configure-a-record-and-cname](../../_includes/solutions/web/configure-a-record-and-cname.md) %}
 
 ## Check that the website is running {#test-site}
 
-To test the website, open it in the browser at: `http://<VM public IP address>`.
+To check that the site is up, enter its IP address or domain name in your browser:
 
-You can check the domain name the same way only 15-20 minutes after editing the DNS records.
+* `http://<virtual machine public IP address>`.
+* `http://www.example.com`.
 
 ## How to delete created resources {#clear-out}
 

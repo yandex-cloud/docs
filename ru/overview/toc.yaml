@@ -49,6 +49,8 @@ items:
         href: security/user-side.md
       - name: Построение безопасной инфраструктуры
         items:
+          - name: Чеклист
+            href: security/domains/checklist.md
           - name: Аутентификация и управление доступом
             href: security/domains/access.md
           - name: Безопасная конфигурация

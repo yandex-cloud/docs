@@ -15,23 +15,23 @@ Minimum configurations are specified for the 5% performance level, and maximum c
 
 {% endnote %}
 
-- Intel Broadwell platform (`standard-v1`):
+* Intel Broadwell platform (`standard-v1`):
 
     | Configuration | vCPU | RAM, GB |
     | --- | --- | --- |
     | Min | 2 | 1 |
     | Max | 32 | 256 |
 
-- Intel Cascade Lake platform (`standard-v2`):
+* Intel Cascade Lake platform (`standard-v2`):
 
     | Configuration | vCPU | RAM, GB |
     | --- | --- | --- |
     | Min | 2 | 0.5 |
-    | Max | 80 | 640 |
+    | Max | 80 | 1280 |
 
 Available configurations of computing resources:
 
-- Intel Broadwell platform (`standard-v1`):
+* Intel Broadwell platform (`standard-v1`):
 
     | Performance</br> level | vCPU | RAM per core, GB |
     | --- | --- | --- |
@@ -39,7 +39,7 @@ Available configurations of computing resources:
     | 20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 |
     | 100% | 2, 4, 6, 8, 10, 12, 14,</br> 16, 20, 24, 28, 32 | 1, 2, 3, 4, 5, 6, 7, 8 |
 
-- Intel Cascade Lake platform (`standard-v2`):
+* Intel Cascade Lake platform (`standard-v2`):
 
     | Performance</br> level | vCPU | RAM per core, GB |
     | --- | --- | --- |

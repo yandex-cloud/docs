@@ -31,7 +31,7 @@ MAVG( value, rows_1 [ , rows_2 ] [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY .
 
 
 
-Аналогичное поведение у оконных функций [MCOUNT](MCOUNT.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MMAX](MMAX.md).
+Аналогичное поведение у оконных функций [MSUM](MSUM.md), [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MMAX](MMAX.md).
 
 См. также [AVG](AVG.md), [RAVG](RAVG.md).
 

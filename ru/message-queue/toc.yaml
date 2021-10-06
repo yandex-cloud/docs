@@ -57,6 +57,10 @@ items:
         href: concepts/delay-queues.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Сценарии использования
+    items:
+      - name: Конвертация видео в GIF на Python
+        href: solutions/video-converting-queue.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

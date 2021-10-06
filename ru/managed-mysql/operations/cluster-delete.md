@@ -5,7 +5,14 @@ description: "После удаления кластера баз данных M
 
 # Удаление кластера
 
-{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+## Перед удалением кластера {#before-you-delete}
+
+* [Отключите защиту от удаления](update.md#change-additional-settings) для кластера, если она включена.
+* [Сохраните идентификатор кластера](cluster-list.md#list-clusters).
+
+  {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+
+## Удалить кластер {#delete}
 
 {% list tabs %}
 
@@ -34,5 +41,3 @@ description: "После удаления кластера баз данных M
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
   
 {% endlist %}
-
-

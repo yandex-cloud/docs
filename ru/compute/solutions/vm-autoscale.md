@@ -501,3 +501,125 @@
      Воспользуйтесь методом [Delete](../api-ref/InstanceGroup/delete.md) для ресурса `InstanceGroup`.
 
    {% endlist %}
+
+1. Удалите подсети:
+
+   {% list tabs %}
+
+   - Консоль управления
+
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали подсети.
+     1. Откройте раздел **Virtual Private Cloud**.
+     1. Нажмите на имя сети, в которой находятся подсети.
+     1. Нажмите значок ![image](../../_assets/options.svg) в строке подсети, которую требуется удалить.
+     1. В открывшемся меню нажмите кнопку **Удалить**.
+     1. В открывшемся окне нажмите кнопку **Удалить**.
+     1. Повторите три предыдущих шага, чтобы удалить остальные подсети.
+
+   - CLI
+
+     1. Удалите подсеть в зоне `ru-central1-b`:
+
+        ```bash
+        yc vpc subnet delete e1lnabc23r1c9d0efoje
+        ```
+
+        Результат выполнения команды:
+
+        ```bash
+        done (1s)
+        id: e1lnabc23r1c9d0efoje
+        folder_id: b0g12ga82bcv0cdeferg
+        created_at: "2020-11-30T16:23:12Z"
+        network_id: enpabce123hde4ft1r3t
+        zone_id: ru-central1-b
+        v4_cidr_blocks:
+        - 192.168.1.0/24         
+        ```
+
+     1. Удалите подсеть в зоне `ru-central1-c`:
+
+        ```bash
+        yc vpc subnet delete b1csa2b3clideftjb121
+        ```
+
+        Результат выполнения команды:
+
+        ```bash
+        done (1s)
+        id: b1csa2b3clideftjb121
+        folder_id: b0g12ga82bcv0cdeferg
+        created_at: "2020-11-30T16:25:02Z"
+        network_id: enpabce123hde4ft1r3t
+        zone_id: ru-central1-c
+        v4_cidr_blocks:
+        - 192.168.2.0/24
+        ```
+
+   - API
+
+     Воспользуйтесь методом [Delete](../../vpc/api-ref/Subnet/delete.md) для ресурса `Subnet`.
+
+   {% endlist %}
+
+1. Удалите сеть:
+
+   {% list tabs %}
+
+   - Консоль управления
+
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали сеть.
+     1. Откройте раздел **Virtual Private Cloud**.
+     1. Нажмите значок ![image](../../_assets/options.svg) в строке сети, которую требуется удалить.
+     1. В открывшемся меню нажмите кнопку **Удалить**.
+     1. В открывшемся окне нажмите кнопку **Удалить**.
+
+   - CLI
+
+     ```bash
+     yc vpc network delete yc-auto-network
+     ```
+
+     Результат выполнения команды:
+
+     ```bash
+     id: enpabce123hde4ft1r3t
+     folder_id: b0g12ga82bcv0cdeferg
+     created_at: "2020-11-30T14:57:15Z"
+     name: yc-auto-network
+     ```
+
+   - API
+
+     Воспользуйтесь методом [Delete](../../vpc/api-ref/Network/delete.md) для ресурса `Network`.
+
+   {% endlist %}
+
+1. Удалите сервисный аккаунт:
+
+   {% list tabs %}
+
+   - Консоль управления
+
+     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
+     2. Выберите вкладку **Сервисные аккаунты**.
+     3. Нажмите значок ![image](../../_assets/options.svg) напротив сервисного аккаунта и выберите **Удалить сервисный аккаунт**.
+     4. Подтвердите удаление.
+
+   - CLI
+
+     ```bash
+     yc iam service-account delete for-autoscale
+     ```
+
+     Результат выполнения команды:
+
+     ```bash
+     done (2s)
+     ```
+
+   - API
+
+     Воспользуйтесь методом [Delete](../../iam/api-ref/ServiceAccount/delete.md) для ресурса `ServiceAccount`.
+
+   {% endlist %}

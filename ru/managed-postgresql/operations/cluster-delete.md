@@ -5,7 +5,14 @@ description: "После удаления кластера баз данных P
 
 # Удаление кластера
 
-{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+## Перед удалением кластера {#before-you-delete}
+
+* [Отключите защиту от удаления](update.md#change-additional-settings) для кластера, если она включена.
+* [Сохраните идентификатор кластера](cluster-list.md#list-clusters).
+
+  {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+
+## Удалить кластер {#delete}
 
 {% list tabs %}
 
@@ -23,8 +30,8 @@ description: "После удаления кластера баз данных P
   
   Чтобы удалить кластер, выполните команду:
   
-  ```
-  $ {{ yc-mdb-pg }} cluster delete <имя или идентификатор кластера>
+  ```bash
+  {{ yc-mdb-pg }} cluster delete <имя или идентификатор кластера>
   ```
   
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

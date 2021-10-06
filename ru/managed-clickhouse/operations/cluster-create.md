@@ -99,7 +99,7 @@
       $ {{ yc-mdb-ch }} cluster create --help
       ```
 
-  1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
+  1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
      
      ```bash
@@ -113,10 +113,13 @@
         --clickhouse-disk-size <размер хранилища в гигабайтах> \
         --user name=<имя пользователя>,password=<пароль пользователя> \
         --database name=<имя базы данных> \
-        --security-group-ids <список идентификаторов групп безопасности>
+        --security-group-ids <список идентификаторов групп безопасности> \
+        --deletion-protection=<защита от удаления кластера: true или false>
      ```
 
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+
+     {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       1. Чтобы включить [режим управления пользователями через SQL](cluster-users.md#sql-user-management):
 
@@ -163,10 +166,11 @@
 
        ```hcl
        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
-         name               = "<имя кластера>"
-         environment        = "<окружение>"
-         network_id         = "<идентификатор сети>"
-         security_group_ids = ["<список групп безопасности>"]
+         name                = "<имя кластера>"
+         environment         = "<окружение>"
+         network_id          = "<идентификатор сети>"
+         security_group_ids  = ["<список групп безопасности>"]
+         deletion_protection = <защита от удаления кластера: true или false>
 
          clickhouse {
            resources {
@@ -204,6 +208,8 @@
          v4_cidr_blocks = ["<диапазон>"]
        }
        ```
+
+       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
@@ -266,22 +272,24 @@
   * С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   * С одним пользователем, `user1`, с паролем `user1user1`.
   * С одной базой данных, `db1`.
+  * С защитой от случайного удаления кластера.
 
   Запустите следующую команду:
 
   
-  ```
-  $ {{ yc-mdb-ch }} cluster create \
-       --name mych \
-       --environment=production \
-       --network-name default \
-       --clickhouse-resource-preset {{ host-class }} \
-       --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
-       --clickhouse-disk-size 20 \
-       --clickhouse-disk-type {{ disk-type-example }} \
-       --user name=user1,password=user1user1 \
-       --database name=db1 \
-       --security-group-ids {{ security-group }}
+  ```bash
+  {{ yc-mdb-ch }} cluster create \
+     --name mych \
+     --environment=production \
+     --network-name default \
+     --clickhouse-resource-preset {{ host-class }} \
+     --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
+     --clickhouse-disk-size 20 \
+     --clickhouse-disk-type {{ disk-type-example }} \
+     --user name=user1,password=user1user1 \
+     --database name=db1 \
+     --security-group-ids {{ security-group }} \
+     --deletion-protection=true
   ```
 
 - Terraform
@@ -297,6 +305,7 @@
     * С быстрым сетевым хранилищем объемом 32 ГБ.
     * С именем базы данных `my_db`.
     * C именем пользователя `user1` и паролем `user1user1`.
+    * С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
 
@@ -309,10 +318,11 @@
   }
 
   resource "yandex_mdb_clickhouse_cluster" "mych" {
-    name               = "mych"
-    environment        = "PRESTABLE"
-    network_id         = yandex_vpc_network.mynet.id
-    security_group_ids = [ yandex_vpc_security_group.mych-sg.id ]
+    name                = "mych"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.mych-sg.id ]
+    deletion_protection = true
 
     clickhouse {
       resources {

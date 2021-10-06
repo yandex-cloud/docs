@@ -65,11 +65,11 @@
       $ {{ yc-mdb-mg }} cluster create --help
       ```
 
-  1. Укажите параметры кластера в команде создания (в примере приведены только обязательные флаги):
+  1. Укажите параметры кластера в команде создания (в примере приведены не все параметры):
 
       
-      ```
-      $ {{ yc-mdb-mg }} cluster create \
+      ```bash
+      {{ yc-mdb-mg }} cluster create \
          --name <имя кластера> \
          --environment=<окружение, prestable или production> \
          --network-name <имя сети> \
@@ -78,10 +78,13 @@
          --user name=<имя пользователя>,password=<пароль пользователя> \
          --database name=<имя базы данных> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
-         --mongod-disk-size <размер хранилища в гигабайтах>
+         --mongod-disk-size <размер хранилища в гигабайтах> \
+         --deletion-protection=<защита от удаления кластера: true или fasle>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+
+      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
 - Terraform
 
@@ -114,10 +117,11 @@
      }
 
      resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
-       name               = "<имя кластера>"
-       environment        = "<окружение: PRESTABLE или PRODUCTION>"
-       network_id         = "<идентификатор сети>"
-       security_group_ids = [ "<список групп безопасности>" ]
+       name                = "<имя кластера>"
+       environment         = "<окружение: PRESTABLE или PRODUCTION>"
+       network_id          = "<идентификатор сети>"
+       security_group_ids  = [ "<список групп безопасности>" ]
+       deletion_protection = <защита от удаления кластера: true или false>
 
        cluster_config {
          version = "<версия MongoDB: 4.0, 4.2 или 4.4>"
@@ -158,7 +162,9 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+     {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера]({{ tf-provider-mmg }}).
 
   1. Проверьте корректность настроек.
 
@@ -199,12 +205,13 @@
   - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
   - С одним пользователем, `user1`, с паролем `user1user1`.
   - С одной базой данных, `db1`.
+  - С защитой от случайного удаления кластера.
 
   Запустите следующую команду:
 
   
-  ```
-  $ {{ yc-mdb-mg }} cluster create \
+  ```bash
+  {{ yc-mdb-mg }} cluster create \
        --name mymg \
        --environment production \
        --network-name {{ network-name }} \
@@ -214,7 +221,8 @@
        --mongod-disk-size 20 \
        --mongod-disk-type {{ disk-type-example }} \
        --user name=user1,password=user1user1 \
-       --database name=db1
+       --database name=db1 \
+       --deletion-protection=true
   ```
 
 - Terraform
@@ -232,10 +240,11 @@
     - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
     - С одним пользователем, `user1`, с паролем `user1user1`.
     - С одной базой данных, `db1`.
+    - С защитой от случайного удаления кластера.
 
   Конфигурационный файл для такого кластера выглядит так:
 
-  ```go
+  ```hcl
   terraform {
     required_providers {
       yandex = {
@@ -252,10 +261,11 @@
   }
 
   resource "yandex_mdb_mongodb_cluster" "mymg" {
-    name               = "mymg"
-    environment        = "PRODUCTION"
-    network_id         = yandex_vpc_network.mynet.id
-    security_group_ids = [ yandex_vpc_security_group.mymg-sg.id ]
+    name                = "mymg"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
+    deletion_protection = true
 
     cluster_config {
       version = "4.4"
