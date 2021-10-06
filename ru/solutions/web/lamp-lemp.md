@@ -5,7 +5,7 @@ description: "LAMP (Linux, Apache HTTP Server, MySQL, PHP) и его вариа�
 
 # Веб-сайт на LAMP- или LEMP-стеке
 
-[LAMP](https://ru.wikipedia.org/wiki/LAMP) ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [MySQL](https://www.mysql.com/), [PHP](https://www.php.net/)) и его вариация LEMP (в которой веб-сервер Apache заменяется на [Nginx](https://www.nginx.com/)) — популярные наборы компонентов для развертывания веб-приложений и динамических сайтов.
+[LAMP]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/LAMP){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/LAMP_(software_bundle)){% endif %} ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [MySQL](https://www.mysql.com/), [PHP](https://www.php.net/)) и его вариация LEMP (в которой веб-сервер Apache заменяется на [Nginx](https://www.nginx.com/)) — популярные наборы компонентов для развертывания веб-приложений и динамических сайтов.
 
 С помощью этой инструкции вы научитесь разворачивать LAMP в инфраструктуре {{ yandex-cloud }}: в результате вы запустите виртуальную машину, на которой будет работать веб-сервер вашего сайта.
 

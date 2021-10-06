@@ -5,7 +5,7 @@ description: "LAMP (Linux, Apache HTTP Server, MySQL, PHP) and its variation LEM
 
 # Website on a LAMP or LEMP stack
 
-[LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle)) (Linux, the Apache HTTP Server, MySQL, and PHP) and LEMP (its variation where Apache is replaced with Nginx) are popular sets of components for deploying web applications and dynamic websites.
+[LAMP]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/LAMP){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/LAMP_(software_bundle)){% endif %} ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [MySQL](https://www.mysql.com/), [PHP](https://www.php.net/)) and its variant LEMP (which uses [Nginx](https://www.nginx.com/) instead of Apache as its web server) are popular component bundles for web apps and dynamic website deployment.
 
 In this tutorial, you'll learn how to deploy LAMP in the Yandex.Cloud infrastructure: as a result, you'll launch a VM running your site's web server.
 
@@ -38,8 +38,6 @@ The cost for maintaining a LAMP server includes:
 
 ## Create a VM with a pre-installed web server {#create-vm}
 
-To create a VM:
-
 1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource**, and select **Virtual machine**.
 
 1. In the **Name** field, enter a name for the VM: `lamp-vm` or `lemp-vm`.
@@ -52,11 +50,11 @@ To create a VM:
    * **LAMP** for Linux, Apache, MySQL, and PHP.
    * **LEMP** for Linux, Nginx, MySQL, and PHP.
 
-   For static websites, we recommend using LEMP.
+     For static websites, we recommend using LEMP.
 
 1. Under **Computing resources**:
-    - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
-    - Specify the necessary number of vCPUs and amount of RAM.
+   * Choose a [platform](../../compute/concepts/vm-platforms.md) for your VM.
+   * Specify the necessary number of vCPUs and amount of RAM.
 
    The minimum configuration is enough for functional website testing:
    * **Platform**: Intel Cascade Lake.
@@ -70,9 +68,9 @@ To create a VM:
 
 1. Specify data required for accessing the VM:
 
-    - Enter the username in the **Login** field.
+   * Enter the username in the **Login** field.
 
-    - In the **SSH key** field, paste the contents of the public key file.
+   * In the **SSH key** field, paste the contents of the public key file.
 
       You need to create a key pair for the SSH connection yourself. Learn [how to connect to VMs via SSH](../../compute/operations/vm-connect/ssh.md).
 
@@ -84,7 +82,7 @@ To create a VM:
 
 1. Click **Create VM**.
 
-Creating the VM may take several minutes. When the VM status changes to `RUNNING`, you can [upload the website files to it](#upload-files).
+   Creating the VM may take several minutes. When the VM status changes to `RUNNING`, you can [upload the website files to it](#upload-files).
 
 ## Upload the website files {#upload-files}
 
@@ -94,15 +92,16 @@ To test the web server, upload the `index.html` file to the VM. You can use a [t
 
 ## Configure DNS (if you have a domain name) {#configure-dns}
 
-If you want to link a domain name to the deployed server, edit the DNS records for your domain.
+If you have a registered domain name, use the Cloud DNS service to manage the domain.
 
-{% include [configure-a-record-and-cname](../_solutions_includes/configure-a-record-and-cname.md) %}
+{% include [configure-a-record-and-cname](../../_includes/solutions/web/configure-a-record-and-cname.md) %}
 
 ## Check that the website is running {#test-site}
 
-To test the website, open it in the browser at: `http://<VM public IP address>`.
+To check that the site is up, enter its IP address or domain name in your browser:
 
-You can check the domain name the same way only 15-20 minutes after editing the DNS records.
+* `http://<virtual machine public IP address>`.
+* `http://www.example.com`.
 
 ## How to delete created resources {#clear-out}
 
