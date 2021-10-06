@@ -248,6 +248,8 @@ items:
         when: audience == "external"
       - name: Подключение к YDB из функции Yandex Cloud Functions на Python
         href: solutions/connect-from-cf.md
+      - name: Конвертация видео в GIF на Python
+        href: solutions/video-converting-queue.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: solutions/alice-shareable-todolist.md
   - name: Развертывание YDB
