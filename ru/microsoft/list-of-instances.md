@@ -16,7 +16,7 @@
 
 ### Служба удаленных рабочих столов RDS {#rds}
 
-В {{ marketplace-name }} вам доступны образы [Windows Server 2019 Datacenter]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2evussurs3m1v2turq6){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2evussurs3m1v2turq6){% endif %} с предварительно активированной ролью Remote Desktop Licensing Server и пакетом пользовательских лицензий. На выбор доступны пакеты лицензий RDS на 5, 10, 25, 50, 100, 250 и 500 лицензий. 
+В {{ marketplace-name }} вам доступны образы [Windows RDS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace?search=RDS){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace?search=RDS){% endif %} на основе Windows Server 2019 Datacenter с предварительно активированной ролью Remote Desktop Licensing Server и пакетом пользовательских лицензий. На выбор доступны пакеты лицензий RDS на 5, 10, 25, 50, 100, 250 и 500 лицензий. 
 
 {% note warning %}
 
