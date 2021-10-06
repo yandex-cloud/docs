@@ -18,7 +18,7 @@ For more information, see [How to pay for resources](../payment/index.md).
 
 #### Is there a minimum payment amount? {#minimum}
 
-Yes. The minimum payment amount is shown at the time of payment in the **Top up account** window.
+The minimum payment amount is {% if region == "ru" %}₽10{% endif %}{% if region == "kz" %}₸60{% endif %}{% if region == "int" %}$1{% endif %}.
 
 #### How can I change my payment details? {#change-requisites}
 
@@ -30,21 +30,21 @@ Yes. The minimum payment amount is shown at the time of payment in the **Top up 
 
 - For residents of Russia
 
-   You must pay for {{ yandex-cloud }} resources in rubles (₽), regardless of your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+  You must pay for {{ yandex-cloud }} resources in rubles (₽), regardless of your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
 - For residents of Kazakhstan
 
-    You must pay for {{ yandex-cloud }} resources in tenge (₸), regardless of your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+  You must pay for {{ yandex-cloud }} resources in tenge (₸), regardless of your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
 - For non-residents of Russia and Kazakhstan
 
-   You must pay for {{ yandex-cloud }} resources in US dollars ($), regardless of the country you live in.
+  You must pay for {{ yandex-cloud }} resources in US dollars ($), regardless of the country you live in.
 
 {% endlist %}
 
-{% if region == "ru" %}
-
 #### Can I pay for resources with a bank card in a different currency? {#currency-2}
+
+{% if region == "ru" %}
 
 Yes.
 
@@ -53,8 +53,6 @@ If you pay for resources with a bank card in a foreign currency, the equivalent 
 {% endif %}
 
 {% if region == "kz" %}
-
-#### Can I pay for resources with a bank card in a different currency? {#currency-2}
 
 Yes.
 
@@ -71,7 +69,7 @@ If you upgraded to the paid version and used {{ yandex-cloud }} services, do the
 
 1. Settle your arrears (if any).
 1. Delete all billable service resources.
-1. Contact [technical support](https://cloud.yandex.com/support) to deactivate your account.
+1. Contact [technical support]({{ link-console-support }}) to deactivate your account.
 
 #### I linked a cloud to a new billing account. How do I pay for services now? {#unlink-cloud}
 
@@ -87,24 +85,28 @@ If the [cloud was previously linked](../operations/pin-cloud.md) to another bill
 
 - For residents of Russia
 
-   You can learn more about the terms of the agreement in the section [Yandex.Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en).
+  You can learn more about the terms of the agreement in the section [Yandex.Legal documents]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %}.
 
 - For residents of Kazakhstan
 
-   You can learn more about the terms of the agreement in the section [Yandex.Legal documents](https://yandex.com/legal/cloud_oferta_kz/?lang=ru).
+  You can learn more about the terms of the agreement in the section [Yandex.Legal documents]{% if lang == "ru" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=ru){% endif %}{% if lang =="en" %}(https://yandex.com/legal/cloud_oferta_kz/?lang=en){% endif %}.
 
 - For non-residents of Russia and Kazakhstan
 
-   You can learn more about the terms of the agreement in the section [Yandex.Legal documents](https://yandex.com/legal/cloud_customer_agreement/?lang=en).
+  You can learn more about the terms of the agreement in the section [Yandex.Legal documents]{% if lang == "ru" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_customer_agreement/?lang=en){% endif %}.
 
 {% endlist %}
 
 #### Can a signed agreement be finalized? {#contract}
 
-Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Ask a question** form on the [Contact us](https://cloud.yandex.com/support) page. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement.
+Businesses may conclude an agreement that is signed by both parties. To do this, you must submit a request using the **Ask a question** form on the [Contact us]({{ link-console-support }}) page. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement.
 
 #### How is resource consumption charged? {#tariffs}
 
 {{ yandex-cloud }} resources are consumed on an as-needed basis. The amount for resources consumed is calculated individually for each service.
 
 For more information, see [Pricing](../pricing.md).
+
+#### Can I enable  an alert to be notified when my account balance is approaching zero? {#notification}
+
+Since {{ yandex-cloud }} uses a postpaid billing system, we don't plan to introduce a service for notifying users about their account balance  approach to zero. We recommend that you track your spending and account balance on your own.
