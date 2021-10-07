@@ -1,3 +1,3 @@
 Number | Price, with VAT
 ----- | ---- |
-One capacity unit | ₽1.3889
+One capacity unit | {{ sku|RUB|alb.balancer.active|string }}

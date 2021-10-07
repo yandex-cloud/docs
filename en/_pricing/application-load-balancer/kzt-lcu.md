@@ -1,3 +1,3 @@
 Number | Price, with VAT
 ----- | ---- |
-One capacity unit | ₸8.3334
+One capacity unit | {{ sku|KZT|alb.balancer.active|string }}

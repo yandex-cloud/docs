@@ -3,10 +3,6 @@ editable: false
 ---
 # Pricing for {{ alb-full-name }}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ alb-name }} can be used free of charge.
-
-Until and including **September 23rd of 2021**, {{ alb-name }} can be used free of charge. Since September 24th of 2021, the service will become payable.
-
 ## What goes into the cost of using {{ alb-name }}
 
 When using the {{ alb-name }} service, you pay for the actual use of computing resources of each active load balancer. The bill for using the service is hourly.
@@ -47,16 +43,16 @@ The hourly bill and the monthly bill, given that the month is 720 hours of the s
 >
 > Total (hourly): ₽2.7778
 > Total (monthly): 2.7778 × 720 = ₽2000.0016{% endif %}
-> {% if region == "kz" %}2 × 8.3334 = ₸16.6668
+> {% if region == "kz" %}2 × 8.3333 = ₸16.6666
 >
-> Total (hourly): ₸16.6668
-> Total (monthly): 16.6668 × 720 = ₸12,000.0096{% endif %}
+> Total (hourly): ₸16.6666
+> Total (monthly): 16.6666 × 720 = ₸11999.952{% endif %}
 > {% if region == "int" %}2 × 0.017806 = $0.035612
 >
 > Total (hourly): $0.035612
 > Total (monthly): 0.035612 × 720 = $25.64064{% endif %}
 
-Here, {% if region == "ru" %}₽1.3889{% endif %}{% if region == "kz" %}₸8.3334{% endif %}{% if region == "int" %}$0.017806{% endif %} is the price of a capacity unit. 
+Here, {% if region == "ru" %}₽1.3889{% endif %}{% if region == "kz" %}₸8.3333{% endif %}{% if region == "int" %}$0.017806{% endif %} is the price of a capacity unit. 
 
 ## Pricing {#prices}
 
