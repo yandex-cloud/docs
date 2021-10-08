@@ -16,7 +16,7 @@
 - [Получать регулярные отчеты об изменениях](notification-digest.md)
 - [Настроить список событий и ролей, для которых вы будете получать уведомления](notification-settings.md)
 - [Подписать пользователей на изменения очереди, компонента или версии](../manager/subscriptions.md)
-<!--{% if audience == "external" %}- [Отправлять уведомления на почтовые ящики в вашем домене](../manager/mail-notifications.md){% endif %}-->
+{% if audience == "draft" %}- [Отправлять уведомления на почтовые ящики в вашем домене](../manager/mail-notifications.md){% endif %}
 
 
 
