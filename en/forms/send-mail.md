@@ -57,7 +57,7 @@ You can set up integration of your form with Yandex.Mail so that a notification 
 
     - Select a [variable](vars.md) from the list that you want to add. For example, you can add a variable to address the user by their name or to include their [test results](tests.md) in the email.
 
-    <!-- ![](../_assets/forms/mail-var-example.png) -->
+    {% if audience == "draft" %} ![](../_assets/forms/mail-var-example.png) {% endif %}
 
 1. If necessary, attach a file to the email.
 
@@ -69,9 +69,9 @@ To send multiple email notifications at the same time, add them using the ![](..
 
 If you want notifications to only be sent to users who gave certain responses, [set your conditions](notifications.md#section_xlw_rjc_tbb).
 
-<!-- > Example of a notification for a job application form. After the form is filled out, responses to the prompts are sent to the email of the HR department.
+{% if audience == "draft" %} > Example of a notification for a job application form. After the form is filled out, responses to the prompts are sent to the email of the HR department.
 
-  >![](../_assets/forms/email-example.png) -->
+  >![](../_assets/forms/email-example.png) {% endif %}
 
 ## Troubleshooting {#troubleshooting}
 
@@ -93,7 +93,7 @@ The mail server can block an email if its text is missing or looks like spam. Ad
 
 1. Check for an error message in your notification settings.
 
-   <!-- ![](../_assets/forms/mail-error.png) -->
+   {% if audience == "draft" %} ![](../_assets/forms/mail-error.png) {% endif %}
 
 1. If there's an error message:
 
