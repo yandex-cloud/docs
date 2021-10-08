@@ -3,9 +3,13 @@ editable: false
 ---
 # Pricing for {{ datalens-full-name }}
 
-## Pricing policy from September 27 to October 27, 2021
+Starting September 27, 2021, new and Free plan users can use {{ datalens-full-name }} free of charge.
+
+For Standard plan users, an [interim period](#interim-period) has been set to transition to using {{ datalens-full-name }} free of charge.
 
 Starting October 27, 2021, {{ datalens-short-name }} will be available to all users free of charge.
+
+## Pricing policy from September 27 to October 27, 2021
 
 If you subscribed to the **Standard** plan before September 27, it will be valid until the end of the billing period.
 
