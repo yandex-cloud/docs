@@ -60,3 +60,27 @@
   1. Задайте интересующие интервалы времени, при необходимости настройте фильтры.
 
 {% endlist %}
+
+## Получить информацию о плане выполнения запроса {#auto-explain-enable}
+
+[Модуль `auto_explain`](https://www.postgresql.org/docs/current/auto-explain.html) позволяет логировать план выполнения медленных запросов автоматически, обходясь без [команды `EXPLAIN`](https://www.postgresql.org/docs/current/sql-explain.html). Это полезно для отслеживания неоптимизированных запросов. Логирование выполняется в общий лог {{ PG }}.
+
+Чтобы включить логирование запросов, [измените настройки СУБД](update.md#change-postgresql-config):
+
+1. В поле **Shared preload libraries** выберите значение `auto_explain`.
+1. Включите настройку **Auto explain log analyze**.
+1. Задайте настройки модуля `auto_explain`:
+
+    {% note warning %}
+    
+    Установка значения `0` для настройки **Auto explain log min duration** или включение настройки **Auto explain log timing** могут существенно снизить производительность кластера.
+    
+    {% endnote %}
+
+    * [**Auto explain log buffers**](../concepts/settings-list.md#setting-auto-explain-log-buffers)
+    * [**Auto explain log min duration**](../concepts/settings-list.md#setting-auto-explain-log-min-duration)
+    * [**Auto explain log nested statements**](../concepts/settings-list.md#setting-auto-explain-log-nested-statements)
+    * [**Auto explain log timing**](../concepts/settings-list.md#setting-auto-explain-log-timing)
+    * [**Auto explain log triggers**](../concepts/settings-list.md#setting-auto-explain-log-triggers)
+    * [**Auto explain log verbose**](../concepts/settings-list.md#setting-auto-explain-log-verbose)
+    * [**Auto explain sample rate**](../concepts/settings-list.md#setting-auto-explain-sample-rate)

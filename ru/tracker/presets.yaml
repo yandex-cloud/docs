@@ -18,7 +18,7 @@ default:
   link-settings: https://tracker.yandex.ru/settings
   link-tracker-promo: https://cloud.yandex.ru/services/tracker
   link-services-tracker: https://connect.yandex.ru/portal/services/tracker
-  link-forms: https://forms.yandex.ru/b2b/admin
+  link-forms: https://forms.yandex.ru/cloud/admin
   link-passport: https://passport.yandex.ru/
   link-500-users: https://cloud.yandex.ru/services/tracker#contact-form
   link-tracker-support: https://support.cloud.yandex.ru/

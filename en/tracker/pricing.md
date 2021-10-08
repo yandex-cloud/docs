@@ -36,8 +36,6 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 
     {% endnote %}
 
-<!-- - If you accidentally granted access to {{ tracker-name }} to a user or team that won't use {{ tracker-name }}, you can revoke their access within 30 minutes. In this case, the users in question will not be considered when calculating the monthly subscription fee.
--->
 
 - For large companies, the monthly fee is calculated on a progressive scale.
 

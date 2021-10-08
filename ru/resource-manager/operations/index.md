@@ -9,6 +9,7 @@ description: "Пошаговые инструкции по управлению 
 
 - [{#T}](cloud/create.md)
 - [{#T}](cloud/update.md)
+- [{#T}](cloud/delete.md)
 - [{#T}](cloud/set-access-bindings.md)
 - [{#T}](cloud/change-organization.md)
 - [{#T}](cloud/switch-cloud.md)
@@ -18,6 +19,7 @@ description: "Пошаговые инструкции по управлению 
 
 - [{#T}](folder/create.md)
 - [{#T}](folder/update.md)
+- [{#T}](folder/delete.md)
 - [{#T}](folder/set-access-bindings.md)
 - [{#T}](folder/get-id.md)
 - [{#T}](folder/notify.md)

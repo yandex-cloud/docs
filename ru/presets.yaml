@@ -418,7 +418,7 @@ default:
   link-org-main: https://org.cloud.yandex.ru/
   link-tracker: https://tracker.yandex.ru/
   link-wiki: https://wiki.yandex.ru/
-  link-forms-b2b: https://forms.yandex.ru/b2b/admin
+  link-forms-b2b: https://forms.yandex.ru/cloud/admin
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
@@ -454,6 +454,8 @@ default:
     https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
   tf-provider-mrd: >-
     https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
+  tf-provider-mes: >-
+    https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_elasticsearch_cluster
   port-any: 0-65535
   port-http: 80
   port-https: 443

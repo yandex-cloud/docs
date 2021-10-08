@@ -13,6 +13,8 @@ items:
             href: operations/cloud/create.md
           - name: Переименование облака
             href: operations/cloud/update.md
+          - name: Удаление облака
+            href: operations/cloud/delete.md
           - name: Настройка прав доступа
             href: operations/cloud/set-access-bindings.md
           - name: Переключение на другое облако
@@ -27,6 +29,8 @@ items:
             href: operations/folder/create.md
           - name: Изменение каталога
             href: operations/folder/update.md
+          - name: Удаление каталога
+            href: operations/folder/delete.md
           - name: Настройка прав доступа
             href: operations/folder/set-access-bindings.md
           - name: Получение идентификатора каталога

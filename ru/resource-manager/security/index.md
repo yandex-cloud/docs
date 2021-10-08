@@ -43,8 +43,10 @@ description: "Управление доступом в сервисе, позв�
 **Управление ресурсами** | |
 [Создание облака](../operations/cloud/create.md) | | роли не требуются, только аутентификация
 [Изменение облака](../operations/cloud/update.md) | `update` | `editor` на облако
+[Удаление облака](../operations/cloud/delete.md) | `delete` | `resource-manager.clouds.owner` на облако
 [Создание каталога в облаке](../operations/folder/create.md) | `create` | `editor` на облако
 [Изменение каталога](../operations/folder/update.md) | `update` | `editor` на каталог
+[Удаление каталога](../operations/folder/delete.md) | `delete` | `editor` на каталог
 **Управление доступом к ресурсам** | |
 [Добавление нового пользователя в облако](../../iam/operations/users/create.md) | `setAccessBindings` | `admin` на облако
 [Сделать нового пользователя владельцем облака](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` на это облако
