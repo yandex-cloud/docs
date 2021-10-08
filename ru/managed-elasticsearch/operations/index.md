@@ -12,3 +12,4 @@
 - [{#T}](cluster-users.md)
 - [{#T}](cluster-backups.md)
 - [{#T}](cluster-delete.md)
+- [{#T}](monitoring.md)

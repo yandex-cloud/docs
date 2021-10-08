@@ -62,4 +62,3 @@ To create a new form based on an existing one, copy the form and edit it:
 
 1. Click **Create form from template**.
 
-<!-- ![](../_assets/forms/templates.png) -->

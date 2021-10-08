@@ -133,6 +133,7 @@
 - [lo](https://www.postgresql.org/docs/current/static/lo.html);
 - [ltree](https://www.postgresql.org/docs/current/static/ltree.html);
 - [moddatetime](https://www.postgresql.org/docs/current/static/contrib-spi.html#id-1.11.7.45.8);
+- [oracle_fdw](https://github.com/laurenz/oracle_fdw) (требует роли [mdb_admin](../concepts/roles.md#mdb-admin));
 - [pg_buffercache](https://www.postgresql.org/docs/current/pgbuffercache.html) (требует роли [mdb_admin](../concepts/roles.md#mdb-admin));
 - [pg_hint_plan](http://pghintplan.osdn.jp/);
 - [pg_partman](https://github.com/pgpartman/pg_partman);
@@ -144,13 +145,16 @@
 - [pgrouting](http://pgrouting.org/);
 - [pgrowlocks](https://www.postgresql.org/docs/current/static/pgrowlocks.html);
 - [pgstattuple](https://www.postgresql.org/docs/current/pgstattuple.html) (требует роли [mdb_admin](../concepts/roles.md#mdb-admin));
+- [plv8](https://github.com/plv8/plv8);
 - [postgis](https://postgis.net/docs/);
 - [postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder);
 - [postgis_topology](https://postgis.net/docs/Topology.html);
 - [postgres_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) (требует роли [mdb_admin](../concepts/roles.md#mdb-admin));
+- [rum](https://github.com/postgrespro/rum);
 - [seg](https://www.postgresql.org/docs/current/static/seg.html);
 - [smlar](http://sigaev.ru/git/gitweb.cgi?p=smlar.git;a=blob;hb=HEAD;f=README);
 - [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html);
+- [timescaledb](https://github.com/timescale/timescaledb);
 - [unaccent](https://www.postgresql.org/docs/current/static/unaccent.html);
 - [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html);
 - [xml2](https://www.postgresql.org/docs/current/static/xml2.html).

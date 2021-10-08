@@ -6,7 +6,7 @@ default:
   link-forms-admin: https://forms.yandex.com/admin/
   link-forms-admin-ya: https://forms.yandex-team.ru/admin/
   link-forms-ext-ya: https://forms.yandex-team.ru/ext/admin/
-  link-forms-b2b: https://forms.yandex.com/b2b/admin
+  link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-connect: https://connect.yandex.com/
   link-connect-portal: https://connect.yandex.com/portal/home
   link-tracker: https://tracker.yandex.com/

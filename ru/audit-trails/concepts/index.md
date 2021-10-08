@@ -3,7 +3,7 @@ title: Yandex Audit Trails. Обзор сервиса
 description: 'Yandex Audit Trails позволяет собирать аудитные логи о происходящих с ресурсами Yandex.Cloud событиях и загружать эти логи в бакет или лог-группу для дальнейшего анализа или экспорта.'
 ---
 
-# Обзор сервиса
+# Обзор сервиса {{ at-full-name }}
 
 {{ at-full-name }} позволяет собирать аудитные логи ресурсов {{ yandex-cloud }} и загружать их в бакет {{ objstorage-name }} или в лог-группу {{ cloud-logging-name }}:
 * [Загрузка аудитных логов в бакет](../operations/export-bucket.md).

@@ -7,6 +7,8 @@ items:
     href: notify.md
   - name: Запросы данных
     href: request.md
+  - name: Копирование ошибок из консоли браузера
+    href: browser-console.md
   - name: Правила тарификации
     href: pricing.md
   - name: Вопросы и ответы

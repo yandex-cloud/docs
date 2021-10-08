@@ -12,7 +12,7 @@
 
 1. Выберите базы данных для диагностики.
 1. [Активируйте сбор статистики](../operations/performance-diagnostics.md).
-1. Создайте [пользователя {{ MY }}](../operations/cluster-users.md#adduser) с ролью [`PROCESS`](../operations/grant.md#db-roles) для этих баз. Диагностические запросы необходимо выполнять от имени этого пользователя.
+1. Создайте [пользователя {{ MY }}](../operations/cluster-users.md#adduser) с привилегией [`PROCESS`](../operations/grant.md#db-privileges) для этих баз. Диагностические запросы необходимо выполнять от имени этого пользователя.
 
 ## Диагностика дефицита ресурсов {#cpu-io-deficit}
 

@@ -16,6 +16,7 @@
 1. Выберите базы данных для диагностики.
 1. [Разрешите доступ к базам из консоли управления](../operations/web-sql-query.md#sql-cluster-access).
 1. [Активируйте сбор статистики](../operations/performance-diagnostics.md#activate-stats-collector) о сессиях и запросах.
+1. [Включите модуль `auto_explain`](../operations/performance-diagnostics.md#auto-explain-enable) для расширенного логирования планов выполнения запросов.
 1. Чтобы в лог производительности попадало больше запросов, [в настройках СУБД](../operations/update.md#change-postgresql-config) уменьшите значение [параметра `log_min_duration_statement`](../concepts/settings-list.md#setting-log-min-duration-statement).
 
     {% note warning %}
@@ -72,6 +73,10 @@ WHERE state != 'idle' ORDER BY 1 DESC;
 * Создать расширенные объекты статистики.
 
     {{ PG }} не собирает статистику о корреляции данных между столбцами одной таблицы. Это связано с тем, что число возможных комбинаций столбцов может быть очень большим. Если между некоторыми столбцами есть связь, [создайте расширенные объекты статистики](https://www.postgresql.org/docs/current/planner-stats.html#PLANNER-STATS-EXTENDED). Тогда планировщик сможет оптимизировать запросы на основе информации о корреляции данных в столбцах.
+
+* Проанализировать статистику планов выполнения запросов в логах {{ PG }}.
+
+    Модуль {{ PG }} `auto_explain` выводит информацию о планах выполнения запросов в лог {{ PG }}. Вы можете собрать статистику поиском по строкам лога. Подробнее читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
 
 Если не удается ни оптимизировать найденные запросы, ни отказаться от них, остается только [поднять класс хостов](../operations/update.md#change-resource-preset).
 

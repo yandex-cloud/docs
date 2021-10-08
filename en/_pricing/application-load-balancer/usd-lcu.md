@@ -1,3 +1,3 @@
 Number | Price, without VAT
 ---- | ----
-One capacity unit | $0.017806
+One capacity unit | {{ sku|USD|alb.balancer.active|string }}

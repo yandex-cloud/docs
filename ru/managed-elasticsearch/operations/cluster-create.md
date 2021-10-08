@@ -154,6 +154,99 @@ keywords:
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
+- Terraform
+
+    {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+
+    Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    Чтобы создать кластер:
+
+    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+        * Кластер базы данных — описание кластера и его хостов.
+        * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+        * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+
+        Пример структуры конфигурационного файла:
+
+        ```hcl
+        terraform {
+          required_providers {
+            yandex = {
+              source = "yandex-cloud/yandex"
+            }
+          }
+        }
+
+        provider "yandex" {
+          token     = "<OAuth или статический ключ сервисного аккаунта>"
+          cloud_id  = "<идентификатор облака>"
+          folder_id = "<идентификатор каталога>"
+          zone      = "<зона доступности>"
+        }
+
+        resource "yandex_mdb_elasticsearch_cluster" "<имя кластера>" {
+          name        = "<имя кластера>"
+          environment = "<окружение, PRESTABLE или PRODUCTION>"
+          network_id  = "<идентификатор сети>"
+
+          config {
+            version = "<(необязательно) версия {{ ES }}>"
+            edition = "<(необязательно) редакция {{ ES }}: basic, gold или platinum>"
+
+            admin_password = "<пароль пользователя-администратора>"
+
+            data_node {
+              resources {
+                resource_preset_id = "<класс хоста>"
+                disk_type_id       = "<тип хранилища>"
+                disk_size          = <объем хранилища, ГБ>
+              }
+            }
+
+            master_node {
+              resources {
+                resource_preset_id = "<класс хоста>"
+                disk_type_id       = "<тип хранилища>"
+                disk_size          = <объем хранилища, ГБ>
+              }
+            }
+
+          }
+
+          security_group_ids = [ "<список групп безопасности>" ]
+
+          host {
+            name = "<имя хоста>"
+            zone = "<зона доступности>"
+            type = "<роль хоста: DATA_NODE или MASTER_NODE>"
+            assign_public_ip = <публичный доступ к хосту: true или false>
+            subnet_id = "<идентификатор подсети>"
+          }
+
+        }
+
+        resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
+
+        resource "yandex_vpc_subnet" "<имя подсети>" {
+          name           = "<имя подсети>"
+          zone           = "<зона доступности>"
+          network_id     = "<идентификатор сети>"
+          v4_cidr_blocks = ["<диапазон>"]
+        }
+        ```
+
+        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера {{ TF }}]({{ tf-provider-mes }}).
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Создайте кластер.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 - API
 
   Чтобы создать кластер, воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
@@ -215,6 +308,103 @@ keywords:
        --version 7.10 \
        --edition platinum \
        --deletion-protection=true
+    ```
+
+- Terraform
+
+    Допустим, нужно создать {{ ES }}-кластер со следующими характеристиками:
+
+    - С именем `my-es-clstr`.
+    - Версии `7.13`.
+    - С редакцией `Basic`.
+    - В окружении `PRODUCTION`.
+    - В облаке с идентификатором `{{ tf-cloud-id }}`.
+    - В каталоге с идентификатором `{{ tf-folder-id }}`.
+    - В новой сети `mynet`.
+    - В новой группе безопасности `es-sg`, разрешающей подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
+    - С одним публично доступным хостом с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ zone-id }}`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
+    - С быстрым сетевым хранилищем (`{{ disk-type-example }}`) объемом 20 ГБ.
+    - С паролем `esadminpwd` для пользователя `admin`.
+
+    Конфигурационный файл для такого кластера выглядит так:
+
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
+
+    provider "yandex" {
+      token     = "<OAuth или статический ключ сервисного аккаунта>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ zone-id }}"
+    }
+
+    resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
+      name        = "my-es-clstr"
+      environment = "PRODUCTION"
+      network_id  = yandex_vpc_network.mynet.id
+
+      config {
+        edition = "basic"
+
+        admin_password = "esadminpwd"
+
+        data_node {
+          resources {
+            resource_preset_id = "s2.micro"
+            disk_type_id       = "network-ssd"
+            disk_size          = 20
+          }
+        }
+
+      }
+
+      security_group_ids = [ yandex_vpc_security_group.es-sg.id ]
+
+      host {
+        name = "node"
+        zone = "ru-central1-c"
+        type = "DATA_NODE"
+        assign_public_ip = true
+        subnet_id = yandex_vpc_subnet.mysubnet.id
+      }
+
+    }
+
+    resource "yandex_vpc_network" "mynet" {
+      name = "mynet"
+    }
+
+    resource "yandex_vpc_subnet" "mysubnet" {
+      name           = "mysubnet"
+      zone           = "{{ zone-id }}"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.5.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "es-sg" {
+      name       = "es-sg"
+      network_id = yandex_vpc_network.mynet.id
+
+      ingress {
+        description    = "Kibana"
+        port           = 443
+        protocol       = "TCP"
+        v4_cidr_blocks = [ "0.0.0.0/0" ]
+      }
+
+      ingress {
+        description    = "Elasticsearch"
+        port           = 9200
+        protocol       = "TCP"
+        v4_cidr_blocks = [ "0.0.0.0/0" ]
+      }
+    }
     ```
 
 {% endlist %}

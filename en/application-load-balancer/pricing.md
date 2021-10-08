@@ -3,10 +3,6 @@ editable: false
 ---
 # Pricing for {{ alb-full-name }}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ alb-name }} can be used free of charge.
-
-Until and including **September 23rd of 2021**, {{ alb-name }} can be used free of charge. Since September 24th of 2021, the service will become payable.
-
 ## What goes into the cost of using {{ alb-name }}
 
 When using the {{ alb-name }} service, you pay for the actual use of computing resources of each active load balancer. The bill for using the service is hourly.

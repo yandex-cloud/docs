@@ -55,10 +55,10 @@
 
 - API
 
-  Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
   - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   - Новый класс хостов в параметре  `configSpec.resources.resourcePresetId`. Чтобы узнать список поддерживаемых значений, воспользуйтесь методом `list` для `ResourcePreset`.
-  - Список полей конфигурации кластера подлежащих изменению (в данном случае — `configSpec.resources.resourcePresetId`) в параметре `updateMask`.
+  - Список полей конфигурации кластера, подлежащих изменению (в данном случае — `configSpec.resources.resourcePresetId`), в параметре `updateMask`.
 
   {% note warning %}
 
@@ -109,10 +109,10 @@
 
 - API
 
-  Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
   - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   - Необходимое значение размера хранилища (в байтах) в параметре `configSpec.resources.diskSize`.
-  - Список полей конфигурации пользователя подлежащих изменению (в данном случае — `configSpec.resources.diskSize`) в параметре `updateMask`.
+  - Список полей конфигурации пользователя, подлежащих изменению (в данном случае — `configSpec.resources.diskSize`), в параметре `updateMask`.
 
   {% note warning %}
 
@@ -163,10 +163,10 @@
 
 - API
 
-  Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
   - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
   - Необходимые значения в параметре `configSpec.sqlserverConfig_2016sp2`.
-  - Список полей конфигурации пользователя подлежащих изменению (в данном случае — `configSpec.sqlserverConfig_2016sp2`) в параметре `updateMask`.
+  - Список полей конфигурации пользователя, подлежащих изменению (в данном случае — `configSpec.sqlserverConfig_2016sp2`), в параметре `updateMask`.
 
   {% note warning %}
 
@@ -231,6 +231,19 @@
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mms }}).
+
+- API
+
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  - Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  - Новое время начала резервного копирования в параметре `configSpec.backupWindowStart`.
+  - Список полей конфигурации кластера, подлежащих изменению (в данном случае — `configSpec.backupWindowStart`), в параметре `updateMask`.
+
+  {% note warning %}
+
+  Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask` (одной строкой через запятую).
+
+  {% endnote %}
 
 {% endlist %}
 

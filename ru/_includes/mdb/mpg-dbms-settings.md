@@ -16,15 +16,15 @@
 
 - **Auto explain log analyze**{#setting-auto-explain-log-analyze} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Включает модуль `auto_explain`, который выводит статистику выполнения плана запроса в лог. Модуль позволяет логировать план выполнения медленных запросов автоматически, обходясь без команды `EXPLAIN`. Это полезно для отслеживания неоптимизированных запросов.
+  Включает вывод статистики плана запроса в лог {{ PG }} с помощью модуля `auto_explain`. Модуль позволяет логировать план выполнения медленных запросов автоматически, обходясь без команды `EXPLAIN`. Это полезно для отслеживания неоптимизированных запросов. Для работы модуля необходимо [подключить библиотеку](#setting-shared-libraries) `auto_explain`.
 
-  По умолчанию модуль `auto_explain` выключен.
+  По умолчанию настройка выключена.
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log buffers**{#setting-auto-explain-log-buffers} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Включает вывод статистики использования буферного кеша {{ PG }} через модуль `auto_explain`. Аналог параметра `BUFFERS` в команде `EXPLAIN`. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
+  Включает вывод статистики использования буферного кеша в лог {{ PG }} через модуль `auto_explain`. Аналог параметра `BUFFERS` в команде `EXPLAIN`. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
 
   По умолчанию настройка выключена.
 
@@ -40,7 +40,7 @@
 
 - **Auto explain log nested statements**{#setting-auto-explain-log-nested-statements} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Включает в модуле `auto_explain` логирование выполнения соседних команд внутри SQL-функций. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
+  Включает в модуле `auto_explain` логирование выполнения вложенных запросов внутри SQL-функций. Применяется только при включенной настройке [Auto explain log analyze](#setting-auto-explain-log-analyze).
 
   По умолчанию настройка выключена (логируются только планы верхнеуровневых запросов).
 
@@ -918,7 +918,11 @@
 
 - **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
-  Разделенный запятыми список имен библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера {{ PG }}. Каждое имя должно восприниматься командой `LOAD`. Пробельные символы между именами игнорируются. Если в имя нужно включить пробелы или запятые, заключите его в двойные кавычки.
+  Разделенный запятыми список имен библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера {{ PG }}. Выберите из списка одну или несколько библиотек:
+
+  * `auto_explain` — необходима для работы [модуля `auto_explain`](https://www.postgresql.org/docs/current/auto-explain.html);
+  * `pg_hint_plan` — необходима для работы [модуля `pg_hint_plan`](https://pghintplan.osdn.jp/pg_hint_plan.html);
+  * `timescaledb` — необходима для использования [баз данных TimescaleDB](https://github.com/timescale/timescaledb).
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
 
