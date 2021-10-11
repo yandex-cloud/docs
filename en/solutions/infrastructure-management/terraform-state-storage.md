@@ -26,7 +26,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 To deploy an infrastructure using Terraform, sign in to {{ yandex-cloud }} and create a billing account:
 
-{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
