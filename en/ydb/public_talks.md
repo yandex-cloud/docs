@@ -58,7 +58,7 @@
   - [Recorded broadcast](https://youtu.be/Kr6WIYPts8I?t=8558).
   - Description: A look at YDB, a platform for building a variety of data storage and processing systems.
 
-- Topic: Yandex Database: A newSQL database. A few words about YDB as a database.
+- Topic: Yandex Database: A Distributed SQL database. A few words about YDB as a database.
   - [Recorded broadcast](https://youtu.be/Kr6WIYPts8I?t=10550).
   - Description: YDB as a database.
 
@@ -83,7 +83,7 @@
 
 ### 2019: YaTalks Yekaterinburg {#yatalks}
 
-- Topic: Yandex Database: A newSQL database from Yandex.
+- Topic: Yandex Database: A Distributed SQL database from Yandex.
   - [Presentation](https://storage.yandexcloud.net/ydb-public-talks/YdbInCloud_2.pptx).
   - [Recorded broadcast](https://youtu.be/tzANIAbc99o?t=3012).
   - Description: Basics of distributed query execution in YDB:
