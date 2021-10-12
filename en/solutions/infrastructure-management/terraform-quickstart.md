@@ -16,7 +16,7 @@ To create your first Terraform configuration:
 
 Before deploying your infrastructure, register in {{ yandex-cloud }} and create a billing account:
 
-{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
 If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
 

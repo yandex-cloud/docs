@@ -25,7 +25,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 Before deploying virtual hosting, sign up for {{ yandex-cloud }} and create a billing account:
 
-{% include [prepare-register-billing](../../solutions/_solutions_includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
 If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page]({{ link-console-cloud }}). Make sure that you do all the actions under the use case in this folder.
 

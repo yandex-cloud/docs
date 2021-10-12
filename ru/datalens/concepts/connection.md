@@ -13,6 +13,7 @@ _Подключение_ содержит информацию о парамет
 - **Google Sheets**
 - **MS SQL Server**
 - **Oracle Database**
+- **Yandex Database**
 - **Greenplum**
 - **Metrica** (в режиме прямого доступа и через Logs API)
 - **AppMetrica** (в режиме прямого доступа и через Logs API)
@@ -34,6 +35,7 @@ _Подключение_ содержит информацию о парамет
 - [{#T}](../operations/connection/create-postgresql.md)
 - [{#T}](../operations/connection/create-mssql-server.md)
 - [{#T}](../operations/connection/create-oracle.md)
+- [{#T}](../operations/connection/create-ydb.md)
 - [{#T}](../operations/connection/create-greenplum.md)
 - [{#T}](../operations/connection/create-metrica-api.md)
 - [{#T}](../operations/connection/create-metrica-logs-api.md)

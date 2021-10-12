@@ -2,6 +2,29 @@
 
 This page lists security recommendations given by Yandex.Cloud experts.
 
+## 12.10.2021 – CVE-2021-25741 – Symlink Exchange Can Allow Host Filesystem Access
+
+### Description
+
+A [security issue](https://github.com/kubernetes/kubernetes/issues/104980) in Kubernetes was discovered, whereby a user could create a container with subpath volume mounts to access files and directories outside of the volume, including on the host file system.
+
+###  Impact on Yandex.Cloud services
+
+{{ managed-k8s-full-name }} does not support anonymous access to the cluster and is not vulnerable to external attackers. 
+
+### Compensatory measures
+
+To eliminate potential attacks by an internal intruder, please update all existing clusters and node groups in the service to version 1.19 or higher. If your clusters and node groups have already been updated to version 1.19 or higher, update the revisions. An update that closes vulnerabilities is available in all release channels.
+
+We also recommend:
+* Automatically update clusters and node groups to the latest versions or revisions.
+* Schedule manual updates at least once a month if you cannot apply automatic updates.
+* Prohibit the root user from running pods for unverified downloads.
+
+You can use the following tools to do so:
+* [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/users)
+* [Kyverno](https://kyverno.io/policies/pod-security/restricted/require-run-as-nonroot/require-run-as-nonroot/)
+
 ## 03.03.2021 — CVE-2021-21309 — remote code execution in {{ RD }}
 
 ### Description

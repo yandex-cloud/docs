@@ -18,7 +18,7 @@ If previously created disks are attached to the VM, they will be detached when t
   
   1. Select **{{ compute-name }}**.
   
-  1. Select the VM → click ![image](../../../_assets/dots.svg) → select **Delete**.
+  1. Select the VM → click ![image](../../../_assets/options.svg) → select **Delete**.
   
       To do this with multiple VMs, select the VMs you need to delete from the list → click **Delete** at the bottom of the screen.
   

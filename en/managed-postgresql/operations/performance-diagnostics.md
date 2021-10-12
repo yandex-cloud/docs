@@ -2,12 +2,6 @@
 
 {{ mpg-name }} provides a built-in tool for DBMS cluster performance diagnostics. Use it to analyze performance metrics {{ PG }} for [sessions](#get-sessions) and [queries](#get-queries).
 
-{% note info %}
-
-This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
-
 ## Enabling statistics collection {#activate-stats-collector}
 
 To use the diagnostics tool, enable the **Collect statistics** option when [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings) (the option is disabled by default).

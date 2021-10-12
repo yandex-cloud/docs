@@ -9,6 +9,7 @@
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)
 - [{#T}](connection/create-oracle.md)
+- [{#T}](connection/create-ydb.md)
 - [{#T}](connection/create-greenplum.md)
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-metrica-logs-api.md)
