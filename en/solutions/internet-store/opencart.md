@@ -17,7 +17,7 @@ To set up your online store on OpenCart:
 
 Before deploying the server, sign in to Yandex.Cloud and create a billing account:
 
-{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
 If you have an active billing account, you can create or select a folder to run your VM in. Go to the [Yandex.Cloud home page](https://console.cloud.yandex.com/cloud) and select or create a folder where you want to create a VM for your server. [Learn more about the resource hierarchy in Yandex.Cloud](../../resource-manager/concepts/resources-hierarchy.md).
 

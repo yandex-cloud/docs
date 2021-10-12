@@ -30,7 +30,7 @@ If you don't have the {{ yandex-cloud }} command line interface yet, [install an
 
 Make sure the billing account is active:
 
-{% include [prepare-register-billing](../_solutions_includes/prepare-register-billing.md) %}
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
 If you have an active billing account, you can create or select a folder on the [Yandex.Cloud page](https://console.cloud.yandex.com/cloud).
 

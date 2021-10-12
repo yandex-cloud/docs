@@ -93,6 +93,8 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Создание подключения к Oracle Database
             href: operations/connection/create-oracle.md
+          - name: Создание подключения к Yandex Database
+            href: operations/connection/create-ydb.md
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
           - name: Создание подключения к Metrica Logs API

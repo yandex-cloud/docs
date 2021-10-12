@@ -7,7 +7,7 @@ description: "What is Yandex Database? For what tasks is it worth using Yandex D
 
 #### What's {{ ydb-short-name }}? {#what-is-ydb}
 
-{{ ydb-short-name }} — is a distributed fault-tolerant NewSQL DBMS. YDB provides high availability and scalability while simultaneously ensuring strict consistency and ACID transaction support. Queries are made using an SQL dialect (YQL).
+{{ ydb-short-name }} — is a distributed fault-tolerant Distributed SQL DBMS. YDB provides high availability and scalability while simultaneously ensuring strict consistency and ACID transaction support. Queries are made using an SQL dialect (YQL).
 
 {{ ydb-short-name }} is a fully managed database. DB instances are created through the {{ ydb-short-name }} database management service.
 
