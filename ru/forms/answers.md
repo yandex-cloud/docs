@@ -55,17 +55,17 @@
        
        {% endcut %}
        
-    {% if audience == "internal" %}
+       {% if audience == "internal" %}
 
-    {% note warning %}
+       {% note warning %}
 
-    Чтобы сохранять на Диск файлы из внешнего или внутреннего [конструктора форм](new-form.md#instance), [привяжите к Стаффу ваш личный логин на Яндексе](https://wiki.yandex-team.ru/staff/vodstvo/external-login/#kakpodtverditvneshnijjlogin) и [подключите двухфакторную аутентификацию]({{ support-passport-auth }}) в настройках аккаунта.
+       Чтобы сохранять на Диск файлы из внешнего или внутреннего [конструктора форм](new-form.md#instance), [привяжите к Стаффу ваш личный логин на Яндексе](https://wiki.yandex-team.ru/staff/vodstvo/external-login/#kakpodtverditvneshnijjlogin) и [подключите двухфакторную аутентификацию]({{ support-passport-auth }}) в настройках аккаунта.
 
-    Если вы не привязали к Стаффу ваш личный логин и не подключили двухфакторную аутентификацию, файл будет скачан на ваш компьютер.
+       Если вы не привязали к Стаффу ваш личный логин и не подключили двухфакторную аутентификацию, файл будет скачан на ваш компьютер.
         
-    {% endnote %}
+       {% endnote %}
 
-    {% endif %}
+       {% endif %}
         
 ## Просмотреть ответы по отдельности {#answer-in-detail}
 

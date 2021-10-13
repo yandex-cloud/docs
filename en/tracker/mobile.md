@@ -60,4 +60,4 @@ Some {{ tracker-name }} features are not available in the mobile app. To use the
 
   This includes setting up [triggers](user/trigger.md), [auto actions](user/autoactions.md) and [macros](manager/create-macroses.md).
 
-- [Setting up user access](enable-tracker.md#access) to {{ tracker-name }}.
+{% if audience == "external" %}- [Setting up user access](enable-tracker.md#access) to {{ tracker-name }}.{% endif %}

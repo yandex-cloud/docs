@@ -237,13 +237,13 @@ Set up a trigger that automatically notifies users by email when a new issue is 
 
 ## Automatically add a form to the issue comments {#insert_form}
 
-Using a trigger, you can add a form with auto-prefilled fields to the issue comments. To do this, add a special code with a link to the form in the comment text. Values can be passed to the form fields via [GET-params]({{ support-forms-get-params-ya }}). For example, you can pass the issue parameters using variables that are available in the trigger.
+Using a trigger, you can add a form with auto-prefilled fields to the issue comments. To do this, add a special code with a link to the form in the comment text. Values can be passed to the form fields via [GET-params](../../forms/get-params.md). For example, you can pass the issue parameters using variables that are available in the trigger.
 
 Let's set up a trigger that adds a feedback form to the comments and invites an assignee after the issue is closed:
 
 #### Step 1. Create a feedback form
 
-1. Go to [Yandex.Forms]{% if audience == "external" %}({{ link-forms }}){% else %}({{ link-forms-ya }}){% endif %} and create a form. {% if audience == "internal" %}For information on which admin panel to create a form in, [читайте в документации]({{ support-forms-instance-ya }}).{% endif %}
+1. Go to [Yandex.Forms]{% if audience == "external" %}({{ link-forms }}){% else %}({{ link-forms-ya }}){% endif %} and create a form. {% if audience == "internal" %}For information on which admin panel to create a form in, [see the Forms documentation](../../forms/new-form.md#create-form).{% endif %}
 
 1. Add questions to the form so that the assignee can provide necessary information.
 
@@ -271,11 +271,11 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
 
     `<form id>` is the ID of the form to be added.
 
-    `<question_id>` is the [идентификатор вопроса]({{ support-forms-question-id }}).
+    `<question_id>` is the [ID of the question](../../forms/question-id.md#sec_question).
 
     `<value>` is the value to populate the form field.
 
-    To transfer issue parameters to the form, use variables as values: at the bottom of the window, click the **Add variable** button and choose the issue parameter. Then replace the `{{ }}` characters around the name of a variable with `<% %>`.
+    To transfer issue parameters to the form, use variables as values: at the bottom of the window, click the **Add variable** button and choose the issue parameter. Then replace the `not_var{{ }}` characters around the name of a variable with `<% %>`.
 
     For example, to pass an issue key, use the `<%issue.key%>` value. To pass the username of an assignee, use the `<%issue.assignee.login%>` value.
 

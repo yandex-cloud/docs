@@ -10,11 +10,10 @@ default:
   link-forms-admin: https://forms.yandex.ru/admin/
   link-forms-admin-ya: https://forms.yandex-team.ru/admin/
   link-forms-ext-ya: https://forms.yandex-team.ru/ext/admin/
+  link-forms: https://forms.yandex.ru/
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   #на будущее docs-forms: https://cloud.yandex.ru/docs/forms/
 
-  #Ссылки на wiki
-  link-wiki: https://wiki.yandex.ru/
   
   #Ссылки на сервисы
   link-passport: https://passport.yandex.ru/auth
@@ -50,3 +49,4 @@ external:
 internal:
   link-tracker: https://st.yandex-team.ru/
   link-wiki: https://wiki.yandex-team.ru/
+  link-forms: https://forms.yandex-team.ru/
