@@ -18,3 +18,4 @@
 * [{#T}](ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md)
 * [{#T}](ERR-CK_TOO_MANY_LINES.md)
 * [{#T}](ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md)
+* [{#T}](no-access-to-read-this-operation.md)
