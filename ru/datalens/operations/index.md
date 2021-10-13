@@ -11,7 +11,7 @@
 - [{#T}](connection/create-oracle.md)
 - [{#T}](connection/create-ydb.md)
 - [{#T}](connection/create-greenplum.md)
-  {% if audience == "internal" %} - [{#T}](connection/chyt/create-chyt.md) {% endif %}
+{% if audience == "internal" %} - [{#T}](connection/chyt/create-chyt.md) {% endif %}
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-metrica-logs-api.md)
 - [{#T}](connection/create-appmetrica.md)

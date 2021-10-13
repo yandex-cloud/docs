@@ -314,7 +314,7 @@ items:
     include:
       repo: docs
       path: ru/_api-ref/datalens/toc.yaml
-  - name: Туториал по функциям
+  - name: Туториалы по функциям
     items:
       - name: Агрегатные функции
         href: concepts/aggregation-tutorial.md
