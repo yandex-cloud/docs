@@ -1,5 +1,7 @@
 ## Примеры {#examples-examples}
 
+[Дашборд с примерами чартов](https://datalens.yandex-team.ru/o5ae95yvwhpkm-visual-types)
+
 [Параметризованный график с данными из Статистики](https://charts.yandex-team.ru/editor/Examples/parametrized-stat-graph)
 
 [Параметризованный график с категориями и данными из Статистики](https://charts.yandex-team.ru/editor/Examples/parametrized-stat-graph-categories)
