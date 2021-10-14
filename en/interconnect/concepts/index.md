@@ -4,7 +4,33 @@
 
 ## Trunk link {#trunk-link}
 
-The core {{ interconnect-name }} solution is a trunk link with bandwidth from 100 Mbps to 10 Gbps or more. Trunk links are provided using a 10GE LR-LC optical joint with {{ yandex-cloud }} equipment. Dedicated connections are created on top of trunk links.
+A trunk link with a bandwidth of between 100 Mbps and 100 Gbps is at the core of the {{ interconnect-name }} solution. To set up a trunk link, your equipment is connected to that of {{ yandex-cloud }} with optical transceivers using the following standards:
+
+| Standard | Bandwidth<br/> | Maximum<br/>distance |
+| ----- | ----- | ----- |
+| SFP-1GBASE-LX | 1 Gbps | 10 km |
+| SFP+-10GBASE-LR | 10 Gbps | 10 km |
+| SFP+-10GBASE-ER | 10 Gbps | 40 km |
+| QSFP28-100GBASE-LR | 100 Gbps | 10 km |
+| QSFP28-100GBASE-ER | 100 Gbps | 40 km |
+
+All the transceivers have Duplex LC connectors with a UPC polish.
+
+The transceiver types listed have been tested for compatibility with {{ yandex-cloud }} equipment, which enables us to provide a service at the target quality level. If you are using a different transceiver standard, contact one of the partner operators listed on the [{{ interconnect-name }} page](https://cloud.yandex.com/services/interconnect) to connect to {{ yandex-cloud }} through this partner's client port.
+
+Other channel features:
+
+* Autonegotiation is not supported. The port transmission rate of the client hardware must be set manually based on the transceiver type.
+* The ports work as trunk ports.
+* All frames must have tags according to the IEEE 802.1Q standard with a VLAN identifier (VID) ranging from 1 to 4060. Native VLAN is not supported.
+* EtherType: `0x8100`.
+
+For a single point of presence, you may use:
+
+* Link aggregation methods (LACP) in active mode.
+* Switch stacking on the user side, provided that the switches are combined in a single logical unit.
+
+For each trunk channel, there is a transmission rate limit in bits per second and in packets per second both for cloud downlink and for upload. This means that if the bit or the packet rate exceeds the maximum value, packets can be discarded. As a result, uniform traffic may be transmitted at a higher speed than traffic transmitted in sudden bursts.
 
 {{ yandex-cloud }} points of presence:
 
@@ -19,16 +45,16 @@ A private connection is set up on top of the trunk link to provide connectivity 
 
 To isolate two dedicated connections inside a trunk link, traffic is tagged by a VLAN.
 
-To exchange routing information and start passing traffic, you need to configure [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol). The number of prefixes that can be accepted is limited: you can announce a maximum of 500 routes. If the threshold is exceeded, a BGP session is reset and reinitialized.
+To exchange routing information and forward traffic, you need to configure [BGP]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Border_Gateway_Protocol){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Border_Gateway_Protocol){% endif %}:
+
+* The number of prefixes that can be accepted is limited: you can announce a maximum of 500 routes. If the threshold is exceeded, a BGP session is reset and reinitialized.
+* The Hold Timer value is 90 seconds.
+
+The BFD (Bidirectional Forwarding Detection) protocol with an interval of 300 ms for incoming and outgoing packets and a multiplier of 3 is used in {{ yandex-cloud }} to ensure fast BGP convergence and traffic switching between private connections.
 
 When setting up a private connection, we recommend ensuring trunk link redundancy through several points of presence. There's no redundancy support for VPC access through a single site nor support for router failover protocols (such as CARP, HSRP, or VRRP), since these methods don't increase reliability compared to a single private channel.
 
-Within a single site, you can use:
-
-* Link aggregation methods (LACP), including in active/passive mode.
-* Switch stacking on the user side, provided that the switches are combined in a single logical unit.
-
-You can create [two](limits.md) private connections on top of a single trunk link.
+You can create [two](../concepts/limits#yandex-cloud-interconnect) private connections over a single trunk link.
 
 ### Setting up a private connection {#set-up-private-connection}
 
@@ -38,7 +64,7 @@ As soon as your request is processed, our experts contact you to discuss the det
 
 For the connection to run, set up a connection between your local network infrastructure and a {{ yandex-cloud }} virtual network:
 
-1. In the cloud, [create](../../vpc/quickstart.md) a virtual network and subnets to connect the local network infrastructure to.
+1. [Create](../../vpc/quickstart.md) virtual networks and subnets in the cloud that the local network infrastructure will connect to.
 1. Arrange the following parameters with {{ yandex-cloud }}:
    * On your side:
      * Cloud ID.
