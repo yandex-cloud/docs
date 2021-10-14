@@ -74,6 +74,8 @@ items:
         href: concepts/static-routes.md
       - name: Security groups
         href: concepts/security-groups.md
+      - name: Public IP address ranges
+        href: concepts/ips.md
       - name: MTU and MSS
         href: concepts/mtu-mss.md
       - name: DHCP settings

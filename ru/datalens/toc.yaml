@@ -573,7 +573,7 @@ items:
             href: function-ref/URL.md
       - name: Поддержка функций
         href: function-ref/availability.md
-  - name: Туториал по функциям
+  - name: Туториалы по функциям
     items:
       - name: Агрегатные функции
         href: concepts/aggregation-tutorial.md

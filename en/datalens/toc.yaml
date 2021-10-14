@@ -157,6 +157,8 @@ items:
             href: operations/chart/create-indicator-chart.md
           - name: Creating a tree chart
             href: operations/chart/create-tree-chart.md
+          - name: Creating a SQL chart
+            href: operations/chart/create-sql-chart.md
           - name: Adding a hierarchy
             href: operations/chart/add-hierarchy.md
           - name: Publishing a chart

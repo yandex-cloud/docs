@@ -21,7 +21,7 @@ default:
   link-forms: https://forms.yandex.ru/cloud/admin
   link-passport: https://passport.yandex.ru/
   link-500-users: https://cloud.yandex.ru/services/tracker#contact-form
-  link-tracker-support: https://support.cloud.yandex.ru/
+  link-tracker-support: https://support.cloud.yandex.ru/?referral=tracker
   link-tracker-example-1: https://tracker.yandex.ru/TEST-1234
   link-tracker-example-2: https://tracker.yandex.ru/ключОчереди
   link-org-add-federation: https://cloud.yandex.ru/docs/organization/add-federation

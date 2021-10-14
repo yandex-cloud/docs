@@ -43,6 +43,8 @@ items:
             href: operations/data/connect-to-clickhouse.md
           - name: Connecting to a {{ PG }} database
             href: operations/data/connect-to-postgresql.md
+          - name: Connecting to S3 Storage
+            href: operations/data/connect-to-s3.md
       - name: Setting up integration with Data Proc
         href: operations/data-proc-integration.md
       - name: Working with confidential data
@@ -77,6 +79,8 @@ items:
         href: concepts/data-proc.md
       - name: Background operations
         href: concepts/async.md
+      - name: Datasets
+        href: concepts/dataset.md
       - name: Private data storage
         href: concepts/secrets.md
       - name: Using TensorBoard in Yandex DataSphere
@@ -103,7 +107,7 @@ items:
         href: tutorials/video-recognition.md
   - name: API reference
     items:
-      - name: Authentication
+      - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
         items:

@@ -8,6 +8,5 @@ To delete a field from an alias:
 1. Select the widget that the alias is specified for from the list.
 1. Click on the desired alias.
 1. Click on the field you want to delete.
-1. Delete the field by clicking ![image](../../../_assets/datalens/cross.svg)
+1. Delete the field by clicking ![image](../../../_assets/datalens/cross.svg).
 1. Click **Save**.
-

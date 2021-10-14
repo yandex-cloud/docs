@@ -2,6 +2,13 @@
 
 _Charts_ are the visualization of data from a dataset in the form of a table, diagram, or map.
 
+{{ datalens-short-name }} includes two types of charts:
+
+* [Dataset-based charts](#dataset-based-charts)
+* [SQL charts](#sql-charts)
+
+## Dataset-based charts {#dataset-based-charts}
+
 Charts are created in a wizard based on data from one or multiple datasets (see [multi-dataset charts](#multi-dataset-charts)).
 You can create an unlimited number of charts based on a single dataset.
 
@@ -19,7 +26,7 @@ Charts let you quickly analyze and test hypotheses. You can also save charts and
 
 {% endnote %}
 
-## Multi-dataset charts {#multi-dataset-charts}
+### Multi-dataset charts {#multi-dataset-charts}
 
 Multi-dataset charts display data from multiple datasets.
 
@@ -55,6 +62,29 @@ Working with linked datasets in geovisualizations on different layers:
 * Filters in the **Layer filters** section that use non-linked dimensions only apply to their own dataset within the current layer.
 * There are no restrictions on using non-linked dimensions in different layers.
 
+## SQL charts {#sql-charts}
+
+_SQL charts_ are charts created from a connection if the connection target is a database. Use a SQL query to build these charts. The query is executed using the original database's SQL flavor, which helps expand visualization capabilities by using database-specific transactions.
+
+Executing a SQL query does not set up a separate [Dataset](../dataset/index.md) object, but rather generates one on the fly and displays it in the preview panel.
+
+Unlike [regular charts](#dataset-based-charts), the logic of using the wizard in SQL charts favors the SQL query, that is, the wizard only displays data from a query.
+
+SQL chart features:
+
+* They reduce database workload by using direct queries.
+* They are only suitable for `SELECTs`.
+* They enable the use of the `JOIN`, `GROUP BY`, and `SORT BY` operators as well as aggregate functions in a SQL query.
+* They enable the parameterization of any part of a SQL query.
+* They support a limited set of [visualizations types](types.md).
+* They have [public access](#public-access) restrictions.
+* They do not support data [materialization](../dataset/settings.md#materializaton) or [publication](../datalens-public.md).
+* They do not use [RLS](../../security/row-level-security.md) or [calculated fields](../calculations/index.md).
+
+{% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
+
+To create a SQL chart, see the [instructions](../../operations/chart/create-sql-chart.md).
+
 ## Publishing a chart {#public-access}
 
 You can grant any internet user access to a chart using [{{ datalens-public }}](../datalens-public.md). This chart becomes public and any user can view it without authorization.
@@ -85,5 +115,6 @@ For more information about types of permissions, see [{#T}](../../security/index
 - [{#T}](../../operations/chart/create-bar-chart.md)
 - [{#T}](../../operations/chart/create-pie-chart.md)
 - [{#T}](../../operations/chart/create-map-chart.md)
+- [{#T}](../../operations/chart/create-sql-chart.md)
 - [{#T}](../../operations/chart/publish.md)
 

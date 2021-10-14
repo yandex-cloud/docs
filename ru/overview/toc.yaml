@@ -51,6 +51,8 @@ items:
         items:
           - name: Чеклист
             href: security/domains/checklist.md
+          - name: Сетевая безопасность
+            href: security/domains/network.md
           - name: Аутентификация и управление доступом
             href: security/domains/access.md
           - name: Безопасная конфигурация

@@ -13,9 +13,16 @@
 `**Полужирный текст**` | ![](../../_assets/wiki/bold.png)
 `*Курсив*` | ![](../../_assets/wiki/italic.png)
 `_Курсив_` | ![](../../_assets/wiki/italic.png)
+`//Курсив//` | ![](../../_assets/wiki/italic.png)
 `__Подчеркнутый текст__` | ![](../../_assets/wiki/underlined.png)
 `~~Зачеркнутый текст~~` | ![](../../_assets/wiki/crossed.png)
+`--Зачеркнутый текст--` | ![](../../_assets/wiki/crossed.png)
+`##Моноширинный текст##` | ![](../../_assets/wiki/monospaced.png)
+`++Мелкий текст++` | ![](../../_assets/wiki/small.png)
+Верхний индекс: `E=mc^^2^^` | ![](../../_assets/wiki/sup.png)
+Нижний индекс: `Hvv2vvO` | ![](../../_assets/wiki/sub-no-spaces.png)
 `??Выделенный текст??` | ![](../../_assets/wiki/red-background.png)
+`!!Красный текст!!` | ![](../../_assets/wiki/red-colored.png)
 `!!(син)Текст синего цвета!!`<br>Поддерживаются цвета:<ul><li>`red`/`крас`/`красный`;</li><li>`green`/`зел`/`зеленый`;</li><li>`blue`/`син`/`синий`;</li><li>`grey`/`gray`/`сер` /`серый`;</li><li>`yellow`/`жел`/`желтый`;</li><li>`cyan`/`голуб`/`голубой`;</li><li>`orang`/`оранж`/`оранжевый`;</li><li>`violet`/`фиолет`/`фиолетовый`.</li></ul> | ![](../../_assets/wiki/colored.png)
 
 ## Сочетание элементов оформления {#sec_combine}
@@ -34,11 +41,13 @@
 `**[Полужирная ссылка](http://example.com)**` | ![](../../_assets/wiki/bold-link.png)
 `>Цитата с *курсивом*` | ![](../../_assets/wiki/quote-italic.png)
 
-## Всплывающая подсказка {#other-formatting}
+## Прочая разметка {#other-formatting}
 
-Чтобы добавить к фрагменту текста всплывающую подсказку, например определение термина, используйте разметку:
-
-Разметка | Результат
---- | ---
-`(?Термин Определение термина?)` | ![](../../_assets/wiki/Term-with-definition.png)
-`(?Термин с пробелами==Определение термина?)` | ![](../../_assets/wiki/long-term-with-definition.png)
+Элемент | Разметка | Результат
+--- | --- | ---
+Перевод строки | `первая строка---вторая строка` | ![](../../_assets/wiki/line-break.png)
+Всплывающая подсказка |`(?Термин Определение термина?)` | ![](../../_assets/wiki/Term-with-definition.png)
+Всплывающая подсказка (термин с пробелами)|`(?Термин с пробелами==Определение термина?)` | ![](../../_assets/wiki/long-term-with-definition.png)
+Цветовой код (длинный) | `#ff0000` | ![](../../_assets/wiki/color-code-long.png)
+Цветовой код (короткий) | `#F00` | ![](../../_assets/wiki/color-code-short.png)
+Скрытый комментарий | `%%(comments) Скрытый текст%% ` | 

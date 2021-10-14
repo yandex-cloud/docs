@@ -9,5 +9,3 @@ To disable early access, select **Disable Early Access Version** from the same m
 ## Currently in early access {#available-now}
 
 * [{#T}](repeat.md)
-* [{#T}](../concepts/secrets.md)
-
