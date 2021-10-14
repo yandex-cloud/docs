@@ -71,6 +71,9 @@ items:
           - name: Requested database column does not exist
             hidden: true
             href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+          - name: Subquery source is disallowed in the connection settings
+            hidden: true
+            href: troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
           - name: You have no access to read this operation
             hidden: true
             href: troubleshooting/errors/no-access-to-read-this-operation.md
