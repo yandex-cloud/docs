@@ -1,28 +1,22 @@
 # Datasets
 
-{% note info %}
+A dataset is an information storage mechanism providing quick access to large amounts of data. A dataset can store up to 4 TB of information giving faster access to data than the main project store.
 
-Datasets are available in [early access mode](../early-access/index.md).
+A dataset is created and populated during initialization. After initialization, a dataset is read-only.
 
-{% endnote %}
+## Initializing a dataset {#init}
 
-A dataset is an information storage mechanism that provides quick access to large amounts of data. A dataset stores up to 4 TB of data and supports faster data access rates than the main project store.
-
-A dataset is created and populated at initialization. After initialization, a dataset becomes read-only.
-
-## Initializing a dataset
-
-You can create and initialize a dataset from a cell with the `#pragma dataset init` instruction in Bash or Python. During dataset initialization, specify the dataset size and [project-unique](project.md) name.
+You can create and initialize a dataset from a cell with the Bash or Python instruction `#pragma dataset init`. During initialization, you must specify the size and a unique dataset name for the [project](project.md).
 
 {% note info %}
 
-The dataset initialization process will allocate the entire requested amount of disk space, but  some part of this space will be consumed by the file system. Make sure to specify an ample dataset size.
+The dataset initialization process will allocate the entire requested amount of disk space but the file system will take up a part of this space. Specify the dataset size with room to spare.
 
 Datasets are not included in the main project store.
 
 {% endnote %}
 
-During initialization, the dataset makes a one-time read-and-write connection to the project. If the code in the dataset initialization cell executes successfully, the dataset is saved and reconnected with read-only access. If an error occurs during initialization, the dataset is disconnected and deleted.
+During initialization, the dataset makes a one-time connection to the project with read and write access. If the code in the dataset initialization cell executes successfully, the dataset is saved and reconnected with read-only access. If an error occurs during initialization, the dataset will be disconnected and deleted.
 
 You can create a dataset:
 
@@ -32,7 +26,7 @@ You can create a dataset:
 
   - Bash
 
-    Creating the `<DATASET_NAME>` dataset from a [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html) archive:
+    Creating the `<DATASET_NAME>` dataset from the [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html) archive:
 
     ```bash
     #!:bash
@@ -47,7 +41,7 @@ You can create a dataset:
 
   - Python 3
 
-    Creating the `<DATASET_NAME>` dataset from a [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html) archive:
+    Creating the `<DATASET_NAME>` dataset from the [CIFAR](https://www.cs.toronto.edu/~kriz/cifar.html) archive:
 
     ```python
     #pragma dataset init <DATASET_NAME> --size 1Gb
@@ -77,11 +71,11 @@ You can create a dataset:
 
   {% endlist %}
 
-* From file storage objects.
+* From file store objects.
 
   {% list tabs %}
 
-  - {{  objstorage-short-name }}
+  - {{ objstorage-short-name }}
 
     ```python
     #pragma dataset init <DATASET_NAME> --size 1Gb
@@ -93,13 +87,14 @@ You can create a dataset:
 
   - Yandex.Disk
 
-    To connect to Yandex.Disk, you will need your application ID and application secret. To get them:
+    To connect to Yandex.Disk, you will need an application ID and a secret. To get them:
     1. On the [application registration page]({{ ya-client-app }}) in Yandex ID, select the **Web services** option.
     1. In the **Callback URI** field, enter ```{{ ya-oauth }}```.
     1. Configure permissions for Yandex.Disk.
+    1. Initialize the dataset in a cell with the following code:
 
     ```python
-    #pragma dataset init DATASET_NAME --size 1Gb
+    #pragma dataset init <DATASET_NAME> --size 1Gb
     
     from cloud_ml.storage.api import Storage
     
@@ -109,13 +104,30 @@ You can create a dataset:
     disk.get('<path_within_ya_disk>/file.txt', '/home/jupyter/mnt/datasets/<DATASET_NAME>/<path>/file.txt')
     ```
 
+  - Google Drive
+
+    To connect to Google Drive, use the [instructions](https://developers.google.com/drive/api/v3/enable-drive-api) from the official documentation and create an **OAuth client ID** of the **TVs and limited input devices** type.
+
+    Use the created **OAuth client ID** and initialize the dataset by executing the following code in a cell:
+
+    ```python
+    #pragma dataset init <DATASET_NAME> --size 1Gb
+    
+    client_secret = {<client_secret>}
+    
+    gdrive = Storage.gdrive(client_secret)
+    gdrive_file_id = '<fileID>'
+    dst_path = '/home/jupyter/mnt/datasets/<DATASET_NAME>/<path>/file.txt'
+    gdrive.get(gdrive_file_id, dst_path)
+    ```
+
   {% endlist %}
 
-## Using a dataset
+## Using a dataset {#use}
 
-After the datasets are initialized, you can access them from your code using a path like `/home/jupyter/mnt/datasets/<DATASET_NAME>`.
+After initialization, datasets are accessible via code using a path in the format `/home/jupyter/mnt/datasets/<DATASET_NAME>`.
 
-To view all the project's available datasets, click the tab **Datasets** ![](../../_assets/datasphere/jupyterlab/dataset.svg). On the tab, you will see a listing of created datasets and will be able to view their contents.
+To view all the project's available datasets, click the **Datasets** ![](../../_assets/datasphere/jupyterlab/dataset.svg) tab. On the tab, you will see a list of created datasets and will be able to view their contents.
 
 You can display a list of all the project's available datasets by running the following code in a cell:
 
@@ -125,9 +137,9 @@ You can display a list of all the project's available datasets by running the fo
 
 After initialization, dataset data cannot be changed. If the data needs to be updated, delete the dataset and create a new one.
 
-## Delete datasets
+## Deleting datasets {#delete}
 
-To delete the `<DATASET_NAME>` dataset, execute a cell containing the following code
+To delete the `<DATASET_NAME>` dataset, execute a cell containing the following code:
 
 ```
 #pragma dataset delete <DATASET_NAME>

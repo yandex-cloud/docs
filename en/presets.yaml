@@ -400,6 +400,8 @@ default:
   link-datalens-settings: https://datalens.yandex.com/settings
   link-org-main: https://org.cloud.yandex.com/
   link-tracker: https://tracker.yandex.com/
+  ya-client-app: https://oauth.yandex.com/client/new
+  ya-oauth: https://oauth.yandex.com/verification_code
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
