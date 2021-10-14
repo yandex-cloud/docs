@@ -43,6 +43,8 @@ items:
             href: operations/data/connect-to-clickhouse.md
           - name: Connecting to a {{ PG }} database
             href: operations/data/connect-to-postgresql.md
+          - name: Connecting to S3 Storage
+            href: operations/data/connect-to-s3.md
       - name: Setting up integration with Data Proc
         href: operations/data-proc-integration.md
       - name: Working with confidential data
@@ -56,7 +58,7 @@ items:
           - name: Copying a secret
             href: operations/data/secret-copy.md
           - name: Destroying a secret
-            href: operations/data/secret-delete.md  
+            href: operations/data/secret-delete.md
   - name: Concepts
     items:
       - name: Overview
@@ -103,18 +105,18 @@ items:
         href: tutorials/video-recognition.md
   - name: API reference
     items:
-      - name: Authentication
-        href: api-ref/authentication.md
-      - name: gRPC
-        items: null
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/datasphere/toc.yaml
-      - name: REST
-        items: null
-        include:
-          repo: docs
-          path: en/_api-ref/datasphere/toc.yaml
+        - name: Authentication in the API
+          href: api-ref/authentication.md
+        - name: gRPC
+          items: null
+          include:
+            repo: docs
+            path: en/_api-ref-grpc/datasphere/toc.yaml
+        - name: REST
+          items: null
+          include:
+            repo: docs
+            path: en/_api-ref/datasphere/toc.yaml
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -32,3 +32,4 @@ description: "From this article you will learn how to work with machine learning
 
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
+* [{#T}](../operations/data/connect-to-s3.md)
