@@ -1,6 +1,6 @@
 # Чеклист по безопасности
 
-## Сетевая безопасность
+## Сетевая безопасность {#network-security}
 
 - **Сегментация**: разделите ресурсы по группам и поместите их в разные каталоги, а если требуется наиболее строгая изоляция — в разные VPC. Трафик внутри VPC по умолчанию разрешен, между VPC нет (только через ВМ с двумя сетевыми интерфейсами в разных сетях, VPN или Cloud Interconnect). Посмотрите вебинар [Как работает сеть в Облаке](https://www.youtube.com/watch?v=g3cZ0o50qH0).
 - **Ограничение сетевого доступа, группы безопасности**: ограничьте сетевой доступ между ресурсами с помощью [групп безопасности](../../../vpc/operations/security-group-create.md).
@@ -12,9 +12,9 @@
 - **Безопасный удаленный доступ администраторов (VPN)**: настройте VPN-соединение между удаленными устройствами и Yandex.Cloud, используя решения из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace?categories=network), см. [инструкцию по настройке на базе OpenVPN](../../../solutions/routing/openvpn.md).
 - **Bastion host**: создайте бастионную виртуальную машину для доступа в инфраструктуру по управляющим протоколам (например, SSH, RDP).
 - **Исходящий доступ (NAT)**: используйте [встроенный сервис NAT](../../../vpc/operations/enable-nat.md) для безопасного исходящего доступа в интернет (egress NAT). Этот сервис делает трансляцию ваших адресов в общий пул адресов. Если необходимо, чтобы выход в интернет был из вашего контролируемого пула адресов, используйте [NAT-инстанс](../../../solutions/routing/nat-instance.md#create-nat-instance) (выделенную ВМ).
-- **Защита от DDoS**: при назначении публичных IP-адресов на ресурсы облака используйте встроенный компонент [DDoS Protection](../../../vpc/ddos-protection/index.md) по кнопке (услуга L4/L4-защиты от DDoS). Если необходима защита от DDoS на уровне L7, обратитесь к своему менеджеру.
+- **Защита от DDoS**: при назначении публичных IP-адресов на ресурсы облака используйте встроенный компонент [DDoS Protection](../../../vpc/ddos-protection/index.md) по кнопке (услуга L4-защиты от DDoS). Если необходима защита от DDoS на уровне L7, обратитесь к своему менеджеру.
 
-## Аутентификация и управление доступом
+## Аутентификация и управление доступом {#authentication}
 
 - **Централизованное управление и федерации удостоверений**: создайте организацию в сервисе [Yandex Cloud Organization](https://cloud.yandex.ru/services/organization) и настройте систему единого входа (Single Sign-On) в Yandex.Cloud через свой сервер IdP, см. инструкции по настройке с помощью [AD FS](../../../organization/operations/federations/integration-adfs.md), [Keycloak](https://www.youtube.com/watch?v=m-oe7V9PvC4), [Google Workspace](../../../organization/operations/federations/integration-gworkspace.md).
 - **Федеративные аккаунты**: используйте федеративные аккаунты вместо аккаунтов на Яндексе, где это возможно.
@@ -27,7 +27,7 @@
 - **Защита resource-manager.clouds.owner**: назначьте роль `resource-manager.clouds.owner` сотрудникам организации с федеративным аккаунтом. Аккаунту на Яндексе, с которым создано облако, назначьте сложный пароль и используйте этот аккаунт только в случае крайней необходимости. Назначьте администраторам менее привилегированные доступы и используйте `resource-manager.clouds.owner` в случае крайней необходимости.
 - **Ресурсная модель**: все критичные ресурсы, которые входят в область соответствия стандартам, поместите в отдельное облако. Группы ресурсов разделите по каталогам. Общие ресурсы (например, сеть и группы безопасности) поместите в отдельный каталог для разделяемых ресурсов.
 
-## Шифрование данных и управление ключами/секретами
+## Шифрование данных и управление ключами/секретами {#data-encryption}
 
 - **Шифрование в Object Storage**: включите шифрование бакетов (server-side encryption), см. [инструкцию](../../../storage/operations/buckets/encrypt.md). Такое шифрование защищает данные бакета от опубликования в интернете.
 - **Шифрование дисков ВМ (если требуется)**.
@@ -36,7 +36,7 @@
 - **Защита ключей KMS**: выдавайте только гранулярные доступы к отдельным ключам KMS — роль `kms.keys.encrypterDecrypter`; используйте [ротацию ключей](../../../kms/concepts/version.md).
 - **Управление секретами**: используйте сервисы управления секретами, такие как [Yandex Lockbox](../../../lockbox/index.yaml) или [HashiCorp Vault c поддержкой KMS](https://cloud.yandex.ru/marketplace/products/f2eokige6vtlf94uvgs2) из Yandex Cloud Marketplace. <!-- или контейнер cr.yandex/yc/vault -->
 
-## Безопасная конфигурация
+## Безопасная конфигурация {#secure-configuration}
 
 - **Пароли по умолчанию**: следите за паролями по умолчанию в ПО внутри ВМ организационно и технически с помощью различных сканеров уязвимостей.
 - **Стандарты и baseline**: конфигурируйте ОС и ПО в соответствии с baseline и стандартами (CIS, PCI DSS и др.), для автоматизации соответствия используйте, например, утилиту [OpenSCAP](https://www.open-scap.org/getting-started/).
@@ -49,14 +49,14 @@
 - **Безопасная конфигурация Yandex Container Registry**: не рекомендуется использовать привилегированные контейнеры для запуска нагрузок. Используйте встроенный в сервис [сканер уязвимостей](../../../container-registry/solutions/image-auto-scan.md) в образах.
 - **Yandex Certificate Manager**: используйте [Yandex Certificate Manager](../../../certificate-manager/index.yaml) для хранения, получения и обновления TLS-сертификатов от Let's Encrypt®, а также для загрузки собственных сертификатов. Сервис интегрирован с Yandex Object Storage, Yandex API Gateway, Application Load Balancer.
 
-## Защита от вредоносного кода
+## Защита от вредоносного кода {#malicious-code-protection}
 
 - **Защита на уровне ОС**: устанавливайте на ВМ антивирусные решения из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace?categories=security).
   ![](../../../_assets/overview/solution-library-icon.png)[Решение: развертывание Kaspersky Antivirus в Yandex.Cloud (Compute Instance, COI)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/malware-defense/kaspersy-install-in-yc)
 - **Защита на уровне сети**: используйте NGFW/IDS/IPS, представленные в [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace?categories=security) (некоторые из них имеют встроенные песочницы).
 - **Защита на уровне образов контейнеров**: используйте сканер уязвимостей в образах, встроенный в сервис Yandex Container Registry.<!-- tbd: вставить ссылку на инструкцию, когда она появится -->
 
-## Управление уязвимостями
+## Управление уязвимостями {#vulnerability-management}
 
 - **Автоматизированное сканирование уязвимостей**: используйте бесплатные сетевые сканеры, например nmap, OpenVAS, OWASP ZAP, или агенты на хостах, например Wazuh, Tripwire.
 - **Внешние сканирования безопасности**: проводите сканирования в соответствии с [правилами](../../../overview/compliance/pentest.md).
@@ -65,7 +65,7 @@
   ![](../../../_assets/overview/solution-library-icon.png)[Решение: PT Application Firewall на базе Yandex.Cloud](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/unmng-waf-ptaf-cluster)
   ![](../../../_assets/overview/solution-library-icon.png)[Пример: установка уязвимого веб-приложения (DVWA) в Yandex.Cloud с помощью Terraform для тестирования Managed WAF](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
 
-## Сбор, мониторинг и анализ логов аудита
+## Сбор, мониторинг и анализ логов аудита {#logs-analysis}
 
 - **Audit trails**: включите [Yandex Audit Trails](../../../audit-trails/quickstart.md) для всех облаков и каталогов.
 - **Сбор событий с уровня гостевых ОС и приложений**: собирайте события, например, с помощью [Yandex Managed Service for Elasticsearch](../../../managed-elasticsearch/index.yaml) или с помощью бесплатных решений Osquery, Wazuh и др.
@@ -81,31 +81,31 @@
   ![](../../../_assets/overview/solution-library-icon.png)[Решение: уведомления и реагирование на события ИБ Audit Trails с помощью Cloud Logging/Cloud Functions + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
 - **Регулярный аудит состояния**: используйте [CLI](../../../cli/index.yaml) для запросов к текущему состоянию облачной инфраструктуры либо партнерское решение [Cloud Advisor](https://cloud.yandex.ru/blog/posts/2021/03/cloud-advisor-review).
 
-## Физическая безопасность
+## Физическая безопасность {#physical-security}
 
 - **Меры физической безопасности**: ознакомьтесь с [подробным описанием мер физической безопасности Yandex.Cloud](../../../overview/security/standarts.md#physic-sec).
 
-## Резервное копирование
+## Резервное копирование {#backup}
 
 - **Регулярные резервные копии**: настройте создание снимков дисков по расписанию с Yandex Cloud Functions, см. [туториал](https://cloud.yandex.ru/blog/posts/2020/01/snapshot-triggers).
 
-## Управление бюджетами
+## Управление бюджетами {#budget-management}
 
 - **Уведомления для контроля расходов**: настройте уведомления на пороги бюджета в биллинге, см. [инструкцию](../../../billing/operations/budgets.md).
 
-## Реагирование на инциденты
+## Реагирование на инциденты {#incident-response}
 
 - **Процедура реагирования**: постройте процесс реагирования на инциденты. Для получения дополнительных логов следуйте [процедуре запроса данных](../../../support/request.md).
 
-## Безопасность Managed Service for Kubernetes
+## Безопасность Managed Service for Kubernetes {#kubernetes-security}
 
-### Шифрование данных и управление ключами/секретами
+### Шифрование данных и управление ключами/секретами {#kubernetes-data-encryption}
 
 - **Server-side шифрование**: включите шифрование секретов в etcd, см. [инструкцию](../../../kms/solutions/k8s.md). Делайте это всегда, вне зависимости от того, будете ли вы использовать сервисы управления секретами.
 - **Управление секретами**: используйте [Yandex Lockbox](../../../lockbox/index.yaml) или [HashiCorp Vault c поддержкой KMS](https://cloud.yandex.ru/marketplace/products/f2eokige6vtlf94uvgs2) из Yandex Cloud Marketplace. <!-- или контейнер `cr.yandex/yc/vault` -->
   ![](../../../_assets/overview/solution-library-icon.png)[Решение: управление секретами c SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
 
-### Сетевая безопасность
+### Сетевая безопасность {#kubernetes-network-security}
 
 - **Группы безопасности**: настройте группы безопасности для Kubernetes, см. [инструкцию](../../../managed-kubernetes/operations/security-groups.md). Не рекомендуется выдавать публичный доступ и публичные адреса компонентам Kubernetes.
 - **Ingress-контроллер**: для доступа извне к сервисам Kubernetes используйте Ingress-контроллер (HTTPS) с типом LoadBalancer (внешний или внутренний): [Application Load Balancer Ingress-контроллер](../../../managed-kubernetes/solutions/alb-ingress-controller.md) (рекомендуется) или другой, например [NGINX Ingress Controller](../../../managed-kubernetes/solutions/ingress-cert-manager.md).
@@ -113,12 +113,12 @@
 - **Сетевые политики (network policy)**: ограничьте доступ на уровне Kubernetes с помощью [сетевых политик Calico](../../../managed-kubernetes/operations/calico.md) либо продвинутых [сетевых политик Cilium](../../../managed-kubernetes/operations/cilium.md).
 - **Доступ только из ограниченного пула адресов (если требуется)**: для Application Load Balancer Ingress-контроллера назначьте группы безопасности, для других Ingress-контроллеров используйте сетевые политики.
 
-### Аутентификация и управление доступом
+### Аутентификация и управление доступом {#kubernetes-authentication}
 
 - **Управление доступом**: настройте роли для доступа к Kubernetes, см. [инструкцию](../../../managed-kubernetes/security/index.md#sa-annotation). Контролируйте права доступа сервисного аккаунта группы узлов (как правило, достаточно роли `container-registry.images.puller`).
   ![](../../../_assets/overview/solution-library-icon.png)[Решение: настройка ролевых моделей и политик в Managed Service for Kubernetes](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
 
-### Безопасная конфигурация
+### Безопасная конфигурация {#kubernetes-secure-configuration}
 
 - **Конфигурация группы узлов в соответствии с baseline и стандартами**: настройте группы узлов в соответствии со стандартами и baseline: NIST, CIS и др. Возможно использовать автоматизированные инструменты: kube-bench, kubescape.
 - **Runtime security и policy engine**: используйте решения для runtime security, например Falco, а также решения для policy engine, например OPA Gatekeeper, Kyverno. 
@@ -126,13 +126,13 @@
 - **Обновления безопасности**: выберите подходящий [канал обновления](../../../managed-kubernetes/concepts/release-channels-and-updates.md) и настройте автоматическое применение обновлений либо применяйте их вручную сразу после публикации в выбранном канале. Также выполняйте своевременное обновление собственного ПО на группах узлов.
 - **Распределение подов на разные группы узлов**: настройте node taints and tolerations + node affinity (по нагрузке и степени приватности).
 
-### Сбор, мониторинг и анализ логов аудита
+### Сбор, мониторинг и анализ логов аудита {#kubernetes-logs-analysis}
 
 - **Сбор и анализ логов аудита Kubernetes и инструментов защиты**.
   ![](../../../_assets/overview/solution-library-icon.png)[Решение: анализ логов безопасности Kubernetes в Managed Service for Elasticsearch: логи аудита, policy engine, Falco](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 - **Сбор и анализ логов аудита workloads и группы узлов**: например, с помощью открытых инструментов Fluentbit, Beats и др.
 - **Мониторинг аномальной нагрузки**: используйте [Yandex Monitoring](../../../monitoring/index.yaml).
 
-### Резервное копирование
+### Резервное копирование {#kubernetes-backup}
 
 - **Резервное копирование**: настройте резервное копирование кластера Kubernetes в Yandex Object Storage, см. [инструкцию](../../../managed-kubernetes/solutions/backup.md). Следуйте рекомендациям раздела [Безопасная конфигурация Yandex Object Storage](secure-config.md#object-storage).

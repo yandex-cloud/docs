@@ -123,6 +123,8 @@ items:
                 href: api-ref/MetricsMeta/listMetricNames.md
               - name: listMetrics
                 href: api-ref/MetricsMeta/listMetrics.md
+  - name: Справочник метрик
+    href: metrics-ref/index.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/monitoring

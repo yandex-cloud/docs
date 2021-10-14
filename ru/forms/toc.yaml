@@ -72,6 +72,8 @@ items:
     href: answers.md
   - name: Управлять формами
     href: forms-settings.md
+  - name: Настроить доступ
+    href: access.md
   - name: Справочник вопросов
     items:
       - name: Обзор

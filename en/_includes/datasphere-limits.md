@@ -2,26 +2,25 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Number of projects per cloud | 5 |
-| Number of docker images per cloud | 3 |
+| Number of projects per cloud | 10 |
+| Number of [custom images](../datasphere/operations/user-images.md) per cloud | 3 |
+| Number of [datasets](../datasphere/concepts/dataset.md) per project | 3 |
+| Total dataset capacity per cloud | 500 GB |
 
 
 
-   {% note info %}
-   
-   To use a VM with a g1.1 GPU configuration, top up your billing account balance to at least $10, or write to Support and tell us about your task.
-   
-   {% endnote %}
-
-Type of limit | Value
------ | -----
-c1.32 VMs available for use | 0
-c1.80 VMs available for use | 0
-g1.2 VMs available for use | 0
-g1.4 VMs available for use | 0
+&#160;
+| Type of limit | Value |
+| ----- | ----- |
+| Available c1.32 VMs | 0 |
+| Available c1.80 VMs | 0 |
+| Available g1.1 VMs | 0 |
+| Available g1.2 VMs | 0 |
+| Available g1.4 VMs | 0 |
 
 #### Limits {#datasphere-limits}
 
 | Type of limit | Value |
------ | ----- 
-The maximum amount of data that is stored in the {{ ml-platform-name }} | 300 GB
+| ----- | ----- |
+| Maximum amount of data stored in {{ ml-platform-name }} | 300 GB |
+

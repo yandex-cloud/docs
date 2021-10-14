@@ -1,10 +1,13 @@
 # Project
 
-_A project_ is a [JupyterLab](https://jupyter.org/) development environment that runs on Yandex.Cloud VMs. It includes the Jupyter Notebook editor and auxiliary tools.
+_A project_ is a [JupyterLab](https://jupyter.org/) development environment that runs on {{ yandex-cloud }} VMs. It includes the Jupyter Notebook editor and auxiliary tools.
 
 _A notebook_ is an `*.ipynb` file that you are working with in the Jupyter Notebook editor. In this editor, you write code in cells and explanations between them in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html). The code is run for each cell separately. Cells can be run in any order.
 
 Projects store the state of the interpreter, variables, installed packages, and much more. When you reopen your project, the notebook loads in the state you last saved it in.
+
+You can upload small amounts of data (up to 100 MB) to your {{ ml-platform-name }} project over the interface. If you want to [upload](../operations/index.md#data-source) larger amounts of data, use your network storages or databases. For larger data volumes, it's also convenient to use [datasets](dataset.md) that are available in [early access mode](../early-access/index.md).
+
 
 {% include [include](../../_includes/datasphere/saving-variables-warn.md) %}
 
