@@ -79,6 +79,8 @@ items:
         href: concepts/data-proc.md
       - name: Background operations
         href: concepts/async.md
+      - name: Datasets
+        href: concepts/dataset.md
       - name: Private data storage
         href: concepts/secrets.md
       - name: Using TensorBoard in Yandex DataSphere

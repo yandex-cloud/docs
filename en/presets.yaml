@@ -406,6 +406,11 @@ default:
   yds-short-name: Data Streams
   yds: yds
 
+  # ML
+
+  ya-client-app: https://oauth.yandex.com/client/new
+  ya-oauth: https://oauth.yandex.com/verification_code
+
   # Terraform providers
   tf-provider-mch: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
   tf-provider-mkf: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_kafka_cluster
