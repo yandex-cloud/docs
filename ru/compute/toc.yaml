@@ -211,6 +211,8 @@ items:
         href: solutions/ntp.md
       - name: Работа с группой ВМ с автоматическим масштабированием
         href: solutions/vm-autoscale.md
+      - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
+        href: solutions/autoscale-monitoring.md
       - name: Обновление группы ВМ под нагрузкой
         href: solutions/updating-under-load.md
       - name: Развертывание Remote Desktop Gateway
