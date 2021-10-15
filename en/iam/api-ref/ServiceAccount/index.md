@@ -11,7 +11,8 @@ A set of methods for managing ServiceAccount resources.
   "folderId": "string",
   "createdAt": "string",
   "name": "string",
-  "description": "string"
+  "description": "string",
+  "labels": "object"
 }
 ```
  
@@ -22,6 +23,7 @@ folderId | **string**<br><p>ID of the folder that the service account belongs to
 createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the service account. The name is unique within the cloud. 3-63 characters long.</p> 
 description | **string**<br><p>Description of the service account. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 
 ## Methods {#methods}
 Method | Description

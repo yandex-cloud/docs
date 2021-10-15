@@ -27,7 +27,8 @@ cloudId | Required. ID of the Cloud resource to return. To get the cloud ID, use
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "organizationId": "string"
+  "organizationId": "string",
+  "labels": "object"
 }
 ```
 A Cloud resource. For more information, see [Cloud](/docs/resource-manager/concepts/resources-hierarchy#cloud).
@@ -39,3 +40,4 @@ createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a
 name | **string**<br><p>Name of the cloud. 3-63 characters long.</p> 
 description | **string**<br><p>Description of the cloud. 0-256 characters long.</p> 
 organizationId | **string**<br><p>ID of the organization that the cloud belongs to.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 

@@ -8,7 +8,11 @@
 
 * встроить в страницу [динамическую таблицу](actions/grid-reference.md);
 
-* сформировать [оглавление документа](actions/objects.md#toc).
+* сформировать [оглавление документа](actions/toc.md);
+
+* вставить на страницу [объекты из внешних источников](actions/iframe.md);
+
+* настроить интеграцию с [{{forms-full-name}}](actions/forms.md) и [{{tracker-full-name}}](actions/tracker.md).
 
 Общий формат вызова динамических блоков:
 

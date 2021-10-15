@@ -525,7 +525,6 @@ name | **string**<br>Name of the HTTP router. The name must be unique within the
 description | **string**<br>Description of the HTTP router. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>HTTP router labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 virtual_hosts[] | **[VirtualHost](#VirtualHost2)**<br>Virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. 
-https_redirect | **bool**<br> 
 
 
 ### VirtualHost {#VirtualHost2}
@@ -989,7 +988,6 @@ name | **string**<br>New name for the HTTP router. The name must be unique withi
 description | **string**<br>New description of the HTTP router. The maximum string length in characters is 256.
 labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [HttpRouterService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
 virtual_hosts[] | **[VirtualHost](#VirtualHost4)**<br>New virtual hosts that combine routes inside the router. For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host). <br>Only one virtual host with no authority (default match) can be specified. <br>Existing list of virtual hosts is completely replaced by the specified list, so if you just want to add or remove a virtual host, make a [VirtualHostService.Create](./virtual_host_service#Create) request or a [VirtualHostService.Delete](./virtual_host_service#Delete) request. 
-https_redirect | **bool**<br> 
 
 
 ### VirtualHost {#VirtualHost4}

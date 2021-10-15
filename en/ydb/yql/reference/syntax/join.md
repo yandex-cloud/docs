@@ -49,7 +49,7 @@ YQL provides the following logical JOIN types:
 * `CROSS`: Cartesian product of two tables. Each row of the first table is combined with each row of the second table. `ON`/`USING` is not specified explicitly.
 * `EXCLUSION`: Both sides minus the intersection.
 
-![image](../../../../_assets/ydb/join.png)
+![image](../../../_assets/join.png)
 
 {% note info %}
 

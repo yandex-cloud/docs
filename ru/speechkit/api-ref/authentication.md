@@ -23,7 +23,7 @@ description: "Для выполнения операций через API в с�
      {% include [api-keys-disclaimer](../../_includes/iam/api-keys-disclaimer.md) %}
 
       1. [Получите API-ключ](../../iam/operations/api-key/create.md).
-      2. Полученный API-ключ указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте API-ключ в заголовке `Authorization` в следующем формате:
+      1. Полученный API-ключ указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте API-ключ в заголовке `Authorization` в следующем формате:
 
           ```
           Authorization: Api-Key <API-ключ>
@@ -31,11 +31,11 @@ description: "Для выполнения операций через API в с�
    * С помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md):
 
       1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-sa.md).
-      2. {% include [iam-token-usage](../../_includes/iam-token-usage-speechkit-v3.md) %}
+      1. {% include [iam-token-usage](../../_includes/iam-token-usage-speechkit-v3.md) %}
 
 - Федеративный аккаунт
 
    1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-federation.md).
-   2. {% include [iam-token-usage](../../_includes/iam-token-usage-speechkit-v3.md) %}
+   1. {% include [iam-token-usage](../../_includes/iam-token-usage-speechkit-v3.md) %}
 
 {% endlist %}

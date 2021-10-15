@@ -198,7 +198,7 @@ status | enum **Status**<br>Status of the folder. <ul><li>`ACTIVE`: The folder i
 
 ## Delete {#Delete}
 
-Deletes the specified folder. <br>The method is temporarily unavailable.
+Deletes the specified folder.
 
 **rpc Delete ([DeleteFolderRequest](#DeleteFolderRequest)) returns ([operation.Operation](#Operation2))**
 

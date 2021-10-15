@@ -67,7 +67,8 @@ pageToken | Page token. To get the next page of results, Set [pageToken](/docs/m
           // end of the list of possible fields`connectors[].connectorConfigMirrormaker.targetCluster`
 
         },
-        "topics": "string"
+        "topics": "string",
+        "replicationFactor": "integer"
       }
     }
   ],
@@ -103,4 +104,5 @@ connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluste
 connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>Sasl mechanism, which we should use to connect to cluster.</p> 
 connectors[].<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol, which we should use to connect to cluster.</p> 
 connectors[].<br>connectorConfigMirrormaker.<br>topics | **string**<br><p>List of Kafka topics, separated by ','</p> 
+connectors[].<br>connectorConfigMirrormaker.<br>replicationFactor | **integer** (int64)<br><p>Replication factor for automatically created topics.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-kafka/api-ref/Connector/list#query_params">pageSize</a>, use the <a href="/docs/managed-kafka/api-ref/Connector/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kafka/api-ref/Connector/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kafka/api-ref/Connector/list#responses">nextPageToken</a> to continue paging through the results.</p> 

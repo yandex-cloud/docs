@@ -61,7 +61,16 @@ clusterId | Required. ID of the cluster to create a job for.  The maximum string
     ],
     "properties": "object",
     "mainJarFileUri": "string",
-    "mainClass": "string"
+    "mainClass": "string",
+    "packages": [
+      "string"
+    ],
+    "repositories": [
+      "string"
+    ],
+    "excludePackages": [
+      "string"
+    ]
   },
   "pysparkJob": {
     "args": [
@@ -79,6 +88,15 @@ clusterId | Required. ID of the cluster to create a job for.  The maximum string
     "properties": "object",
     "mainPythonFileUri": "string",
     "pythonFileUris": [
+      "string"
+    ],
+    "packages": [
+      "string"
+    ],
+    "repositories": [
+      "string"
+    ],
+    "excludePackages": [
       "string"
     ]
   },
@@ -125,6 +143,9 @@ sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted t
 sparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Spark.</p> 
 sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the JAR file containing the ``main`` class for the job.</p> 
 sparkJob.<br>mainClass | **string**<br><p>The name of the driver class.</p> 
+sparkJob.<br>packages[] | **string**<br><p>List of maven coordinates of jars to include on the driver and executor classpaths.</p> 
+sparkJob.<br>repositories[] | **string**<br><p>List of additional remote repositories to search for the maven coordinates given with --packages.</p> 
+sparkJob.<br>excludePackages[] | **string**<br><p>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.</p> 
 pysparkJob | **object**<br>Specification for a PySpark job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 pysparkJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
 pysparkJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
@@ -133,6 +154,9 @@ pysparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted
 pysparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and PySpark.</p> 
 pysparkJob.<br>mainPythonFileUri | **string**<br><p>URI of the file with the driver code. Must be a .py file.</p> 
 pysparkJob.<br>pythonFileUris[] | **string**<br><p>URIs of Python files to pass to the PySpark framework.</p> 
+pysparkJob.<br>packages[] | **string**<br><p>List of maven coordinates of jars to include on the driver and executor classpaths.</p> 
+pysparkJob.<br>repositories[] | **string**<br><p>List of additional remote repositories to search for the maven coordinates given with --packages.</p> 
+pysparkJob.<br>excludePackages[] | **string**<br><p>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.</p> 
 hiveJob | **object**<br>Specification for a Hive job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 hiveJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Hive.</p> 
 hiveJob.<br>continueOnFailure | **boolean** (boolean)<br><p>Flag indicating whether a job should continue to run if a query fails.</p> 

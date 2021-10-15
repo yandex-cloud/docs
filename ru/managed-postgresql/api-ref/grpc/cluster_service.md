@@ -2462,6 +2462,8 @@ host_name | **string**<br>Required. Name of the host to update. To get the Postg
 replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). To get the PostgreSQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
 priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed. <br>When a replica becomes the master, its priority is ignored. 
 config_spec | **[ConfigHostSpec](#ConfigHostSpec)**<br>Configuration of a PostgreSQL server for the host. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the PostgreSQL host should be updated. 
+assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. 
 
 
 ### ConfigHostSpec {#ConfigHostSpec3}

@@ -12,6 +12,8 @@ A set of methods for managing Subnet resources.
 | [List](#List) | Retrieves the list of Subnet resources in the specified folder. |
 | [Create](#Create) | Creates a subnet in the specified folder and network. |
 | [Update](#Update) | Updates the specified subnet. |
+| [AddCidrBlocks](#AddCidrBlocks) | Adds CIDR blocks to the specified subnet. |
+| [RemoveCidrBlocks](#RemoveCidrBlocks) | Removes CIDR blocks from the specified subnet. |
 | [Delete](#Delete) | Deletes the specified subnet. |
 | [ListOperations](#ListOperations) | List operations for the specified subnet. |
 | [Move](#Move) | Move subnet to another folder. |
@@ -276,11 +278,147 @@ domain_name | **string**<br>
 ntp_servers[] | **string**<br> 
 
 
+## AddCidrBlocks {#AddCidrBlocks}
+
+Adds CIDR blocks to the specified subnet. Method starts an asynchronous operation that can be cancelled while it is in progress.
+
+**rpc AddCidrBlocks ([AddSubnetCidrBlocksRequest](#AddSubnetCidrBlocksRequest)) returns ([operation.Operation](#Operation2))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddSubnetCidrBlocksMetadata](#AddSubnetCidrBlocksMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subnet](#Subnet4)<br>
+
+### AddSubnetCidrBlocksRequest {#AddSubnetCidrBlocksRequest}
+
+Field | Description
+--- | ---
+subnet_id | **string**<br>Required. ID of the Subnet resource that is being updated. The maximum string length in characters is 50.
+v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+
+
+### Operation {#Operation2}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddSubnetCidrBlocksMetadata](#AddSubnetCidrBlocksMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet4)>**<br>if operation finished successfully. 
+
+
+### AddSubnetCidrBlocksMetadata {#AddSubnetCidrBlocksMetadata}
+
+Field | Description
+--- | ---
+subnet_id | **string**<br>ID of the Subnet resource that is being updated. 
+
+
+### Subnet {#Subnet4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the subnet. 
+folder_id | **string**<br>ID of the folder that the subnet belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+description | **string**<br>Optional description of the subnet. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+network_id | **string**<br>ID of the network the subnet belongs to. 
+zone_id | **string**<br>ID of the availability zone where the subnet resides. 
+v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
+route_table_id | **string**<br>ID of route table the subnet is linked to. 
+dhcp_options | **[DhcpOptions](#DhcpOptions6)**<br> 
+
+
+### DhcpOptions {#DhcpOptions6}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
+
+
+## RemoveCidrBlocks {#RemoveCidrBlocks}
+
+Removes CIDR blocks from the specified subnet. Method starts an asynchronous operation that can be cancelled while it is in progress.
+
+**rpc RemoveCidrBlocks ([RemoveSubnetCidrBlocksRequest](#RemoveSubnetCidrBlocksRequest)) returns ([operation.Operation](#Operation3))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveSubnetCidrBlocksMetadata](#RemoveSubnetCidrBlocksMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subnet](#Subnet5)<br>
+
+### RemoveSubnetCidrBlocksRequest {#RemoveSubnetCidrBlocksRequest}
+
+Field | Description
+--- | ---
+subnet_id | **string**<br>Required. ID of the Subnet resource that is being updated. The maximum string length in characters is 50.
+v4_cidr_blocks[] | **string**<br>CIDR block. The range of internal addresses that are removed from this subnet. 
+
+
+### Operation {#Operation3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveSubnetCidrBlocksMetadata](#RemoveSubnetCidrBlocksMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet5)>**<br>if operation finished successfully. 
+
+
+### RemoveSubnetCidrBlocksMetadata {#RemoveSubnetCidrBlocksMetadata}
+
+Field | Description
+--- | ---
+subnet_id | **string**<br>ID of the Subnet resource that is being updated. 
+
+
+### Subnet {#Subnet5}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the subnet. 
+folder_id | **string**<br>ID of the folder that the subnet belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+name | **string**<br>Name of the subnet. The name is unique within the project. 3-63 characters long. 
+description | **string**<br>Optional description of the subnet. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
+network_id | **string**<br>ID of the network the subnet belongs to. 
+zone_id | **string**<br>ID of the availability zone where the subnet resides. 
+v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
+v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
+route_table_id | **string**<br>ID of route table the subnet is linked to. 
+dhcp_options | **[DhcpOptions](#DhcpOptions7)**<br> 
+
+
+### DhcpOptions {#DhcpOptions7}
+
+Field | Description
+--- | ---
+domain_name_servers[] | **string**<br> 
+domain_name | **string**<br> 
+ntp_servers[] | **string**<br> 
+
+
 ## Delete {#Delete}
 
 Deletes the specified subnet.
 
-**rpc Delete ([DeleteSubnetRequest](#DeleteSubnetRequest)) returns ([operation.Operation](#Operation2))**
+**rpc Delete ([DeleteSubnetRequest](#DeleteSubnetRequest)) returns ([operation.Operation](#Operation4))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteSubnetMetadata](#DeleteSubnetMetadata)<br>
@@ -293,7 +431,7 @@ Field | Description
 subnet_id | **string**<br>Required. ID of the subnet to delete. To get the subnet ID use a [SubnetService.List](#List) request. The maximum string length in characters is 50.
 
 
-### Operation {#Operation2}
+### Operation {#Operation4}
 
 Field | Description
 --- | ---
@@ -335,11 +473,11 @@ page_token | **string**<br>Page token. To get the next page of results, set `pag
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation3)**<br>List of operations for the specified Subnet resource. 
+operations[] | **[operation.Operation](#Operation5)**<br>List of operations for the specified Subnet resource. 
 next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListSubnetOperationsRequest.page_size](#ListSubnetOperationsRequest), use the `next_page_token` as the value for the [ListSubnetOperationsRequest.page_token](#ListSubnetOperationsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation3}
+### Operation {#Operation5}
 
 Field | Description
 --- | ---
@@ -359,11 +497,11 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 Move subnet to another folder.
 
-**rpc Move ([MoveSubnetRequest](#MoveSubnetRequest)) returns ([operation.Operation](#Operation4))**
+**rpc Move ([MoveSubnetRequest](#MoveSubnetRequest)) returns ([operation.Operation](#Operation6))**
 
 Metadata and response of Operation:<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[MoveSubnetMetadata](#MoveSubnetMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subnet](#Subnet4)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subnet](#Subnet6)<br>
 
 ### MoveSubnetRequest {#MoveSubnetRequest}
 
@@ -373,7 +511,7 @@ subnet_id | **string**<br>Required. ID of the Subnet resource to move. The maxim
 destination_folder_id | **string**<br>Required. ID of the destination folder. The maximum string length in characters is 50.
 
 
-### Operation {#Operation4}
+### Operation {#Operation6}
 
 Field | Description
 --- | ---
@@ -386,7 +524,7 @@ done | **bool**<br>If the value is `false`, it means the operation is still in p
 metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[MoveSubnetMetadata](#MoveSubnetMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet4)>**<br>if operation finished successfully. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet6)>**<br>if operation finished successfully. 
 
 
 ### MoveSubnetMetadata {#MoveSubnetMetadata}
@@ -396,7 +534,7 @@ Field | Description
 subnet_id | **string**<br>ID of the Subnet resource that is being moved. 
 
 
-### Subnet {#Subnet4}
+### Subnet {#Subnet6}
 
 Field | Description
 --- | ---
@@ -411,10 +549,10 @@ zone_id | **string**<br>ID of the availability zone where the subnet resides.
 v4_cidr_blocks[] | **string**<br><ol><li></li></ol> 
 v6_cidr_blocks[] | **string**<br>IPv6 not available yet. 
 route_table_id | **string**<br>ID of route table the subnet is linked to. 
-dhcp_options | **[DhcpOptions](#DhcpOptions6)**<br> 
+dhcp_options | **[DhcpOptions](#DhcpOptions8)**<br> 
 
 
-### DhcpOptions {#DhcpOptions6}
+### DhcpOptions {#DhcpOptions8}
 
 Field | Description
 --- | ---

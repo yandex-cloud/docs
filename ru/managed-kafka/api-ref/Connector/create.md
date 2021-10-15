@@ -57,7 +57,8 @@ clusterId | Required. Required. ID of the Apache Kafka cluster to create a conne
         // end of the list of possible fields`connectorSpec.connectorConfigMirrormaker.targetCluster`
 
       },
-      "topics": "string"
+      "topics": "string",
+      "replicationFactor": "integer"
     }
   }
 }
@@ -90,6 +91,7 @@ connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalClust
 connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>Sasl mechanism, which we should use to connect to cluster.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol, which we should use to connect to cluster.</p> 
 connectorSpec.<br>connectorConfigMirrormaker.<br>topics | **string**<br><p>List of Kafka topics, separated by ','</p> 
+connectorSpec.<br>connectorConfigMirrormaker.<br>replicationFactor | **integer** (int64)<br><p>Replication factor for automatically created topics.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

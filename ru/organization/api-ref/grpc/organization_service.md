@@ -40,6 +40,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the organization. 3-63 characters long. 
 description | **string**<br>Description of the organization. 0-256 characters long. 
 title | **string**<br>Display name of the organization. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## List {#List}
@@ -74,6 +75,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the organization. 3-63 characters long. 
 description | **string**<br>Description of the organization. 0-256 characters long. 
 title | **string**<br>Display name of the organization. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## Update {#Update}
@@ -95,6 +97,7 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 name | **string**<br>Name of the organization. Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 description | **string**<br>Description of the organization. The maximum string length in characters is 256.
 title | **string**<br>Display name of the organization. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
 ### Operation {#Operation}
@@ -129,6 +132,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the organization. 3-63 characters long. 
 description | **string**<br>Description of the organization. 0-256 characters long. 
 title | **string**<br>Display name of the organization. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## ListOperations {#ListOperations}

@@ -31,6 +31,8 @@ loadBalancerId | Required. ID of the application load balancer to add a SNI hand
     "certificateIds": [
       "string"
     ],
+
+    // `handler` includes only one of the fields `httpHandler`, `streamHandler`
     "httpHandler": {
       "httpRouterId": "string",
 
@@ -41,7 +43,12 @@ loadBalancerId | Required. ID of the application load balancer to add a SNI hand
       "allowHttp10": true,
       // end of the list of possible fields`handler.httpHandler`
 
-    }
+    },
+    "streamHandler": {
+      "backendGroupId": "string"
+    },
+    // end of the list of possible fields`handler`
+
   }
 }
 ```
@@ -54,11 +61,13 @@ name | **string**<br><p>Required. Name of the SNI handler to add.</p>
 serverNames[] | **string**<br><p>Required. Server names that are matched by the SNI handler.</p> <p>Must contain at least one element.</p> 
 handler | **object**<br><p>Required. Settings for handling requests with Server Name Indication (SNI) matching one of <a href="/docs/application-load-balancer/api-ref/LoadBalancer/addSniMatch#body_params">serverNames</a> values.</p> <p>An HTTPS (HTTP over TLS) handler resource.</p> 
 handler.<br>certificateIds[] | **string**<br><p>Required. ID's of the TLS server certificates from <a href="/docs/certificate-manager/">Certificate Manager</a>.</p> <p>RSA and ECDSA certificates are supported, and only the first certificate of each type is used.</p> <p>Must contain at least one element.</p> 
-handler.<br>httpHandler | **object**<br>HTTP handler.<br><p>An HTTP handler resource.</p> 
+handler.<br>httpHandler | **object**<br>HTTP handler. <br>`handler` includes only one of the fields `httpHandler`, `streamHandler`<br><br><p>An HTTP handler resource.</p> 
 handler.<br>httpHandler.<br>httpRouterId | **string**<br><p>ID of the HTTP router processing requests.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/http-router">documentation</a>.</p> 
 handler.<br>httpHandler.<br>http2Options | **object**<br>HTTP/2 settings.  If specified, incoming HTTP/2 requests are supported by the listener. <br>`handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>An HTTP/2 options resource.</p> 
 handler.<br>httpHandler.<br>http2Options.<br>maxConcurrentStreams | **string** (int64)<br><p>Maximum number of concurrent HTTP/2 streams in a connection.</p> 
 handler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.</p> 
+handler.<br>streamHandler | **object**<br>Stream handler <br>`handler` includes only one of the fields `httpHandler`, `streamHandler`<br><br><p>A stream handler resource.</p> 
+handler.<br>streamHandler.<br>backendGroupId | **string**<br><p>Required.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

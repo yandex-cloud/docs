@@ -43,7 +43,7 @@ To create a [resource](../../concepts/resource.md):
       
       1. Enable or disable **End-user access to content**.
       
-      1. If you have selected only the HTTP protocol, then in the **TLS certificate** field, select **Don't use**. Otherwise, select the **Let’s Encrypt®**  certificate.
+      1. If you have selected only the HTTP protocol, then in the **TLS certificate** field, select **Don't use**. Otherwise, select the **Let's Encrypt®**  certificate.
       
       1. Select the value of the **Host header** or choose **Custom** and enter the **Header value**.
 

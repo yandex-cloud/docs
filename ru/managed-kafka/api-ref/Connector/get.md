@@ -59,7 +59,8 @@ connectorName | Required. Name of the Apache Kafka Connector resource to return.
       // end of the list of possible fields`connectorConfigMirrormaker.targetCluster`
 
     },
-    "topics": "string"
+    "topics": "string",
+    "replicationFactor": "integer"
   }
 }
 ```
@@ -91,3 +92,4 @@ connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslUsernam
 connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>saslMechanism | **string**<br><p>Sasl mechanism, which we should use to connect to cluster.</p> 
 connectorConfigMirrormaker.<br>targetCluster.<br>externalCluster.<br>securityProtocol | **string**<br><p>Security protocol, which we should use to connect to cluster.</p> 
 connectorConfigMirrormaker.<br>topics | **string**<br><p>List of Kafka topics, separated by ','</p> 
+connectorConfigMirrormaker.<br>replicationFactor | **integer** (int64)<br><p>Replication factor for automatically created topics.</p> 

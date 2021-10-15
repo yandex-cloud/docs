@@ -64,9 +64,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener)**<br>TCP listener settings. 
 
 
 ### Endpoint {#Endpoint}
@@ -153,8 +154,9 @@ sni_handlers[] | **[SniMatch](#SniMatch)**<br>Settings for handling HTTPS reques
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler1)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -175,6 +177,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch}
 
 Field | Description
@@ -188,8 +197,9 @@ handler | **[TlsHandler](#TlsHandler1)**<br>Required. Settings for handling requ
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler2)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler1)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -208,6 +218,27 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler1}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### TcpListener {#TcpListener}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler2)**<br> 
+
+
+### StreamHandler {#StreamHandler2}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy}
@@ -275,9 +306,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint1)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener1)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener1)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener1)**<br>TCP listener settings. 
 
 
 ### Endpoint {#Endpoint1}
@@ -364,8 +396,9 @@ sni_handlers[] | **[SniMatch](#SniMatch1)**<br>Settings for handling HTTPS reque
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler4)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler3)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -386,6 +419,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler3}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch1}
 
 Field | Description
@@ -399,8 +439,9 @@ handler | **[TlsHandler](#TlsHandler3)**<br>Required. Settings for handling requ
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler5)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler4)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -419,6 +460,27 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler4}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### TcpListener {#TcpListener1}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler5)**<br> 
+
+
+### StreamHandler {#StreamHandler5}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy1}
@@ -557,8 +619,9 @@ sni_handlers[] | **[SniMatch](#SniMatch2)**<br>Settings for handling HTTPS reque
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler7)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler6)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -579,6 +642,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler6}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch2}
 
 Field | Description
@@ -592,8 +662,9 @@ handler | **[TlsHandler](#TlsHandler5)**<br>Required. Settings for handling requ
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler8)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler7)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -612,6 +683,13 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler7}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy2}
@@ -678,9 +756,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint2)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener3)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener3)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener2)**<br>TCP listener settings. 
 
 
 ### Endpoint {#Endpoint2}
@@ -767,8 +846,9 @@ sni_handlers[] | **[SniMatch](#SniMatch3)**<br>Settings for handling HTTPS reque
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler10)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler8)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -789,6 +869,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler8}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch3}
 
 Field | Description
@@ -802,8 +889,9 @@ handler | **[TlsHandler](#TlsHandler7)**<br>Required. Settings for handling requ
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler11)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler9)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -822,6 +910,27 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler9}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### TcpListener {#TcpListener2}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler10)**<br> 
+
+
+### StreamHandler {#StreamHandler10}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy3}
@@ -959,8 +1068,9 @@ sni_handlers[] | **[SniMatch](#SniMatch4)**<br>Settings for handling HTTPS reque
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler13)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler11)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -981,6 +1091,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler11}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch4}
 
 Field | Description
@@ -994,8 +1111,9 @@ handler | **[TlsHandler](#TlsHandler9)**<br>Required. Settings for handling requ
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler14)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler12)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1014,6 +1132,13 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler12}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy4}
@@ -1080,9 +1205,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint3)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener5)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener5)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener3)**<br>TCP listener settings. 
 
 
 ### Endpoint {#Endpoint3}
@@ -1169,8 +1295,9 @@ sni_handlers[] | **[SniMatch](#SniMatch5)**<br>Settings for handling HTTPS reque
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler16)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler13)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1191,6 +1318,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler13}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch5}
 
 Field | Description
@@ -1204,8 +1338,9 @@ handler | **[TlsHandler](#TlsHandler11)**<br>Required. Settings for handling req
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler17)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler14)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1224,6 +1359,27 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler14}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### TcpListener {#TcpListener3}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler15)**<br> 
+
+
+### StreamHandler {#StreamHandler15}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy5}
@@ -1347,9 +1503,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint4)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener6)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener6)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener4)**<br>TCP listener settings. 
 
 
 ### Endpoint {#Endpoint4}
@@ -1436,8 +1593,9 @@ sni_handlers[] | **[SniMatch](#SniMatch6)**<br>Settings for handling HTTPS reque
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler19)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler16)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1458,6 +1616,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler16}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch6}
 
 Field | Description
@@ -1471,8 +1636,9 @@ handler | **[TlsHandler](#TlsHandler13)**<br>Required. Settings for handling req
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler20)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler17)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1491,6 +1657,27 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler17}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### TcpListener {#TcpListener4}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler18)**<br> 
+
+
+### StreamHandler {#StreamHandler18}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy6}
@@ -1574,9 +1761,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint5)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener7)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener7)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener5)**<br>TCP listener settings. 
 
 
 ### Endpoint {#Endpoint5}
@@ -1663,8 +1851,9 @@ sni_handlers[] | **[SniMatch](#SniMatch7)**<br>Settings for handling HTTPS reque
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler22)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler19)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1685,6 +1874,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler19}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch7}
 
 Field | Description
@@ -1698,8 +1894,9 @@ handler | **[TlsHandler](#TlsHandler15)**<br>Required. Settings for handling req
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler23)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler20)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1718,6 +1915,27 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler20}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### TcpListener {#TcpListener5}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler21)**<br> 
+
+
+### StreamHandler {#StreamHandler21}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy7}
@@ -1849,8 +2067,9 @@ sni_handlers[] | **[SniMatch](#SniMatch8)**<br>Settings for handling HTTPS reque
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler25)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler22)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1871,6 +2090,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler22}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch8}
 
 Field | Description
@@ -1884,8 +2110,9 @@ handler | **[TlsHandler](#TlsHandler17)**<br>Required. Settings for handling req
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler26)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler23)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1904,6 +2131,13 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler23}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### Operation {#Operation5}
@@ -1955,9 +2189,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint6)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener9)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener9)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener6)**<br>TCP listener settings. 
 
 
 ### Endpoint {#Endpoint6}
@@ -2044,8 +2279,9 @@ sni_handlers[] | **[SniMatch](#SniMatch9)**<br>Settings for handling HTTPS reque
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler28)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler24)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2066,6 +2302,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler24}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch9}
 
 Field | Description
@@ -2079,8 +2322,9 @@ handler | **[TlsHandler](#TlsHandler19)**<br>Required. Settings for handling req
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler29)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler25)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2099,6 +2343,27 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler25}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### TcpListener {#TcpListener6}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler26)**<br> 
+
+
+### StreamHandler {#StreamHandler26}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy8}
@@ -2184,9 +2449,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint7)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener10)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener10)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener7)**<br>TCP listener settings. 
 
 
 ### Endpoint {#Endpoint7}
@@ -2273,8 +2539,9 @@ sni_handlers[] | **[SniMatch](#SniMatch10)**<br>Settings for handling HTTPS requ
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler31)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler27)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2295,6 +2562,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler27}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch10}
 
 Field | Description
@@ -2308,8 +2582,9 @@ handler | **[TlsHandler](#TlsHandler21)**<br>Required. Settings for handling req
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler32)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler28)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2328,6 +2603,27 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler28}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### TcpListener {#TcpListener7}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler29)**<br> 
+
+
+### StreamHandler {#StreamHandler29}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy9}
@@ -2460,8 +2756,9 @@ sni_handlers[] | **[SniMatch](#SniMatch11)**<br>Settings for handling HTTPS requ
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler34)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler30)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2482,6 +2779,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler30}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch11}
 
 Field | Description
@@ -2495,8 +2799,9 @@ handler | **[TlsHandler](#TlsHandler23)**<br>Required. Settings for handling req
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler35)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler31)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2515,6 +2820,13 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler31}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### Operation {#Operation7}
@@ -2566,9 +2878,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint8)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener12)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener12)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener8)**<br>TCP listener settings. 
 
 
 ### Endpoint {#Endpoint8}
@@ -2655,8 +2968,9 @@ sni_handlers[] | **[SniMatch](#SniMatch12)**<br>Settings for handling HTTPS requ
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler37)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler32)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2677,6 +2991,13 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
+### StreamHandler {#StreamHandler32}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### SniMatch {#SniMatch12}
 
 Field | Description
@@ -2690,8 +3011,9 @@ handler | **[TlsHandler](#TlsHandler25)**<br>Required. Settings for handling req
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler38)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler33)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2710,6 +3032,27 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler33}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### TcpListener {#TcpListener8}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler34)**<br> 
+
+
+### StreamHandler {#StreamHandler34}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### AllocationPolicy {#AllocationPolicy10}
@@ -2753,8 +3096,9 @@ handler | **[TlsHandler](#TlsHandler26)**<br>Required. Settings for handling req
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler39)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler35)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2773,6 +3117,13 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler35}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### Operation {#Operation8}
@@ -2826,8 +3177,9 @@ handler | **[TlsHandler](#TlsHandler27)**<br>Required. New settings for handling
 
 Field | Description
 --- | ---
-handler | **oneof:** `http_handler`<br>Settings for handling requests.
+handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler40)**<br>HTTP handler. 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler36)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2846,6 +3198,13 @@ protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol set
 Field | Description
 --- | ---
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
+
+
+### StreamHandler {#StreamHandler36}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
 
 
 ### Operation {#Operation9}

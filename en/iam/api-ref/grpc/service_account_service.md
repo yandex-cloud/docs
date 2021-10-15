@@ -42,6 +42,7 @@ folder_id | **string**<br>ID of the folder that the service account belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the service account. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the service account. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## List {#List}
@@ -77,6 +78,7 @@ folder_id | **string**<br>ID of the folder that the service account belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the service account. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the service account. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## Create {#Create}
@@ -96,6 +98,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to create a service account in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 name | **string**<br>Required. Name of the service account. The name must be unique within the cloud. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the service account. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
 ### Operation {#Operation}
@@ -130,6 +133,7 @@ folder_id | **string**<br>ID of the folder that the service account belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the service account. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the service account. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## Update {#Update}
@@ -150,6 +154,7 @@ service_account_id | **string**<br>Required. ID of the ServiceAccount resource t
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the ServiceAccount resource are going to be updated. 
 name | **string**<br>Required. Name of the service account. The name must be unique within the cloud. Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
 description | **string**<br>Description of the service account. The maximum string length in characters is 256.
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
 ### Operation {#Operation1}
@@ -184,6 +189,7 @@ folder_id | **string**<br>ID of the folder that the service account belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 name | **string**<br>Name of the service account. The name is unique within the cloud. 3-63 characters long. 
 description | **string**<br>Description of the service account. 0-256 characters long. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ## Delete {#Delete}

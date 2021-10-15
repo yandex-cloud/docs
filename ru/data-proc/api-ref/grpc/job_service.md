@@ -56,6 +56,7 @@ job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<
 &nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob)**<br>Specification for a Spark job. 
 &nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob)**<br>Specification for a PySpark job. 
 &nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob)**<br>Specification for a Hive job. 
+application_info | **[ApplicationInfo](#ApplicationInfo)**<br>Attributes of YARN application. 
 
 
 ### MapreduceJob {#MapreduceJob}
@@ -83,6 +84,9 @@ archive_uris[] | **string**<br>URIs of archives to be extracted to the working d
 properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and Spark. 
 main_jar_file_uri | **string**<br>The HCFS URI of the JAR file containing the `main` class for the job. 
 main_class | **string**<br>The name of the driver class. 
+packages[] | **string**<br>List of maven coordinates of jars to include on the driver and executor classpaths. 
+repositories[] | **string**<br>List of additional remote repositories to search for the maven coordinates given with --packages. 
+exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
 
 
 ### PysparkJob {#PysparkJob}
@@ -96,6 +100,9 @@ archive_uris[] | **string**<br>URIs of archives to be extracted to the working d
 properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and PySpark. 
 main_python_file_uri | **string**<br>URI of the file with the driver code. Must be a .py file. 
 python_file_uris[] | **string**<br>URIs of Python files to pass to the PySpark framework. 
+packages[] | **string**<br>List of maven coordinates of jars to include on the driver and executor classpaths. 
+repositories[] | **string**<br>List of additional remote repositories to search for the maven coordinates given with --packages. 
+exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
 
 
 ### HiveJob {#HiveJob}
@@ -116,6 +123,22 @@ query_type | **oneof:** `query_file_uri` or `query_list`<br>
 Field | Description
 --- | ---
 queries[] | **string**<br>List of Hive queries. 
+
+
+### ApplicationInfo {#ApplicationInfo}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of YARN application 
+application_attempts[] | **[ApplicationAttempt](#ApplicationAttempt)**<br>YARN application attempts 
+
+
+### ApplicationAttempt {#ApplicationAttempt}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of YARN application attempt 
+am_container_id | **string**<br>ID of YARN Application Master container 
 
 
 ## Create {#Create}
@@ -166,6 +189,9 @@ archive_uris[] | **string**<br>URIs of archives to be extracted to the working d
 properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and Spark. 
 main_jar_file_uri | **string**<br>The HCFS URI of the JAR file containing the `main` class for the job. 
 main_class | **string**<br>The name of the driver class. 
+packages[] | **string**<br>List of maven coordinates of jars to include on the driver and executor classpaths. 
+repositories[] | **string**<br>List of additional remote repositories to search for the maven coordinates given with --packages. 
+exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
 
 
 ### PysparkJob {#PysparkJob1}
@@ -179,6 +205,9 @@ archive_uris[] | **string**<br>URIs of archives to be extracted to the working d
 properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and PySpark. 
 main_python_file_uri | **string**<br>URI of the file with the driver code. Must be a .py file. 
 python_file_uris[] | **string**<br>URIs of Python files to pass to the PySpark framework. 
+packages[] | **string**<br>List of maven coordinates of jars to include on the driver and executor classpaths. 
+repositories[] | **string**<br>List of additional remote repositories to search for the maven coordinates given with --packages. 
+exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
 
 
 ### HiveJob {#HiveJob1}
@@ -242,6 +271,7 @@ job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<
 &nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob2)**<br>Specification for a Spark job. 
 &nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob2)**<br>Specification for a PySpark job. 
 &nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob2)**<br>Specification for a Hive job. 
+application_info | **[ApplicationInfo](#ApplicationInfo1)**<br>Attributes of YARN application. 
 
 
 ### MapreduceJob {#MapreduceJob2}
@@ -269,6 +299,9 @@ archive_uris[] | **string**<br>URIs of archives to be extracted to the working d
 properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and Spark. 
 main_jar_file_uri | **string**<br>The HCFS URI of the JAR file containing the `main` class for the job. 
 main_class | **string**<br>The name of the driver class. 
+packages[] | **string**<br>List of maven coordinates of jars to include on the driver and executor classpaths. 
+repositories[] | **string**<br>List of additional remote repositories to search for the maven coordinates given with --packages. 
+exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
 
 
 ### PysparkJob {#PysparkJob2}
@@ -282,6 +315,9 @@ archive_uris[] | **string**<br>URIs of archives to be extracted to the working d
 properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and PySpark. 
 main_python_file_uri | **string**<br>URI of the file with the driver code. Must be a .py file. 
 python_file_uris[] | **string**<br>URIs of Python files to pass to the PySpark framework. 
+packages[] | **string**<br>List of maven coordinates of jars to include on the driver and executor classpaths. 
+repositories[] | **string**<br>List of additional remote repositories to search for the maven coordinates given with --packages. 
+exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
 
 
 ### HiveJob {#HiveJob2}
@@ -302,6 +338,22 @@ query_type | **oneof:** `query_file_uri` or `query_list`<br>
 Field | Description
 --- | ---
 queries[] | **string**<br>List of Hive queries. 
+
+
+### ApplicationInfo {#ApplicationInfo1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of YARN application 
+application_attempts[] | **[ApplicationAttempt](#ApplicationAttempt1)**<br>YARN application attempts 
+
+
+### ApplicationAttempt {#ApplicationAttempt1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of YARN application attempt 
+am_container_id | **string**<br>ID of YARN Application Master container 
 
 
 ## Get {#Get}
@@ -335,6 +387,7 @@ job_spec | **oneof:** `mapreduce_job`, `spark_job`, `pyspark_job` or `hive_job`<
 &nbsp;&nbsp;spark_job | **[SparkJob](#SparkJob3)**<br>Specification for a Spark job. 
 &nbsp;&nbsp;pyspark_job | **[PysparkJob](#PysparkJob3)**<br>Specification for a PySpark job. 
 &nbsp;&nbsp;hive_job | **[HiveJob](#HiveJob3)**<br>Specification for a Hive job. 
+application_info | **[ApplicationInfo](#ApplicationInfo2)**<br>Attributes of YARN application. 
 
 
 ### MapreduceJob {#MapreduceJob3}
@@ -362,6 +415,9 @@ archive_uris[] | **string**<br>URIs of archives to be extracted to the working d
 properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and Spark. 
 main_jar_file_uri | **string**<br>The HCFS URI of the JAR file containing the `main` class for the job. 
 main_class | **string**<br>The name of the driver class. 
+packages[] | **string**<br>List of maven coordinates of jars to include on the driver and executor classpaths. 
+repositories[] | **string**<br>List of additional remote repositories to search for the maven coordinates given with --packages. 
+exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
 
 
 ### PysparkJob {#PysparkJob3}
@@ -375,6 +431,9 @@ archive_uris[] | **string**<br>URIs of archives to be extracted to the working d
 properties | **map<string,string>**<br>Property names and values, used to configure Data Proc and PySpark. 
 main_python_file_uri | **string**<br>URI of the file with the driver code. Must be a .py file. 
 python_file_uris[] | **string**<br>URIs of Python files to pass to the PySpark framework. 
+packages[] | **string**<br>List of maven coordinates of jars to include on the driver and executor classpaths. 
+repositories[] | **string**<br>List of additional remote repositories to search for the maven coordinates given with --packages. 
+exclude_packages[] | **string**<br>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. 
 
 
 ### HiveJob {#HiveJob3}
@@ -395,6 +454,22 @@ query_type | **oneof:** `query_file_uri` or `query_list`<br>
 Field | Description
 --- | ---
 queries[] | **string**<br>List of Hive queries. 
+
+
+### ApplicationInfo {#ApplicationInfo2}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of YARN application 
+application_attempts[] | **[ApplicationAttempt](#ApplicationAttempt2)**<br>YARN application attempts 
+
+
+### ApplicationAttempt {#ApplicationAttempt2}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of YARN application attempt 
+am_container_id | **string**<br>ID of YARN Application Master container 
 
 
 ## ListLog {#ListLog}

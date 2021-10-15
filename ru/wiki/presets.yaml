@@ -7,6 +7,7 @@ default:
   link-support: https://support.cloud.yandex.ru/?referral=wiki
   link-passport: https://passport.yandex.ru/
   link-forms-int: https://forms.yandex-team.ru/admin/
+  link-tracker: https://tracker.yandex.ru/
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
   link-about-markdown: https://ru.wikipedia.org/wiki/Markdown
   link-about-graphviz: https://ru.wikipedia.org/wiki/Graphviz

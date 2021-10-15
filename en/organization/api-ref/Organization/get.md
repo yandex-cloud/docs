@@ -27,7 +27,8 @@ organizationId | Required. ID of the Organization resource to return. To get the
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "title": "string"
+  "title": "string",
+  "labels": "object"
 }
 ```
 An Organization resource. For more information, see [Organization](/docs/organization/enable-org).
@@ -39,3 +40,4 @@ createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a
 name | **string**<br><p>Name of the organization. 3-63 characters long.</p> 
 description | **string**<br><p>Description of the organization. 0-256 characters long.</p> 
 title | **string**<br><p>Display name of the organization. 0-256 characters long.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 

@@ -4,6 +4,22 @@
 
 {{ ml-platform-full-name }} позволяет создавать репозитории Docker-образов в проекте, а также выбирать образ для проекта. Выбранный образ будет использоваться при запуске кода во всех ноутбуках проекта.
 
+## Требования к Docker-образу {#requirements}
+
+Чтобы Docker-образ запускался и корректно работал в {{ ml-platform-name }}, он должен содержать:
+
+* установку Python 3.7 или Python 3.8;
+* установку pip;
+* пользователя Jupiter.
+
+{% note info %}
+
+Шаблоны Docker-образов, представленные в {{ ml-platform-name }}, уже удовлетворяют требованиям. Если вы загружаете образ из стороннего источника или пишите свой, добавьте в него необходимые команды. 
+
+{% endnote %}
+
+## Создать Docker-образ {#create}
+
 Чтобы создать Docker-образ:
 
 1. Перейдите во вкладку ![docker](../../_assets/datasphere/docker.svg) **Docker images**.
@@ -23,7 +39,7 @@
           apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub &&\
           add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
           apt-get update &&\
-          apt-get -y install cuda libcudnn8 &&\
+          apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
           exit
         ```
 
