@@ -3,16 +3,22 @@
 {{ brand-voice-name }} Adaptive is a platform for training interactive robots. It synthesizes phrases based on the recordings of the speaker's voice using templates. They consist of two parts:
 
 * Static part: The structure and intonation of the spoken phrase.
-* Dynamic part: A variable that depends on each specific dialog.
+* Dynamic part: A variable part of the phrase that depends on each specific dialog.
 
 To train a voice model, you need:
 
-* A ZIP archive of audio recordings in [WAV]{% if region =="int" %}(https://en.wikipedia.org/wiki/WAV){% else %}(https://ru.wikipedia.org/wiki/WAV){% endif %} format.
-* Text transcripts of audio recordings in a [TSV]{% if region =="int" %}(https://en.wikipedia.org/wiki/Tab-separated_values){% else %}(https://ru.wikipedia.org/wiki/TSV){% endif %} table. The table with texts should consist of two columns:
+* A ZIP archive of audio recordings in [WAV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/WAV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/WAV){% endif %} format, which contains:
+   1. The main set (the basic bucket) consists of phrases specially prepared by the {{ yandex-cloud }} team. They must be spoken and recorded. You can't change this set. You can only skip some phrases.
+   1. A set for making phrases (a specific bucket). Recorded patterns are used as texts. They are then synthesized, taking variables into account. This set is based on user data and must be reviewed before recording.
+* Text transcripts of audio recordings in a [TSV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/TSV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Tab-separated_values){% endif %} table. The table with texts should consist of two columns:
    1. `recording`: The name of the audio file where the speaker recorded the spoken text (used as a template with a substituted variable).
    1. `text`: A line with a verbatim transcript of the audio recording. The variable part of the template must be in `{variable_name = variable_value}` format. The names of variables must be constant within the same template.
 
 ## Audio file requirements {#audio-requirements}
+
+* One phrase to one recorded audio file.
+* No inaccuracies, micro repeats, reservations, and word substitutions are allowed.
+* To name files, use phrase numbers.
 
 Audio files in [LPCM](https://en.wikipedia.org/wiki/Pulse-code_modulation) format with a WAV header are accepted as input data.
 
@@ -37,7 +43,7 @@ Audio features:
 
    {% note warning %}
 
-   The interrogative intonation should only be in the static part of a phrase.
+   The logical stress should not fall on the variable part of the phrase.
 
    {% endnote %}
 
@@ -45,7 +51,7 @@ Audio features:
    > * Did the \*\*cat\*\* go to the forest?: This means <q>Who went to the forest? Was it really the cat?</q>
    > * Did the cat  \*\*go\*\* to the forest?: This means <q>Did the cat walk or run?</q> or <q>Was the action itself performed? Is the cat gone or not?</q>
    > * Did the cat go \*\*to the forest\*\*?: This means <q>Where did the cat go or what for? To the forest, outside, to look for a sausage?</q>
-
+   >
    > In all sentences, the logical stress emphasizes the main meaning of the sentence.
 
 ### Example of a summary text table {#example}

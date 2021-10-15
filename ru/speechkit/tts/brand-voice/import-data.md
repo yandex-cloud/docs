@@ -10,7 +10,7 @@
    
 1. Перейдите на вкладку **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg).
 
-1. Загрузите в проект ZIP-архив с аудиофайлами и таблицу в формате [TSV](https://ru.wikipedia.org/wiki/TSV) с текстовыми расшифровками аудиозаписей, перетащив файлы на вкладку **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg).
+1. Загрузите в проект ZIP-архив с аудиофайлами и таблицу в формате [TSV]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/TSV){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Tab-separated_values){% endif %} с текстовыми расшифровками аудиозаписей, перетащив файлы на вкладку **File Browser** ![File Browser](../../../_assets/datasphere/jupyterlab/folder.svg).
 
    {% note info %}
    
