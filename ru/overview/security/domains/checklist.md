@@ -131,7 +131,7 @@
 - **Сбор и анализ логов аудита Kubernetes и инструментов защиты**.
   ![](../../../_assets/overview/solution-library-icon.png)[Решение: анализ логов безопасности Kubernetes в Managed Service for Elasticsearch: логи аудита, policy engine, Falco](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
 - **Сбор и анализ логов аудита workloads и группы узлов**: например, с помощью открытых инструментов Fluentbit, Beats и др.
-- **Мониторинг аномальной нагрузки**: используйте [Yandex Monitoring](../../../monitoring/index.yaml).
+{% if audience == "external" %} - **Мониторинг аномальной нагрузки**: используйте [Yandex Monitoring](../../../monitoring/index.yaml). {% endif %}
 
 ### Резервное копирование {#kubernetes-backup}
 

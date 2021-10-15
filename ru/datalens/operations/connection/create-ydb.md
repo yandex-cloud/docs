@@ -10,7 +10,7 @@
 
 {% endif %}
 
-Для написания подзапросов в датасетах и запросов в SQL-чартах используйте [синтаксис YQL](../../../ydb/yql/reference/overview.md).
+Для написания подзапросов в датасетах и запросов в SQL-чартах используйте {% if audience == "external" %} [синтаксис YQL](../../../ydb/yql/reference/overview.md). {% endif %} {% if audience == "internal" %} синтаксис YQL. {% endif %}
 
 {% endnote %}
 
