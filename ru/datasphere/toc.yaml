@@ -83,6 +83,8 @@ items:
         href: concepts/preinstalled-packages.md
       - name: Доступные команды
         href: concepts/magic.md
+      - name: 'Служебные команды #pragma'
+        href: concepts/pragma.md       
       - name: Конфигурации вычислительных ресурсов
         href: concepts/configurations.md
       - name: Интеграция с системами контроля версий и данных
