@@ -204,6 +204,12 @@ items:
     include:
       repo: docs
       path: en/_api-ref/datalens/toc.yaml
+  - name: Tutorial on functions
+    items:
+      - name: Aggregate functions
+        href: concepts/aggregation-tutorial.md
+      - name: Window functions
+        href: concepts/window-function-tutorial.md
   - name: Public materials
     items:
       - name: Educational projects
