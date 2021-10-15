@@ -32,6 +32,15 @@ jobId | Required. ID of the job to return.  To get a job ID make a [list](/docs/
   "name": "string",
   "createdBy": "string",
   "status": "string",
+  "applicationInfo": {
+    "id": "string",
+    "applicationAttempts": [
+      {
+        "id": "string",
+        "amContainerId": "string"
+      }
+    ]
+  },
 
   //  includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`
   "mapreduceJob": {
@@ -70,7 +79,16 @@ jobId | Required. ID of the job to return.  To get a job ID make a [list](/docs/
     ],
     "properties": "object",
     "mainJarFileUri": "string",
-    "mainClass": "string"
+    "mainClass": "string",
+    "packages": [
+      "string"
+    ],
+    "repositories": [
+      "string"
+    ],
+    "excludePackages": [
+      "string"
+    ]
   },
   "pysparkJob": {
     "args": [
@@ -88,6 +106,15 @@ jobId | Required. ID of the job to return.  To get a job ID make a [list](/docs/
     "properties": "object",
     "mainPythonFileUri": "string",
     "pythonFileUris": [
+      "string"
+    ],
+    "packages": [
+      "string"
+    ],
+    "repositories": [
+      "string"
+    ],
+    "excludePackages": [
       "string"
     ]
   },
@@ -125,6 +152,11 @@ finishedAt | **string** (date-time)<br><p>The time when the job was finished.</p
 name | **string**<br><p>Name of the job, specified in the <a href="/docs/data-proc/api-ref/Job/create">create</a> request.</p> 
 createdBy | **string**<br><p>The id of the user who created the job</p> 
 status | **string**<br>Job status.<br><ul> <li>PROVISIONING: Job is logged in the database and is waiting for the agent to run it.</li> <li>PENDING: Job is acquired by the agent and is in the queue for execution.</li> <li>RUNNING: Job is being run in the cluster.</li> <li>ERROR: Job failed to finish the run properly.</li> <li>DONE: Job is finished.</li> </ul> 
+applicationInfo | **object**<br>Attributes of YARN application.<br>
+applicationInfo.<br>id | **string**<br><p>ID of YARN application</p> 
+applicationInfo.<br>applicationAttempts[] | **object**<br><p>YARN application attempts</p> 
+applicationInfo.<br>applicationAttempts[].<br>id | **string**<br><p>ID of YARN application attempt</p> 
+applicationInfo.<br>applicationAttempts[].<br>amContainerId | **string**<br><p>ID of YARN Application Master container</p> 
 mapreduceJob | **object**<br>Specification for a MapReduce job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 mapreduceJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
 mapreduceJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
@@ -141,6 +173,9 @@ sparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted t
 sparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Spark.</p> 
 sparkJob.<br>mainJarFileUri | **string**<br><p>The HCFS URI of the JAR file containing the ``main`` class for the job.</p> 
 sparkJob.<br>mainClass | **string**<br><p>The name of the driver class.</p> 
+sparkJob.<br>packages[] | **string**<br><p>List of maven coordinates of jars to include on the driver and executor classpaths.</p> 
+sparkJob.<br>repositories[] | **string**<br><p>List of additional remote repositories to search for the maven coordinates given with --packages.</p> 
+sparkJob.<br>excludePackages[] | **string**<br><p>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.</p> 
 pysparkJob | **object**<br>Specification for a PySpark job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 pysparkJob.<br>args[] | **string**<br><p>Optional arguments to pass to the driver.</p> 
 pysparkJob.<br>jarFileUris[] | **string**<br><p>JAR file URIs to add to CLASSPATH of the Data Proc driver and each task.</p> 
@@ -149,6 +184,9 @@ pysparkJob.<br>archiveUris[] | **string**<br><p>URIs of archives to be extracted
 pysparkJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and PySpark.</p> 
 pysparkJob.<br>mainPythonFileUri | **string**<br><p>URI of the file with the driver code. Must be a .py file.</p> 
 pysparkJob.<br>pythonFileUris[] | **string**<br><p>URIs of Python files to pass to the PySpark framework.</p> 
+pysparkJob.<br>packages[] | **string**<br><p>List of maven coordinates of jars to include on the driver and executor classpaths.</p> 
+pysparkJob.<br>repositories[] | **string**<br><p>List of additional remote repositories to search for the maven coordinates given with --packages.</p> 
+pysparkJob.<br>excludePackages[] | **string**<br><p>List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.</p> 
 hiveJob | **object**<br>Specification for a Hive job. <br> includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`<br><br>
 hiveJob.<br>properties | **object**<br><p>Property names and values, used to configure Data Proc and Hive.</p> 
 hiveJob.<br>continueOnFailure | **boolean** (boolean)<br><p>Flag indicating whether a job should continue to run if a query fails.</p> 

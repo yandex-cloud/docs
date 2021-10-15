@@ -1822,6 +1822,9 @@ components:
           grpc:
             $ref: '#/components/schemas/GrpcBackendGroup'
             description: List of gRPC backends that the backend group consists of.
+          stream:
+            $ref: '#/components/schemas/StreamBackendGroup'
+            description: List of stream backends that the backend group consist of.
     BackendTls:
       description: A resource for backend TLS settings.
       type: object
@@ -1963,9 +1966,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VirtualHost'
-        httpsRedirect:
-          type: boolean
-          format: boolean
     CreateLoadBalancerMetadata:
       type: object
       properties:
@@ -3110,6 +3110,9 @@ components:
           tls:
             $ref: '#/components/schemas/TlsListener'
             description: HTTPS (HTTP over TLS) listener settings.
+          tcp:
+            $ref: '#/components/schemas/TcpListener'
+            description: TCP listener settings.
     ListenerSpec:
       type: object
       allOf:
@@ -3679,6 +3682,64 @@ components:
             Required.
             Name of the bucket.
           type: string
+    StreamBackend:
+      description: A stream backend resource.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: Value must match the regular expression `` [a-z][-a-z0-9]{1,61}[a-z0-9]
+              ``.
+            type: string
+          backendWeight:
+            description: If not set, backend will be disabled.
+            type: integer
+            format: int64
+          loadBalancingConfig:
+            $ref: '#/components/schemas/LoadBalancingConfig'
+          port:
+            description: |-
+              Optional alternative port for all targets.
+
+              Acceptable values are 0 to 65535, inclusive.
+            type: string
+            format: int64
+          healthchecks:
+            type: array
+            items:
+              $ref: '#/components/schemas/HealthCheck'
+          tls:
+            $ref: '#/components/schemas/BackendTls'
+      - title: backend_type
+        type: object
+        maxProperties: 1
+        properties:
+          targetGroups:
+            $ref: '#/components/schemas/TargetGroupsBackend'
+    StreamBackendGroup:
+      description: A Stream backend group resource.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          backends:
+            type: array
+            items:
+              $ref: '#/components/schemas/StreamBackend'
+      - title: session_affinity
+        type: object
+        maxProperties: 1
+        properties:
+          connection:
+            $ref: '#/components/schemas/ConnectionSessionAffinity'
+    StreamHandler:
+      description: A stream handler resource.
+      type: object
+      properties:
+        backendGroupId:
+          description: Required.
+          type: string
     StringMatch:
       description: A string matcher resource.
       type: object
@@ -3821,6 +3882,12 @@ components:
             (HTTP 5xx status codes, connection errors etc.), are not implemented yet.
           type: boolean
           format: boolean
+    TcpListener:
+      description: A TCP listener resource.
+      type: object
+      properties:
+        handler:
+          $ref: '#/components/schemas/StreamHandler_in_TcpListener_handler'
     TlsHandler:
       description: An HTTPS (HTTP over TLS) handler resource.
       type: object
@@ -3845,6 +3912,9 @@ components:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
             description: HTTP handler.
+          streamHandler:
+            $ref: '#/components/schemas/StreamHandler'
+            description: Stream handler
     TlsListener:
       description: An HTTPS (HTTP over TLS) listener resource.
       type: object
@@ -4000,9 +4070,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VirtualHost'
-        httpsRedirect:
-          type: boolean
-          format: boolean
     UpdateListenerMetadata:
       type: object
       properties:
@@ -4443,6 +4510,9 @@ components:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
             description: HTTP handler.
+          streamHandler:
+            $ref: '#/components/schemas/StreamHandler'
+            description: Stream handler
     ValidationContext_in_BackendTls_validationContext:
       description: |-
         Validation context for TLS connections.
@@ -4763,6 +4833,9 @@ components:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
             description: HTTP handler.
+          streamHandler:
+            $ref: '#/components/schemas/StreamHandler'
+            description: Stream handler
     TargetStateHealthcheckStatus_in_TargetState_status:
       description: |-
         Health of the target, i.e. its statuses in all availability zones.
@@ -4818,6 +4891,13 @@ components:
       - UNHEALTHY
       - DRAINING
       - TIMEOUT
+    StreamHandler_in_TcpListener_handler:
+      description: A stream handler resource.
+      type: object
+      properties:
+        backendGroupId:
+          description: Required.
+          type: string
     TlsHandler_in_TlsListener_defaultHandler:
       description: |-
         Required.
@@ -4847,6 +4927,9 @@ components:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
             description: HTTP handler.
+          streamHandler:
+            $ref: '#/components/schemas/StreamHandler'
+            description: Stream handler
     FieldMask_in_UpdateHttpRouterRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the HTTP router should be updated.
@@ -4988,6 +5071,9 @@ components:
           httpHandler:
             $ref: '#/components/schemas/HttpHandler'
             description: HTTP handler.
+          streamHandler:
+            $ref: '#/components/schemas/StreamHandler'
+            description: Stream handler
     FieldMask_in_UpdateTargetGroupRequest_updateMask:
       description: |-
         Field mask that specifies which attributes of the target group should be updated.

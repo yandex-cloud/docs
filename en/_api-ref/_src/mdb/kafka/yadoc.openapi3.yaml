@@ -1689,6 +1689,10 @@ components:
         topics:
           description: List of Kafka topics, separated by ','
           type: string
+        replicationFactor:
+          description: Replication factor for automatically created topics.
+          type: integer
+          format: int64
     ConnectorConfigMirrorMakerSpec:
       description: |-
         An An Apache Kafka® MirrorMaker
@@ -1702,6 +1706,10 @@ components:
         topics:
           description: List of Kafka topics, separated by ','
           type: string
+        replicationFactor:
+          description: Replication factor for automatically created topics.
+          type: integer
+          format: int64
     ConnectorHealth:
       description: |2-
          - HEALTH_UNKNOWN: State of the connector is unknown.

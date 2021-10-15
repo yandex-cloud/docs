@@ -1701,6 +1701,18 @@ components:
           $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
         networkSettings:
           $ref: '#/components/schemas/NodeTemplateNetworkSettings_in_NodeTemplate_networkSettings'
+        containerRuntimeSettings:
+          $ref: '#/components/schemas/NodeTemplateContainerRuntimeSettings_in_NodeTemplate_containerRuntimeSettings'
+    NodeTemplateContainerRuntimeSettings:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/NodeTemplateContainerRuntimeSettingsType_in_NodeTemplateContainerRuntimeSettings_type'
+    NodeTemplateContainerRuntimeSettingsType:
+      type: string
+      enum:
+      - DOCKER
+      - CONTAINERD
     NodeTemplateNetworkSettings:
       type: object
       properties:
@@ -2264,6 +2276,8 @@ components:
           $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
         networkSettings:
           $ref: '#/components/schemas/NodeTemplateNetworkSettings_in_NodeTemplate_networkSettings'
+        containerRuntimeSettings:
+          $ref: '#/components/schemas/NodeTemplateContainerRuntimeSettings_in_NodeTemplate_containerRuntimeSettings'
     ScalePolicy_in_CreateNodeGroupRequest_scalePolicy:
       description: |-
         Required.
@@ -2616,6 +2630,8 @@ components:
           $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
         networkSettings:
           $ref: '#/components/schemas/NodeTemplateNetworkSettings_in_NodeTemplate_networkSettings'
+        containerRuntimeSettings:
+          $ref: '#/components/schemas/NodeTemplateContainerRuntimeSettings_in_NodeTemplate_containerRuntimeSettings'
     ScalePolicy_in_NodeGroup_scalePolicy:
       description: Scale policy of the node group.  For more information, see [Scaling
         policy](/docs/compute/concepts/instance-groups/policies#scale-policy).
@@ -2863,6 +2879,17 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/NodeTemplateNetworkSettingsType_in_NodeTemplateNetworkSettings_type'
+    NodeTemplateContainerRuntimeSettings_in_NodeTemplate_containerRuntimeSettings:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/NodeTemplateContainerRuntimeSettingsType_in_NodeTemplateContainerRuntimeSettings_type'
+    NodeTemplateContainerRuntimeSettingsType_in_NodeTemplateContainerRuntimeSettings_type:
+      description: Required.
+      type: string
+      enum:
+      - DOCKER
+      - CONTAINERD
     NodeTemplateNetworkSettingsType_in_NodeTemplateNetworkSettings_type:
       description: Required.
       type: string
@@ -2954,6 +2981,8 @@ components:
           $ref: '#/components/schemas/PlacementPolicy_in_NodeTemplate_placementPolicy'
         networkSettings:
           $ref: '#/components/schemas/NodeTemplateNetworkSettings_in_NodeTemplate_networkSettings'
+        containerRuntimeSettings:
+          $ref: '#/components/schemas/NodeTemplateContainerRuntimeSettings_in_NodeTemplate_containerRuntimeSettings'
     ScalePolicy_in_UpdateNodeGroupRequest_scalePolicy:
       description: Scale policy of the node group.
       type: object

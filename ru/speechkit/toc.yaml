@@ -43,15 +43,15 @@ items:
             href: tts/brand-voice/income-data-format.md
           - name: Импорт данных для Brand Voice
             href: tts/brand-voice/import-data.md
-      - name: Справочник APIv3
-        items:
-        - name: Аутентификация в API
-          href: api-ref/authentication.md
-        - name: gRPC (англ.)
-          items: null
-          include:
-            repo: docs
-            path: en/_api-ref-grpc/ai/tts/v3/toc.yaml
+          - name: Справочник APIv3
+            items:
+            - name: Аутентификация в API
+              href: api-ref/authentication.md
+            - name: gRPC (англ.)
+              items: null
+              include:
+                repo: docs
+                path: en/_api-ref-grpc/ai/tts/v3/toc.yaml
   - name: SpeechKit Hybrid
     items:
         - name: О технологии
@@ -65,6 +65,20 @@ items:
         - name: Мониторинг
           hidden: true
           href: hybrid-speechkit/monitoring.md
+        - name: Справочники API gRPC (англ.)
+          items:
+            - name: Аутентификация в API
+              href: hybrid-speechkit/auth.md
+            - name: Синтез речи
+              items: null
+              include:
+                repo: docs
+                path: en/_api-ref-grpc/ai/tts/v3/toc.yaml
+            - name: Потоковое распознавание
+              items: null
+              include:
+                repo: docs
+                path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
   - name: Интеграция телефонии
     href: concepts/ivr-integration.md
   - name: Использование API

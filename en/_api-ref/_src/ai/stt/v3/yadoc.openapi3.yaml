@@ -1,11 +1,11 @@
 openapi: "3.0"
 info:
-  title: Yandex Text To Speech Service API
+  title: Yandex Speech To Text Service API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
   version: v3
-  x-y-docUri: api-ref
+  x-y-docUri: stt/api-ref
   x-y-baseUrl: https://stt.api.cloud.yandex.net
 paths: {}
 components:
@@ -423,3 +423,4 @@ components:
       - TEXT_NORMALIZATION_DISABLED
 tags:
 - name: Recognizer
+  description: A set of methods for voice recognition.

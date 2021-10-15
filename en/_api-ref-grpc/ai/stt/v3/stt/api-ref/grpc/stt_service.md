@@ -4,7 +4,7 @@ editable: false
 
 # Recognizer
 
-
+A set of methods for voice recognition.
 
 | Call | Description |
 | --- | --- |

@@ -32,7 +32,8 @@ filter | A filter expression that filters resources listed in the response. The 
       "folderId": "string",
       "createdAt": "string",
       "name": "string",
-      "description": "string"
+      "description": "string",
+      "labels": "object"
     }
   ],
   "nextPageToken": "string"
@@ -48,4 +49,5 @@ serviceAccounts[].<br>folderId | **string**<br><p>ID of the folder that the serv
 serviceAccounts[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 serviceAccounts[].<br>name | **string**<br><p>Name of the service account. The name is unique within the cloud. 3-63 characters long.</p> 
 serviceAccounts[].<br>description | **string**<br><p>Description of the service account. 0-256 characters long.</p> 
+serviceAccounts[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/iam/api-ref/ServiceAccount/list#query_params">pageSize</a>, use the <a href="/docs/iam/api-ref/ServiceAccount/list#responses">nextPageToken</a> as the value for the <a href="/docs/iam/api-ref/ServiceAccount/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/iam/api-ref/ServiceAccount/list#responses">nextPageToken</a> to continue paging through the results.</p> 

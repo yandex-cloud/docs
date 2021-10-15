@@ -1,11 +1,13 @@
 openapi: "3.0"
 info:
-  title: Yandex Speech To Text Service API
+  title: Yandex Text To Speech Service API
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+    <br><br> API has limitation — the request cannot exceed 160 characters and 16
+    seconds for synthesis.
   version: v3
-  x-y-docUri: api-ref
+  x-y-docUri: tts/api-ref
   x-y-baseUrl: https://tts.api.cloud.yandex.net
 paths: {}
 components:
@@ -70,7 +72,7 @@ components:
           type: string
           format: int64
         variableLengthMs:
-          description: Lenght of the variable in milliseconds.
+          description: Length of the variable in milliseconds.
           type: string
           format: int64
     ContainerAudio:
@@ -102,7 +104,9 @@ components:
             type: number
             format: double
           volume:
-            description: hint to regulate volume
+            description: hint to regulate volume. For LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED
+              normalization will use MAX_PEAK, if volume in (0, 1], LUFS if volume
+              in [-145, 0).
             type: number
             format: double
     RawAudio:

@@ -22,13 +22,13 @@ Synthesizing text into speech.
 
 Field | Description
 --- | ---
-model | **string**<br>The name of the model. <br>Currently avalible only `general`. 
+model | **string**<br>The name of the model. <br>Specifies basic synthesis functionality. Currently should be empty. 
 Utterance | **oneof:** `text` or `text_template`<br>Text to synthesis, one of text synthesis markups.
 &nbsp;&nbsp;text | **string**<br>Raw text (e.g. "Hello, Alice"). 
-&nbsp;&nbsp;text_template | **[TextTemplate](#TextTemplate)**<br>Text template instalce, e.g. `{"Hello, {username}" with username="Alice"}`. 
+&nbsp;&nbsp;text_template | **[TextTemplate](#TextTemplate)**<br>Text template instance, e.g. `{"Hello, {username}" with username="Alice"}`. 
 hints[] | **[Hints](#Hints)**<br>Optional hints for synthesis. 
 output_audio_spec | **[AudioFormatOptions](#AudioFormatOptions)**<br>Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header 
-loudness_normalization_type | enum **LoudnessNormalizationType**<br>Optional. Default: MAX_PEAK, type of loudness normalization. <ul><ul/>
+loudness_normalization_type | enum **LoudnessNormalizationType**<br>Optional. Default: LUFS, type of loudness normalization, default value -19. <ul><ul/>
 
 
 ### TextTemplate {#TextTemplate}
@@ -55,7 +55,7 @@ Hint | **oneof:** `voice`, `audio_template`, `speed` or `volume`<br>The hint for
 &nbsp;&nbsp;voice | **string**<br>Name of speaker to use. 
 &nbsp;&nbsp;audio_template | **[AudioTemplate](#AudioTemplate)**<br>Template for synthesizing. 
 &nbsp;&nbsp;speed | **double**<br>hint to change speed 
-&nbsp;&nbsp;volume | **double**<br>hint to regulate volume 
+&nbsp;&nbsp;volume | **double**<br>hint to regulate volume. For LOUDNESS_NORMALIZATION_TYPE_UNSPECIFIED normalization will use MAX_PEAK, if volume in (0, 1], LUFS if volume in [-145, 0). 
 
 
 ### AudioTemplate {#AudioTemplate}
@@ -122,7 +122,7 @@ Field | Description
 --- | ---
 variable_name | **string**<br>The name of the variable. 
 variable_start_ms | **int64**<br>Start time of the variable in milliseconds. 
-variable_length_ms | **int64**<br>Lenght of the variable in milliseconds. 
+variable_length_ms | **int64**<br>Length of the variable in milliseconds. 
 
 
 ### AudioFormatOptions {#AudioFormatOptions1}

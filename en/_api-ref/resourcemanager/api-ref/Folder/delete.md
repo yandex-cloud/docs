@@ -5,7 +5,7 @@ editable: false
 # Method delete
 Deletes the specified folder.
  
-The method is temporarily unavailable.
+
  
 ## HTTP request {#https-request}
 ```

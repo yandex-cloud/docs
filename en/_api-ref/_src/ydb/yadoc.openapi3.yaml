@@ -586,11 +586,11 @@ components:
     AlertEvaluationStatus:
       type: string
       enum:
-      - OK
-      - NO_DATA
-      - ERROR
-      - ALARM
-      - WARN
+      - ALERT_EVALUATION_STATUS_OK
+      - ALERT_EVALUATION_STATUS_NO_DATA
+      - ALERT_EVALUATION_STATUS_ERROR
+      - ALERT_EVALUATION_STATUS_ALARM
+      - ALERT_EVALUATION_STATUS_WARN
     AlertParameter:
       type: object
       allOf:

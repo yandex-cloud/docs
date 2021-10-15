@@ -615,6 +615,12 @@ components:
         title:
           description: Display name of the organization. 0-256 characters long.
           type: string
+        labels:
+          description: Resource labels as `` key:value `` pairs. Maximum of 64 per
+            resource.
+          type: object
+          additionalProperties:
+            type: string
     SetAccessBindingsMetadata:
       type: object
       properties:
@@ -785,6 +791,18 @@ components:
 
             The maximum string length in characters is 256.
           type: string
+        labels:
+          description: |-
+            Resource labels as `` key:value `` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
     Subject_in_AccessBinding_subject:
       description: |-
         Required.

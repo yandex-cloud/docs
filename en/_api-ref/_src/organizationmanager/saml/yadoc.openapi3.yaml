@@ -707,6 +707,18 @@ components:
           description: Use case insensitive Name IDs.
           type: boolean
           format: boolean
+        labels:
+          description: |-
+            Resource labels as `` key:value `` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
     DeleteCertificateMetadata:
       type: object
       properties:
@@ -801,6 +813,12 @@ components:
           description: Use case insensitive Name IDs.
           type: boolean
           format: boolean
+        labels:
+          description: Resource labels as `` key:value `` pairs. Maximum of 64 per
+            resource.
+          type: object
+          additionalProperties:
+            type: string
     FederationSecuritySettings:
       description: Federation security settings.
       type: object
@@ -1102,6 +1120,18 @@ components:
           description: Use case insensitive name ids.
           type: boolean
           format: boolean
+        labels:
+          description: |-
+            Resource labels as `` key:value `` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
     UserAccount:
       description: Currently represents only [Yandex.Passport account](/docs/iam/concepts/#passport).
       type: object

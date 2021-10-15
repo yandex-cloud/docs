@@ -97,7 +97,7 @@ paths:
           to the [nextPageToken](/docs/resource-manager/api-ref/Cloud/list#responses)
           returned by a previous list request to get the next page of results.
 
-          The maximum string length in characters is 100.
+          The maximum string length in characters is 1000.
         schema:
           type: string
       - name: filter
@@ -120,6 +120,28 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListCloudsResponse'
       x-y-navtitle: list
+    post:
+      tags:
+      - Cloud
+      summary: Creates a cloud in the specified organization.
+      operationId: CloudCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCloudRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateCloudMetadata'
+      x-y-operation-response: '[Cloud](/docs/resource-manager/api-ref/Cloud#representation)'
   /resource-manager/v1/clouds/{cloudId}/operations:
     get:
       tags:
@@ -320,7 +342,6 @@ paths:
       tags:
       - Folder
       summary: Deletes the specified folder.
-      description: The method is temporarily unavailable.
       operationId: FolderDelete
       parameters:
       - name: folderId
@@ -695,6 +716,54 @@ components:
         organizationId:
           description: ID of the organization that the cloud belongs to.
           type: string
+        labels:
+          description: Resource labels as `` key:value `` pairs. Maximum of 64 per
+            resource.
+          type: object
+          additionalProperties:
+            type: string
+    CreateCloudMetadata:
+      type: object
+      properties:
+        cloudId:
+          description: ID of the cloud that is being created.
+          type: string
+    CreateCloudRequest:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            Required.
+            ID of the organization to create a cloud in.
+            To get the organization ID, use a [list](/docs/organization-manager/api-ref/Organization/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the cloud.
+
+            Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9] ``.
+          type: string
+        description:
+          description: |-
+            Description of the cloud.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Resource labels as `` key:value `` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
     CreateFolderMetadata:
       type: object
       properties:
@@ -1050,6 +1119,18 @@ components:
 
             The maximum string length in characters is 256.
           type: string
+        labels:
+          description: |-
+            Resource labels as `` key:value `` pairs.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
     UpdateFolderMetadata:
       type: object
       properties:

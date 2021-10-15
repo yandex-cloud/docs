@@ -3709,6 +3709,14 @@ components:
           type: string
         updateMask:
           $ref: '#/components/schemas/FieldMask_in_UpdateHostSpec_updateMask'
+        backupPriority:
+          description: Host backup priority, where 1 is the lowest priority
+          type: string
+          format: int64
+        assignPublicIp:
+          description: Whether the host should get a public IP address on creation.
+          type: boolean
+          format: boolean
     UpdateUserMetadata:
       type: object
       properties:

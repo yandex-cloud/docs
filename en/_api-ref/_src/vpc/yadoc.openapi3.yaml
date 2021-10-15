@@ -1348,6 +1348,78 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateSubnetMetadata'
       x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
+  /vpc/v1/subnets/{subnetId}:add-cidr-blocks:
+    post:
+      tags:
+      - Subnet
+      summary: |-
+        Adds CIDR blocks to the specified subnet.
+        Method starts an asynchronous operation that can be cancelled while it is in progress.
+      operationId: SubnetAddCidrBlocks
+      parameters:
+      - name: subnetId
+        in: path
+        description: |-
+          Required.
+          ID of the Subnet resource that is being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddSubnetCidrBlocksRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: addCidrBlocks
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/AddSubnetCidrBlocksMetadata'
+      x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
+  /vpc/v1/subnets/{subnetId}:remove-cidr-blocks:
+    post:
+      tags:
+      - Subnet
+      summary: |-
+        Removes CIDR blocks from the specified subnet.
+        Method starts an asynchronous operation that can be cancelled while it is in progress.
+      operationId: SubnetRemoveCidrBlocks
+      parameters:
+      - name: subnetId
+        in: path
+        description: |-
+          Required.
+          ID of the Subnet resource that is being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveSubnetCidrBlocksRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: removeCidrBlocks
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RemoveSubnetCidrBlocksMetadata'
+      x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
   /vpc/v1/subnets/{subnetId}/operations:
     get:
       tags:
@@ -1429,6 +1501,24 @@ paths:
       x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
 components:
   schemas:
+    AddSubnetCidrBlocksMetadata:
+      type: object
+      properties:
+        subnetId:
+          description: ID of the Subnet resource that is being updated.
+          type: string
+    AddSubnetCidrBlocksRequest:
+      type: object
+      properties:
+        v4CidrBlocks:
+          description: |-
+            CIDR block.
+            The range of internal addresses that should be added to this subnet.
+            For example, 10.0.0.0/22 or 192.168.0.0/24.
+            Minimum subnet size is /28, maximum subnet size is /16.
+          type: array
+          items:
+            type: string
     Address:
       description: An Address resource. For more information, see [Address](/docs/vpc/concepts/address).
       type: object
@@ -2253,6 +2343,22 @@ components:
           type: string
         id:
           type: string
+    RemoveSubnetCidrBlocksMetadata:
+      type: object
+      properties:
+        subnetId:
+          description: ID of the Subnet resource that is being updated.
+          type: string
+    RemoveSubnetCidrBlocksRequest:
+      type: object
+      properties:
+        v4CidrBlocks:
+          description: |-
+            CIDR block.
+            The range of internal addresses that are removed from this subnet.
+          type: array
+          items:
+            type: string
     RouteTable:
       description: A RouteTable resource. For more information, see [Static Routes](/docs/vpc/concepts/static-routes).
       type: object

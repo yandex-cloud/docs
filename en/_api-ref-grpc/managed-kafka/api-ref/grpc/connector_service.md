@@ -52,6 +52,7 @@ Field | Description
 source_cluster | **[ClusterConnection](#ClusterConnection)**<br>Source cluster resource settings. 
 target_cluster | **[ClusterConnection](#ClusterConnection)**<br>Target cluster resource settings. 
 topics | **string**<br>List of Kafka topics, separated by ',' 
+replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
 ### ClusterConnection {#ClusterConnection}
@@ -122,6 +123,7 @@ Field | Description
 source_cluster | **[ClusterConnection](#ClusterConnection1)**<br>Source cluster resource settings. 
 target_cluster | **[ClusterConnection](#ClusterConnection1)**<br>Target cluster resource settings. 
 topics | **string**<br>List of Kafka topics, separated by ',' 
+replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
 ### ClusterConnection {#ClusterConnection1}
@@ -184,6 +186,7 @@ Field | Description
 source_cluster | **[ClusterConnectionSpec](#ClusterConnectionSpec)**<br>Source cluster configuration. 
 target_cluster | **[ClusterConnectionSpec](#ClusterConnectionSpec)**<br>Target cluster configuration. 
 topics | **string**<br>List of Kafka topics, separated by ',' 
+replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
 ### ClusterConnectionSpec {#ClusterConnectionSpec}
@@ -256,6 +259,7 @@ Field | Description
 source_cluster | **[ClusterConnection](#ClusterConnection2)**<br>Source cluster resource settings. 
 target_cluster | **[ClusterConnection](#ClusterConnection2)**<br>Target cluster resource settings. 
 topics | **string**<br>List of Kafka topics, separated by ',' 
+replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
 ### ClusterConnection {#ClusterConnection2}
@@ -387,6 +391,7 @@ Field | Description
 source_cluster | **[ClusterConnection](#ClusterConnection3)**<br>Source cluster resource settings. 
 target_cluster | **[ClusterConnection](#ClusterConnection3)**<br>Target cluster resource settings. 
 topics | **string**<br>List of Kafka topics, separated by ',' 
+replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
 ### ClusterConnection {#ClusterConnection3}
@@ -476,6 +481,7 @@ Field | Description
 source_cluster | **[ClusterConnection](#ClusterConnection4)**<br>Source cluster resource settings. 
 target_cluster | **[ClusterConnection](#ClusterConnection4)**<br>Target cluster resource settings. 
 topics | **string**<br>List of Kafka topics, separated by ',' 
+replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Replication factor for automatically created topics. 
 
 
 ### ClusterConnection {#ClusterConnection4}
