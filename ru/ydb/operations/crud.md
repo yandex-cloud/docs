@@ -10,7 +10,7 @@
 
 Для выполнения инструкций языка YQL в этом разделе будет использоваться встроенный в [веб-интерфейс](https://ydb.yandex-team.ru) YQL Kit.
 
-![Open YQL Kit](../../_assets/ydb/db_ui_open_yql_kit.png)
+![Open YQL Kit](../_assets/db_ui_open_yql_kit.png)
 
 {% note info %}
 
@@ -149,7 +149,7 @@ UPDATE имя_таблицы SET имя_столбца1=новое_значен�
 
 В интерфейсе отобразится результат выполнения запроса:
 
-![Select from table](../../_assets/ydb/ydb_example_select_table.png)
+![Select from table](../_assets/ydb_example_select_table.png)
 
 {% endif %}
 

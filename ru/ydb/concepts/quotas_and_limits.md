@@ -33,7 +33,7 @@
 
 Заявка на квоту создаётся с помощью формы в [веб-интерфейсе ABC](https://abc.yandex-team.ru/), приведённой на рисунке 1.
 
-![Quota_Request_Form](../../_assets/ydb/quotas_and_limits_request_form.png)
+![Quota_Request_Form](../_assets/quotas_and_limits_request_form.png)
 
 <small>Рисунок 1 — форма заявки на квоты</small>
 
@@ -49,7 +49,7 @@
 
 Узнать потребление ядер в UserPool можно с помощью графика **CPU Usage**, расположенного на вкладке [Metrics](https://ydb.yandex-team.ru/db/ydb-ru/tutorial/home/testdb/metrics/resource-usage) веб-интерфейса YDB. На этом графике изображено суммарное потребление ядер во всех пулах. Пример такого графика приведён на рисунке 2.
 
-![CPU_Usage_Chart](../../_assets/ydb/quotas_and_limits_cpu_usage.png)
+![CPU_Usage_Chart](../_assets/quotas_and_limits_cpu_usage.png)
 
 <small>Рисунок 2 — полное имя базы данных</small>
 
@@ -59,7 +59,7 @@
 
 На вертикальной оси этого графика отображено использование доступных в UserPool ядер в единицу времемни. Потребление 1 000 000 соответствует потреблению 1 ядра в тредпуле.
 
-![Solomon_UserPool_Chart](../../_assets/ydb/quotas_and_solomon_user_pool.png)
+![Solomon_UserPool_Chart](../_assets/quotas_and_solomon_user_pool.png)
 
 <small>Рисунок 3 — использование ядер UserPool</small>
 
@@ -104,7 +104,7 @@ CREATE TABLE episodes
 
 Текущие значения квот и их потребление доступно на вкладке [Info](https://ydb.yandex-team.ru/db/ydb-ru-prestable/tutorial/home/testdb/info) пользовательского веб-интерфейса. Примерный вид таблиц с выделенными квотами и текущим потреблением показан на рисунке 4.
 
-![Quotas](../../_assets/ydb/quotas_and_limits_allocated.png)
+![Quotas](../_assets/quotas_and_limits_allocated.png)
 
 <small>Рисунок 4 — установленные значения квот</small>
 
@@ -114,13 +114,13 @@ CREATE TABLE episodes
 
 На рисунке 5 показано мгновенное значение потребления в сравнении с выделенными квотами. Стрелкой показана иконка, нажатие на которую откроет вкладку **Metrics** с графиками потребления выделенных ресурсов.
 
-![Quotas_Link_To_Solomon](../../_assets/ydb/quotas_and_limits_allocated_charts_link.png)
+![Quotas_Link_To_Solomon](../_assets/quotas_and_limits_allocated_charts_link.png)
 
 <small>Рисунок 5 — ссылка для переход к графикам потребления</small>
 
 На рисунке 6 показан примерный вид вкладки **Metrics** пользовательского веб-интерфейса YDB.
 
-![Quotas_Metrics_Tab](../../_assets/ydb/quotas_and_limits_metrics_tab.png)
+![Quotas_Metrics_Tab](../_assets/quotas_and_limits_metrics_tab.png)
 
 <small>Рисунок 6 — примерный вид вкладки Metrics</small>
 

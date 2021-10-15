@@ -4,7 +4,7 @@
 
 Доступ к базам данных в YDB осуществляется по протоколу gRPC. Сетевой адрес для соединения cо своей базой (database endpoint) можно узнать в [YDB UI](https://ydb.yandex-team.ru/) на вкладке Info.
 
-![Database API Endpoint](../../_assets/ydb/db_ui_info_cluster_api.png)
+![Database API Endpoint](../_assets/db_ui_info_cluster_api.png)
 
 <small>Рисунок 1 — Сетевой адрес для соединения со своей базой (database endpoint) </small>
 

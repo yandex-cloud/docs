@@ -9,7 +9,7 @@ The YDB core lets you flexibly implement various storage primitives, so new enti
 
 A table in YDB is a [relational table](https://en.wikipedia.org/wiki/Table_(database)) that contains a set of related data consisting of rows and columns. Each row is a set of cells designed to store values of certain types according to the data schema. The data schema defines the names and types of table columns. An example of a data schema is shown below.
 
-![Datamodel_of_a_relational_table](../../_assets/ydb/datamodel_rtable.png)
+![Datamodel_of_a_relational_table](../_assets/datamodel_rtable.png)
 
 <small>Figure 1: Sample table schema</small>
 

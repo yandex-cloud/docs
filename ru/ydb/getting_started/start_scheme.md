@@ -10,7 +10,7 @@ YQL запросы могут быть отправлены для выполн�
 
 Для выполнения инструкций языка YQL в этом разделе будет использоваться встроенный в [веб-интерфейс](https://ydb.yandex-team.ru) YQL Kit.
 
-![Open YQL Kit](../../_assets/ydb/db_ui_open_yql_kit.png)
+![Open YQL Kit](../_assets/db_ui_open_yql_kit.png)
 
 {% note info "Руководство" %}
 
@@ -65,7 +65,7 @@ CREATE TABLE episodes (
 
 С помощью [web-интерфейса YDB](https://ydb.yandex-team.ru) можно убедиться, что таблицы были созданы.
 
-![Create table](../../_assets/ydb/ydb_example_create_table_full.png)
+![Create table](../_assets/ydb_example_create_table_full.png)
 
 ### Группы колонок
 

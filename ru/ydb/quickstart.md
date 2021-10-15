@@ -20,7 +20,7 @@
 
 Нажмите кнопку "Create database".
 
-![Create database](../_assets/ydb/db_ui_create_database_button.png)
+![Create database](_assets/db_ui_create_database_button.png)
 
 В диалоге создания БД выберите кластер ydb-ru.
 
@@ -28,26 +28,26 @@
 
 На картинке ниже можно увидеть пример формы создания новой базы данных.
 
-![Create new database](../_assets/ydb/db_ui_create_home_database.png)
+![Create new database](_assets/db_ui_create_home_database.png)
 
 Нажмите кнопку "Create".
 
 Появится страница с сообщением об успешном создании базы данных.
 
-![New database entrance](../_assets/ydb/db_ui_entrance_home_database.png)
+![New database entrance](_assets/db_ui_entrance_home_database.png)
 
 Для того, чтобы перейти в режим просмотра содержимого БД нажмите на кнопку "Browse database", или перейдите по ссылке с именем базы данных.
 
 Чтобы задать первый запрос к БД, нажмите на кнопку "YQL Kit" и откроется окно веб-консоли, позволяющей задавать запросы к базе.
 
-![Open YQL Kit](../_assets/ydb/db_ui_open_yql_kit.png)
+![Open YQL Kit](_assets/db_ui_open_yql_kit.png)
 
 
 ## Как создать таблицу в своей БД
 
 Для создания таблицы в панели YQL Kit нажмите кнопку "New"
 
-![New yql query](../_assets/ydb/db_ui_yql_kit_panel.png)
+![New yql query](_assets/db_ui_yql_kit_panel.png)
 
 и добавьте команду создания таблицы:
 
@@ -73,13 +73,13 @@ CREATE TABLE series
 
 Нажмите кнопку "Run"
 
-![Run_сreate table](../_assets/ydb/db_ui_run_create_table.png)
+![Run_сreate table](_assets/db_ui_run_create_table.png)
 
 После успешного выполнения запроса будет создана таблица series.
 
 Для просмотра информации о таблице можно нажать кнопку <svg viewBox="0 0 24 24" width="18" height="18" fill="#26a"><path id="icon.info" d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"></path></svg>, в открывшейся панели на вкладке "Schema" представлена информация о схеме таблицы.
 
-![Table details](../_assets/ydb/db_ui_table_details_kit.png)
+![Table details](_assets/db_ui_table_details_kit.png)
 
 ## Как записать данные в таблицу
 
@@ -114,7 +114,7 @@ VALUES
 
 При нажатии на название таблицы в левой панели, вы попадете в режим превью данных таблицы. В превью вы увидите строки, вставленные после успешного выполнения предыдущего запроса.
 
-![Table preview](../_assets/ydb/db_ui_table_preview.png)
+![Table preview](_assets/db_ui_table_preview.png)
 
 ## Как заменить строки в таблице
 
@@ -131,7 +131,7 @@ WHERE
 и нажмите кнопку Run.
 
 В превью панели слева автоматически будут отображаться изменения, вызванные выполнением предыдущего запроса.
-![Update preview](../_assets/ydb/db_ui_run_update.png)
+![Update preview](_assets/db_ui_run_update.png)
 
 ## Как удалить строки в таблице
 
@@ -148,7 +148,7 @@ WHERE
 и нажмите кнопку Run.
 
 В превью панели слева автоматически будут отображаться изменения, вызванные выполнением предыдущего запроса.
-![Update preview](../_assets/ydb/db_ui_run_delete.png)
+![Update preview](_assets/db_ui_run_delete.png)
 
 
 ## Как прочитать данные из таблицы
@@ -167,7 +167,7 @@ FROM series;
 
 На панели должны отобразиться результаты, показанные на рисунке ниже:
 
-![Select from table](../_assets/ydb/db_ui_run_select.png)
+![Select from table](_assets/db_ui_run_select.png)
 
 ## Как удалить таблицу
 

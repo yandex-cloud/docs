@@ -157,7 +157,7 @@
 
 {% if audience == "internal" %}
 
-![Table preview](../../../_assets/ydb/db_ui_table_preview.png)
+![Table preview](../_assets/db_ui_table_preview.png)
 
 {% endif %}
 
@@ -182,7 +182,7 @@
 
 {% if audience == "internal" %}
 
-![Update preview](../../../_assets/ydb/db_ui_run_update.png)
+![Update preview](../_assets/db_ui_run_update.png)
 
 {% endif %}
 
@@ -205,7 +205,7 @@
 
 {% if audience == "internal" %}
 
-![Delete preview](../../../_assets/ydb/db_ui_run_delete.png)
+![Delete preview](../_assets/db_ui_run_delete.png)
 
 {% endif %}
 
@@ -240,7 +240,7 @@
 
 {% if audience == "internal" %}
 
-![Select from table](../../../_assets/ydb/db_ui_run_select.png)
+![Select from table](../_assets/db_ui_run_select.png)
 
 {% endif %}
 

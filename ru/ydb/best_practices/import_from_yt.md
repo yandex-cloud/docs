@@ -124,13 +124,13 @@ FROM (
 ## Сохранение токена в YQL
 
 Для работы с таблицами в базе YDB yql-операции необходима [аутентификация и авторизация](../concepts/iam.md) с использованием действительного OAuth-токена. Для этого нужно получить получить OAuth токен с помощью диалога настройки YQL
-![Get OAuth Token at YQL](../../_assets/ydb/import-from-yt-oauth-token.png)
+![Get OAuth Token at YQL](../_assets/import-from-yt-oauth-token.png)
 
 <small>Рисунок 1 — Диалог получения токена в YQL</small>
 
 После получения токена его необходимо сохранить в списке токенов, доступных YQL. Для этого следует указать тип токена `KIKIMR` и имя `default_ydb`
 
-![Add YDB OAuth Token at YQL](../../_assets/ydb/import-from-yt-add-oauth-token.png)
+![Add YDB OAuth Token at YQL](../_assets/import-from-yt-add-oauth-token.png)
 
 <small>Рисунок 2 — Диалог сохранения в YQL</small>
 
@@ -139,7 +139,7 @@ FROM (
 
 Параметр ```$ydb_endpoint``` используется для указания адреса кластера, на котором расположена база данных YDB.
 
-![Cluster API Endpoint](../../_assets/ydb/db_ui_info_cluster_api.png)
+![Cluster API Endpoint](../_assets/db_ui_info_cluster_api.png)
 
 <small>Рисунок 3 — Список ендпоинтов базы данных</small>
 
@@ -152,7 +152,7 @@ $ydb_endpoint = "ydb-ru.search.yandex.net:2135";
 
 Параметр ```$ydb_database``` определяет базу данных, в которой расположена таблица. Узнать имя базы данных можно в YDB UI. В списке баз данных можно выбрать нужную базу и воспользоваться удобным элементом управления для копирования имени в буфер обмена.
 
-![Database_name](../../_assets/ydb/best_practices_yt_import_dbname.png)
+![Database_name](../_assets/best_practices_yt_import_dbname.png)
 
 ### Параметр ydb_table_name
 
