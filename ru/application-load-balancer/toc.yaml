@@ -209,6 +209,8 @@ items:
                 href: api-ref/VirtualHost/update.md
               - name: updateRoute
                 href: api-ref/VirtualHost/updateRoute.md
+  - name: Справочник логов
+    href: logs-ref.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/application-load-balancer

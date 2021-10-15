@@ -207,8 +207,7 @@ httpRouterId | Required. ID of the HTTP router to update.  To get the HTTP route
         ]
       }
     }
-  ],
-  "httpsRedirect": true
+  ]
 }
 ```
 
@@ -301,7 +300,6 @@ virtualHosts[].<br>routeOptions.<br>modifyResponseHeaders[].<br>append | **strin
 virtualHosts[].<br>routeOptions.<br>modifyResponseHeaders[].<br>replace | **string** <br>`virtualHosts[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the value of the header with the specified string.</p> <p>Variables <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers">defined for Envoy proxy</a> are supported.</p> 
 virtualHosts[].<br>routeOptions.<br>modifyResponseHeaders[].<br>remove | **boolean** (boolean) <br>`virtualHosts[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Removes the header.</p> 
 virtualHosts[].<br>routeOptions.<br>modifyResponseHeaders[].<br>rename | **string** <br>`virtualHosts[].routeOptions.modifyResponseHeaders[]` includes only one of the fields `append`, `replace`, `remove`, `rename`<br><br><p>Replaces the name of the header with the specified string. This operation is only supported for ALB Virtual Hosts.</p> 
-httpsRedirect | **boolean** (boolean)<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -48,6 +48,7 @@ sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most
 sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](#FederationSecuritySettings)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive Name IDs. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ### FederationSecuritySettings {#FederationSecuritySettings}
@@ -97,6 +98,7 @@ sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most
 sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](#FederationSecuritySettings1)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive Name IDs. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ### FederationSecuritySettings {#FederationSecuritySettings1}
@@ -130,6 +132,7 @@ sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most
 sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](#FederationSecuritySettings2)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive Name IDs. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
 ### FederationSecuritySettings {#FederationSecuritySettings2}
@@ -178,6 +181,7 @@ sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most
 sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](#FederationSecuritySettings3)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive Name IDs. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ### FederationSecuritySettings {#FederationSecuritySettings3}
@@ -212,6 +216,7 @@ sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most
 sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](#FederationSecuritySettings4)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive name ids. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 
 
 ### FederationSecuritySettings {#FederationSecuritySettings4}
@@ -260,6 +265,7 @@ sso_binding | enum **BindingType**<br>Single sign-on endpoint binding type. Most
 sso_url | **string**<br>Required. Single sign-on endpoint URL. Specify the link to the IdP login page here. The maximum string length in characters is 8000.
 security_settings | **[FederationSecuritySettings](#FederationSecuritySettings5)**<br>Federation security settings. 
 case_insensitive_name_ids | **bool**<br>Use case insensitive Name IDs. 
+labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. Maximum of 64 per resource. 
 
 
 ### FederationSecuritySettings {#FederationSecuritySettings5}

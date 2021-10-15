@@ -12,7 +12,7 @@ http://<ендпоинт>:8765/monitoring/cluster
 
 Примерный внешний вид страницы показан на скриншоте ниже.
 
-![Monitoring_main_page](../../../_assets/ydb/monitoring_main_page.png)
+![Monitoring_main_page](../../_assets/monitoring_main_page.png)
 
 В правом верхнем углу страницы расположена информация об узле сформировавшем текущую страницу:
 

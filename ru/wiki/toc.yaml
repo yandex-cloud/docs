@@ -71,9 +71,9 @@ items:
         href: exp-page.md
       - name: Удалить страницу
         href: delete-page.md
-  - name: Навигация по Вики
+  - name: Навигация по Wiki
     items:
-      - name: Поиск по Вики
+      - name: Поиск по Wikis
         href: search.md
       - name: Подписки и избранное
         href: notifications.md
@@ -115,12 +115,22 @@ items:
         items:
           - name: Обзор
             href: actions.md
-          - name: Создание списков страниц
+          - name: Списки страниц
             href: actions/page-lists.md
-          - name: Вставка динамических таблиц
+          - name: Динамические таблицы
             href: actions/grid-reference.md
-          - name: Вставка объектов
-            href: actions/objects.md
+          - name: Оглавление страницы
+            href: actions/toc.md
+          - name: Закладка на странице
+            href: actions/anchor.md
+          - name: Веб-страница или видео
+            href: actions/iframe.md
+          - name: Интеграция с другими сервисами
+            items:
+              - name: Формы из Yandex Forms
+                href: actions/forms.md
+              - name: Список задач из Yandex Tracker
+                href: actions/tracker.md
   - name: Правила тарификации
     href: pricing.md
   - name: Служба поддержки

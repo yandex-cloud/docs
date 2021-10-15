@@ -36,7 +36,8 @@ federationId | ID of the federation to return. To get the federation ID, make a 
   "securitySettings": {
     "encryptedAssertions": true
   },
-  "caseInsensitiveNameIds": true
+  "caseInsensitiveNameIds": true,
+  "labels": "object"
 }
 ```
 A federation.
@@ -57,3 +58,4 @@ ssoUrl | **string**<br><p>Required. Single sign-on endpoint URL. Specify the lin
 securitySettings | **object**<br><p>Federation security settings.</p> <p>Federation security settings.</p> 
 securitySettings.<br>encryptedAssertions | **boolean** (boolean)<br><p>Enable encrypted assertions.</p> 
 caseInsensitiveNameIds | **boolean** (boolean)<br><p>Use case insensitive Name IDs.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 

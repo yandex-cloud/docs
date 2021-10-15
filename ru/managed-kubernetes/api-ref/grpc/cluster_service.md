@@ -1531,9 +1531,17 @@ scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling poli
 network_interface_specs[] | **[NetworkInterfaceSpec](#NetworkInterfaceSpec)**<br>New api, to specify network interfaces for the node group compute instances. Can not be used together with 'v4_address_spec' 
 placement_policy | **[PlacementPolicy](#PlacementPolicy)**<br> 
 network_settings | **[NetworkSettings](#NetworkSettings)**<br>this parameter allows to specify type of network acceleration used on nodes (instances) 
+container_runtime_settings | **[ContainerRuntimeSettings](#ContainerRuntimeSettings)**<br> 
 
 
 ### NetworkSettings {#NetworkSettings}
+
+Field | Description
+--- | ---
+type | enum **Type**<br>Required.  <ul><ul/>
+
+
+### ContainerRuntimeSettings {#ContainerRuntimeSettings}
 
 Field | Description
 --- | ---

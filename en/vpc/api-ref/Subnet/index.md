@@ -55,10 +55,12 @@ dhcpOptions.<br>ntpServers[] | **string**<br>
 ## Methods {#methods}
 Method | Description
 --- | ---
+[addCidrBlocks](addCidrBlocks.md) | Adds CIDR blocks to the specified subnet. Method starts an asynchronous operation that can be cancelled while it is in progress.
 [create](create.md) | Creates a subnet in the specified folder and network. Method starts an asynchronous operation that can be cancelled while it is in progress.
 [delete](delete.md) | Deletes the specified subnet.
 [get](get.md) | Returns the specified Subnet resource.
 [list](list.md) | Retrieves the list of Subnet resources in the specified folder.
 [listOperations](listOperations.md) | List operations for the specified subnet.
 [move](move.md) | Move subnet to another folder.
+[removeCidrBlocks](removeCidrBlocks.md) | Removes CIDR blocks from the specified subnet. Method starts an asynchronous operation that can be cancelled while it is in progress.
 [update](update.md) | Updates the specified subnet. Method starts an asynchronous operation that can be cancelled while it is in progress.

@@ -25,7 +25,8 @@ organizationId | Required. ID of the organization to update. To get the organiza
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "title": "string"
+  "title": "string",
+  "labels": "object"
 }
 ```
 
@@ -36,6 +37,7 @@ updateMask | **string**<br><p>Field mask that specifies which fields of the orga
 name | **string**<br><p>Name of the organization.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>Description of the organization.</p> <p>The maximum string length in characters is 256.</p> 
 title | **string**<br><p>Display name of the organization.</p> <p>The maximum string length in characters is 256.</p> 
+labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

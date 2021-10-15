@@ -5,4 +5,4 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 
 Service | Description
 --- | ---
-[Synthesizer](./tts_service.md) | A set of methods for voice synthesis.
+[Recognizer](./stt_service.md) | A set of methods for voice recognition.

@@ -1940,6 +1940,8 @@ Field | Description
 host_name | **string**<br>Required. Name of the host to update. To get the MySQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
 replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). To get the MySQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MySQL host should be updated. 
+backup_priority | **int64**<br>Host backup priority, where 1 is the lowest priority 
+assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. 
 
 
 ### Operation {#Operation12}

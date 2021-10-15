@@ -71,6 +71,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Cloud/index.md
+              - name: create
+                href: api-ref/Cloud/create.md
               - name: get
                 href: api-ref/Cloud/get.md
               - name: list

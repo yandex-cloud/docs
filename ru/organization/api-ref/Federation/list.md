@@ -41,7 +41,8 @@ filter | A filter expression that filters resources listed in the response. The 
       "securitySettings": {
         "encryptedAssertions": true
       },
-      "caseInsensitiveNameIds": true
+      "caseInsensitiveNameIds": true,
+      "labels": "object"
     }
   ],
   "nextPageToken": "string"
@@ -65,4 +66,5 @@ federations[].<br>ssoUrl | **string**<br><p>Required. Single sign-on endpoint UR
 federations[].<br>securitySettings | **object**<br><p>Federation security settings.</p> <p>Federation security settings.</p> 
 federations[].<br>securitySettings.<br>encryptedAssertions | **boolean** (boolean)<br><p>Enable encrypted assertions.</p> 
 federations[].<br>caseInsensitiveNameIds | **boolean** (boolean)<br><p>Use case insensitive Name IDs.</p> 
+federations[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/organization-manager/api-ref/Federation/list#query_params">pageSize</a>, use the <a href="/docs/organization-manager/api-ref/Federation/list#responses">nextPageToken</a> as the value for the <a href="/docs/organization-manager/api-ref/Federation/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/organization-manager/api-ref/Federation/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -1,10 +1,95 @@
 # YC CLI Releases
 
-## Version 0.79.0 (13.07.21) {#latest-release}
+## Version 0.80.0 (19.08.21) {#latest-release}
 
-### Changes to {{ yandex-cloud }} services
+### Changes to {{ yandex-cloud }} services {#services}
 
-### {{ cloud-logging-name }} {#logging}
+#### {{ sf-name }} {#serverless-functions}
+
+- Added the `yc serverless trigger create logging` command to create triggers in {{ cloud-logging-name }}.
+
+#### {{ alb-name }} {#alb}
+
+* Added commands for working with gRPC routes:
+`yc application-load-balancer virtual-host append-grpc-route`
+  `yc application-load-balancer virtual-host prepend-grpc-route`
+  `yc application-load-balancer virtual-host insert-grpc-route`
+  `yc application-load-balancer virtual-host remove-grpc-route`
+  `yc application-load-balancer virtual-host update-grpc-route`
+* Added the `yc application-load-balancer virtual-host update-http-route` command to update HTTP routes.
+
+#### Managed database services {#managed-db}
+
+**{{ mch-name }}, {{ mes-name }}, {{ mkf-name }}, {{ mmg-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ mms-name }}**
+
+* Commands `yc <managed DB service name> cluster create` and `yc <managed DB service name> cluster update`.
+
+  The `--deletion-protection` flag lets you set up protection against accidental cluster deletion. To disable cluster protection from deletion, specify `--deletion-protection=false`.
+
+**{{ mmg-name }}**
+
+* Added the  `{{ yc-mdb-mg }} hosts stepdown` command.
+
+  It switches the selected master to replica mode so that the available replica becomes the master host.
+
+* Commands `{{ yc-mdb-mg }} cluster get` and `{{ yc-mdb-mg }} cluster update`
+
+  Added the `backup-retain-period-days` field that shows the number of days for retaining automatic backups.
+
+**{{ mrd-name }}**
+
+* Added support for {{ RD }} version 6.2.
+
+**{{ mmy-name }}**
+
+* Command `yc managed-mysql hosts update`.
+
+  Added the `yc managed-mysql hosts update HOST --replication-source HOST` command to set the replication source for a cascading replica.
+
+**{{ mms-name }}**
+
+* Added the `yc managed-sqlserver database restore` command.
+
+  It lets you restore the specified database on an existing cluster from a backup. You can restore it under a different name.
+
+**{{ mkf-name }}**
+
+* Added support for Kafka 2.8.
+
+#### {{ dataproc-name }} {#dataproc}
+
+* Commands `yc dataproc cluster create` and `yc dataproc cluster update`.
+
+  The `--deletion-protection` flag lets you enable/disable cluster protection against accidental deletion.
+  To disable cluster protection from deletion, specify `--deletion-protection=false`.
+
+#### {{ resmgr-name }} {#resmgr}
+
+* Command `yc resource-manager cloud list`.
+
+  Added the display of an organization linked to a cloud.
+
+#### {{ org-name }} {#organization}
+
+Added support for the organization service.
+
+{{ org-full-name }} is an enterprise solution that you can use to connect your organization to {{ yandex-cloud }} services and manage employee access to these services.
+
+The {{ org-full-name }} service is at the Preview stage. Read more about the service in the [documentation](../organization/).
+
+#### {{ sf-name }} {#serverless-functions}
+
+* Command `yc serverless trigger create`.
+
+  The `--invoke-container-name`, `--invoke-container-id`, and `--invoke-container-path` flags let you specify a {{ serverless-containers-name }} container for a trigger.
+
+## Previous releases {#previous-releases}
+
+### Version 0.79.0 (13.07.21)
+
+#### Changes to {{ yandex-cloud }} services
+
+#### {{ cloud-logging-name }} {#logging}
 
 Added support for {{ cloud-logging-name }}.
 
@@ -12,7 +97,7 @@ Added support for {{ cloud-logging-name }}.
 
 {{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../logging/).
 
-### {{ sf-name }} {#serverless-functions}
+#### {{ sf-name }} {#serverless-functions}
 
 * Added the `yc serverless function set-scaling-policy` command to configure a function's scaling settings.
 
@@ -24,15 +109,13 @@ Added support for {{ cloud-logging-name }}.
 
   Fixed the directory processing for the `--source-path` flag on Windows.
 
-### Managed database services {#managed-db}
+#### Managed database services {#managed-db}
 
 **{{ mch-name }}**
 
 * Command `yc managed-clickhouse cluster update`
 
     Added the `--cloud-storage` flag to enable data storage in {{ objstorage-name }}.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.78.0 (29.06.21) {#version0.78.0}
 
@@ -307,7 +390,7 @@ Added the `yc iam federation list-user-accounts` command for listing federation 
 
 **{{ mmy-name }}, {{ mpg-name }}, {{ mch-name }}, {{ mrd-name }}, {{ mmg-name }}, {{ mkf-name }}**
 
-- Commands `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update`, and `yc <managed DB service name> cluster restore`
+* Commands `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update`, and `yc <managed DB service name> cluster restore`
 
     The `--security-group-ids` flag lets you specify a set of security groups for a cluster.
 
@@ -348,13 +431,13 @@ Added primary support for {{ mkf-name }}:
 
 **{{ mmy-name }}**
 
-- Command `yc managed-mysql user grant-permission`
+* Command `yc managed-mysql user grant-permission`
 
     The `--permissions` flag supports the `REFERENCES` privilege.
 
 **{{ mmy-name }}, {{ mpg-name }}**
 
-- Command `yc <managed DB service name> cluster update`
+* Command `yc <managed DB service name> cluster update`
 
     Added the `--websql-access` flag to control access from the [management console]({{ link-console-main }}).
 
@@ -368,17 +451,17 @@ Added primary support for {{ mkf-name }}:
 
 #### {{ kms-name }} {#kms}
 
-* Command `yc kms symmetric-key create`
+* Command `yc kms symmetric-key create`.
 Added the `--deletion-protection` flag to enable key protection from deletion.
 
-* Command `yc kms symmetric-key update`
+* Command `yc kms symmetric-key update`.
 Added flags to enable or disable key protection from deletion: `--deletion-protection` and `--no-deletion-protection`.
 
 #### Managed database services {#managed-db}
 
 **{{ mch-name }}**
 
-* Commands `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster restore`, and `yc managed-clickhouse cluster update`
+* Commands `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster restore`, and `yc managed-clickhouse cluster update`.
 Added flags:
   * `--admin-password`, `--generate-admin-password`, and `--read-admin-password` to set the `admin` user password that is used when user management via SQL is enabled.
   * `--enable-sql-database-management` to enable database management via SQL.
@@ -386,18 +469,19 @@ Added flags:
 
 **{{ mmy-name }}**
 
-* Command `yc managed-mysql user grant-permission`
+* Command `yc managed-mysql user grant-permission`.
 Added the `--permissions` flag that supports the `ALL_PRIVILEGES` privileges (a synonym for `ALL`).
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* Command `yc managed-kubernetes cluster create`
+* Command `yc managed-kubernetes cluster create`.
 Added the `--cluster-ipv6-range`, `--dual-stack`, and `--service-ipv6-range` flags that let you create {{ k8s }} clusters  with concurrent use of IPv4 and IPv6.
 
-* Commands `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update`
+* Commands `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update`.
+
 Added the `--security-group-ids` flag to set cluster security groups.
 
-* Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`
+* Commands `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update`.
 Added the `--network-interface` flag that lets you configure more detailed network specifications for nodes. For example, manage security group settings for network interfaces and configure node interfaces for concurrent use of IPv4 and IPv6 in {{ k8s }} clusters.
 
 ### Version 0.67.0 (05.10.20) {#version0.67.0}
@@ -430,7 +514,7 @@ Added the `--network-interface` flag that lets you configure more detailed netwo
 
 **{{ mmg-name }}**
 
-* Command `yc managed-mongodb cluster restore --help`
+* Command `yc managed-mongodb cluster restore --help`.
 Added an example of using the `--recovery-target-timestamp` flag.
 
 ### Version 0.65.0 (22.09.20) {#version0.65.0}
@@ -442,23 +526,24 @@ Added an example of using the `--recovery-target-timestamp` flag.
 Added UI Proxy support:
 
 * Added the `yc dataproc cluster list-ui-links` command that lets you get a list of links to access {{ dataproc-name }} cluster interfaces.
-* Commands `yc dataproc cluster create` and `yc dataproc cluster update`
+* Commands `yc dataproc cluster create` and `yc dataproc cluster update`.
 Added the `--ui-proxy` parameter that lets you enable the UI Proxy functionality for {{ dataproc-name }} clusters.
-* Commands `yc dataproc cluster create`, `yc dataproc subcluster create`, and `yc dataproc subcluster update`
+* Commands `yc dataproc cluster create`, `yc dataproc subcluster create`, and `yc dataproc subcluster update`.
 Added flags for auto-scalable subclusters: `--autoscaling-decommission-timeout`, `--cpu-utilization-target`, `--max-hosts-count`, `--measurement-duration`, `--preemptible`, `--stabilization-duration`, and `--warmup-duration`.
-* Command `yc dataproc subcluster list`
+* Command `yc dataproc subcluster list`.
 A response now contains the `instance group id` field with IDs of instance groups in auto-scalable subclusters.
 
 #### {{ certificate-manager-name }} {#certificate-manager}
 
 * Added the `yc certificate-manager certificate content` command to get certificate contents.
+
 It lets you upload a certificate chain and a private key to use on your own when configuring a web server on a VM.
 
 #### Managed database services {#managed-db}
 
 **{{ mmg-name }}**
 
-* Commands `{{ yc-mdb-mg }} cluster get` and `{{ yc-mdb-mg }} cluster update`
+* Commands `{{ yc-mdb-mg }} cluster get` and `{{ yc-mdb-mg }} cluster update`.
 Added the `backup-retain-period-days` field that shows the number of days for retaining automatic backups.
 
 * Commands `{{ yc-mdb-mg }} cluster list-backups` and `{{ yc-mdb-mg }} backup list`
@@ -866,10 +951,9 @@ The {{ api-gw-full-name }} service is at the Preview stage. Read more about the 
 in `less` (`$PAGER`) on Linux and macOS and in `more` on Windows. Now you no longer have to scroll up through the help output.
 
 * Debug logs for execution and API interaction are now saved to the
-`$HOME/.config/yandex-cloud/logs` configuration directory rather than installation directory. This fixes the problem when `yc`, which was installed as a stand-alone binary file,
-suddenly tries to save its log in the same directory without the rights to it.
+`$HOME/.config/yandex-cloud/logs` configuration directory rather than the install directory. This fixes the problem when `yc`, which was installed as a stand-alone binary file, suddenly tries to save its log in the same directory without the rights to it.
 
-* Debug logs are also saved for successful requests. If you contact support about an issue with the `yc` command, we may be able to help you faster if you attach your log file.
+* Debug logs are also saved for successful requests. If you contact support about an issue with a `yc` command, we may be able to help you faster if you attach your log file.
 
 **Fixed**
 
@@ -902,7 +986,7 @@ suddenly tries to save its log in the same directory without the rights to it.
 
 * Command `yc managed-kubernetes cluster create`
 
-  Added the `--enable-network-policy` flag to create a Kubernetes cluster with
+  Added the `--enable-network-policy` flag to create a Kubernetes cluster with 
 [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
 
 * Command `yc k8s cluster get-credentials`
@@ -919,13 +1003,13 @@ suddenly tries to save its log in the same directory without the rights to it.
 
 **Improved**
 
-* Command `yc <services> <resource> create`
+* Command `yc <service> <resource> create`.
 
   Added the ability to pass resource names as command arguments. Commands like `yc <service> <resource> create --name <resource name>` and `yc <service> <resource> create <resource name>` are now the same.
 
   For example, instead of the running the command `yc managed-kubernetes cluster create --name my-cluster ...`, you can now use the command `yc managed-kubernetes cluster create my-cluster ...`.
 
-* Command `yc <service> <resource> set-access-binding`
+* Command `yc <service> <resource> set-access-binding`.
 
   Added a warning that the command deletes assigned roles. If the user runs the command directly (rather than using another command or script), they're asked for confirmation.
 
@@ -941,7 +1025,7 @@ suddenly tries to save its log in the same directory without the rights to it.
 
 #### {{iam-name}} {#iam}
 
-* Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in the [documentation](https://cloud.yandex.ru/docs/iam/concepts/users/identity-federations).
+* Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. Learn more about SAML-compatible identity federations in the [documentation](../organization/add-federation.md).
 
 ### Version 0.50.0 (27.01.20) {#version0.50.0}
 
@@ -980,7 +1064,7 @@ Support for the cryptographic key management service: {{ kms-full-name }}.
 {{ kms-full-name }} (KMS) lets you create encryption keys and implement data protection models in your applications and services.
 Use the keys to protect your secrets, private data, and other confidential information you store in the cloud.
 
-The {{ kms-full-name }} service is at the Preview stage. Read more about the service in the [documentation](https://cloud.yandex.ru/docs/kms/).
+The {{ kms-full-name }} service is at the Preview stage. Read more about the service in the [documentation](https://cloud.yandex.com/docs/kms/).
 
 ### Version 0.48.0 (27.12.19) {#version0.48.0}
 
@@ -1104,13 +1188,13 @@ The {{ kms-full-name }} service is at the Preview stage. Read more about the ser
 
 **Fixed**
 
-* For Windows Subsystem for Linux (WSL), the browser now opens correctly when logging in to the CLI using [SAML-compatible identity federations](../iam/concepts/users/identity-federations.md).
+* For Windows Subsystem for Linux (WSL), the browser now opens correctly when logging in to the CLI using [SAML-compatible identity federations](../organization/add-federation.md).
 
 ### Version 0.43.0 (11.11.19) {#version0.43.0}
 
 #### Changes to the CLI {#cli}
 
-* Added CLI authentication using [SAML-compatible identity federations](../iam/concepts/users/identity-federations.md).
+* Added CLI authentication using [SAML-compatible identity federations](../organization/add-federation.md).
 
     To do this, run the command `yc init --federation-id=<FEDERATION_ID>` to use the CLI on behalf of the federated user.
 
