@@ -89,5 +89,7 @@ items:
         include:
           repo: docs
           path: en/_api-ref/apploadbalancer/toc.yaml
+  - name: Справочник логов
+    href: logs-ref.md
   - name: Правила тарификации
     href: pricing.md
