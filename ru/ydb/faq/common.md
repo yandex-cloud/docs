@@ -85,6 +85,12 @@ description: "Что такое Yandex Database? Для каких задач с
 
 #### Как удалять устаревшие данные? {#ttl}
 
-Для эффективного удаления устаревших данных используйте [{#T}](../concepts/ttl.md).
+Для эффективного удаления устаревших данных рекомендуется использовать [{#T}](../concepts/ttl.md).
+
+{% if deploy != "arc" %}
+{% if audience == "external" %}
 
 {% include [qa-logs.md](../../_includes/qa-logs.md) %}
+
+{% endif %}
+{% endif %}
