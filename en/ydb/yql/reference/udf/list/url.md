@@ -51,8 +51,8 @@ Encode a UTF-8 string to the urlencoded format (`Url::Encode`) and back (`Url::D
 **Examples**
 
 ```sql
-SELECT Url::Decode("http://ya.ru/%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"); -- "http://ya.ru/страница"
-SELECT Url::Encode("http://ya.ru/страница");                                         -- "http://ya.ru/%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"
+SELECT Url::Decode("http://ya.ru/%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"); -- "http://ya.ru/page"
+SELECT Url::Encode("http://ya.ru/page");                                         -- "http://ya.ru/%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"
 ```
 
 ## Parse {#parse}

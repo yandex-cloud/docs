@@ -88,7 +88,7 @@ FROM series view views_index
 WHERE views >= someValue
 ```
 
-{% note info "Накладные расходы распределённых транзакций" %}
+{% note info "Distributed transaction overhead" %}
 
 In general, transactions using a global index are distributed transactions, so they require more resources and take more time. While point reads and writes may take up to 10 ms in the 99th percentile, distributed transactions typically take from 20 to 500 ms. Note that, in some cases, a read query can be executed as a single-shard transaction:
 
@@ -97,7 +97,7 @@ In general, transactions using a global index are distributed transactions, so t
 
 {% endnote %}
 
-{% note warning "Ограничения на размер ответа" %}
+{% note warning "Response size limits" %}
 
 A full table scan may be impossible due to internal constraints: the size of the response to a client cannot exceed 50 MB and the size of data extracted from a single table shard per YQL query cannot exceed 5 GB. For large tables and queries, these limits may make it impossible to fully scan all table rows.
 

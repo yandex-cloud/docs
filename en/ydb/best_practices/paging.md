@@ -33,7 +33,7 @@ $Data = (
 SELECT * FROM $Data ORDER BY city, number LIMIT $limit;
 ```
 
-{% note warning "Значение NULL в ключевой колонке" %}
+{% note warning "NULL in key column" %}
 
 In YDB, all columns, including key ones, may have a NULL value. Despite this, using NULL as key column values is highly discouraged, since the SQL standard doesn't allow NULL to be compared. As a result, concise SQL statements with simple comparison operators won't work correctly. Instead, you'll have to use cumbersome statements with IS NULL/IS NOT NULL expressions.
 

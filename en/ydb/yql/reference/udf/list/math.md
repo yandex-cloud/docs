@@ -93,7 +93,7 @@ SELECT Math::Remainder(2.1, 2); -- 0.1
 
 * ```Math::Ldexp(Double{Flags:AutoMap}, Int32{Flags:AutoMap}) -> Double```
 * ```Math::Round(Double{Flags:AutoMap}, [Int32?]) -> Double```
-Во втором аргументе указывается степень 10, до которой округляем (отрицательная для знаков после запятой и положительная для округления до десятков—тысяч—миллионов); по умолчанию 0.
+The second argument specifies the power of 10 to which we round (negative for decimal places and positive for rounding to tens-thousands-millions). By default, 0.
 
 **Examples**
 
@@ -107,7 +107,7 @@ SELECT Math::Round(1.2345, -2); -- 1.23
 **List of functions**
 
 * ```Math::FuzzyEquals(Double{Flags:AutoMap}, Double{Flags:AutoMap}, [Double?]) -> Bool```
-Сравнивает два Double на нахождение внутри окрестности, задаваемой третьим аргументом; по умолчанию 1.0e-13.
+Compares two Doubles for being inside the environment specified by the third argument. By default, 1.0e-13.
 
 **Examples**
 

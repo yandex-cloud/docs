@@ -20,7 +20,11 @@
 
     В качестве первого аргумента функция принимает хешируемый массив данных.
     В качестве второго аргумента функция принимает соль (модификатор входа хеш-функции).
-* ```Digest::Blake2B(String{Flags:AutoMap}) -> String```
+* ```Digest::Blake2B(String{Flags:AutoMap},[String?]) -> String```
+
+    В качестве первого аргумента функция принимает хешируемый массив данных.
+    В качестве второго опционального аргумента функция принимает ключ.
+
 * ```Digest::SipHash(Uint64,Uint64,String{Flags:AutoMap}) -> Uint64```
 * ```Digest::HighwayHash(Uint64,Uint64,Uint64,Uint64,String{Flags:AutoMap}) -> Uint64```
 * ```Digest::FarmHashFingerprint32(String{Flags:AutoMap}) -> Uint32```

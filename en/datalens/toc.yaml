@@ -575,6 +575,12 @@ items:
             href: function-ref/SUM_IF_WINDOW.md
       - name: Function Availability
         href: function-ref/availability.md
+  - name: Tutorial on functions
+    items:
+      - name: Aggregate functions
+        href: concepts/aggregation-tutorial.md
+      - name: Window functions
+        href: concepts/window-function-tutorial.md
   - name: Public materials
     items:
       - name: Educational projects

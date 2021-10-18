@@ -210,7 +210,7 @@ FROM my_table;
 
 Tries to cast the value to the specified [primitive type](../types/primitive.md). The attempt may fail and return `NULL`. When used with numbers, it may lose precision or most significant bits.
 
-{% include notitle [Десятичные типы](../../../_includes/decimal_args.md) %}
+{% include notitle [Decimal types](../../../_includes/decimal_args.md) %}
 
 **Examples**
 
