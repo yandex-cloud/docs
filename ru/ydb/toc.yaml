@@ -164,6 +164,9 @@ items:
     - name: ClickHouse over YDB
       href: getting_started/start_chydb.md
       when: audience != "external"
+    - name: Сервис координации
+      href: coordination/overview.md
+      when: audience != "external"
     - name: REST API
       href: getting_started/start_rest.md
       when: audience == "tech"
