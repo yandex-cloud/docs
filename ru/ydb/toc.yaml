@@ -17,6 +17,8 @@ items:
         href: concepts/databases.md
       - name: Модель данных и схема
         href: concepts/datamodel.md
+      - name: Режимы работы Serverless и Dedicated
+        href: concepts/serverless_and_dedicated.md
       - name: Кластеры
         href: concepts/clusters.md
       - name: Типы данных
