@@ -58,8 +58,8 @@ table : Atom - имя таблицы
 key : Tuple literal of Tuple literal of (columnName: Atom, columnValue: *) - ключ состоит из последовательности пар имя столбца - значение.
 Должны быть заданы все ключевые колонки таблицы в том порядке, в котором они объявлены в таблице.
 fields: Tuple literal of columnName: Atom - список колонок, значение которых нужно прочитать. Могут быть и ключевыми и неключевыми.
-target: Atom - опциональный режим чтения. online - чтение констистентное, head - чтение неконсистентное (аналог read committed), slave - чтение со slave таблетки. По умолчанию - online.
-target: Atom - опциональный режим чтения. online - чтение констистентное, head - чтение неконсистентное (аналог read committed), slave - чтение со slave таблетки. По умолчанию - online.
+target: Atom - опциональный режим чтения. online - чтение констистентное, head - чтение неконсистентное (аналог read committed), follower - чтение с follower таблетки. По умолчанию - online.
+target: Atom - опциональный режим чтения. online - чтение констистентное, head - чтение неконсистентное (аналог read committed), follower - чтение с follower таблетки. По умолчанию - online.
 
 Результат:
 Optional of RowType, где RowType = Struct Of field: Type of column
@@ -76,7 +76,7 @@ options: Tuple literal of option
 Варианты option:
 Atom=ItemsLimit Value: Literal of Ui64 - задать ограничение в количестве возвращенных строк
 Atom=BytesLimit Value: Literal of Ui64 - задать ограничение в количестве возвращенных байт (примерное)
-target: Atom - опциональный режим чтения. online - чтение констистентное, head - чтение неконсистентное, slave - чтение со slave таблетки. По умолчанию - online.
+target: Atom - опциональный режим чтения. online - чтение констистентное, head - чтение неконсистентное, follower - чтение с follower таблетки. По умолчанию - online.
 
 Результат:
 Struct of (List: List of RowType, Truncated: Bool), где RowType = Struct Of field: Type of column

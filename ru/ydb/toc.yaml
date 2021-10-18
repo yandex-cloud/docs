@@ -632,8 +632,8 @@ items:
             href: internals/vdisk_replication.md
         - name: Tablet
           items:
-          - name: Tablet slaves
-            href: internals/tablet_slaves.md
+          - name: Tablet followers
+            href: internals/tablet_followers.md
           - name: Tablet pipes
             href: internals/tablet_pipes.md
           - name: Tablet Leader Election и Log Commit Protocol
