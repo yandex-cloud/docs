@@ -37,7 +37,7 @@ spark:spark.driver.cores : 1
 | `hive`               | `/etc/hive/conf/hive-site.xml`          | [HIVE](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)                                           |
 | `hivemetastore`      | `/etc/hive/conf/hivemetastore-site.xml` | [HIVE Metastore](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)                                 |
 | `hiveserver2`        | `/etc/hive/conf/hiveserver2-site.xml`   | [HIVE Server2](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)                                   |
-| `tez`                | `/etc/tez/conf/tez-site.xml`            | [Tez](https://tez.apache.org/releases/0.9.2/tez-api-javadocs/configs/TezConfiguration.html)                                 |
+| `tez`                | `/etc/tez/conf/tez-site.xml`            | [Tez 0.9.2](https://tez.apache.org/releases/0.9.2/tez-api-javadocs/configs/TezConfiguration.html) и [Tez 0.10.0](https://tez.apache.org/releases/0.10.0.2/tez-api-javadocs/configs/TezConfiguration.html)|
 | `zeppelin`           | `/etc/zeppelin/conf/zeppelin-site.xml`  | [Zeppelin](https://zeppelin.apache.org/docs/0.9.0/setup/operation/configuration.html)                                       |
    
  Настройки запуска заданий указываются в особых свойствах:
