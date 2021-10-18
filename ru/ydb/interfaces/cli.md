@@ -262,7 +262,7 @@ table_format=plain
 * `Ctrl+S` или `Ctrl+W` — сохранить текущий запрос на сервере;
 * `Ctrl+O` — открыть запрос, сохраненный ранее на сервере.
 
-Также в интерактивном режиме доступна масса горячих клавиш в стиле Emacs и bash/zsh, что может оказаться удобным для привыкших к ним пользователей. Некоторые примеры горячих клавиш (полный список можно найти в коде [здесь](https://a.yandex-team.ru/arc/trunk/arcadia/yql/cli/interactive/key_bindings.py) и [здесь](https://a.yandex-team.ru/arc/trunk/arcadia/contrib/python/prompt_toolkit/prompt_toolkit/key_binding)):
+Также в интерактивном режиме доступна масса горячих клавиш в стиле Emacs и bash/zsh, что может оказаться удобным для привыкших к ним пользователей. Некоторые примеры горячих клавиш (полный список можно найти в коде [здесь](https://a.yandex-team.ru/arc/trunk/arcadia/yql/cli/interactive/key_bindings.py) и [здесь](https://a.yandex-team.ru/arc/trunk/arcadia/contrib/python/prompt-toolkit/prompt_toolkit/key_binding)):
 
 * `Сtrl+A` — переход в начало строки, `Ctrl+E` — в конец;
 * `Сtrl+F` — переход на символ вперед, `Ctrl+B` — назад;

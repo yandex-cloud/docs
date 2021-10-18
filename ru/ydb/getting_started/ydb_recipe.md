@@ -64,14 +64,6 @@ INCLUDE(${ARCADIA_ROOT}/kikimr/public/tools/ydb_recipe/recipe_stable.inc)
 
 {% endlist %}
 
-## Запуск теста c рецептом на macOS { #test-macos }
-
-Тесты с рецептом YDB можно запускать на macOS. Для корректной работы рецепта необходимо записать имя устройства в ``/etc/hosts``. Это можно сделать с помощью команды:
-
-```bash
-echo "127.0.0.1 `hostname -f`" | sudo tee -a /etc/hosts
-```
-
 ## Примеры { #test-local-ydb-examples }
 
 Примеры использования рецепта на разных языках программирования доступны в Аркадии в директории [kikimr/public/tools/ydb_recipe/examples](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/tools/ydb_recipe/examples).

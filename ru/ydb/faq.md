@@ -114,15 +114,17 @@ https://st.yandex-team.ru/YDBREQUESTS-14
 
 Во врем альтера:
 
+```
 <main>: Error: Execution, code: 1060
     <main>: Error: Transaction rolled back., code: 2007
         <main>: Error: Kikimr cluster or one of its subsystems was unavailable., code: 2005
             <main>: Error: Error executing transaction (ProxyShardNotAvailable): One or more of affected datashards not available, request execution cancelled
                 <main>: Error: Data shard errors: [SHARD_IS_BLOCKED] Can't propose tx. Shard is blocked.
+```
 
 #### Как запустить YDB локально
 
-https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/tools/ydb_recipe
+<https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/tools/ydb_recipe>
 
 ## FAQ по С++ SDK
 

@@ -30,4 +30,4 @@
 в два этапа — сначала готовится план, а затем он исполняется.
 
 Посмотреть боле детально аргументы перечисленных команд и способы использования можно в
-[README.md](../../tools/dstool/README.md) dstool'а.
+[README](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/tools/dstool/README.md) dstool'а.

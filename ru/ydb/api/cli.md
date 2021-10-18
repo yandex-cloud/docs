@@ -113,7 +113,7 @@ xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$
 ```
 db schema init <root>
 ```
-Инициализация схемы БД KiKiMR. <root> - имя корневого домена.
+Инициализация схемы БД KiKiMR. `<root>` - имя корневого домена.
 ```
 xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$ ./kikimr db schema init Root
 xenoxeno@xenoxeno-ub14:~/arcadia/kikimr/driver$
