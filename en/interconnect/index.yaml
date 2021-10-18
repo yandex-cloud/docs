@@ -18,7 +18,7 @@ meta:
 links:
   - title: Concepts
     description: Learn about the resources of the service
-    href: index
+    href: concepts/index
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing

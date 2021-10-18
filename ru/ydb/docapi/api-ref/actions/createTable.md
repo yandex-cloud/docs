@@ -88,7 +88,7 @@
       "LatestStreamLabel": "string",     
       "Replicas": [ 
          {             
-            "KMSMasterKeyId": "string",            
+            "KMSMainKeyId": "string",            
             "RegionName": "string",
             "ReplicaStatus": "string",
             "ReplicaStatusDescription": "string",
@@ -103,7 +103,7 @@
       },
       "SSEDescription": { 
          "InaccessibleEncryptionDateTime": number,
-         "KMSMasterKeyArn": "string",
+         "KMSMainKeyArn": "string",
          "SSEType": "string",
          "Status": "string"
       },

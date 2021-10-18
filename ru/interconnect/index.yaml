@@ -17,7 +17,7 @@ meta:
 links:
   - title: Концепции
     description: Узнайте про возможности сервиса
-    href: index
+    href: concepts/index
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

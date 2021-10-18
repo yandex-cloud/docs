@@ -80,20 +80,20 @@ System and user-defined variables are specified as values for template fields in
 1. The instance template specifies:
    * The list of user-defined variables in `key:value` format in the `variables` section.
    * The system and user-defined variables in the [supported](#support-fields) fields:
-     * The `instance_template.name` field specifies the `{shot_zone_var_{instance.zone_id}}` user-defined variable and the `{instance.index}` system variable.
+     * The `instance_template.name` field specifies the `{short_zone_var_{instance.zone_id}}` user-defined variable and the `{instance.index}` system variable.
      * The `instance_template.hostname` field specifies the `{instance.index}` system variable.
 
    ```yaml
    ...
    variables:
-     - key: shot_zone_var_ru-central1-a
+     - key: short_zone_var_ru-central1-a
        value: rc1a
-     - key: shot_zone_var_ru-central1-b
+     - key: short_zone_var_ru-central1-b
        value: rc1b
-     - key: shot_zone_var_ru-central1-c
+     - key: short_zone_var_ru-central1-c
        value: rc1c
    instance_template:
-     name: production-{shot_zone_var_{instance.zone_id}}-{instance.index}
+     name: production-{short_zone_var_{instance.zone_id}}-{instance.index}
      hostname: production-{instance.index}
      platform_id: standard-v2
    ...
@@ -101,37 +101,37 @@ System and user-defined variables are specified as values for template fields in
 
 1. During the first stage, {{ ig-name }} replaces the [system variables](#first-stage) with the calculated values.
    * In the `instance_template.name` field:
-     * The `{shot_zone_var_{instance.zone_id}}` variable is converted to the `{shot_zone_var_ru-central1-a}` variable.
+     * The `{short_zone_var_{instance.zone_id}}` variable is converted to the `{short_zone_var_ru-central1-a}` variable.
      * The `{instance.index}` system variable is converted to index `1`.
    * In the `instance_template.hostname` field, the `{instance.index}` system variable is converted to index `1`.
 
    ```yaml
    ...
    variables:
-     - key: shot_zone_var_ru-central1-a
+     - key: short_zone_var_ru-central1-a
        value: rc1a
-     - key: shot_zone_var_ru-central1-b
+     - key: short_zone_var_ru-central1-b
        value: rc1b
-     - key: shot_zone_var_ru-central1-c
+     - key: short_zone_var_ru-central1-c
        value: rc1c
    instance_template:
-     name: production-{shot_zone_var_ru-central1-a}-1
+     name: production-{short_zone_var_ru-central1-a}-1
      hostname: production-1
      platform_id: standard-v2
    ...
    ```
 
 1. At the second stage, {{ ig-name }} converts the resulting variables to the values from the list in the `variables` section:
-   * In the `instance_template.name` field: the `{shot_zone_var_ru-central1-a}` variable is converted to the value `rc1a`.
+   * In the `instance_template.name` field: the `{short_zone_var_ru-central1-a}` variable is converted to the value `rc1a`.
 
    ```yaml
    ...
    variables:
-     - key: shot_zone_var_ru-central1-a
+     - key: short_zone_var_ru-central1-a
        value: rc1a
-     - key: shot_zone_var_ru-central1-b
+     - key: short_zone_var_ru-central1-b
        value: rc1b
-     - key: shot_zone_var_ru-central1-c
+     - key: short_zone_var_ru-central1-c
        value: rc1c
    instance_template:
      name: production-rc1a-1

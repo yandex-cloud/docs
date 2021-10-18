@@ -81,20 +81,20 @@ _Пользовательская переменная_ — значение, к
 
    * Список пользовательских переменных в формате `ключ:значение` в блоке `variables`.
    * Системные и пользовательские переменные в [допустимых](#support-fields) полях:
-     * в поле `instance_template.name` указаны пользовательская переменная `{shot_zone_var_{instance.zone_id}}` и системная — `{instance.index}`;
+     * в поле `instance_template.name` указаны пользовательская переменная `{short_zone_var_{instance.zone_id}}` и системная — `{instance.index}`;
      * в поле `instance_template.hostname` указана системная переменная `{instance.index}`.
 
    ```yaml
    ...
    variables:
-     - key: shot_zone_var_ru-central1-a
+     - key: short_zone_var_ru-central1-a
        value: rc1a
-     - key: shot_zone_var_ru-central1-b
+     - key: short_zone_var_ru-central1-b
        value: rc1b
-     - key: shot_zone_var_ru-central1-c
+     - key: short_zone_var_ru-central1-c
        value: rc1c
    instance_template:
-     name: production-{shot_zone_var_{instance.zone_id}}-{instance.index}
+     name: production-{short_zone_var_{instance.zone_id}}-{instance.index}
      hostname: production-{instance.index}
      platform_id: standard-v3
    ...
@@ -103,21 +103,21 @@ _Пользовательская переменная_ — значение, к
 1. На первом этапе {{ ig-name }} заменит [системные переменные](#first-stage) на вычисленные значения.
 
    * В поле `instance_template.name`:
-     * переменная `{shot_zone_var_{instance.zone_id}}` будет преобразована в переменную `{shot_zone_var_ru-central1-a}`;
+     * переменная `{short_zone_var_{instance.zone_id}}` будет преобразована в переменную `{short_zone_var_ru-central1-a}`;
      * системная переменная `{instance.index}` будет преобразована в индекс `1`.
    * В поле `instance_template.hostname` системная переменная `{instance.index}` будет преобразована в индекс `1`.
 
    ```yaml
    ...
    variables:
-     - key: shot_zone_var_ru-central1-a
+     - key: short_zone_var_ru-central1-a
        value: rc1a
-     - key: shot_zone_var_ru-central1-b
+     - key: short_zone_var_ru-central1-b
        value: rc1b
-     - key: shot_zone_var_ru-central1-c
+     - key: short_zone_var_ru-central1-c
        value: rc1c
    instance_template:
-     name: production-{shot_zone_var_ru-central1-a}-1
+     name: production-{short_zone_var_ru-central1-a}-1
      hostname: production-1
      platform_id: standard-v3
    ...
@@ -125,16 +125,16 @@ _Пользовательская переменная_ — значение, к
 
 1. На втором этапе {{ ig-name }} преобразует полученные переменные в значения из списка в блоке `variables`:
 
-   * В поле `instance_template.name`: переменная `{shot_zone_var_ru-central1-a}` будет преобразована в значение `rc1a`.
+   * В поле `instance_template.name`: переменная `{short_zone_var_ru-central1-a}` будет преобразована в значение `rc1a`.
 
    ```yaml
    ...
    variables:
-     - key: shot_zone_var_ru-central1-a
+     - key: short_zone_var_ru-central1-a
        value: rc1a
-     - key: shot_zone_var_ru-central1-b
+     - key: short_zone_var_ru-central1-b
        value: rc1b
-     - key: shot_zone_var_ru-central1-c
+     - key: short_zone_var_ru-central1-c
        value: rc1c
    instance_template:
      name: production-rc1a-1

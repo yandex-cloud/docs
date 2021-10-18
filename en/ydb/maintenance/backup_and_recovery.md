@@ -10,7 +10,7 @@ This section describes supported methods for creating YDB database backups and r
 * [CSV files in the file system](#filesystem_backup).
 * [AWS S3-compatible storage](#s3_backup), like {{ objstorage-name }}.
 
-{% note warning "Влияние резервного копирования на производительность" %}
+{% note warning "Effect of backups on performance" %}
 
 Database query execution time may increase when making backups. Test the process using test databases before performing a backup under real load on production databases.
 
@@ -202,7 +202,7 @@ aws --endpoint-url=https://storage.yandexcloud.net s3 ls testdbbackups/20200601/
                            PRE series/
 ```
 
-{% note info "Работа с директориями" %}
+{% note info "Working with directories" %}
 
 To back up all tables in the YDB directory, specify the path to the directory as the source.
 

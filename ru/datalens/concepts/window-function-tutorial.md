@@ -88,7 +88,7 @@
 
 Вычисление доли каждой категории (`% Total`) от общей суммы продаж по городу (`TotalSales`):
 
-* TotalSales — `SUM(SUM[Sales] WITHIN [City])`
+* TotalSales — `SUM(SUM([Sales]) WITHIN [City])`
 * % Total — `SUM([Sales]) / [TotalSales]`
 
 Результат на примере чарта **Столбчатая диаграмма**:

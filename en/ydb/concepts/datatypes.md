@@ -11,7 +11,7 @@ This section describes the data types that {{ ydb-short-name }} supports.
 
 {{ ydb-short-name }} uses [YQL](../yql/reference/overview.md) data types. Some YQL types have limited support: they can only be used in calculations, but can't function as column types or be used in the primary key. All columns, including key columns, may contain a special `NULL` value.
 
-{% note warning "Значения NULL в ячейках первичного ключа" %}
+{% note warning "NULL in primary key cells" %}
 
 Although it's possible to have composite primary key values in which some field values store `NULL`, we strongly recommend that you never do that and never store `NULL` in a primary key.
 
@@ -51,13 +51,13 @@ Tables 1,2, and 3 show possible ways to use YQL data types in {{ ydb-short-name 
 | `JsonDocument` | Valid [JSON](https://en.wikipedia.org/wiki/JSON) in an indexed binary representation | Yes | Yes | No | No |
 | `Uuid` | A universally unique identifier [UUID](https://tools.ietf.org/html/rfc4122) | Yes | No | No | Yes |
 
-{% note info "Ограничения на размер" %}
+{% note info "Size limits" %}
 
 The maximum value size in a cell with any string data type is about 4 MB.
 
 {% endnote %}
 
-{% note info "Отличия Json и JsonDocument" %}
+{% note info "Differences of Json and JsonDocument" %}
 
 Unlike the `JSON` data type that stores the original text representation passed by the user, `JsonDocument` uses an indexed binary representation. An important difference from the point of view of semantics is that `JsonDocument` doesn't preserve formatting, the order of keys in objects, or their duplicates.
 

@@ -371,7 +371,7 @@ For the data types `Date`, `Datetime`, `Timestamp`, and `Interval`, literals are
 * You can't use the units of measurement exceeding one day.
 * The options with the beginning/end of the interval and with repetitions, are not supported.
 
-{% include notitle [Десятичные типы](../../../_includes/decimal_args.md) %}
+{% include notitle [Decimal types](../../../_includes/decimal_args.md) %}
 
 **Examples**
 

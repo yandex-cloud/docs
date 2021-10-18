@@ -120,7 +120,7 @@
                   }
                }
             ],
-            "KMSMasterKeyId": "string",
+            "KMSMainKeyId": "string",
             "ProvisionedThroughputOverride": { 
                "ReadCapacityUnits": number
             },
@@ -138,7 +138,7 @@
       },
       "SSEDescription": { 
          "InaccessibleEncryptionDateTime": number,
-         "KMSMasterKeyArn": "string",
+         "KMSMainKeyArn": "string",
          "SSEType": "string",
          "Status": "string"
       },
