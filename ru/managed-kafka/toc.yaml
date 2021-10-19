@@ -34,6 +34,8 @@ items:
         href: tutorials/index.md
       - name: Поставка данных в Managed Service for ClickHouse
         href: tutorials/send-data-to-mch.md
+      - name: Настройка Kafka Connect для работы с Managed Service for Apache Kafka®
+        href: tutorials/kafka-connect.md
       - name: Поставка данных в ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
       - name: >-
