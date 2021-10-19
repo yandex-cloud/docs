@@ -1,5 +1,6 @@
 # Элементы HTML
 
+## Теги {#html-tags}
 Чтобы вставить на страницу элементы оформления, которые не предусмотрены разметкой Markdown, вы можете использовать в тексте теги HTML.
 
 Например:
@@ -22,3 +23,20 @@
     ![](../../_assets/wiki/border-text.png)
 
     {% endcut %}
+
+{% if audience == "internal" %}
+
+## Вики-сниппеты {#snippets}
+
+Чтобы добавить на страницу дополнительные элементы форматирования, можно использовать сниппеты — шаблоны HTML-кода. Сниппеты  для {{ wiki-name}} доступны по ссылкам:
+* [Разметка страницы в несколько столбцов](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#1.razmetkastranicysetka)
+* [Кнопки](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#2.knopki)
+* [Алерты](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#3.alerty)
+* [Бейджи](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#4.bejjdzhi)
+* [Иконки](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#5.ikonki)
+* [Блоки с оглавлением и полезными ссылками](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#6.bloksoglavleniemipoleznymissylkami)
+* [Изображения с подписями](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#7.izobrazhenijaspodpisjami)
+* [Прогрессбары](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#8.progressbary)
+
+{% endif %}
+
