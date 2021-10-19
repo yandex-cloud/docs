@@ -2,10 +2,10 @@
 
 Для выполнения запросов к {{ ydb-full-name }} в {{ yandex-cloud }} с помощью {{ ydb-short-name }} CLI необходимо авторизоваться. Выберите один из доступных способов:
 
-* Если вы работаете от имени [аккаунта на Яндексе](../../iam/concepts/index.md#passport), авторизуйтесь с помощью [OAuth-токена](../../iam/concepts/authorization/oauth-token.md).
-* Если вы работаете от имени [федеративного аккаунта](../../iam/concepts/index.md#saml-federation), авторизуйтесь с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md).
-* Для авторизации из [виртуальной машины](../../compute/concepts/vm.md) используйте [сервис метаданных](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md).
-* Если вы хотите выполнять команды от имени [сервисного аккаунта](../../iam/concepts/index#sa), используйте [авторизованный ключ доступа](../../iam/concepts/authorization/key.md).
+* Если вы работаете от имени {% if audience == "external" %}[аккаунта на Яндексе](../../iam/concepts/index.md#passport){% else %}аккаунта на Яндексе{% endif %}, авторизуйтесь с помощью {% if audience == "external" %}[OAuth-токена](../../iam/concepts/authorization/oauth-token.md){% else %}OAuth-токена{% endif %}.
+* Если вы работаете от имени {% if audience == "external" %}[федеративного аккаунта](../../iam/concepts/index.md#saml-federation){% else %}федеративного аккаунта{% endif %}, авторизуйтесь с помощью {% if audience == "external" %}[IAM-токена](../../iam/concepts/authorization/iam-token.md){% else %}IAM-токена{% endif %}.
+* Для авторизации из {% if audience == "external" %}[виртуальной машины](../../compute/concepts/vm.md){% else %}виртуальной машины{% endif %} используйте {% if audience == "external" %}[сервис метаданных](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md){% else %}сервис метаданных{% endif %}.
+* Если вы хотите выполнять команды от имени {% if audience == "external" %}[сервисного аккаунта](../../iam/concepts/index#sa){% else %}сервисного аккаунта{% endif %}, используйте {% if audience == "external" %}[авторизованный ключ доступа](../../iam/concepts/authorization/key.md){% else %}авторизованный ключ доступа{% endif %}.
 
 {% list tabs %}
 
@@ -52,7 +52,7 @@
 
 - IAM-токен
 
-  1. С помощью [CLI {{ yandex-cloud }}](../../cli/index.yaml) получите IAM-токен:
+  1. С помощью {% if audience == "external" %}[CLI {{ yandex-cloud }}](../../cli/index.yaml){% else %}CLI {{ yandex-cloud }}{% endif %} получите IAM-токен:
 
       ```bash
       yc iam create-token
@@ -99,7 +99,7 @@
 
   {% note alert %}
 
-  [Время жизни](../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена не более 12 часов.
+  {% if audience == "external" %}[Время жизни](../../iam/concepts/authorization/iam-token.md#lifetime){% else %}Время жизни{% endif %} IAM-токена не более 12 часов.
 
   {% endnote %}
 
@@ -146,7 +146,7 @@
 
 - Авторизованный ключ доступа
 
-  1. С помощью [CLI {{ yandex-cloud }}](../../cli/index.yaml) создайте авторизованный ключ сервисного аккаунта:
+  1. С помощью {% if audience == "external" %}[CLI {{ yandex-cloud }}](../../cli/index.yaml){% else %}CLI {{ yandex-cloud }}{% endif %} создайте авторизованный ключ сервисного аккаунта:
 
       ```bash
       yc iam key create \

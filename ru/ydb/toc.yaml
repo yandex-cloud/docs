@@ -33,8 +33,10 @@ items:
         href: concepts/ttl.md
       - name: Разграничение прав доступа
         href: concepts/iam.md
-      - name: Квоты и лимиты
+      - name: Квоты и лимиты (Internal)
         href: concepts/quotas_and_limits.md
+      - name: Квоты и лимиты (Cloud)
+        href: concepts/limits.md        
       - name: YDB в сравнении
         href: concepts/comparision.md
         when: audience == "tech"
@@ -243,6 +245,7 @@ items:
       - name: Обработка ошибок в API
         href: ydb-sdk/error_handling.md
   - name: Сценарии использования
+    when: audience == "external"
     items:
       - name: Развертывание веб-приложения
         href: solutions/java-servlet-todo-list.md
@@ -258,6 +261,7 @@ items:
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: solutions/alice-shareable-todolist.md
   - name: Развертывание YDB
+    when: audience == "external"
     items:
       - name: Подготовка
         href: deploy/production_checklist.md
@@ -323,7 +327,7 @@ items:
     href: operations/start_auth.md
     when: audience == "external"
   - name: Правила тарификации
-    when: audience == "external"
+    # when: audience == "external"
     items:
       - name: Обзор
         href: pricing.md
