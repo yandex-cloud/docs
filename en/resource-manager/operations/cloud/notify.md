@@ -1,6 +1,6 @@
 # Cloud incident notifications
 
-By default, all cloud owners (users with the ``resource-manager.clouds.owner`` role) are notified of incidents in the cloud.
+By default, all cloud owners (users with the `resource-manager.clouds.owner` role) are notified of incidents in the cloud.
 
 If you want users to get incident notifications, add them to the list of notification recipients:
 

@@ -109,7 +109,7 @@ All supported extensions are listed here:
 - [postgis](https://postgis.net/docs/)
 - [postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder)
 - [postgis_topology](https://postgis.net/docs/Topology.html)
-- [postgres_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) (requires the`owner` or [mdb_admin](../concepts/roles.md#mdb-admin) role)
+- [postgres_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) (requires the `owner` or [mdb_admin](../concepts/roles.md#mdb-admin) role)
 - [seg](https://www.postgresql.org/docs/current/static/seg.html)
 - [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html)
 - [unaccent](https://www.postgresql.org/docs/current/static/unaccent.html)

@@ -6,9 +6,9 @@
 
 * Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [editor](../../../iam/concepts/access-control/roles#editor) и выше.
 * Для работы триггера сервисному аккаунту необходима роль:
-	* `serverless.functions.invoker` на функцию, которую вызывает триггер.
-	* `serverless-containers-invoker` на контейнер, который вызывает триггер.
-	* `logging.reader` на лог-группу, при добавлении записей в которую вызывается триггер.
+    * `serverless.functions.invoker` на функцию, которую вызывает триггер.
+    * `serverless.containers.invoker` на контейнер, который вызывает триггер.
+    * `logging.reader` на лог-группу, при добавлении записей в которую вызывается триггер.
 
 ## Формат сообщения от триггера для {{ cloud-logging-name }} {#format}
 

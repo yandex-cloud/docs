@@ -14,3 +14,5 @@
 - [{#T}](cluster-backups.md)
 - [{#T}](shards.md)
 - [{#T}](cluster-delete.md)
+- [{#T}](monitoring.md)
+- [{#T}](tools.md)

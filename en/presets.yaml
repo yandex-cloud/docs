@@ -402,6 +402,7 @@ default:
   yandex-cloud: Yandex.Cloud
   yds-short-name: Data Streams
   yds: yds
+  ml-project-size: 10 GB
   ya-client-app: https://oauth.yandex.com/client/new
   ya-oauth: https://oauth.yandex.com/verification_code
   tf-provider-mch: >-
