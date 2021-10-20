@@ -120,6 +120,41 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
       The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mmg-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- Terraform
+
+  To add a host to the cluster:
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Add a `host` block to the {{ mmg-name }} cluster description.
+
+      ```hcl
+      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+        ...
+        host {
+          role             = "<replica type: PRIMARY or SECONDARY>"
+          zone_id          = "<availability zone>"
+          subnet_id        = "<subnet in the availability zone>"
+          assign_public_ip = true / false
+          shard_name       = "<name of the shard in a sharded cluster>"
+          type             = "<host type in a sharded cluster: MONGOD, MONGOS, or MONGOCFG>"
+          ...
+        }
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+
 - API
 
   To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
@@ -165,6 +200,26 @@ From a [sharded](../operations/shards.md#enable) cluster, you may remove the `MO
 
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- Terraform
+
+  To remove a host from a cluster:
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Delete the `host` block of the host to remove from the {{ mmg-name }} cluster description.
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the deletion of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+
 - API
 
   To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
@@ -192,6 +247,16 @@ During this operation:
    {% endnote %}
 
 {% list tabs %}
+
+- Management console
+
+  To forcibly resync a host:
+
+  1. Go to the folder page and select **{{ mmg-name }}**.
+
+  1. Click on the name of the cluster you want and select the **Hosts** tab.
+
+  1. Click ![image](../../_assets/vertical-ellipsis.svg) in the line of the necessary host and select **Resynchronize**.
 
 - CLI
 

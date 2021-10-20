@@ -25,7 +25,6 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
-
 ## How to create a {{ PG }} cluster {#create-cluster}
 
 {% list tabs %}
@@ -33,12 +32,17 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 - Management console
 
   1. In the management console, select the folder where you want to create a database cluster.
+
   1. Select **{{ mpg-name }}**.
+
   1. Click **Create cluster**.
+
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
       - `PRESTABLE`: For testing, including the {{ mpg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+
   1. Select the DBMS version.
 
       {% note info %}
@@ -50,6 +54,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
       {% endnote %}
 
   1. Select the host class to define the technical specifications of the VMs where the database hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
+
   1. Under **Storage size**:
 
 {% if audience != "internal" %}
@@ -59,6 +64,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
         When selecting a storage type, remember that:
         - The size of the local storage can only be changed in 100 GB increments.
         - The size of non-replicated network storage can only be changed in 93 GB increments.
+
 {% endif %}
 
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
@@ -66,8 +72,11 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
   1. Under **Database**, specify the database attributes:
 
       - Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
+
       - Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
+
       - User password (from 8 to 128 characters).
+
       - Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual database level.
 
            {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
@@ -83,6 +92,12 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
      {% include [mpg-extra-settings](../../_includes/mdb/mpg-extra-settings-web-console.md) %}
 
   1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
+
+     {% note info %}
+
+     Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
+
+     {% endnote %}
 
   1. Click **Create cluster**.
 
@@ -126,7 +141,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          --user name=<username>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
          --disk-size <storage size, GB> \
-         --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \ 
+         --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --security-group-ids <list of security group IDs>
       ```
       
@@ -160,13 +175,12 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
-  If you don't have Terraform yet, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a cluster:
 
   1. In the configuration file, describe the parameters of resources that you want to create:
-
-     * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md).
+     * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
      * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
      * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
@@ -255,7 +269,6 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
     * [Security group](../concepts/network.md#security-groups) identifiers, in the `securityGroupIds` parameter.
     * Database configuration, in one or more `databaseSpecs` parameters.
     * User settings, in one or more `userSpecs` parameters.
-
 
 {% endlist %}
 
@@ -428,4 +441,3 @@ If you specified security group IDs when creating a cluster, you may also need t
   ```
 
 {% endlist %}
-

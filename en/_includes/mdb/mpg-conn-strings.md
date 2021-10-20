@@ -433,7 +433,7 @@ npm install pg
       const pg = require('pg');
       
       const config = {
-        connectionString: 'postgres://<username>:<user password>@c-<cluster ID>.rw.mdb. yandexcloud.net:6432/<DB name>',
+        connectionString: 'postgres://<username>:<user password>@c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>',
       }
       
       const conn = new pg.Client(config)
@@ -466,7 +466,7 @@ npm install pg
       const pg = require('pg');
       
       const config = {
-        connectionString: 'postgres://username:<user password>@c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>',
+        connectionString: 'postgres://<username>:<user password>@c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>',
         ssl: {
           rejectUnauthorized: true,
           ca: fs.readFileSync('/home/<home directory>/.postgresql/root.crt').toString(),
@@ -633,6 +633,66 @@ sudo apt update && sudo apt install -y php php-pgsql
       ```bash
       php connect.php
       ```
+
+{% endlist %}
+
+### PowerShell {#powershell}
+
+Before connecting, install the same version of [{{ PG }} for Windows](https://www.postgresql.org/download/windows/) that is used in the cluster. Select the *Command Line Tools* install only.
+
+{% list tabs %}
+
+- Connecting without using SSL
+
+  1. Set the environment variables for the connection:
+
+     ```powershell
+     $Env:PGSSLMODE="disable"; $Env:PGTARGETSESSIONATTRS="read-write"
+     ```
+
+  1. Connect to a database:
+
+     ```powershell
+     & 'C:\Program Files\PostgreSQL\<version>\bin\psql.exe' `
+           -h <FQDN of one or more {{ PG }} hosts> `
+           -p {{ port-mpg }} `
+           -U <username> `
+           <DB name>
+     ```
+
+     After running the command, enter the user password to complete the connection procedure.
+
+  1. To check the connection, run the following query:
+
+     ```powershell
+     SELECT version();
+     ```
+
+- Connecting with SSL
+
+  1. Set the environment variables for the connection:
+
+     ```powershell
+     $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
+     ```
+
+  1. Connect to a database:
+
+     ```powershell
+     & 'C:\Program Files\PostgreSQL\<version>\bin\psql.exe' `
+           -h <FQDN of one or more {{ PG }} hosts> `
+           -p {{ port-mpg }} `
+           -U <username> `
+           <DB name>
+     ```
+
+     After running the command, enter the user password to complete the connection procedure.
+
+  1. To check the connection, run the following query:
+
+     ```powershell
+     SELECT version();
+     ```
 
 {% endlist %}
 

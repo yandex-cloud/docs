@@ -82,15 +82,27 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
-To use an encrypted SSL connection, you need to get an SSL certificate:
+To use an encrypted connection, get an SSL certificate:
 
 {% if audience != "internal" %}
 
-```bash
-sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-```
+{% list tabs %}
+
+- Linux (Bash)
+
+  ```bash
+  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
+  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
+  sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+  ```
+
+- Windows (PowerShell)
+
+  ```powershell
+  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\YandexCA.crt https://{{ s3-storage-host }}{{ pem-path }}
+  ```
+
+{% endlist %}
 
 {% else %}
 
@@ -105,7 +117,9 @@ chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
 
 {% include [conn-strings-environment](../../_includes/mdb/mkf-conn-strings-env.md) %}
 
-Before connecting to cluster hosts over an SSL connection, [prepare a certificate](#get-ssl-cert). In the examples below, it is assumed that the `YandexCA.crt` certificate is located in the `/usr/local/share/ca-certificates/Yandex/` folder.
+Before connecting to cluster hosts over an SSL connection, [prepare a certificate](#get-ssl-cert). The examples below assume that the `YandexCA.crt` certificate is located in the directory:
+* `/usr/local/share/ca-certificates/Yandex/` for Ubuntu.
+* `$HOME\.kafka\` for Windows.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

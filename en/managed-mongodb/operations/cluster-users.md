@@ -2,7 +2,6 @@
 title: "MongoDB user management"
 description: "This article will show you how to add and remove users, as well as manage their individual settings in the MongoDB database management service."
 ---
-
 # Managing database users
 
 You can add and remove users, as well as manage their individual settings.
@@ -48,9 +47,12 @@ You can add and remove users, as well as manage their individual settings.
 
   1. Click **Add**.
 
-  1. Enter the database username and password (from 8 to 128 characters).
+  1. Enter the database username and password.
+
+      {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
   1. Configure the [roles](../concepts/users-and-roles.md) for the user:
+
      1. Select the database where you want to grant a role.
      1. Select the role and click **Add** under the list of roles.
 
@@ -82,7 +84,45 @@ You can add and remove users, as well as manage their individual settings.
         --permission database=<another DB name>,role=<role>,...
      ```
 
+     {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
      You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+  To create a user in a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `user` block to the {{ mmg-name }} cluster description.
+
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+          ...
+          user {
+            name     = "<username>"
+            password = "<password>"
+            permission {
+              database_name = "<name of the DB that access is granted to>"
+              roles         = [ "<list of user roles>" ]
+            }
+          }
+        }
+        ```
+
+        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 
@@ -103,6 +143,8 @@ You can add and remove users, as well as manage their individual settings.
      1. To add a role, select the database and role, then click **Add** under the list of roles.
      1. To delete a role, click ![image](../../_assets/cross.svg) next to the role.
 
+  {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -117,7 +159,7 @@ You can add and remove users, as well as manage their individual settings.
      $ {{ yc-mdb-mg }} user update --help
      ```
 
-  1. Specify the user properties in the create command:
+  1. Specify the user properties in the update command:
 
      ```
      $ {{ yc-mdb-mg }} user update <username>
@@ -127,7 +169,47 @@ You can add and remove users, as well as manage their individual settings.
         --permission database=<another DB name>,role=<role>,...
      ```
 
+     {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
      You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+  To change a user's password or list of roles:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mmg-name }} cluster description, find the `user` block for the required user.
+
+    1. Change the values of the `password` and `permission` fields:
+
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+          ...
+          user {
+            name     = "<username>"
+            password = "<new password>"
+            permission {
+              database_name = "<database name>"
+              roles         = [ "<new list of user roles>" ]
+            }
+          }
+        }
+        ```
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 
@@ -158,6 +240,26 @@ You can add and remove users, as well as manage their individual settings.
   ```
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- Terraform
+
+  To delete a user:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Delete the `user` block with a description of the required user from the {{ mmg-name }} cluster description.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 

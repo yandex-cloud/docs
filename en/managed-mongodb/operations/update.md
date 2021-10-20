@@ -14,6 +14,8 @@ After creating a cluster, you can:
 
 ## Changing the host class {#change-resource-preset}
 
+{% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
+
 {% list tabs %}
 
 - Management console
@@ -78,6 +80,36 @@ After creating a cluster, you can:
 
       {{ mmg-short-name }} will run the update host class command for the cluster.
 
+- Terraform
+
+  To change the [host class](../concepts/instance-types.md) for the cluster:
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. In the {{ mmg-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
+
+      ```hcl
+      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+        ...
+        resources {
+            resource_preset_id = "<class of {{ MG }} hosts>"
+            ...
+        }
+      }
+      ```
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+
 - API
 
   You can change the cluster [host class](../concepts/instance-types.md) using the API's [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_3_64_2.mongod.configresources.resourcePresetId`.
@@ -141,6 +173,36 @@ After creating a cluster, you can:
 
       If all these conditions are met, {{ mmg-short-name }} launches the operation to increase storage space.
 
+- Terraform
+
+  To increase the storage size for a cluster:
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+      For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. In the {{ mmg-name }} cluster description, change the `disk_size` parameter value under `resources`:
+
+      ```hcl
+      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+        ...
+        resources {
+          disk_size = <storage size in GB>
+          ...
+        }
+      }
+      ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+
 - API
 
   You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_4_2.mongod.resources.diskSize`.
@@ -153,12 +215,14 @@ After creating a cluster, you can:
 
 You can change the DBMS settings of the hosts in your cluster.
 
+{% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
+
 {% list tabs %}
 
 - Management console
   1. Go to the folder page and select **{{ mmg-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
-  1. Change the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**:
+  1. Change the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**.
   1. Click **Save changes**.
 
 - CLI
@@ -245,9 +309,57 @@ You can change the DBMS settings of the hosts in your cluster.
 
     You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- Terraform
+
+  To change additional cluster settings:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+       For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. To change the backup start time, add a block named `backup_window_start` to the {{ mmg-name }} cluster description under `cluster_config`:
+
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+          ...
+          cluster_config {
+            backup_window_start {
+              hours   = <backup starting hour>
+              minutes = <backup starting minute>
+            }
+            ...
+          }
+          ...
+        }
+        ```
+
+    1. To allow access [from {{ datalens-full-name }}](../../datalens/concepts/index.md), add a block named `access` to the {{ mmg-name }} cluster description under `cluster_config`:
+
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+          ...
+          cluster_config {
+            ...
+            access {
+              data_lens = <Access from DataLens: true or false>
+            }
+          ...
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+
 - API
 
-    Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
 
 {% endlist %}
 
@@ -280,6 +392,34 @@ You can change the DBMS settings of the hosts in your cluster.
         {{ yc-mdb-mg }} cluster update <cluster name> \
            --security-group-ids <list of security groups>
         ```
+
+- Terraform
+
+  To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+       For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mmg-name }} cluster description, change the `security_group_ids` parameter value:
+
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+          ...
+          security_group_ids = [ <List of security group IDs> ]
+          ...
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 

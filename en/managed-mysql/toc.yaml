@@ -1,3 +1,4 @@
+---
 title: Yandex Managed Service for MySQL
 href: index.yaml
 items:
@@ -33,7 +34,9 @@ items:
         href: operations/cluster-backups.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Migrating databases to Yandex.Cloud
+      - name: Performance diagnostics
+        href: operations/performance-diagnostics.md
+      - name: Migrating databases to Managed Service for MySQL
         href: operations/data-migration.md
       - name: Monitoring the state of a cluster and hosts
         href: operations/monitoring.md

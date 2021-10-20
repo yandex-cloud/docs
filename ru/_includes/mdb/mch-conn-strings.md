@@ -316,8 +316,8 @@
      {% endcut %}
 
      Актуальные версии зависимостей для Maven:
-     - [clickhouse-jdbc](https://mvnrepository.com/artifact/ru.yandex.clickhouse/clickhouse-jdbc).
-     - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
+     - [clickhouse-jdbc](https://mvnrepository.com/artifact/ru.yandex.clickhouse/clickhouse-jdbc)
+     - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
   **Пример кода для подключения с использованием SSL-соединения:**
 

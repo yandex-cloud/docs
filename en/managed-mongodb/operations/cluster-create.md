@@ -28,32 +28,41 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
+
   1. Select **{{ mmg-name }}**.
+
   1. Click **Create cluster**.
+
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
      - `PRODUCTION`: For stable versions of your apps.
      - `PRESTABLE`: For testing, including the {{ mmg-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+
   1. Select the DBMS version.
 
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. When you change the host class for the cluster, the characteristics of all existing hosts change, too.
 
   1. Under **Storage size**:
-      - Select the [type of storage](../concepts/storage.md), either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
+      - Choose the [type of storage](../concepts/storage.md), either a more flexible network type (**network-hdd** or **network-ssd**) or faster local SSD storage (**local-ssd**). The size of the local storage can only be changed in 100 GB increments.
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+
   1. Under **Database**, specify the DB attributes:
       - DB name.
       - Username.
       - User password. At least 8 characters.
+
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
   1. Under **Hosts**, select parameters for the database hosts created with the cluster (keep in mind that if you use SSDs when creating a {{ MG }} cluster, you can set at least three hosts). If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
   1. If necessary, configure additional cluster settings:
 
-     {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
+      {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
 
   1. If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
+
+      {% include [mmg-settings-dependence](../../_includes/mdb/mmg/note-info-settings-dependence.md) %}
 
   1. Click **Create cluster**.
 
@@ -97,7 +106,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
          --user name=<username>,password=<user password> \
          --database name=<database name> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
-         --mongod-disk-size <storage size in GB>
+         --mongod-disk-size <storage size, GB>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
@@ -114,7 +123,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
          --user name=<username>,password=<user password> \
          --database name=<database name> \
          --mongod-disk-type local-ssd \
-         --mongod-disk-size <storage size in GB>
+         --mongod-disk-size <storage size, GB>
       ```
 
       {% endif %}
@@ -123,7 +132,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
-  If you don't have Terraform yet, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a cluster:
 
@@ -156,7 +165,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
        security_group_ids = [ "<list of security groups>" ]
      
        cluster_config {
-         version = "<MongoDB version: 4.0, 4.2 or 4.4>"
+         version = "<MongoDB version: 4.0, 4.2, or 4.4>"
        }
      
        database {
@@ -175,7 +184,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
        resources {
          resource_preset_id = "<host class>"
          disk_type_id       = "<storage type>"
-         disk_size          = "<storage size, GB>"
+         disk_size          = <storage size, GB>
        }
      
        host {
@@ -194,15 +203,17 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
      }
      ```
 
-     For more information about resources that you can create using Terraform, see the [provider's documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+     For more information about resources that can be created using Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
-  1. Make sure that the configuration files are correct.
+  1. Make sure the settings are correct.
 
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
   1. Create a cluster.
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -376,4 +387,3 @@ If you specified security group IDs when creating a cluster, you may also need t
   ```
 
 {% endlist %}
-

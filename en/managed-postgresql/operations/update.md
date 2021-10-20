@@ -4,7 +4,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [Increase the storage size](#change-disk-size) (available only for network storage, `network-hdd`, and `network-ssd`).
+* [Increase the storage size](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
 
 * [Configure {{ PG }} servers](#change-postgresql-config) according to the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 
@@ -22,7 +22,13 @@ You can't change {{ PG }} server settings using SQL commands.
 
 {% endnote %}
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
+
+{% note info %}
+
+Some {{ PG }} settings [depend on the selected host class](../concepts/settings-list.md#settings-instance-dependent).
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -98,6 +104,12 @@ You can't change {{ PG }} server settings using SQL commands.
 
 ## Increasing storage size {#change-disk-size}
 
+{% note info %}
+
+Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md#settings-instance-dependent).
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -116,7 +128,7 @@ You can't change {{ PG }} server settings using SQL commands.
 
   {% if audience != "internal" %}
 
-  1. Make sure the required cluster uses network storage (it's currently not possible to increase the size of local storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
+  1. Make sure the required cluster uses standard or fast network storage (it's not possible to increase the size of local or non-replicated network storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
       ```
       $ {{ yc-mdb-pg }} cluster get <cluster name>
@@ -162,19 +174,13 @@ You can't change {{ PG }} server settings using SQL commands.
 
 ## Changing {{ PG }} settings {#change-postgresql-config}
 
-You can change the DBMS settings for the hosts in your cluster, both the default ones and those changing with the host class.
+You can change the DBMS settings of the hosts in your cluster.
 
-When [the host class changes](#change-resource-preset), {{ mpg-short-name }} automatically changes the following settings (if they weren't set manually):
+{% note info %}
 
-* `max_connections`
-* `shared_buffers`
-* `min_wal_size`
-* `max_wal_size`
-* `autovacuum_max_workers`
-* `autovacuum_vacuum_cost_delay`
-* `autovacuum_vacuum_cost_limit`
+Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
 
-The settings you set manually will no longer change automatically. Exceptions may occur if the set value becomes invalid when changing the host class: for example, you can't set `max_connections` to 800 and then change the cluster host class to `s2.micro` (for more information about the maximum number of connections, see [{#T}](cluster-create.md).
+{% endnote %}
 
 {% list tabs %}
 
@@ -267,7 +273,7 @@ The settings you set manually will no longer change automatically. Exceptions ma
     * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about how to connect to DataLens, see [{#T}](datalens-connect.md).
 
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
-    * `--websql-access`: Enables [SQL query](web-sql-query.md) execution from the management console. Default value: `false`.
+    * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. Default value: `false`.
 
     You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -279,7 +285,7 @@ The settings you set manually will no longer change automatically. Exceptions ma
 
 ## Setting the operation mode for the connection pooler {#change-pooler-config}
 
-You can set session mode or transaction mode for the connection pooler. For more information, see [{#T}](../concepts/pooling.md).
+You can set session or transaction mode for the connection pooler. For more information, see [{#T}](../concepts/pooling.md).
 
 {% list tabs %}
 
@@ -314,12 +320,12 @@ You can set session mode or transaction mode for the connection pooler. For more
 
 ## Switching the master {#start-manual-failover}
 
-In a failover {{ PG }} cluster with multiple hosts, you can switch over the master role from the current master host to a replica host in the cluster. After this operation, the current master host becomes a replica host for the new master.
+In a failover {{ PG }} cluster with multiple hosts, you can switch the master role from the current master host to the cluster's replica host. After this operation, the current master host becomes the replica host of the new master.
 
 Specifics of switching master hosts in {{ mpg-name }}
 
-1. You can't switch the master host over to a replica that explicitly specifies the source of the replication thread.
-1. If you don't specify the replica host name explicitly, the master host will switch over to a synchronous replica.
+1. You can't switch the master host to a replica that the source of the replication thread is explicitly given for.
+1. If you don't specify the replica host name explicitly, the master host will switch to a synchronous replica.
 
 For more information, see [{#T}](../concepts/replication.md).
 
@@ -331,8 +337,8 @@ For more information, see [{#T}](../concepts/replication.md).
   1. Go to the folder page and select **{{ mpg-name }}**.
   1. Click on the name of the cluster you want and select the **Hosts** tab.
   1. Click **![image](../../_assets/pencil.svg) Switching the master**.
-  1. To switch the master to a synchronous replica, leave the **Select master host automatically** option enabled.
-  1. To switch the master over to another replica, disable the **Select master host automatically** option and then select the desired replica from the drop-down list.
+  1. To switch the master to a synchronous replica, leave the **Choose master host automatically** option enabled.
+  1. To switch the master to another replica, disable the **Choose master host automatically** option and then select the desired replica from the drop-down list.
   1. Click **Switch**.
 
 - CLI
@@ -390,15 +396,15 @@ For more information, see [{#T}](../concepts/replication.md).
 - API
 
   To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
-  * The cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-  * The list of groups, in the `securityGroupIds` parameter.
-  * The list of settings to update, in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+
+  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+  * The list of groups in the `securityGroupIds` parameter.
+  * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
 
 {% note warning %}
 
-You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
-
