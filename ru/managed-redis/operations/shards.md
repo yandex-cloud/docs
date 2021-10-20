@@ -181,7 +181,7 @@ $ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя клас
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
     Чтобы ребалансировать кластер:
 
@@ -195,7 +195,7 @@ $ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя клас
 
     {% endnote %}
 
-* CLI
+- CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -210,7 +210,7 @@ $ {{ yc-mdb-rd }} shards get <имя шарда> --cluster-name <имя клас
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
-* API
+- API
 
     Ребалансировать кластер можно с помощью метода [rebalance](../api-ref/Cluster/rebalance.md).
 

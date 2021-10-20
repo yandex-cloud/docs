@@ -1,6 +1,6 @@
 # Managing cluster shards
 
-You can add and remove cluster shards, request a list of shards in your cluster, and rebalance your cluster.
+You can add and remove cluster shards, request a list of shards in the selected cluster, and rebalance your cluster.
 
 {% note warning %}
 
@@ -180,16 +180,23 @@ All the shard hosts are deleted with the shard.
 
 ## Rebalancing a cluster {#rebalance-cluster}
 
-New shards are created without hash slots and can't accept data. To start placing data in a new shard, rebalance the cluster to allocate some of its hash slots to the new shard. The data in the reassigned hash slots will be moved to the corresponding shard. Rebalancing can be performed on a running cluster and does not affect data availability or integrity.
+New shards are created without hash slots and can't accept data. To begin populating a new shard with data, rebalance the cluster to allocate some of its hash slots to the new shard. The cluster will move the data in the reassigned hash slots to the appropriate shard. Rebalancing can be performed on a running cluster and does not affect data availability or integrity.
 
 For more information, see [{#T}](../concepts/sharding.md#scaling).
 
 {% list tabs %}
 
 - Management console
-  1. Go to the folder page and select **{{ mrd-name }}**.
-  1. Click on the name of the cluster you want and select the **Hosts** tab.
-  1. Click **Rebalance cluster** and then **OK**.
+
+    1. Go to the folder page and select **{{ mrd-name }}**.
+    1. Click on the name of the cluster you need.
+    1. On the **Overview** tab, click **Rebalance**.
+
+    {% note tip %}
+
+    You can also rebalance a cluster using the **Rebalance cluster** button on the **Shards** tab.
+
+    {% endnote %}
 
 - CLI
 
@@ -197,14 +204,17 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To rebalance your cluster, run the command:
+  To rebalance a cluster, run the command below:
 
   ```bash
   {{ yc-mdb-rd }} cluster rebalance \
-      --name=<cluster name>
+     --name=<cluster name>
   ```
 
-  You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- API
+
+    You can rebalance a cluster using the [rebalance](../api-ref/Cluster/rebalance.md) method.
 
 {% endlist %}
-
