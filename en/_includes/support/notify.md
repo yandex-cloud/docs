@@ -2,7 +2,7 @@
 
 {{ yandex-cloud }} technical support notifies you of events that affect all {{ yandex-cloud }} users or your account specifically. To additionally receive notifications about your resources, [subscribe](../../resource-manager/operations/index.md) to **Incident notifications**.
 
-You can receive notifications for the entire cloud or individual folders. By default, all cloud owners (users with the ``resource-manager.clouds.owner`` role) are notified of incidents in the cloud. You can add cloud notification recipients in [Incident notifications]({{ link-cloud-notifications }}).
+You can receive notifications for the entire cloud or individual folders. By default, all cloud owners (users with the `resource-manager.clouds.owner` role) are notified of incidents in the cloud. You can add cloud notification recipients in [Incident notifications]({{ link-cloud-notifications }}).
 
 Folder owners do not receive any notifications by default. You can add notification recipients in the [folder settings](../../resource-manager/operations/folder/notify.md).
 
