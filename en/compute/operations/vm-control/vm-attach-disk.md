@@ -168,7 +168,23 @@ To partition and mount an empty disk yourself:
 
   1. Partition your disk. To do  this, create [partitions](https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en) using [cfdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html), [fdisk](https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html), or [parted](https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html).
 
+  1. For example, let's create partitions using the fdisk command. (the most convenient way is to run commands as root, to authorize as root user use the command sudo su -) To run fdisk, type:
+
+     ```bash
+     fdisk / dev / vdb
+     ```
+     You will see the fdisk command menu, a list of available commands can be obtained by typing m
+
+     Create a partition with the n command, specify “main” with the p option. You will see Partition number - Press Enter, First sector - Press Enter, Last sector - Press Enter.
+     Display the created partitions on the screen for verification using the p option.
+     You must save your changes using the w option.
+
   1. Format the disk for the appropriate file system. For example, you can use the [mkfs](https://manpages.ubuntu.com/manpages/xenial/en/man8/mkfs.8.html) utility.
+
+     To do this, enter the command::
+     ```bash
+     mkfs.ext4 /dev/vdb1
+     ```
 
   1. {% include [include](../../../_includes/compute/mount-disk.md) %}
 
@@ -189,7 +205,7 @@ To partition and mount an empty disk yourself:
      tmpfs               5120       0      5120   0% /run/lock
      tmpfs            1017608       0   1017608   0% /sys/fs/cgroup
      tmpfs             203520       0    203520   0% /run/user/1000
-     /dev/vdb2         523260    3080    520180   1% /mnt
+     /dev/vdb1         523260    3080    520180   1% /mnt
      ```
 
 - Windows
