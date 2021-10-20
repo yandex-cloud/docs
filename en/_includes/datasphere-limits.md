@@ -6,37 +6,27 @@
 | Number of [custom images](../datasphere/operations/user-images.md) per cloud | 3 |
 | Number of [datasets](../datasphere/concepts/dataset.md) per project | 3 |
 | Total dataset capacity per cloud | 500 GB |
+| Project storage volume^1^ | 10 GB |
+| **Restrictions on the use of VM for individuals** | |
+| c1.32 | 0 |
+| c1.80 | 0 |
+| g1.1 ^2^ | 0 |
+| g1.2 | 0 |
+| g1.4 | 0 |
+| g2.1 | 0 |
+| g2.8 | 0 |
 
-{% if region == "ru"%}
+^1^ for all projects created after October 15, 2021.
 
-   {% note info %}
-
-   Starting from June 20, 2021, restrictions on the use of GPU-enabled virtual machines available by default to individuals have come into effect. To use a VM with a g1.1 GPU configuration, top up your billing account so that it has at least ₽500 or write to Support and tell us about your task.
-
-   {% endnote %}
-
-{% endif %}
-
-{% if region == "kz"%}
-
-   {% note info %}
-
-   Starting from June 20, 2021, restrictions on the use of GPU-enabled virtual machines available by default to individuals have come into effect. To use a VM with a g1.1 GPU configuration, top up your billing account so that it has at least ₸3000 or write to Support and tell us about your task.
-
-   {% endnote %}
-
-{% endif %}
-
-&#160;
-| Type of limit | Value |
-| ----- | ----- |
-| Available c1.32 VMs | 0 |
-| Available c1.80 VMs | 0 |
-| Available g1.1 VMs | 0 |
-| Available g1.2 VMs | 0 |
-| Available g1.4 VMs | 0 |
+^2^ the quota increase is available when the balance of the billing account is more than {% if region == "ru" %}₽500{% endif %}{% if region == "kz" %}₸3000{% endif %}{% if region == "int" %}$10{% endif %} or by request to technical support.
 
 #### Limits {#datasphere-limits}
+
+{% note info %}
+
+Technical restrictions on the maximum amount of data stored in the {{ ml-platform-name }} project are valid until December 15, 2021 and apply only to projects created before October 15, 2021.
+
+{% endnote %}
 
 | Type of limit | Value |
 | ----- | ----- |

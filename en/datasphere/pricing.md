@@ -11,12 +11,6 @@ When using the {{ ml-platform-name}} service, you pay for the actual use of comp
 
 1. When deploying models, the cost of using {{ ml-platform-name }} consists of the operating time and capacity of all node instances. The operating time of each instance begins at the time of its launch and ends after the instance is deleted.
 
-  {% note warning %}
-  
-  The pricing rules for the deployment of services for the operation of models will enter into force on October 4, 2021.
-  
-  {% endnote %}
-
 ### Pricing unit {#unit}
 
 A billing measure is a one billing unit. The number of billing units spent on calculation depends on:
@@ -72,26 +66,15 @@ Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
 
 ### Storing data in the project {#storage}
 
-Data storage inside {{ ml-platform-name }} is not charged within the established [quotas and limits](concepts/limits.md) but datasets are nor included into project storage.
+Each project {{ml-platform-name }} has a storage within which data storage is not charged. If the quota for the project size is increased, the [storage volume](#project-data) over {{ ml-project-size }} is paid separately. For more information about quotas and limits of the service, see [{#T}](concepts/limits.md).
+
+{% note warning %}
+
+From December 15, 2021, a fee will be charged for all projects with a volume of more than {{ ml-project-size }}. To change the project storage, contact [technical support](../../support/). The reduction is possible to the actual occupied volume, rounded up to GB.
+
+{% endnote %}
+
 If you need to store large amounts of data that exceed the specified limits, use the {{ objstorage-full-name }} service. In this case, data storage will be charged according to [pricing rules {{ objstorage-name }}](../storage/pricing.md).
-
-{% if region == "ru"%}
-
-{% include [rub-data-storage.md](../_pricing/datasphere/rub-data-storage.md) %}
-
-{% endif %}
-
-{% if region == "kz"%}
-
-{% include [kzt-data-storage.md](../_pricing/datasphere/kzt-data-storage.md) %}
-
-{% endif %}
-
-{% if region == "int"%}
-
-{% include [usd-data-storage.md](../_pricing/datasphere/usd-data-storage.md) %}
-
-{% endif %}
 
 ## Pricing {#prices}
 
@@ -130,6 +113,54 @@ If you need to store large amounts of data that exceed the specified limits, use
 {% if region == "int"%}
 
 {% include [usd-async.md](../_pricing/datasphere/usd-async-new.md) %}
+
+{% endif %}
+
+### {{ ml-platform-name }} data storing {#prices-storage}
+
+#### Project data {#project-data}
+
+{% note warning %}
+
+From December 15, 2021, a fee will be charged for all projects with a volume of more than {{ ml-project-size }}. To change the project storage, contact [technical support](../../support/). The reduction is possible to the actual occupied volume, rounded up to GB.
+
+{% endnote %}
+
+{% if region == "ru"%}
+
+{% include [rub-storage.md](../_pricing/datasphere/rub-storage.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt-storage.md](../_pricing/datasphere/kzt-storage.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-storage.md](../_pricing/datasphere/usd-storage.md) %}
+
+{% endif %}
+
+#### Datasets {#datasets}
+
+{% if region == "ru"%}
+
+{% include [rub-data-storage.md](../_pricing/datasphere/rub-dataset.md) %}
+
+{% endif %}
+
+{% if region == "kz"%}
+
+{% include [kzt-data-storage.md](../_pricing/datasphere/kzt-dataset.md) %}
+
+{% endif %}
+
+{% if region == "int"%}
+
+{% include [usd-data-storage.md](../_pricing/datasphere/usd-dataset.md) %}
 
 {% endif %}
 

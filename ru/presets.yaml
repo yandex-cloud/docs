@@ -446,6 +446,7 @@ default:
   ds-api-addr: datasphere.api.cloud.yandex.net:443
   taas-name: Training as a Service
   taas: TaaS
+  ml-project-size: 10 ГБ
 
   # Data Transfer
   dt-copy: Копировать
