@@ -1,27 +1,28 @@
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, KZT.
-
-Prices in roubles, with VAT
-
 | Host class | Cost of a standard license | Cost of an enterprise license |
 | ----- | ----- | ----- |
 | **Intel Cascade Lake** |
-| {{ m2-small }} | ₸242 610 | ₸585 006 |
-| {{ m2-medium }} | ₸345 852 | ₸859 446 |
-| {{ m2-large }} | ₸449 100 | ₸1 133 892 |
-| {{ m2-xlarge }} | ₸655 584 | ₸1 682 772 |
-| {{ m2-2xlarge }} | ₸862 074 | ₸2 231 658 |
-| {{ m2-3xlarge }} | The host class is not available | ₸3 329 430 |
-| {{ m2-4xlarge }} | The host class is not available | ₸4 427 196 |
-| {{ m2-5xlarge }} | The host class is not available | ₸5 524 968 |
-| {{ m2-6xlarge }} | The host class is not available | ₸6 622 740 |
-| {{ m2-7xlarge }} | The host class is not available | ₸7 720 506 |
-| {{ m2-8xlarge }} | The host class is not available | ₸8 818 278 |
-| {{ s2-small }} | ₸220 488 | ₸562 884 |
-| {{ s2-medium }} | ₸404 862 | ₸1 089 654 |
-| {{ s2-large }} | ₸589 230 | ₸1 616 418 |
-| {{ s2-xlarge }} | ₸773 604 | ₸2 143 188 |
-| {{ s2-2xlarge }} | ₸1 142 340 | ₸3 196 716 |
-| {{ s2-3xlarge }} | The host class is not available |  ₸4 250 250 |
-| {{ s2-4xlarge }} | The host class is not available |  ₸5 303 784 |
-| {{ s2-5xlarge }} | The host class is not available |  ₸6 357 318 |
-| {{ s2-6xlarge }} | The host class is not available |  ₸8 464 380 |
+| {{ m2-micro }} | ₸139364 | ₸310562 |
+| {{ m2-small }} | ₸242610 | ₸585006 |
+| {{ m2-medium }} | ₸345852 | ₸859446 |
+| {{ m2-large }} | ₸449100 | ₸1133892 |
+| {{ m2-xlarge }} | ₸655584 | ₸1682772 |
+| {{ m2-2xlarge }} | ₸862074 | ₸2231658 |
+| {{ m2-3xlarge }} | The host class is not available | ₸3329430 |
+| {{ m2-4xlarge }} | The host class is not available | ₸4427196 |
+| {{ m2-5xlarge }} | The host class is not available | ₸5524968 |
+| {{ m2-6xlarge }} | The host class is not available | ₸6622740 |
+| {{ m2-7xlarge }} | The host class is not available | ₸7720506 |
+| {{ m2-8xlarge }} | The host class is not available | ₸8818278 |
+| {{ m2-9xlarge }} | The host class is not available | ₸11013816 |
+| {{ s2-micro }} | ₸128305 | ₸299503 |
+| {{ s2-small }} | ₸220488 | ₸562884 |
+| {{ s2-medium }} | ₸404862 | ₸1089654 |
+| {{ s2-large }} | ₸589230 | ₸1616418 |
+| {{ s2-xlarge }} | ₸773604 | ₸2143188 |
+| {{ s2-2xlarge }} | ₸1142340 | ₸3196716 |
+| {{ s2-3xlarge }} | The host class is not available | ₸4250250 |
+| {{ s2-4xlarge }} | The host class is not available | ₸5303784 |
+| {{ s2-5xlarge }} | The host class is not available | ₸6357318 |
+| {{ s2-6xlarge }} | The host class is not available | ₸8464380 |
+| {{ s2-7xlarge }} | The host class is not available | ₸10571448 |
+

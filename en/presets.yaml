@@ -152,7 +152,7 @@ default:
   tracker-short-name: Tracker
   speechkit-pro-short-name: SpeechKit Pro
   cdn-short-name: Cloud CDN
-  price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing is on a per-second basis.
+  price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
