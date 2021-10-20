@@ -169,9 +169,29 @@
 
   1. Разметьте диск. Для этого создайте на нем [разделы]{% if lang == "ru" %}(https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %}{% if lang == "en" %}(https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% endif %} с помощью [cfdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% endif %}, [fdisk]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% endif %}, или [parted]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% endif %}.
 
+  1. Для примера создадим разделы с помощью команды fdisk. (наиболее удобно выполнять команды от имени root, чтобы перейти к пользователю root дайте команду sudo su -) Для запуска fdisk наберите:
+     
+     ```bash
+     fdisk /dev/vdb
+     ```
+     Вы попадете в меню команды fdisk, список доступных команд можно получить введя m
+
+     Создаем раздел с помощью команды n, укажите “основной” с помощью опции p. Вы увидите Partition number - Нажмите Enter, First sector - нажмите Enter, Last sector- Нажмите Enter.
+     Выводим созданные разделы на экран для проверки, с помощью опции p.
+     Необходимо сохранить внесенные изменения с помощью опции w.
+     
   1. Отформатируйте диск в нужную файловую систему, например, с помощью утилиты [mkfs](https://www.opennet.ru/man.shtml?topic=mkfs&category=8&russian=0).
 
-  1. {% include [include](../../../_includes/compute/mount-disk.md) %}
+     Для этого введите команду:
+     ```bash
+     mkfs.ext4 /dev/vdb1
+     ```
+  1. Смонтируйте разделы диска с помощью утилиты `mount`, например, смонтируйте раздел `vdb1` в папку `/mnt/vdb1`:
+
+  ```bash
+  sudo mkdir /mnt/vdb1
+  sudo mount /dev/vdb1 /mnt/vdb1
+  ```
 
   1. Проверьте состояние файловой системы:
 
@@ -190,7 +210,7 @@
      tmpfs               5120       0      5120   0% /run/lock
      tmpfs            1017608       0   1017608   0% /sys/fs/cgroup
      tmpfs             203520       0    203520   0% /run/user/1000
-     /dev/vdb2         523260    3080    520180   1% /mnt
+     /dev/vdb1         523260    3080    520180   1% /mnt/vdb1
      ```
 
 - Windows
