@@ -23,8 +23,6 @@ items:
         href: operations/stepdown.md
       - name: Обновление версии MongoDB
         href: operations/cluster-version-update.md
-      - name: Мониторинг и инструменты диагностики кластера
-        href: operations/monitoring.md
       - name: Управление базами данных
         href: operations/databases.md
       - name: Управление хостами кластера
@@ -37,6 +35,10 @@ items:
         href: operations/shards.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+      - name: Мониторинг состояния кластера и хостов
+        href: operations/monitoring.md
+      - name: Инструменты для анализа производительности
+        href: operations/tools.md
   - name: Сценарии использования
     items:
       - name: Шардирование коллекций

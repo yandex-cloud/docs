@@ -107,6 +107,10 @@ items:
         href: dataplatform/kafka-cdc.md
       - name: Миграция базы данных в Managed Service for Microsoft SQL Server
         href: dataplatform/mssql-data-migration.md
+      - name: >-
+          Настройка Kafka Connect для работы с кластером Yandex Managed Service
+          for Apache Kafka®
+        href: dataplatform/kafka-connect.md
   - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии

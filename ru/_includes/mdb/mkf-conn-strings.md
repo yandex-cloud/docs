@@ -1022,14 +1022,13 @@ sudo apt update && sudo apt install -y kafkacat
 
 - Подключение с SSL
 
-  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль в параметре `--storepass` для дополнительной защиты хранилища:
+  1. Перейдите в каталог, где будет располагаться хранилище сертификатов Java:
 
      ```bash
-     cd /etc/security && \
-     sudo keytool -importcert -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
-            -keystore ssl -storepass <пароль хранилища сертификатов> \
-            --noprompt
+     cd /etc/security
      ```
+
+  1. {% include [Добавление сертификата в хранилище](./keytool-importcert.md) %}
 
   1. Пример кода для отправки сообщений в топик:
 
@@ -1592,4 +1591,3 @@ pip3 install kafka-python lz4 python-snappy crc32c
 {% endlist %}
 
 {% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
-

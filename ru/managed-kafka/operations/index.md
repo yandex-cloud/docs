@@ -10,3 +10,4 @@
 - [{#T}](cluster-accounts.md)
 - [{#T}](cluster-logs.md)
 - [{#T}](cluster-delete.md)
+- [{#T}](monitoring.md)

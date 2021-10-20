@@ -240,6 +240,7 @@ default:
   GL: GitLab
   GP: Greenplum<sup>®</sup>
   KF: Apache Kafka<sup>®</sup>
+  KFC: Kafka Connect
   MG: MongoDB
   MS: SQL Server
   MY: MySQL
@@ -437,6 +438,7 @@ default:
   ds-api-addr: datasphere.api.cloud.yandex.net:443
   taas-name: Training as a Service
   taas: TaaS
+  ml-project-size: 10 ГБ
   dt-copy: Копировать
   dt-repl: Реплицировать
   dt-copy-repl: Копировать и реплицировать

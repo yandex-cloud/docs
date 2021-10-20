@@ -12,11 +12,11 @@
 
   Встроенный механизм групп безопасности позволяет управлять доступом виртуальных машин к ресурсам и группам безопасности Yandex.Cloud или ресурсам в интернете. Группа безопасности — это набор правил для входящего и исходящего трафика, который можно назначить на сетевой интерфейс виртуальной машины. Группы безопасности работают как stateful firewall, то есть отслеживают состояние сессий: если правило разрешает создать сессию, ответный трафик будет автоматически разрешен. Инструкцию по настройке групп безопасности см. в разделе [{#T}](../../../vpc/operations/security-group-create.md). Указать группу безопасности можно в настройках ВМ.
 
-  ![](../../../_assets/overview/solution-library-icon.png)[Решение: настройка групп безопасности (dev/stage/prod) с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
+  ![](../../../_assets/overview/solution-library-icon.svg)[Решение: настройка групп безопасности (dev/stage/prod) с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation)
 
 - Отдельная виртуальная машина — межсетевой экран на основе образа NGFW из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace?categories=network).
 
-  ![](../../../_assets/overview/solution-library-icon.png)[Решение: установка в Yandex.Cloud ВМ — межсетевого экрана (NGFW): Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
+  ![](../../../_assets/overview/solution-library-icon.svg)[Решение: установка в Yandex.Cloud ВМ — межсетевого экрана (NGFW): Check Point](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM)
 
 - Схема Router-on-a-Stick на основе [Cloud Interconnect](../../../interconnect/index.yaml): вы можете подключить собственный файрвол к инфраструктуре Yandex.Cloud по выделенному каналу и маршрутизировать трафик в облачные сети через этот файрвол.
 
@@ -37,7 +37,7 @@
   Варианты настройки:
 
   - [Создание туннеля IPSec VPN с использованием демона strongSwan](../../../solutions/routing/ipsec-vpn.md)
-  - ![](../../../_assets/overview/solution-library-icon.png)[Решение: создание site-to-site VPN-соединения с Yandex.Cloud с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
+  - ![](../../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с Yandex.Cloud с помощью Terraform](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn)
 
 - Client VPN между удаленными устройствами и Yandex.Cloud. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе образа из [Yandex Cloud Marketplace](https://cloud.yandex.ru/marketplace?categories=network). См. инструкцию в разделе [{#T}](../../../solutions/routing/openvpn.md).
 - Приватное выделенное соединение между удаленной площадкой и Yandex.Cloud c помощью услуги [Cloud Interconnect](../../../interconnect/index.yaml).

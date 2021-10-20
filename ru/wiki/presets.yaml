@@ -13,6 +13,10 @@ default:
   link-about-graphviz: https://ru.wikipedia.org/wiki/Graphviz
   link-about-diagram: https://ru.wikipedia.org/wiki/Диаграмма_последовательности
   link-about-tex: https://ru.wikipedia.org/wiki/TeX
+  link-sharepoint-common: https://yandexteam.sharepoint.com/Shared%20Documents/Forms/AllItems.aspx
+  link-sharepoint-personal: https://yandexteam-my.sharepoint.com/_layouts/15/MySite.aspx?MySiteRedirect=AllDocuments
+  link-excel: >-
+    https://support.microsoft.com/ru-ru/office/определение-и-использование-имен-в-формулах-4d0f13ac-53b7-422e-afd2-abd7ff379c64
   yandex-logo-link: http://img.yandex.net/i/logo95x37x8.png
   wiki-host-name: wiki.yandex.ru
   wiki-username: wiki.yandex.ru/users/имяПользователя

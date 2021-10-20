@@ -73,7 +73,7 @@ items:
         href: delete-page.md
   - name: Навигация по Wiki
     items:
-      - name: Поиск по Wikis
+      - name: Поиск по Wiki
         href: search.md
       - name: Подписки и избранное
         href: notifications.md
