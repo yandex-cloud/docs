@@ -21,3 +21,13 @@
 * [{#T}](create-grid.md)
 
 * [{#T}](import-export-grid.md)
+
+{% if audience == "internal" %}
+
+## Документ Microsoft Office 365 {#ms-office}
+
+Документы Office 365, которые хранятся на корпоративном портале Sharepoint или в личной папке OneDrive.
+
+* [{#T}](office365/ms-office.md)
+
+{% endif %}

@@ -33,6 +33,9 @@ items:
     href: create-grid.md
   - name: Создать таблицу из файла
     href: import-export-grid.md
+  - name: Создать страницу в визуальном редакторе (Wysiwyg)
+    when: audience == "internal"
+    href: wysiwyg.md
 - name: Редактирование страниц
   items:
   - name: Отредактировать страницу
@@ -59,6 +62,25 @@ items:
     href: formulas.md
   - name: Диаграммы и блок-схемы
     href: diagram.md
+- name: Работа с документами Microsoft Office 365
+  when: audience == "internal"
+  items:
+  - name: Обзор
+    href: office365/ms-office.md
+  - name: Создать документ Microsoft Office 365 в Wiki
+    href: office365/create-ms-office.md
+  - name: Создать документ Office 365 на общем сайте Sharepoint
+    href: office365/create-sharepoint.md
+  - name: Совместное редактирование документов
+    href: office365/co-edit.md
+  - name: Вставить документ на обычную вики-страницу
+    href: office365/embed-iframe.md
+  - name: Настроить доступ к облачным документам
+    href: office365/doc-access.md
+  - name: Решение проблем с доступом к онлайн-документам
+    href: office365/access-troubles.md
+  - name: Разрешить отслеживающие куки
+    href: office365/cross-site-tracking.md
 - name: Управление страницами
   items:
   - name: Ограничить просмотр страницы
@@ -77,7 +99,7 @@ items:
     href: delete-page.md
 - name: Навигация по Wiki
   items:
-  - name: Поиск по Wikis
+  - name: Поиск по Wiki
     href: search.md
   - name: Подписки и избранное
     href: notifications.md

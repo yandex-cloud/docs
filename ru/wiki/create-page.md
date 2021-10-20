@@ -70,8 +70,11 @@ _Страница_ — это обычная страница с текстом,
 
 - [{#T}](create-grid.md)
 
+{% if audience == "internal" %}
+
+- [{#T}](wysiwyg.md)
+
+{% endif %}
+
 - [{#T}](delete-page.md)
-
-
-
 
