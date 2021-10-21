@@ -83,6 +83,9 @@ items:
           - name: Access denied
             hidden: true
             href: troubleshooting/errors/ERR-DS-US-ACCESS_DENIED_DATASET.md
+          - name: Received too many result data rows
+            hidden: true
+            href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
