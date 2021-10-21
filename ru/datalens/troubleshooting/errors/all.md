@@ -21,3 +21,4 @@
 * [{#T}](ERR-DS_API-FORMULA-TRANSLATION-UNKNOWN_FIELD.md)
 * [{#T}](ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md)
 * [{#T}](no-access-to-read-this-operation.md)
+* [{#T}](ERR-DS-US-ACCESS_DENIED_DATASET.md)
