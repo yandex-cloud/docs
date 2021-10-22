@@ -24,6 +24,8 @@ items:
         href: operations/cluster-topics.md
       - name: Управление учетными записями Kafka
         href: operations/cluster-accounts.md
+      - name: Управление коннекторами
+        href: operations/cluster-connector.md 
       - name: Просмотр логов кластера
         href: operations/cluster-logs.md
       - name: Удаление кластера
@@ -68,6 +70,8 @@ items:
         href: concepts/limits.md
       - name: Типы хранилища
         href: concepts/storage.md
+      - name: Коннекторы
+        href: concepts/connectors.md
       - name: Настройки Apache Kafka®
         href: concepts/settings-list.md
   - name: Управление доступом
