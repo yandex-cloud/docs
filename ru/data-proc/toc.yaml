@@ -60,6 +60,8 @@ items:
             href: operations/jobs-hive.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+      - name: Работа с логами
+        href: operations/logging.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
   - name: Концепции
