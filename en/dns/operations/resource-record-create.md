@@ -17,14 +17,20 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
 - CLI
 
+  {% include [include](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
   Run the command:
 
-  ```
+  ```bash
   yc dns zone add-records --name <DNS zone name> \
-  --record "<domain name> <TTL> <record type> <value>"
+     --record "<domain name> <TTL> <record type> <value>"
   ```
 
   You can add multiple records at the same time.
 
 {% endlist %}
+
+When creating AAAA resource records, the service automatically normalizes IPv6 addresses by replacing the gaps between `:` with zeros. For example: `2001:db8::` → `2001:db8:0:0:0:0:0:0`.
 
