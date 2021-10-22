@@ -4,12 +4,6 @@ editable: false
 
 # Pricing for {{ mms-name }}
 
-{% note warning %}
-
-The billing rules described on this page are valid until and including September 30, 2021. Starting from October 01, 2021 the rules described in section [{#T}](pricing-01-10-2021.md) will come into effect.
-
-{% endnote %}
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Cluster status {#running-stopped}
@@ -39,10 +33,12 @@ The cost of {{ mms-name }} usage is based on:
 
 You're charged for using licenses monthly on an pre-payment basis. This means that a fee is charged at the beginning of a billing period before you actually start using the service resources. In this case:
 
-* If you stop or delete your cluster during the billing period, license costs for this period are not refunded.
+* If you create a new cluster during the billing period, the license cost is calculated based on the number of days remaining in the billing period. For example, if there are 30 days in the month and 7 days left until the end of the month, you'll pay 7/30 of the monthly license cost.
+* If you stop, delete or restart a previously stopped cluster during the billing period, license costs for the rest of this period are not refunded.
 * If you change the cluster configuration and reduce resource consumption, the cost of released licenses for this period is not refunded. A new cost is valid from the first day of the following month.
-* If you create a new cluster or restart a previously stopped cluster during the billing period, the license cost is calculated based on the number of days remaining in the billing period. For example, if there are 30 days in the month and 7 days left until the end of the month, you'll pay 7/30 of the monthly license cost.
 * If you change the cluster configuration and increase resource consumption, you need additional licenses. Their cost is calculated based on the number of days remaining in the billing period. For example, if there are 30 days in the month and 7 days left until the end of the month, you'll additionally pay 7/30 of the monthly cost of new licenses.
+* A multi-host SQL Server cluster with unreadable secondary replicas requires only one license for Microsoft SQL Server Enterprise — for the primary replica.
+* A multi-host SQL Server cluster with readable secondary replicas requires a Microsoft SQL Server Enterprise license for each replica.
 
 ### DB host usage {#rules-hosts-uptime}
 
@@ -69,7 +65,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 
 
-{% include [usd-pricing.md](../_pricing/managed-sqlserver/usd-pricing-old.md) %}
+{% include [usd-pricing.md](../_pricing/managed-sqlserver/usd-pricing.md) %}
 
 ### Outgoing traffic {#prices-traffic}
 

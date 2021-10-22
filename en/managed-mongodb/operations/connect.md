@@ -76,7 +76,7 @@ Amount of RAM available to the host is determined by the host class. All availab
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
-{{ MG }} hosts with public access only support connections with an SSL certificate. You can prepare a certificate as follows:
+{{ MG }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
 
 
 ```bash
@@ -188,4 +188,3 @@ If the connection to the cluster and the test query are successful, the followin
 
 1. For PHP examples, the `ping` command result.
 1. For other examples, the name of the database the connection was established to.
-

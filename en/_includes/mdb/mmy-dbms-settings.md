@@ -8,7 +8,7 @@
 
 - **Auto increment**{#setting-auto-increment-increment} {{ tag-all }}
 
-   Sets the interval between the values of `AUTO_INCREMENT` columns.
+  Sets the interval between the values of `AUTO_INCREMENT` columns.
 
   The minimum value is `1` and the maximum value is `65535`. Defaults to `1`.
 
@@ -24,7 +24,7 @@
 
 - **Binlog cache size**{#setting-binlog-cache-size} {{ tag-all }}
 
-   The size of the cache (in bytes) for storing changes to the [binary log](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) while performing a transaction.
+  The size of the cache (in bytes) for storing changes to the [binary log](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) while performing a transaction.
 
   The minimum value is `4096` (4 KB) and the maximum value is `67108864` (64 MB). Defaults to `32768` (32 KB).
 
@@ -32,7 +32,7 @@
 
 - **Binlog group commit sync delay**{#setting-binlog-sync-delay} {{ tag-all }}
 
-   Sets the delay before synchronizing the binary log to disk when performing a `COMMIT` for the binary log. To synchronize more transactions to disk at a time, set the delay to a value greater than zero. This will reduce the total time per `COMMIT` for a group of transactions.
+  Sets the delay before synchronizing the binary log to disk when performing a `COMMIT` for the binary log. To synchronize more transactions to disk at a time, set the delay to a value greater than zero. This will reduce the total time per `COMMIT` for a group of transactions.
 
   The minimum value is `0` (no delay) and the maximum value is `1000000` (one second). Defaults to `0`.
 
@@ -98,7 +98,7 @@
 
 - **General log**{#setting-general-log} {{ tag-all }}
 
-   Controls writing the {{ MY }} general query log.
+  Controls writing the {{ MY }} general query log.
 
   By default, disabled.
 
@@ -122,9 +122,15 @@
 
 - **Innodb buffer pool size**{#setting-buffer-pool-size} {{ tag-all }}
 
-   The size of the InnoDB buffer pool (in bytes) used for caching table and index data. A larger buffer pool requires fewer I/O operations to access the same table data more than once.
+  The size of the InnoDB buffer pool (in bytes) used for caching table and index data. A larger buffer pool requires fewer I/O operations to access the same table data more than once.
 
-  The minimum value is `5242880` (5 MB). The default value is 50% of the total RAM of a {{ mmy-name }} cluster's host.
+  The minimum value is `134217728` (128 MB). The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are set according to the table:
+
+  | Amount of GB RAM on the host | Default value | Maximum value |
+  | ---------------------------- | :---------------------: | :---------------------: |
+  | 2 | `268435456` (0.25 GB) | `536870912` (0.5 GB) |
+  | 4 | `1610612736` (1.5 GB) | `2684354560` (2.5 GB) |
+  | ≥ 8 | `0.5 × RAM` | `0.8 × RAM` |
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
@@ -250,7 +256,7 @@
 
 - **Long query time**{#setting-long-query-time} {{ tag-con }} {{ tag-sql }} {{ tag-api }} {{ tag-tf }}
 
-   If a query takes longer than this number of seconds, it's considered slow. It's not recommended to set small values because this may result in incorrectly regarding most queries as long-running.
+  If a query takes longer than this number of seconds, it's considered slow. It's not recommended to set small values because this may result in incorrectly regarding most queries as long-running.
 
   The minimum value is `0` and the maximum value is `3600` (1 hour). Defaults to `0`.
 
@@ -270,7 +276,9 @@
 
   The maximum number of simultaneous connections permitted for {{ MY }} cluster hosts.
 
-  Minimum value: `10`, maximum value: `10000`, default value: `100 × <number of vCPU on the host> × <vCPU share on the host>`, but no less than `100`.
+  The minimum value is `10`. The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by the formula:
+  - The maximum value is `500 × <number of vCPUs per host>`, with a minimum of `200`.
+  - The default value is `100 × <number of vCPUs per host>`, with a minimum of `100`.
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
@@ -464,7 +472,13 @@
 
   The number of threads that are cached to handle new connections. When establishing a new connection, threads from the cache are reused first and only then new threads are created. Increase this value to improve performance if you have a lot of new connections.
 
-  The minimum value is `10` and the maximum value is `10000`. Defaults to `10`.
+  The minimum value is `10` and the maximum value is `10000`. The default value [depends on the selected host class](#settings-instance-dependent) and is determined by the formula:
+
+  ```text
+  max_connections / 10
+  ```
+
+  Where `wmax_connections` is the default value of the [Max connections](#setting-max-connections) setting for the selected host class.
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_thread_cache_size).
 
@@ -478,7 +492,7 @@
 
 - **Tmp table size**{#setting-tmp-table-size} {{ tag-all }}
 
-   The maximum size of in-memory temporary tables (in bytes). If a table exceeds this limit, it's converted to an on-disk temporary table. This setting doesn't affect user-created MEMORY tables. Increase this value if you run many advanced `GROUP BY` queries and your cluster hosts have enough memory.
+  The maximum size of in-memory temporary tables (in bytes). If a table exceeds this limit, it's converted to an on-disk temporary table. This setting doesn't affect user-created MEMORY tables. Increase this value if you run many advanced `GROUP BY` queries and your cluster hosts have enough memory.
 
   The minimum value is `1024` (1 KB) and the maximum value is `134217728` (128 MB). Defaults to `16777216` (16 MB).
 

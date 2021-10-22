@@ -20,3 +20,5 @@
 
   Allows [executing SQL queries](../../managed-mysql/operations/web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console.
 
+- **Collect statistics**: Enable this option to use the [{#T}](../../managed-mysql/operations/performance-diagnostics.md) tool in the cluster.
+

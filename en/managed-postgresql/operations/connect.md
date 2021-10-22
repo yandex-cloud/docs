@@ -18,7 +18,7 @@ Settings of rules depend on the connection method you select:
 
 {% list tabs %}
 
-- Over the Internet
+- Over the internet
 
   [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 6432 from any IP address. To do this, create the following rule for incoming traffic:
   * Protocol: `TCP`.
@@ -58,7 +58,7 @@ Settings of rules depend on the connection method you select:
 
 {% note info %}
 
-You can set more detailed rules for security groups, e.g., to allow traffic in only specific subnets.
+You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
 
 Security groups must be configured correctly for all subnets that will include cluster hosts. If security group settings are incomplete or incorrect, you may lose access to the cluster if switching the master host [manually](hosts.md#update) or [automatically](../concepts/replication.md#replication-auto).
 
@@ -121,7 +121,6 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
      1. Select **File** → **New** → **Data Source** → **{{ PG }}**.
      1. Specify the connection parameters on the **General** tab:
         * **User**, **Password**: DB user's name and password.
-
         * **URL**: Connection string:
 
           ```http
@@ -142,60 +141,6 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
   1. Click **OK** to save the data source.
 
 - DBeaver
-  1. Create a new DB connection:
-     1. In the **Database** menu, select **New connection**.
-     1. Select the **{{ PG }}** database from the list.
-     1. Click **Next**.
-     1. Specify the connection parameters on the **Main** tab:
-        * **Host**: FQDN of the host or a [special FQDN](#special-fqdns).
-        * **Port**: `{{ port-mpg}}`.
-        * **Database**: Name of the DB to connect to.
-        * Under **Authentication**, specify the DB user's name and password.
-     1. On the **SSL** tab:
-         1. Enable the **Use SSL** setting.
-         1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-  1. Click **Test Connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-  1. Click **Done** to save the database connection settings.
-
-{% endlist %}
-
-{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
-
-## Connecting to cluster hosts from graphical IDEs {#connection-ide}
-
-{% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
-
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
-
-{% list tabs %}
-
-- DataGrip
-
-  1. Create a data source:
-     1. Select **File** → **New** → **Data Source** → **{{ PG }}**.
-     1. Specify the connection parameters on the **General** tab:
-        * **User**, **Password**: DB user's name and password.
-        * **URL**: Connection string:
-
-          ```http
-          jdbc:postgresql://<{{ PG }} host 1:{{ port-mpg }}>,...,<{{ PG }} host N:{{ port-mpg }}>/<DB name>
-          ```
-
-          You can also use [special FQDNs](#special-fqdns) in the connection string:
-
-          ```http
-          jdbc:postgresql://<special FQDN:{{ port-mpg }}>/<DB name>
-          ```
-
-        * Click **Download** to download the connection driver.
-     1. On the **SSH/SSL** tab:
-         1. Enable the **Use SSL** setting.
-         1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-  1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-  1. Click **OK** to save the data source.
-
-- DBeaver
-
   1. Create a new DB connection:
      1. In the **Database** menu, select **New connection**.
      1. Select the **{{ PG }}** database from the list.
@@ -215,7 +160,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 ## Sample connection strings {#connection-string}
 
-{% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
+{% include [conn-strings-environment](../../_includes/mdb/mpg-conn-strings-env.md) %}
 
 You can connect to public {{ PG }} hosts only if you use an SSL certificate. Before connecting to such hosts, [prepare the certificate](#configuring-an-ssl-certificate).
 
@@ -273,4 +218,3 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
       user=<username> \
       target_session_attrs=any"
 ```
-

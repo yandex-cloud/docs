@@ -12,7 +12,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 - Connecting without using SSL
 
-  1. To get messages from a topic, run the command:
+  1. Run the command for receiving messages from a topic:
 
       ```bash
       kafkacat -C \
@@ -24,7 +24,9 @@ sudo apt update && sudo apt install -y kafkacat
                -X sasl.password=<consumer password> -Z -K:
       ```
 
-  1. To send a message to a topic, run the command:
+     The command will continuously read new messages from the topic.
+
+  1. In a separate terminal, run the command for sending a message to a topic:
 
       ```bash
       echo "test message" | kafkacat -P \
@@ -39,7 +41,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 - Connecting via SSL
 
-    1. To get messages from a topic, run the command:
+    1. Run the command for receiving messages from a topic:
 
         ```bash
         kafkacat -C \
@@ -52,7 +54,9 @@ sudo apt update && sudo apt install -y kafkacat
                  -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
         ```
 
-    1. To send a message to a topic, run the command:
+       The command will continuously read new messages from the topic.
+
+    1. In a separate terminal, run the command for sending a message to a topic:
 
         ```bash
           echo "test message" | kafkacat -P \
@@ -68,7 +72,7 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% endlist %}
 
-First, run the command to get messages, which will continuously read new messages from the topic. Then, use another terminal session to run the command to send messages, which will send to the {{ KF }} topic a single message saying `test message` with the `key` key. The session running the command to receive messages will display the messages sent to the topic.
+{% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
 
 ### C# {#csharp}
 
@@ -366,7 +370,7 @@ Before connecting:
 
 {% endlist %}
 
-First, launch the consumer application that will continuously read new messages from the topic. Then launch the producer application that will send one or more `test message` messages with the `key` key to the {{ KF }} topic. The consumer application displays messages sent to the topic.
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### Go {#go}
 
@@ -782,7 +786,7 @@ Before connecting:
 
 {% endlist %}
 
-First, launch the consumer application that will continuously read new messages from the topic. Then launch the producer application that will send one or more `test message` messages with the `key` key to the {{ KF }} topic. The consumer application displays messages sent to the topic.
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### Java {#java}
 
@@ -1020,7 +1024,7 @@ Before connecting:
 
 - Connecting via SSL
 
-  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ KF }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password using the `-storepass` parameter for additional storage protection:
+  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ KF }} driver can use this certificate for secure connections to the cluster hosts. Set the password using the `--storepass` parameter for additional storage protection:
 
      ```bash
      cd /etc/security && \
@@ -1159,7 +1163,7 @@ Before connecting:
 
 {% endlist %}
 
-First, launch the consumer application that will continuously read new messages from the topic. Then launch the producer application that will send one or more `test message` messages with the `key` key to the {{ KF }} topic. The consumer application displays messages sent to the topic.
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 
 ### Node.js {#nodejs}
 
@@ -1368,7 +1372,107 @@ npm install node-rdkafka
 
 {% endlist %}
 
-First, launch the consumer application that will continuously read new messages from the topic. Then launch the producer application that will send one or more `test message` messages with the `key` key to the {{ KF }} topic. The consumer application displays messages sent to the topic.
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
+
+### PowerShell {#powershell}
+
+Before connecting:
+
+1. Install the latest available version of [Microsoft OpenJDK](https://docs.microsoft.com/en-us/java/openjdk/download).
+
+1. Download the [archive with binary files](https://kafka.apache.org/downloads) for the {{ KF }} version run by the cluster. It doesn't matter which Scala version you run.
+
+1. Unpack the archive.
+
+   {% note tip %}
+
+   Unpack the {{ KF }} files to the root directory of the disk, for example, `C:\kafka_2.12-2.6.0\`.
+
+   If the path to the {{ KF }}'s executable and batch files is too long, then when trying to run the files, you'll get an error: `The input line is too long`.
+
+   {% endnote %}
+
+{% list tabs %}
+
+- Connecting without using SSL
+
+  1. Run the command for receiving messages from a topic:
+
+      ```powershell
+      <path to the directory with Kafka files>\bin\windows\kafka-console-consumer.bat `
+          --bootstrap-server <FQDN of the broker>:9092 `
+          --topic <topic name> `
+          --property print.key=true `
+          --property key.separator=":" `
+          --consumer-property security.protocol=SASL_PLAINTEXT `
+          --consumer-property sasl.mechanism=SCRAM-SHA-512 `
+          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<consumer login>' password='<consumer password>';" 
+      ```
+
+      The command will continuously read new messages from the topic.
+
+  1. In a separate terminal, run the command for sending a message to a topic:
+
+      ```powershell
+      echo "key:test message" | <path to the directory with Kafka files>\bin\windows\kafka-console-producer.bat `
+          --bootstrap-server <FQDN of the broker>:9092 `
+          --topic <topic name> `
+          --property parse.key=true `
+          --property key.separator=":" `
+          --producer-property acks=all `
+          --producer-property security.protocol=SASL_PLAINTEXT `
+          --producer-property sasl.mechanism=SCRAM-SHA-512 `
+          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<producer login>' password='<producer password>';"
+      ```
+
+- Connecting via SSL
+
+  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ KF }} driver can use this certificate for secure connections to the cluster hosts. Set the password using the `--storepass` parameter for additional storage protection:
+
+     ```powershell
+     keytool.exe -importcert -alias YandexCA `
+       --file $HOME\.kafka\YandexCA.crt `
+       --keystore $HOME\.kafka\ssl `
+       --storepass <certificate store password> `
+       --noprompt
+     ```
+
+  1. Run the command for receiving messages from a topic:
+
+      ```powershell
+      <path to the directory with Kafka files>\bin\windows\kafka-console-consumer.bat `
+          --bootstrap-server <FQDN of the broker>:9091 `
+          --topic <topic name> `
+          --property print.key=true `
+          --property key.separator=":" `
+          --consumer-property security.protocol=SASL_SSL `
+          --consumer-property sasl.mechanism=SCRAM-SHA-512 `
+          --consumer-property ssl.truststore.location=$HOME\.kafka\ssl `
+          --consumer-property ssl.truststore.password=<certificate store password> `
+          --consumer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<consumer login>' password='<consumer password>';"
+      ```
+
+     The command will continuously read new messages from the topic.
+
+  1. In a separate terminal, run the command for sending a message to a topic:
+
+      ```powershell
+      echo "key:test message" | <path to the directory with Kafka files>\bin\windows\kafka-console-producer.bat `
+          --bootstrap-server <FQDN of the broker>:9091 `
+          --topic <topic name> `
+          --property parse.key=true `
+          --property key.separator=":" `
+          --producer-property acks=all `
+          --producer-property security.protocol=SASL_SSL `
+          --producer-property sasl.mechanism=SCRAM-SHA-512 `
+          --producer-property ssl.truststore.location=$HOME\.kafka\ssl `
+          --producer-property ssl.truststore.password=<certificate store password> `
+          --producer-property sasl.jaas.config="org.apache.kafka.common.security.scram.ScramLoginModule required username='<producer login>' password='<producer password>';"
+      ```
+
+{% endlist %}
+
+{% include [shell-howto](../../_includes/mdb/mkf/connstr-shell-howto.md) %}
 
 ### Python {#python}
 
@@ -1489,5 +1593,5 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 {% endlist %}
 
-First, launch the consumer application that will continuously read new messages from the topic. Then launch the producer application that will send one or more `test message` messages with the `key` key to the {{ KF }} topic. The consumer application displays messages sent to the topic.
+{% include [code-howto](../../_includes/mdb/mkf/connstr-code-howto.md) %}
 

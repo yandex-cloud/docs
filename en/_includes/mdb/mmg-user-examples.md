@@ -21,7 +21,7 @@ To add a new user `user2` to an existing cluster with read-only access to the `d
 
   ```
   yc managed-mongodb user create user2 \
-    --cluster-name <cluster name>
+    --cluster-name <cluster name> \
     --password <user password> \
     --permission database=db1,role=read
   ```

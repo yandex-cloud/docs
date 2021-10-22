@@ -7,14 +7,14 @@ keywords:
   - Elasticsearch
 ---
 
-# Connecting to clusters
+# Connecting to a cluster
 
 You can connect to {{ mes-name }} cluster hosts with the [_Data node_](../concepts/hosts-roles.md#data-node) role:
 
 - Over the internet, if you configured public access for the appropriate host.
 - From {{ yandex-cloud }} VM instances hosted in the same [virtual network](../../vpc/concepts/network.md).
 
-Regardless of the connection method, {{ mes-name }} only supports connections to cluster hosts with an [SSL certificate](#configuring-an-ssl-certificate).
+Regardless of the connection method, {{ mes-name }} only supports connections to cluster hosts with an [SSL certificate](#get-ssl-cert).
 
 ## Configuring security groups {#configuring-security-groups}
 
@@ -76,16 +76,31 @@ Security groups must be configured correctly for all subnets that will include c
 
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
 
-## Configuring an SSL certificate {#configuring-an-ssl-certificate}
+## Getting an SSL certificate {#get-ssl-cert}
 
-To prepare an SSL certificate:
+To use an encrypted connection, get an SSL certificate:
 
+{% list tabs %}
 
-```bash
-mkdir ~/.elasticsearch && \
-wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
-chmod 0600 ~/.elasticsearch/root.crt
-```
+* Linux (Bash)
+
+  
+  ```bash
+  mkdir ~/.elasticsearch && \
+  wget  "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.elasticsearch/root.crt && \
+  chmod 0600 ~/.elasticsearch/root.crt
+  ```
+
+  The certificate will be saved in the `$HOME/.elasticsearch/root.crt` folder.
+
+* Windows (PowerShell)
+
+  
+  ```powershell
+  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  ```
+
+  The certificate will be saved in the `$HOME\.elasticsearch\root.crt` folder.
 
 ## Automatically selecting the host to connect to {#automatic-host-selection}
 
@@ -103,7 +118,7 @@ When connecting to an {{ ES }} cluster, you can:
 
 {% include [conn-strings-environment](../../_includes/mdb/mes-conn-strings-env.md) %}
 
-Before connecting, [prepare your certificate](#configuring-an-ssl-certificate). These examples assume that the certificate ` root.crt` is located in the `/home/<home directory>/.elasticsearch/` folder.
+Before connecting, [prepare your certificate](#configuring-an-ssl-certificate).
 
 To connect, enter the username and password used when [creating a cluster](cluster-create.md#create-cluster).
 

@@ -33,6 +33,8 @@ items:
     items:
       - name: Storing PHP sessions in Managed Service for Redis
         href: tutorials/redis-as-php-sessions-storage.md
+      - name: Migrating databases to Managed Service for Redis
+        href: tutorials/data-migration.md
   - name: Concepts
     items:
       - name: Relationship between service resources

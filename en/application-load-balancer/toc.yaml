@@ -59,6 +59,10 @@ items:
         href: concepts/target-group.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Tools
+    items:
+      - name: Ingress Controller for {{ managed-k8s-name }}
+        href: tools/k8s-ingress-controller.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

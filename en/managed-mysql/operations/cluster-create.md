@@ -10,7 +10,7 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
     * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
     * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
 
-After creating a cluster, you can add extra hosts to it if the amount of available [folder resources](../concepts/limits.md) is sufficient for this.
+After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
 {% note info %}
 
@@ -25,24 +25,32 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
+
   1. Select **{{ mmy-name }}**.
+
   1. Click **Create cluster**.
+
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       - `PRODUCTION`: For stable versions of your apps.
       - `PRESTABLE`: For testing, including the {{ mmy-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+
   1. Select the DBMS version.
+
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
+
   1. Under **Storage size**:
-      - Select the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
+
+      - Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
 
         When selecting a storage type, remember that:
         - The size of the local storage can only be changed in 100 GB increments.
         - The size of non-replicated network storage can only be changed in 93 GB increments.
 
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
-  1. Under **Database**, specify the DB attributes:
 
+  1. Under **Database**, specify the DB attributes:
       - Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
       - The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
       - User password (from 8 to 128 characters).
@@ -55,14 +63,12 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
   1. If necessary, configure additional cluster settings:
 
-    {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
+      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
-     When configuring the host parameters, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
+  1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-settings).
 
-  1. If necessary, configure additional cluster settings:
+      {% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
 
-    {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
-  1. If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-settings).
   1. Click **Create cluster**.
 
 - CLI
@@ -251,7 +257,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ MY }} cluster and a network for it with the following characteristics:
-    
+
     - Named `my-mysql`.
     - Version `8.0`.
     - In the `PRESTABLE` environment.
@@ -260,7 +266,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     - Network: `mynet`.
     - With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
     - In the new security group `mysql-sg` allowing connections to the cluster from the internet via port `{{ port-mmy }}`.
-    - With 20 GB fast network storage (`{{ disk-type-example }}`).
+    - With 20 GB of fast network storage (`{{ disk-type-example }}`).
     - With one user (`user1`) with the password `user1user1`.
     - With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
 
@@ -337,4 +343,3 @@ If you specified security group IDs when creating a cluster, you may also need t
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
-

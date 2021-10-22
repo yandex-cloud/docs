@@ -14,9 +14,10 @@ Settings of rules depend on the connection method you select:
 
 {% list tabs %}
 
-- Over the Internet
+- Over the internet
 
   [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on ports 8443 and 9440 from any IP addresses. To do this, create the following rules for incoming traffic:
+
   * Protocol: `TCP`.
   * Port range: `8443`, `9440`.
   * Source type: `CIDR`.
@@ -24,9 +25,10 @@ Settings of rules depend on the connection method you select:
 
   A separate rule is created for each port.
 
-- With a VM in Yandex.Cloud
+- With a VM in {{ yandex-cloud }}
 
   1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on ports 8123, 8443, 9000, and 9440 from the security group assigned to the VM. To do this, create the following rules for incoming traffic in these security groups:
+
      * Protocol: `TCP`.
      * Port range: `8123` (or any other port listed above).
      * Source type: `Security group`.
@@ -58,9 +60,9 @@ Settings of rules depend on the connection method you select:
 
 {% note info %}
 
-You can set more detailed rules for security groups, e.g., to allow traffic in only specific subnets.
+You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
 
-Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might fail to access the cluster.
+Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access the cluster.
 
 {% endnote %}
 
@@ -68,14 +70,37 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
-To use an encrypted connection, you should prepare an SSL certificate, for example, like this:
+To use an encrypted connection, get an SSL certificate.
 
 
-```bash
-sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
-sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
-```
+{% list tabs %}
+
+- Linux (Bash)
+
+  Run the following commands:
+
+  ```bash
+  sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
+  sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
+  sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+  ```
+
+- Windows (PowerShell)
+
+  1. Download and import the certificate:
+
+      ```powershell
+      mkdir -Force $HOME\.clickhouse; `
+      (Invoke-WebRequest https://{{ s3-storage-host }}{{ pem-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
+        | Out-File -Encoding ASCII $HOME\.clickhouse\YandexInternalRootCA.crt; `
+      Import-Certificate `
+        -FilePath  $HOME\.clickhouse\YandexInternalRootCA.crt `
+        -CertStoreLocation cert:\CurrentUser\Root
+      ```
+
+  1. Confirm that that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
+
+{% endlist %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -131,7 +156,10 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 You can connect to public {{ CH }} cluster hosts only if you use an SSL certificate. Before connecting, [prepare a certificate](#get-ssl-cert).
 
-In the examples below, it is assumed that the `YandexInternalRootCA.crt` certificate is located in the `/usr/local/share/ca-certificates/Yandex/` directory.
+In the examples below, it is assumed that the certificate `YandexInternalRootCA.crt`:
+
+* Is located in the directory `/usr/local/share/ca-certificates/Yandex/` (for Ubuntu).
+* Is imported to the Trusted Root Certificate store (for Windows).
 
 Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. For connections to the database, traffic inside the virtual network isn't encrypted in this case.
 
@@ -146,7 +174,6 @@ If the connection to the cluster and the test query are successful, the {{ CH }}
 If you don't want to manually connect to another host in case the current one becomes unavailable, use an address like this:
 
 * `c-<cluster ID>.rw.mdb.yandexcloud.net` to connect to the cluster master host.
-
 * `<shard name>.c-<cluster ID>.rw.mdb.yandexcloud.net` to connect to the [shard](../concepts/sharding.md) master host.
 
 If the host that this address points to becomes unavailable, there may be a slight delay before the address starts pointing to another available host.
