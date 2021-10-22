@@ -118,6 +118,12 @@
 
 {% endlist %}
 
+{% note info %}
+
+В процессе своей работы {{ mkf-name }} может создавать [служебные топики](../concepts/topics.md#service-topics). Записывать пользовательские данные в такие топики нельзя.
+
+{% endnote %}
+
 ## Изменить настройки топика {#update-topic}
 
 {% note warning %}

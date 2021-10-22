@@ -140,6 +140,7 @@ default:
   mgp-short-name: Managed Service for Greenplum<sup>®</sup>
   mgl-short-name: Managed Service for GitLab
   monitoring-short-name: Monitoring
+  mkf-msr: Managed Schema Registry
   unified-agent-short-name: Unified Agent
   vpc-short-name: VPC
   ddos-protection-short-name: DDoS Protection

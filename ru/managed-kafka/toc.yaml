@@ -58,6 +58,8 @@ items:
         href: concepts/brokers.md
       - name: Производители и потребители
         href: concepts/producers-consumers.md
+      - name: Управление схемами данных
+        href: concepts/managed-schema-registry.md
       - name: Классы хостов
         href: concepts/instance-types.md
       - name: Сеть в Managed Service for Apache Kafka®
