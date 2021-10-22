@@ -90,4 +90,3 @@ You can only use graphical IDEs to connect to publicly accessible cluster hosts.
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [mms-connection-strings](../../_includes/mdb/mms-conn-strings.md) %}
-

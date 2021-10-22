@@ -161,6 +161,8 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
+      - name: Термины и определения
+        href: concepts/databases.md
       - name: Модель данных и схема
         href: concepts/datamodel.md
       - name: Режимы работы Serverless и Dedicated
@@ -173,11 +175,9 @@ items:
         href: concepts/secondary_indexes.md
       - name: Time to Live (TTL)
         href: concepts/ttl.md
-      - name: Термины и определения
-        href: concepts/databases.md
       - name: Скан запросы
         href: concepts/scan_query.md
-      - name: Квоты и лимиты
+      - name: Квоты и лимиты (Cloud)
         href: concepts/limits.md
       - name: Ограничения базы данных
         href: concepts/limits-ydb.md

@@ -135,6 +135,7 @@ default:
   mgp-short-name: Managed Service for Greenplum<sup>®</sup>
   mgl-short-name: Managed Service for GitLab
   monitoring-short-name: Monitoring
+  mkf-msr: Managed Schema Registry
   unified-agent-short-name: Unified Agent
   vpc-short-name: VPC
   ddos-protection-short-name: DDoS Protection
@@ -2531,10 +2532,10 @@ default:
         v1|int|number: '0'
         v1|int|string: "0\_₽"
       disk:
-        v1|number: 0,0000
-        v1|string: Не тарифицируется
+        v1|number: 0,0008
+        v1|string: "0,0008\_₽"
         v1|int|number: '0'
-        v1|int|string: Не тарифицируется
+        v1|int|string: "0\_₽"
       docker:
         v1|number: 0,0000
         v1|string: Не тарифицируется
@@ -5928,120 +5929,15 @@ default:
         public_ip|month|string: "109,7280\_₽"
         public_ip|month|int|number: '110'
         public_ip|month|int|string: "110\_₽"
-        m2:
-          medium|number: 6,3000
-          medium|string: "6,3000\_₽"
-          medium|int|number: '6'
-          medium|int|string: "6\_₽"
-          medium|month|number: "4\_536,0000"
-          medium|month|string: "4\_536,0000\_₽"
-          medium|month|int|number: "4\_536"
-          medium|month|int|string: "4\_536\_₽"
-          2xlarge|number: 16,8000
-          2xlarge|string: "16,8000\_₽"
-          2xlarge|int|number: '17'
-          2xlarge|int|string: "17\_₽"
-          2xlarge|month|number: "12\_096,0000"
-          2xlarge|month|string: "12\_096,0000\_₽"
-          2xlarge|month|int|number: "12\_096"
-          2xlarge|month|int|string: "12\_096\_₽"
-          3xlarge|number: 25,2000
-          3xlarge|string: "25,2000\_₽"
-          3xlarge|int|number: '25'
-          3xlarge|int|string: "25\_₽"
-          3xlarge|month|number: "18\_144,0000"
-          3xlarge|month|string: "18\_144,0000\_₽"
-          3xlarge|month|int|number: "18\_144"
-          3xlarge|month|int|string: "18\_144\_₽"
-          micro|number: 2,1000
-          micro|string: "2,1000\_₽"
-          micro|int|number: '2'
-          micro|int|string: "2\_₽"
-          micro|month|number: "1\_512,0000"
-          micro|month|string: "1\_512,0000\_₽"
-          micro|month|int|number: "1\_512"
-          micro|month|int|string: "1\_512\_₽"
-          8xlarge|number: 67,2000
-          8xlarge|string: "67,2000\_₽"
-          8xlarge|int|number: '67'
-          8xlarge|int|string: "67\_₽"
-          8xlarge|month|number: "48\_384,0000"
-          8xlarge|month|string: "48\_384,0000\_₽"
-          8xlarge|month|int|number: "48\_384"
-          8xlarge|month|int|string: "48\_384\_₽"
-          7xlarge|number: 58,8000
-          7xlarge|string: "58,8000\_₽"
-          7xlarge|int|number: '59'
-          7xlarge|int|string: "59\_₽"
-          7xlarge|month|number: "42\_336,0000"
-          7xlarge|month|string: "42\_336,0000\_₽"
-          7xlarge|month|int|number: "42\_336"
-          7xlarge|month|int|string: "42\_336\_₽"
-          6xlarge|number: 50,4000
-          6xlarge|string: "50,4000\_₽"
-          6xlarge|int|number: '50'
-          6xlarge|int|string: "50\_₽"
-          6xlarge|month|number: "36\_288,0000"
-          6xlarge|month|string: "36\_288,0000\_₽"
-          6xlarge|month|int|number: "36\_288"
-          6xlarge|month|int|string: "36\_288\_₽"
-          large|number: 8,4000
-          large|string: "8,4000\_₽"
-          large|int|number: '8'
-          large|int|string: "8\_₽"
-          large|month|number: "6\_048,0000"
-          large|month|string: "6\_048,0000\_₽"
-          large|month|int|number: "6\_048"
-          large|month|int|string: "6\_048\_₽"
-          4xlarge|number: 33,6000
-          4xlarge|string: "33,6000\_₽"
-          4xlarge|int|number: '34'
-          4xlarge|int|string: "34\_₽"
-          4xlarge|month|number: "24\_192,0000"
-          4xlarge|month|string: "24\_192,0000\_₽"
-          4xlarge|month|int|number: "24\_192"
-          4xlarge|month|int|string: "24\_192\_₽"
-          5xlarge|number: 42,0000
-          5xlarge|string: "42,0000\_₽"
-          5xlarge|int|number: '42'
-          5xlarge|int|string: "42\_₽"
-          5xlarge|month|number: "30\_240,0000"
-          5xlarge|month|string: "30\_240,0000\_₽"
-          5xlarge|month|int|number: "30\_240"
-          5xlarge|month|int|string: "30\_240\_₽"
-          small|number: 4,2000
-          small|string: "4,2000\_₽"
-          small|int|number: '4'
-          small|int|string: "4\_₽"
-          small|month|number: "3\_024,0000"
-          small|month|string: "3\_024,0000\_₽"
-          small|month|int|number: "3\_024"
-          small|month|int|string: "3\_024\_₽"
-          xlarge|number: 12,6000
-          xlarge|string: "12,6000\_₽"
-          xlarge|int|number: '13'
-          xlarge|int|string: "13\_₽"
-          xlarge|month|number: "9\_072,0000"
-          xlarge|month|string: "9\_072,0000\_₽"
-          xlarge|month|int|number: "9\_072"
-          xlarge|month|int|string: "9\_072\_₽"
         s2:
-          small|number: 4,2000
-          small|string: "4,2000\_₽"
-          small|int|number: '4'
-          small|int|string: "4\_₽"
-          small|month|number: "3\_024,0000"
-          small|month|string: "3\_024,0000\_₽"
-          small|month|int|number: "3\_024"
-          small|month|int|string: "3\_024\_₽"
-          micro|number: 2,1000
-          micro|string: "2,1000\_₽"
-          micro|int|number: '2'
-          micro|int|string: "2\_₽"
-          micro|month|number: "1\_512,0000"
-          micro|month|string: "1\_512,0000\_₽"
-          micro|month|int|number: "1\_512"
-          micro|month|int|string: "1\_512\_₽"
+          4xlarge|number: 42,0000
+          4xlarge|string: "42,0000\_₽"
+          4xlarge|int|number: '42'
+          4xlarge|int|string: "42\_₽"
+          4xlarge|month|number: "30\_240,0000"
+          4xlarge|month|string: "30\_240,0000\_₽"
+          4xlarge|month|int|number: "30\_240"
+          4xlarge|month|int|string: "30\_240\_₽"
           2xlarge|number: 25,2000
           2xlarge|string: "25,2000\_₽"
           2xlarge|int|number: '25'
@@ -6058,14 +5954,6 @@ default:
           xlarge|month|string: "12\_096,0000\_₽"
           xlarge|month|int|number: "12\_096"
           xlarge|month|int|string: "12\_096\_₽"
-          3xlarge|number: 33,6000
-          3xlarge|string: "33,6000\_₽"
-          3xlarge|int|number: '34'
-          3xlarge|int|string: "34\_₽"
-          3xlarge|month|number: "24\_192,0000"
-          3xlarge|month|string: "24\_192,0000\_₽"
-          3xlarge|month|int|number: "24\_192"
-          3xlarge|month|int|string: "24\_192\_₽"
           medium|number: 8,4000
           medium|string: "8,4000\_₽"
           medium|int|number: '8'
@@ -6074,6 +5962,38 @@ default:
           medium|month|string: "6\_048,0000\_₽"
           medium|month|int|number: "6\_048"
           medium|month|int|string: "6\_048\_₽"
+          large|number: 12,6000
+          large|string: "12,6000\_₽"
+          large|int|number: '13'
+          large|int|string: "13\_₽"
+          large|month|number: "9\_072,0000"
+          large|month|string: "9\_072,0000\_₽"
+          large|month|int|number: "9\_072"
+          large|month|int|string: "9\_072\_₽"
+          3xlarge|number: 33,6000
+          3xlarge|string: "33,6000\_₽"
+          3xlarge|int|number: '34'
+          3xlarge|int|string: "34\_₽"
+          3xlarge|month|number: "24\_192,0000"
+          3xlarge|month|string: "24\_192,0000\_₽"
+          3xlarge|month|int|number: "24\_192"
+          3xlarge|month|int|string: "24\_192\_₽"
+          small|number: 4,2000
+          small|string: "4,2000\_₽"
+          small|int|number: '4'
+          small|int|string: "4\_₽"
+          small|month|number: "3\_024,0000"
+          small|month|string: "3\_024,0000\_₽"
+          small|month|int|number: "3\_024"
+          small|month|int|string: "3\_024\_₽"
+          micro|number: 2,1000
+          micro|string: "2,1000\_₽"
+          micro|int|number: '2'
+          micro|int|string: "2\_₽"
+          micro|month|number: "1\_512,0000"
+          micro|month|string: "1\_512,0000\_₽"
+          micro|month|int|number: "1\_512"
+          micro|month|int|string: "1\_512\_₽"
           5xlarge|number: 50,4000
           5xlarge|string: "50,4000\_₽"
           5xlarge|int|number: '50'
@@ -6090,22 +6010,103 @@ default:
           6xlarge|month|string: "48\_384,0000\_₽"
           6xlarge|month|int|number: "48\_384"
           6xlarge|month|int|string: "48\_384\_₽"
-          large|number: 12,6000
-          large|string: "12,6000\_₽"
-          large|int|number: '13'
-          large|int|string: "13\_₽"
-          large|month|number: "9\_072,0000"
-          large|month|string: "9\_072,0000\_₽"
-          large|month|int|number: "9\_072"
-          large|month|int|string: "9\_072\_₽"
-          4xlarge|number: 42,0000
-          4xlarge|string: "42,0000\_₽"
-          4xlarge|int|number: '42'
-          4xlarge|int|string: "42\_₽"
-          4xlarge|month|number: "30\_240,0000"
-          4xlarge|month|string: "30\_240,0000\_₽"
-          4xlarge|month|int|number: "30\_240"
-          4xlarge|month|int|string: "30\_240\_₽"
+        m2:
+          7xlarge|number: 58,8000
+          7xlarge|string: "58,8000\_₽"
+          7xlarge|int|number: '59'
+          7xlarge|int|string: "59\_₽"
+          7xlarge|month|number: "42\_336,0000"
+          7xlarge|month|string: "42\_336,0000\_₽"
+          7xlarge|month|int|number: "42\_336"
+          7xlarge|month|int|string: "42\_336\_₽"
+          8xlarge|number: 67,2000
+          8xlarge|string: "67,2000\_₽"
+          8xlarge|int|number: '67'
+          8xlarge|int|string: "67\_₽"
+          8xlarge|month|number: "48\_384,0000"
+          8xlarge|month|string: "48\_384,0000\_₽"
+          8xlarge|month|int|number: "48\_384"
+          8xlarge|month|int|string: "48\_384\_₽"
+          5xlarge|number: 42,0000
+          5xlarge|string: "42,0000\_₽"
+          5xlarge|int|number: '42'
+          5xlarge|int|string: "42\_₽"
+          5xlarge|month|number: "30\_240,0000"
+          5xlarge|month|string: "30\_240,0000\_₽"
+          5xlarge|month|int|number: "30\_240"
+          5xlarge|month|int|string: "30\_240\_₽"
+          micro|number: 2,1000
+          micro|string: "2,1000\_₽"
+          micro|int|number: '2'
+          micro|int|string: "2\_₽"
+          micro|month|number: "1\_512,0000"
+          micro|month|string: "1\_512,0000\_₽"
+          micro|month|int|number: "1\_512"
+          micro|month|int|string: "1\_512\_₽"
+          3xlarge|number: 25,2000
+          3xlarge|string: "25,2000\_₽"
+          3xlarge|int|number: '25'
+          3xlarge|int|string: "25\_₽"
+          3xlarge|month|number: "18\_144,0000"
+          3xlarge|month|string: "18\_144,0000\_₽"
+          3xlarge|month|int|number: "18\_144"
+          3xlarge|month|int|string: "18\_144\_₽"
+          medium|number: 6,3000
+          medium|string: "6,3000\_₽"
+          medium|int|number: '6'
+          medium|int|string: "6\_₽"
+          medium|month|number: "4\_536,0000"
+          medium|month|string: "4\_536,0000\_₽"
+          medium|month|int|number: "4\_536"
+          medium|month|int|string: "4\_536\_₽"
+          xlarge|number: 12,6000
+          xlarge|string: "12,6000\_₽"
+          xlarge|int|number: '13'
+          xlarge|int|string: "13\_₽"
+          xlarge|month|number: "9\_072,0000"
+          xlarge|month|string: "9\_072,0000\_₽"
+          xlarge|month|int|number: "9\_072"
+          xlarge|month|int|string: "9\_072\_₽"
+          small|number: 4,2000
+          small|string: "4,2000\_₽"
+          small|int|number: '4'
+          small|int|string: "4\_₽"
+          small|month|number: "3\_024,0000"
+          small|month|string: "3\_024,0000\_₽"
+          small|month|int|number: "3\_024"
+          small|month|int|string: "3\_024\_₽"
+          large|number: 8,4000
+          large|string: "8,4000\_₽"
+          large|int|number: '8'
+          large|int|string: "8\_₽"
+          large|month|number: "6\_048,0000"
+          large|month|string: "6\_048,0000\_₽"
+          large|month|int|number: "6\_048"
+          large|month|int|string: "6\_048\_₽"
+          2xlarge|number: 16,8000
+          2xlarge|string: "16,8000\_₽"
+          2xlarge|int|number: '17'
+          2xlarge|int|string: "17\_₽"
+          2xlarge|month|number: "12\_096,0000"
+          2xlarge|month|string: "12\_096,0000\_₽"
+          2xlarge|month|int|number: "12\_096"
+          2xlarge|month|int|string: "12\_096\_₽"
+          4xlarge|number: 33,6000
+          4xlarge|string: "33,6000\_₽"
+          4xlarge|int|number: '34'
+          4xlarge|int|string: "34\_₽"
+          4xlarge|month|number: "24\_192,0000"
+          4xlarge|month|string: "24\_192,0000\_₽"
+          4xlarge|month|int|number: "24\_192"
+          4xlarge|month|int|string: "24\_192\_₽"
+          6xlarge|number: 50,4000
+          6xlarge|string: "50,4000\_₽"
+          6xlarge|int|number: '50'
+          6xlarge|int|string: "50\_₽"
+          6xlarge|month|number: "36\_288,0000"
+          6xlarge|month|string: "36\_288,0000\_₽"
+          6xlarge|month|int|number: "36\_288"
+          6xlarge|month|int|string: "36\_288\_₽"
       kafka:
         v2:
           cpu:
@@ -9657,6 +9658,26 @@ default:
           y1|month|discount|string: "920,1600\_₽"
           y1|month|discount|int|number: '920'
           y1|month|discount|int|string: "920\_₽"
+          y3|number: 2,0340
+          y3|string: "2,0340\_₽"
+          y3|int|number: '2'
+          y3|int|string: "2\_₽"
+          y3|discount|percent|number: -0.47926267281105994
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 1,8720
+          y3|discount|string: "1,8720\_₽"
+          y3|discount|int|number: '2'
+          y3|discount|int|string: "2\_₽"
+          y3|month|number: "1\_464,4800"
+          y3|month|string: "1\_464,4800\_₽"
+          y3|month|int|number: "1\_464"
+          y3|month|int|string: "1\_464\_₽"
+          y3|month|discount|percent|number: -0.47926267281105994
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: "1\_347,8400"
+          y3|month|discount|string: "1\_347,8400\_₽"
+          y3|month|discount|int|number: "1\_348"
+          y3|month|discount|int|string: "1\_348\_₽"
         hm3-c2-m12|number: 4,9140
         hm3-c2-m12|string: "4,9140\_₽"
         hm3-c2-m12|int|number: '5'
@@ -9686,6 +9707,26 @@ default:
           y1|month|discount|string: "1\_179,3600\_₽"
           y1|month|discount|int|number: "1\_179"
           y1|month|discount|int|string: "1\_179\_₽"
+          y3|number: 2,5380
+          y3|string: "2,5380\_₽"
+          y3|int|number: '3'
+          y3|int|string: "3\_₽"
+          y3|discount|percent|number: -0.4835164835164834
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 2,3760
+          y3|discount|string: "2,3760\_₽"
+          y3|discount|int|number: '2'
+          y3|discount|int|string: "2\_₽"
+          y3|month|number: "1\_827,3600"
+          y3|month|string: "1\_827,3600\_₽"
+          y3|month|int|number: "1\_827"
+          y3|month|int|string: "1\_827\_₽"
+          y3|month|discount|percent|number: -0.48351648351648346
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: "1\_710,7200"
+          y3|month|discount|string: "1\_710,7200\_₽"
+          y3|month|discount|int|number: "1\_711"
+          y3|month|discount|int|string: "1\_711\_₽"
         hm3-c4-m16|number: 7,8120
         hm3-c4-m16|string: "7,8120\_₽"
         hm3-c4-m16|int|number: '8'
@@ -9715,6 +9756,26 @@ default:
           y1|month|discount|string: "1\_840,3200\_₽"
           y1|month|discount|int|number: "1\_840"
           y1|month|discount|int|string: "1\_840\_₽"
+          y3|number: 4,0680
+          y3|string: "4,0680\_₽"
+          y3|int|number: '4'
+          y3|int|string: "4\_₽"
+          y3|discount|percent|number: -0.47926267281105994
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 3,7440
+          y3|discount|string: "3,7440\_₽"
+          y3|discount|int|number: '4'
+          y3|discount|int|string: "4\_₽"
+          y3|month|number: "2\_928,9600"
+          y3|month|string: "2\_928,9600\_₽"
+          y3|month|int|number: "2\_929"
+          y3|month|int|string: "2\_929\_₽"
+          y3|month|discount|percent|number: -0.47926267281105994
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: "2\_695,6800"
+          y3|month|discount|string: "2\_695,6800\_₽"
+          y3|month|discount|int|number: "2\_696"
+          y3|month|discount|int|string: "2\_696\_₽"
         hm3-c4-m24|number: 9,8280
         hm3-c4-m24|string: "9,8280\_₽"
         hm3-c4-m24|int|number: '10'
@@ -9744,6 +9805,26 @@ default:
           y1|month|discount|string: "2\_358,7200\_₽"
           y1|month|discount|int|number: "2\_359"
           y1|month|discount|int|string: "2\_359\_₽"
+          y3|number: 5,0760
+          y3|string: "5,0760\_₽"
+          y3|int|number: '5'
+          y3|int|string: "5\_₽"
+          y3|discount|percent|number: -0.4835164835164834
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 4,7520
+          y3|discount|string: "4,7520\_₽"
+          y3|discount|int|number: '5'
+          y3|discount|int|string: "5\_₽"
+          y3|month|number: "3\_654,7200"
+          y3|month|string: "3\_654,7200\_₽"
+          y3|month|int|number: "3\_655"
+          y3|month|int|string: "3\_655\_₽"
+          y3|month|discount|percent|number: -0.48351648351648346
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: "3\_421,4400"
+          y3|month|discount|string: "3\_421,4400\_₽"
+          y3|month|discount|int|number: "3\_421"
+          y3|month|discount|int|string: "3\_421\_₽"
         hm3-c4-m32|number: 11,8440
         hm3-c4-m32|string: "11,8440\_₽"
         hm3-c4-m32|int|number: '12'
@@ -9773,6 +9854,26 @@ default:
           y1|month|discount|string: "2\_877,1200\_₽"
           y1|month|discount|int|number: "2\_877"
           y1|month|discount|int|string: "2\_877\_₽"
+          y3|number: 6,0840
+          y3|string: "6,0840\_₽"
+          y3|int|number: '6'
+          y3|int|string: "6\_₽"
+          y3|discount|percent|number: -0.48632218844984804
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 5,7600
+          y3|discount|string: "5,7600\_₽"
+          y3|discount|int|number: '6'
+          y3|discount|int|string: "6\_₽"
+          y3|month|number: "4\_380,4800"
+          y3|month|string: "4\_380,4800\_₽"
+          y3|month|int|number: "4\_380"
+          y3|month|int|string: "4\_380\_₽"
+          y3|month|discount|percent|number: -0.4863221884498481
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "4\_147,2000"
+          y3|month|discount|string: "4\_147,2000\_₽"
+          y3|month|discount|int|number: "4\_147"
+          y3|month|discount|int|string: "4\_147\_₽"
         hm3-c4-m48|number: 15,8760
         hm3-c4-m48|string: "15,8760\_₽"
         hm3-c4-m48|int|number: '16'
@@ -9802,6 +9903,26 @@ default:
           y1|month|discount|string: "3\_913,9200\_₽"
           y1|month|discount|int|number: "3\_914"
           y1|month|discount|int|string: "3\_914\_₽"
+          y3|number: 8,1000
+          y3|string: "8,1000\_₽"
+          y3|int|number: '8'
+          y3|int|string: "8\_₽"
+          y3|discount|percent|number: -0.4897959183673469
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 7,7760
+          y3|discount|string: "7,7760\_₽"
+          y3|discount|int|number: '8'
+          y3|discount|int|string: "8\_₽"
+          y3|month|number: "5\_832,0000"
+          y3|month|string: "5\_832,0000\_₽"
+          y3|month|int|number: "5\_832"
+          y3|month|int|string: "5\_832\_₽"
+          y3|month|discount|percent|number: -0.4897959183673469
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "5\_598,7200"
+          y3|month|discount|string: "5\_598,7200\_₽"
+          y3|month|discount|int|number: "5\_599"
+          y3|month|discount|int|string: "5\_599\_₽"
         hm3-c6-m60|number: 20,7900
         hm3-c6-m60|string: "20,7900\_₽"
         hm3-c6-m60|int|number: '21'
@@ -9831,6 +9952,26 @@ default:
           y1|month|discount|string: "5\_093,2800\_₽"
           y1|month|discount|int|number: "5\_093"
           y1|month|discount|int|string: "5\_093\_₽"
+          y3|number: 10,6380
+          y3|string: "10,6380\_₽"
+          y3|int|number: '11'
+          y3|int|string: "11\_₽"
+          y3|discount|percent|number: -0.4883116883116882
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 10,1520
+          y3|discount|string: "10,1520\_₽"
+          y3|discount|int|number: '10'
+          y3|discount|int|string: "10\_₽"
+          y3|month|number: "7\_659,3600"
+          y3|month|string: "7\_659,3600\_₽"
+          y3|month|int|number: "7\_659"
+          y3|month|int|string: "7\_659\_₽"
+          y3|month|discount|percent|number: -0.4883116883116882
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "7\_309,4400"
+          y3|month|discount|string: "7\_309,4400\_₽"
+          y3|month|discount|int|number: "7\_309"
+          y3|month|discount|int|string: "7\_309\_₽"
         hm3-c6-m78|number: 25,3260
         hm3-c6-m78|string: "25,3260\_₽"
         hm3-c6-m78|int|number: '25'
@@ -9860,6 +10001,26 @@ default:
           y1|month|discount|string: "6\_259,6800\_₽"
           y1|month|discount|int|number: "6\_260"
           y1|month|discount|int|string: "6\_260\_₽"
+          y3|number: 12,9060
+          y3|string: "12,9060\_₽"
+          y3|int|number: '13'
+          y3|int|string: "13\_₽"
+          y3|discount|percent|number: -0.49040511727078895
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 12,4200
+          y3|discount|string: "12,4200\_₽"
+          y3|discount|int|number: '12'
+          y3|discount|int|string: "12\_₽"
+          y3|month|number: "9\_292,3200"
+          y3|month|string: "9\_292,3200\_₽"
+          y3|month|int|number: "9\_292"
+          y3|month|int|string: "9\_292\_₽"
+          y3|month|discount|percent|number: -0.49040511727078895
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "8\_942,4000"
+          y3|month|discount|string: "8\_942,4000\_₽"
+          y3|month|discount|int|number: "8\_942"
+          y3|month|discount|int|string: "8\_942\_₽"
         hm3-c6-m96|number: 29,8620
         hm3-c6-m96|string: "29,8620\_₽"
         hm3-c6-m96|int|number: '30'
@@ -9889,6 +10050,26 @@ default:
           y1|month|discount|string: "7\_426,0800\_₽"
           y1|month|discount|int|number: "7\_426"
           y1|month|discount|int|string: "7\_426\_₽"
+          y3|number: 15,1740
+          y3|string: "15,1740\_₽"
+          y3|int|number: '15'
+          y3|int|string: "15\_₽"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 14,6880
+          y3|discount|string: "14,6880\_₽"
+          y3|discount|int|number: '15'
+          y3|discount|int|string: "15\_₽"
+          y3|month|number: "10\_925,2800"
+          y3|month|string: "10\_925,2800\_₽"
+          y3|month|int|number: "10\_925"
+          y3|month|int|string: "10\_925\_₽"
+          y3|month|discount|percent|number: -0.49186256781193505
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "10\_575,3600"
+          y3|month|discount|string: "10\_575,3600\_₽"
+          y3|month|discount|int|number: "10\_575"
+          y3|month|discount|int|string: "10\_575\_₽"
         hm3-c8-m128|number: 39,8160
         hm3-c8-m128|string: "39,8160\_₽"
         hm3-c8-m128|int|number: '40'
@@ -9918,6 +10099,26 @@ default:
           y1|month|discount|string: "9\_901,4400\_₽"
           y1|month|discount|int|number: "9\_901"
           y1|month|discount|int|string: "9\_901\_₽"
+          y3|number: 20,2320
+          y3|string: "20,2320\_₽"
+          y3|int|number: '20'
+          y3|int|string: "20\_₽"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 19,5840
+          y3|discount|string: "19,5840\_₽"
+          y3|discount|int|number: '20'
+          y3|discount|int|string: "20\_₽"
+          y3|month|number: "14\_567,0400"
+          y3|month|string: "14\_567,0400\_₽"
+          y3|month|int|number: "14\_567"
+          y3|month|int|string: "14\_567\_₽"
+          y3|month|discount|percent|number: -0.49186256781193494
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "14\_100,4800"
+          y3|month|discount|string: "14\_100,4800\_₽"
+          y3|month|discount|int|number: "14\_100"
+          y3|month|discount|int|string: "14\_100\_₽"
         hm3-c8-m160|number: 47,8800
         hm3-c8-m160|string: "47,8800\_₽"
         hm3-c8-m160|int|number: '48'
@@ -9947,6 +10148,26 @@ default:
           y1|month|discount|string: "11\_975,0400\_₽"
           y1|month|discount|int|number: "11\_975"
           y1|month|discount|int|string: "11\_975\_₽"
+          y3|number: 24,2640
+          y3|string: "24,2640\_₽"
+          y3|int|number: '24'
+          y3|int|string: "24\_₽"
+          y3|discount|percent|number: -0.49323308270676697
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 23,6160
+          y3|discount|string: "23,6160\_₽"
+          y3|discount|int|number: '24'
+          y3|discount|int|string: "24\_₽"
+          y3|month|number: "17\_470,0800"
+          y3|month|string: "17\_470,0800\_₽"
+          y3|month|int|number: "17\_470"
+          y3|month|int|string: "17\_470\_₽"
+          y3|month|discount|percent|number: -0.49323308270676697
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "17\_003,5200"
+          y3|month|discount|string: "17\_003,5200\_₽"
+          y3|month|discount|int|number: "17\_004"
+          y3|month|discount|int|string: "17\_004\_₽"
         hm3-c12-m192|number: 59,7240
         hm3-c12-m192|string: "59,7240\_₽"
         hm3-c12-m192|int|number: '60'
@@ -9976,6 +10197,26 @@ default:
           y1|month|discount|string: "14\_852,1600\_₽"
           y1|month|discount|int|number: "14\_852"
           y1|month|discount|int|string: "14\_852\_₽"
+          y3|number: 30,3480
+          y3|string: "30,3480\_₽"
+          y3|int|number: '30'
+          y3|int|string: "30\_₽"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 29,3760
+          y3|discount|string: "29,3760\_₽"
+          y3|discount|int|number: '29'
+          y3|discount|int|string: "29\_₽"
+          y3|month|number: "21\_850,5600"
+          y3|month|string: "21\_850,5600\_₽"
+          y3|month|int|number: "21\_851"
+          y3|month|int|string: "21\_851\_₽"
+          y3|month|discount|percent|number: -0.49186256781193505
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "21\_150,7200"
+          y3|month|discount|string: "21\_150,7200\_₽"
+          y3|month|discount|int|number: "21\_151"
+          y3|month|discount|int|string: "21\_151\_₽"
         hm3-c14-m224|number: 69,6780
         hm3-c14-m224|string: "69,6780\_₽"
         hm3-c14-m224|int|number: '70'
@@ -10005,6 +10246,26 @@ default:
           y1|month|discount|string: "17\_327,5200\_₽"
           y1|month|discount|int|number: "17\_328"
           y1|month|discount|int|string: "17\_328\_₽"
+          y3|number: 35,4060
+          y3|string: "35,4060\_₽"
+          y3|int|number: '35'
+          y3|int|string: "35\_₽"
+          y3|discount|percent|number: -0.4918625678119349
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 34,2720
+          y3|discount|string: "34,2720\_₽"
+          y3|discount|int|number: '34'
+          y3|discount|int|string: "34\_₽"
+          y3|month|number: "25\_492,3200"
+          y3|month|string: "25\_492,3200\_₽"
+          y3|month|int|number: "25\_492"
+          y3|month|int|string: "25\_492\_₽"
+          y3|month|discount|percent|number: -0.4918625678119349
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "24\_675,8400"
+          y3|month|discount|string: "24\_675,8400\_₽"
+          y3|month|discount|int|number: "24\_676"
+          y3|month|discount|int|string: "24\_676\_₽"
         hm3-c16-m256|number: 79,6320
         hm3-c16-m256|string: "79,6320\_₽"
         hm3-c16-m256|int|number: '80'
@@ -10034,6 +10295,26 @@ default:
           y1|month|discount|string: "19\_802,8800\_₽"
           y1|month|discount|int|number: "19\_803"
           y1|month|discount|int|string: "19\_803\_₽"
+          y3|number: 40,4640
+          y3|string: "40,4640\_₽"
+          y3|int|number: '40'
+          y3|int|string: "40\_₽"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 39,1680
+          y3|discount|string: "39,1680\_₽"
+          y3|discount|int|number: '39'
+          y3|discount|int|string: "39\_₽"
+          y3|month|number: "29\_134,0800"
+          y3|month|string: "29\_134,0800\_₽"
+          y3|month|int|number: "29\_134"
+          y3|month|int|string: "29\_134\_₽"
+          y3|month|discount|percent|number: -0.49186256781193494
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "28\_200,9600"
+          y3|month|discount|string: "28\_200,9600\_₽"
+          y3|month|discount|int|number: "28\_201"
+          y3|month|discount|int|string: "28\_201\_₽"
         hm3-c20-m320|number: 99,5400
         hm3-c20-m320|string: "99,5400\_₽"
         hm3-c20-m320|int|number: '100'
@@ -10063,6 +10344,26 @@ default:
           y1|month|discount|string: "24\_753,6000\_₽"
           y1|month|discount|int|number: "24\_754"
           y1|month|discount|int|string: "24\_754\_₽"
+          y3|number: 50,5800
+          y3|string: "50,5800\_₽"
+          y3|int|number: '51'
+          y3|int|string: "51\_₽"
+          y3|discount|percent|number: -0.4918625678119349
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 48,9600
+          y3|discount|string: "48,9600\_₽"
+          y3|discount|int|number: '49'
+          y3|discount|int|string: "49\_₽"
+          y3|month|number: "36\_417,6000"
+          y3|month|string: "36\_417,6000\_₽"
+          y3|month|int|number: "36\_418"
+          y3|month|int|string: "36\_418\_₽"
+          y3|month|discount|percent|number: -0.4918625678119348
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "35\_251,2000"
+          y3|month|discount|string: "35\_251,2000\_₽"
+          y3|month|discount|int|number: "35\_251"
+          y3|month|discount|int|string: "35\_251\_₽"
         hm3-c24-m384|number: 119,4480
         hm3-c24-m384|string: "119,4480\_₽"
         hm3-c24-m384|int|number: '119'
@@ -10092,6 +10393,26 @@ default:
           y1|month|discount|string: "29\_704,3200\_₽"
           y1|month|discount|int|number: "29\_704"
           y1|month|discount|int|string: "29\_704\_₽"
+          y3|number: 60,6960
+          y3|string: "60,6960\_₽"
+          y3|int|number: '61'
+          y3|int|string: "61\_₽"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 58,7520
+          y3|discount|string: "58,7520\_₽"
+          y3|discount|int|number: '59'
+          y3|discount|int|string: "59\_₽"
+          y3|month|number: "43\_701,1200"
+          y3|month|string: "43\_701,1200\_₽"
+          y3|month|int|number: "43\_701"
+          y3|month|int|string: "43\_701\_₽"
+          y3|month|discount|percent|number: -0.49186256781193505
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "42\_301,4400"
+          y3|month|discount|string: "42\_301,4400\_₽"
+          y3|month|discount|int|number: "42\_301"
+          y3|month|discount|int|string: "42\_301\_₽"
         hm3-c28-m448|number: 139,3560
         hm3-c28-m448|string: "139,3560\_₽"
         hm3-c28-m448|int|number: '139'
@@ -10121,6 +10442,26 @@ default:
           y1|month|discount|string: "34\_655,0400\_₽"
           y1|month|discount|int|number: "34\_655"
           y1|month|discount|int|string: "34\_655\_₽"
+          y3|number: 70,8120
+          y3|string: "70,8120\_₽"
+          y3|int|number: '71'
+          y3|int|string: "71\_₽"
+          y3|discount|percent|number: -0.4918625678119349
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 68,5440
+          y3|discount|string: "68,5440\_₽"
+          y3|discount|int|number: '69'
+          y3|discount|int|string: "69\_₽"
+          y3|month|number: "50\_984,6400"
+          y3|month|string: "50\_984,6400\_₽"
+          y3|month|int|number: "50\_985"
+          y3|month|int|string: "50\_985\_₽"
+          y3|month|discount|percent|number: -0.4918625678119349
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "49\_351,6800"
+          y3|month|discount|string: "49\_351,6800\_₽"
+          y3|month|discount|int|number: "49\_352"
+          y3|month|discount|int|string: "49\_352\_₽"
         hm3-c32-m512|number: 159,2640
         hm3-c32-m512|string: "159,2640\_₽"
         hm3-c32-m512|int|number: '159'
@@ -10150,6 +10491,26 @@ default:
           y1|month|discount|string: "39\_605,7600\_₽"
           y1|month|discount|int|number: "39\_606"
           y1|month|discount|int|string: "39\_606\_₽"
+          y3|number: 80,9280
+          y3|string: "80,9280\_₽"
+          y3|int|number: '81'
+          y3|int|string: "81\_₽"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 78,3360
+          y3|discount|string: "78,3360\_₽"
+          y3|discount|int|number: '78'
+          y3|discount|int|string: "78\_₽"
+          y3|month|number: "58\_268,1600"
+          y3|month|string: "58\_268,1600\_₽"
+          y3|month|int|number: "58\_268"
+          y3|month|int|string: "58\_268\_₽"
+          y3|month|discount|percent|number: -0.49186256781193494
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "56\_401,9200"
+          y3|month|discount|string: "56\_401,9200\_₽"
+          y3|month|discount|int|number: "56\_402"
+          y3|month|discount|int|string: "56\_402\_₽"
         hm2:
           nano|number: 4,3400
           nano|string: "4,3400\_₽"
@@ -14981,6 +15342,12 @@ default:
         kop|string: "1,0000\_₽"
         kop|int|number: '1'
         kop|int|string: "1\_₽"
+      subscription:
+        monthly_usage:
+          v1|number: 0,0000
+          v1|string: Не тарифицируется
+          v1|int|number: '0'
+          v1|int|string: Не тарифицируется
     mysql:
       subscription:
         monthly_usage:
@@ -16221,6 +16588,126 @@ default:
                 y3|month|discount|string: "22\_118,4000\_₽"
                 y3|month|discount|int|number: "22\_118"
                 y3|month|discount|int|string: "22\_118\_₽"
+          redis:
+            cpu:
+              c100:
+                v3|number: 0,5130
+                v3|string: "0,5130\_₽"
+                v3|int|number: '1'
+                v3|int|string: "1\_₽"
+                v3|month|number: 369,3600
+                v3|month|string: "369,3600\_₽"
+                v3|month|int|number: '369'
+                v3|month|int|string: "369\_₽"
+                v2|number: 0,5700
+                v2|string: "0,5700\_₽"
+                v2|int|number: '1'
+                v2|int|string: "1\_₽"
+                v2|month|number: 410,4000
+                v2|month|string: "410,4000\_₽"
+                v2|month|int|number: '410'
+                v2|month|int|string: "410\_₽"
+                v3|cud:
+                  y3|number: 16,4160
+                  y3|string: "16,4160\_₽"
+                  y3|int|number: '16'
+                  y3|int|string: "16\_₽"
+                  y3|discount|percent|number: -0.45714285714285713
+                  y3|discount|percent|string: "-46\_%"
+                  y3|discount|number: 13,8240
+                  y3|discount|string: "13,8240\_₽"
+                  y3|discount|int|number: '14'
+                  y3|discount|int|string: "14\_₽"
+                  y3|month|number: "11\_819,5200"
+                  y3|month|string: "11\_819,5200\_₽"
+                  y3|month|int|number: "11\_820"
+                  y3|month|int|string: "11\_820\_₽"
+                  y3|month|discount|percent|number: -0.45714285714285713
+                  y3|month|discount|percent|string: "-46\_%"
+                  y3|month|discount|number: "9\_953,2800"
+                  y3|month|discount|string: "9\_953,2800\_₽"
+                  y3|month|discount|int|number: "9\_953"
+                  y3|month|discount|int|string: "9\_953\_₽"
+                v2|cud:
+                  y3|number: 18,2400
+                  y3|string: "18,2400\_₽"
+                  y3|int|number: '18'
+                  y3|int|string: "18\_₽"
+                  y3|discount|percent|number: -0.45714285714285724
+                  y3|discount|percent|string: "-46\_%"
+                  y3|discount|number: 15,3600
+                  y3|discount|string: "15,3600\_₽"
+                  y3|discount|int|number: '15'
+                  y3|discount|int|string: "15\_₽"
+                  y3|month|number: "13\_132,8000"
+                  y3|month|string: "13\_132,8000\_₽"
+                  y3|month|int|number: "13\_133"
+                  y3|month|int|string: "13\_133\_₽"
+                  y3|month|discount|percent|number: -0.4571428571428572
+                  y3|month|discount|percent|string: "-46\_%"
+                  y3|month|discount|number: "11\_059,2000"
+                  y3|month|discount|string: "11\_059,2000\_₽"
+                  y3|month|discount|int|number: "11\_059"
+                  y3|month|discount|int|string: "11\_059\_₽"
+            ram:
+              v3|number: 0,1260
+              v3|string: "0,1260\_₽"
+              v3|int|number: '0'
+              v3|int|string: "0\_₽"
+              v3|month|number: 90,7200
+              v3|month|string: "90,7200\_₽"
+              v3|month|int|number: '91'
+              v3|month|int|string: "91\_₽"
+              v2|number: 0,1400
+              v2|string: "0,1400\_₽"
+              v2|int|number: '0'
+              v2|int|string: "0\_₽"
+              v2|month|number: 100,8000
+              v2|month|string: "100,8000\_₽"
+              v2|month|int|number: '101'
+              v2|month|int|string: "101\_₽"
+              v3|cud:
+                y3|number: 64,5120
+                y3|string: "64,5120\_₽"
+                y3|int|number: '65'
+                y3|int|string: "65\_₽"
+                y3|discount|percent|number: -0.5
+                y3|discount|percent|string: "-50\_%"
+                y3|discount|number: 64,5120
+                y3|discount|string: "64,5120\_₽"
+                y3|discount|int|number: '65'
+                y3|discount|int|string: "65\_₽"
+                y3|month|number: "46\_448,6400"
+                y3|month|string: "46\_448,6400\_₽"
+                y3|month|int|number: "46\_449"
+                y3|month|int|string: "46\_449\_₽"
+                y3|month|discount|percent|number: -0.5
+                y3|month|discount|percent|string: "-50\_%"
+                y3|month|discount|number: "46\_448,6400"
+                y3|month|discount|string: "46\_448,6400\_₽"
+                y3|month|discount|int|number: "46\_449"
+                y3|month|discount|int|string: "46\_449\_₽"
+              v2|cud:
+                y3|number: 71,6800
+                y3|string: "71,6800\_₽"
+                y3|int|number: '72'
+                y3|int|string: "72\_₽"
+                y3|discount|percent|number: -0.5
+                y3|discount|percent|string: "-50\_%"
+                y3|discount|number: 71,6800
+                y3|discount|string: "71,6800\_₽"
+                y3|discount|int|number: '72'
+                y3|discount|int|string: "72\_₽"
+                y3|month|number: "51\_609,6000"
+                y3|month|string: "51\_609,6000\_₽"
+                y3|month|int|number: "51\_610"
+                y3|month|int|string: "51\_610\_₽"
+                y3|month|discount|percent|number: -0.5
+                y3|month|discount|percent|string: "-50\_%"
+                y3|month|discount|number: "51\_609,6000"
+                y3|month|discount|string: "51\_609,6000\_₽"
+                y3|month|discount|int|number: "51\_610"
+                y3|month|discount|int|string: "51\_610\_₽"
           elasticsearch:
             cpu:
               c100:
@@ -16291,68 +16778,6 @@ default:
                 platinum|month|string: "1\_159,2000\_₽"
                 platinum|month|int|number: "1\_159"
                 platinum|month|int|string: "1\_159\_₽"
-          redis:
-            ram:
-              v2|number: 0,1400
-              v2|string: "0,1400\_₽"
-              v2|int|number: '0'
-              v2|int|string: "0\_₽"
-              v2|month|number: 100,8000
-              v2|month|string: "100,8000\_₽"
-              v2|month|int|number: '101'
-              v2|month|int|string: "101\_₽"
-              v2|cud:
-                y3|number: 71,6800
-                y3|string: "71,6800\_₽"
-                y3|int|number: '72'
-                y3|int|string: "72\_₽"
-                y3|discount|percent|number: -0.5
-                y3|discount|percent|string: "-50\_%"
-                y3|discount|number: 71,6800
-                y3|discount|string: "71,6800\_₽"
-                y3|discount|int|number: '72'
-                y3|discount|int|string: "72\_₽"
-                y3|month|number: "51\_609,6000"
-                y3|month|string: "51\_609,6000\_₽"
-                y3|month|int|number: "51\_610"
-                y3|month|int|string: "51\_610\_₽"
-                y3|month|discount|percent|number: -0.5
-                y3|month|discount|percent|string: "-50\_%"
-                y3|month|discount|number: "51\_609,6000"
-                y3|month|discount|string: "51\_609,6000\_₽"
-                y3|month|discount|int|number: "51\_610"
-                y3|month|discount|int|string: "51\_610\_₽"
-            cpu:
-              c100:
-                v2|number: 0,5700
-                v2|string: "0,5700\_₽"
-                v2|int|number: '1'
-                v2|int|string: "1\_₽"
-                v2|month|number: 410,4000
-                v2|month|string: "410,4000\_₽"
-                v2|month|int|number: '410'
-                v2|month|int|string: "410\_₽"
-                v2|cud:
-                  y3|number: 18,2400
-                  y3|string: "18,2400\_₽"
-                  y3|int|number: '18'
-                  y3|int|string: "18\_₽"
-                  y3|discount|percent|number: -0.45714285714285724
-                  y3|discount|percent|string: "-46\_%"
-                  y3|discount|number: 15,3600
-                  y3|discount|string: "15,3600\_₽"
-                  y3|discount|int|number: '15'
-                  y3|discount|int|string: "15\_₽"
-                  y3|month|number: "13\_132,8000"
-                  y3|month|string: "13\_132,8000\_₽"
-                  y3|month|int|number: "13\_133"
-                  y3|month|int|string: "13\_133\_₽"
-                  y3|month|discount|percent|number: -0.4571428571428572
-                  y3|month|discount|percent|string: "-46\_%"
-                  y3|month|discount|number: "11\_059,2000"
-                  y3|month|discount|string: "11\_059,2000\_₽"
-                  y3|month|discount|int|number: "11\_059"
-                  y3|month|discount|int|string: "11\_059\_₽"
         compute:
           hostgroup:
             ram:
@@ -19624,10 +20049,10 @@ default:
         v1|int|number: '0'
         v1|int|string: "0\_$"
       disk:
-        v1|number: 0,000000
-        v1|string: Не тарифицируется
+        v1|number: 0,000010
+        v1|string: "0,000010\_$"
         v1|int|number: '0'
-        v1|int|string: Не тарифицируется
+        v1|int|string: "0\_$"
       docker:
         v1|number: 0,000000
         v1|string: Не тарифицируется
@@ -23021,120 +23446,15 @@ default:
         public_ip|month|string: "1,406769\_$"
         public_ip|month|int|number: '1'
         public_ip|month|int|string: "1\_$"
-        m2:
-          medium|number: 0,080769
-          medium|string: "0,080769\_$"
-          medium|int|number: '0'
-          medium|int|string: "0\_$"
-          medium|month|number: 58,153848
-          medium|month|string: "58,153848\_$"
-          medium|month|int|number: '58'
-          medium|month|int|string: "58\_$"
-          2xlarge|number: 0,215385
-          2xlarge|string: "0,215385\_$"
-          2xlarge|int|number: '0'
-          2xlarge|int|string: "0\_$"
-          2xlarge|month|number: 155,076929
-          2xlarge|month|string: "155,076929\_$"
-          2xlarge|month|int|number: '155'
-          2xlarge|month|int|string: "155\_$"
-          3xlarge|number: 0,323077
-          3xlarge|string: "0,323077\_$"
-          3xlarge|int|number: '0'
-          3xlarge|int|string: "0\_$"
-          3xlarge|month|number: 232,615394
-          3xlarge|month|string: "232,615394\_$"
-          3xlarge|month|int|number: '233'
-          3xlarge|month|int|string: "233\_$"
-          micro|number: 0,026923
-          micro|string: "0,026923\_$"
-          micro|int|number: '0'
-          micro|int|string: "0\_$"
-          micro|month|number: 19,384616
-          micro|month|string: "19,384616\_$"
-          micro|month|int|number: '19'
-          micro|month|int|string: "19\_$"
-          8xlarge|number: 0,861538
-          8xlarge|string: "0,861538\_$"
-          8xlarge|int|number: '1'
-          8xlarge|int|string: "1\_$"
-          8xlarge|month|number: 620,307717
-          8xlarge|month|string: "620,307717\_$"
-          8xlarge|month|int|number: '620'
-          8xlarge|month|int|string: "620\_$"
-          7xlarge|number: 0,753846
-          7xlarge|string: "0,753846\_$"
-          7xlarge|int|number: '1'
-          7xlarge|int|string: "1\_$"
-          7xlarge|month|number: 542,769252
-          7xlarge|month|string: "542,769252\_$"
-          7xlarge|month|int|number: '543'
-          7xlarge|month|int|string: "543\_$"
-          6xlarge|number: 0,646154
-          6xlarge|string: "0,646154\_$"
-          6xlarge|int|number: '1'
-          6xlarge|int|string: "1\_$"
-          6xlarge|month|number: 465,230788
-          6xlarge|month|string: "465,230788\_$"
-          6xlarge|month|int|number: '465'
-          6xlarge|month|int|string: "465\_$"
-          large|number: 0,107692
-          large|string: "0,107692\_$"
-          large|int|number: '0'
-          large|int|string: "0\_$"
-          large|month|number: 77,538465
-          large|month|string: "77,538465\_$"
-          large|month|int|number: '78'
-          large|month|int|string: "78\_$"
-          4xlarge|number: 0,430769
-          4xlarge|string: "0,430769\_$"
-          4xlarge|int|number: '0'
-          4xlarge|int|string: "0\_$"
-          4xlarge|month|number: 310,153859
-          4xlarge|month|string: "310,153859\_$"
-          4xlarge|month|int|number: '310'
-          4xlarge|month|int|string: "310\_$"
-          5xlarge|number: 0,538462
-          5xlarge|string: "0,538462\_$"
-          5xlarge|int|number: '1'
-          5xlarge|int|string: "1\_$"
-          5xlarge|month|number: 387,692323
-          5xlarge|month|string: "387,692323\_$"
-          5xlarge|month|int|number: '388'
-          5xlarge|month|int|string: "388\_$"
-          small|number: 0,053846
-          small|string: "0,053846\_$"
-          small|int|number: '0'
-          small|int|string: "0\_$"
-          small|month|number: 38,769232
-          small|month|string: "38,769232\_$"
-          small|month|int|number: '39'
-          small|month|int|string: "39\_$"
-          xlarge|number: 0,161538
-          xlarge|string: "0,161538\_$"
-          xlarge|int|number: '0'
-          xlarge|int|string: "0\_$"
-          xlarge|month|number: 116,307697
-          xlarge|month|string: "116,307697\_$"
-          xlarge|month|int|number: '116'
-          xlarge|month|int|string: "116\_$"
         s2:
-          small|number: 0,053846
-          small|string: "0,053846\_$"
-          small|int|number: '0'
-          small|int|string: "0\_$"
-          small|month|number: 38,769232
-          small|month|string: "38,769232\_$"
-          small|month|int|number: '39'
-          small|month|int|string: "39\_$"
-          micro|number: 0,026923
-          micro|string: "0,026923\_$"
-          micro|int|number: '0'
-          micro|int|string: "0\_$"
-          micro|month|number: 19,384616
-          micro|month|string: "19,384616\_$"
-          micro|month|int|number: '19'
-          micro|month|int|string: "19\_$"
+          4xlarge|number: 0,538462
+          4xlarge|string: "0,538462\_$"
+          4xlarge|int|number: '1'
+          4xlarge|int|string: "1\_$"
+          4xlarge|month|number: 387,692323
+          4xlarge|month|string: "387,692323\_$"
+          4xlarge|month|int|number: '388'
+          4xlarge|month|int|string: "388\_$"
           2xlarge|number: 0,323077
           2xlarge|string: "0,323077\_$"
           2xlarge|int|number: '0'
@@ -23151,14 +23471,6 @@ default:
           xlarge|month|string: "155,076929\_$"
           xlarge|month|int|number: '155'
           xlarge|month|int|string: "155\_$"
-          3xlarge|number: 0,430769
-          3xlarge|string: "0,430769\_$"
-          3xlarge|int|number: '0'
-          3xlarge|int|string: "0\_$"
-          3xlarge|month|number: 310,153859
-          3xlarge|month|string: "310,153859\_$"
-          3xlarge|month|int|number: '310'
-          3xlarge|month|int|string: "310\_$"
           medium|number: 0,107692
           medium|string: "0,107692\_$"
           medium|int|number: '0'
@@ -23167,6 +23479,38 @@ default:
           medium|month|string: "77,538465\_$"
           medium|month|int|number: '78'
           medium|month|int|string: "78\_$"
+          large|number: 0,161538
+          large|string: "0,161538\_$"
+          large|int|number: '0'
+          large|int|string: "0\_$"
+          large|month|number: 116,307697
+          large|month|string: "116,307697\_$"
+          large|month|int|number: '116'
+          large|month|int|string: "116\_$"
+          3xlarge|number: 0,430769
+          3xlarge|string: "0,430769\_$"
+          3xlarge|int|number: '0'
+          3xlarge|int|string: "0\_$"
+          3xlarge|month|number: 310,153859
+          3xlarge|month|string: "310,153859\_$"
+          3xlarge|month|int|number: '310'
+          3xlarge|month|int|string: "310\_$"
+          small|number: 0,053846
+          small|string: "0,053846\_$"
+          small|int|number: '0'
+          small|int|string: "0\_$"
+          small|month|number: 38,769232
+          small|month|string: "38,769232\_$"
+          small|month|int|number: '39'
+          small|month|int|string: "39\_$"
+          micro|number: 0,026923
+          micro|string: "0,026923\_$"
+          micro|int|number: '0'
+          micro|int|string: "0\_$"
+          micro|month|number: 19,384616
+          micro|month|string: "19,384616\_$"
+          micro|month|int|number: '19'
+          micro|month|int|string: "19\_$"
           5xlarge|number: 0,646154
           5xlarge|string: "0,646154\_$"
           5xlarge|int|number: '1'
@@ -23183,22 +23527,103 @@ default:
           6xlarge|month|string: "620,307717\_$"
           6xlarge|month|int|number: '620'
           6xlarge|month|int|string: "620\_$"
-          large|number: 0,161538
-          large|string: "0,161538\_$"
+        m2:
+          7xlarge|number: 0,753846
+          7xlarge|string: "0,753846\_$"
+          7xlarge|int|number: '1'
+          7xlarge|int|string: "1\_$"
+          7xlarge|month|number: 542,769252
+          7xlarge|month|string: "542,769252\_$"
+          7xlarge|month|int|number: '543'
+          7xlarge|month|int|string: "543\_$"
+          8xlarge|number: 0,861538
+          8xlarge|string: "0,861538\_$"
+          8xlarge|int|number: '1'
+          8xlarge|int|string: "1\_$"
+          8xlarge|month|number: 620,307717
+          8xlarge|month|string: "620,307717\_$"
+          8xlarge|month|int|number: '620'
+          8xlarge|month|int|string: "620\_$"
+          5xlarge|number: 0,538462
+          5xlarge|string: "0,538462\_$"
+          5xlarge|int|number: '1'
+          5xlarge|int|string: "1\_$"
+          5xlarge|month|number: 387,692323
+          5xlarge|month|string: "387,692323\_$"
+          5xlarge|month|int|number: '388'
+          5xlarge|month|int|string: "388\_$"
+          micro|number: 0,026923
+          micro|string: "0,026923\_$"
+          micro|int|number: '0'
+          micro|int|string: "0\_$"
+          micro|month|number: 19,384616
+          micro|month|string: "19,384616\_$"
+          micro|month|int|number: '19'
+          micro|month|int|string: "19\_$"
+          3xlarge|number: 0,323077
+          3xlarge|string: "0,323077\_$"
+          3xlarge|int|number: '0'
+          3xlarge|int|string: "0\_$"
+          3xlarge|month|number: 232,615394
+          3xlarge|month|string: "232,615394\_$"
+          3xlarge|month|int|number: '233'
+          3xlarge|month|int|string: "233\_$"
+          medium|number: 0,080769
+          medium|string: "0,080769\_$"
+          medium|int|number: '0'
+          medium|int|string: "0\_$"
+          medium|month|number: 58,153848
+          medium|month|string: "58,153848\_$"
+          medium|month|int|number: '58'
+          medium|month|int|string: "58\_$"
+          xlarge|number: 0,161538
+          xlarge|string: "0,161538\_$"
+          xlarge|int|number: '0'
+          xlarge|int|string: "0\_$"
+          xlarge|month|number: 116,307697
+          xlarge|month|string: "116,307697\_$"
+          xlarge|month|int|number: '116'
+          xlarge|month|int|string: "116\_$"
+          small|number: 0,053846
+          small|string: "0,053846\_$"
+          small|int|number: '0'
+          small|int|string: "0\_$"
+          small|month|number: 38,769232
+          small|month|string: "38,769232\_$"
+          small|month|int|number: '39'
+          small|month|int|string: "39\_$"
+          large|number: 0,107692
+          large|string: "0,107692\_$"
           large|int|number: '0'
           large|int|string: "0\_$"
-          large|month|number: 116,307697
-          large|month|string: "116,307697\_$"
-          large|month|int|number: '116'
-          large|month|int|string: "116\_$"
-          4xlarge|number: 0,538462
-          4xlarge|string: "0,538462\_$"
-          4xlarge|int|number: '1'
-          4xlarge|int|string: "1\_$"
-          4xlarge|month|number: 387,692323
-          4xlarge|month|string: "387,692323\_$"
-          4xlarge|month|int|number: '388'
-          4xlarge|month|int|string: "388\_$"
+          large|month|number: 77,538465
+          large|month|string: "77,538465\_$"
+          large|month|int|number: '78'
+          large|month|int|string: "78\_$"
+          2xlarge|number: 0,215385
+          2xlarge|string: "0,215385\_$"
+          2xlarge|int|number: '0'
+          2xlarge|int|string: "0\_$"
+          2xlarge|month|number: 155,076929
+          2xlarge|month|string: "155,076929\_$"
+          2xlarge|month|int|number: '155'
+          2xlarge|month|int|string: "155\_$"
+          4xlarge|number: 0,430769
+          4xlarge|string: "0,430769\_$"
+          4xlarge|int|number: '0'
+          4xlarge|int|string: "0\_$"
+          4xlarge|month|number: 310,153859
+          4xlarge|month|string: "310,153859\_$"
+          4xlarge|month|int|number: '310'
+          4xlarge|month|int|string: "310\_$"
+          6xlarge|number: 0,646154
+          6xlarge|string: "0,646154\_$"
+          6xlarge|int|number: '1'
+          6xlarge|int|string: "1\_$"
+          6xlarge|month|number: 465,230788
+          6xlarge|month|string: "465,230788\_$"
+          6xlarge|month|int|number: '465'
+          6xlarge|month|int|string: "465\_$"
       kafka:
         v2:
           cpu:
@@ -26750,6 +27175,26 @@ default:
           y1|month|discount|string: "11,796922\_$"
           y1|month|discount|int|number: '12'
           y1|month|discount|int|string: "12\_$"
+          y3|number: 0,026077
+          y3|string: "0,026077\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.4792626032406704
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 0,024000
+          y3|discount|string: "0,024000\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 18,775387
+          y3|month|string: "18,775387\_$"
+          y3|month|int|number: '19'
+          y3|month|int|string: "19\_$"
+          y3|month|discount|percent|number: -0.4792626032406704
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: 17,279997
+          y3|month|discount|string: "17,279997\_$"
+          y3|month|discount|int|number: '17'
+          y3|month|discount|int|string: "17\_$"
         hm3-c2-m12|number: 0,063000
         hm3-c2-m12|string: "0,063000\_$"
         hm3-c2-m12|int|number: '0'
@@ -26779,6 +27224,26 @@ default:
           y1|month|discount|string: "15,119999\_$"
           y1|month|discount|int|number: '15'
           y1|month|discount|int|string: "15\_$"
+          y3|number: 0,032538
+          y3|string: "0,032538\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.4835163963021078
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 0,030462
+          y3|discount|string: "0,030462\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 23,427696
+          y3|month|string: "23,427696\_$"
+          y3|month|int|number: '23'
+          y3|month|int|string: "23\_$"
+          y3|month|discount|percent|number: -0.4835163963021078
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: 21,932303
+          y3|month|discount|string: "21,932303\_$"
+          y3|month|discount|int|number: '22'
+          y3|month|discount|int|string: "22\_$"
         hm3-c4-m16|number: 0,100154
         hm3-c4-m16|string: "0,100154\_$"
         hm3-c4-m16|int|number: '0'
@@ -26808,6 +27273,26 @@ default:
           y1|month|discount|string: "23,593844\_$"
           y1|month|discount|int|number: '24'
           y1|month|discount|int|string: "24\_$"
+          y3|number: 0,052154
+          y3|string: "0,052154\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.4792626032406704
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 0,048000
+          y3|discount|string: "0,048000\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 37,550773
+          y3|month|string: "37,550773\_$"
+          y3|month|int|number: '38'
+          y3|month|int|string: "38\_$"
+          y3|month|discount|percent|number: -0.4792626032406704
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: 34,559994
+          y3|month|discount|string: "34,559994\_$"
+          y3|month|discount|int|number: '35'
+          y3|month|discount|int|string: "35\_$"
         hm3-c4-m24|number: 0,126000
         hm3-c4-m24|string: "0,126000\_$"
         hm3-c4-m24|int|number: '0'
@@ -26837,6 +27322,26 @@ default:
           y1|month|discount|string: "30,239997\_$"
           y1|month|discount|int|number: '30'
           y1|month|discount|int|string: "30\_$"
+          y3|number: 0,065077
+          y3|string: "0,065077\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.4835163963021078
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 0,060923
+          y3|discount|string: "0,060923\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 46,855391
+          y3|month|string: "46,855391\_$"
+          y3|month|int|number: '47'
+          y3|month|int|string: "47\_$"
+          y3|month|discount|percent|number: -0.4835163963021078
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: 43,864606
+          y3|month|discount|string: "43,864606\_$"
+          y3|month|discount|int|number: '44'
+          y3|month|discount|int|string: "44\_$"
         hm3-c4-m32|number: 0,151846
         hm3-c4-m32|string: "0,151846\_$"
         hm3-c4-m32|int|number: '0'
@@ -26866,6 +27371,26 @@ default:
           y1|month|discount|string: "36,886150\_$"
           y1|month|discount|int|number: '37'
           y1|month|discount|int|string: "37\_$"
+          y3|number: 0,078000
+          y3|string: "0,078000\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.4863220896456326
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,073846
+          y3|discount|string: "0,073846\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 56,160009
+          y3|month|string: "56,160009\_$"
+          y3|month|int|number: '56'
+          y3|month|int|string: "56\_$"
+          y3|month|discount|percent|number: -0.4863220896456326
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 53,169218
+          y3|month|discount|string: "53,169218\_$"
+          y3|month|discount|int|number: '53'
+          y3|month|discount|int|string: "53\_$"
         hm3-c4-m48|number: 0,203538
         hm3-c4-m48|string: "0,203538\_$"
         hm3-c4-m48|int|number: '0'
@@ -26895,6 +27420,26 @@ default:
           y1|month|discount|string: "50,178456\_$"
           y1|month|discount|int|number: '50'
           y1|month|discount|int|string: "50\_$"
+          y3|number: 0,103846
+          y3|string: "0,103846\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.489795805266319
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,099692
+          y3|discount|string: "0,099692\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 74,769244
+          y3|month|string: "74,769244\_$"
+          y3|month|int|number: '75'
+          y3|month|int|string: "75\_$"
+          y3|month|discount|percent|number: -0.48979580526631905
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 71,778442
+          y3|month|discount|string: "71,778442\_$"
+          y3|month|discount|int|number: '72'
+          y3|month|discount|int|string: "72\_$"
         hm3-c6-m60|number: 0,266538
         hm3-c6-m60|string: "0,266538\_$"
         hm3-c6-m60|int|number: '0'
@@ -26924,6 +27469,26 @@ default:
           y1|month|discount|string: "65,298455\_$"
           y1|month|discount|int|number: '65'
           y1|month|discount|int|string: "65\_$"
+          y3|number: 0,136385
+          y3|string: "0,136385\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.4883115813121896
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,130154
+          y3|discount|string: "0,130154\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 98,196939
+          y3|month|string: "98,196939\_$"
+          y3|month|int|number: '98'
+          y3|month|int|string: "98\_$"
+          y3|month|discount|percent|number: -0.4883115813121896
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 93,710745
+          y3|month|discount|string: "93,710745\_$"
+          y3|month|discount|int|number: '94'
+          y3|month|discount|int|string: "94\_$"
         hm3-c6-m78|number: 0,324692
         hm3-c6-m78|string: "0,324692\_$"
         hm3-c6-m78|int|number: '0'
@@ -26953,6 +27518,26 @@ default:
           y1|month|discount|string: "80,252299\_$"
           y1|month|discount|int|number: '80'
           y1|month|discount|int|string: "80\_$"
+          y3|number: 0,165462
+          y3|string: "0,165462\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.490405001668472
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,159231
+          y3|discount|string: "0,159231\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 119,132329
+          y3|month|string: "119,132329\_$"
+          y3|month|int|number: '119'
+          y3|month|int|string: "119\_$"
+          y3|month|discount|percent|number: -0.490405001668472
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 114,646121
+          y3|month|discount|string: "114,646121\_$"
+          y3|month|discount|int|number: '115'
+          y3|month|discount|int|string: "115\_$"
         hm3-c6-m96|number: 0,382846
         hm3-c6-m96|string: "0,382846\_$"
         hm3-c6-m96|int|number: '0'
@@ -26982,6 +27567,26 @@ default:
           y1|month|discount|string: "95,206143\_$"
           y1|month|discount|int|number: '95'
           y1|month|discount|int|string: "95\_$"
+          y3|number: 0,194538
+          y3|string: "0,194538\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.491862446232773
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,188308
+          y3|discount|string: "0,188308\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 140,067719
+          y3|month|string: "140,067719\_$"
+          y3|month|int|number: '140'
+          y3|month|int|string: "140\_$"
+          y3|month|discount|percent|number: -0.491862446232773
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 135,581498
+          y3|month|discount|string: "135,581498\_$"
+          y3|month|discount|int|number: '136'
+          y3|month|discount|int|string: "136\_$"
         hm3-c8-m128|number: 0,510462
         hm3-c8-m128|string: "0,510462\_$"
         hm3-c8-m128|int|number: '1'
@@ -27011,6 +27616,26 @@ default:
           y1|month|discount|string: "126,941524\_$"
           y1|month|discount|int|number: '127'
           y1|month|discount|int|string: "127\_$"
+          y3|number: 0,259385
+          y3|string: "0,259385\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.49186244623277303
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,251077
+          y3|discount|string: "0,251077\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 186,756958
+          y3|month|string: "186,756958\_$"
+          y3|month|int|number: '187'
+          y3|month|int|string: "187\_$"
+          y3|month|discount|percent|number: -0.491862446232773
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 180,775331
+          y3|month|discount|string: "180,775331\_$"
+          y3|month|discount|int|number: '181'
+          y3|month|discount|int|string: "181\_$"
         hm3-c8-m160|number: 0,613846
         hm3-c8-m160|string: "0,613846\_$"
         hm3-c8-m160|int|number: '1'
@@ -27040,6 +27665,26 @@ default:
           y1|month|discount|string: "153,526136\_$"
           y1|month|discount|int|number: '154'
           y1|month|discount|int|string: "154\_$"
+          y3|number: 0,311077
+          y3|string: "0,311077\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.4932329555166041
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,302769
+          y3|discount|string: "0,302769\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 223,975428
+          y3|month|string: "223,975428\_$"
+          y3|month|int|number: '224'
+          y3|month|int|string: "224\_$"
+          y3|month|discount|percent|number: -0.49323295551660407
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 217,993778
+          y3|month|discount|string: "217,993778\_$"
+          y3|month|discount|int|number: '218'
+          y3|month|discount|int|string: "218\_$"
         hm3-c12-m192|number: 0,765692
         hm3-c12-m192|string: "0,765692\_$"
         hm3-c12-m192|int|number: '1'
@@ -27069,6 +27714,26 @@ default:
           y1|month|discount|string: "190,412286\_$"
           y1|month|discount|int|number: '190'
           y1|month|discount|int|string: "190\_$"
+          y3|number: 0,389077
+          y3|string: "0,389077\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.491862446232773
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,376615
+          y3|discount|string: "0,376615\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 280,135437
+          y3|month|string: "280,135437\_$"
+          y3|month|int|number: '280'
+          y3|month|int|string: "280\_$"
+          y3|month|discount|percent|number: -0.491862446232773
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 271,162996
+          y3|month|discount|string: "271,162996\_$"
+          y3|month|discount|int|number: '271'
+          y3|month|discount|int|string: "271\_$"
         hm3-c14-m224|number: 0,893308
         hm3-c14-m224|string: "0,893308\_$"
         hm3-c14-m224|int|number: '1'
@@ -27098,6 +27763,26 @@ default:
           y1|month|discount|string: "222,147667\_$"
           y1|month|discount|int|number: '222'
           y1|month|discount|int|string: "222\_$"
+          y3|number: 0,453923
+          y3|string: "0,453923\_$"
+          y3|int|number: '0'
+          y3|int|string: "0\_$"
+          y3|discount|percent|number: -0.491862446232773
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,439384
+          y3|discount|string: "0,439384\_$"
+          y3|discount|int|number: '0'
+          y3|discount|int|string: "0\_$"
+          y3|month|number: 326,824677
+          y3|month|string: "326,824677\_$"
+          y3|month|int|number: '327'
+          y3|month|int|string: "327\_$"
+          y3|month|discount|percent|number: -0.491862446232773
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 316,356828
+          y3|month|discount|string: "316,356828\_$"
+          y3|month|discount|int|number: '316'
+          y3|month|discount|int|string: "316\_$"
         hm3-c16-m256|number: 1,020923
         hm3-c16-m256|string: "1,020923\_$"
         hm3-c16-m256|int|number: '1'
@@ -27127,6 +27812,26 @@ default:
           y1|month|discount|string: "253,883048\_$"
           y1|month|discount|int|number: '254'
           y1|month|discount|int|string: "254\_$"
+          y3|number: 0,518769
+          y3|string: "0,518769\_$"
+          y3|int|number: '1'
+          y3|int|string: "1\_$"
+          y3|discount|percent|number: -0.49186244623277303
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,502154
+          y3|discount|string: "0,502154\_$"
+          y3|discount|int|number: '1'
+          y3|discount|int|string: "1\_$"
+          y3|month|number: 373,513916
+          y3|month|string: "373,513916\_$"
+          y3|month|int|number: '374'
+          y3|month|int|string: "374\_$"
+          y3|month|discount|percent|number: -0.491862446232773
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 361,550661
+          y3|month|discount|string: "361,550661\_$"
+          y3|month|discount|int|number: '362'
+          y3|month|discount|int|string: "362\_$"
         hm3-c20-m320|number: 1,276154
         hm3-c20-m320|string: "1,276154\_$"
         hm3-c20-m320|int|number: '1'
@@ -27156,6 +27861,26 @@ default:
           y1|month|discount|string: "317,353810\_$"
           y1|month|discount|int|number: '317'
           y1|month|discount|int|string: "317\_$"
+          y3|number: 0,648462
+          y3|string: "0,648462\_$"
+          y3|int|number: '1'
+          y3|int|string: "1\_$"
+          y3|discount|percent|number: -0.4918624462327729
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,627692
+          y3|discount|string: "0,627692\_$"
+          y3|discount|int|number: '1'
+          y3|discount|int|string: "1\_$"
+          y3|month|number: 466,892395
+          y3|month|string: "466,892395\_$"
+          y3|month|int|number: '467'
+          y3|month|int|string: "467\_$"
+          y3|month|discount|percent|number: -0.49186244623277303
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 451,938326
+          y3|month|discount|string: "451,938326\_$"
+          y3|month|discount|int|number: '452'
+          y3|month|discount|int|string: "452\_$"
         hm3-c24-m384|number: 1,531385
         hm3-c24-m384|string: "1,531385\_$"
         hm3-c24-m384|int|number: '2'
@@ -27185,6 +27910,26 @@ default:
           y1|month|discount|string: "380,824572\_$"
           y1|month|discount|int|number: '381'
           y1|month|discount|int|string: "381\_$"
+          y3|number: 0,778154
+          y3|string: "0,778154\_$"
+          y3|int|number: '1'
+          y3|int|string: "1\_$"
+          y3|discount|percent|number: -0.491862446232773
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,753231
+          y3|discount|string: "0,753231\_$"
+          y3|discount|int|number: '1'
+          y3|discount|int|string: "1\_$"
+          y3|month|number: 560,270874
+          y3|month|string: "560,270874\_$"
+          y3|month|int|number: '560'
+          y3|month|int|string: "560\_$"
+          y3|month|discount|percent|number: -0.491862446232773
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 542,325992
+          y3|month|discount|string: "542,325992\_$"
+          y3|month|discount|int|number: '542'
+          y3|month|discount|int|string: "542\_$"
         hm3-c28-m448|number: 1,786615
         hm3-c28-m448|string: "1,786615\_$"
         hm3-c28-m448|int|number: '2'
@@ -27214,6 +27959,26 @@ default:
           y1|month|discount|string: "444,295333\_$"
           y1|month|discount|int|number: '444'
           y1|month|discount|int|string: "444\_$"
+          y3|number: 0,907846
+          y3|string: "0,907846\_$"
+          y3|int|number: '1'
+          y3|int|string: "1\_$"
+          y3|discount|percent|number: -0.491862446232773
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 0,878769
+          y3|discount|string: "0,878769\_$"
+          y3|discount|int|number: '1'
+          y3|discount|int|string: "1\_$"
+          y3|month|number: 653,649353
+          y3|month|string: "653,649353\_$"
+          y3|month|int|number: '654'
+          y3|month|int|string: "654\_$"
+          y3|month|discount|percent|number: -0.491862446232773
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 632,713657
+          y3|month|discount|string: "632,713657\_$"
+          y3|month|discount|int|number: '633'
+          y3|month|discount|int|string: "633\_$"
         hm3-c32-m512|number: 2,041846
         hm3-c32-m512|string: "2,041846\_$"
         hm3-c32-m512|int|number: '2'
@@ -27243,6 +28008,26 @@ default:
           y1|month|discount|string: "507,766095\_$"
           y1|month|discount|int|number: '508'
           y1|month|discount|int|string: "508\_$"
+          y3|number: 1,037539
+          y3|string: "1,037539\_$"
+          y3|int|number: '1'
+          y3|int|string: "1\_$"
+          y3|discount|percent|number: -0.49186244623277303
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 1,004307
+          y3|discount|string: "1,004307\_$"
+          y3|discount|int|number: '1'
+          y3|discount|int|string: "1\_$"
+          y3|month|number: 747,027832
+          y3|month|string: "747,027832\_$"
+          y3|month|int|number: '747'
+          y3|month|int|string: "747\_$"
+          y3|month|discount|percent|number: -0.491862446232773
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: 723,101322
+          y3|month|discount|string: "723,101322\_$"
+          y3|month|discount|int|number: '723'
+          y3|month|discount|int|string: "723\_$"
         hm2:
           nano|number: 0,055641
           nano|string: "0,055641\_$"
@@ -32074,6 +32859,12 @@ default:
         kop|string: "0,012821\_$"
         kop|int|number: '0'
         kop|int|string: "0\_$"
+      subscription:
+        monthly_usage:
+          v1|number: 0,000000
+          v1|string: Не тарифицируется
+          v1|int|number: '0'
+          v1|int|string: Не тарифицируется
     mysql:
       subscription:
         monthly_usage:
@@ -33314,6 +34105,126 @@ default:
                 y3|month|discount|string: "283,569316\_$"
                 y3|month|discount|int|number: '284'
                 y3|month|discount|int|string: "284\_$"
+          redis:
+            cpu:
+              c100:
+                v3|number: 0,006577
+                v3|string: "0,006577\_$"
+                v3|int|number: '0'
+                v3|int|string: "0\_$"
+                v3|month|number: 4,735385
+                v3|month|string: "4,735385\_$"
+                v3|month|int|number: '5'
+                v3|month|int|string: "5\_$"
+                v2|number: 0,007308
+                v2|string: "0,007308\_$"
+                v2|int|number: '0'
+                v2|int|string: "0\_$"
+                v2|month|number: 5,261538
+                v2|month|string: "5,261538\_$"
+                v2|month|int|number: '5'
+                v2|month|int|string: "5\_$"
+                v3|cud:
+                  y3|number: 0,210462
+                  y3|string: "0,210462\_$"
+                  y3|int|number: '0'
+                  y3|int|string: "0\_$"
+                  y3|discount|percent|number: -0.4571428807256228
+                  y3|discount|percent|string: "-46\_%"
+                  y3|discount|number: 0,177231
+                  y3|discount|string: "0,177231\_$"
+                  y3|discount|int|number: '0'
+                  y3|discount|int|string: "0\_$"
+                  y3|month|number: 151,532306
+                  y3|month|string: "151,532306\_$"
+                  y3|month|int|number: '152'
+                  y3|month|int|string: "152\_$"
+                  y3|month|discount|percent|number: -0.45714288072562276
+                  y3|month|discount|percent|string: "-46\_%"
+                  y3|month|discount|number: 127,606164
+                  y3|month|discount|string: "127,606164\_$"
+                  y3|month|discount|int|number: '128'
+                  y3|month|discount|int|string: "128\_$"
+                v2|cud:
+                  y3|number: 0,233846
+                  y3|string: "0,233846\_$"
+                  y3|int|number: '0'
+                  y3|int|string: "0\_$"
+                  y3|discount|percent|number: -0.4571429017142839
+                  y3|discount|percent|string: "-46\_%"
+                  y3|discount|number: 0,196923
+                  y3|discount|string: "0,196923\_$"
+                  y3|discount|int|number: '0'
+                  y3|discount|int|string: "0\_$"
+                  y3|month|number: 168,369224
+                  y3|month|string: "168,369224\_$"
+                  y3|month|int|number: '168'
+                  y3|month|int|string: "168\_$"
+                  y3|month|discount|percent|number: -0.4571429017142839
+                  y3|month|discount|percent|string: "-46\_%"
+                  y3|month|discount|number: 141,784635
+                  y3|month|discount|string: "141,784635\_$"
+                  y3|month|discount|int|number: '142'
+                  y3|month|discount|int|string: "142\_$"
+            ram:
+              v3|number: 0,001615
+              v3|string: "0,001615\_$"
+              v3|int|number: '0'
+              v3|int|string: "0\_$"
+              v3|month|number: 1,163077
+              v3|month|string: "1,163077\_$"
+              v3|month|int|number: '1'
+              v3|month|int|string: "1\_$"
+              v2|number: 0,001795
+              v2|string: "0,001795\_$"
+              v2|int|number: '0'
+              v2|int|string: "0\_$"
+              v2|month|number: 1,292308
+              v2|month|string: "1,292308\_$"
+              v2|month|int|number: '1'
+              v2|month|int|string: "1\_$"
+              v3|cud:
+                y3|number: 0,827077
+                y3|string: "0,827077\_$"
+                y3|int|number: '1'
+                y3|int|string: "1\_$"
+                y3|discount|percent|number: -0.4999998452380842
+                y3|discount|percent|string: "-50\_%"
+                y3|discount|number: 0,827077
+                y3|discount|string: "0,827077\_$"
+                y3|discount|int|number: '1'
+                y3|discount|int|string: "1\_$"
+                y3|month|number: 595,495526
+                y3|month|string: "595,495526\_$"
+                y3|month|int|number: '595'
+                y3|month|int|string: "595\_$"
+                y3|month|discount|percent|number: -0.49999984523808416
+                y3|month|discount|percent|string: "-50\_%"
+                y3|month|discount|number: 595,495158
+                y3|month|discount|string: "595,495158\_$"
+                y3|month|discount|int|number: '595'
+                y3|month|discount|int|string: "595\_$"
+              v2|cud:
+                y3|number: 0,918974
+                y3|string: "0,918974\_$"
+                y3|int|number: '1'
+                y3|int|string: "1\_$"
+                y3|discount|percent|number: -0.5
+                y3|discount|percent|string: "-50\_%"
+                y3|discount|number: 0,918974
+                y3|discount|string: "0,918974\_$"
+                y3|discount|int|number: '1'
+                y3|discount|int|string: "1\_$"
+                y3|month|number: 661,661614
+                y3|month|string: "661,661614\_$"
+                y3|month|int|number: '662'
+                y3|month|int|string: "662\_$"
+                y3|month|discount|percent|number: -0.5
+                y3|month|discount|percent|string: "-50\_%"
+                y3|month|discount|number: 661,661614
+                y3|month|discount|string: "661,661614\_$"
+                y3|month|discount|int|number: '662'
+                y3|month|discount|int|string: "662\_$"
           elasticsearch:
             cpu:
               c100:
@@ -33384,68 +34295,6 @@ default:
                 platinum|month|string: "14,861539\_$"
                 platinum|month|int|number: '15'
                 platinum|month|int|string: "15\_$"
-          redis:
-            ram:
-              v2|number: 0,001795
-              v2|string: "0,001795\_$"
-              v2|int|number: '0'
-              v2|int|string: "0\_$"
-              v2|month|number: 1,292308
-              v2|month|string: "1,292308\_$"
-              v2|month|int|number: '1'
-              v2|month|int|string: "1\_$"
-              v2|cud:
-                y3|number: 0,918974
-                y3|string: "0,918974\_$"
-                y3|int|number: '1'
-                y3|int|string: "1\_$"
-                y3|discount|percent|number: -0.5
-                y3|discount|percent|string: "-50\_%"
-                y3|discount|number: 0,918974
-                y3|discount|string: "0,918974\_$"
-                y3|discount|int|number: '1'
-                y3|discount|int|string: "1\_$"
-                y3|month|number: 661,661614
-                y3|month|string: "661,661614\_$"
-                y3|month|int|number: '662'
-                y3|month|int|string: "662\_$"
-                y3|month|discount|percent|number: -0.5
-                y3|month|discount|percent|string: "-50\_%"
-                y3|month|discount|number: 661,661614
-                y3|month|discount|string: "661,661614\_$"
-                y3|month|discount|int|number: '662'
-                y3|month|discount|int|string: "662\_$"
-            cpu:
-              c100:
-                v2|number: 0,007308
-                v2|string: "0,007308\_$"
-                v2|int|number: '0'
-                v2|int|string: "0\_$"
-                v2|month|number: 5,261538
-                v2|month|string: "5,261538\_$"
-                v2|month|int|number: '5'
-                v2|month|int|string: "5\_$"
-                v2|cud:
-                  y3|number: 0,233846
-                  y3|string: "0,233846\_$"
-                  y3|int|number: '0'
-                  y3|int|string: "0\_$"
-                  y3|discount|percent|number: -0.4571429017142839
-                  y3|discount|percent|string: "-46\_%"
-                  y3|discount|number: 0,196923
-                  y3|discount|string: "0,196923\_$"
-                  y3|discount|int|number: '0'
-                  y3|discount|int|string: "0\_$"
-                  y3|month|number: 168,369224
-                  y3|month|string: "168,369224\_$"
-                  y3|month|int|number: '168'
-                  y3|month|int|string: "168\_$"
-                  y3|month|discount|percent|number: -0.4571429017142839
-                  y3|month|discount|percent|string: "-46\_%"
-                  y3|month|discount|number: 141,784635
-                  y3|month|discount|string: "141,784635\_$"
-                  y3|month|discount|int|number: '142'
-                  y3|month|discount|int|string: "142\_$"
         compute:
           hostgroup:
             ram:
@@ -36717,10 +37566,10 @@ default:
         v1|int|number: '0'
         v1|int|string: "0\_₸"
       disk:
-        v1|number: 0,0000
-        v1|string: Не тарифицируется
+        v1|number: 0,0045
+        v1|string: "0,0045\_₸"
         v1|int|number: '0'
-        v1|int|string: Не тарифицируется
+        v1|int|string: "0\_₸"
       docker:
         v1|number: 0,0000
         v1|string: Не тарифицируется
@@ -40114,120 +40963,15 @@ default:
         public_ip|month|string: "658,3680\_₸"
         public_ip|month|int|number: '658'
         public_ip|month|int|string: "658\_₸"
-        m2:
-          medium|number: 37,8000
-          medium|string: "37,8000\_₸"
-          medium|int|number: '38'
-          medium|int|string: "38\_₸"
-          medium|month|number: "27\_216,0000"
-          medium|month|string: "27\_216,0000\_₸"
-          medium|month|int|number: "27\_216"
-          medium|month|int|string: "27\_216\_₸"
-          2xlarge|number: 100,8000
-          2xlarge|string: "100,8000\_₸"
-          2xlarge|int|number: '101'
-          2xlarge|int|string: "101\_₸"
-          2xlarge|month|number: "72\_576,0000"
-          2xlarge|month|string: "72\_576,0000\_₸"
-          2xlarge|month|int|number: "72\_576"
-          2xlarge|month|int|string: "72\_576\_₸"
-          3xlarge|number: 151,2000
-          3xlarge|string: "151,2000\_₸"
-          3xlarge|int|number: '151'
-          3xlarge|int|string: "151\_₸"
-          3xlarge|month|number: "108\_864,0000"
-          3xlarge|month|string: "108\_864,0000\_₸"
-          3xlarge|month|int|number: "108\_864"
-          3xlarge|month|int|string: "108\_864\_₸"
-          micro|number: 12,6000
-          micro|string: "12,6000\_₸"
-          micro|int|number: '13'
-          micro|int|string: "13\_₸"
-          micro|month|number: "9\_072,0000"
-          micro|month|string: "9\_072,0000\_₸"
-          micro|month|int|number: "9\_072"
-          micro|month|int|string: "9\_072\_₸"
-          8xlarge|number: 403,2000
-          8xlarge|string: "403,2000\_₸"
-          8xlarge|int|number: '403'
-          8xlarge|int|string: "403\_₸"
-          8xlarge|month|number: "290\_304,0000"
-          8xlarge|month|string: "290\_304,0000\_₸"
-          8xlarge|month|int|number: "290\_304"
-          8xlarge|month|int|string: "290\_304\_₸"
-          7xlarge|number: 352,8000
-          7xlarge|string: "352,8000\_₸"
-          7xlarge|int|number: '353'
-          7xlarge|int|string: "353\_₸"
-          7xlarge|month|number: "254\_016,0000"
-          7xlarge|month|string: "254\_016,0000\_₸"
-          7xlarge|month|int|number: "254\_016"
-          7xlarge|month|int|string: "254\_016\_₸"
-          6xlarge|number: 302,4000
-          6xlarge|string: "302,4000\_₸"
-          6xlarge|int|number: '302'
-          6xlarge|int|string: "302\_₸"
-          6xlarge|month|number: "217\_728,0000"
-          6xlarge|month|string: "217\_728,0000\_₸"
-          6xlarge|month|int|number: "217\_728"
-          6xlarge|month|int|string: "217\_728\_₸"
-          large|number: 50,4000
-          large|string: "50,4000\_₸"
-          large|int|number: '50'
-          large|int|string: "50\_₸"
-          large|month|number: "36\_288,0000"
-          large|month|string: "36\_288,0000\_₸"
-          large|month|int|number: "36\_288"
-          large|month|int|string: "36\_288\_₸"
-          4xlarge|number: 201,6000
-          4xlarge|string: "201,6000\_₸"
-          4xlarge|int|number: '202'
-          4xlarge|int|string: "202\_₸"
-          4xlarge|month|number: "145\_152,0000"
-          4xlarge|month|string: "145\_152,0000\_₸"
-          4xlarge|month|int|number: "145\_152"
-          4xlarge|month|int|string: "145\_152\_₸"
-          5xlarge|number: 252,0000
-          5xlarge|string: "252,0000\_₸"
-          5xlarge|int|number: '252'
-          5xlarge|int|string: "252\_₸"
-          5xlarge|month|number: "181\_440,0000"
-          5xlarge|month|string: "181\_440,0000\_₸"
-          5xlarge|month|int|number: "181\_440"
-          5xlarge|month|int|string: "181\_440\_₸"
-          small|number: 25,2000
-          small|string: "25,2000\_₸"
-          small|int|number: '25'
-          small|int|string: "25\_₸"
-          small|month|number: "18\_144,0000"
-          small|month|string: "18\_144,0000\_₸"
-          small|month|int|number: "18\_144"
-          small|month|int|string: "18\_144\_₸"
-          xlarge|number: 75,6000
-          xlarge|string: "75,6000\_₸"
-          xlarge|int|number: '76'
-          xlarge|int|string: "76\_₸"
-          xlarge|month|number: "54\_432,0000"
-          xlarge|month|string: "54\_432,0000\_₸"
-          xlarge|month|int|number: "54\_432"
-          xlarge|month|int|string: "54\_432\_₸"
         s2:
-          small|number: 25,2000
-          small|string: "25,2000\_₸"
-          small|int|number: '25'
-          small|int|string: "25\_₸"
-          small|month|number: "18\_144,0000"
-          small|month|string: "18\_144,0000\_₸"
-          small|month|int|number: "18\_144"
-          small|month|int|string: "18\_144\_₸"
-          micro|number: 12,6000
-          micro|string: "12,6000\_₸"
-          micro|int|number: '13'
-          micro|int|string: "13\_₸"
-          micro|month|number: "9\_072,0000"
-          micro|month|string: "9\_072,0000\_₸"
-          micro|month|int|number: "9\_072"
-          micro|month|int|string: "9\_072\_₸"
+          4xlarge|number: 252,0000
+          4xlarge|string: "252,0000\_₸"
+          4xlarge|int|number: '252'
+          4xlarge|int|string: "252\_₸"
+          4xlarge|month|number: "181\_440,0000"
+          4xlarge|month|string: "181\_440,0000\_₸"
+          4xlarge|month|int|number: "181\_440"
+          4xlarge|month|int|string: "181\_440\_₸"
           2xlarge|number: 151,2000
           2xlarge|string: "151,2000\_₸"
           2xlarge|int|number: '151'
@@ -40244,14 +40988,6 @@ default:
           xlarge|month|string: "72\_576,0000\_₸"
           xlarge|month|int|number: "72\_576"
           xlarge|month|int|string: "72\_576\_₸"
-          3xlarge|number: 201,6000
-          3xlarge|string: "201,6000\_₸"
-          3xlarge|int|number: '202'
-          3xlarge|int|string: "202\_₸"
-          3xlarge|month|number: "145\_152,0000"
-          3xlarge|month|string: "145\_152,0000\_₸"
-          3xlarge|month|int|number: "145\_152"
-          3xlarge|month|int|string: "145\_152\_₸"
           medium|number: 50,4000
           medium|string: "50,4000\_₸"
           medium|int|number: '50'
@@ -40260,6 +40996,38 @@ default:
           medium|month|string: "36\_288,0000\_₸"
           medium|month|int|number: "36\_288"
           medium|month|int|string: "36\_288\_₸"
+          large|number: 75,6000
+          large|string: "75,6000\_₸"
+          large|int|number: '76'
+          large|int|string: "76\_₸"
+          large|month|number: "54\_432,0000"
+          large|month|string: "54\_432,0000\_₸"
+          large|month|int|number: "54\_432"
+          large|month|int|string: "54\_432\_₸"
+          3xlarge|number: 201,6000
+          3xlarge|string: "201,6000\_₸"
+          3xlarge|int|number: '202'
+          3xlarge|int|string: "202\_₸"
+          3xlarge|month|number: "145\_152,0000"
+          3xlarge|month|string: "145\_152,0000\_₸"
+          3xlarge|month|int|number: "145\_152"
+          3xlarge|month|int|string: "145\_152\_₸"
+          small|number: 25,2000
+          small|string: "25,2000\_₸"
+          small|int|number: '25'
+          small|int|string: "25\_₸"
+          small|month|number: "18\_144,0000"
+          small|month|string: "18\_144,0000\_₸"
+          small|month|int|number: "18\_144"
+          small|month|int|string: "18\_144\_₸"
+          micro|number: 12,6000
+          micro|string: "12,6000\_₸"
+          micro|int|number: '13'
+          micro|int|string: "13\_₸"
+          micro|month|number: "9\_072,0000"
+          micro|month|string: "9\_072,0000\_₸"
+          micro|month|int|number: "9\_072"
+          micro|month|int|string: "9\_072\_₸"
           5xlarge|number: 302,4000
           5xlarge|string: "302,4000\_₸"
           5xlarge|int|number: '302'
@@ -40276,22 +41044,103 @@ default:
           6xlarge|month|string: "290\_304,0000\_₸"
           6xlarge|month|int|number: "290\_304"
           6xlarge|month|int|string: "290\_304\_₸"
-          large|number: 75,6000
-          large|string: "75,6000\_₸"
-          large|int|number: '76'
-          large|int|string: "76\_₸"
-          large|month|number: "54\_432,0000"
-          large|month|string: "54\_432,0000\_₸"
-          large|month|int|number: "54\_432"
-          large|month|int|string: "54\_432\_₸"
-          4xlarge|number: 252,0000
-          4xlarge|string: "252,0000\_₸"
-          4xlarge|int|number: '252'
-          4xlarge|int|string: "252\_₸"
-          4xlarge|month|number: "181\_440,0000"
-          4xlarge|month|string: "181\_440,0000\_₸"
-          4xlarge|month|int|number: "181\_440"
-          4xlarge|month|int|string: "181\_440\_₸"
+        m2:
+          7xlarge|number: 352,8000
+          7xlarge|string: "352,8000\_₸"
+          7xlarge|int|number: '353'
+          7xlarge|int|string: "353\_₸"
+          7xlarge|month|number: "254\_016,0000"
+          7xlarge|month|string: "254\_016,0000\_₸"
+          7xlarge|month|int|number: "254\_016"
+          7xlarge|month|int|string: "254\_016\_₸"
+          8xlarge|number: 403,2000
+          8xlarge|string: "403,2000\_₸"
+          8xlarge|int|number: '403'
+          8xlarge|int|string: "403\_₸"
+          8xlarge|month|number: "290\_304,0000"
+          8xlarge|month|string: "290\_304,0000\_₸"
+          8xlarge|month|int|number: "290\_304"
+          8xlarge|month|int|string: "290\_304\_₸"
+          5xlarge|number: 252,0000
+          5xlarge|string: "252,0000\_₸"
+          5xlarge|int|number: '252'
+          5xlarge|int|string: "252\_₸"
+          5xlarge|month|number: "181\_440,0000"
+          5xlarge|month|string: "181\_440,0000\_₸"
+          5xlarge|month|int|number: "181\_440"
+          5xlarge|month|int|string: "181\_440\_₸"
+          micro|number: 12,6000
+          micro|string: "12,6000\_₸"
+          micro|int|number: '13'
+          micro|int|string: "13\_₸"
+          micro|month|number: "9\_072,0000"
+          micro|month|string: "9\_072,0000\_₸"
+          micro|month|int|number: "9\_072"
+          micro|month|int|string: "9\_072\_₸"
+          3xlarge|number: 151,2000
+          3xlarge|string: "151,2000\_₸"
+          3xlarge|int|number: '151'
+          3xlarge|int|string: "151\_₸"
+          3xlarge|month|number: "108\_864,0000"
+          3xlarge|month|string: "108\_864,0000\_₸"
+          3xlarge|month|int|number: "108\_864"
+          3xlarge|month|int|string: "108\_864\_₸"
+          medium|number: 37,8000
+          medium|string: "37,8000\_₸"
+          medium|int|number: '38'
+          medium|int|string: "38\_₸"
+          medium|month|number: "27\_216,0000"
+          medium|month|string: "27\_216,0000\_₸"
+          medium|month|int|number: "27\_216"
+          medium|month|int|string: "27\_216\_₸"
+          xlarge|number: 75,6000
+          xlarge|string: "75,6000\_₸"
+          xlarge|int|number: '76'
+          xlarge|int|string: "76\_₸"
+          xlarge|month|number: "54\_432,0000"
+          xlarge|month|string: "54\_432,0000\_₸"
+          xlarge|month|int|number: "54\_432"
+          xlarge|month|int|string: "54\_432\_₸"
+          small|number: 25,2000
+          small|string: "25,2000\_₸"
+          small|int|number: '25'
+          small|int|string: "25\_₸"
+          small|month|number: "18\_144,0000"
+          small|month|string: "18\_144,0000\_₸"
+          small|month|int|number: "18\_144"
+          small|month|int|string: "18\_144\_₸"
+          large|number: 50,4000
+          large|string: "50,4000\_₸"
+          large|int|number: '50'
+          large|int|string: "50\_₸"
+          large|month|number: "36\_288,0000"
+          large|month|string: "36\_288,0000\_₸"
+          large|month|int|number: "36\_288"
+          large|month|int|string: "36\_288\_₸"
+          2xlarge|number: 100,8000
+          2xlarge|string: "100,8000\_₸"
+          2xlarge|int|number: '101'
+          2xlarge|int|string: "101\_₸"
+          2xlarge|month|number: "72\_576,0000"
+          2xlarge|month|string: "72\_576,0000\_₸"
+          2xlarge|month|int|number: "72\_576"
+          2xlarge|month|int|string: "72\_576\_₸"
+          4xlarge|number: 201,6000
+          4xlarge|string: "201,6000\_₸"
+          4xlarge|int|number: '202'
+          4xlarge|int|string: "202\_₸"
+          4xlarge|month|number: "145\_152,0000"
+          4xlarge|month|string: "145\_152,0000\_₸"
+          4xlarge|month|int|number: "145\_152"
+          4xlarge|month|int|string: "145\_152\_₸"
+          6xlarge|number: 302,4000
+          6xlarge|string: "302,4000\_₸"
+          6xlarge|int|number: '302'
+          6xlarge|int|string: "302\_₸"
+          6xlarge|month|number: "217\_728,0000"
+          6xlarge|month|string: "217\_728,0000\_₸"
+          6xlarge|month|int|number: "217\_728"
+          6xlarge|month|int|string: "217\_728\_₸"
       kafka:
         v2:
           cpu:
@@ -43843,6 +44692,26 @@ default:
           y1|month|discount|string: "5\_520,9600\_₸"
           y1|month|discount|int|number: "5\_521"
           y1|month|discount|int|string: "5\_521\_₸"
+          y3|number: 12,2040
+          y3|string: "12,2040\_₸"
+          y3|int|number: '12'
+          y3|int|string: "12\_₸"
+          y3|discount|percent|number: -0.4792626728110599
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 11,2320
+          y3|discount|string: "11,2320\_₸"
+          y3|discount|int|number: '11'
+          y3|discount|int|string: "11\_₸"
+          y3|month|number: "8\_786,8800"
+          y3|month|string: "8\_786,8800\_₸"
+          y3|month|int|number: "8\_787"
+          y3|month|int|string: "8\_787\_₸"
+          y3|month|discount|percent|number: -0.4792626728110598
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: "8\_087,0400"
+          y3|month|discount|string: "8\_087,0400\_₸"
+          y3|month|discount|int|number: "8\_087"
+          y3|month|discount|int|string: "8\_087\_₸"
         hm3-c2-m12|number: 29,4840
         hm3-c2-m12|string: "29,4840\_₸"
         hm3-c2-m12|int|number: '29'
@@ -43872,6 +44741,26 @@ default:
           y1|month|discount|string: "7\_076,1600\_₸"
           y1|month|discount|int|number: "7\_076"
           y1|month|discount|int|string: "7\_076\_₸"
+          y3|number: 15,2280
+          y3|string: "15,2280\_₸"
+          y3|int|number: '15'
+          y3|int|string: "15\_₸"
+          y3|discount|percent|number: -0.4835164835164836
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 14,2560
+          y3|discount|string: "14,2560\_₸"
+          y3|discount|int|number: '14'
+          y3|discount|int|string: "14\_₸"
+          y3|month|number: "10\_964,1600"
+          y3|month|string: "10\_964,1600\_₸"
+          y3|month|int|number: "10\_964"
+          y3|month|int|string: "10\_964\_₸"
+          y3|month|discount|percent|number: -0.4835164835164836
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: "10\_264,3200"
+          y3|month|discount|string: "10\_264,3200\_₸"
+          y3|month|discount|int|number: "10\_264"
+          y3|month|discount|int|string: "10\_264\_₸"
         hm3-c4-m16|number: 46,8720
         hm3-c4-m16|string: "46,8720\_₸"
         hm3-c4-m16|int|number: '47'
@@ -43901,6 +44790,26 @@ default:
           y1|month|discount|string: "11\_041,9200\_₸"
           y1|month|discount|int|number: "11\_042"
           y1|month|discount|int|string: "11\_042\_₸"
+          y3|number: 24,4080
+          y3|string: "24,4080\_₸"
+          y3|int|number: '24'
+          y3|int|string: "24\_₸"
+          y3|discount|percent|number: -0.4792626728110599
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 22,4640
+          y3|discount|string: "22,4640\_₸"
+          y3|discount|int|number: '22'
+          y3|discount|int|string: "22\_₸"
+          y3|month|number: "17\_573,7600"
+          y3|month|string: "17\_573,7600\_₸"
+          y3|month|int|number: "17\_574"
+          y3|month|int|string: "17\_574\_₸"
+          y3|month|discount|percent|number: -0.4792626728110598
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: "16\_174,0800"
+          y3|month|discount|string: "16\_174,0800\_₸"
+          y3|month|discount|int|number: "16\_174"
+          y3|month|discount|int|string: "16\_174\_₸"
         hm3-c4-m24|number: 58,9680
         hm3-c4-m24|string: "58,9680\_₸"
         hm3-c4-m24|int|number: '59'
@@ -43930,6 +44839,26 @@ default:
           y1|month|discount|string: "14\_152,3200\_₸"
           y1|month|discount|int|number: "14\_152"
           y1|month|discount|int|string: "14\_152\_₸"
+          y3|number: 30,4560
+          y3|string: "30,4560\_₸"
+          y3|int|number: '30'
+          y3|int|string: "30\_₸"
+          y3|discount|percent|number: -0.4835164835164836
+          y3|discount|percent|string: "-48\_%"
+          y3|discount|number: 28,5120
+          y3|discount|string: "28,5120\_₸"
+          y3|discount|int|number: '29'
+          y3|discount|int|string: "29\_₸"
+          y3|month|number: "21\_928,3200"
+          y3|month|string: "21\_928,3200\_₸"
+          y3|month|int|number: "21\_928"
+          y3|month|int|string: "21\_928\_₸"
+          y3|month|discount|percent|number: -0.4835164835164836
+          y3|month|discount|percent|string: "-48\_%"
+          y3|month|discount|number: "20\_528,6400"
+          y3|month|discount|string: "20\_528,6400\_₸"
+          y3|month|discount|int|number: "20\_529"
+          y3|month|discount|int|string: "20\_529\_₸"
         hm3-c4-m32|number: 71,0640
         hm3-c4-m32|string: "71,0640\_₸"
         hm3-c4-m32|int|number: '71'
@@ -43959,6 +44888,26 @@ default:
           y1|month|discount|string: "17\_262,7200\_₸"
           y1|month|discount|int|number: "17\_263"
           y1|month|discount|int|string: "17\_263\_₸"
+          y3|number: 36,5040
+          y3|string: "36,5040\_₸"
+          y3|int|number: '37'
+          y3|int|string: "37\_₸"
+          y3|discount|percent|number: -0.486322188449848
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 34,5600
+          y3|discount|string: "34,5600\_₸"
+          y3|discount|int|number: '35'
+          y3|discount|int|string: "35\_₸"
+          y3|month|number: "26\_282,8800"
+          y3|month|string: "26\_282,8800\_₸"
+          y3|month|int|number: "26\_283"
+          y3|month|int|string: "26\_283\_₸"
+          y3|month|discount|percent|number: -0.48632218844984804
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "24\_883,2000"
+          y3|month|discount|string: "24\_883,2000\_₸"
+          y3|month|discount|int|number: "24\_883"
+          y3|month|discount|int|string: "24\_883\_₸"
         hm3-c4-m48|number: 95,2560
         hm3-c4-m48|string: "95,2560\_₸"
         hm3-c4-m48|int|number: '95'
@@ -43988,6 +44937,26 @@ default:
           y1|month|discount|string: "23\_483,5200\_₸"
           y1|month|discount|int|number: "23\_484"
           y1|month|discount|int|string: "23\_484\_₸"
+          y3|number: 48,6000
+          y3|string: "48,6000\_₸"
+          y3|int|number: '49'
+          y3|int|string: "49\_₸"
+          y3|discount|percent|number: -0.489795918367347
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 46,6560
+          y3|discount|string: "46,6560\_₸"
+          y3|discount|int|number: '47'
+          y3|discount|int|string: "47\_₸"
+          y3|month|number: "34\_992,0000"
+          y3|month|string: "34\_992,0000\_₸"
+          y3|month|int|number: "34\_992"
+          y3|month|int|string: "34\_992\_₸"
+          y3|month|discount|percent|number: -0.4897959183673471
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "33\_592,3200"
+          y3|month|discount|string: "33\_592,3200\_₸"
+          y3|month|discount|int|number: "33\_592"
+          y3|month|discount|int|string: "33\_592\_₸"
         hm3-c6-m60|number: 124,7400
         hm3-c6-m60|string: "124,7400\_₸"
         hm3-c6-m60|int|number: '125'
@@ -44017,6 +44986,26 @@ default:
           y1|month|discount|string: "30\_559,6800\_₸"
           y1|month|discount|int|number: "30\_560"
           y1|month|discount|int|string: "30\_560\_₸"
+          y3|number: 63,8280
+          y3|string: "63,8280\_₸"
+          y3|int|number: '64'
+          y3|int|string: "64\_₸"
+          y3|discount|percent|number: -0.48831168831168825
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 60,9120
+          y3|discount|string: "60,9120\_₸"
+          y3|discount|int|number: '61'
+          y3|discount|int|string: "61\_₸"
+          y3|month|number: "45\_956,1600"
+          y3|month|string: "45\_956,1600\_₸"
+          y3|month|int|number: "45\_956"
+          y3|month|int|string: "45\_956\_₸"
+          y3|month|discount|percent|number: -0.4883116883116883
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "43\_856,6400"
+          y3|month|discount|string: "43\_856,6400\_₸"
+          y3|month|discount|int|number: "43\_857"
+          y3|month|discount|int|string: "43\_857\_₸"
         hm3-c6-m78|number: 151,9560
         hm3-c6-m78|string: "151,9560\_₸"
         hm3-c6-m78|int|number: '152'
@@ -44046,6 +45035,26 @@ default:
           y1|month|discount|string: "37\_558,0800\_₸"
           y1|month|discount|int|number: "37\_558"
           y1|month|discount|int|string: "37\_558\_₸"
+          y3|number: 77,4360
+          y3|string: "77,4360\_₸"
+          y3|int|number: '77'
+          y3|int|string: "77\_₸"
+          y3|discount|percent|number: -0.49040511727078895
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 74,5200
+          y3|discount|string: "74,5200\_₸"
+          y3|discount|int|number: '75'
+          y3|discount|int|string: "75\_₸"
+          y3|month|number: "55\_753,9200"
+          y3|month|string: "55\_753,9200\_₸"
+          y3|month|int|number: "55\_754"
+          y3|month|int|string: "55\_754\_₸"
+          y3|month|discount|percent|number: -0.4904051172707889
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "53\_654,4000"
+          y3|month|discount|string: "53\_654,4000\_₸"
+          y3|month|discount|int|number: "53\_654"
+          y3|month|discount|int|string: "53\_654\_₸"
         hm3-c6-m96|number: 179,1720
         hm3-c6-m96|string: "179,1720\_₸"
         hm3-c6-m96|int|number: '179'
@@ -44075,6 +45084,26 @@ default:
           y1|month|discount|string: "44\_556,4800\_₸"
           y1|month|discount|int|number: "44\_556"
           y1|month|discount|int|string: "44\_556\_₸"
+          y3|number: 91,0440
+          y3|string: "91,0440\_₸"
+          y3|int|number: '91'
+          y3|int|string: "91\_₸"
+          y3|discount|percent|number: -0.4918625678119348
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 88,1280
+          y3|discount|string: "88,1280\_₸"
+          y3|discount|int|number: '88'
+          y3|discount|int|string: "88\_₸"
+          y3|month|number: "65\_551,6800"
+          y3|month|string: "65\_551,6800\_₸"
+          y3|month|int|number: "65\_552"
+          y3|month|int|string: "65\_552\_₸"
+          y3|month|discount|percent|number: -0.4918625678119349
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "63\_452,1600"
+          y3|month|discount|string: "63\_452,1600\_₸"
+          y3|month|discount|int|number: "63\_452"
+          y3|month|discount|int|string: "63\_452\_₸"
         hm3-c8-m128|number: 238,8960
         hm3-c8-m128|string: "238,8960\_₸"
         hm3-c8-m128|int|number: '239'
@@ -44104,6 +45133,26 @@ default:
           y1|month|discount|string: "59\_408,6400\_₸"
           y1|month|discount|int|number: "59\_409"
           y1|month|discount|int|string: "59\_409\_₸"
+          y3|number: 121,3920
+          y3|string: "121,3920\_₸"
+          y3|int|number: '121'
+          y3|int|string: "121\_₸"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 117,5040
+          y3|discount|string: "117,5040\_₸"
+          y3|discount|int|number: '118'
+          y3|discount|int|string: "118\_₸"
+          y3|month|number: "87\_402,2400"
+          y3|month|string: "87\_402,2400\_₸"
+          y3|month|int|number: "87\_402"
+          y3|month|int|string: "87\_402\_₸"
+          y3|month|discount|percent|number: -0.49186256781193505
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "84\_602,8800"
+          y3|month|discount|string: "84\_602,8800\_₸"
+          y3|month|discount|int|number: "84\_603"
+          y3|month|discount|int|string: "84\_603\_₸"
         hm3-c8-m160|number: 287,2800
         hm3-c8-m160|string: "287,2800\_₸"
         hm3-c8-m160|int|number: '287'
@@ -44133,6 +45182,26 @@ default:
           y1|month|discount|string: "71\_850,2400\_₸"
           y1|month|discount|int|number: "71\_850"
           y1|month|discount|int|string: "71\_850\_₸"
+          y3|number: 145,5840
+          y3|string: "145,5840\_₸"
+          y3|int|number: '146'
+          y3|int|string: "146\_₸"
+          y3|discount|percent|number: -0.49323308270676697
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 141,6960
+          y3|discount|string: "141,6960\_₸"
+          y3|discount|int|number: '142'
+          y3|discount|int|string: "142\_₸"
+          y3|month|number: "104\_820,4800"
+          y3|month|string: "104\_820,4800\_₸"
+          y3|month|int|number: "104\_820"
+          y3|month|int|string: "104\_820\_₸"
+          y3|month|discount|percent|number: -0.493233082706767
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "102\_021,1200"
+          y3|month|discount|string: "102\_021,1200\_₸"
+          y3|month|discount|int|number: "102\_021"
+          y3|month|discount|int|string: "102\_021\_₸"
         hm3-c12-m192|number: 358,3440
         hm3-c12-m192|string: "358,3440\_₸"
         hm3-c12-m192|int|number: '358'
@@ -44162,6 +45231,26 @@ default:
           y1|month|discount|string: "89\_112,9600\_₸"
           y1|month|discount|int|number: "89\_113"
           y1|month|discount|int|string: "89\_113\_₸"
+          y3|number: 182,0880
+          y3|string: "182,0880\_₸"
+          y3|int|number: '182'
+          y3|int|string: "182\_₸"
+          y3|discount|percent|number: -0.4918625678119348
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 176,2560
+          y3|discount|string: "176,2560\_₸"
+          y3|discount|int|number: '176'
+          y3|discount|int|string: "176\_₸"
+          y3|month|number: "131\_103,3600"
+          y3|month|string: "131\_103,3600\_₸"
+          y3|month|int|number: "131\_103"
+          y3|month|int|string: "131\_103\_₸"
+          y3|month|discount|percent|number: -0.4918625678119349
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "126\_904,3200"
+          y3|month|discount|string: "126\_904,3200\_₸"
+          y3|month|discount|int|number: "126\_904"
+          y3|month|discount|int|string: "126\_904\_₸"
         hm3-c14-m224|number: 418,0680
         hm3-c14-m224|string: "418,0680\_₸"
         hm3-c14-m224|int|number: '418'
@@ -44191,6 +45280,26 @@ default:
           y1|month|discount|string: "103\_965,1200\_₸"
           y1|month|discount|int|number: "103\_965"
           y1|month|discount|int|string: "103\_965\_₸"
+          y3|number: 212,4360
+          y3|string: "212,4360\_₸"
+          y3|int|number: '212'
+          y3|int|string: "212\_₸"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 205,6320
+          y3|discount|string: "205,6320\_₸"
+          y3|discount|int|number: '206'
+          y3|discount|int|string: "206\_₸"
+          y3|month|number: "152\_953,9200"
+          y3|month|string: "152\_953,9200\_₸"
+          y3|month|int|number: "152\_954"
+          y3|month|int|string: "152\_954\_₸"
+          y3|month|discount|percent|number: -0.4918625678119349
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "148\_055,0400"
+          y3|month|discount|string: "148\_055,0400\_₸"
+          y3|month|discount|int|number: "148\_055"
+          y3|month|discount|int|string: "148\_055\_₸"
         hm3-c16-m256|number: 477,7920
         hm3-c16-m256|string: "477,7920\_₸"
         hm3-c16-m256|int|number: '478'
@@ -44220,6 +45329,26 @@ default:
           y1|month|discount|string: "118\_817,2800\_₸"
           y1|month|discount|int|number: "118\_817"
           y1|month|discount|int|string: "118\_817\_₸"
+          y3|number: 242,7840
+          y3|string: "242,7840\_₸"
+          y3|int|number: '243'
+          y3|int|string: "243\_₸"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 235,0080
+          y3|discount|string: "235,0080\_₸"
+          y3|discount|int|number: '235'
+          y3|discount|int|string: "235\_₸"
+          y3|month|number: "174\_804,4800"
+          y3|month|string: "174\_804,4800\_₸"
+          y3|month|int|number: "174\_804"
+          y3|month|int|string: "174\_804\_₸"
+          y3|month|discount|percent|number: -0.49186256781193505
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "169\_205,7600"
+          y3|month|discount|string: "169\_205,7600\_₸"
+          y3|month|discount|int|number: "169\_206"
+          y3|month|discount|int|string: "169\_206\_₸"
         hm3-c20-m320|number: 597,2400
         hm3-c20-m320|string: "597,2400\_₸"
         hm3-c20-m320|int|number: '597'
@@ -44249,6 +45378,26 @@ default:
           y1|month|discount|string: "148\_521,6000\_₸"
           y1|month|discount|int|number: "148\_522"
           y1|month|discount|int|string: "148\_522\_₸"
+          y3|number: 303,4800
+          y3|string: "303,4800\_₸"
+          y3|int|number: '303'
+          y3|int|string: "303\_₸"
+          y3|discount|percent|number: -0.4918625678119349
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 293,7600
+          y3|discount|string: "293,7600\_₸"
+          y3|discount|int|number: '294'
+          y3|discount|int|string: "294\_₸"
+          y3|month|number: "218\_505,6000"
+          y3|month|string: "218\_505,6000\_₸"
+          y3|month|int|number: "218\_506"
+          y3|month|int|string: "218\_506\_₸"
+          y3|month|discount|percent|number: -0.4918625678119349
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "211\_507,2000"
+          y3|month|discount|string: "211\_507,2000\_₸"
+          y3|month|discount|int|number: "211\_507"
+          y3|month|discount|int|string: "211\_507\_₸"
         hm3-c24-m384|number: 716,6880
         hm3-c24-m384|string: "716,6880\_₸"
         hm3-c24-m384|int|number: '717'
@@ -44278,6 +45427,26 @@ default:
           y1|month|discount|string: "178\_225,9200\_₸"
           y1|month|discount|int|number: "178\_226"
           y1|month|discount|int|string: "178\_226\_₸"
+          y3|number: 364,1760
+          y3|string: "364,1760\_₸"
+          y3|int|number: '364'
+          y3|int|string: "364\_₸"
+          y3|discount|percent|number: -0.4918625678119348
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 352,5120
+          y3|discount|string: "352,5120\_₸"
+          y3|discount|int|number: '353'
+          y3|discount|int|string: "353\_₸"
+          y3|month|number: "262\_206,7200"
+          y3|month|string: "262\_206,7200\_₸"
+          y3|month|int|number: "262\_207"
+          y3|month|int|string: "262\_207\_₸"
+          y3|month|discount|percent|number: -0.4918625678119349
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "253\_808,6400"
+          y3|month|discount|string: "253\_808,6400\_₸"
+          y3|month|discount|int|number: "253\_809"
+          y3|month|discount|int|string: "253\_809\_₸"
         hm3-c28-m448|number: 836,1360
         hm3-c28-m448|string: "836,1360\_₸"
         hm3-c28-m448|int|number: '836'
@@ -44307,6 +45476,26 @@ default:
           y1|month|discount|string: "207\_930,2400\_₸"
           y1|month|discount|int|number: "207\_930"
           y1|month|discount|int|string: "207\_930\_₸"
+          y3|number: 424,8720
+          y3|string: "424,8720\_₸"
+          y3|int|number: '425'
+          y3|int|string: "425\_₸"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 411,2640
+          y3|discount|string: "411,2640\_₸"
+          y3|discount|int|number: '411'
+          y3|discount|int|string: "411\_₸"
+          y3|month|number: "305\_907,8400"
+          y3|month|string: "305\_907,8400\_₸"
+          y3|month|int|number: "305\_908"
+          y3|month|int|string: "305\_908\_₸"
+          y3|month|discount|percent|number: -0.4918625678119349
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "296\_110,0800"
+          y3|month|discount|string: "296\_110,0800\_₸"
+          y3|month|discount|int|number: "296\_110"
+          y3|month|discount|int|string: "296\_110\_₸"
         hm3-c32-m512|number: 955,5840
         hm3-c32-m512|string: "955,5840\_₸"
         hm3-c32-m512|int|number: '956'
@@ -44336,6 +45525,26 @@ default:
           y1|month|discount|string: "237\_634,5600\_₸"
           y1|month|discount|int|number: "237\_635"
           y1|month|discount|int|string: "237\_635\_₸"
+          y3|number: 485,5680
+          y3|string: "485,5680\_₸"
+          y3|int|number: '486'
+          y3|int|string: "486\_₸"
+          y3|discount|percent|number: -0.49186256781193494
+          y3|discount|percent|string: "-49\_%"
+          y3|discount|number: 470,0160
+          y3|discount|string: "470,0160\_₸"
+          y3|discount|int|number: '470'
+          y3|discount|int|string: "470\_₸"
+          y3|month|number: "349\_608,9600"
+          y3|month|string: "349\_608,9600\_₸"
+          y3|month|int|number: "349\_609"
+          y3|month|int|string: "349\_609\_₸"
+          y3|month|discount|percent|number: -0.49186256781193505
+          y3|month|discount|percent|string: "-49\_%"
+          y3|month|discount|number: "338\_411,5200"
+          y3|month|discount|string: "338\_411,5200\_₸"
+          y3|month|discount|int|number: "338\_412"
+          y3|month|discount|int|string: "338\_412\_₸"
         hm2:
           nano|number: 26,0400
           nano|string: "26,0400\_₸"
@@ -49167,6 +50376,12 @@ default:
         kop|string: "6,0000\_₸"
         kop|int|number: '6'
         kop|int|string: "6\_₸"
+      subscription:
+        monthly_usage:
+          v1|number: 0,0000
+          v1|string: Не тарифицируется
+          v1|int|number: '0'
+          v1|int|string: Не тарифицируется
     mysql:
       subscription:
         monthly_usage:
@@ -50407,6 +51622,126 @@ default:
                 y3|month|discount|string: "132\_710,4000\_₸"
                 y3|month|discount|int|number: "132\_710"
                 y3|month|discount|int|string: "132\_710\_₸"
+          redis:
+            cpu:
+              c100:
+                v3|number: 3,0780
+                v3|string: "3,0780\_₸"
+                v3|int|number: '3'
+                v3|int|string: "3\_₸"
+                v3|month|number: "2\_216,1600"
+                v3|month|string: "2\_216,1600\_₸"
+                v3|month|int|number: "2\_216"
+                v3|month|int|string: "2\_216\_₸"
+                v2|number: 3,4200
+                v2|string: "3,4200\_₸"
+                v2|int|number: '3'
+                v2|int|string: "3\_₸"
+                v2|month|number: "2\_462,4000"
+                v2|month|string: "2\_462,4000\_₸"
+                v2|month|int|number: "2\_462"
+                v2|month|int|string: "2\_462\_₸"
+                v3|cud:
+                  y3|number: 98,4960
+                  y3|string: "98,4960\_₸"
+                  y3|int|number: '98'
+                  y3|int|string: "98\_₸"
+                  y3|discount|percent|number: -0.4571428571428572
+                  y3|discount|percent|string: "-46\_%"
+                  y3|discount|number: 82,9440
+                  y3|discount|string: "82,9440\_₸"
+                  y3|discount|int|number: '83'
+                  y3|discount|int|string: "83\_₸"
+                  y3|month|number: "70\_917,1200"
+                  y3|month|string: "70\_917,1200\_₸"
+                  y3|month|int|number: "70\_917"
+                  y3|month|int|string: "70\_917\_₸"
+                  y3|month|discount|percent|number: -0.4571428571428572
+                  y3|month|discount|percent|string: "-46\_%"
+                  y3|month|discount|number: "59\_719,6800"
+                  y3|month|discount|string: "59\_719,6800\_₸"
+                  y3|month|discount|int|number: "59\_720"
+                  y3|month|discount|int|string: "59\_720\_₸"
+                v2|cud:
+                  y3|number: 109,4400
+                  y3|string: "109,4400\_₸"
+                  y3|int|number: '109'
+                  y3|int|string: "109\_₸"
+                  y3|discount|percent|number: -0.45714285714285713
+                  y3|discount|percent|string: "-46\_%"
+                  y3|discount|number: 92,1600
+                  y3|discount|string: "92,1600\_₸"
+                  y3|discount|int|number: '92'
+                  y3|discount|int|string: "92\_₸"
+                  y3|month|number: "78\_796,8000"
+                  y3|month|string: "78\_796,8000\_₸"
+                  y3|month|int|number: "78\_797"
+                  y3|month|int|string: "78\_797\_₸"
+                  y3|month|discount|percent|number: -0.45714285714285713
+                  y3|month|discount|percent|string: "-46\_%"
+                  y3|month|discount|number: "66\_355,2000"
+                  y3|month|discount|string: "66\_355,2000\_₸"
+                  y3|month|discount|int|number: "66\_355"
+                  y3|month|discount|int|string: "66\_355\_₸"
+            ram:
+              v3|number: 0,7560
+              v3|string: "0,7560\_₸"
+              v3|int|number: '1'
+              v3|int|string: "1\_₸"
+              v3|month|number: 544,3200
+              v3|month|string: "544,3200\_₸"
+              v3|month|int|number: '544'
+              v3|month|int|string: "544\_₸"
+              v2|number: 0,8400
+              v2|string: "0,8400\_₸"
+              v2|int|number: '1'
+              v2|int|string: "1\_₸"
+              v2|month|number: 604,8000
+              v2|month|string: "604,8000\_₸"
+              v2|month|int|number: '605'
+              v2|month|int|string: "605\_₸"
+              v3|cud:
+                y3|number: 387,0720
+                y3|string: "387,0720\_₸"
+                y3|int|number: '387'
+                y3|int|string: "387\_₸"
+                y3|discount|percent|number: -0.5
+                y3|discount|percent|string: "-50\_%"
+                y3|discount|number: 387,0720
+                y3|discount|string: "387,0720\_₸"
+                y3|discount|int|number: '387'
+                y3|discount|int|string: "387\_₸"
+                y3|month|number: "278\_691,8400"
+                y3|month|string: "278\_691,8400\_₸"
+                y3|month|int|number: "278\_692"
+                y3|month|int|string: "278\_692\_₸"
+                y3|month|discount|percent|number: -0.5
+                y3|month|discount|percent|string: "-50\_%"
+                y3|month|discount|number: "278\_691,8400"
+                y3|month|discount|string: "278\_691,8400\_₸"
+                y3|month|discount|int|number: "278\_692"
+                y3|month|discount|int|string: "278\_692\_₸"
+              v2|cud:
+                y3|number: 430,0800
+                y3|string: "430,0800\_₸"
+                y3|int|number: '430'
+                y3|int|string: "430\_₸"
+                y3|discount|percent|number: -0.5
+                y3|discount|percent|string: "-50\_%"
+                y3|discount|number: 430,0800
+                y3|discount|string: "430,0800\_₸"
+                y3|discount|int|number: '430'
+                y3|discount|int|string: "430\_₸"
+                y3|month|number: "309\_657,6000"
+                y3|month|string: "309\_657,6000\_₸"
+                y3|month|int|number: "309\_658"
+                y3|month|int|string: "309\_658\_₸"
+                y3|month|discount|percent|number: -0.5
+                y3|month|discount|percent|string: "-50\_%"
+                y3|month|discount|number: "309\_657,6000"
+                y3|month|discount|string: "309\_657,6000\_₸"
+                y3|month|discount|int|number: "309\_658"
+                y3|month|discount|int|string: "309\_658\_₸"
           elasticsearch:
             cpu:
               c100:
@@ -50477,68 +51812,6 @@ default:
                 platinum|month|string: "6\_955,2000\_₸"
                 platinum|month|int|number: "6\_955"
                 platinum|month|int|string: "6\_955\_₸"
-          redis:
-            ram:
-              v2|number: 0,8400
-              v2|string: "0,8400\_₸"
-              v2|int|number: '1'
-              v2|int|string: "1\_₸"
-              v2|month|number: 604,8000
-              v2|month|string: "604,8000\_₸"
-              v2|month|int|number: '605'
-              v2|month|int|string: "605\_₸"
-              v2|cud:
-                y3|number: 430,0800
-                y3|string: "430,0800\_₸"
-                y3|int|number: '430'
-                y3|int|string: "430\_₸"
-                y3|discount|percent|number: -0.5
-                y3|discount|percent|string: "-50\_%"
-                y3|discount|number: 430,0800
-                y3|discount|string: "430,0800\_₸"
-                y3|discount|int|number: '430'
-                y3|discount|int|string: "430\_₸"
-                y3|month|number: "309\_657,6000"
-                y3|month|string: "309\_657,6000\_₸"
-                y3|month|int|number: "309\_658"
-                y3|month|int|string: "309\_658\_₸"
-                y3|month|discount|percent|number: -0.5
-                y3|month|discount|percent|string: "-50\_%"
-                y3|month|discount|number: "309\_657,6000"
-                y3|month|discount|string: "309\_657,6000\_₸"
-                y3|month|discount|int|number: "309\_658"
-                y3|month|discount|int|string: "309\_658\_₸"
-            cpu:
-              c100:
-                v2|number: 3,4200
-                v2|string: "3,4200\_₸"
-                v2|int|number: '3'
-                v2|int|string: "3\_₸"
-                v2|month|number: "2\_462,4000"
-                v2|month|string: "2\_462,4000\_₸"
-                v2|month|int|number: "2\_462"
-                v2|month|int|string: "2\_462\_₸"
-                v2|cud:
-                  y3|number: 109,4400
-                  y3|string: "109,4400\_₸"
-                  y3|int|number: '109'
-                  y3|int|string: "109\_₸"
-                  y3|discount|percent|number: -0.45714285714285713
-                  y3|discount|percent|string: "-46\_%"
-                  y3|discount|number: 92,1600
-                  y3|discount|string: "92,1600\_₸"
-                  y3|discount|int|number: '92'
-                  y3|discount|int|string: "92\_₸"
-                  y3|month|number: "78\_796,8000"
-                  y3|month|string: "78\_796,8000\_₸"
-                  y3|month|int|number: "78\_797"
-                  y3|month|int|string: "78\_797\_₸"
-                  y3|month|discount|percent|number: -0.45714285714285713
-                  y3|month|discount|percent|string: "-46\_%"
-                  y3|month|discount|number: "66\_355,2000"
-                  y3|month|discount|string: "66\_355,2000\_₸"
-                  y3|month|discount|int|number: "66\_355"
-                  y3|month|discount|int|string: "66\_355\_₸"
         compute:
           hostgroup:
             ram:

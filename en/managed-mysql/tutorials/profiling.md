@@ -6,14 +6,15 @@ The following issues normally impact {{ mmy-name }} cluster performance:
 * [Inefficient query execution in {{ MY }}](#inefficient-queries).
 * [Locks](#localize-locking-issues).
 
-[Monitoring tools](../operations/monitoring.md) for {{ MY }} to troubleshoot {{ mmy-name }} cluster performance and special {{ MY }} queries will help detect these problems.
+[Monitoring](../operations/monitoring.md) tools for {{ MY }} to troubleshoot [performance issues](../operations/performance-diagnostics.md) in {{ mmy-name }} clusters and special {{ MY }} queries will help detect these problems.
 
 ## Before you start {#before-start}
 
 1. Select databases to troubleshoot.
+1. [Enable statistics collection](../operations/performance-diagnostics.md).
 1. Create a [{{ MY }} user](../operations/cluster-users.md#adduser) with the [`PROCESS`](../operations/grant.md#db-roles) role for these databases. Troubleshooting queries must run under this user's account.
 
-## Troubleshooting resource shortages {#cpu-io-deficit}
+## Diagnosing resource shortages {#cpu-io-deficit}
 
 Resource shortage is a likely cause of cluster performance degradation. Resource shortages become evident from [cluster monitoring](../operations/monitoring.md) charts (CPU, disk I/O operations, network connections). If a continuously increasing resource utilization plot has leveled out, resource usage has reached its [limit](../concepts/limits.md) or exceeded the guaranteed service level.
 
@@ -70,7 +71,7 @@ Special queries can help determine the reasons for elevated resource utilization
 
 - It is not possible to track CPU utilization with individual queries against {{ MY }}, but inefficient queries (see below) can be identified.
 
-## Troubleshooting inefficient query execution {#inefficient-queries}
+## Diagnosing inefficient query execution {#inefficient-queries}
 
 To identify problematic queries against {{ MY }}, execute the query:
 

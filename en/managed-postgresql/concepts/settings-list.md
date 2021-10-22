@@ -14,6 +14,27 @@ Depending on the selected interface, the same setting is represented in a differ
   - `default_transaction_isolation` in the gRPC API.
   - `defaultTransactionIsolation` in the REST API.
 
+## Settings dependency on the host class and storage size {#settings-instance-dependent}
+
+Values of some {{ PG }} settings can be automatically adjusted when you change the host class or storage size:
+
+- If the values weren't set or aren't suitable for the new class/size, the default settings for this class/size are applied.
+- If the manually set settings are suitable for the new class/size, they don't change.
+
+List of settings that depend on the host class:
+
+- [Autovacuum max workers](#setting-autovacuum-max-workers).
+- [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay).
+- [Autovacuum vacuum cost limit](#setting-autovacuum-vacuum-cost-limit).
+- [Conn limit](#setting-conn-limit).
+- [Max connections](#setting-max-connections).
+- [Shared buffers](#setting-shared-buffers).
+
+List of settings that depend on the storage size:
+
+- [Max wal size](#setting-max-wal-size).
+- [Min wal size](#setting-min-wal-size).
+
 ## Cluster-level DBMS settings {#dbms-cluster-settings}
 
 You can use the following settings:

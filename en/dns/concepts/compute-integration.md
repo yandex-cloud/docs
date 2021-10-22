@@ -4,7 +4,7 @@ You can immediately assign domain names to VMs when creating them in {{ compute-
 
 To add a VM to a zone when creating it, select the desired zone and set a domain name under **Network settings**. You can connect VM interfaces to different subnets and get domain names in different zones. If you don't specify a zone, the VM will get a domain name in the standard zone of the subnet that it will be connected to. For instructions on how to create VMs, see [{#T}](../../compute/operations/vm-create/create-linux-vm.md).
 
-Currently, you can't immediately add a record with a public IP address to a domain zone while creating a VM. You can add a record [manually](../operations/resource-record-create.md) after you create the VM.
+For a VM with a public IP address, you can add a record [manually](../operations/resource-record-create.md) after creating the VM.
 
 ## Using {{ dns-name }} for instance groups
 

@@ -1,6 +1,8 @@
 # Replication and fault tolerance {{ MG }}
 
-{{ mmg-name }} supports replication by default: if a cluster has multiple active hosts, the primary replica to process write queries is automatically elected.
+{{ mmg-name }} supports replication by default: if a cluster has multiple active hosts, they automatically elect a primary replica to process write queries.
+
+When manually [changing the primary replica](../operations/stepdown.md), {{ MG }} automatically selects a new primary replica from the available hosts.
 
 {% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
 

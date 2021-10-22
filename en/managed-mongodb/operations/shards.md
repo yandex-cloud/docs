@@ -19,6 +19,12 @@ The {{ mmg-name }} interface lets you quickly create a [{{ MG }} sharding infras
 
 To learn how to directly shard your {{ MG }} database and collections, see [{#T}](../tutorials/sharding.md).
 
+{% note info %}
+
+Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts with the classes **b1.nano**, **b1.micro**, **b1.medium**, **b2.nano**, **b2.micro**, or **b2.medium**. If you don't see the **Shards** tab, [increase the cluster host class](update.md#change-resource-preset) to the supported value.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -117,3 +123,4 @@ You can delete a shard from a {{ MG }} cluster provided that it's not the only s
   Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method to delete a host.
 
 {% endlist %}
+

@@ -1,0 +1,1 @@
+Make sure that the first terminal displays the message `key:test message` sent in the second terminal.

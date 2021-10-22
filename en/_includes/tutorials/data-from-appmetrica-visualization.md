@@ -1,14 +1,23 @@
 # Mobile app analytics based on AppMetrica data
 
-The application added to [AppMetrica](https://appmetrica.yandex.com) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.com/application/list).
+You can visualize and explore AppMetrica data in {{ datalens-full-name }} using the following methods:
 
-If you don't have any apps available, then before performing this scenario, [add an app](https://appmetrica.yandex.com/docs/quick-start/concepts/quick-start.html) or use the standard **AppMetrica dashboard**.
+* Direct access. 
+{{ datalens-name }} connects directly to AppMetrica. This method is the easiest and fastest, but a set of supported functions is [limited](../../datalens/function-ref/availability.md).
+* Connection via the LogsAPI.
+The data is first exported to {{ CH }}. To create such a connection, prepare the {{ CH }} database and specify the DB parameters when creating a connection. In {{ datalens-name }}, all functions that are [supported by {{ CH }}](https://cloud.yandex.com/en-ru/docs/datalens/function-ref/availability) will be available.
+* Real-time export of data from AppMetrica to {{ mch-name }}.
+Raw data is available and its pre-aggregation and post-processing at the DB level are supported. To implement this option, [set up data export](https://appmetrica.yandex.ru/docs/cloud/index.html?lang=en) and [create a connection](https://cloud.yandex.com/en/docs/datalens/operations/connection/create-clickhouse) from {{datalens-name }} to the {{ CH }} database.
 
-To visualize data:
+In this scenario, direct access is used. The application added to [AppMetrica](https://appmetrica.yandex.com) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.com/application/list).
 
-1. [Before you start](#before-you-begin).
-1. [Create a connection and standard dashboard](#create-dashboard).
+If you don't have any apps available, then before performing this scenario, [add an app](https://appmetrica.yandex.ru/docs/quick-start/concepts/quick-start.html) or use the standard **AppMetrica dashboard**.
+
+To visualize and analyze data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
+
+1. [Create a connection and a standard dashboard](#create-dashboard).
 1. [Edit the standard dashboard](#edit-dashboard).
+
 
 ## Before you start {#before-you-begin}
 
@@ -18,7 +27,7 @@ To visualize data:
 
 {% note warning %}
 
-This step is available to users who have an app in AppMetrica. If you don't have any apps, open the standard **AppMetrica dashboard** and go to the [next step](#edit-dashboard).
+This step is available to users who have an app in AppMetrica. If you don't have any apps, open the standard **AppMetrica dashboard** and go to the [next step](data-from-appmetrica-visualization.md#edit-dashboard).
 
 {% endnote %}
 
@@ -26,7 +35,7 @@ This step is available to users who have an app in AppMetrica. If you don't have
 
     ![image](../../_assets/datalens/solution-06/02-create-connection.png)
 
-1. Select the **AppMetrica** connection.
+1. Select **AppMetrica** as the connection type.
 
     ![image](../../_assets/datalens/solution-06/03-choose-appmetrica.png)
 

@@ -83,6 +83,12 @@ items:
         href: my-pages.md
       - name: Просмотреть измененные мной страницы
         href: edited-pages-list.md
+  - name: Интеграция с другими сервисами
+    items:
+      - name: Формы из Yandex Forms
+        href: actions/forms.md
+      - name: Список задач из Yandex Tracker
+        href: actions/tracker.md
   - name: Справочник разметки
     items:
       - name: Разметка Markdown
@@ -125,12 +131,6 @@ items:
             href: actions/anchor.md
           - name: Веб-страница или видео
             href: actions/iframe.md
-          - name: Интеграция с другими сервисами
-            items:
-              - name: Формы из Yandex Forms
-                href: actions/forms.md
-              - name: Список задач из Yandex Tracker
-                href: actions/tracker.md
   - name: Правила тарификации
     href: pricing.md
   - name: Служба поддержки

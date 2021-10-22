@@ -33,7 +33,7 @@ To upgrade a {{ mmg-name }} cluster:
 - Management console
   1. Open the **{{ mmg-name }}** page in the folder with the cluster to be updated.
   1. Select the cluster from the list and click **Edit cluster**.
-  1. In the **Version** field, click *4.2* or *4.4*.
+  1. In the **Version** field, choose *4.2* or *4.4*.
   1. Click **Save changes**.
 
   Once the update is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
@@ -67,6 +67,35 @@ To upgrade a {{ mmg-name }} cluster:
      ```
 
      Learn more about backward compatibility in the [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+
+- Terraform
+
+  To change the {{ MG }} version:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+       For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. To the {{ mmg-name }} cluster description, add the `version` field or change its value if it's already there:
+
+       ```hcl
+       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+         ...
+         cluster_config {
+           version = "<MongoDB version>"
+         }
+       }
+       ```
+
+    1. Make sure the settings are correct.
+
+         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+   For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 

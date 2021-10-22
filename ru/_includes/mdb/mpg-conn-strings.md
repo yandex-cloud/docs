@@ -409,6 +409,8 @@ go mod init example && go get github.com/jackc/pgx/v4
       java -jar target/app-0.1.0-jar-with-dependencies.jar
       ```
 
+{% endlist %}
+
 ### Node.js {#nodejs}
 
 Перед подключением установите зависимости:
@@ -430,7 +432,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.mdb. yandexcloud.net:6432/<имя БД>"
+            "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.mdb.yandexcloud.net:6432/<имя БД>"
     };
 
     const conn = new pg.Client(config);

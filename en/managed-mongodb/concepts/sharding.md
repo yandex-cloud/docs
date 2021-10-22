@@ -1,15 +1,9 @@
 ---
 title: Sharding in MongoDB
-description: 'MongoDB supports sharding to handle large amounts of data and to increase database throughput. Sharding is especially useful when vertical scaling (increasing server capacity) is unprofitable or impossible. Managed Service for MongoDB supports basic data sharding strategies — hash (hash-based sharding key) and ranged sharding. '
+description: 'MongoDB supports sharding to handle large amounts of data and to increase database throughput. Sharding is especially useful when vertical scaling (increasing server capacity) is unprofitable or impossible. Managed Service for MongoDB supports basic data sharding strategies — hash (hash-based sharding key) and ranged sharding.'
 ---
 
 # Sharding in Managed Service for MongoDB
-
-{% note info %}
-
-Sharding in {{ mmg-name }} is available for clusters running {{ MG }} version 4.0 or higher. If your cluster is deployed with version 3.6, you can [upgrade it](../operations/cluster-version-update.md).
-
-{% endnote %}
 
 _Sharding_ is a horizontal data scaling strategy that distributes parts of {{ MG }} collections across different hosts in the cluster. A shard (set of hosts) is associated with a data set using a _shard key_. {{ MG }} supports sharding to handle large data volumes and increase DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) isn't cost-efficient or possible.
 
@@ -18,7 +12,7 @@ _Sharding_ is a horizontal data scaling strategy that distributes parts of {{ MG
 * [Hashed sharding](https://docs.mongodb.com/manual/core/hashed-sharding/) (with a hash-based sharding key).
 * [Ranged sharding](https://docs.mongodb.com/manual/core/ranged-sharding/).
 
-Learn more about {{ MG }} database sharding in the[{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/#sharded-cluster).
+Learn more about {{ MG }} database sharding in the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/#sharded-cluster).
 
 ## Benefits of sharding {#advantages}
 

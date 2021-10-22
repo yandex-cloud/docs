@@ -167,7 +167,7 @@ For each host in a {{ PG }} cluster, you can change the host priority and specif
        --priority <replica's priority
   ```
 
-  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   To manage replication in the cluster, change in the `--host` parameter:
   - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
@@ -182,7 +182,7 @@ For each host in a {{ PG }} cluster, you can change the host priority and specif
   1. In the `clusterId` parameter, the ID of the cluster where you want to change the host.
   1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change.
 
-  The host name can be requested with a [list of cluster hosts](hosts.md#list-hosts), and the cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list), and the cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -221,7 +221,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
        --cluster-name <cluster name>
   ```
 
-  The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API
 

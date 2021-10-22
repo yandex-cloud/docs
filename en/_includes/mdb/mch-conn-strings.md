@@ -30,7 +30,7 @@
   ```bash
   clickhouse-client --host <FQDN of any {{ CH }} host> \
                     --secure \
-                    --user <username> \
+                    --user <user name> \
                     --database <database name> \
                     --port 9440 \
                     --ask-password
@@ -40,7 +40,7 @@
 
   ```bash
   clickhouse-client --host <FQDN of any {{ CH }} host> \
-                    --user <username> \
+                    --user <user name> \
                     --database <database name> \
                     --port 9000 \
                     --ask-password
@@ -64,7 +64,7 @@
   **Connecting without SSL:**
 
   ```bash
-  curl -H "X-ClickHouse-User: <DB username>" \
+  curl -H "X-ClickHouse-User: <DB user name>" \
        -H "X-ClickHouse-Key: <DB user password>" \
        'http://<FQDN of any {{ CH }} host>:8123/?database=<DB name>&query=SELECT%20version()'
   ```
@@ -91,7 +91,7 @@
           query='SELECT version()')
   
   auth = {
-          'X-ClickHouse-User': '<DB username>',
+          'X-ClickHouse-User': '<DB user name>',
           'X-ClickHouse-Key': '<DB user password>',
       }
   
@@ -116,7 +116,7 @@
           query='SELECT version()')
   
   auth = {
-          'X-ClickHouse-User': '<DB username>',
+          'X-ClickHouse-User': '<DB user name>',
           'X-ClickHouse-Key': '<DB user password>',
       }
   
@@ -166,7 +166,7 @@
     $query = 'SELECT version()';
   
     $auth = [
-        'X-ClickHouse-User: <DB username>',
+        'X-ClickHouse-User: <DB user name>',
         'X-ClickHouse-Key: <DB user password>',
     ];
   
@@ -202,7 +202,7 @@
     $query = 'SELECT version()';
   
     $auth = [
-        'X-ClickHouse-User: <DB username>',
+        'X-ClickHouse-User: <DB user name>',
         'X-ClickHouse-Key: <DB user password>',
     ];
   
@@ -325,8 +325,8 @@
      {% endcut %}
 
      Up-to-date versions of dependencies for Maven:
-     - [clickhouse-jdbc](https://mvnrepository.com/artifact/ru.yandex.clickhouse/clickhouse-jdbc).
-     - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple).
+     - [clickhouse-jdbc](https://mvnrepository.com/artifact/ru.yandex.clickhouse/clickhouse-jdbc)
+     - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
 
   **Code example for connecting via SSL:**
 
@@ -341,7 +341,7 @@
     public static void main(String[] args) {
       String DB_HOST    = "<FQDN of any {{ CH }} host>";
       String DB_NAME    = "<DB name>";
-      String DB_USER    = "<DB username>";
+      String DB_USER    = "<DB user name>";
       String DB_PASS    = "<DB user password>";
   
       String CACERT     = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt";
@@ -375,7 +375,7 @@
     public static void main(String[] args) {
       String DB_HOST    = "<FQDN of any {{ CH }} host>";
       String DB_NAME    = "<DB name>";
-      String DB_USER    = "<DB username>";
+      String DB_USER    = "<DB user name>";
       String DB_PASS    = "<DB user password>";
   
       String DB_URL = String.format("jdbc:clickhouse://%s:8123/%s", DB_HOST, DB_NAME);
@@ -422,7 +422,7 @@
   
   const DB_HOST = "<FQDN of any {{ CH }} host>";
   const DB_NAME = "<DB name>";
-  const DB_USER = "<DB username>";
+  const DB_USER = "<DB user name>";
   const DB_PASS = "<DB user password>";
   
   const CACERT = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt";
@@ -464,7 +464,7 @@
   
   const DB_HOST = "<FQDN of any {{ CH }} host>";
   const DB_NAME = "<DB name>";
-  const DB_USER = "<DB username>";
+  const DB_USER = "<DB user name>";
   const DB_PASS = "<DB user password>";
   
   const options = {
@@ -524,7 +524,7 @@
   
       const DB_HOST = "<FQDN of any {{ CH }} host>"
       const DB_NAME = "<DB name>"
-      const DB_USER = "<DB username>"
+      const DB_USER = "<DB user name>"
       const DB_PASS = "<DB user password>"
   
       const CACERT = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
@@ -582,7 +582,7 @@
   
       const DB_HOST = "<FQDN of any {{ CH }} host>"
       const DB_NAME = "<DB name>"
-      const DB_USER = "<DB username>"
+      const DB_USER = "<DB user name>"
       const DB_PASS = "<DB user password>"
   
       conn := &http.Client{
@@ -636,7 +636,7 @@
   
   DB_HOST = "<FQDN of any {{ CH }} host>"
   DB_NAME = "<DB name>"
-  DB_USER = "<DB username>"
+  DB_USER = "<DB user name>"
   DB_PASS = "<DB user password>"
   
   QUERYSTRING = { :database => DB_NAME, :query => "SELECT version()" }
@@ -668,7 +668,7 @@
   
   DB_HOST = "<FQDN of any {{ CH }} host>"
   DB_NAME = "<DB name>"
-  DB_USER = "<DB username>"
+  DB_USER = "<DB user name>"
   DB_PASS = "<DB user password>"
   
   QUERYSTRING = { :database => DB_NAME, :query => "SELECT version()" }
@@ -753,7 +753,7 @@
   Driver = ClickHouse ODBC Driver (Unicode)
   Server = <FQDN of any {{ CH }} host>
   Database = <DB name>
-  UID = <DB username>
+  UID = <DB user name>
   PWD = <DB user password>
   Port = 8443
   Proto = https
@@ -770,7 +770,7 @@
   Driver = ClickHouse ODBC Driver (Unicode)
   Server = <FQDN of any {{ CH }} host>
   Database = <DB name>
-  UID = <DB username>
+  UID = <DB user name>
   PWD = <DB user password>
   Port = 8123
   Proto = http
@@ -784,5 +784,24 @@
 
   After connecting to the DBMS, run the command `SELECT version();`.
 
-{% endlist %}
+- PowerShell
 
+  **Connecting via SSL:**
+
+  ```powershell
+  curl.exe `
+    -H "X-ClickHouse-User: <DB user name>" `
+    -H "X-ClickHouse-Key: <DB user password>" `
+    'https://<FQDN of any {{ CH }} host>:8443/?database=<DB name>&query=SELECT+version()'
+  ```
+
+  **Connecting without SSL:**
+
+  ```powershell
+  curl.exe `
+    -H "X-ClickHouse-User: <DB user name>" `
+    -H "X-ClickHouse-Key: <DB user password>" `
+    'http://<FQDN of any {{ CH }} host>:8123/?database=<DB name>&query=SELECT+version()'
+  ```
+
+{% endlist %}

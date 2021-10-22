@@ -2,7 +2,7 @@
 
 - Bash
 
-  **Before connecting, install the [Mongo Shell utility] (https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell)**.
+  **Before connecting, install the [Mongo Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell)**.
 
   You can find the current versions of Mongo Shell [in the downloads section](https://www.mongodb.com/try/download/community) on the MongoDB website.
 

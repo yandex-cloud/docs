@@ -10,12 +10,13 @@
 #### Limits {#mms-limits}
 
 | Type of limit | Minimum value | Maximum value |
-|---------------|---------------|---------------|
-| Host class | b1.nano ([5%](../../compute/concepts/performance-levels.md) × 2 vCPU Intel Broadwell, 2 GB RAM) | m3-c16-m128 (16 vCPU Intel Ice Lake, 128 GB RAM) for Standard Edition, m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) for Enterprise Edition |
+| ----------------- | ---------------------- | ----------------------- |
+| Host class | s1.micro (2 vCPU Intel Broadwell, 8 GB RAM) | m3-c16-m128 (16 vCPU Intel Ice Lake, 128 GB RAM) for Standard Edition, m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) for Enterprise Edition |
 | Number of vCPUs per cluster | 2 | 24 for Standard Edition and 448 for Enterprise Edition |
-| Amount of RAM per cluster | 2 GB | 128 GB for Standard Edition and 3584 GB for Enterprise Edition |
+| Amount of RAM per cluster | 8 GB | 128 GB for Standard Edition, 4480 GB for Enterprise Edition |
 | Number of hosts in a cluster when using standard or fast network storage | 1 | 1 for Standard Edition and 7 for Enterprise Edition |
-| Number of hosts in a cluster when using non-replicated network or fast local storage (for Enterprise Edition only) | 3 | 7 |
-| Amount of data on the host when using standard or fast network storage | 10 GB | 2048 GB |
-| Amount of data on the host when using non-replicated network storage | 93 GB | 8192 GB |
-| Amount of data on the host when using local storage | 100 GB | 1400 GB |
+| Number of hosts in a cluster when using non-replicated network storage or fast local storage | 3 for Enterprise Edition | 7 for Enterprise Edition |
+| Amount of data on the host when using fast network storage | 10 GB | 4096 GB |
+| Amount of data on the host when using standard network storage | 10 GB | 2048 GB |
+| Amount of data on the host when using non-replicated network storage | 93 GB | 8184 GB |
+| Amount of data on the host when using local storage | 100 GB | 1500 GB |

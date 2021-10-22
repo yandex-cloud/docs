@@ -8,7 +8,7 @@
   1. In the browser, go to one of the addresses:
      - `https://c-<{{ ES }} cluster ID>.rw.mdb.yandexcloud.net`, if a public IP address is assigned to all hosts with this role. You can fetch the cluster ID with a [list of clusters in the folder](../../managed-elasticsearch/operations/cluster-list#list-clusters).
      - `https://<name of any host with the Data node role and a public IP>.mdb.yandexcloud.net`
-  1. Enter your username and password.
+  1. Enter your user name and password.
 
   **If no host with the _Data node_ role is assigned a public IP address:**
 
@@ -79,7 +79,7 @@
 
   1. In the browser, go to `https://<public IP address of the VM instance>`.
 
-  1. Enter your username and password.
+  1. Enter your user name and password.
 
 - Bash
 
@@ -89,9 +89,23 @@
   ```bash
    curl \
      --user <user name>:<password> \
-     --cacert ~/.elasticsearch/root.crt \  
+     --cacert ~/.elasticsearch/root.crt \
      -X GET 'https://c-<{{ ES }} cluster ID>.rw.mdb.yandexcloud.net:9200/'
   ```
+
+- PowerShell
+
+  **Command example for connecting via SSL:**
+
+  
+  ```powershell
+   curl `
+     -Certificate <absolute path to the certificate file> `
+     -Uri https://c-{{ ES }} cluster ID>.rw.mdb.yandexcloud.net:9200 `
+     |||UNTRANSLATED_CONTENT_START|||-Credential <user name>|||UNTRANSLATED_CONTENT_END|||
+  ```
+
+   In the window that opens, enter the user's password.
 
 - Python
 
@@ -111,7 +125,7 @@
   
   ES_CA = '~/.elasticsearch/root.crt'
   
-  ES_USER = '<username>'
+  ES_USER = '<user name>'
   ES_PASS = '<password>'
   
   ES_HOSTS = [
@@ -165,7 +179,7 @@
   
   var ES_CA = "/home/<home directory>/.elasticsearch/root.crt"
   
-  var ES_USER = "<username>"
+  var ES_USER = "<user name>"
   var ES_PASS = "<password>"
   
   var ES_HOSTS = []string{

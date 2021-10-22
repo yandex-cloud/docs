@@ -33,7 +33,7 @@ You can add and remove databases, as well as view information about them.
 
 ## Creating a database {#add-db}
 
-The number of databases in a cluster is unlimited.
+There are no limits to the number of databases in a cluster.
 
 {% note info %}
 
@@ -51,6 +51,8 @@ Created databases are not available to cluster users by default. To allow a user
   1. Enter a name for the database and click **Add**.
   1. Make sure you [granted permission](cluster-users.md#updateuser) to the appropriate cluster user (currently only available via the CLI and API) to access the created DB.
 
+  {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
 - CLI
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -64,11 +66,44 @@ Created databases are not available to cluster users by default. To allow a user
       --cluster-name <cluster name>
   ```
 
+  {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
   {{ mmg-short-name }} runs the create database operation.
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   Make sure you [granted permission](cluster-users.md#updateuser) to access the created database to the appropriate cluster user.
+
+- Terraform
+
+  To create a database in a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `database` block to the {{ mmg-name }} cluster description:
+
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+          ...
+          database {
+            name = "<DB name>"
+          }
+        }
+        ```
+
+        {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
 
 - API
 
@@ -100,6 +135,26 @@ Created databases are not available to cluster users by default. To allow a user
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+- Terraform
+
+  To delete a database from a cluster:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+       For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Delete the `database` block with the DB name from the {{ mmg-name }} cluster description.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+
 - API
 
   You can delete a database using the [delete](../api-ref/Database/delete.md) method.
@@ -108,7 +163,7 @@ Created databases are not available to cluster users by default. To allow a user
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted is restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
 

@@ -16,11 +16,13 @@ After creating a cluster, you can:
 
 * [Change additional cluster settings](#change-additional-settings).
 
-* [Change security groups](#change-sg-set).
+* [{#T}](#change-sg-set).
 
 ## Changing the host class {#change-resource-preset}
 
 The choice of a host class in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find the **Managed Databases** section.
+
+{% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
 
 {% list tabs %}
 
@@ -168,7 +170,7 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
       For information about how to create this file, see [{#T}](./cluster-create.md).
 
-  1. Make sure the required cluster uses standard or fast network storage. To do this, find the `disk_type_id` parameter in the configuration file: it should be set to `network-hdd` or `network-ssd`.
+  1. Make sure the required cluster uses standard or fast network storage. To do this, find the `disk_type_id` parameter in the configuration file. Its value should be `network-hdd` or `network-ssd`.
 
       {% note warning %}
 
@@ -205,6 +207,8 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 {% endlist %}
 
 ## Changing {{ MY }} settings {#change-mysql-config}
+
+{% include [mmy-settings-dependence](../../_includes/mdb/mmy/note-info-settings-dependence.md) %}
 
 {% list tabs %}
 
@@ -328,7 +332,7 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
       For information about how to create this file, see [{#T}](cluster-create.md).
 
-  1. To change the backup start time, add the `backup_window_start` block to the {{ mmy-name }} cluster description:
+  1. To change the backup start time, add a `backup_window_start` block to the {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {

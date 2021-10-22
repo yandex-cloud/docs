@@ -67,6 +67,8 @@ items:
         href: solutions/running-pod-gpu.md
       - name: Installing the NGINX Ingress Controller with Let's Encrypt®
         href: solutions/ingress-cert-manager.md
+      - name: Configuring the Application Load Balancer Ingress controller
+        href: solutions/alb-ingress-controller.md
       - name: Backup to Object Storage
         href: solutions/backup.md
       - name: Integration with a corporate DNS zone

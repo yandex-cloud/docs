@@ -67,7 +67,7 @@ links:
   - title: Туториал YQL
     description: Туториал для знакомства с базовыми возможностями YQL
     href: yql/tutorial/
-  - title: HTTP API, совместимый с Amazon DynamodDB
+  - title: HTTP API, совместимый с Amazon DynamoDB
     description: Описание Document API, совместимого с Amazon DynamoDB
     href: docapi/api-ref/index
   - title: Правила тарификации
