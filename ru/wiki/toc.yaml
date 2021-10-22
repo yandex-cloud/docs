@@ -109,6 +109,24 @@ items:
     href: my-pages.md
   - name: Просмотреть измененные мной страницы
     href: edited-pages-list.md
+- name: Интеграция с другими сервисами
+  items:
+    - name: Формы из Yandex Forms
+      href: actions/forms.md
+    - name: Список задач из Yandex Tracker 
+      href: actions/tracker.md
+    - name: Информация о команде сервиса ABC
+      when: audience == "internal"
+      href: actions/abc.md
+    - name: Текст из Дельты
+      when: audience == "internal"
+      href: delta.md
+    - name: Тикет из Лунапарка
+      when: audience == "internal"
+      href: lunapark.md
+    - name: Текстовый редактор Vim
+      when: audience == "internal"
+      href: vim.md
 - name: Справочник разметки
   items:
   - name: Разметка Markdown
@@ -157,15 +175,6 @@ items:
     - name: RSS-лента новостей
       when: audience == "internal"
       href: actions/feed.md
-    - name: Интеграция с другими сервисами
-      items:
-      - name: Формы из Yandex Forms
-        href: actions/forms.md
-      - name: Список задач из Yandex Tracker 
-        href: actions/tracker.md
-      - name: Информация о команде сервиса ABC
-        when: audience == "internal"
-        href: actions/abc.md
 - name: Правила тарификации
   when: audience == "external"
   href: pricing.md
