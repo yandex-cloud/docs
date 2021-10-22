@@ -114,7 +114,7 @@
       {{ yc-mdb-kf }} cluster create \
          --name <имя кластера> \
          --environment <окружение: prestable или production> \
-         --version <версия: 2.1 или 2.6> \
+         --version <версия: 2.1, 2.6 или 2.8> \
          --network-name <имя сети> \
          --brokers-count <количество брокеров в зоне> \
          --resource-preset <класс хоста> \
@@ -185,7 +185,7 @@
           config {
             assign_public_ip = "<публичный доступ к кластеру: true или false>"
             brokers_count    = <количество брокеров>
-            version          = "<версия Apache Kafka: 2.1 или 2.6>"
+            version          = "<версия Apache Kafka: 2.1, 2.6 или 2.8>"
             schema_registry  = "<управление схемами данных: true или false>"
             kafka {
               resources {
