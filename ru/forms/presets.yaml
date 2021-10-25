@@ -40,7 +40,7 @@ default:
 
   #Прочее
   link-forms-legal: https://yandex.ru/legal/forms_creators/
-  example-account: login@yndex.ru
+  example-account: login@yandex.ru
 
   
 external:
