@@ -171,7 +171,7 @@ To partition and mount an empty disk yourself:
   1. For example, let's create partitions using the fdisk command. (the most convenient way is to run commands as root, to authorize as root user use the command sudo su -) To run fdisk, type:
 
      ```bash
-     fdisk /dev/vdb
+     sudo fdisk /dev/vdb
      ```
      You will see the fdisk command menu, a list of available commands can be obtained by typing m
 
@@ -183,7 +183,7 @@ To partition and mount an empty disk yourself:
 
      To do this, enter the command::
      ```bash
-     mkfs.ext4 /dev/vdb1
+     sudo mkfs.ext4 /dev/vdb1
      ```
 
   1. {% include [include](../../../_includes/compute/mount-disk.md) %}
