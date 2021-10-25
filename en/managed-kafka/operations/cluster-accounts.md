@@ -77,7 +77,7 @@ After [creating a {{ KF }} cluster](cluster-create.md), you can:
   1. Review the description of the CLI command to create accounts:
 
       ```bash
-      {{ yc-mdb-kf }} user-create --help
+      {{ yc-mdb-kf }} user create --help
       ```
 
   1. Create an account with the `admin` role applicable to all (`*`) cluster topics:

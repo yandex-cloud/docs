@@ -134,29 +134,28 @@ items:
   - name: Развертывание YDB
     items:
       - name: Подготовка
-        href: deploy/production_checklist.md
+        href: oss/public/deploy/production_checklist.md
       - name: С использованием оркестратора
         items:
           - name: Обзор
-            href: deploy/orchestrated/concepts.md
+            href: oss/public/deploy/orchestrated/concepts.md
           - name: Развертывание в Yandex Managed Service for Kubernetes
-            href: deploy/orchestrated/yc_managed_kubernetes.md
+            href: oss/public/deploy/orchestrated/yc_managed_kubernetes.md
           - name: Развертывание в AWS Elastic Kubernetes Service
-            href: deploy/orchestrated/aws_eks.md
+            href: oss/public/deploy/orchestrated/aws_eks.md
           - name: Эксплуатация
-            href: deploy/orchestrated/operate.md
+            href: oss/public/deploy/orchestrated/operate.md
       - name: Средства интроспекции
         items:
           - name: Обзор средств интроспекции
-            href: deploy/monitoring/overview.md
+            href: oss/public/deploy/monitoring/overview.md
           - name: YDB Monitoring
-            href: deploy/monitoring/ydb_monitoring.md
+            href: oss/public/deploy/monitoring/ydb_monitoring.md
           - name: Логи
-            href: deploy/monitoring/logs.md
+            href: oss/public/deploy/monitoring/logs.md
           - name: Графики
-            href: deploy/monitoring/charts.md
+            href: oss/public/deploy/monitoring/charts.md
       - name: Возможные проблемы
-        href: deploy/common_issues.md
   - name: Концепции
     items:
       - name: Обзор
