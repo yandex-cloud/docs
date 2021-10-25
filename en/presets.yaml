@@ -15,6 +15,7 @@ default:
   mes-full-name: Yandex Managed Service for Elasticsearch
   mms-full-name: Yandex Managed Service for SQL Server
   mgp-full-name: Yandex Managed Service for Greenplum<sup>®</sup>
+  mgl-full-name: Yandex Managed Service for GitLab
   vpc-full-name: Yandex Virtual Private Cloud
   ddos-protection-full-name: Yandex DDoS Protection
   monitoring-full-name: Yandex Monitoring
@@ -70,6 +71,7 @@ default:
   mes-name: Managed Service for Elasticsearch
   mms-name: Managed Service for SQL Server
   mgp-name: Managed Service for Greenplum<sup>®</sup>
+  mgl-name: Managed Service for GitLab
   monitoring-name: Yandex Monitoring
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
@@ -122,6 +124,7 @@ default:
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
   mgp-short-name: Managed Service for Greenplum<sup>®</sup>
+  mgl-short-name: Managed Service for GitLab
   monitoring-short-name: Monitoring
   unified-agent-short-name: Unified Agent
   vpc-short-name: VPC
@@ -477,6 +480,7 @@ internal:
   RD: Redis
   KF: Apache Kafka<sup>®</sup>
   ES: Elasticsearch
+  GL: GitLab
   ZK: ZooKeeper
   MS: Microsoft SQL Server
   RMQ: RabbitMQ
