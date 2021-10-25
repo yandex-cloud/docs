@@ -65,7 +65,7 @@
   ![](../../../_assets/overview/solution-library-icon.svg)[Решение: PT Application Firewall на базе Yandex.Cloud](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/unmng-waf-ptaf-cluster)
   ![](../../../_assets/overview/solution-library-icon.svg)[Пример: установка уязвимого веб-приложения (DVWA) в Yandex.Cloud с помощью Terraform для тестирования Managed WAF](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/vuln-mgmt/vulnerable-web-app-waf-test)
 
-## Сбор, мониторинг и анализ логов аудита {#logs-analysis}
+## Сбор, мониторинг и анализ аудитных логов {#logs-analysis}
 
 - **Audit trails**: включите [Yandex Audit Trails](../../../audit-trails/quickstart.md) для всех облаков и каталогов.
 - **Сбор событий с уровня гостевых ОС и приложений**: собирайте события, например, с помощью [Yandex Managed Service for Elasticsearch](../../../managed-elasticsearch/index.yaml) или с помощью бесплатных решений Osquery, Wazuh и др.
@@ -76,7 +76,7 @@
   ![](../../../_assets/overview/solution-library-icon.svg)[Решение: экспорт в Splunk](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
   Возможен экспорт в любой SIEM с помощью s3fs, см. [инструкцию](../../../storage/tools/s3fs.md).
 - **Use cases**.
-  ![](../../../_assets/overview/solution-library-icon.svg)[Use cases и важные события безопасности в логах аудита](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
+  ![](../../../_assets/overview/solution-library-icon.svg)[Use cases и важные события безопасности в аудитных логах](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches)
 - **Реагирование на Audit Trails с Cloud Functions**:
   ![](../../../_assets/overview/solution-library-icon.svg)[Решение: уведомления и реагирование на события ИБ Audit Trails с помощью Cloud Logging/Cloud Functions + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
 - **Регулярный аудит состояния**: используйте [CLI](../../../cli/index.yaml) для запросов к текущему состоянию облачной инфраструктуры либо партнерское решение [Cloud Advisor](https://cloud.yandex.ru/blog/posts/2021/03/cloud-advisor-review).
@@ -126,11 +126,11 @@
 - **Обновления безопасности**: выберите подходящий [канал обновления](../../../managed-kubernetes/concepts/release-channels-and-updates.md) и настройте автоматическое применение обновлений либо применяйте их вручную сразу после публикации в выбранном канале. Также выполняйте своевременное обновление собственного ПО на группах узлов.
 - **Распределение подов на разные группы узлов**: настройте node taints and tolerations + node affinity (по нагрузке и степени приватности).
 
-### Сбор, мониторинг и анализ логов аудита {#kubernetes-logs-analysis}
+### Сбор, мониторинг и анализ аудитных логов {#kubernetes-logs-analysis}
 
-- **Сбор и анализ логов аудита Kubernetes и инструментов защиты**.
-  ![](../../../_assets/overview/solution-library-icon.svg)[Решение: анализ логов безопасности Kubernetes в Managed Service for Elasticsearch: логи аудита, policy engine, Falco](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
-- **Сбор и анализ логов аудита workloads и группы узлов**: например, с помощью открытых инструментов Fluentbit, Beats и др.
+- **Сбор и анализ аудитных логов Kubernetes и инструментов защиты**.
+  ![](../../../_assets/overview/solution-library-icon.svg)[Решение: анализ логов безопасности Kubernetes в Managed Service for Elasticsearch: аудитные логи, policy engine, Falco](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_k8s)
+- **Сбор и анализ аудитных логов workloads и группы узлов**: например, с помощью открытых инструментов Fluentbit, Beats и др.
 {% if audience == "external" %} - **Мониторинг аномальной нагрузки**: используйте [Yandex Monitoring](../../../monitoring/index.yaml). {% endif %}
 
 ### Резервное копирование {#kubernetes-backup}
