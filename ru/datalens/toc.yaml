@@ -80,6 +80,9 @@ items:
           - name: You have no access to read this operation
             hidden: true
             href: troubleshooting/errors/no-access-to-read-this-operation.md
+          - name: Request size limit exceeded
+            hidden: true
+            href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md
           - name: Access denied
             hidden: true
             href: troubleshooting/errors/ERR-DS-US-ACCESS_DENIED_DATASET.md

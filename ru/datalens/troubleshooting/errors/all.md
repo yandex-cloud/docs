@@ -22,4 +22,5 @@
 * [{#T}](ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md)
 * [{#T}](no-access-to-read-this-operation.md)
 * [{#T}](ERR-DS_API-ROW_COUNT_LIMIT.md)
+* [{#T}](ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md)
 * [{#T}](ERR-DS-US-ACCESS_DENIED_DATASET.md)
