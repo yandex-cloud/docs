@@ -19,6 +19,7 @@ A set of methods for managing Project resources.
 | [Execute](#Execute) | Executes code in the specified cell or notebook. |
 | [GetCellOutputs](#GetCellOutputs) | Returns outputs of the specified cell. |
 | [GetStateVariables](#GetStateVariables) | Returns state variables of the specified notebook. |
+| [GetNotebookMetadata](#GetNotebookMetadata) | Returns metadata of the specified notebook. |
 
 ## Calls ProjectService {#calls}
 
@@ -493,5 +494,30 @@ checkpoint_id | **string**<br>ID of the checkpoint, for which to return state va
 Field | Description
 --- | ---
 variables | **google.protobuf.Struct**<br>Values of the specified variables. 
+
+
+## GetNotebookMetadata {#GetNotebookMetadata}
+
+Returns metadata of the specified notebook.
+
+**rpc GetNotebookMetadata ([GetNotebookMetadataRequest](#GetNotebookMetadataRequest)) returns ([GetNotebookMetadataResponse](#GetNotebookMetadataResponse))**
+
+### GetNotebookMetadataRequest {#GetNotebookMetadataRequest}
+
+Field | Description
+--- | ---
+project_id | **string**<br>Required. ID of the project, for which to return notebook metadata. The maximum string length in characters is 200.
+notebook_path | **string**<br>Required. Path of the notebook to get metadata. 
+
+
+### GetNotebookMetadataResponse {#GetNotebookMetadataResponse}
+
+Field | Description
+--- | ---
+notebook_id | **string**<br>ID of the specified notebook. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time the notebook was created. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time the notebook was modified last time. 
+content_length | **int64**<br>Content length of the specified notebook. 
+cell_ids[] | **string**<br>Cell ids of the specified notebook. 
 
 

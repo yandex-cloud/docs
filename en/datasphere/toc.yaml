@@ -117,6 +117,8 @@ items:
             href: api-ref/grpc/app_token_service.md
           - name: NodeService
             href: api-ref/grpc/node_service.md
+          - name: ProjectDataService
+            href: api-ref/grpc/project_data_service.md
           - name: ProjectService
             href: api-ref/grpc/project_service.md
           - name: OperationService
@@ -151,6 +153,8 @@ items:
                 href: api-ref/Project/get.md
               - name: getCellOutputs
                 href: api-ref/Project/getCellOutputs.md
+              - name: getNotebookMetadata
+                href: api-ref/Project/getNotebookMetadata.md
               - name: getStateVariables
                 href: api-ref/Project/getStateVariables.md
               - name: getUnitBalance

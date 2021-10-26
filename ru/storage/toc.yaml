@@ -23,6 +23,10 @@ items:
             href: operations/buckets/lifecycles.md
           - name: Управление конфигурацией CORS
             href: operations/buckets/cors.md
+          - name: Управление политикой доступа
+            href: operations/buckets/policy.md
+          - name: Управление версионированием бакета
+            href: operations/buckets/versioning.md
           - name: Редактирование ACL бакета
             href: operations/buckets/edit-acl.md
           - name: Включение механизма логированния

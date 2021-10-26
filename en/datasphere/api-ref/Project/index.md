@@ -49,6 +49,7 @@ Method | Description
 [execute](execute.md) | Executes code in the specified cell or notebook.
 [get](get.md) | Returns the specified project.
 [getCellOutputs](getCellOutputs.md) | Returns outputs of the specified cell.
+[getNotebookMetadata](getNotebookMetadata.md) | Returns metadata of the specified notebook.
 [getStateVariables](getStateVariables.md) | Returns state variables of the specified notebook.
 [getUnitBalance](getUnitBalance.md) | Returns the unit balance of the specified project.
 [list](list.md) | Lists projects for the specified folder.
