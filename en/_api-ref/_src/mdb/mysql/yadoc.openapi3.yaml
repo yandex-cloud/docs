@@ -1919,6 +1919,10 @@ components:
           description: Name of the host to be used as the replication source for cascading
             replication.
           type: string
+        backupPriority:
+          description: Host backup priority, where 1 is the lowest priority
+          type: string
+          format: int64
     HostHealth:
       description: |2-
          - HEALTH_UNKNOWN: Health of the host is unknown.
@@ -1977,6 +1981,10 @@ components:
           description: '`name` of the host to be used as the replication source (for
             cascading replication).'
           type: string
+        backupPriority:
+          description: Host backup priority, where 1 is the lowest priority
+          type: string
+          format: int64
     ListBackupsResponse:
       type: object
       properties:
@@ -2569,7 +2577,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
 
-            Acceptable values are 0 to 1000000, inclusive.
+            Acceptable values are 0 to 50000, inclusive.
           type: integer
           format: int64
         binlogRowImage:
@@ -3070,7 +3078,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
 
-            Acceptable values are 0 to 1000000, inclusive.
+            Acceptable values are 0 to 50000, inclusive.
           type: integer
           format: int64
         binlogRowImage:
@@ -4581,7 +4589,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
 
-            Acceptable values are 0 to 1000000, inclusive.
+            Acceptable values are 0 to 50000, inclusive.
           type: integer
           format: int64
         binlogRowImage:
@@ -5024,7 +5032,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
 
-            Acceptable values are 0 to 1000000, inclusive.
+            Acceptable values are 0 to 50000, inclusive.
           type: integer
           format: int64
         binlogRowImage:
@@ -5467,7 +5475,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
 
-            Acceptable values are 0 to 1000000, inclusive.
+            Acceptable values are 0 to 50000, inclusive.
           type: integer
           format: int64
         binlogRowImage:
@@ -5911,7 +5919,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
 
-            Acceptable values are 0 to 1000000, inclusive.
+            Acceptable values are 0 to 50000, inclusive.
           type: integer
           format: int64
         binlogRowImage:
@@ -6363,7 +6371,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
 
-            Acceptable values are 0 to 1000000, inclusive.
+            Acceptable values are 0 to 50000, inclusive.
           type: integer
           format: int64
         binlogRowImage:
@@ -6815,7 +6823,7 @@ components:
 
             For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
 
-            Acceptable values are 0 to 1000000, inclusive.
+            Acceptable values are 0 to 50000, inclusive.
           type: integer
           format: int64
         binlogRowImage:

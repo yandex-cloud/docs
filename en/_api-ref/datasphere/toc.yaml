@@ -27,6 +27,8 @@ items:
         href: api-ref/Project/get.md
       - name: getCellOutputs
         href: api-ref/Project/getCellOutputs.md
+      - name: getNotebookMetadata
+        href: api-ref/Project/getNotebookMetadata.md
       - name: getStateVariables
         href: api-ref/Project/getStateVariables.md
       - name: getUnitBalance

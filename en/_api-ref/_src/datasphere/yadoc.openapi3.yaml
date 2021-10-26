@@ -424,6 +424,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetStateVariablesResponse'
       x-y-navtitle: getStateVariables
+  /datasphere/v1/projects/{projectId}:notebookMetadata:
+    get:
+      tags:
+      - Project
+      summary: Returns metadata of the specified notebook.
+      operationId: ProjectGetNotebookMetadata
+      parameters:
+      - name: projectId
+        in: path
+        description: |-
+          Required.
+          ID of the project, for which to return notebook metadata.
+
+          The maximum string length in characters is 200.
+        required: true
+        schema:
+          type: string
+      - name: notebookPath
+        in: query
+        description: |-
+          Required.
+          Path of the notebook to get metadata.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetNotebookMetadataResponse'
+      x-y-navtitle: getNotebookMetadata
 components:
   schemas:
     CellOutputsResponse:
@@ -474,6 +506,20 @@ components:
         projectId:
           description: ID of the project that is being deleted.
           type: string
+    DownloadFileResponse:
+      type: object
+      allOf:
+      - title: message
+        type: object
+        maxProperties: 1
+        properties:
+          metadata:
+            $ref: '#/components/schemas/FileMetadata'
+            description: Metadata of the downloaded file.
+          chunk:
+            description: Byte chunk of the downloaded file.
+            type: string
+            format: byte
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
@@ -489,6 +535,52 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    FileMetadata:
+      type: object
+      properties:
+        projectId:
+          description: |-
+            Required.
+            ID of the Project resource associated with the file.
+
+            The maximum string length in characters is 200.
+          type: string
+        path:
+          description: File path.
+          type: string
+        sizeBytes:
+          description: File size in bytes.
+          type: string
+          format: int64
+    GetNotebookMetadataResponse:
+      type: object
+      properties:
+        notebookId:
+          description: ID of the specified notebook.
+          type: string
+        createdAt:
+          description: |-
+            The time the notebook was created.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        modifiedAt:
+          description: |-
+            The time the notebook was modified last time.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        contentLength:
+          description: Content length of the specified notebook.
+          type: string
+          format: int64
+        cellIds:
+          description: Cell ids of the specified notebook.
+          type: array
+          items:
+            type: string
     GetStateVariablesResponse:
       type: object
       properties:
@@ -785,6 +877,11 @@ components:
           $ref: '#/components/schemas/ProjectSettings_in_UpdateProjectRequest_settings'
         limits:
           $ref: '#/components/schemas/ProjectLimits_in_UpdateProjectRequest_limits'
+    UploadFileResponse:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/FileMetadata_in_UploadFileResponse_metadata'
     ProjectSettings_in_CreateProjectRequest_settings:
       description: Settings of the project.
       type: object
@@ -899,10 +996,30 @@ components:
           description: The number of units that can be spent on the one execution.
           type: integer
           format: int64
+    FileMetadata_in_UploadFileResponse_metadata:
+      description: Metadata of the uploaded file.
+      type: object
+      properties:
+        projectId:
+          description: |-
+            Required.
+            ID of the Project resource associated with the file.
+
+            The maximum string length in characters is 200.
+          type: string
+        path:
+          description: File path.
+          type: string
+        sizeBytes:
+          description: File size in bytes.
+          type: string
+          format: int64
 tags:
 - name: AppToken
   description: A set of methods for managing app tokens.
 - name: Node
   description: A set of methods for managing Node resources.
+- name: ProjectData
+  description: A set of methods for managing data of the Project resource.
 - name: Project
   description: A set of methods for managing Project resources.

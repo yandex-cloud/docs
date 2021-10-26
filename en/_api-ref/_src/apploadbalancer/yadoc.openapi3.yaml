@@ -4892,7 +4892,10 @@ components:
       - DRAINING
       - TIMEOUT
     StreamHandler_in_TcpListener_handler:
-      description: A stream handler resource.
+      description: |-
+        Required.
+
+        A stream handler resource.
       type: object
       properties:
         backendGroupId:

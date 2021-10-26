@@ -18,6 +18,21 @@ Parameter | Description
 --- | ---
 clusterId | Required. ID of the Redis cluster to start failover on.  The maximum string length in characters is 50.
  
+## Body parameters {#body_params}
+ 
+```json 
+{
+  "hostNames": [
+    "string"
+  ]
+}
+```
+
+ 
+Field | Description
+--- | ---
+hostNames[] | **string**<br><p>List of hostnames which should not be masters. Can be empty for sentinel clusters or can contain multiple hosts for sharded clusters.</p> <p>The maximum string length in characters for each value is 253.</p> 
+ 
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 

@@ -443,6 +443,12 @@ paths:
         required: true
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartClusterFailoverRequest'
+        required: true
       responses:
         "200":
           description: OK
@@ -2264,6 +2270,23 @@ components:
         clusterId:
           description: ID of the Redis cluster on which failover will be initiated.
           type: string
+        hostNames:
+          description: List of hostnames which should not be masters. Can be empty
+            for sentinel clusters or can contain multiple hosts for sharded clusters.
+          type: array
+          items:
+            type: string
+    StartClusterFailoverRequest:
+      type: object
+      properties:
+        hostNames:
+          description: |-
+            List of hostnames which should not be masters. Can be empty for sentinel clusters or can contain multiple hosts for sharded clusters.
+
+            The maximum string length in characters for each value is 253.
+          type: array
+          items:
+            type: string
     StartClusterMetadata:
       type: object
       properties:

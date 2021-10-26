@@ -351,6 +351,7 @@ zone_id | **string**<br>ID of the availability zone where the host resides. To g
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster2). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
+backup_priority | **int64**<br>Host backup priority, where 1 is the lowest priority 
 
 
 ### Operation {#Operation}
@@ -1283,6 +1284,7 @@ zone_id | **string**<br>ID of the availability zone where the host resides. To g
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster8). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
+backup_priority | **int64**<br>Host backup priority, where 1 is the lowest priority 
 
 
 ### Operation {#Operation7}
@@ -1844,6 +1846,7 @@ services[] | **[Service](#Service)**<br>Services provided by the host.
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 replication_source | **string**<br>Name of the host to be used as the replication source for cascading replication. 
+backup_priority | **int64**<br>Host backup priority, where 1 is the lowest priority 
 
 
 ### Resources {#Resources14}
@@ -1889,6 +1892,7 @@ zone_id | **string**<br>ID of the availability zone where the host resides. To g
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster11). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). 
+backup_priority | **int64**<br>Host backup priority, where 1 is the lowest priority 
 
 
 ### Operation {#Operation11}
