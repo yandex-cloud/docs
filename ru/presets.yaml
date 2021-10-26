@@ -59,6 +59,7 @@ default:
   wiki-full-name: Yandex Wiki
   load-testing-full-name: Yandex Load Testing
   cloud-desktop-full-name: Yandex Cloud Desktop
+  marketplace-full-name: Yandex Cloud Marketplace
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management

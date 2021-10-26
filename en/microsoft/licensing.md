@@ -11,6 +11,8 @@ Purchasing images with a pre-installed Microsoft software license from {{ yandex
 * Client licenses for Windows Server are pre-installed. You don't need to buy them separately.
 * Windows Server images include two RDS licenses for system administration.
 
+By using Microsoft software in {{ yandex-cloud }} you agree to the Yandex Cloud Marketplace [Terms of Service](https://yandex.com/legal/cloud_terms_marketplace/) and the terms and conditions of [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
+
 ## Using your own licenses in {{ yandex-cloud }} {#byol}
 
 If you already have Microsoft enterprise licenses under Microsoft Software Assurance ([SA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3){% endif %}) agreements or a Microsoft Enterprise Agreement ([EA]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2){% endif %}), you can use them in {{ yandex-cloud }}. In this case, you'll be charged under the [BYOL](pricing.md) plan.
