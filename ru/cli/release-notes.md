@@ -1,31 +1,75 @@
 # Релизы YC CLI
 
-## Версия 0.82.0 (23.09.21) {#latest-release}
+## Версия 0.83.0 (26.10.21) {#latest-release}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ cdn-name }} {#cdn}
+
+* Добавлены группы команд для поддержки сервиса {{ cdn-name }}, который позволяет организовать доставку контента до конечных потребителей с помощью сети распространения контента (Content Delivery Network, CDN):
+
+  * `yc cdn origin` — для управления источниками.
+  * `yc cdn origin-group` — для управления группами источников.
+  * `yc cdn provider` — для подключения к провайдеру CDN.
+  * `yc cdn cache` — для управления кешированием контента CDN-ресурсов.
+
+#### {{ alb-name }} {#alb}
+
+* Добавлены команды `yc application-load-balancer load-balancer start` и `yc application-load-balancer load-balancer stop` для запуска и остановки L7-балансировщика.
+
+#### {{ ydb-name }} {#ydb}
+
+* Добавлены команды `yc ydb database start` и `yc ydb database stop` для запуска и остановки базы данных.
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mrd-name }}**
+
+* В команду `yc managed-redis cluster start-failover` добавлен параметр `--hostnames` для указания хостов кластера (в том числе шардированного), с которых нужно переключить мастер.
+
+**{{ mkf-name }}**
+
+* Добавлена команда `yc managed-kafka cluster list-logs` для получения лога кластера.
+
+**{{ mmy-name }}**
+
+* В команду `yc managed-mysql hosts update` добавлены параметры:
+
+  * `--assign-public-ip` для управления публичным доступом к хосту: `true` — хост доступен по публичному IP-адресу, `false` — публичный доступ отключен.
+  * `--backup-priority` для изменения приоритета хоста при создании резервных копий кластера.
+
+**{{ mpg-name }}**
+
+* В команду `yc managed-postgresql hosts update` добавлен параметр `--assign-public-ip` для управления публичным доступом к хосту: `true` — хост доступен по публичному IP-адресу, `false` — публичный доступ отключен.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.82.0 (23.09.21) {#version0.82.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * Добавлен флаг `--pooled` в команду `yc compute image create` для создания образа, оптимизированного для развертывания.
 * Добавлена группа команд `yc compute filesystem` для управления файловыми хранилищами.
 * Добавлены новые команды для подключения и отключения файловых хранилищ от виртуальных машин: `yc compute instance attach-filesystem` и `yc compute instance detach-filesystem`.
 * Добавлен параметр `--attach-filesystem` в команду `yc compute instance create` для создания виртуальной машины с подключенным файловым хранилищем.
 
-#### {{ managed-k8s-name }} {#k8s}
+##### {{ managed-k8s-name }} {#k8s}
 
 * Добавлен параметр `--node-labels` в команду `yc k8s node-group update` — он меняет весь набор меток для узлов группы.
 * Добавлена команда `yc k8s node-group add-node-labels` для добавления меток к узлам группы.
 * Добавлена команда `yc k8s node-group remove-node-labels` для удаления меток для узлов группы.
 
-#### {{ sf-name }} {#serverless-functions}
+##### {{ sf-name }} {#serverless-functions}
 
 * Добавлена команда `yc serverless trigger create yds` для создания триггеров для {{ yds-name }}.
 
-#### {{ serverless-containers-name }} {#serverless-containers}
+##### {{ serverless-containers-name }} {#serverless-containers}
 
 * Добавлена группа команд `yc serverless containers` для поддержки сервиса {{ serverless-containers-name }} — он позволяет запускать контейнеры без необходимости работы с Kubernetes или разворачивания виртуальных машин.
 
-#### {{ vpc-name }} {#vpc}
+##### {{ vpc-name }} {#vpc}
 
 * Добавлена команда `yc vpc network list-route-tables` для списка таблиц роутинга в сети.
 * Добавлена команда `yc vpc network list-security-groups` для списка групп безопасности в сети.
@@ -34,7 +78,7 @@
 
 * Добавлен параметр `--log-group-id` в команды `yc dataproc cluster create` и `yc dataproc cluster update` для привязки лог-группы {{ cloud-logging-name }} к кластеру. Чтобы остановить отправку логов кластера в {{ cloud-logging-name }}, укажите пустое значение в качестве идентификатора лог-группы: `--log-group-id=""`.
 
-#### {{ ydb-name }} {#ydb}
+##### {{ ydb-name }} {#ydb}
 
 * Добавлены параметры для управления лимитами баз данных в режиме Serverless в команды `yc ydb database create`и `yc ydb database update`:
 
@@ -43,27 +87,25 @@
   * `--sls-enable-throttling-rcu`
   * `--sls-provisioned-rcu`
 
-#### {{ mrd-name }}
+##### {{ mrd-name }}
 
 * Значение параметра `--redis-version` по умолчанию в команде `yc managed-redis cluster create` изменено на 6.2.
 
-#### {{ mmy-name }}
+##### {{ mmy-name }}
 
 * Добавлено отображение настройки `replication source` в команду `yc managed-mysql hosts list`.
 
-#### {{ mpg-name }}
+##### {{ mpg-name }}
 
 * Добавлено отображение настройки `replication source` в команду `yc managed-postgresql hosts list`.
   
-#### {{ data-transfer-name }}
+##### {{ data-transfer-name }}
 
 * Добавлены группы команд `yc datatransfer endpoint` и `yc datatransfer transfer` для управления эндпоинтами и трансферами сервиса Data Transfer.
 
-## Предыдущие релизы {#previous-releases}
+### Версия 0.81.0 (06.09.21) {#version0.81.0}
 
-## Версия 0.81.0 (06.09.21) {#version0.81.0}
-
-### Изменения в CLI {#cli}
+#### Изменения в CLI {#cli}
 
 - Добавлено описание флагов и команд в автодополнении по умолчанию.
 - Команда `yc completion <SHELL>`
@@ -71,9 +113,9 @@
    Добавлен флаг `--without-desc` для отключения описания в автодополнении.
 - Поддержено автодополнение флагов: `folder-id`, `folder-name`, `cloud-id`, `format`, `profile`.
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ sf-name }} {#serverless-functions}
+##### {{ sf-name }} {#serverless-functions}
 
 - Добавлена команда `yc serverless trigger create billing-budget` для создания триггеров на события от биллинга.
 
@@ -81,7 +123,7 @@
   `yc serverless mdbproxy update clickhouse`
   `yc serverless mdbproxy create clickhouse`
 
-#### {{ cloud-logging-name }} {#logging}
+##### {{ cloud-logging-name }} {#logging}
 
 - Исключена суб-команда `get-default` из `logging group`
 
