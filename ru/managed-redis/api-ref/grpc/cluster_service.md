@@ -1532,6 +1532,7 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 cluster_id | **string**<br>Required. ID of the Redis cluster to start failover on. The maximum string length in characters is 50.
+host_names[] | **string**<br>List of hostnames which should not be masters. Can be empty for sentinel clusters or can contain multiple hosts for sharded clusters. The maximum string length in characters for each value is 253.
 
 
 ### Operation {#Operation9}
@@ -1555,6 +1556,7 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 cluster_id | **string**<br>ID of the Redis cluster on which failover will be initiated. 
+host_names[] | **string**<br>List of hostnames which should not be masters. Can be empty for sentinel clusters or can contain multiple hosts for sharded clusters. 
 
 
 ### Cluster {#Cluster10}

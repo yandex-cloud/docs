@@ -11,6 +11,9 @@
 * Клиентские лицензии для Windows Server уже включены, их не нужно покупать отдельно.
 * Образы Windows Server включают в себя две лицензии службы удаленных рабочих столов для администрирования системы.  
 
+Используя ПО Microsoft в {{ yandex-cloud }}, вы соглашаетесь с [Условиями использования](https://yandex.ru/legal/cloud_terms_marketplace/)
+{{ marketplace-full-name }} и с условиями использования [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
+
 ## Использование собственных лицензий в {{ yandex-cloud }} {#byol}
 
 Если у вас уже есть корпоративные лицензии Microsoft в рамках соглашений Microsoft Software Assurance ([SA](https://www.microsoft.com/ru-ru/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)) или Microsoft Enterprise Agreement ([EA](https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise?activetab=enterprise-tab%3aprimaryr2)), вы можете воспользоваться ими в {{ yandex-cloud }}. При этом оплата будет начисляться по тарифу [BYOL](pricing.md).

@@ -7,5 +7,6 @@ Service | Description
 --- | ---
 [AppTokenService](./app_token_service.md) | A set of methods for managing app tokens.
 [NodeService](./node_service.md) | A set of methods for managing Node resources.
+[ProjectDataService](./project_data_service.md) | A set of methods for managing data of the Project resource.
 [ProjectService](./project_service.md) | A set of methods for managing Project resources.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

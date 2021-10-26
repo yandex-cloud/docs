@@ -58,6 +58,7 @@ default:
   wiki-full-name: Yandex Wiki
   load-testing-full-name: Yandex Load Testing
   cloud-desktop-full-name: Yandex Cloud Desktop
+  marketplace-full-name: Yandex Cloud Marketplace
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager

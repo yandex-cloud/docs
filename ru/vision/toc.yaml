@@ -52,30 +52,40 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник API
+  - name: Справочники API
     items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: APIv1
         items:
-          - name: Обзор
-            href: api-ref/grpc/index.md
-          - name: VisionService
-            href: api-ref/grpc/vision_service.md
-      - name: REST
-        items:
-          - name: Обработка ошибок
-            href: api-ref/errors-handling.md
-          - name: Диагностика ошибок
-            href: api-ref/support-headers.md
-          - name: Обзор
-            href: api-ref/index.md
-          - name: Vision
+          - name: gRPC
             items:
               - name: Обзор
-                href: api-ref/Vision/index.md
-              - name: batchAnalyze
-                href: api-ref/Vision/batchAnalyze.md
+                href: api-ref/grpc/index.md
+              - name: VisionService
+                href: api-ref/grpc/vision_service.md
+          - name: REST
+            items:
+              - name: Обработка ошибок
+                href: api-ref/errors-handling.md
+              - name: Диагностика ошибок
+                href: api-ref/support-headers.md
+              - name: Обзор
+                href: api-ref/index.md
+              - name: Vision
+                items:
+                  - name: Обзор
+                    href: api-ref/Vision/index.md
+                  - name: batchAnalyze
+                    href: api-ref/Vision/batchAnalyze.md
+      - name: APIv2
+        items:
+          - name: gRPC
+            items:
+              - name: Overview
+                href: api-ref/grpc/index.md
+              - name: ImageClassifierService
+                href: api-ref/grpc/image_classifier_service.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/vision

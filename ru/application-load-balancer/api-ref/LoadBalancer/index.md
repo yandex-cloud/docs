@@ -196,7 +196,7 @@ listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>allowHttp1
 listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>streamHandler | **object**<br>Stream handler <br>`listeners[].tls.sniHandlers[].handler` includes only one of the fields `httpHandler`, `streamHandler`<br><br><p>A stream handler resource.</p> 
 listeners[].<br>tls.<br>sniHandlers[].<br>handler.<br>streamHandler.<br>backendGroupId | **string**<br><p>Required.</p> 
 listeners[].<br>tcp | **object** <br>`listeners[]` includes only one of the fields `http`, `tls`, `tcp`<br><br><p>A TCP listener resource.</p> 
-listeners[].<br>tcp.<br>handler | **object**<br><p>A stream handler resource.</p> 
+listeners[].<br>tcp.<br>handler | **object**<br><p>Required.</p> <p>A stream handler resource.</p> 
 listeners[].<br>tcp.<br>handler.<br>backendGroupId | **string**<br><p>Required.</p> 
 allocationPolicy | **object**<br><p>Locality settings of the application load balancer.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/application-load-balancer#lb-location">documentation</a>.</p> <p>A locality settings (allocation policy) resource.</p> 
 allocationPolicy.<br>locations[] | **object**<br><p>An application load balancer location resource.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/application-load-balancer#lb-location">documentation</a>.</p> 
