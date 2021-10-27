@@ -115,6 +115,12 @@ items:
             href: operations/disk-control/delete.md
           - name: Deleting a disk snapshot
             href: operations/snapshot-control/delete.md
+      - name: Disk placement groups
+        items:
+          - name: Creating a disk placement group
+            href: operations/disk-placement-groups/create.md
+          - name: Removing a disk from a placement group
+            href: operations/disk-placement-groups/remove-disk.md            
       - name: Creating new images
         items:
           - name: Uploading your image
