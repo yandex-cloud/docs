@@ -40,6 +40,8 @@ items:
         href: operations/dashbord.md
       - name: Установить уведомления
         href: operations/budgets.md
+      - name: Подключиться к ЭДО
+        href: operations/edo.md
   - name: Концепции
     items:
       - name: Все понятия
@@ -104,6 +106,8 @@ items:
             href: concepts/invoice.md
           - name: Чек об оплате
             href: concepts/individual-bill.md
+          - name: Электронный документооборот
+            href: concepts/edo.md
       - name: Валюта расчетов
         href: payment/currency.md
   - name: Управление доступом

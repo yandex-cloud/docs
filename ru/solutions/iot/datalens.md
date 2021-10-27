@@ -48,7 +48,6 @@
 * плата за количество сообщений сервиса {{ iot-full-name }} (см. [тарифы](../../iot-core/pricing.md));
 * плата за количество вызовов функции сервиса {{ sf-full-name }} (см. [тарифы](../../functions/pricing.md));
 * плата за вычислительные ресурсы и хранилище кластера в сервисе {{ mpg-full-name }} (см. [тарифы](../../managed-postgresql/pricing.md)).
-* плата за обмен данными с устройствами в сервисе {{ datalens-full-name }} (см. [тарифы](../../datalens/pricing.md)).
 
 ## Создайте необходимые ресурсы {{ iot-short-name }} {#resources-step}
 

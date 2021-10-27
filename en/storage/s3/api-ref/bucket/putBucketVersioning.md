@@ -36,7 +36,7 @@ PUT /{bucket}?versioning HTTP/1.1
 
 | Element | Description |
 | ----- | ----- |
-| `Status` | Status of the bucket versioning option.<br/><br/>Type: String<br/>Possible values: `Enabled | Suspended` |
+| `Status` | Status of the bucket versioning option.<br/><br/>Type: String<br/>Possible values: `Enabled \| Suspended` |
 
 ### Headers {#request-headers}
 

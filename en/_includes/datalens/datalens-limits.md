@@ -1,11 +1,3 @@
-#### Quotas {#datalens-quotas}
-
-| Type of limit | Value |
-| ----- | ----- |
-| Geocoding* (number of unique records per day) in the Free plan | 0 |
-| Geocoding* (number of unique records per day) in the Standard plan | 25,000 |
-
-\* Geocoding functions: [GEOCODE](../../datalens/function-ref/GEOCODE.md) and [GEOINFO](../../datalens/function-ref/GEOINFO.md).
 
 #### General limits {#datalens-common-limits}
 

@@ -4,13 +4,9 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
 
 ## Before you start {#before-you-begin}
 
-1. If you don't have the {{ yandex-cloud }} command line interface yet, [install it](../../cli/quickstart.md#install).
+{% include [before](../../_includes/compute/before-solution.md) %}
 
-1. For the scripts from the tutorial to run correctly, download and install the [jq](https://stedolan.github.io/jq/download/) utility.
-
-1. To check auto scaling, install the [wrk](https://github.com/wg/wrk) benchmarking tool.
-
-## Prepare the {#prepare} environment
+## Prepare the environment {#prepare}
 
 1. Create a [service account](../../iam/concepts/users/service-accounts.md) with the name `for-autoscale` and assign it the `editor` role:
 

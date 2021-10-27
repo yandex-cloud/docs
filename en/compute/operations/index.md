@@ -72,6 +72,11 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](disk-control/delete.md)
 * [{#T}](snapshot-control/delete.md)
 
+## Disk placement groups {#placement-groups}
+
+* [{#T}](disk-placement-groups/create.md)
+* [{#T}](disk-placement-groups/remove-disk.md)
+
 ## Creating new images {#image-create}
 
 * [{#T}](image-create/upload.md)

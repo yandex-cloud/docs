@@ -34,4 +34,4 @@ _Бюджет_ — это способ контролировать расход
 
 ##### См. также
 
-[{#T}](../operations/budgets.md).
+[{#T}](../operations/budgets.md)

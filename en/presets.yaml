@@ -46,6 +46,7 @@ default:
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
   ig-full-name: Yandex Instance Groups
+  lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
   alb-full-name: Yandex Application Load Balancer
   dns-full-name: Yandex Cloud DNS
@@ -74,16 +75,18 @@ default:
   vpc-name: Virtual Private Cloud
   ddos-protection-name: DDoS Protection
   dsvm-name: Data Science Virtual Machine
-  speechkit-name: SpeechKit
-  brand-voice-name: SpeechKit Brand Voice
+  vision-name: Vision
   translate-name: Translate
+  ml-platform-name: DataSphere
+  speechkit-name: SpeechKit
+  speechkit-pro-name: SpeechKit Pro
+  brand-voice-name: SpeechKit Brand Voice
   network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
   cloud-logs-name: Cloud Logs
   cloud-logging-name: Cloud Logging
   container-registry-name: Container Registry
   dataproc-name: Data Proc
-  vision-name: Vision
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
   iot-name: Yandex IoT Core
@@ -92,17 +95,15 @@ default:
   kms-name: Key Management Service
   interconnect-name: Cloud Interconnect
   cos-name: Container Solution
-  ml-platform-name: DataSphere
   certificate-manager-name: Certificate Manager
   marketplace-name: Cloud Marketplace
   data-transfer-name: Data Transfer
   api-gw-name: API Gateway
-  lockbox-name: Yandex Lockbox
+  lockbox-name: Lockbox
   tracker-name: Tracker
   alb-name: Application Load Balancer
   dns-name: Cloud DNS
   at-name: Audit Trails
-  speechkit-pro-name: SpeechKit Pro
   yds-name: Data Streams
   cdn-name: Cloud CDN
   serverless-containers-name: Serverless Containers
@@ -147,6 +148,7 @@ default:
   certificate-manager-short-name: Certificate Manager
   data-transfer-short-name: Data Transfer
   api-gw-short-name: API Gateway
+  lockbox-short-name: Lockbox
   at-short-name: Audit Trails
   tracker-short-name: Tracker
   speechkit-pro-short-name: SpeechKit Pro
@@ -179,6 +181,7 @@ default:
   roles-lockbox-payloadviewer: lockbox.payloadViewer
   roles-cloud-owner: resource-manager.clouds.owner
   roles-cloud-member: resource-manager.clouds.member
+  roles-mdb-admin: mdb.admin
   roles-admin: admin
   roles-owner: owner
   roles-editor: editor
@@ -188,6 +191,7 @@ default:
   subnet-id: b0rcctk2rvtr8efcch64
   s3-storage-host: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
+  yc-k8s: yc managed-kubernetes
   yc-mdb-mg: yc managed-mongodb
   yc-mdb-ch: yc managed-clickhouse
   yc-mdb-pg: yc managed-postgresql
@@ -362,14 +366,6 @@ default:
   graph-update-burstable: 150 seconds
   mch-backup-retention: 7
   mch-dedup-retention: 30
-  stt-short-fileSize: 1 MB
-  stt-short-audioLength: 30 seconds
-  stt-short-channelsCount: 1
-  stt-long-fileSize: 1 GB
-  stt-long-resultsStorageTime: 3 days
-  stt-long-audioLength: 4 hours
-  stt-streaming-fileSize: 10 MB
-  stt-streaming-audioLength: 5 minutes
   yql-full-name: Yandex Query Language
   yql-short-name: YQL
   k8s: Kubernetes
@@ -388,6 +384,7 @@ default:
   link-console-support: https://console.cloud.yandex.com/support
   link-cloud-calculator: https://cloud.yandex.com/prices#calculator
   link-cloud-services: https://cloud.yandex.com/services
+  link-cloud-marketplace: https://cloud.yandex.com/marketplace
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-cloud-oauth: >-
@@ -405,9 +402,20 @@ default:
   yandex-cloud: Yandex.Cloud
   yds-short-name: Data Streams
   yds: yds
+  stt-short-fileSize: 1 MB
+  stt-short-audioLength: 30 seconds
+  stt-short-channelsCount: 1
+  stt-long-fileSize: 1 GB
+  stt-long-resultsStorageTime: 3 days
+  stt-long-audioLength: 4 hours
+  stt-streaming-fileSize: 10 MB
+  stt-streaming-audioLength: 5 minutes
   ml-project-size: 10 GB
   ya-client-app: https://oauth.yandex.com/client/new
   ya-oauth: https://oauth.yandex.com/verification_code
+  dt-copy: Copy
+  dt-repl: Replicate
+  dt-copy-repl: Copy and replicate
   tf-provider-mch: >-
     https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
   tf-provider-mkf: >-
@@ -422,14 +430,13 @@ default:
     https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_postgresql_cluster
   tf-provider-mrd: >-
     https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
-  dt-copy: Copy
-  dt-repl: Replicate
-  dt-copy-repl: Copy and replicate
   port-any: 0-65535
   port-http: 80
   port-https: 443
+  port-k8s: 6443
   port-mch-cli: 9440
   port-mch-http: 8443
+  port-mgp: 5432
   port-mkf-ssl: 9091
   port-mkf-text: 9092
   port-mmg-sharded: 27017
@@ -438,8 +445,8 @@ default:
   port-mmy: 3306
   port-mpg: 6432
   port-mrd-sentinel: 26379
-  port-mrd: 6379
   port-mrd-tls: 6380
+  port-mrd: 6379
   port-ssh: 22
   __system:
     dislikeVariants:

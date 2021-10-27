@@ -4,7 +4,7 @@ This section provides guidelines for creating VMs with a GPU. For more informati
 
 By default, the cloud has a [zero quota](../../concepts/limits.md#quotas) for creating virtual machines with GPUs. To change the quota, contact [technical support]({{ link-console-support }}).
 
-VMs with GPUs are available in availability zones `ru‑central1‑a` and `ru‑central1‑b`.
+{% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
 {% list tabs %}
 
@@ -34,25 +34,28 @@ VMs with GPUs are available in availability zones `ru‑central1‑a` and `ru‑
 
   1. Create a VM in the default folder. Specify the following parameters:
 
-      - Name of the instance.
+      * Name of the instance.
 
           {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      - [Availability zone](../../../overview/concepts/geo-scope.md).
+      * [Availability zone](../../../overview/concepts/geo-scope.md).
 
-      - ID of the [platform](../../concepts/vm-platforms.md), `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.
+      * ID of the [platform](../../concepts/vm-platforms.md):
+        * `gpu-standard-v1` for {{ v100-broadwell }}.
+        * `gpu-standard-v2` for {{ v100-cascade-lake }}.
+        * `gpu-standard-v3` for {{ a100-epyc }}.
 
-      - [Number of vCPUs](../../concepts/gpus.md).
+      * [Number of vCPUs](../../concepts/gpus.md).
 
-      - [RAM](../../concepts/gpus.md).
+      * [RAM](../../concepts/gpus.md).
 
-      - [Number of GPUs](../../concepts/gpus.md).
+      * [Number of GPUs](../../concepts/gpus.md).
 
-      - If necessary, make your VM [preemptible](../../concepts/preemptible-vm.md) with the `--preemptible` option.
+      * If necessary, make your VM [preemptible](../../concepts/preemptible-vm.md) with the `--preemptible` option.
 
-      - [Image](../images-with-pre-installed-software/get-list.md) of the OS. `ubuntu-1604-lts-gpu`: [Ubuntu 16.04.6 LTS](https://cloud.yandex.com/en-ru/marketplace/products/f2e0e2jmj38nmqe3cagl) with CUDA drivers.
+      * [Image](../images-with-pre-installed-software/get-list.md) of the OS. `ubuntu-1604-lts-gpu`: [Ubuntu 16.04.6 LTS](https://cloud.yandex.com/en-ru/marketplace/products/f2e0e2jmj38nmqe3cagl) with CUDA drivers.
 
-      - Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
+      * Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
 
       For example:
 
@@ -104,7 +107,10 @@ VMs with GPUs are available in availability zones `ru‑central1‑a` and `ru‑
      * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
        * `name`: VM name.
 
-       * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md), `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.
+       * `platform_id`: ID of the [platform](../../concepts/vm-platforms.md):
+         * `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.
+         * `gpu-standard-v2` for Intel Cascade Lake with NVIDIA® Tesla® V100.
+         * `gpu-standard-v3` for AMD EPYC 7662 with NVIDIA® Ampere® A100.
 
        * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
 
