@@ -5,9 +5,36 @@ description: 'Yandex Database (YDB) is a scale-out distributed fault-tolerant DB
 
 # Yandex Database (YDB) overview
 
+{% if audience == "internal" %}
+
+*{{ ydb-full-name }}* ({{ ydb-short-name }}) is a horizontally scalable distributed fault-tolerant DBMS. {{ ydb-short-name }} is designed to meet high performance requirements. For example, a typical server can handle dozens of thousands of queries per second. The system is designed to handle hundreds of petabytes of data. {{ ydb-short-name }} can operate in two modes:
+a single data center database or a geo-distributed (cross data center) database on a cluster of thousands of servers.
+
+{{ ydb-short-name }} is used in Yandex services as a high-performance [OLTP](https://en.wikipedia.org/wiki/Online_transaction_processing) DBMS.  {{ yandex-cloud }} services such as Yandex Object Storage and Yandex Block Storage use {{ ydb-short-name }} for storing data and are based on its components.
+
+{{ ydb-short-name }} provides:
+
+* [Strict consistency](https://en.wikipedia.org/wiki/Consistency_model#Strict_Consistency), which can be lowered in order to raise performance.
+* Support for queries written in [YQL](../yql/reference/overview.md) (an SQL dialect for working with big data).
+* Automatic data replication.
+* High availability with automatic failover in case a server or data center goes offline.
+* Automatic data partitioning as data or load grows.
+
+For the user, {{ ydb-short-name }} is a traditional database server that is accessed over gRPC protocol. Protocol specifications for accessing {{ ydb-short-name }} are open. This allows for the creation of SDKs for any programming language. {{ ydb-short-name }} provides SDKs for [C++](../operations/start_cpp.md), [Java](../operations/start_java.md), [Python](../operations/start_python.md), and [Go](../operations/start_go.md).
+
+{{ ydb-short-name }} supports a familiar relational DBMS [data model](datamodel.md) and manages tables with a predefined schema. To make it easier to organize tables, directories can be created like in the file system.
+
+Database commands are mainly written in YQL, a language similar to SQL. This gives the user a powerful and already familiar way to interact with the database.
+
+{{ ydb-short-name }} supports high-performance distributed [ACID](https://en.wikipedia.org/wiki/ACID_(computer_science)) transactions that may affect multiple records in different tables. It provides the serializable isolation level, which is the strictest transaction isolation. You can also lower the level of isolation to raise performance.
+
+{{ ydb-short-name }} natively supports different processing options, such as [OLTP](https://en.wikipedia.org/wiki/Online_transaction_processing) and [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing). The current version offers limited analytical query support. This is why we can say that {{ ydb-short-name }} is currently an OLTP database.
+
+{% else if audience == "external" %}
+
 *Yandex Database* ({{ ydb-short-name }}) is a horizontally scalable distributed fault-tolerant DBMS. {{ ydb-short-name }} is designed to meet high performance requirements. For example, a typical server can handle dozens of thousands of queries per second. The system is designed to handle hundreds of petabytes of data.
 
-{{ ydb-short-name }} is a regional database and is located in three [availability zones](../../overview/concepts/geo-scope.md).
+{{ ydb-short-name }} is a regional database and is located in three {% if deploy != "arc" %} [availability zones](../../overview/concepts/geo-scope.md) {% else %} availability zones{% endif %}.
 
 {{ ydb-short-name }} provides:
 
@@ -31,11 +58,13 @@ description: 'Yandex Database (YDB) is a scale-out distributed fault-tolerant DB
 
    The {{ ydb-full-name }} serverless mode supports data operations using both the YDB API and [Document API](../docapi/api-ref/index.md), an Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
-{{ ydb-short-name }} provides the YDB API and its implementations as the [YDB CLI](../quickstart/examples-ydb-cli.md) and [YDB SDK](../sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk), and [Go](https://github.com/yandex-cloud/ydb-go-sdk)
+{{ ydb-short-name }} provides the YDB API and its implementations as the [YDB CLI](../quickstart/examples-ydb-cli.md) and [YDB SDK](../sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), and [Go](https://github.com/yandex-cloud/ydb-go-sdk).
 
 {{ ydb-short-name }} supports a relational [data model](datamodel.md) and manages tables with a predefined schema. To make it easier to organize tables, directories can be created like in the file system.
 
 {{ ydb-short-name }} supports high-performance distributed [ACID](https://en.wikipedia.org/wiki/ACID_(computer_science)) transactions that may affect multiple records in different tables. It provides the serializable isolation level, which is the strictest transaction isolation. You can also lower the level of isolation to raise performance.
 
 {{ ydb-short-name }} natively supports different processing options, such as [OLTP](https://en.wikipedia.org/wiki/Online_transaction_processing) and [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing). The current version offers limited analytical query support. This is why we can say that YDB is currently an OLTP database.
+
+{% endif %}
 

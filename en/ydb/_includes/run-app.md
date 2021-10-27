@@ -1,4 +1,4 @@
-To launch the app and connect to the database:
+To connect to the database and run a test application:
 
 {% list tabs %}
 
@@ -11,12 +11,27 @@ To launch the app and connect to the database:
       sudo pip3 install iso8601 ydb yandexcloud
       ```
 
-  1. Create an authorized key for your service account, save the file [using the CLI](../../iam/operations/iam-token/create-for-sa#via-cli), and set the `SA_KEY_FILE` environment variable:
+  1. Create an authorized key for your service account and save the file {% if deploy != "arc" %}[using the CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}using the CLI{% endif %}:
 
-      ```bash
-      yc iam key create --service-account-name sa-name -o  ~/.ydb/sa_name.json
-      export SA_KEY_FILE=~/.ydb/sa_name.json
-      ```
+     1. View a description of the command:
+
+        ```bash
+        yc iam key create --help
+        ```
+
+     1. Run the command, indicating the following parameters:
+        * `folder_id`: ID of the folder.
+        * `service-account-name`: Service account name.
+
+        ```bash
+        yc iam key create --folder-id b1geoelk7fldts6chmjq --service-account-name sa-ydb-user --output ~/.ydb/sa_name.json
+        ```
+
+  1. Set the `SA_KEY_FILE` environment variable:
+
+     ```bash
+     export SA_KEY_FILE=~/.ydb/sa_name.json
+     ```
 
      {% note info %}
 
@@ -28,11 +43,16 @@ To launch the app and connect to the database:
 
      {% endnote %}
 
-  1. Launch the `basic_example_v1` test app from the `ydb-python-sdk` repository, specifying the values obtained earlier as startup parameters:
+  1. Run the `basic_example_v1` test app from the `ydb-python-sdk` repository, specifying the following values as startup parameters:
+      * `protocol`: Name of the protocol used to access the database, such as `grpcs`.
+      * `endpoint`: Database endpoint.
+      * `database`: Database ID.
 
       ```bash
       cd ./ydb-python-sdk/examples/basic_example_v1
-      python3 __main__.py -e protocol://endpoint -d database
+      python3 __main__.py \
+      -e grpcs://ydb.serverless.yandexcloud.net:2135 \
+      -d /ru-central1/b1gia87mbaomkfvsleds/etn03o8tbtd3r07sner3
       ```
 
       App execution results:
@@ -69,17 +89,27 @@ To launch the app and connect to the database:
       go get github.com/dgrijalva/jwt-go
       ```
 
-  1. Get an IAM token for the appropriate service account [using the CLI](../../iam/operations/iam-token/create-for-sa#via-cli):
+  1. Get an IAM token for the appropriate service account {% if deploy != "arc" %}[using the CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}using the CLI{% endif %}:
 
-      ```bash
-      yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
-      ```
+     1. View a description of the command:
 
-  1. Set the environment variables required for app authentication:
+        ```bash
+        yc iam key create --help
+        ```
+
+     1. Run the command:
+
+        ```bash
+        yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
+        ```
+
+  1. Set the `SA_KEY_FILE` environment variable required for application authentification:
 
       ```bash
       export SA_SERVICE_FILE=~/.ydb/sa_name.json
       ```
+
+      Where:
       * `SA_SERVICE_FILE`: Local path to the IAM token file.
 
   1. Compile the `basic_example_v1` test app:
@@ -97,11 +127,7 @@ To launch the app and connect to the database:
       App execution results:
 
       ```bash
-      inspecting Database
-      
-      > describe_table_options:
-      
-      > describe table: /global/path/todatabase/series
+      > describe table: /ru-central1/b1gia87mbaomkfvsleds/etn0061p28k0t9rajt8d/series
       column, name: Optional<Uint64>, series_id
       column, name: Optional<Utf8>, title
       column, name: Optional<Utf8>, series_info
@@ -118,72 +144,123 @@ To launch the app and connect to the database:
       ```bash
       git clone https://github.com/yandex-cloud/ydb-nodejs-sdk.git
       cd ydb-nodejs-sdk/examples
-      npm install ydb-sdk
+      npm install
       npm run build
       ```
 
-  1. Get an IAM token for the appropriate service account [using the CLI](../../iam/operations/iam-token/create-for-sa#via-cli):
+  1. Get an IAM token for the appropriate service account {% if deploy != "arc" %}[using the CLI](../../iam/operations/iam-token/create-for-sa#via-cli){% else %}using the CLI{% endif %}:
+
+     1. View a description of the command:
+
+        ```bash
+        yc iam key create --help
+        ```
+
+     1. Run the command:
+
+        ```bash
+        yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
+        ```
+
+     {% note info %}
+
+     To connect to the YDB Dedicated database, set the environment variable with the certificate:
 
       ```bash
-      yc iam key create --service-account-name sa_name -o  ~/.ydb/sa_name.json
+      export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
       ```
+
+     {% endnote %}
 
   1. Set the environment variables required for app authentication:
 
       ```bash
       export YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS=~/.ydb/sa_name.json
       export IAM_ENDPOINT=iam.api.cloud.yandex.net:443
-      export ENTRYPOINT=grpcs://YOURENDPOINT
-      export DB=YOUR_DATABASE
+      export ENTRYPOINT=grpcs://<endpoint>
+      export DB=<database>
       export YDB_SDK_LOGLEVEL=debug
       ```
       * `YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS`: Local path to the IAM token file.
       * `IAM_ENDPOINT`: IAM endpoint. Set it to `iam.api.cloud.yandex.net:443`.
       * `ENTRYPOINT`: Database endpoint.
-      * `DB`: Yandex database (YDB).
+      * `DB`: YDB database ID.
       * `YDB_SDK_LOGLEVEL`: Logging level. Set it to `debug`.
 
   1. Run the `basic_example_v1` test app:
 
       ```bash
-      npm run basic-v1
+      npm run basic-v1 -- --db <YDB database> --endpoint <database endpoint>
       ```
 
       App execution results:
 
       ```bash
-      Dropping old tables...
-      Describing table: series
-      Column name 'series_id' has type {"optionalType":{"item":{"typeId":"UINT64"}}}
-      Column name 'title' has type {"optionalType":{"item":{"typeId":"UTF8"}}}
-      Column name 'series_info' has type {"optionalType":{"item":{"typeId":"UTF8"}}}
-      Column name 'release_date' has type {"optionalType":{"item":{"typeId":"UINT64"}}}
-      
-      Inserting data to tables, preparing query...
-      Query has been prepared, executing...
-      
-      Making a simple select...
-      selectSimple result: [{"seriesId":1,"title":"IT Crowd","releaseDate":13182}]
-      
-      Making an upsert...
-      Upsert completed.
-      Preparing query...
-      Selecting prepared query...
-      Preparing query...
-      
-      Selecting prepared query...
-      Select prepared query [{"title":"To Build a Better Beta","airDate":"2016-06-05","releaseDate":null}]
-      Select prepared query [{"title":"Bachman's Earnings Over-Ride","airDate":"2016-06-12","releaseDate":null}]
-      
-      Running prepared query with explicit transaction control...
-      Executing query with txId d2f98e91-e69cc14a-bebded66-10c7d3a5.
-      TxId d2f98e91-e69cc14a-bebded66-10c7d3a5 committed.
-      
-      Preparing query...
-      Selecting prepared query...
-      Select prepared query [{"title":"TBD","airDate":"2020-04-05","releaseDate":null}]
-      Released session ydb://session/...= on endpoint vm-xxxxx.ydb.mdb.yandexcloud.net:2135.
+      node build/basic-example-v1/index.js $ENTRYPOINT $DB | pino-pretty
+      [1603883537002] INFO  (58433 on laptop): Running basic-example script against entry-point 'grpcs://ydb.serverless.yandexcloud.net:2135' and database '/ru-central1/b1gia87mbaomkfvsleds/etn0061p28k0t9rajt8d'.
+      [1603883537003] DEBUG (58433 on laptop): Protocol grpcs specified in entry-point, using SSL connection.
+      [1603883537003] DEBUG (58433 on laptop): SA_JSON_FILE env var found, using IamAuthService with params from that json.
+      [1603883537004] DEBUG (58433 on laptop): Driver initializing...
+      [1603883537589] DEBUG (58433 on laptop): Driver is ready!
+      [1603883537833] DEBUG (58433 on laptop): Acquired session ydb://session/3?node_id=12065&id=ZTM4OGQwMjktOTk5ZGRiOGQtZWRiZTFmZjMtYmRmYWY3ZTA= on endpoint ydb.serverless.yandexcloud.net:2135.
+      [1603883537833] INFO  (58433 on laptop): Dropping old tables...
+      [1603883538114] INFO  (58433 on laptop): Creating tables...
+      [1603883538660] INFO  (58433 on laptop): Describing table: series
+      [1603883538735] INFO  (58433 on laptop): Column name 'series_id' has type {"optionalType":{"item":{"typeId":"UINT64"}}}
+      [1603883538735] INFO  (58433 on laptop): Column name 'title' has type {"optionalType":{"item":{"typeId":"UTF8"}}}
+      [1603883538735] INFO  (58433 on laptop): Column name 'series_info' has type {"optionalType":{"item":{"typeId":"UTF8"}}}
+      [1603883538735] INFO  (58433 on laptop): Column name 'release_date' has type {"optionalType":{"item":{"typeId":"UINT64"}}}
+      [1603883538736] INFO  (58433 on laptop): Inserting data to tables, preparing query...
+      [1603883538807] INFO  (58433 on laptop): Query has been prepared, executing...
+      [1603883538915] DEBUG (58433 on laptop): Released session ydb://session/3?node_id=12065&id=ZTM4OGQwMjktOTk5ZGRiOGQtZWRiZTFmZjMtYmRmYWY3ZTA= on endpoint ydb.serverless.yandexcloud.net:2135.
+      [1603883538915] DEBUG (58433 on laptop): Acquired session ydb://session/3?node_id=12065&id=ZjY5NWRlM2EtYWMyYjA5YWEtNzQ0MTVlYTMtM2Q4ZDgzOWQ= on endpoint ydb.serverless.yandexcloud.net:2135.
+      [1603883538915] INFO  (58433 on laptop): Making a simple select...
+      [1603883539008] INFO  (58433 on laptop): selectSimple result:
+      [1603883539008] INFO  (58433 on laptop): Making an upsert...
+      [1603883539057] INFO  (58433 on laptop): Upsert completed.
+      [1603883539057] INFO  (58433 on laptop): Preparing query...
+      [1603883539119] INFO  (58433 on laptop): Selecting prepared query...
+      [1603883539168] INFO  (58433 on laptop): Select prepared query
+      [1603883539244] INFO  (58433 on laptop): Select prepared query
+      [1603883539244] INFO  (58433 on laptop): Running prepared query with explicit transaction control...
+      [1603883539456] INFO  (58433 on laptop): Executing query with txId 5e3f1eb1-d532afbf-ead22387-53272811.
+      [1603883539558] INFO  (58433 on laptop): TxId 5e3f1eb1-d532afbf-ead22387-53272811 committed.
+      [1603883539558] INFO  (58433 on laptop): Preparing query...
+      [1603883539602] INFO  (58433 on laptop): Selecting prepared query...
+      [1603883539685] INFO  (58433 on laptop): Select prepared query
+      [1603883539685] DEBUG (58433 on laptop): Released session ydb://session/3?node_id=12065&id=ZjY5NWRlM2EtYWMyYjA5YWEtNzQ0MTVlYTMtM2Q4ZDgzOWQ= on endpoint ydb.serverless.yandexcloud.net:2135.
+      [1603883539685] DEBUG (58433 on laptop): Destroying driver...
+      [1603883539686] DEBUG (58433 on laptop): Destroying pool...
+      [1603883539754] DEBUG (58433 on laptop): Pool has been destroyed.
+      [1603883539754] DEBUG (58433 on laptop): Driver has been destroyed.
       ```
+
+- Java
+
+  1. Build a test app.
+
+      ```bash
+      git clone https://github.com/yandex-cloud/ydb-java-sdk.git
+      cd ydb-java-sdk/examples/maven-project
+      mvn package
+      ```
+
+  1. To run a test app from outside the cloud, get your OAUTH token by [following the link](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) and set the environment variable.
+
+      ```bash
+      export OAUTH_TOKEN=<your oauth token>
+      ```
+
+      To run it in a VM, create a VM using the service account you created earlier. In this case, no OAUTH_TOKEN is required, since authorization is performed on behalf of the service account.
+
+  1. Run the test app:
+
+      ```bash
+      cd target/release
+      java -jar example.jar <database endpoint> <YDB database>
+      ```
+
+      To run it in a VM, copy the entire target/release folder to the VM.
 
 {% endlist %}
 
