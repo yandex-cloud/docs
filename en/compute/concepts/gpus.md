@@ -9,12 +9,14 @@ keywords:
   - графические карты
   - видео карты
 ---
-
 # Graphics accelerators (GPUs and vGPUs)
 
 {{ compute-short-name }} provides graphics accelerators (GPUs) and virtual graphics accelerators (vGPUs) as part of graphics cards. GPUs outperform vCPUs in processing certain types of data and can be used for complex computing.
 
-{{ compute-short-name }} uses [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) GPUs with 32 GB HBM2 (High Bandwidth Memory).
+The following GPUs are available in {{ compute-short-name }}:
+
+* [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) with 32 GB HBM2 (High Bandwidth Memory).
+* [NVIDIA® Ampere® A100](https://www.nvidia.com/en-us/data-center/a100/) with 80 GB HBM2.
 
 {% note warning %}
 
@@ -24,19 +26,25 @@ Unlike vGPUs, GPUs run in [TCC](https://docs.nvidia.com/nsight-visual-studio-edi
 
 By default, the cloud has a zero [quota](../concepts/limits.md#quotas) for creating virtual machines with GPUs and vGPUs. To change the quota, contact [technical support]({{ link-console-support }}).
 
-## Graphics accelerators (GPUs)
+## Graphics accelerators (GPUs){#gpu}
 
-The NVIDIA® Tesla® V100 graphics card contains 5120 CUDA® cores that perform [high-performance computing](https://www.nvidia.com/en-us/high-performance-computing/) (HPC), and 640 Tensor cores for deep learning (DL) tasks.
-
-Graphics accelerators are also suitable for machine learning (ML), artificial intelligence (AI), and 3D rendering tasks.
+Graphics accelerators are suitable for machine learning (ML), artificial intelligence (AI), and 3D rendering tasks.
 
 You can control a GPU and RAM directly from your VM.
+
+### NVIDIA® Tesla® V100{#tesla-v100}
+
+The NVIDIA® Tesla® V100 GPU contains 5120 CUDA® cores for [high-performance computing](https://www.nvidia.com/en-us/high-performance-computing/), and 640 Tensor Cores for deep learning (DL) tasks.
+
+### NVIDIA® Ampere® A100 {#a100}
+
+The NVIDIA® A100 GPU based on the [Ampere®](https://www.nvidia.com/en-us/data-center/ampere-architecture/) microarchitecture uses third-generation Tensor Cores and delivers 80 GB HBM2 memory with up to 2 TB/s bandwidth.
 
 ### VM configurations {#config}
 
 Available configurations of computing resources:
 
-* Intel Broadwell with NVIDIA® Tesla® V100 (`gpu-standard-v1`):
+* {{ v100-broadwell }} (`gpu-standard-v1`):
 
   | Number of GPUs | Number of vCPUs | RAM, GB |
   | --- | --- | --- |
@@ -44,7 +52,7 @@ Available configurations of computing resources:
   | 2 | 16 | 192 |
   | 4 | 32 | 384 |
 
-* Intel Cascade Lake with NVIDIA® Tesla® V100 (`gpu-standard-v2`):
+* {{ v100-cascade-lake }} (`gpu-standard-v2`):
 
   | Number of GPUs | Number of vCPUs | RAM, GB |
   | --- | --- | --- |
@@ -52,6 +60,14 @@ Available configurations of computing resources:
   | 2 | 16 | 96 |
   | 4 | 32 | 192 |
   | 8 | 64 | 384 |
+
+* {{ a100-epyc }} (`gpu-standard-v3`):
+
+  | Number of GPUs | Number of vCPUs | RAM, GB |
+  | --- | --- | --- |
+  | 8 | 224 | 952 |
+
+{% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}
 
 For more information about organizational and technical limits for VMs, see [Quotas and limits](../concepts/limits.md).
 
@@ -82,7 +98,7 @@ For information about how to install and configure the license server, see the [
 
 ### Configurations of VMs with vGPUs {#config-vgpu}
 
-VMs with vGPUs can use the following configuration on Intel Broadwell with NVIDIA® vGPU Tesla® V100 8G (`vgpu-standard-v1`):
+VMs with vGPUs can use the following configuration on {{ v100-broadwell }} 8G (`vgpu-standard-v1`):
 
 | Number of vGPUs | Number of vCPUs | RAM, GB | GPU RAM, GB |
 | --- | --- | --- | --- |

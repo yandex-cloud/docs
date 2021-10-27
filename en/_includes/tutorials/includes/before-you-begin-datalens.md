@@ -7,13 +7,13 @@ To get started with {{ datalens-short-name }}:
   1. Accept the user agreement.
   1. Activate a {{ datalens-short-name }} instance in the cloud.
 
-  To run this scenario, you only need a [free plan](../../../datalens/pricing.md#prices) of {{ datalens-short-name }}, but to fully register in {{ yandex-cloud }}, you need to [create a billing account](../../../billing/quickstart/index.md) and link your payment details or bank card.
+  To run this scenario, you only need a free {{ datalens-short-name }}, but to fully register in {{ yandex-cloud }}, you need to [create a billing account](../../../billing/quickstart/index.md) and link your payment details or bank card.
 
 - I'm already using {{ yandex-cloud }}
   1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
   1. Activate a {{ datalens-short-name }} instance in the cloud.
 
-  To run this scenario, you only need a [free plan](../../../datalens/pricing.md#prices) {{ datalens-short-name }}.
+  To run this scenario, you only need a free {{ datalens-short-name }}.
 
 {% endlist %}
 

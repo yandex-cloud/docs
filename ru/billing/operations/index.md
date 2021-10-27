@@ -31,4 +31,8 @@ description: "Из статьи вы узнаете, как работать с 
 
 [{#T}](get-folder-report.md)
 
+[{#T}](dashbord.md)
+
 [{#T}](budgets.md)
+
+[{#T}](edo.md)

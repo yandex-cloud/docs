@@ -120,7 +120,7 @@ You can configure a bucket:
   | `HostName` | In the `Location` response header, a redirect indicates the host name to be used.<br/>This parameter is optional if other redirects are used. |
   | `ReplaceKeyPrefixWith` | A redirect specifies the name prefix of the object key replacing `KeyPrefixEquals` in the redirect request.<br/>Incompatible with `ReplaceKeyWith`.<br/>This parameter is optional if other redirects are used. |
   | `ReplaceKeyWith` | A redirect specifies the object key to be used in the `Location` header.<br/>Incompatible with `ReplaceKeyPrefixWith`.<br/>This parameter is optional if other redirects are used. |
-  | `HttpRedirectCode` | In the `Location` response header, a redirect specifies the `HTTP redirect code`.<br/>This parameter is optional if other redirects are used. |
+  | `HttpRedirectCode` | In the `Location` response header, a redirect specifies the `HTTP redirect code`.<br/>Allowed values: any `3xx` code.<br/>This parameter is optional if other redirects are used. |
 
 {% endlist %}
 

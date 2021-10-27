@@ -35,8 +35,6 @@ items:
             href: operations/sa/get-id.md
           - name: Удаление сервисного аккаунта
             href: operations/sa/delete.md
-      - name: Федерации удостоверений
-        href: operations/federations.md
       - name: Роли
         items:
           - name: Назначение роли
@@ -91,6 +89,8 @@ items:
             href: concepts/authorization/access-key.md
       - name: Сервисные аккаунты
         href: concepts/users/service-accounts.md
+      - name: Федерации удостоверений
+        href: concepts/federations.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Безопасное использование Yandex.Cloud
