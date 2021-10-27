@@ -34,7 +34,7 @@ x-yc-apigateway:
 
 Параметр | Тип | Описание 
 ----|----|----
-`type` | `string` | Тип расширения. Доступные значения: `dummy`, `cloud_functions`, `http`, `object_storage` и `cloud_datasphere`.
+`type` | `string` | Тип расширения. Доступные значения: `dummy`, `cloud_functions`, `http`, `object_storage`, `cloud_datasphere`, `cloud_datastreams` и `serverless_containers`.
 
 ### Спецификация расширения {#intg-spec}
 
