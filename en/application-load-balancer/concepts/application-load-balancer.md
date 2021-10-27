@@ -1,6 +1,6 @@
-# Load balancer
+# Load balancers
 
-A load balancer is used for receiving incoming traffic and transmitting it to the backend endpoints specified in the [target groups](target-group.md). Request routing follows the rules defined in the [HTTP routers](http-router.md) connected to the load balancer's [listeners](#listener.md). Settings for transmitting traffic to backends are configured in [backend groups](backend-group.md) created on top of target groups.
+A load balancer is used for receiving incoming traffic and transmitting it to the backend endpoints. Request routing follows the rules defined in the [HTTP routers](http-router.md) connected to the load balancer's [listeners](#listener). Settings for transmitting traffic to backends are configured in [backend groups](backend-group.md).
 
 The load balancer stores a list of endpoints, which accept traffic and disables TLS encryption before sending the traffic to backends. Load balancer supports modern TLS versions (TLSv1.2, TLSv1.3) and encryption methods. If the load balancer is going to serve multiple domains, you can configure individual certificates and [HTTP routers](http-router.md) for each domain by using the TLS SNI mechanism.
 
