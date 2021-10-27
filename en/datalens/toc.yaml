@@ -191,14 +191,6 @@ items:
         href: security/index.md
       - name: Managing access at the data row level
         href: security/row-level-security.md
-  - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Rules before March 1, 2021
-            href: pricing-archive/pricing-01032021.md
   - name: Function reference
     items: null
     include:

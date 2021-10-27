@@ -27,6 +27,3 @@ items:
   - name: Квоты и лимиты
     when: audience == "external"
     href: limits.md
-  - name: Правила тарификации
-    when: audience == "external"
-    href: pricing.md

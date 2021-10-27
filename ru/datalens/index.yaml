@@ -2,6 +2,7 @@ title: Yandex DataLens
 description:
   - Yandex DataLens — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами.
   - С помощью Yandex DataLens вы можете отслеживать продуктовые и бизнес-метрики напрямую из источников, чтобы принимать решения, основанные на данных.
+  - Yandex DataLens предоставлется бесплатно.
 
 meta:
   title: Yandex DataLens
@@ -26,10 +27,6 @@ links:
   - title: Управление доступом
     description: Какие права доступа нужны для работы с сервисом
     href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    when: audience == "external"
-    href: pricing
   - title: ChartEditor
     description: Создавайте виджеты на JavaScript для визуализации данных
     when: audience == "internal"

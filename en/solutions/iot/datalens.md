@@ -50,7 +50,6 @@ The cost includes:
 * Fee for the number of {{ iot-full-name }} messages (see [pricing](../../iot-core/pricing.md)).
 * Fee for the number of {{ sf-full-name }} function calls (see [pricing](../../functions/pricing.md).
 * Fee for computing resources and cluster storage in {{ mpg-full-name }} (see [pricing](../../managed-postgresql/pricing.md)).
-* Fee for exchanging data with devices in {{ datalens-full-name }} (see [pricing](../../datalens/pricing.md)).
 
 ## Create the necessary resources {{ iot-short-name }} {#resources-step}
 
