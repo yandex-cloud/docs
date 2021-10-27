@@ -2,7 +2,7 @@
 
 {% if audience == "internal" %}
 
-В разделе приведены рекомендации по организации постраничного вывода данных и представлены примеры их реализации на языках [C++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/examples/pagination), [Java](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/java/examples/src/pagination) и [Python](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/python/examples/pagination).
+В разделе приведены рекомендации по организации постраничного вывода данных и представлены примеры их реализации на языках [C++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/examples/pagination), [Java](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/java/examples/src/main/java/com/yandex/ydb/examples/pagination) и [Python](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/python/examples/pagination).
 
 {% else if audience == "external" %}
 
