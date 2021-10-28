@@ -14,4 +14,4 @@ Guaranteed vCPU performance | Rate for 1 hour, without VAT
 50% | {{ sku|USD|compute.vm.cpu.c50.v3|string }}
 100% | {{ sku|USD|compute.vm.cpu.c100.v3|string }}
 **AMD EPYC™** |
-100% | $0.007179
+100% | {{ sku|USD|compute.vm.cpu.c100.gpu-standard.v3|string }}

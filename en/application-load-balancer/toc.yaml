@@ -49,9 +49,9 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Load balancer
+      - name: Load balancers
         href: concepts/application-load-balancer.md
-      - name: HTTP router
+      - name: HTTP routers
         href: concepts/http-router.md
       - name: Backend groups
         href: concepts/backend-group.md

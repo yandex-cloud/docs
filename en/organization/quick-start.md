@@ -2,12 +2,6 @@
 
 To get started, create an organization and add users to it.
 
-{% note warning %}
-
-The {{org-full-name}} service is in the [Preview](../overview/concepts/launch-stages.md) stage. Managing organization services is unavailable.
-
-{% endnote %}
-
 ## Create an organization {#create}
 
 1. [Log in]({{link-passport}}) to your Yandex account. If you don't have an account yet, [create](https://yandex.com/support/passport/authorization/registration.html) one.

@@ -6,12 +6,6 @@ This approach is called _identity federation_, it's when all the information abo
 
 If your company has a user and access management system (for example, Active Directory or Google Workspace), you can use it to authorize employees in {{ org-full-name }}. In this case, you don't need to create a new Yandex account for every company employee. They can get access to {{ yandex-cloud }} services using their corporate accounts.
 
-{% note warning %}
-
-The {{org-full-name}} service is in the [Preview](../overview/concepts/launch-stages.md) stage. Managing organization services is unavailable.
-
-{% endnote %}
-
 ## Configuring up federations in {{ org-full-name }} {#federation-usage}
 
 Using identity federations, you can configure a Single Sign-On system (Single Sign-On, SSO) and use corporate accounts to authorize in {{org-name}}. In this case, your corporate account management system acts as an identity provider (IdP).

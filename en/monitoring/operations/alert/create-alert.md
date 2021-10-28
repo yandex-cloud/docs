@@ -1,14 +1,14 @@
-# Creating an alert
+# Creating alerts
 
 To create an alert:
 
-1. On the {{ monitoring-short-name }} home page, click **Create alert**.
+1. On the {{ monitoring-short-name }} service homepage, click **Create alert**.
 
 1. Specify the main parameters of the alert:
-    - **Name**. Enter the channel name.
-    - **Description**. Enter the notification method.
+    - **Name**. Enter the name of the alert.
+    - **Description**. Specify the notification method.
 
-1. Specify the alert triggers:
+1. Set the conditions to trigger the alert:
 
     1. Select the metric to base the alert on.
 
@@ -17,9 +17,9 @@ To create an alert:
         - **Aggregation function**.
         - **Evaluation window**.
 
-        To learn more, see [{#T}](../../concepts/alerting.md#alert-parameters).
+        For more information, see [{#T}](../../concepts/alerting.md#alert-parameters).
 
 1. Specify the notification channel. If you don't have a notification channel, [create one](create-channel.md).
 
-1. Click **Create alert**. The alert will appear in the list.
+1. Click **Create alert**. The alert appears in the list.
 

@@ -1,4 +1,4 @@
-You can create a database in a **Serverless** configuration or with **Dedicated** servers in each availability zone. For more information about the differences in configurations, see [{#T}](../concepts/index.md).
+You can create a database in a **Serverless** configuration or with **dedicated** servers. For more information about the differences in configurations, see [{#T}](../concepts/index.md).
 
 To create a database:
 
@@ -6,14 +6,15 @@ To create a database:
 
 * Serverless
 
-   1. In the [management console](https://console.cloud.yandex.ru), select a folder to create your database in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB.
 
    1. In the list of services, select **{{ ydb-name }}**.
 
    1. Click **Create database**.
 
-   1. Enter a name for the database. Naming requirements:
+   1. Enter the database **Name**. Naming requirements:
 
+      
       {% include [name-format](../../_includes/name-format.md) %}
 
    1. Under **Database type**, select the **Serverless** option.
@@ -24,32 +25,43 @@ To create a database:
 
 * Dedicated
 
-   1. In the [management console](https://console.cloud.yandex.ru), select a folder to create your database in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB.
 
    1. In the list of services, select **{{ ydb-name }}**.
 
    1. Click **Create database**.
 
-   1. Enter a name for the database. Naming requirements:
+   1. Enter the database **Name**. Naming requirements:
 
+      
       {% include [name-format](../../_includes/name-format.md) %}
+
+   1. Under **Database type**, select the **Dedicated** option.
 
    1. Under **Computing resources**, select the type and amount of [computing resources](../concepts/databases.md#compute-units).
 
    1. Under **Storage groups**, select the disk type and number of [storage groups](../concepts/databases.md#storage-groups) that determines the total amount of storage.
 
-   1. Under **Network**, select a network and allow assigning public IP addresses to DB nodes.
+   1. Under **Network**, configure network settings:
 
-      If you plan to send DB requests both from the {{ yandex-cloud }} network and the internet, select the **Assign** option next to the **Public IP addresses** field.
+      1. (optional) Under **Public IP addresses**, select the **Assign** option if you plan to send DB requests both from the {{ yandex-cloud }} network and the internet.
 
-      {% include  [traffic_metering](../_includes/traffic_metering.md) %}
+         
+         {% include  [traffic_metering](../_includes/traffic_metering.md) %}
 
-      Select an existing network from the **Cloud network** list.
+      1. Select an existing network from the **Cloud network** list or create a new one:
+         * Click **Create new**.
+         * In the window that opens, enter a **Name** for the new network.
+         * (optional) Select the **Create subnets** option. Subnets in each availability zone will be created automatically.
+         * Click **Create**.
 
-      If there is no network, create one:
-      * Click **Create new**.
-      * In the window that opens, enter a name for the new network and select the **Create subnets** option if no [subnets](../../vpc/concepts/network.md#subnet) were created. Subnets are created for each [availability zone](../../overview/concepts/geo-scope.md).
-      * Click **Create**.
+      1. Under **Subnets**, select or create a subnet for each [availability zone](../../overview/concepts/geo-scope.md):
+         * Click **Create subnet**.
+         * In the window that opens, enter a **Name** for the new subnet.
+         * (optional) Enter a **Description** of the subnet.
+         * Select the desired availability zone from the **Availability zone** list.
+         * Specify the subnet address in [**CIDR**](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format.
+         * Click **Create**.
 
    1. Click **Create database**.
 

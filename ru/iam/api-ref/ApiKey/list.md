@@ -40,7 +40,7 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/i
  
 Field | Description
 --- | ---
-apiKeys[] | **object**<br><p>An ApiKey resource.</p> 
+apiKeys[] | **object**<br><p>An ApiKey resource. For more information, see <a href="/docs/iam/concepts/authorization/api-key">Api-Key</a>.</p> 
 apiKeys[].<br>id | **string**<br><p>ID of the API Key.</p> 
 apiKeys[].<br>serviceAccountId | **string**<br><p>ID of the service account that the API key belongs to.</p> 
 apiKeys[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

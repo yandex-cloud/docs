@@ -45,7 +45,7 @@ description | **string**<br><p>Description of the API key.</p> <p>The maximum st
  
 Field | Description
 --- | ---
-apiKey | **object**<br><p>ApiKey resource.</p> <p>An ApiKey resource.</p> 
+apiKey | **object**<br><p>ApiKey resource.</p> <p>An ApiKey resource. For more information, see <a href="/docs/iam/concepts/authorization/api-key">Api-Key</a>.</p> 
 apiKey.<br>id | **string**<br><p>ID of the API Key.</p> 
 apiKey.<br>serviceAccountId | **string**<br><p>ID of the service account that the API key belongs to.</p> 
 apiKey.<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 

@@ -4,9 +4,14 @@ This section describes various ways that processes running in {{ dataproc-name }
 
 {% note info %}
 
-Before you begin setting up access to Yandex.Cloud services and internet resources, make sure that the cluster network is [configured properly](./configure-network.md).
+Before you begin setting up access to {{ yandex-cloud }} services and internet resources, make sure that the cluster network is [configured properly](./configure-network.md).
 
 {% endnote %}
+
+Component settings impact bucket file read and write performance:
+
+* The settings specified when [creating](../operations/cluster-create.md) a cluster affect all the jobs running in the cluster.
+* The settings specified when creating jobs override cluster-level settings and can be job-specific.
 
 ## DistCp {#distcp}
 
@@ -15,7 +20,7 @@ To copy files from {{objstorage-name}} to HDFS, we recommend that you use the [D
 You can use two approaches to authenticate in {{objstorage-name}}:
 
 1. Use [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html).
-1. Pass the `access key` and `secret key` parameters when the job starts.
+1. Pass the `access key` and the `secret key` parameters when creating a job.
 
 ### Copying via CredentialProvider {#copying-via-credentialprovider}
 
@@ -82,9 +87,36 @@ hadoop distcp \
        hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
 ```
 
+## Optimizing file reads from {{ objstorage-name }} {#optimize-s3-reading}
+
+The method for reading data from a bucket depends on the [property](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html#Improving_data_input_performance_through_fadvise) `fs.s3a.experimental.input.fadvise`. Its value depends on the image version used:
+
+* In image versions `1.0` through `1.4`, the default value is `sequential`. It is a good choice for sequential file reads, but slow for random access. If you use random file access more frequently, add `random` to the cluster component properties or job settings.
+* For version `2.0` images, the default is `normal`: files are accessed sequentially but if an application is performing random access operations, the mode automatically switches to `random`.
+
+For more information on the component versions used, see [{#T}](../concepts/environment.md).
+
+## Optimizing file writes to {{objstorage-name}} {#optimize-s3-writing}
+
+The method of writing data to a {{ objstorage-name }} bucket depends on the `core:fs.s3a.fast.upload` property. Its value depends on the image version used:
+
+* In image versions `1.0` through `1.4`, the default value is `false` to save RAM. Set this property to `true` in the cluster component properties or the job settings. This will improve bucket write performance for large files and prevent node storage from filling up.
+* In a version `2.0` image, the `fs.s3a.fast.upload` property is enabled by default.
+
+If required, specify the values of the [other settings](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html) responsible for the write mode in {{ objstorage-name }}:
+
+* `fs.s3a.fast.upload.active.blocks`: Maximum number of blocks in a single output stream.
+* `fs.s3a.fast.upload.buffer`: Type of buffer used for the temporary storage of uploaded data:
+    * `disk`: Data is stored to the folder specified in the `fs.s3a.buffer.dir` property.
+    * `array`: Arrays on the JVM heap are used.
+    * `bytebuffer`: RAM from outside the JVM heap is used.
+* `fs.s3a.multipart.size`: The size of chunks in bytes that data bucket copy or upload operations will partition the data into.
+
+For more information on the component versions used, see [{#T}](../concepts/environment.md).
+
 ## Using s3fs {#s3fs}
 
-`s3fs` lets you mount {{objstorage-name}} buckets using Fuse. Read more at [s3fs](../../storage/tools/s3fs.md)
+`s3fs` lets you mount {{objstorage-name}} buckets using Fuse. Read more at [s3fs](../../storage/tools/s3fs.md).
 
 ## Using {{objstorage-name}} from Spark {#objstorage-spark}
 

@@ -1,6 +1,8 @@
 # Create a backend group
 
-To create a backend group, add a backend to it and set up a health check:
+When creating a [backend group](../concepts/backend-group.md), you can add two [types](../concepts/backend-group.md#types) of backends to it: backends with [target groups](../concepts/target-group.md) and with [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md).
+
+## Creating a backend group with a target group {#with-target-group}
 
 {% list tabs %}
 
@@ -13,7 +15,8 @@ To create a backend group, add a backend to it and set up a health check:
   1. Under **Backends**, click **Add**. Specify the backend settings:
       1. Enter the backend name: `test-backend-1`.
       1. Set the weight of the backend: `1`.
-      1. In the **Target group** list, select `test-target-group`.
+      1. Select the backend type: **Target groups**.
+      1. In the **Target groups** list, select `test-target-group`.
       1. Set the **Port**: `80`.
   1. Expand the **Load balancing settings** field and set the parameters:
      1. **Threshold for panic mode**: `90`.
@@ -111,3 +114,26 @@ To create a backend group, add a backend to it and set up a health check:
 
 {% endlist %}
 
+## Creating a backend group with a bucket {#with-s3-bucket}
+
+{% include [bucket-availability-note](../_includes_service/bucket-availability-note.md) %}
+
+{% list tabs %}
+
+- Management console
+
+  1. In the [management console]({{ link-console-main }}), select the folder where the backend group will be created.
+  1. In the list of services, select **{{ alb-name }}**.
+  1. In the left menu, select **Backend groups**.
+  1. Click **Create backend group**.
+  1. Enter the backend group name: `test-backend-group`.
+  1. Under **Backends**, click **Add**. Specify the backend settings:
+
+      1. Enter the backend name: `test-backend-1`.
+      1. Set the weight of the backend: `1`.
+      1. Select the backend type: **Bucket**.
+      1. Select the bucket that you want to use as a backend.
+
+  1. Click **Create**.
+
+{% endlist %}

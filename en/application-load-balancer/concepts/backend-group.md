@@ -1,12 +1,30 @@
-# Backend group
+# Backend groups
 
-A backend group defines the settings based on which the L7 load balancer sends traffic to the endpoints of the [target groups](target-group.md): the protocol for connecting to the application instances, settings for the endpoint health checks, and rules for traffic distribution between them.
+A backend group defines the settings based on which the L7 load balancer sends traffic to the backend endpoints:
 
-The backend group includes a list of backends. Each backend specifies a set of target groups containing application endpoints. You can assign a relative weight to each backend. Traffic between backends is distributed proportionally to these weights. Within a backend, traffic between endpoints of target groups is distributed uniformly based on the results of [health checks](#health-checks) and [locality aware routing](#locality). Protocols, health checks, and traffic distribution are configured separately for each backend. By using multiple backends in the same group, you can more easily split traffic between different application versions when running updates or experiments.
+* The protocol for connecting to the application instances.
+* Settings for the endpoint health checks.
+* Rules for traffic distribution between endpoints.
 
-## Protocol settings inside backend groups {#protocol-settings}
+The backend group includes a list of backends. Each backend, depending on its [type](#types), points to resources that act as application endpoints: VMs in target groups or a bucket with files. You can assign a relative weight to each backend. Traffic between backends is distributed proportionally to these weights. Protocols, health checks, and traffic distribution are configured separately for each backend. By using a group of multiple backends, you can split traffic between different application versions when running updates or experiments.
 
-Backends running HTTP/1 and HTTP/2 are supported. You can send requests both as plain text or via TLS (in HTTPS backends). When using TLS, the load balancer doesn't validate certificates returned by backends. However, you can specify certificates from Certificate Authorities that the load balancer will trust when establishing a secure connection with backend endpoints.
+## Backend types {#types}
+
+Backends in a group can be of two types:
+
+* One or more [_target groups_](target-group.md): sets of IP addresses of {{ compute-name }} VM instances that your network applications are running on. Traffic between all VMs in target groups belonging to the same backend is distributed evenly based on the [backend settings](#settings) and results of [health checks](#health-checks).
+
+* _{{ objstorage-name }} bucket_: a set of files (objects) and settings related to their storage. For more information, see the [{#T}](../../storage/concepts/bucket.md) section in the {{ objstorage-name }} documentation.
+
+  {% include [bucket-availability-note](../_includes_service/bucket-availability-note.md) %}
+
+## Protocol and load balancing settings {#settings}
+
+For backends with target groups, you can configure a protocol for communication with the load balancer and balancing traffic between endpoints.
+
+### Protocol {#protocol}
+
+The load balancer and target group VMs can exchange data over HTTP/1.1 or HTTP/2. You can send requests both as plain text or via TLS (in HTTPS backends). When using TLS, the load balancer doesn't validate certificates returned by backends. However, you can specify certificates from Certificate Authorities that the load balancer will trust when establishing a secure connection with backend endpoints.
 
 ### Panic mode {#panic-mode}
 
@@ -23,7 +41,7 @@ If strict locality is enabled, the load balancer will respond with an error (503
 
 ## Health checks {#health-checks}
 
-The load balancer will send health check requests to the specified endpoints at certain intervals and wait for a response during a given timeout.
+You can enable _health checks_ for backends consisting of target groups. The load balancer will send health check requests to the endpoints at certain intervals and wait for a response during a given timeout.
 
 HTTP and TCP health checks are supported. The following health check settings are supported:
 

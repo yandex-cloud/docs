@@ -7,6 +7,58 @@ items:
         href: quickstart/index.md
       - name: Create databases
         href: quickstart/create-db.md
+      - name: YQL API
+        items:
+          - name: Working with data via the management console
+            href: quickstart/yql-api/ydb-ui.md
+          - name: Working with YDB CLI
+            href: quickstart/yql-api/ydb-cli.md
+          - name: Working with YDB SDK
+            href: quickstart/yql-api/ydb-sdk.md
+      - name: Document API in AWS DynamoDB-compatible mode
+        items:
+          - name: Setting up AWS tools
+            href: quickstart/document-api/aws-setup.md
+          - name: Working with data through the HTTP interface
+            href: quickstart/document-api/aws-http.md
+          - name: Working with AWS CLI
+            items:
+              - name: Overview
+                href: quickstart/document-api/aws-cli/index.md
+              - name: Creating a table
+                href: quickstart/document-api/aws-cli/create-table.md
+              - name: Adding data to a table
+                href: quickstart/document-api/aws-cli/put-item.md
+              - name: Reading data from a table
+                href: quickstart/document-api/aws-cli/get-item.md
+              - name: Updating data
+                href: quickstart/document-api/aws-cli/update-item.md
+              - name: Data selections
+                href: quickstart/document-api/aws-cli/query.md
+              - name: Deleting created resources
+                href: quickstart/document-api/aws-cli/cleanup.md
+          - name: Working with AWS SDK
+            items:
+              - name: Overview
+                href: quickstart/document-api/aws-sdk/index.md
+              - name: Creating a table
+                href: quickstart/document-api/aws-sdk/create-table.md
+              - name: Uploading data to a table
+                href: quickstart/document-api/aws-sdk/load-data.md
+              - name: Table management
+                items:
+                  - name: Adding a record
+                    href: quickstart/document-api/aws-sdk/create-item.md
+                  - name: Reading a record
+                    href: quickstart/document-api/aws-sdk/read-item.md
+                  - name: Updating a record
+                    href: quickstart/document-api/aws-sdk/update-item.md
+                  - name: Deleting a record
+                    href: quickstart/document-api/aws-sdk/delete-item.md
+              - name: Searching and extracting data
+                href: quickstart/document-api/aws-sdk/query-and-scan.md
+              - name: Deleting a table
+                href: quickstart/document-api/aws-sdk/delete-table.md
       - name: Examples of YQL queries
         href: quickstart/examples-yql.md
       - name: Examples of operations in the YDB CLI
@@ -25,9 +77,21 @@ items:
         href: getting_started/start_docapi_nodejs.md
   - name: Step-by-step instructions
     items:
+      - name: Working with the YDB CLI
+        items:
+          - name: Structure and description of YDB CLI commands
+            href: operations/ydb-cli/commands.md
+          - name: Getting information about schema objects
+            href: operations/ydb-cli/scheme-describe.md
+          - name: Streaming table reads
+            href: operations/ydb-cli/readtable.md
+          - name: Working with secondary indexes
+            href: operations/ydb-cli/operations-index.md
+      - name: Using a query plan and AST
+        href: operations/get-query-plan.md
       - name: Database management
         href: operations/create_manage_database.md
-      - name: How to connect to a database
+      - name: Connecting to a database
         href: operations/connect_to_a_database.md
       - name: Table management
         href: operations/schema.md
@@ -35,6 +99,20 @@ items:
         href: operations/crud.md
       - name: Working with secondary indexes
         href: operations/indexes.md
+      - name: Working with AWS CLI
+        items:
+          - name: Creating a table
+            href: quickstart/document-api/aws-cli/create-table.md
+          - name: Adding data to a table
+            href: quickstart/document-api/aws-cli/put-item.md
+          - name: Reading data from a table
+            href: quickstart/document-api/aws-cli/get-item.md
+          - name: Updating data
+            href: quickstart/document-api/aws-cli/update-item.md
+          - name: Selecting data
+            href: quickstart/document-api/aws-cli/query.md
+          - name: Deleting created resources
+            href: quickstart/document-api/aws-cli/cleanup.md
   - name: Working with the SDK
     href: sdk/index.md
   - name: Use cases
@@ -45,6 +123,10 @@ items:
         href: solutions/slack-bot-serverless.md
       - name: Using the YDB Docker container
         href: solutions/ydb_docker.md
+      - name: Connecting to YDB from a Python function in Yandex Cloud Functions
+        href: solutions/connect-from-cf.md
+      - name: Developing a skill for Alice and a website with authorization
+        href: solutions/alice-shareable-todolist.md
   - name: Concepts
     items:
       - name: Overview
@@ -287,6 +369,8 @@ items:
         href: faq/errors.md
       - name: YQL
         href: faq/yql.md
+      - name: Serverless
+        href: faq/serverless.md
       - name: All questions on the same page
         href: faq.md
   - name: Public materials

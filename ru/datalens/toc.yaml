@@ -193,6 +193,8 @@ items:
         href: security/index.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md
+  - name: Правила тарификации
+    href: pricing.md
   - name: Справочник функций
     items:
       - name: Все функции
