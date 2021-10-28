@@ -191,6 +191,8 @@ items:
         href: security/index.md
       - name: Managing access at the data row level
         href: security/row-level-security.md
+  - name: Pricing policy
+    href: pricing.md
   - name: Function reference
     items: null
     include:
