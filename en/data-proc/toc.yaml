@@ -1,23 +1,42 @@
+---
 title: Yandex Data Proc
 stage: new
 href: index.yaml
 items:
   - name: Use cases
     items:
+      - name: Working with jobs
+        items:
+          - name: Overview
+            href: solutions/job-overview.md
+          - name: Working with Hive jobs
+            when: audience == "draft"
+            href: solutions/hive-job-basics.md
+          - name: Working with MapReduce jobs
+            when: audience == "draft"
+            href: solutions/mapreduce-job-basics.md
+          - name: Working with PySpark jobs
+            when: audience == "draft"
+            href: solutions/pyspark-job-basics.md
+          - name: Using Apache Hive
+            href: solutions/how-to-use-hive.md
+          - name: Working with Spark jobs
+            when: audience == "draft"
+            href: solutions/spark-job-basics.md
+          - name: Running Spark applications
+            href: solutions/run-spark-job.md
+          - name: Running applications from a remote host
+            href: solutions/remote-run-job.md
       - name: Configuring networks for Data Proc clusters
         href: solutions/configure-network.md
-      - name: Using Apache Hive
-        href: solutions/how-to-use-hive.md
-      - name: Running Spark applications
-        href: solutions/run-spark-job.md
-      - name: Running applications from a remote host
-        href: solutions/remote-run-job.md
       - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
         href: solutions/copy-files-from-object-storage.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
         href: operations/index.md
+      - name: Information about existing clusters
+        href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
       - name: Connecting to clusters
@@ -26,6 +45,18 @@ items:
         href: operations/subcluster-update.md
       - name: Managing subclusters
         href: operations/subclusters.md
+      - name: Managing jobs
+        items:
+          - name: All jobs
+            href: operations/jobs.md
+          - name: Spark jobs
+            href: operations/jobs-spark.md
+          - name: PySpark jobs
+            href: operations/jobs-pyspark.md
+          - name: MapReduce jobs
+            href: operations/jobs-mapreduce.md
+          - name: Hive jobs
+            href: operations/jobs-hive.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
   - name: Concepts
@@ -40,6 +71,8 @@ items:
         href: concepts/interfaces.md
       - name: Component web interfaces
         href: concepts/ui-proxy.md
+      - name: Jobs in Data Proc
+        href: concepts/jobs.md
       - name: Autoscaling
         href: concepts/autoscaling.md
       - name: Decommissioning subclusters and hosts
