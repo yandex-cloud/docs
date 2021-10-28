@@ -8,6 +8,9 @@ description:
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Wiki"
+  keywords:
+    - keyword: яндекс вики
+    - keyword: яндекс база знаний
   # Блок со ссылками
 links:
 - title: "Концепции"

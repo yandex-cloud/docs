@@ -10,7 +10,12 @@ description:
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Tracker"
-  # Блок со ссылками
+  keywords:
+    - keyword: яндекс трекер
+    - keyword: яндекс.трекер
+    - keyword: яндекс задачи
+    - keyword: яндекс трекер справка
+# Блок со ссылками
 links:
 - title: "Настройка Tracker"
   description: "Настройте в Tracker очередь — рабочее пространство для задач, объединенных общим процессом или продуктом"

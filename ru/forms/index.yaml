@@ -10,7 +10,11 @@ description:
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:
   title: "Yandex Forms"
-  # Блок со ссылками
+  keywords:
+    - keyword: яндекс формы
+    - keyword: яндекс форма
+    - keyword: яндекс создать тест
+# Блок со ссылками
 links:
 - title: "Создайте форму"
   description: "Чтобы провести опрос или голосование, принимать заявки или заказы, создайте форму."
