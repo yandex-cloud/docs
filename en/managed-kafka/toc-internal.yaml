@@ -31,6 +31,8 @@ items:
         href: tutorials/send-data-to-mch.md
       - name: Data delivery in ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
+      - name: Migrating with MirrorMaker
+        href: tutorials/mirrormaker-unmanaged-topics.md
   - name: Concepts
     items:
       - name: Relationship between service resources

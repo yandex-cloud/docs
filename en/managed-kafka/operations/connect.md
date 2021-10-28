@@ -34,7 +34,7 @@ Settings of rules depend on the connection method you select:
 
 - Over the Internet
 
-  [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 9091 from any IP addresses. To do this, create the following rule for incoming traffic:
+  [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 9091 from any IP address. To do this, create the following rule for incoming traffic:
   * Protocol: `TCP`.
   * Port range: `9091`.
   * Source type: `CIDR`.
@@ -74,7 +74,7 @@ Settings of rules depend on the connection method you select:
 
 You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
 
-Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might fail to access the cluster.
+Security groups must be configured correctly for all subnets that will include cluster hosts. If the security group settings are incomplete or incorrect, you might lose access the cluster.
 
 {% endnote %}
 
@@ -108,7 +108,7 @@ To use an encrypted connection, get an SSL certificate:
 
 ```bash
 sudo wget "{{ pem-path }}" -O /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+sudo chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
 ```
 
 {% endif %}
