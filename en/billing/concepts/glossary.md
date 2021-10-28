@@ -15,6 +15,10 @@ Report
 : A primary accounting document that confirms services rendered.
 <br/>See the section [Report](act.md).
 
+Budget
+: A method of controlling resource spending using notifications.
+<br/>See the [Budget](budget.md) section.
+
 Grant
 : A discount given to a business or individual for using any Yandex.Cloud services. The discount is applied to the total cost of services consumed, with VAT.
 <br/>See the section [Grant](bonus-account.md).
@@ -35,13 +39,28 @@ Personal account
 : A unique customer ID in the Billing service, which is used to pay for resources during the entire term of the agreement.
 <br/>See the section [Personal account](personal-account.md).
 
+Reporting period
+: The reporting period is equal to one calendar month. At the beginning of each month, you are required to pay for the resources consumed in the previous period. The [payment method](../payment/payment-methods.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+
 Offer
 : A method for entering into an agreement.
 <br/>See the section [Agreement](contract.md).
 
+{% if region == "ru" %}
+
 Penalties
 : A penalty for a failure to comply with the agreement terms and conditions regarding the deadline for service payment.
 <br/>For more information about how penalties are charged, see the [Offer to Enter into the Contract to Use Yandex.Cloud Platform Services](https://yandex.ru/legal/cloud_oferta/) (clause 6, subclause 6.15).
+
+{% endif %}
+
+{% if region == "kz" %}
+
+Penalties
+: A penalty for a failure to comply with the agreement terms and conditions regarding the deadline for service payment.
+<br/>For more information about how penalties are charged, see the [Offer to Enter into the Contract to Use Yandex.Cloud Platform Services](https://yandex.com/legal/cloud_oferta_kz/?lang=ru) (clause 6, subclause 6.15).
+
+{% endif %}
 
 Billing account
 : A unique customer ID in Yandex.Cloud.
@@ -58,9 +77,6 @@ Promo code
 : A password that allows you to get an additional discount on using Yandex.Cloud services.
 <br/>See the section [Promo code](promo-code.md).
 
-Reporting period
-: The reporting period is equal to one calendar month. At the beginning of each month, you are required to pay for the resources consumed in the previous period. [The payment method](../payment/payment-methods.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
-
 Payment invoice
 :  A document issued for you to pay for the resources consumed in the past month.
 <br/>See the section [Payment invoice](bill.md).
@@ -70,6 +86,7 @@ Invoice
 <br/>See the section [Invoice](invoice.md).
 
 {% if region == "ru" %}
+
 Amount of payment invoice or receipt
 : The total amount that a customer is required to pay within a certain period (the time period depends on their legal status).
 <br/>See the sections [Payment receipt](individual-bill.md) and [Payment invoice](bill.md).
@@ -77,5 +94,13 @@ Amount of payment invoice or receipt
 Payment receipt
 :   A document confirming the fact of a bank card payment for the consumed resources.
 <br/>See the section [Payment receipt](individual-bill.md).
+
+{% endif %}
+
+{% if region == "kz" %}
+
+Amount of payment invoice
+: The total amount that a customer is required to pay within a certain period (the time period depends on their legal status).
+<br/>See the section [Payment invoice](bill.md).
 
 {% endif %}

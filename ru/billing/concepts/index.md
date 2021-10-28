@@ -6,10 +6,10 @@ description: "В биллинге Yandex.Cloud используются след
 # Все понятия
 
 В Биллинге {{ yandex-cloud }} используются следующие основные понятия: 
-- [Грант](bonus-account.md)
-- [Договор](contract.md)
-- [Кредитный лимит](credit-limit.md)
-- [Лицевой счет](personal-account.md)
-- [Платежный аккаунт](billing-account.md)
-- [Промокод](promo-code.md)
-- [Резервируемое потребление (CVoS)](cvos.md)
+* [{#T}](bonus-account.md)
+* [{#T}](contract.md)
+* [{#T}](credit-limit.md)
+* [{#T}](personal-account.md)
+* [{#T}](billing-account.md)
+* [{#T}](promo-code.md)
+* [{#T}](cvos.md)
