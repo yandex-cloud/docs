@@ -12,7 +12,7 @@ items:
         href: solutions/run-spark-job.md
       - name: Running applications from a remote host
         href: solutions/remote-run-job.md
-      - name: Copying files from Yandex Object Storage
+      - name: Using {{ objstorage-full-name }} in {{ dataproc-name }}
         href: solutions/copy-files-from-object-storage.md
   - name: Step-by-step instructions
     items:
