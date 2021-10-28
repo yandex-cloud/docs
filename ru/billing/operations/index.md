@@ -29,6 +29,8 @@ description: "Из статьи вы узнаете, как работать с 
 
 [{#T}](create-new-account.md)
 
+[{#T}](delete-account.md)
+
 [{#T}](get-folder-report.md)
 
 [{#T}](dashbord.md)
