@@ -1,4 +1,4 @@
-# Creating {{ dataproc-name }} clusters
+# Creating a {{ dataproc-name }} cluster
 
 ## Configure security groups {#change-security-groups}
 
@@ -9,23 +9,22 @@ Security groups must be created and configured before creating a cluster. If the
 {% endnote %}
 
 1. [Create](../../vpc/operations/security-group-create.md) one or more security groups for cluster service traffic.
+
 1. [Add rules](../../vpc/operations/security-group-update.md#add-rule):
 
     * One rule for incoming and outgoing service traffic:
-        
-		* Port range: `{{ port-any }}`.
+        * Port range: `{{ port-any }}`.
         * Protocol: `Any`.
         * Source type: `Security group`.
         * Purpose: Current security group (`Self`).
 
     * A separate rule for outgoing HTTPS traffic:
-        
-		* Port range: `{{ port-https }}`.
+        * Port range: `{{ port-https }}`.
         * Protocol: `TCP`.
         * Source type: `CIDR`.
         * Destination: `0.0.0.0/0`.
 
-        This will allow you to use [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/ui-proxy.md), and [automatic scaling](../concepts/autoscaling.md) of clusters.
+        This will allow you to use [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/ui-proxy.md), and [automatic scaling](../concepts/autoscaling.md) of clusters.
 
 If you plan to use multiple security groups for a cluster, enable all traffic between these groups.
 
@@ -65,9 +64,9 @@ You can set up security groups for [connections to cluster hosts](./connect.md) 
 
   1. Select the availability zone for the cluster.
 
-  1. If necessary, set the properties of Hadoop and its components, for example:
+  1. (Optional) Under **Properties**, specify the component settings, for example: {#properties}
 
-     ```
+     ```text
      hdfs:dfs.replication : 2
      hdfs:dfs.blocksize : 1073741824
      spark:spark.driver.cores : 1

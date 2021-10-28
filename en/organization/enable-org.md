@@ -16,10 +16,3 @@ To get started:
 
 - [Add](add-account.md) users with a Yandex account to the organization.
 - [Configure an identity federation](add-federation.md), so that your employees can log in to the organization using their work accounts.
-
-{% note warning %}
-
-The {{org-full-name}} service is in the [Preview](../overview/concepts/launch-stages.md) stage. Managing organization services is unavailable.
-
-{% endnote %}
-

@@ -6,42 +6,74 @@
 | Total number of vCPUs for all VMs per cloud | 32 |
 | Total virtual memory for all VMs per cloud | 128 GB |
 | Total number of disks per cloud | 32 |
-| Total SSD storage capacity per cloud | 200 GB |
 | Total HDD storage capacity per cloud | 500 GB |
-| Total number of non-replicated SSDs per placement group | 5 |
+| Total SSD storage capacity per cloud | 200 GB |
+| Total SSD storage capacity per cloud | 558 GB |
+| Number of non-replicated disk placement groups per cloud | 5 |
 | Total number of disk snapshots per cloud | 32 |
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
 | Number of images per cloud | 8 |
 | Number of instance groups per cloud | 10 |
-| Total number of GPUs and vGPUs for all VMs per cloud* | 0 |
-| Number of concurrent [operations](../api-design-guide/concepts/operation.md) in the cloud | 15 |
-| Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
-| Maximum number of placement groups per cloud | 2 |
-| Number of dedicated hosts per cloud* | 0 |
+| Total number of GPUs and vGPUs for all VMs per cloud^1^ | 0 |
+| Number of concurrent [operations](../api-design-guide/concepts/operation.md) per folder | 15 |
+| Maximum number of [placement groups](../compute/concepts/placement-groups.md) per cloud | 2 |
+| Number of dedicated hosts per dedicated host group^1^ | 0 |
+| Number of dedicated host groups per cloud | 0 |
 
-\* To create a VM with a GPU or a dedicated host, contact [technical support]({{ link-console-support }}).
+^1^ To increase quotas for VMs with GPUs or for dedicated hosts, contact [technical support]({{ link-console-support }}).
 
 #### VM limits {#compute-limits-vm}
 
-| Type of limit | Value |
-| ----- | ----- |
-| Maximum number of vCPUs per VM | 32 and 80 for Intel Broadwell and Intel Cascade Lake [platforms](../compute/concepts/vm-platforms.md), respectively |
-| Maximum virtual memory per VM | 256 GB and 640 GB for Intel Broadwell and Intel Cascade Lake [platforms](../compute/concepts/vm-platforms.md), respectively |
-| Maximum number of disks connected to a single VM | 7 |
-| Maximum number of GPUs connected to a single VM | 4 and 8 for Intel Broadwell and Intel Cascade Lake [platforms](../compute/concepts/vm-platforms.md), respectively |
-| Maximum number of vGPUs connected to a VM | 1 |
-| Maximum number of vCPUs for VMs with GPUs | 32 |
-| Maximum RAM for VMs with GPUs | 384 |
-| Maximum number of security groups per interface | 5 |
+The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
+
+{% list tabs %}
+
+- Intel Broadwell
+
+  | Type of limit | Value |
+  | ----- | ----- |
+  | Maximum number of vCPUs per VM | Without [vGPU](../compute/concepts/gpus.md#vgpu): 32<br>With vGPU: 4 |
+  | Maximum virtual memory per VM | Without [GPU](../compute/concepts/gpus.md#gpu) and vGPU: 256 GB<br>With GPU: 384 GB<br>With vGPU: 12 GB |
+  | Maximum number of disks attached to a single VM^2^ | Less than 18 vCPUs: 8<br>From 18 vCPUs: 16 |
+  | Maximum number of GPUs connected to a single VM | 4 |
+  | Maximum number of vGPUs connected to a VM | 1 |
+  | Maximum number of security groups per interface | 5 |
+  | Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
+
+- Intel Cascade Lake
+
+  | Type of limit | Value |
+  | ----- | ----- |
+  | Maximum number of vCPUs per VM | Without [GPU](../compute/concepts/gpus.md#gpu): 80<br>With GPU: 64 |
+  | Maximum virtual memory per VM | Without GPU: 640 GB<br>With GPU: 384 GB |
+  | Maximum number of disks attached to a single VM^2^ | Less than 20 vCPUs: 8<br>From 20 vCPUs: 16 |
+  | Maximum number of GPUs connected to a single VM | 8 |
+  | Maximum number of security groups per interface | 5 |
+  | Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
+
+- Intel Ice Lake
+
+  | Type of limit | Value |
+  | ----- | ----- |
+  | Maximum number of vCPUs per VM | 96 |
+  | Maximum virtual memory per VM | 640 GB |
+  | Maximum number of disks attached to a single VM^2^ | Less than 32 vCPUs: 8<br>From 32 vCPUs: 16 |
+  | Maximum number of security groups per interface | 5 |
+  | Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
+
+{% endlist %}
+
+^2^ Including the boot disk.
 
 #### VM limits on operations with non-replicated disks {#compute-limits-vm-nonrepl}
 
 | Type of limit | Value |
 | ----- | ----- |
-| Maximum[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) per vCPU | 10,000 |
-| Maximum[*](../compute/concepts/limits.md#max_iops) IOPS per VM | 100,000 |
-| Maximum[**](../compute/concepts/limits.md#max_bandwidth) [bandwidth](../compute/concepts/disk.md#rw) per vCPU | 100 MB/s |
-| Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth per VM | 1 GB/s |
+| Total number of non-replicated SSDs per placement group | 5 |
+| Maximum^3^ [IOPS](../compute/concepts/disk.md#rw) per vCPU | 10,000 |
+| Maximum^3^ IOPS per VM | 100,000 |
+| Maximum^4^ [bandwidth](../compute/concepts/disk.md#rw) per vCPU | 100 MB/s |
+| Maximum^4^ bandwidth per VM | 1 GB/s |
 
 #### Disk limits {#compute-limits-disks}
 
@@ -54,14 +86,14 @@
     | Maximum disk size | 4 TB |
     | Maximum disk snapshot size | 4 TB |
     | [Allocation unit size](../compute/concepts/disk.md#rw) | 32 GB |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) for writes, per disk | 40,000 |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for writes, per allocation unit | 1000 |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) [bandwidth](../compute/concepts/disk.md#rw) for writes, per disk | 450 MB/s |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for writes, per allocation unit | 15 MB/s |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per disk | 12,000 |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per allocation unit | 400 |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per disk | 450 MB/s |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per allocation unit | 15 MB/s |
+    | Maximum^3^ [IOPS](../compute/concepts/disk.md#rw) for writes per disk | 40,000 |
+    | Maximum^3^ IOPS for writes per allocation unit | 1000 |
+    | Maximum^4^ [bandwidth](../compute/concepts/disk.md#rw) for writes per disk | 450 MB/s |
+    | Maximum^4^ bandwidth for writes per allocation unit | 15 MB/s |
+    | Maximum^3^ IOPS for reads per disk | 12,000 |
+    | Maximum^3^ IOPS for reads per allocation unit | 400 |
+    | Maximum^4^ bandwidth for reads per disk | 450 MB/s |
+    | Maximum^4^ bandwidth for reads per allocation unit | 15 MB/s |
 
 - Network HDD
 
@@ -69,14 +101,14 @@
     | ----- | ----- |
     | Maximum disk snapshot size | 4 TB |
     | [Allocation unit size](../compute/concepts/disk.md#rw) | 256 GB |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) for writes, per disk | 11,000 |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for writes, per allocation unit | 300 |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) [bandwidth](../compute/concepts/disk.md#rw) for writes, per disk | 240 MB/s |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for writes, per allocation unit | 30 MB/s |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per disk | 300 |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per allocation unit | 100 |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per disk | 240 MB/s |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per allocation unit | 30 MB/s |
+    | Maximum^3^ [IOPS](../compute/concepts/disk.md#rw) for writes per disk | 11000 |
+    | Maximum^3^ IOPS for writes per allocation unit | 300 |
+    | Maximum^4^ [bandwidth](../compute/concepts/disk.md#rw) for writes per disk | 240 MB/s |
+    | Maximum^4^ bandwidth for writes per allocation unit | 30 MB/s |
+    | Maximum^3^ IOPS for reads per disk | 300 |
+    | Maximum^3^ IOPS for reads per allocation unit | 100 |
+    | Maximum^4^ bandwidth for reads per disk | 240 MB/s |
+    | Maximum^4^ bandwidth for reads per allocation unit | 30 MB/s |
 
 - Non-replicated SSD
 
@@ -84,24 +116,20 @@
     | ----- | ----- |
     | Minimum non-replicated disk size | 93 GB |
     | [Allocation unit size](../compute/concepts/disk.md#rw) | 93 GB |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) [IOPS](../compute/concepts/disk.md#rw) for writes, per disk | 50,000 |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for writes, per allocation unit | 5600 |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) [bandwidth](../compute/concepts/disk.md#rw) for writes, per disk | 1 GB/s |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for writes, per allocation unit | 82 MB/s |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per disk | 50,000 |
-    | Maximum[*](../compute/concepts/limits.md#max_iops) IOPS for reads, per allocation unit | 28,000 |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per disk | 1 GB/s |
-    | Maximum[**](../compute/concepts/limits.md#max_bandwidth) bandwidth for reads, per allocation unit | 110 MB/s |
+    | Maximum^3^ [IOPS](../compute/concepts/disk.md#rw) for writes per disk | 50,000 |
+    | Maximum^3^ IOPS for writes per allocation unit | 5600 |
+    | Maximum^4^ [bandwidth](../compute/concepts/disk.md#rw) for writes per disk | 1 GB/s |
+    | Maximum^4^ bandwidth for writes per allocation unit | 82 MB/s |
+    | Maximum^3^ IOPS for reads per disk | 50,000 |
+    | Maximum^3^ IOPS for reads per allocation unit | 28,000 |
+    | Maximum^4^ bandwidth for reads per disk | 1 GB/s |
+    | Maximum^4^ bandwidth for reads per allocation unit | 110 MB/s |
 
 {% endlist %}
 
 Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. Learn more in [Disks](../compute/concepts/disk.md#rw).
 
-##### * {#max_iops}
+^3^ To achieve maximum IOPS, we recommend performing read and write operations whose size is close to that of the disk block (4 KB by default).
 
-To achieve maximum IOPS, we recommend performing read and write operations whose size is close to that of the disk block (4 KB by default).
-
-##### ** {#max_bandwidth}
-
-To achieve the maximum possible bandwidth, we recommend performing 4 MB reads and writes.
+^4^ To achieve the maximum possible bandwidth, we recommend performing 4 MB reads and writes.
 

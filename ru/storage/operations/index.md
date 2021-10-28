@@ -30,3 +30,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](hosting/own-domain.md)
 * [{#T}](hosting/multiple-domains.md)
 * [{#T}](hosting/certificate.md)
+
+## Управление доступом
+
+* [{#T}](access/apply-policy.md)

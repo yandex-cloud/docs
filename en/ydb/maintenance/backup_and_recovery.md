@@ -7,53 +7,41 @@ description: "This section describes the supported methods for creating backups 
 
 This section describes supported methods for creating YDB database backups and restoring data from previously created backups. {{ ydb-short-name }} lets you use the following destinations to create backups:
 
-* [CSV files in the file system](#filesystem_backup).
-* [AWS S3-compatible storage](#s3_backup), like {{ objstorage-name }}.
+* CSV files on the file system.
+* AWS S3-compatible storage.
 
 {% note warning "Effect of backups on performance" %}
 
-Database query execution time may increase when making backups. Test the process using test databases before performing a backup under real load on production databases.
+Backups may negatively affect the database interaction indicators. Queries may take longer to execute. Before performing a database backup under load in production databases, test the process in the testing environment.
 
 {% endnote %}
 
 ## Prerequisites
 
+
 1. Install the [YDB console client](../quickstart/examples-ydb-cli.md).
 1. In the DB properties, on the Overview tab, find and copy the **Endpoint** and **Database** field values.
 1. Save the **Endpoint** and **Database** field values to the `$YDB_ENDPOINT` and `$YDB_DB_PATH` environment variables, respectively.
 
-## Limits {#limitations}
+The examples below assume that the DB endpoint and full DB path are stored in the `$YDB_ENDPOINT` and `$YDB_DB_PATH` environment variables, respectively.
+
+
+## Limitations {#limitations}
 
 In the current implementation, a maximum of 1000 tables can be backed up in YDB at a time.
 
 ## Backups to the file system {#filesystem_backup}
 
-### Save the entire database
-
-To save the entire database or its specific directory to the file system, run the command:
+Saving the structure of the `backup` directory in the `$YDB_DB_PATH` database to the `my_backup_of_basic_example` directory in the file system.
 
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH tools dump -p $YDB_DB_PATH/<directory name> \
-    -o <path to save the DB to the file system>
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools dump -p $YDB_DB_PATH/backup -o my_backup_of_basic_example/
 ```
 
-The result of the command execution:
+For each directory in the database, a file system directory is created. For each table, a directory is created in the file system to place the structure description file in. Table data is saved to one or more `CSV` files, one file line per table row.
 
-* For each directory in the database, a file system directory is created.
-* For each table, a directory is created to store the files:
-   * `scheme.pb`: A file describing the table structure.
-   * `data_хх.csv`: Files with table data. Each file has a corresponding table row. The file size limit is 100 MB.
-XX here is the file sequence number. The name of the first file is `data_00.csv`.
 
-> **Example**
-
-Saving the structure and data of the `backup` directory in the `$YDB_DB_PATH` database to the `my_backup_of_basic_example` directory in the file system.
-
-```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH tools dump -p $YDB_DB_PATH/backup -o my_backup_of_basic_example/
-```
-
-As a result of the command, directories with the following structure are created in the file system:
+### Example of listing the contents of a directory with a backup
 
 ```
 tree my_backup_of_basic_example/
@@ -65,82 +53,59 @@ my_backup_of_basic_example/
 │   ├── data_00.csv
 │   └── scheme.pb
 └── series
-   ├── data_00.csv
-   └── scheme.pb
+    ├── data_00.csv
+    └── scheme.pb
 
 3 directories, 6 files
 ```
 
+The structure of each table is saved in a file named `scheme.pb`. For example, the `episodes/scheme.pb` file stores the schema of the `episodes` table. The data of each table is saved in one or more files named like `data_xx.csv`, where xx is the file's sequence number. The name of the first file is `data_00.csv`. The file size limit is 100 MB.
+
 ### Saving table schemas
 
-To only save the DB table schema, run the command:
+Running the `{{ ydb-cli }} tools dump` command with the `--scheme-only` option only saves table schemas. The command below saves all directories and files with the table structure from the `examples` directory in the `$YDB_DB_PATH` database to the `my_backup_of_basic_example` directory. No files with table data are created.
 
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH tools dump -p $YDB_DB_PATH/<directory name> \ 
-    -o <path to save the schema to the file system> \
-    --scheme-only
-```
-
-This command will only save the table structure without data files.
-
-> **Example**
-
-Saving the structure of the `examples` directory in the `$YDB_DB_PATH` database to the `my_backup_of_basic_example` directory in the file system.
-
-```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH tools dump -p $YDB_DB_PATH/examples -o my_backup_of_basic_example/ --scheme-only
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools dump -p $YDB_DB_PATH/examples -o my_backup_of_basic_example/ --scheme-only
 ```
 
 ## Restoring data from backups in the file system {#filesystem_restore}
 
-Run the command:
-
-```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH tools restore  -p $YDB_DB_PATH/backup/restored \
-    -i <path to the backup directory>/
-```
-
-> **Example**
-
 The command below creates directories and tables from the backup saved in the `my_backup_of_basic_example` directory and uploads data to them.
 
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH tools restore  -p $YDB_DB_PATH/backup/restored -i my_backup_of_basic_example/
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools restore  -p $YDB_DB_PATH/backup/restored -i my_backup_of_basic_example/
 ```
 
 ### Checking backups
 
 The `{{ ydb-cli }} tools restore` command run with the `--dry-run` option checks if a backup contains all DB tables and if all table structures are the same.
 
-To check that all tables in the DB or its directory are backed up and that the table structures are the same, run the command:
-
-```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH tools restore  -p $YDB_DB_PATH/<directory name> \
-    -i <path to the backup directory> \
-    --dry-run
-```
-
-> **Example**
-
 The command below checks that all tables saved in the `my_backup_of_basic_example` directory exist in the `$YDB_DB_PATH` database and their structure (column contents and their order, column data types, and primary key contents) is identical.
 
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH tools restore  -p $YDB_DB_PATH/restored_basic_example -i my_backup_of_basic_example/ --dry-run
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH tools restore  -p $YDB_DB_PATH/restored_basic_example -i my_backup_of_basic_example/ --dry-run
 ```
 
 ## Backups to S3-compatible storage {#s3_backup}
 
 YDB lets you save database backups to storage that supports the [Amazon Simple Storage Service (AWS S3) API](https://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html).
 
-In this section, the destination system is [{{ objstorage-full-name }}](https://cloud.yandex.ru/services/storage).
+
+
+In this section, the target system is [{{ objstorage-full-name }}](https://cloud.yandex.ru/services/storage).
 
 ### Prerequisites {#s3_prerequisites}
 
-[Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-name }} to save data to it.
+
+
+To save a YDB database backup to [{{ objstorage-full-name }}](../../storage), you'll need an [existing](https://cloud.yandex.ru/docs/storage/concepts/bucket) bucket.
 
 ### Creating access keys {#s3_create_access_keys}
 
 Access keys are used for authentication and authorization in S3-compatible storage.
+
+
 
 [The YDB console client](../quickstart/examples-ydb-cli.md) provides three ways to pass access keys:
 
@@ -157,13 +122,15 @@ The commands given in the examples below are based on the assumption that access
 Running the operation for exporting data from the `$YDB_DB_PATH/backup/episodes`, `$YDB_DB_PATH/backup/seasons`, and `$YDB_DB_PATH/backup/series` tables in the YDB `$YDB_DB_PATH` database to files prefixed with `20200601/` in the `testdbbackups` bucket in {{ objstorage-name }}.
 
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 --s3-endpoint storage.yandexcloud.net  --bucket testdbbackups\
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 --s3-endpoint {{ s3-storage-host }}  --bucket testdbbackups\
 --item source=$YDB_DB_PATH/backup/episodes,destination=20200601/episodes\
 --item source=$YDB_DB_PATH/backup/seasons,destination=20200601/seasons\
 --item source=$YDB_DB_PATH/backup/series,destination=20200601/series
 ```
 
 Once the command is executed, the console client displays information about this operation's status.
+
+
 
 ```
 ┌───────────────────────────────────────────┬───────┬─────────┬───────────┬─────────────────────────┬────────────────────┐
@@ -196,7 +163,7 @@ The file format is identical to that of the files created after the [backup to t
 As a result of running the command below in the AWS CLI, a list of prefixes created after the backup in the `testdbbackup` bucket is displayed.
 
 ```
-aws --endpoint-url=https://storage.yandexcloud.net s3 ls testdbbackups/20200601/
+aws --endpoint-url=https://{{ s3-storage-host }} s3 ls testdbbackups/20200601/
                            PRE episodes/
                            PRE seasons/
                            PRE series/
@@ -207,18 +174,20 @@ aws --endpoint-url=https://storage.yandexcloud.net s3 ls testdbbackups/20200601/
 To back up all tables in the YDB directory, specify the path to the directory as the source.
 
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 \
---s3-endpoint storage.yandexcloud.net \
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH export s3 \
+--s3-endpoint {{ s3-storage-host }} \
 --bucket testdbbackups \
 --item source=$YDB_DB_PATH/backup,destination=20200601/
 ```
 
 {% endnote %}
 
+
+
 You can output the current status of the export operation that was started earlier using the command below.
 
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH operation get 'ydb://export/6?id=562950168911361&kind=s3'
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH operation get 'ydb://export/6?id=562950168911361&kind=s3'
 ┌───────────────────────────────────────────┬───────┬─────────┬───────────────┬─────────────────────────┬───────────────┐
 | id                                        | ready | status  | progress      | endpoint                | bucket        |
 ├───────────────────────────────────────────┼───────┼─────────┼───────────────┼─────────────────────────┼───────────────┤
@@ -269,6 +238,7 @@ To minimize the impact of the backup process on user load indicators, data is se
 To delete the table copies from the DB and the completed operation from the list of operations, run the command:
 
 ```
-ydb -e $YDB_ENDPOINT -d $YDB_DB_PATH operation forget 'ydb://export/6?id=283824558378666&kind=s3'
+{{ ydb-cli }} -e $YDB_ENDPOINT -d $YDB_DB_PATH operation forget 'ydb://export/6?id=283824558378666&kind=s3'
 ```
+
 

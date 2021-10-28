@@ -5,6 +5,7 @@ description: 'Yandex Database (YDB) is a scale-out distributed fault-tolerant DB
 
 # Yandex Database (YDB) overview
 
+
 *Yandex Database* ({{ ydb-short-name }}) is a horizontally scalable distributed fault-tolerant DBMS. {{ ydb-short-name }} is designed to meet high performance requirements. For example, a typical server can handle dozens of thousands of queries per second. The system is designed to handle hundreds of petabytes of data.
 
 {{ ydb-short-name }} is a regional database and is located in three [availability zones](../../overview/concepts/geo-scope.md).
@@ -31,7 +32,7 @@ description: 'Yandex Database (YDB) is a scale-out distributed fault-tolerant DB
 
    The {{ ydb-full-name }} serverless mode supports data operations using both the YDB API and [Document API](../docapi/api-ref/index.md), an Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
-{{ ydb-short-name }} provides the YDB API and its implementations as the [YDB CLI](../quickstart/examples-ydb-cli.md) and [YDB SDK](../sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk), and [Go](https://github.com/yandex-cloud/ydb-go-sdk)
+{{ ydb-short-name }} provides the YDB API and its implementations as the [YDB CLI](../quickstart/examples-ydb-cli.md) and [YDB SDK](../sdk/index.md) for [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), and [Go](https://github.com/yandex-cloud/ydb-go-sdk).
 
 {{ ydb-short-name }} supports a relational [data model](datamodel.md) and manages tables with a predefined schema. To make it easier to organize tables, directories can be created like in the file system.
 

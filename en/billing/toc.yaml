@@ -38,7 +38,7 @@ items:
         href: operations/get-folder-report.md
       - name: View details in {{ datalens-full-name }}
         href: operations/dashbord.md
-      - name: Enabling usage notifications
+      - name: Enabling notifications
         href: operations/budgets.md
   - name: Concepts
     items:
@@ -62,6 +62,8 @@ items:
         href: concepts/cvos.md
       - name: Serverless ecosystem Free Tier
         href: concepts/serverless-free-tier.md
+      - name: Budget
+        href: concepts/budget.md
       - name: Agreement
         href: concepts/contract.md
       - name: Glossary

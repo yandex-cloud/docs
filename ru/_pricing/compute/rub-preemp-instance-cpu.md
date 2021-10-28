@@ -14,4 +14,4 @@
 50% | {{ sku|RUB|compute.vm.cpu.c50.preemptible.v3|string }}
 100% | {{ sku|RUB|compute.vm.cpu.c100.preemptible.v3|string }}
 **AMD EPYC™** |
-100% | 0,2240 ₽
+100% | {{ sku|RUB|compute.vm.cpu.c100.gpu-standard.preemptible.v3|string }}

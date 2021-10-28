@@ -4,12 +4,6 @@
 
 If your employees have Yandex accounts (for example, `{{login-example}}`), they can use them to access {{yandex-cloud}} services enabled in your organization.
 
-{% note warning %}
-
-The {{org-full-name}} service is in the [Preview](../overview/concepts/launch-stages.md) stage. Managing organization services is unavailable.
-
-{% endnote %}
-
 To add employee accounts to the organization, follow these steps:
 
 1. [Log in]({{link-passport}}) to the organization's administrator account.

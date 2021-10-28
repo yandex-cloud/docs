@@ -43,6 +43,8 @@ items:
     items:
       - name: Creating a PostgreSQL cluster for 1C
         href: solutions/1c-postgresql
+      - name: Performance analysis and tuning
+        href: solutions/profiling.md
       - name: Replication and migration
         items:
           - name: Logical PostgreSQL replication
@@ -73,7 +75,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage types
+      - name: Storage in {{ mpg-name }}
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md

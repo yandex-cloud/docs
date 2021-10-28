@@ -29,7 +29,7 @@ apiKeyId | Required. ID of the API key to return. To get the API key ID, use a [
   "description": "string"
 }
 ```
-An ApiKey resource.
+An ApiKey resource. For more information, see [Api-Key](/docs/iam/concepts/authorization/api-key).
  
 Field | Description
 --- | ---
