@@ -956,7 +956,7 @@ components:
         accessBinding:
           $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     ApiKey:
-      description: An ApiKey resource.
+      description: An ApiKey resource. For more information, see [Api-Key](/docs/iam/concepts/authorization/api-key).
       type: object
       properties:
         id:
@@ -1712,7 +1712,7 @@ components:
       description: |-
         ApiKey resource.
 
-        An ApiKey resource.
+        An ApiKey resource. For more information, see [Api-Key](/docs/iam/concepts/authorization/api-key).
       type: object
       properties:
         id:
