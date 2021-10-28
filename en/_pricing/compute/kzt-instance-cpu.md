@@ -14,4 +14,4 @@ Guaranteed vCPU performance | Rate for 1 hour, without VAT
 50% | {{ sku|KZT|compute.vm.cpu.c50.v3|string }}
 100% | {{ sku|KZT|compute.vm.cpu.c100.v3|string }}
 **AMD EPYC™** |
-100% | ₸3.3600
+100% | {{ sku|KZT|compute.vm.cpu.c100.gpu-standard.v3|string }}

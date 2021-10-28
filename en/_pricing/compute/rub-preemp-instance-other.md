@@ -10,5 +10,5 @@ RAM (for 1 GB) | {{ sku|RUB|compute.vm.ram.preemptible.v2|string }}
 **Intel Ice Lake** |
 RAM (for 1 GB) | {{ sku|RUB|compute.vm.ram.preemptible.v3|string }}
 **AMD EPYC™** |
-1 GPU | ₽92.9240
-RAM (for 1 GB) | ₽0.0700
+1 GPU | {{ sku|RUB|compute.vm.gpu.gpu-standard.preemptible.v3|string }}
+RAM (for 1 GB) | {{ sku|RUB|compute.vm.ram.gpu-standard.preemptible.v3|string }}

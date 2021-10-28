@@ -10,5 +10,5 @@ RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.v2|string }}
 **Intel Ice Lake** |
 RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.v3|string }}
 **AMD EPYC™** |
-1 GPU | $2.978333
-RAM (for 1 GB) | $0.002051
+1 GPU | {{ sku|USD|compute.vm.gpu.gpu-standard.v3|string }}
+RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.gpu-standard.v3|string }}

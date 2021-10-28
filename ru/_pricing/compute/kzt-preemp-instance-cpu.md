@@ -14,4 +14,4 @@
 50% | {{ sku|KZT|compute.vm.cpu.c50.preemptible.v3|string }}
 100% | {{ sku|KZT|compute.vm.cpu.c100.preemptible.v3|string }}
 **AMD EPYC™** |
-100% | 1,3440 ₸
+100% | {{ sku|KZT|compute.vm.cpu.c100.gpu-standard.preemptible.v3|string }}

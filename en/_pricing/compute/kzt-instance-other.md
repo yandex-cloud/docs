@@ -10,5 +10,5 @@ RAM (for 1 GB) | {{ sku|KZT|compute.vm.ram.v2|string }}
 **Intel Ice Lake** |
 RAM (for 1 GB) | {{ sku|KZT|compute.vm.ram.v3|string }}
 **AMD EPYC™** |
-1 GPU | ₸1393.8600
-RAM (for 1 GB) | ₸1.0680
+1 GPU | {{ sku|KZT|compute.vm.gpu.gpu-standard.v3|string }}
+RAM (for 1 GB) | {{ sku|KZT|compute.vm.ram.gpu-standard.v3|string }}

@@ -10,5 +10,5 @@ RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.v2|string }}
 **Intel Ice Lake** |
 RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.v3|string }}
 **AMD EPYC™** |
-1 GPU | 232,3100 ₽
-RAM (за 1 ГБ) | 0,1780 ₽
+1 GPU | {{ sku|RUB|compute.vm.gpu.gpu-standard.v3|string }}
+RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.gpu-standard.v3|string }}
