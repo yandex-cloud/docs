@@ -277,6 +277,8 @@ items:
         href: solutions/alice-skill.md
       - name: Deploying a web application
         href: solutions/java-servlet-todo-list.md
+      - name: Developing a skill for Alice and a website with authorization
+        href: solutions/alice-shareable-todolist.md
       - name: Writing data from a device to Managed Service for PostgreSQL
         href: solutions/data-recording.md
       - name: Developing a Slack bot

@@ -18,6 +18,8 @@ Aliases:
 - [yc application-load-balancer load-balancer list](list.md) — List application load balancers
 - [yc application-load-balancer load-balancer create](create.md) — Create an application load balancer
 - [yc application-load-balancer load-balancer update](update.md) — Update the specified application load balancer
+- [yc application-load-balancer load-balancer start](start.md) — Start the specified application load balancer
+- [yc application-load-balancer load-balancer stop](stop.md) — Stop the specified application load balancer
 - [yc application-load-balancer load-balancer delete](delete.md) — Delete the specified application load balancer
 - [yc application-load-balancer load-balancer add-listener](add-listener.md) — Adds a listener to the specified application load balancer.
 - [yc application-load-balancer load-balancer update-listener](update-listener.md) — Updates listener in the specified application load balancer.

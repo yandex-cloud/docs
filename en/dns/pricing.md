@@ -28,7 +28,9 @@ Price is calculated proportionally to service usage.
 
 ## Ownership of DNS-zones {#dns-zones}
 
-You will be charged for any user-created public and private DNS zones.
+You will be charged for any user-created public and private DNS zones. Price is calculated proportionally to service usage.
+
+Price is shown for 1 month of use. The monthly usage rate is based on 720 hours a month. Billing occurs per second.
 
 Service zones are free of charge.
 

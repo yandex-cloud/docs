@@ -31,6 +31,7 @@ Syntax:
 - [yc managed-kubernetes](managed-services/managed-kubernetes/index.md) — Manage Kubernetes clusters.
 - [yc ydb](managed-services/ydb/index.md) — Manage YDB databases.
 - [yc kms](managed-services/kms/index.md) — Manage Yandex Key Management Service resources
+- [yc cdn](managed-services/cdn/index.md) — Manage CDN resources
 - [yc certificate-manager](managed-services/certificate-manager/index.md) — Manage Certificate Manager resources
 - [yc managed-clickhouse](managed-services/managed-clickhouse/index.md) — Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.
 - [yc managed-mongodb](managed-services/managed-mongodb/index.md) — Manage MongoDB clusters, hosts, databases, backups and users.

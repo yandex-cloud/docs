@@ -27,14 +27,20 @@ description: "Управление доступом в сервисе по пе�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-* Сервисные роли:
-    * `data-transfer.viewer` — позволяет просматривать информацию только о ресурсах сервиса {{ data-transfer-name }}.
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* Примитивные роли:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+### Сервисные роли {#service-roles}
+
+Роль | Разрешения
+----- | -----
+`data-transfer.admin` | Позволяет управлять [эндпоинтами](../concepts/index.md#endpoint) и [трансферами](../concepts/index.md#transfer) (создавать, изменять и удалять их), а также активировать и деактивировать трансферы.
+`data-transfer.viewer` | Позволяет просматривать информацию только о ресурсах сервиса {{ data-transfer-name }}.
+
+### Роли других сервисов {{ yandex-cloud }} {#other-roles}
+
+{% include [roles-resource-manager](../../_includes/roles-resource-manager.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
 ## Что дальше {#whats-next}
 

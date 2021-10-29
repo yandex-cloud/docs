@@ -16,17 +16,20 @@ Aliases:
 
 | Flag | Description |
 |----|----|
-|`--cluster-id`|<b>`string`</b><br/>ID of the cluster.|
-|`--cluster-name`|<b>`string`</b><br/>Name of the cluster.|
-|`--name`|<b>`string`</b><br/>Optional job name|
-|`--main-class`|<b>`string`</b><br/>Main class name|
-|`--main-jar-file-uri`|<b>`string`</b><br/>Mai JAR file URI|
-|`--jar-file-uris`|<b>`value[,value]`</b><br/>JAR file URIs|
-|`--file-uris`|<b>`value[,value]`</b><br/>File URIs|
-|`--archive-uris`|<b>`value[,value]`</b><br/>Archive URIs|
-|`--properties`|<b>`stringToString`</b><br/>Properties|
-|`--args`|<b>`value[,value]`</b><br/>Arguments|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--cluster-id`|<b>`string`</b><br/> ID of the cluster.|
+|`--cluster-name`|<b>`string`</b><br/> Name of the cluster.|
+|`--name`|<b>`string`</b><br/> Optional job name|
+|`--main-class`|<b>`string`</b><br/> Main class name|
+|`--main-jar-file-uri`|<b>`string`</b><br/> Mai JAR file URI|
+|`--jar-file-uris`|<b>`value[,value]`</b><br/> JAR file URIs|
+|`--file-uris`|<b>`value[,value]`</b><br/> File URIs|
+|`--archive-uris`|<b>`value[,value]`</b><br/> Archive URIs|
+|`--packages`|<b>`value[,value]`</b><br/> Packages|
+|`--repositories`|<b>`value[,value]`</b><br/> Repositories|
+|`--exclude-packages`|<b>`value[,value]`</b><br/> Packages to exclude|
+|`--properties`|<b>`stringToString`</b><br/> Properties|
+|`--args`|<b>`value[,value]`</b><br/> Arguments|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags
 

@@ -13,19 +13,19 @@ description: 'Yandex Audit Trails позволяет собирать аудит
 * [Поиск по аудитным логам в бакете](../solutions/search-bucket.md).
 * [Поиск по аудитным логам в лог-группе](../solutions/search-cloud-logging.md).
 * [Загрузка аудитных логов в SIEM](./export-siem.md).
-* Настройка оповещений в Cloud Logging.
+* [Настройка алертов в {{ monitoring-full-name }}](../solutions/alerts-monitoring.md).
 
 Сервисы {{ yandex-cloud }}, аудитные логи которых собирает {{ at-name }}:
 * {{ at-full-name }}
-* {{ cloud-logging-name }}
-* {{ compute-name }}
-* {{ iam-name }}
-* {{ kms-name }}
+* {{ cloud-logging-full-name }}
+* {{ compute-full-name }}
+* {{ ydb-full-name }}
+* {{ iam-full-name }}
+* {{ kms-full-name }}
 * {{ lockbox-name }}
-* {{ objstorage-name }}
-* {{ resmgr-name }}
-* {{ vpc-name }}
-* {{ ydb-name }}
+* {{ network-load-balancer-full-name }}
+* {{ objstorage-full-name }}
+* {{ vpc-full-name }}
 
 Логируются следующие события:
 * Входы федеративных пользователей.
