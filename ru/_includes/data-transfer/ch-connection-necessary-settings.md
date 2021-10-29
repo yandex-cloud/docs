@@ -25,7 +25,7 @@
         * FQDN или IP-адреса хостов.
 
     * **Подключение через SSL**.
-    * **PEM-сертификат** для шифрования передаваемых данных. Загрузите файл [PEM-сертификата](../../managed-mysql/operations/connect.md#configuring-an-ssl-certificate) или добавьте его содержимое в текстовом виде.
+    * **PEM-сертификат**, если требуется шифрование передаваемых данных, например для соответствия требованиям [PCI DSS]{% if lang == "ru" %}(https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf){% endif %}{% if lang == en %}(https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf){% endif %}. Загрузите файл [сертификата](../../managed-clickhouse/operations/connect#get-ssl-cert) или добавьте его содержимое в текстовом виде.
     * **HTTP порт**.
 
         При подключении через HTTP-порт:
