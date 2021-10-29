@@ -4,10 +4,12 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
-  # - name: Пошаговые инструкции
-  #   items:
+  - name: Пошаговые инструкции
+    items:
   #     - name: Все инструкции
   #       href: operations/index.md
+      - name: Настройка групп безопасности
+        href: operations/security-groups.md
   - name: Концепции
     items:
       - name: Обзор сервиса
