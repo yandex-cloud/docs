@@ -31,6 +31,8 @@ items:
         href: operations/message-queue-receive-and-delete-message.md
       - name: Deleting a message queue
         href: operations/message-queue-delete-queue.md
+      - name: Monitoring processes in queues
+        href: operations/monitoring.md
   - name: Concepts
     items:
       - name: Overview
