@@ -14,6 +14,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 * [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
+* [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
 * [{{ resmgr-name }}](#resmgr)
 * [{{ vpc-name }}](#vpc)
@@ -51,20 +52,25 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 --- | ---
 `AddInstanceOneToOneNat` | Добавление публичного IP-адреса виртуальной машине
 `AttachInstanceDisk` | Подключение диска к ВМ
+`AttachInstanceFilesystem` | Подключение файловой системы к ВМ
 `CreateDisk` | Создание диска
+`CreateFilesystem` | Создание файловой системы
 `CreateImage` | Создание образа диска
 `CreateInstance` | Создание ВМ
 `CreateSnapshot` | Создание снимка диска
 `DeleteDisk` | Удаление диска
+`DeleteFilesystem` | Удаление файловой системы
 `DeleteImage` | Удаление образа диска
 `DeleteInstance` | Удаление ВМ
 `DeleteSnapshot` | Удаление снимка диска
 `DetachInstanceDisk` | Отключение диска от ВМ
+`DetachInstanceFilesystem` | Отключение файловой системы к ВМ
 `RemoveInstanceOneToOneNat` | Удаление публичного IP-адреса ВМ
 `RestartInstance` | Перезагрузка ВМ
 `StartInstance` | Запуск ВМ
 `StopInstance` | Остановка ВМ
 `UpdateDisk` | Изменение диска
+`UpdateFilesystem` | Изменение файловой системы
 `UpdateImage` | Изменение образа диска
 `UpdateInstance` | Изменение ВМ
 `UpdateInstanceMetadata` | Изменение метаданных ВМ
@@ -140,6 +146,27 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `SetSecretAccessBindings` | Выбор привязок прав доступа для секрета
 `UpdateSecret` | Изменение секрета
 `UpdateSecretAccessBindings` | Обновление привязок прав доступа для секрета
+
+## {{ network-load-balancer-name }} {#network-load-balancer}
+
+Имя сервиса — `loadbalancer`.
+
+Имя события | Описание
+--- | ---
+`AddNetworkLoadBalancerListener` | Добавление обработчика к сетевому балансировщику
+`AddTargetGroupTargets` | Добавление ВМ к целевой группе
+`AttachNetworkLoadBalancerTargetGroup` | Подключение целевой группы к сетевому балансировщику
+`CreateNetworkLoadBalancer` | Создание сетевого балансировщика
+`CreateTargetGroup` | Создание целевой группы
+`DeleteNetworkLoadBalancer` | Удаление сетевого балансировщика
+`DeleteTargetGroup` | Удаление целевой группы
+`DetachNetworkLoadBalancerTargetGroup` | Отсоединение целевой группы от сетевого балансировщика
+`RemoveNetworkLoadBalancerListener` | Удаление обработчика из сетевого балансировщика
+`RemoveTargetGroupTargets` | Удаление ВМ из целевой группы
+`StartNetworkLoadBalancer` | Запуск сетевого балансировщика
+`StopNetworkLoadBalancer` | Остановка сетевого балансировщика
+`UpdateNetworkLoadBalancer` | Изменение сетевого балансировщика
+`UpdateTargetGroup` | Изменение целевой группы
 
 ## {{ objstorage-name }} {#objstorage}
 

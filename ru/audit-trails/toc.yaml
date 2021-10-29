@@ -18,6 +18,8 @@ items:
         href: concepts/export-siem.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Метрики
+        href: concepts/user-metrics.md
   - name: Пошаговые инструкции
     items:
       - name: Загрузка аудитных логов в лог-группу
@@ -30,6 +32,8 @@ items:
         href: solutions/search-bucket.md
       - name: Поиск в лог-группе
         href: solutions/search-cloud-logging.md  
+      - name: Настройка алертов в {{ monitoring-name }}
+        href: solutions/alerts-monitoring.md 
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
