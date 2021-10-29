@@ -18,6 +18,8 @@ items:
         href: operations/transfer.md
       - name: Работа с базами данных во время трансфера
         href: operations/db-actions.md
+      - name: Мониторинг состояния трансфера
+        href: operations/monitoring.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -29,8 +31,6 @@ items:
       - name: Преобразование типов данных
         when: audience == "draft"
         href: concepts/data-type-bindings.md
-      - name: Мониторинг трансферов
-        href: concepts/monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

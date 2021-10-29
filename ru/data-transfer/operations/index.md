@@ -10,3 +10,4 @@ title: "Как перенести базы данных между хранил�
 - [{#T}](target-endpoint.md)
 - [{#T}](transfer.md)
 - [{#T}](db-actions.md)
+- [{#T}](monitoring.md)

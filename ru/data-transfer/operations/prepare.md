@@ -6,11 +6,11 @@
 
 {% list tabs %}
 
-* Managed Service for Apache Kafka®
+* {{ mkf-name }}
 
     [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с ролью `ACCESS_ROLE_CONSUMER` на топик-источник.
 
-* Apache Kafka®
+* {{ KF }}
 
     1. Настройте кластер-источник таким образом, чтобы к нему можно было подключиться из интернета.
     1. [Настройте права доступа](https://kafka.apache.org/documentation/#multitenancy-security) для учетной записи на нужный топик.
