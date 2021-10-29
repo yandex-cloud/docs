@@ -12,6 +12,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
+|`--hostnames`|<b>`value[,value]`</b><br/>A list of hostnames that should not be masters.|
 |`--id`|<b>`string`</b><br/>Redis cluster id.|
 |`--name`|<b>`string`</b><br/>Redis cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

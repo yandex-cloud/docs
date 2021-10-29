@@ -29,6 +29,7 @@ Syntax:
 |`--zookeeper-disk-type`|<b>`string`</b><br/> Storage type of a ZooKeeper host.|
 |`--assign-public-ip`| Whether a Kafka host should get a public IP address on creation.|
 |`--unmanaged-topics`| Whether a Kafka cluster allows to manage topics via AdminAPI.|
+|`--schema-registry`| Enables managed Schema Registry sevice.|
 |`--subnet-ids`|<b>`value[,value]`</b><br/> Optional list of subnets to place nodes of the cluster in. If not specified nodes will be placed in arbitrary subnets of the given network within given availability zones.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Kafka cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/> A list of host groups to place VMs of cluster on.|

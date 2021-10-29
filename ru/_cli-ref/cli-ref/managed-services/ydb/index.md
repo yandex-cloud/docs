@@ -17,6 +17,8 @@ Syntax:
 	- [yc ydb database backup](database/backup.md) — Backup YDB database.
 	- [yc ydb database restore](database/restore.md) — Restore backup.
 	- [yc ydb database update](database/update.md) — Update the specified YDB database.
+	- [yc ydb database stop](database/stop.md) — Stop the specified YDB database.
+	- [yc ydb database start](database/start.md) — Start the specified YDB database.
 	- [yc ydb database delete](database/delete.md) — Delete the specified YDB database.
 - [yc ydb storage-type](storage-type/index.md) — View YDB storage types.
 	- [yc ydb storage-type get](storage-type/get.md) — Get information about the specified YDB storage type preset.
