@@ -63,6 +63,7 @@
 ### Создайте файл variables.json {#set-variables-variables}
 
 Файл `variables.json` содержит конфигурацию для развертывания проекта. Чтобы создать файл из шаблона `variables-template.json`, перейдите в каталог проекта и выполните команду:
+
 ```
 cp variables-template.json variables.json
 ```

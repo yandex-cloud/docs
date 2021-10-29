@@ -1,0 +1,270 @@
+# Developing a Telegram bot
+
+In this use case, you will learn to use serverless technologies to create a Telegram bot that will respond to chat messages.
+
+{% if lang == "ru" %}
+@[youtube](C2Ahit2EBo0)
+{% endif %}
+
+To create a bot:
+
+1. [Set up the environment](#start)
+1. [Register a Telegram bot](#create-bot)
+1. [Post an image for the bot](#image-publish)
+1. [Create an API Gateway](#create-gateway)
+1. [Create a function](#create-function)
+1. [Configure a link between the function and the Telegram bot](#function-bind-bot)
+1. [Check that the Telegram bot works](#test)
+
+## Prepare the environment {#start}
+
+1. [Download](https://storage.yandexcloud.net/doc-files/telegrambot.zip) the archive with the files needed to create a bot.
+1. If you don't have a folder, [create](../resource-manager/operations/folder/create.md) one.
+1. [Create](../iam/operations/sa/create.md) a service account and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.
+
+## Register the Telegram bot {#create-bot}
+
+Register your bot in Telegram and get a token.
+
+1. To register the bot, send the command below to the [BotFather](https://t.me/BotFather) bot:
+
+    ```
+    /newbot
+    ```
+
+1. Specify the name of the bot to create, such as `ServerlessHelloTelegramBot`. The name must end in `...Bot` or `..._bot`.
+
+   As a result, you will get a token. Save it as you will need it in the subsequent steps.
+
+1. Set an icon for the bot: use the `sayhello.png` image from the downloaded archive. Send the BotFather bot the command below:
+
+    ```
+    /setuserpic
+    ```
+
+## Post a bot image {#image-publish}
+
+For the bot to respond to user messages with an image, create a bucket in {{ objstorage-name }} and upload `sayhello.png` to the bucket.
+
+### Create a bucket in {{ objstorage-name }} {#create-bucket}
+
+{% list tabs %}
+
+- Management console
+  1. In the [management console]({{link-console-main}}), select the folder where you wish to create the [bucket](../storage/concepts/bucket.md).
+  1. Open the **Object Storage** service.
+  1. Click **Create bucket**.
+  1. On the bucket creation page:
+      1. Enter a bucket name: `for-serverless-hello-telegram-bot`.
+      1. Specify the bucket settings:
+         * **Max size**: `1 GB`.
+         * **Object read access**: `Public`.
+         * **Storage class**: `Standard`.
+      1. Click **Create bucket**.
+
+{% endlist %}
+
+### Upload the image to the bucket
+
+{% list tabs %}
+
+- Management console
+  1. In the [management console]({{link-console-main}}), select the folder that the `for-serverless-hello-telegram-bot` bucket is in.
+  1. Open the **Object Storage** service.
+  1. Select the `for-serverless-hello-telegram-bot` bucket.
+  1. Click **Upload**.
+  1. In the resulting window, select `sayhello.png` and click **Open**. The management console will display the file selected for upload.
+  1. Click **Upload**.
+
+{% endlist %}
+
+### Get a link to the uploaded image
+
+{% list tabs %}
+
+- Management console
+  1. In the [management console]({{link-console-main}}), select the folder that the `for-serverless-hello-telegram-bot` bucket is in.
+  1. Open the **Object Storage** service.
+  1. Select the `for-serverless-hello-telegram-bot` bucket.
+  1. Select `sayhello.png`.
+  1. Click **Get link**.
+  1. Check in the browser to make sure that the image link works.
+
+{% endlist %}
+
+## Create an API gateway {#create-gateway}
+
+Create and configure an [API Gateway](../api-gateway/concepts/index.md).
+
+{% list tabs %}
+
+- Management console
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
+    1. Open **{{ api-gw-name }}**.
+    1. Click **Create API gateway**.
+    1. Enter a name for the gateway: `for-serverless-hello-telegram-bot`.
+    1. Update the specification. In the `service_account` field, specify the ID of the service account you created earlier:
+
+        ```yml
+        openapi: 3.0.0
+        info:
+          title: for-serverless-hello-telegram-bot
+          version: 1.0.0
+        paths:
+          /sayhello.png:
+            get:
+              x-yc-apigateway-integration:
+                type: object-storage
+                bucket: for-serverless-hello-telegram-bot
+                object: sayhello.png
+                presigned_redirect: false
+                service_account: <service account ID>
+              operationId: static
+        ```
+    1. Click **Create**.
+
+    Save the **Service domain** field from the **General information** section. You will need the API gateway's service domain to access the `sayhello.png` image.
+
+{% endlist %}
+
+## Create a function {#create-function}
+
+For the bot to respond to the `/start` and the `/help` commands and to send an image in reply to any other text, create a [function](../functions/concepts/function.md).
+
+{% list tabs %}
+
+- Management console
+
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
+
+    1. Open **{{ sf-name }}**.
+
+    1. Click **Create function**.
+
+    1. Enter a name for the function: `fshtb-function`.
+
+    1. Click **Create**.
+
+    1. Under **Editor**, select the `Node.js` runtime environment and click **Continue**.
+
+    1. Under **Function code**, replace the contents of the `index.js` file with the code below: Replace `<API gateway domain>` with the API gateway's service domain.
+
+        ```javascript
+        const { Telegraf } = require('telegraf');
+        
+        const bot = new Telegraf(process.env.BOT_TOKEN);
+        bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Teleram Bot \nI'm working on Cloud Function in the Yandex.Cloud.`))
+        bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
+        bot.on('text', (ctx) => {
+            ctx.replyWithPhoto('<API gateway domain>/sayhello.png');
+            ctx.reply(`Hello, ${ctx.message.from.username}`);
+        
+        });
+        
+        module.exports.handler = async function (event, context) {
+            const message = JSON.parse(event.body);
+            await bot.handleUpdate(message);
+            return {
+                statusCode: 200,
+                body: '',
+            };
+        };
+        ```
+
+    1. Under **Function code**, create a file named `package.json` and paste the text below into it:
+
+        ```json
+        {
+          "name": "ycf-telegram-example",
+          "version": "1.0.0",
+          "description": "",
+          "main": "index.js",
+          "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+          },
+          "author": "",
+          "license": "MIT",
+          "dependencies": {
+            "telegraf": "^3.38.0"
+          }
+        }
+        ```
+
+    1. Indicate the following:
+        * Runtime environment: `node12js`.
+        * Entry point: `index.handler`.
+        * Timeout: `5 seconds`.
+
+    1. Add the `BOT_TOKEN` variable to the environment. In the **Value** field, specify the Telegram bot token.
+
+    1. Click **Create version**.
+
+    1. Make sure that the function is [public](../functions/operations/function-public.md#public). To do this, go to the **Overview** page and, under **General information**, switch the **Public function** option to on.
+
+    Save your function ID as you will need it in the subsequent steps.
+
+{% endlist %}
+
+## Configure a link between the function and the Telegram bot {#function-bind-bot}
+
+1. In the [management console]({{ link-console-main }}), select a folder.
+
+1. Open **{{ api-gw-name }}**.
+
+1. Select the `for-serverless-hello-telegram-bot` API gateway.
+
+1. Edit the API gateway specification by appending the `fshtb-function` block at the end. Use the `function_id` field to specify the `fshtb-function` function ID.
+
+    ```yml
+      /fshtb-function:
+        post:
+          x-yc-apigateway-integration:
+            type: cloud-functions
+            function_id: <function ID>
+          operationId: fshtb-function
+    ```
+
+1. Click **Save**.
+
+1. Run the query:
+
+    ```bash
+    curl --request POST --url https://api.telegram.org/bot<bot token>/setWebhook \
+    --header 'content-type: application/json' --data '{"url": "<API gateway domain>/fshtb-function"}'
+    ```
+    * `<bot token>`: Telegram bot token.
+    * `<API gateway domain>`: API gateway's service domain.
+
+    Result:
+
+    ```
+    {"ok":true,"result":true,"description":"Webhook was set"}
+    ```
+
+## Check that the Telegram bot work {#test}
+
+Talk to the bot:
+
+1. Open Telegram and find the bot.
+
+1. Send the message `/start` in the chat.
+
+    The bot must respond with:
+
+    ```text
+    Hello.
+    My name Serverless Hello Teleram Bot
+    I'm working on Cloud Function in the Yandex.Cloud.
+    ```
+
+1. Send the message `/help` in the chat.
+
+    The bot must respond with:
+
+    ```text
+    Hello, <username>.
+    I can say Hello and nothing more
+    ```
+
+1. Send any text message in the chat. The bot should respond with an image and `Hello, <username>`.
+
