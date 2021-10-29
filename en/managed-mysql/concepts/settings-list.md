@@ -32,3 +32,4 @@ These settings apply at the individual user level.
 
 {% include [mmy-dbms-user-settings](../../_includes/mdb/mmy-dbms-user-settings.md) %}
 
+For information about managing user permissions to access DB objects, see [{#T}](user-rights.md).

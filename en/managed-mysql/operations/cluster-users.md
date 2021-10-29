@@ -1,12 +1,8 @@
 # Managing {{ MY }} users
 
-You can add and remove users, as well as manage their individual settings.
+You can add and remove users, as well as manage their settings.
 
-{% note warning %}
-
-You can use SQL commands to assign privileges to users, but you can't use them to add or change users. For more information, see [{#T}](grant.md).
-
-{% endnote %}
+{% include [mmy-no-sql-user-rights](../../_includes/mdb/mmy-no-sql-user-rights.md) %}
 
 ## Getting a list of users {#list-users}
 
@@ -48,7 +44,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
       1. Select the database from the drop-down list.
       1. Repeat the previous two steps until all the required databases are selected.
       1. To delete a database added by mistake, hover over the row with the database name and click ![image](../../_assets/cross.svg) at the end of the line.
-  1. Set up [user roles](grant.md#db-roles) for each of the selected databases:
+  1. Set up [user roles](../concepts/user-rights.md#db-roles) for each of the selected databases:
       1. Click ![image](../../_assets/plus-sign.svg) in the **Roles** column.
       1. Select the role you want to add to the user from the drop-down list.
       1. Repeat the previous two steps until all the required roles are added.
@@ -179,7 +175,11 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
 ## Changing user settings {#update-settings}
 
-To change a list of databases available to the user and the database access level, follow the [instructions on changing a list of roles](grant.md#grant-role).
+{% note tip %}
+
+To change the user's permissions to access certain databases, follow the [instructions](grant.md#grant-role).
+
+{% endnote %}
 
 {% list tabs %}
 

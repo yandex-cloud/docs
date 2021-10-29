@@ -51,6 +51,8 @@ items:
         href: concepts/replication.md
       - name: MySQL settings
         href: concepts/settings-list.md
+      - name: User permissions
+        href: concepts/user-rights.md
   - name: Access management
     href: security/index.md
   - name: Resources and quotas
