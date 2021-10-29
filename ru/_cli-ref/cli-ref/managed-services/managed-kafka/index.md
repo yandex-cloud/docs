@@ -20,6 +20,7 @@ Aliases:
 	- [yc managed-kafka cluster delete](cluster/delete.md) — Delete the specified Kafka cluster
 	- [yc managed-kafka cluster list-operations](cluster/list-operations.md) — List operations for the specified Kafka cluster
 	- [yc managed-kafka cluster list-hosts](cluster/list-hosts.md) — List hosts for a cluster.
+	- [yc managed-kafka cluster list-logs](cluster/list-logs.md) — Retrieve logs for a Kafka cluster.
 	- [yc managed-kafka cluster start](cluster/start.md) — Start the specified Kafka cluster
 	- [yc managed-kafka cluster stop](cluster/stop.md) — Stop the specified Kafka cluster
 	- [yc managed-kafka cluster create](cluster/create.md) — Create Kafka cluster

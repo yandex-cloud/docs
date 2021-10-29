@@ -36,3 +36,16 @@ The listener can accept HTTP traffic on port 80 and redirect traffic to HTTPS po
 
 If an HTTPS listener is used, make sure to specify a [certificate](../../certificate-manager/concepts/imported-certificate.md) from {{ certificate-manager-name }} to be used for TLS termination.
 
+## Logging {#logging}
+
+When creating a load balancer, a log group is created for it in {{ cloud-logs-full-name }}. This log group is used to write messages about incoming requests. You can view the logs in the management console.
+
+You can set up log processing using {{ sf-full-name }}. To do this, create a [trigger for {{ cloud-logs-name }}](../../functions/concepts/trigger/cloudlogs-trigger.md) with the log group ID and the [function](../../functions/concepts/function.md) to be called by the trigger and including the message processing logic.
+
+{% note warning %}
+
+Currently, to get the load balancer's log group ID and [create a trigger](../../functions/operations/trigger/cloudlogs-trigger-create.md) with this ID, you can only use the [CLI](../../cli/index.yaml) or the API from {{ yandex-cloud }}.
+
+{% endnote %}
+
+For an example of log processing, see the use case [{#T}](../solutions/logging.md).

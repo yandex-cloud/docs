@@ -75,6 +75,8 @@ items:
         href: tools/k8s-ingress-controller.md
   - name: Управление доступом
     href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -211,6 +213,4 @@ items:
                 href: api-ref/VirtualHost/updateRoute.md
   - name: Справочник логов
     href: logs-ref.md
-  - name: Правила тарификации
-    href: pricing.md
 base: ru/application-load-balancer

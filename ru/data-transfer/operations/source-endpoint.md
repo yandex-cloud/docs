@@ -16,8 +16,8 @@
     1. В поле **Тип базы данных** выберите тип источника, из которого вы хотите передавать данные.
     1. Задайте параметры эндпоинта:
 
-        * [Apache Kafka<sup>®</sup>](#settings-kafka).
         * [{#T}](#settings-clickhouse).
+        * [Apache Kafka<sup>®</sup>](#settings-kafka).
         * [{#T}](#settings-mongodb).
         * [{#T}](#settings-mysql).
         * [{#T}](#settings-postgresql).
@@ -37,6 +37,7 @@
     1. На вкладке **Эндпоинты** выберите эндпоинт и нажмите кнопку ![pencil](../../_assets/pencil.svg) **Редактировать** на панели сверху.
     1. Отредактируйте параметры эндпоинта:
 
+        * [{#T}](#settings-clickhouse).
         * [Apache Kafka<sup>®</sup>](#settings-kafka).
         * [{#T}](#settings-mongodb).
         * [{#T}](#settings-mysql).
@@ -53,16 +54,6 @@
 
 ## Параметры эндпоинтов {#endpoint-settings}
 
-### Apache Kafka® {#settings-kafka}
-
-* **Подключение** — выбор типа подключения к топику:
-
-    {% include [kafka connection necessary settings](../../_includes/data-transfer/kf-connection-necessary-settings.md) %}
-
-* Дополнительные настройки:
-
-    {% include [additional settings for transfer](../../_includes/data-transfer/kf-yds-additional-settings.md) %}
-
 ### {{ CH }} {#settings-clickhouse}
 
 * **Настройки подключения** — выбор типа подключения к БД:
@@ -73,6 +64,16 @@
 
     * **Белый список таблиц**. Будут передаваться данные только таблиц из этого списка. Задается с помощью регулярных выражений.
     * **Черный список таблиц**. Данные из таблиц черного списка передаваться не будут. Задается с помощью регулярных выражений.
+
+### {{ KF }} {#settings-kafka}
+
+* **Подключение** — выбор типа подключения к топику:
+
+  {% include [kafka connection necessary settings](../../_includes/data-transfer/kf-connection-necessary-settings.md) %}
+
+* Дополнительные настройки:
+
+  {% include [additional settings for transfer](../../_includes/data-transfer/kf-yds-additional-settings.md) %}
 
 ### {{ MG }} {#settings-mongodb}
 

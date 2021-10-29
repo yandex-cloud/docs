@@ -24,6 +24,9 @@ Aliases:
 |`--jar-file-uris`|<b>`value[,value]`</b><br/> JAR file URIs|
 |`--file-uris`|<b>`value[,value]`</b><br/> File URIs|
 |`--archive-uris`|<b>`value[,value]`</b><br/> Archive URIs|
+|`--packages`|<b>`value[,value]`</b><br/> Packages|
+|`--repositories`|<b>`value[,value]`</b><br/> Repositories|
+|`--exclude-packages`|<b>`value[,value]`</b><br/> Packages to exclude|
 |`--properties`|<b>`stringToString`</b><br/> Properties|
 |`--args`|<b>`value[,value]`</b><br/> Arguments|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

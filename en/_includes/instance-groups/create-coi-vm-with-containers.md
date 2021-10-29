@@ -1,6 +1,8 @@
+# Creating an instance group from a {{ coi }} with multiple Docker containers
+
 You can create an instance group built on a [{{ coi }}](../../cos/concepts/index.md) with multiple Docker containers inside.
 
-Docker containers are created based on the [Docker Compose specification](../../cos/concepts/index.md#compose-spec).
+Docker containers are created based on the [Docker Compose specification](../../cos/concepts/index.md#compose-spec).
 
 {% include [warning.md](warning.md) %}
 
@@ -17,6 +19,7 @@ Docker containers are created based on the [Docker Compose specification](../../
    {% list tabs %}
 
    - Management console
+
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
      1. Go to the **Service accounts** tab.
      1. Click **Create service account**.
@@ -60,8 +63,9 @@ Docker containers are created based on the [Docker Compose specification](../../
    {% list tabs %}
 
    - Management console
+
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
-     1. Select **Virtual Private Cloud**.
+     1. Select **{{ vpc-name }}**.
      1. Click **Create network**.
      1. Enter the network name `yc-auto-network`.
      1. Select the additional option **Create subnets**.
@@ -112,37 +116,7 @@ Docker containers are created based on the [Docker Compose specification](../../
 
 ## Create an instance group from a {{ coi }} with multiple Docker containers {#create}
 
-1. Find out the ID of the latest version of the [public](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
-
-   The {{ coi }} in the [{{ container-registry-name }}](../../container-registry/) can be updated and changed according to releases. In this case, the image on a VM isn't updated to the latest version automatically. To create an instance group with the latest {{ coi }} version, you need to check whether it's available yourself:
-
-   {% list tabs %}
-
-   - CLI
-
-     ```bash
-     yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
-     ```
-
-     Command execution result:
-
-     ```bash
-     id: fd8iv792kirahcnqnt0q
-     folder_id: standard-images
-     created_at: "2021-01-29T13:30:22Z"
-     name: container-optimized-image-1611926453
-     description: Build by Assembly-Workshop-build-66870
-     family: container-optimized-image
-     storage_size: "6157238272"
-     min_disk_size: "10737418240"
-     product_ids:
-     - f2elj2f52bbqe4af8tfd
-     status: READY
-     os:
-       type: LINUX
-     ```
-
-   {% endlist %}
+1. {% include [get-latest-coi](../container-registry/get-latest-coi.md) %}
 
 1. Save the specification of the instance group with the {{ coi }} and multiple Docker containers to a file named `specification.yaml`:
 
@@ -185,7 +159,7 @@ Docker containers are created based on the [Docker Compose specification](../../
             image: "redis"
             restart: always
       ssh-keys: | # Parameter for sending an SSH key to the VM.
-         yc-user:ssh-rsa ABC...d01 user@desktop.ru # Username for the VM connection.
+        yc-user:ssh-rsa ABC...d01 user@desktop.ru # Username for the VM connection.
    deploy_policy: # Deployment policy for instances in the group.
      max_unavailable: 1
      max_expansion: 0
@@ -238,6 +212,7 @@ Docker containers are created based on the [Docker Compose specification](../../
    {% list tabs %}
 
    - Management console
+
      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
      1. Select **Compute Cloud**.
      1. Go to **Instance groups**.
@@ -268,7 +243,7 @@ Docker containers are created based on the [Docker Compose specification](../../
 
 ## Test the instance group based on the {{ coi }} with multiple Docker containers {#check}
 
-1. Connect to one of the instances via [SSH](../../compute/operations/vm-connect/ssh#vm-connect):
+1. Connect to one of the instances via [SSH](../../compute/operations/vm-connect/ssh.md#vm-connect):
 
    {% list tabs %}
 
@@ -310,4 +285,3 @@ Docker containers are created based on the [Docker Compose specification](../../
      ```
 
    {% endlist %}
-

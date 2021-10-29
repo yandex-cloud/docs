@@ -20,6 +20,8 @@ Aliases:
 - [yc ydb database backup](backup.md) — Backup YDB database.
 - [yc ydb database restore](restore.md) — Restore backup.
 - [yc ydb database update](update.md) — Update the specified YDB database.
+- [yc ydb database stop](stop.md) — Stop the specified YDB database.
+- [yc ydb database start](start.md) — Start the specified YDB database.
 - [yc ydb database delete](delete.md) — Delete the specified YDB database.
 
 #### Flags

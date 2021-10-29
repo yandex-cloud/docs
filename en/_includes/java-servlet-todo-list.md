@@ -1,6 +1,6 @@
 In this use case, you'll learn how to use serverless technologies and the Java Servlet API to create a simple web application for managing a task list.
 
-## Prepare the {#prepare} environment
+## Prepare the environment {#prepare}
 
 1. [Download](https://storage.yandexcloud.net/doc-files/servlet.zip) the archive with project files.
 
@@ -22,7 +22,7 @@ In this use case, you'll learn how to use serverless technologies and the Java S
 
 ## Create a database {#create-db}
 
-1. Create a database with the [serverless](../ydb/concepts/serverless_and_dedicated#serverless) configuration:
+1. Create a database in [Serverless mode](../ydb/concepts/serverless_and_dedicated#serverless):
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
     1. Select **{{ ydb-name }}**.
     1. Click **Create database**.
@@ -93,13 +93,13 @@ Create a [function](../functions/concepts/function.md) for each servlet:
   1. Enter the name `add-task` and a function description.
   1. Click **Create**.
   1. Go to **Editor** and create a version of the function with the following parameters:
-      - Runtime environment: `java11`.
-      - Timeout: 5 sec.
-      - RAM: 128 MB.
-      - Service account: Specify the account created at [this](#prepare) step.
+      * Runtime environment: `java11`.
+      * Timeout: 5 sec.
+      * RAM: 128 MB.
+      * Service account: Specify the account created at [this](#prepare) step.
   1. Add environment variables:
-      - `DATABASE`: The value of the **Database** field for your database.
-      - `ENDPOINT`: The value of the **Endpoint** field for your database.
+      * `DATABASE`: The value of the **Database** field for your database.
+      * `ENDPOINT`: The value of the **Endpoint** field for your database.
   1. In the **Entry point** field, enter `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
   1. Prepare the function code. To do this, in the **Method** field, select **ZIP archive** and specify the path to the `servlet.zip` file.
   1. Click **Create version**.
@@ -114,7 +114,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
       yc serverless function create --name=add-task
       ```
 
-      Command output:
+      Command execution result:
 
       ```bash
       id: d4ejb1799eko6re4omb1
@@ -140,15 +140,15 @@ Create a [function](../functions/concepts/function.md) for each servlet:
       ```
 
       Parameters:
-      - `function-name`: The name of the function you want to create a version of.
-      - `runtime`: The runtime environment.
-      - `entrypoint`: The entry point specified in the <function file name>.<handler name> format.
-      - `memory`: The amount of RAM.
-      - `execution-timeout`: The maximum function execution time before the timeout is reached.
-      - `source-path`: A ZIP archive with the function code and required dependencies.
-      - `environment`: Environment variables in key=value format.
+      * `function-name`: The name of the function you want to create a version of.
+      * `runtime`: The runtime environment.
+      * `entrypoint`: The entry point specified in the \<function file name>.\<handler name> format.
+      * `memory`: The amount of RAM.
+      * `execution-timeout`: The maximum function execution time before the timeout is reached.
+      * `source-path`: A ZIP archive with the function code and required dependencies.
+      * `environment`: Environment variables in key=value format.
 
-      Command output:
+      Command execution result:
 
       ```bash
       done (1s)
@@ -226,16 +226,16 @@ Create a [function](../functions/concepts/function.md) for each servlet:
               delete:
                 x-yc-apigateway-integration:
                   type: cloud-functions
-                  function_id:
+                  function_id: <delete-task ID>
                 operationId: deleteTask
           ```
 
           Parameters:
-          - `<bucket>`: The name of the bucket containing `index.html`.
-          - `<service account>`: The ID of the service account created at [this](#prepare) step.
-          - `<add-task ID>`: The ID of the `add-task` function.
-          - `<list-tasks ID>`: The ID of the `list-tasks` function.
-          - `<delete-task ID>`: The ID of the `delete-task` function.
+          * `<bucket>`: The name of the bucket containing `index.html`.
+          * `<service account>`: The ID of the service account created at [this](#prepare) step.
+          * `<add-task ID>`: The ID of the `add-task` function.
+          * `<list-tasks ID>`: The ID of the `list-tasks` function.
+          * `<delete-task ID>`: The ID of the `delete-task` function.
 
       1. Click **Create**.
 
@@ -274,16 +274,16 @@ Create a [function](../functions/concepts/function.md) for each servlet:
               delete:
                 x-yc-apigateway-integration:
                   type: cloud-functions
-                  function_id:
+                  function_id: <delete-task ID>
                 operationId: deleteTask
           ```
 
           Parameters:
-          - `<bucket>`: The name of the bucket containing `index.html`.
-          - `<service account>`: The ID of the service account created at [this](#prepare) step.
-          - `<add-task ID>`: The ID of the `add-task` function.
-          - `<list-tasks ID>`: The ID of the `list-tasks` function.
-          - `<delete-task ID>`: The ID of the `delete-task` function.
+          * `<bucket>`: The name of the bucket containing `index.html`.
+          * `<service account>`: The ID of the service account created at [this](#prepare) step.
+          * `<add-task ID>`: The ID of the `add-task` function.
+          * `<list-tasks ID>`: The ID of the `list-tasks` function.
+          * `<delete-task ID>`: The ID of the `delete-task` function.
 
       1. Create an API gateway:
 
@@ -294,7 +294,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
           --description "simple todo list"
           ```
 
-          Command output:
+          Command execution result:
 
           ```bash
           done (41s)

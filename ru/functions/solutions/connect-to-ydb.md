@@ -1,1 +1,1 @@
-{% include [connect-from-cf](../../ydb/solutions/connect-from-cf.md) %}
+{% include [connect-from-cf](../../_includes/solutions/connect-from-cf.md) %}

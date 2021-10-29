@@ -23,6 +23,8 @@ items:
     items:
       - name: Deploying a web application
         href: solutions/java-servlet-todo-list.md
+      - name: Developing a skill for Alice and a website with authorization
+        href: solutions/alice-shareable-todolist.md
       - name: Developing a Slack bot
         href: solutions/slack-bot-serverless.md
   - name: Concepts

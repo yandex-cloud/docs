@@ -42,6 +42,7 @@ Syntax:
 |`--max-unavailable`|<b>`int`</b><br/> Number of nodes that can be unavailable at the same time on each update of the node group. Must be used in conjunction with --max-expansion flag.|
 |`--network-interface`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Update network interfaces for the node group.  Possible property names:  subnets Specifies the subnets for the interface, subnets=[id1,id2],subnets=id3It is expected, that there is one subnet for each node group location zone.Can use either names or subnet ids, or both.  ipv4-address Use 'auto' to assigns internal IPv4 address to the interface.Use 'nat' to use One-to-One NAT on the interface.  ipv6-address Use 'auto' to assigns internal IPv6 address to the interface.Use 'nat' to use One-to-One NAT on the interface.  security-group-ids Security groups for the network interface, security-group-ids=[id1,id2],security-group-ids=id3  |
 |`--network-acceleration-type`|<b>`string`</b><br/> Type of a network acceleration for nodes. Values: 'standard', 'software-accelerated'|
+|`--container-runtime`|<b>`string`</b><br/> Type of a container runtime settings for nodes. Values: 'docker', 'containerd'|
 
 #### Flags
 

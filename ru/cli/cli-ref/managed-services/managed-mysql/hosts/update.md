@@ -16,6 +16,8 @@ Syntax:
 |`--cluster-name`|<b>`string`</b><br/>MySQL cluster name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--replication-source`|<b>`string`</b><br/>Host name of the host to be used as the replication source (for cascading replication).|
+|`--assign-public-ip`|Whether the host should get a public IP address.|
+|`--backup-priority`|<b>`int`</b><br/>Priority of the host as a backup source.|
 
 #### Flags
 

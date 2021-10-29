@@ -27,7 +27,7 @@ Before deploying virtual hosting, sign up for {{ yandex-cloud }} and create a bi
 
 {% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in from the [Yandex.Cloud page]({{ link-console-cloud }}). Make sure that you do all the actions under the use case in this folder.
+If you have an active billing account, you can go to the [cloud page](https://console.cloud.yandex.com/cloud) to create or select a folder to run your load balancer. Make sure that you do all the actions under the use case in this folder.
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -47,6 +47,7 @@ To create a network:
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
     1. Click **Create network**.
     1. Specify the **Network** name: `vhosting-network`.
@@ -64,6 +65,7 @@ To reserve an address:
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
     1. Go to the **IP addresses** tab. Click **Reserve address**.
     1. In the window that opens, select the `ru-central1-c` availability zone. Click **Reserve**.
@@ -121,7 +123,7 @@ To create security groups:
 
   1. In the same way, create a security group for the VM named `vhosting-sg-vms` with the same `vhosting-network` network and the following rules:
 
-     | Traffic<br/>direction | Description | Port<br/>range | Protocol | Source/<br/>destination type | Source /<br/>destination |
+     | Traffic<br/>direction | Description | Port<br/>range | Protocol | Origin type | Source |
      | --- | --- | --- | --- | --- | --- |
      | Incoming | balancer | 80 | TCP | Security group | `vhosting-sg-balancer` |
      | Incoming | ssh | 22 | TCP | CIDR | 0.0.0.0/0 |
@@ -139,6 +141,7 @@ To import an existing certificate for `site-a.com`:
 {% list tabs %}
 
 - Management console
+
   1. In the [management console]({{ link-console-main }}), open **{{ certificate-manager-name }}**.
   1. Click **Add certificate** and select **User certificate**.
   1. Enter the **Name** for the certificate: `vhosting-cert-a`.
@@ -153,7 +156,7 @@ In the same way, import certificates for `site-b.com` and `default.com`, naming 
 
 ## Create instance groups for the sites {#create-vms}
 
- {{ compute-name }} virtual machines will act as web servers for the two sites: one [group](../../compute/concepts/instance-groups/index.md) of multiple identical VMs for each site. In this use case, the servers will be deployed on the LEMP stack (Linux, nginx, MySQL, PHP; for more information, see the use case [{#T}](../../solutions/web/lamp-lemp.md)).
+{{ compute-name }} virtual machines will act as web servers for the two sites: one [group](../../compute/concepts/instance-groups/index.md) of multiple identical VMs for each site. In this use case, the servers will be deployed on the LEMP stack (Linux, nginx, MySQL, PHP; for more information, see the use case [{#T}](../../solutions/web/lamp-lemp.md)).
 
 To create an instance group for `site-a.com`:
 
@@ -211,11 +214,11 @@ To create an instance group for `site-a.com`:
 
   1. Click **Create**.
 
-  That same way, create a second instance group named `vhosting-ig-b` and a target group named `vhosting-tg-b` for `site-b.com`.
-
 {% endlist %}
 
-It may take several minutes to create an instance group. When the group is assigned the [status](../../compute/concepts/instance-groups/statuses.md#group-statuses) `RUNNING`, and all its VMs have the [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses) `RUNNING_ACTUAL`, you can [upload the site files to them](#upload-sites-files).
+That same way, create a second instance group named `vhosting-ig-b` and a target group named `vhosting-tg-b` for `site-b.com`.
+
+It may take several minutes to create an instance group. When the group is assigned the [status](../../compute/concepts/instance-groups/statuses.md#group-statuses) `RUNNING`, and all its VMs have the [status](../../compute/concepts/instance-groups/statuses.md#vm-statuses) `RUNNING_ACTUAL`, you can [upload the site files to them](#upload-files).
 
 ![ig-running](../../_assets/application-load-balancer/solutions/virtual-hosting/ig-running.png)
 
@@ -257,7 +260,7 @@ To check that your web servers are running properly, upload to the VMs two diffe
 
 To upload a file to a VM:
 
-{% include [upload-files](../../solutions/_solutions_includes/upload-web-site-files.md) %}
+{% include [upload-files](../../_includes/tutorials/includes/upload-web-site-files.md) %}
 
 Repeat these steps for the files you want to upload to each VM in the `vhosting-ig-a` and `vhosting-ig-b` groups.
 
@@ -294,6 +297,7 @@ To create an HTTP router for `site-a.com`:
 {% list tabs %}
 
 - Management console
+
   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
   1. Open the **HTTP routers** tab. Click **Create HTTP router**.
   1. Enter the **Name** of the HTTP router: `vhosting-router-a`.

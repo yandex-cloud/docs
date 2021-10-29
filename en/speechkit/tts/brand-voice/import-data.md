@@ -26,7 +26,8 @@ The input data is validated using the [{{ ml-platform-full-name }}](../../../dat
                     --audio-archive <archive name>.zip \
                     --texts <name of file with texts>.tsv \ 
                     --report-path <name of file with error details>.tsv \ 
-                    --summary-path <name of file with results>.txt
+                    --summary-path <name of file with results>.txt \
+                    --language ru
    ```
 
 1. After the cell is executed, the data validation result is written to the files specified in the `--summary-path` and `--report-path` parameters.
