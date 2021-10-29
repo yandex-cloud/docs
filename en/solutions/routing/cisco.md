@@ -33,7 +33,7 @@ The cost of using a virtual router includes:
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, like `cisco-router`.
 1. Select the [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
-1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the [Cloud Hosted Router]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2etgh9qd7e7h47jrvr4){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2etgh9qd7e7h47jrvr4){% endif %} image.
+1. Under **Images from {{ marketplace-name }}**, click **Select** and choose the [Cisco CSR]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2ekdh4u43pemrn7ig3q){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2ekdh4u43pemrn7ig3q){% endif %} image.
 1. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
 
