@@ -99,7 +99,7 @@ items:
             href: operations/vm-operate/install-nvidia-drivers.md
           - name: Восстановить доступ к ВМ
             href: operations/vm-connect/recovery-access.md
-      - name: Создание нового диска
+      - name: Создание диска
         items:
           - name: Создать пустой диcк
             href: operations/disk-create/empty.md
@@ -123,12 +123,18 @@ items:
             href: operations/disk-placement-groups/create.md
           - name: Удалить диск из группы размещения
             href: operations/disk-placement-groups/remove-disk.md
-      - name: Создание нового образа
+      - name: Создание образа
         items:
           - name: Подготовить образ диска
             href: operations/image-create/custom-image.md
           - name: Загрузить свой образ
             href: operations/image-create/upload.md
+          - name: Создать образ из диска
+            href: operations/image-create/create-from-disk.md
+          - name: Создать образ из снимка диска
+            href: operations/image-create/create-from-snapshot.md
+          - name: Создать образ из другого пользовательского образа
+            href: operations/image-create/create-from-image.md
       - name: Управление образом
         items:
           - name: Удалить образ

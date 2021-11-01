@@ -95,6 +95,8 @@ items:
             href: operations/connection/create-oracle.md
           - name: Создание подключения к Yandex Database
             href: operations/connection/create-ydb.md
+          - name: Создание подключения к Greenplum
+            href: operations/connection/create-greenplum.md
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
           - name: Создание подключения к Metrica Logs API
@@ -105,8 +107,6 @@ items:
             href: operations/connection/create-appmetrica-logs-api.md
           - name: Создание подключения к Yandex Cloud Billing
             href: operations/connection/create-cloud-billing.md
-          - name: Создание подключения к Greenplum
-            href: operations/connection/create-greenplum.md
           - name: Управление доступом к подключению
             href: operations/connection/manage-access.md
       - name: Работа с датасетами

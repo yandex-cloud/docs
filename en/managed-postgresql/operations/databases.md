@@ -41,8 +41,6 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
 - Management console
 
-  To create a database:
-
   1. Go to the folder page and select **{{ mpg-name }}**.
 
   1. Click on the name of the cluster you need.
@@ -53,7 +51,9 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
   1. Click **Add**.
 
-  1. Enter the database name, select its owner, and specify the required collation locale and character set.
+  1. Name the database, select its owner, and specify the required collation locale and character set.
+
+      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
       {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
@@ -80,19 +80,54 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
 
      If the required user is not in the list, [create it](cluster-users.md#adduser).
 
-  1. Run the create database command. If needed, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
+  1. Run the create database command. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
 
      ```
      $ {{ yc-mdb-pg }} database create <database name>
           --cluster-name <cluster name>
           --owner <username of the DB owner>
-          --lc-collate ru_RU.UTF-8
-          --lc-type ru_RU.UTF-8
+          --lc-collate <locale for sorting>
+          --lc-type <character set locale>
      ```
+
+     {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
      {{ mpg-short-name }} runs the create database operation.
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- Terraform
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. Add a `database` block to the {{ mpg-name }} cluster description. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
+          ...
+          database {
+            name       = "<DB name>"
+            owner      = "<DB owner username: must be specified under user>"
+            lc_collate = "<locale for sorting>"
+            lc_type    = "<character set locale>"
+            ...
+          }
+        }
+        ```
+
+        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -123,6 +158,24 @@ You can create an unlimited number of databases in each {{ mpg-name }} cluster.
   ```
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
+
+- Terraform
+
+  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+     For information about how to create this file, see [{#T}](cluster-create.md).
+
+  1. Delete the `database` block with the DB name from the {{ mpg-name }} cluster description.
+
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm the update of resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [{{ TF }} documentation]({{ tf-provider-mpg }}).
 
 - API
 
