@@ -12,7 +12,6 @@ items:
           - name: Работа с заданиями Hive
             href: solutions/hive-job-basics.md
           - name: Работа с заданиями MapReduce
-            when: audience == "draft"
             href: solutions/mapreduce-job-basics.md
           - name: Работа с заданиями PySpark
             href: solutions/pyspark-job-basics.md
