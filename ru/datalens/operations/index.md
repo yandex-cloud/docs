@@ -28,8 +28,8 @@
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
 - [{#T}](dataset/materialize.md)
-- [{#T}](dataset/manage-row-level-security.md)
 {% if audience != "internal" %} - [{#T}](dataset/manage-access.md) {% endif %}
+- [{#T}](dataset/manage-row-level-security.md)
 
 ## Создание и настройка чартов {#creating-and-configuring-charts}
 
@@ -45,6 +45,7 @@
 - [{#T}](chart/create-pivot-table.md)
 - [{#T}](chart/create-indicator-chart.md)
 - [{#T}](chart/create-tree-chart.md)
+- [{#T}](chart/create-sql-chart.md)
 - [{#T}](chart/add-hierarchy.md)
 {% if audience == "internal" %} - [{#T}](chart/create-alert.md){% endif %}
 {% if audience != "internal" %} - [{#T}](chart/publish.md) {% endif %}
@@ -55,7 +56,7 @@
 - [{#T}](dashboard/create.md)
 - [{#T}](dashboard/add-chart.md)
 - [{#T}](dashboard/add-selector.md)
-{% if audience != "internal" %} - [{#T}](dashboard/publish.md) {% endif %}
 - [{#T}](dashboard/create-alias.md)
 - [{#T}](dashboard/edit-alias.md)
+{% if audience != "internal" %} - [{#T}](dashboard/publish.md) {% endif %}
 - [{#T}](dashboard/manage-access.md)
