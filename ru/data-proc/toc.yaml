@@ -15,11 +15,10 @@ items:
             href: solutions/mapreduce-job-basics.md
           - name: Работа с заданиями PySpark
             href: solutions/pyspark-job-basics.md
-          - name: Использование Apache Hive
-            href: solutions/how-to-use-hive.md
           - name: Работа с заданиями Spark
-            when: audience == "draft"
             href: solutions/spark-job-basics.md
+          - name: Использование Apache Hive
+            href: solutions/how-to-use-hive.md            
           - name: Запуск Spark-приложений
             href: solutions/run-spark-job.md
           - name: Запуск приложений с удаленного хоста
