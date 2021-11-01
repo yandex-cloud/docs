@@ -72,6 +72,8 @@ items:
         href: tutorials/profiling.md
       - name: Миграция базы данных в Managed Service for MySQL
         href: tutorials/data-migration.md
+      - name: Миграция базы данных из {{ mmy-name }} в {{ MY }}
+        href: tutorials/mmy-to-mysql-migration.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
