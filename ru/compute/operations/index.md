@@ -61,7 +61,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
 
-## Создание нового диска {#disk-create}
+## Создание диска {#disk-create}
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
@@ -78,10 +78,13 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](disk-placement-groups/create.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
 
-## Создание нового образа {#image-create}
+## Создание образа {#image-create}
 
 * [{#T}](image-create/custom-image.md)
 * [{#T}](image-create/upload.md)
+* [{#T}](image-create/create-from-disk.md)
+* [{#T}](image-create/create-from-snapshot.md)
+* [{#T}](image-create/create-from-image.md)
 
 ## Управление образом {#image-control}
 
