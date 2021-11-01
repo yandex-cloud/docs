@@ -28,6 +28,12 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
+- API
+
+  Воспользуйтесь методом API [list](../api-ref/Database/list.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+
+  {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+
 {% endlist %}
 
 ## Создать базу данных {#add-db}
@@ -108,6 +114,15 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
 
+- API
+
+  Воспользуйтесь методом API [create](../api-ref/Database/create.md) и передайте в запросе:
+
+  * Идентификатор кластера, в котором вы хотите создать базу данных, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Имя базы данных в параметре `databaseSpec.name`.
+
+      {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
 {% endlist %}
 
 ## Удалить базу данных {#remove-db}
@@ -153,6 +168,13 @@
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmy }}).
+
+- API
+
+  Воспользуйтесь методом API [delete](../api-ref/Database/delete.md) и передайте в запросе:
+
+  * Идентификатор кластера, в котором находится база данных, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Имя базы данных в параметре `databaseName`. Чтобы узнать имя базы данных, [получите список баз данных в кластере](#list-db).
 
 {% endlist %}
 
@@ -226,7 +248,14 @@
 
 - API
 
-  Передайте массив `sqlMode` в новой конфигурации {{ MY }} с помощью запроса [update](../api-ref/Cluster/update.md).
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md).
+    * Массив с новой конфигурацией {{ MY }} в параметре:
+        * `configSpec.mysqlConfig_5_7.sqlMode` для {{ MY }} версии 5.7.
+        * `configSpec.mysqlConfig_8_0.sqlMode` для {{ MY }} версии 8.0.
+
+    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
