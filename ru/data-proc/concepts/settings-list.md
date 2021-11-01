@@ -47,6 +47,20 @@ spark:spark.driver.cores : 1
  * `dataproc:min-free-memory-to-enqueue-new-job` — минимальное количество свободной памяти для запуска задания (в байтах). Значение по умолчанию — `1073741824` (1 ГБ).
  * `dataproc:job-memory-footprint` — количество памяти для запуска задания на `MASTER`-узле кластера, используется для оценки максимального количества заданий в кластере. Значение по умолчанию — `536870912` (512 МБ).
 
+## Настройки Spark для работы с Object Storage {#spark-settings}
+
+Для Apache Spark доступны следующие настройки:
+
+| Настройка                         | Значение по умолчанию                                   | Описание                                                                           |
+|:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| `fs.s3a.access.key`               | —                                                       | Идентификатор [статического ключа](../../iam/concepts/authorization/access-key.md) |
+| `fs.s3a.secret.key`               | —                                                       | Секретный ключ                                                                     |
+| `fs.s3a.endpoint`                 | `storage.yandexcloud.net`                               | Эндпоинт для подключения к {{ objstorage-name }}                                   |
+| `fs.s3a.signing-algorithm`        | Пустое значение                                         | Алгоритм подписи                                                                   |
+| `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Поставщик учетных данных                                                           |
+
+Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
+
 ## Установка пакетов Python {#python-packages-install}
 
 Для установки дополнительных пакетов Python можно использовать пакетные менеджеры conda или pip. Передайте имя пакета в свойствах кластера следующим образом:
