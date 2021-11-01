@@ -22,7 +22,7 @@ Possible values for `scale` parameter:
 - `"region"`;
 - `"locality"`.
 
-To enable the function, go to the [Service Settings](https://datalens.yandex.com/settings) page.
+To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page.
 
 **Argument types:**
 - `address` — `String`
