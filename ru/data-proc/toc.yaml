@@ -10,7 +10,6 @@ items:
           - name: Обзор
             href: solutions/job-overview.md
           - name: Работа с заданиями Hive
-            when: audience == "draft"
             href: solutions/hive-job-basics.md
           - name: Работа с заданиями MapReduce
             when: audience == "draft"

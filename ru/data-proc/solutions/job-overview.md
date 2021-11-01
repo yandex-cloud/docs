@@ -2,9 +2,10 @@
 
 ## Базовые примеры работы с заданиями {#jobs-basic-tutorials}
 
+- [{#T}](hive-job-basics.md)
+
 {% if audience == "draft" %}
 
-- [{#T}](hive-job-basics.md)
 - [{#T}](mapreduce-job-basics.md)
 
 {% endif %}
@@ -18,7 +19,6 @@
 {% endif %}
 
 ## Продвинутые примеры работы с заданиями {#jobs-advanced-tutorials}
-
 
 - [{#T}](how-to-use-hive.md)
 - [{#T}](run-spark-job.md)
