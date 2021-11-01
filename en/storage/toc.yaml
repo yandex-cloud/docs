@@ -125,6 +125,8 @@ items:
           href: tools/aws-sdk-net.md
       - name: FUSE
         items:
+          - name: GeeseFS
+            href: tools/geesefs.md
           - name: s3fs
             href: tools/s3fs.md
           - name: goofys
