@@ -1,10 +1,10 @@
-# Connections
+# Connection
 
-_Connections_ contain information about data source access parameters, like the DB host IP address and port.
+_Connections_ contain information about data source access parameters, such as the DB host IP address and port.
 
 You can create [_datasets_](dataset/index.md) based on connections.
 
-The following types of connections are available in {{ datalens-short-name }}:
+The following connection types are available in {{ datalens-short-name }}:
 
 - **ClickHouse**
 - **PostgreSQL**
@@ -13,11 +13,13 @@ The following types of connections are available in {{ datalens-short-name }}:
 - **Google Sheets**
 - **MS SQL Server**
 - **Oracle Database**
-- **Metrica** (in direct or Logs API access mode)
-- **AppMetrica** (in direct or Logs API access mode)
+- **Yandex Database**
+- **Greenplum**
+- **Metrica** (directly or via the Logs API)
+- **AppMetrica** (directly or via the Logs API)
 - **Yandex Cloud Billing**
 
-You can add additional types of connections from the list of available ones in the [{{datalens-short-name }} Marketplace](marketplace.md).
+You can add connections from the available list in [{{ datalens-short-name }} Marketplace](marketplace.md).
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
 
@@ -34,7 +36,9 @@ You can configure connection permissions. For more information, see [{#T}](../se
 - [{#T}](../operations/connection/create-postgresql.md)
 - [{#T}](../operations/connection/create-mssql-server.md)
 - [{#T}](../operations/connection/create-oracle.md)
+- [{#T}](../operations/connection/create-ydb.md)
+- [{#T}](../operations/connection/create-greenplum.md)
 - [{#T}](../operations/connection/create-metrica-api.md)
 - [{#T}](../operations/connection/create-metrica-logs-api.md)
 - [{#T}](../operations/connection/create-appmetrica.md)
-{% if audience != "internal" %} - [{#T}](../operations/connection/create-cloud-billing.md) {% endif %}
+- [{#T}](../operations/connection/create-cloud-billing.md)

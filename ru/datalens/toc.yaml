@@ -198,6 +198,8 @@ items:
             href: operations/connection/create-oracle.md
           - name: Создание подключения к Yandex Database
             href: operations/connection/create-ydb.md
+          - name: Создание подключения к Greenplum
+            href: operations/connection/create-greenplum.md
           - name: Создание подключения к ClickHouse over YT
             when: audience == "internal"
             items:
@@ -216,8 +218,6 @@ items:
           - name: Создание подключения к Yandex Cloud Billing
             href: operations/connection/create-cloud-billing.md
             when: audience == "external"
-          - name: Создание подключения к Greenplum
-            href: operations/connection/create-greenplum.md
           - name: Управление доступом к подключению
             when: audience == "external"
             href: operations/connection/manage-access.md
