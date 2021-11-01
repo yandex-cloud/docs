@@ -30,6 +30,91 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
   You can add multiple records at the same time.
 
+- Terraform
+
+  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. In the configuration file, describe the parameters of resources that you want to create: You can add multiple records at the same time.
+
+     `yandex_dns_zone` parameters:
+     * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. Required parameter.
+     * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. Optional.
+     * `name`: Zone name. It must be unique within the folder. Optional.
+     * `description`: Zone description. Optional.
+     * `labels`: A set of DNS zone labels. Optional.
+     * `public`: Zone visibility (public or internal). Optional.
+     * `private_networks`: For a public zone, specify the {{ vpc-name }} resources that this zone is visible to. Optional.
+
+     `yandex_dns_recordset` parameters:
+     * `zone_id`: ID of the zone where the record set will be located. Required parameter.
+     * `name`: Domain name. Required parameter.
+     * `type`: DNS record type. Required parameter.
+     * `ttl`: Record time to live (TTL) in seconds before updating the record value. Optional.
+     * `data`: Record value. Optional.
+
+     ```hcl
+     resource "yandex_vpc_network" "foo" {}
+     
+     resource "yandex_dns_zone" "zone1" {
+       name        = "my-private-zone"
+       description = "desc"
+     
+       labels = {
+         label1 = "label-1-value"
+       }
+     
+       zone             = "example.com."
+       public           = false
+       private_networks = [yandex_vpc_network.foo.id]
+     }
+     
+     resource "yandex_dns_recordset" "rs1" {
+       zone_id = yandex_dns_zone.zone1.id
+       name    = "srv.example.com."
+       type    = "A"
+       ttl     = 200
+       data    = ["10.1.0.1"]
+     }
+     
+     resource "yandex_dns_recordset" "rs2" {
+       zone_id = yandex_dns_zone.zone1.id
+       name    = "srv2"
+       type    = "A"
+       ttl     = 200
+       data    = ["10.1.0.2"]
+     }
+     ```
+
+     For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+
+  1. Run the check using the command:
+
+     ```
+     terraform plan
+     ```
+
+     The terminal will display a list of resources with parameters. This is a test step. No resources are created. If there are errors in the configuration, Terraform points them out.
+
+       {% note alert %}
+
+       You're charged for all resources created using Terraform. Check the plan carefully.
+
+       {% endnote %}
+
+  1. To create resources, run the command:
+
+     ```
+     terraform apply
+     ```
+
+  1. Confirm the resource creation: type `yes` in the terminal and press Enter.
+
+     Terraform creates all the required resources. You can check if the resources have been created in the [management console]({{ link-console-main }}) or using the [CLI](../../cli/quickstart.md) command:
+
+     ```
+     yc dns zone list-records <DNS zone name>
+     ```
+
 {% endlist %}
 
 When creating AAAA resource records, the service automatically normalizes IPv6 addresses by replacing the gaps between `:` with zeros. For example: `2001:db8::` → `2001:db8:0:0:0:0:0:0`.

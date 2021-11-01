@@ -3,6 +3,7 @@
 If your domain is delegated to Yandex.Connect and your services are hosted in {{ yandex-cloud }}, you can transfer domain control to {{ yandex-cloud }} DNS servers and migrate DNS zones to {{ dns-full-name }} for even more convenience. {{ dns-full-name }} is tightly integrated with other {{ yandex-cloud }} services ([such as {{ compute-full-name }}](../concepts/compute-integration.md)).
 
 To migrate DNS zones from Yandex.Connect to {{ dns-full-name }}:
+
 1. [Delegate your domain](#domain-delegate).
 1. [Move its records](#yaconnect-records-move).
 
@@ -80,3 +81,4 @@ Before that, [create a public DNS zone](../operations/zone-create-public.md) for
 {% endlist %}
 
 For more information about the types of resource records supported by the service, see [{#T}](../concepts/resource-record.md).
+

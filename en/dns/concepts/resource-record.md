@@ -26,7 +26,7 @@ You can update record sets by adding or deleting records.
 `A`: Points a domain name to an IPv4 address. For example, requesting the `www.example.com` A record should return an IPv4 address in `xxx.xxx.xxx.xxx` format.
 
 | Name | Type | TTL | Value |
-| -------------- | ----- | ----- | ----------- |
+| ----- | ----- | ----- | ----- |
 | example.com. | A | 600 | 192.0.2.1 |
 
 For more information about A records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.4.1).
@@ -73,7 +73,7 @@ A record consists of the following parts:
 
 | Name | Type | TTL | Value | Description |
 | -------------- | ----- | ----- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| example.com. | CAA | 600 | 128 issue "ca.example.net" | Only the `ca.example.net` certification authority is authorized to issue a certificate for the `example.com` zone  |
+| example.com. | CAA | 600 | 128 issue "ca.example.net" | Only the `ca.example.net` certification authority is authorized to issue a certificate for the `example.com` zone |
 | example.com. | CAA | 600 | 0 issuewild "ca.example.net" | The `ca.example.net` certification authority decides whether to issue certificates for the `example.com` zone and its subzones |
 | example.com. | CAA | 600 | 0 issue ";" | Certification authorities are not authorized to issue certificates for the `example.com` zone |
 | example.com. | CAA | 600 | 0 iodef "mailto:security@example.com" | If any of the conditions described in CAA records is violated, contact the owner of the `example.com` zone at `security@example.com` |
@@ -210,4 +210,3 @@ The {{ dns-name }} service uses [MASTER FILES](https://www.ietf.org/rfc/rfc1035.
 | example.com. | TXT | 600 | "v=DMARC1; p=none; sp=quarantine; pct=100; rua=mailto: dmarcreports@example.com;" |
 
 For more information about TXT records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.14) and [RFC-1464](https://tools.ietf.org/html/rfc1464).
-

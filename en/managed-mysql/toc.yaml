@@ -27,7 +27,7 @@ items:
         href: operations/databases.md
       - name: Managing users
         href: operations/cluster-users.md
-      - name: Assigning privileges and roles
+      - name: Managing user permissions
         href: operations/grant.md
       - name: Managing backups
         href: operations/cluster-backups.md
@@ -63,6 +63,8 @@ items:
         href: concepts/backup.md
       - name: Replication
         href: concepts/replication.md
+      - name: User permissions
+        href: concepts/user-rights.md
       - name: MySQL settings
         href: concepts/settings-list.md
   - name: Use cases

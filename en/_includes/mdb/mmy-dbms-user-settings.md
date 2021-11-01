@@ -6,23 +6,25 @@
 
   To learn more about authentication plugins, see the [documentation for {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/pluggable-authentication.html).
 
-- **Global permissions**{#setting-global-permissions} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+- **Administrative privileges**{#setting-administrative-priveleges} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
-  Server-level user's privileges (global privileges). You can set multiple global privileges for one user. Available privileges:
+  Administrative privileges are [user permissions](../../managed-mysql/concepts/user-rights.md) that apply at the level of the entire DB server.
 
-  - [REPLICATION CLIENT](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-client): Use this global privilege if you want to connect to the replication thread from outside {{ yandex-cloud }}. In this case, grant it to the user under whom the replication client connects to the cluster. This privilege allows you to use the following operators:
-    - [SHOW MASTER STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html): Gives information about the state of master's binary logs.
+  You can grant the following privileges to users:
+
+  - [REPLICATION CLIENT](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-client): Enables the use of statements:
+    - [SHOW MASTER STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html): Gives information about the state of the master's binary logs.
     - [SHOW REPLICA | SLAVE STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-replica-status.html): Gives information about the state of the main parameters of the replication thread.
     - [SHOW BINARY LOGS](https://dev.mysql.com/doc/refman/8.0/en/show-binary-logs.html): Displays a list of binary logs on the server.
 
-  - [REPLICATION SLAVE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-slave): Use this global privilege if you want to connect to the replication thread from outside {{ yandex-cloud }}. In this case, grant it to the user under whom the replication client connects to the cluster. This privilege allows you to use the following operators:
+  - [REPLICATION SLAVE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_replication-slave): Enables connections to the replication thread from outside {{ yandex-cloud }}. Enables use of statements:
     - [SHOW REPLICAS | SHOW SLAVE HOSTS](https://dev.mysql.com/doc/refman/8.0/en/show-replicas.html): Displays a list of currently registered replicas.
     - [SHOW RELAYLOG EVENTS](https://dev.mysql.com/doc/refman/8.0/en/show-relaylog-events.html): Shows events in a replica relay log.
     - [SHOW BINLOG EVENTS](https://dev.mysql.com/doc/refman/8.0/en/show-binlog-events.html): Shows events in a binary log.
 
   - [PROCESS](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process): Gives information about all threads running on the server and enables the use of the [SHOW ENGINE](https://dev.mysql.com/doc/refman/8.0/en/show-engine.html) operator to access [INNODB_ tables](https://dev.mysql.com/doc/refman/8.0/en/innodb-information-schema-system-tables.html).
 
-  By default, not selected (global privileges are not granted to the user).
+  By default, not set (the user has no global privileges). You can grant users multiple privileges.
 
 - **Connection limits**{#setting-connection-limits} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 

@@ -41,11 +41,11 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
 
         * Folder
 
-        * **{{ mpg-name }}**
+        * **{{ mpg-name }}** service
 
         * {{ mpg-name }} cluster ID
 
-            You can find out the [ cluster ID in the list of clusters in the ](../operations/cluster-list.md#list-clusters) folder.
+            You can find out the [ cluster ID in a list of clusters in the ](../operations/cluster-list.md#list-clusters) folder.
 
         * `disk.free_bytes` label
 
@@ -55,15 +55,15 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
 
     1. **Additional settings**:
         * **Aggregation function**: `Minimum` (a metric's minimum value for the period).
-        * **Calculation window**: Desired period to update a metric's value.
+        * **Calculation window**: Desired period of a metric value's update.
 
     1. Add the previously created notification channel.
 
-### Disabling a cluster in read-only mode {#read-only-solutions}
+### Disabling cluster's read-only mode {#read-only-solutions}
 
 If the cluster switched to read-only mode:
 
-* [Increase the storage capacity](../operations/update.md#change-disk-size) to go above the threshold value. After that, {{ yandex-cloud }} disables read-only mode automatically.
+* [Increase storage capacity](../operations/update.md#change-disk-size) to go above the threshold value. After that {{ yandex-cloud }} disables read-only mode automatically.
 
 * Manually disable read-only mode and free up storage space by deleting some of the data.
 
@@ -73,23 +73,25 @@ If the cluster switched to read-only mode:
 
     {% endnote %}
 
-There are two ways to manually disable read-only mode:
+To manually disable read-only mode, contact [technical support]({{ link-console-support }}) or follow the instructions:
 
-1. Contact the [technical support]({{ link-console-support }}).
+1. [Connect to the database](../operations/connect.md) however is convenient.
 
-1. [Connect to the database](../operations/connect.md) however is convenient and run the query:
+1. Open the transaction and run the following command inside it:
 
-    ```sql
-    ALTER DATABASE <database name> SET DEFAULT_TRANSACTION_READ_ONLY TO FALSE;
-    ```
+   ```sql
+   SET LOCAL transaction_read_only TO off;
+   ```
 
-After disabling read-only mode, delete any unnecessary data. Use the `DROP` and `TRUNCATE` operators. With the `DELETE` operator, the rows are marked as deleted but are not physically deleted from the database. To free up storage space after deleting the rows with `DELETE`, run a query to clean up the database:
+1. As part of the same transaction, delete unnecessary data using the `DROP` or `TRUNCATE` operators. Don't use the `DELETE` operator: it marks rows as deleted, but does not physically delete them from the database.
 
-```sql
-VACUUM FULL;
-```
+1. Commit the transaction and restart all connections to the database.
 
-For more information about the `VACUUM` command, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-vacuum.html).
-
-If after performing these steps, writing attempts result in errors, restart the application. Connections created after the cluster switches to read-only mode will be closed. New ones will be created in their place.
-
+> For example, if your database contains the unnecessary table `ExcessDataTable1`, delete it with a transaction:
+>
+>```sql
+>BEGIN;
+>SET LOCAL transaction_read_only TO off;
+>DROP TABLE ExcessDataTable1;
+>COMMIT;
+>```

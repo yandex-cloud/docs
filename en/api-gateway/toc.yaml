@@ -27,6 +27,8 @@ items:
         href: solutions/alice-shareable-todolist.md
       - name: Developing a Slack bot
         href: solutions/slack-bot-serverless.md
+      - name: Developing a Telegram bot
+        href: solutions/telegram-bot-serverless.md
   - name: Concepts
     items:
       - name: Relationship between service resources
