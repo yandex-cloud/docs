@@ -54,7 +54,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
 
   1. Select the role you wish to assign. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../iam/concepts/access-control/roles.md).
 
-  1. [Get a user ID](../iam/operations/users/get.md).
+  1. [Get a user ID](users-get.md).
 
   1. Assign the role using the command:
 
@@ -84,7 +84,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
 
   1. Select the role you wish to assign. You can find a description of the roles in the {{ iam-full-name }} documentation, [{#T}](../iam/concepts/access-control/roles.md).
 
-  1. [Get](../iam/operations/users/get.md) the user ID.
+  1. [Get a user ID](users-get.md).
 
   1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 

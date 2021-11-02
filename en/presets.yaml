@@ -55,6 +55,8 @@ default:
   yds-full-name: Yandex Data Streams
   cdn-full-name: Yandex Cloud CDN
   org-full-name: Yandex Cloud Organization
+  forms-full-name: Yandex Forms
+  wiki-full-name: Yandex Wiki
   serverless-containers-full-name: Yandex Serverless Containers
 
   # Full services names without Yandex
@@ -111,6 +113,8 @@ default:
   cdn-name: Cloud CDN
   serverless-containers-name: Serverless Containers
   org-name: Organization
+  forms-name: Forms
+  wiki-name: Wiki
 
   # Short names
   iam-short-name: IAM
@@ -401,6 +405,8 @@ default:
   link-datalens-settings: https://datalens.yandex.com/settings
   link-org-main: https://org.cloud.yandex.com/
   link-tracker: https://tracker.yandex.com/
+  link-wiki: https://wiki.yandex.com/
+  link-forms-b2b: https://forms.yandex.com/cloud/admin
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
