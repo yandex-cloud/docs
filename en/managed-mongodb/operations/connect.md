@@ -28,7 +28,7 @@ Settings of rules depend on the connection method you select:
     * Source type: `CIDR`.
     * Source: `0.0.0.0/0`.
 
-- With a VM in Yandex.Cloud
+- With a VM in {{ yandex-cloud }}
 
     1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) in a cluster so that they allow incoming traffic from the security group assigned to the VM on port {{ port-mmg }} for a non-sharded cluster or on port {{ port-mmg-sharded }} for a [sharded](shards.md) cluster. To do this, create the following rule for incoming traffic in these groups:
         * Protocol: `TCP`.
@@ -107,7 +107,6 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 {% list tabs %}
 
 - DataGrip
-
   1. Create a data source:
      1. Select **File** → **New** → **Data Source** → **{{ MG }}**.
      1. On the **General** tab:
@@ -138,13 +137,13 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
   Connections to {{ MG }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
 
   To connect to a cluster:
-
   1. Create a new DB connection:
      1. In the **Database** menu, select **New connection**.
      1. Select the **{{ MG }}** database from the list.
      1. Click **Next**.
      1. Specify the connection parameters on the **Main** tab:
         1. Under **Address**, change the **Type** value to `URL` and specify the connection string:
+
            * For a cluster with no sharding:
 
              ```http
@@ -158,6 +157,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
              ```
 
         1. In the **Device** list, select `SCRAM-SHA-256` (type of password encryption when connecting to the DB).
+
         1. Under **Authentication**, specify the DB user's name and password.
      1. On the **SSL** tab:
         1. Enable the **Use SSL** setting.
@@ -172,11 +172,11 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-You can connect to public {{ MG }} hosts only if you use an SSL certificate. Before connecting to such hosts, [prepare the certificate](#configuring-an-ssl-certificate).
+You can only connect to public {{ MG }} hosts using an SSL certificate. Before connecting to this type of host, [get a certificate ready](#get-ssl-cert).
 
 These examples assume that the `root.crt` SSL certificate is located in the `/home/<home directory>/.mongodb/` folder.
 
-Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. For connections to the database, traffic inside the virtual network isn't encrypted in this case.
+Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. DB connection traffic internal to the cloud network will not be encrypted.
 
 Write requests will be automatically routed to the primary cluster replica.
 

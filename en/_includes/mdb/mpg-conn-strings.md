@@ -97,51 +97,51 @@ go mod init example && go get github.com/jackc/pgx/v4
       package main
       
       import (
-        "context"
-        "fmt"
-        "os"
+          "context"
+          "fmt"
+          "os"
       
-        "github.com/jackc/pgx/v4"
+          "github.com/jackc/pgx/v4"
       )
       
       const (
-        host     = "<FQDN of one or multiple {{ PG }} hosts>"
-        port     = 6432
-        user     = "<username>"
-        password = "<user password>"
-        dbname   = "<DB name>"
+          host     = "<FQDN of one or multiple {{ PG }} hosts>"
+          port     = 6432
+          user     = "<username>"
+          password = "<user password>"
+          dbname   = "<DB name>"
       )
       
       func main() {
       
-        connstring := fmt.Sprintf(
-          "host=%s port=%d dbname=%s user=%s password=%s target_session_attrs=read-write",
-          host, port, dbname, user, password)
+          connstring := fmt.Sprintf(
+              "host=%s port=%d dbname=%s user=%s password=%s target_session_attrs=read-write",
+              host, port, dbname, user, password)
       
-        connConfig, err := pgx.ParseConfig(connstring)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
-          os.Exit(1)
-        }
+          connConfig, err := pgx.ParseConfig(connstring)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
+              os.Exit(1)
+          }
       
-        conn, err := pgx.ConnectConfig(context.Background(), connConfig)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-          os.Exit(1)
-        }
+          conn, err := pgx.ConnectConfig(context.Background(), connConfig)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+              os.Exit(1)
+          }
       
-        defer conn.Close(context.Background())
+          defer conn.Close(context.Background())
       
-        var version string
+          var version string
       
-        err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
-          os.Exit(1)
-        }
+          err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
+              os.Exit(1)
+          }
       
-        fmt.Println(version)  
-      }  
+          fmt.Println(version)
+      }
       ```
 
   1. Connecting:
@@ -160,73 +160,73 @@ go mod init example && go get github.com/jackc/pgx/v4
       package main
       
       import (
-        "context"
-        "crypto/tls"
-        "crypto/x509"
-        "fmt"
-        "io/ioutil"
-        "os"
+          "context"
+          "crypto/tls"
+          "crypto/x509"
+          "fmt"
+          "io/ioutil"
+          "os"
       
-        "github.com/jackc/pgx/v4"
+          "github.com/jackc/pgx/v4"
       )
       
       const (
-        host     = "<FQDN of one or multiple {{ PG }} hosts>"
-        port     = 6432
-        user     = "<username>"
-        password = "<user password>"
-        dbname   = "<DB name>"
-        ca       = "/home/<home directory>/.postgresql/root.crt"
+          host     = "<FQDN of one or multiple {{ PG }} hosts>"
+          port     = 6432
+          user     = "<username>"
+          password = "<user password>"
+          dbname   = "<DB name>"
+          ca       = "/home/<home directory>/.postgresql/root.crt"
       )
       
       func main() {
       
-        rootCertPool := x509.NewCertPool()
-        pem, err := ioutil.ReadFile(ca)
-        if err != nil {
-          panic(err)
-        }
+          rootCertPool := x509.NewCertPool()
+          pem, err := ioutil.ReadFile(ca)
+          if err != nil {
+              panic(err)
+          }
       
-        if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
-          panic("Failed to append PEM.")
-        }
+          if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
+              panic("Failed to append PEM.")
+          }
       
-        connstring := fmt.Sprintf(
-          "host=%s port=%d dbname=%s user=%s password=%s sslmode=verify-full target_session_attrs=read-write",
-          host, port, dbname, user, password)
+          connstring := fmt.Sprintf(
+              "host=%s port=%d dbname=%s user=%s password=%s sslmode=verify-full target_session_attrs=read-write",
+              host, port, dbname, user, password)
       
-        connConfig, err := pgx.ParseConfig(connstring)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
-          os.Exit(1)
-        }
+          connConfig, err := pgx.ParseConfig(connstring)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "Unable to parse config: %v\n", err)
+              os.Exit(1)
+          }
       
-        connConfig.TLSConfig = &tls.Config{
-          RootCAs:            rootCertPool,
-          InsecureSkipVerify: true,
-        }
+          connConfig.TLSConfig = &tls.Config{
+              RootCAs:            rootCertPool,
+              InsecureSkipVerify: true,
+          }
       
-        conn, err := pgx.ConnectConfig(context.Background(), connConfig)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-          os.Exit(1)
-        }
+          conn, err := pgx.ConnectConfig(context.Background(), connConfig)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+              os.Exit(1)
+          }
       
-        defer conn.Close(context.Background())
+          defer conn.Close(context.Background())
       
-        var version string
+          var version string
       
-        err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
-        if err != nil {
-          fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
-          os.Exit(1)
-        }
+          err = conn.QueryRow(context.Background(), "select version()").Scan(&version)
+          if err != nil {
+              fmt.Fprintf(os.Stderr, "QueryRow failed: %v\n", err)
+              os.Exit(1)
+          }
       
-        fmt.Println(version)
+          fmt.Println(version)
       }
       ```
 
-      Make sure to specify the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
+      For this connection method, the code must include the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
 
   1. Connecting:
 
@@ -408,7 +408,7 @@ Before connecting:
       mvn clean package && \
       java -jar target/app-0.1.0-jar-with-dependencies.jar
       ```
-
+      
 {% endlist %}
 
 ### Node.js {#nodejs}
@@ -424,76 +424,72 @@ npm install pg
 
 - Connecting without using SSL
 
-  1. Code example:
+    `app.js`
 
-      `app.js`
-
-      ```js
-      "use strict"
-      const pg = require('pg');
-      
-      const config = {
-        connectionString: 'postgres://<username>:<user password>@c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>',
-      }
-      
-      const conn = new pg.Client(config)
-      
-      conn.connect(err => {if (err) throw err})
-      conn.query('SELECT version()', (err, q) => {
-        if (err) throw err
-        console.log(q.rows[0])
-        conn.end()
-      })
-      ```
-
-      You can fetch the cluster ID with a [list of clusters](../../managed-postgresql/operations/cluster-list.md#list-clusters).
-
-  1. Connecting:
-
-      ```bash
-      node app.js
-      ```
+    ```javascript
+    "use strict";
+    const pg = require("pg");
+    
+    const config = {
+        connectionString:
+            "postgres://<username>:<user password>@c-<cluster ID>.rw.mdb. yandexcloud.net:6432/<DB name>"
+    };
+    
+    const conn = new pg.Client(config);
+    
+    conn.connect((err) => {
+        if (err) throw err;
+    });
+    conn.query("SELECT version()", (err, q) => {
+        if (err) throw err;
+        console.log(q.rows[0]);
+        conn.end();
+    });
+    ```
 
 - Connecting via SSL
 
-  1. Code example:
+    `app.js`
 
-      `app.js`
-
-      ```js
-      "use strict"
-      const fs = require('fs');
-      const pg = require('pg');
-      
-      const config = {
-        connectionString: 'postgres://<username>:<user password>@c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>',
+    ```javascript
+    "use strict";
+    const fs = require("fs");
+    const pg = require("pg");
+    
+    const config = {
+        connectionString:
+            "postgres://<username>:<user password>@c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>",
         ssl: {
-          rejectUnauthorized: true,
-          ca: fs.readFileSync('/home/<home directory>/.postgresql/root.crt').toString(),
+            rejectUnauthorized: true,
+            ca: fs
+                .readFileSync("/home/<home directory>/.postgresql/root.crt")
+                .toString(),
         },
-      }
-      
-      const conn = new pg.Client(config)
-      
-      conn.connect(err => {if (err) throw err})
-      conn.query('SELECT version()', (err, q) => {
-        if (err) throw err
-        console.log(q.rows[0])
-        conn.end()
-      })
-      ```
+    };
+    
+    const conn = new pg.Client(config);
+    
+    conn.connect((err) => {
+        if (err) throw err;
+    });
+    conn.query("SELECT version()", (err, q) => {
+        if (err) throw err;
+        console.log(q.rows[0]);
+        conn.end();
+    });
+    ```
 
-      You can fetch the cluster ID with a [list of clusters](../../managed-postgresql/operations/cluster-list.md#list-clusters).
-
-      Make sure to specify the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
-
-  1. Connecting:
-
-      ```bash
-      node app.js
-      ```
+    For this connection method, the code must include the full path to the `root.crt` certificate for {{ PG }} in the `ca` variable.
 
 {% endlist %}
+
+You can fetch the cluster ID with a [list of clusters](../../managed-postgresql/operations/cluster-list.md#list-clusters).
+
+Connecting:
+
+```bash
+node app.js
+```
 
 ### ODBC {#odbc}
 
@@ -578,7 +574,7 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ```php
       <?php
-        $conn = pg_connect("
+      $conn = pg_connect("
             host=<FQDN of one or multiple {{ PG }} hosts>
             port=6432
             sslmode=disable
@@ -588,11 +584,11 @@ sudo apt update && sudo apt install -y php php-pgsql
             target_session_attrs=read-write
         ");
       
-        $q = pg_query($conn, "SELECT version()");
-        $result = pg_fetch_row($q);
-        echo($result[0]);
+      $q = pg_query($conn, "SELECT version()");
+      $result = pg_fetch_row($q);
+      echo $result[0];
       
-        pg_close($conn);
+      pg_close($conn);
       ?>
       ```
 
@@ -610,7 +606,7 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ```php
       <?php
-        $conn = pg_connect("
+      $conn = pg_connect("
             host=<FQDN of one or multiple {{ PG }} hosts>
             port=6432
             sslmode=verify-full
@@ -620,11 +616,11 @@ sudo apt update && sudo apt install -y php php-pgsql
             target_session_attrs=read-write
         ");
       
-        $q = pg_query($conn, "SELECT version()");
-        $result = pg_fetch_row($q);
-        echo($result[0]);
+      $q = pg_query($conn, "SELECT version()");
+      $result = pg_fetch_row($q);
+      echo $result[0];
       
-        pg_close($conn);
+      pg_close($conn);
       ?>
       ```
 
@@ -664,7 +660,7 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
 
   1. To check the connection, run the following query:
 
-     ```powershell
+     ```sql
      SELECT version();
      ```
 
@@ -690,7 +686,7 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
 
   1. To check the connection, run the following query:
 
-     ```powershell
+     ```sql
      SELECT version();
      ```
 
