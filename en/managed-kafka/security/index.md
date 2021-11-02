@@ -5,7 +5,7 @@ description: "Access management in the service for creating and managing Apache 
 
 # Access management in {{ mkf-name }}
 
-{% if audience != "internal" %}
+{% if audience != "internal"%}
 
 In this section, you'll learn:
 
@@ -25,13 +25,15 @@ To allow access to {{ mkf-name }} service resources (clusters and hosts, cluster
 
 The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
 
-![image](../../_assets/managed-kafka/security/service-roles-hierarchy.svg)
+![image](../../_assets/mdb/service-roles-hierarchy.svg)
 
 Active roles in the service:
 
 * Service roles:
     * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
     * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
+    * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
+    * {% include [mdb.admin](../../_includes/iam/roles/short-descriptions/mdb.admin.md) %}
 * Primitive roles:
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
@@ -41,18 +43,19 @@ Active roles in the service:
 
 The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
 
-| Action | Methods | Required roles |
-| ----- | ----- | ----- |
-| **View data** |  |
-| View information about the cluster and related resources | `get`, `list` | `viewer` for the folder hosting the cluster |
-| **Manage resources** |  |
-| Create clusters in the folder | `create` | `editor` for the folder |
-| Change and delete clusters and related resources | `update`, `delete` | `editor` for the folder hosting the cluster |
-| **Manage resource access** |  |
-| [Create](../operations/cluster-accounts.md#create-account), [update](../operations/cluster-accounts.md#update-account), and [delete](../operations/cluster-accounts.md#delete-account) cluster accounts | `create`, `update`, `delete` | `editor` for the folder hosting the cluster |
-| [Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the resource or cloud | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for this folder or cloud |
+Action | Methods | Required roles
+----- | ----- | -----
+**View data** | |
+View information about the cluster and related resources | `get`, `list` | `viewer` for the folder hosting the cluster
+**Manage resources** | |
+Create clusters in the folder | `create` | `mdb.admin` or `editor` for the folder
+Creating clusters with public access enabled | `create` | Or `vpc.publicAdmin` together with `mdb.admin`, or `editor` for the folder
+Change and delete clusters and related resources | `update`, `delete` | `mdb.admin` or `editor` for the folder hosting the cluster
+**Manage resource access** | |
+[Create](../operations/cluster-accounts.md#create-account), [update](../operations/cluster-accounts.md#update-account), and [delete](../operations/cluster-accounts.md#delete-account) cluster accounts | `create`, `update`, `delete` | `editor` for the folder hosting the cluster
+[Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the resource or cloud | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for this folder or cloud
 
-#### What's next
+## What's next {#whats-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).

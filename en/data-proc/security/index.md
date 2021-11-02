@@ -5,9 +5,9 @@ description: "Access management in the Apache Hadoop and Apache Spark cluster cr
 
 # Access management in {{ dataproc-name }}
 
-Yandex.Cloud users can only perform operations on resources that are permitted under the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 
-To allow access to {{ dataproc-name }} service resources (clusters and subclusters), assign the user the required roles from the list below. For now, a role can only be assigned for a parent resource (folder or cloud), and roles are inherited by nested resources.
+To allow access to {{ dataproc-name }} service resources (clusters and subclusters), assign the user the required roles from the list below. Currently, a role can only be assigned to a parent resource (folder or cloud). Roles are inherited by nested resources.
 
 {% note info %}
 
@@ -23,8 +23,7 @@ To assign a user a role:
 
 ## Roles {#roles}
 
-The list below shows all the roles used when verifying access rights in
-{{ dataproc-name }}.
+The list below shows all roles that are considered when verifying access rights in the {{ dataproc-name }} service.
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
@@ -32,7 +31,14 @@ The list below shows all the roles used when verifying access rights in
 
 ### {{ roles-viewer }} {#viewer}
 
-Users with the `{{ roles-viewer }}` role can connect to hosts in the {{ dataproc-name }} cluster if its SSH keys are linked to this cluster.
+A user with the role `{{ roles-viewer }}` can connect to hosts in a {{ dataproc-name }}
+cluster if their SSH keys are linked to this cluster.
+
+### {{ roles-mdb-admin }} {#mdb-admin}
+
+A user with the role `{{ roles-mdb-admin }}` can manage {{ dataproc-name }} clusters, for example, create a cluster or create or delete a subcluster in a cluster.
+
+The `{{ roles-mdb-admin }}` role also includes all `{{ roles-viewer }}` role permissions.
 
 ### {{ roles-editor }} {#editor}
 
