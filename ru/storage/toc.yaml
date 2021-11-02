@@ -129,6 +129,8 @@ items:
             href: tools/boto.md
           - name: AWS SDK для .NET
             href: tools/aws-sdk-net.md
+          - name: AWS SDK для C++
+            href: tools/aws-sdk-cpp.md
       - name: FUSE
         items:
           - name: GeeseFS
