@@ -20,7 +20,7 @@ keywords:
 
 {% list tabs %}
 
-* Консоль управления
+- Консоль управления
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Логи**.
@@ -34,7 +34,7 @@ keywords:
 
 {% if audience != "draft" %}
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -61,7 +61,7 @@ keywords:
 
 {% endif %}
 
-* API
+- API
 
   Воспользуйтесь методом API `listLogs`: передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
 
@@ -77,7 +77,7 @@ keywords:
 
 {% if audience != "draft" %}
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -93,7 +93,7 @@ keywords:
 
 {% endif %}
 
-* API
+- API
 
   Воспользуйтесь методом API `streamLogs`: передайте значение идентификатора требуемого кластера в параметре `clusterId` запроса.
 

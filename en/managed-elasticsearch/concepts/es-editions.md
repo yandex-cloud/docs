@@ -46,3 +46,5 @@ Features provided in {{ mes-name }} depend on the {{ ES }} edition:
     - Use of private content sources.
 
 {% endif %}
+
+You can [update the {{ ES }} edition](../operations/cluster-version-update.md#start-edition-update) after you create a cluster. If you decide to downgrade the edition, please double-check that reduced functionality won't affect your applications.

@@ -47,7 +47,7 @@ You can get:
     1. Run the command to get cluster logs (the example does not contain a complete list of parameters):
 
     ```bash
-    {{ yc-mdb-es }} cluster list-logs <cluster ID or name> \
+    {{ yc-mdb-es }} cluster list-logs <cluster name or ID> \
        --limit <record number limit> \
        --columns <list of columns to display information> \
        --filter <record filter settings> \
@@ -84,7 +84,7 @@ This way of working with logs is different from [getting a simple log snippet](#
     To view cluster logs as they become available, run the command:
 
     ```bash
-    {{ yc-mdb-es }} cluster list-logs <cluster ID or name> --follow
+    {{ yc-mdb-es }} cluster list-logs <cluster name or ID> --follow
     ```
 
     You can request a cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).

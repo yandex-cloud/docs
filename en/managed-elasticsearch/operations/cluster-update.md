@@ -17,6 +17,7 @@ After creating a cluster, you can:
 * [{#T}](#change-admin-password).
 * [{#T}](#update-additional-settings).
 
+You can also update the {{ ES }} version or edition. For more information, see [{#T}](cluster-version-update.md).
 
 ## Changing service account settings {#change-service-account}
 
@@ -207,7 +208,7 @@ After creating a cluster, you can:
 - Management console
     1. Go to the folder page and select **{{ mes-name }}**.
     1. Select the cluster and click **Edit** in the top panel.
-    1. To change the service account used for working with the cluster, select it from the drop-down list.
+    1. To change the service account used to work with the cluster, select an account from the drop-down list.
     1. Click **Save**.
 
 - CLI
@@ -231,10 +232,10 @@ After creating a cluster, you can:
 
 - API
 
-    To update additional settings of a {{ ES }} cluster, use the [update](../api-ref/Cluster/update.md) method and pass the following in the request:
-    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+    To edit an {{ ES }} cluster's advanced settings, use the [update](../api-ref/Cluster/update.md) method and pass the following information in your request:
+    * The cluster ID in the `clusterId` parameter. To get the ID, [get the list of clusters in the folder](cluster-list.md#list-clusters).
     * The list of [{{ ES }} plugins](../concepts/plugins.md) in the `plugins` parameter.
-    * ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
+    * The ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
     * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}
