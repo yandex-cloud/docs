@@ -13,7 +13,7 @@
 | `Expect` | The expected code is `100 Continue`.<br/><br/>When uploading data to {{ objstorage-name }}, an app can use the following logic:<br/>- Send a request without a body, but with the Expect: 100-continue header set.<br/>- Send a request with a body after getting the `100-continue` response. This request must not have the `Expect` header. |
 | `Expires` | Response expiration date. Complaint with [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21). |
 | `Host` | Request recipient host.<br/><br/>This header is required for HTTP/1.1, but optional for HTTP/1.0 requests. |
-| `x-amz-date` | The date and time at the request source.<br/><br/>Format: `Thu, 18 Jan 2018 09:57:35 GMT`.<br/><br/>When `x-amz-date` is set, {{ objstorage-name }} ignores the `Date` header. |
+| `x-amz-date` | The date and time at the request source.<br/><br/>Format: `20211102T145822Z`.<br/><br/>When `x-amz-date` is set, {{ objstorage-name }} ignores the `Date` header. |
 
 If a cross-domain (CORS) request is sent, it may contain the [headers](object/options.md#request-headers) of the `options` preflight request.
 
