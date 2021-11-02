@@ -168,8 +168,8 @@
 1. Добавьте в файл следующие строки: 
 
    ```
-   net.ip6.conf.all.disable_ipv6 = 1
-   net.ip6.conf.default.disable_ipv6 = 1
+   net.ipv6.conf.all.disable_ipv6 = 1
+   net.ipv6.conf.default.disable_ipv6 = 1
    ```
 
 1. Добавьте следующие строки в файл `/etc/sysconfig/network`:
@@ -286,8 +286,8 @@ $ systemctl status srv1cv83
 1. Добавьте в файл следующие строки: 
 
    ```
-   net.ip6.conf.all.disable_ipv6 = 1
-   net.ip6.conf.default.disable_ipv6 = 1
+   net.ipv6.conf.all.disable_ipv6 = 1
+   net.ipv6.conf.default.disable_ipv6 = 1
    ```
 
 1. Добавьте следующие строки в файл `/etc/sysconfig/network`, выполнив команду `sudo nano /etc/sysconfig/network`:
