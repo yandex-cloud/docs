@@ -19,6 +19,8 @@ default:
   datalens-public: DataLens Public
   variable: variable
   category: category
+  geopoints-list-link: https://storage.yandexcloud.net/doc-files/geo_points_202106271509.csv
+  geopolygons-list-link: https://storage.yandexcloud.net/doc-files/geo_polygons_202106221423.csv
 internal:
   audience: internal
 external:

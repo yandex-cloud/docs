@@ -39,6 +39,7 @@ To enable the function, go to the [Service Settings]({{ link-datalens-settings }
 **Syntax:**`TOPONYM_TO_GEOPOINT( name )`
 
 Converts the name of a geographical entity (country, region, city) `name` to the `Geopoint` type.
+See the full [list of toponyms]({{ geopoints-list-link }}).
 
 
 
@@ -47,5 +48,6 @@ Converts the name of a geographical entity (country, region, city) `name` to the
 **Syntax:**`TOPONYM_TO_GEOPOLYGON( name )`
 
 Converts the name of a geographical entity (country, region, city) `name` to the `Geopolygon` type.
+See the full [list of toponyms]({{ geopolygons-list-link }}).
 
 
