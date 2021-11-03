@@ -6,6 +6,10 @@
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
+## Установка {#installation}
+
+{% include [install-java-sdk](../../_includes/aws-tools/install-cpp-sdk.md)%}
+
 ## Настройка {#setup}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
@@ -13,8 +17,9 @@
 
 ## Примеры кода {#cpp-sdk-examples}
 
-[Примеры кода C++](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3) для работы с S3
+[Примеры кода C++](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3) для работы с S3 от проивзодителя.
 
+Пример прострой программы иллюстрирующий отличие в настройках для yandex object storage.
 
 ### CmakeLists 
 
@@ -30,18 +35,16 @@ endif()
 
 find_package(AWSSDK REQUIRED COMPONENTS s3 sts)
 
-add_executable(EXAMPLE  EXAMPLE_FILE_S3_test.cpp) 
+add_executable(EXAMPLE  EXAMPLE_FILE_S3.cpp) 
 
 target_link_libraries(test ${AWSSDK_LINK_LIBRARIES} 
 ${AWSSDK_PLATFORM_DEPS})
 
 ```
 
-### код примера 
+### Файл EXAMPLE_FILE_S3.cpp 
 
 ```cpp
-// файл EXAMPLE_FILE_S3_test.cpp
-
 #include <aws/core/Aws.h>
 #include <aws/core/auth/AWSCredentialsProvider.h>
 #include <aws/s3/S3Client.h>
@@ -52,6 +55,9 @@ ${AWSSDK_PLATFORM_DEPS})
 #include <aws/s3/model/ListObjectsRequest.h>
 #include <aws/s3/model/PutObjectRequest.h>
 #include <sys/stat.h>
+
+#include <fstream>
+#include <iostream> 
 
 
 // находит бакет и выводит его содержимое в консоль
@@ -101,14 +107,14 @@ int main(int argc, char* argv[])
         credentials.SetAWSSecretKey(Aws::String("N48X2Nz1zrqhgLfRDe-rnQjeuJRCcLtPgoFJkqL-"));
         */
 
-        // Секция настроек бакета 
-        Aws::String bucket_name = "bucket_name";
+        // Секция настроек SDK, 
+        //именно эти натсройки позволяют использвать AWS SDK для yandex object storage
         Aws::Client::ClientConfiguration config;
         config.region = Aws::String("ru-cental1");
         config.endpointOverride = Aws::String("storage.yandexcloud.net");
 
         // Инициализация подклчюения 
-
+        Aws::String bucket_name = "bucket_name";
         //раскомментируйте если необходимо создать обьект с настроеным доступом
         // Aws::S3::S3Client s3_client(credentials, config);
         Aws::S3::S3Client s3_client(config);
