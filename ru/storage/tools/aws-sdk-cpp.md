@@ -1,4 +1,4 @@
-# AWS SDK для Java
+# AWS SDK для C++
 
 [AWS SDK для C++](https://aws.amazon.com/ru/sdk-for-cpp/) — это комплект средств разработки для работы с сервисами AWS.
 
@@ -17,9 +17,9 @@
 
 ## Примеры кода {#cpp-sdk-examples}
 
-[Примеры кода C++](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3) для работы с S3 от проивзодителя.
+[Примеры кода C++](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3) для работы с S3 от производителя.
 
-Пример прострой программы иллюстрирующий отличие в настройках для yandex object storage.
+Пример простой программы иллюстрирующий отличие в настройках для yandex object storage.
 
 ### CmakeLists 
 
@@ -101,19 +101,19 @@ int main(int argc, char* argv[])
     {
         // Секция настроек доступа 
         
-        /* раскомментируйте если необходимо указать ключь в программе.
+        /* раскомментируйте если необходимо указать ключ в программе.
         Aws::Auth::AWSCredentials credentials;
         credentials.SetAWSAccessKeyId(Aws::String("-s3IHAUA3ZrMXos4HjFa"));
         credentials.SetAWSSecretKey(Aws::String("N48X2Nz1zrqhgLfRDe-rnQjeuJRCcLtPgoFJkqL-"));
         */
 
         // Секция настроек SDK, 
-        //именно эти натсройки позволяют использвать AWS SDK для yandex object storage
+        // эти настройки позволяют использовать AWS SDK для yandex object storage
         Aws::Client::ClientConfiguration config;
         config.region = Aws::String("ru-cental1");
         config.endpointOverride = Aws::String("storage.yandexcloud.net");
 
-        // Инициализация подклчюения 
+        // Инициализация подключения 
         Aws::String bucket_name = "bucket_name";
         //раскомментируйте если необходимо создать обьект с настроеным доступом
         // Aws::S3::S3Client s3_client(credentials, config);
