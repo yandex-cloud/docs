@@ -33,7 +33,7 @@
 
 1. Установите **yfm-docs**:
   
-   `npm i @doc-tools/docs`
+   `npm i @doc-tools/docs -g`
   
    Чтобы обновить версию **yfm-docs**, используйте эту же команду.
 
