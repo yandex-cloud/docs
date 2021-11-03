@@ -10,7 +10,7 @@ For more information about SAML and SSO, see the [OASIS documentation](https://w
 
 {% note warning %}
 
-SSO is supported by {{ mes-name }} clusters in the **Platinum** edition with public access enabled for all hosts with the _Data node_ role.
+SSO is supported by {{ mes-name }} clusters in the **Platinum** edition with public access enabled for all hosts with the _Data node_ role. If you [downgrade the {{ ES }} edition](cluster-version-update.md#start-edition-update), the SSO feature is disabled.
 
 {% endnote %}
 

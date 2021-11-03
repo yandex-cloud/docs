@@ -71,6 +71,8 @@ items:
           Формирование отчета по ресурсной детализации расходов с использованием
           S3 Select
         href: solutions/billing-resource-detailing.md
+      - name: Шифрование на стороне сервера
+        href: solutions/server-side-encryption.md
   - name: Концепции
     items:
       - name: Обзор

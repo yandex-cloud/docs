@@ -320,7 +320,7 @@
 
 2. Сформируйте ссылку с помощью полученного идентификатора:
 
-    `https://console.cloud.yandex.ru/federations/<ID федерации>`
+    `{{ link-console-main }}/federations/<ID федерации>`
 
 ## Настройка системы единого входа (SSO) {#sso-settings}
 

@@ -15,8 +15,10 @@ items:
     items:
       - name: Overview
         href: manage-users.md
-      - name: Add users
+      - name: Add a user
         href: add-account.md
+      - name: Get the user's ID or email
+        href: users-get.md
       - name: Assigning access rights
         href: roles.md
       - name: Deleting a user account
@@ -29,8 +31,12 @@ items:
         href: operations/federations/integration-adfs.md
       - name: Authentication using Google Workspace
         href: operations/federations/integration-gworkspace.md
+      - name: Authentication using Azure Active Directory
+        href: operations/federations/integration-azure.md
       - name: Authentication using an SAML-compatible identity federation
         href: operations/federations/integration-common.md
+  - name: Managing clouds and services
+    href: manage-services.md
   - name: API reference
     items:
       - name: Authentication

@@ -20,9 +20,11 @@ Here are some tips for diagnosing and fixing these issues.
 
 1. Select databases to troubleshoot.
 
+1. [Enable database access in the management console](../operations/web-sql-query.md#sql-cluster-access).
+
 1. [Activate statistics collection](../operations/performance-diagnostics.md#activate-stats-collector) about sessions and queries.
 
-1. If you want more queries to appear in the performance log, reduce the value of the [`log_min_duration_statement` parameter](../concepts/settings-list.md#setting-log-min-duration-statement) in the [DB settings](../operations/update.md#change-postgresql-config). 
+1. If you want more queries to appear in the performance log, reduce the value of the [`log_min_duration_statement` parameter](../concepts/settings-list.md#setting-log-min-duration-statement) in the [DB settings](../operations/update.md#change-postgresql-config).
 
     {% note warning %}
 
@@ -54,6 +56,14 @@ There are several ways to optimize problematic queries:
 
     [Create](https://www.postgresql.org/docs/current/sql-createindex.html) or [update](https://www.postgresql.org/docs/current/sql-reindex.html) required indexes.
 
+    {% note tip %}
+
+    To visualize the execution plans of the available queries, use the **SQL** tab on the cluster management page.
+
+    For more information, see [{#T}](../operations/web-sql-query.md).
+
+    {% endnote %}
+
 * Update statistics using the [ANALYZE](https://www.postgresql.org/docs/current/sql-analyze.html) command.
 
     The query execution plan is based on the statistics collected by the DBMS. If the data in the DBMS is updated frequently, these statistics quickly become outdated. Use the `ANALYZE` query for the DBMS to perform another analysis of the table or the entire database:
@@ -70,7 +80,7 @@ There are several ways to optimize problematic queries:
 
     {{ PG }} doesn't collect statistics about the correlation of data between columns of the same table. This is because the number of possible combinations of columns can be extremely large. If there is a relationship between columns, [create extended statistics objects](https://www.postgresql.org/docs/current/planner-stats.html#PLANNER-STATS-EXTENDED). The scheduler will then be able to optimize queries based on information about the correlation of data in the columns.
 
-If you can't optimize the identified queries or manage without them, the only option is to [raise the host class](../operations/update#change-resource-preset).
+If you can't optimize the identified queries or manage without them, the only option is to [raise the host class](../operations/update.md#change-resource-preset).
 
 ## Diagnosing resource shortages {#cpu-io-deficit}
 

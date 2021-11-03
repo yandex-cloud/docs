@@ -1,26 +1,22 @@
 # Connecting to a database in a {{ RD }} cluster
 
-## Connection methods {#connection-methods}
-
-{{ RD }} cluster hosts can't be assigned public IPs. You can only access hosts from within the [virtual network](../../vpc/concepts/network.md) where the host is located.
-
-Available connection options:
+You can connect to a Redis database host:
 
 * Without using encryption (for clusters running any {{ RD }} version):
 
-    * Using Sentinel through port `26379`.
+    * Directly through port `6379`.
 
-        {{ RD }} Sentinel is a {{ RD }} host management system that provides monitoring, notification, automatic failover, and reporting of up-to-date host addresses to the clients. If a client application does not support connecting via Sentinel, connect directly to the {{ RD }} host.
+    * Using [{{ RD }} Sentinel](https://redis.io/topics/sentinel) through port `26379`. This is a {{ RD }} host management system that provides monitoring, notification, automatic failover, and reporting of up-to-date host addresses to the clients.
 
-    * Directly to the {{ RD }} host through port `6379`.
-
-        If you always need to connect to the master host, you can either track the roles of all the cluster hosts yourself, or use a [special FQDN](#special-fqdns) that always points to the master host.
+        Some {{ RD }} client applications do not support Sentinel connections but you can connect to the host directly. Note that you will need to track the roles of all the hosts yourself. If there is no need for a direct connection, use Sentinel for more reliable cluster host management.
 
 * Using encryption (for clusters running {{ RD }} version 6 and higher [with SSL encryption enabled](cluster-create.md#create-cluster)).
 
    With connection encryption enabled, you can only connect directly to the {{ RD }} host through port `6380`. To connect to a non-sharded write cluster, we recommend using [special FQDNs](#special-fqdns).
 
 ## Connecting to clusters {#connect}
+
+{{ RD }} cluster hosts can't be assigned public IPs. You can only access such hosts from within the same [cloud network](../../vpc/concepts/network.md) where the host is located.
 
 To connect to the host of a {{ RD }} cluster:
 
@@ -33,9 +29,9 @@ To connect to the host of a {{ RD }} cluster:
 
 Settings of rules depend on the connection method you select:
 
-1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic from the VM's security group on port `6379` for direct connections or port `26379` for connections via Sentinel. If a cluster is created with SSL encryption enabled, you should only specify port `6380` (connections via Sentinel are not supported for these clusters). To do this, create the following rule for incoming traffic in these groups:
+1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic from the VM's security group on port `6379` for direct connections or port `26379` for connections via Sentinel. If a cluster is created with SSL encryption support, you should only specify port `6380` (connections via Sentinel to this type of cluster are not supported). To do this, create the following rule for incoming traffic in these groups:
     * Protocol: `TCP`.
-    * Port range: `6379` (`26379` for Sentinel) or only `6380` for a cluster that supports SSL encryption.
+    * Port range: `6379` (`26379` for Sentinel) or only `6380` for a cluster with SSL encryption support.
     * Source type: `Security group`.
     * Source: Security group assigned to the VM. If it is the same as the configured group, specify **Current**.
 
@@ -95,14 +91,13 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
   Connections to {{ RD }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
 
   To connect to a cluster:
-
   1. Create a new DB connection:
      1. In the **Database** menu, select **New connection**.
      1. Select the **{{ RD }}** database from the list.
      1. Click **Next**.
      1. Specify the connection parameters on the **Main** tab:
         * **Host**: FQDN of the master host or a [special FQDN](#special-fqdns).
-        * **Port**: `{{ port-mrd }}` for a regular cluster or `{{ port-mrd-tls }}` for a cluster with TLS encryption enabled.
+        * **Port**: `{{ port-mrd }}` for a conventional cluster, or `{{ port-mrd-tls }}` for a cluster with SSL encryption enabled.
         * Under **Authentication**, specify the cluster password.
      1. On the **SSH** tab:
         1. Enable the **Use SSL tunnel** setting.
@@ -140,7 +135,7 @@ An FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` in a non-sharded cluster always 
 
 When connecting to this FQDN, both read and write operations are allowed.
 
-An example of connecting to a master host with SSL encryption for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+An example an SSL-encrypted connection to a master host for a cluster with `c9qash3nb1v9ulc8j9nm` as the ID:
 
 ```bash
 redis-cli -h c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \

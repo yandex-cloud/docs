@@ -78,7 +78,7 @@ keywords:
 
                 {% endnote %}
 
-                Если для хоста {{ ES }} с ролью _Data node_ включен публичный доступ, к этому хосту или расположенной на нем Kibana можно подключиться через интернет. Подробнее см. в разделе [{#T}](./cluster-connect.md).
+                Если для хоста {{ ES }} с ролью _Data node_ включен публичный доступ, к этому хосту или расположенной на нем Kibana можно подключиться через интернет. Подробнее см. в разделе [{#T}](cluster-connect.md).
 
                 {% include [mes-tip-public-kibana](../../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 

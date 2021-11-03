@@ -35,6 +35,10 @@ description: "Вы можете запросить детальную инфор
   +----------------------+--------------+---------------------+--------+---------+
   ```
 
+- API
+
+  Воспользуйтесь методом API [list](../api-ref/Cluster/list.md) и передайте идентификатор каталога в параметре `folderId` запроса.
+
 {% endlist %}
 
 
@@ -60,6 +64,12 @@ description: "Вы можете запросить детальную инфор
   ```
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
+- API
+
+  Воспользуйтесь методом API [get](../api-ref/Cluster/get.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+
+  {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -91,6 +101,8 @@ description: "Вы можете запросить детальную инфор
 
 - API
 
-  Получить список операций можно с помощью метода [listOperations](../api-ref/Cluster/listOperations.md).
+  Воспользуйтесь методом API [listOperations](../api-ref/Cluster/listOperations.md) и передайте идентификатор кластера в параметре `clusterId` запроса.
+
+  {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}

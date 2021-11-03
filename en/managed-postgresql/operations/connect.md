@@ -6,7 +6,7 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 
 {% note info %}
 
-If public access in your cluster is configured only for certain hosts, [automatic master change](../concepts/replication.md#replication-auto) may make the master unavailable over the internet.
+If your cluster has public access configured for certain hosts only, an [automatic master switch](../concepts/replication.md#replication-auto) may make the master inaccessible over the internet.
 
 {% endnote %}
 
@@ -26,7 +26,7 @@ Settings of rules depend on the connection method you select:
   * Source type: `CIDR`.
   * Source: `0.0.0.0/0`.
 
-- With a VM in Yandex.Cloud
+- With a VM in {{ yandex-cloud }}
 
   1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 6432 from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
      * Protocol: `TCP`.
@@ -116,7 +116,6 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 {% list tabs %}
 
 - DataGrip
-
   1. Create a data source:
      1. Select **File** → **New** → **Data Source** → **{{ PG }}**.
      1. Specify the connection parameters on the **General** tab:
@@ -162,13 +161,14 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% include [conn-strings-environment](../../_includes/mdb/mpg-conn-strings-env.md) %}
 
-You can connect to public {{ PG }} hosts only if you use an SSL certificate. Before connecting to such hosts, [prepare the certificate](#configuring-an-ssl-certificate).
+You can only connect to public {{ PG }} hosts using an SSL certificate. Before connecting to this type of host, [get a certificate ready](#get-ssl-cert).
 
 The examples below assume that the `root.crt` SSL certificate is located in the directory:
+
 * `/home/<home directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
 
-Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. For connections to the database, traffic inside the virtual network isn't encrypted in this case.
+Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. DB connection traffic internal to the cloud network will not be encrypted.
 
 You can connect to a cluster using both regular FQDN hosts (you can send a list of several such comma-separated FQDNs) and [special FQDNs](#special-fqdns).
 

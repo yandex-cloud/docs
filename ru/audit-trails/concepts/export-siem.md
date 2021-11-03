@@ -2,9 +2,9 @@
 
 Файлы аудитного лога доступны для экспорта в SIEM.
 
-Команда {{ yandex-cloud }} подготовила комплект решений для экспорта аудитных логов для нескольких SIEM. Файлы решений приведены в соответствующих разделах репозитория[yc-solution-library-for-security](https://github.com/yandex-cloud/yc-solution-library-for-security/).
+Команда {{ yandex-cloud }} подготовила комплект решений для экспорта аудитных логов для нескольких SIEM. Файлы решений приведены в соответствующих разделах [репозитория Yandex.Cloud Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/).
 
-[Yc-solution-library-for-security](https://github.com/yandex-cloud/yc-solution-library-for-security/) — это набор примеров и рекомендаций по построению безопасной инфраструктуры в {{ yandex-cloud }}, собранных в публичном репозитории на GitHub.
+[Yandex.Cloud Security Solution Library](https://cloud.yandex.ru/solutions/security-solution-library) — это набор примеров и рекомендаций по построению безопасной инфраструктуры в {{ yandex-cloud }}, собранных в публичном репозитории на GitHub.
 
 В настоящее время подготовлены решения для следующих SIEM:
 * [Yandex Managed Service for Elasticsearch](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
