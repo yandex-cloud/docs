@@ -115,6 +115,9 @@ items:
       href: actions/forms.md
     - name: Список задач из Yandex Tracker 
       href: actions/tracker.md
+    - name: Графики из {{ datalens-full-name }}
+      when: audience == "internal"
+      href: actions/datalens.md
     - name: Информация о команде сервиса ABC
       when: audience == "internal"
       href: actions/abc.md
