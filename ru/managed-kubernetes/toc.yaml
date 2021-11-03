@@ -90,7 +90,7 @@ items:
       - name: Настройка локального кеширования DNS
         href: solutions/node-local-dns.md
       - name: Синхронизация с секретами Yandex Lockbox
-        href: solutions/k8s-lockbox-external-secrets.md
+        href: solutions/kubernetes-lockbox-secrets.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

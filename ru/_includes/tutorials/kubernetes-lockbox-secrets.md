@@ -1,4 +1,4 @@
-[External Secrets Operator](https://external-secrets.io/provider-yandex-lockbox/) позволяет настроить синхронизацию секретов [{{ lockbox-full-name }}](../../lockbox/) с секретами кластера {{ managed-k8s-name }}.
+[External Secrets Operator](https://external-secrets.io/provider-yandex-lockbox/) позволяет настроить синхронизацию секретов [{{ lockbox-name }}](../../lockbox/) с секретами кластера {{ managed-k8s-name }}.
 
 Существует [несколько схем интеграции](https://external-secrets.io/guides-multi-tenancy) {{ lockbox-name }} с сервисом {{ managed-k8s-name }}. Далее для примера рассматривается схема [ESO as a Service](https://external-secrets.io/guides-multi-tenancy/#eso-as-a-service):
 

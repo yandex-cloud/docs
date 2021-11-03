@@ -8,7 +8,7 @@ items:
       - name: Все сценарии
         href: solutions/index.md
       - name: Синхронизация с секретами Managed Service for Kubernetes
-        href: solutions/k8s-lockbox-external-secrets.md
+        href: solutions/kubernetes-lockbox-secrets.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Управление доступом
