@@ -13,7 +13,7 @@ sudo apt update && sudo apt install -y postgresql-client
   1. Подключитесь к базе данных:
 
       ```bash
-      psql "host=<FQDN одного или нескольких хостов {{ PG }}> \
+      psql "host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net \
           port=6432 \
           sslmode=disable \
           dbname=<имя БД> \
@@ -34,7 +34,7 @@ sudo apt update && sudo apt install -y postgresql-client
   1. Подключитесь к базе данных:
 
       ```bash
-      psql "host=<FQDN одного или нескольких хостов {{ PG }}> \
+      psql "host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net \
           port=6432 \
           sslmode=verify-full \
           dbname=<имя БД> \
@@ -52,26 +52,59 @@ sudo apt update && sudo apt install -y postgresql-client
 
 {% endlist %}
 
-### C# EfCore {#csharpefcore}
+### C# EF Core {#csharpefcore}
 
-Перед подключением установите зависимости:
+Необходимые пакеты:
 
-```bash
-Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
-```
+* Microsoft.EntityFrameworkCore
+* Npgsql.EntityFrameworkCore.PostgreSQL
 
 {% list tabs %}
 
 - Подключение с SSL
 
-  Пример настроек в файле `appsettings.json`:
+  ```csharp
+  using System;
+  using System.Threading.Tasks;
+  using Microsoft.EntityFrameworkCore;
 
-  ```json
-  ...
-  "ConnectionStrings": {
-  	"Default": "Server=<FQDN одного или нескольких хостов {{ PG }}>;Database=<имя БД>;Port=6432;User Id=<имя пользователя>;Password=<пароль пользователя>;Ssl Mode=Require; Trust Server Certificate=true;"
-  },
-  ...
+  namespace ConsoleApp
+  {
+      public class VersionString
+      {
+          public int id { get; set; }
+          public string versionString { get; set; }
+      }
+      public class ApplicationContext : DbContext
+      {
+          public ApplicationContext()
+          {
+              Database.EnsureCreated();
+          }
+          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+          {
+              var host      = "c-<идентификатор кластера>.rw.mdb.yandexcloud.net";
+              var port      = "6432";
+              var db        = "<имя БД>";
+              var username  = "<имя пользователя>";
+              var password  = "<пароль пользователя>";
+              optionsBuilder.UseNpgsql($"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=Require;Trust Server Certificate=true;");
+          }
+          public DbSet<VersionString> VersionStrings { get; set; }
+
+      }
+      class Program
+      {
+          static async Task Main(string[] args)
+          {
+              using (ApplicationContext db = new ApplicationContext())
+              {
+                  var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id,version() as versionString;").ToListAsync();
+                  Console.WriteLine(versionStrings[0].versionString);
+              }
+          }
+      }
+  }
   ```
 
 {% endlist %}
@@ -105,11 +138,11 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-          host     = "<FQDN одного или нескольких хостов {{ PG }}>"
-          port     = 6432
-          user     = "<имя пользователя>"
-          password = "<пароль пользователя>"
-          dbname   = "<имя БД>"
+        host     = "c-<идентификатор кластера>.rw.mdb.yandexcloud.net"
+        port     = 6432
+        user     = "<имя пользователя>"
+        password = "<пароль пользователя>"
+        dbname   = "<имя БД>"
       )
 
       func main() {
@@ -171,12 +204,12 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-          host     = "<FQDN одного или нескольких хостов {{ PG }}>"
-          port     = 6432
-          user     = "<имя пользователя>"
-          password = "<пароль пользователя>"
-          dbname   = "<имя БД>"
-          ca       = "/home/<домашняя директория>/.postgresql/root.crt"
+        host     = "c-<идентификатор кластера>.rw.mdb.yandexcloud.net"
+        port     = 6432
+        user     = "<имя пользователя>"
+        password = "<пароль пользователя>"
+        dbname   = "<имя БД>"
+        ca       = "/home/<домашняя директория>/.postgresql/root.crt"
       )
 
       func main() {
@@ -346,7 +379,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://<хост 1 {{ PG }}:6432,...,хост N {{ PG }}:6432>/<имя БД>&  targetServerType=master&ssl=true&  sslmode=disable";
+          String DB_URL     = "jdbc:postgresql://c-<идентификатор кластера>.rw.mdb.yandexcloud.net:6432/<имя БД>?targetServerType=master&ssl=false";
           String DB_USER    = "<имя пользователя>";
           String DB_PASS    = "<пароль пользователя>";
 
@@ -384,7 +417,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://<хост 1 {{ PG }}:6432,...,хост N {{ PG }}:6432>/<имя БД>&  targetServerType=master&ssl=true&  sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://c-<идентификатор кластера>.rw.mdb.yandexcloud.net:6432/<имя БД>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<имя пользователя>";
           String DB_PASS    = "<пароль пользователя>";
 
@@ -434,7 +467,7 @@ npm install pg
         connectionString:
             "postgres://<имя пользователя>:<пароль пользователя>@c-<идентификатор кластера>.rw.mdb.yandexcloud.net:6432/<имя БД>"
     };
-
+    
     const conn = new pg.Client(config);
 
     conn.connect((err) => {
@@ -512,7 +545,7 @@ sudo apt update && sudo apt install -y unixodbc odbc-postgresql
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=<хост 1 {{ PG }}>,...,<хост N {{ PG }}>
+      Servername=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
       Username=<имя пользователя>
       Password=<пароль пользователя>
       Database=<имя БД>
@@ -537,13 +570,13 @@ sudo apt update && sudo apt install -y unixodbc odbc-postgresql
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=<хост 1 {{ PG }}>,...,<хост N {{ PG }}>
+      Servername=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
       Username=<имя пользователя>
       Password=<пароль пользователя>
       Database=<имя БД>
       Port=6432
       Pqopt=target_session_attrs=read-write
-      Sslmode= verify-full
+      Sslmode=verify-full
       ```
 
   1. Подключение:
@@ -574,8 +607,8 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ```php
       <?php
-      $conn = pg_connect("
-            host=<FQDN одного или нескольких хостов {{ PG }}>
+        $conn = pg_connect("
+            host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
             port=6432
             sslmode=disable
             dbname=<имя БД>
@@ -606,8 +639,8 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ``` php
       <?php
-      $conn = pg_connect("
-            host=<FQDN одного или нескольких хостов {{ PG }}>
+        $conn = pg_connect("
+            host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
             port=6432
             sslmode=verify-full
             dbname=<имя БД>
@@ -649,8 +682,8 @@ sudo apt update && sudo apt install -y php php-pgsql
   1. Подключитесь к базе данных:
 
      ```powershell
-     & 'C:\Program Files\PostgreSQL\<версия>\bin\psql.exe' `
-           -h <FQDN одного или нескольких хостов {{ PG }}> `
+     & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
+           -h c-<идентификатор кластера>.rw.mdb.yandexcloud.net `
            -p {{ port-mpg }} `
            -U <имя пользователя> `
            <имя БД>
@@ -668,21 +701,21 @@ sudo apt update && sudo apt install -y php php-pgsql
 
   1. Установите переменные окружения для подключения:
 
-     ```powershell
-     $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
-     ```
+      ```powershell
+      $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
+      ```
 
   1. Подключитесь к базе данных:
 
-     ```powershell
-     & 'C:\Program Files\PostgreSQL\<версия>\bin\psql.exe' `
-           -h <FQDN одного или нескольких хостов {{ PG }}> `
-           -p {{ port-mpg }} `
-           -U <имя пользователя> `
-           <имя БД>
-     ```
+      ```powershell
+      & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
+        -h c-<идентификатор кластера>.rw.mdb.yandexcloud.net `
+        -p {{ port-mpg }} `
+        -U <имя пользователя> `
+        <имя БД>
+      ```
 
-     После выполнения команды введите пароль пользователя для завершения процедуры подключения.
+      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
   1. Для проверки успешности подключения выполните запрос:
 
@@ -713,7 +746,7 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=<FQDN одного или нескольких хостов {{ PG }}>
+          host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
           port=6432
           sslmode=disable
           dbname=<имя БД>
@@ -746,7 +779,7 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=<FQDN одного или нескольких хостов {{ PG }}>
+          host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
           port=6432
           sslmode=verify-full
           dbname=<имя БД>
@@ -791,7 +824,7 @@ sudo apt update && sudo apt install -y ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=<FQDN одного или нескольких хостов {{ PG }}>
+              host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
               port=6432
               dbname=<имя БД>
               user=<имя пользователя>
@@ -822,7 +855,7 @@ sudo apt update && sudo apt install -y ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=<FQDN одного или нескольких хостов {{ PG }}>
+              host=c-<идентификатор кластера>.rw.mdb.yandexcloud.net
               port=6432
               dbname=<имя БД>
               user=<имя пользователя>

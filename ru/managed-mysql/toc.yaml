@@ -35,8 +35,6 @@ items:
         href: operations/cluster-delete.md
       - name: Диагностика производительности
         href: operations/performance-diagnostics.md
-      - name: Миграция базы данных в Managed Service for MySQL
-        href: operations/data-migration.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
   - name: Концепции
@@ -71,6 +69,10 @@ items:
     items:
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
+      - name: Миграция базы данных в Managed Service for MySQL
+        href: tutorials/data-migration.md
+      - name: Миграция базы данных из {{ mmy-name }} в {{ MY }}
+        href: tutorials/mmy-to-mysql-migration.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

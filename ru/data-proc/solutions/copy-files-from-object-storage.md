@@ -1,10 +1,10 @@
 # Использование {{ objstorage-full-name }} в {{ dataproc-name }}
 
-В этом разделе рассмотрены различные способы доступа к объектам из бакетов {{ objstorage-name }} для процессов, запущенных на кластерах {{ dataproc-name }}.
+В этом разделе рассмотрены различные способы доступа к объектам из [бакетов](../../storage/concepts/bucket.md) {{ objstorage-name }} для процессов, запущенных на кластерах {{ dataproc-name }}.
 
 {% note info %}
 
-Перед настройкой доступа к сервисам {{ yandex-cloud }} и интернет-ресурсам убедитесь, что сеть кластера [настроена правильно](./configure-network.md).
+[Настройте сеть кластера](./configure-network.md) перед настройкой доступа к сервисам {{ yandex-cloud }} и интернет-ресурсам.
 
 {% endnote %}
 
@@ -15,12 +15,40 @@
 
 ## DistCp {#distcp}
 
-Для копирования файлов из {{objstorage-name}} в HDFS рекомендуется использовать утилиту [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), которая предназначена для копирования данных как внутри кластера, так и между кластерами и внешними хранилищами.
+Для копирования файлов из {{objstorage-name}} в HDFS используйте утилиту [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html). Она предназначена для копирования данных как внутри кластера, так и между кластерами и внешними хранилищами.
 
-Для аутентификации в {{objstorage-name}} можно использовать два подхода:
+Для аутентификации в {{objstorage-name}} можно использовать один из подходов:
 
+1. Использовать [IAM-токен сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md) кластера.
 1. Использовать [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html).
-1. Передавать параметры `access key` и `secret key` при создании задачи.
+1. Передавать параметры `access key` и `secret key` [статических ключей доступа](../../iam/concepts/authorization/access-key.md) при создании задачи.
+
+### Доступ в S3 с аутентификацией через IAM-токен сервисного аккаунта кластера {#s3-access-using-iam}
+
+1. При создании кластера укажите [сервисный аккаунт](../../iam/operations/sa/create.md#create-sa). Если кластер уже создан, добавьте сервисный аккаунт с помощью кнопки **Изменить кластер** в консоли управления.
+
+1. У сервисного аккаунта должен быть доступ к нужному бакету. Для этого выдайте сервисному аккаунту права в [ACL бакета](https://cloud.yandex.ru/docs/storage/concepts/acl), либо роль `storage.viewer` или `storage.editor`.
+
+    Подробнее про эти роли см. в [документации {{objstorage-name}}](../../storage/security/index.md).
+
+>Например, получите список файлов, находящихся в публичном бакете `yc-mdb-examples` по пути `dataproc/example01/set01`.
+>
+>1. [Подключитесь](../operations/connect.md) к класетру.
+>1. Выполните команду:
+>
+>   ```bash
+>   hadoop fs -ls s3a://yc-mdb-examples/dataproc/example01/set01
+>   ```
+>
+>   Результат:
+>
+>   ```text
+>   Found 12 items
+>   -rw-rw-rw-   1 root root   19327838 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_1.parquet
+>   -rw-rw-rw-   1 root root   21120204 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_10.parquet
+>   -rw-rw-rw-   1 root root   20227757 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/
+>   ...
+>   ```
 
 ### Копирование с использованием CredentialProvider {#copying-via-credentialprovider}
 
@@ -71,7 +99,7 @@ hadoop distcp \
        hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
 ```
 
-## Копирование файлов с передачей ключей в аргументах {#copying-files-by-passing-keys-in-arguments}
+### Копирование файлов с передачей ключей в аргументах {#copying-files-by-passing-keys-in-arguments}
 
 Вы можете не создавать файл секретов, а передавать ключи в аргументах команды:
 
@@ -86,7 +114,6 @@ hadoop distcp \
        s3a://yc-mdb-examples/dataproc/example01/set01 \
        hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
 ```
-
 
 ## Оптимизация чтения файлов из {{ objstorage-name }} {#optimize-s3-reading}
 
@@ -113,8 +140,7 @@ hadoop distcp \
     * `bytebuffer` — используется RAM вне кучи JVM.
 * `fs.s3a.multipart.size` — размер кусков (chunk) в байтах, на которые будут разбиты данные при копировании или выгрузке в бакет.
 
-Подробнее об используемых версиях компонентов см. в разделе [{#T}](../concepts/environment.md).
-
+Подробнее см. в разделе [Свойства компонентов](../concepts/settings-list.md#spark-settings).
 
 ## Использование s3fs {#s3fs}
 
@@ -132,14 +158,18 @@ hadoop distcp \
 
     ```scala
     sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
+    sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
+    sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
     sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь к файлу JCEKS>");
     ```
   * По ключу доступа и секрету:
 
     ```scala
     sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
-    sc.hadoopConfiguration.set("fs.s3a.access.key","<access key>>");
-    sc.hadoopConfiguration.set("fs.s3a.secret.key","<secret_key>");
+    sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
+    sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
+    sc.hadoopConfiguration.set("fs.s3a.access.key","<ключ доступа>");
+    sc.hadoopConfiguration.set("fs.s3a.secret.key","<секрет бакета>");
     ```
 
   После этого можно читать файл из {{objstorage-name}}:
@@ -157,13 +187,17 @@ hadoop distcp \
 
     ```python
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь к файлу JCEKS>")
     ```
   * Доступ по ключу доступа и секрету бакета:
 
     ```python
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
-    sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<ключ доступа>>")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<ключ доступа>")
     sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<секрет бакета>")
     ```
 
@@ -171,7 +205,9 @@ hadoop distcp \
 
   ```python
   sql = SQLContext(sc)
-  df = sql.read.parquet("s3a://<bucket_name>/<path_to_file_or_directory>")
+  df = sql.read.parquet("s3a://<имя бакета>/<путь к объекту>")
   ```
 
 {% endlist%}
+
+Подробнее см. на странице [{#T}](../concepts/settings-list.md#spark-settings).

@@ -583,6 +583,61 @@ items:
         href: public-talks/articles-and-publications.md
       - name: Публичные дашборды и чарты
         href: public-talks/public-dashboards-and-charts.md
-  - name: Вопросы и ответы
-    href: qa/index.md
+  - name: Решение проблем
+    expanded: true
+    items:
+      - name: Вопросы и ответы
+        href: qa/index.md
+      - name: Ошибки DataLens
+        href: troubleshooting/errors/all.md
+      - name: Cannot parse datetime
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
+      - name: Cannot parse number
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
+      - name: Columns in JOIN have different types
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
+      - name: Data is not available because materialization is not yet complete
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
+      - name: Memory limit has been exceeded during query execution
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
+      - name: Table is not ready yet
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
+      - name: Inconsistent aggregation among operands
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md
+      - name: Window function has no aggregated expressions among its arguments
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md
+      - name: Too many series on the chart
+        hidden: true
+        href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
+      - name: Data source timed out
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
+      - name: Requested database column does not exist
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+      - name: Subquery source is disallowed in the connection settings
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
+      - name: Unknown referenced column
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-TRANSLATION-UNKNOWN_FIELD.md
+      - name: Request size limit exceeded
+        hidden: true
+        href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md
+      - name: Access denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS-US-ACCESS_DENIED_DATASET.md
+      - name: Received too many result data rows
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
 base: ru/datalens

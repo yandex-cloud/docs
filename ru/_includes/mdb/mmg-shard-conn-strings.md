@@ -2,9 +2,7 @@
 
 - Bash
 
-  **Перед подключением установите [утилиту Mongo Shell](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell)**.
-
-  Актуальные версии Mongo Shell можно найти [в разделе загрузок](https://www.mongodb.com/try/download/community) на сайте MongoDB.
+  Перед подключением установите [утилиту Mongo Shell](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell).
 
   **Подключение с использованием SSL-соединения для `mongo` версии 4.2 и выше:**
 
@@ -12,34 +10,63 @@
   mongo --norc \
         --tls \
         --tlsCAFile /home/<домашняя директория>/.mongodb/root.crt \
-        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,FQDN хоста N MONGOINFRA или MONGOS>:27017' \
-        -u <имя пользователя БД> \
+        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017' \
+        --username <имя пользователя БД> \
+        --password <пароль пользователя БД> \
         <имя БД>
   ```
 
   **Подключение с использованием SSL-соединения для более старых версий `mongo`:**
 
-  ```
+  ```bash
   mongo --norc \
         --ssl \
         --sslCAFile /home/<домашняя директория>/.mongodb/root.crt \
-        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,FQDN хоста N MONGOINFRA или MONGOS>:27017' \
-        -u <имя пользователя БД> \
+        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017' \
+        --username <имя пользователя БД> \
+        --password <пароль пользователя БД> \
         <имя БД>
   ```
 
   **Подключение без использования SSL-соединения:**
 
-  ```
+  ```bash
   mongo --norc \
-        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,FQDN хоста N MONGOINFRA или MONGOS>:27017' \
-        -u <имя пользователя БД> \
+        --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:27017,...,<FQDN хоста N MONGOINFRA или MONGOS>:27017' \
+        --username <имя пользователя БД> \
+        --password <пароль пользователя БД> \
         <имя БД>
   ```
 
-  После выполнения любой из команд введите пароль пользователя для завершения процедуры подключения.
+  После подключения выполните команду `db`.
 
-  После подключения к СУБД выполните команду `db`.
+- PowerShell
+
+  Перед подключением установите [утилиту MongoDB Shell](https://www.mongodb.com/try/download/shell).
+      
+  **Подключение с использованием SSL-соединения для `mongo` версии 4.2 и выше:**
+
+  ```powershell
+  mongosh.exe --norc `
+              --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:{{ port-mmg-sharded }},...,<FQDN хоста N MONGOINFRA или MONGOS>:{{ port-mmg-sharded }}' `
+              --tls `
+              --tlsCAFile $HOME\.mongodb\root.crt `
+              --username <имя пользователя БД> `
+              --password <пароль пользователя БД> `
+              <имя БД>
+  ```
+      
+  **Подключение без использования SSL-соединения:**
+
+  ```powershell
+  mongosh.exe --norc `
+              --host '<FQDN хоста 1 MONGOINFRA или MONGOS>:{{ port-mmg-sharded }},...,<FQDN хоста N MONGOINFRA или MONGOS>:{{ port-mmg-sharded }}' `
+              --username <имя пользователя БД> `
+              --password <пароль пользователя БД> `
+              <имя БД>
+  ```
+
+  После подключения выполните команду `db`.
 
 - Python
 

@@ -3,7 +3,6 @@
 _A role_ is a set of user permissions to perform operations with {{ yandex-cloud }} resources.
 
 There are two types of roles:
-
 * _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
 * _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in Yandex Compute Cloud.
 
@@ -18,7 +17,6 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 The `{{ roles-viewer }}` role grants permission to read resources.
 
 For example, the `{{ roles-viewer }}` role lets you perform the following operations:
-
 * View information about a resource.
 * Get a list of nested resources, such as a list of VMs in a folder.
 * View a list of operations with a resource.
@@ -28,7 +26,6 @@ For example, the `{{ roles-viewer }}` role lets you perform the following operat
 The `{{ roles-editor }}` role grants permissions to perform any operation related to resource management, except assigning roles to other users. The `{{ roles-editor }}` role includes all permissions granted by the `{{ roles-viewer }}` role.
 
 For example, the `{{ roles-editor }}` role lets you perform the following operations:
-
 * Create a resource.
 * Update a resource.
 * Delete a resource.
@@ -40,7 +37,6 @@ The `{{ roles-admin }}` role grants all permissions to manage the resource, incl
 The `{{ roles-admin }}` role includes all permissions granted by the `{{ roles-editor }}` role.
 
 For example, the `{{ roles-admin }}` role lets you perform the following operations:
-
 * Set permissions to the resource.
 * Change permissions to the resource.
 
@@ -66,7 +62,11 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md) %}
 
-## {{ dataproc-short-name }} {#mdb-roles}
+## Managed databases {#mdb-roles}
+
+{% include [mdb.admin](../../../_includes/iam/roles/mdb.admin.md) %}
+
+## {{ dataproc-short-name }} {#dataproc-roles}
 
 {% include [mdb.dataproc.agent](../../../_includes/roles-dataproc-agent.md) %}
 

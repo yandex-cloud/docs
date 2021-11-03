@@ -156,7 +156,7 @@
   ?>
   ```
 
-  Unlike other connection methods, this code must specify the full path to the `root.crt` certificate for {{ MY }} in the `ssl_set` method.
+  For this connection method, the code must include the full path to the `root.crt` certificate for {{ MY }} in the `ssl_set` method.
 
   **Code example for connecting without SSL:**
 
@@ -194,7 +194,7 @@
      sudo apt update && sudo apt install -y default-jdk maven
      ```
 
-  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MY }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password using the `-storepass` parameter for additional storage protection:
+  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MY }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password for storage security using the `-storepass` parameter:
 
      ```bash
      cd ~/.mysql && \
@@ -396,7 +396,7 @@
     })
   ```
 
-  Unlike other connection methods, this code must specify the full path to the `root.crt` certificate for {{ MY }} in the `ca` variable.
+  For this connection method, the code must include the full path to the `root.crt` certificate for {{ MY }} in the `ca` variable.
 
   **Code example for connecting without SSL:**
 
@@ -499,7 +499,7 @@
   }
   ```
 
-  Unlike other connection methods, this code must specify the full path to the `root.crt` certificate for {{ MY }} in the `ca` variable.
+  For this connection method, the code must include the full path to the `root.crt` certificate for {{ MY }} in the `ca` variable.
 
   **Code example for connecting without SSL:**
 
@@ -642,7 +642,7 @@
   SSLVERIFY=1
   ```
 
-  Unlike other connection methods, this file must specify the full path to the `root.crt` certificate for {{ MY }} in the `SSLCA` parameter.
+  For this connection method, the `/etc/odbc.ini` file must include the full path to the `root.crt` certificate for {{ MY }} in the `SSLCA` parameter.
 
   **Example of settings in the `/etc/odbc.ini` file for connecting without SSL:**
 

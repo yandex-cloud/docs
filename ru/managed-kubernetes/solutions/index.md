@@ -6,4 +6,4 @@
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](backup.md)
 * [{#T}](custom-dns.md)
-
+* [{#T}](kubernetes-lockbox-secrets.md)

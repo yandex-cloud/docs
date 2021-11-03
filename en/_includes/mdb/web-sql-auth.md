@@ -4,7 +4,6 @@ Every time you open the **SQL** tab, you must enter the username and password of
 
 {% note tip %}
 
-To avoid entering the password too often, open this page of the management console in a new browser tab.
+To avoid having to enter your password too frequently, open this management console page in a new browser tab.
 
 {% endnote %}
-

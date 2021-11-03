@@ -5,6 +5,7 @@
 - [{#T}](cluster-connect.md)
 - [{#T}](cluster-stop.md)
 - [{#T}](cluster-update.md)
+- [{#T}](cluster-version-update.md)
 - [{#T}](saml-authentication.md)
 - [{#T}](s3-access.md)
 - [{#T}](cluster-hosts.md)

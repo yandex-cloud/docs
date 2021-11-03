@@ -14,7 +14,7 @@ To set up authentication:
 
 ## Before you start {#before-you-begin}
 
-To use the instructions in this section, you need a valid certificate used to sign SAML messages on the Identity Provider (IdP) server. If you don't have a valid SSL certificate, get one.
+To use the instructions in this section, you will need a valid certificate to sign SAML messages on the Identity Provider's (IdP) server. If you don't have a valid SSL certificate, get one.
 
 The subject name in the certificate must contain the FQDN of the Identity Provider (IdP) server, for example, `fs.contoso.com`, to prevent the browser from blocking the authentication page.
 
@@ -157,7 +157,7 @@ To add a certificate to a federation:
     {% endnote %}
   1. Go to [{{org-full-name}}]({{link-org-main}}).
   1. In the left panel, select the [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png) section.
-  1. Click the name of the federation you need to add a certificate to.
+  1. Click the name of the federation to add a certificate to.
   1. At the bottom of the page, click **Add certificate**.
   1. Enter the certificate's name and description.
   1. Choose how to add the certificate:

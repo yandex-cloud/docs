@@ -13,7 +13,7 @@ To set up authentication:
 
 ## Before you start {#before-you-begin}
 
-To use the instructions in this section, you need:​
+To use the instructions in this section, you will need:​
 
 1. A working ADFS farm. If you didn't configure ADFS on your server, [install and configure it now](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm). To deploy ADFS, you also need to install and configure Active Directory Domain Services (AD DS).
 
@@ -130,7 +130,7 @@ To use the instructions in this section, you need:​
 
       * `ssoBinding`: Specify the Single Sign-on binding type. Most Identity Providers support the `POST` binding type.
 
-  1. {% include [create-federation-curl](../../../_includes/iam/create-federation-curl.md) %}
+  1. {% include [include](../../../_includes/iam/create-federation-curl.md) %}
 
 {% endlist %}
 

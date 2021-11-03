@@ -14,7 +14,6 @@ You can delete an {{ ES }} cluster if you no longer need it. All data in the clu
 {% list tabs %}
 
 - Management console
-
   1. In the management console, select the folder you want to delete a cluster from.
   1. Select **{{ mes-name }}**.
   1. Click ![image](../../_assets/options.svg) for the cluster and select **Delete cluster**.
@@ -29,7 +28,7 @@ You can delete an {{ ES }} cluster if you no longer need it. All data in the clu
     To delete a cluster, run the command:
 
     ```bash
-    {{ yc-mdb-es }} cluster delete <cluster ID or name>
+    {{ yc-mdb-es }} cluster delete <cluster name or ID>
     ```
 
     You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).

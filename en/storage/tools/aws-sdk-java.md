@@ -10,9 +10,9 @@
 
 {% include [install-java-sdk](../../_includes/aws-tools/install-java-sdk.md)%}
 
-## Configuration {#setup}
+## Setup {#setup}
 
-{% include [storage-sdk-setup](../_includes_service/storage-sdk-setup.md) %}
+{% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
 ## Code samples {#java-sdk-examples}
 
@@ -27,7 +27,7 @@ AmazonS3 s3 = AmazonS3ClientBuilder.standard()
     .build();
 ```
 
-with
+to
 
 ```cpp
 AmazonS3 s3 = AmazonS3ClientBuilder.standard()

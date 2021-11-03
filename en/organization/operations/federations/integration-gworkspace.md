@@ -168,7 +168,7 @@ To add a certificate to a federation:
 - Management console
   1. Go to [{{org-full-name}}]({{link-org-main}}).
   1. In the left panel, select the [Federations]({{link-org-federations}}) ![icon-federation](../../../_assets/organization/icon-federation.png) section.
-  1. Click the name of the federation you need to add a certificate to.
+  1. Click the name of the federation to add a certificate to.
   1. At the bottom of the page, click **Add certificate**.
   1. Enter the certificate's name and description.
   1. Choose how to add the certificate:

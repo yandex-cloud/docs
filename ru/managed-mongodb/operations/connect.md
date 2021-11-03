@@ -4,7 +4,7 @@
 
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-Для подключения к хостам кластеров {{ mmg-name }} указывайте порт 27018. В случае шардированного кластера {{ mmg-name }} указывайте порт 27017.
+Для подключения к хостам кластеров {{ mmg-name }} указывайте порт {{ port-mmg }}. В случае шардированного кластера {{ mmg-name }} указывайте порт {{ port-mmg-sharded }}.
 
 {% note info %}
 
@@ -80,12 +80,25 @@
 
 {{ MG }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
 
+{% list tabs %}
 
-```bash
-mkdir ~/.mongodb && \
-wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt && \
-chmod 0600 ~/.mongodb/root.crt
-```
+* Linux (Bash)
+
+    
+    ```bash
+    mkdir ~/.mongodb && \
+    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt && \
+    chmod 0644 ~/.mongodb/root.crt
+    ```
+
+* Windows (PowerShell)
+
+    
+    ```powershell
+    mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+    ```
+
+{% endlist %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -165,7 +178,10 @@ chmod 0600 ~/.mongodb/root.crt
 
 Подключиться к {{ MG }}-хостам в публичном доступе можно только с использованием SSL-сертификата. Перед подключением к таким хостам [подготовьте сертификат](#get-ssl-cert).
 
-В этих примерах предполагается, что SSL-сертификат `root.crt` расположен в директории `/home/<домашняя директория>/.mongodb/`. 
+В примерах ниже предполагается, что SSL-сертификат `root.crt` расположен в директории:
+
+* `/home/<домашняя директория>/.mongodb/` для Ubuntu;
+* `$HOME\.mongodb` для Windows.
 
 Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри облачной сети при подключении к БД шифроваться не будет.
 

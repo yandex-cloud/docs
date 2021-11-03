@@ -17,6 +17,8 @@ items:
         href: operations/cluster-stop.md
       - name: Changing cluster settings
         href: operations/cluster-update.md
+      - name: Updating the Elasticsearch version and edition
+        href: operations/cluster-version-update.md
       - name: Configuring SAML authentication
         href: operations/saml-authentication.md
       - name: Configuring access to Object Storage
@@ -57,13 +59,15 @@ items:
         href: concepts/scalability-and-resilience.md
       - name: Elasticsearch plugins
         href: concepts/plugins.md
+      - name: Elasticsearch version control policy
+        href: concepts/update-policy.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -162,5 +166,7 @@ items:
               - name: get
                 href: api-ref/Operation/get.md
   - name: Questions and answers
-    href: qa/index.md
+    items:
+      - name: General questions
+        href: qa/index.md
 base: en/managed-elasticsearch

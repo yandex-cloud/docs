@@ -1,4 +1,4 @@
-# Add users
+# Add a user
 
 ## Adding Yandex users {#add-user-yandex}
 

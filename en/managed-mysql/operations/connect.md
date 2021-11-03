@@ -6,7 +6,7 @@ You can connect to {{ mmy-short-name }} cluster hosts:
 
 {% note info %}
 
-If public access is only configured for certain hosts in your cluster, automatic master change may make the master unavailable over the internet.
+If a cluster has public access set up for certain hosts only, an automatic master switch may make the master inaccessible over the internet.
 
 {% endnote %}
 
@@ -30,7 +30,7 @@ Settings of rules depend on the connection method you select:
     * Source type: `CIDR`.
     * Source: `0.0.0.0/0`.
 
-- With a VM in Yandex.Cloud
+- With a VM in {{ yandex-cloud }}
 
     1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port {{ port-mmy }} from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
         * Protocol: `TCP`.
@@ -132,59 +132,10 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
      1. Select the **{{ MY }}** database from the list.
      1. Click **Next**.
      1. Specify the connection parameters on the **Main** tab:
-        * **Server**: FQDN of the host or a [special FQDN](#special-fqdns).
-        * **Port**: `{{ port-mmy }}`.
-        * **Database**: Name of the DB to connect to.
-        * **User**, **Password**: DB user's name and password.
-     1. On the **SSL** tab:
-         1. Enable the **Use SSL** setting.
-         1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-         1. Under **Additional**:
-            1. Enable the **SSL only** setting.
-            1. Select **Check the server certificate**.
-  1. Click **Test Connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-  1. Click **Done** to save the database connection settings.
-
-{% endlist %}
-
-{% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
-
-## Connecting to cluster hosts from graphical IDEs {#connection-ide}
-
-{% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
-
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
-
-{% list tabs %}
-
-- DataGrip
-
-  1. Create a data source:
-     1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
-     1. On the **General** tab:
-        1. Specify the connection parameters:
-           * **Host**: FQDN of the host or a [special FQDN](#special-fqdns).
-           * **Port**: `{{ port-mmy }}`.
-           * **User**, **Password**: DB user's name and password.
-           * **Database**: Name of the DB to connect to.
-        1. Click **Download** to download the connection driver.
-     1. On the **SSH/SSL** tab:
-         1. Enable the **Use SSL** setting.
-         1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-  1. To test the connection, click **Test Connection**. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-  1. Click **OK** to save the data source.
-
-- DBeaver
-
-  1. Create a new DB connection:
-     1. In the **Database** menu, select **New connection**.
-     1. Select the **{{ MY }}** database from the list.
-     1. Click **Next**.
-     1. Specify the connection parameters on the **Main** tab:
-        * **Server**: FQDN of the host or a [special FQDN](#special-fqdns).
-        * **Port**: `{{ port-mmy }}`.
-        * **Database**: Name of the DB to connect to.
-        * **User**, **Password**: DB user's name and password.
+        - **Server**: FQDN of the host or a [special FQDN](#special-fqdns).
+        - **Port**: `{{ port-mmy }}`.
+        - **Database**: Name of the DB to connect to.
+        - **User**, **Password**: DB user's name and password.
      1. On the **SSL** tab:
          1. Enable the **Use SSL** setting.
          1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
@@ -200,11 +151,11 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-You can connect to public {{ MY }} hosts only if you use an SSL certificate. Before connecting to such hosts, [prepare the certificate](#configuring-an-ssl-certificate).
+You can only connect to public {{ MY }} hosts using an SSL certificate. Before connecting to this type of host, [get a certificate ready](#get-ssl-cert).
 
 These examples assume that the `root.crt` certificate is located in the ` /home/<home directory>/.mysql/` folder.
 
-Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. For connections to the database, traffic inside the virtual network isn't encrypted in this case.
+Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. DB connection traffic internal to the cloud network will not be encrypted.
 
 You can connect to a cluster using both regular FQDN hosts and [special FQDNs](#special-fqdns).
 

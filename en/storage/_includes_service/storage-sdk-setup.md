@@ -21,5 +21,3 @@ To configure the SDK, create configuration files in your home folder and set the
 
    {% endnote %}
 
-Use the `{{ s3-storage-host }}` address to access {{ objstorage-name }}.
-

@@ -15,3 +15,5 @@ Features provided in {{ mes-name }} depend on the {{ ES }} edition:
 | Machine learning | ML features: anomaly detection, regression, and classification | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 | Advanced access control | Integration with third-party authentication and authorization providers (SAML). Granular configuration of data access levels | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 
+
+You can [update the {{ ES }} edition](../operations/cluster-version-update.md#start-edition-update) after you create a cluster. If you decide to downgrade the edition, please double-check that reduced functionality won't affect your applications.

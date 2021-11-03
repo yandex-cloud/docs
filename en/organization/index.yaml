@@ -20,3 +20,8 @@ links:
       Configure an identity federation so that your employees can use their work
       accounts to access services
     href: add-federation
+  - title: Connect services
+    description: >-
+      Connect the services that your organization's employees will have access
+      to
+    href: manage-services

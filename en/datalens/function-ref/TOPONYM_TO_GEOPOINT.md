@@ -15,6 +15,7 @@ TOPONYM_TO_GEOPOINT( name )
 
 #### Description {#description}
 Converts the name of a geographical entity (country, region, city) `name` to the `Geopoint` type.
+See the full [list of toponyms]({{ geopoints-list-link }}).
 
 **Argument types:**
 - `name` — `String`

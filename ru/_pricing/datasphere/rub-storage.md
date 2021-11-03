@@ -1,4 +1,4 @@
 Ресурс | Цена за 1 ГБ в месяц, вкл. НДС
 --- | ---
 Объем хранилища проекта, до 10 ГБ | Не тарифицируется
-Объем дхранилища проекта, сверх 10 ГБ | {{ sku|RUB|nbs.network-nvme.allocated|month|string }}
+Объем хранилища проекта, сверх 10 ГБ | {{ sku|RUB|nbs.network-nvme.allocated|month|string }}

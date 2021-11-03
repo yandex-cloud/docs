@@ -39,6 +39,8 @@ items:
         href: concepts/limits.md
   - name: Практические руководства
     items:
+      - name: Настройка локального кеширующего DNS-резолвера
+        href: solutions/local-dns-cache.md
       - name: Миграция DNS-зон из Яндекс.Коннект
         href: solutions/connect-migration.md
   - name: Управление доступом

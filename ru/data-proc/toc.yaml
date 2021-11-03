@@ -8,8 +8,14 @@ items:
         items:
           - name: Обзор
             href: solutions/job-overview.md
+          - name: Работа с заданиями Hive
+            href: solutions/hive-job-basics.md
+          - name: Работа с заданиями MapReduce
+            href: solutions/mapreduce-job-basics.md
           - name: Работа с заданиями PySpark
             href: solutions/pyspark-job-basics.md
+          - name: Работа с заданиями Spark
+            href: solutions/spark-job-basics.md
           - name: Использование Apache Hive
             href: solutions/how-to-use-hive.md
           - name: Запуск Spark-приложений

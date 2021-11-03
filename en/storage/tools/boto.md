@@ -10,9 +10,9 @@
 
 {% include [install-boto](../../_includes/aws-tools/install-boto.md)%}
 
-## Configuration {#setup}
+## Setup {#setup}
 
-{% include [storage-sdk-setup](../_includes_service/storage-sdk-setup.md) %}
+{% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
 ## Example {#boto-example}
 
@@ -30,10 +30,10 @@
       endpoint_url='https://{{ s3-storage-host }}'
   )
   
-  # Create a new bucket
+  # Creating a new bucket
   s3.create_bucket(Bucket='bucket-name')
   
-  # Uploading objects into the bucket
+  # Uploading objects into a bucket
   
   ## From a string
   s3.put_object(Bucket='bucket-name', Key='object_name', Body='TEST', StorageClass='COLD')
@@ -42,7 +42,7 @@
   s3.upload_file('this_script.py', 'bucket-name', 'py_script.py')
   s3.upload_file('this_script.py', 'bucket-name', 'script/py_script.py')
   
-  # Getting a list of objects in the bucket
+  # Getting a list of objects in a bucket
   for key in s3.list_objects(Bucket='bucket-name')['Contents']:
       print(key['Key'])
   
@@ -69,11 +69,11 @@
   )
   conn.auth_region_name = 'ru-central1'
   
-  # Create a new bucket
+  # Creating a new bucket
   conn.create_bucket('bucket-name')
   bucket = conn.get_bucket('bucket-name')
   
-  # Uploading objects into the bucket
+  # Uploading objects into a bucket
   
   ## From a string
   bucket.new_key('test-string').set_contents_from_string('TEST')
@@ -86,7 +86,7 @@
   file_key_2.key = 'script/py_script.py'
   file_key_2.set_contents_from_filename('this_script.py')
   
-  # Getting a list of objects in the bucket
+  # Getting a list of objects in a bucket
   keys_list=bucket.list()
   for key in keys_list:
       print key.key
