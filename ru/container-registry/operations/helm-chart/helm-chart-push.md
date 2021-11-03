@@ -49,7 +49,7 @@
   1. Сохраните Helm-чарт локально:
 
      ```bash
-     helm chart save . cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
+     helm package . cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
      ```
 
      Результат выполнения команды:
@@ -66,7 +66,7 @@
   1. Загрузите Helm-чарт в {{ container-registry-name }}:
 
      ```bash
-     helm chart push cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
+     helm push cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
      ```
 
      Результат выполнения команды:
