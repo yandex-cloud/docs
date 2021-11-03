@@ -22,6 +22,7 @@ Possible values for `scale` parameter:
 - `"region"`;
 - `"locality"`.
 
+The calculated field using this function must be created at the dataset level.
 To enable the function, go to the [Service Settings]({{ link-datalens-settings }}) page.
 
 **Argument types:**
