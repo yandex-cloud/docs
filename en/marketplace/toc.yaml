@@ -1,8 +1,6 @@
-title: Marketplace partner interface
-href: index.yaml
+title: Cloud Marketplace Partner Interface
+href: index.md
 items:
-  - name: Getting started
-    href: quickstart.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -25,6 +23,6 @@ items:
     items:
       - name: Product
         href: concepts/product.md
-      - name: Pricing plan
+      - name: Service plan
         href: concepts/tariff.md
 base: ru/marketplace
