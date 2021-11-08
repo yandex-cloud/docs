@@ -207,6 +207,7 @@ default:
   yc-mdb-rd: yc managed-redis
   yc-mdb-my: yc managed-mysql
   yc-mdb-kf: yc managed-kafka
+  yc-k8s: yc managed-kubernetes
   yc-mdb-ms: yc managed-sqlserver
   yc-mdb-es: yc managed-elasticsearch
   yc-compute-ig: yc compute instance-group
