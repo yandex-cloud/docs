@@ -12,11 +12,11 @@ In this scenario, we'll use {{ datalens-short-name }} to visualize the measures 
 
 The file [Moscow Population 2018.csv](https://yadi.sk/d/H4dQKVDpU4Rd8g) is used as the source of data on the Moscow population and area for 2018. Source: [List of districts and settlements in Moscow](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
 
-To visualize and analyze the data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
+To visualize and analyze data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
 
 1. [Create a connection](#step1).
 1. [Create a dataset](#step2).
-1. [Create a chart with the map of Moscow districts](#step3).
+1. [Create a chart with a map of the various Moscow districts](#step3).
 1. [Publish the chart to DataLens Public](#step4).
 
 ## Before you start {#before-you-begin}
@@ -27,7 +27,7 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](#be
 
 Create a dataset based on the [connection](../../datalens/concepts/connection.md) to the CSV file.
 
-1. Go to the [interface{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
 
 1. Click **Create connection**.
 
@@ -55,7 +55,7 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
 ## Step 2. Create a dataset {#step2}
 
-1. Drag the **Moscow Population 2018.csv** table from the selection panel to the workspace.
+1. If the workspace is empty, drag the **Moscow Population 2018.csv** spreadsheet from the selection panel to the workspace.
 
     ![image](../../_assets/datalens/solution-05/06-drag-table.png)
 
@@ -75,11 +75,11 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
     ![image](../../_assets/datalens/solution-05/10-geopoligon.png)
 
-1. Click **Save** in the upper-right corner to save the dataset.
+1. In the upper-right corner, click **Save**.
 
     ![image](../../_assets/datalens/solution-05/11-save-dataset.png)
 
-1. Enter a name for the dataset: **Moscow population**, then click **Create**.
+1. In the resulting window, enter **Moscow population** as the name for the dataset and click **Create**.
 
 1. When the dataset is saved, click **Create chart**.
 
@@ -91,11 +91,11 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
     ![image](../../_assets/datalens/solution-05/13-choose-map.png)
 
-1. Select the **Polygons** layer type.
+1. Select **Polygons (Geopolygons)** as the layer type.
 
    ![image](../../_assets/datalens/solution-05/13-1-choose-map-geo.png)
 
-1. Add polygons of districts to the map. To do this, drag the **District coordinates** field from the **Dimensions** section to the **Geopolygons** section.
+1. Add polygons of districts to the map. To do this, drag the **District coordinates** field from the **Dimensions** to the **Polygons (Geoplygons)** section.
 
     ![image](../../_assets/datalens/solution-05/14-use-coordinates.png)
 
@@ -103,16 +103,19 @@ Create a dataset based on the [connection](../../datalens/concepts/connection.md
 
     ![image](../../_assets/datalens/solution-05/15-use-measure.png)
 
-1. Click **Save** in the upper-right corner.
-In the window that opens, enter the name **Moscow population map by district** for the chart and click **Save**.
+1. In the upper-right corner, click **Save**.
 
-## Step 4. Publish the chart in DataLens Public {#step4}
+    ![image](../../_assets/datalens/solution-05/15-1-save-chart.png)
 
-1. Click the **Set up public access** icon.
+1. In the window that opens, enter the name **Moscow population map by district** for the chart and click **Save**.
+
+## Step 4. Publish the chart to DataLens Public {#step4}
+
+1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) and in the resulting list, select **Public access**.
 
     ![image](../../_assets/datalens/solution-05/16-share-button.png)
 
-1. In the public access settings window that opens, enable **Access via link**.
+1. In the resulting **Public access settings** window, enable **Access via link**.
 
     ![image](../../_assets/datalens/solution-05/17-share1.png)
 
@@ -130,7 +133,7 @@ You can share this link with your colleagues, partners, and friends. DataLens Pu
 
 **Also try:**
 
-- Building a bar map with population density across districts.
-- Creating a dashboard with a map, bar chart, and selectors.
-- Publishing a dashboard.
+- Building a column chart by district and population.
+- [Creating a dashboard](../../datalens/operations/dashboard/create.md) with a map, a column chart, and [selectors](../../datalens/operations/dashboard/add-selector.md).
+- [Publishing a dashboard](../../datalens/operations/dashboard/publish.md).
 
