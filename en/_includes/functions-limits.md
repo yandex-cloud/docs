@@ -1,11 +1,11 @@
 #### Quotas {#functions-quotas}
 
-| Type of limit | Value |
+| Limits | Value |
 | ----- | ----- |
 | Number of functions per cloud | 10 |
-| Number of instances of a single function in each availability area | 10 |
+| Number of function instances per availability zone | 10 |
 | Number of concurrent function calls (for all functions in each availability zone) | 10 |
-| Total RAM for all running functions in each availability zone | 20 GB |
+| Total RAM for all running functions per availability zone | 20 GB |
 
 A function instance processes one function call at a time. If there are more function calls than instances available, the call is queued. A queued call is treated as call-in-progress and consumes your quota.
 
@@ -13,7 +13,7 @@ Calls are distributed across [availability zones](../overview/concepts/geo-scope
 
 #### Limits {#functions-limits}
 
-| Type of limit | Value |
+| Limits | Value |
 | ----- | ----- |
 | **Maximum uploaded file size** |
 | ZIP archive from the management console | 3.5 MB |
@@ -28,7 +28,11 @@ Calls are distributed across [availability zones](../overview/concepts/geo-scope
 #### Other restrictions {#functions-other-restrictions}
 
 * The trigger must be in the same cloud as the queue that messages are read from.
+
 * When installing dependencies:
     * The total time for installing dependencies is limited to **5 minutes**. After it expires, the build fails with an error.
-    * The command for installing dependencies is allocated no more than **1 GB** of RAM.
+    * **1 GB** of RAM is allocated to install dependencies, of which **700 MB** is allocated for temporary file storage (tmpfs). Memory is consumed by active processes and files created and downloaded during the build.
+    * **50%** of the CPU is available.
+
+    If the build takes longer than 5 minutes or requires more resources, gather the dependencies yourself and [download the function as a ZIP archive](../functions/operations/function/version-manage.md#func-version-create).
 
