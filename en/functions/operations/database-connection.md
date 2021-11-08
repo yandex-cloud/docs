@@ -1,10 +1,8 @@
 # Connecting to managed databases from functions
 
-Connecting to managed databases is in the [Preview](../../overview/concepts/launch-stages.md) stage.
+Create a connection to access {{ mpg-full-name }} and {{ mch-full-name }} cluster hosts without configured public access from functions.
 
-Create a connection to access Managed Service for PostgreSQL cluster hosts without configured public access from functions.
-
-## Create connection {#create}
+## Creating a connection {#create}
 
 {% list tabs %}
 
@@ -35,7 +33,11 @@ To access DB cluster hosts from a function using the created connection:
 * In the function version settings, specify the service account with the `serverless.mdbProxies.user` role. [Assigning a role.](./function-public.md#add-access)
 * In advanced cluster settings, enable the **Access from Serverless** option.
 
-Below are some example functions for connecting to a database. The connection ID and the entry point are available on the connection page in the [management console]({{ link-console-main }}).
+## Examples of functions for connecting to databases
+
+The connection ID and the entry point are available on the connection page in the [management console]({{ link-console-main }}).
+
+### {{ mpg-name }}
 
 {% list tabs %}
 
@@ -142,4 +144,159 @@ Below are some example functions for connecting to a database. The connection ID
     ```
 
 {% endlist %}
+
+### {{ mch-name }}
+
+{% list tabs %}
+
+- Node.js
+
+    ```js
+    module.exports.handler = async function (event, context) {
+        const https = require('https');
+        const querystring = require('querystring');
+        const fs = require('fs');
+    
+        const DB_HOST = "akfd3bhqk359oltp8ejc.clickhouse-proxy.serverless.yandexcloud.net"; // Entry point
+        const DB_NAME = "akfd3bhqk359oltp8ejc"; // Connection ID
+        const DB_USER = "user1"; // DB user
+        const DB_PASS = context.token.access_token;
+    
+        const CACERT = "/etc/ssl/certs/ca-certificates.crt";
+    
+        const options = {
+            'method': 'GET',
+            'ca': fs.readFileSync(CACERT),
+            'path': '/?' + querystring.stringify({
+                'database': DB_NAME,
+                'query': 'SELECT version()',
+            }),
+            'port': 8443,
+            'hostname': DB_HOST,
+            'headers': {
+                'X-ClickHouse-User': DB_USER,
+                'X-ClickHouse-Key': DB_PASS,
+            },
+        };
+    
+        return {
+            statusCode: 200,
+            body: await new Promise((resolve) => {
+                data = ''
+                const req = https.request(options, (res) => {
+                   res.setEncoding('utf8');
+                   res.on('data', (chunk) => {
+                     data += chunk;
+                   });
+                   res.on('end', () => { resolve(data) });
+                });
+                req.end();
+            }),
+        };
+    };
+    ```
+
+- Python
+
+    ```py
+    import requests
+    
+    
+    def handler(event, context):
+        url = 'https://{host}:8443/?database={db}&query={query}'.format(
+            host='akfd3bhqk359oltp8ejc.clickhouse-proxy.serverless.yandexcloud.net', # Entry point
+            db='akfd3bhqk359oltp8ejc', # Connection ID
+            query='SELECT version()')
+    
+        auth = {
+            'X-ClickHouse-User': 'user1', # DB user
+            'X-ClickHouse-Key': context.token["access_token"],
+        }
+    
+        cacert = '/etc/ssl/certs/ca-certificates.crt'
+    
+        rs = requests.get(url, headers=auth, verify=cacert)
+        rs.raise_for_status()
+    
+        return {
+            'statusCode': 200,
+            'body': rs.text,
+        }
+    ```
+
+- Go
+
+    ```golang
+    package main
+    
+    import (
+        "context"
+      "fmt"
+      "net/http"
+      "io/ioutil"
+      "crypto/x509"
+      "crypto/tls"
+    
+      ycsdk "github.com/yandex-cloud/go-sdk"
+    )
+    
+    type Response struct {
+        StatusCode int         `json:"statusCode"`
+        Body       interface{} `json:"body"`
+    }
+    
+    // Getting an IAM token for the service account specified in the function settings
+    func getToken(ctx context.Context) string {
+        resp, err := ycsdk.InstanceServiceAccount().IAMToken(ctx)
+        if err != nil {
+            panic(err)
+        }
+        return resp.IamToken
+    }
+    
+    // Connecting to a database
+    func Handler(ctx context.Context) (*Response, error) {
+      const DB_HOST =  "akfd3bhqk359oltp8ejc.clickhouse-proxy.serverless.yandexcloud.net" // Entry point
+      const DB_NAME = "akfd3bhqk359oltp8ejc" // Connection ID
+      const DB_USER = "user1" // DB user
+      DB_PASS := getToken(ctx)
+    
+      caCertPool, _ := x509.SystemCertPool()
+      conn := &http.Client{
+        Transport: &http.Transport{
+          TLSClientConfig: &tls.Config{ RootCAs: caCertPool },
+        },
+      }
+    
+      req, _ := http.NewRequest("GET", fmt.Sprintf("https://%s:8443/", DB_HOST), nil)
+      query := req.URL.Query()
+      query.Add("database", DB_NAME)
+      query.Add("query", "SELECT version()")
+    
+      req.URL.RawQuery = query.Encode()
+    
+      req.Header.Add("X-ClickHouse-User", DB_USER)
+      req.Header.Add("X-ClickHouse-Key", DB_PASS)
+    
+      resp, err := conn.Do(req)
+      if err != nil {
+        if resp != nil {
+          data, _ := ioutil.ReadAll(resp.Body)
+          panic(data)
+        }
+        panic(err)
+      }
+      defer resp.Body.Close()
+    
+      data, err := ioutil.ReadAll(resp.Body)
+      if err != nil {
+        panic(err)
+      }
+    
+        return &Response{
+            StatusCode: 200,
+            Body:       string(data),
+      }, nil
+    }
+    ```
 
