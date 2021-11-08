@@ -1,4 +1,4 @@
-1. Click **Create folder** in the [стартовой странице]({{ link-console-main }}) of the management console.
+1. Click **Create folder** in the [home page]({{ link-console-main }}) of the management console.
 
 2. Enter the folder name.
 

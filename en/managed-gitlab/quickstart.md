@@ -8,7 +8,7 @@ To get started with the service:
 
 ## Before you start {#before-you-begin}
 
-1. Go to the [консоль управления]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
 
 1. If you don't have a folder yet, create one:
 
