@@ -18,7 +18,7 @@
 
    {% endlist %}
 
-1. Загрузите на ВМ файлы веб-сайта с помощью [протокола SCP](https://ru.wikipedia.org/wiki/SCP).
+1. Загрузите на ВМ файлы веб-сайта с помощью [протокола SCP]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/SCP){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Secure_copy_protocol){% endif %}.
 
    {% list tabs %}
 

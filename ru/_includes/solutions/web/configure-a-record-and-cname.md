@@ -43,8 +43,8 @@
 
 Делегирование происходит не сразу. Серверы интернет-провайдеров обычно обновляют записи до 24 часов (86400 секунд). Это обусловлено значением TTL, в течение которого кэшируются записи для доменов.
 
-Проверить делегирование домена можно с помощью утилиты dig или [сервиса Whois]{% if lang == "ru" %}(https://www.reg.ru/whois/check_site){% endif %}{% if lang == "en" %}(https://www.reg.com/whois/check_site){% endif %}:
-```
+Проверить делегирование домена можно с помощью [сервиса Whois]{% if lang == "ru" %}(https://www.reg.ru/whois/check_site){% endif %}{% if lang == "en" %}(https://www.reg.com/whois/check_site){% endif %} или утилиты `dig`:
+```bash
 dig +short NS example.com
 ```
 Результат:
