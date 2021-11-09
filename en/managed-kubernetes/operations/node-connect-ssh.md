@@ -19,53 +19,46 @@ Prepare the keys for use with your node. To do this:
 - Linux/MacOS
 
   1. Open the terminal.
-
   1. Use the `ssh-keygen` command to create a new key:
 
-     ```
+     ```bash
      ssh-keygen -t rsa -b 2048
      ```
 
      After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~./ssh` directory.
 
-     The public part of the key will be saved in a file with the name `<key_name>.pub`.
+     The public part of the key will be saved in a file with the name `<key name>.pub`.
 
 - Windows 10
 
   1. Run `cmd.exe` or `powershell.exe`.
-
   1. Use the `ssh-keygen` command to create a new key. Run the command:
 
-     ```
+     ```bash
      ssh-keygen -t rsa -b 2048
      ```
 
-     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<user_name>\.ssh\` directory.
+     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<user name>\.ssh\` directory.
 
-     The public part of the key will be saved in a file with the name `<key_name>.pub`.
+     The public part of the key will be saved in a file with the name `<key name>.pub`.
 
 - Windows 7/8
 
   To create keys for Windows, use the PuTTY application.
 
   1. [Download](https://www.putty.org) and install PuTTY.
-
   1. Make sure that the directory where you installed PuTTY is included in `PATH`:
      1. Right-click on **My computer**. Click **Properties**.
      1. In the window that opens, select **Additional system parameters**, then **Environment variables** (located in the lower part of the window).
      1. Under **System variables**, find `PATH` and click **Edit**.
      1. In the **Variable value** field, append the path to the directory where you installed PuTTY.
-
   1. Launch the PuTTYgen app.
-
   1. Select **RSA** for the type of pair to generate and set the length to `2048`. Click **Generate** and move the cursor in the field above it until key creation is complete.
 
      ![ssh_generate_key](../../_assets/compute/ssh-putty/ssh_generate_key.png)
 
   1. In **Key passphrase**, enter a strong password. Enter it again in the field below.
-
   1. Click **Save private key** and save the private key. Never share it with anyone and do not tell anyone the passphrase for it.
-
   1. Save the key in a text file in a single line. To do this, copy the public key from the text field to a text file with the name `id_rsa.pub`.
 
 {% endlist %}
@@ -97,24 +90,26 @@ username2:ssh-rsa ONEMOREkey***********88OavEHw== username2
 
 To create a node group with the necessary parameters, use the following command:
 
-```
+```bash
 yc managed-kubernetes node-group create \
---name <node_group_name> \
---cluster-name <{{ k8s }}_cluster_name> \
---fixed-size <number_of_nodes_in_the_group> \
---location zone=<availability_zone>,subnet-name=<subnet_name> \
---public-ip \
---metadata-from-file ssh-keys=<name_of_the_file_with_public_keys> \
+  --name <node_group_name> \
+  --cluster-name <{{ k8s }}_cluster_name> \
+  --fixed-size <number_of_nodes_in_the_group> \
+  --location zone=<availability_zone>,subnet-name=<subnet_name> \
+  --public-ip \
+  --metadata-from-file ssh-keys=<name_of_the_file_with_public_keys> \
 ```
+
+{% include [user-data](../../_includes/managed-kubernetes/user-data.md) %}
 
 ## Update node group keys {#node-add-metadata}
 
 To update the SSH keys of a node group, use the following command:
 
-```
+```bash
 yc managed-kubernetes node-group add-metadata \
---name <node group name> \
---metadata-from-file ssh-keys=<name of the file with public keys> \
+  --name <node group name> \
+  --metadata-from-file ssh-keys=<name of the file with public keys> \
 ```
 
 ## Get the public IP address of the node {#node-public-ip}
@@ -127,64 +122,64 @@ To connect, specify the [public IP address](../../vpc/concepts/address.md#public
 
   Use the following command for kubectl. The public IP address is listed in the `EXTERNAL-IP` column.
 
-  ```
+  ```bash
   kubectl get nodes -o wide
   ```
 
   Command execution result:
 
-  ```
+  ```bash
   NAME                        STATUS   ROLES    AGE   VERSION   INTERNAL-IP   EXTERNAL-IP      OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
   cl17i6943n92sb98jifg-itif   Ready    <none>   31m   v1.13.3   10.0.0.27     84.201.145.251   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
   cl17i6943n92sb98jifg-ovah   Ready    <none>   31m   v1.13.3   10.0.0.22     84.201.149.184   Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.2
   ```
 
 - Management console
-  1. Open the **Compute Cloud** section in the folder where you created your {{ k8s }} cluster.
+  1. Open the **{{ compute-name }}** section in the folder where you created your {{ k8s }} cluster.
   1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click on the instance group with the name that matches the node group ID.
   1. In the window that opens, go to the **List of VMs** tab.
-  1. Click the virtual machine that you want to find out the public address for.
+  1. Click the VM that you want to find the public address for.
   1. The public IP address is shown in the **Network** section in **Public IPv4**.
 
 - YC CLI
 
-  1. Find out the ID of the instance group that corresponds to the node group.
+  1. Find the ID of the instance group that corresponds to the node group.
 
-      This parameter is shown in the `INSTANCE GROUP ID` column.
+     This parameter is shown in the `INSTANCE GROUP ID` column.
 
-      ```
-      yc managed-kubernetes node-group list
-      ```
+     ```bash
+     yc managed-kubernetes node-group list
+     ```
 
-      Command execution result:
+     Command execution result:
 
-      ```
-      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-      |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
-      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-      | cat684ojo3irchtpeg84 | cata9ertn6tcr09bh9rm | test-nodegroup | cl17i6943n92sb98jifg | 2019-04-12 12:38:35 | RUNNING |    2 |
-      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-      ```
+     ```bash
+     +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
+     |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
+     +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
+     | cat684ojo3irchtpeg84 | cata9ertn6tcr09bh9rm | test-nodegroup | cl17i6943n92sb98jifg | 2019-04-12 12:38:35 | RUNNING |    2 |
+     +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
+     ```
 
   1. View the list of nodes that belong to this group.
 
-      The public IP address of the node is shown in the `IP` column after the `~` character.
+     The public IP address of the node is shown in the `IP` column after the `~` character.
 
-      ```
-      yc compute instance-group list-instances cl17i6943n92sb98jifg
-      ```
+     ```bash
+     yc compute instance-group list-instances cl17i6943n92sb98jifg
+     ```
 
-      Command execution result:
+     Command execution result:
 
-      ```
-      +----------------------+---------------------------+--------------------------+---------------+----------------+
-      |     INSTANCE ID      |           NAME            |            IP            |    STATUS     | STATUS MESSAGE |
-      +----------------------+---------------------------+--------------------------+---------------+----------------+
-      | ef31h24k03pg0mhunfm1 | cl17i6943n92sb98jifg-itif | 10.0.0.27~84.201.145.251 | RUNNING [53m] |                |
-      | ef37ddhg9i7jhs7tc3pe | cl17i6943n92sb98jifg-ovah | 10.0.0.22~84.201.149.184 | RUNNING [53m] |                |
-      +----------------------+---------------------------+--------------------------+---------------+----------------+
-      ```
+     ```bash
+     +----------------------+---------------------------+--------------------------+---------------+----------------+
+     |     INSTANCE ID      |           NAME            |            IP            |    STATUS     | STATUS MESSAGE |
+     +----------------------+---------------------------+--------------------------+---------------+----------------+
+     | ef31h24k03pg0mhunfm1 | cl17i6943n92sb98jifg-itif | 10.0.0.27~84.201.145.251 | RUNNING [53m] |                |
+     | ef37ddhg9i7jhs7tc3pe | cl17i6943n92sb98jifg-ovah | 10.0.0.22~84.201.149.184 | RUNNING [53m] |                |
+     +----------------------+---------------------------+--------------------------+---------------+----------------+
+     ```
 
 {% endlist %}
 
@@ -198,13 +193,13 @@ You can connect to a node over SSH once it is started (with the `RUNNING` status
 
   In the terminal, run the following command:
 
-  ```
+  ```bash
   ssh <username>@<public_IP_address_of_the_node>
   ```
 
   If this is the first time you connect to the node, you might see a warning about an unknown host:
 
-  ```
+  ```bash
   The authenticity of host '130.193.40.101 (130.193.40.101)' can't be established.
   ECDSA key fingerprint is SHA256:PoaSwqxRc8g6iOXtiH7ayGHpSN0MXwUfWHkGgpLELJ8.
   Are you sure you want to continue connecting (yes/no)?
@@ -225,9 +220,7 @@ You can connect to a node over SSH once it is started (with the `RUNNING` status
         ![ssh_add_ip](../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
      1. In the tree on the left, select **Connection** - **SSH** - **Auth**.
-
      1. Set the **Allow agent forwarding** option.
-
      1. In the **Private key file for authentication** field, select the file with the private key.
 
         ![ssh_choose_private_key](../../_assets/compute/ssh-putty/ssh_choose_private_key.png)
@@ -250,4 +243,3 @@ You can connect to a node over SSH once it is started (with the `RUNNING` status
   1. In the saved sessions list, select the necessary session.
 
 {% endlist %}
-

@@ -7,43 +7,47 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Creating a project
-        href: operations/projects/create.md
-      - name: Installing dependencies
-        href: operations/projects/install-dependencies.md
-      - name: Running sample code in a notebook
-        href: operations/projects/snippets.md
-      - name: Versioning. Working with checkpoints
-        href: operations/projects/checkpoints.md
-      - name: Managing computing resources
-        href: operations/projects/control-compute-resources.md
-      - name: Managing Docker images
+      - name: Project management
         items:
-          - name: Docker image for a project
-            href: operations/user-images.md
-          - name: Docker image in a cell
-            href: operations/user-images-cell.md
-      - name: Clearing the interpreter state
-        href: operations/projects/clear-kernel-state.md
+          - name: Creating a project
+            href: operations/projects/create.md
+          - name: Installing dependencies
+            href: operations/projects/install-dependencies.md
+          - name: Managing computing resources
+            href: operations/projects/control-compute-resources.md
+          - name: Changing a name or description
+            href: operations/projects/update.md
+          - name: Deleting a project
+            href: operations/projects/delete.md
       - name: Sharing a notebook
         items:
           - name: Publishing a notebook
             href: operations/projects/publication.md
           - name: Exporting a project
             href: operations/projects/export.md
-      - name: Changing a name or description
-        href: operations/projects/update.md
-      - name: Deleting a project
-        href: operations/projects/delete.md
-      - name: Working with Git
-        href: operations/projects/work-with-git.md
+      - name: Working with a notebook
+        items:
+          - name: Running sample code in a notebook
+            href: operations/projects/snippets.md
+          - name: Versioning. Working with checkpoints
+            href: operations/projects/checkpoints.md
+          - name: Clearing the interpreter state
+            href: operations/projects/clear-kernel-state.md
+          - name: Working with Git
+            href: operations/projects/work-with-git.md
+      - name: Managing Docker images
+        items:
+          - name: Docker image for a project
+            href: operations/user-images.md
+          - name: Docker image in a cell
+            href: operations/user-images-cell.md
       - name: Connecting to data sources
         items:
           - name: Connecting to a {{ CH }} database
             href: operations/data/connect-to-clickhouse.md
           - name: Connecting to a {{ PG }} database
             href: operations/data/connect-to-postgresql.md
-          - name: Connecting to S3 Storage
+          - name: Connecting to S3 storage
             href: operations/data/connect-to-s3.md
       - name: Setting up integration with Data Proc
         href: operations/data-proc-integration.md
@@ -59,6 +63,8 @@ items:
             href: operations/data/secret-copy.md
           - name: Destroying a secret
             href: operations/data/secret-delete.md
+      - name: Launching distributed training
+        href: operations/taas-run.md
   - name: Concepts
     items:
       - name: Overview
@@ -69,6 +75,8 @@ items:
         href: concepts/preinstalled-packages.md
       - name: Available commands
         href: concepts/magic.md
+      - name: '#pragma service commands'
+        href: concepts/pragma.md
       - name: Computing resource configurations
         href: concepts/configurations.md
       - name: Integration with version and data control systems
@@ -85,6 +93,8 @@ items:
         href: concepts/secrets.md
       - name: Using TensorBoard in Yandex DataSphere
         href: concepts/tensorboard.md
+      - name: Distributed training
+        href: concepts/taas.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Early access

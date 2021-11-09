@@ -29,8 +29,8 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 2. Удаление устаревших данных.
 
 *BRO* обладает следующими свойствами:
-* Единицей параллельности является [партиция таблицы](./datamodel.md#partitioning).
-* Для таблиц со [вторичными индексами](./secondary_indexes.md) стадия удаления является [распределенной транзакцией](./transactions.md#distributed-tx).
+* Единицей параллельности является [партиция таблицы](datamodel.md#partitioning).
+* Для таблиц со [вторичными индексами](secondary_indexes.md) стадия удаления является [распределенной транзакцией](transactions.md#distributed-tx).
 
 ## Гарантии {#guarantees}
 
@@ -58,8 +58,9 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 ## Настройка {#setting}
 
 Управление настройками TTL в настоящий момент возможно с использованием:
-* [YQL](../yql/reference/overview.md).
-* [Консольного клиента {{ ydb-short-name }}](../quickstart/yql-api/ydb-cli.md).
+
+* [YQL](../../../../yql/reference/overview.md).
+* [Консольного клиента {{ ydb-short-name }}](../../../../quickstart/yql-api/ydb-cli.md).
 * [{{ ydb-short-name }} Python SDK](https://github.com/yandex-cloud/ydb-python-sdk).
 
 {% note info %}

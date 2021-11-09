@@ -163,23 +163,23 @@ items:
       - name: Термины и определения
         href: concepts/databases.md
       - name: Модель данных и схема
-        href: concepts/datamodel.md
+        href: oss/public/develop/concepts/datamodel.md
       - name: Режимы работы Serverless и Dedicated
         href: concepts/serverless_and_dedicated.md
       - name: Типы данных
-        href: concepts/datatypes.md
+        href: oss/public/develop/concepts/datatypes.md
       - name: Транзакции
-        href: concepts/transactions.md
+        href: oss/public/develop/concepts/transactions.md
       - name: Вторичные индексы
-        href: concepts/secondary_indexes.md
+        href: oss/public/develop/concepts/secondary_indexes.md
       - name: Time to Live (TTL)
-        href: concepts/ttl.md
+        href: oss/public/develop/concepts/ttl.md
       - name: Скан запросы
-        href: concepts/scan_query.md
-      - name: Квоты и лимиты (Cloud)
+        href: oss/public/develop/concepts/scan_query.md
+      - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Ограничения базы данных
-        href: concepts/limits-ydb.md
+        href: oss/public/develop/concepts/limits-ydb.md
   - name: Управление доступом
     href: operations/start_auth.md
   - name: Правила тарификации

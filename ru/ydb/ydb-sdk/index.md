@@ -832,7 +832,7 @@ SELECT * FROM episodes;
 
 ## Скан запросы {#scan-query}
 
-Результатом выполнения [скан запроса](../concepts/scan_query.md) является стрим данных. Далее приведены примеры обработки результата таких запросов различными SDK.
+Результатом выполнения [скан запроса](../oss/public/develop/concepts/scan_query.md) является стрим данных. Далее приведены примеры обработки результата таких запросов различными SDK.
 
 {% list tabs %}
 
@@ -980,7 +980,7 @@ SELECT * FROM episodes;
 
 - Python
 
-  В большинстве случаев вместо явного использования [TCL](../concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах execute. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода, демонстрирующий явное использование вызовов `transaction().begin()` и `tx.Commit()`:
+  В большинстве случаев вместо явного использования [TCL](../oss/public/develop/concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах execute. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода, демонстрирующий явное использование вызовов `transaction().begin()` и `tx.Commit()`:
 
   ```python
   def explicit_tcl(session, path, series_id, season_id, episode_id):
@@ -1014,7 +1014,7 @@ SELECT * FROM episodes;
 
 - Java
 
-  В большинстве случаев вместо явного использования [TCL](../concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах `execute`. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода, демонстрирующий явное использование вызовов `beginTransaction()` и `transaction.Commit()`:
+  В большинстве случаев вместо явного использования [TCL](../oss/public/develop/concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах `execute`. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода, демонстрирующий явное использование вызовов `beginTransaction()` и `transaction.Commit()`:
 
   ```java
   private Status explicitTcl(Session session) {

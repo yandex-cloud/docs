@@ -51,7 +51,7 @@ keywords:
 1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
 1. В поле **Имя** введите имя ВМ — `joomla-pg-tutorial-web`.
 1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. Выберите публичный образ **Ubuntu** или **Centos**.
+1. Выберите публичный образ [CentOS Stream](https://cloud.yandex.ru/marketplace/products/f2e37hrknq099qqao2cm).
 1. В блоке **Вычислительные ресурсы**:
    * Выберите [платформу](../../compute/concepts/vm-platforms.md).
    * Укажите необходимое количество vCPU и объем RAM.
@@ -95,87 +95,53 @@ keywords:
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
 
    Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
+
 1. Скачайте и распакуйте архив с Joomla:
 
-   ```bash
-   sudo mkdir -p /var/www/html/
-   curl https://downloads.joomla.org/cms/joomla3/3-8-7/Joomla_3-8-7-Stable-Full_Package.tar.gz?format=gz -o Joomla_3-8-7-Stable-Full_Package.tar.gz -L
-   sudo mv Joomla_3-8-7-Stable-Full_Package.tar.gz /var/www/html/
-   (cd /var/www/html/ && sudo tar -zxvf Joomla_3-8-7-Stable-Full_Package.tar.gz)
-   sudo rm /var/www/html/Joomla_3-8-7-Stable-Full_Package.tar.gz
-   sudo mv /var/www/html/htaccess.txt /var/www/html/.htaccess
-   ```
+   {% list tabs %}
+
+   - CentOS Stream
+
+     ```bash
+     sudo mkdir -p /var/www/html/
+     curl https://downloads.joomla.org/cms/joomla3/3-8-7/Joomla_3-8-7-Stable-Full_Package.tar.gz?format=gz -o Joomla_3-8-7-Stable-Full_Package.tar.gz -L
+     sudo mv Joomla_3-8-7-Stable-Full_Package.tar.gz /var/www/html/
+     (cd /var/www/html/ && sudo tar -zxvf Joomla_3-8-7-Stable-Full_Package.tar.gz)
+     sudo rm /var/www/html/Joomla_3-8-7-Stable-Full_Package.tar.gz
+     sudo mv /var/www/html/htaccess.txt /var/www/html/.htaccess
+     ```
+
+   {% endlist %}
 
 1. Установите дополнительные компоненты:
 
    {% list tabs %}
 
-   - Ubuntu 14
+   - CentOS Stream
 
      ```bash
-     echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-     sudo apt-get update
-     sudo apt-get -q -y install php5-pgsql php5-curl php5-json php5-cgi php5 libapache2-mod-php5 php5-mcrypt apache2 php5-common cron debconf-utils sendmail unzip iptables postgresql-client-10
-     sudo mkdir ~www-data/.postgresql
-     sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
-     sudo chmod 0600 ~www-data/.postgresql/root.crt
-     sudo chown -R www-data:www-data ~www-data/.postgresql
+     sudo dnf install epel-release
+     sudo dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+     sudo yum -y install --enablerepo remi-modular httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget php-json
+     sudo dnf module enable postgresql:13
+     sudo dnf install postgresql-server
      ```
+   {% endlist %}
 
-   - Ubuntu 16
+1. Получите и настройте использование SSL-сертификата:
 
-     ```bash
-     echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-     sudo apt-get update
-     sudo apt-get -q -y install php7.0-pgsql php7.0-curl php7.0-json php7.0-cgi php7.0 libapache2-mod-php7.0 php7.0-mcrypt apache2 php-mail php7.0-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
-     sudo mkdir ~www-data/.postgresql
-     sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
-     sudo chmod 0600 ~www-data/.postgresql/root.crt
-     sudo chown -R www-data:www-data ~www-data/.postgresql
-     ```
+   {% list tabs %}
 
-   - Ubuntu 18
+   - CentOS Stream
 
      ```bash
-     echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-     sudo apt-get update
-     sudo apt-get -q -y install php7.2-pgsql php7.2-curl php7.2-json php7.2-cgi php7.2 libapache2-mod-php7.2 apache2 php-mail php7.2-common cron debconf-utils sendmail unzip iptables composer postgresql-client-10
-     sudo mkdir ~www-data/.postgresql
-     sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~www-data/.postgresql/root.crt
-     sudo chmod 0600 ~www-data/.postgresql/root.crt
-     sudo chown -R www-data:www-data ~www-data/.postgresql
-     ```
-
-   - CentOS 6
-
-     ```bash
-     sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-6-x86_64/pgdg-centos10-10-2.noarch.rpm
-     sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-     sudo yum check-update
-     sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
      sudo mkdir ~apache/.postgresql
      sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
      sudo chmod 0600 ~apache/.postgresql/root.crt
      sudo chown -R apache:apache ~apache/.postgresql
      ```
 
-   - CentOS 7
-
-     ```bash
-     sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
-     sudo yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-     sudo yum check-update
-     sudo yum -y install --enablerepo remi-php72 httpd php php-pgsql php php-common php-mbstring php-zip php-xml nano wget postgresql10
-     sudo mkdir ~apache/.postgresql
-     sudo wget "https://crls.yandex.net/allCLCAs.pem" -O ~apache/.postgresql/root.crt
-     sudo chmod 0600 ~apache/.postgresql/root.crt
-     sudo chown -R apache:apache ~apache/.postgresql
-     ```
-
-    {% endlist %}
+   {% endlist %}
 
 ## Настройте веб-сервер Apache2 {#configure-apache2}
 
@@ -183,37 +149,7 @@ keywords:
 
    {% list tabs %}
 
-   - Ubuntu 14
-
-     ```bash
-     sudo a2enmod php5
-     sudo a2dismod mpm_event
-     sudo a2enmod mpm_prefork
-     sudo a2enmod rewrite
-     sudo chown -R www-data /var/www/html/
-     ```
-
-   - Ubuntu 16
-
-     ```bash
-     sudo a2enmod php7.0
-     sudo a2dismod mpm_event
-     sudo a2enmod mpm_prefork
-     sudo a2enmod rewrite
-     sudo chown -R www-data /var/www/html/
-     ```
-
-   - Ubuntu 18
-
-     ```bash
-     sudo a2enmod php7.2
-     sudo a2dismod mpm_event
-     sudo a2enmod mpm_prefork
-     sudo a2enmod rewrite
-     sudo chown -R www-data /var/www/html/
-     ```
-
-   - CentOS
+   - CentOS Stream
 
      ```bash
      sudo chown -R apache /var/www/html/
@@ -225,48 +161,36 @@ keywords:
 
    {% list tabs %}
 
-   - Ubuntu
-
-     ```bash
-     sudo nano /etc/apache2/sites-enabled/000-default.conf
-     ```
-
-   - CentOS
+   - CentOS Stream
 
      ```bash
      sudo nano /etc/httpd/conf.d/joomla.conf
      ```
 
+     Приведите файл к виду:
+
+     ```
+     <VirtualHost *:80 [::]:80>
+       ServerAdmin webmaster@localhost
+       DocumentRoot /var/www/html/
+
+       <Directory /var/www/html/>
+         DirectoryIndex index.php index.html
+         DirectorySlash off
+         RewriteEngine on
+         RewriteBase /
+         AllowOverride all
+       </Directory>
+     </VirtualHost>
+     ```
+
    {% endlist %}
-
-   Приведите файл к виду:
-
-   ```
-   <VirtualHost *:80 [::]:80>
-     ServerAdmin webmaster@localhost
-     DocumentRoot /var/www/html/
-
-     <Directory /var/www/html/>
-       DirectoryIndex index.php index.html
-       DirectorySlash off
-       RewriteEngine on
-       RewriteBase /
-       AllowOverride all
-     </Directory>
-   </VirtualHost>
-   ```
 
 1. Перезапустите веб-сервер:
 
    {% list tabs %}
-
-   - Ubuntu
-
-     ```bash
-     sudo service apache2 restart
-     ```
-
-   - CentOS
+   
+   - CentOS Stream
 
      ```bash
      sudo service httpd restart
@@ -274,26 +198,18 @@ keywords:
 
    {% endlist %}
 
-1. Этот шаг нужно выполнять только на ВМ с CentOS.
+1. Измените настройки:
 
-   Измените настройки SELinux:
+   {% list tabs %}
 
-   ```bash
-   sudo semanage fcontext -a -t httpd_sys_content_t "/var/www/html(/.*)?"
-   sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html(/.*)?"
-   sudo restorecon -R /var/www/html
-   setsebool -P httpd_can_network_connect 1
-   ```
+   - CentOS Stream
 
-1. Этот шаг нужно выполнять только на ВМ с CentOS 6.
+     ```bash
+     sudo restorecon -R /var/www/html
+     sudo setsebool -P httpd_can_network_connect 1
+     ```
 
-   Откройте сетевые порты 80 и 443 с помощью утилиты `iptables`:
-
-   ```bash
-   sudo iptables -I INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-   sudo iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
-   sudo iptables-save | sudo tee /etc/sysconfig/iptables
-   ```
+   {% endlist %}
 
 ## Настройте Joomla {#configure-joomla}
 
@@ -317,11 +233,48 @@ keywords:
    * **Пароль**: укажите пароль пользователя БД.
    * **Имя базы данных**: `joomla-pg-tutorial-db`.
 
-Для проверки безопасности Joomla может потребовать удалить специальный тестовый файл. На ВМ перейдите в каталог `/var/www/html/installation` и удалите оттуда указанный файл.
+1. Для проверки безопасности Joomla! может потребовать создать или удалить специальный тестовый файл. На ВМ перейдите в каталог `/var/www/html/installation` и создайте или удалите там указанный файл.
+1. Создайте пустой файл `configuration.php` для сохранения конфигурации и настройте права для записи в каталог:
+    
+    ```
+    sudo touch /var/www/html/configuration.php
+    sudo chmod 655 /var/www/html/configuration.php
+    sudo chown -R apache:apache /var/www/html/
+    sudo restorecon -R /var/www/html
+    ```
+
+1. После завершения установки удалите директорию `Installation`. Это требование безопасности Joomla!:
+    ```bash
+    sudo rm -rf /var/www/html/Installation
+    ```
 
 ## Загрузите файлы веб-сайта {#upload-files}
 
-{% include [upload-files](../../_includes/solutions/_common/upload-web-site-files.md) %}
+1. В блоке **Сеть** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
+1. Выдайте права на запись для вашего пользователя на директорию `/var/www/html`: 
+
+     ```bash
+     sudo chown -R "$USER":apache /var/www/html
+     ```
+
+1. Загрузите на ВМ файлы веб-сайта с помощью [протокола SCP](https://ru.wikipedia.org/wiki/SCP).
+
+   {% list tabs %}
+
+   - Linux/macOS
+
+     Используйте утилиту командной строки `scp`:
+
+     ```bash
+     scp -r <путь до директории с файлами> <имя пользователя ВМ>@<IP-адрес виртуальной машины>:/var/www/html
+     ```
+
+   - Windows
+
+     С помощью программы [WinSCP](https://winscp.net/eng/download.php) скопируйте локальную директорию с файлами в директорию `/var/www/html` на ВМ.
+
+   {% endlist %}
 
 ## Настройте DNS {#configure-dns}
 
