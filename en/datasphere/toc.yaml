@@ -75,6 +75,8 @@ items:
         href: concepts/preinstalled-packages.md
       - name: Available commands
         href: concepts/magic.md
+      - name: '#pragma service commands'
+        href: concepts/pragma.md        
       - name: Computing resource configurations
         href: concepts/configurations.md
       - name: Integration with version and data control systems
