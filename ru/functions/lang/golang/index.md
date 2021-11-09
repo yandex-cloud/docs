@@ -9,8 +9,8 @@ description: 'С помощью сервиса Cloud Functions вы можете
 
 | Название | Версия Go | Операционная <br>система | Предзагружаемая
 | ---- | ---- | ---- | ----
-| golang114 (**deprecated**) | 1.14 | Ubuntu 18.04 LTS | нет
 | golang116 | 1.16 | Ubuntu 18.04 LTS | нет
+| golang117 | 1.17 | Ubuntu 18.04 LTS | нет
 
 В среду выполнения можно подключить [SDK-библиотеку](https://github.com/yandex-cloud/go-sdk) для работы с API {{ yandex-cloud }}. Подробнее о способах использования SDK читайте в разделе [Использование SDK](sdk.md).
 
