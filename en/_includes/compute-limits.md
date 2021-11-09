@@ -12,7 +12,10 @@
 | Number of non-replicated disk placement groups per cloud | 5 |
 | Total number of disk snapshots per cloud | 32 |
 | Total storage capacity of all disk snapshots per cloud | 400 GB |
+| Total number of file stores per cloud^1^ | 100 |
+| Total file store capacity per cloud^1^ | 0 B |
 | Number of images per cloud | 8 |
+| Number of images optimized for deployment per cloud^1^ | 0 |
 | Number of instance groups per cloud | 10 |
 | Total number of GPUs and vGPUs for all VMs per cloud^1^ | 0 |
 | Number of concurrent [operations](../api-design-guide/concepts/operation.md) per folder | 15 |
@@ -20,7 +23,7 @@
 | Number of dedicated hosts per dedicated host group^1^ | 0 |
 | Number of dedicated host groups per cloud | 0 |
 
-^1^ To increase quotas for VMs with GPUs or for dedicated hosts, contact [technical support]({{ link-console-support }}).
+^1^ To increase quotas for file storages, VMs with GPUs, images optimized for deployment, or dedicated hosts, contact [technical support]({{ link-console-support }}).
 
 #### VM limits {#compute-limits-vm}
 
@@ -34,7 +37,7 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
   | ----- | ----- |
   | Maximum number of vCPUs per VM | Without [vGPU](../compute/concepts/gpus.md#vgpu): 32<br>With vGPU: 4 |
   | Maximum virtual memory per VM | Without [GPU](../compute/concepts/gpus.md#gpu) and vGPU: 256 GB<br>With GPU: 384 GB<br>With vGPU: 12 GB |
-  | Maximum number of disks attached to a single VM^2^ | Less than 18 vCPUs: 8<br>From 18 vCPUs: 16 |
+  | Maximum number of disks and file stores attached to a single VM^2^ | Less than 18 vCPUs: 8<br>From 18 vCPUs: 16 |
   | Maximum number of GPUs connected to a single VM | 4 |
   | Maximum number of vGPUs connected to a VM | 1 |
   | Maximum number of security groups per interface | 5 |
@@ -46,7 +49,7 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
   | ----- | ----- |
   | Maximum number of vCPUs per VM | Without [GPU](../compute/concepts/gpus.md#gpu): 80<br>With GPU: 64 |
   | Maximum virtual memory per VM | Without GPU: 640 GB<br>With GPU: 384 GB |
-  | Maximum number of disks attached to a single VM^2^ | Less than 20 vCPUs: 8<br>From 20 vCPUs: 16 |
+  | Maximum number of disks and file stores attached to a single VM^2^ | Less than 20 vCPUs: 8<br>From 20 vCPUs: 16 |
   | Maximum number of GPUs connected to a single VM | 8 |
   | Maximum number of security groups per interface | 5 |
   | Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
@@ -57,7 +60,7 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
   | ----- | ----- |
   | Maximum number of vCPUs per VM | 96 |
   | Maximum virtual memory per VM | 640 GB |
-  | Maximum number of disks attached to a single VM^2^ | Less than 32 vCPUs: 8<br>From 32 vCPUs: 16 |
+  | Maximum number of disks and file stores attached to a single VM^2^ | Less than 32 vCPUs: 8<br>From 32 vCPUs: 16 |
   | Maximum number of security groups per interface | 5 |
   | Maximum number of VM instances in a [placement group](../compute/concepts/placement-groups.md) | 5 |
 
@@ -75,7 +78,7 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
 | Maximum^4^ [bandwidth](../compute/concepts/disk.md#rw) per vCPU | 100 MB/s |
 | Maximum^4^ bandwidth per VM | 1 GB/s |
 
-#### Disk limits {#compute-limits-disks}
+#### Disk and file storage limits {#compute-limits-disks}
 
 {% list tabs %}
 
@@ -124,6 +127,28 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
     | Maximum^3^ IOPS for reads per allocation unit | 28,000 |
     | Maximum^4^ bandwidth for reads per disk | 1 GB/s |
     | Maximum^4^ bandwidth for reads per allocation unit | 110 MB/s |
+
+{% endlist %}
+
+{% list tabs %}
+
+- SSD storage
+
+    | Type of limit | Value |
+    | ----- | ----- |
+    | Maximum storage size | 8 TB |
+    | [Allocation unit size](../compute/concepts/disk.md#rw) | 32 GB |
+    | Maximum number of files in storage | 1,000,000 |
+    | Maximum size of one file in storage | 8 TB |
+
+- HDD storage
+
+    | Type of limit | Value |
+    | ----- | ----- |
+    | Maximum storage size | 8 TB |
+    | [Allocation unit size](../compute/concepts/disk.md#rw) | 256 GB |
+    | Maximum number of files in storage | 1,000,000 |
+    | Maximum size of one file in storage | 8 TB |
 
 {% endlist %}
 
