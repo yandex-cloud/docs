@@ -129,7 +129,7 @@ items:
       - name: Развертывание группы доступности Always On с внутренним сетевым балансировщиком
         href: windows/mssql-alwayson-lb.md
       - name: Развертывание Remote Desktop Gateway
-        href: windows/rds-gw
+        href: windows/rds-gw.md
   - name: Сетевая маршрутизация
     items:
       - name: Все сценарии
