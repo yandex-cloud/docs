@@ -20,7 +20,7 @@
 
    {% endlist %}
 
-1. Upload the website files to the VM over SCP:
+1. Upload the website files to the VM over [SCP](https://en.wikipedia.org/wiki/Secure_copy_protocol):
 
    {% list tabs %}
 

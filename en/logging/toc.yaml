@@ -11,16 +11,16 @@ items:
         href: operations/write-logs.md
       - name: Reading records
         href: operations/read-logs.md
-      - name: Updating the record retention period
-        href: operations/retention-period.md
-      - name: Managing rights to access log groups
-        href: operations/access-rights.md
-      - name: Getting a list of log groups
-        href: operations/list.md
-      - name: Managing a custom log group
+      - name: Managing log groups
         items:
           - name: Creating a log group
             href: operations/create-group.md
+          - name: Managing rights to access log groups
+            href: operations/access-rights.md
+          - name: Updating the record retention period
+            href: operations/retention-period.md
+          - name: Getting a list of log groups
+            href: operations/list.md
           - name: Deleting a log group
             href: operations/delete-group.md
   - name: Concepts

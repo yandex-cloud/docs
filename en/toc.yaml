@@ -64,7 +64,7 @@ items:
   - name: Managed Service for SQL Server™
     href: managed-sqlserver/index.yaml
   - name: Marketplace partner interface
-    href: marketplace/index.yaml
+    href: marketplace/index.md
   - name: Message Queue
     href: message-queue/index.yaml
   - name: Using Microsoft products

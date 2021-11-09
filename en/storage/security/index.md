@@ -14,7 +14,9 @@ In this section, you'll learn:
 
 ## What resources you can assign roles to {#resources}
 
-In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). In YC CLI, you can assign a role for a cloud, folder, or [bucket](../../storage/concepts/bucket.md). These roles also apply to nested resources.
+Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role to [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folders](../../resource-manager/concepts/resources-hierarchy.md#folder). These assigned roles will also apply to nested resources.
+
+For information about managing access to buckets and objects, see [{#T}](../concepts/acl.md).
 
 ## What roles exist in the service {#roles-list}
 
@@ -31,7 +33,7 @@ In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../res
 | `storage.admin` | Gives the right to manage {{ objstorage-name }}. |
 | `storage.configViewer` | The role allows users to view the security settings of buckets and [objects](../../storage/concepts/object.md) in them, but doesn't grant them access to data stored in buckets. |
 | `storage.configurer` | Lets you manage the settings of [object lifecycles](../../storage/concepts/lifecycles.md), [static site hosting](../../storage/concepts/hosting.md), [access policy](../concepts/policy.md), and [CORS](../../storage/concepts/cors.md). |
-| `storage.editor` | Permits any operations on buckets and objects in them. |
+| `storage.editor` | Enables any operation with buckets and the objects in them except for changing [versioning](../../storage/concepts/versioning.md) settings and [access policies](../../storage/concepts/policy.md), for which the `storage.admin` role is required. |
 | `storage.uploader` | Gives the right to upload objects to buckets. |
 | `storage.viewer` | Gives access to read the list of buckets, their settings, and data in buckets. |
 

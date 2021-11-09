@@ -57,6 +57,8 @@ default:
   forms-full-name: Yandex Forms
   wiki-full-name: Yandex Wiki
   serverless-containers-full-name: Yandex Serverless Containers
+  load-testing-full-name: Yandex Load Testing
+  cloud-desktop-full-name: Yandex Cloud Desktop
   iam-name: Identity and Access Management
   ig-name: Instance Groups
   resmgr-name: Resource Manager
@@ -112,6 +114,8 @@ default:
   org-name: Organization
   forms-name: Forms
   wiki-name: Wiki
+  load-testing-name: Load Testing
+  cloud-desktop-name: Cloud Desktop
   iam-short-name: IAM
   resmgr-short-name: Resource Manager
   compute-short-name: Compute Cloud
@@ -155,9 +159,15 @@ default:
   lockbox-short-name: Lockbox
   at-short-name: Audit Trails
   tracker-short-name: Tracker
+  forms-short-name: Forms
+  wiki-short-name: Wiki
   speechkit-pro-short-name: SpeechKit Pro
   cdn-short-name: Cloud CDN
+  cloud-desktop-short-name: Cloud Desktop
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
+  roles-alb-viewer: alb.viewer
+  roles-alb-editor: alb.editor
+  roles-alb-admin: alb.admin
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
@@ -195,13 +205,14 @@ default:
   subnet-id: b0rcctk2rvtr8efcch64
   s3-storage-host: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
-  yc-k8s: yc managed-kubernetes
+  yс-k8s: yc managed-kubernetes
   yc-mdb-mg: yc managed-mongodb
   yc-mdb-ch: yc managed-clickhouse
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
   yc-mdb-my: yc managed-mysql
   yc-mdb-kf: yc managed-kafka
+  yc-k8s: yc managed-kubernetes
   yc-mdb-ms: yc managed-sqlserver
   yc-mdb-es: yc managed-elasticsearch
   yc-compute-ig: yc compute instance-group
@@ -233,6 +244,7 @@ default:
   RMQ: RabbitMQ
   TF: Terraform
   ZK: ZooKeeper
+  ssms: SQL Server Management Studio
   tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -313,7 +325,7 @@ default:
   s3-c32-m128: "s3-c32-m128 (32\_vCPU, 128\_GB)"
   s3-c40-m160: "s3-c40-m160 (40\_vCPU, 160\_GB)"
   s3-c48-m192: "s3-c48-m192 (48\_vCPU, 192\_GB)"
-  s3-c64-m256: "s3-c640m256 (64\_vCPU, 256\_GB)"
+  s3-c64-m256: "s3-c64-m256 (64\_vCPU, 256\_GB)"
   s3-c80-m320: "s3-c80-m320 (80\_vCPU, 320\_GB)"
   s3-c96-m576: "s3-c96-m576 (96\_vCPU, 576\_GB)"
   hm1-nano: hm1.nano (2 vCPU, 8 GB)
@@ -419,6 +431,9 @@ default:
   ml-project-size: 10 GB
   ya-client-app: https://oauth.yandex.com/client/new
   ya-oauth: https://oauth.yandex.com/verification_code
+  ds-api-addr: datasphere.api.cloud.yandex.net:443
+  taas-name: Training as a Service
+  taas: TaaS
   dt-copy: Copy
   dt-repl: Replicate
   dt-copy-repl: Copy and replicate
