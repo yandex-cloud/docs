@@ -287,6 +287,3 @@ PATCH https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
 ```
  DELETE https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
 ```
-
-{% include [grpc-api-ref-note](../_includes/grpc-api-ref-note.md) %}
-

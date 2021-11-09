@@ -5,10 +5,3 @@ APIs use a set of methods for resource management. Each gRPC method is mapped to
 There are two sets of methods in APIs:
 
 {% include [method-sets](../_includes/method-sets.md) %}
-
-{% note info %}
-
-The gRPC API references are under development.
-
-{% endnote %}
-
