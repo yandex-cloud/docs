@@ -58,6 +58,8 @@ default:
   forms-full-name: Yandex Forms
   wiki-full-name: Yandex Wiki
   serverless-containers-full-name: Yandex Serverless Containers
+  load-testing-full-name: Yandex Load Testing
+  cloud-desktop-full-name: Yandex Cloud Desktop
 
   # Full services names without Yandex
   iam-name: Identity and Access Management
@@ -115,6 +117,8 @@ default:
   org-name: Organization
   forms-name: Forms
   wiki-name: Wiki
+  load-testing-name: Load Testing
+  cloud-desktop-name: Cloud Desktop
 
   # Short names
   iam-short-name: IAM
@@ -160,9 +164,15 @@ default:
   lockbox-short-name: Lockbox
   at-short-name: Audit Trails
   tracker-short-name: Tracker
+  forms-short-name: Forms
+  wiki-short-name: Wiki
   speechkit-pro-short-name: SpeechKit Pro
   cdn-short-name: Cloud CDN
+  cloud-desktop-short-name: Cloud Desktop
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
+  roles-alb-viewer: alb.viewer
+  roles-alb-editor: alb.editor
+  roles-alb-admin: alb.admin
   roles-cr-admin: container-registry.admin
   roles-cr-puller: container-registry.images.puller
   roles-cr-pusher: container-registry.images.pusher
@@ -239,6 +249,7 @@ default:
   RMQ: RabbitMQ
   TF: Terraform
   ZK: ZooKeeper
+  ssms: SQL Server Management Studio
   tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
@@ -246,6 +257,8 @@ default:
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-all: <code><b><small>All interfaces</small></b></code>
   zone-id: ru-central1-c
+
+  # Host classes
   host-class: s2.micro
   b1-nano: b1.nano (2 vCPU × 5%, 2 GB)
   b1-micro: b1.micro (2 vCPU × 20%, 2 GB)
@@ -319,7 +332,7 @@ default:
   s3-c32-m128: s3-c32-m128 (32 vCPU, 128 GB)
   s3-c40-m160: s3-c40-m160 (40 vCPU, 160 GB)
   s3-c48-m192: s3-c48-m192 (48 vCPU, 192 GB)
-  s3-c64-m256: s3-c640m256 (64 vCPU, 256 GB)
+  s3-c64-m256: s3-c64-m256 (64 vCPU, 256 GB)
   s3-c80-m320: s3-c80-m320 (80 vCPU, 320 GB)
   s3-c96-m576: s3-c96-m576 (96 vCPU, 576 GB)
   hm1-nano: hm1.nano (2 vCPU, 8 GB)
@@ -426,6 +439,9 @@ default:
   ml-project-size: 10 GB
   ya-client-app: https://oauth.yandex.com/client/new
   ya-oauth: https://oauth.yandex.com/verification_code
+  ds-api-addr: datasphere.api.cloud.yandex.net:443
+  taas-name: Training as a Service
+  taas: TaaS  
 
   # Data Transfer
   dt-copy: Copy
@@ -466,7 +482,7 @@ default:
       - "No answer to my question"
       - "Recomendations didn't help"
       - "The content doesn't match title"
-      - 'Other'
+      - "Other"
 
   # External Links
   link-saml: https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language
