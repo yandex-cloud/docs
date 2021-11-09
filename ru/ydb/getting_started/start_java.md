@@ -524,7 +524,7 @@ Finished preparing query: PreparedSelectTransaction
 +-----------+------------+---------------------------------+-------------+
 ```
 
-## Явное использование вызовов [TCL](../concepts/transactions.md) Begin/Commit
+## Явное использование вызовов [TCL](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/transaction) Begin/Commit
 
 В большинстве случаев вместо явного использования TCL вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах ExecuteDataQuery. Это позволит избежать лишних обращений к YDB и эффективней выполнять запросы. Фрагмент кода basic_example в листинге 19 демонстрирует явное использование вызовов ```beginTransaction``` и ```transaction.commit()```
 

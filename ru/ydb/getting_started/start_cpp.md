@@ -482,7 +482,7 @@ Episode 2, Season: 5, title: Reorientation, Air date: Sun Apr 01, 2018
 Episode 3, Season: 5, title: Chief Operating Officer, Air date: Sun Apr 08, 2018
 ```
 
-## Явное использование вызовов [TCL](../concepts/transactions.md) Begin/Commit
+## Явное использование вызовов [TCL](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/transaction) Begin/Commit
 
 В большинстве случаев вместо явного использования TCL вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах ExecuteDataQuery. Это позволит избежать лишних обращений к YDB и эффективней выполнять запросы. Фрагмент кода basic_example в листинге 19 демонстрирует явное использование вызовов ```BeginTransaction``` и ```tx.Commit()```
 

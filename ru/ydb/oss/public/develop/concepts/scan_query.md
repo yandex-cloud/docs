@@ -12,7 +12,7 @@
 
 {% node info %}
 
-Через интерфейс *Scan Queries* можно выполнять запросы к [системным таблицам](../troubleshooting/system_views.md).
+Через интерфейс *Scan Queries* можно выполнять запросы к [системным таблицам](../../../../troubleshooting/system_views.md).
 
 {% endnote %}
 
@@ -34,4 +34,4 @@
 
 ## Как воспользоваться
 
-Как и другие виды запросов, *Scan Queries* доступны через [консоль управления]({{ link-console-main }})(В запросе требуется указать прагму `PRAGMA Kikimr.ScanQuery = "true";`), [CLI](../ydb-cli/commands/scan-query.md) и [SDK](../ydb-sdk/index.md#scan-query).
+Как и другие виды запросов, *Scan Queries* доступны через [консоль управления]({{ link-console-main }})(В запросе требуется указать прагму `PRAGMA Kikimr.ScanQuery = "true";`), [CLI](../../../../ydb-cli/commands/scan-query.md) и [SDK](../../../../ydb-sdk/index.md#scan-query).

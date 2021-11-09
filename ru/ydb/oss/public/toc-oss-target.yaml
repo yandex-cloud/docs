@@ -15,12 +15,12 @@ items:
         items:
           - name: Обзор
             href: concepts/index.md
-          - name: Термины и определения
-            href: concepts/databases.md
+          # - name: Термины и определения
+          #  href: concepts/databases.md
           - name: Модель данных и схема
             href: concepts/datamodel.md
-          - name: Режимы работы Serverless и Dedicated
-            href: concepts/serverless_and_dedicated.md
+          #- name: Режимы работы Serverless и Dedicated
+          #  href: concepts/serverless_and_dedicated.md
           - name: Типы данных
             href: concepts/datatypes.md
           - name: Транзакции

@@ -1,3 +1,3 @@
 # Контейнеры
 
-{% include [datatypes-containers](../../../_includes/datatypes-containers.md) %}
+{% include [datatypes-containers](../../../oss/public/_includes/datatypes-containers.md) %}

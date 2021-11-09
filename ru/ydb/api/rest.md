@@ -131,7 +131,7 @@ curl -v --data @select-with-dbquery.json -w'\n' "http://3dc-ydb-dev.yandex.net:8
 
 Для аутентификации поддерживается возможность передачи токенов в заголовках, как в [инструкции](https://wiki.yandex-team.ru/oauth/newservice/#kakpodderzhatoauthvsvojomservise)
 
-Про аутентификацию и авторизацию есть более подробный [раздел](../concepts/iam.md)
+Про аутентификацию и авторизацию есть более подробный [раздел](../concepts/internal/iam.md)
 
 ### Примеры
 

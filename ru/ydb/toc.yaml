@@ -255,39 +255,58 @@ items:
       - name: Обзор
         href: concepts/index.md
         when: audience == "external"
+      - name: Обзор
+        href: concepts/internal/index.md
+        when: audience != "external"
       - name: Термины и определения
         href: concepts/databases.md
+      - name: Термины и определения (Internal)
+        href: concepts/internal/databases.md
+        when: audience != "external"
       - name: Модель данных и схема
-        href: concepts/datamodel.md
+        href: oss/public/develop/concepts/datamodel.md
+        when: audience == "external"
+      - name: Модель данных и схема
+        href: concepts/internal/datamodel.md
+        when: audience != "external"
       - name: Режимы работы Serverless и Dedicated
         href: concepts/serverless_and_dedicated.md
+        when: audience == "external"
       - name: Кластеры
         href: concepts/clusters.md
         when: audience != "external"        
       - name: Типы данных
-        href: concepts/datatypes.md
+        href: oss/public/develop/concepts/datatypes.md
+        when: audience == "external"
       - name: Транзакции
-        href: concepts/transactions.md
+        href: oss/public/develop/concepts/transactions.md
+        when: audience == "external"
       - name: Порядок выполнения транзакций
         href: concepts/out_of_order.md
         when: audience != "external"        
       - name: Вторичные индексы
-        href: concepts/secondary_indexes.md
+        href: oss/public/develop/concepts/secondary_indexes.md
+        when: audience == "external"
       - name: Time to Live (TTL)
-        href: concepts/ttl.md
+        href: oss/public/develop/concepts/ttl.md
+        when: audience == "external"
+      - name: Time to Live (TTL) (Internal)
+        href: concepts/internal/ttl.md
+        when: audience != "external"
       - name: Скан запросы
-        href: concepts/scan_query.md
+        href: oss/public/develop/concepts/scan_query.md
         when: audience == "external"
       - name: Разграничение прав доступа
-        href: concepts/iam.md
+        href: concepts/internal/iam.md
         when: audience != "external"        
-      - name: Квоты и лимиты (Cloud)
-        href: concepts/limits.md        
+      - name: Квоты и лимиты
+        href: concepts/limits.md
       - name: Квоты и лимиты (Internal)
         href: concepts/quotas_and_limits.md
         when: audience != "external"        
       - name: Ограничения базы данных
-        href: concepts/limits-ydb.md
+        href: oss/public/develop/concepts/limits-ydb.md
+        when: audience == "external"
       - name: YDB в сравнении
         href: concepts/comparision.md
         when: audience == "tech"

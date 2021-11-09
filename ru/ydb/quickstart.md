@@ -35,7 +35,7 @@
 
 {% note info "Serverless или Dedicated" %}
 
-Пробные базы данных допускается создавать только в режиме `serverless`. Подробней о различиях двух режимов можно прочитать в разделе [{#T}](concepts/serverless_and_dedicated.md).
+Пробные базы данных допускается создавать только в режиме `serverless`. Подробней о различиях двух режимов можно прочитать в [документации](https://cloud.yandex.ru/docs/ydb/concepts/serverless_and_dedicated).
 
 {% endnote %}
 
