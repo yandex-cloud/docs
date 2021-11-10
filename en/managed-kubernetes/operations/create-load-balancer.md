@@ -1,10 +1,13 @@
-# Granting access to an app running in a cluster {{ k8s }}
+# Granting access to an app running in a {{ k8s }} cluster
 
 To grant access to an app running in a {{ k8s }} cluster, you can use [various types of public and internal services](../concepts/service.md).
 
-To grant public access to the app, use `LoadBalancer` type service with a public IP address.
+To publish an app, use a `LoadBalancer` service. The following options are supported:
+* Public access by IP address with a [network load balancer](../../network-load-balancer/concepts/index.md).
+* Access from internal networks by IP address with an [internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md).
+  The application will be available from [subnets](../../vpc/concepts/network.md#subnet) of {{ vpc-full-name }} or a company's internal subnets connected to {{ yandex-cloud }} through [{{ interconnect-full-name }}](../../interconnect/) or a VPN.
 
-Applications can be accessed from internal networks, but not from {{ k8s }} clusters: from [subnets](../../vpc/concepts/network.md#subnet) of {{ vpc-full-name }} or a company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/) or VPN. To grant access, use a `LoadBalancer` service based on an [internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer.md).
+To use DDoS protection, [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address and [specify](#advanced) it using the `loadBalancerIP` option.
 
 {% note info %}
 
@@ -14,10 +17,10 @@ Unlike the IP address of a pod or node, which may change if the resources in a n
 
 Prepare and run the application to be granted access to using a `LoadBalancer` service in the {{ k8s }} cluster. As an example, use a simple application that responds to HTTP requests on port 8080.
 
-* [Create a simple application](#simple-app)
+* [Create a simple app](#simple-application)
 * [Create a LoadBalancer service with a public IP address](#lb-create)
 * [Create a LoadBalancer service with an internal IP address](#lb-int-create)
-* [Advanced LoadBalancer service settings](#advanced)
+* [loadBalancerIP and externalTrafficPolicy parameters](#advanced)
 
 ## Create a simple app {#simple-app}
 
@@ -59,7 +62,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
      kubectl apply -f hello.yaml
      ```
 
-     Execution result:
+     Command execution result:
 
      ```bash
      deployment.apps/hello created
@@ -77,7 +80,7 @@ Prepare and run the application to be granted access to using a `LoadBalancer` s
      kubectl describe deployment hello
      ```
 
-     Execution result:
+     Command execution result:
 
      ```bash
      Name:                   hello
@@ -158,7 +161,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      kubectl apply -f load-balancer.yaml
      ```
 
-     Execution result:
+     Command execution result:
 
      ```bash
      service/hello created
@@ -181,7 +184,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      kubectl describe service hello
      ```
 
-     Execution result:
+     Command execution result:
 
      ```bash
      Name:                     hello
@@ -219,7 +222,7 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
      Where:
      * `130.193.50.111` is the public IP address from the `LoadBalancer Ingress` field.
 
-     Execution result:
+     Command execution result:
 
      ```bash
      Hello, world!
@@ -251,20 +254,19 @@ spec:
 ```
 
 Where:
-
 * `yandex.cloud/subnet-id` is the ID of the subnet to allocate the IP address for the network load balancer in.
 * `port` is the network load balancer port to handle user requests.
 * `targetPort` is the container port where the application is available.
 * `selector` stands for the selector labels used in the pod template when creating the `Deployment` object.
 
-## Advanced LoadBalancer service settings {#advanced}
+## loadBalancerIP and externalTrafficPolicy parameters {#advanced}
 
 In {{ managed-k8s-short-name }}, the following advanced settings are available for a service with the `LoadBalancer` type:
-
 * Assign a [pre-allocated public IP address](../../vpc/operations/get-static-ip.md) using the `loadBalancerIP` parameter.
-* Manage traffic using the [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/) parameter:
+  When reserving a static IP address, you can activate [DDoS protection](../../vpc/ddos-protection/index.md).
+* Manage traffic using the [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec) parameter:
   * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. In this case:
-    * If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) forwards traffic to another node.
+    * If pods are missing from the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node.
   * `Local`: Traffic goes directly to the nodes where the application containers are running. In this case:
     * The originating IP address of the user query is saved.
     * Horizontal traffic exchanged by VMs is lower.
@@ -289,4 +291,3 @@ spec:
   type: LoadBalancer
   externalTrafficPolicy: <Local or Cluster>
 ```
-
