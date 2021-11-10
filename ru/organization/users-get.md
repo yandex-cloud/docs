@@ -37,8 +37,8 @@
       +----------------------+----------+------------------+-----------------------+
       |          ID          | USERNAME |      EMAIL       |     FEDERATION ID     |
       +----------------------+----------+------------------+-----------------------+
-      | ajeebjmlsdk9guz4kejh | hatter   | hatter@yandex.ru | gyuiawudhiksd21hsdjh  |
-      | bsdeoujmzsdks1guzker | alice    | alice@yandex.ru  |                       |
+      | ajeebjmlsdk9guz4kejh | hatter   | hatter@{{yandex-domain}} | gyuiawudhiksd21hsdjh  |
+      | bsdeoujmzsdks1guzker | alice    | alice@{{yandex-domain}}  |                       |
       +----------------------+----------+------------------+-----------------------+
       ```
 

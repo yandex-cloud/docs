@@ -1,6 +1,6 @@
 # Аутентификация с помощью Active Directory
 
-С помощью [федерации удостоверений](../../add-federation.md) вы можете использовать [Active Directory Federation Services](https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services) (AD FS) для аутентификации в облаке.
+С помощью [федерации удостоверений](../../add-federation.md) вы можете использовать [Active Directory Federation Services]({{link-adfs}}) (AD FS) для аутентификации в облаке.
 
 Чтобы настроить аутентификацию:
 
@@ -225,7 +225,7 @@
 
 2. Сформируйте ссылку с помощью полученного идентификатора:
 
-    `https://console.cloud.yandex.ru/federations/<ID федерации>`
+    `{{ link-console-main }}/federations/<ID федерации>`
 
 ## Настройте аутентификацию на сервере AD FS {#configure-sso}
 
@@ -299,7 +299,7 @@ AD FS требует создавать _отношение доверия с п
 
         В **Outgoing Claim Type** выберите `Name ID`.
 
-    1. Чтобы пользователь мог обратиться в службу технической поддержки {{ yandex-cloud }} из [консоли управления](https://console.cloud.yandex.ru/support), настройте, чтобы сервер передавал адрес электронной почты (`E-Mail Address` и имя пользователя (`Name`):
+    1. Чтобы пользователь мог обратиться в службу технической поддержки {{ yandex-cloud }} из [консоли управления]({{link-console-support}}), настройте, чтобы сервер передавал адрес электронной почты (`E-Mail Address` и имя пользователя (`Name`):
 
         ![image](../../../_assets/iam/federations/specify-claims-mapping-ad.png)
 
