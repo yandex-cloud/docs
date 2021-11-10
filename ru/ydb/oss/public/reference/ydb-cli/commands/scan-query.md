@@ -1,6 +1,6 @@
 # Выполнение скан запросов
 
-{% if audience == "external" %} Запуск запроса через [Scan Queries](../../oss/public/develop/concepts/scan_query.md) посредством {{ ydb-short-name }} CLI осуществляется добавлением флага `-t scan` в команду `{{ ydb-cli }} table query execute`. {% endif %}
+Запуск запроса через [Scan Queries](../../../develop/concepts/scan_query.md) посредством {{ ydb-short-name }} CLI осуществляется добавлением флага `-t scan` в команду `{{ ydb-cli }} table query execute`.
 
 Выполните запрос к данным:
 

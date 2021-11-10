@@ -143,53 +143,54 @@ items:
       - name: Работа со вторичными индексами
         href: operations/indexes.md
   - name: Работа с YDB CLI
+    when: audience == "external"
     items:
       - name: Установка YDB CLI
-        href: ydb-cli/install.md
+        href: oss/public/reference/ydb-cli/install.md
       - name: Авторизация в YDB CLI
         href: ydb-cli/authorization.md
       - name: Управление профилем
         items:
           - name: Создание профиля
-            href: ydb-cli/profile/create.md
+            href: oss/public/reference/ydb-cli/profile/create.md
           - name: Получение информации о профиле
-            href: ydb-cli/profile/list-and-get.md
+            href: oss/public/reference/ydb-cli/profile/list-and-get.md
           - name: Активация профиля
-            href: ydb-cli/profile/activate.md
+            href: oss/public/reference/ydb-cli/profile/activate.md
           - name: Удаление профиля
-            href: ydb-cli/profile/delete.md
+            href: oss/public/reference/ydb-cli/profile/delete.md
       - name: Команды
         items:
           - name: Обзор
-            href: ydb-cli/commands/index.md
+            href: oss/public/reference/ydb-cli/commands/index.md
           - name: Структура и описание команд YDB CLI
-            href: ydb-cli/commands/commands.md
+            href: oss/public/reference/ydb-cli/commands/commands.md
           - name: Глобальные параметры
-            href: ydb-cli/commands/global-options.md
+            href: oss/public/reference/ydb-cli/commands/global-options.md
           - name: Листинг объектов
-            href: ydb-cli/commands/scheme-ls.md
+            href: oss/public/reference/ydb-cli/commands/scheme-ls.md
           - name: Получение информации об объекте схемы
-            href: ydb-cli/commands/scheme-describe.md
+            href: oss/public/reference/ydb-cli/commands/scheme-describe.md
           - name: Получение списка эндпоинтов для базы данных
-            href: ydb-cli/commands/discovery-list.md
+            href: oss/public/reference/ydb-cli/commands/discovery-list.md
           - name: Выполнение запроса к данным
-            href: ydb-cli/commands/query.md
+            href: oss/public/reference/ydb-cli/commands/query.md
           - name: Потоковое чтение таблицы
-            href: ydb-cli/commands/readtable.md
+            href: oss/public/reference/ydb-cli/commands/readtable.md
           - name: Работа со вторичными индексами
-            href: ydb-cli/commands/operations-index.md
+            href: oss/public/reference/ydb-cli/commands/operations-index.md
           - name: Работа с директориями
-            href: ydb-cli/commands/scheme-mkdir.md
+            href: oss/public/reference/ydb-cli/commands/scheme-mkdir.md
           - name: Скан запросы
-            href: ydb-cli/commands/scan-query.md
+            href: oss/public/reference/ydb-cli/commands/scan-query.md
           #- name: tools
           #  items:
           #    - name: copy
-          #      href: ydb-cli/commands/tools/copy.md
+          #      href: oss/public/reference/ydb-cli/commands/tools/copy.md
           #    - name: dump
-          #      href: ydb-cli/commands/tools/dump.md
+          #      href: oss/public/reference/ydb-cli/commands/tools/dump.md
           #    - name: restore
-          #      href: ydb-cli/commands/tools/restore.md
+          #      href: oss/public/reference/ydb-cli/commands/tools/restore.md
   - name: YDB SDK
     items:
       - name: Работа с SDK

@@ -1,6 +1,6 @@
 # Удаление профиля
 
-{% include [profile-list](../../_includes/profile-list.md) %}
+{% include [profile-list](../../../_includes/profile-list.md) %}
 
 Удалите профиль `example`:
 
