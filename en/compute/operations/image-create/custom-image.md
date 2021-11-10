@@ -10,7 +10,7 @@ If you made software that might be helpful to other others, [offer](../../../mar
 
 ### Install the virtio drivers {#virtio}
 
-To upload your image successfully, make sure to install the `virtio-blk` and `virtio-net` drivers. When uploading it from `initramfs`, you need at least the `virtio-blk` driver. To upload the image completely, both the `virtio-blk` and `virtio-net` are required.
+To upload your image successfully, make sure to install the `virtio-blk` and `virtio-net` drivers. To use {{ compute-name }} file storage, install the `virtiofs` driver.
 
 Most modern distributions contain the `virtio` drivers by default. They can be compiled as separate `.ko` files or be part of the kernel itself.
 
@@ -23,28 +23,28 @@ Follow the instructions below to check if the drivers are installed and, if not,
    Run the command:
 
    ```sh
-   grep -E -i "(VIRTIO_BLK|VIRTIO_NET)" /boot/config-$(uname -r)
+   grep -E -i "VIRTIO_(BLK|NET|FS)" /boot/config-$(uname -r)
    ```
 
-   If no lines starting with `CONFIG_VIRTIO_BLK=` and `CONFIG_VIRTIO_NET=` are displayed, you should recompile the Linux kernel with the virtio drivers. Otherwise, proceed to the next steps.
+   If no lines starting with `CONFIG_VIRTIO_BLK=`, `CONFIG_VIRTIO_NET=`, and `CONFIG_VIRTIO_FS=` are displayed, you should recompile the Linux kernel with the virtio drivers. Otherwise, proceed to the next steps.
 
    {% endcut %}
 
-1. If the `CONFIG_VIRTIO_BLK=y` and `CONFIG_VIRTIO_NET=y` lines are returned in step 1, check that the drivers are included in the kernel:
+1. If the `CONFIG_VIRTIO_BLK=y`, `CONFIG_VIRTIO_NET=y`, and `CONFIG_VIRTIO_FS=y` lines are returned in step 1, check that the drivers are included in the kernel:
 
    {% cut "To check drivers in the kernel" %}
 
    Run the command:
 
    ```sh
-   grep -E "(virtio_blk|virtio_net)" /lib/modules/"$(uname -r)"/modules.builtin
+   grep -E "virtio(_blk|_net|fs)" /lib/modules/"$(uname -r)"/modules.builtin
    ```
-   * If the lines with the `virtio_net.ko` and `virtio_blk.ko` filenames are returned, the drivers are part of the kernel and you don't need to install them.
+   * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames are returned, the drivers are part of the kernel and you don't need to install them.
    * If not, recompile the Linux kernel with the virtio drivers.
 
    {% endcut %}
 
-1. If the `CONFIG_VIRTIO_BLK=m` and `CONFIG_VIRTIO_NET=m` lines are returned in step 1, check that the drivers are installed as kernel modules:
+1. If the `CONFIG_VIRTIO_BLK=m`, `CONFIG_VIRTIO_NET=m`, and `CONFIG_VIRTIO_FS=m` lines are returned in step 1, check that the drivers are installed as kernel modules:
 
    {% cut "To check kernel modules" %}
 
@@ -55,52 +55,50 @@ Follow the instructions below to check if the drivers are installed and, if not,
      Run the following command:
 
      ```sh
-     sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "(virtio_blk|virtio_net)"
+     sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|fs)"
      ```
 
-     * If the lines with the `virtio_net.ko.xz` and `virtio_blk.ko.xz` filenames are returned, the drivers are installed as kernel modules.
-
+     * If the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, and `virtiofs.ko.xz` filenames are returned, the drivers are installed as kernel modules.
      * If not, create a backup of the `initramfs` file and install the drivers:
 
        ```sh
        sudo cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
-       sudo mkinitrd -f --with=virtio_blk --with=virtio_net /boot/initramfs-$(uname -r).img $(uname -r)
+       sudo mkinitrd -f --with=virtio_blk --with=virtio_net --with=virtiofs /boot/initramfs-$(uname -r).img $(uname -r)
        ```
 
        Then restart the OS and check that the drivers appear in the `initramfs` file and are loaded:
 
        ```sh
-       sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "(virtio_blk|virtio_net)"
-       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net)"
+       sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|fs)"
+       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|fs)"
        ```
 
-       After running each of the commands, the lines with the `virtio_net.ko.xz` and `virtio_blk.ko.xz` filenames should be returned.
+       After running each of the commands, the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, and `virtiofs.ko.xz` filenames should be returned.
 
    - Debian, Ubuntu
 
      Run the following command:
 
      ```sh
-     lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "(virtio_blk|virtio_net)"
+     lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
      ```
 
-     * If the lines with the `virtio_net.ko` and `virtio_blk.ko` filenames are returned, the drivers are installed as kernel modules.
-
+     * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames are returned, the drivers are installed as kernel modules.
      * If not, install the drivers:
 
        ```sh
-       echo -e "virtio_blk\nvirtio_net" | sudo tee -a /etc/initramfs-tools/modules
+       echo -e "virtio_blk\nvirtio_net\nvirtiofs" | sudo tee -a /etc/initramfs-tools/modules
        sudo update-initramfs -u
        ```
 
        Then restart the OS and check that the drivers appear in the `initrd` file and are loaded:
 
        ```sh
-       lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "(virtio_blk|virtio_net)"
-       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net)"
+       lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
+       find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|fs)"
        ```
 
-       After running each of the commands, the lines with the `virtio_net.ko` and `virtio_blk.ko` filenames should be returned.
+       After running each of the commands, the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames should be returned.
 
    {% endlist %}
 

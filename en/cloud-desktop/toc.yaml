@@ -1,0 +1,37 @@
+title: Yandex Cloud Desktop
+stage: preview
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Desktop groups
+        items:
+          - name: Creating a desktop group
+            href: operations/desktop-groups/create.md
+          - name: Changing permissions to a desktop group
+            href: operations/desktop-groups/update-acl.md
+          - name: Deleting a desktop group
+            href: operations/desktop-groups/delete.md
+      - name: Desktops
+        items:
+          - name: Creating a desktop
+            href: operations/desktops/create.md
+          - name: Connecting to a desktop
+            href: operations/desktops/connect.md
+          - name: Resetting a desktop user's password
+            href: operations/desktops/password-reset.md
+          - name: Deleting a desktop
+            href: operations/desktops/delete.md
+  - name: Concepts
+    items:
+      - name: Desktops and their groups
+        href: concepts/desktops-and-groups.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/cloud-desktop

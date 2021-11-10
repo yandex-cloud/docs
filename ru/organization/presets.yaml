@@ -6,5 +6,9 @@ default:
   link-org-services: https://org.cloud.yandex.ru/services
   link-passport: https://passport.yandex.ru/
   login-example: login@yandex.ru
+  yandex-domain: yandex.ru
   link-base64: https://ru.wikipedia.org/wiki/Base64
   link-adfs-add-claim: https://docs.microsoft.com/ru-ru/windows-server/identity/ad-fs/operations/add-a-claim-description
+  link-adfs: https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services
+  link-azure-ad: https://azure.microsoft.com/ru-ru/services/active-directory/
+  support-passport-create: https://yandex.ru/support/passport/authorization/registration.html

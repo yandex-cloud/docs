@@ -21,7 +21,7 @@
 
 ## Установка {{ ydb-short-name }} CLI {#how-to-install}
 
-{% include [ydb-cli-install](../../_includes/ydb-cli-install.md) %}
+{% include [ydb-cli-install](../../oss/public/reference/ydb-cli/install.md) %}
 
 ## Настройка авторизации {#iam}
 
@@ -78,7 +78,7 @@
 
 ## Примеры использования {#examples}
 
-Чтобы не указывать эндпоинт, полный путь к базе данных и параметры авторизации при каждом вызове команд {{ ydb-short-name }} CLI, настройте [профиль](../../ydb-cli/profile/create.md) {{ ydb-short-name }} CLI.
+Чтобы не указывать эндпоинт, полный путь к базе данных и параметры авторизации при каждом вызове команд {{ ydb-short-name }} CLI, настройте [профиль](../../oss/public/reference//ydb-cli/profile/create.md) {{ ydb-short-name }} CLI.
 
 ### Создание таблицы {#create-table}
 

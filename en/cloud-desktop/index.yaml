@@ -1,0 +1,24 @@
+title: Yandex Cloud Desktop
+description:
+  - >-
+    <em>Yandex Cloud Desktop is at the <a
+    href="en/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+  - >-
+    Yandex Cloud Desktop lets you organize and manage a virtual desktop
+    infrastructure.
+  - You can use the service via the Yandex.Cloud management console.
+meta:
+  title: Yandex Cloud Desktop
+links:
+  - title: Getting started
+    description: Create a desktop and connect to it
+    href: quickstart/
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: 'Learn about the basic concepts of the service: desktops and their groups'
+    href: concepts/desktops-and-groups
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits

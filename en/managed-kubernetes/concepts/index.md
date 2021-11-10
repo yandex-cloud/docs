@@ -21,7 +21,7 @@ Groups of {{ k8s }} nodes require internet access for downloading images and com
 
 Internet access can be provided in the following ways:
 * By assigning each node in the group a [public IP address](../../vpc/concepts/address.md#public-addresses).
-* [Configuring a virtual machine as a NAT instance](../../solutions/routing/nat-instance.md).
+* [Configuring a VM as a NAT instance](../../solutions/routing/nat-instance.md).
 * [Enabling NAT to the internet](../../vpc/operations/enable-nat.md).
 
 {% endnote %}
@@ -56,7 +56,7 @@ _A node group_ is a group of VMs in a {{ k8s }} cluster that have the same confi
 #### Configuration {#config}
 
 When you create a group of nodes, you can configure the following VM parameters:
-* Type of VM.
+* VM type.
 * Type and number of cores (vCPU).
 * Amount of memory (RAM) and disk space.
 
@@ -74,7 +74,7 @@ Containers are described in pods via JSON or YAML objects.
 
 ### Service {#service}
 
-_A service_ is an abstraction that provides network load balancing functions. Traffic rules are configured for a group of pods united by a set of labels.
+[_Service_](service.md) is an abstraction that provides network load balancing functions. Traffic rules are configured for a group of pods united by a set of labels.
 
 By default, a service is only available within a specific {{ k8s }} cluster, but it can be public and receive [requests from outside](../operations/create-load-balancer.md#lb-create) the {{ k8s }} cluster.
 
@@ -84,13 +84,13 @@ _A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resour
 
 ### Node labels {#node-labels}
 
-_Node labels_, `node_labels` are a mechanism for grouping nodes together in {{ k8s }}. You can use node labels to manage pod distribution across the nodes of a cluster. For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/).
+_Node labels_, `node_labels` are a mechanism for grouping nodes together in {{ k8s }}. You can use node labels to manage pod distribution across the nodes of a cluster. For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes).
 
 {% note warning %}
 
 Don't confuse [node group cloud labels](../../overview/concepts/services.md#labels) (`labels`) with [{{ k8s }} node labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) (`node_labels`) managed by {{ managed-k8s-name }}.
 
-We recommend managing all node labels via the [{{ managed-k8s-full-name }} API](../api-ref/NodeGroup/index.md) since, by default, when [updating or changing a node group](../operations/node-group/node-group-update.md), some of the nodes are recreated with different names and some of the old ones are deleted. Therefore, labels added using the [{{ k8s }} API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/) may be lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since they will be restored.
+We recommend managing all node labels via the [{{ managed-k8s-full-name }} API](../api-ref/NodeGroup/index.md) since, by default, when [updating or changing a node group](../operations/node-group/node-group-update.md), some of the nodes are recreated with different names and some of the old ones are deleted. That's why labels added using the [{{ k8s }} API](https://kubernetes.io/docs/concepts/overview/kubernetes-api) may be lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since they will be restored.
 
 {% endnote %}
 

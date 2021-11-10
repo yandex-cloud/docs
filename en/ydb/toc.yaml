@@ -373,6 +373,4 @@ items:
         href: faq/serverless.md
       - name: All questions on the same page
         href: faq.md
-  - name: Public materials
-    href: public_talks.md
 base: en/ydb

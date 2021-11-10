@@ -1,3 +1,5 @@
+# Установка {{ ydb-short-name }} CLI
+
 {% list tabs %}
 
 - Linux

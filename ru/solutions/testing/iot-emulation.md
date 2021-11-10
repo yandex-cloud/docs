@@ -37,7 +37,7 @@
 
 {% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет развернута инфраструктура на [странице облака](https://console.cloud.yandex.ru/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать каталог, в котором будет развернута инфраструктура на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
