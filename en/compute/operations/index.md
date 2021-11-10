@@ -79,12 +79,20 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 ## Creating new images {#image-create}
 
-* [{#T}](image-create/upload.md)
 * [{#T}](image-create/custom-image.md)
+* [{#T}](image-create/upload.md)
 
 ## Managing images {#image-control}
 
 * [{#T}](image-control/delete.md)
+
+## File storage {#filesystem}
+
+* [{#T}](filesystem/create.md)
+* [{#T}](filesystem/attach-to-vm.md)
+* [{#T}](filesystem/detach-from-vm.md)
+* [{#T}](filesystem/update.md)
+* [{#T}](filesystem/delete.md)
 
 ## Managing the serial console {#serial-console}
 
