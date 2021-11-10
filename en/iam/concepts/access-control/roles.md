@@ -40,6 +40,14 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 * Set permissions to the resource.
 * Change permissions to the resource.
 
+## {{ alb-name }} {#alb-roles}
+
+{% include [roles-alb-viewer](../../../_includes/roles-alb-viewer.md) %}
+
+{% include [roles-alb-editor](../../../_includes/roles-alb-editor.md) %}
+
+{% include [roles-alb-admin](../../../_includes/roles-alb-admin.md) %}
+
 ## {{ certificate-manager-name }} {#certificate-manager-roles}
 
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}

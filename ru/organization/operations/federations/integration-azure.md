@@ -1,6 +1,6 @@
 # Аутентификация с помощью Azure Active Directory
 
-С помощью [федерации удостоверений](../../add-federation.md) вы можете использовать [Azure Active Directory](https://azure.microsoft.com/ru-ru/services/active-directory/) (далее — Azure AD) для аутентификации пользователей в организации.
+С помощью [федерации удостоверений](../../add-federation.md) вы можете использовать [Azure Active Directory]({{link-azure-ad}}) (далее — Azure AD) для аутентификации пользователей в организации.
 
 Настройка аутентификации состоит из следующих этапов:
 

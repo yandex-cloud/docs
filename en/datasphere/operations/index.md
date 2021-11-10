@@ -2,6 +2,7 @@
 title: How to work with Yandex DataSphere. Instructions
 description: "From this article you will learn how to work with machine learning projects in Yandex.Cloud. We will tell you how to create a machine learning project, install dependencies, run code samples on a laptop, work with checkpoints, manage computing resources, publish a laptop, work with Git."
 ---
+
 # Step-by-step instructions for {{ ml-platform-name }}
 
 * [{#T}](projects/create.md)
@@ -9,6 +10,7 @@ description: "From this article you will learn how to work with machine learning
 * [{#T}](projects/snippets.md)
 * [{#T}](projects/checkpoints.md)
 * [{#T}](projects/control-compute-resources.md)
+* [{#T}](projects/custom-limits.md)
 * [{#T}](user-images.md)
 * [{#T}](user-images-cell.md)
 * [{#T}](projects/clear-kernel-state.md)
@@ -32,4 +34,3 @@ description: "From this article you will learn how to work with machine learning
 
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
-* [{#T}](../operations/data/connect-to-s3.md)

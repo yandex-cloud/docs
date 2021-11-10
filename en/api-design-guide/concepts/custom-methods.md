@@ -4,8 +4,6 @@ Additional API methods allow you to perform operations that cannot be performed 
 
 Each service has its own set of additional methods available. The methods are listed in the corresponding API references.
 
-{% include [grpc-api-ref-note](../_includes/grpc-api-ref-note.md) %}
-
 The `POST` HTTP method is mapped to additional methods. The signature of additional methods differs from the standard signature of HTTP methods. The name of an additional method is specified in the resource URL after a colon (<q>:</q>).
 
 Sample gRPC description of the [AttachDisk](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instance_service.proto) method:

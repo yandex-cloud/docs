@@ -259,7 +259,7 @@ spec:
 В {{ managed-k8s-short-name }} для сервиса типа `LoadBalancer` доступны следующие дополнительные настройки:
 * Назначение [заранее зарезервированного публичного IP-адреса](../../vpc/operations/get-static-ip.md) с помощью параметра `loadBalancerIP`.
   Во время резервирования статического IP-адреса можно активировать [защиту от DDoS-атак](../../vpc/ddos-protection/index.md).
-* Управление трафиком с помощью параметра [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/):
+* Управление трафиком с помощью параметра [externalTrafficPolicy](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/#ServiceSpec):
   * `Cluster` — трафик попадает на любой из узлов кластера {{ k8s }}. При этом:
     * В случае отсутствия нужных подов на узле, трафик перенаправляется с помощью [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) на другой узел.
   * `Local` — трафик напрямую попадает на узлы, где запущены контейнеры приложений. При этом:

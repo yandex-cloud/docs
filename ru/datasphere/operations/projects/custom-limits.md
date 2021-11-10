@@ -44,7 +44,7 @@ grpcurl -rpc-header "Authorization: Bearer <IAM-token>" \
 
 ## Установить ограничения на количество юнитов {#limits}
 
-Для настройки ограничений проекта используйте поле [Limits](.../api-ref/grpc/project_service#Limits) методов API группы ProjectService. 
+Для настройки ограничений проекта используйте поле [Limits](../../api-ref/grpc/project_service#Limits) методов API группы ProjectService. 
 
 ### Примеры запросов {#examples-limits}
 

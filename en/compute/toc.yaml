@@ -63,7 +63,7 @@ items:
         items:
           - name: Getting information about a VM
             href: operations/vm-info/get-info.md
-          - name: Viewing serial port output
+          - name: Getting serial port output
             href: operations/vm-info/get-serial-port-output.md
       - name: Managing VMs
         items:
@@ -123,14 +123,26 @@ items:
             href: operations/disk-placement-groups/remove-disk.md
       - name: Creating new images
         items:
-          - name: Uploading your image
-            href: operations/image-create/upload.md
           - name: Preparing your disk image
             href: operations/image-create/custom-image.md
+          - name: Uploading your image
+            href: operations/image-create/upload.md
       - name: Managing images
         items:
           - name: Deleting a disk image
             href: operations/image-control/delete.md
+      - name: File storage
+        items:
+          - name: Creating file storage
+            href: operations/filesystem/create.md
+          - name: Attaching file storage to a VM
+            href: operations/filesystem/attach-to-vm.md
+          - name: Detaching file storage from a VM
+            href: operations/filesystem/detach-from-vm.md
+          - name: Updating file storage
+            href: operations/filesystem/update.md
+          - name: Deleting file storage
+            href: operations/filesystem/delete.md
       - name: Managing the serial console
         items:
           - name: Getting started
@@ -151,7 +163,7 @@ items:
             href: operations/instance-groups/create-with-balancer.md
           - name: Creating an automatically scaled instance group
             href: operations/instance-groups/create-autoscaled-group.md
-          - name: Creating an instance group from Container Optimized Image
+          - name: Creating an instance group from a Container Optimized Image
             href: operations/instance-groups/create-with-coi
       - name: Getting information about instance groups
         items:
@@ -225,14 +237,20 @@ items:
             href: concepts/vm-metadata.md
       - name: Graphics accelerators (GPUs and vGPUs)
         href: concepts/gpus.md
-      - name: Disks
+      - name: Disks and file storage
         items:
           - name: Overview
+            href: concepts/storage-overview.md
+          - name: Disks
             href: concepts/disk.md
           - name: Disk snapshots
             href: concepts/snapshot.md
           - name: Non-replicated disk placement groups
             href: concepts/disk-placement-group.md
+          - name: File storage
+            href: concepts/filesystem.md
+          - name: Read and write operations
+            href: concepts/storage-read-write.md
       - name: Images
         href: concepts/image.md
       - name: Instance groups

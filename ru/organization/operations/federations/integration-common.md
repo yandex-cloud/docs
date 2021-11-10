@@ -210,7 +210,7 @@
 
 2. Сформируйте ссылку с помощью полученного идентификатора:
 
-    `https://console.cloud.yandex.ru/federations/<ID федерации>`
+    `{{ link-console-main }}/federations/<ID федерации>`
 
 ## Настройте аутентификацию на своем сервере {#configure-sso}
 
@@ -219,7 +219,7 @@
 Пример SAML-сообщения:
 ```xml
 <samlp:Response ID="_bcdf7b6b-ea42-4191-8d5e-ebd4274acec6" Version="2.0" IssueInstant="2019-07-30T13:24:25.488Z"
- Destination="https://console.cloud.yandex.ru/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
+ Destination="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
   InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://example.org/auth</Issuer>
   <samlp:Status>
@@ -251,12 +251,12 @@
     <Subject>
       <NameID>user@example.org</NameID>
       <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="https://console.cloud.yandex.ru/federations/bfbrotp6l1b2avhe1spu" />
+        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" />
       </SubjectConfirmation>
     </Subject>
     <Conditions NotBefore="2019-07-30T13:24:25.482Z" NotOnOrAfter="2019-07-30T14:24:25.482Z">
       <AudienceRestriction>
-        <Audience>https://console.cloud.yandex.ru/federations/bfbrotp6l1b2avhe1spu</Audience>
+        <Audience>{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu</Audience>
       </AudienceRestriction>
     </Conditions>
     <AttributeStatement>
@@ -285,7 +285,7 @@
 * Укажите ссылку на страницу IdP в элементе `Issuer`. На эту страницу перенаправлялся пользователь для прохождения аутентификации).
 * Укажите подписанное сообщение в элементе `SignatureValue` и сертификат, которым оно было подписано в элементе `KeyInfo`.
 * Учтите, что {{ yandex-cloud }} проверяет, что ответ был получен в промежуток времени, указываемый в атрибутах элемента `Conditions` или `SubjectConfimirationsData`.
-* Чтобы пользователь мог обратиться в службу технической поддержки {{ yandex-cloud }} из [консоли управления](https://console.cloud.yandex.ru/support), передайте его адрес электронной почты и имя в элементе `AttributeStatement`. Почта, имя и фамилия передаются в отдельных элементах `Attribute`. Вы также можете передать имя и фамилию вместе, например так:
+* Чтобы пользователь мог обратиться в службу технической поддержки {{ yandex-cloud }} из [консоли управления]({{link-console-support}}), передайте его адрес электронной почты и имя в элементе `AttributeStatement`. Почта, имя и фамилия передаются в отдельных элементах `Attribute`. Вы также можете передать имя и фамилию вместе, например так:
     ```
     <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
       <AttributeValue>John Doe</AttributeValue>

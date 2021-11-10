@@ -1,0 +1,172 @@
+# Emulating multiple IoT devices
+
+In this scenario, you will learn to emulate many devices that are able to signal MQTT topics. The example shows the emulation of air sensors that measure the following parameters:
+
+* Temperature.
+* Humidity.
+* Pressure.
+* CO<sup>2</sup> levels.
+
+Each sensor sends its result in JSON format. For example:
+
+```json
+{
+ "DeviceId":"0e3ce1d0-1504-4325-972f-55c961319814",
+ "TimeStamp":"2020-05-21T22:53:16Z",
+ "Values":[
+     {"Type":"Float","Name":"Humidity","Value":"25.281837"},
+     {"Type":"Float","Name":"CarbonDioxide","Value":"67.96608"},
+     {"Type":"Float","Name":"Pressure","Value":"110.7021"},
+     {"Type":"Float","Name":"Temperature","Value":"127.708824"}
+     ]
+}
+```
+
+To emulate the operation of multiple devices:
+
+1. [Before you start](#before-begin).
+1. [Install Terraform](#install-terraform).
+1. [Describe the infrastructure](#set-configuration).
+1. [Deploy cloud resources](#deploy).
+
+If you no longer need the created resources, [delete them](#clear-out).
+
+## Before you start {#before-begin}
+
+Before you deploy the device emulation infrastructure, register in {{ yandex-cloud }} and create a billing account:
+
+{% include [prepare-register-billing](../../_includes/solutions/_common/prepare-register-billing.md) %}
+
+If you have an active billing account, you can go to the [cloud page]({{ link-console-cloud }}) to select or create the folder where you will be deploying your infrastructure.
+
+[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+
+## Install Terraform {#install-terraform}
+
+By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud resources, such as VMs, disks, and images. For more information about resources that can be created with Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+
+{% include [terraform_install](../../_includes/solutions/terraform-install.md) %}
+
+## Describe the infrastructure {#set-configuration}
+
+1. Create the `iot-terraform` directory. It will store the Terraform configuration files.
+
+1. [Download](https://storage.yandexcloud.net/doc-files/emulator_publish.zip) an archive containing the files that you will needed to execute the script, and unpack it to `iot-terraform`.
+
+   The archive contains:
+    * `common.tf`: Terraform provider settings.
+    * `files.tf`: Code file parameters to publish from the local folder.
+    * `function.tf`: Parameters of a [function](../../functions/concepts/function.md) to write emulated messages to [devices](../../iot-core/concepts/index.md#device).
+    * `iot_core.tf`: Parameters of the [registry](../../iot-core/concepts/index.md#registry) where the devices are located.
+    * `output.tf.tf`: Output variables.
+    * `publish`: Files required to create a function.
+    * `service_account.tf`: Parameters of the [service account](../../iam/concepts/users/service-accounts.md) created by the script.
+    * `trigger.tf`: Parameters of the [trigger](../../functions/concepts/trigger/index.md) to invoke a function with a specified timeout.
+    * `variables.tf`: Variables used and their values.
+
+1. Edit the files by populating them with your data. You can specify the number of emulated devices and the publication launch timeout in `variables.tf`.
+
+    {% note info %}
+
+    To emulate the operation of over 1000 devices, you need to increase [quotas](../../iot-core/concepts/limits.md) by making a request to technical support.
+
+    {% endnote %}
+
+## Deploy cloud resources {#deploy}
+
+1. Go to the `iot-terraform` folder and check the configuration using the following command:
+
+   ```
+   terraform validate
+   ```
+
+   Result:
+
+   ```
+   Success! The configuration is valid.
+   ```
+
+1. Format the configuration files in the current folder and subfolders:
+
+   ```
+   terraform fmt
+   ```
+
+   Result:
+
+   ```
+   main.tf
+   variables.tf
+   ```
+
+1. After checking the configuration, run the command:
+
+   ```
+   terraform plan
+   ```
+
+   The terminal will display a list of resources with parameters. This is a test step. No resources are created. If there are errors in the configuration, Terraform points them out.
+
+     {% note alert %}
+
+     You're charged for all resources created using Terraform. Check the plan carefully.
+
+     {% endnote %}
+
+1. To create resources, run the command:
+
+   ```
+   terraform apply
+   ```
+
+1. Confirm the resource creation: type `yes` in the terminal and press Enter.
+
+   Result:
+
+   ```
+   Outputs:
+   
+   function = "d4erep.......aq085f0"
+   iot_core = "are.......ht10enkb3u"
+   service_account = "ajestqfepa.......0l6"
+   trigger = "a1sva8sse.......7kf6"
+   ```
+
+   Terraform will create all the required resources, and the terminal will display the IDs of the resources created. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+
+## Delete the resources created {#clear-out}
+
+{% list tabs %}
+
+- Management console
+
+  1. Delete the registry:
+      1. Go to your working folder.
+      1. In the list of services, select **{{ iot-full-name }}**.
+      1. To the right of the registry created, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+      1. Click **Delete**.
+  1. Delete devices:
+      1. Go to your working folder.
+      1. In the list of services, select **{{ iot-full-name }}**.
+      1. Select the registry.
+      1. Go to the **Devices** tab.
+      1. To the right of the name of the device created, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+      1. Click **Delete**.
+  1. Delete the function:
+      1. Go to your working folder.
+      1. In the list of services, select **{{ sf-name }}**.
+      1. To the right of the function name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+      1. Click **Delete**.
+  1. Delete the trigger:
+      1. Go to your working folder.
+      1. In the list of services, select **{{ sf-name }}**.
+      1. Go to the **Triggers** tab.
+      1. To the right of the name of the trigger created, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+      1. Click **Delete**.
+  1. Delete the service account:
+      1. Go to your working folder.
+      1. In the left pane, select **Service accounts**.
+      1. To the right of the service account name, click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
+      1. Click **Delete**.
+
+{% endlist %}

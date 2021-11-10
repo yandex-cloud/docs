@@ -5,10 +5,3 @@
 В API есть два набора методов:
 
 {% include [method-sets](../_includes/method-sets.md) %}
-
-{% note info %}
-
-Справочники gRPC API находятся в разработке.
-
-{% endnote %}
-

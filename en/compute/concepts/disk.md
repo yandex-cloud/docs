@@ -48,6 +48,8 @@ Non-replicated disks have a number of limitations:
 
   {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 
+* Non-replicated disks can't be used as boot disks.
+
 * The information they store may be temporarily unavailable or lost in the event of failure since non-replicated disks don't provide redundancy.
 
 * You can't create [snapshots](snapshot.md) or [images](image.md) from a non-replicated disk.
@@ -92,44 +94,4 @@ You can back up disks as [snapshots](snapshot.md). Snapshots are replicated acro
 Restoring a disk to a specific state can become a routine operation: for instance, if you wish to attach the same boot drive to every new VM. You can upload an [image](image.md) of the disk to {{ compute-name }}. Disk are created faster from images than from snapshots. Images are also automatically replicated to multiple availability zones.
 
 For general recommendations on backing up and restoring VMs, see [{#T}](backups.md).
-
-## Read and write operations {#rw}
-
-Disks and allocation units are subject to read and write operation limits. An allocation unit is a unit of disk space allocation, in GB. The allocation unit size depends on the [disk type](../concepts/limits.md#limits-disks).
-
-The following maximum read and write operation parameters exist:
-
-* Maximum IOPS: The maximum number of read and write operations performed by a disk per second.
-* Maximum bandwidth: The total number of bytes that can be read from or written to a disk per second.
-
-The actual IOPS value depends on the characteristics of the disk, total bandwidth, and the size of the request in bytes. Disk IOPS is determined by the following formula:
-
-![image](../../_assets/compute/iops.svg)
-
-Where:
-
-* _Max. IOPS_: The [maximum IOPS value](../concepts/limits.md#limits-disks) for the disk.
-* _Max. bandwidth_: The [maximum bandwidth value](../concepts/limits.md#limits-disks) for the disk.
-
-Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. The total number of read and write operations per second is determined by the formula:
-
-![image](../../_assets/compute/max-iops.svg)
-
-Where:
-
-* ![image](../../_assets/compute/alpha.svg) is the share of write operations out of the total number of read and write operations per second. Possible values: &alpha;&isin;[0,1].
-* _WriteIOPS_: The IOPS write value obtained using the formula for the actual IOPS value.
-* _ReadIOPS_: The IOPS read value obtained using the formula for the actual IOPS value.
-
-For more information about maximum possible IOPS and bandwidth values, see [Quotas and limits](../concepts/limits.md#limits-disks).
-
-### Disk performance {#performance}
-
-To achieve maximum IOPS, we recommend performing read and write operations that are 4 KB and less. Network SSDs have much higher IOPS for read operations and process requests faster than HDDs.
-
-To achieve the maximum possible bandwidth, we recommend performing 4 MB reads and writes.
-
-Disk performance depends on size: the more allocation units, the higher the IOPS and bandwidth values.
-
-For small HDDs, there's a mechanism that raises their performance to that of 1 TB disks for peak loads. When a small disk operates at the [basic performance level](../concepts/limits.md#limits-disks) for 12 hours, it accumulates <q>credits for operations</q>. These are spent automatically when the load increases (for example, when a VM boots up). Small HDDs can work at increased performance for about 30 minutes a day. You can spend your <q>credits for operations</q> all at once or in small batches.
 

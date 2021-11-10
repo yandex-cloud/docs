@@ -1,4 +1,4 @@
-## Версия 2.2.0 {#latest-release}
+## Версия 2.3.0 {#latest-release}
 
-* Добавлен флаг `net.netfilter.nf_conntrack_tcp_be_liberal = 1` в конфигурацию sysctl.
+* Исправлена работа с платформой `gpu-standard-v3`.
 * Обновления компонентов системы и пакетов.
