@@ -578,3 +578,4 @@ items:
         href: faq.md
   - name: Public materials
     href: public_talks.md
+    when: lang == "ru"
