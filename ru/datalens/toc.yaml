@@ -435,7 +435,7 @@ items:
       - name: Subquery exceeds data weight limit
         when: audience == "internal"
         hidden: true
-        href: troubleshooting/errors/ERR-DS-API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
