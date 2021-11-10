@@ -23,4 +23,5 @@
 * [{#T}](ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md)
 {% if audience == "internal" %} * [{#T}](no-access-to-read-this-operation.md) {% endif %}
 {% if audience == "internal" %} * [{#T}](ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md) {% endif %}
+{% if audience == "internal" %} * [{#T}](ERR-DS_API-FILTER-INVALID_VALUE.md) {% endif %}
 
