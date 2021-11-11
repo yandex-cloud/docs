@@ -46,11 +46,15 @@ items:
       - name: IAM-токены
         items:
           - name: Получение IAM-токена для аккаунта на Яндексе
+            when: audience == "external"
             href: operations/iam-token/create.md
           - name: Получение IAM-токена для сервисного аккаунта
             href: operations/iam-token/create-for-sa.md
           - name: Получение IAM-токена для федеративного аккаунта
             href: operations/iam-token/create-for-federation.md
+          - name: Получение IAM-токена для робота
+            when: audience == "internal"
+            href: operations/iam-token/create-for-robot.md
       - name: Ключи
         items:
           - name: Создание API-ключа

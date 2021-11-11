@@ -36,6 +36,11 @@ description: "Пошаговые инструкции по управлению 
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
 
+{% if audience == "internal" %}
+- [{#T}](iam-token/create-for-robot.md)
+
+{% endif %}
+
 ## API-ключи {#api-keys}
 
 - [{#T}](api-key/create.md)
