@@ -5,27 +5,7 @@ keywords:
   - вопросы и ответы yql
 ---
 
-# Вопросы и ответы про {{ ydb-short-name }}
-
-{% if audience == "external" %}
-## Общие вопросы {#common}
-
-{% include notitle [common](faq/common.md) %}
-
-## YQL {#yql}
-
-{% include notitle [common](faq/yql.md) %}
-
-## Ошибки {#errors}
-
-{% include notitle [errors](faq/errors.md) %}
-
-## Serverless {#serverless}
-
-{% include notitle [common](faq/serverless.md) %}
-
-{% else %}
-## Общие вопросы {#common}
+# Общие вопросы про {{ ydb-name }} (Yandex-Team)
 
 #### Какое количество строк можно прочитать в результате одного запроса к YDB?
 
@@ -133,5 +113,3 @@ https://st.yandex-team.ru/YDBREQUESTS-14
 Q: При запуске двух запросов, пытаюсь получить ответ из фьючера от второго из них. Получаю: ```Status: OVERLOADED Why: <main>: Error: Pending previous query completion```
 
 A: Сессия в SDK однопоточная. Если нужно параллельно использовать несколько запросов, нужно создавать несколько сессий.
-
-{% endif %}

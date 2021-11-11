@@ -726,15 +726,23 @@ items:
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
-        href: faq/common.md
+        href: oss/public/faq/common.md
+        when: audience == "external"
+      - name: Общие вопросы (Yandex-Team)
+        href: faq/internal/common.md
+        when: audience != "external"
       - name: Ошибки
-        href: faq/errors.md
+        href: oss/public/faq/errors.md
+        when: audience == "external"
       - name: YQL
-        href: faq/yql.md
+        href: oss/public/faq/yql.md
+        when: audience == "external"
       - name: Serverless
         href: faq/serverless.md
+        when: audience == "external"
       - name: Все вопросы на одной странице
-        href: faq.md
+        href: oss/public/faq/all.md
+        when: audience == "external"
   - name: Публичные материалы
     href: public_talks.md
     when: lang == "ru"
