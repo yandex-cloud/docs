@@ -397,15 +397,15 @@ items:
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
-        href: faq/common.md
+        href: oss/public/faq/common.md
       - name: Ошибки
-        href: faq/errors.md
+        href: oss/public/faq/errors.md
       - name: YQL
-        href: faq/yql.md
+        href: oss/public/faq/yql.md
       - name: Serverless
         href: faq/serverless.md
       - name: Все вопросы на одной странице
-        href: faq.md
+        href: oss/public/faq/all.md
   - name: Публичные материалы
     href: public_talks.md
 base: ru/ydb

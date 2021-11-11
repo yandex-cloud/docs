@@ -6,7 +6,7 @@
 
 * [Увеличить размер хранилища](#change-disk-size) (доступно только для стандартного `network-hdd` и быстрого сетевого `network-ssd` хранилищ).
 
-* [Изменить настройки MySQL](#change-mysql-config) {{ MY }}.
+* [Изменить настройки {{ MY }}](#change-mysql-config).
 
     {% note warning %}
 

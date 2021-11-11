@@ -2,7 +2,7 @@
 
 Метрики {{ sk-hybrid-name }} доступны по URL `{$IP}:17002/metrics/prometheus`.
 
-## Описание метрик {{ sk-hybrid-name }}
+## Описание метрик {{ sk-hybrid-name }} {#metrics}
 
 * `synthesis_sps` — Seconds per second — количество секунд синтезированного текста, которое генерируется за секунду работы.
 * `synthesis_latency_bucket` — время ответа.

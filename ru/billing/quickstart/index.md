@@ -102,7 +102,7 @@ keywords:
 ### Узнайте больше
 
 - [Платежный аккаунт](../concepts/billing-account.md)
-- [Пробный период](../../free-trial/concepts/quickstart.md)
+- [Пробный период](../../getting-started/free-trial/concepts/quickstart.md)
 
 ### Начните знакомство с {{ yandex-cloud }} {#start}
 

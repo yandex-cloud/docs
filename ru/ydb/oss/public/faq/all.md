@@ -9,16 +9,16 @@ keywords:
 
 ## Общие вопросы {#common}
 
-{% include notitle [common](faq/common.md) %}
+{% include notitle [common](common.md) %}
 
 ## YQL {#yql}
 
-{% include notitle [common](faq/yql.md) %}
+{% include notitle [yql](yql.md) %}
 
 ## Ошибки {#errors}
 
-{% include notitle [errors](faq/errors.md) %}
+{% include notitle [errors](errors.md) %}
 
 ## Serverless {#serverless}
 
-{% include notitle [common](faq/serverless.md) %}
+{% include notitle [serverless](../../../faq/serverless.md) %}

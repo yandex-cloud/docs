@@ -38,6 +38,8 @@
 
 - **Email адреса** — адрес электронной почты пользователя.
 
+- **Пол** — пол пользователя.
+
 ### Валидация {#param-validation}
 
 {% include [validate](../../_includes/forms/validate.md) %}

@@ -20,7 +20,7 @@ Quotas serve as a soft restriction for requesting resources and enable {{ yandex
 
 ## Default quotas and limits for {{ yandex-cloud }} services {#quotas-limits-default}
 
-Quotas are listed with default values that match the quotas of the [trial period](../../free-trial/).
+Quotas are listed with default values that match the quotas of the [trial period](../../getting-started/free-trial/concepts/quickstart.md).
 
 ### {{ compute-full-name }} {#compute}
 

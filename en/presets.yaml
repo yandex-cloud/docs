@@ -85,6 +85,7 @@ default:
   speechkit-name: SpeechKit
   speechkit-pro-name: SpeechKit Pro
   brand-voice-name: SpeechKit Brand Voice
+  sk-hybrid-name: SpeechKit Hybrid
   network-load-balancer-name: Network Load Balancer
   message-queue-name: Message Queue
   cloud-logs-name: Cloud Logs

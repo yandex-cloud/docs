@@ -4,7 +4,7 @@
 
 Чтобы провести опрос или голосование, принимать заявки или заказы, создайте форму:
 
-{% include [forms-versions](../_includes/forms/forms-versions.md) %}
+1. {% include [forms-versions](../_includes/forms/forms-versions.md) %}
 
 1. Выберите [шаблон для вашей формы](#section_dyd_dnx_cgb) или нажмите кнопку **Создать форму** на верхней панели.
 

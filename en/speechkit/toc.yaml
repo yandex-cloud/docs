@@ -53,6 +53,19 @@ items:
                 href: tts/api-ref/grpc/index.md
               - name: Synthesizer
                 href: tts/api-ref/grpc/tts_service.md
+  - name: SpeechKit Hybrid
+    items:
+      - name: About the technology
+        href: hybrid-speechkit/conception.md
+      - name: System requirements
+        href: hybrid-speechkit/system-requirements.md
+      - name: Speech synthesis
+        href: hybrid-speechkit/synthesis.md
+      - name: Speech recognition
+        href: hybrid-speechkit/asr.md
+      - name: Monitoring
+        hidden: true
+        href: hybrid-speechkit/monitoring.md
   - name: IVR integration
     href: concepts/ivr-integration.md
   - name: Using the API

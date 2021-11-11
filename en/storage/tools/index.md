@@ -13,6 +13,7 @@
 * SDK
   * [AWS Java SDK](aws-sdk-java.md)
   * [Python SDK (boto)](boto.md)
+  * [AWS .NET SDK](aws-sdk-net.md)
 
 * FUSE
   * [GeeseFS](geesefs.md)

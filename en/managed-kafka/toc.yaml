@@ -33,6 +33,8 @@ items:
         href: tutorials/use-ksqldb-with-mkf.md
       - name: Migrating with MirrorMaker 2.0
         href: tutorials/mirrormaker-unmanaged-topics.md
+      - name: Delivering data using Debezium
+        href: tutorials/kafka-cdc.md
   - name: Concepts
     items:
       - name: Relationship between service resources
