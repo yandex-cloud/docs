@@ -56,6 +56,8 @@ items:
         - name: >-
             Creating an Amazon RDS logical replica for PostgreSQL in Managed Service for PostgreSQL
           href: operations/logical-replica-from-rds.md
+      - name: Delivering data using Debezium
+        href: solutions/kafka-cdc.md
   - name: Concepts
     items:
       - name: Relationship between service resources

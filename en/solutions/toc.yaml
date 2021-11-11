@@ -86,6 +86,12 @@ items:
         href: infrastructure-management/hystax-disaster-recovery.md
       - name: Configuring a fault-tolerant architecture in Yandex.Cloud
         href: infrastructure-management/fault-tolerance.md
+  - name: Building a data platform
+    items:
+      - name: All use cases
+        href: dataplatform/index.md
+      - name: Delivering data using Debezium
+        href: dataplatform/kafka-cdc.md
   - name: Windows in Yandex.Cloud
     items:
       - name: All use cases
