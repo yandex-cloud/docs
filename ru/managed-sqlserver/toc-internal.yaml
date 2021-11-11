@@ -21,6 +21,8 @@ items:
         href: operations/databases.md
       - name: Управление пользователями
         href: operations/cluster-users.md
+      - name: Управление пользовательскими сеансами
+        href: operations/sessions.md
       - name: Назначение привилегий и ролей
         href: operations/grant.md
       - name: Управление резервными копиями
