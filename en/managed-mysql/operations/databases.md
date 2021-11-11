@@ -35,7 +35,7 @@ There are no limits to the number of databases in a cluster.
 
 {% note info %}
 
-Created databases are not available to cluster users by default. To connect to a new database, [grant roles to the appropriate users](grant.md#grant-role).
+Created databases are not available to cluster users by default. To connect to a new database, [grant privileges to the appropriate users](grant.md#grant-privilege).
 
 {% endnote %}
 
@@ -149,7 +149,7 @@ Created databases are not available to cluster users by default. To connect to a
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [{{ TF }} provider documentation ]({{ tf-provider-mmy }}).
+  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
 {% endlist %}
 

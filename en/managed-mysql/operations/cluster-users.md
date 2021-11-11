@@ -9,6 +9,7 @@ You can add and remove users, as well as manage their settings.
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and then select the **Users** tab.
 
@@ -36,7 +37,7 @@ You can add and remove users, as well as manage their settings.
 - Management console
 
   1. Go to the folder page and select **{{ mmy-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click **Add**.
   1. Enter a database username and password (from 8 to 128 characters).
   1. Select one or more databases that the user should have access to:
@@ -44,11 +45,11 @@ You can add and remove users, as well as manage their settings.
       1. Select the database from the drop-down list.
       1. Repeat the previous two steps until all the required databases are selected.
       1. To delete a database added by mistake, hover over the row with the database name and click ![image](../../_assets/cross.svg) at the end of the line.
-  1. Set up [user roles](../concepts/user-rights.md#db-roles) for each of the selected databases:
-      1. Click ![image](../../_assets/plus-sign.svg) in the **Roles** column.
-      1. Select the role you want to add to the user from the drop-down list.
-      1. Repeat the previous two steps until all the required roles are added.
-  1. To revoke a role granted by mistake, click ![image](../../_assets/cross.svg) to the right of its name.
+  1. Set up [user privileges](../concepts/user-rights.md#db-privileges) for each of the selected databases:
+      1. Click ![image](../../_assets/plus-sign.svg) in the **Privileges** column.
+      1. Select the privilege you want to add to the user from the drop-down list.
+      1. Repeat the previous two steps until all the required privileges are added.
+  1. To revoke a privilege granted by mistake, click ![image](../../_assets/cross.svg) to the right of its name.
   1. If necessary, configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
   1. Click **Add**.
 
@@ -85,7 +86,7 @@ You can add and remove users, as well as manage their settings.
           password = "<password>"
           permission {
             database_name = "<name of the DB the user can access>"
-            roles         = [<list of user roles for the DB>]
+            roles         = [<list of user privileges for the DB>]
             ...
           }
           ...
@@ -114,7 +115,7 @@ You can add and remove users, as well as manage their settings.
 - Management console
 
   1. Go to the folder page and select **{{ mmy-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Change password**.
   1. Set a new password and click **Edit**.
 
@@ -177,7 +178,7 @@ You can add and remove users, as well as manage their settings.
 
 {% note tip %}
 
-To change the user's permissions to access certain databases, follow the [instructions](grant.md#grant-role).
+To change the user's permissions to access certain databases, follow the [instructions](grant.md#grant-privilege).
 
 {% endnote %}
 
@@ -186,7 +187,7 @@ To change the user's permissions to access certain databases, follow the [instru
 - Management console
 
   1. Go to the folder page and select **{{ mmy-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure**.
   1. Configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
   1. Click **Save**.
@@ -202,7 +203,7 @@ To change the user's permissions to access certain databases, follow the [instru
   ```
   $ {{ yc-mdb-my }} user update <username>
        --cluster-name=<cluster name>
-       --global-permissions=<comma-separated list of global privileges>
+       --global-permissions=<comma-separated list of administrative privileges>
        --authentication-plugin=<authentication plugin>
        --max-questions-per-hour=<maximum number of requests per hour>
        --max-updates-per-hour=<maximum number of UPDATE requests per hour>
@@ -269,7 +270,7 @@ To change the user's permissions to access certain databases, follow the [instru
 - Management console
 
   1. Go to the folder page and select **{{ mmy-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Users**.
+  1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
 
 - CLI

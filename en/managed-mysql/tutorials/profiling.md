@@ -12,7 +12,7 @@ The following issues normally impact {{ mmy-name }} cluster performance:
 
 1. Select databases to troubleshoot.
 1. [Enable statistics collection](../operations/performance-diagnostics.md).
-1. Create a [{{ MY }} user](../operations/cluster-users.md#adduser) with the [`PROCESS`](../operations/grant.md#db-roles) role for these databases. Troubleshooting queries must run under this user's account.
+1. Create a [{{ MY }} user](../operations/cluster-users.md#adduser) with the [`PROCESS`](../operations/grant.md#db-privileges) privilege for these databases. Troubleshooting queries must run under this user's account.
 
 ## Diagnosing resource shortages {#cpu-io-deficit}
 
