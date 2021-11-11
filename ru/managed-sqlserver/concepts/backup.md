@@ -27,7 +27,7 @@ keywords:
 
 Подробнее о PITR см. в [документации {{ MS }}]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}.
 
-Чтобы восстановить кластер из резервной копии, [следуйте инструкциям](../operations/cluster-backups.md).
+Чтобы восстановить кластер или отдельную базу данных из резервной копии, [следуйте инструкциям](../operations/cluster-backups.md).
 
 {% note warning %}
 
@@ -72,4 +72,4 @@ keywords:
 
 ### Проверка восстановления из резервной копии {#capabilities}
 
-Для проверки возможностей резервного копирования [восстановите кластер из резервной копии](../operations/cluster-backups.md) и проверьте целостность ваших данных.
+Для проверки возможностей резервного копирования [восстановите кластер из резервной копии](../operations/cluster-backups.md#restore-cluster) и проверьте целостность ваших данных.
