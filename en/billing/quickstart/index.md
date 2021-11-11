@@ -98,7 +98,7 @@ Under one Yandex account, all payers must be either residents of Russia, residen
 ### Learn more
 
 - [Billing account](../concepts/billing-account.md)
-- [Trial period](../../free-trial/concepts/quickstart.md)
+- [Trial period](../../getting-started/free-trial/concepts/quickstart.md)
 
 ### Get started with {{ yandex-cloud }} {#start}
 

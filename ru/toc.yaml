@@ -49,7 +49,7 @@ items:
     href: dns/index.yaml
     when: audience == "external"
   - name: Пробный период
-    href: free-trial/index.yaml
+    href: getting-started/free-trial/concepts/quickstart.md
     when: audience == "external"
   - name: Cloud Functions
     href: functions/index.yaml

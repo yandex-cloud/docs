@@ -66,7 +66,7 @@ links:
     when: audience == "external"
   - title: Пробный период
     description: Описание пробного периода использования Yandex.Cloud
-    href: free-trial/
+    href: getting-started\free-trial\concepts\quickstart.md
     when: audience == "external"
   - title: Cloud Functions
     description: Запуск вашего кода в виде функции

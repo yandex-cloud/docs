@@ -1,0 +1,22 @@
+title: Yandex Cloud
+items:
+  - name: Getting started
+    items:
+      - name: Individual
+        href: quickstart-individuals.md
+      - name: Legal entity
+        href: quickstart-legal-entity.md
+      - name: Trial period
+        items:
+        - name: How to use the free trial
+          href: free-trial/concepts/quickstart.md
+        - name: Grant terms of use
+          href: free-trial/concepts/usage-grant.md
+        - name: Trial period restrictions
+          href: free-trial/concepts/limits.md
+        - name: Monitoring resource usage
+          href: free-trial/concepts/usage-monitor.md
+        - name: End of trial period
+          href: free-trial/concepts/trial-ending.md
+        - name: Upgrading to the paid version
+          href: free-trial/concepts/upgrade-to-paid.md
