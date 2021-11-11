@@ -1,22 +1,21 @@
-title: Yandex Cloud
+title: Начало работы в Yandex.Cloud
+href: index.yaml
 items:
-  - name: Начало работы
+  - name: Физическим лицам
+    href: quickstart-individuals.md
+  - name: Юридическим лицам
+    href: quickstart-legal-entity.md
+  - name: Пробный период
     items:
-      - name: Физическим лицам
-        href: quickstart-individuals.md
-      - name: Юридическим лицам
-        href: quickstart-legal-entity.md
-      - name: Пробный период
-        items:
-        - name: Как воспользоваться пробным периодом
-          href: free-trial/concepts/quickstart.md
-        - name: Условия использования гранта
-          href: free-trial/concepts/usage-grant.md
-        - name: Ограничения пробного периода
-          href: free-trial/concepts/limits.md
-        - name: Контроль потребления ресурсов
-          href: free-trial/concepts/usage-monitor.md
-        - name: Завершение пробного периода
-          href: free-trial/concepts/trial-ending.md
-        - name: Переход на платную версию
-          href: free-trial/concepts/upgrade-to-paid.md
+    - name: Как воспользоваться пробным периодом
+      href: free-trial/concepts/quickstart.md
+    - name: Условия использования гранта
+      href: free-trial/concepts/usage-grant.md
+    - name: Ограничения пробного периода
+      href: free-trial/concepts/limits.md
+    - name: Контроль потребления ресурсов
+      href: free-trial/concepts/usage-monitor.md
+    - name: Завершение пробного периода
+      href: free-trial/concepts/trial-ending.md
+    - name: Переход на платную версию
+      href: free-trial/concepts/upgrade-to-paid.md
