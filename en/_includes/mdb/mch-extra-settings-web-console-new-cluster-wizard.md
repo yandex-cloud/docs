@@ -6,7 +6,7 @@
 
   Maintenance may include updating the DBMS version, applying patches, and so on.
 
-- **Hybrid storage**: Enable this option and select one of the network storage types in the **Storage** section to create a cluster that will use [hybrid storage](../../managed-clickhouse/concepts/storage.md#hybrid-storage-features).
+- **Hybrid storage**: Enable this option and select a network storage type under **Storage size** to create a cluster that will use [hybrid storage](../../managed-clickhouse/concepts/storage.md#hybrid-storage-features).
 
   {% note warning %}
 
@@ -19,4 +19,3 @@
 - **Access from the management console**: Select this option to be able to [execute SQL queries](../../managed-clickhouse/operations/web-sql-query.md) to cluster databases from the {{ yandex-cloud }} management console.
 
 - **Access from Yandex.Metrica and AppMetrica**: Enable this option to be able to [import data from AppMetrica](https://appmetrica.yandex.com/docs/cloud/index.html) to the cluster.
-

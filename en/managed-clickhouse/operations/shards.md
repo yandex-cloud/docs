@@ -2,12 +2,6 @@
 
 You can enable sharding for a cluster as well as add and configure individual shards.
 
-{% note warning %}
-
-If a cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features) at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage, only shards with a single host can be added to this cluster. This restriction is removed at the General Availability stage.
-
-{% endnote %}
-
 ## Enabling sharding {#enable}
 
 {{ mch-name }} clusters are created with one shard. To start sharding data, [add](#add-shard) one or more shards and [create](../tutorials/sharding.md#example) a distributed table.
@@ -21,12 +15,10 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 - Management console
 
   1. Go to the folder page and select **{{ mch-name }}**.
-
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
-
   1. Click **Add shard**.
-
   1. Specify the shard parameters:
+
       * Name and weight.
       * To copy the schema from a random replica of one of the shards to the hosts of the new shard, select the **Copy data schema** option.
       * The required number of hosts.
@@ -40,8 +32,6 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
     {{ TF }} doesn't allow specifying shard weight.
 
     {% endnote %}
-
-    To add a shard to a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -81,7 +71,7 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
 
 {% note warning %}
 
-Use the copy data schema option only if the schema is the same on all replica hosts of the shard that you add the new host to.
+Use the copy data schema option only if the schema is the same on all cluster shards.
 
 {% endnote %}
 
@@ -108,6 +98,7 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 {% list tabs %}
 
 - Management console
+  
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click the name of a cluster and open the **Shards** tab.
   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) and select **Change**.
@@ -158,7 +149,6 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 ## Deleting a shard {#delete-shard}
 
 You can delete a shard from a {{ CH }} cluster provided that:
-
 * It's not the only shard.
 * It's not the only shard in a [group of shards](shard-groups.md).
 
@@ -175,8 +165,6 @@ When you delete a shard, all tables and data that are saved on that shard are de
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
 
 - Terraform
-
-    To delete a shard from a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -199,4 +187,3 @@ When you delete a shard, all tables and data that are saved on that shard are de
   Use the [deleteShard](../api-ref/Cluster/deleteShard.md) method to delete a shard.
 
 {% endlist %}
-

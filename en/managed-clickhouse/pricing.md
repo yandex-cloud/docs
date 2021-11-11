@@ -16,15 +16,17 @@ The cost of {{ mch-name }} usage is based on:
 
 * Storage type and size (disk space).
 
-* Computing resources allocated to cluster hosts (including {{ ZK }} hosts);
+* Computing resources allocated to cluster hosts (including {{ ZK }} hosts).
 
 * Settings and number of backups.
 
-* Volume of outgoing traffic from Yandex.Cloud to the internet.
+* Outgoing traffic from {{ yandex-cloud }} to the internet.
+
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-### Use of DB hosts {#rules-hosts-uptime}
+
+### DB host usage {#rules-hosts-uptime}
 
 The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are listed in the [{#T}](concepts/instance-types.md) section, prices for using vCPU and RAM — in the [Prices](#prices) section.
 
@@ -32,28 +34,43 @@ You can choose the host class for {{ CH }} and ZooKeeper hosts (as appropriate f
 
 {% note warning %}
 
-When you create a cluster with 2 or more {{ CH }}  hosts, 3  {{ ZK }} hosts with the minimal host class are created automatically to provide replication and fault tolerance for the cluster.
+When you create a cluster with 2 or more {{ CH }} hosts, 3 {{ ZK }} hosts with the minimal host class are created automatically to provide replication and fault tolerance for the cluster.
 
 {% endnote %}
 
-The minimum billing unit is one minute (for example, the cost of 1.5 minutes of operation is the same as the cost of 2 minutes of operation). You aren't charged for time when the DBMS or {{ ZK }} host isn't performing its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You aren't charged for time when the DBMS or {{ ZK }} host isn't performing its main functions.
+
 
 ### Disk space usage {#rules-storage}
 
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts in 100 GB increments.
+    
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 2 hosts in 100 GB increments.
+    * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in 93 GB increments.
 
-* Space used by DB backups in excess of the storage specified for the cluster.
+* The storage size used by data backups of [local](concepts/storage.md) and [network](concepts/storage.md) storage devices:
 
     * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
-    * During an automatic backup, {{ mch-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+    * If the combined size of the database and all backups exceeds the storage volume of the cluster, you only pay for the excess of this volume.
 
-    * The number of hosts in the cluster does not affect the size of the storage and, consequently, that of free backups.
+   * During an automatic backup, {{ mch-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
-The cost is specified for one month of use.  The minimum billing unit is 1 GB per minute (for example, the cost of storing 1 GB for 1.5 minutes is equal to the cost of storage for 2 minutes).
+   * The number of hosts in the cluster does not affect the size of the storage or free backups.
+
+    For example, if there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
+
+* The storage size used by cold data backups of [hybrid storage](concepts/storage.md#hybrid-storage-features):
+
+   * Cold data backups are stored in the same {{ objstorage-name }} bucket as the data itself.
+
+   * The storage used by backups is taken into account when calculating the cost of using {{ objstorage-name }} as well as the volume of the data itself.
+
+   * During an automatic backup, {{ mch-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
+
+The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 {% if region == "ru"%}
 
@@ -61,21 +78,21 @@ The cost is specified for one month of use.  The minimum billing unit is 1 GB pe
 
 For example, you created a cluster:
 
-* with 3 {{ CH }} hosts with the class `s1.micro` (2 vCPU, 8 GB RAM),
-* with 3 automatically created {{ ZK }} hosts with the class `b2.medium` (2 vCPU × 50%, 4 GB RAM),
-* with 100 GB of standard network storage.
+* With 3 {{ CH }} hosts of the `s1.micro` class (2 vCPU, 8 GB RAM).
+* With 3 automatically created {{ ZK }} hosts of the `b2.medium` class (2 vCPU x 50%, 4 GB RAM).
+* With 100 GB of standard network storage.
 
-Cost of resource usage:
+Cost of using resources:
 
-* 1 hour of {{ CH }} host core usage with 100% vCPU — ₽1.43;
-* 1 hour of usage of 1 GB RAM on the {{ CH }} host — ₽0.33;
-* 1 hour of {{ ZK }} host core usage with 50% vCPU — ₽0.49;
-* 1 hour of usage of 1 GB RAM on the {{ ZK }} host — ₽0.2;
-* 1 month of usage 1 GB of standard network storage — ₽2.2881.
+* 1 hour of using the core of a {{ CH }} host with 100% vCPU: ₽1.43.
+* 1 hour of using 1 GB of RAM of a {{ CH }} host: ₽0.33.
+* 1 hour of using the core of a {{ ZK }} host with 50% vCPU: ₽0.49.
+* 1 hour of using 1 GB of RAM of a {{ ZK }} host: ₽0.2.
+* 1 month of using 1 GB of standard network storage: ₽2.2881.
 
-Cost per hour for all hosts: `3 × (2 × ₽1.43 + 8 × ₽0.33) + 3 × (2 × ₽0.49 + 4 × ₽0,2) = ₽21.84`
+Cost per hour for all hosts: `3 × (2 × ₽1.43 + 8 × ₽0.33) + 3 × (2 × ₽0.49 + 4 × ₽0.2) = ₽21.84`
 
-The total cost of the cluster in the month (hosts and storage): `720 × ₽21.84 + 100 × ₽2.2881 = ₽15,953.61`
+Total cost of the cluster per month (hosts and storage): `720 × ₽21.84 + 100 × ₽2.2881 = ₽15953.61`
 
 {% endif %}
 
@@ -83,7 +100,7 @@ The total cost of the cluster in the month (hosts and storage): `720 × ₽21.84
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mch-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
+{{mch-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 
@@ -94,9 +111,11 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 ## Pricing {#prices}
 
-### Host computing resources {{ CH }} {#prices-clickhouse}
+### {{ CH }} host computing resources {#prices-clickhouse}
 
 {% if region == "ru"%}
+
+All prices are shown with VAT.
 
 {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch.md) %}
 
@@ -114,11 +133,12 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endif %}
 
-### Host computing resources {{ ZK }} {#prices-zookeeper}
+
+### {{ ZK }} host computing resources {#prices-zookeeper}
 
 {% note info %}
 
-You can't order {{ ZK }} resources with CVoS discounts.
+You can't order {{ ZK }} host resources using a CVoS.
 
 {% endnote %}
 
@@ -140,6 +160,7 @@ You can't order {{ ZK }} resources with CVoS discounts.
 
 {% endif %}
 
+
 ### Storage and backups {#prices-storage}
 
 {% if region == "ru"%}
@@ -159,6 +180,7 @@ You can't order {{ ZK }} resources with CVoS discounts.
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
 
 {% endif %}
+
 
 ### Outgoing traffic {#prices-traffic}
 
@@ -180,54 +202,97 @@ You can't order {{ ZK }} resources with CVoS discounts.
 
 {% endif %}
 
-## Estimated prices for host classes {#calculated-prices}
+## Estimated prices for host classes {#calculated-host-price}
 
-Prices for the time of host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-clickhouse#calculator).
-
-### {{ CH }} hosts {#calculated-clickhouse}
+Prices for host uptime are calculated based on [host classes](concepts/instance-types.md) and the above prices for using vCPU and RAM for the corresponding platform. To accurately calculate the cost of the desired cluster, use the [calculator](https://cloud.yandex.com/services/managed-clickhouse#calculator).
 
 {% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
 
-{% if region == "ru"%}
+### {{ CH }} hosts {#calculated-clickhouse}
 
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, RUB.
+{% list tabs %}
 
-{% include [rub-ch-classes-hour.md](../_pricing/managed-clickhouse/rub-ch-classes-hour.md) %}
+- Per host per month
 
-{% endif %}
+  {% if region == "ru"%}
 
-{% if region == "kz"%}
+All prices are shown with VAT.
 
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, KZT.
+  {% include [rub-ch-classes-month.md](../_pricing/managed-clickhouse/rub-ch-classes-month.md) %}
 
-{% include [kzt-ch-classes-hour.md](../_pricing/managed-clickhouse/kzt-ch-classes-hour.md) %}
+  {% endif %}
 
-{% endif %}
+  {% if region == "kz"%}
 
-{% if region == "int"%}
+  {% include [kzt-ch-classes-month.md](../_pricing/managed-clickhouse/kzt-ch-classes-month.md) %}
 
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
+  {% endif %}
 
-{% include [usd-ch-classes-hour.md](../_pricing/managed-clickhouse/usd-ch-classes-hour.md) %}
+- Per host per hour
 
-{% endif %}
+  {% if region == "ru"%}
 
-### ZooKeeper hosts {#prices-zookeeper}
+  {% include [rub-ch-classes-hour.md](../_pricing/managed-clickhouse/rub-ch-classes-hour.md) %}
 
-{% if region == "ru"%}
+  {% endif %}
 
-{% include [rub-zoo-classes-hour.md](../_pricing/managed-clickhouse/rub-zoo-classes-hour.md) %}
+  {% if region == "kz"%}
 
-{% endif %}
+  {% include [kzt-ch-classes-hour.md](../_pricing/managed-clickhouse/kzt-ch-classes-hour.md) %}
 
-{% if region == "kz"%}
+  {% endif %}
 
-{% include [kzt-zoo-classes-hour.md](../_pricing/managed-clickhouse/kzt-zoo-classes-hour.md) %}
+  {% if region == "int"%}
 
-{% endif %}
+  {% include [usd-ch-classes-hour.md](../_pricing/managed-clickhouse/usd-ch-classes-hour.md) %}
 
-{% if region == "int"%}
+  {% endif %}
 
-{% include [usd-zoo-classes-hour.md](../_pricing/managed-clickhouse/usd-zoo-classes-hour.md) %}
+{% endlist %}
 
-{% endif %}
+
+### ZooKeeper hosts {#prices-zookeeper-host}
+
+{% note info %}
+
+You can't order {{ ZK }} host resources using a CVoS.
+
+{% endnote %}
+
+{% list tabs %}
+
+- Per host per month
+
+  {% if region == "ru"%}
+
+  {% include [rub-zoo-classes-month.md](../_pricing/managed-clickhouse/rub-zoo-classes-month.md) %}
+
+  {% endif %}
+
+  {% if region == "kz"%}
+
+  {% include [kzt-zoo-classes-month.md](../_pricing/managed-clickhouse/kzt-zoo-classes-month.md) %}
+
+  {% endif %}
+
+- Per host per hour
+
+  {% if region == "ru"%}
+
+  {% include [rub-zoo-classes-hour.md](../_pricing/managed-clickhouse/rub-zoo-classes-hour.md) %}
+
+  {% endif %}
+
+  {% if region == "kz"%}
+
+  {% include [kzt-zoo-classes-hour.md](../_pricing/managed-clickhouse/kzt-zoo-classes-hour.md) %}
+
+  {% endif %}
+
+  {% if region == "int"%}
+
+  {% include [usd-zoo-classes-hour.md](../_pricing/managed-clickhouse/usd-zoo-classes-hour.md) %}
+
+  {% endif %}
+
+{% endlist %}

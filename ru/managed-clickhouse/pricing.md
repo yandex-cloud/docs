@@ -111,11 +111,11 @@ editable: false
 
 ## Цены {#prices}
 
-Все цены указаны с включением НДС.
-
 ### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
 
 {% if region == "ru"%}
+
+Все цены указаны с включением НДС.
 
 {% include [rub-host-ch.md](../_pricing/managed-clickhouse/rub-host-ch.md) %}
 
@@ -208,8 +208,6 @@ editable: false
 
 {% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
 
-Все цены указаны с включением НДС.
-
 ### Хосты {{ CH }} {#calculated-clickhouse}
 
 {% list tabs %}
@@ -217,6 +215,8 @@ editable: false
 - За месяц работы хоста
   
   {% if region == "ru"%}
+
+Все цены указаны с включением НДС.
 
   {% include [rub-ch-classes-month.md](../_pricing/managed-clickhouse/rub-ch-classes-month.md) %}
 

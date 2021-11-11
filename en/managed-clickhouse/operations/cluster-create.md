@@ -24,7 +24,6 @@ The number of hosts that can be created together with a {{ CH }} cluster depends
 * When using network storage:
     * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
     * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
-* With **hybrid storage**, you can only create a single-host cluster. After creating this cluster, you can [add shards](shards.md#add-shard) consisting of only one host. Such clusters aren't tolerant to host failures, but if this happens, the data in the shard or cluster is saved. Hybrid storage is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
 
@@ -34,14 +33,14 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
 - Management console
 
+  To create a cluster:
+
   1. In the management console, select the folder where you want to create a DB cluster.
-  {% if audience != "internal" %}
+{% if audience != "internal" %}
   1. Select **{{ mch-name }}**.
 {% endif %}
   1. Click **Create cluster**.
-
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
-
   1. From the **Version** drop-down list, select the version of {{ CH }} which the {{ mch-name }} cluster will use:
      1. For most clusters, it's recommended to select the latest LTS version.
      1. If you plan to use hybrid storage in a cluster, it's recommended to select the latest version. This type of storage is supported starting from {{ CH }} {{ mch-hs-version }}.
@@ -49,9 +48,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
-
   1. Under **Storage size**:
 
       {% if audience != "internal" %}
@@ -61,12 +58,13 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
         When selecting a storage type, remember that:
         * The size of the local storage can only be changed in 100 GB increments.
         * The size of non-replicated network storage can only be changed in 93 GB increments.
-        * To use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, choose `network-ssd` or `network-hdd`.
 
       {% endif %}
+
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
+
       * DB name.
       * Username.
       * User password. At least 8 characters.
@@ -79,18 +77,17 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
-  1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, place the cursor on the host line and click ![image](../../_assets/pencil.svg).
+  1. Under **Hosts**, select the parameters of database hosts created together with the cluster. To change the added host, place the cursor on the host line and click  ![image](../../_assets/pencil.svg).
 
      When configuring host parameters, remember that:
-     * If you selected `local-ssd` under **Storage**, you need to add at least 2 hosts to the cluster.
-     * If you selected `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
-     * If you plan to use hybrid storage at the [Preview](../../overview/concepts/launch-stages.md) stage, there can only be one host in the cluster.
+     * If you selected `local-ssd` under **Storage size**, you need to add at least two hosts to the cluster.
+     * If you selected `network-ssd-nonreplicated` under **Storage size**, you need to add at least 3 hosts to the cluster.
 
   1. If necessary, configure additional cluster settings:
 
      {% include [mch-extra-settings](../../_includes/mdb/mch-extra-settings-web-console-new-cluster-wizard.md) %}
 
-  1. If necessary, configure [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
+  1. If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
   1. Click **Create cluster**.
 
@@ -142,8 +139,8 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
      {% else %}
 
-      ```
-      $ {{ yc-mdb-ch }} cluster create \
+      ```bash
+      {{ yc-mdb-ch }} cluster create \
          --name <cluster name> \
          --environment <prestable or production> \
          --network-id ' ' \
@@ -156,7 +153,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
          --security-group-ids <list of security group IDs>
       ```
 
-     {% endif %}
+    {% endif %}
 
       1. To enable [user management via SQL mode](cluster-users.md#sql-user-management):
       
@@ -194,6 +191,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
   To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
+
        * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md).
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
@@ -250,7 +248,6 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-
     1. Create a cluster.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -298,6 +295,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
   {% if audience != "internal" %}
+  
   * Named `mych`.
   * In the `production` environment.
   * In the `default` network.
@@ -308,6 +306,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   * With one database, `db1`.
 
   {% else %}
+  
   * Named `mych`.
   * In the `production` environment.
   * In the `default` network.
@@ -323,8 +322,8 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   {% if audience != "internal" %}
 
-  ```
-  $ {{ yc-mdb-ch }} cluster create \
+  ```bash
+  {{ yc-mdb-ch }} cluster create \
        --name mych \
        --environment=production \
        --network-name default \
@@ -339,8 +338,8 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   {% else %}
 
-  ```
-  $ {{ yc-mdb-ch }} cluster create \
+  ```bash
+  {{ yc-mdb-ch }} cluster create \
        --name mych \
        --environment=production \
        --clickhouse-resource-preset s2.nano \

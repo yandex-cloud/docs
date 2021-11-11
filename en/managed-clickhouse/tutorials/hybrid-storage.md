@@ -1,11 +1,8 @@
 # Using hybrid storage
 
-Hybrid storage allows you to store frequently used data in the network storage of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage levels is only supported for [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) tables. To learn more, see [{#T}](../concepts/storage.md).
-
-{% include [mch-hybrid-storage-preview-combined-note](../../_includes/mdb/mch-hybrid-storage-preview-combined-note.md) %}
+Hybrid storage lets you store frequently used data in the {{ mch-name }} cluster's network storage and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage levels is only supported for [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) tables. To learn more, see [{#T}](../concepts/storage.md).
 
 To use hybrid storage:
-
 1. [Create a table](#create-table).
 1. [Fill the table with data](#fill-table-with-data).
 1. [Check the placement of table data in the cluster](#check-table-tiering).
@@ -14,20 +11,17 @@ To use hybrid storage:
 ## Before you start {#before-you-begin}
 
 1. [Create a {{ mch-name }} cluster](../operations/cluster-create.md) with network storage, hybrid storage, and the `tutorial` database.
-
 1. [Configure permissions](../operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
-
 1. [Configure the clickhouse client](../operations/connect.md) to connect to the database.
-
 1. Explore the test dataset:
 
-   To demonstrate how hybrid storage works, Yandex.Metrica anonymized hit data (`hits_v1`) is used . This [dataset](https://clickhouse.tech/docs/en/getting-started/example-datasets/metrica/) contains information about almost 9 million hits for the week from March 17, 2014 to March 23, 2014.
+   To demonstrate how hybrid storage works, Yandex.Metrica anonymized hit data (`hits_v1`) is used. This [dataset](https://clickhouse.tech/docs/en/getting-started/example-datasets/metrica/) contains information about almost 9 million hits for the week from March 17, 2014 to March 23, 2014.
 
-   The `tutorial.hits_v1` table will be [configured when you create](#create-table) it so that all the "fresh" data in the table starting from March 21, 2014 is in the network storage, and the older data (from March 17, 2014 to March 20, 2014) is in the object storage.
+   The `tutorial.hits_v1` table will be [configured when you create](#create-table) it so that all the  <q>fresh</q> data in the table starting from March 21, 2014 is in network storage, and older data (from March 17, 2014 to March 20, 2014) is in object storage.
 
 ## Create a table {#create-table}
 
-Create the `tutorial.hits_v1` table that uses hybrid storage. To do this, run an SQL query by substituting ``  with a table schema from the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/getting-started/tutorial/#create-tables):
+Create the `tutorial.hits_v1` table that uses hybrid storage. To do this, run an SQL query by substituting `<schema>` with a table schema from the [documentation for {{ CH }}](https://clickhouse.tech/docs/en/getting-started/tutorial/#create-tables):
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -47,17 +41,16 @@ SETTINGS index_granularity = 8192
 {#ttl}
 
 The `TTL ...` expression defines a policy for operating with expiring data:
-
 1. TTL sets the lifetime of a table row (in this case, the number of days from the current date to March 20, 2014).
 1. For data in the table, the value `EventDate` is checked:
    - If the number of days from the current date to `EventDate` is less than the TTL value (that is, the lifetime has not expired yet), this data is kept in the network storage.
    - If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data is placed in the object storage according to the `TO DISK 'object_storage'` policy.
 
-You don't need to specify TTL for hybrid storage, but this allows you to explicitly control which data will be in {{ objstorage-name }}. If you don't specify TTL, data is placed in the object storage only when the network storage runs out of space. To learn more, see [{#T}](../concepts/storage.md)
+You don't need to specify TTL for hybrid storage, but this allows you to explicitly control which data will be in {{ objstorage-name }}. If you don't specify TTL, data is placed in object storage only when network storage runs out of space. To learn more, see [{#T}](../concepts/storage.md)
 
 {% note info %}
 
-The expression for TTL in the example above is complex because of the selected test dataset. It's necessary to deliberately split fixed data collected long ago into parts for placement at different storage levels. For most tables that are constantly updated with new data, a more simple expression for TTL suffices. For example, `EventDate + INTERVAL 5 DAY`: data older than 5 days is moved to the object storage.
+The expression for TTL in the example above is complex because of the selected test dataset. You must split fixed data collected long ago into parts for placement at different storage levels. For most tables that are constantly updated with new data, a more simple expression for TTL suffices. For example, `EventDate + INTERVAL 5 DAY`: data older than 5 days is moved to the object storage.
 
 {% endnote %}
 
@@ -72,11 +65,10 @@ To learn more about configuring TTL, see the [documentation for {{ CH }}](https:
    ```bash
    curl https://clickhouse-datasets.s3.yandex.net/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
-
-1. Insert data from this dataset into {{ CH }} using `clickhouse-cli`:
+1. Insert data from this dataset into {{ CH }} using `clickhouse-client`:
 
    ```bash
-   clickhouse-client --host <{{ CH }} host FQDN> --secure --user <username> --database tutorial --port 9440 --password <user's password --query "INSERT INTO tutorial.hits_v1 FORMAT TSV" --max_insert_block_size=100000  hits_v1.tsv
+   clickhouse-client --host <{{ CH }} host FQDN> --secure --user <username> --database tutorial --port 9440 --password <user password> --query "INSERT INTO tutorial.hits_v1 FORMAT TSV" --max_insert_block_size=100000 < hits_v1.tsv
    ```
 
    The host FQDN can be obtained [with a list of hosts in the cluster](../operations/hosts.md#list-hosts).
@@ -154,7 +146,7 @@ ORDER BY AvgSendTiming DESC
 LIMIT 10
 ```
 
-Request result:
+Query result:
 
 ```
 ┌─Domain──────────────────────────────┬──────AvgSendTiming─┐
@@ -172,4 +164,3 @@ Request result:
 ```
 
 As you can see from the SQL request result, from the user's point of view, the table is a single entity: {{ CH }} successfully queries this table regardless of where the data is actually located in it.
-

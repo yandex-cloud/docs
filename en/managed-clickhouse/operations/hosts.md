@@ -4,12 +4,10 @@ You can add and remove cluster hosts and manage {{ CH }} settings for individual
 
 {% note warning %}
 
-Note:
-
-* To add new hosts to any of the [shards](../concepts/sharding.md) in a cluster, first [add {{ ZK }} hosts](zk-hosts.md) that will ensure fault tolerance of the cluster.
-* You can't add new hosts if the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features) at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage. However, [you can add](shards.md#add-shard) single-host shards. This restriction is removed at the General Availability stage.
+To add new hosts to any of the [shards](../concepts/sharding.md) in a cluster, first [add {{ ZK }} hosts](zk-hosts.md) that will ensure fault tolerance of the cluster.
 
 {% endnote %}
+
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -43,11 +41,13 @@ Note:
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - API
 
   To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) method.
 
 {% endlist %}
+
 
 ## Adding a host {#add-host}
 
@@ -56,6 +56,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and click **{{ mch-name }}**.
   1. Click on the name of the cluster you need and go to the **Hosts** tab.
   1. Click **Add host**.
@@ -63,6 +64,7 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
   {% if audience != "internal" %}
 
   1. Specify the host parameters:
+
       * Availability zone.
       * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
       * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
@@ -141,8 +143,6 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
 - Terraform
 
-    To add a host to the cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](cluster-create.md).
@@ -216,8 +216,6 @@ You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
   The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
-
-    To remove a host from a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
