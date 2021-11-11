@@ -4,6 +4,22 @@ You can configure the environment to run your code using Docker images.
 
 {{ ml-platform-full-name }} lets you create repositories of Docker images in a project and select an image for the project. The selected image will be used when running code in all project notebooks.
 
+## Docker image requirements {#requirements}
+
+For a Docker image to run and operate correctly in {{ ml-platform-name }}, it must include:
+
+* A Python 3.7 or Python 3.8 installation.
+* A pip installation.
+* A Jupiter user.
+
+{% note info %}
+
+The Docker image templates presented in {{ ml-platform-name }} already meet these requirements. If you are downloading an image from a third-party source or writing your own, include the required commands.
+
+{% endnote %}
+
+## Creating a Docker image {#create}
+
 To create a Docker image:
 
 1. Go to the ![docker](../../_assets/datasphere/docker.svg) **Docker images** tab.
@@ -13,7 +29,9 @@ To create a Docker image:
 
     1. Set a tag for the image, such as `1.0.0`.
 
-    1. Edit the **Build script** block contents. For example, to install CUDA<sup>®</sup> packages, add the following code after the line `# Write your instructions here`:
+    1. Select a Python installation script template: `python_3_7` or `python_3_8`.
+
+    1. Edit the **Dockerfile** section. For example, to install CUDA<sup>®</sup> packages, add the following code after the line `# Write your instructions here`:
 
         ```bash
         ENV LD_LIBRARY_PATH /usr/local/cuda-11.2/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64
@@ -24,7 +42,7 @@ To create a Docker image:
           apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub &&\
           add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
           apt-get update &&\
-          apt-get -y install cuda libcudnn8 &&\
+          apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
           exit
         ```
 
@@ -43,7 +61,7 @@ import tensorflow as tf
 tf.config.list_physical_devices('GPU')
 ```
 
-Execution result:
+Execution output:
 
 ```text
 ...
@@ -55,3 +73,4 @@ Execution result:
 To return to the default environment, click **Reset docker image in project** on the ![docker](../../_assets/datasphere/docker.svg) **Docker images** tab.
 
 {% endnote %}
+
