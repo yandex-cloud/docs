@@ -32,7 +32,7 @@ items:
   - name: Cloud DNS
     href: dns/index.yaml
   - name: Trial period
-    href: free-trial/index.yaml
+    href: getting-started/free-trial/concepts/quickstart.md
   - name: Cloud Functions
     href: functions/index.yaml
   - name: Identity and Access Management

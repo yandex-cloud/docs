@@ -57,7 +57,7 @@
 
 - **Character set server**{#setting-character-set-server} {{ tag-all }}
 
-  [The character set](https://dev.mysql.com/doc/refman/8.0/en/charset.html) used by the {{ MY }} server when working with data and exchanging information with {{ MY }} clients. This choice affects the performance of SQL functions for manipulating strings and other functions.
+  [The character set](https://dev.mysql.com/doc/refman/8.0/en/charset.html) used by the {{ MY }} cluster when working with data and exchanging information with {{ MY }} clients. This choice affects the performance of SQL functions for manipulating strings and other features.
 
   By default: `utf8mb4`.
 
@@ -65,7 +65,7 @@
 
 - **Collation server**{#setting-collation-server} {{ tag-all }}
 
-  [The algorithm for collating characters](https://dev.mysql.com/doc/refman/8.0/en/charset.html) used by the {{ MY }} server when working with data and exchanging information with {{ MY }} clients. This choice affects the performance of SQL functions for sorting data, manipulating strings, and other functions.
+  [The algorithm for collating characters](https://dev.mysql.com/doc/refman/8.0/en/charset.html) used by the {{ MY }} cluster when working with data and exchanging information with {{ MY }} clients. This choice affects the performance of SQL functions for sorting data, manipulating strings, and other features.
 
   By default: `utf8mb4_0900_ai_ci`.
 
@@ -277,8 +277,9 @@
   The maximum number of simultaneous connections permitted for {{ MY }} cluster hosts.
 
   The minimum value is `10`. The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by the formula:
-  - The maximum value is `500 × <number of vCPUs per host>`, with a minimum of `200`.
-  - The default value is `100 × <number of vCPUs per host>`, with a minimum of `100`.
+
+  - The maximum value is `<amount of RAM per host, MB> / 8`.
+  - The default value is `<amount of RAM per host, MB> / 32`, with a minimum of  `100`.
 
   For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
@@ -292,7 +293,7 @@
 
 - **Mdb preserve binlog bytes**{#setting-max-heap-table-size} {{ tag-con }} {{ tag-cli }}
 
-  The size of the binary logs (in bytes) to store on the server.
+  The size of the binary logs (in bytes) to store on cluster hosts.
 
   The minimum value is `1073741824` (1 GB) and the maximum value is `107374182400` (100 GB). Defaults to `1073741824` (1 GB).
 
@@ -354,7 +355,7 @@
 
 - **Sql mode**{#setting-sql-mode} {{ tag-all }}
 
-  {{ MY }} server SQL modes:
+  {{ MY }} cluster SQL modes:
 
   - [ALLOW_INVALID_DATES](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates): Do not perform full checking of dates. In this mode, the server checks that the month is in the range from 1 to 12 and the day is in the range from 1 to 31. Invalid dates like `2004-04-31` are converted to `0000-00-00` and a warning is returned.
 
@@ -454,7 +455,7 @@
 
   The size of the open tables cache for all threads. If the value of [Opened tables](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Opened_tables) is large and you don't use [FLUSH_TABLES](https://dev.mysql.com/doc/refman/8.0/en/flush.html#flush-tables) often, increase the value of this setting.
 
-  Increasing it requires increasing the number of file descriptors for the {{ MY }} server.
+  Increasing it requires increasing the number of file descriptors for the {{ MY }} cluster hosts.
 
   The minimum value is `400` and the maximum value is `524288`. Defaults to `4000`.
 

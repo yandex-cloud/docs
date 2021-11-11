@@ -4,7 +4,7 @@ If you already have a user account, log in to the management console and create 
 
 1. In the management console, go to [Billing]({{ link-console-billing }}).
 
-1. On the **List of accounts** page, click **Create account**. Fill in your information:
+1. On the **Accounts** page, click **Create account**. Fill in your information:
    * Select the payer's country.
    * Specify the name of the billing account that will be displayed in the list of billing accounts.
 

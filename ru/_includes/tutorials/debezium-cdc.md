@@ -37,7 +37,7 @@
 
 {% list tabs %}
 
-* {{ mpg-name }}
+- {{ mpg-name }}
 
     1. [Назначьте пользователю](../../managed-postgresql/operations/grant.md) `user1` роль `mdb_replication`.
 
@@ -98,7 +98,7 @@
 
     {% list tabs %}
 
-    * {{ mpg-name }}
+    - {{ mpg-name }}
 
         ```bash
         mkdir  ~/examples/mdb/managed-kafka/debezium-cdc/plugins/ && \
@@ -119,7 +119,7 @@
 
     {% list tabs %}
 
-    * {{ mpg-name }}
+    - {{ mpg-name }}
 
         ```ini
         name=debezium-mpg
@@ -161,7 +161,7 @@
 
 {% list tabs %}
 
-* {{ mpg-name }}
+- {{ mpg-name }}
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) `mpg.public.measurements`, в который будут помещаться данные, поступающие от кластера-источника.
 
@@ -273,7 +273,7 @@
 
     {% list tabs %}
 
-    * {{ mpg-name }}
+    - {{ mpg-name }}
 
         1. [Подключитесь к кластеру](../../managed-postgresql/operations/connect.md).
 

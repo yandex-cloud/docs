@@ -6,11 +6,11 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
 
-* [Configure the {{ MY }} servers](#change-mysql-config).
+* [Change {{ MY }} settings](#change-mysql-config).
 
     {% note warning %}
 
-    You can't change {{ MY }} server settings using SQL commands.
+    You can't change {{ MY }} settings using SQL commands.
 
     {% endnote %}
 
@@ -310,10 +310,11 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
         ```bash
         {{ yc-mdb-my }} cluster update <cluster name> \
-            --backup-window-start <backup start time> \
-            --datalens-access=<true or false> \
-            --maintenance-window type=<weekly or anytime> \
-            --websql-access=<true or false>
+           --backup-window-start <backup start time> \
+           --datalens-access=<true or false> \
+           --maintenance-window type=<weekly or anytime> \
+           --websql-access=<true or false> \
+           --deletion-protection=<protect cluster from deletion: true or false>
         ```
 
     You can change the following settings:

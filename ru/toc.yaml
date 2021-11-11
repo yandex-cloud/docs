@@ -36,7 +36,7 @@ items:
   - name: Cloud DNS
     href: dns/index.yaml
   - name: Пробный период
-    href: free-trial/index.yaml
+    href: getting-started/free-trial/concepts/quickstart.md
   - name: Cloud Functions
     href: functions/index.yaml
   - name: Forms

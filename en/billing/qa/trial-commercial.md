@@ -2,7 +2,7 @@
 
 #### Is there a trial period for Yandex.Cloud?  {#trial}
 
-Yes. For more information, see the document [Trial period](../../free-trial/).
+Yes. For more information, see the document [Trial period](../../getting-started/free-trial/concepts/quickstart.md).
 
 #### Who can use the trial period? {#who-can-use-trial}
 
@@ -14,7 +14,7 @@ Yes, you can. For more information, see [Activate the paid version](../operation
 
 #### What happens to my resources if I don't upgrade from the trial period to the paid version?  {#commercial}
 
-All your resources will be blocked. For more information, see the document [Trial period](../../free-trial/).
+All your resources will be blocked. For more information, see the document [Trial period](../../getting-started/free-trial/concepts/quickstart.md).
 
 #### Is there a free non-commercial version? {#commercial-nonpaid}
 

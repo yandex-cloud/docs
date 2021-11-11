@@ -1,6 +1,6 @@
 # Создание группы узлов
 
-Чтобы создать группу узлов, сначала [создайте кластер {{ k8s }}](../kubernetes-cluster/kubernetes-cluster-create.md).
+Чтобы создать [группу узлов](../../concepts/index.md#node-group), сначала [создайте кластер {{ k8s }}](../kubernetes-cluster/kubernetes-cluster-create.md).
 
 ## Создайте группу узлов {#node-group-create}
 
@@ -15,99 +15,87 @@
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-  
+
   1. Посмотрите описание команды CLI для создания группы узлов:
-  
-        ```bash
-        {{ yc-k8s }} node-group create --help
-        ```
-  
+
+     ```bash
+     {{ yc-k8s }} node-group create --help
+     ```
+
   1. Укажите параметры группы узлов в команде создания (в примере приведены не все доступные параметры):
 
-      ```bash
-      {{ yc-k8s }} node-group create \
-         --name <имя группы> \
-         --cluster-name <имя кластера> \
-         --platform-id <платформа для узлов> \
-         --network-interface security-group-ids=[<идентификаторы групп безопасности>],subnets=[<имена подсетей>],ipv4-address=<nat или auto>\
-         --cores <количество vCPU> \
-         --memory <количество RAM, ГБайт> \
-         --core-fraction <гарантированная доля vCPU> \
-         --disk-type <тип хранилища: network-nvme или network-hdd> \
-         --disk-size <размер хранилища, ГБайт> \
-         --fixed-size <фиксированное количество узлов в группе> \
-         --version <версия {{ k8s }}> \
-         --daily-maintenance-window <настройки окна обслуживания>
-      ```
+     ```bash
+     {{ yc-k8s }} node-group create \
+       --allowed-unsafe-sysctls=<имена небезопасных параметров ядра, через запятую> \
+       --cluster-name <имя кластера> \
+       --cores <количество vCPU> \
+       --core-fraction <гарантированная доля vCPU> \
+       --daily-maintenance-window <настройки окна обновлений> \
+       --disk-size <размер хранилища в ГБ> \
+       --disk-type <тип хранилища: network-nvme или network-hdd> \
+       --fixed-size <фиксированное количество узлов в группе> \
+       --location <настройки размещения хостов кластера> \
+       --memory <количество ГБ RAM> \
+       --name <имя группы узлов> \
+       --network-acceleration-type <standard или software-accelerated> \
+       --network-interface security-group-ids=[<идентификаторы групп безопасности>],subnets=[<имена подсетей>],ipv4-address=<nat или auto> \
+       --platform-id <идентификатор платформы> \
+       --preemptible \
+       --public-ip \
+       --version <версия {{ k8s }} на узлах группы>
+     ```
 
-      Результат выполнения команды:
-    
-      ```bash
-      done (1m17s)
-      id: catpl8c44kiibp20u4f3
-      cluster_id: catcsqidoos7tq0513us
-      ...
-          start_time:
-            hours: 22
-          duration: 36000s
-      ```
+     Где:
+     * `--allowed-unsafe-sysctls` — разрешение на использование узлами группы [небезопасных параметров ядра](../../concepts/index.md#node-group), через запятую.
+     * `--cluster-name` — имя кластера {{ k8s }}, в котором будет создана группа узлов.
+     * `--cores` — количество vCPU для узлов.
+     * `--core-fraction` — [гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) для узлов.
+     * `--daily-maintenance-window` — настройки окна обновлений.
+     * `--disk-size` — [размер диска](../../../compute/concepts/disk.md#maximum-disk-size) узла.
+     * `--disk-type` — [тип диска](../../../compute/concepts/disk.md#disks_types) узла.
+     * `--fixed-size` — количество узлов в группе узлов.
+     * `--location` — [зона доступности](../../../overview/concepts/geo-scope.md), [сеть](../../../vpc/concepts/network.md#network) и [подсеть](../../../vpc/concepts/network.md#subnet), в которых будут расположены узлы. Можно указать несколько вариантов.
+     * `--memory` — количество памяти для узлов.
+     * `--name` — имя группы узлов.
+     * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
+        * `standard` — без ускорения;
+        * `software-accelerated` — программно-ускоренная сеть.
+     * `--network-interface` — настройки сети:
 
-      Где:
-    
-      * `--name` — имя группы узлов.
-      * `--cluster-name` — имя кластера {{ k8s }}, в котором будет создана группа узлов.
-      * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
-      * `--network-interface` — настройки сети:
+         {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %} 
 
-          {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
+     * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
+     * `--preemptible` — флаг, который указывается, если ВМ должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md). 
+     * `--public-ip` — флаг, который указывается, если группе узлов требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
+     * `--version` — версия {{ k8s }} на узлах группы.
 
-      * `--network-acceleration-type` — выбор типа ускорения сети:
-           * `standard` — без ускорения;
-           * `software-accelerated` — [программно-ускоренная сеть](../../../vpc/concepts/software-accelerated-network.md).
-      * `--memory` — количество памяти для узлов.
-      * `--cores` — количество vCPU для узлов.
-      * `--core-fraction` — [гарантированная доля vCPU](../../../compute/concepts/performance-levels.md) для узлов.
-      * `--preemptible` — флаг, который указывается, если [виртуальные машины](../../../compute/concepts/vm.md) должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
-      * `--disk-type` — тип диска узла.
-      * `--disk-size` — размер диска узла.
-      * `--fixed-size` — фиксированное количество узлов в группе.
- 
-           Чтобы включить [автоматическое масштабирование](../../concepts/autoscale.md#ca) для группы узлов, передайте вместо аргумента `--fixed-size` аргумент `--auto-scale` с указанием минимального, максимального и начального количества узлов в группе:
-   
-           ```bash
-           {{ yc-k8s }} node-group create \
-              ...
-              --auto-scale min=<минимальное кол-во узлов>,max=<максимальное кол-во узлов>,initial=<начальное кол-во узлов>
-           ```
-   
-           {% note warning %}
-   
-           Тип масштабирования нельзя изменить после создания группы узлов.
-   
-           {% endnote %}
-   
-      * `--location` — зона доступности, сеть и подсеть, в которых будут расположены узлы. При необходимости укажите несколько вариантов.
-      * `--version` — версия {{ k8s }} для узлов.
-      * `--daily-maintenance-window` — настройки окна обновлений.
+     {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
-      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
+     Результат выполнения команды:
+
+     ```bash
+     done (1m17s)
+     id: catpl8c44kiibp20u4f3
+     cluster_id: catcsqidoos7tq0513us
+     ...
+         start_time:
+           hours: 22
+         duration: 36000s
+     ```
 
 - Terraform
 
-  В разделе [{#T}](../kubernetes-cluster/kubernetes-cluster-create.md) вы создали кластер {{ k8s }} с помощью Terraform. Используйте тот же `.tf` файл конфигурации для создания группы узлов в кластере.
-
-  Если у вас еще нет Terraform, [установите его и настройте провайдер {{ yandex-cloud }}](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  В разделе [{#T}](../kubernetes-cluster/kubernetes-cluster-create.md) вы создали кластер {{ k8s }} с помощью Terraform. Используйте тот же файл `.tf` конфигурации для создания группы узлов в кластере.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать. Вы можете добавить несколько записей одновременно.
-
      * `yandex_kubernetes_node_group` — параметры группы узлов:
        * `cluster_id` — идентификатор кластера {{ k8s }}, в котором будет создана группа узлов.
        * `name` — имя группы узлов {{ k8s }}.
        * `description` — описание группы узлов.
-       * `version` — версия {{ k8s }} дл группы узлов.
+       * `version` — версия {{ k8s }} для группы узлов.
      * `labels` — [набор меток](node-label-management.md) для группы узлов:
        * `key` — значения меток.
-     * `instance_template` — описание [ВМ] для группы узлов:
+     * `instance_template` — описание ВМ для группы узлов:
        * `platform_id` — [платформа](../../../compute/concepts/vm-platforms.md) для группы узлов.
        * `network_interface` — настройки сетевого интерфейса:
          * `nat` — флаг, который включает NAT для вычислительных экземпляров группы узлов.
@@ -200,7 +188,7 @@
 
      Результат выполнения команды:
 
-     ```bash
+     ```
      Refreshing Terraform state in-memory prior to plan...
      The refreshed state will be used to calculate this plan, but will not be
      persisted to local or remote state storage.
@@ -226,7 +214,7 @@
 
      Результат выполнения команды:
 
-     ```bash
+     ```
      An execution plan has been generated and is shown below.
      Resource actions are indicated with the following symbols:
      + create
@@ -247,6 +235,6 @@
 
 - API
 
-  Чтобы создать группу узлов, воспользуйтесь методом [create](../../api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../api-ref/NodeGroup/).
+  Чтобы создать группу узлов, воспользуйтесь методом [create](../../api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../api-ref/NodeGroup). Чтобы разрешить использование узлами группы [небезопасных параметров ядра](../../concepts/index.md#node-group), передайте их имена в параметре `allowedUnsafeSysctls`.
 
 {% endlist %}

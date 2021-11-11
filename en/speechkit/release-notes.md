@@ -10,15 +10,7 @@ To keep up to date with the latest changes and updates, subscribe to our Telegra
 
 ### For recognition {#for-sst}
 
-The `general` model versions have several [tags](stt/models.md#new-versions):
-
-- `general`: This tag indicates the main version.
-- `general:rc`: This tag indicates a release candidate that you can test.
-- `general:deprecated`: The tag of the previous version that remains available 2 weeks after publishing the new main version.
-
-For a detailed description of the available versions, see [Recognition models](stt/models.md#version).
-
-The next-generation `hqa` model is only available in transcription.
+For a detailed description of the available versions, see [Recognition models](stt/models.md).
 
 ### For synthesis {#for-tts}
 
@@ -27,6 +19,16 @@ In speech synthesis, the service provides [two types of voices](tts/voices.md): 
 For more information about voice models, see [About the technology](tts/index.md#voices).
 
 ## Current version {#current}
+
+### Release 30.09.21 {#300921}
+
+Major upgrade of premium voices available in the REST API. Voice updates are available by the tags `alena:rc` and `filipp:rc`.
+
+Various improvements in synthesis quality, including the synthesis of questions. Fixed a rare problem with looping synthesis.
+
+For testing purposes, a function for adding stress to specific words is available. It allows you to better control intonation, especially when synthesizing questions. To add a stress after a word that needs to be emphasized, add `<[accented]>`. For example, in `Are you glad <[accented]> to see me?`, the word **glad** is emphasized.
+
+## Previous versions {#previous}
 
 ### Release 09.03.21 {#0903}
 
@@ -45,8 +47,6 @@ In streaming, transcription, and short audio recognition:
 * `general`: The _Galen_ version.
 * `general:rc`: The _Demosthenes_ version.
 * `general:deprecated`: The _Zeno_ version.
-
-## Previous versions {#previous}
 
 ### Release 26.02.21 {#2602}
 
@@ -114,7 +114,7 @@ In streaming, transcription, and short audio recognition:
 
 ### Release 24.11.20 {#2411}
 
-After successful testing, the _Zeno_ version is now the main released version of the `general` model in streaming, transcription, and short audio recognition.
+  After successful testing, the _Zeno_ version is now the main released version of the `general` model in streaming, transcription, and short audio recognition.
 
 #### Version availability by tags {#tags-2411}
 

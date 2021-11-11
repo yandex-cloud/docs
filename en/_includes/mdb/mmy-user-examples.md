@@ -11,7 +11,7 @@ To create a new user named `user2` with the password `SecretPassword` and read-o
   [Create a user](../../managed-mysql/operations/cluster-users.md#adduser) named `user2`. When creating a user:
 
   1. Add the `db1` database to the list of DBs.
-  1. Add the `SELECT` role for the `db1` database.
+  1. Add the `SELECT` privilege for the `db1` database.
 
 - CLI
 
@@ -23,7 +23,7 @@ To create a new user named `user2` with the password `SecretPassword` and read-o
         --password "SecretPassword"
       ```
 
-  1. Add the `SELECT` role for the `db1` database:
+  1. Add the `SELECT` privilege for the `db1` database:
 
       ```bash
       yc managed-mysql users grant-permission "user2" \

@@ -6,10 +6,7 @@ You can [add](#add-zk-host) and [delete](#delete-zk-host) {{ ZK }} hosts in a fa
 
 {% note warning %}
 
-Note:
-
-* You can't enable fault tolerance or manage your {{ ZK }} hosts if the cluster uses [hybrid storage](../concepts/storage.md#hybrid-storage-features) at the [Preview](https://cloud.yandex.com/docs/overview/concepts/launch-stages) stage. This restriction is removed at the General Availability stage.
-* If fault tolerance is already enabled for the cluster and {{ ZK }} hosts are created, you can't delete all these hosts because there are always at least 3 {{ ZK }} hosts in the cluster.
+If fault tolerance is already enabled for the cluster and {{ ZK }} hosts are created, you can't delete all these hosts because there are always at least 3 {{ ZK }} hosts in the cluster.
 
 {% endnote %}
 
@@ -18,6 +15,7 @@ Note:
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need and select the **Hosts** tab.
   1. Click **Set up {{ ZK }} hosts**.
@@ -33,7 +31,6 @@ Note:
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To enable fault tolerance for a cluster:
-
   1. View a description of the CLI command for adding {{ ZK }} hosts:
 
      ```
@@ -91,7 +88,7 @@ Note:
     1. Add the required number of `CLICKHOUSE` type `host` blocks to the {{ CH }} cluster description.
 
         {{ CH }} host requirements:
-        
+
         * Minimum host class: `b1.medium`.
         * If there are several hosts, they must be located in different availability zones.
 
@@ -121,6 +118,7 @@ Note:
     1. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
 
         {{ ZK }} host requirements:
+
         * Each availability zone must have at least one host.
         * Minimum host class: `b1.medium`.
         * Storage type: `network-ssd`.
@@ -174,7 +172,6 @@ Note:
 {% note info %}
 
 The following characteristics are set for the {{ ZK }} hosts by default:
-
 * The `b2.medium` host class.
 * 10 GB disk size.
 * [Storage type](../concepts/storage.md): Fast network storage.
@@ -186,6 +183,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need and select the **Hosts** tab.
   1. Click **Add {{ ZK }} hosts**.
@@ -199,14 +197,11 @@ The following characteristics are set for the {{ ZK }} hosts by default:
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To add a host to a cluster:
-
   1. Collect the necessary information:
      - Request the subnet ID by running the command:
-
        ```
        $ yc vpc subnet list
        ```
-
        If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
      - You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -220,7 +215,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
      ```
      $ {{ yc-mdb-ch }} hosts add \
-          --cluster-name <cluster name>
+          --cluster-name <cluster name> \
           --host zone-id=<availability zone>,subnet-id=<subnet ID>,type=zookeeper
      ```
 
@@ -267,6 +262,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 {% list tabs %}
 
 - Management console
+
   1. Go to the folder page and select **{{ mch-name }}**.
   1. Click on the name of the cluster you need and select the **Hosts** tab.
   1. Hover the cursor over the line of the required host and click ![image](../../_assets/cross.svg).
@@ -312,4 +308,3 @@ The following characteristics are set for the {{ ZK }} hosts by default:
   - Host name, in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list-hosts).
 
 {% endlist %}
-
