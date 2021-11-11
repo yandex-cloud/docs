@@ -6,4 +6,4 @@
 
 Рекомендуемые конфигурации оборудования и список необходимого ПО см. в разделе [{#T}](system-requirements.md).
 
-Для получения доступа к {{ sk-hybrid-name }} [оставьте заявку](https://cloud.yandex.ru/services/speechkit#contact-form).
+Для получения доступа к {{ sk-hybrid-name }} [оставьте заявку]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#contact-form){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#contact-form){% endif %}.
