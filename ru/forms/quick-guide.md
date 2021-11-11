@@ -10,7 +10,7 @@
 
 ## Шаг 1. Создайте форму {#create-form}
 
-{% include [forms-versions](../_includes/forms/forms-versions.md) %}
+1. {% include [forms-versions](../_includes/forms/forms-versions.md) %}
 
 1. На верхней панели нажмите кнопку **Создать форму**.
 
