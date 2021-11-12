@@ -29,7 +29,7 @@
      Use the `scp` command-line utility:
 
      ```bash
-     $ scp -r <path to the file directory> <VM user name>@<VM IP address>:/var/www/html
+     $ scp -r <path to the file directory> <VM username>@<VM IP address>:/var/www/html
      ```
 
    - Windows

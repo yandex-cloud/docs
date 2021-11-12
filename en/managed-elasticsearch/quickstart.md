@@ -94,7 +94,7 @@ To connect to a cluster:
 
    ```
    $ curl \
-     --user <user name>:<password> \
+     --user <username>:<password> \
      --cacert ~/.elasticsearch/root.crt \
      -X GET 'https://<FQDN of the publicly available {{ ES }} host with the Data node role>:9200'
    ```

@@ -97,7 +97,7 @@
 
   ```bash
    curl \
-     --user <user name>:<password> \
+     --user <username>:<password> \
      --cacert ~/.elasticsearch/root.crt \
      -X GET 'https://c-<{{ ES }} cluster ID>.rw.db.yandex.net:9200/'
   ```
@@ -106,7 +106,7 @@
 
   ```bash
    curl \
-     --user <user name>:<password> \
+     --user <username>:<password> \
      --cacert ~/.elasticsearch/root.crt \
      -X GET 'https://c-<{{ ES }} cluster ID>.rw.mdb.yandexcloud.net:9200/'
   ```
@@ -123,7 +123,7 @@
    curl `
      -Certificate <absolute path to the certificate file> `
      -Uri https://c-<{{ ES }} cluster ID>.rw.db.yandex.net:9200 `
-     -Credential <user name>
+     -Credential <username>
   ```
 
    {% else %}
@@ -132,7 +132,7 @@
    curl `
      -Certificate <absolute path to the certificate file> `
      -Uri https://c-{{ ES }} cluster ID>.rw.mdb.yandexcloud.net:9200 `
-     |||UNTRANSLATED_CONTENT_START|||-Credential <user name>|||UNTRANSLATED_CONTENT_END|||
+     |||UNTRANSLATED_CONTENT_START|||-Credential <username>|||UNTRANSLATED_CONTENT_END|||
   ```
 
   {% endif %}
@@ -157,7 +157,7 @@
   
   ES_CA = '~/.elasticsearch/root.crt'
   
-  ES_USER = '<user name>'
+  ES_USER = '<username>'
   ES_PASS = '<password>'
   
   ES_HOSTS = [
@@ -211,7 +211,7 @@
   
   var ES_CA = "/home/<home directory>/.elasticsearch/root.crt"
   
-  var ES_USER = "<user name>"
+  var ES_USER = "<username>"
   var ES_PASS = "<password>"
   
   var ES_HOSTS = []string{

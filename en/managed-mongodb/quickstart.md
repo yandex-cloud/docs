@@ -122,7 +122,7 @@ If you plan to use the CLI, install and configure it by following the [instructi
             --ssl \
             --sslCAFile ~/.mongodb/root.crt \
             --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
-            -u <user name> \
+            -u <username> \
             -p <user password> \
             <DB name>
     ```
@@ -135,7 +135,7 @@ If you plan to use the CLI, install and configure it by following the [instructi
             --sslCAFile ~/.mongodb/root.crt \
             --ipv6 \
             --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
-            -u <user name> \
+            -u <username> \
             -p <user password> \
             <DB name>
     ```

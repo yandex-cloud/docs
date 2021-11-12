@@ -150,7 +150,7 @@ If you plan to use the CLI, install and configure it according to the [instructi
     ```bash
     clickhouse-client --host <host FQDN> \
                       -s \
-                      --user <DB user name> \
+                      --user <DB username> \
                       --password <DB user password> \
                       -q "<DB query>" \
                       --port 9440 

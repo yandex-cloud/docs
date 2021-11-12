@@ -108,7 +108,7 @@ To upload a file to a VM:
 
   To upload the file from your local machine, use the `scp` command-line utility:
     ```bash
-    scp -r <file path> <VM user name>@<VM IP address>:/var/www/html
+    scp -r <file path> <VM username>@<VM IP address>:/var/www/html
     ```
 
 - Windows

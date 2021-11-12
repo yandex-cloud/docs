@@ -256,7 +256,7 @@ To create a fixed-size instance group:
          }
      
          metadata = {
-           ssh-keys = "<user name>:<SSH key contents>"
+           ssh-keys = "<username>:<SSH key contents>"
          }
        }
      

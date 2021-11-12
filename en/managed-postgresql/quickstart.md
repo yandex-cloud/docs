@@ -118,7 +118,7 @@ If you plan to use the CLI, install and configure it by following the [instructi
           port=6432 \
           sslmode=verify-full \
           dbname=<DB name> \
-          user=<DB user name>"
+          user=<DB username>"
     ```
 
 ## What's next
