@@ -46,7 +46,6 @@ items:
       - name: IAM-токены
         items:
           - name: Получение IAM-токена для аккаунта на Яндексе
-            when: audience == "external"
             href: operations/iam-token/create.md
           - name: Получение IAM-токена для сервисного аккаунта
             href: operations/iam-token/create-for-sa.md
