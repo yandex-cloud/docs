@@ -81,6 +81,8 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Component properties
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

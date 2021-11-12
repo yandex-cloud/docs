@@ -16,7 +16,7 @@ Security groups must be created and configured before creating a cluster. If the
         * Port range: `{{ port-any }}`.
         * Protocol: `Any`.
         * Source type: `Security group`.
-        * Purpose: Current security group (`Self`).
+        * Destination: Current security group (`Self`).
 
     * A separate rule for outgoing HTTPS traffic:
         * Port range: `{{ port-https }}`.
@@ -30,13 +30,13 @@ If you plan to use multiple security groups for a cluster, enable all traffic be
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
+You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
 
 Security groups must be configured correctly for all subnets that will include cluster hosts.
 
 {% endnote %}
 
-You can set up security groups for [connections to cluster hosts](./connect.md) via an intermediate VM after creating a cluster.
+You can set up security groups for [connections to cluster hosts](connect.md) via an intermediate VM after creating a cluster.
 
 ## Create a cluster {#create}
 
@@ -48,7 +48,7 @@ You can set up security groups for [connections to cluster hosts](./connect.md) 
 
   1. Click **Create resource** and select **{{ dataproc-name }} cluster** from the drop-down list.
 
-  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+  1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. Select a relevant [image version](../concepts/environment.md) and the components you want to use in the cluster.
 
@@ -59,44 +59,19 @@ You can set up security groups for [connections to cluster hosts](./connect.md) 
      {% endnote %}
 
   1. Enter the public part of your SSH key in the **Public key** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
-
   1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) that you want to grant access to the cluster.
-
   1. Select the availability zone for the cluster.
-
-  1. (Optional) Under **Properties**, specify the component settings, for example: {#properties}
-
-     ```text
-     hdfs:dfs.replication : 2
-     hdfs:dfs.blocksize : 1073741824
-     spark:spark.driver.cores : 1
-     ```
-
-     The available properties are listed in the official documentation for the components:
-     * [Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml)
-     * [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml)
-     * [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-common/yarn-default.xml)
-     * [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml)
-     * [Spark](https://spark.apache.org/docs/2.2.3/configuration.html#available-properties)
-     * [Flume 1.8.0](https://flume.apache.org/releases/content/1.8.0/FlumeUserGuide.html#flume-properties)
-     * [HBASE](https://hbase.apache.org/book.html#hbase_default_configurations)
-     * [HIVE](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
-     * [SQOOP](https://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html#_additional_import_configuration_properties)
-     * [Tez 0.9.1](https://tez.apache.org/releases/0.9.1/tez-api-javadocs/configs/TezConfiguration.html)
-     * [Zeppelin 0.7.3](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html)
-     * [ZooKeeper 3.4.6](http://zookeeper.apache.org/doc/r3.4.6/zookeeperAdmin#sc_configuration)
-
+  1. If necessary, configure the [properties of cluster components, jobs, and the environment](../concepts/settings-list.md).
   1. Select or create a network for the cluster.
-
   1. Select security groups that have the required permissions.
 
       {% note warning %}
 
-      When creating a cluster, security group settings are verified. If a cluster cannot function with these settings, you get a warning. See [above](#change-security-groups) for an example of working settings.
+      When creating a cluster, security group settings are verified. If a cluster cannot function with these settings, a warning is issued. See [above](#change-security-groups) for an example of working settings.
 
       {% endnote %}
 
-  1. Enable the **UI Proxy** option to access the [web interfaces of the components](../concepts/ui-proxy.md) {{ dataproc-name }}.
+  1. Enable the **UI Proxy** option to access the [web interfaces of components](../concepts/ui-proxy.md) {{ dataproc-name }}.
 
   1. Configure subclusters: no more than one main subcluster with a **Master** host and subclusters for data storage or computing.
 
@@ -104,13 +79,14 @@ You can set up security groups for [connections to cluster hosts](./connect.md) 
 
   1. For each subcluster, you can configure:
      * The number of hosts.
-     * [The host class](../concepts/instance-types.md) is the platform and computing resources available to the host.
+     * [The host class](../concepts/instance-types.md), which dictates the platform and computing resources available to the host.
      * Storage size and type.
      * The subnet of the network where the cluster is located.
 
   1. For `Compute` subclusters, you can specify the [autoscaling](../concepts/autoscaling.md) parameters.
 
      {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
+     
      1. Under **Add subcluster**, click **Add**.
      1. In the **Roles** field, select _COMPUTENODE_.
      1. Under **Scalability**, enable **Automatic scaling**.
