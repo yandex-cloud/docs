@@ -1,11 +1,11 @@
 # Разработка на Java
 
-В этом разделе описана работа с помощью YDB Java SDK:
+В этом разделе описана работа с помощью {{ ydb-short-name }} Java SDK:
 
 Вы узнаете как:
 
-* инициализировать драйвер YDB;
-* инициализировать клиент и сессию YDB;
+* инициализировать драйвер {{ ydb-short-name }};
+* инициализировать клиент и сессию {{ ydb-short-name }};
 * создавать таблицы с помощью CrеateTable API;
 * читать данные и обрабатывать результаты их выполнения;
 * записывать и изменять данные;
@@ -103,14 +103,14 @@ Finished preparing query: PreparedSelectTransaction
 +-------------+------------+-----------+-----------+-------------+
 ```
 
-Для взаимодействия с YDB необходимо создать экземпляр драйвера, клиента и сессии:
+Для взаимодействия с {{ ydb-short-name }} необходимо создать экземпляр драйвера, клиента и сессии:
 
-* драйвер YDB отвечает за взаимодействие приложения и YDB на транспортном уровне;
-* клиент YDB работает поверх драйвера YDB и отвечает за работу с сущностями и транзакциями;
-* сессия YDB содержит информацию о выполняемых транзакциях и подготовленных запросах и содержится в контексте клиента YDB.
+* драйвер {{ ydb-short-name }} отвечает за взаимодействие приложения и {{ ydb-short-name }} на транспортном уровне;
+* клиент {{ ydb-short-name }} работает поверх драйвера {{ ydb-short-name }} и отвечает за работу с сущностями и транзакциями;
+* сессия {{ ydb-short-name }} содержит информацию о выполняемых транзакциях и подготовленных запросах и содержится в контексте клиента {{ ydb-short-name }}.
 
-## Инициализация драйвера
-Драйвер отвечает за взаимодействие приложения и YDB на транспортном уровне. Драйвер должен существовать на всем протяжении жизненного цикла работы с YDB. Перед тем как создать клиента YDB, и, установить сессию, необходимо инициализировать драйвер YDB.  Фрагмент кода basic_example, представленный в листинге 2, демонстрирует инициализацию драйвера параметрами соединения с БД.
+## Инициализация драйвера {#driver-init}
+Драйвер отвечает за взаимодействие приложения и {{ ydb-short-name }} на транспортном уровне. Драйвер должен существовать на всем протяжении жизненного цикла работы с {{ ydb-short-name }}. Перед тем как создать клиента {{ ydb-short-name }} и установить сессию, необходимо инициализировать драйвер {{ ydb-short-name }}.  Фрагмент кода basic_example, представленный в листинге 2, демонстрирует инициализацию драйвера параметрами соединения с БД.
 
 <small>Листинг 2</small>
 ```java
@@ -132,9 +132,9 @@ Finished preparing query: PreparedSelectTransaction
         }
 ```
 
-## Инициализация клиента и сессии YDB
-Клиент отвечает за работу с сущностями YDB. Сессия содержит информацию о выполняемых транзакциях и подготовленных запросах.
-В листинге 3 приведен фрагмент кода basic_example для создания клиента и сессии YDB.
+## Инициализация клиента и сессии {{ ydb-short-name }} {#client-session-init}
+Клиент отвечает за работу с сущностями {{ ydb-short-name }}. Сессия содержит информацию о выполняемых транзакциях и подготовленных запросах.
+В листинге 3 приведен фрагмент кода basic_example для создания клиента и сессии {{ ydb-short-name }}.
 
 <small>Листинг 3</small>
 ```java
@@ -144,7 +144,7 @@ Finished preparing query: PreparedSelectTransaction
             .expect("cannot create session");
 ```
 
-## Создание таблиц с помощью CrеateTable API
+## Создание таблиц с помощью CrеateTable API {#create-table-api}
 Для создания таблиц можно использовать метод CreateTable.
 В листинге 4 представлен фрагмент кода basic_example описания таблицы series с помощью TableDescription.newBuilder() и ее создания с помощью метода session.createTable().
 
@@ -171,7 +171,7 @@ Finished preparing query: PreparedSelectTransaction
 <small>Листинг 5</small>
 ```java
     /**
-     * Describe existing table.
+     * Describes existing table.
      */
     private void describeTables() {
         System.out.println("\n--[ DescribeTables ]---------------------------------------");
@@ -208,7 +208,7 @@ Finished preparing query: PreparedSelectTransaction
 
 {% endnote %}
 
-## Обработка запросов и транзакций
+## Обработка запросов и транзакций {#query-processing}
 
 Для выполнения YQL запросов используется метод executeDataQuery.
 SDK позволяет в явном виде контролировать выполнение транзакций и настраивать необходимый режим выполнения транзакций с помощью класса TxControl.
@@ -229,19 +229,19 @@ SDK позволяет в явном виде контролировать вы�
             "WHERE series_id = 1;",
             path);
 
-        // Begin new transaction with SerializableRW mode
+        // Begins new transaction with SerializableRW mode.
         TxControl txControl = TxControl.serializableRw().setCommitTx(true);
 
         // Executes data query with specified transaction control settings.
         DataQueryResult result = executeWithResult(session -> session.executeDataQuery(query, txControl).join());
 
         System.out.println("\n--[ SelectSimple ]---------------------------------------");
-        // Index of result set corresponds to its order in YQL query
+        // Index of result set corresponds to its order in YQL query.
         new TablePrinter(result.getResultSet(0)).print();
     }
 ```
 
-## Обработка результатов выполнения
+## Обработка результатов выполнения {#results-processing}
 В качестве результатов выполнения запроса возвращается result.getResultSet(0).
 Фрагмент кода basic_example в листинге 8 демонстрирует вывод результатов запроса с помощью вспомогательного класса TablePrinter.
 
@@ -265,7 +265,7 @@ SDK позволяет в явном виде контролировать вы�
 +-----------+------------------+--------------------+
 ```
 
-## Запросы на запись и изменение данных
+## Запросы на запись и изменение данных {#write-queries}
 
 Фрагмент кода basic_example листинге 10 демонстрирует выполнение запроса на запись/изменение данных.
 
@@ -282,7 +282,7 @@ SDK позволяет в явном виде контролировать вы�
             "(2, 6, 1, \"TBD\");",
             path);
 
-        // Begin new transaction with SerializableRW mode
+        // Begins new transaction with SerializableRW mode.
         TxControl txControl = TxControl.serializableRw().setCommitTx(true);
 
         // Executes data query with specified transaction control settings.
@@ -292,7 +292,7 @@ SDK позволяет в явном виде контролировать вы�
     }
 ```
 
-## Параметризованные запросы
+## Параметризованные запросы {#param-queries}
 
 {% note warning "Использование параметров в запросах" %}
 
@@ -321,7 +321,7 @@ SDK позволяет в явном виде контролировать вы�
             "WHERE sa.series_id = $seriesId AND sa.season_id = $seasonId;",
             path);
 
-        // Begin new transaction with SerializableRW mode
+        // Begins new transaction with SerializableRW mode.
         TxControl txControl = TxControl.serializableRw().setCommitTx(true);
 
         // Type of parameter values should be exactly the same as in DECLARE statements.
@@ -332,7 +332,7 @@ SDK позволяет в явном виде контролировать вы�
         DataQueryResult result = executeWithResult(session -> session.executeDataQuery(query, txControl, params).join());
 
         System.out.println("\n--[ SelectWithParams ]---------------------------------------");
-        // Index of result set corresponds to its order in YQL query
+        // Index of result set corresponds to its order in YQL query.
         new TablePrinter(result.getResultSet(0)).print();
     }
 ```
@@ -352,7 +352,7 @@ Finished preparing query: PreparedSelectTransaction
 
 ## Параметризованные подготовленные запросы
 
-Параметризованные подготовленные запросы (prepared queries) - записываются в форме шаблона, в котором определенного вида имена заменяются конкретными параметрами при каждом выполнении запроса. Использование параметризованных запросов может улучшить производительность за счет сокращения частоты выполнения компиляции и перекомпиляции запросов, отличающихся только значениями параметров.
+Параметризованные подготовленные запросы (prepared queries) записываются в форме шаблона, в котором определенного вида имена заменяются конкретными параметрами при каждом выполнении запроса. Использование параметризованных запросов может улучшить производительность за счет сокращения частоты выполнения компиляции и перекомпиляции запросов, отличающихся только значениями параметров.
 
 Фрагмент кода basic_example в листинге 13 демонстрирует возможность использования параметризованных подготовленных запросов. Подготовленный запрос хранится в контексте сесии. Подготовленный запрос можно подготовить с помощью ```prepareDataQuery```.
 
@@ -382,7 +382,7 @@ Finished preparing query: PreparedSelectTransaction
                 "WHERE series_id = $seriesId AND season_id = $seasonId AND episode_id = $episodeId;",
                 path);
 
-            // Prepare query and and store it's QueryId for current session
+            // Prepares query and stores its QueryId for the current session.
             query = executeWithResult(session -> session.prepareDataQuery(queryText).join());
             System.out.println("Finished preparing query: " + queryId);
 
@@ -415,7 +415,7 @@ Finished preparing query: PreparedSelectTransaction
 +-------------+------------+-----------+-----------+--------------------------------------+
 ```
 
-## Многошаговые транзакции с промежуточной обработкой данных на стороне клиента
+## Многошаговые транзакции с промежуточной обработкой данных на стороне клиента {#multistep-transactions}
 Фрагмент кода basic_example в листинге 15 демонстрирует возможность использования многошаговых транзакций, состоящих из нескольких запросов. Между выполнением запросов допустимо выполнение работы кода клиентского приложения.
 
 Первый шаг — подготовка и выполнение первого запроса:
@@ -445,7 +445,7 @@ Finished preparing query: PreparedSelectTransaction
                 .put("$seriesId", DataType.uint64(), DataValue.uint64(seriesId))
                 .put("$seasonId", DataType.uint64(), DataValue.uint64(seasonId));
 
-            // Execute first query to get the required values to the client.
+            // Executes the first query to get the required values to the client.
             // Transaction control settings don't set CommitTx flag to keep transaction active
             // after query execution.
             TxControl txControl = TxControl.serializableRw();
@@ -465,11 +465,11 @@ Finished preparing query: PreparedSelectTransaction
             resultSet.next();
             long firstAired = resultSet.getColumn(0).getUint64();
 
-            // Perform some client logic on returned values
+            // Performs some client logic on returned values.
             fromDate = Instant.EPOCH.plus(firstAired, ChronoUnit.DAYS);
             toDate = fromDate.plus(15, ChronoUnit.DAYS);
 
-            // Get active transaction id
+            // Gets active transaction id.
             txId = result.getTxId();
         }
 ```
@@ -479,7 +479,7 @@ Finished preparing query: PreparedSelectTransaction
 <small>Листинг 17</small>
 ```java
         {
-            // Construct next query based on the results of client logic
+            // Constructs next query based on the results of client logic.
             String query = String.format(
                 "PRAGMA TablePathPrefix(\"%s\");\n" +
                 "\n" +
@@ -496,7 +496,7 @@ Finished preparing query: PreparedSelectTransaction
                 .put("$fromDate", DataType.uint64(), DataValue.uint64(Duration.between(Instant.EPOCH, fromDate).toDays()))
                 .put("$toDate", DataType.uint64(), DataValue.uint64(Duration.between(Instant.EPOCH, toDate).toDays()));
 
-            // Execute second query.
+            // Executes second query.
             // Transaction control settings continues active transaction (tx) and
             // commits it at the end of second query execution.
             TxControl txControl = TxControl.id(txId).setCommitTx(true);
@@ -504,7 +504,7 @@ Finished preparing query: PreparedSelectTransaction
                 .join());
 
             System.out.println("\n--[ MultiStep ]---------------------------------------");
-            // Index of result set corresponds to its order in YQL query
+            // Index of result set corresponds to its order in YQL query.
             new TablePrinter(result.getResultSet(0)).print();
         }
     }
@@ -524,16 +524,16 @@ Finished preparing query: PreparedSelectTransaction
 +-----------+------------+---------------------------------+-------------+
 ```
 
-## Явное использование вызовов [TCL](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/transaction) Begin/Commit
+## Явное использование вызовов TCL Begin/Commit
 
-В большинстве случаев вместо явного использования TCL вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах ExecuteDataQuery. Это позволит избежать лишних обращений к YDB и эффективней выполнять запросы. Фрагмент кода basic_example в листинге 19 демонстрирует явное использование вызовов ```beginTransaction``` и ```transaction.commit()```
+В большинстве случаев вместо явного использования [TCL](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/transaction) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах ExecuteDataQuery. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода basic_example в листинге 19 демонстрирует явное использование вызовов ```beginTransaction``` и ```transaction.commit()```
 
 <small>Листинг 19</small>
 ```java
     /**
-     * Show usage of explicit Begin/Commit transaction control calls.
-     * In most cases it's better to use transaction control settings in executeDataQuery calls instead
-     * to avoid additional hops to YDB cluster and allow more efficient execution of queries.
+     * Shows usage of explicit Begin/Commit transaction control calls.
+     * In most cases it's better to use transaction control settings in executeDataQuery calls instead of
+     * avoiding additional hops to YDB cluster and allowing more efficient execution of queries.
      */
     private Status explicitTcl(Session session) {
         Result<Transaction> transactionResult = session.beginTransaction(TransactionMode.SERIALIZABLE_READ_WRITE)
@@ -552,19 +552,19 @@ Finished preparing query: PreparedSelectTransaction
         Params params = Params.withUnknownTypes()
             .put("$airDate", DataType.date(), DataValue.date(Instant.now()));
 
-        // Execute data query.
-        // Transaction control settings continues active transaction (tx)
+        // Executes data query.
+        // Transaction control settings continues active transaction (tx).
         Result<DataQueryResult> updateResult = session.executeDataQuery(query, TxControl.id(transaction), params)
             .join();
         if (!updateResult.isSuccess()) {
             return updateResult.toStatus();
         }
 
-        // Commit active transaction (tx)
+        // Commits active transaction (tx).
         return transaction.commit().join();
     }
 ```
 
-## Обработка ошибок
+## Обработка ошибок {#error-handling}
 
-Подробно об обработке ошибок написано в разделе ["Обработка ошибок в API"](../ydb-sdk/error_handling.md)
+Подробно об обработке ошибок написано в разделе [{#T}](../ydb-sdk/error_handling.md).

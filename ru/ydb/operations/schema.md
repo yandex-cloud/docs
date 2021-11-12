@@ -84,14 +84,6 @@
 
    В результате будет создана простая таблица ```series``` с колонками ```series_id```, ```title```, ```series_info``` и ```release_date```. Колонка ```series_id``` является первичным ключом таблицы. Таблицы ```seasons``` и ```episodes``` описываются аналогичным образом.
 
-   {% if audience == "internal" %}
-
-   В [консоли управления](https://ydb.yandex-team.ru) можно убедиться, что таблицы были созданы.
-
-   ![Create table](../_assets/ydb_example_create_table_full.png)
-
-   {% endif %}
-
    {% note info %}
 
    Подробнее о том, как добавить вторичные индексы при создании таблицы, читайте в разделе [{#T}](../yql/reference/syntax/create_table.md#si-add).

@@ -133,15 +133,23 @@ items:
     when: audience == "external"
     items:
       - name: Использование плана запроса и AST
-        href: operations/get-query-plan.md
+        when: audience == "external"
+        href: oss/public/operations/get-query-plan.md
       - name: Управление базами данных
+        href: operations/create_manage_database.md
+      - name: Управление базами данных (Internal)
+        when: audience != "external"
         href: operations/create_manage_database.md
       - name: Управление таблицами
         href: operations/schema.md
       - name: Чтение и запись данных
         href: operations/crud.md
+      - name: Чтение и запись данных (Internal)
+        when: audience != "external"
+        href: operations/internal/crud.md
       - name: Работа со вторичными индексами
-        href: operations/indexes.md
+        when: audience == "external"
+        href: oss/public/operations/indexes.md
   - name: Работа с YDB CLI
     when: audience == "external"
     items:
@@ -321,7 +329,7 @@ items:
         href: concepts/sessions.md
         when: audience == "tech"
   - name: Управление доступом
-    href: operations/start_auth.md
+    href: security/start_auth.md
     when: audience == "external"
   - name: Правила тарификации
     # when: audience == "external"
