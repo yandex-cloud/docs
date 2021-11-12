@@ -31,6 +31,9 @@ links:
   - title: Troubleshooting
     description: Common errors and how to fix them
     href: troubleshooting/
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing

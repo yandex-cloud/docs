@@ -59,6 +59,8 @@ items:
         href: concepts/origins.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: API reference
