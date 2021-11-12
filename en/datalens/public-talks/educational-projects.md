@@ -6,6 +6,8 @@
 
 - [Data visualization: a free simulation course in Netology](https://netology.ru/programs/analyst-bifree#/)
 
-- Practicum by Yandex A free Cloud Service Engineer program:
+- [Express course: "Building an enterprise analytics platform"](https://yandexcloud.teachbase.ru/)
+
+- Practicum by Yandex. A free Cloud Service Engineer program:
     - [Data Storage and Analysis section](https://practicum.yandex.ru/ycloud)
 
