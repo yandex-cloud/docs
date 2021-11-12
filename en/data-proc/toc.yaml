@@ -16,7 +16,6 @@ items:
             when: audience == "draft"
             href: solutions/mapreduce-job-basics.md
           - name: Working with PySpark jobs
-            when: audience == "draft"
             href: solutions/pyspark-job-basics.md
           - name: Using Apache Hive
             href: solutions/how-to-use-hive.md
