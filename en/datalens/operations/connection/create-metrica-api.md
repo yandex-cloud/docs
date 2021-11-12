@@ -18,8 +18,6 @@ To create a Yandex.Metrica connection:
 
     - **Tag**. Specify one or more tracking tags to connect to. You can select them from the list or enter them manually separated by commas.
 
-    - **Connection**. Choose **Direct access** as the connection type.
-
       {% include [datalens-get-token](../../../_includes/datalens/datalens-change-account-note.md) %}
 
 1. Click **Connect**. The connection appears in the list.

@@ -67,6 +67,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [metrica-clickhouse-connection](../../_includes/datalens/qa/metrica-clickhouse-connection.md) %}
 
+{% include [uploading-data-logs-api.md](../../_includes/datalens/qa/uploading-data-logs-api.md) %}
+
 {% include [csv-rows-display](../../_includes/datalens/qa/csv-rows-display.md) %}
 
 {% include [csv-long-loading](../../_includes/datalens/qa/csv-long-loading.md) %}

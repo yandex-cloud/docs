@@ -167,9 +167,6 @@ items:
       - name: Веб-аналитика с подключением к Яндекс.Метрике
         when: audience == "external"
         href: datalens/data-from-metrica-visualization.md
-      - name: Веб-аналитика с подключением к Яндекс.Метрике через Logs API
-        when: audience == "external"
-        href: datalens/data-from-metrica-logsapi-visualization.md
       - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики
         when: audience == "external"
         href: datalens/data-from-metrica-yc-visualization.md

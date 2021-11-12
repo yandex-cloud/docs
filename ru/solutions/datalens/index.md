@@ -8,7 +8,6 @@
 - [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
 - [Анализ продаж и локаций пиццерий на данных из БД Clickhouse и Marketplace](data-from-ch-to-geolayers-visualization.md)
 - [Веб-аналитика с подключением к Яндекс.Метрике](data-from-metrica-visualization.md)
-- [Веб-аналитика с подключением к Яндекс.Метрике через Logs API](data-from-metrica-logsapi-visualization.md)
 - [Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики](data-from-metrica-yc-visualization.md)
 - [Аналитика мобильного приложения на данных AppMetrica](data-from-appmetrica-visualization.md)
 - [Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)](data-from-podcasts.md)

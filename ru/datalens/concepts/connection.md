@@ -15,8 +15,8 @@ _Подключение_ содержит информацию о парамет
 - **Oracle Database**
 - **Yandex Database**
 - **Greenplum**
-- **Metrica** (в режиме прямого доступа и через Logs API)
-- **AppMetrica** (в режиме прямого доступа и через Logs API)
+- **Metrica** (в режиме прямого доступа)
+- **AppMetrica** (в режиме прямого доступа)
 - **Yandex Cloud Billing**
 
 {% if audience != "internal" %} Вы можете добавить дополнительные типы подключений из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md). {% endif %}
@@ -38,6 +38,5 @@ _Подключение_ содержит информацию о парамет
 - [{#T}](../operations/connection/create-ydb.md)
 - [{#T}](../operations/connection/create-greenplum.md)
 - [{#T}](../operations/connection/create-metrica-api.md)
-- [{#T}](../operations/connection/create-metrica-logs-api.md)
 - [{#T}](../operations/connection/create-appmetrica.md)
 {% if audience != "internal" %} - [{#T}](../operations/connection/create-cloud-billing.md) {% endif %}

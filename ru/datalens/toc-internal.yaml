@@ -48,8 +48,6 @@ items:
             href: operations/connection/create-oracle.md
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
-          - name: Создание подключения к Metrica Logs API
-            href: operations/connection/create-metrica-logs-api.md
           - name: Создание подключения к AppMetrica
             href: operations/connection/create-appmetrica.md
           - name: Управление доступом к подключению

@@ -4,8 +4,6 @@ You can visualize and explore AppMetrica data in {{ datalens-full-name }} using 
 
 * Direct access. 
 {{ datalens-name }} connects directly to AppMetrica. This method is the easiest and fastest, but a set of supported functions is [limited](../../datalens/function-ref/availability.md).
-* Connection via the LogsAPI.
-The data is first exported to {{ CH }}. To create such a connection, prepare the {{ CH }} database and specify the DB parameters when creating a connection. In {{ datalens-name }}, all functions that are [supported by {{ CH }}]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/datalens/function-ref/availability){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/docs/datalens/function-ref/availability){% endif %} will be available.
 * Real-time export of data from AppMetrica to {{ mch-name }}.
 Raw data is available and its pre-aggregation and post-processing at the DB level are supported. To implement this option, [set up data export]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.ru/docs/cloud/index.html?lang=en){% endif %} and [create a connection]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/datalens/operations/connection/create-clickhouse){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/docs/datalens/operations/connection/create-clickhouse){% endif %} from {{datalens-name }} to the {{ CH }} database.
 

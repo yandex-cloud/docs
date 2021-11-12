@@ -48,8 +48,6 @@ items:
             href: operations/connection/create-oracle.md
           - name: Creating a Metrica API connection
             href: operations/connection/create-metrica-api.md
-          - name: Creating a Yandex.Metrica Logs API connection
-            href: operations/connection/create-metrica-logs-api.md
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
           - name: Managing connection access
