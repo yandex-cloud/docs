@@ -7,7 +7,6 @@
 * [{#T}](#change-db-params).
 * [{#T}](#delete-db).
 
-
 ## Создать базу данных {#create-db}
 
 Вы можете создать базу данных в бессерверной (Serverless) конфигурации или с выделенными серверами (Dedicated). Подробнее о различиях в конфигурациях читайте в разделе [{#T}](../concepts/serverless_and_dedicated.md).
@@ -25,7 +24,6 @@
 
 * CLI
 
-   
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
@@ -66,7 +64,6 @@
 
 * CLI
 
-   
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
@@ -105,7 +102,6 @@
 
 * CLI
 
-   
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}

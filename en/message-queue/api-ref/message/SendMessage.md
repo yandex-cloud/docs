@@ -17,8 +17,8 @@ Method for delivering a message to the specified queue. A message can include on
 
 | Parameter | Type | Required parameter | Description |
 | ----- | ----- | ----- | ----- |
-| `MessageDeduplicationId` | **string** | No | ID of the token for message deduplication, used in FIFO queues. Each message must have a unique `MessageDeduplicationId`. If no `MessageDeduplicationId` is specified, a message will not be sent to a queue. The maximum length is 128 characters. You can use numbers, upper and lowercase Latin letters, and punctuation marks. For more information, see [Deduplication](../../concepts/deduplication.md). |
-| `MessageGroupId` | **string** | No | ID of a message group, used in FIFO queues. The maximum length is 128 characters. You can use numbers, upper and lowercase Latin letters, and punctuation marks. For more information, see [Deduplication](../../concepts/deduplication.md). |
+| `MessageDeduplicationId` | **string** | Yes | ID of the token for message deduplication, used in FIFO queues. Each message must have a unique `MessageDeduplicationId`. If no `MessageDeduplicationId` is specified, a message will not be sent to a queue. The maximum length is 128 characters. You can use numbers, upper and lowercase Latin letters, and punctuation marks. For more information, see [Deduplication](../../concepts/deduplication.md). |
+| `MessageGroupId` | **string** | Yes | ID of a message group, used in FIFO queues. The maximum length is 128 characters. You can use numbers, upper and lowercase Latin letters, and punctuation marks. For more information, see [Deduplication](../../concepts/deduplication.md). |
 
 ## Response {#response}
 

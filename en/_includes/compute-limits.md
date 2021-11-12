@@ -119,11 +119,11 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
     | ----- | ----- |
     | Minimum non-replicated disk size | 93 GB |
     | [Allocation unit size](../compute/concepts/storage-read-write.md) | 93 GB |
-    | Maximum^3^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 50,000 |
+    | Maximum^3^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 75,000<br>(achievable for disks which<br>use vhost, otherwise — at most 50,000) |
     | Maximum^3^ IOPS for writes per allocation unit | 5600 |
     | Maximum^4^ [bandwidth](../compute/concepts/storage-read-write.md) for writes per disk | 1 GB/s |
     | Maximum^4^ bandwidth for writes per allocation unit | 82 MB/s |
-    | Maximum^3^ IOPS for reads per disk | 50,000 |
+    | Maximum^3^ IOPS for reads per disk | 75,000<br>(achievable for disks which<br>use vhost, otherwise — at most 50,000) |
     | Maximum^3^ IOPS for reads per allocation unit | 28,000 |
     | Maximum^4^ bandwidth for reads per disk | 1 GB/s |
     | Maximum^4^ bandwidth for reads per allocation unit | 110 MB/s |

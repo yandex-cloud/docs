@@ -159,7 +159,7 @@ SELECT *;
 
 ## SELECT по вторичному индексу {#si-select}
 
-{% include [select_by_secondary_index](../../../_includes/select-by-secondary-index.md) %}
+{% include [select_by_secondary_index](../../../oss/public/_includes/select-by-secondary-index.md) %}
 
 
 ## FROM AS_TABLE {#as-table}
