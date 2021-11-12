@@ -14,9 +14,13 @@ ignore:
 
 docs-viewer:
   project-name: cloud
+  abc-slug: cloud
   langs: ['ru']
   show-revision: false
   show-toc-header: true
+  startrek:
+    queue: YCDOCS
+    ticket-type: bug
   releasers:
     - elenbaskakova
     - achegodaev
