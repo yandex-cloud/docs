@@ -51,3 +51,5 @@ items:
         include:
           repo: docs
           path: en/_api-ref/logging/toc.yaml
+  - name: Вопросы и ответы
+    href: qa/index.md
