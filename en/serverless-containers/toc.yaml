@@ -6,3 +6,5 @@ items:
     href: quickstart.md
   - name: Pricing policy
     href: pricing.md
+  - name: Questions and answers
+    href: qa/index.md
