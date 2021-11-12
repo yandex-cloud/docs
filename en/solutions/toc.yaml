@@ -90,6 +90,8 @@ items:
     items:
       - name: All use cases
         href: dataplatform/index.md
+      - name: Syncing MySQL data using Yandex DataTransfer
+        href: dataplatform/sync-mysql.md
       - name: Delivering data using Debezium
         href: dataplatform/kafka-cdc.md
   - name: Windows in Yandex.Cloud
