@@ -83,4 +83,6 @@ items:
                 href: api-ref/LogGroup/update.md
               - name: updateAccessBindings
                 href: api-ref/LogGroup/updateAccessBindings.md
+  - name: Вопросы и ответы
+    href: qa/index.md
 base: ru/logging

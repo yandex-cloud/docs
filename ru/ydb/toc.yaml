@@ -62,7 +62,7 @@ items:
   - name: Пошаговые инструкции
     items:
       - name: Использование плана запроса и AST
-        href: operations/get-query-plan.md
+        href: oss/public/operations/get-query-plan.md
       - name: Управление базами данных
         href: operations/create_manage_database.md
       - name: Управление таблицами
@@ -70,7 +70,7 @@ items:
       - name: Чтение и запись данных
         href: operations/crud.md
       - name: Работа со вторичными индексами
-        href: operations/indexes.md
+        href: oss/public/operations/indexes.md
   - name: Работа с YDB CLI
     items:
       - name: Установка YDB CLI
@@ -181,7 +181,7 @@ items:
       - name: Ограничения базы данных
         href: oss/public/develop/concepts/limits-ydb.md
   - name: Управление доступом
-    href: operations/start_auth.md
+    href: security/start_auth.md
   - name: Правила тарификации
     items:
       - name: Обзор

@@ -8,7 +8,7 @@ SELECT *
 
 **Примеры**
 
-* Выбрать все поля из [таблицы](../yql/reference/syntax/create_table.md#si-add) `series` по индексу `views_index` с условием `views >= someValue`:
+* Выбрать все поля из [таблицы](../../../yql/reference/syntax/create_table.md#si-add) `series` по индексу `views_index` с условием `views >= someValue`:
 
   ```sql
   SELECT series_id, title, info, release_date, views, uploaded_user_id
@@ -16,7 +16,7 @@ SELECT *
       WHERE views >= someValue
   ```
 
-* Сделать [`JOIN`](../yql/reference/syntax/join.md) таблиц `series` и `users` c заданным полем `userName` по индексам `users_index` и `name_index` соответственно:
+* Сделать [`JOIN`](../../../yql/reference/syntax/join.md) таблиц `series` и `users` c заданным полем `userName` по индексам `users_index` и `name_index` соответственно:
 
   ```sql
   SELECT t1.series_id, t1.title
