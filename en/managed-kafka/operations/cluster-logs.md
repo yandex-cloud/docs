@@ -4,8 +4,8 @@
 
 You can get:
 
-- [A simple log snippet](#get-log).
-- [A log stream](#get-log-stream) from the server in the cluster (you can use the semantics of the `tail -f` command to work with logs).
+* [A simple log snippet](#get-log).
+* [A log entry stream](#get-log-stream) in the cluster (`tail -f` command semantics are supported).
 
 {% note info %}
 
@@ -13,46 +13,40 @@ Here, the log is the system log of the cluster and its hosts. This log isn't rel
 
 {% endnote %}
 
-## Get cluster logs {#get-log}
+## Getting a cluster log {#get-log}
 
 {% list tabs %}
 
-{% if api != "noshow" %}
+- Management console
+
+    1. Go to the folder page and select **{{ mkf-name }}**.
+    1. Click on the name of the cluster and select the **Logs** tab.
+    1. Specify the time period for which you want to display the log.
 
 - API
 
-  Use the [listLogs](../api-ref/Cluster/listLogs.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
+    Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-  You'll get the full cluster log. The number of log entries that the cluster can return must not exceed 100,000 (100 pages of 1000 entries each).
+    {% include [log-limits](../../_includes/mdb/mkf/log-limits.md) %}
 
-  If the log size exceeds this value or you want to get logs for a specific period of time, use `timestamps`. To do this, set the start and end timestamps (see the timestamp format in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt)) in the `fromTime` and `toTime` request parameters, respectively.
-
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-
-{% endif %}
+    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
-## Get cluster log streams {#get-log-stream}
+## Getting a log entry stream {#get-log-stream}
 
-This way of working with logs is different from [getting a simple log snippet](#get-log) by the fact that the server can send more logs as they appear. This behavior is the same as the semantics of the `tail -f` command for working with logs.
+This way of working with logs is different from [getting a simple log snippet](#get-log) by the fact that the server can send more log entries as they appear. This behavior is the same as the semantics of the `tail -f` command for working with logs.
 
 {% list tabs %}
 
-{% if api != "noshow" %}
-
 - API
 
-  Use the [streamLogs](../api-ref/Cluster/streamLogs.md) API method: pass the ID of the required cluster in the `clusterId` request parameter.
+    Use the [streamLogs](../api-ref/Cluster/streamLogs.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-  You'll get the full cluster log. The number of log entries that the cluster can return must not exceed 100,000 (100 pages of 1000 entries each).
+    {% include [log-limits](../../_includes/mdb/mkf/log-limits.md) %}
 
-  If the log size exceeds this value or you want to get logs for a specific period of time, use `timestamps`. To do this, set the start and end timestamps (see the timestamp format in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt)) in the `fromTime` and `toTime` request parameters, respectively.
+    If you don't set the `toTime` parameter value, the stream will receive new log entries as they appear.
 
-  If you don't set the `toTime` parameter value, the stream will receive new log messages as they appear.
-
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-
-{% endif %}
+    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
