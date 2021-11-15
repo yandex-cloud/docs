@@ -205,6 +205,8 @@ items:
         href: solutions/ntp.md
       - name: Running instance groups with auto scaling
         href: solutions/vm-autoscale.md
+      - name: Automatically scaling an instance group for handling messages from a queue
+        href: solutions/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: solutions/updating-under-load.md
       - name: Deploying Remote Desktop Gateway
