@@ -38,7 +38,7 @@ If an HTTPS listener is used, make sure to specify a [certificate](../../certifi
 
 ## Logging {#logging}
 
-When creating a load balancer, a log group is created for it in {{ cloud-logs-full-name }}. This log group is used to write messages about incoming requests. You can view the logs in the management console.
+When creating a load balancer, a log group is created for it in {{ cloud-logs-full-name }}. This log group is used to write messages about incoming requests. You can view the logs in the management console. A complete list of parameters is shown in the [log reference](../logs-ref.md).
 
 You can set up log processing using {{ sf-full-name }}. To do this, create a [trigger for {{ cloud-logs-name }}](../../functions/concepts/trigger/cloudlogs-trigger.md) with the log group ID and the [function](../../functions/concepts/function.md) to be called by the trigger and including the message processing logic.
 
@@ -49,3 +49,4 @@ Currently, to get the load balancer's log group ID and [create a trigger](../../
 {% endnote %}
 
 For an example of log processing, see the use case [{#T}](../solutions/logging.md).
+

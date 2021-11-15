@@ -89,3 +89,5 @@ items:
         include:
           repo: docs
           path: en/_api-ref/apploadbalancer/toc.yaml
+  - name: Log reference
+    href: logs-ref.md
