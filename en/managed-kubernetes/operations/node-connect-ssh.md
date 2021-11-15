@@ -38,7 +38,7 @@ Prepare the keys for use with your node. To do this:
      ssh-keygen -t rsa -b 2048
      ```
 
-     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<user name>\.ssh\` directory.
+     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<username>\.ssh\` directory.
 
      The public part of the key will be saved in a file with the name `<key name>.pub`.
 
@@ -73,7 +73,7 @@ The file with the public key is created in the format:
 ssh-rsa AAAAB3NzaC*********** rsa-key-20190412
 ```
 
-You need to convert the key to the format `<user name>:ssh-rsa <key body> <user name>`, so that it looks like this:
+You need to convert the key to the format `<username>:ssh-rsa <key body> <username>`, so that it looks like this:
 
 ```
 username:ssh-rsa AAAAB3NzaC***********zo/lP1ww== username

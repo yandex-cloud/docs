@@ -163,7 +163,7 @@ To create a VM from a set of disks:
        }
      
        metadata = {
-         ssh-keys = "<user name>:<SSH key contents>"
+         ssh-keys = "<username>:<SSH key contents>"
        }
      }
      

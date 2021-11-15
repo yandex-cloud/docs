@@ -67,6 +67,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [metrica-clickhouse-connection](../../_includes/datalens/qa/metrica-clickhouse-connection.md) %}
 
+{% include [uploading-data-logs-api.md](../../_includes/datalens/qa/uploading-data-logs-api.md) %}
+
 {% include [csv-rows-display](../../_includes/datalens/qa/csv-rows-display.md) %}
 
 {% include [csv-long-loading](../../_includes/datalens/qa/csv-long-loading.md) %}
@@ -78,6 +80,8 @@ description: "Как получить логи моей работы в серв
 {% include [unavailable-materialization](../../_includes/datalens/qa/unavailable-materialization.md) %}
 
 {% include [operating-mode-with-data-source](../../_includes/datalens/qa/operating-mode-with-data-source.md) %}
+
+{% include [materialization-on-off](../../_includes/datalens/qa/materialization-on-off.md) %}
 
 ## Датасеты {#datasets}
 

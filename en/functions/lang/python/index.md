@@ -7,15 +7,15 @@ description: 'With the Cloud Functions service, you can run Python applications.
 
 With {{ sf-name }}, you can run applications written in [Python](https://python.org/). The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:
 
-| Name | Python version | Operating <br>system |
-| ---- | ---- | ---- |
-| python27 (**deprecated**) | 2.7.17 | Ubuntu 18.04 LTS |
-| python37 | 3.7.6 | Ubuntu 18.04 LTS |
-| python38 | 3.8.5 | Ubuntu 18.04 LTS |
+| Name | Python version | Operating <br>system | Preloaded |
+| ---- | ---- | ---- | ---- |
+| python37 | 3.7.12 | Ubuntu 18.04 LTS | No |
+| python38 | 3.8.12 | Ubuntu 18.04 LTS | No |
+| python39-preview | 3.9.7 | Ubuntu 18.04 LTS | Yes |
 
 {% note info %}
 
-Note that the `python27` runtime environment is considered obsolete, since Python 2 is no longer supported by the community and is not updated.
+Function behavior in preloaded and normal runtime environments may differ. Review the features of function behavior in [{#T}](../../concepts/runtime/preload-runtime.md).
 
 {% endnote %}
 

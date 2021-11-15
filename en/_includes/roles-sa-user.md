@@ -7,9 +7,9 @@ For example, when creating an instance group, you specify the service account an
 
 The following permissions are included in the `iam.serviceAccounts.user` role:
 
-- Get a list of service accounts
-- Get information about a service account
-- Use the service account to perform operations on its behalf
+- Get a list of service accounts.
+- Get information about a service account.
+- Use the service account to perform operations on its behalf.
 
 {% include [roles-editor-includes-permissions](iam/roles-editor-includes-permissions.md) %}
 

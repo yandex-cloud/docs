@@ -4,6 +4,7 @@ _A role_ is a set of user permissions to perform operations with {{ yandex-cloud
 
 There are two types of roles:
 * _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
+
 * _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the `{{ roles-image-user }}` role lets you use images in Yandex Compute Cloud.
 
     A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
@@ -53,6 +54,14 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
+
+## {{ cdn-name }} {#cdn-roles}
+
+{% include [roles-cdn-viewer](../../../_includes/roles-cdn-viewer.md) %}
+
+{% include [roles-cdn-editor](../../../_includes/roles-cdn-editor.md) %}
+
+{% include [roles-cdn-admin](../../../_includes/roles-cdn-admin.md) %}
 
 ## {{ compute-name }} {#compute-roles}
 
@@ -134,9 +143,9 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-viewer.md) %}
 
-{% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-editor.md) %}
+{% include [roles-monitoring-editor](../../../_includes/roles-monitoring-editor.md) %}
 
-{% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-admin.md) %}
+{% include [roles-monitoring-admin](../../../_includes/roles-monitoring-admin.md) %}
 
 ## {{ network-load-balancer-name }} {#load-balancer-roles}
 
@@ -177,3 +186,4 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
+

@@ -104,7 +104,7 @@ To get started with the service:
     ```bash
     clickhouse-client --host <host FQDN> \
                       -s \
-                      --user <DB user name> \
+                      --user <DB username> \
                       --password <DB user password> \
                       -q "<DB query>" \
                       --port 9440 

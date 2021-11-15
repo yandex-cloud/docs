@@ -37,6 +37,8 @@ items:
             href: operations/application-load-balancer-create.md
           - name: Изменить L7-балансировщик
             href: operations/application-load-balancer-update.md
+          - name: Посмотреть статистику L7-балансировщика
+            href: operations/application-load-balancer-get-stats.md
           - name: Посмотреть логи L7-балансировщика
             href: operations/application-load-balancer-get-logs.md
           - name: Получить идентификатор лог-группы L7-балансировщика

@@ -26,7 +26,7 @@ Prepare the keys for use with your virtual machines. To do this:
      ssh-keygen -t rsa -b 2048
      ```
   
-     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<user name>\.ssh\` directory.
+     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<username>\.ssh\` directory.
   
      The public part of the key will be saved in a file with the name `<key name>.pub`. Open the file using Notepad or another text editor and copy the key string to the public key field when creating a new virtual machine via the management console.
   

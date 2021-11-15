@@ -163,8 +163,6 @@ items:
         href: datalens/data-from-ch-to-geolayers-visualization.md
       - name: Веб-аналитика с подключением к Яндекс.Метрике
         href: datalens/data-from-metrica-visualization.md
-      - name: Веб-аналитика с подключением к Яндекс.Метрике через Logs API
-        href: datalens/data-from-metrica-logsapi-visualization.md
       - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики
         href: datalens/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica

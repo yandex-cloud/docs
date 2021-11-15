@@ -15,7 +15,7 @@ Before you enable serial console access on a VM:
 1. Create a text file (for example, `sshkeys.txt`) and specify the following:
 
    ```txt
-   <user name>:<user's public SSH key
+   <username>:<user's public SSH key
    ```
 
    Example of a text file for `yc-user`:
@@ -194,7 +194,7 @@ To create a local password, use the CLI.
 1. Create a local password. In Linux, you can set a password using the `passwd` command:
 
    ```bash
-   sudo passwd <user name>
+   sudo passwd <username>
    ```
 
    Example for `yc-user`:

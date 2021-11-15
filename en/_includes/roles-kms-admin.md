@@ -6,7 +6,7 @@ The key administrator role `kms.admin` includes the following permissions:
 - [Create](../kms/operations/key.md#create) and [update](../kms/operations/key.md#update) a key.
 - [Rotate a key](../kms/operations/key.md#rotate) and [change the primary version](../kms/operations/version.md#make-primary).
 - [Destroy a key](../kms/operations/key.md#delete) and [version](../kms/operations/version.md#delete).
-- [Grant a role]( ../iam/operations/roles/grant.md), [revoke a role]( ../iam/operations/roles/revoke.md), and view roles granted for a resource
+- [Grant a role](../iam/operations/roles/grant.md), [revoke a role](../iam/operations/roles/revoke.md), and view roles granted for a resource.
 
 These permissions are also part of the `admin` and `resource-manager.clouds.owner` roles.
 

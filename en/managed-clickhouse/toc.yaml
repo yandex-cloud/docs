@@ -49,6 +49,8 @@ items:
         href: operations/shard-groups.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
+      - name: Monitoring the state of a cluster and hosts
+        href: operations/monitoring.md
   - name: Use cases
     items:
       - name: Adding data to the database

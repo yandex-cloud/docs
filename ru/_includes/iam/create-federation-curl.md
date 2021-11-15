@@ -1,6 +1,6 @@
-Создайте федерацию с помощью метода [create](../../organization/api-ref/grpc/federation_service.md#Create):
+Создайте федерацию с помощью метода [create](../../organization/api-ref/Federation/create.md):
 
-```
+```bash
 $ curl -X POST \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <IAM-токен>" \
@@ -15,4 +15,4 @@ $ curl -X POST \
  ...
 ```
 
-В ответе, в свойстве `federationId`, будет указан идентификатор созданной федерации, сохраните его. Этот идентификатор понадобится на следующих шагах.
+В ответе в свойстве `federationId` будет указан идентификатор созданной федерации: сохраните его. Этот идентификатор понадобится на следующих шагах.

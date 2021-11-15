@@ -12,11 +12,12 @@
        ```
        
        Например, чтобы настроить доступ к значению `first-company` для поля `Company name`:
+
        
        ```yaml
        'first-company': login-to-access-your-row-data@yandex.ru
        ```
-  
+
     1.  Сохраните датасет.
 
 - В источнике

@@ -1,16 +1,16 @@
 ---
 title: Development on Go in Yandex Cloud Functions. Overview
-description: 'With the Cloud Functions service, you can run applications written in Go. The service provides a runtime with different versions. '
+description: 'With the Cloud Functions service, you can run applications written in Go. The service provides a runtime with different versions.'
 ---
 
 # Development on Go. Overview
 
 With {{ sf-name }}, you can run applications written in [Go](https://golang.org/doc/). The service provides the [runtime environment](../../concepts/runtime/index.md) with different versions:
 
-| Name | Go version | Operating <br>system |
-| ---- | ---- | ---- |
-| golang116 | 1.16 | Ubuntu 18.04 LTS |
-| golang117 | 1.17 | Ubuntu 18.04 LTS |
+| Name | Go version | Operating <br>system | Preloaded |
+| ---- | ---- | ---- | ---- |
+| golang116 | 1.16 | Ubuntu 18.04 LTS | No |
+| golang117 | 1.17 | Ubuntu 18.04 LTS | No |
 
 You can connect the [SDK library](https://github.com/yandex-cloud/go-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
 

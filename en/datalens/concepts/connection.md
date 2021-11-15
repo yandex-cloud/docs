@@ -14,9 +14,9 @@ The following connection types are available in {{ datalens-short-name }}:
 - **MS SQL Server**
 - **Oracle Database**
 - **Yandex Database**
-- **Greenplum**
-- **Metrica** (directly or via the Logs API)
-- **AppMetrica** (directly or via the Logs API)
+- **Greenplum**  
+- **Metrica** (in direct access mode)
+- **AppMetrica** (in direct access mode)
 - **Yandex Cloud Billing**
 
 You can add connections from the available list in [{{ datalens-short-name }} Marketplace](marketplace.md).
@@ -36,9 +36,6 @@ You can configure connection permissions. For more information, see [{#T}](../se
 - [{#T}](../operations/connection/create-postgresql.md)
 - [{#T}](../operations/connection/create-mssql-server.md)
 - [{#T}](../operations/connection/create-oracle.md)
-- [{#T}](../operations/connection/create-ydb.md)
-- [{#T}](../operations/connection/create-greenplum.md)
 - [{#T}](../operations/connection/create-metrica-api.md)
-- [{#T}](../operations/connection/create-metrica-logs-api.md)
 - [{#T}](../operations/connection/create-appmetrica.md)
 - [{#T}](../operations/connection/create-cloud-billing.md)

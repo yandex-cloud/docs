@@ -75,7 +75,7 @@ To get started with the service:
             --ssl \
             --sslCAFile ~/.mongodb/root.crt \
             --host 'rs01/<address of host 1>:27018,<address of host 2>:27018,<address of host N>:27018' \
-            -u <user name> \
+            -u <username> \
             -p <user password> \
             <DB name>
     ```

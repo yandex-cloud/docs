@@ -68,7 +68,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
     - Example of function invocation with the `name` parameter added to the URL:
 
         ```
-        {{ sf-url }}/b09bhaokchn9pnbrlseb?name=<user name>
+        {{ sf-url }}/b09bhaokchn9pnbrlseb?name=<username>
         ```
 
         The following response appears on the page:

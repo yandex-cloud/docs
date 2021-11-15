@@ -156,7 +156,7 @@ Make sure the uploaded image is in the `READY` status.
        }
      
        metadata = {
-         ssh-keys = "<user name>:<SSH key contents>"
+         ssh-keys = "<username>:<SSH key contents>"
        }
      }
      

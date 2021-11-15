@@ -4,8 +4,6 @@
 
 * Прямой доступ.
   {{ datalens-name }} напрямую подключается к AppMetrica. Этот метод проще и быстрее всего, однако набор поддерживаемых функций [ограничен](../../datalens/function-ref/availability.md).
-* Подключение через LogsAPI.
-  Данные предварительно выгружаются в {{ CH }}. Чтобы создать такое подключение, подготовьте БД {{ CH }} и укажите параметры БД при создании подключения. В {{ datalens-name }} будут доступны все функции, [поддерживаемые {{ CH }}](https://cloud.yandex.ru/docs/datalens/function-ref/availability).
 * Экспорт в режиме реального времени из AppMetrica в {{ mch-name }}.
   Доступны сырые данные и есть возможность предагрегации и постобработки данных на уровне БД. Для реализации этого варианта [настройте экспорт](https://appmetrica.yandex.ru/docs/cloud/index.html) и [создайте подключение](https://cloud.yandex.ru/docs/datalens/operations/connection/create-clickhouse) {{datalens-name }} к БД {{ CH }}.
 

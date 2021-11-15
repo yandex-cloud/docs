@@ -24,29 +24,27 @@ The runtime environment is updated while relevant language version updates are r
 
 Runtime environments available in {{ sf-name }}.
 
-| Name | ID |
-| ---- | ---- |
-| **Node.js** |  |
-| Node.js 16 | `nodejs16` |
-| Node.js 14 | `nodejs14` |
-| Node.js 12 | `nodejs12` |
-| Node.js 10 | `nodejs10` |
-| **PHP** |  |
-| PHP 7.4 | `php74` |
-| **Python** |  |
-| Python 3.9 | `python39` |
-| Python 3.8 | `python38` |
-| Python 3.7 | `python37` |
-| Python 2.7 | `python27` |
-| **Go** |  |
-| Go 1.17 | `golang117` |
-| Go 1.16 | `golang116` |
-| **Java** |  |
-| Java 11 | `java11` |
-| **.NET Core** |  |
-| .NET Core 3.1 | `dotnetcore31` |
-| **R** |  |
-| R 4.0.2 | `r402` |
-| **Other** |  |
-| Bash | `bash` |
+| Name | ID | Preloaded |
+| ---- | ---- | ---- |
+| **Node.js** |  |  |
+| Node.js 16 | `nodejs16-preview` | Yes |
+| Node.js 14 | `nodejs14` | No |
+| Node.js 12 | `nodejs12` | No |
+| **PHP** |  |  |
+| PHP 7.4 | `php74` | No |
+| **Python** |  |  |
+| Python 3.9 | `python39-preview` | Yes |
+| Python 3.8 | `python38` | No |
+| Python 3.7 | `python37` | No |
+| **Go** |  |  |
+| Go 1.17 | `golang117` | No |
+| Go 1.16 | `golang114` | No |
+| **Java** |  |  |
+| Java 11 | `java11` | No |
+| **.NET Core** |  |  |
+| .NET Core 3.1 | `dotnetcore31` | No |
+| **R** |  |  |
+| R 4.0.2 | `r402` | No |
+| **Other** |  |  |
+| Bash | `bash` | No |
 

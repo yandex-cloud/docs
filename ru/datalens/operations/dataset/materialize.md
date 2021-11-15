@@ -1,5 +1,7 @@
 # Материализация датасета
 
+{% include [datalens-materialization-off-unavailable](../../../_includes/datalens/datalens-materialization-off-unavailable.md) %}
+
 Чтобы материализовать датасет:
 
 1. На странице навигации найдите датасет и откройте его.

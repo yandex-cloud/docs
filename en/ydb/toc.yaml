@@ -371,6 +371,6 @@ items:
         href: faq/yql.md
       - name: Serverless
         href: faq/serverless.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: faq.md
 base: en/ydb

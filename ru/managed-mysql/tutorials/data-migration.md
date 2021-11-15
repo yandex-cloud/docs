@@ -26,7 +26,6 @@
 
 * [Режим SQL](../concepts/settings-list.md#setting-sql-mode) должен быть таким же, как и на кластере-источнике.
 
-
 ## Перенос данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
 1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#prepare-source-my).
@@ -54,7 +53,6 @@
 1. [Удалите эндпоинт-приемник](../../data-transfer/operations/target-endpoint.md#delete-endpoint).
 
 Реальный пример миграции базы данных {{ MY }} с помощью сервиса {{ data-transfer-name }} см. в разделе [{#T}](../../solutions/dataplatform/sync-mysql.md).
-
 
 ## Перенос данных через создание и восстановление логического дампа {#logical-dump}
 

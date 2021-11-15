@@ -140,7 +140,7 @@ You need to create a key pair for an SSH connection yourself. Learn more in [{#T
        }
      
        metadata = {
-         ssh-keys = "<user name>:<SSH key contents>}"
+         ssh-keys = "<username>:<SSH key contents>}"
        }
      
        scheduling_policy {

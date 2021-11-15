@@ -20,3 +20,30 @@ Device topics available in the service:
 
    The device automatically writes data to this topic and other devices and the registry can read the data from it. The device and registry that are subscribed to this topic will receive up-to-date monitoring data for the device whose ID is specified in the topic.
 
+## Monitoring topic {#monitoring-topic}
+
+The device and registry that are subscribed to the monitoring topic will receive up-to-date monitoring data for the device whose ID is specified in the topic.
+
+* `last_auth_time` — Time of the last authentication on the device.
+* `last_auth_ip` — IP address the last authentication was made from.
+* `last_pub_activity_time` — Time when the device last sent a message.
+* `last_sub_activity_time` — Time of the last subscription to messages.
+* `last_online_time` — Time of the last activity of the device.
+* `registry_id` — ID of the registry where the device is located.
+* `device_id` — Device ID.
+
+The time is Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). New messages are sent to registries or devices that are subscribed to the topic every time the device is accessed over MQTT. Service quality level — [At most once](../index.md#qos). If the message failed to arrive within the expected time period, we recommend waiting about two minutes before reacting.
+
+### Example of monitoring data {#example}
+
+```
+{
+	"last_auth_time": "2021-03-24T09:55:21.7570928Z",
+	"last_auth_ip": "199.21.99.45",
+	"last_pub_activity_time": "2021-03-24T09:55:21.858181573Z",
+	"last_online_time": "2021-03-24T09:55:21.858181573Z",
+	"registry_id": "areljb44npjoaog*****",
+	"device_id": "are3tkujvebfo3s*****"
+}
+```
+

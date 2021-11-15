@@ -23,6 +23,7 @@ SELECT "fo" || "o";
 * Patterns can include two special characters:
     * `%`: Zero or more of any characters.
     * `_`: Exactly one of any character.
+
 All other characters are literals that represent themselves.
 * As opposed to `REGEXP`, `LIKE` must be matched exactly. For example, to search a substring, add `%` at the beginning and end of the pattern.
 * `ILIKE` is a case-insensitive version of  `LIKE`.
@@ -55,7 +56,7 @@ FROM my_table;
 SELECT * FROM my_table
 WHERE key LIKE 'foo%bar';
 -- would probably only physically scan the keys
--- starting by "foo", and then, among them,
+-- starting with "foo", and then, among them,
 -- will leave only those that end in "bar"
 ```
 
@@ -79,7 +80,7 @@ SELECT 0.0 / 0.0;
 
 The operators `=`, `==`, `!=`, `<>`, `>`, `<` are defined for:
 
-* Primitive data types except Yson and Json.
+* Primitive data types except for Yson and Json.
 * Tuples and structures with the same set of fields. No order is defined for structures, but you can check for (non-)equality. Tuples are compared element-by-element left to right.
 
 **Examples**
@@ -103,8 +104,8 @@ SELECT 3 > 0 AND false;
 Bitwise operations on numbers:
 
 * `&`, `|`, `^`: AND, OR, and XOR, respectively. Don't confuse bitwise operations with the related keywords. The keywords `AND`, `OR`, and `XOR` are used * for Boolean values only*, but not for numbers.
-* ` ~ ` : negation.
-* `<`, `>>`: Left or right shifts.
+* ` ~ `: A negation.
+* `<`, `>`: Left or right shifts.
 * `|<`, `>|`: Circular left or right shifts.
 
 **Examples**
@@ -149,7 +150,9 @@ Unlike a similar keyword in Python, in YQL `IN` **DOES NOT** searches for a subs
 {% endnote %}
 
 Immediately after `IN`, you can specify the `COMPACT` hint.
+
 If `COMPACT` is not specified, then `IN` with a subquery is executed as a relevant `JOIN` (`LEFT SEMI` for `IN` and `LEFT ONLY` for `NOT IN`), if possible.
+
 Using the `COMPACT` hint forces the in-memory execution strategy: a hash table is immediately built from the contents of the right `IN` part in-memory, and then the left part is filtered.
 
 Use the `COMPACT` hint with caution. Since the hash table is built in-memory, the query may fail if the right part of `IN` contains many large and/or different elements.

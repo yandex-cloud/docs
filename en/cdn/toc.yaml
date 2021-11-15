@@ -41,6 +41,10 @@ items:
             href: operations/origin-groups/bind-group-to-resource.md
           - name: Deleting an origin group
             href: operations/origin-groups/delete-group.md
+  - name: Use cases
+    items:
+      - name: Publishing game updates
+        href: solutions/prefetch.md
   - name: Concepts
     items:
       - name: Service overview
@@ -59,6 +63,8 @@ items:
         href: concepts/origins.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: API reference
