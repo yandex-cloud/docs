@@ -41,6 +41,10 @@ items:
             href: operations/origin-groups/bind-group-to-resource.md
           - name: Deleting an origin group
             href: operations/origin-groups/delete-group.md
+  - name: Use cases
+    items:
+      - name: Publishing game updates
+        href: solutions/prefetch.md
   - name: Concepts
     items:
       - name: Service overview
