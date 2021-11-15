@@ -8,7 +8,7 @@
 
 ## Установка {#installation}
 
-{% include [install-java-sdk](../../_includes/aws-tools/install-cpp-sdk.md)%}
+{% include [install-cpp-sdk](../../_includes/aws-tools/install-cpp-sdk.md)%}
 
 ## Настройка {#setup}
 
