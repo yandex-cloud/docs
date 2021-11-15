@@ -10,9 +10,8 @@ The relationship between the payment invoice, billing account, and cloud is show
 
 A payment invoice is issued at the beginning of the next reporting period if the following conditions are met:
 
-- The selected payment method is [Transfer from your bank account](../payment/payment-methods-business.md).
-- The [credit limit](../concepts/credit-limit.md) is used.
-- [The total invoice amount](#payment-amount) is greater than zero.
+* The selected payment method is [Transfer from your bank account](../payment/payment-methods-business.md).
+* [The total invoice amount](#payment-amount) is greater than zero.
 
 {% note info %}
 
