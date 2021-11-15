@@ -84,6 +84,8 @@
 
 {% include [operating-mode-with-data-source](../_includes/datalens/qa/operating-mode-with-data-source.md) %}
 
+{% include [materialization-on-off](../_includes/datalens/qa/materialization-on-off.md) %}
+
 ## Датасеты {#datasets}
 
 ### Как создать датасет на основе динамических таблиц? {#how-to-create-dataset}

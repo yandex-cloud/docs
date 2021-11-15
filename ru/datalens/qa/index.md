@@ -81,6 +81,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [operating-mode-with-data-source](../../_includes/datalens/qa/operating-mode-with-data-source.md) %}
 
+{% include [materialization-on-off](../../_includes/datalens/qa/materialization-on-off.md) %}
+
 ## Датасеты {#datasets}
 
 {% include [incorrectly-identified-date-field](../../_includes/datalens/qa/incorrectly-identified-date-field.md) %}
