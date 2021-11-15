@@ -1,12 +1,17 @@
-## String {#string}
-
-| Type | Explanation | Used in YQL<br/>queries and<br/>calculations<br/> | Used as<br/>a type<br/>of column data | Used in<br/>primary<br/>keys. | Supports the<br/>comparison<br/>option |
+| Type | Description | Used<br/>in queries<br/>and <br/>YQL calculations | Used<br/>as the<br/>column data type | Used in<br/>primary<br/>keys | Supports the<br/>comparison<br/>option |
 | ----- | ----- | ----- | ----- | ----- | ----- |
-| **String** | Can contain any binary data | Yes | Yes | Yes | Yes |
-| **Utf8** | Contains text in&nbsp;UTF-8 encoding | Yes | Yes | Yes | Yes |
-| **Json** | Contains JSON | Yes | Yes | No | No |
-| **Yson** | Contains YSON | Yes | Yes | No | No |
-| **Uuid** | Contains UUID | Yes | No | No | Yes |
+| `string` | Any binary data. | Yes | Yes | Yes | Yes |
+| `Utf8` | Text in UTF-8 encoding. | Yes | Yes | Yes | Yes |
+| `Json` | JSON in textual representation. | Yes | Yes | No | No |
+| `JsonDocument` | JSON in an indexed binary representation. | Yes | Yes | No | No |
+{% if audience != "external" %}
+| `Yson` | [YSON](https://yt.yandex-team.ru/docs/description/common/yson.html) in textual or binary representation. | Yes | Yes | No | No |
+{% endif %}
+|`Uuid` | The [UUID](https://tools.ietf.org/html/rfc4122). | Yes | No | No | Yes |
 
-The maximum value size in a cell with any string data type is about 4 MB.
+{% note info "Size limits" %}
+
+The maximum value size for a non-key column cell with any string data type is 8 MB.
+
+{% endnote %}
 

@@ -2,583 +2,69 @@
 
 {% note info %}
 
-The terms "simple" and "primitive" data types are used synonymously.
+_Primitive_ data types are also sometimes referred to as _simple_ data types.
 
 {% endnote %}
 
+## Numeric types {#numeric}
+
 {% include [datatypes](../../../_includes/datatypes_primitive_number.md) %}
+
+## String types {#string}
 
 {% include [datatypes](../../../_includes/datatypes_primitive_string.md) %}
 
+## Date and time {#datetime}
+
 {% include [datatypes](../../../_includes/datatypes_primitive_datetime.md) %}
 
-## Casting of primitive data types {%cast} {#converting-primitive-data-types-cast}
+## Casting between data types {#cast}
 
-### Explicit casting {%explicit_cast} {#explicit-cast}
+### Explicit casting {#explicit-cast}
 
-Explicit casting using [CAST](../syntax/expressions.md#cast):
+Explicit type casting using [CAST](../syntax/expressions.md#cast):
 
-<table class="docutils">
-	<thead>
-		<tr>
-			<th></th>
-			<th align="center"><strong>Bool</strong></th>
-			<th align="center"><strong>Int</strong></th>
-			<th align="center"><strong>Uint</strong></th>
-			<th align="center"><strong>Float</strong></th>
-			<th align="center"><strong>Double</strong></th>
-			<th align="center"><strong>Decimal</strong></th>
-			<th align="center"><strong>String</strong></th>
-			<th align="center"><strong>Utf8</strong></th>
-			<th align="center"><strong>Json</strong></th>
-			<th align="center"><strong>Yson</strong></th>
-			<th align="center"><strong>Uuid</strong></th>
-			<th align="center"><strong>Date</strong></th>
-			<th align="center"><strong>Datetime</strong></th>
-			<th align="center"><strong>Timestamp</strong></th>
-			<th align="center"><strong>Interval</strong></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><strong>Bool</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Yes<sup>1</sup></td>
-			<td align="center" class="yes-cell">Yes<sup>1</sup></td>
-			<td align="center" class="yes-cell">Yes<sup>1</sup></td>
-			<td align="center" class="yes-cell">Yes<sup>1</sup></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-		</tr>
-		<tr>
-			<td><strong>Int</strong></td>
-			<td align="center" class="yes-cell">Yes<sup>2</sup></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes<sup>3</sup></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-		</tr>
-		<tr>
-			<td><strong>Uint</strong></td>
-			<td align="center" class="yes-cell">Yes<sup>2</sup></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-		</tr>
-		<tr>
-			<td><strong>Float</strong></td>
-			<td align="center" class="yes-cell">Yes<sup>2</sup></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-		</tr>
-		<tr>
-			<td><strong>Double</strong></td>
-			<td align="center" class="yes-cell">Yes<sup>2</sup></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-		</tr>
-		<tr>
-			<td><strong>Decimal</strong></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-		</tr>
-		<tr>
-			<td><strong>String</strong></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-		</tr>
-		<tr>
-			<td><strong>Utf8</strong></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-		</tr>
-		<tr>
-			<td><strong>Json</strong></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-		</tr>
-		<tr>
-			<td><strong>Uuid</strong></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-		</tr>
-		<tr>
-			<td><strong>Date</strong></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-		</tr>
-		<tr>
-			<td><strong>Datetime</strong></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-		</tr>
-		<tr>
-			<td><strong>Timestamp</strong></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="no-cell">No</td>
-		</tr>
-		<tr>
-			<td><strong>Interval</strong></td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="yes-cell">Yes</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="no-cell">No</td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-	</tbody>
-</table>
+Type | Bool | Int | Uint | Float | Double | Decimal | String | Utf8 | Json {% if audience != "external" %}| Yson {% endif %}| Uuid | Date | Datetime | Timestamp | Interval
+--- | --- | --- | --- | --- | --- | --- | --- | --- | --- {% if audience != "external" %}| --- {% endif %}| --- | --- | --- | --- | ---
+**Bool** | — | Yes<sup>1</sup> | Yes<sup>1</sup> | Yes<sup>1</sup> | Yes<sup>1</sup> | No | Yes | No | No {% if audience != "external" %}| No {% endif %}| No | No | No | No | No
+**Int** | Yes<sup>2</sup> | — | Yes | Yes<sup>3</sup> | Yes | Yes | Yes | No | No {% if audience != "external" %}| No {% endif %}| No | Yes | Yes | Yes | Yes
+**Uint** | Yes<sup>2</sup> | Yes | — / Yes | Yes | Yes | Yes | No | No {% if audience != "external" %}| No {% endif %}| No | Yes | Yes | Yes | Yes
+**Float** | Yes<sup>2</sup> | Yes | Yes | — / Yes | No | Yes | No | No {% if audience != "external" %}| No {% endif %}| No | No | No | No | No
+**Double** | Yes<sup>2</sup> | Yes | Yes | Yes | — | No | Yes | No | No {% if audience != "external" %}| No {% endif %}| No | No | No | No | No
+**Decimal** | No | Yes | Yes | Yes | Yes | — / Yes | No | No {% if audience != "external" %}| No {% endif %}| No | No | No | No | No
+**String** | Yes | Yes | Yes | Yes | Yes | Yes | — / Yes | Yes {% if audience != "external" %}| Yes {% endif %}| Yes | Yes | Yes | Yes | Yes
+**Utf8** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | — / No {% if audience != "external" %}| No {% endif %}| No | Yes | Yes | Yes | Yes
+**Json** | No | No | No | No | No | No | Yes | Yes | — {% if audience != "external" %}| No {% endif %}| No | No | No | No | No
+**Uuid** | No | No | No | No | No | No / Yes | No {% if audience != "external" %}| No {% endif %}| No | — | No | No | No | No
+**Date** | No | Yes | Yes | Yes | Yes | No | Yes | No | No {% if audience != "external" %}| No {% endif %}| No | — / Yes | Yes | No
+**Datetime** | No | Yes | Yes | Yes | Yes | No | Yes | No {% if audience != "external" %}| No {% endif %}| No | No | Yes | — / Yes | No
+**Timestamp** | No | Yes | Yes | Yes | Yes | No | Yes | No | No {% if audience != "external" %}| No {% endif %}| No | Yes | Yes | — / No
+**Interval** | No | Yes | Yes | Yes | Yes | No / Yes | No | No | No {% if audience != "external" %}| No {% endif %}| No | No | No | — | —
 
-Note to table:
+<sup>1</sup> `True` casts to `1`, `False` casts to `0`.
 
-1. `True` => 1, `False` => 0.
-2. Always `True`. Exception: 0 => ` False`.>
-3. It's possible only in the case of a non-negative value.
+<sup>2</sup> always casts to `True`. Exception: `0` casts to `False`.
 
-### Implicit casting {%implicit_cast} {#implicit-cast}
+<sup>3</sup>  It's possible only in the case of a non-negative value.
 
-Implicit type casting that occurs in basic operations ( +-\*/) between different data types. The table cells specify the operation result type, if the operation is possible:
+### Implicit casting {#implicit-cast}
 
-<table class="docutils">
-	<thead>
-		<tr>
-			<th></th>
-			<th align="center"><strong>Bool</strong></th>
-			<th align="center"><strong>Int</strong></th>
-			<th align="center"><strong>Uint</strong></th>
-			<th align="center"><strong>Float</strong></th>
-			<th align="center"><strong>Double</strong></th>
-			<th align="center"><strong>Decimal</strong></th>
-			<th align="center"><strong>String</strong></th>
-			<th align="center"><strong>Utf8</strong></th>
-			<th align="center"><strong>Json</strong></th>
-			<th align="center"><strong>Yson</strong></th>
-			<th align="center"><strong>Uuid</strong></th>
-			<th align="center"><strong>Date</strong></th>
-			<th align="center"><strong>Datetime</strong></th>
-			<th align="center"><strong>Timestamp</strong></th>
-			<th align="center"><strong>Interval</strong></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><strong>Bool</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>Int</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Int</td>
-			<td align="center" class="yes-cell">Int</td>
-			<td align="center" class="yes-cell">Float</td>
-			<td align="center" class="yes-cell">Double</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>Uint</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Int</td>
-			<td align="center" class="yes-cell">Uint</td>
-			<td align="center" class="yes-cell">Float</td>
-			<td align="center" class="yes-cell">Double</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>Float</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Float</td>
-			<td align="center" class="yes-cell">Float</td>
-			<td align="center" class="yes-cell">Float</td>
-			<td align="center" class="yes-cell">Double</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>Double</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Double</td>
-			<td align="center" class="yes-cell">Double</td>
-			<td align="center" class="yes-cell">Double</td>
-			<td align="center" class="yes-cell">Double</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>Decimal</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Decimal</td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>String</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>Utf8</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>Json</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>Uuid</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-		</tr>
-		<tr>
-			<td><strong>Date</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Date</td>
-		</tr>
-		<tr>
-			<td><strong>Datetime</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Datetime</td>
-		</tr>
-		<tr>
-			<td><strong>Timestamp</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Timestamp</td>
-		</tr>
-		<tr>
-			<td><strong>Interval</strong></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="dis-cell"></td>
-			<td align="center" class="yes-cell">Date</td>
-			<td align="center" class="yes-cell">Datetime</td>
-			<td align="center" class="yes-cell">Timestamp</td>
-			<td align="center" class="yes-cell">Interval</td>
-		</tr>
-	</tbody>
-</table>
+Implicit casting occurs during basic operations (`+`, `-`, `×` and `/`) between different data types. The table shows the operation result type if the operation is possible:
+
+Type | Bool | Int | Uint | Float | Double | Decimal | String | Utf8 | Json {% if audience != "external" %}| Yson {% endif %}| Uuid | Date | Datetime | Timestamp | Interval
+--- | --- | --- | --- | --- | --- | --- | --- | --- | --- {% if audience != "external" %}| --- {% endif %}| --- | --- | --- | --- | ---
+**Bool** | — | — | — | — | — | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | —
+**Int** | — | `Int` | `Int` | `Float` | `Double` | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | —
+**Uint** | — | `Int` | `Uint` | `Float` | `Double` | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | —
+**Float** | — | `Float` | `Float` | `Float` | `Double` | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | —
+**Double** | — | `Double` | `Double` | `Double` | `Double` | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | —
+**Decimal** | — | — | — | — | — | `Decimal` | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | —
+**String** | — | — | — | — | — | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | —
+**Utf8** | — | — | — | — | — | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | —
+**Json** | — | — | — | — | — | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | —
+**Uuid** | — | — | — | — | — | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | —
+**Date** | — | — | — | — | — | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | `Date`
+**Datetime** | — | — | — | — | — | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | `Datetime`
+**Timestamp** | — | — | — | — | — | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | — | — | — | `Timestamp`
+**Interval** | — | — | — | — | — | — | — | — | — {% if audience != "external" %}| — {% endif %}| — | `Date` | `Datetime` | `Timestamp` | `Interval`
 
