@@ -12,11 +12,21 @@
        ```
        
        Например, чтобы настроить доступ к значению `first-company` для поля `Company name`:
-       
+
+       {% if audience == "internal" %}
+
+       ```yaml
+       'first-company': login-to-access-your-row-data
+       ```
+
+       {% else %}
+
        ```yaml
        'first-company': login-to-access-your-row-data@yandex.ru
        ```
-  
+
+       {% endif %}
+
     1.  Сохраните датасет.
 
 - В источнике

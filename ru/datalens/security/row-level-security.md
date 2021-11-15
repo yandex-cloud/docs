@@ -21,15 +21,35 @@ Pазграничить доступ к данным на уровне стро�
 
 Например, чтобы настроить доступ пользователя к значению `first-company` поля `Company name`, задайте конфигурацию:
        
+{% if audience == "internal" %}
+
+```yaml
+'first-company': login-to-access-your-row-data
+```
+
+{% else %}
+
 ```yaml
 'first-company': login-to-access-your-row-data@yandex.ru
 ```
 
+{% endif %}
+
 Чтобы настроить доступ для нескольких пользователей, перечислите через запятую их аккаунты в конфигурации доступа:
+
+{% if audience == "internal" %}
+
+```yaml
+'first-company': login1-to-access-your-row-data, login2-to-access-your-row-data, login3-to-access-your-row-data
+```
+
+{% else %}
 
 ```yaml
 'first-company': login1-to-access-your-row-data@yandex.ru, login2-to-access-your-row-data@yandex.ru, login3-to-access-your-row-data@yandex.ru
 ```
+
+{% endif %}
 
 Значения и пользователей можно определять символом подстановки:
 
@@ -41,9 +61,19 @@ Pазграничить доступ к данным на уровне стро�
 
   Например, чтобы настроить доступ для пользователей ко всем значениям поля `Company name`, задайте конфигурацию:
 
+{% if audience == "internal" %}
+
+    ```yaml
+    *: login1-to-access-your-row-data, login2-to-access-your-row-data
+    ```
+
+{% else %}
+
     ```yaml
     *: login1-to-access-your-row-data@yandex.ru, login2-to-access-your-row-data@yandex.ru
     ```
+
+{% endif %}
 
 - Значение `значение 1` доступно всем пользователям
 
@@ -65,15 +95,35 @@ Pазграничить доступ к данным на уровне стро�
 
 Например, чтобы установить кавычки для названия компании `first-company "Example"` поля `Company name`, задайте конфигурацию:
 
+{% if audience == "internal" %}
+
+```yaml
+ 'first-company ''Example''': login1-to-access-your-row-data, login2-to-access-your-row-data
+```
+
+{% else %}
+
 ```yaml
  'first-company ''Example''': login1-to-access-your-row-data@yandex.ru, login2-to-access-your-row-data@yandex.ru
 ```
 
+{% endif %}
+
 Также можно использовать символ `"`: 
+
+{% if audience == "internal" %}
+
+```yaml
+ 'first-company "Example"': login1-to-access-your-row-data, login2-to-access-your-row-data
+```
+
+{% else %}
 
 ```yaml
  'first-company "Example"': login1-to-access-your-row-data@yandex.ru, login2-to-access-your-row-data@yandex.ru
 ```
+
+{% endif %}
 
 При использовании RLS запросы к датасету проходят через следующий фильтр:
 
