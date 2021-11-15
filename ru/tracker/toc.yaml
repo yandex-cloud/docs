@@ -6,6 +6,9 @@ items:
     - name: Подключить Tracker
       when: audience == "external"
       href: enable-tracker.md
+    - name: Войти в Tracker
+      when: audience == "external"
+      href: user/login.md
     - name: Добавить пользователей
       when: audience == "external"
       href: add-users.md
@@ -16,9 +19,6 @@ items:
       href: quick-start.md
     - name: Как работать в Tracker
       items:
-      - name: Войти в Tracker
-        when: audience == "external"
-        href: user/login.md
       - name: Начальная страница
         href: user/startpage.md
       - name: Мои задачи
@@ -213,6 +213,8 @@ items:
   items:
     - name: Обзор
       href: user/filters.md
+    - name: Найти задачу по ключу или названию
+      href: user/search-task.md
     - name: Найти мои задачи
       href: user/default-filters.md
     - name: Найти задачи в очереди
