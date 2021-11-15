@@ -34,7 +34,7 @@ endif()
 
 find_package(AWSSDK REQUIRED COMPONENTS s3 sts)
 
-add_executable(EXAMPLE  EXAMPLE_FILE_S3.cpp) 
+add_executable(EXAMPLE EXAMPLE_FILE_S3.cpp) 
 
 target_link_libraries(EXAMPLE ${AWSSDK_LINK_LIBRARIES} 
 ${AWSSDK_PLATFORM_DEPS})
