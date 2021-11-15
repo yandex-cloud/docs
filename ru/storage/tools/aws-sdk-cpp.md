@@ -17,14 +17,13 @@
 
 ## Примеры кода {#cpp-sdk-examples}
 
-[Примеры кода C++](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3) для работы с S3 от производителя.
+[Смотри примеры кода C++](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3) для работы с S3 от производителя.
 
-Пример простой программы иллюстрирующий отличие в настройках для yandex object storage.
+Ниже представлен пример простой программы, иллюстрирующий отличие в настройках для {{ objstorage-full-name }}.
 
 ### CmakeLists 
 
 ```cmake
-
 cmake_minimum_required(VERSION 3.8)
 project("s3-examples")
 set(CMAKE_CXX_STANDARD 20)
@@ -37,9 +36,8 @@ find_package(AWSSDK REQUIRED COMPONENTS s3 sts)
 
 add_executable(EXAMPLE  EXAMPLE_FILE_S3.cpp) 
 
-target_link_libraries(test ${AWSSDK_LINK_LIBRARIES} 
+target_link_libraries(EXAMPLE ${AWSSDK_LINK_LIBRARIES} 
 ${AWSSDK_PLATFORM_DEPS})
-
 ```
 
 ### Файл EXAMPLE_FILE_S3.cpp 
@@ -60,7 +58,7 @@ ${AWSSDK_PLATFORM_DEPS})
 #include <iostream> 
 
 
-// находит бакет и выводит его содержимое в консоль
+//  Находит бакет и выводит его содержимое в консоль
 bool FindTheBucket(const Aws::S3::S3Client& s3Client, const Aws::String& bucketName)
 {
     Aws::S3::Model::ListBucketsOutcome outcome = s3Client.ListBuckets();
@@ -99,24 +97,14 @@ int main(int argc, char* argv[])
     Aws::SDKOptions options;
     Aws::InitAPI(options);
     {
-        // Секция настроек доступа 
-        
-        /* раскомментируйте если необходимо указать ключ в программе.
-        Aws::Auth::AWSCredentials credentials;
-        credentials.SetAWSAccessKeyId(Aws::String("-s3IHAUA3ZrMXos4HjFa"));
-        credentials.SetAWSSecretKey(Aws::String("N48X2Nz1zrqhgLfRDe-rnQjeuJRCcLtPgoFJkqL-"));
-        */
 
-        // Секция настроек SDK, 
-        // эти настройки позволяют использовать AWS SDK для yandex object storage
+        // Секция настроек для использования AWS SDK с Object Storage
         Aws::Client::ClientConfiguration config;
         config.region = Aws::String("ru-cental1");
         config.endpointOverride = Aws::String("storage.yandexcloud.net");
 
-        // Инициализация подключения 
         Aws::String bucket_name = "bucket_name";
-        //раскомментируйте если необходимо создать обьект с настроеным доступом
-        // Aws::S3::S3Client s3_client(credentials, config);
+        // Инициализация подключения 
         Aws::S3::S3Client s3_client(config);
 
         FindTheBucket(s3_client, bucket_name);
