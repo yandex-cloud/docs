@@ -313,7 +313,7 @@ It may take several minutes to create an instance group. After creation, the gro
 
 ### Create a backend group {#create-backend-group}
 
-You must link the target group created with the VM group to the  [backend group](../concepts/backend-group.md) that defines traffic allocation settings.
+You must link the target group created with the VM group to the [backend group](../concepts/backend-group.md) that defines traffic allocation settings.
 
 For the backends in the group, a [health check](../concepts/backend-group.md#health-checks) will be created: the load balancer will periodically send health check requests to the VMs and expect a response for a certain period of time.
 
@@ -402,7 +402,7 @@ To get the log group ID:
 
 - API
 
-  Use the gRPC API [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) call or the [get](../api-ref/LoadBalancer/create.md) REST API method. The ID of the log group will be in the `log_group_id` field.
+  Use the gRPC API [LoadBalancerService/Get](../api-ref/grpc/load_balancer_service.md#Get) call or the [get](../api-ref/LoadBalancer/get.md) REST API method. The ID of the log group will be in the `log_group_id` field.
 
 {% endlist %}
 

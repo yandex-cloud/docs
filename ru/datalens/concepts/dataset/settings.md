@@ -23,8 +23,7 @@
 
 {% note info %}
 
-Для источников Metrica API и AppMetrica API режим материализации недоступен. 
-Настроить загрузку данных в БД для этих источников можно с помощью [подключения через Logs API](#metrica-appmetrica-logs-api).
+Для источников Metrica API и AppMetrica API режим материализации недоступен. Настроить загрузку данных в БД для AppMetrica в можно с помощью [экспорта данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html).
 
 {% endnote %}
 
@@ -56,12 +55,6 @@
 Например, по четвергам каждую вторую неделю в 03:00.
 
 Минимальный доступный интервал — 1 раз в день.
-
-#### Подключение через Logs API для источников Metrica и AppMetrica {#metrica-appmetrica-logs-api}
-
-Для источников Metrica и AppMetrica загрузка данных в БД материализации {{ datalens-short-name }} недоступна. Чтобы настроить автоматическую загрузку данных из этих источников, вы можете создать подключение к [Metrica Logs API](../../operations/connection/create-metrica-logs-api.md) или [AppMetrica Logs API](../../operations/connection/create-appmetrica-logs-api.md) и задать периодичность обновления данных. В этом случае данные из Metrica или AppMetrica будут загружаться в базу данных {{ CH }}, которая будет использоваться в качестве источника для датасетов.
-
-Для AppMetrica можно использовать также [экспорт данных в Яндекс.Облако](https://appmetrica.yandex.ru/docs/cloud/index.html).
 
 ## Фильтрация по умолчанию для новых чартов {#default-filters}
 

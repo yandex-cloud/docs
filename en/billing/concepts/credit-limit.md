@@ -5,12 +5,11 @@ The credit limit is a negative [personal account balance](../concepts/personal-a
 * Require that you settle your arrears before the reporting period.
 * Suspend your use of resources.
 
-The credit limit is only applicable when a bank card payment is selected as the payment method. 
-When the credit limit is reached, a notification email is sent to your email address, and an attempt is made to withdraw funds from the card.
+The credit limit is not valid unless you select a bank card as the payment method. If you do, you will receive an email notification when you reach your limit, and an attempt will be made to debit your card to cover what you owe.
 
 {% note alert %}
 
-The credit limit amount and the total arrears when you are blocked may be different, since access to resources is not suspended immediately. This means the credit limit does not guarantee that the negative balance won't exceed the set limit.
+The credit limit amount and the total arrears when you are blocked may be different, since access to resources is not suspended immediately. The fact that you have a credit limit set does not guarantee that you will not spend over your limit.
 
 {% endnote %}
 
@@ -24,15 +23,15 @@ The credit limit amount is calculated individually and depends on a combination 
 
 You can find information about the credit limit amount in the [management console]({{ link-console-billing }}).
 
-<a name="enable"></a>
-
-## Activating the credit limit {#enable}
+## Activating a credit limit {#enable}
 
 The credit limit is activated automatically after you [switch to the paid version](../operations/activate-commercial.md) and the first reporting period ends.
 
 ## Using the credit limit {#using}
 
 The credit limit can only be used if you don't have a [grant](../concepts/bonus-account.md) and your [personal account balance](../concepts/personal-account.md#balance) is zero. If you use the credit limit, you go into arrears as your personal account balance falls below zero.
+
+If you are using a bank account to pay for {{ yandex-cloud }} resources, a credit limit will not apply.
 
 ## Paying arrears {#using}
 

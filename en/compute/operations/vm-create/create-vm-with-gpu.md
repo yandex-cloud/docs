@@ -150,7 +150,7 @@ By default, the cloud has a [zero quota](../../concepts/limits.md#quotas) for cr
        }
      
        metadata = {
-         ssh-keys = "<user name>:<SSH key contents>"
+         ssh-keys = "<username>:<SSH key contents>"
        }
      }
      

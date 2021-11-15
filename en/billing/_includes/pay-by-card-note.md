@@ -1,5 +1,5 @@
 {% note info %}
 
-Yandex.Cloud reserves the right to automatically debit funds from the linked bank card during the current reporting period if your personal account balance exceeds the established [credit limit](../concepts/credit-limit.md). For more details, see the agreement.
+{{ yandex-cloud }} reserves the right to automatically debit the linked card in the current reporting period if the arrears in your personal account exceed the established credit limit. For more details, see the agreement.
 
 {% endnote %}

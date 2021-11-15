@@ -1,6 +1,6 @@
 # DateTime UDF
 
-In the DateTime module, the main internal representation format is `Resource<TM>` that stores the following date components:
+In the DateTime module, the main internal representation format is `Resource<TM>`, which stores the following date components:
 
 * Year (12 bits).
 * Month (4 bits).
@@ -26,7 +26,7 @@ Conversion from a primitive type to an internal representation. It's always succ
 * ```DateTime::Split(Datetime{Flags:AutoMap}) -> Resource<TM>```
 * ```DateTime::Split(Timestamp{Flags:AutoMap}) -> Resource<TM>```
 
-The functions that accept the `Resource<TM>` input, can be called directly from the primitive date/time type. An implicit conversion will be made in this case by calling a relevant `Split` function.
+Functions that accept `Resource<TM>` as input, can be called directly from the primitive date/time type. An implicit conversion will be made in this case by calling a relevant `Split` function.
 
 ## Make... {#make}
 

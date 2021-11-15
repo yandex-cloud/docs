@@ -25,8 +25,7 @@ Datasets can work with data sources in the following modes:
 
 {% note info %}
 
-Materialization mode is not available for Yandex.Metrica API and AppMetrica API sources.
-To configure the database to populate from these sources, you can use [connections via the Logs API](#metrica-appmetrica-logs-api).
+Materialization mode is not available for Yandex.Metrica API and AppMetrica API sources. To configure the database to populate from AppMetrica, [export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html).
 
 {% endnote %}
 
@@ -58,12 +57,6 @@ Data is uploaded to the {{ datalens-short-name }} materialization DB according t
 For example, every second week on Thursday at 03:00.
 
 The minimum available interval is once a day.
-
-#### Connecting via the Logs API for Yandex.Metrica and AppMetrica sources {#metrica-appmetrica-logs-api}
-
-For Metrica and AppMetrica sources, the {{ datalens-short-name }} materialization database is unavailable for populating with data. To set up automatic data loading from these sources, you can create a connection to the [Metrica Logs API](../../operations/connection/create-metrica-logs-api.md) or the [AppMetrica Logs API](../../operations/connection/create-appmetrica-logs-api.md) and set the data update frequency. This will load data from Yandex.Metrica or AppMetrica into the {{ CH }} database, which will serve as the dataset source.
-
-For AppMetrica, you can also [export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html).
 
 ## Default filters for new charts {#default-filters}
 

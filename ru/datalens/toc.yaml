@@ -21,8 +21,6 @@ items:
         href: solutions/data-from-ch-to-geolayers-visualization.md
       - name: Веб-аналитика с подключением к Яндекс.Метрике
         href: solutions/data-from-metrica-visualization.md
-      - name: Веб-аналитика с подключением к Яндекс.Метрике через Logs API
-        href: solutions/data-from-metrica-logsapi-visualization.md
       - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики
         href: solutions/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica
@@ -99,12 +97,8 @@ items:
             href: operations/connection/create-greenplum.md
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
-          - name: Создание подключения к Metrica Logs API
-            href: operations/connection/create-metrica-logs-api.md
           - name: Создание подключения к AppMetrica
             href: operations/connection/create-appmetrica.md
-          - name: Создание подключения к AppMetrica Logs API
-            href: operations/connection/create-appmetrica-logs-api.md
           - name: Создание подключения к Yandex Cloud Billing
             href: operations/connection/create-cloud-billing.md
           - name: Управление доступом к подключению

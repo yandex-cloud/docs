@@ -42,7 +42,10 @@ Clients, CDN servers, and origins exchange data over the HTTP and HTTPS (HTTP ov
 
 The communication protocol between clients and CDN servers depends on the URI scheme of your files, for example: `http://cdn.example.com/styles/common.css` or `https://cdn.example.com/styles/common.css`.
 
-To make your files accessible over HTTPS, you need to configure your [domain names](#hostnames) (for example, issue TLS certificates for them). For instance, you can use {{ certificate-manager-full-name}}: [issue a certificate from Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) and [get its contents](../../certificate-manager/operations/managed/cert-get-content.md).
+For HTTPS connections between clients and CDN servers, you can:
+
+* Issue TLS certificates from Let's Encrypt<sup>®</sup> for all domain names for content distribution. {{ cdn-name }} automatically issues certificates after saving the resource settings. This may take up to 30 minutes.
+* Use a created certificate or one uploaded to {{ certificate-manager-full-name }}.
 
 For a resource, you can configure:
 
@@ -55,7 +58,7 @@ For a resource, you can configure:
 
 You can select a protocol for communication between CDN servers and origins: always HTTP, always HTTPS, or the protocol used by the CDN server to communicate with the client.
 
-You can issue a TLS certificate from Let's Encrypt<sup>®</sup> for HTTPS directly in {{ cdn-name }}. The certificate is issued automatically after you save the resource settings: it takes up to 30 minutes.
+To enable CDN servers to establish HTTPS connections with origins, you need to configure the domain names of the origins yourself, including issuing TLS certificates for them. For instance, you can use {{ certificate-manager-full-name}}: [issue a certificate from Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) and [get its contents](../../certificate-manager/operations/managed/cert-get-content.md).
 
 For a resource, you can also configure:
 

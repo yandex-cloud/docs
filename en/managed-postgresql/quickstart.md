@@ -72,7 +72,7 @@ To get started with the service:
           port=6432 \
           sslmode=verify-full \
           dbname=<DB name> \
-          user=<DB user name>"
+          user=<DB username>"
     ```
 
 ## What's next

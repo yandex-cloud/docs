@@ -144,7 +144,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
           --structure-attribute name=<data column name>,type=<data type>,null-value=<empty element value >,expression=<expression>,hierarchical=<true|false>,injective=<true|false> \
           --fixed-lifetime <update interval in seconds> \
           --layout-type <flat|hashed|cache|range_hashed|complex_key_hashed|complex_key_cache> \
-          --postgresql-source db=<source DB name>,table=<source table name>,port=<connection port>,user=<source DB user name>,password=<source DB password>,ssl-mode=<disable|allow|prefer|require|verify-ca|verify-full> \
+          --postgresql-source db=<source DB name>,table=<source table name>,port=<connection port>,user=<source DB username>,password=<source DB password>,ssl-mode=<disable|allow|prefer|require|verify-ca|verify-full> \
           --postgresql-source-hosts <source DB hosts> \
        ```
 

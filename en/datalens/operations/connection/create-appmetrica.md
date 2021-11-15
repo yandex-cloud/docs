@@ -20,8 +20,6 @@ To create an AppMetrica connection:
 
     - **Accuracy**. Set the data accuracy (sampling rate). You can change accuracy after you create the connection.
 
-    - **Connection**. Select the **Direct access** connection type.
-
       {% include [datalens-get-token](../../../_includes/datalens/datalens-change-account-note.md) %}
 
 1. Enable the option **Automatically create a dashboard, charts, and a dataset on the connection** if you need a dashboard with a standard set of charts.

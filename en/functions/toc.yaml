@@ -101,6 +101,8 @@ items:
             href: concepts/runtime/environment-variables.md
           - name: Execution context
             href: concepts/runtime/execution-context.md
+          - name: Preloaded runtime environment
+            href: concepts/runtime/preload-runtime.md
       - name: Builder
         href: concepts/builder.md
       - name: Trigger
