@@ -1,0 +1,1 @@
+Для установки AWS SDK для C++ воспользуйтесь [инструкцией](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/setup-linux.html) на сайте производителя.
