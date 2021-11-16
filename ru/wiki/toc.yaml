@@ -150,14 +150,22 @@ items:
       href: static-markup/grids.md
     - name: Цитирование
       href: static-markup/quoting.md
-    - name: Выделение блоков текста
-      href: static-markup/wrappers.md
     - name: Оформление исходного кода
       href: static-markup/source.md
     - name: Элементы HTML
       href: static-markup/html-code.md
     - name: Экранирование символов
       href: static-markup/escaping.md
+  - name: Блоки со специальным форматированием
+    items:
+    - name: Обзор
+      href: formatter.md     
+    - name: Подсветка синтаксиса в коде
+      href: static-markup/highlight.md     
+    - name: Форматирование CSV-данных
+      href: static-markup/csv.md
+    - name: Границы, ширина и выравнивание блоков
+      href: static-markup/wrappers.md
   - name: Динамические блоки
     items:
     - name: Обзор
