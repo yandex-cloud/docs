@@ -12,6 +12,8 @@ An origin must respond to the CDN server's request within 5 seconds. If no respo
 
 When creating a resource, an origin or an [origin group](#groups) is specified for it. After creating a resource, in the resource settings, you can replace an origin with another origin or a resource group with another resource group.
 
+To reduce the load of CDN servers on origins, you can enable [origin shielding](origins-shielding.md) for a resource.
+
 ## Origin groups {#groups}
 
 To distribute the load between origins hosting the same content, you can combine them into an _origin group_.
