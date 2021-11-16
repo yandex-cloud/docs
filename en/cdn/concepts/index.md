@@ -28,6 +28,8 @@
 | [Content compression](compression.md) | Compression of files when they are stored on CDN servers and delivered to clients. |
 | [Content segmentation](slicing.md) | Storing large files on CDN servers in parts. |
 | [Origins and origin groups](origins.md) | The servers that are origins of content. CDN servers access them to load files. |
+| [Origin shielding](origins-shielding.md) | Using a shield server between CDN servers and origins to reduce origin load. |
+| [Exporting logs](logs.md) | Exporting CDN and shielding server request logs to object storage. |
 | [Quotas and limits](limits.md) | Service use restrictions. |
 
 See also the [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md) {{ yandex-cloud }}.

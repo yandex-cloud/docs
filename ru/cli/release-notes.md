@@ -1,6 +1,42 @@
 # Релизы YC CLI
 
-## Версия 0.83.0 (26.10.21) {#latest-release}
+## Версия 0.84.0 (16.11.21) {#latest-release}
+
+#### Изменения в сервисах {{yandex-cloud}} {#services}
+
+#### {{ cdn-name }} {#cdn}
+
+* Добавлена команда `yc cdn resource` для управления CDN-ресурсами (get, list, delete, get-provider-cname).
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+* Добавлена команда `yc managed-kafka cluster move`.
+
+**{{ mmg-name }}**
+
+* Добавлена поддержка создания кластера с версией {{ MG }} 5.0.
+* Добавлена команда `{{ yc-mdb-mg }} hosts restart` для перезагрузки указанных хостов.
+
+**{{ mmy-name }}**
+
+* В вывод команды `yc managed-mysql hosts list` добавлена колонка `BACKUP PRIORITY`.
+
+**{{ mch-name }}**
+
+В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster restore` добавлены новые флаги:
+* `--embedded-keeper` — позволяет создать кластер, используя Clickhouse Keeper вместо ZK.
+
+#### {{ dataproc-name }} {#dataproc}
+
+* Команда `yc dataproc cluster create`, флаг `--subcluster`.
+
+  Добавлен параметр `assign-public-ip`, позволяющий выделить публичные ip адреса для всех хостов подкластера.
+
+## Предыдущие релизы {#previous-releases}
+
+## Версия 0.83.0 (26.10.21) {#version0.83.0}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -42,9 +78,7 @@
 
 * В команду `yc managed-postgresql hosts update` добавлен параметр `--assign-public-ip` для управления публичным доступом к хосту: `true` — хост доступен по публичному IP-адресу, `false` — публичный доступ отключен.
 
-## Предыдущие релизы {#previous-releases}
-
-### Версия 0.82.0 (23.09.21) {#version0.82.0}
+## Версия 0.82.0 (23.09.21) {#version0.82.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 

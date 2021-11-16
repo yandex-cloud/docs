@@ -17,6 +17,7 @@
   * [AWS Java SDK](aws-sdk-java.md)
   * [Python SDK (boto)](boto.md)
   * [AWS .NET SDK](aws-sdk-net.md)
+  * [AWS C++ SDK](aws-sdk-cpp.md)
 
 * FUSE
 
