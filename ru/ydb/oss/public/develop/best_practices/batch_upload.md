@@ -2,12 +2,6 @@
 
 В данном разделе предоставлены рекомендации по эффективной загрузке больших объемов данных в {{ ydb-short-name }}.
 
-{% if audience == "internal" %}
-
-Пример реализации загрузки данных на [C++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/examples/batch_upload).
-
-{% endif %}
-
 Существуют антипаттерны и неоптимальные настройки загрузки данных, при использовании которых не может гарантироваться приемлемая производительность загрузки данных в БД.
 Для увеличения скорости загрузки данных нужно учесть следующие рекомендации:
 
@@ -24,23 +18,11 @@
 * Следует избегать записи последовательно в порядке возрастания или убывания первичного ключа.
   Запись в таблицу данных с монотонно возрастающим ключом приведет к тому, что все новые данные будут записываться в конец таблицы, поскольку все таблицы в YDB отсортированы по возрастанию первичного ключа. Так как YDB разделяет таблицы на шарды по диапазонам ключей, вставки будут обрабатываться одним конкретным сервером, отвечающим за "последний" шард. Сосредоточение нагрузки на одном сервере приведет к медленной загрузке данных и не эффективному использованию распределенной системы.
 
-{% if audience == "internal" %}
-
-{% note warning %}
-
-Настройка шардирования (Partitioning Policy) таблицы при ее создании в текущей версии возможна только через [С++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/client/ydb_table.h), [Java](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/java/table/src/settings/PartitioningPolicy.java) и [Python](https://a.yandex-team.ru/arc//trunk/arcadia/kikimr/public/sdk/python/client/table.py) SDK.
-
-{% endnote %}
-
-{% else if audience == "external" %}
-
 {% note warning %}
 
 Настройка шардирования (Partitioning Policy) таблицы при ее создании в текущей версии возможна только через [Java](https://github.com/yandex-cloud/ydb-java-sdk) и [Python](https://github.com/yandex-cloud/ydb-python-sdk) SDK.
 
 {% endnote %}
-
-{% endif %}
 
 Исходя из данных рекомендаций можно предложить следующий алгоритм действий для эффективной загрузки данных в {{ ydb-short-name }}:
 

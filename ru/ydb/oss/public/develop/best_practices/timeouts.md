@@ -21,7 +21,7 @@ description: 'Значение operation_timeout определяет время
 
 Всегда рекомендуется устанавливать и таймаут на операцию и транспортный таймаут. Значение транспортного таймаута следует делать на 50-100 миллисекунд больше чем значение таймаута на операцию, чтобы оставался некоторый запас времени, за который клиент сможет получить серверную ошибку c кодом ``Timeout``.
 
-Рассмотрим примеры использования таймаутов на различных языках программирования:
+Пример использования таймаутов:
 
 {% list tabs %}
 
@@ -41,47 +41,5 @@ description: 'Значение operation_timeout определяет время
         settings=settings,
     )
   ```
-{% if audience != "external" %}
-
-- С++
-  ```cpp
-  #include <kikimr/public/sdk/cpp/client/ydb.h>
-  #include <kikimr/public/sdk/cpp/client/ydb_table.h>
-  #include <kikimr/public/sdk/cpp/client/ydb_value.h>
-
-  using namespace NYdb;
-  using namespace NYdb::NTable;
-
-  TAsyncStatus ExecuteInTx(TSession& session, TString query, TParams params) {
-    return session.ExecuteDataQuery(
-        query
-        , TTxControl::BeginTx(TTxSettings::SerializableRW()).CommitTx()
-        , TExecDataQuerySettings()
-        .OperationTimeout(TDuration::MilliSeconds(300))  // operation timeout
-        .ClientTimeout(TDuration::MilliSeconds(400))   // transport timeout
-        .CancelAfter(TDuration::MilliSeconds(300)));  // cancel after timeout
-  }
-
-  ```
-
-- Go
-  ```go
-  import (
-      "context"
-      "a.yandex-team.ru/kikimr/public/sdk/go/ydb"
-      "a.yandex-team.ru/kikimr/public/sdk/go/ydb/table"
-  )
-
-  func executeInTx(ctx context.Context, s *table.Session, query string) {
-      newCtx, close := context.WithTimeout(ctx, time.Millisecond*300)         // client and by default operation timeout
-      newCtx2 := ydb.WithOperationTimeout(newCtx, time.Millisecond*400)       // operation timeout override
-      newCtx3 := ydb.WithOperationCancelAfter(newCtx2, time.Millisecond*300)  // cancel after timeout
-      defer close()
-      tx := table.TxControl(table.BeginTx(table.WithSerializableReadWrite()), table.CommitTx())
-      _, res, err := session.Execute(newCtx3, tx, query)
-  }
-  ```
-
-{% endif %}
 
 {% endlist %}

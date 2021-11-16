@@ -134,7 +134,7 @@ items:
     items:
       - name: Использование плана запроса и AST
         when: audience == "external"
-        href: oss/public/operations/get-query-plan.md
+        href: oss/public/develop/operations/get-query-plan.md
       - name: Управление базами данных
         href: operations/create_manage_database.md
       - name: Управление базами данных (Internal)
@@ -149,7 +149,7 @@ items:
         href: operations/internal/crud.md
       - name: Работа со вторичными индексами
         when: audience == "external"
-        href: oss/public/operations/indexes.md
+        href: oss/public/develop/operations/indexes.md
   - name: Работа с YDB CLI
     when: audience == "external"
     items:
@@ -356,26 +356,44 @@ items:
   - name: Рекомендации
     items:
       - name: Проектирование схемы
-        href: best_practices/schema_design.md
+        href: oss/public/develop/best_practices/schema_design.md
+        when: audience == "external"
       - name: Партицирование таблиц
-        href: best_practices/table_sharding.md
+        href: oss/public/develop/best_practices/table_sharding.md
+        when: audience == "external"
       - name: Вторичные индексы
-        href: best_practices/secondary_indexes.md
+        href: oss/public/develop/best_practices/secondary_indexes.md
+        when: audience == "external"
+      - name: Вторичные индексы
+        href: best_practices/internal/secondary_indexes.md
+        when: audience != "external"
       - name: Постраничный вывод
-        href: best_practices/paging.md
+        when: audience == "external"
+        href: oss/public/develop/best_practices/paging.md
+      - name: Постраничный вывод
+        when: audience != "external"
+        href: best_practices/internal/paging.md
       - name: Загрузка больших объемов данных
-        href: best_practices/batch_upload.md
+        href: oss/public/develop/best_practices/batch_upload.md
+        when: audience == "external"
+      - name: Загрузка больших объемов данных
+        href: best_practices/internal/batch_upload.md
+        when: audience != "external"
       - name: Удаление устаревших данных с помощью вспомогательных таблиц
-        href: best_practices/ttl.md
+        href: best_practices/internal/ttl.md
         when: audience != "external"
       - name: Загрузка данных из YT
-        href: best_practices/import_from_yt.md
+        href: best_practices/internal/import_from_yt.md
         when: audience != "external"
       - name: Настройка групп колонок
-        href: best_practices/column_families.md
+        href: best_practices/internal/column_families.md
         when: audience == "tech"
       - name: Использование таймаутов
-        href: best_practices/timeouts.md
+        href: oss/public/develop/best_practices/timeouts.md
+        when: audience == "external"
+      - name: Использование таймаутов
+        href: best_practices/internal/timeouts.md
+        when: audience != "external"
   - name: YDB API и справочник
     when: audience == "tech"
     items:
