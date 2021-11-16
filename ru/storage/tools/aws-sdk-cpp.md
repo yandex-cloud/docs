@@ -1,3 +1,7 @@
+---
+author: alehay
+---
+
 # AWS SDK для C++
 
 [AWS SDK для C++](https://aws.amazon.com/ru/sdk-for-cpp/) — это комплект средств разработки для работы с сервисами AWS.
@@ -100,7 +104,7 @@ int main(int argc, char* argv[])
 
         // Секция настроек для использования AWS SDK с Object Storage
         Aws::Client::ClientConfiguration config;
-        config.region = Aws::String("ru-cental1");
+        config.region = Aws::String("ru-central1");
         config.endpointOverride = Aws::String("storage.yandexcloud.net");
 
         Aws::String bucket_name = "bucket_name";
