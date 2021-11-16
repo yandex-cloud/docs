@@ -20,6 +20,7 @@
 
 * [Active Directory](operations/federations/integration-adfs.md).
 * [Google Workspace](operations/federations/integration-gworkspace.md).
+* [Azure Active Directory](operations/federations/integration-azure.md).
 * [Другие SAML-совместимые поставщики удостоверений](operations/federations/integration-common.md).
 
 ## Как происходит аутентификация в федерации {#saml-authentication}
