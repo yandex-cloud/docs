@@ -1,10 +1,10 @@
-# Bucket Policy
+# Bucket policy
 
 Bucket policies set permissions for actions with buckets, objects, and groups of objects.
 
 A policy is triggered when a user makes a request to a resource. As a result, the request is either executed or rejected.
 
-Access is verified at three levels: IAM service checks, bucket policy, and access control list (ACL).
+Access is verified at three levels: {{ iam-full-name }} service verification, the access policy, and the ACL permission list.
 
 1. If a request passes the IAM check, the next step is the bucket policy check.
 1. Bucket policy rules are checked in the following order:
@@ -14,6 +14,7 @@ Access is verified at three levels: IAM service checks, bucket policy, and acces
 1. If the request failed the IAM or bucket policy check, access verification is performed based on an object's ACL.
 
 The bucket policy consists of the following basic elements:
+
 * Resource: A bucket (`arn:aws:s3:::samplebucket`), an object in the bucket (`arn:aws:s3:::samplebucket/some/key`), or a prefix (`arn:aws:s3:::samplebucket/some/path/*`).
 * Action: A set of resource operations that the policy either prohibits or allows. For more information, see [Actions](../s3/api-ref/policy/actions.md).
 * The result is denying or allowing the requested action. First, the request is checked against the `Deny` action filter. If matched, the request is rejected and no further checks are performed. If it meets the `Allow` action filter criteria, the request is allowed. If the request doesn't meet any of the filters, it's rejected.
@@ -22,9 +23,30 @@ The bucket policy consists of the following basic elements:
 
 A JSON-like language is used to describe policy rules.
 
-## Sample configurations
+To avoid blocking access to a bucket via the {{ yandex-cloud }} management console under the policy, you can add the following rule to the `Statement` section:
 
-* The following policy gives an anonymous user access to read `samplebucket` bucket objects provided that a connection is encrypted.
+```json
+{
+  "Effect": "Allow",
+  "Principal": {
+  "CanonicalUser": "ajeyourusernameid"
+  },
+  "Action": "*",
+  "Resource": [
+    "arn:aws:s3:::your-bucket-name/*",
+    "arn:aws:s3:::your-bucket-name"
+  ],
+  "Condition": {
+    "StringLike": {
+      "aws:referer": "https://console.cloud.yandex.*/folders/*/storage/buckets/your-bucket-name*"
+    }
+  }
+}
+```
+
+## Sample configurations {#config-examples}
+
+* A policy that allows an anonymous user to read objects in the `samplebucket` bucket over an encrypted connection:
 
 ```json
 {
@@ -40,6 +62,27 @@ A JSON-like language is used to describe policy rules.
       "Condition": {
         "Bool": {
           "aws:SecureTransport": "true"
+        }
+      }
+    }
+  ]
+}
+```
+
+* A policy that only enables object download from a specified range of IP addresses:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::samplebucket/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": "100.101.102.128/30"
         }
       }
     }
@@ -74,14 +117,14 @@ A JSON-like language is used to describe policy rules.
 }
 ```
 
-* A policy that indicates separate access to bucket resources for different users:
+* A policy that enables different users access only to certain folders with each user being able to access his or her own:
 
 ```json
 {
   "Version":"2012-10-17",
   "Statement":[
     {
-      "Sid":"User1Permissions",
+      "Sid":"User1PermissionsResource",
       "Effect":"Allow",
       "Principal": {
         "CanonicalUser": "ajeanexampleusername"
@@ -90,13 +133,41 @@ A JSON-like language is used to describe policy rules.
       "Resource":["arn:aws:s3:::common-bucket/user1path/*"]
     },
     {
-      "Sid":"User2Permissions",
+      "Sid":"User1PermissionsPrefix",
+      "Effect":"Allow",
+      "Principal": {
+          "CanonicalUser": "ajeanexampleusername"
+      },
+      "Action": "s3:ListBucket",
+      "Resource":["arn:aws:s3:::common-bucket"],
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": "user1path/*"
+        }
+      }
+    },
+    {
+      "Sid":"User2PermissionsResource",
       "Effect":"Allow",
       "Principal": {
         "CanonicalUser": "ajesomeotherusername"
       },
       "Action": "*",
       "Resource":["arn:aws:s3:::common-bucket/user2path/*"]
+    },
+    {
+      "Sid":"User2PermissionsPrefix",
+      "Effect":"Allow",
+      "Principal": {
+        "CanonicalUser": "ajesomeotherusername"
+      },
+      "Action": "s3:ListBucket",
+      "Resource":["arn:aws:s3:::common-bucket"],
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": "user2path/*"
+        }
+      }
     }
   ]
 }
