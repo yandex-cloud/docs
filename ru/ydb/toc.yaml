@@ -62,7 +62,7 @@ items:
   - name: Пошаговые инструкции
     items:
       - name: Использование плана запроса и AST
-        href: oss/public/operations/get-query-plan.md
+        href: oss/public/develop/operations/get-query-plan.md
       - name: Управление базами данных
         href: operations/create_manage_database.md
       - name: Управление таблицами
@@ -70,7 +70,7 @@ items:
       - name: Чтение и запись данных
         href: operations/crud.md
       - name: Работа со вторичными индексами
-        href: oss/public/operations/indexes.md
+        href: oss/public/develop/operations/indexes.md
   - name: Работа с YDB CLI
     items:
       - name: Установка YDB CLI
@@ -201,17 +201,17 @@ items:
   - name: Рекомендации
     items:
       - name: Проектирование схемы
-        href: best_practices/schema_design.md
+        href: oss/public/develop/best_practices/schema_design.md
       - name: Партицирование таблиц
-        href: best_practices/table_sharding.md
+        href: oss/public/develop/best_practices/table_sharding.md
       - name: Вторичные индексы
-        href: best_practices/secondary_indexes.md
+        href: oss/public/develop/best_practices/secondary_indexes.md
       - name: Постраничный вывод
-        href: best_practices/paging.md
+        href: oss/public/develop/best_practices/paging.md
       - name: Загрузка больших объемов данных
-        href: best_practices/batch_upload.md
+        href: oss/public/develop/best_practices/batch_upload.md
       - name: Использование таймаутов
-        href: best_practices/timeouts.md
+        href: oss/public/develop/best_practices/timeouts.md
   - name: HTTP API, совместимый с Amazon DynamoDB
     items:
       - name: Справочник API

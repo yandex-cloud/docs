@@ -61,6 +61,10 @@ items:
         href: concepts/slicing.md
       - name: Origins and origin groups
         href: concepts/origins.md
+      - name: Origin shielding
+        href: concepts/origins-shielding.md
+      - name: Exporting logs
+        href: concepts/logs.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

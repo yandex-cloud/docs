@@ -28,20 +28,7 @@ keywords:
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
-
-![image](../../_assets/mdb/service-roles-hierarchy.svg)
-
-Роли, действующие в сервисе:
-* Сервисные роли:
-  * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-  * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-  * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
-  * {% include [mdb.admin](../../_includes/iam/roles/short-descriptions/mdb.admin.md) %}  
-* Примитивные роли:
-  * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-  * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-  * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+{% include [roles-mdb](../../_includes/roles-mdb.md) %}
 
 ## Какие роли мне необходимы {#required-roles}
 

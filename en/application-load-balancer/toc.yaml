@@ -209,4 +209,6 @@ items:
                 href: api-ref/VirtualHost/update.md
               - name: updateRoute
                 href: api-ref/VirtualHost/updateRoute.md
+  - name: Log reference
+    href: logs-ref.md
 base: en/application-load-balancer

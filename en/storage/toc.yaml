@@ -53,6 +53,10 @@ items:
             href: operations/hosting/multiple-domains.md
           - name: Configuring HTTPS
             href: operations/hosting/certificate.md
+      - name: Access management
+        items:
+          - name: Applying an access policy
+            href: operations/access/apply-policy.md
   - name: Use cases
     items:
       - name: Getting object query statistics with S3 Select

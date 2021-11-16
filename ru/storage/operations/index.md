@@ -24,13 +24,13 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](objects/deleting-multipart.md)
 * [{#T}](objects/edit-acl.md)
 
-## Хостинг статических сайтов
+## Хостинг статических сайтов {#hosting}
 
 * [{#T}](hosting/setup.md)
 * [{#T}](hosting/own-domain.md)
 * [{#T}](hosting/multiple-domains.md)
 * [{#T}](hosting/certificate.md)
 
-## Управление доступом
+## Управление доступом {#access}
 
 * [{#T}](access/apply-policy.md)
