@@ -127,12 +127,14 @@ items:
             href: tools/winscp.md
       - name: SDK
         items:
-        - name: AWS SDK для Java
-          href: tools/aws-sdk-java.md
-        - name: Python SDK (boto)
-          href: tools/boto.md
-        - name: AWS SDK для .NET
-          href: tools/aws-sdk-net.md
+          - name: AWS SDK для Java
+            href: tools/aws-sdk-java.md
+          - name: Python SDK (boto)
+            href: tools/boto.md
+          - name: AWS SDK для .NET
+            href: tools/aws-sdk-net.md
+          - name: AWS SDK для C++
+            href: tools/aws-sdk-cpp.md
       - name: FUSE
         items:
           - name: GeeseFS
