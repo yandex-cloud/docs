@@ -20,6 +20,7 @@ You can set up identity federations for different identity providers:
 
 * [Active Directory](operations/federations/integration-adfs.md).
 * [Google Workspace](operations/federations/integration-gworkspace.md).
+* [Azure Active Directory](operations/federations/integration-azure.md).
 * [Other SAML-compatible identity providers](operations/federations/integration-common.md).
 
 ## Authenticating in a federation {#saml-authentication}
