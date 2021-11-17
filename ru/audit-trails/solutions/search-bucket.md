@@ -1,8 +1,8 @@
 # Поиск в бакете
 
 ## Перед началом работы {#before-you-begin}
-1. Установите и настройте программу [s3fs](../../storage/tools/s3fs.md) или [goofys](../../storage/tools/goofys.md), позволяющую монтировать бакеты {{ objstorage-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
-1. Смонтируйте бакет с аудитными логами к вашей файловой системе через [s3fs](https://cloud.yandex.ru/docs/storage/tools/s3fs#mounting-bucket) или [goofys](https://cloud.yandex.ru/docs/storage/tools/goofys#bucket-mounting).
+1. Установите и настройте программу [s3fs](../../storage/tools/s3fs.md) или [goofys](../../storage/tools/goofys.md), позволяющую монтировать бакеты {{ objstorage-name }} через [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% endif %}.
+1. Смонтируйте бакет с аудитными логами к вашей файловой системе через [s3fs](../../storage/tools/s3fs.md#mounting-bucket) или [goofys](../../storage/tools/goofys.md#bucket-mounting).
 1. Установите утилиту [jq](https://stedolan.github.io/jq) для поиска по формату JSON.
 
 ## Сценарии поиска {#search}

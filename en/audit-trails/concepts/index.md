@@ -1,34 +1,49 @@
-# Overview
+---
+title: Yandex Audit Trails. Обзор сервиса
+description: 'Yandex Audit Trails позволяет собирать аудитные логи о происходящих с ресурсами Yandex.Cloud событиях и загружать эти логи в бакет или лог-группу для дальнейшего анализа или экспорта.'
+---
 
-{{ at-full-name }} allows you to collect audit logs about events happening to {{ yandex-cloud }} resources and load these logs to the user's bucket for further analysis or export.
+# {{ at-full-name }} overview
+
+{{ at-full-name }} lets you collect audit logs of {{ yandex-cloud }} resources and upload them to a {{ objstorage-name }} bucket or {{ cloud-logging-name }} log group:
+
+* [Uploading audit logs to a bucket](../operations/export-bucket.md).
+* [Uploading audit logs to Cloud Logging](../operations/export-cloud-logging.md).
+
+Collecting audit logs lets you use analytical tools and rapidly respond to events that occur to {{ yandex-cloud }} services:
+
+* [Searching audit logs in a bucket](../solutions/search-bucket.md).
+* [Searching audit logs in a log group](../solutions/search-cloud-logging.md).
+* [Exporting audit logs to SIEM systems](./export-siem.md).
+* Setting up alerts in Cloud Logging.
 
 {{ yandex-cloud }} services whose audit logs {{ at-name }} collects:
 
-* {{ compute-name }}.
-* {{ iam-name }}.
-* {{ kms-name }}.
-* {{ objstorage-name }}.
-* {{ resmgr-name }}.
-* {{ vpc-name }}.
+* {{ at-full-name }}
+* {{ cloud-logging-name }}
+* {{ compute-name }}
+* {{ iam-name }}
+* {{ kms-name }}
+* {{ lockbox-name }}
+* {{ objstorage-name }}
+* {{ resmgr-name }}
+* {{ vpc-name }}
+* {{ ydb-name }}
 
 The following events are logged:
 
-* Modifying operations with a service resource.
-* Issuing an IAM token for a federated account.
+* Logins by federated users.
+* Creating/deleting service accounts.
+* Creating/deleting keys of service accounts.
+* Editing user roles and service accounts.
+* Creating/deleting resources.
+* Editing resource settings.
+* Stopping/restarting a resource.
+* Changing access policies.
+* Creating/editing security groups.
+* Actions with encryption keys and secrets.
 
-## Trail {#trail}
+## Current service limits {#known-restrictions}
 
-{% note info %}
-
-The resource won't be visible at the [Preview stage](../../overview/concepts/launch-stages.md) stage. For information about how to create a resource, see [{#T}](../quickstart.md).
-
-{% endnote %}
-
-A trail is a {{ at-full-name }} resource responsible for collecting audit logs and uploading them to {{ objstorage-name }}.
-
-You can specify what event types and source services need to be logged. Events are collected from resources in the same cloud as the trail. Events are buffered by the {{ at-name }} service and are saved to a JSON file once every 5 minutes in the specified bucket. For information about the file format, see [{#T}](format.md).
-
-## Current service limitations {#known-restrictions}
-
-For more information about service limits, see [{#T}](limits.md).
+For more information about service limits, see [Quotas and limits](limits.md).
 
