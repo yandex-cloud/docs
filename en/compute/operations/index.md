@@ -121,6 +121,8 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](instance-groups/enable-autohealing.md)
 * [{#T}](instance-groups/deploy/rolling-update.md)
 * [{#T}](instance-groups/deploy/zero-downtime.md)
+* [{#T}](instance-groups/pause-processes.md)
+* [{#T}](instance-groups/resume-processes.md)
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/delete.md)

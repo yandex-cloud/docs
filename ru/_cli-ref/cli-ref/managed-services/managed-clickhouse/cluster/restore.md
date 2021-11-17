@@ -34,6 +34,7 @@ Syntax:
 |`--cloud-storage`| Whether to use Yandex Object Storage for storing ClickHouse data.|
 |`--enable-sql-database-management`| Whether database management through SQL commands is enabled.|
 |`--enable-sql-user-management`| Whether user management through SQL commands is enabled.|
+|`--embedded-keeper`| Whether cluster should use embedded Keeper instead of Zookeeper.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of labels as key-value pairs to add for the cluster being restored.|
 |`--service-account`|<b>`string`</b><br/> Service account for the ClickHouse cluster being restored.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the ClickHouse cluster.|

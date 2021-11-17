@@ -2,6 +2,12 @@
 
 Choose the instance group scaling type when creating each group. The type determines how the number of instances in the group is changed: [automatically](#auto-scale) or [manually](#fixed-scale).
 
+{% note info %}
+
+If for an instance group, [processes are paused ](stopping-pausing.md) ([status](statuses.md#group-statuses) is `PAUSED`), it does not scale up.
+
+{% endnote %}
+
 ## Manually scaled groups {#fixed-scale}
 
 You can [create fixed-size instance groups](../../operations/instance-groups/create-fixed-group.md) and manage their size manually based on your current computing needs.
@@ -30,9 +36,9 @@ The service can adjust the number of instances separately in each [availability 
 
 To reduce adjustment sensitivity, {{ ig-name }} lets you configure:
 
-* *Stabilization period*: After the number of instances in the group increases, instances aren't deleted until the end of the stabilization period, even if the average metric value is fairly low.
-
+* *Stabilization period*: After the number of VMs increases, group size does not decrease until the end of a stabilization period, even if the average value of the metric has become sufficiently low.
 * *Warm-up period*: The period during which the following isn't used after an instance starts.
+
   * [CPU utilization](#cpu-utilization).
   * [Monitoring metric](#monitoring-metrics) values that are applied according to the `UTILIZATION` rule.
 
@@ -82,7 +88,7 @@ You can use any {{ monitoring-name }} metrics for automatic scaling in {{ ig-nam
 
 When using monitoring metrics, specify the following in {{ ig-name }}:
 
-* _The name of the metric_ that you specified in {{ monitoring-name }}.
+* _Metric name_ that you specified in {{ monitoring-name }}.
 
 * _[Labels](../../../monitoring/concepts/data-model.md#label)_ that you specified in {{ monitoring-name }}:
   * (optional) `folder_id`: ID of the folder. By default, it's the ID of the folder that the group belongs to.

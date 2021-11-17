@@ -2,6 +2,12 @@
 
 {{ ig-name }} runs regular health checks for instances in your group. If an instance stopped or an app is taking too long to respond, {{ ig-name }} tries to heal the instance: it either restarts it or creates a new one, depending on the [deployment policy](policies/deploy-policy.md).
 
+{% note info %}
+
+If for an instance group, [processes are paused](stopping-pausing.md) ([status](statuses.md#group-statuses) is `PAUSED`), instances aren't healed.
+
+{% endnote %}
+
 ## Types of health checks {#setting-up-health-checks}
 
 To ensure auto-healing, {{ ig-name }} performs two types of health checks:
@@ -34,10 +40,10 @@ If you [created an instance group with a network load balancer](../../operations
 To auto-heal instances, {{ ig-name }} may restart instances or create new ones. The healing method is set in the [deployment policies](policies/deploy-policy.md).
 
 * Creating new instances
-{{ ig-name }} will create new instances to replace those that failed the health check, provided that the deployment policy permits expanding the target size of the instance group. You can set the maximum number of instances that can be allocated to expand the target size of the group by using the `max_expansion` parameter. Acceptable values: from `0` to `100`. In this case, {{ ig-name }} will first create a new instance, wait until it passes all the checks, and then undeploy the instance that failed the check.
+{{ ig-name }} will create new instances to replace any that fail their health checks, provided the deployment policy permits expanding the target group size. You can set the maximum number of instances that can be allocated to expand the target size of the group by using the `max_expansion` parameter. Acceptable values: from `0` to `100`. In this case, {{ ig-name }} will first create a new instance, wait until it passes all the checks, and then undeploy the instance that failed the check.
 
 * Restarting an instance
-{{ ig-name }} will restart instances that failed the health check if the deployment policy permits reducing the target size of the instance group. You can use  the `max_unavailable` parameter to set the maximum number of instances that can be made unavailable at the same time. Acceptable values: from `0` to `100`. {{ ig-name }} will try not to exceed this value during auto-healing.
+{{ ig-name }} will restart instances that failed their health check if the deployment policy permits reducing the target group size. You can use  the `max_unavailable` parameter to set the maximum number of instances that can be made unavailable at the same time. Acceptable values: from `0` to `100`. {{ ig-name }} will try not to exceed this value during auto-healing.
 
   This restriction does not apply to instances with the [statuses](../vm-statuses.md) `CRASHED`, `ERROR`, and `STOPPED`, because in these cases the instance is already unavailable and must be restarted immediately.
 

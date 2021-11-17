@@ -77,7 +77,7 @@ items:
         href: solutions/container-registry.md
       - name: Запуск рабочих нагрузок с GPU
         href: solutions/running-pod-gpu.md
-      - name: Установка NGINX Ingress Controller с Let's Encrypt®
+      - name: Установка NGINX Ingress-контроллера с Let's Encrypt®
         href: solutions/ingress-cert-manager.md
       - name: Настройка Application Load Balancer Ingress-контроллера
         href: solutions/alb-ingress-controller.md

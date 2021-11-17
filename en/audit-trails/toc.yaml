@@ -1,0 +1,38 @@
+title: Yandex Audit Trails
+stage: preview
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Trail
+        href: concepts/trail.md
+      - name: Audit event log
+        href: concepts/format.md
+      - name: Event reference
+        href: concepts/events.md
+      - name: Exporting to SIEM systems
+        href: concepts/export-siem.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Step-by-step instructions
+    items:
+      - name: Uploading audit logs to a log group
+        href: operations/export-cloud-logging.md
+      - name: Uploading audit logs to a bucket
+        href: operations/export-bucket.md
+  - name: Use cases
+    items:
+      - name: Searching a bucket
+        href: solutions/search-bucket.md
+      - name: Searching a log group
+        href: solutions/search-cloud-logging.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/audit-trails

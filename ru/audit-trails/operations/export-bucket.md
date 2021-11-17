@@ -10,9 +10,9 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте новый бакет](https://cloud.yandex.ru/docs/storage/quickstart#the-first-bucket) для загрузки в него аудитных логов.
-1. Создайте [ключ шифрования](https://cloud.yandex.ru/docs/kms/operations/key#create) в сервисе {{ kms-short-name }}.
-1. [Включите шифрование бакета](https://cloud.yandex.ru/docs/storage/operations/buckets/encrypt#add), используя созданный ключ шифрования.
+1. [Создайте новый бакет](../../storage/quickstart.md#the-first-bucket) для загрузки в него аудитных логов.
+1. Создайте [ключ шифрования](../../kms/operations/key.md#create) в сервисе {{ kms-short-name }}.
+1. [Включите шифрование бакета](../../storage/operations/buckets/encrypt.md#add), используя созданный ключ шифрования.
 1. Создайте сервисный аккаунт и назначьте ему роли: 
     * `audit-trails.viewer` на облако;
     * `storage.uploader` на бакет или каталог;

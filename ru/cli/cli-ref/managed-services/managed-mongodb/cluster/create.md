@@ -20,7 +20,7 @@ Syntax:
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Individual configurations for hosts that should be created with the MongoDB cluster.  Possible property names:  zone-id ID of the availability zone where the new host should reside.  subnet-id ID of the subnet that the host should be created in.  subnet-name Name of the subnet that the host should be created in.  assign-public-ip Assign a public IP address to the host being added.  |
 |`--user`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Descriptions of database users to be created with the MongoDB cluster.  Possible property names:  name Name of the MongoDB user.  password Password of the MongoDB user.  |
 |`--database`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Descriptions of databases to be created with the MongoDB cluster.  Possible property names:  name Name of the MongoDB database.  |
-|`--mongodb-version`|<b>`string`</b><br/> Version of MongoDB used by the cluster. Supported value: 3.6, 4.0, 4.2, 4.4|
+|`--mongodb-version`|<b>`string`</b><br/> Version of MongoDB used by the cluster. Supported value: 3.6, 4.0, 4.2, 4.4, 5.0|
 |`--backup-window-start`|<b>`timeofday`</b><br/> Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/> Retain period of automatically created backup in days.|
 |`--datalens-access`| Allow access for DataLens|
