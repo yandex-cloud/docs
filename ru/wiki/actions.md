@@ -22,4 +22,5 @@
 
 ### См. также
 
-- [{#T}](static-markup.md)
+* [{#T}](static-markup.md)
+* [{#T}](formatter.md)

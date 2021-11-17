@@ -26,7 +26,4 @@
 ### См. также
 
 * [{#T}](actions.md)
-
-
-
-
+* [{#T}](formatter.md)

@@ -10,7 +10,7 @@
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. Убедитесь, что в вашем облаке существует бакет для хранения аудитного лога, при необходимости [создайте новый бакет](https://cloud.yandex.ru/docs/storage/quickstart#the-first-bucket).
+1. Убедитесь, что в вашем облаке существует бакет для хранения аудитного лога, при необходимости [создайте новый бакет](../../storage/quickstart#the-first-bucket).
 1. Создайте сервисный аккаунт и назначьте ему роли:
     * `storage.uploader` на бакет или каталог;
     * `audit-trails.viewer` на облако.
@@ -53,7 +53,7 @@
 Получите доступ к содержимому файла аудитного лога одним из способов:
 * [Скачайте объект](../storage/operations/objects/download.md).
 * [Получите публичную ссылку на объект](../storage/operations/objects/link-for-download.md).
-* Смонтируйте бакет через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C_%D1%8F%D0%B4%D1%80%D0%B0)): [s3fs](../storage/tools/s3fs.md) или [goofys](../storage/tools/goofys.md). 
+* Смонтируйте бакет через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)): [s3fs](../storage/tools/s3fs.md) или [goofys](../storage/tools/goofys.md). 
 
 ## Экспорт аудитных логов в SIEM {#watch-log-file}
 

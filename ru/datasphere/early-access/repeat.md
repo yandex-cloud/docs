@@ -1,6 +1,7 @@
 # Специальные фоновые операции
 
 Специальные фоновые операции позволяют:
+
 * выполнять aсинхронный запуск последовательности операций;
 * запускать параллельные вычисления.
 
@@ -9,6 +10,7 @@
 Если в другой части ноутбука используется та же переменная, что и в асинхронной операции, в ноутбуке появится уведомление, и вам нужно будет явно указать значение переменной после выполнения асинхронной операции.
 
 Особенности выполнения специальных фоновых операций:
+
 * Запуск операций в фоновом режиме не гарантирует немедленный запуск исполнения.
 * Специальные фоновые операции в общем случае могут выполняться дольше, чем обычные операции.
 * Специальные фоновые операции могут выполняться на [прерываемых](../../compute/concepts/preemptible-vm.md) виртуальных машинах и ресурсах.
@@ -22,45 +24,48 @@
 
 Чтобы запустить последовательные операции в фоне:
 
-  1. Обновите пакет tensorflow до версии 2.3.0:
+1. Обновите пакет tensorflow до версии 2.3.0:
 
-      ```python
-      %pip install tensorflow==2.3.0
-      ```
-  2. Перезапустите ядро. 
-      1. На верхней панели в окне проекта нажмите кнопку **Kernel**.
-      1. В открывшемся меню нажмите кнопку **Reset kernel**.
+    ```python
+    %pip install tensorflow==2.3.0
+    ```
 
-  3. Задайте тестовую модель, например:
+1. Перезапустите ядро.
 
-      ```python
-      import tensorflow as tf
-      import datetime
+    1. На верхней панели в окне проекта нажмите кнопку **Kernel**.
+    1. В открывшемся меню нажмите кнопку **Reset kernel**.
 
-      mnist = tf.keras.datasets.mnist
+1. Задайте тестовую модель, например:
 
-      (x_train, y_train),(x_test, y_test) = mnist.load_data()
-      x_train, x_test = x_train / 255.0, x_test / 255.0
+    ```python
+    import tensorflow as tf
+    import datetime
 
-      def create_model():
-          return tf.keras.models.Sequential([
-              tf.keras.layers.Flatten(input_shape=(28, 28)),
-              tf.keras.layers.Dense(512, activation='relu'),
-              tf.keras.layers.Dropout(0.2),
-              tf.keras.layers.Dense(10, activation='softmax')
-          ])
-      ```
+    mnist = tf.keras.datasets.mnist
 
-  4. Запустите обучение модели, указав служебную команду `#pragma repeat` в начале ячейки: 
+    (x_train, y_train),(x_test, y_test) = mnist.load_data()
+    x_train, x_test = x_train / 255.0, x_test / 255.0
 
-      ```python
-      #pragma repeat --iterations 20 --checkpoint-period 5 --max-by "model.evaluate(x_test, y_test, verbose=0)[1]"
+    def create_model():
+        return tf.keras.models.Sequential([
+            tf.keras.layers.Flatten(input_shape=(28, 28)),
+            tf.keras.layers.Dense(512, activation='relu'),
+            tf.keras.layers.Dropout(0.2),
+            tf.keras.layers.Dense(10, activation='softmax')
+        ])
+    ```
 
-      model.fit(x_train, y_train, epochs=1, verbose=0)
-      ```
-       * `--iterations` — количество запусков.
-       * `--checkpoint-period` — период сохранения результатов.
-       * `--max-by` — правило выбора конечного результата.
+1. Запустите обучение модели, указав служебную команду `#pragma repeat` в начале ячейки: 
+
+    ```python
+    #pragma repeat --iterations 20 --checkpoint-period 5 --max-by "model.evaluate(x_test, y_test, verbose=0)[1]"
+
+    model.fit(x_train, y_train, epochs=1, verbose=0)
+    ```
+
+      * `--iterations` — количество запусков.
+      * `--checkpoint-period` — период сохранения результатов.
+      * `--max-by` — правило выбора конечного результата.
 
 В этом примере мы запускаем обучение модели 20 раз и сохраняем результат каждые 5 итераций. В состояние попадет модель, которая показала лучший результат на тестовых данных.
 
