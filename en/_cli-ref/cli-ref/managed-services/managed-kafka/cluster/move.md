@@ -1,25 +1,22 @@
-# yc managed-mongodb hosts
+# yc managed-kafka cluster move
 
-Manage hosts of a MongoDB cluster.
+Move the specified Kafka cluster into the folder
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-mongodb hosts <command>`
+`yc managed-kafka cluster move <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-Aliases: 
+#### Global Flags
 
-- `host`
-
-#### Command Tree
-
-- [yc managed-mongodb hosts list](list.md) — List hosts for a MongoDB cluster.
-- [yc managed-mongodb hosts add](add.md) — Add new hosts to the cluster in specified availability zones.
-- [yc managed-mongodb hosts delete](delete.md) — Remove specified hosts from the a cluster.
-- [yc managed-mongodb hosts resetup](resetup.md) — Resetup specified MongoD hosts.
-- [yc managed-mongodb hosts restart](restart.md) — Restart specified MongoD hosts.
-- [yc managed-mongodb hosts stepdown](stepdown.md) — Stepdown specified MongoD hosts.
+| Flag | Description |
+|----|----|
+|`--id`|<b>`string`</b><br/> Kafka cluster id.|
+|`--name`|<b>`string`</b><br/> Kafka cluster name.|
+|`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
+|`--destination-folder-id`|<b>`string`</b><br/> Destination folder id.|
+|`--destination-folder-name`|<b>`string`</b><br/> Destination folder name.|
 
 #### Flags
 

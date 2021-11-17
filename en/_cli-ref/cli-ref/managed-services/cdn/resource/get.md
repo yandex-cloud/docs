@@ -1,25 +1,19 @@
-# yc managed-mongodb hosts
+# yc cdn resource get
 
-Manage hosts of a MongoDB cluster.
+Show information about resource
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-mongodb hosts <command>`
+`yc cdn resource get <RESOURCE-ID> [<RESOURCE-ID>...] [Flags...] [Global Flags...]`
 
-Aliases: 
+#### Global Flags
 
-- `host`
-
-#### Command Tree
-
-- [yc managed-mongodb hosts list](list.md) — List hosts for a MongoDB cluster.
-- [yc managed-mongodb hosts add](add.md) — Add new hosts to the cluster in specified availability zones.
-- [yc managed-mongodb hosts delete](delete.md) — Remove specified hosts from the a cluster.
-- [yc managed-mongodb hosts resetup](resetup.md) — Resetup specified MongoD hosts.
-- [yc managed-mongodb hosts restart](restart.md) — Restart specified MongoD hosts.
-- [yc managed-mongodb hosts stepdown](stepdown.md) — Stepdown specified MongoD hosts.
+| Flag | Description |
+|----|----|
+|`--no-options`|Enable resource view without options|
+|`--id`|<b>`string`</b><br/>Specifies the origin ID.|
 
 #### Flags
 

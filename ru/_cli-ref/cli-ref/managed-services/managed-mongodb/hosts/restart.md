@@ -1,25 +1,20 @@
-# yc managed-mongodb hosts
+# yc managed-mongodb hosts restart
 
-Manage hosts of a MongoDB cluster.
+Restart specified MongoD hosts.
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-mongodb hosts <command>`
+`yc managed-mongodb hosts restart <HOST-NAME> [<HOST-NAME>...] [Flags...] [Global Flags...]`
 
-Aliases: 
+#### Global Flags
 
-- `host`
-
-#### Command Tree
-
-- [yc managed-mongodb hosts list](list.md) — List hosts for a MongoDB cluster.
-- [yc managed-mongodb hosts add](add.md) — Add new hosts to the cluster in specified availability zones.
-- [yc managed-mongodb hosts delete](delete.md) — Remove specified hosts from the a cluster.
-- [yc managed-mongodb hosts resetup](resetup.md) — Resetup specified MongoD hosts.
-- [yc managed-mongodb hosts restart](restart.md) — Restart specified MongoD hosts.
-- [yc managed-mongodb hosts stepdown](stepdown.md) — Stepdown specified MongoD hosts.
+| Flag | Description |
+|----|----|
+|`--cluster-id`|<b>`string`</b><br/>ID of the MongoDB cluster.|
+|`--cluster-name`|<b>`string`</b><br/>Name of the MongoDB cluster.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags
 

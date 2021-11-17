@@ -1,25 +1,12 @@
-# yc managed-mongodb hosts
+# yc cdn resource get-provider-cname
 
-Manage hosts of a MongoDB cluster.
+Get provider CNAME
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-mongodb hosts <command>`
-
-Aliases: 
-
-- `host`
-
-#### Command Tree
-
-- [yc managed-mongodb hosts list](list.md) — List hosts for a MongoDB cluster.
-- [yc managed-mongodb hosts add](add.md) — Add new hosts to the cluster in specified availability zones.
-- [yc managed-mongodb hosts delete](delete.md) — Remove specified hosts from the a cluster.
-- [yc managed-mongodb hosts resetup](resetup.md) — Resetup specified MongoD hosts.
-- [yc managed-mongodb hosts restart](restart.md) — Restart specified MongoD hosts.
-- [yc managed-mongodb hosts stepdown](stepdown.md) — Stepdown specified MongoD hosts.
+`yc cdn resource get-provider-cname [Global Flags...]`
 
 #### Flags
 
