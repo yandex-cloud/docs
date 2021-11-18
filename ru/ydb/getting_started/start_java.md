@@ -529,6 +529,7 @@ Finished preparing query: PreparedSelectTransaction
 В большинстве случаев вместо явного использования [TCL](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/transaction) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах ExecuteDataQuery. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода basic_example в листинге 19 демонстрирует явное использование вызовов ```beginTransaction``` и ```transaction.commit()```
 
 <small>Листинг 19</small>
+
 ```java
     /**
      * Shows usage of explicit Begin/Commit transaction control calls.
@@ -567,4 +568,4 @@ Finished preparing query: PreparedSelectTransaction
 
 ## Обработка ошибок {#error-handling}
 
-Подробно об обработке ошибок написано в разделе [{#T}](../ydb-sdk/error_handling.md).
+Подробнее об обработке ошибок читайте в [документации](https://cloud.yandex.ru/docs/ydb/oss/public/reference/ydb-sdk/error_handling).

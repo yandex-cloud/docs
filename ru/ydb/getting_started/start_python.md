@@ -246,6 +246,7 @@ def select_prepared(session, path, series_id, season_id, episode_id):
 В большинстве случаев вместо явного использования [TCL](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/transaction) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах execute. Это позволит избежать лишних обращений к YDB и эффективней выполнять запросы. Фрагмент кода basic_example в листинге 14 демонстрирует явное использование вызовов ```transaction().begin()``` и ```tx.Commit()```
 
 <small>Листинг 14</small>
+
 ```python
 # Shows usage of the explicit Begin/Commit transaction control calls.
 # In most cases it's better to use transaction control settings in the session.transaction
@@ -286,4 +287,4 @@ def explicit_tcl(session, path, series_id, season_id, episode_id):
 
 ## Обработка ошибок {#error-handling}
 
-Подробно об обработке ошибок написано в разделе [Обработка ошибок в API](../ydb-sdk/error_handling.md).
+Подробнее об обработке ошибок читайте в [документации](https://cloud.yandex.ru/docs/ydb/oss/public/reference/ydb-sdk/error_handling).

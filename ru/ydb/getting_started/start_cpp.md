@@ -487,6 +487,7 @@ Episode 3, Season: 5, title: Chief Operating Officer, Air date: Sun Apr 08, 2018
 В большинстве случаев вместо явного использования TCL вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах ExecuteDataQuery. Это позволит избежать лишних обращений к YDB и эффективней выполнять запросы. Фрагмент кода basic_example в листинге 19 демонстрирует явное использование вызовов ```BeginTransaction``` и ```tx.Commit()```
 
 <small>Листинг 19</small>
+
 ```c++
 // Show usage of explicit Begin/Commit transaction control calls.
 // In most cases it's better to use transaction control settings in ExecuteDataQuery calls instead
@@ -531,4 +532,4 @@ static TStatus ExplicitTclTransaction(TSession session, const TString& path, con
 
 ## Обработка ошибок {#error-handling}
 
-Подробно об обработке ошибок написано в разделе ["Обработка ошибок в API"](../ydb-sdk/error_handling.md).
+Подробнее об обработке ошибок читайте в [документации](https://cloud.yandex.ru/docs/ydb/oss/public/reference/ydb-sdk/error_handling).
