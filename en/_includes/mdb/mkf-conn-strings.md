@@ -20,8 +20,8 @@ sudo apt update && sudo apt install -y kafkacat
                -t <topic name> \
                -X security.protocol=SASL_PLAINTEXT \
                -X sasl.mechanisms=SCRAM-SHA-512 \
-               -X sasl.username=<consumer username> \
-               -X sasl.password=<consumer password> -Z -K:
+               -X sasl.username="<consumer username>" \
+               -X sasl.password="<consumer password>" -Z -K:
       ```
 
      The command will continuously read new messages from the topic.
@@ -35,8 +35,8 @@ sudo apt update && sudo apt install -y kafkacat
              -k key \
              -X security.protocol=SASL_PLAINTEXT \
              -X sasl.mechanisms=SCRAM-SHA-512 \
-             -X sasl.username=<producer username> \
-             -X sasl.password=<producer password> -Z
+             -X sasl.username="<producer username>" \
+             -X sasl.password="<producer password>" -Z
       ```
 
 - Connecting via SSL
@@ -49,8 +49,8 @@ sudo apt update && sudo apt install -y kafkacat
                  -t <topic name> \
                  -X security.protocol=SASL_SSL \
                  -X sasl.mechanisms=SCRAM-SHA-512 \
-                 -X sasl.username=<consumer username> \
-                 -X sasl.password=<consumer password> \
+                 -X sasl.username="<consumer username>" \
+                 -X sasl.password="<consumer password>" \
                  -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
         ```
 
@@ -65,8 +65,8 @@ sudo apt update && sudo apt install -y kafkacat
               -k key \
               -X security.protocol=SASL_SSL \
               -X sasl.mechanisms=SCRAM-SHA-512 \
-              -X sasl.username=<producer username> \
-              -X sasl.password=<producer password> \
+              -X sasl.username="<producer username>" \
+              -X sasl.password="<producer password>" \
               -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
         ```
 

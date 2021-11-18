@@ -152,7 +152,7 @@ To learn more about creating a table on the {{ KF }} engine, see the [{{ CH }} d
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=writer \
-      -X sasl.password=<producer password> \
+      -X sasl.password="<producer password>" \
       -X ssl.ca.location=<path to the Yandex root certificate> -Z
    ```
 
