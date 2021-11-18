@@ -44,6 +44,14 @@
 	+----------------------+---------+----------------------+---------------------+
 	```
 
+- API
+
+    Посмотреть настройки масштабирования функции можно с помощью метода API [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md).
+
+- Yandex.Cloud Toolkit
+
+    Посмотреть настройки масштабирования функции можно с помощью [плагина Yandex.Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе Intellij]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
+
 {% endlist %}
 
 ## Добавить настройки масштабирования {#add}
@@ -133,6 +141,14 @@
       
         После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
+- API
+
+    Добавить настройки масштабирования для функции можно с помощью метода API [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md).
+
+- Yandex.Cloud Toolkit
+
+    Добавить настройки масштабирования для функции можно с помощью [плагина Yandex.Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе Intellij]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
+
 {% endlist %}
 
 ## Удалить настройки масштабирования {#delete}
@@ -151,5 +167,13 @@
 
 	* `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
 	* `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
+
+- API
+
+    Удалить настройки масштабирования для функции можно с помощью метода API [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md).
+
+- Yandex.Cloud Toolkit
+
+    Удалить настройки масштабирования для функции можно с помощью [плагина Yandex.Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе Intellij]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

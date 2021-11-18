@@ -42,7 +42,11 @@
 
 - API
 
-    Создать версию функции можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
+    Создать функцию можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
+
+- Yandex.Cloud Toolkit
+
+    Создать функцию можно с помощью [плагина Yandex.Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе Intellij]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -130,6 +134,10 @@
 - API
 
     Создать версию функции можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
+
+- Yandex.Cloud Toolkit
+
+    Создать версию функции можно с помощью [плагина Yandex.Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе Intellij]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

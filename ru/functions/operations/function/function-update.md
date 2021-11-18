@@ -46,6 +46,10 @@
 
     Изменить имя функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
+- Yandex.Cloud Toolkit
+
+    Изменить имя функции можно с помощью [плагина Yandex.Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе Intellij]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
+
 {% endlist %}
 
 
@@ -92,6 +96,10 @@
 - API
 
     Изменить описание функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
+
+- Yandex.Cloud Toolkit
+
+    Изменить описание функции можно с помощью [плагина Yandex.Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе Intellij]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
