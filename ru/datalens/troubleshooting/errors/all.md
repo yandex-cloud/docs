@@ -9,6 +9,7 @@
 * [{#T}](ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md)
 * [{#T}](ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md)
 * [{#T}](ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md)
+{% if audience == "internal" %} * [{#T}](ERR-DS_API-FILTER-INVALID_VALUE.md) {% endif %}
 * [{#T}](ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md)
 {% if audience == "internal" %} * [{#T}](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_KEY_PREFIX_COLUMN.md) {% endif %}
 * [{#T}](ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md)
@@ -23,5 +24,4 @@
 * [{#T}](ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md)
 {% if audience == "internal" %} * [{#T}](no-access-to-read-this-operation.md) {% endif %}
 {% if audience == "internal" %} * [{#T}](ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md) {% endif %}
-{% if audience == "internal" %} * [{#T}](ERR-DS_API-FILTER-INVALID_VALUE.md) {% endif %}
 

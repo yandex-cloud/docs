@@ -399,83 +399,83 @@ items:
         href: faq.md
       - name: Ошибки DataLens
         href: troubleshooting/errors/all.md
+      - name: Access denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS-US-ACCESS_DENIED_DATASET.md
+      - name: Access to table was denied
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md
+      - name: Cannot join a concatenation of tables with another table
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
       - name: Cannot parse number
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md
-      - name: Cannot join a concatenation of tables with another table
-        when: audience == "internal"
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md
       - name: Column used in join expression is not a key column
         when: audience == "internal"
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md
-      - name: Joined columns should form prefix of joined table key columns
-        when: audience == "internal"
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_KEY_PREFIX_COLUMN.md
-      - name: Access to table was denied
-        when: audience == "internal"
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md
-      - name: YT table has no schema. Only schematized tables are supported
-        when: audience == "internal"
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
-      - name: Subquery exceeds data weight limit
-        when: audience == "internal"
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
-      - name: Data is not available because materialization is not yet complete
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
-      - name: Memory limit has been exceeded during query execution
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
-      - name: Table is not ready yet
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
-      - name: Inconsistent aggregation among operands
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md
-      - name: Window function has no aggregated expressions among its arguments
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md
-      - name: Too many series on the chart
-        hidden: true
-        href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
       - name: Data source timed out
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
-      - name: Requested database column does not exist
+      - name: Data is not available because materialization is not yet complete
         hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
-      - name: Subquery source is disallowed in the connection settings
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
-      - name: Unknown referenced column
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FORMULA-TRANSLATION-UNKNOWN_FIELD.md
-      - name: You have no access to read this operation
-        when: audience == "internal"
-        hidden: true
-        href: troubleshooting/errors/no-access-to-read-this-operation.md
-      - name: Request size limit exceeded
-        hidden: true
-        href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md
-      - name: Access denied
-        hidden: true
-        href: troubleshooting/errors/ERR-DS-US-ACCESS_DENIED_DATASET.md
+        href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Filter invalid value
         when: audience == "internal"
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FILTER-INVALID_VALUE.md
+      - name: Inconsistent aggregation among operands
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md
+      - name: Joined columns should form prefix of joined table key columns
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_KEY_PREFIX_COLUMN.md
+      - name: Memory limit has been exceeded during query execution
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
       - name: Received too many result data rows
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
+      - name: Request size limit exceeded
+        hidden: true
+        href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md
+      - name: Requested database column does not exist
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+      - name: Subquery exceeds data weight limit
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
+      - name: Subquery source is disallowed in the connection settings
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
+      - name: Table is not ready yet
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
+      - name: Too many series on the chart
+        hidden: true
+        href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
+      - name: Unknown referenced column
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-TRANSLATION-UNKNOWN_FIELD.md
+      - name: Window function has no aggregated expressions among its arguments
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md
+      - name: You have no access to read this operation
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/no-access-to-read-this-operation.md
+      - name: YT table has no schema. Only schematized tables are supported
+        when: audience == "internal"
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md
