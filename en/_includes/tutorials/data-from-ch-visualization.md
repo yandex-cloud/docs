@@ -1,7 +1,6 @@
 # Analyzing a store chain's sales based on data from a ClickHouse DB
 
 As a data source, we'll use a demo ClickHouse database on sales in a Moscow chain of stores.
-The connection to this database is automatically created when a {{ datalens-short-name }} instance is created.
 
 In this example, {{ datalens-short-name }} is used to visualize:
 
@@ -9,9 +8,9 @@ In this example, {{ datalens-short-name }} is used to visualize:
 * Sales by product categories.
 * Order heat map.
 
-A demo **Sample ClickHouse** connection is used.
+A connection named **Sample ClickHouse** will be created for database access.
 
-To visualize and analyze the data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
+To visualize and analyze data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
 
 1. [Define the data source for a dataset](#step1).
 1. [Configure dataset fields](#step2).
@@ -23,25 +22,43 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](#be
 1. [Add charts to the dashboard](#step8).
 1. [Add selectors to the dashboard](#step9).
 
-Create a [connection](../../datalens/concepts/connection.md) to the ClickHouse database with the table.
-
 ## Before you start {#before-you-begin}
 
 {% include [before-you-begin](includes/before-you-begin-datalens.md) %}
 
-## Step 1. Define the data source for a dataset {#step1}
+## Step 1. Create a connection and a dataset {#step1}
 
-Create a [dataset](../../datalens/concepts/dataset/index.md) using the [connection](../../datalens/concepts/connection.md) **Sample ClickHouse** created from a ClickHouse database.
+1. Go to the [connections page]{% if region == "int" %}(https://datalens.yandex.com/connections){% else %}(https://datalens.yandex.ru/connections){% endif %}.
 
-1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. Click **Create connection**.
 
-1. Click **Create dataset**.
+1. Select the **ClickHouse** connection.
 
-    ![image](../../_assets/datalens/solution-02/01-create-dataset.png)
+    1. In the window that opens, specify the connection parameters:
 
-1. Click **Add** under **Connections** on the selection panel. Select the **Sample ClickHouse** connection.
+       * Connection name: `Sample ClickHouse`.
 
-    ![image](../../_assets/datalens/solution-02/03-choose-sample-ch.png)
+       * Connection type: **Specify manually**.
+
+       * Host name: `rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net`.
+
+       * HTTP interface port: `8443` (default).
+
+       * Username: `samples_ro`.
+
+       * Password: `MsgfcjEhJk`.
+
+    1. Enable the **HTTPS** and the **Allow subqueries in datasets** options.
+
+    1. Check the connection and click **Create**.
+
+       ![create-connection](../../_assets/datalens/solution-02/02-create-sample-connection.png)
+
+       Wait for the connection to be saved.
+
+1. In the upper-right corner, click **Create dataset**.
+
+## Step 2. Configure dataset fields {#step2}
 
 1. Drag the **MS_SalesFacts** table to the workspace.
 
@@ -66,8 +83,6 @@ Create a [dataset](../../datalens/concepts/dataset/index.md) using the [connecti
 1. Drag the **MS_Shops** table to the workspace. The table is automatically linked to the left (root) table **MS_SalesFacts**.
 
     ![image](../../_assets/datalens/solution-02/07-autolink3.png)
-
-## Step 2. Configure dataset fields {#step2}
 
 1. Go to the **Fields** tab.
 
@@ -243,7 +258,7 @@ To visualize sales in terms of products and time, create a [chart](../../datalen
 
 1. Save the chart.
 
-## Step 6. Create a heat map {#step6}
+## Step 6. Create a heat map chart {#step6}
 
 To visualize the density of orders on the Moscow map, create a [chart](../../datalens/concepts/chart/index.md): heat map.
 
@@ -268,7 +283,7 @@ To visualize the density of orders on the Moscow map, create a [chart](../../dat
 
 Create a [dashboard](../../datalens/concepts/dashboard.md) to add your charts to.
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [main page]({{ link-datalens-main }}).
 
 1. Click **Create dashboard**.
 
@@ -347,3 +362,4 @@ Add [selectors](../../datalens/concepts/dashboard.md#selector) to filter the cha
 1. Your dashboard is ready. Now you can filter charts using selectors.
 
     ![image](../../_assets/datalens/solution-02/44-dashboard3.png)
+

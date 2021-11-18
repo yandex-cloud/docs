@@ -41,7 +41,7 @@
 
 ## Шаг 1. Создайте подключение и датасет {#step1}
 
-1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
+1. Перейдите на [страницу подключений]{% if region == "int" %}(https://datalens.yandex.com/connections){% else %}(https://datalens.yandex.ru/connections){% endif %}.
 
 1. Нажмите кнопку **Создать подключение**.
 
