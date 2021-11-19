@@ -80,7 +80,8 @@
     * **Загружать данные в JSON формате** — для необязательных полей будут использованы значения по умолчанию, если они определены. Включите эту настройку, если трансфер будет подключаться к приемнику через HTTP-порт, а не нативный.
 
     * **Интервал записи**.
-    * **Политика очистки** при активации, повторной активации или перезагрузке трансфера. Используются настройки `DISABLED`, `DROP` и `TRUNCATE`.
+
+    * {% include [cleanup-policy-drop.md](../../_includes/data-transfer/cleanup-policy-drop.md) %}
 
 ### {{ MG }} {#settings-mongodb}
 
@@ -93,10 +94,8 @@
     * **Идентификатор подсети** — выберите подсеть, через которую сервис должен соединяться с кластером-приемником.
     * Для шифрования передаваемых данных в поле **PEM-сертификат** нажмите кнопку **Загрузить файл**.
         Загрузите файл [PEM-сертификата](../../managed-mongodb/operations/connect.md#get-ssl-cert) или добавьте его содержимое в текстовом виде.
-    * **Политика очистки** данных в базе-приемнике перед переносом:
-        * `DISABLED` — не очищать;
-        * `DROP` — полная очистка базы;
-        * `TRUNCATE` — удалить только данные, но оставить схему.
+
+    * {% include [cleanup-policy-drop-truncate.md](../../_includes/data-transfer/cleanup-policy-drop-truncate.md) %}
 
 ### {{ MY }} {#settings-mysql}
 
@@ -117,6 +116,8 @@
       {% endnote %}
 
     * **Часовой пояс базы**, указывается как идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
+    
+    * {% include [cleanup-policy-drop-truncate.md](../../_includes/data-transfer/cleanup-policy-drop-truncate.md) %}
 
 ### {{ objstorage-name }} {#settings-storage}
 
@@ -136,9 +137,13 @@
 
 ### {{ PG }} {#settings-postgresql}
 
-**Настройки подключения** — выбор типа подключения к БД:
+* **Настройки подключения** — выбор типа подключения к БД:
 
-{% include [pg-connection-necessary-settings.md](../../_includes/data-transfer/pg-connection-necessary-settings.md) %}
+  {% include [pg-connection-necessary-settings.md](../../_includes/data-transfer/pg-connection-necessary-settings.md) %}
+
+* Дополнительные настройки:
+
+    * {% include [cleanup-policy-drop-truncate.md](../../_includes/data-transfer/cleanup-policy-drop-truncate.md) %}
 
 ### {{ ydb-name }} {#settings-yandex-database}
 
@@ -164,6 +169,6 @@
 * **Переопределение имен таблиц**.
 * **Поддиректория куда разместить таблицы**.
 
-    Итоговый путь размещения таблицы: `<Путь в Yandex Database>/<Поддиректория>/<Таблица>`.
+    Итоговый путь размещения таблицы: `<Путь в Yandex Database>/<Поддиректория>/<Таблица>`.
 
-* **Политика очистки** при активации, повторной активации или перезагрузке трансфера. Используются настройки `DISABLED` и `DROP`. Значение по умолчанию — `DROP`.
+* {% include [cleanup-policy-drop.md](../../_includes/data-transfer/cleanup-policy-drop.md) %}
