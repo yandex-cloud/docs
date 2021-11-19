@@ -6,6 +6,7 @@
 
 - [{#T}](create-fixed-group.md)
 - [{#T}](create-with-balancer.md)
+- [{#T}](create-with-load-balancer.md)
 
 ## Получение информации о группе виртуальных машин {#ig-info}
 

@@ -110,6 +110,7 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](instance-groups/create-fixed-group.md)
 * [{#T}](instance-groups/create-with-balancer.md)
+* [{#T}](instance-groups/create-with-load-balancer.md)
 * [{#T}](instance-groups/create-autoscaled-group.md)
 * [{#T}](instance-groups/create-with-coi.md)
 
