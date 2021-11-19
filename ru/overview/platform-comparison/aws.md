@@ -13,6 +13,7 @@
 | Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-redis/) |
 | Amazon Elasticsearch Service | [{{ mes-full-name }}](../../managed-elasticsearch/) |
 | Amazon EMR | [{{ dataproc-full-name }}](../../data-proc/) |
+| Amazon Kinesis Data Streams | [{{ yds-full-name }}](../../data-streams/) |
 | Amazon MSK | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Amazon QuickSight | [{{ datalens-full-name }}](../../datalens/) |
 | Amazon RDS for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |

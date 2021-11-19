@@ -46,6 +46,10 @@
 
     Изменить имя функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
 
+- Yandex.Cloud Toolkit
+
+    Изменить имя функции можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе Intellij](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 {% endlist %}
 
 
@@ -92,6 +96,10 @@
 - API
 
     Изменить описание функции можно с помощью метода API [update](../../functions/api-ref/Function/update.md).
+
+- Yandex.Cloud Toolkit
+
+    Изменить описание функции можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе Intellij](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

@@ -1,6 +1,8 @@
-# Вставить видео
+# Вставить видео или аудио
+
 
 Чтобы добавить на страницу видео, используйте [динамический блок not_var{{iframe}}](actions/iframe.md). Он позволяет вставлять видео из внешних источников, таких как Vimeo или Youtube.
+
 
 1. Откройте страницу и нажмите кнопку **Редактировать**.
 
@@ -22,8 +24,10 @@ https://www.youtube.com/embed/oCRQj_zyPjk
 
 {% endnote %}
 
+
 ### См. также
 
-- [{#T}](attach-file.md)
-- [{#T}](add-grid.md)
-- [{#T}](basic-markup.md)
+* [{#T}](attach-file.md)
+* [{#T}](add-grid.md)
+* [{#T}](basic-markup.md)
+* [{#T}](static-markup/html-code.md)

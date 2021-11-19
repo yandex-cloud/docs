@@ -42,7 +42,11 @@
 
 - API
 
-    Создать версию функции можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
+    Создать функцию можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
+
+- Yandex.Cloud Toolkit
+
+    Создать функцию можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе Intellij](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -136,6 +140,10 @@
 - API
 
     Создать версию функции можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
+
+- Yandex.Cloud Toolkit
+
+    Создать версию функции можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе Intellij](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

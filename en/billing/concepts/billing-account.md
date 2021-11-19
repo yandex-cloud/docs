@@ -1,8 +1,8 @@
 # Billing accounts
 
-Billing accounts are used to identify the user paying for resources in Yandex.Cloud.
+Billing accounts are used to identify users paying for resources in {{ yandex-cloud }}.
 
-The billing account can be linked to multiple clouds and one [personal account](personal-account.md). You can only use the payment method that corresponds to the type of billing account and your [agreement](contract.md).
+A billing account can be linked to multiple clouds and one [personal account](personal-account.md). You can only use the payment method that corresponds to the type of billing account and your [agreement](contract.md).
 
 The relationship between clouds, billing accounts, personal accounts, and payment methods is shown in the diagram below.
 
@@ -10,34 +10,38 @@ The relationship between clouds, billing accounts, personal accounts, and paymen
 
 {% note info %}
 
-The billing account is not used to manage Yandex.Cloud resources.
+A billing account is not used for managing {{ yandex-cloud }} resources.
 
 {% endnote %}
 
-## Types of billing accounts {#ba-types}
+## Billing account types {#ba-types}
 
-The type of billing account determines the Yandex.Cloud resource [payment method](../payment/payment-methods.md).
+The billing account type defines the [method of paying](../payment/payment-methods.md) for resources in {{ yandex-cloud }}.
 
 {% list tabs %}
 
 - Individual account
-   - Intended for residents of Russia.
+
+   - Intended for residents of Russia or Kazakhstan.
    - Resources are paid for using a bank card.
    - Funds for the resources consumed are debited automatically. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
 
 - Business account
-   - Intended for residents of Russia and non-residents of Russia.
-   - Consumed resources are paid for by bank transfer from the business's bank account or bt corporate bank card.
+
+   - Intended for residents and non-residents of Russia and Kazakhstan.
+   - Resources are paid for via bank transfer from a corporate bank account or bank card.
    - Payments for resources consumed are made based on the [agreement](../concepts/contract.md) and [bank invoice](bill.md), or the amount is debited automatically from the linked bank card. For more information, see [Billing cycle for businesses](../payment/billing-cycle-business.md).
-   - A report on the services rendered and an invoice (residents only) are sent to your email address at the beginning of the next reporting period. For more information, see [Reporting documents](../payment/documents.md).
+   - A statement of the services rendered (for residents of Russia and Kazakhstan) and an invoice (Russian residents only) are sent to your email address at the beginning of the next billing cycle. Invoices for residents of the Republic of Kazakhstan are generated electronically. For more information, see [Reporting documents](../payment/documents.md).
 
 {% endlist %}
 
-## Validity period  {#dates}
+## Validity period {#dates}
 
-Billing accounts don't expire.
+Billing accounts do not expire.
 
-However, if Yandex.Cloud services are suspended due to arrears and you fail to pay the outstanding amount within 30 days of suspension, all your data, including the billing account, will be permanently blocked and deleted.
+However, if {{ yandex-cloud }} services are suspended for non-payment, and you have not paid the outstanding amount within 30 days of the suspension, all your data, including the billing account, will be permanently locked and deleted.
+
+You can [delete a billing account](../operations/delete-account.md) if you no longer plan to use {{ yandex-cloud }} services.
 
 ## Number of billing accounts {#restrictions}
 
@@ -48,4 +52,3 @@ However, if Yandex.Cloud services are suspended due to arrears and you fail to p
 {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
 {% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
-

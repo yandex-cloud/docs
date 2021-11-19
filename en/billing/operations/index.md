@@ -29,7 +29,10 @@ description: "In the article you will learn how to work with billing in Yandex.C
 
 [{#T}](create-new-account.md)
 
+[{#T}](delete-account.md)
+
 [{#T}](get-folder-report.md)
 
-[{#T}](budgets.md)
+[{#T}](dashboard.md)
 
+[{#T}](budgets.md)

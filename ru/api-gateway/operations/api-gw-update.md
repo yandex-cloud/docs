@@ -14,7 +14,7 @@
     
 - CLI
 
-    Чтобы обновить спецификацию API-шлюза:
+    Чтобы изменить спецификацию API-шлюза:
     1. Внесите необходимые изменения в файл со спецификацией `hello-world.yaml`
     1. Выполните команду со следующими параметрами: 
     
@@ -34,5 +34,13 @@
         domain: d5dug9gkmu187iojcpvp.apigw.yandexcloud.net
         log_group_id: ckghq1hm19q7ek5sjnh5
         ```
-      
+
+- API
+
+  Изменить имя, описание или спецификацию API-шлюза можно с помощью метода API [update](../apigateway/api-ref/ApiGateway/update.md).
+
+- Yandex.Cloud Toolkit
+
+  Изменить имя, описание или спецификацию API-шлюза можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе Intellij](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 {% endlist %}

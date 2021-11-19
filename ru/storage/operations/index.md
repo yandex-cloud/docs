@@ -21,6 +21,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](objects/download.md)
 * [{#T}](objects/link-for-download.md)
 * [{#T}](objects/delete.md)
+* [{#T}](objects/delete-all.md)
 * [{#T}](objects/deleting-multipart.md)
 * [{#T}](objects/edit-acl.md)
 

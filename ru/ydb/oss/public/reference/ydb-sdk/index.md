@@ -10,9 +10,7 @@
 * Для [NodeJS](https://github.com/yandex-cloud/ydb-nodejs-sdk/tree/master/examples/basic-example-v1).
 * Для [.NET](https://github.com/ydb-platform/ydb-dotnet-examples/tree/main/src/BasicExample).
 
-
-Чтобы запустить приложение, необходимо подключиться к базе данных. Подробнее читайте в разделе [{#T}](../quickstart/yql-api/ydb-sdk.md#connect-to-db).
-
+Чтобы запустить приложение, необходимо подключиться к базе данных. Подробнее читайте в разделе [{#T}](../../../../quickstart/yql-api/ydb-sdk.md#connect-to-db).
 
 После запуска и выполнения приложения в консоли отобразится следующий результат:
 
@@ -435,7 +433,7 @@ PRAGMA TablePathPrefix = "/cluster/database";
 SELECT * FROM episodes;
 ```
 
-Подробнее о PRAGMA YQL можно прочитать в [документации YQL](../yql/reference/overview.md).
+Подробнее о PRAGMA YQL можно прочитать в [документации YQL](../../../../yql/reference/overview.md).
 
 ## Обработка запросов и транзакций {#query-processing}
 
@@ -832,7 +830,7 @@ SELECT * FROM episodes;
 
 ## Скан запросы {#scan-query}
 
-Результатом выполнения [скан запроса](../oss/public/develop/concepts/scan_query.md) является стрим данных. Далее приведены примеры обработки результата таких запросов различными SDK.
+Результатом выполнения [скан запроса](../../develop/concepts/scan_query.md) является стрим данных. Далее приведены примеры обработки результата таких запросов различными SDK.
 
 {% list tabs %}
 
@@ -980,7 +978,7 @@ SELECT * FROM episodes;
 
 - Python
 
-  В большинстве случаев вместо явного использования [TCL](../oss/public/develop/concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах execute. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода, демонстрирующий явное использование вызовов `transaction().begin()` и `tx.Commit()`:
+  В большинстве случаев вместо явного использования [TCL](../../develop/concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах execute. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода, демонстрирующий явное использование вызовов `transaction().begin()` и `tx.Commit()`:
 
   ```python
   def explicit_tcl(session, path, series_id, season_id, episode_id):
@@ -1014,7 +1012,7 @@ SELECT * FROM episodes;
 
 - Java
 
-  В большинстве случаев вместо явного использования [TCL](../oss/public/develop/concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах `execute`. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода, демонстрирующий явное использование вызовов `beginTransaction()` и `transaction.Commit()`:
+  В большинстве случаев вместо явного использования [TCL](../../develop/concepts/transactions.md) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах `execute`. Это позволит избежать лишних обращений к {{ ydb-short-name }} и эффективней выполнять запросы. Фрагмент кода, демонстрирующий явное использование вызовов `beginTransaction()` и `transaction.Commit()`:
 
   ```java
   private Status explicitTcl(Session session) {
