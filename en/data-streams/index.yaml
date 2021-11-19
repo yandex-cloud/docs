@@ -1,9 +1,6 @@
 title: Yandex Data Streams
 description:
   - >-
-    <em>Yandex Data Streams is currently at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
-  - >-
     Yandex Data Streams is a scalable service for managing data streams in real
     time. It continuously collects data from various sources, including browsing
     histories and application and system logs. The service API is compatible

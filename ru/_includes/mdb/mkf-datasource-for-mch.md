@@ -151,7 +151,7 @@
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=writer \
-      -X sasl.password=<пароль производителя> \
+      -X sasl.password="<пароль производителя>" \
       -X ssl.ca.location=<путь к корневому сертификату Yandex> -Z
    ```
 

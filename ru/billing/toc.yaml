@@ -39,7 +39,7 @@ items:
       - name: Получать детализацию расходов по каталогам
         href: operations/get-folder-report.md
       - name: Посмотреть детализацию в {{ datalens-full-name }}
-        href: operations/dashbord.md
+        href: operations/dashboard.md
       - name: Установить уведомления
         href: operations/budgets.md
       - name: Подключиться к ЭДО

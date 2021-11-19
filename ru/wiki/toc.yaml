@@ -45,7 +45,7 @@ items:
         href: add-image.md
       - name: Вставить таблицу
         href: add-grid.md
-      - name: Вставить видео
+      - name: Вставить видео или аудио
         href: add-video.md
       - name: Вставить оглавление
         href: add-toc.md

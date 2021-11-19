@@ -160,7 +160,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=ksql \
-      -X sasl.password=<ksql user password> \
+      -X sasl.password="<ksql user password>" \
       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
    ```
 
@@ -209,7 +209,7 @@ Create a table in ksqlDB for writing data from the {{ KF }} topic. The table str
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
-    -X sasl.password=<ksql user password> \
+    -X sasl.password="<ksql user password>" \
     -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:   
    ```
 

@@ -1,9 +1,5 @@
 # Pricing for {{ yds-full-name }}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yds-full-name }} can be used free of charge.
-
-When the service becomes publicly available on **September 24, 2021**, you'll be charged for using it.
-
 ## What goes into the cost of using {{ yds-short-name }} {#rules}
 
 While using {{ yds-short-name }}, the number of units of written data and resources allocated for streaming data are billed.

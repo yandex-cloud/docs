@@ -173,6 +173,10 @@
 
   Воспользуйтесь API методами [create](../functions/functions/api-ref/Function/create) и [createVersion](../functions/functions/api-ref/Function/createVersion).
 
+- Yandex.Cloud Toolkit
+
+  Создать функцию и ее версию можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе Intellij](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+
 {% endlist %}
 
 ## Создайте API-шлюз {#create-api-gw}
@@ -303,6 +307,10 @@
           domain: d5delqeel34qjjfcdj81.apigw.yandexcloud.net
           log_group_id: ckg2hdmevnvcngprqvqb
           ```
+
+    - Yandex.Cloud Toolkit
+
+      Создать API-шлюз можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе Intellij](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
     {% endlist %}
 

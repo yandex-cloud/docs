@@ -158,7 +158,7 @@
         -X security.protocol=SASL_SSL \
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=user \
-        -X sasl.password=<пароль учетной записи user> \
+        -X sasl.password="<пароль учетной записи user>" \
         -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
     ```
 

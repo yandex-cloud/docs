@@ -34,10 +34,12 @@ items:
         href: operations/change-data.md
       - name: Create a new billing account
         href: operations/create-new-account.md
+      - name: Delete billing account
+        href: operations/delete-account.md
       - name: Get expense details by folder
         href: operations/get-folder-report.md
       - name: View details in {{ datalens-full-name }}
-        href: operations/dashbord.md
+        href: operations/dashboard.md
       - name: Enabling notifications
         href: operations/budgets.md
   - name: Concepts

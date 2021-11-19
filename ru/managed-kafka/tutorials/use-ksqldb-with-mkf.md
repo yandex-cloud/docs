@@ -156,7 +156,7 @@ ksqlDB — это база данных, которая предназначен
       -X security.protocol=SASL_SSL \
       -X sasl.mechanisms=SCRAM-SHA-512 \
       -X sasl.username=ksql \
-      -X sasl.password=<пароль пользователя ksql> \
+      -X sasl.password="<пароль пользователя ksql>" \
       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z
    ```
 
@@ -203,7 +203,7 @@ ksqlDB — это база данных, которая предназначен
     -X security.protocol=SASL_SSL \
     -X sasl.mechanisms=SCRAM-SHA-512 \
     -X sasl.username=ksql \
-    -X sasl.password=<пароль пользователя ksql> \
+    -X sasl.password="<пароль пользователя ksql>" \
     -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:   
    ```
 

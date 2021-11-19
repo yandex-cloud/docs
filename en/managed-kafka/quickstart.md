@@ -102,8 +102,8 @@ To connect to a cluster:
          -t <topic name> \
          -X security.protocol=SASL_SSL \
          -X sasl.mechanisms=SCRAM-SHA-512 \
-         -X sasl.username=<producer username> \
-         -X sasl.password=<producer password> \
+         -X sasl.username="<producer username>" \
+         -X sasl.password="<producer password>" \
          -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt  -Z -K:
    ```
 
@@ -119,8 +119,8 @@ To connect to a cluster:
          -t <topic name> \
          -X security.protocol=SASL_SSL \
          -X sasl.mechanisms=SCRAM-SHA-512 \
-         -X sasl.username=<consumer username> \
-         -X sasl.password=<consumer password> \
+         -X sasl.username="<consumer username>" \
+         -X sasl.password="<consumer password>" \
          -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexCA.crt -Z -K:
    ```
 

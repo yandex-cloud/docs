@@ -62,4 +62,4 @@
 
     {% endlist %}
 
-{% include notitle [ydb-kubernetes-operator](../../_includes/ydb-kubernetes-operator.md) %}
+{% include notitle [ydb-kubernetes-operator](../../../_includes/ydb-kubernetes-operator.md) %}

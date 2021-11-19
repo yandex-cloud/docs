@@ -470,7 +470,7 @@ Heat maps aren't always the most informative. Upload the polygon reference and a
 
    ![image](../../_assets/datalens/solution-07/03-choose-csv.png)
 
-   Download the [**Regions.csv**](https://yadi.sk/d/ZTgPWnjdnTo43w) file. Then, in the create connection window, upload it by clicking **Select CSV file**.
+   Download the [**Regions.csv**](https://storage.yandexcloud.net/doc-files/Regions.csv) file. Then, in the create connection window, upload it by clicking **Select CSV file**.
 
 1. Take a look at a preview of the file data. For the **Table header** parameter, set the **Available** value. At the top right, click **Create**.
 

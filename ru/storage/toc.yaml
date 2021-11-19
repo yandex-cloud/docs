@@ -43,6 +43,8 @@ items:
             href: operations/objects/link-for-download.md
           - name: Удаление объекта
             href: operations/objects/delete.md
+          - name: Удаление всех объектов
+            href: operations/objects/delete-all.md
           - name: Удаление частично загруженного объекта
             href: operations/objects/deleting-multipart.md
           - name: Редактирование ACL объекта
