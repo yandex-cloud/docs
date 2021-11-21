@@ -123,9 +123,9 @@ keywords:
    - Debian/Ubuntu
 
      ```bash
-     $ sudo apt-get update -qq
-     $ sudo apt-get install -y nginx-full php-fpm php-mysql
-     $ sudo systemctl enable nginx
+     sudo apt-get update -qq
+     sudo apt-get install -y nginx-full php-fpm php-mysql
+     sudo systemctl enable nginx
      ```
 
    - CentOS
@@ -189,8 +189,8 @@ keywords:
      1. Разрешите запуск вашего сайта:
 
          ```bash
-         $ sudo rm /etc/nginx/sites-enabled/default
-         $ sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
+         sudo rm /etc/nginx/sites-enabled/default
+         sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
          ```
 
 
@@ -198,7 +198,7 @@ keywords:
 
      1. Вы можете отредактировать файл с помощью редактора `nano`:
          ```bash
-         $ sudo nano /etc/nginx/sites-available/wordpress
+         sudo nano /etc/nginx/sites-available/wordpress
          ```
 
      1. Приведите файл к виду:
@@ -236,8 +236,8 @@ keywords:
      1. Разрешите запуск вашего сайта:
 
          ```bash
-         $ sudo rm /etc/nginx/sites-enabled/default
-         $ sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
+         sudo rm /etc/nginx/sites-enabled/default
+         sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
          ```
 
 
@@ -287,7 +287,7 @@ keywords:
      1. Откройте файл `wordpress.conf`:
 
          ```bash
-         $ sudo nano /etc/nginx/wordpress.conf
+         sudo nano /etc/nginx/wordpress.conf
          ```
 
      1. Приведите файл к виду:
@@ -333,11 +333,11 @@ keywords:
    - Debian/Ubuntu
 
      ```bash
-     $ wget https://wordpress.org/latest.tar.gz
-     $ tar -xzf latest.tar.gz
-     $ mv wordpress/wp-config-sample.php wordpress/wp-config.php
-     $ sudo mv wordpress /var/www/wordpress
-     $ sudo chown -R www-data:www-data /var/www/wordpress
+     wget https://wordpress.org/latest.tar.gz
+     tar -xzf latest.tar.gz
+     mv wordpress/wp-config-sample.php wordpress/wp-config.php
+     sudo mv wordpress /var/www/wordpress
+     sudo chown -R www-data:www-data /var/www/wordpress
      ```
 
    - CentOS
@@ -363,7 +363,7 @@ keywords:
 1. Получите ключи безопасности WordPress:
 
    ```bash
-   $ curl -s https://api.wordpress.org/secret-key/1.1/salt/
+   curl -s https://api.wordpress.org/secret-key/1.1/salt/
    ```
 
    Сохраните вывод команды — полученные ключи будут нужны на следующем шаге.
@@ -375,7 +375,7 @@ keywords:
    - Debian/Ubuntu
 
      ```bash
-     $ sudo nano /var/www/wordpress/wp-config.php
+     sudo nano /var/www/wordpress/wp-config.php
      ```
 
    - CentOS
@@ -420,7 +420,7 @@ keywords:
    - `<DB_NAME>` — имя БД `wp-mysql-tutorial-db`.
    - `<DB_USER>` — имя пользователя `wordpress`.
    - `<DB_PASSWORD>` — пароль, заданный при [создании кластера БД](#create-cluster).
-   - `<DB_HOST>` — хост вида `c-<идентификатор мастера>.rw.mdb.yandexcloud.net`. Чтобы узнать идентификатор мастера, [получите список хостов](../../managed-mysql/operations/hosts.md#list) через CLI и скопируйте `CLUSTER ID` с ролью `MASTER`. 
+   - `<DB_HOST>` — хост вида `c-<идентификатор мастера>.rw.mdb.yandexcloud.net`. Чтобы узнать идентификатор мастера, [получите список хостов](../../managed-mysql/operations/hosts.md#list) через CLI и скопируйте `CLUSTER ID` с ролью `MASTER`. Также идентификатор мастера можно узнать в консоли управления. Для этого на вкладке **База данных** нажмите **...**, выберите **Подключиться** и найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net`, где `ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net` — это идентификатор мастера.
 
 3. Перезапустите Nginx и PHP-FPM:
 
@@ -436,8 +436,8 @@ keywords:
    - Ubuntu
 
      ```bash
-     $ sudo systemctl restart nginx.service 
-     $ sudo systemctl restart php7.2-fpm.service
+     sudo systemctl restart nginx.service 
+     sudo systemctl restart php7.2-fpm.service
      ```
 
    - CentOS
