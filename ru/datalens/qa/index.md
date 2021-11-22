@@ -73,6 +73,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [csv-long-loading](../../_includes/datalens/qa/csv-long-loading.md) %}
 
+{% include [csv-network-error](../../_includes/datalens/qa/csv-network-error.md) %}
+
 ## Материализация данных {#materialization}
 
 {% include [qa-materialization-error](../../_includes/datalens/qa/materialization-error.md) %}

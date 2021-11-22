@@ -60,6 +60,8 @@
 
 {% include [csv-long-loading.md](../_includes/datalens/qa/csv-long-loading.md) %}
 
+{% include [csv-network-error](../_includes/datalens/qa/csv-network-error.md) %}
+
 ### Как подключиться к внешней базе данных? {#connect-external-db}
 
 Чтобы подключить внешние БД {{ CH }}, {{ PG }}, {{ MY }}, {{ MS }} или Oracle Database к внутреннему DataLens (datalens.yandex-team.ru), откройте доступ к кластеру `_DL_INT_BACK_PROD_NETS_` в [Puncher](https://puncher.yandex-team.ru/). См. [изображение](https://jing.yandex-team.ru/files/elenbaskakova/Pravila_2019-01-22_19-48-39.png).
