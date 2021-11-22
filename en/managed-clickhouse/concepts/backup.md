@@ -24,6 +24,11 @@ Backups can be automatic or manual. In both cases, an incremental schema is used
 
 Backup data is stored only for the `MergeTree` engine family. For other engines, backups only store table schemas. For more information about engines, see the [documentation for {{ CH }}]{% if lang == "ru" %}(https://clickhouse.tech/docs/ru/engines/table-engines/){% endif %}{% if lang == "en" %}(https://clickhouse.tech/docs/en/engines/table-engines/){% endif %}.
 
+A random replica host is used to create a backup. If there is no cluster host data consistency, restoring clusters from backups does not guarantee complete data recovery. For example, this may occur if:
+
+* [The tables are not replicated](replication.md#replicated-tables) on all shard hosts.
+* The tables are not replicated and are only hosted on some of the shard hosts.
+
 The backup start time is set when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-additional-settings) a cluster. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
 
 Backups are only created on running clusters. If you don't use a {{ mch-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
