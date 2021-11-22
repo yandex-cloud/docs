@@ -9,6 +9,12 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ## Creating backups {#create-backup}
 
+{% note warning %}
+
+A random replica host is used to create a backup. If there is no cluster host data consistency, restoring clusters from backups does not guarantee complete data recovery. For more information, see [{#T}](../concepts/backup.md).
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -17,7 +23,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
   1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
-  1. Click **Create a backup**.
+  1. Click **Create backup**.
 
 - CLI
 
@@ -45,7 +51,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 ## Restoring clusters from backups {#restore}
 
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
+When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
 For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ PG }} cluster).
 
@@ -70,7 +76,7 @@ For a new cluster, you should set all the parameters that are required at creati
   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
   1. Click **Restore cluster**.
 
-  {{ mch-name }} launches the operation to create a cluster from a backup.
+  {{ mch-name }} launches the operation to create a cluster from the backup.
 
 - CLI
 
@@ -78,9 +84,9 @@ For a new cluster, you should set all the parameters that are required at creati
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To restore a cluster from a backup:
+  To restore a cluster from the backup:
 
-  1. View the description of the CLI's restore cluster command {{ CH }}:
+  1. View a description of the CLI restore {{ CH }} cluster command:
 
       ```
       $ {{ yc-mdb-ch }} cluster restore --help
@@ -121,7 +127,7 @@ For a new cluster, you should set all the parameters that are required at creati
       - In the `{{ network-name }}` network.
       - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
       - With the databases and users from the backup.
-      - With 20 GB fast network storage (`{{ disk-type-example }}`).
+      - With 20 GB of fast network storage (`{{ disk-type-example }}`).
 
 {% endlist %}
 
@@ -186,7 +192,7 @@ For a new cluster, you should set all the parameters that are required at creati
   {{ yc-mdb-ch }} backup get <backup ID>
   ```
 
-  The backup ID can be retrieved with the [list of backups](#list-backups) .
+  The backup ID can be retrieved with the [list of backups](#list-backups).
 
 {% endlist %}
 

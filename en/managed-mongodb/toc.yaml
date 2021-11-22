@@ -23,8 +23,6 @@ items:
         href: operations/stepdown.md
       - name: MongoDB version upgrade
         href: operations/cluster-version-update.md
-      - name: Cluster monitoring and diagnostics tools
-        href: operations/monitoring.md
       - name: Database management
         href: operations/databases.md
       - name: Managing hosts in a cluster
@@ -37,6 +35,10 @@ items:
         href: operations/shards.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
+      - name: Monitoring the state of a cluster and hosts
+        href: operations/monitoring.md
+      - name: Performance analysis tools
+        href: operations/tools.md
   - name: Use cases
     items:
       - name: Sharding collections

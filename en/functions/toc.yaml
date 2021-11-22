@@ -289,6 +289,8 @@ items:
         href: solutions/telegram-bot-serverless.md
       - name: Connecting to a YDB database from a Python function
         href: solutions/connect-to-ydb.md
+      - name: Converting a video to a GIF in Python
+        href: solutions/video-converting-queue.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

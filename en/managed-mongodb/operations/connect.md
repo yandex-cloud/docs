@@ -4,7 +4,7 @@ You can connect to {{ mmg-short-name }} cluster hosts:
 
 {% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
 
-To connect to {{ mmg-name }} cluster hosts, specify port 27018. In the case of a sharded {{ mmg-name }} cluster, specify port 27017.
+To connect to {{ mmg-name }} cluster hosts, specify port {{ port-mmg }}. For a sharded {{ mmg-name }} cluster, specify port {{ port-mmg-sharded }}.
 
 {% note info %}
 
@@ -60,7 +60,7 @@ Settings of rules depend on the connection method you select:
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
+You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
 
 Security groups must be configured correctly for all subnets that will include cluster hosts. If security group settings are incomplete or incorrect, you may lose access to the cluster if the [primary replica is changed automatically](../concepts/replication.md).
 
@@ -78,12 +78,25 @@ Amount of RAM available to the host is determined by the host class. All availab
 
 {{ MG }} hosts with public access only support encrypted connections. To use them, get an SSL certificate:
 
+{% list tabs %}
 
-```bash
-mkdir ~/.mongodb && \
-wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt && \
-chmod 0600 ~/.mongodb/root.crt
-```
+- Linux (Bash)
+
+    
+    ```bash
+    mkdir ~/.mongodb && \
+    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mongodb/root.crt && \
+    chmod 0644 ~/.mongodb/root.crt
+    ```
+
+- Windows (PowerShell)
+
+    
+    ```powershell
+    mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+    ```
+
+{% endlist %}
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
@@ -163,7 +176,10 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 You can only connect to public {{ MG }} hosts using an SSL certificate. Before connecting to this type of host, [get a certificate ready](#get-ssl-cert).
 
-These examples assume that the `root.crt` SSL certificate is located in the `/home/<home directory>/.mongodb/` folder.
+The examples below assume that the `root.crt` SSL certificate is located in the directory:
+
+* `/home/<home directory>/.mongodb/` for Ubuntu.
+* `$HOME\.mongodb` for Windows.
 
 Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. DB connection traffic internal to the cloud network will not be encrypted.
 

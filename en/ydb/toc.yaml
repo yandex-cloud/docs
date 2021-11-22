@@ -125,6 +125,8 @@ items:
         href: solutions/ydb_docker.md
       - name: Connecting to YDB from a Python function in Yandex Cloud Functions
         href: solutions/connect-from-cf.md
+      - name: Converting a video to a GIF in Python
+        href: solutions/video-converting-queue.md
       - name: Developing a skill for Alice and a website with authorization
         href: solutions/alice-shareable-todolist.md
   - name: Concepts

@@ -9,7 +9,7 @@
 In {{ mch-name }}, before adding new hosts to a shard with a single host, you need to [enable fault tolerance for the cluster](../operations/zk-hosts.md#add-zk) if it isn't enabled. The minimum number of {{ ZK }} hosts is added to manage the replication process.
 
 By default, all shards in the cluster are created with a single host and fault tolerance is disabled. When [creating a {{ CH }} cluster](../operations/cluster-create.md) with multiple hosts using the management console, you will see a suggestion to add {{ ZK }} hosts to enable fault tolerance. When creating such a cluster using the CLI or API:
-- If a cluster in the[virtual network](../../vpc/concepts/network.md) has subnets in each of the [availability zones](../../overview/concepts/geo-scope.md), one {{ ZK }} host is automatically added to each subnet if you don't explicitly specify the settings for these hosts. If necessary, you can explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
+- If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each of the [availability zones](../../overview/concepts/geo-scope.md), one {{ ZK }} host is automatically added to each subnet if you don't explicitly specify the settings for these hosts. If necessary, you can explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
 - If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
 
 {% note warning %}
@@ -33,6 +33,12 @@ To enable automatic replication, {{ mch-name }} manages {{ ZK }} hosts as follow
 ## Replicated tables {#replicated-tables}
 
 {{ CH }} supports automatic replication only for tables on [the ReplicatedMergeTree engine](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replication/). To enable replication, you can create the tables on each host separately or use a distributed DDL query.
+
+{% note warning %}
+
+We recommend creating replicated tables on all cluster hosts. Otherwise, data loss may occur after restoring a cluster from a backup. For more information, see [{#T}](backup.md).
+
+{% endnote %}
 
 To create a `ReplicatedMergeTree` table on a specific {{ CH }} host, send the following query:
 

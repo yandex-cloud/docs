@@ -82,7 +82,7 @@
 
 {% list tabs %}
 
-* Linux (Bash)
+- Linux (Bash)
 
     
     ```bash
@@ -91,7 +91,7 @@
     chmod 0644 ~/.mongodb/root.crt
     ```
 
-* Windows (PowerShell)
+- Windows (PowerShell)
 
     
     ```powershell
