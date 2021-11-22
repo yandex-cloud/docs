@@ -507,7 +507,7 @@ Before connecting:
           driver='{ODBC Driver 17 for SQL Server}',
           server='<host FQDN>,1433',
           database='<database name>',
-          uid='username',
+          uid='<username>',
           pwd='<user password>',
           encrypt='yes',
           trust_server_certificate='no')
@@ -717,3 +717,68 @@ The {{ MS }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
 
 {% endlist %}
 
+### PowerShell {#powershell}
+
+Before connecting:
+
+1. Install [Python and pip](https://www.python.org/downloads/).
+You must specify Python in the PATH environment variable.
+
+1. Run PowerShell as an administrator.
+
+1. Install the dependencies:
+
+    ```powershell
+    pip install mssql-cli
+    ```
+
+1. By default, Microsoft collects anonymous data about the use of the `mssql-cli` client utility. For more information, see the [mssql-cli documentation](https://github.com/dbcli/mssql-cli/blob/master/doc/telemetry_guide.md). To disable automatic data collection, run:
+
+    ```powershell
+    set MSSQL_CLI_TELEMETRY_OPTOUT=True
+    ```
+
+{% list tabs %}
+
+- Connecting without using SSL
+
+  1. Connect to a database:
+
+      ```powershell
+      mssql-cli -U <username> `
+                -d <database name> `
+                -S <FQDN of the host>,1433
+      ```
+
+      After running the command, enter the user password to complete the connection procedure.
+
+  1. To check the connection, run the following query:
+
+      ```powershell
+      SELECT @@version;
+      ```
+
+      The {{ MS }} DBMS version will be displayed.
+
+- Connecting via SSL
+
+  1. Connect to a database:
+
+      ```powershell
+      mssql-cli -U <username> `
+                -d <database name> `
+                -S <host FQDN>,1433 `
+                -N -C
+      ```
+
+      After running the command, enter the user password to complete the connection procedure.
+
+  1. To check the connection, run the following query:
+
+      ```powershell
+      SELECT @@version;
+      ```
+
+      The {{ MS }} DBMS version will be displayed.
+
+{% endlist %}

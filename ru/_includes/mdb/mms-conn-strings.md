@@ -39,7 +39,6 @@
 
       Будет выведена версия СУБД {{ MS }}.
 
-
 - Подключение с SSL
 
   1. Подключитесь к базе данных:
@@ -189,6 +188,7 @@ nuget install System.Data.SqlClient
       mcs connect.cs -r:System.Data.dll && \
       mono connect.exe
       ```
+
       При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ MS }}.
 
 {% endlist %}
@@ -306,6 +306,7 @@ go get github.com/denisenkom/go-mssqldb
 1. Создайте конфигурационный файл для Maven:    
 
     {% cut "pom.xml" %}
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <project
@@ -375,6 +376,7 @@ go get github.com/denisenkom/go-mssqldb
        </build>
     </project>
     ```
+
     {% endcut %}
 
 {% list tabs %}
@@ -738,7 +740,7 @@ sudo ACCEPT_EULA=Y apt install msodbcsql17
 
 {% list tabs %}
 
-* Подключение без SSL
+- Подключение без SSL
 
   1. Подключитесь к базе данных:
 
@@ -758,7 +760,7 @@ sudo ACCEPT_EULA=Y apt install msodbcsql17
 
       Будет выведена версия СУБД {{ MS }}.
 
-* Подключение с SSL
+- Подключение с SSL
 
   1. Подключитесь к базе данных:
 
