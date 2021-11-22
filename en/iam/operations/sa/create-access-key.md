@@ -18,7 +18,7 @@ To create a static access key:
 
   1. Click **Create new key** in the top panel.
 
-  1. Click **Create access key**.
+  1. Click **Create static access key**.
 
   1. Enter a description of the key so that you can easily find it in the management console.
 

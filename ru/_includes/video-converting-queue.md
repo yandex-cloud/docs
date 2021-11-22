@@ -2,21 +2,26 @@
 
 В этом сценарии вы создадите видеоконвертер с использованием утилиты [FFmpeg](https://ffmpeg.org/) и сервиса {{ message-queue-full-name }}.
 
+{% if lang == "ru" %}
+
 @[youtube](uyIMvEtr3cI)
 
+{% endif %}
+
 Чтобы создать приложение:
+
 1. [Подготовьте облако к работе](#before-begin)
-2. [Подготовьте ресурсы](#create-resources)
-3. [Создайте API-функцию](#create-api-function)
-4. [Создайте функцию-конвертер](#create-converter-function)
-5. [Создайте триггер](#create-trigger)
-6. [Проверьте работу приложения](#test-app)
+1. [Подготовьте ресурсы](#create-resources)
+1. [Создайте API-функцию](#create-api-function)
+1. [Создайте функцию-конвертер](#create-converter-function)
+1. [Создайте триггер](#create-trigger)
+1. [Проверьте работу приложения](#test-app)
 
 ## Подготовьте облако к работе {#before-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. На [странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
-1. На [странице облака](https://console.cloud.yandex.ru/cloud) создайте или выберите каталог для нового сервиса.
+1. На [странице облака]{% if lang == "ru" %}(https://console.cloud.yandex.ru/cloud){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/cloud){% endif %} создайте или выберите каталог для нового сервиса.
 
     [Подробнее об облаках и каталогах](../resource-manager/concepts/resources-hierarchy.md).
 
@@ -46,12 +51,12 @@
 
 	Сохраните **Идентификатор** секрета из блока **Информация о секрете**.
 1. [Создайте очередь сообщений](../message-queue/operations/message-queue-new-queue.md) с именем `converter-queue` в {{ message-queue-full-name }}. Сохраните **URL** очереди из блока **Общая информация**.
-1. [Создайте базу данных](https://cloud.yandex.ru/docs/ydb/quickstart/create-db#control-plane) {{ ydb-short-name }} в режиме Serverless. Сохраните **Эндпойнт** из блока **Document API эндпоинт**.
+1. [Создайте базу данных](../ydb/quickstart/create-db#control-plane) {{ ydb-short-name }} в режиме Serverless. Сохраните **Эндпойнт** из блока **Document API эндпоинт**.
 1. {% if audience == "external" %} [Создайте таблицу](../ydb/operations/schema.md) {% endif %} в базе данных:
 	* **Имя таблицы** — `tasks`.
 	* **Тип таблицы** — {% if audience == "external" %} [Документная таблица](../ydb/operations/schema.md#create-table). {% endif %}
 	* **Колонки** — одна колонка с именем `task_id` типа `String`. {% if audience == "external" %} Установите атрибут [Ключ партицирования](../ydb/operations/schema.md#create-table). {% endif %}
-1. [Создайте бакет](https://cloud.yandex.ru/docs/storage/operations/buckets/create) с именем `converter-bucket` в {{ objstorage-full-name }}.
+1. [Создайте бакет](../storage/operations/buckets/create) с именем `converter-bucket` в {{ objstorage-full-name }}.
 
 ## Создайте API-функцию {#create-api-function}
 
@@ -67,9 +72,9 @@
 
 	1. [Создайте](../functions/operations/function/version-manage.md#version-create) версию функции:
 		1. Создайте файл `requirements.txt` и укажите в нем библиотеку:
-		```
-		boto3
-		```
+			```
+			boto3
+			```
 		1. Создайте файл `index.py` и вставьте в него содержимое файла `ffmpeg-api.py` из архива.
 		1. Укажите:
 			* среду выполнения `python37`;
@@ -97,10 +102,10 @@
 
 	1. Подготовьте ZIP-архив `src.zip` со следующими файлами:
 		* Файл `requirements.txt`:
-		```
-		boto3
-		requests
-		```
+			```
+			boto3
+			requests
+			```
 		* Файл `index.py` с содержимым файла `ffmpeg-converter.py` из архива.
 		* Исполняемый файл FFmpeg. Чтобы получить его, перейдите на [официальный сайт FFmpeg](http://ffmpeg.org/download.html) и в разделе **Linux Static Builds** загрузите архив с 64-битной версией FFmpeg.
 
