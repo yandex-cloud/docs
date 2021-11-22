@@ -1,5 +1,9 @@
 # Creating a {{ dataproc-name }} cluster
 
+## Configure a network {#setup-network}
+
+In the subnet that the {{ dataproc-name }} subcluster will connect to with the `Master` role, [enable NAT to the internet](../../vpc/operations/enable-nat.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
+
 ## Configure security groups {#change-security-groups}
 
 {% note warning %}
@@ -38,7 +42,7 @@ Security groups must be configured correctly for all subnets that will include c
 
 {% endnote %}
 
-You can set up security groups for [connections to cluster hosts](connect.md) via an intermediate VM after creating a cluster.
+You can set up security groups for [connections to cluster hosts](./connect.md) via an intermediate VM after creating a cluster.
 
 ## Create a cluster {#create}
 
@@ -61,10 +65,15 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
      {% endnote %}
 
   1. Enter the public part of your SSH key in the **Public key** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
+
   1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) that you want to grant access to the cluster.
+
   1. Select the availability zone for the cluster.
+
   1. If necessary, configure the [properties of cluster components, jobs, and the environment](../concepts/settings-list.md).
+
   1. Select or create a network for the cluster.
+
   1. Select security groups that have the required permissions.
 
       {% note warning %}
@@ -73,22 +82,31 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
 
       {% endnote %}
 
-  1. Enable the **UI Proxy** option to access the [web interfaces of components](../concepts/ui-proxy.md) {{ dataproc-name }}.
+  1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }}  components](../concepts/ui-proxy.md).
+
+  1. To send cluster logs to [{{ cloud-logging-name }}](../../logging/), select a log group from the list. If necessary, [create a new log group](../../logging/operations/create-group.md).
+
+      To enable this feature, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
   1. Configure subclusters: no more than one main subcluster with a **Master** host and subclusters for data storage or computing.
 
      The roles of `Compute` and `Data` subcluster are different: you can deploy data storage components on `Data` subclusters, and data processing components on `Compute` subclusters. Storage on a `Compute` subcluster is only used to temporarily store processed files.
 
   1. For each subcluster, you can configure:
+
      * The number of hosts.
+
      * [The host class](../concepts/instance-types.md), which dictates the platform and computing resources available to the host.
+
      * Storage size and type.
-     * The subnet of the network where the cluster is located.
+
+     * A subnet.
+
+       NAT to the internet must be enabled in the subnet for the subcluster with the `Master` role. To learn more, see [{#T}](#setup-network).
 
   1. For `Compute` subclusters, you can specify the [autoscaling](../concepts/autoscaling.md) parameters.
 
      {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
-     
      1. Under **Add subcluster**, click **Add**.
      1. In the **Roles** field, select _COMPUTENODE_.
      1. Under **Scalability**, enable **Automatic scaling**.
