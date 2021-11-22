@@ -105,7 +105,7 @@
 
 Кроме таблиц YDB позволяет создавать партицированные очереди (аналог Topiс-ов в Kafka) и примитивы для распределенной координации -- Coordination Service.
 
-Более подробно про [модель данных](../concepts/datamodel.md)
+Более подробно про [модель данных](../concepts/internal/datamodel.md)
 
 ![kikimrstructure3.png](../_assets/kikimrstructure3.png)
 
