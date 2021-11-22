@@ -16,15 +16,15 @@
 
 - **Auto explain log analyze**{#setting-auto-explain-log-analyze} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Enables the `auto_explain` module that logs query execution plan statistics. The module allows you to log execution plans for slow queries automatically, without the `EXPLAIN` command. This is useful for tracking non-optimized queries.
+  Enables output of query plan statistics to the {{ PG }} log using the `auto_explain` module. The module allows you to log execution plans for slow queries automatically, without the `EXPLAIN` command. This is useful for tracking non-optimized queries. For the module to work, connect the `auto_explain` [library](#setting-shared-libraries).
 
-  The `auto_explain` module is disabled by default.
+  This setting is disabled by default.
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log buffers**{#setting-auto-explain-log-buffers} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Enables output of the {{ PG }} buffer usage statistics using the `auto_explain` module. This parameter is similar to `BUFFERS` in the `EXPLAIN` command. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+  Enables output of the {{ PG }} buffer usage statistics to a log using the `auto_explain` module. This parameter is similar to `BUFFERS` in the `EXPLAIN` command. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
   This setting is disabled by default.
 
@@ -40,7 +40,7 @@
 
 - **Auto explain log nested statements**{#setting-auto-explain-log-nested-statements} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Enables logging of nested statements inside SQL functions in the `auto_explain` module. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+  In the `auto_explain` module, enables logging the execution of nested queries inside SQL functions. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
   This setting is disabled by default (execution plans are logged for top-level statements).
 
@@ -787,7 +787,7 @@
 
 - **Min wal size**{#setting-min-wal-size} {{ tag-all }}
 
-  The amount of disk space (in bytes) occupied by [WAL](https://www.postgresql.org/docs/current/wal-intro) that, when exceeded, triggers deletion of the old WAL files at checkpoints.
+  The amount of disk space (in bytes) occupied by [WAL](https://www.postgresql.org/docs/current/wal-intro) that, when exceeded, triggers the deletion of old WAL files at checkpoints.
 
   The minimum value is `2`. The maximum value [depends on the storage size](#settings-instance-dependent) and is equal to 5% of this value, with a maximum of `1073741824` (1 GB). By default, the maximum value is set.
 
@@ -916,7 +916,10 @@
 
 - **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
-  A comma-separated list of shared libraries that will be loaded when the {{ PG }} server starts. Each name is interpreted as for the `LOAD` command. Whitespace characters between names are ignored. If you want to include whitespace characters or commas in the names, enclose them in double quotes.
+  A comma-separated list of shared libraries that will be loaded when the {{ PG }} server starts. Select one or more libraries from the list:
+  * `auto_explain`: Required for the [`auto_explain` module](https://www.postgresql.org/docs/current/auto-explain.html) to work.
+  * `pg_hint_plan`: Required for the [`pg_hint_plan` module](https://pghintplan.osdn.jp/pg_hint_plan.html) to work.
+  * `timescaledb`: Required to be able to use [TimescaleDB databases](https://github.com/timescale/timescaledb).
 
   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
 

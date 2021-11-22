@@ -29,7 +29,7 @@
 
 {% cut "Как выглядит результат" %}
    
-![](../_assets/wiki/graphviz.png)
+![](../../_assets/wiki/graphviz.png)
 
 {% endcut %}
  
@@ -63,7 +63,7 @@ orientation = portrait
 
 {% cut "Как выглядит результат" %}
 
-![](../_assets/wiki/blockdiag.png)
+![](../../_assets/wiki/blockdiag.png)
 
 {% endcut %}
 
@@ -104,7 +104,7 @@ orientation = portrait
 
 {% cut "Как выглядит результат" %}
 
-![](../_assets/wiki/seqdiag.png)
+![](../../_assets/wiki/seqdiag.png)
 
 {% endcut %}
 

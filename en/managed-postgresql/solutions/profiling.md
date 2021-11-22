@@ -1,11 +1,5 @@
 # Performance analysis and tuning
 
-In this scenario, you'll learn:
-
-* How to analyze {{ mpg-name }} cluster performance using [monitoring](../operations/monitoring.md) and [performance diagnostics](../operations/performance-diagnostics.md) tools.
-* What built-in tools are provided by {{ PG }} for performance analysis.
-* Troubleshoot identified issues.
-
 {{ mpg-name }} cluster performance drops most often due to one of the following:
 
 * [Inefficient query execution in {{ PG }}](#inefficient-queries).
@@ -23,6 +17,8 @@ Here are some tips for diagnosing and fixing these issues.
 1. [Enable database access in the management console](../operations/web-sql-query.md#sql-cluster-access).
 
 1. [Activate statistics collection](../operations/performance-diagnostics.md#activate-stats-collector) about sessions and queries.
+
+1. [Enable the `auto_explain`](../operations/performance-diagnostics.md#auto-explain-enable) module for extended query execution plan logging.
 
 1. If you want more queries to appear in the performance log, reduce the value of the [`log_min_duration_statement` parameter](../concepts/settings-list.md#setting-log-min-duration-statement) in the [DB settings](../operations/update.md#change-postgresql-config).
 
@@ -80,7 +76,11 @@ There are several ways to optimize problematic queries:
 
     {{ PG }} doesn't collect statistics about the correlation of data between columns of the same table. This is because the number of possible combinations of columns can be extremely large. If there is a relationship between columns, [create extended statistics objects](https://www.postgresql.org/docs/current/planner-stats.html#PLANNER-STATS-EXTENDED). The scheduler will then be able to optimize queries based on information about the correlation of data in the columns.
 
-If you can't optimize the identified queries or manage without them, the only option is to [raise the host class](../operations/update.md#change-resource-preset).
+* Analyze query execution plan statistics in {{ PG }} logs.
+
+    The {{ PG }} `auto_explain` module outputs query execution plan information to the {{ PG }} log. You can collect statistics by searching the lines in the log. For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
+
+If you can't optimize the identified queries or manage without them, the only option is to [raise the host class](../operations/update#change-resource-preset).
 
 ## Diagnosing resource shortages {#cpu-io-deficit}
 

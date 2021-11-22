@@ -2,9 +2,7 @@
 
 - Bash
 
-  **Before connecting, install the [Mongo Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell)**.
-
-  You can find the current versions of Mongo Shell [in the downloads section](https://www.mongodb.com/try/download/community) on the MongoDB website.
+  Before connecting, install the [Mongo Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell).
 
   **Connecting via SSL for `mongo` version 4.2 and higher:**
 
@@ -12,34 +10,63 @@
   mongo --norc \
         --tls \
         --tlsCAFile /home//.mongodb/root.crt \
-        --host '<name of replica set>/<FQDN of {{ MG }} host 1>:27018,...,FQDN of {{ MG }} host N>:27018' \
-        -u <DB username> \
+        --host '<{{ MG }} host 1 FQDN>:{{ port-mmg }},...,<{{ MG }} host N FQDN>:{{ port-mmg }}' \
+        --username <DB username> \
+        --password <DB user password> \
         <DB name>
   ```
 
   **Connecting via SSL for older `mongo` versions:**
 
-  ```
+  ```bash
   mongo --norc \
         --ssl \
         --sslCAFile /home/<home directory>/.mongodb/root.crt \
-        --host '<name of replica set>/<FQDN of {{ MG }} host 1>:27018,...,FQDN of {{ MG }} host N>:27018' \
-        -u <DB username> \
+        --host '<{{ MG }} host 1 FQDN>:{{ port-mmg }},...,<{{ MG }} host N FQDN>:{{ port-mmg }}' \
+        --username <DB username> \
+        --password <DB user password> \
         <DB name>
   ```
 
   **Connecting without SSL:**
 
-  ```
+  ```bash
   mongo --norc \
-        --host '<FQDN of {{ MG }} host 1>:27018,...,FQDN of {{ MG }} host N>:27018' \
-        -u <DB username> \
+        --host '<{{ MG }} host 1 FQDN>:{{ port-mmg }},...,<{{ MG }} host N FQDN>:{{ port-mmg }}' \
+        --username <DB username> \
+        --password <DB user password> \
         <DB name>
   ```
 
-  After running any of the commands, enter the user password to complete the connection procedure.
+  After connecting, run the `db` command.
 
-  After connecting to the DBMS, run the command `db`.
+- PowerShell
+
+  Before connecting, install the [MongoDB Shell utility](https://www.mongodb.com/try/download/shell).
+
+  **Connecting via SSL for `mongo` version 4.2 and higher:**
+
+  ```powershell
+  mongosh.exe --norc `
+              --host '<{{ MG }} host 1 FQDN>:{{ port-mmg }},...,<{{ MG }} host N FQDN>:{{ port-mmg }}' `
+              --tls `
+              --tlsCAFile $HOME\.mongodb\root.crt `
+              --username <DB username> `
+              --password <DB user password> `
+              <DB name>
+  ```
+
+  **Connecting without SSL:**
+
+  ```powershell
+  mongosh.exe --norc `
+              --host '<{{ MG }} host 1 FQDN>:{{ port-mmg }},...,<{{ MG }} host N FQDN>:{{ port-mmg }}' `
+              --username <DB username> `
+              --password <DB user password> `
+              <DB name>
+  ```
+
+  After connecting, run the `db` command.
 
 - Python
 
@@ -225,7 +252,7 @@
      sudo apt update && sudo apt install -y default-jdk maven
      ```
 
-  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MG }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password using the `-storepass` parameter for additional storage protection:
+  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MG }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password for additional storage security using the `-storepass` parameter:
 
      ```bash
      cd ~/.mongodb && \

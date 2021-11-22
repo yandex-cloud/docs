@@ -13,7 +13,7 @@ sudo apt update && sudo apt install -y postgresql-client
   1. Connect to a database:
 
       ```bash
-      psql "host=<FQDN of one or multiple {{ PG }} hosts> \
+      psql "host=c-<cluster ID>.rw.mdb.yandexcloud.net \
           port=6432 \
           sslmode=disable \
           dbname=<DB name> \
@@ -34,7 +34,7 @@ sudo apt update && sudo apt install -y postgresql-client
   1. Connect to a database:
 
       ```bash
-      psql "host=<FQDN of one or multiple {{ PG }} hosts> \
+      psql "host=c-<cluster ID>.rw.mdb.yandexcloud.net \
           port=6432 \
           sslmode=verify-full \
           dbname=<DB name> \
@@ -52,26 +52,59 @@ sudo apt update && sudo apt install -y postgresql-client
 
 {% endlist %}
 
-### C# EfCore {#csharpefcore}
+### C# EF Core {#csharpefcore}
 
-Before connecting, install the dependencies:
+Required packages:
 
-```bash
-Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
-```
+* Microsoft.EntityFrameworkCore
+* Npgsql.EntityFrameworkCore.PostgreSQL
 
 {% list tabs %}
 
 - Connecting via SSL
 
-  Sample `appsettings.json` configuration file:
-
-  ```json
-  ...
-  "ConnectionStrings": {
-  	"Default": "Server=<FQDN of one or multiple {{ PG }} hosts>;Database=<DB name>;Port=6432;User Id=<username>;Password=<user password>;Ssl Mode=Require; Trust Server Certificate=true;"
-  },
-  ...
+  ```csharp
+  using System;
+  using System.Threading.Tasks;
+  using Microsoft.EntityFrameworkCore;
+  
+  namespace ConsoleApp
+  {
+      public class VersionString
+      {
+          public int id { get; set; }
+          public string versionString { get; set; }
+      }
+      public class ApplicationContext : DbContext
+      {
+          public ApplicationContext()
+          {
+              Database.EnsureCreated();
+          }
+          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+          {
+              var host      = "c-<cluster ID>.rw.mdb.yandexcloud.net";
+              var port      = "6432";
+              var db        = "<DB name>";
+              var username  = "<user name>";
+              var password  = "<user password>";
+              optionsBuilder.UseNpgsql($"Host={host};Port={port};Database={db};Username={username};Password={password};Ssl Mode=Require;Trust Server Certificate=true;");
+          }
+          public DbSet<VersionString> VersionStrings { get; set; }
+  
+      }
+      class Program
+      {
+          static async Task Main(string[] args)
+          {
+              using (ApplicationContext db = new ApplicationContext())
+              {
+                  var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id,version() as versionString;").ToListAsync();
+                  Console.WriteLine(versionStrings[0].versionString);
+              }
+          }
+      }
+  }
   ```
 
 {% endlist %}
@@ -105,11 +138,11 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
       
       const (
-          host     = "<FQDN of one or multiple {{ PG }} hosts>"
-          port     = 6432
-          user     = "<username>"
-          password = "<user password>"
-          dbname   = "<DB name>"
+        host     = "c-<cluster ID>.rw.mdb.yandexcloud.net"
+        port     = 6432
+        user     = "<username>"
+        password = "<user password>"
+        dbname   = "<DB name>"
       )
       
       func main() {
@@ -171,12 +204,12 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
       
       const (
-          host     = "<FQDN of one or multiple {{ PG }} hosts>"
-          port     = 6432
-          user     = "<username>"
-          password = "<user password>"
-          dbname   = "<DB name>"
-          ca       = "/home/<home directory>/.postgresql/root.crt"
+        host     = "c-<cluster ID>.rw.mdb.yandexcloud.net"
+        port     = 6432
+        user     = "<username>"
+        password = "<user password>"
+        dbname   = "<DB name>"
+        ca       = "/home/<home directory>/.postgresql/root.crt"
       )
       
       func main() {
@@ -346,7 +379,7 @@ Before connecting:
       
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://<host 1 {{ PG }}:6432,...,host N {{ PG }}:6432>/<DB name>&  targetServerType=master&ssl=true&  sslmode=disable";
+          String DB_URL     = "jdbc:postgresql://c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>?targetServerType=master&ssl=false";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user password>";
       
@@ -384,7 +417,7 @@ Before connecting:
       
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://<host 1 {{ PG }}:6432,...,host N {{ PG }}:6432>/<DB name>&  targetServerType=master&ssl=true&  sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user password>";
       
@@ -408,7 +441,7 @@ Before connecting:
       mvn clean package && \
       java -jar target/app-0.1.0-jar-with-dependencies.jar
       ```
-      
+
 {% endlist %}
 
 ### Node.js {#nodejs}
@@ -432,7 +465,7 @@ npm install pg
     
     const config = {
         connectionString:
-            "postgres://<username>:<user password>@c-<cluster ID>.rw.mdb. yandexcloud.net:6432/<DB name>"
+            "postgres://<username>:<user password>@c-<cluster ID>.rw.mdb.yandexcloud.net:6432/<DB name>"
     };
     
     const conn = new pg.Client(config);
@@ -512,7 +545,7 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=<{{ PG }} host 1>,...,<{{ PG }} host N>
+      Servername=c-<cluster ID>.rw.mdb.yandexcloud.net
       Username=<username>
       Password=<user password>
       Database=<DB name>
@@ -537,13 +570,13 @@ The {{ PG }} ODBC driver will be registered automatically in `/etc/odbcinst.ini`
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=<{{ PG }} host 1>,...,<{{ PG }} host N>
+      Servername=c-<cluster ID>.rw.mdb.yandexcloud.net
       Username=<username>
       Password=<user password>
       Database=<DB name>
       Port=6432
       Pqopt=target_session_attrs=read-write
-      Sslmode= verify-full
+      Sslmode=verify-full
       ```
 
   1. Connecting:
@@ -574,8 +607,8 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ```php
       <?php
-      $conn = pg_connect("
-            host=<FQDN of one or multiple {{ PG }} hosts>
+        $conn = pg_connect("
+            host=c-<cluster ID>.rw.mdb.yandexcloud.net
             port=6432
             sslmode=disable
             dbname=<DB name>
@@ -606,8 +639,8 @@ sudo apt update && sudo apt install -y php php-pgsql
 
       ```php
       <?php
-      $conn = pg_connect("
-            host=<FQDN of one or multiple {{ PG }} hosts>
+        $conn = pg_connect("
+            host=c-<cluster ID>.rw.mdb.yandexcloud.net
             port=6432
             sslmode=verify-full
             dbname=<DB name>
@@ -649,8 +682,8 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
   1. Connect to a database:
 
      ```powershell
-     & 'C:\Program Files\PostgreSQL\<version>\bin\psql.exe' `
-           -h <FQDN of one or more {{ PG }} hosts> `
+     & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
+           -h c-<cluster ID>.rw.mdb.yandexcloud.net `
            -p {{ port-mpg }} `
            -U <username> `
            <DB name>
@@ -668,21 +701,21 @@ Before connecting, install the same version of [{{ PG }} for Windows](https://ww
 
   1. Set the environment variables for the connection:
 
-     ```powershell
-     $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
-     ```
+      ```powershell
+      $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
+      ```
 
   1. Connect to a database:
 
-     ```powershell
-     & 'C:\Program Files\PostgreSQL\<version>\bin\psql.exe' `
-           -h <FQDN of one or more {{ PG }} hosts> `
-           -p {{ port-mpg }} `
-           -U <username> `
-           <DB name>
-     ```
+      ```powershell
+      & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
+        -h c-<cluster ID>.rw.mdb.yandexcloud.net `
+        -p {{ port-mpg }} `
+        -U <username> `
+        <DB name>
+      ```
 
-     After running the command, enter the user password to complete the connection procedure.
+      After running the command, enter the user password to complete the connection procedure.
 
   1. To check the connection, run the following query:
 
@@ -713,7 +746,7 @@ pip3 install psycopg2-binary
       import psycopg2
       
       conn = psycopg2.connect("""
-          host=<FQDN of one or multiple {{ PG }} hosts>
+          host=c-<cluster ID>.rw.mdb.yandexcloud.net
           port=6432
           sslmode=disable
           dbname=<DB name>
@@ -746,7 +779,7 @@ pip3 install psycopg2-binary
       import psycopg2
       
       conn = psycopg2.connect("""
-          host=<FQDN of one or multiple {{ PG }} hosts>
+          host=c-<cluster ID>.rw.mdb.yandexcloud.net
           port=6432
           sslmode=verify-full
           dbname=<DB name>
@@ -791,7 +824,7 @@ sudo apt update && sudo apt install -y ruby ruby-pg
       require "pg"
       
       conn = PG.connect("
-              host=<FQDN of one or multiple {{ PG }} hosts>
+              host=c-<cluster ID>.rw.mdb.yandexcloud.net
               port=6432
               dbname=<DB name>
               user=<username>
@@ -822,7 +855,7 @@ sudo apt update && sudo apt install -y ruby ruby-pg
       require "pg"
       
       conn = PG.connect("
-              host=<FQDN of one or multiple {{ PG }} hosts>
+              host=c-<cluster ID>.rw.mdb.yandexcloud.net
               port=6432
               dbname=<DB name>
               user=<username>
@@ -842,4 +875,3 @@ sudo apt update && sudo apt install -y ruby ruby-pg
       ```bash
       ruby connect.rb
       ```
-

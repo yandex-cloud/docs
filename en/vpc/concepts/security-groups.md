@@ -4,6 +4,12 @@ The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
 
 Security groups let you manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is assigned to the network interface when creating or updating a VM and should contain rules for receiving and sending traffic. You can assign multiple security groups to each VM.
 
+{% note warning %}
+
+Security groups are not designed to protect against DDoS attacks. To filter out large volumes of unwanted traffic, use [DDoS protection](../ddos-protection/index.md).
+
+{% endnote %}
+
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 
 ## Security group rules {#rules}
@@ -25,7 +31,7 @@ If a security group only contains a rule for outgoing traffic and no rules for i
 
 If two VMs are in the same security group with no rules, they won't be able to exchange traffic. To enable VMs in the same group to transfer traffic between one another, you can:
 
-* Use the `Use self` rule for the entire group.
+* Use the `Self` rule for the entire group.
 * Specify the addresses and ports of the required resources in the rules.
 
 ### Protocols {#protocols}
@@ -43,14 +49,17 @@ In the rules, you can allow receiving and sending traffic to individual IPs or a
 
 You can specify a particular IP address in the rules using CIDR with the `/32` mask.
 
-To allow traffic to be sent to any addresses over any protocols, specify CIDR `0.0.0.0` with the `/0` mask and set `All` in the protocol selection field.
+To allow traffic to be sent to any addresses over any protocols, specify CIDR `0.0.0.0` with the `/0` mask and set `Any` in the protocol selection field.
 
 Security groups don't block sending traffic to the addresses of services required for the VM and virtual network operation:
 
 * The metadata server address: `169.254.169.254`.
 * The address of the [DNS server](network.md#subnet): The second-in-order internal IP address (usually `x.x.x.2`) in each subnet.
 
-To enable [health checks](../../network-load-balancer/concepts/health-check.md) for resources connected to a network load balancer, allow traffic to be transferred between the `198.18.235.0/24` and `198.18.248.0/24` address ranges and target resources.
+To enable [health checks](../../network-load-balancer/concepts/health-check.md) for resources connected to the network load balancer, use one of the following methods:
+
+* Recommended method: in the `predefined_target` field, enter `loadbalancer_healthchecks`.
+* Manually allow traffic to be transferred between `198.18.235.0/24`, `198.18.248.0/24` and target resources.
 
 ## Default security group {#default-security-group}
 

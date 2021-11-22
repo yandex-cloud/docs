@@ -8,6 +8,10 @@ items:
         items:
           - name: Overview
             href: solutions/job-overview.md
+          - name: Working with Hive jobs
+            href: solutions/hive-job-basics.md
+          - name: Working with MapReduce jobs
+            href: solutions/mapreduce-job-basics.md
           - name: Working with PySpark jobs
             href: solutions/pyspark-job-basics.md
           - name: Using Apache Hive
@@ -30,6 +34,8 @@ items:
         href: operations/cluster-create.md
       - name: Connecting to clusters
         href: operations/connect.md
+      - name: Editing clusters
+        href: operations/cluster-update.md
       - name: Updating subclusters
         href: operations/subcluster-update.md
       - name: Managing subclusters
@@ -48,6 +54,8 @@ items:
             href: operations/jobs-hive.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
+      - name: Working with logs
+        href: operations/logging.md
   - name: Concepts
     items:
       - name: Data Proc overview

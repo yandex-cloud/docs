@@ -2,9 +2,7 @@
 
 - Bash
 
-  **Before connecting, install the [Mongo Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell)**.
-
-  You can find the current versions of Mongo Shell [in the downloads section](https://www.mongodb.com/try/download/community) on the MongoDB website.
+  Before connecting, install the [Mongo Shell utility](https://docs.mongodb.com/manual/mongo/#download-the-mongo-shell).
 
   **Connecting via SSL for `mongo` version 4.2 and higher:**
 
@@ -12,34 +10,63 @@
   mongo --norc \
         --tls \
         --tlsCAFile /home//.mongodb/root.crt \
-        --host '<FQDN of MONGOINFRA or MONGOS host 1>:27017,...,FQDN of MONGOINFRA or MONGOS host N>:27017' \
-        -u <DB username> \
+        --host '<MONGOINFRA or MONGOS host 1 FQDN>:27017,...,<MONGOINFRA or MONGOS host N FQDN>:27017' \
+        --username <DB username> \
+        --password <DB user password> \
         <DB name>
   ```
 
   **Connecting via SSL for older `mongo` versions:**
 
-  ```
+  ```bash
   mongo --norc \
         --ssl \
         --sslCAFile /home/<home directory>/.mongodb/root.crt \
-        --host '<FQDN of MONGOINFRA or MONGOS host 1>:27017,...,FQDN of MONGOINFRA or MONGOS host N>:27017' \
-        -u <DB username> \
+        --host '<MONGOINFRA or MONGOS host 1 FQDN>:27017,...,<MONGOINFRA or MONGOS host N FQDN>:27017' \
+        --username <DB username> \
+        --password <DB user password> \
         <DB name>
   ```
 
   **Connecting without SSL:**
 
-  ```
+  ```bash
   mongo --norc \
-        --host '<FQDN of MONGOINFRA or MONGOS host 1>:27017,...,FQDN of MONGOINFRA or MONGOS host N>:27017' \
-        -u <DB username> \
+        --host '<MONGOINFRA or MONGOS host 1 FQDN>:27017,...,<MONGOINFRA or MONGOS host N FQDN>:27017' \
+        --username <DB username> \
+        --password <DB user password> \
         <DB name>
   ```
 
-  After running any of the commands, enter the user password to complete the connection procedure.
+  After connecting, run the `db` command.
 
-  After connecting to the DBMS, run the command `db`.
+- PowerShell
+
+  Before connecting, install the [MongoDB Shell utility](https://www.mongodb.com/try/download/shell).
+
+  **Connecting via SSL for `mongo` version 4.2 and higher:**
+
+  ```powershell
+  mongosh.exe --norc `
+              --host '<MONGOINFRA or MONGOS host 1 FQDN>:{{ port-mmg-sharded }},...,<MONGOINFRA or MONGOS host N FQDN>:{{ port-mmg-sharded }}' `
+              --tls `
+              --tlsCAFile $HOME\.mongodb\root.crt `
+              --username <DB username> `
+              --password <DB user password> `
+              <DB name>
+  ```
+
+  **Connecting without SSL:**
+
+  ```powershell
+  mongosh.exe --norc `
+              --host '<MONGOINFRA or MONGOS host 1 FQDN>:{{ port-mmg-sharded }},...,<MONGOINFRA or MONGOS host N FQDN>:{{ port-mmg-sharded }}' `
+              --username <DB username> `
+              --password <DB user password> `
+              <DB name>
+  ```
+
+  After connecting, run the `db` command.
 
 - Python
 
