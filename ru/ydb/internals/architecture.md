@@ -14,7 +14,7 @@
 
 ## Основные характеристики YDB
 
-  * представляет собой [табличную базу данных](../concepts/datamodel.md);
+  * представляет собой [табличную базу данных](../concepts/internal/datamodel.md);
   * реализует эффективное выполнение меж-объектных транзакций (cross-row/cross-table transactions);
   * реализует согласованность в режиме strict-consistency with serializable isolation;
   * предоставляет универсальный язык взаимодействия с платформой YQL;
