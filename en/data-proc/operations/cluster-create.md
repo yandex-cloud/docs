@@ -12,19 +12,21 @@ Security groups must be created and configured before creating a cluster. If the
 
 1. [Add rules](../../vpc/operations/security-group-update.md#add-rule):
 
-    * One rule for incoming and outgoing service traffic:
+    * One rule for inbound and outbound service traffic:
+
         * Port range: `{{ port-any }}`.
         * Protocol: `Any`.
         * Source type: `Security group`.
         * Destination: Current security group (`Self`).
 
     * A separate rule for outgoing HTTPS traffic:
+
         * Port range: `{{ port-https }}`.
         * Protocol: `TCP`.
         * Source type: `CIDR`.
         * Destination: `0.0.0.0/0`.
 
-        This will allow you to use [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/ui-proxy.md), and [automatic scaling](../concepts/autoscaling.md) of clusters.
+        This will allow you to use [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), [UI Proxy](../concepts/ui-proxy.md), and [automatic scaling](../concepts/autoscaling.md) of clusters.
 
 If you plan to use multiple security groups for a cluster, enable all traffic between these groups.
 
@@ -94,7 +96,13 @@ You can set up security groups for [connections to cluster hosts](connect.md) vi
      1. The default metric used for autoscaling is `yarn.cluster.containersPending`. To enable scaling based on CPU usage, disable the **Default scaling** option and set the target CPU utilization level.
      1. Click **Add**.
 
-  1. After you configure all the subclusters you need, click **Create cluster**.
+  1. If necessary, configure additional cluster settings:
+
+      **Deletion protection**: Manages cluster protection from accidental deletion by a user.
+
+      Enabled protection will not prevent a manual connection to a cluster to delete data.
+
+  1. Click **Create cluster**.
 
 {% endlist %}
 
