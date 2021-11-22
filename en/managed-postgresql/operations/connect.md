@@ -21,6 +21,7 @@ Settings of rules depend on the connection method you select:
 - Over the internet
 
   [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 6432 from any IP address. To do this, create the following rule for incoming traffic:
+  
   * Protocol: `TCP`.
   * Port range: `6432`.
   * Source type: `CIDR`.
@@ -29,6 +30,7 @@ Settings of rules depend on the connection method you select:
 - With a VM in {{ yandex-cloud }}
 
   1. [Configure all the security groups](../../vpc/operations/security-group-update.md#add-rule) of the cluster to allow incoming traffic on port 6432 from the security group assigned to the VM. To do this, create the following rule for incoming traffic in these groups:
+
      * Protocol: `TCP`.
      * Port range: `6432`.
      * Source type: `Security group`.
@@ -58,7 +60,7 @@ Settings of rules depend on the connection method you select:
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
+You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
 
 Security groups must be configured correctly for all subnets that will include cluster hosts. If security group settings are incomplete or incorrect, you may lose access to the cluster if switching the master host [manually](hosts.md#update) or [automatically](../concepts/replication.md#replication-auto).
 
@@ -70,16 +72,16 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 ### Using libpq {#using-libpq}
 
-To guarantee a connection to the master host, specify the FQDNs of all the cluster hosts in the `host` argument and pass the `target_session_attrs=read-write` parameter as shown in [most of the examples](#connection-string) below. This parameter is supported by the `libpq` library starting from [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html):
+To guarantee a connection to the master host, specify the FQDNs of all the cluster hosts in the `host` argument and pass the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
 
 To upgrade the library version used by the `psql` utility:
 
 * For Debian-based Linux distributions, install the `postgresql-client-10` package or higher (for example, using an [APT repository](https://www.postgresql.org/download/linux/ubuntu/)).
 * For operating systems that use RPM packages, a {{ PG }} distribution is available from a [YUM repository](https://yum.postgresql.org/).
 
-### With a driver that supports only one host {#with-a-driver-that-supports-only-one-host}
+### With a special master host FQDN {#using-fqdn-master}
 
-If your database connection driver doesn't support passing multiple hosts in the connection string (for example, [pg in Node.js](https://www.npmjs.com/package/pg)), use a [special FQDN](#fqdn-master) that points to the host master.
+To avoid listing all the cluster hosts in a connection string, use a [special master host FQDN](#fqdn-master) as shown [in the examples below](#connection-string).
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
@@ -136,6 +138,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 {% list tabs %}
 
 - DataGrip
+
   1. Create a data source:
      1. Select **File** → **New** → **Data Source** → **{{ PG }}**.
      1. Specify the connection parameters on the **General** tab:
@@ -149,7 +152,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
           You can also use [special FQDNs](#special-fqdns) in the connection string:
 
           ```http
-          jdbc:postgresql://<special FQDN:{{ port-mpg }}>/<DB name>
+          jdbc:postgresql://<special FQDN>:{{ port-mpg }}>/<DB name>
           ```
 
         * Click **Download** to download the connection driver.
@@ -160,6 +163,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
   1. Click **OK** to save the data source.
 
 - DBeaver
+
   1. Create a new DB connection:
      1. In the **Database** menu, select **New connection**.
      1. Select the **{{ PG }}** database from the list.
@@ -190,7 +194,7 @@ The examples below assume that the `root.crt` SSL certificate is located in the 
 
 Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. DB connection traffic internal to the cloud network will not be encrypted.
 
-You can connect to a cluster using both regular FQDN hosts (you can send a list of several such comma-separated FQDNs) and [special FQDNs](#special-fqdns).
+You can connect to a cluster using both regular FQDN hosts (you can send a list of several such comma-separated FQDNs) and [special FQDNs](#special-fqdns). The examples use a special FQDN of the current master host.
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

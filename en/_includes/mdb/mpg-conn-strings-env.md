@@ -12,4 +12,6 @@
 * {{ yandex-cloud }} virtual machine running Windows Server 2019 Datacenter:
   * PostgreSQL: `13`.
   * PowerShell: ` 5.1.17763.1490 Desktop`.
-
+  * .NET 5
+  * Microsoft.EntityFrameworkCore 5.0.9
+  * Npgsql.EntityFrameworkCore.PostgreSQL 5.0.7
