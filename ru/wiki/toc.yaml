@@ -58,10 +58,8 @@ items:
     href: add-toc.md
   - name: Вставить ссылки на задачи Tracker
     href: add-tickets-list.md
-  - name: Вставить формулу
-    href: formulas.md
-  - name: Диаграммы и блок-схемы
-    href: diagram.md
+  - name: Вставить формулу, диаграмму и блок-схему
+    href: add-diagram-formula.md 
 - name: Работа с документами Microsoft Office 365
   when: audience == "internal"
   items:
@@ -164,8 +162,12 @@ items:
       href: static-markup/highlight.md     
     - name: Форматирование CSV-данных
       href: static-markup/csv.md
+    - name: Формулы
+      href: static-markup/formulas.md
+    - name: Диаграммы и блок-схемы
+      href: static-markup/diagram.md
     - name: Границы, ширина и выравнивание блоков
-      href: static-markup/wrappers.md
+      href: static-markup/wrappers.md      
   - name: Динамические блоки
     items:
     - name: Обзор
