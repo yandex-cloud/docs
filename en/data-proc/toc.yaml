@@ -10,10 +10,8 @@ items:
           - name: Overview
             href: solutions/job-overview.md
           - name: Working with Hive jobs
-            when: audience == "draft"
             href: solutions/hive-job-basics.md
           - name: Working with MapReduce jobs
-            when: audience == "draft"
             href: solutions/mapreduce-job-basics.md
           - name: Working with PySpark jobs
             href: solutions/pyspark-job-basics.md
