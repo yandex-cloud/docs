@@ -209,6 +209,22 @@
       await driver.Initialize();
   }
   ```
+  
+- PHP
+
+  ```php
+  <?php
+
+	use YandexCloud\Ydb\Ydb;
+
+	$config = [
+	    // ...
+	];
+
+	$ydb = new Ydb($config);
+
+  ```
+
 
 {% endlist %}
 
@@ -251,6 +267,16 @@
 
   ```c#
   using var tableClient = new TableClient(driver, new TableClientConfig());
+  ```
+  
+- PHP
+
+  ```php
+  	// obtaining the Table service
+	$table = $ydb->table();
+
+	// obtaining a session
+	$session = $table->session();
   ```
 
 {% endlist %}
