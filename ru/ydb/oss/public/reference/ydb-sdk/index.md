@@ -272,11 +272,11 @@
 - PHP
 
   ```php
-  	// obtaining the Table service
-	$table = $ydb->table();
-
-	// obtaining a session
-	$session = $table->session();
+  // obtaining the Table service
+  $table = $ydb->table();
+  
+  // obtaining a session
+  $session = $table->session();
   ```
 
 {% endlist %}
