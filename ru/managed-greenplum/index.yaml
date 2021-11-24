@@ -23,7 +23,6 @@ links:
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
-    when: state != "public-preview"
   - title: Концепции
     description: Узнайте про концепции и общее устройство сервиса
     href: concepts/
