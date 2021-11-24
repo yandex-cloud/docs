@@ -58,6 +58,8 @@ items:
             href: operations/jobs-hive.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
+      - name: Monitoring the state of a cluster and hosts
+        href: operations/monitoring.md
       - name: Working with logs
         href: operations/logging.md
   - name: Concepts
