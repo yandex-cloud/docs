@@ -8,5 +8,6 @@
 - [{#T}](subcluster-update.md)
 - [{#T}](jobs.md)
 - [{#T}](cluster-delete.md)
+- [{#T}](monitoring.md)
 - [{#T}](logging.md)
 

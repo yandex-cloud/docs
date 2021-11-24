@@ -91,6 +91,8 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [data-transfer-viewer](../../../_includes/roles-data-transfer-viewer.md) %}
 
+{% include [data-transfer-admin](../../../_includes/roles-data-transfer-admin.md) %}
+
 ## {{ datalens-name }} {#datalens-roles}
 
 {% include [datalens-instances-user](../../../_includes/roles-datalens-user.md) %}

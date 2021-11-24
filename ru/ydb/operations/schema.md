@@ -174,7 +174,7 @@
    
      
    | Метод    | Java | Python |  Go |
-   | ---- | ---- | ---- | ---- | ---- |
+   | ---- | ---- | ---- | ---- |
    | Создание директории | ```SchemeClient.makeDirectory``` | ```scheme_client.make_directory``` | ```Client.MakeDirectory``` |
    | Удаление директории | ```SchemeClient.removeDirectory``` | ```scheme_client.remove_directory``` | ```Client.RemoveDirectory``` |
    | Просмотр информации о директории  | ```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` | ```Client.DescribePath``` |

@@ -2,7 +2,6 @@
 title: Instructions for working with Billing
 description: "In the article you will learn how to work with billing in Yandex.Cloud, how to activate the paid version, reserve consumption (CVoS), activate a promotional code, replenish a personal account and much more."
 ---
-
 # All instructions
 
 [{#T}](activate-commercial.md)
@@ -36,3 +35,5 @@ description: "In the article you will learn how to work with billing in Yandex.C
 [{#T}](dashboard.md)
 
 [{#T}](budgets.md)
+
+[{#T}](edo.md)

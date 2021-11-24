@@ -1,10 +1,10 @@
 # Using {{ objstorage-full-name }} in {{ dataproc-name }}
 
-This section describes various ways that processes running in {{ dataproc-name }} clusters can access objects from {{ objstorage-name }} buckets.
+This section discusses the various ways of accessing objects from [buckets](../../storage/concepts/bucket.md) in {{ objstorage-name }} for processes running on {{ dataproc-name }} clusters.
 
 {% note info %}
 
-Before you begin setting up access to {{ yandex-cloud }} services and internet resources, make sure that the cluster network is [configured properly](./configure-network.md).
+[Configure a cluster network](./configure-network.md) before setting up access to {{ yandex-cloud }} services and internet resources.
 
 {% endnote %}
 
@@ -15,12 +15,40 @@ Component settings impact bucket file read and write performance:
 
 ## DistCp {#distcp}
 
-To copy files from {{objstorage-name}} to HDFS, we recommend that you use the [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html) utility designed for copying data both within clusters and between clusters and external storages.
+To copy files from {{objstorage-name}} to HDFS, use the [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html) utility. It is designed to copy data both within a cluster and between clusters and external storage.
 
-You can use two approaches to authenticate in {{objstorage-name}}:
+To authenticate in {{objstorage-name}}, you can use one of the following approaches:
 
+1. Use the [IAM token of the cluster service account](../../iam/operations/iam-token/create-for-sa.md).
 1. Use [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html).
-1. Pass the `access key` and the `secret key` parameters when creating a job.
+1. Transmit the `access key` and `secret key` parameters [of static access keys](../../iam/concepts/authorization/access-key.md) when creating a job.
+
+### Accessing S3 with authentication via the IAM token of a {#s3-access-using-iam} cluster service account
+
+1. When creating a cluster, specify a [service account](../../iam/operations/sa/create.md#create-sa). If a cluster is already created, add a service account using the **Edit cluster** button in the management console.
+
+1. The service account must have access to the appropriate bucket. To do this, grant the service account privileges in the [bucket ACL](https://cloud.yandex.ru/docs/storage/concepts/acl), or the `storage.viewer` or `storage.editor` roles.
+
+    For more information about these roles, see the [{{objstorage-name}} documentation](../../storage/security/index.md).
+
+> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`.
+>
+>1. [Connect](../operations/connect.md) to the cluster.
+>1. Run the command:
+>
+>   ```bash
+>   hadoop fs -ls s3a://yc-mdb-examples/dataproc/example01/set01
+>   ```
+>
+>   Result:
+>
+>   ```text
+>   Found 12 items
+>   -rw-rw-rw-   1 root root   19327838 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_1.parquet
+>   -rw-rw-rw-   1 root root   21120204 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_10.parquet
+>   -rw-rw-rw-   1 root root   20227757 2019-09-13 17:17 s3a://yc-mdb-examples/dataproc/example01/set01/
+>   ...
+>   ```
 
 ### Copying via CredentialProvider {#copying-via-credentialprovider}
 
@@ -71,7 +99,7 @@ hadoop distcp \
        hdfs://rc1b-dataproc-m-d31bs470ivkyrz60.mdb.yandexcloud.net/user/root/datasets/set01/
 ```
 
-## Copying files by passing keys in arguments {#copying-files-by-passing-keys-in-arguments}
+### Copying files by passing keys in arguments {#copying-files-by-passing-keys-in-arguments}
 
 Instead of creating a secrets file, you can pass keys in command arguments:
 
@@ -112,7 +140,7 @@ If required, specify the values of the [other settings](https://hadoop.apache.or
     * `bytebuffer`: RAM from outside the JVM heap is used.
 * `fs.s3a.multipart.size`: The size of chunks in bytes that data bucket copy or upload operations will partition the data into.
 
-For more information on the component versions used, see [{#T}](../concepts/environment.md).
+For more information, see [Component properties](../concepts/settings-list.md#spark-settings).
 
 ## Using s3fs {#s3fs}
 
@@ -130,6 +158,8 @@ For more information on the component versions used, see [{#T}](../concepts/envi
 
     ```scala
     sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
+    sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
+    sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
     sc.hadoopConfiguration.set("hadoop.security.credential.provider.path", "jceks://hdfs/<path to JCEKS file>");
     ```
 
@@ -137,8 +167,10 @@ For more information on the component versions used, see [{#T}](../concepts/envi
 
     ```scala
     sc.hadoopConfiguration.set("fs.s3a.endpoint", "storage.yandexcloud.net");
-    sc.hadoopConfiguration.set("fs.s3a.access.key","<access key>>");
-    sc.hadoopConfiguration.set("fs.s3a.secret.key","<secret_key>");
+    sc.hadoopConfiguration.set("fs.s3a.signing-algorithm", "");
+    sc.hadoopConfiguration.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider");
+    sc.hadoopConfiguration.set("fs.s3a.access.key","<access key>");
+    sc.hadoopConfiguration.set("fs.s3a.secret.key","<bucket secret>");
     ```
 
   You can then read the file from {{objstorage-name}}:
@@ -156,6 +188,8 @@ For more information on the component versions used, see [{#T}](../concepts/envi
 
     ```python
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<path to JCEKS file>")
     ```
 
@@ -163,6 +197,8 @@ For more information on the component versions used, see [{#T}](../concepts/envi
 
     ```python
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "storage.yandexcloud.net")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.signing-algorithm", "")
+    sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     sc._jsc.hadoopConfiguration().set("fs.s3a.access.key","<access key>")
     sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<bucket secret>")
     ```
@@ -171,8 +207,10 @@ For more information on the component versions used, see [{#T}](../concepts/envi
 
   ```python
   sql = SQLContext(sc)
-  df = sql.read.parquet("s3a://<bucket_name>/<path_to_file_or_directory>")
+  df = sql.read.parquet("s3a://<bucket name>/<object path>")
   ```
 
 {% endlist%}
+
+For more information, see [{#T}](../concepts/settings-list.md#spark-settings).
 

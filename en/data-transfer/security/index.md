@@ -27,16 +27,22 @@ You can assign roles for a [cloud](../../resource-manager/concepts/resources-hie
 
 ## What roles exist in the service {#roles-list}
 
-* Service roles:
-   * `data-transfer.viewer`: Lets you view information only about {{ data-transfer-name }} resources.
-   * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-   * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-* Primitive roles:
-   * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-   * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-   * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+### Service roles {#service-roles}
 
-#### What's next {#what-is-next}
+| Role | Permissions |
+| ----- | ----- |
+| `data-transfer.admin` | Enables you to manage (create, modify, and delete) [endpoints](../concepts/index.md#endpoint) and [transfers](../concepts/index.md#transfer) as well as activate and deactivate transfers. |
+| `data-transfer.viewer` | Only enables you to view information about the resources of the {{ data-transfer-name }} service. |
+
+### Roles of other {{ yandex-cloud }} services {#other-roles}
+
+{% include [roles-resource-manager](../../_includes/roles-resource-manager.md) %}
+
+### Primitive roles {#primitive-roles}
+
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
+
+## What's next {#whats-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).

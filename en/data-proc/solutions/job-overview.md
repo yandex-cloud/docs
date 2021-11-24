@@ -2,6 +2,8 @@
 
 ## Basic examples of working with jobs {#jobs-basic-tutorials}
 
+- [{#T}](hive-job-basics.md)
+
 
 - [{#T}](pyspark-job-basics.md)
 
