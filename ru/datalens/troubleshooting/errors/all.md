@@ -20,6 +20,7 @@
 * [{#T}](ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md)
 * [{#T}](ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md)
 * [{#T}](ERR-CK_TOO_MANY_LINES.md)
+* [{#T}](ERR-DS_API-FIELD-NOT_FOUND.md)
 * [{#T}](ERR-DS_API-FORMULA-TRANSLATION-UNKNOWN_FIELD.md)
 * [{#T}](ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md)
 {% if audience == "internal" %} * [{#T}](no-access-to-read-this-operation.md) {% endif %}
