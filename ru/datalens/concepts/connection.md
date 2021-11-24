@@ -28,6 +28,7 @@ _Подключение_ содержит информацию о парамет
 Вы можете настроить права доступа к подключению. Подробнее в разделе [{#T}](../security/index.md).
 
 #### См. также {#see-also}
+
 - [{#T}](../operations/connection/create-clickhouse.md)
 - [{#T}](../operations/connection/create-csv.md)
 - [{#T}](../operations/connection/create-google-sheets.md)

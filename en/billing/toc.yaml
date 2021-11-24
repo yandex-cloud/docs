@@ -42,6 +42,8 @@ items:
         href: operations/dashboard.md
       - name: Enabling notifications
         href: operations/budgets.md
+      - name: Enabling electronic document management
+        href: operations/edo.md
   - name: Concepts
     items:
       - name: All concepts
@@ -104,6 +106,8 @@ items:
             href: concepts/bill.md
           - name: Invoice
             href: concepts/invoice.md
+          - name: Electronic document management
+            href: concepts/edo.md
       - name: Payment currency
         href: payment/currency.md
   - name: Access control

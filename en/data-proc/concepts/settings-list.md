@@ -47,6 +47,20 @@ Settings for running the jobs are specified in special properties:
 * `dataproc:min-free-memory-to-enqueue-new-job`: The minimum size of free memory to run the job (in bytes). Default value: `1073741824` (1 GB).
 * `dataproc:job-memory-footprint`: The memory size to run the job on the `MASTER` cluster node, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
 
+## Spark settings for working with Object Storage {#spark-settings}
+
+The following settings are available for Apache Spark:
+
+| Configuration                          | Default value                                    |  Description                                                                            |
+| :---------------------------------- | :-------------------------------------------------------- | :----------------------------------------------------------------------------------- |
+| `fs.s3a.access.key`                | —                                                        | [Static key](../../iam/concepts/authorization/access-key.md) ID  |
+| `fs.s3a.secret.key`                | —                                                        | Secret key                                                                      |
+| `fs.s3a.endpoint`                  | `storage.yandexcloud.net`                                | Endpoint to connect to {{ objstorage-name }}                                    |
+| `fs.s3a.signing-algorithm` | Empty value                                          | Signature algorithm                                                                    |
+| `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Credentials provider                                                            |
+
+For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
+
 ## Installing Python packages {#python-packages-install}
 
 To install additional Python packages, you can use the conda or pip package managers. Pass the package name in the cluster properties as follows:

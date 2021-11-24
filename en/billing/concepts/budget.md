@@ -29,6 +29,7 @@ Budgets keep usage totals over the entire tracking period. A budget created in t
 
 The _Account balance_ budget type keeps track of your personal account balance and verifies it against an established threshold. Users are notified when a personal account balance falls below the threshold value.
 
-##### See also
+##### See also {#see-also}
 
 [{#T}](../operations/budgets.md)
+

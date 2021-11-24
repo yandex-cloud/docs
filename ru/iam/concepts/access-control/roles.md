@@ -144,9 +144,9 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-viewer.md) %}
 
-{% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-editor.md) %}
+{% include [roles-monitoring-editor](../../../_includes/roles-monitoring-editor.md) %}
 
-{% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-admin.md) %}
+{% include [roles-monitoring-admin](../../../_includes/roles-monitoring-admin.md) %}
 
 ## {{ network-load-balancer-name }} {#load-balancer-roles}
 
