@@ -243,7 +243,7 @@ def select_prepared(session, path, series_id, season_id, episode_id):
 
 ## Явное использование вызовов TCL Begin/Commit
 
-В большинстве случаев вместо явного использования [TCL](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/transaction) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах execute. Это позволит избежать лишних обращений к YDB и эффективней выполнять запросы. Фрагмент кода basic_example в листинге 14 демонстрирует явное использование вызовов ```transaction().begin()``` и ```tx.Commit()```
+В большинстве случаев вместо явного использования [TCL](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/transactions) вызовов Begin и Commit лучше использовать параметры контроля транзакций в вызовах execute. Это позволит избежать лишних обращений к YDB и эффективней выполнять запросы. Фрагмент кода basic_example в листинге 14 демонстрирует явное использование вызовов ```transaction().begin()``` и ```tx.Commit()```
 
 <small>Листинг 14</small>
 
