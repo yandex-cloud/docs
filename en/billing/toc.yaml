@@ -42,6 +42,8 @@ items:
         href: operations/dashboard.md
       - name: Enabling notifications
         href: operations/budgets.md
+      - name: Enabling electronic document management
+        href: operations/edo.md
   - name: Concepts
     items:
       - name: All concepts
@@ -107,6 +109,8 @@ items:
           - name: Payment receipt
             href: concepts/individual-bill.md
             when: region == "ru"
+          - name: Electronic document management
+            href: concepts/edo.md
       - name: Payment currency
         href: payment/currency.md
   - name: Access control
