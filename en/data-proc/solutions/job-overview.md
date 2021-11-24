@@ -2,9 +2,10 @@
 
 ## Basic examples of working with jobs {#jobs-basic-tutorials}
 
+- [{#T}](hive-job-basics.md)
+
 {% if audience == "draft" %}
 
-- [{#T}](hive-job-basics.md)
 - [{#T}](mapreduce-job-basics.md)
 
 {% endif %}
