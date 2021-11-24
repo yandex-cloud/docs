@@ -18,6 +18,7 @@ docs-viewer:
   langs: ['ru']
   show-revision: false
   show-toc-header: true
+  vcs-url-prefix: https://bb.yandex-team.ru/projects/CLOUD/repos/docs/browse
   startrek:
     queue: YCDOCS
     ticket-type: bug
