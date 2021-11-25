@@ -90,8 +90,7 @@ editable: false
 
 ## DNS-зоны {#dns-zones}
 
-Тарифицируются [публичные](concepts/dns-zone.md#public-zones) или [внутренние](concepts/dns-zone.md#private-zones)
-DNS-зоны, созданные пользователем.
+Тарифицируются [публичные](concepts/dns-zone.md#public-zones) или [внутренние](concepts/dns-zone.md#private-zones) DNS-зоны, созданные пользователем.
 
 [Сервисные зоны](concepts/dns-zone.md#service-zones) не тарифицируются.
 
