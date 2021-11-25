@@ -156,6 +156,10 @@ links:
     description: Управление ресурсами в каталогах и облаках
     href: resource-manager/
     when: audience == "external"
+  - title: Serverless Containers
+    description: Запуск контейнеров без Kubernetes®
+    href: serverless-containers/
+    when: audience == "external"
   - title: Сценарии использования платформы Yandex.Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: solutions/
