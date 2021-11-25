@@ -14,7 +14,7 @@
 
 {{ mpg-short-name }} поддерживает подключение библиотек:
 
-* `auto_explain` — необходима для работы [расширения auto_explain](({{ pg-docs }}/auto-explain.html));
+* `auto_explain` — необходима для работы [расширения auto_explain]({{ pg-docs }}/auto-explain.html);
 * `pg_hint_plan` — необходима для работы [расширения pg_hint_plan](https://pghintplan.osdn.jp/pg_hint_plan.html);
 * `pg_qualstats` — необходима для работы [расширения pg_qualstats](https://github.com/powa-team/pg_qualstats);
 * `timescaledb` — необходима для использования [расширения TimescaleDB](https://github.com/timescale/timescaledb).
