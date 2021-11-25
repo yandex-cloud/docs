@@ -27,6 +27,8 @@ items:
         href: operations/cluster-logs.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
+      - name: Monitoring the state of a cluster and hosts
+        href: operations/monitoring.md
   - name: Use cases
     items:
       - name: Data delivery in Managed Service for ClickHouse

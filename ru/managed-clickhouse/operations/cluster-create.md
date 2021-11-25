@@ -148,6 +148,8 @@
              --admin-password <пароль пользователя admin>
           ```
 
+      1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
 - Terraform
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
@@ -211,6 +213,21 @@
 
        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+       Чтобы разрешить доступ из других сервисов {{ yandex-cloud }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), добавьте блок `access` с нужными вам настройками:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          access {
+            datalens   = <Доступ из DataLens: true или false>
+            metrika    = <Доступ из Метрики и AppMetrika: true или false>
+            serverless = <Доступ из Cloud Functions: true или false>
+            web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
+          }
+          ...
+        }
+        ```
+
        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
     1. Проверьте корректность настроек.
@@ -242,6 +259,8 @@
   При создании кластера из нескольких хостов:
     * Если в [виртуальной сети](../../vpc/concepts/network.md) для кластера есть подсети в каждой из [зон доступности](../../overview/concepts/geo-scope.md), то в каждую подсеть автоматически будет добавлено по одному хосту {{ ZK }}, если не указать настройки этих хостов явно. При необходимости можно явно указать три хоста {{ ZK }} и их настройки при создании кластера. 
     * Если в виртуальной сети для кластера есть подсети только в некоторых зонах доступности, то нужно явно указать три хоста {{ ZK }} и их настройки при создании кластера.
+
+  Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 {% endlist %}
 

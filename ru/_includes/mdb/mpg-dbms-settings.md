@@ -918,11 +918,7 @@
 
 - **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
 
-  Разделенный запятыми список имен библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера {{ PG }}. Выберите из списка одну или несколько библиотек:
-
-  * `auto_explain` — необходима для работы [модуля `auto_explain`](https://www.postgresql.org/docs/current/auto-explain.html);
-  * `pg_hint_plan` — необходима для работы [модуля `pg_hint_plan`](https://pghintplan.osdn.jp/pg_hint_plan.html);
-  * `timescaledb` — необходима для использования [баз данных TimescaleDB](https://github.com/timescale/timescaledb).
+  Разделенный запятыми список имен библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера {{ PG }}. Библиотеки требуются для работы некоторых [расширений {{ PG }}](../../managed-postgresql/operations/cluster-extensions.md).
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
 

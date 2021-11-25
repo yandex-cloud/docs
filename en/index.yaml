@@ -128,6 +128,9 @@ links:
   - title: Resource Manager
     description: Resource management in folders and clouds
     href: resource-manager/
+  - title: Serverless Containers
+    description: Running containers without Kubernetes®
+    href: serverless-containers/
   - title: Yandex.Cloud use cases
     description: Instructions for handling various tasks using cloud services
     href: solutions/

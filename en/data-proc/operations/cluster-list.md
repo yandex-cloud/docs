@@ -1,16 +1,16 @@
 # Information about existing clusters
 
-You can request detailed information about each {{ dataproc-name }} cluster you created.
+Detailed information about each {{ dataproc-name }} cluster created is available.
 
 ## Getting a list of clusters in a folder {#list}
 
 {% list tabs %}
 
-* Management console
+- Management console
 
     Go to the folder page and select **{{ dataproc-name }}**.
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -22,9 +22,9 @@ You can request detailed information about each {{ dataproc-name }} cluster you 
     yc dataproc cluster list
     ```
 
-* API
+- API
 
-    To get a list of cluster, use the [list](../api-ref/Cluster/list.md) method.
+    Use the [list](../api-ref/Cluster/list.md) API method.
 
 {% endlist %}
 
@@ -32,11 +32,11 @@ You can request detailed information about each {{ dataproc-name }} cluster you 
 
 {% list tabs %}
 
-* Management console
+- Management console
     1. Go to the folder page and select **{{ dataproc-name }}**.
     1. Click on the name of the cluster you need.
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -48,11 +48,13 @@ You can request detailed information about each {{ dataproc-name }} cluster you 
     yc dataproc cluster get <cluster name or ID>
     ```
 
-    The cluster name and ID can be requested with a [list of clusters in the folder](#list).
+    You can get the cluster ID and name with a [list of clusters in the folder](#list).
 
-* API
+- API
 
-    To get cluster details, use the [get](../api-ref/Cluster/get.md) method.
+    Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` parameter of the request.
+
+    You can get the cluster ID with a [list of clusters in the folder](#list).
 
 {% endlist %}
 
@@ -60,11 +62,11 @@ You can request detailed information about each {{ dataproc-name }} cluster you 
 
 {% list tabs %}
 
-* Management console
+- Management console
     1. Go to the folder page and select **{{ dataproc-name }}**.
     1. Click on the name of the cluster and open the **Operations** tab.
 
-* CLI
+- CLI
 
     {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -76,11 +78,13 @@ You can request detailed information about each {{ dataproc-name }} cluster you 
     yc dataproc cluster list-operations <cluster name or ID>
     ```
 
-    The cluster name and ID can be requested with a [list of clusters in the folder](#list).
+    You can get the cluster ID and name with a [list of clusters in the folder](#list).
 
-* API
+- API
 
-    To get a list of cluster operations, use the [listOperations](../api-ref/Cluster/listOperations.md) method.
+    Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and pass the cluster ID in the `clusterId` parameter of the request.
+
+    You can get the cluster ID with a [list of clusters in the folder](#list).
 
 {% endlist %}
 
