@@ -73,51 +73,83 @@
         ```bash
         $ chmod 0600 ~/.redis/YandexInternalRootCA.crt
         ```
-        
-1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 
-1. Подключитесь к хосту-мастеру кластера {{ RD }}, используя `redis-cli`.
+1. [Настройте группы безопасности](./operations/connect/index.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 
-   {% note info %}
+1. Подключитесь к кластеру, используя `redis-cli`.
 
-   Для подключения к кластеру с поддержкой SSL [скачайте](https://redis.io/download) архив с исходным кодом утилиты и выполните сборку версии утилиты с TLS командой `make BUILD_TLS=yes`.
+    {% note info %}
 
-   {% endnote %}
+    Для подключения к кластеру с поддержкой SSL [скачайте](https://redis.io/download) архив с исходным кодом утилиты и выполните сборку версии утилиты с TLS командой `make BUILD_TLS=yes`.
 
-   {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
+    {% endnote %}
 
-   Чтобы подключиться:
-   - К мастеру через любой хост кластера с помощью [Sentinel](https://redis.io/topics/sentinel) (без SSL):
-     1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ RD }}:
-     
-        ```bash
-        redis-cli -h <FQDN любого хоста {{ RD }}> -p {{ port-mrd-sentinel }} sentinel get-master-addr-by-name <имя кластера {{ RD }}> | head -n 1
-        ```
+    {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
-     1. Подключитесь к хосту с этим адресом:
+    {% list tabs %}
 
-        ```bash
-        redis-cli -h <адрес хоста-мастера {{ RD }}> -a <пароль {{ RD }}>
-        ```
-        
-   - Напрямую к хосту-мастеру:
+    * Нешардированный кластер
 
-      - Подключитесь без использования SSL:
+        **Чтобы подключиться с помощью [Sentinel](https://redis.io/topics/sentinel) (без SSL)**:
 
-        ```bash
-        redis-cli -h <FQDN хоста-мастера {{ RD }}> -p {{ port-mrd }} -a <пароль {{ RD }}>
-        ```
+        1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ RD }}:
 
-      - Подключитесь с использованием SSL:
+            ```bash
+            redis-cli -h <FQDN любого хоста {{ RD }}> \
+                      -p {{ port-mrd-sentinel }} \
+                      sentinel get-master-addr-by-name <имя кластера {{ RD }}> | head -n 1
+            ```
+
+        1. Подключитесь к хосту с этим адресом:
+
+            ```bash
+            redis-cli -h <адрес хоста-мастера {{ RD }}> -a <пароль {{ RD }}>
+            ```
+
+        **Чтобы подключиться напрямую к мастеру (без SSL):**
 
         ```bash
-        redis-cli -h <FQDN хоста-мастера {{ RD }}> -p {{ port-mrd-tls }} -a <пароль {{ RD }}> --tls --cacert ~/.redis/YandexInternalRootCA.crt
+        redis-cli -h c-<идентификатор кластера>.rw.{{ dns-zone }} \
+                  -p {{ port-mrd }} \
+                  -a <пароль {{ RD }}>
         ```
+
+        **Чтобы подключиться напрямую к мастеру (с SSL):**
+
+        ```bash
+        redis-cli -h c-<идентификатор кластера>.rw.{{ dns-zone }} \
+                  -p {{ port-mrd-tls }} \
+                  -a <пароль {{ RD }}> \
+                  --tls \
+                  --cacert ~/.redis/YandexInternalRootCA.crt
+        ```
+
+    * Шардированный кластер
+
+       **Чтобы подключиться без SSL:**
+
+       ```bash
+       redis-cli -h <FQDN хоста-мастера в любом шарде> \
+                 -p {{ port-mrd }} \
+                 -a <пароль {{ RD }}>
+       ```
+
+       **Чтобы подключиться с SSL:**
+
+       ```bash
+       redis-cli -h <FQDN хоста-мастера в любом шарде> \
+                 -p {{ port-mrd-tls }} \
+                 -a <пароль {{ RD }}> \
+                 --tls \
+                 --cacert ~/.redis/YandexInternalRootCA.crt
+       ```
+
+    {% endlist %}
 
 1. После успешного подключения отправьте команду `PING`. {{ RD }} должен вернуть ответ `PONG`.
 
 ## Что дальше {#whats-next}
 
 - Изучите [концепции сервиса](./concepts/index.md).
-- Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к кластеру](./operations/connect.md).
+- Узнайте подробнее о [создании кластера](./operations/cluster-create.md) и [подключении к кластеру](./operations/connect/index.md).
 - Ознакомьтесь с [вопросами и ответами](./qa/general.md).

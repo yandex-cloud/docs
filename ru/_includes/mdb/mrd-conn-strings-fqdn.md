@@ -1,1 +1,0 @@
-При подключении к нешардированному кластеру вместо FQDN хоста-мастера вы можете использовать [особые FQDN](../../managed-redis/operations/connect.md#special-fqdns).
