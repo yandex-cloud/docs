@@ -9,9 +9,9 @@ The following job types are supported:
 * [PySpark](https://spark.apache.org/docs/latest/api/python/index.html)
 * [Spark](https://spark.apache.org/docs/latest/)
 
-When creating a job, you can specify:
+When creating a job, specify:
 
-* _Arguments_: Values passed to the executed script.
+* _Arguments_: Values used by the job's main executable file.
 * _Properties_: The <q>key:value</q> pairs configuring [image components](./environment.md).
 
 For placing and [starting a job](../operations/jobs.md):

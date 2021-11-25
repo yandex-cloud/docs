@@ -14,6 +14,9 @@ links:
   - title: Начало работы
     description: Создайте первый кластер
     href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

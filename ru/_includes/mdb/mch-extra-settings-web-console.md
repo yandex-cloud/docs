@@ -13,6 +13,8 @@
 
 * **Доступ из Метрики и AppMetrica** — опция разрешает [импортировать данные из AppMetrica](https://appmetrica.yandex.ru/docs/cloud/index.html) в кластер.
 
+* **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+
 * **Защита от удаления** — включите эту опцию, чтобы защитить кластер от непреднамеренного удаления пользователем вашего облака.
 
     {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}

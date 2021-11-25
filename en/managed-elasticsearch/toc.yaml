@@ -31,6 +31,8 @@ items:
         href: operations/cluster-backups.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
+      - name: Monitoring the state of a cluster and hosts
+        href: operations/monitoring.md
   - name: Use cases
     items:
       - name: Migrating to Managed Service for Elasticsearch using snapshots
@@ -45,7 +47,7 @@ items:
         href: concepts/es-editions.md
       - name: Indexes
         href: concepts/indexing.md
-      - name: Search using Elasticsearch
+      - name: Search using Elasticsearch network
         href: concepts/searching.md
       - name: Host classes
         href: concepts/instance-types.md

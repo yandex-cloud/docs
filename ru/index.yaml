@@ -126,6 +126,9 @@ links:
   - title: Resource Manager
     description: Управление ресурсами в каталогах и облаках
     href: resource-manager/
+  - title: Serverless Containers
+    description: Запуск контейнеров без Kubernetes®
+    href: serverless-containers/
   - title: Сценарии использования платформы Yandex.Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: solutions/

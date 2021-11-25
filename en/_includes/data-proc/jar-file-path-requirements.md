@@ -7,5 +7,5 @@
 
 Archives in standard Linux formats, such as `zip`, `gz`, `xz`, `bz2`, and others, are supported.
 
-If the file is in a bucket, the cluster service account must have read access to it. For more information about configuring access to {{ objstorage-name }} buckets, see [{#T}](../../storage/operations/buckets/edit-acl.md).
+The cluster service account needs read access to all the files in the bucket. Step-by-step instructions for setting up access to {{ objstorage-name }} are provided in [{#T}](../../storage/operations/buckets/edit-acl.md).
 
