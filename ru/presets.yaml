@@ -428,6 +428,7 @@ default:
   link-tracker: https://tracker.yandex.ru/
   link-wiki: https://wiki.yandex.ru/
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
+  pg-docs: https://www.postgresql.org/docs/current
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex.Cloud
