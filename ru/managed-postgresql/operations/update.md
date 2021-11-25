@@ -358,7 +358,8 @@
             --datalens-access=<true или false> \
             --maintenance-window type=<weekly или anytime> \
             --websql-access=<true или false> \
-            --deletion-protection=<защита от удаления кластера: true или fasle>
+            --deletion-protection=<защита от удаления кластера: true или false> \
+            --serverless-access=<true или false>
         ```
 
     Вы можете изменить следующие настройки:
@@ -370,6 +371,8 @@
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
+
+    * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
     {% include [Защита от удаления кластера](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
 
@@ -452,6 +455,8 @@
     Этот метод API сбросит все настройки кластера, которые не были явно переданы в запросе, на значения по умолчанию. Чтобы избежать этого, обязательно передайте название полей, подлежащих изменению, в параметре `updateMask`.
 
     {% endnote %}
+
+  Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 {% endlist %}
 

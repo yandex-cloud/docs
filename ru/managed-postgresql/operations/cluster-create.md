@@ -132,9 +132,10 @@
          --user name=<имя пользователя>,password=<пароль пользователя> \
          --database name=<имя базы данных>,owner=<имя владельца базы данных> \
          --disk-size <объем хранилища, ГБ> \
-         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+         --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --security-group-ids <список идентификаторов групп безопасности> \
-         --deletion-protection=<защита от удаления кластера: true или false>
+         --deletion-protection=<защита от удаления кластера: true или false> \
+         --serverless-access
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -151,7 +152,8 @@
          --user name=<имя пользователя>,password=<пароль пользователя> \
          --database name=<имя базы данных>,owner=<имя владельца базы данных> \
          --disk-size <объем хранилища, ГБ> \
-         --security-group-ids <список идентификаторов групп безопасности>
+         --security-group-ids <список идентификаторов групп безопасности> \
+         --serverless-access=<true или false>
       ```
 
   {% endif %}
@@ -164,6 +166,8 @@
         - Хост с наибольшим значением приоритета в кластере становится синхронной репликой.
         - Если в кластере есть несколько хостов с наибольшим приоритетом, то среди них проводятся выборы синхронной реплики.
         - Наименьший приоритет — `0` (по умолчанию), наивысший — `100`.
+
+      Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 - Terraform
 
@@ -267,6 +271,8 @@
     * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
     * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
+
+  Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 {% endlist %}
 
