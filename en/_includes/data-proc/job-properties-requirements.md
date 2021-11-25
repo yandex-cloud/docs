@@ -1,6 +1,4 @@
-If an argument, a variable, or a property consists of several parts separated by a space, specify each part as a separate argument, variable, or property.
+If an argument, variable, or property is in several space-separated parts, specify each part separately. At the same time, it is important to preserve the order in which you declare arguments, variables, and properties.
 
-For example, the `-mapper mapper.py` argument must be converted into two arguments: `-mapper` and `mapper.py` next to each other.
-
-For this reason, it's important to maintain the order of declaring arguments, variables, and properties. Otherwise, jobs won't start.
+The `-mapper mapper.py` argument, for instance, must be converted into two arguments: `-mapper` and `mapper.py` in that order.
 
