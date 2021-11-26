@@ -1,9 +1,9 @@
-# Пошаговые инструкции для {{ mrd-name }}<sup>®</sup>
+# Пошаговые инструкции для {{ mrd-name }}^®^
 
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
 - [{#T}](update.md)
-- [{#T}](connect.md)
+- [{#T}](connect/index.md)
 - [{#T}](cluster-stop.md)
 - [{#T}](hosts.md)
 - [{#T}](shards.md)

@@ -28,7 +28,7 @@
    * `omazh:rc`
    * `zahar:rc`
 
-Мы будем рады [отзывам](https://forms.yandex.net/surveys/86766/) о работе новых premium-голосов!
+Мы будем рады [отзывам](https://forms.yandex.ru/surveys/10037015.afd97084574df5ac4c7e7199ad406997ac1979e0/) о работе новых premium-голосов!
 
 ## Предыдущие версии {#previous}
 
