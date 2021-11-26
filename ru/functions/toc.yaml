@@ -305,7 +305,7 @@ items:
         href: solutions/slack-bot-serverless.md
       - name: Разработка Telegram-бота
         href: solutions/telegram-bot-serverless.md
-      - name: Подключение к базе данных YDB из функции на Python
+      - name: Подключение к базе данных YDB из функции
         href: solutions/connect-to-ydb.md
       - name: Конвертация видео в GIF на Python
         href: solutions/video-converting-queue.md
