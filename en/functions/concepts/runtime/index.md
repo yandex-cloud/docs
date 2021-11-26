@@ -27,7 +27,7 @@ Runtime environments available in {{ sf-name }}.
 | Name | ID | Preloaded |
 | ---- | ---- | ---- |
 | **Node.js** |  |  |
-| Node.js 16 | `nodejs16-preview` | Yes |
+| Node.js 16 | `nodejs16` | Yes |
 | Node.js 14 | `nodejs14` | No |
 | Node.js 12 | `nodejs12` | No |
 | **PHP** |  |  |

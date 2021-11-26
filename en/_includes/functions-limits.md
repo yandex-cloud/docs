@@ -6,6 +6,10 @@
 | Number of function instances per availability zone | 10 |
 | Number of concurrent function calls (for all functions in each availability zone) | 10 |
 | Total RAM for all running functions per availability zone | 20 GB |
+| Number of tags per function | 10 |
+| Number of concurrent operations on a single function and its versions | 10 |
+| Number of concurrent operations on all functions and their versions per folder | 15 |
+| Number of concurrent operations on all functions and their versions per cloud | 20 |
 
 A function instance processes one function call at a time. If there are more function calls than instances available, the call is queued. A queued call is treated as call-in-progress and consumes your quota.
 

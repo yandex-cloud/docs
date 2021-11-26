@@ -11,7 +11,7 @@ description: 'С помощью сервиса Cloud Functions вы можете
 |----|----|----|----|----|
 | nodejs12 | 12.22.6 | 1.3.3 | Ubuntu 18.04 LTS | нет |
 | nodejs14 | 14.17.6 | 1.3.3 | Ubuntu 18.04 LTS | нет |
-| nodejs16-preview | 16.9.1 | отсутствует | Ubuntu 18.04 LTS | да |
+| nodejs16 | 16.9.1 | отсутствует | Ubuntu 18.04 LTS | да |
 
 {% note info %}
 

@@ -119,6 +119,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [sign-last-point](../../_includes/datalens/qa/sign-last-point.md) %}
 
+{% include [sign-multiple-lines](../../_includes/datalens/qa/sign-multiple-lines.md) %}
+
 {% include [resize-column](../../_includes/datalens/qa/resize-column.md) %}
 
 {% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}

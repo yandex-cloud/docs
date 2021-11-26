@@ -19,7 +19,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер](../operations/cluster-create.md) {{ mrd-name }} любой подходящей конфигурации.
-1. [Настройте группы безопасности](../operations/connect.md#configuring-security-groups) кластера и промежуточной виртуальной машины. {#configure-security-groups}
+1. [Настройте группы безопасности](../operations/connect/index.md#configuring-security-groups) кластера и промежуточной виртуальной машины. {#configure-security-groups}
 1. (Опционально) Установите утилиты для скачивания и загрузки файлов по протоколу SSH, например:
 
     * [WinSCP](https://winscp.net/eng/index.php)
@@ -105,7 +105,7 @@
 
 1. Если ваш кластер {{ mrd-name }} развернут с версией {{ RD }} 6 или выше и включенной поддержкой TLS:
 
-    1. [Получите SSL сертификат](../operations/connect.md#get-ssl-cert).
+    1. [Получите SSL сертификат](../operations/connect/index.md#get-ssl-cert).
 
     1. Добавьте в список репозиториев официальный репозиторий {{ RD }}:
 
@@ -168,7 +168,7 @@
             --pipe < <файл дампа>
         ```
 
-        {% include [use-special-fqdn](../../_includes/mdb/mrd-conn-strings-fqdn.md) %}
+        {% include [use-special-fqdn](../../_includes/mdb/mrd/conn-strings-fqdn.md) %}
 
         **Подключение к шардированному кластеру**
 
@@ -229,7 +229,7 @@
             --pipe < <файл дампа>
         ```
 
-        {% include [use-special-fqdn](../../_includes/mdb/mrd-conn-strings-fqdn.md) %}
+        {% include [use-special-fqdn](../../_includes/mdb/mrd/conn-strings-fqdn.md) %}
 
         **Подключение к шардированному кластеру**
 
