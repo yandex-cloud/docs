@@ -11,7 +11,7 @@ With {{ sf-name }}, you can run applications written in [Node.js](https://nodejs
 | ---- | ---- | ---- | ---- | ---- |
 | nodejs12 | 12.22.6 | 1.3.3 | Ubuntu 18.04 LTS | No |
 | nodejs14 | 14.17.6 | 1.3.3 | Ubuntu 18.04 LTS | No |
-| nodejs16-preview | 16.9.1 | None | Ubuntu 18.04 LTS | Yes |
+| nodejs16 | 16.9.1 | None | Ubuntu 18.04 LTS | Yes |
 
 {% note info %}
 
