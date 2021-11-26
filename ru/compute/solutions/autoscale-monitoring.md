@@ -674,12 +674,12 @@
    
      1. Откройте дашборд с информацией о группе ВМ:
      
-        1. В [{{ monitoring-name }}](https://monitoring.cloud.yandex.ru) выберите сервисный дашборд **Compute — Instance Groups**.
+        1. В [{{ monitoring-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com){% endif %} выберите сервисный дашборд **Compute — Instance Groups**.
         1. В поле **Instance Group ID** выберите `queue-autoscale-ig`.
      
      1. Откройте дашборд с информацией об очереди:
      
-        1. В [{{ monitoring-name }}](https://monitoring.cloud.yandex.ru) выберите сервисный дашборд **Message Queue**.
+        1. В [{{ monitoring-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com){% endif %} выберите сервисный дашборд **Message Queue**.
         1. В поле **Queue ID** выберите `queue-autoscale-queue`.
         
    {% endlist %}

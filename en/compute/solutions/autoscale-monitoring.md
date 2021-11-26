@@ -27,9 +27,12 @@ This use case uses a folder named `example-folder` as an example.
 The cost of the infrastructure includes:
 
 * A fee for using VMs and storing an [image](../concepts/image.md) (see [{{ compute-name }} pricing](../pricing.md)).
+* A fee for using public IP addresses and outgoing traffic from VMs (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * A fee for queue requests (see [{{ message-queue-name }} pricing](../../message-queue/pricing.md)).
 
 ## Prepare the environment {#prepare}
+
+### Create auxiliary {{ yandex-cloud }} resources {#create-aux-resources}
 
 {% list tabs %}
 
@@ -204,6 +207,33 @@ The cost of the infrastructure includes:
 
 {% endlist %}
 
+### Set up the AWS CLI {#setup-aws-cli}
+
+{% note info %}
+
+You will use the AWS CLI to perform the final step of the script: [checking instance group scalability](#test-autoscale). This is why you must install and configure it, even if you aren't going to use it for any other steps.
+
+{% endnote %}
+
+1. Download and install the AWS CLI as described in its [documentation](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
+
+1. Configure the AWS CLI to work with {{ yandex-cloud }}:
+
+   1. In your home folder, create a file called `.aws/credentials` with the previously received static access key and its identifier:
+
+      ```
+      [default]
+          aws_access_key_id     = <key ID>
+          aws_secret_access_key = <secret key>
+      ```
+
+   1. In your home folder, create a file named `.aws/config`. In it, specify `ru-central1` as the default region:
+
+      ```
+      [default]
+          region = ru-central1
+      ```
+
 ## Create a queue in {{ message-queue-name }} {#create-queue}
 
 {% list tabs %}
@@ -230,23 +260,6 @@ The cost of the infrastructure includes:
         ```
 
 - AWS CLI
-
-  1. Configure the AWS CLI to work with {{ yandex-cloud }}:
-
-     1. In your home folder, create a file named `.aws/credentials`. In it, add the previously received static access key and its ID:
-
-        ```
-        [default]
-            aws_access_key_id     = <key ID>
-            aws_secret_access_key = <secret key>
-        ```
-
-     1. In your home folder, create a file named `.aws/config`. In it, specify `ru-central1` as the default region:
-
-        ```
-        [default]
-            region = ru-central1
-        ```
 
   1. Create a queue named `queue-autoscale-queue` and save its URL to the `queue` file:
 
@@ -484,7 +497,9 @@ The cost of the infrastructure includes:
         1. Select an image whose name begins with `queue-autoscale-image`.
         1. Click **Apply**.
 
-     1. Under **Network settings**, select **Network** `queue-autoscale-network`. The `queue-autoscale-subnet-b` subnet will be selected automatically.
+     1. Under **Network settings**:
+        * Select the **Network** `queue-autoscale-network`. The `queue-autoscale-subnet-b` subnet will be selected automatically.
+        * In the **Public address** field, select **Auto** so that your VMs have internet access and can receive messages from the queue.
 
      1. Under **Access**:
         * Select **Service account** `queue-autoscale-sa`.
