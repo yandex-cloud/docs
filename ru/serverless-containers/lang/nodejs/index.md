@@ -28,7 +28,7 @@ app.listen(process.env.PORT, () => {
 
 ```
 
-Пример Dockerfile c Node.js 14-alpine версии:
+Пример Dockerfile c Node.js 14-alpine:
 
 ```
 FROM node:14-alpine
