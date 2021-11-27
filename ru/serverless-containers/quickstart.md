@@ -4,7 +4,7 @@
 
 ## Подготовьте Docker-образ контейнера {#prepare}
 
-- [Разработка контейнера на языке Go](./lang/golan/index.md)
+- [Разработка контейнера на языке Go](./lang/golang/index.md)
 - [Разработка контейнера на языке JavaScript](./lang/nodejs/index.md)
 
 ## Добавьте образ в {{ serverless-containers-name }} {#deploy}
