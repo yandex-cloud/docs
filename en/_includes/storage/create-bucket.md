@@ -1,8 +1,7 @@
 {% list tabs %}
 
 - Management console
-
-  1. In the management console, select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
+  1. In the management console, select the folder where you want to create a [bucket](../../storage/concepts/bucket.md) name.
   1. Select **Object Storage**.
   1. Click **Create bucket**.
   1. On the bucket creation page:
@@ -19,7 +18,7 @@
 
   If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  Before you start, get [static access keys](../../iam/operations/sa/create-access-key.md): private keys and key IDs used for authentication in {{ objstorage-short-name }}.
+  Before you start, get [static access keys](../../iam/operations/sa/create-access-key.md): a private key and key ID used for authentication in {{ objstorage-short-name }}.
 
   1. In the configuration file, describe the parameters of resources that you want to create:
 

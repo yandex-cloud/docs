@@ -16,5 +16,66 @@ In addition to [{{ iam-short-name }}](../../../iam/index.yaml), {{ objstorage-na
 
     1. In the **Edit ACL** window, grant or revoke the desired permissions.
 
+- Terraform
+
+  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  Before you start, get [static access keys](../../../iam/operations/sa/create-access-key.md): a private key and key ID used for authentication in {{ objstorage-short-name }}.
+
+  1. In the configuration file, describe the parameters of resources that you want to create:
+  
+     * `access_key`: The ID of the static access key.
+     * `secret_key`: The value of the private access key.
+     * `bucket`: Bucket name. Required parameter.
+     * `grant`: [ACL](../../concepts/acl.md) access policy settings. Optional. For access management, use a service account with administrator rights.
+
+       * `id`: User ID.
+       * `type`: System group type.
+       * `permissions`: Types of permissions according to the [ACL](../../concepts/acl.md#permissions-types).
+       * `uri`: System group ID.
+
+     ```
+     resource "yandex_storage_bucket" "test" {
+       access_key = "<static key identifier>"
+       secret_key = "<secret key>"
+       bucket = "<bucket name>"
+       grant {
+         id          = "<user ID>"
+         type        = "CanonicalUser"
+         permissions = ["FULL_CONTROL"]
+       }
+     
+       grant {
+         type        = "Group"
+         permissions = ["READ", "WRITE"]
+         uri         = "http://acs.amazonaws.com/groups/global/AllUsers"
+       }
+     }
+     ```
+
+     For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
+
+  1. Make sure that the configuration files are correct.
+
+     1. In the command line, go to the directory where you created the configuration file.
+     1. Run the check using the command:
+
+        ```
+        terraform plan
+        ```
+
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+
+  1. Deploy the cloud resources.
+
+     1. If the configuration doesn't contain any errors, run the command:
+     ```
+     terraform apply
+     ```
+
+     1. Confirm that you want to create the resources.
+
+     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+
 {% endlist %}
 

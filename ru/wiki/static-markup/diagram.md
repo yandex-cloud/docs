@@ -2,6 +2,7 @@
 
 Чтобы добавить на страницу диаграмму, схему или граф, можно использовать один из поддерживаемых языков текстовой разметки.
 
+
 ## Graphviz (DOT) {#graphviz}
 
 [Graphviz]({{ link-about-graphviz }}) лучше всего подходит для оформления графов и деревьев.
@@ -112,3 +113,37 @@ orientation = portrait
 * `width` — максимальная ширина диаграммы в пикселях.
 
 * `height` — максимальная высота диаграммы в пикселях.
+
+## PlantUML {#plantuml}
+
+[PlantUML](https://plantuml.com/) — проект с открытым кодом, который поддерживает множество нотаций и позволяет быстро создавать сложные диаграммы.
+
+Пример разметки:
+
+```
+%%(plantuml)
+@startuml
+actor Foo1
+boundary Foo2
+control Foo3
+entity Foo4
+database Foo5
+collections Foo6
+queue Foo7
+Foo1 -> Foo2 : To boundary
+Foo1 -> Foo3 : To control
+Foo1 -> Foo4 : To entity
+Foo1 -> Foo5 : To database
+Foo1 -[#00cc00]> Foo6 : To collections
+Foo1 -> Foo7 : To Queue
+
+@enduml
+```
+
+{% cut "Как выглядит результат" %}
+
+![](../../_assets/wiki/plantuml.png)
+
+{% endcut %}
+
+Подробнее о языке разметки диаграмм PlantUML можно прочитать в [Справочном руководстве по языку PlantUML](http://plantuml.com/ru/guide).

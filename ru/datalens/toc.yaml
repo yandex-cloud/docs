@@ -586,7 +586,7 @@ items:
         href: troubleshooting/errors/all.md
       - name: Access denied
         hidden: true
-        href: troubleshooting/errors/ERR-DS-US-ACCESS_DENIED_DATASET.md
+        href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md

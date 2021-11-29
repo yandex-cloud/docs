@@ -29,3 +29,4 @@ In {{ api-gw-name }}, you're charged for the number of requests to created API g
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+

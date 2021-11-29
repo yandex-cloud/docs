@@ -28,19 +28,26 @@
     1. Введите имя репозитория, например `cuda`.
     1. Задайте тег образа, например `1.0.0`.
     1. Выберите шаблон скрипта для установки Python: `python_3_7` или `python_3_8`.
-    1. Отредактируйте содержимое блока **Dockerfile**. Например, для установки пакетов платформы CUDA<sup>®</sup> добавьте следующий код после строки `# Write your instructions here`:
+    1. Отредактируйте содержимое блока **Dockerfile**. Например, чтобы установить пакеты платформы CUDA<sup>®</sup>, потребуется шаблон образа python 3.8 и следующий код:
 
         ```bash
-        ENV LD_LIBRARY_PATH /usr/local/cuda-11.2/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64
-        RUN\
-          apt-get update &&\
-          apt-get install -y -q xserver-xorg-core wget &&\
-          wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin -O /etc/apt/preferences.d/cuda-repository-pin-600 &&\
-          apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub &&\
-          add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
-          apt-get update &&\
-          apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
-          exit
+        FROM ubuntu:18.04
+        ENV DEBIAN_FRONTEND noninteractive
+        RUN useradd -ms /bin/bash --uid 1000 jupyter\
+         && apt update\
+         && apt install -y python3.8-dev python3.8-distutils gnupg wget software-properties-common curl\
+         && ln -s /usr/bin/python3.8 /usr/local/bin/python3\
+         && curl https://bootstrap.pypa.io/get-pip.py | python3
+        ENV LD_LIBRARY_PATH /usr/local/cuda-11.2/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
+        RUN apt-get update &&\
+         apt-get install -y -q xserver-xorg-core wget &&\
+         wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin -O /etc/apt/preferences.d/cuda-repository-pin-600 &&\
+         apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub &&\
+         add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
+         apt-get update &&\
+         apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
+         exit
+        RUN pip install tensorflow-gpu==2.4.1
         ```
 
     1. Нажмите кнопку **Build**.
@@ -53,7 +60,6 @@
 
 ```bash
 #!g1.1
-%pip install tensorflow==2.4.1
 import tensorflow as tf
 tf.config.list_physical_devices('GPU')
 ```
