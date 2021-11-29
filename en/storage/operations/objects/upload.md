@@ -42,7 +42,7 @@ You can upload objects of up to 5 GB via the management console (see [{#T}](../.
 
   Example of creating an object in an existing bucket.
 
-  If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Before you start, get [static access keys](../../../iam/operations/sa/create-access-key.md): a private key and key ID used for authentication in {{ objstorage-short-name }}.
 
@@ -68,9 +68,7 @@ You can upload objects of up to 5 GB via the management console (see [{#T}](../.
      For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 
   1. Make sure that the configuration files are correct.
-
      1. In the command line, go to the directory where you created the configuration file.
-
      1. Run the check using the command:
 
         ```bash
