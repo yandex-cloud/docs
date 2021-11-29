@@ -1,6 +1,6 @@
 # Все ошибки
 
-* [{#T}](ERR-DS-US-ACCESS_DENIED_DATASET.md)
+* [{#T}](ERR-DS_API-US-ACCESS_DENIED.md)
 {% if audience == "internal" %} * [{#T}](ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md) {% endif %}
 {% if audience == "internal" %} * [{#T}](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md) {% endif %}
 * [{#T}](ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md)
