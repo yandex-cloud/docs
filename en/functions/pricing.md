@@ -70,7 +70,7 @@ Where:
 
 {% endif %}
 
-You are charged for an actual number of invokes. E.g., the cost of 1000 invokes will be `$0.000128` at the price of `$0.128205` for 1 million invokes.
+{% if region == "int" %}You are charged for an actual number of invokes. E.g., the cost of 1000 invokes will be `$0.000128` at the price of `$0.128205` for 1 million invokes.{% endif %}
 
 ### Function execution time {#execution}
 

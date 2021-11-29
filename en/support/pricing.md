@@ -11,7 +11,7 @@ The basic service plan is provided to all {{ yandex-cloud }} users free of charg
 
 {% note info %}
 
-All prices are shown with VAT. The cost of technical support is calculated after deducting the amount of previously issued grants from the cost of resources consumed.
+All prices are shown {% if region == "ru" %}with{% endif %}{% if region == "kz" %}with{% endif %}{% if region == "int" %}without{% endif %} VAT. The cost of technical support is calculated after deducting the amount of previously issued grants from the cost of resources consumed.
 
 {% endnote %}
 
@@ -45,41 +45,41 @@ Compared to the basic plan, the <q>Standard</q> plan lets you request general re
 
 ### Examples of cost calculation {#standard-examples}
 
-{% list tabs %}
+{% if region == "int" %}
 
-- USD, without VAT
+You started paid consumption on March 1 and enabled support under the Standard plan. Every day a percentage of the fixed cost is debited from your account: `$11.54 / 31 days = $0.37`.
 
-    You started paid consumption on March 1 and enabled support under the Standard plan. Every day a percentage of the fixed cost is debited from your account: `$11.54 / 31 days = $0.37`.
+* If, by the end of the reporting period, you spent $769.23 or less on {{ yandex-cloud }} resources, then no additional charges apply.
 
-    * If, by the end of the reporting period, you spent $769.23 or less on {{ yandex-cloud }} resources, then no additional charges apply.
+	Total cost of support for March: `$0.37 × 31 days = $11.54`.
 
-	    Total cost of support for March: `$0.37 × 31 days = $11.54`.
+* If, by the end of the reporting period, you spent more than $769.23 on {{ yandex-cloud }} resources, then as soon as you exceed the $769.23 threshold, a percentage of both fixed and additional costs is debited from your account daily.
 
-    * If, by the end of the reporting period, you spent more than $769.23 on {{ yandex-cloud }} resources, then as soon as you exceed the $769.23 threshold, a percentage of both fixed and additional costs is debited from your account daily.
+	For example, you spent $769.23 before March 21 and then, from March 22 to the end of the month, you spent $12.82 every day.
 
-	    For example, you spent $769.23 before March 21 and then, from March 22 to the end of the month, you spent $12.82 every day.
+	12% of the difference of $897.44 and $769.23: `($897.44 − $769.23) × 12% = $128.21 × 0.12 = $15.39`.
 
-	    12% of the difference of $897.44 and $769.23: `($897.44 − $769.23) × 12% = $128.21 × 0.12 = $15.39`.
+	Total cost of support for March: `(21 days × $0.37) + (10 days × ($0.37 + $12.82 × 0.12)) = $7.77 + $19.1 = $26.87`
 
-	    Total cost of support for March: `(21 days × $0.37) + (10 days × ($0.37 + $12.82 × 0.12)) = $7.77 + $19.1 = $26.87`
+{% endif %}
 
-- Roubles, with VAT
+{% if region == "ru" %}
 
-    You started paid consumption on March 1 and enabled support under the Standard plan. Every day a percentage of the fixed cost is debited from your account: `₽900 / 31 days = ₽29.03`.
+You started paid consumption on March 1 and enabled support under the Standard plan. Every day a percentage of the fixed cost is debited from your account: `₽900 / 31 days = ₽29.03`.
 
-    * If, by the end of the reporting period, you spent ₽60000 or less on {{ yandex-cloud }} resources, then no additional charges apply.
+* If, by the end of the reporting period, you spent ₽60000 or less on {{ yandex-cloud }} resources, then no additional charges apply.
 
-        Total cost of support for March: `₽29.03 × 31 days = ₽900 `.
+    Total cost of support for March: `₽29.03 × 31 days = ₽900 `.
 
-    * If, by the end of the reporting period, you spent more than ₽60000 on {{ yandex-cloud }} resources, then as soon as you exceed the ₽60000 threshold, a percentage of both fixed and additional costs is debited from your account daily.
+* If, by the end of the reporting period, you spent more than ₽60000 on {{ yandex-cloud }} resources, then as soon as you exceed the ₽60000 threshold, a percentage of both fixed and additional costs is debited from your account daily.
 
-        For example, you spent ₽60000 before March 21 and then, from March 22 to the end of the month, you spent ₽1000 every day.
+    For example, you spent ₽60000 before March 21 and then, from March 22 to the end of the month, you spent ₽1000 every day.
 
-        12% of the difference of ₽70000 and ₽60000: `(₽70000 − ₽60000) × 12% = ₽10000 × 0.12 = ₽1200`.
+    12% of the difference of ₽70000 and ₽60000: `(₽70000 − ₽60000) × 12% = ₽10000 × 0.12 = ₽1200`.
 
-        Total cost of support for March: `(21 days × ₽29.03) + (10 days × (₽29.03 + ₽1000 × 0.12)) = ₽610 + ₽1490 = ₽2100`
+    Total cost of support for March: `(21 days × ₽29.03) + (10 days × (₽29.03 + ₽1000 × 0.12)) = ₽610 + ₽1490 = ₽2100`
 
-{% endlist%}
+{% endif %}
 
 ## Business {#business}
 
@@ -111,61 +111,61 @@ The <q>Business</q> plan is suitable for professional projects. Compared to the 
 
 ### Examples of cost calculation {#business-examples}
 
-{% list tabs %}
+{% if region == "int" %}
 
-- USD, without VAT
+You started paid consumption on March 1 and enabled support under the Business plan. Every day a percentage of the fixed cost is debited from your account: `$76.92 / 31 days = $2.48`.
 
-    You started paid consumption on March 1 and enabled support under the Business plan. Every day a percentage of the fixed cost is debited from your account: `$76.92 / 31 days = $2.48`.
+* If, by the end of the reporting period, you spent $769.23 or less on {{ yandex-cloud }} resources, then no additional charges apply.
 
-    * If, by the end of the reporting period, you spent $769.23 or less on {{ yandex-cloud }} resources, then no additional charges apply.
+    Total cost of support for March: `$2.48 × 31 days = $76.92`.
 
-        Total cost of support for March: `$2.48 × 31 days = $76.92`.
+* If, by the end of the reporting period, you spent more than $769.23, but less than $2564.1, on {{ yandex-cloud }} resources, then as soon as you exceed the $769.23 threshold, a percentage of both fixed and additional costs is debited from your account daily.
 
-    * If, by the end of the reporting period, you spent more than $769.23, but less than $2564.1, on {{ yandex-cloud }} resources, then as soon as you exceed the $769.23 threshold, a percentage of both fixed and additional costs is debited from your account daily.
+    For example, you spent $769.23 before March 21 and then, from March 22 to the end of the month, you spent $12.82 every day.
 
-        For example, you spent $769.23 before March 21 and then, from March 22 to the end of the month, you spent $12.82 every day.
+    7% of the difference of $897.44 and $769.23: `($897.44 − $769.23) × 7% = $128.21 × 0.07 = $8.97`.
 
-        7% of the difference of $897.44 and $769.23: `($897.44 − $769.23) × 7% = $128.21 × 0.07 = $8.97`.
+    Total cost of support for March: `(21 days × $2.48) + (10 days × ($2.48 + ($12.82 × 0.07))) = $52.08 + $33.8 = $85.88`.
 
-        Total cost of support for March: `(21 days × $2.48) + (10 days × ($2.48 + ($12.82 × 0.07))) = $52.08 + $33.8 = $85.88`.
+* If, by the end of the reporting period, you spent more than $2564.1 on {{ yandex-cloud }} resources, then as soon as you exceed the $769.23 threshold, a percentage of both fixed and additional costs is debited from your account daily. Up to $2564.1, the percentage of additional cost is 7% of the amount you spent per day, and after $2564.1, it's 5%.
 
-    * If, by the end of the reporting period, you spent more than $2564.1 on {{ yandex-cloud }} resources, then as soon as you exceed the $769.23 threshold, a percentage of both fixed and additional costs is debited from your account daily. Up to $2564.1, the percentage of additional cost is 7% of the amount you spent per day, and after $2564.1, it's 5%.
+    For example, you spent $769.23 before March 21. Then, from March 22 to March 26, you spent $358.97 daily, and from March 27 to the end of the month, you spent $128.21 per day.
 
-        For example, you spent $769.23 before March 21. Then, from March 22 to March 26, you spent $358.97 daily, and from March 27 to the end of the month, you spent $128.21 per day.
+    7% of the difference of $2564.1 and $769.23: `($2564.1 − $769.23) × 7% = $1794.87 × 0.07 = $125.64`.
 
-        7% of the difference of $2564.1 and $769.23: `($2564.1 − $769.23) × 7% = $1794.87 × 0.07 = $125.64`.
+    5% of the difference between the consumption amount and $2564.1: `($3205.13 − $2564.1) × 5% = $641.03 × 0.05 = $32.05`.
 
-        5% of the difference between the consumption amount and $2564.1: `($3205.13 − $2564.1) × 5% = $641.03 × 0.05 = $32.05`.
+    Total cost of support for March: `(21 days × $2.48) + (5 days × ($2.48 + ($358.97 × 0.07))) + (5 days × ($2.48 + ($128.21 × 0.05))) = $52.08 + $138.04 + $44.45 = $234.57`.
 
-        Total cost of support for March: `(21 days × $2.48) + (5 days × ($2.48 + ($358.97× 0.07))) + (5 days × ($2.48 + ($128.21 × 0.05))) = $52.08 + $138.04 + $44.45 = $234.57`.
+{% endif %}
 
-- Roubles, with VAT
+{% if region == "ru" %}
 
-    You started paid consumption on March 1 and enabled support under the Business plan. Every day a percentage of the fixed cost is debited from your account: `₽6,000 / 31 days = ₽193.55`.
+You started paid consumption on March 1 and enabled support under the Business plan. Every day a percentage of the fixed cost is debited from your account: `₽6,000 / 31 days = ₽193.55`.
 
-    * If, by the end of the reporting period, you spent ₽60000 or less on {{ yandex-cloud }} resources, then no additional charges apply.
+* If, by the end of the reporting period, you spent ₽60000 or less on {{ yandex-cloud }} resources, then no additional charges apply.
 
-        Total cost of support for March: `₽193.55 × 31 days = ₽6000`.
+    Total cost of support for March: `₽193.55 × 31 days = ₽6000`.
 
-    * If, by the end of the reporting period, you spent more than ₽60000, but less than ₽200000, on {{ yandex-cloud }} resources, then as soon as you exceed the ₽60000 threshold, a percentage of both fixed and additional costs is debited from your account daily.
+* If, by the end of the reporting period, you spent more than ₽60000, but less than ₽200000, on {{ yandex-cloud }} resources, then as soon as you exceed the ₽60000 threshold, a percentage of both fixed and additional costs is debited from your account daily.
 
-        For example, you spent ₽60000 before March 21 and then, from March 22 to the end of the month, you spent ₽1000 every day.
+    For example, you spent ₽60000 before March 21 and then, from March 22 to the end of the month, you spent ₽1000 every day.
 
-        7% of the difference of ₽70000 and ₽60000: `(₽70000 − ₽60000) × 7% = ₽10000 × 0.07 = ₽700`.
+    7% of the difference of ₽70000 and ₽60000: `(₽70000 − ₽60000) × 7% = ₽10000 × 0.07 = ₽700`.
 
-        Total cost of support for March: `(21 days × ₽193.55) + (10 days × (₽193.55 + (₽1000 × 0.07))) = ₽4065 + ₽2635 = ₽6700`.
+    Total cost of support for March: `(21 days × ₽193.55) + (10 days × (₽193.55 + (₽1000 × 0.07))) = ₽4065 + ₽2635 = ₽6700`.
 
-    * If, by the end of the reporting period, you spent more than ₽200000 on {{ yandex-cloud }} resources, then as soon as you exceed the ₽60000 threshold, a percentage of both fixed and additional costs is debited from your account daily. Up to ₽200000, the percentage of additional cost is 7% of the amount you spent per day, and after ₽200000, it's 5%.
+* If, by the end of the reporting period, you spent more than ₽200000 on {{ yandex-cloud }} resources, then as soon as you exceed the ₽60000 threshold, a percentage of both fixed and additional costs is debited from your account daily. Up to ₽200000, the percentage of additional cost is 7% of the amount you spent per day, and after ₽200000, it's 5%.
 
-        For example, you spent ₽60000 before March 21. Then, from March 22 to March 26, you spent ₽28000 daily, and from March 27 to the end of the month, you spent ₽10000 per day.
+    For example, you spent ₽60000 before March 21. Then, from March 22 to March 26, you spent ₽28000 daily, and from March 27 to the end of the month, you spent ₽10000 per day.
 
-        7% of the difference of ₽200000 and ₽60000: `(₽200000 − ₽60000) × 7% = ₽140000 × 0.07 = ₽9800`.
+    7% of the difference of ₽200000 and ₽60000: `(₽200000 − ₽60000) × 7% = ₽140000 × 0.07 = ₽9800`.
 
-        5% of the difference between the consumption amount and ₽200000: `(₽250000 − ₽200000) × 5% = ₽50000 × 0.05 = ₽2500`.
+    5% of the difference between the consumption amount and ₽200000: `(₽250000 − ₽200000) × 5% = ₽50000 × 0.05 = ₽2500`.
 
-        Total cost of support for March: `(21 days × ₽193.55) + (5 days × (₽193.55 + (₽28000 × 0.07))) + (5 days × (₽193.55 + (₽10000 × 0.05))) = ₽4065 + ₽10768 + ₽3467 = ₽18300`.
+    Total cost of support for March: `(21 days × ₽193.55) + (5 days × (₽193.55 + (₽28000 × 0.07))) + (5 days × (₽193.55 + (₽10000 × 0.05))) = ₽4065 + ₽10768 + ₽3467 = ₽18300`.
 
-{% endlist%}
+{% endif %}
 
 ## Premium {#premium}
 

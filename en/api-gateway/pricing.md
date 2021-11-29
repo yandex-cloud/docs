@@ -27,7 +27,7 @@ Let's say you create an API gateway that:
 
 The cost of this API gateway is:
 
-> ₽75 × (10,000,000 / 1,000,000) + ₽75 × (100,000 / 1,000,000) + ₽75 × (80,000 / 1,000,000) = ₽763.5 ₽
+> ₽75 × (10,000,000 / 1,000,000) + ₽75 × (100,000 / 1,000,000) + ₽75 × (80,000 / 1,000,000) = ₽763.5
 
 Where:
 
@@ -42,7 +42,7 @@ For example, let's say you create an API gateway that processed 10,000,000 reque
 
 The cost of this API gateway is:
 
->  ₽75 × (10,000,000 / 1,000,000) = 750 ₽
+>  ₽75 × (10,000,000 / 1,000,000) = ₽750
 
 Where:
 
@@ -94,3 +94,4 @@ Where:
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
+
