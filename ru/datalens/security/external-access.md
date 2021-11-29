@@ -22,24 +22,35 @@
 
 Запрос прав доступа для группы, в которую входят внешние сотрудники.
 
-1. Оформите заявку в [Puncher](https://puncher.yandex-team.ru?create_destinations=datalens.yandex-team.ru&create_destinations=upload.datalens.yandex-team.ru&create_protocol=tcp&create_locations=office&create_locations=vpn&create_ports=443) на доступ к сервисам **datalens.yandex-team.ru**, **upload.datalens.yandex-team.ru** и **stat.yandex-team.ru** (при необходимости работы с отчетами). При оформлении заявки выберите порт **443**.
+1. Оформите заявку в [Puncher](https://puncher.yandex-team.ru?create_destinations=datalens.yandex-team.ru&create_destinations=upload.datalens.yandex-team.ru&create_protocol=tcp&create_locations=office&create_locations=vpn&create_ports=443) на доступ к сервису {{ datalens-short-name }}. Заполните поля заявки:
 
-    ![image](../../_assets/datalens/internal/puncher-request.png)
+   * **Источник** — пользователи или группа пользователей, которым предоставляется доступ.
+   * **Назначения** — `datalens.yandex-team.ru`, `upload.datalens.yandex-team.ru` и `stat.yandex-team.ru` (при необходимости работы с отчетами).
+   * **Протокол** — **TCP**.
+   * **Порты** — `443`.
+   * **Локация** — **VPN**.
+   * **Комментарий** — причина выдачи доступов.
 
-    Заявку в Puncher утверждают последовательно сотрудники сервиса {{ datalens-short-name }} и СИБ.
+   {% cut "Пример оформления заявки" %}
 
-1. Перейдите в меню дашборда и выберите пункт **Права доступа**.
+   ![image](../../_assets/datalens/internal/puncher-rule.png)
+  
+   {% endcut %}
 
-    ![image](../../_assets/datalens/internal/dashboard-access-right.png)
+   Заявку в Puncher утверждают последовательно сотрудники сервиса {{ datalens-short-name }} и СИБ.
+
+1. Откройте дашборд. Нажмите значок ![image](../../_assets/datalens/horizontal-ellipsis.svg) и выберите **Права доступа**.
+
+   ![image](../../_assets/datalens/internal/dashboard-access-right.png)
 
 1. Запросите доступ для групп на дашборд и связанные с ним объекты.
 
-    1. Добавьте участников.
-    1. Установите права доступа для каждого из объектов.
-    1. Активируйте опцию **Cвязанные объекты**.
-    1. Нажмите кнопку **Добавить**.
+   1. Добавьте участников.
+   1. Установите права доступа для каждого из объектов.
+   1. Активируйте опцию **Cвязанные объекты**.
+   1. Нажмите кнопку **Добавить**.
 
-    ![image](../../_assets/datalens/internal/access-for-group.png)
+   ![image](../../_assets/datalens/internal/access-for-group.png)
 
 Доступы могут утвердить администраторы объектов. Если пользователь, который запрашивает доступ, является администратором — утверждение запроса происходит автоматически.
 
