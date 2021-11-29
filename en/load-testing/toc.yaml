@@ -1,0 +1,44 @@
+title: Yandex Load Testing
+stage: preview
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  # - name: Step-by-step instructions
+  #   items:
+  #     - name: All instructions
+  #       href: operations/index.md
+  - name: Concepts
+    items:
+      - name: Service overview
+        href: concepts/index.md
+      - name: Agent
+        href: concepts/agent.md
+      - name: Yandex.Tank
+        href: concepts/tank.md
+      - name: Load generator
+        href: concepts/load-generator.md
+      - name: Load profile
+        href: concepts/load-profile.md
+      - name: Payloads and types
+        items:
+          - name: Overview
+            href: concepts/payload.md
+          - name: URI
+            href: concepts/payloads/uri.md
+          - name: URIPOST
+            href: concepts/payloads/uripost.md
+          - name: PHANTOM
+            href: concepts/payloads/phantom.md
+          - name: RAW
+            href: concepts/payloads/raw.md
+          - name: HTTP_JSON
+            href: concepts/payloads/http-json.md
+      - name: Reports
+        href: concepts/reports.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
