@@ -65,6 +65,8 @@ items:
         href: solutions/user-agent-statistics.md
       - name: Generating a billing report with resource break-down using S3 Select
         href: solutions/billing-resource-detailing.md
+      - name: Server-side encryption
+        href: solutions/server-side-encryption.md
   - name: Concepts
     items:
       - name: Overview
