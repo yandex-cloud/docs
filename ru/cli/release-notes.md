@@ -1,14 +1,52 @@
 # Релизы YC CLI
 
-## Версия 0.84.0 (16.11.21) {#latest-release}
+## Версия 0.85.0 (29.11.21) {#latest-release}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+* Команда `yc managed-kafka cluster update`.
+
+  Добавлен флаг `--version`, позволяющий обновить версию Kafka кластера.
+
+#### {{ managed-k8s-name }} {#k8s}
+
+* Команда `yc k8s node-group update`
+
+  Добавлен параметр `--node-ipv4-mask-size` — он измеряет размер `CIDR`, выделяемый на каждый узел кластера.
+
+#### {{ alb-name }} {#alb}
+
+* Добавлены команды для работы с Stream бэкендами:
+
+  * Добавление Stream бэкенда: `yc application-load-balancer backend-group add-stream-backend`.
+  * Изменение Stream бэкенда: `yc application-load-balancer backend-group update-stream-backend`.
+  * Удаление Stream бэкенда: `yc application-load-balancer backend-group delete-stream-backend`.
+
+#### {{ resmgr-name }} {#resmgr}
+
+* Добавлена команда `yc resource-manager folder delete`, которая позволяет удалить каталог.
+
+### Изменения в CLI {#cli}
+
+Исправлена ошибка в команде `yc init`. Теперь при проверке доступности endpoints не игнорируются 
+настройки proxy.
+
+## Предыдущие релизы {#previous-releases}
+
+
+### Версия 0.84.0 (16.11.21) {#version0.84.0}
 
 #### Изменения в сервисах {{yandex-cloud}} {#services}
 
-#### {{ cdn-name }} {#cdn}
+##### {{ cdn-name }} {#cdn}
 
 * Добавлена команда `yc cdn resource` для управления CDN-ресурсами (get, list, delete, get-provider-cname).
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mkf-name }}**
 
@@ -28,19 +66,17 @@
 В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster restore` добавлены новые флаги:
 * `--embedded-keeper` — позволяет создать кластер, используя Clickhouse Keeper вместо ZK.
 
-#### {{ dataproc-name }} {#dataproc}
+##### {{ dataproc-name }} {#dataproc}
 
 * Команда `yc dataproc cluster create`, флаг `--subcluster`.
 
   Добавлен параметр `assign-public-ip`, позволяющий выделить публичные ip адреса для всех хостов подкластера.
 
-## Предыдущие релизы {#previous-releases}
+### Версия 0.83.0 (26.10.21) {#version0.83.0}
 
-## Версия 0.83.0 (26.10.21) {#version0.83.0}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
-
-#### {{ cdn-name }} {#cdn}
+##### {{ cdn-name }} {#cdn}
 
 * Добавлены группы команд для поддержки сервиса {{ cdn-name }}, который позволяет организовать доставку контента до конечных потребителей с помощью сети распространения контента (Content Delivery Network, CDN):
 
@@ -49,15 +85,15 @@
   * `yc cdn provider` — для подключения к провайдеру CDN.
   * `yc cdn cache` — для управления кешированием контента CDN-ресурсов.
 
-#### {{ alb-name }} {#alb}
+##### {{ alb-name }} {#alb}
 
 * Добавлены команды `yc application-load-balancer load-balancer start` и `yc application-load-balancer load-balancer stop` для запуска и остановки L7-балансировщика.
 
-#### {{ ydb-name }} {#ydb}
+##### {{ ydb-name }} {#ydb}
 
 * Добавлены команды `yc ydb database start` и `yc ydb database stop` для запуска и остановки базы данных.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mrd-name }}**
 
@@ -78,7 +114,7 @@
 
 * В команду `yc managed-postgresql hosts update` добавлен параметр `--assign-public-ip` для управления публичным доступом к хосту: `true` — хост доступен по публичному IP-адресу, `false` — публичный доступ отключен.
 
-## Версия 0.82.0 (23.09.21) {#version0.82.0}
+### Версия 0.82.0 (23.09.21) {#version0.82.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
