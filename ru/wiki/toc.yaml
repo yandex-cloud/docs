@@ -116,6 +116,9 @@ items:
     - name: Графики из {{ datalens-full-name }}
       when: audience == "internal"
       href: actions/datalens.md
+    - name: Диаграммы из сервиса draw.io
+      when: audience == "internal"
+      href: actions/drawio.md
     - name: Информация о команде сервиса ABC
       when: audience == "internal"
       href: actions/abc.md
