@@ -41,6 +41,7 @@ default:
   example-link-mail: "[Почта Олега](mailto:oleg@yandex.ru)"
   exapmlle-anchor: m-mojjrazdel
   example-account: login@yandex.ru
+  yandex-music: https://music.yandex.ru
 
 
 internal:
