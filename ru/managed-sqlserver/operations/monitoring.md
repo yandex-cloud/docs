@@ -139,3 +139,19 @@
 | Объем использованного хранилища              | `mdb_volume_space.available_space_bytes`         | `10% от размера хранилища` | `20% от размера хранилища` |
 | Утилизация CPU                               | `win_cpu.percent_idle_time`                      | `10`                       | `20`                       |
 | Количество запросов, ожидающих выделения RAM | `mdb_performance_counters.memory_grants_pending` | `2`                        | `1`                        |
+
+
+## Состояния кластера и хостов
+Для просмотра детальной информации о состоянии кластера {{ mch-name }}:
+
+1. Перейдите на страницу каталога и выберите **{{ mch-name }}**.
+2. Выберите нужный кластер из списка.
+
+### Состояния кластера
+
+{% include [monitoring-cluster-state](../../_includes/mdb/monitoring-cluster-state.md) %}
+
+
+### Статусы кластера
+
+{% include notitle [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md)

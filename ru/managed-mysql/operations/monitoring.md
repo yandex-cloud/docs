@@ -168,3 +168,19 @@ description: "Вы можете отслеживать состояние кла
 | Среднее время выполнения запросов   | `mysql_latency_query_avg` | —                         | `2000`                    |
 | Объем использованного хранилища     | `disk.used_bytes`         | 90% от размера хранилища  | 80% от размера хранилища  |
 | Утилизация CPU                      | `cpu.idle`                | `10`                      | `20`                      |
+
+
+## Состояния кластера и хостов
+Для просмотра детальной информации о состоянии кластера {{ mch-name }}:
+
+1. Перейдите на страницу каталога и выберите **{{ mch-name }}**.
+2. Выберите нужный кластер из списка.
+
+### Состояния кластера
+
+{% include [monitoring-cluster-state](../../_includes/mdb/monitoring-cluster-state.md) %}
+
+
+### Статусы кластера
+
+{% include notitle [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
