@@ -1,6 +1,6 @@
 # Creating a {{ MS }} cluster
 
-A {{ MS }} cluster is one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests, then duplicates changes synchronously in the primary replica and asynchronously in all the others.
+{{ MS }} cluster: one or more database hosts. [Replication](../concepts/replication.md) works by default in any cluster with more than 1 host: the primary replica accepts read and write requests and propagates changes to the secondary replicas at the same time.
 
 {% note info %}
 
@@ -27,9 +27,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
 - Management console
 
-  1. In the management console, select the folder where you want to create a database cluster.
-
-  1. Select **{{ mms-name }}**.
+  1. Go to the folder page and select **{{ mms-name }}**.
 
   1. Click **Create cluster**.
 
@@ -73,6 +71,10 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
      * At the moment, you can create an **Enterprise Edition** cluster with either one or three hosts. Please note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
      {% endnote %}
+
+  1. If necessary, configure additional cluster settings:
+
+      {% include [extra-settings-create](../../_includes/mdb/mms/extra-settings-create.md) %}
 
   1. If necessary, configure the [DBMS settings](../concepts/settings-list.md).
 
@@ -156,7 +158,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
 - API
 
-  To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
+  Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
   - In the `folderId` parameter, the ID of the folder where the cluster should be placed.
   - The cluster name, in the `name` parameter.
   - Cluster configuration, in the `configSpec` parameter.
@@ -164,6 +166,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
   - Cluster database configuration, in one or more `databaseSpecs` parameters.
   - Configuration of the accounts in the cluster database, in one or more `userSpecs` parameters.
   - Network ID, in the `networkId` parameter.
+  - The names of the collation settings for the cluster databases in the `sqlcollation` parameter.
 
 {% endlist %}
 
@@ -184,7 +187,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
     - Network: `mynet`.
     - In a new security group called `ms-sql-sg` supporting cluster connections from the internet via port `{{ port-mms }}`.
     - With a single host of the `s2.small` class in a new `mysubnet` subnet and the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
-    - With 32 GB of fast network storage.
+    - With 32 GB of fast network storage.
     - With a database called `db1`.
     - With a user with `user1` as the login and `user1user1` as the password. This user will own the `db1` database ([predefined role `DB_OWNER`](./grant.md#predefined-db-roles)).
 

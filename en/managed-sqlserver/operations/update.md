@@ -26,8 +26,6 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
 - Terraform
 
-    To change the [host class](../concepts/instance-types.md) for the cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](./cluster-create.md).
@@ -52,11 +50,11 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mms }}).
+    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
 - API
 
-  To change the [host class](../concepts/instance-types.md) for the cluster, use the [update](../api-ref/Cluster/update.md) method and pass the following in the request:
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - New host class, in the `configSpec.resources.resourcePresetId` parameter. To find out the list of supported values, use the `list` method for `ResourcePreset`.
   - List of cluster configuration fields to be changed (in this case, `configSpec.resources.resourcePresetId`), in the `updateMask` parameter.
@@ -80,8 +78,6 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
   1. Click **Save changes**.
 
 - Terraform
-
-    To increase the storage size for a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -107,11 +103,11 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mms }}).
+    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
 - API
 
-  To change the storage size for a cluster, use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - Required storage size (in bytes), in the `configSpec.resources.diskSize` parameter.
   - List of user configuration fields to be changed (in this case, `configSpec.resources.diskSize`), in the `updateMask` parameter.
@@ -137,8 +133,6 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
 - Terraform
 
-    To update the [DBMS settings](../concepts/settings-list.md) for the cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](./cluster-create.md).
@@ -162,7 +156,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mms }}).
+    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
 - API
 
@@ -183,9 +177,17 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
 {% list tabs %}
 
-- Terraform
+- Management console
 
-    To change additional cluster settings:
+    1. Go to the folder page and select **{{ mms-name }}**.
+    1. Select the cluster and click **Edit** in the top panel.
+    1. Change additional cluster settings:
+
+        {% include [extra-settings](../../_includes/mdb/mms/extra-settings.md) %}
+
+    1. Click **Save changes**.
+
+- Terraform
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -212,7 +214,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mms }}).
+    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mms }}).
 
 {% endlist %}
 
@@ -222,7 +224,6 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
 - Management console
 
-  To move a cluster to another folder:
   1. Go to the folder page and select **{{ mms-name }}**.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) to the right of the row of the cluster that you want to move.
   1. Click **Move**.
@@ -231,7 +232,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
 - API
 
-  To move a cluster from the current folder to a different one, use the [move](../api-ref/Cluster/move.md) API method and pass the following in the request:
+  Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The ID of the destination folder in the `destinationFolderId` parameter.
 

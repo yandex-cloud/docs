@@ -1,19 +1,23 @@
 # Replication
 
-Data in {{ mms-name }} clusters is replicated synchronously. A successful response to a write data request
-is returned only when the data is written to the disk on both the master host and the priority replica. In the other cluster replicas, data is replicated asynchronously.
+In multi-host {{ mms-name }} **Enterprise Edition** cluster [versions](./index.md), High Availability Always On _availability groups_ are used to ensure fault tolerance.
 
-{% include [non-replicating-hosts](../../_includes/mdb/non-replicating-hosts.md) %}
+In these clusters:
 
-## Selecting the master and a synchronous replica {#selecting-the-master-and-a-synchronous-replica}
+* The _primary replica_ (the `MASTER` role), which accepts all read and write queries, is automatically selected. The other replicas become _secondary_ (the `REPLICA` role).
+* _Synchronous replication_ is used: a transaction is confirmed when the change log is written to storage both on the primary replica and all secondary replicas.
+    All replicas use [synchronous-commit mode]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2016#availability-modes){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2016#availability-modes){% endif %}.
+    If all replicas except the primary one become unavailable, replication doesn't work. When one of the secondary replicas becomes available, the replication process resumes.
+* If the primary replica fails, [failover]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2016#types-of-failover){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2016#types-of-failover){% endif %} takes place in the cluster: the role of the primary replica is taken over by one of the secondary replicas.
 
-The master host and synchronous replica are selected based on the priority that you can [set for a specific host](../operations/hosts.md#update).
+## Readable and unreadable replicas {#readable-and-non-readable-replicas}
 
-In addition, you can configure cascading replication by explicitly assigning a source of replication for each host. The hosts with the set replication source cannot:
+By default, when secondary replicas in {{ mms-name }} are created, they are unreadable: you can connect to the cluster only via the primary replica, which processes read and write requests. You can make secondary replicas readable when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/update.md).
 
-* Become synchronous replicas.
-* Participate in the selection of a new master host.
-* Automatically switch to a new source of replication.
+Readable replicas significantly reduce the load of read operations on the primary replica, but have certain usage specifics:
 
-## Write sync and read consistency {#write-sync-and-read-consistency}
+* An additional fee is charged for each readable replica because such replicas [require software licenses](../pricing.md#license).
+* Between the primary and secondary replicas, [latency]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-2016#data-latency){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-2016#data-latency){% endif %} occurs. This is because applying changes from the change log on the secondary replica takes some time, during which the state of the database on the secondary replica differes from that on the primary replica. If it's important to maintain the consistency of the data being read, [connect](../operations/connect.md) to the cluster only via the primary replica.
+
+For more information, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-2016#data-latency){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-2016#data-latency){% endif %}.
 

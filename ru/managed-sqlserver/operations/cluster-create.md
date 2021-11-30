@@ -70,7 +70,7 @@
 
   1. При необходимости задайте дополнительные настройки кластера:
 
-      {% include [Дополнительные настройки кластера](../../_includes/mdb/mms/extra-settings-create.md) %}
+      {% include [extra-settings-create](../../_includes/mdb/mms/extra-settings-create.md) %}
 
   1. При необходимости задайте [настройки СУБД](../concepts/settings-list.md).
   1. Нажмите кнопку **Создать кластер**.

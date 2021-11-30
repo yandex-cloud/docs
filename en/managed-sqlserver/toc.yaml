@@ -31,6 +31,8 @@ items:
         href: operations/cluster-delete.md
       - name: Performance diagnostics
         href: operations/performance-diagnostics.md
+      - name: Monitoring the state of a cluster and hosts
+        href: operations/monitoring.md
   - name: Concepts
     items:
       - name: Relationship between service resources
@@ -45,6 +47,8 @@ items:
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
+      - name: Replication
+        href: concepts/replication.md
       - name: SQL Server settings
         href: concepts/settings-list.md
   - name: Access management

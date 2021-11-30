@@ -110,7 +110,7 @@
 
 ## Примеры строк подключения {#connection-string}
 
-{% include [параметры окружения](../../_includes/mdb/mms-conn-strings-env.md) %}
+{% include [conn-strings-environment](../../_includes/mdb/mms-conn-strings-env.md) %}
 
 {% include [see-sqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

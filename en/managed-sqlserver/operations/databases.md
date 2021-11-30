@@ -2,9 +2,10 @@
 
 - [Getting a list of cluster databases](#list-db).
 - [Creating a database](#add-db).
+- [Changing database collation settings](#collation).
 - [Deleting a database](#remove-db).
 
-{% include [db-sql](../../_includes/mdb/mdb-db-sql-limits.md) %}
+{% include [db-sql](../../_includes/mdb/mms/db-sql-limits.md) %}
 
 ## Getting a list of cluster databases {#list-db}
 
@@ -44,8 +45,6 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
   1. [Grant the `DB_OWNER`](grant.md) role to the user that should become the owner of the new database.
 
 - Terraform
-
-    To create a database in a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -95,6 +94,7 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
   Use the [create](../api-ref/Database/create.md) API method and pass the following in the request:
 
   - ID of the cluster where you want to create a database, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
   - Database name, in the `databaseSpec.name` parameter.
 
       {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
@@ -102,6 +102,19 @@ You can create an unlimited number of databases in each {{ mms-name }} cluster.
 To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+## Changing database collation settings {#collation}
+
+1. [Connect](connect.md) to the database under the database owner's account.
+1. Run an `ALTER DATABASE` query and specify the names of the new collation settings.
+
+{% note info %}
+
+The query will change collation settings for new DB objects only. Learn more about modifying collation settings for existing databases in the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/collations/set-or-change-the-database-collation){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-database-collation){% endif %}.
+
+{% endnote %}
+
+For more information, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/collations/set-or-change-the-database-collation){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-database-collation){% endif %}.
 
 ## Deleting a database {#remove-db}
 
@@ -113,8 +126,6 @@ To find out the cluster ID, [get a list of clusters in the folder](cluster-list.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line with the desired DB and select **Delete**.
 
 - Terraform
-
-    To delete a database from a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 

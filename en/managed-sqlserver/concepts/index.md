@@ -3,13 +3,13 @@ title: "Relationship between {{ mms-name }} resources"
 description: "The main entity operated by the {{ mms-name }} service is a database cluster. Each cluster consists of one or more database hosts — virtual machines with deployed DBMS servers. The cluster hosts can be located in different availability zones."
 ---
 
-# Relationship between resources in {{ mms-name }}
+# Relationships between resources in {{ mms-name }}
 
 The main entity used in {{ mms-name }} is a _database cluster_.
 
 Each cluster consists of one or more _database hosts_, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones. [More about the geo scope of {{ yandex-cloud }}](../../overview/concepts/geo-scope.md).
 
-* A cluster consisting of multiple hosts has automatic failover, because the hosts can take over each other's functions as the cluster's primary replica.
+* A cluster consisting of multiple hosts supports automatic failover, because the hosts can take over each other's functions as the cluster's primary replica.
 
 * A single-host cluster is cheaper, but it doesn't guarantee fault tolerance.
 
@@ -21,7 +21,7 @@ When creating a cluster, specify:
    * `PRODUCTION`: For stable versions of your apps.
    * `PRESTABLE`: For testing, including the {{ mms-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
 
-* {{ MS }} _version_.
+* _Version_ of {{ MS }}.
 
   {{ mms-name }} clusters support `2016 ServicePack 2` for the following editions:
 
@@ -33,7 +33,7 @@ When creating a cluster, specify:
 
   For the full list of limitations imposed by {{ mms-name }} on the clusters of these editions, see [{#T}](limits.md).
 
-  For more information about editions, see the [documentation for {{ MS }}](https://docs.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15).
+  For more information about editions, see the [documentation for {{ MS }}]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15){% endif %}.
 
 {% if audience != "internal" %}
  A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
