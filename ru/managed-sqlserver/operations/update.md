@@ -186,9 +186,9 @@
     1. Выберите кластер и нажмите кнопку **Редактировать** в верхней части страницы.
     1. Измените дополнительные настройки кластера:
 
-        {% include [Дополнительные настройки](../../_includes/mdb/mms/extra-settings.md) %}
+        {% include [extra-settings](../../_includes/mdb/mms/extra-settings.md) %}
         
-          {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+          {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     1. Нажмите кнопку **Сохранить изменения**.
 

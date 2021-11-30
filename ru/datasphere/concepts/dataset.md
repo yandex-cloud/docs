@@ -123,6 +123,24 @@
 
   {% endlist %}
 
+* Из локальных файлов.
+
+  {% list tabs %}
+
+  - Bash
+
+    Чтобы создать датасет в произвольном формате, скопируйте локальные файлы:
+
+    ```bash
+    #!:bash
+    #pragma dataset init  <DATASET_NAME> --size 1Gb
+    
+    set -e
+    cp -r <SOURCE_FOLDER_NAME> /home/jupyter/mnt/datasets/<DATASET_NAME>
+    ```
+
+  {% endlist %}
+
 ## Использование датасета {#use}
 
 После инициализации датасеты доступны из кода по пути вида `/home/jupyter/mnt/datasets/<DATASET_NAME>`. 

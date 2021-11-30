@@ -48,7 +48,7 @@ To create a VM:
 1. Under **Computing resources**:
    * Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
    * For 1C-Bitrix to run properly, specify the following configuration:
-     * **Platform**: Intel Cascade Lake.
+     * **Platform**: Intel Ice Lake.
      * **Guaranteed vCPU share**: 20%.
      * **vCPU**: 2.
      * **RAM**: 4 GB.

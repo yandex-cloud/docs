@@ -279,7 +279,7 @@ To create a cluster:
 1. (optional) In the **Description** field, add additional information about the cluster.
 1. In the **Environment** list, select `PRODUCTION`.
 1. In the **Version** list, select `12`.
-1. Under **Host class**, select `Intel Cascade Lake` in the **Platform** list.
+1. Under **Host class**, select `Intel Ice Lake` in the **Platform** list.
 1. Select the VM type: on the **burstable** tab, select **b2.nano**.
 1. Under **Storage size**, go to the **network-hdd** tab.
 1. Set the storage size to 10 GB.

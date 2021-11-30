@@ -21,16 +21,16 @@ To push an image, you need to [authenticate](../authentication.md) in the regist
       ubuntu                                  latest              1d9c17228a9e        2 weeks ago         86.7MB
       ```
 
-  1. (option) Assign a tag like `cr.yandex/<registry ID>/<Docker image name>:<tag>` to the Docker image:
+  1. (optional) Assign a URL like `cr.yandex/<registry ID>/<Docker image name>:<tag>`to the Docker image:
 
       ```
       docker tag ubuntu \
-      cr.yandex/crpd50616s9a2t7gr8mi/ubuntu:example
+      cr.yandex/crpd50616s9a2t7gr8mi/ubuntu:hello
       ```
 
       {% note info %}
 
-      You can only push to {{ container-registry-name }} Docker images tagged with `cr.yandex/<registry ID>/<Docker image name>:<tag>`.
+      You can only push to {{ container-registry-name }} Docker images with a URL like `cr.yandex/<registry ID>/<Docker image name>:<tag>`.
 
       {% endnote %}
 

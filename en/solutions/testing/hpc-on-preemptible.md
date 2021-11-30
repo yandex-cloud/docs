@@ -49,7 +49,7 @@ To create a VM:
 1. Under **Computing resources**:
    - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
    - For these computational tasks, specify the following configuration:
-    - **Platform**: Intel Cascade Lake.
+    - **Platform**: Intel Ice Lake.
     - **Guaranteed vCPU share**: 100%.
     - **vCPU**: 4.
     - **RAM**: 4 GB.
@@ -111,7 +111,7 @@ To create a VM:
        - **Contents**: From `master-node-snapshot`.
 
      - Under **Computing resources**, specify the same configuration as the master VM:
-       - **Platform**: Intel Cascade Lake.
+       - **Platform**: Intel Ice Lake.
        - **Guaranteed vCPU share**: 100%.
        - **vCPU**: 4.
        - **RAM**: 4 GB.

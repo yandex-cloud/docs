@@ -22,7 +22,7 @@ To migrate a database from the *source cluster* in {{ mpg-name }} to the {{ PG }
 ## Before you start {#before-you-begin}
 
 1. Make sure that all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. For more information, see [{#T}](../operations/cluster-create.md).
-1. Install the [{{ mpg-name }} client SSL certificates](../operations/connect.md#configuring-an-ssl-certificate) on the hosts of the target cluster. They're required to successfully connect to the source cluster that is publicly available.
+1. Install the [{{ mpg-name }} client SSL certificates](../operations/connect.md#get-ssl-cert) on the hosts of the target cluster. They're required to successfully connect to the source cluster that is publicly available.
 1. If necessary, set up the firewall and [security groups](../operations/connect.md#configuring-security-groups) so that you can connect to the source cluster from the target cluster, as well as to each cluster separately (for example, using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility).
 1. Make sure that you can connect to the source cluster's hosts from the target cluster's hosts.
 1. Make sure you can [connect to the source cluster](../operations/connect.md) and the target cluster via SSL.
@@ -141,4 +141,3 @@ After the replication is complete:
    ```
 
 1. [Remove the user](../operations/cluster-users.md#removeuser) managing replication on the source cluster.
-

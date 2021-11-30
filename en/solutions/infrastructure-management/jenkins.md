@@ -80,10 +80,10 @@ To create a virtual machine with Jenkins:
 1. Under **Disks**, enter 15 GB for the size of the boot disk:
 
 1. Under **Computing resources**:
-    - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+    - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
     - Specify the number of vCPUs and amount of RAM:
        * **vCPU**: 2.
-       * **Guaranteed vCPU share**: 5%.
+       * **Guaranteed vCPU share**: 20%.
        * **RAM**: 2 GB.
 
 1. Under **Network settings**, click **Add network** and choose the subnet to connect the virtual machine to. Under **Public IP**, assign a public address to the VM automatically or select a reserved address.

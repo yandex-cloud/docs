@@ -14,6 +14,8 @@ items:
             href: solutions/mapreduce-job-basics.md
           - name: Working with PySpark jobs
             href: solutions/pyspark-job-basics.md
+          - name: Working with Spark jobs
+            href: solutions/spark-job-basics.md
           - name: Using Apache Hive
             href: solutions/how-to-use-hive.md
           - name: Running Spark applications

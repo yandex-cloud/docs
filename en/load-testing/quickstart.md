@@ -1,35 +1,36 @@
 # Getting started with {{ load-testing-full-name }}
 
-In this guide, you'll create an agent in your cloud (a VM with [Yandex.Tank](concepts/tank.md) installed), configure a simple load test, and view the results.
+In this guide, you'll create an agent in your cloud (a VM with [Yandex.Tank](concepts/tank.md) installed), configure a simple load test, and view its results.
 
 ## Before you start
 
 1. Log in to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-1. On the [billing page]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md).
+1. [On the billing page]({{ link-console-billing }}), make sure that a [billing account](../billing/concepts/billing-account.md) is linked and that its status is `ACTIVE` or `TRIAL_ACTIVE`. If you don't have a billing account, [create one](../billing/quickstart/index.md).
 1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md). When creating a folder, you can create a default virtual network with subnets in all availability zones.
-1. Create a [service account](../iam/operations/sa/create.md) in the folder to host the agents that will generate the load. [Assign it the roles](../iam/operations/roles/grant.md) `loadtesting.generatorClient` and `editor`.
+1. Create a [service account](../iam/operations/sa/create.md) in the folder to host the agents that will generate the load. [Assign it](../iam/operations/roles/grant.md) the `loadtesting.generatorClient` role.
+1. Assign all the roles required to create a VM in [Compute Cloud](../compute/security/index.md) and [VPC](../vpc/security/index.md).
 1. The agent connects to {{ load-testing-name }} using a public API. For security purposes, [create a security group](../vpc/operations/security-group-create.md). To connect to the control service, make sure the agent allows outgoing traffic to port 443. To send requests to the test target, allow access to the desired port.
+1. The agent will need access to the subnet hosting the test target. For the agent to be able to connect to {{ load-testing-name }}, enable [NAT to the internet](../vpc/operations/enable-nat.md) on the subnet.
 
-## Create an agent {#create-agent}
+## Creating an agent {#create-agent}
 
-1. In the [management console]({{ link-console-main }}), select the folder to create an agent in.
+1. In the [management console]({{ link-console-main }}), select the folder where you will create the agent.
 1. In the list of services, select **{{ load-testing-name }}**.
 1. On the **Agents** tab, click **Create agent**.
-1. Name the agent `test-agent`.
+1. Name the agent: `test-agent`.
 1. Specify the same availability zone where the test target is located.
-1. Select a service account with the `loadtesting.generatorClient` and `editor` role.
-1. Select the appropriate agent type. For more information, see [Agent performance](concepts/agent.md#benchmark).
-1. Specify the subnet where the test target is located.
+1. Select the service account with the `loadtesting.generatorClient` role. You must have the [right to use it](../iam/operations/sa/set-access-bindings.md).
+1. Select the appropriate type of agent. For more information, see [Agent performance](concepts/agent.md#benchmark).
+1. Specify the subnet where the test target is located. The subnet must have [NAT to the internet](../vpc/operations/enable-nat.md) enabled.
 1. Specify the previously created security group.
 1. Click **Create**.
 
-This creates a VM with a preconfigured instance of Yandex.Tank in your folder. You can use this VM to perform load testing on targets within the selected subnet.
+This creates a VM with preconfigured Yandex.Tank in your folder. You can use this VM to perform load testing of targets within the selected subnet.
 
 ## Running a test {#run-test}
 
-In this example, we'll test a service located at `example.myservice.com`.
-
-We'll use Pandora as the load generator, since it's the best suited for testing cloud applications. The payload will be in a file.
+In this example, we will test the service at `example.myservice.com`.
+We'll use Pandora as a load generator, since it's the most suitable load generator for testing cloud applications. Test data will be in a file.
 
 1. Generate payloads in [URI](concepts/payloads/uri.md) format:
 

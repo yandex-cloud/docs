@@ -43,8 +43,8 @@ Create two VMs in sequence, following the instructions:
     The characteristics of both VMs must match.
 
     The minimum configuration is enough for functional testing:
-    * **Platform**: Intel Cascade Lake.
-    * **Guaranteed vCPU share**: 5%.
+    * **Platform**: Intel Ice Lake.
+    * **Guaranteed vCPU share**: 20%.
     * **vCPU**: 2.
     * **RAM**: 1 GB.
 
@@ -94,8 +94,8 @@ Create two VMs in sequence, following the instructions:
     The characteristics of both VMs must match.
 
     The minimum configuration is enough for functional testing:
-    * **Platform**: Intel Cascade Lake.
-    * **Guaranteed vCPU share**: 5%.
+    * **Platform**: Intel Ice Lake.
+    * **Guaranteed vCPU share**: 20%.
     * **vCPU**: 2.
     * **RAM**: 1 GB.
 

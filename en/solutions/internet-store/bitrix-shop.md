@@ -49,7 +49,7 @@ To create a VM:
 1. Under **Disks**, select an SSD with 13 GB.
 
 1. Under **Computing resources**, specify the configuration for proper operation of 1C-Bitrix:
-   * **Platform**: Intel Cascade Lake.
+   * **Platform**: Intel Ice Lake.
    * **Guaranteed vCPU share**: 20%.
    * **vCPU**: 2.
    * **RAM**: 4 GB.

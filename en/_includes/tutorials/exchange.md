@@ -148,7 +148,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
   1. Under **Disks**, enter 35 GB for the size of the boot disk.
 
   1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%.
@@ -201,7 +201,7 @@ A file server with internet access is used to configure VMs with Active Director
   1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
   1. Under **Disks**, enter 35 GB for the size of the boot disk.
   1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 2.
          * **Guaranteed vCPU share**: 100%.
@@ -412,7 +412,7 @@ VMs with Active Directory don't have internet access, so they should be configur
      1. Under **Disks**, enter 100 GB for the size of the boot disk.
      1. Add another 250 GB SSD named `db`.
      1. Under **Computing resources**:
-         - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+         - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
          - Specify the number of vCPUs and amount of RAM:
             * **vCPU**: 8.
             * **Guaranteed vCPU share**: 100%.
@@ -497,7 +497,7 @@ VMs with Active Directory don't have internet access, so they should be configur
      1. Under **Disks**, enter 100 GB for the size of the boot disk.
      1. Add another 250 GB SSD named `db`.
      1. Under **Computing resources**:
-         - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+         - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
          - Specify the number of vCPUs and amount of RAM:
             * **vCPU**: 8.
             * **Guaranteed vCPU share**: 100%.
@@ -821,7 +821,7 @@ Create a VM named `vm-edge-a`:
   1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
   1. Under **Disks**, enter 50 GB for the size of the boot disk.
   1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%.
@@ -862,7 +862,7 @@ Create a VM named `vm-edge-b`:
   1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
   1. Under **Disks**, enter 50 GB for the size of the boot disk.
   1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%.

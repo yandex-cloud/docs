@@ -38,7 +38,7 @@ The cost of using a virtual router includes:
     - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
 
     - Specify the number of vCPUs and amount of RAM:
-      - **Platform**: Intel Cascade Lake.
+      - **Platform**: Intel Ice Lake.
       - **Guaranteed vCPU share**: 100%.
       - **vCPU**: 2.
       - **RAM**: 4 GB.

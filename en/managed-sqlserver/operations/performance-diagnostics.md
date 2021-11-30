@@ -1,10 +1,10 @@
 # Performance diagnostics
 
-{{ mms-name }} uses built-in [performance diagnostic tools](https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-store-usage-scenarios) {{ MS }}.
+{{ mms-name }} uses the built-in {{ MS }} [performance diagnostic tools](https://docs.microsoft.com/en-us/sql/relational-databases/performance/query-store-usage-scenarios).
 
 ## Enabling statistics collection {#activate-stats-collector}
 
-To begin gathering statistics, enable the *[query store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)*:
+To begin gathering statistics, enable the [query store](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store):
 
 1. [Connect to the {{ MS }}](../operations/connect.md#connection-ide) cluster.
 
@@ -35,6 +35,5 @@ To begin gathering statistics, enable the *[query store](https://docs.microsoft.
 
 To view this data:
 
-* [Run the SQL query](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting) directly against the query store.
+* [Run an SQL query](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting) directly to the query store.
 * Use [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15).
-

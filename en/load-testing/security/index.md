@@ -21,18 +21,15 @@ The diagram shows which roles are available in the service and how they inherit 
 Active roles in the service:
 
 * Primitive roles:
-
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
     * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
     * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
-
 * Service roles:
-
     * `loadtesting.viewer`: Allows viewing reports and created agents.
-    * `loadtesting.editor`: Allows viewing and deleting reports, and creating, deleting, and editing VMs with agents.
-    * `loadtesting.admin`: The service currently doesn't include any administration capabilities, so this role repeats the permissions granted by the `editor` role.
-    * `loadtesting.loadTester`: Allows running and stopping load tests, uploading payloads, and deleting reports.
-    * `loadtesting.generatorClient`: Allows running a test on an agent and uploading test results to storage (granted to the service account that the VM with the agent is created under).
+    * `loadtesting.editor`: Allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables the running of load tests, stopping tests, loading test data, deleting reports, and uploading output to the repository.
+    * `loadtesting.admin`: At the moment, the service does not include an administrative function, so the role has the same permissions as `loadtesting.editor`.
+    * `loadtesting.loadTester`: Allows viewing and deleting reports, creating, deleting, and editing VMs with agents, enables the running of load tests, stopping tests, loading test data, and deleting reports.
+    * `loadtesting.generatorClient`: Allows starting VMs, running tests on agents, and uploading the output to the repository (assigned to a service account that is used to create VMs with agents).
 
 #### What's next {#next}
 

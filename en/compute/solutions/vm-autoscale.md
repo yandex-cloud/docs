@@ -154,7 +154,7 @@ To create an [instance group with auto scaling](../concepts/instance-groups/scal
        name: auto-group-tg
    instance_template:
      service_account_id: <Service account ID>
-     platform_id: standard-v1
+     platform_id: standard-v3
      resources_spec:
        memory: 2G
        cores: 2

@@ -4,6 +4,10 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: Configuring security groups
+        href: operations/security-groups.md
   - name: Concepts
     items:
       - name: Service overview
@@ -16,7 +20,7 @@ items:
         href: concepts/load-generator.md
       - name: Load profile
         href: concepts/load-profile.md
-      - name: Payloads and types
+      - name: Test data and its types
         items:
           - name: Overview
             href: concepts/payload.md

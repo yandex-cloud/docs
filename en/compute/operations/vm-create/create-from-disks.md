@@ -140,7 +140,7 @@ To create a VM from a set of disks:
      resource "yandex_compute_instance" "vm-1" {
      
        name        = "vm-from-disks"
-       platform_id = "standard-v2"
+       platform_id = "standard-v3"
      
        resources {
          cores  = <number of vCPU cores>

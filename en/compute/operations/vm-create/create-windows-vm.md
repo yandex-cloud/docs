@@ -126,7 +126,7 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
         "folderId": "b1gvmob95yysaplct532",
         "name": "instance-demo-no-pwauth",
         "zoneId": "ru-central1-c",
-        "platformId": "standard-v1",
+        "platformId": "standard-v3",
         "resourcesSpec": {
           "memory": "4294967296",
           "cores": "2",
@@ -192,7 +192,7 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
      resource "yandex_compute_instance" "vm-1" {
      
        name        = "windows-vm"
-       platform_id = "standard-v2"
+       platform_id = "standard-v3"
      
        resources {
          cores  = <number of vCPU cores>

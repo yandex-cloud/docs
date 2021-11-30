@@ -48,7 +48,7 @@ The cost for maintaining a GitLab server includes:
    * Specify the necessary number of vCPUs and amount of RAM.
 
      For GitLab to run properly, specify the following configuration:
-      * **Platform**: Intel Cascade Lake.
+      * **Platform**: Intel Ice Lake.
       * **Guaranteed vCPU share**: 100%.
       * **vCPU**: 2.
       * **RAM**: 4 GB.

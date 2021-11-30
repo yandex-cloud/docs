@@ -181,8 +181,8 @@ To create an instance group for `site-a.com`:
      - Specify the necessary number of vCPUs and amount of RAM.
 
      The minimum configuration is enough for functional website testing:
-     * **Platform**: Intel Cascade Lake.
-     * **Guaranteed vCPU share**: 5%.
+     * **Platform**: Intel Ice Lake.
+     * **Guaranteed vCPU share**: 20%.
      * **vCPU**: 2.
      * **RAM**: 1 GB.
 

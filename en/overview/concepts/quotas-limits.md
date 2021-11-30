@@ -15,12 +15,12 @@ When designing your infrastructure in {{ yandex-cloud }}, consider the limits as
 
 Quotas serve as a soft restriction for requesting resources and enable {{ yandex-cloud }} to guarantee service stability, because new users can't take up too many resources for testing purposes. If you're willing to use more resources, you can increase them in the following ways:
 
-* [Submit an increase request]({{ link-console-quotas }}).
-* Contact the [technical support]({{ link-console-support }}) and tell us which quotas you need to increase and by how much.
+* [form a request for an increase]({{ link-console-quotas }});
+* contact the [technical support]({{ link-console-support }}) and tell us which quotas you need to increase and by how much.
 
 ## Default quotas and limits for {{ yandex-cloud }} services {#quotas-limits-default}
 
-Quotas are listed with default values that match the quotas of the [trial period](../../getting-started/free-trial/concepts/quickstart.md).
+Quotas are listed with default values that match the quotas of the [trial period](../../free-trial/).
 
 ### {{ compute-full-name }} {#compute}
 
@@ -146,6 +146,11 @@ Quotas are listed with default values that match the quotas of the [trial period
 
 {% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
 
-### {{ cloud-logging-name }} {#logging}
+### {{ cloud-logging-full-name }} {#logging}
 
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
+
+### {{ serverless-containers-full-name }} {#serverless-containers}
+
+{% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
+

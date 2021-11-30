@@ -121,7 +121,7 @@ You need to create a key pair for an SSH connection yourself. Learn more in [{#T
      resource "yandex_compute_instance" "vm-1" {
      
        name        = "preemptible-vm"
-       platform_id = "standard-v2"
+       platform_id = "standard-v3"
      
        resources {
          cores  = <number of vCPU cores>

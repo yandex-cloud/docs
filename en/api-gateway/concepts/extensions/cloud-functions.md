@@ -12,6 +12,7 @@ The `x-yc-apigateway-integration:cloud-functions` extension invokes the specifie
 | `tag` | `string` | Optional parameter. [Version tag](../../../functions/concepts/function.md#tag). The default value is `$latest`. <br>Parameters are substituted in `tag`. |
 | `service_account_id` | `string` | ID of the service account used for authorization when accessing the function. If the parameter is omitted, the value of the [top-level](index.md#top-level) `service_account_id` parameter is used. If there is no top-level parameter, the function is invoked without authorization. |
 | `payload_format_version` | `string` | Function call format version. Legal values: [`0.1`](#request_v0) and [`1.0`](#request_v1). Default version: [`0.1`](#request_v0). |
+| `context` | `object` | Optional parameter. Operation context is an arbitrary object in `YAML` or `JSON` format. Passed to a function inside a [request](../../../functions/concepts/function-invoke.md#request) using the `requestContext.apiGateway.operationContext` field. Parameter substitution takes place in `context`. |
 
 ## Extension specification {#spec}
 
@@ -94,7 +95,7 @@ Request JSON  structure for version `1.0` is compatible with the request format 
     "isBase64Encoded": <true or false>,
     // additional fields:    
     "parameters": <dictionary of request parameter values as described in the OpenAPI spec>,
-    "multiValueParameters": <dictionary with request parameter value lists as described in the OpenAPI spec>,
+    "multiValueParameters": <dictionary with request parameter value lists as described in the OpenAPI spec>
     "operationId": <operationId corresponding to the request in the OpenAPI spec>
 }
 ```

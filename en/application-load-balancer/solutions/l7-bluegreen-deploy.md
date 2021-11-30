@@ -43,7 +43,7 @@ Create two instance groups named `app-blue` and `app-green` with a pre-installed
      * Under **Image/boot disk selection**, go to the **Cloud Marketplace** tab and select a public LEMP image.
      * Under **Disks**, select the `HDD` **Disk type** and set the **Disk size** to `13 GB`.
      * Under **Computing resources**, specify the following VM configuration:
-       * [Platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+       * [Platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
        * **vCPU**: 2.
        * [Guaranteed vCPU performance](../../compute/concepts/performance-levels.md): 20%.
        * **RAM**: 1 GB.
