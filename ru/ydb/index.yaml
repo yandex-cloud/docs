@@ -48,7 +48,7 @@ links:
     href: operations/create_manage_database
   - title: Работа с SDK
     description: Описание принципов работы с SDK
-    href: ydb-sdk/
+    href: oss/public/reference/ydb-sdk/
   - title: Концепции
     description: Узнайте про концепции и возможности сервиса
     href: concepts/
@@ -57,10 +57,10 @@ links:
     href: concepts/limits
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
-    href: operations/start_auth
+    href: security/start_auth
   - title: Рекомендации
     description: Набор рекомендаций по практическому использованию сервиса
-    href: best_practices/schema_design
+    href: oss/public/develop/best_practices/schema_design
   - title: Справочник YQL
     description: Описание синтаксиса и встроенных функций YQL
     href: yql/reference/overview
