@@ -392,6 +392,8 @@ default:
   hm3-c24-m384: hm3-c24-m384 (24 vCPU, 384 ГБ)
   hm3-c28-m448: hm3-c28-m448 (28 vCPU, 448 ГБ)
   hm3-c32-m512: hm3-c32-m512 (32 vCPU, 512 ГБ)
+  local-ssd-v3-max: 2944 ГБ
+  local-ssd-v3-step: 368 ГБ
   graph-update: 15 секунд
   graph-update-burstable: 150 секунд
   mch-backup-retention: 7
