@@ -216,24 +216,42 @@
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
-
   Чтобы создать кластер:
 
-    1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+    1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
-       * Кластер базы данных — описание кластера и его хостов. При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md).
-       * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
-       * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+    1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-       Пример структуры конфигурационного файла:
+    1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
+
+       Кластер размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
+       Хосты кластера размещаются в подсетях выбранной облачной сети. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+
+       Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
+       
+       ```hcl
+       resource "yandex_vpc_network" "<имя сети в {{ TF }}>" { name = "<имя сети>" }
+
+       resource "yandex_vpc_subnet" "<имя подсети в {{ TF }}>" {
+         name           = "<имя подсети>"
+         zone           = "<зона доступности>"
+         network_id     = yandex_vpc_network.<имя сети в {{ TF }}>.id
+         v4_cidr_blocks = ["<подсеть>"]
+       }
+       ```
+
+    1. Создайте конфигурационный файл с описанием кластера и его хостов.
+
+       При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md).
+
+       Пример структуры конфигурационного файла, в котором описывается кластер из одного хоста:
 
        ```hcl
-       resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+       resource "yandex_mdb_clickhouse_cluster" "<имя кластера в {{ TF }}>" {
          name                = "<имя кластера>"
          environment         = "<окружение>"
-         network_id          = "<идентификатор сети>"
-         security_group_ids  = ["<список групп безопасности>"]
+         network_id          = yandex_vpc_network.<имя сети в {{ TF }}>.id
+         security_group_ids  = ["<список идентификаторов групп безопасности>"]
          deletion_protection = <защита от удаления кластера: true или false>
 
          clickhouse {
@@ -259,17 +277,8 @@
          host {
            type      = "CLICKHOUSE"
            zone      = "<зона доступности>"
-           subnet_id = "<идентификатор подсети>"
+           subnet_id = yandex_vpc_subnet.<имя подсети в {{ TF }}>.id
          }
-       }
-
-       resource "yandex_vpc_network" "<имя сети>" { name = "<имя сети>" }
-
-       resource "yandex_vpc_subnet" "<имя подсети>" {
-         name           = "<имя подсети>"
-         zone           = "<зона доступности>"
-         network_id     = "<идентификатор сети>"
-         v4_cidr_blocks = ["<диапазон>"]
        }
        ```
 
@@ -292,15 +301,15 @@
 
        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
-    1. Проверьте корректность настроек.
+    1. Проверьте корректность файлов конфигурации {{ TF }}:
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Создайте кластер.
+    1. Создайте кластер:
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся IP-адреса виртуальных машин. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 - API
 
@@ -422,92 +431,92 @@
 
 {% endif %}
 
-- Terraform
+- {{ TF }}
 
   Допустим, нужно создать {{ CH }}-кластер и сеть для него со следующими характеристиками:
-    * С именем `mych`.
-    * В окружении `PRESTABLE`.
-    * В облаке с идентификатором `{{ tf-cloud-id }}`.
-    * В каталоге с идентификатором `{{ tf-folder-id }}`.
-    * В новой сети `mynet`.
-    * В новой группе безопасности `mych-sg`, разрешающей подключение к кластеру из интернета по портам `8443`, `9440`. 
-    * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `ru-central1-c`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
-    * С быстрым сетевым хранилищем объемом 32 ГБ.
-    * С именем базы данных `my_db`.
-    * C именем пользователя `user1` и паролем `user1user1`.
-    * С защитой от случайного удаления кластера.
 
-  Конфигурационный файл для такого кластера выглядит так:
+  * С именем `mych`.
+  * В окружении `PRESTABLE`.
+  * В облаке с идентификатором `{{ tf-cloud-id }}`.
+  * В каталоге с идентификатором `{{ tf-folder-id }}`.
+  * В новой облачной сети `cluster-net`.
+  * В новой [группе безопасности по умолчанию](connect.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающей подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
+  * С одним хостом класса `{{ host-class }}` в новой подсети `cluster-subnet-ru-central1-c`.
+  
+    Параметры подсети:
+    * диапазон адресов — `172.16.3.0/24`;
+    * сеть — `cluster-net`;
+    * зона доступности — `{{ zone-id }}`.
 
-  ```hcl
-  provider "yandex" {
-    token     = "<OAuth или статический ключ сервисного аккаунта>"
-    cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "{{ tf-folder-id }}"
-    zone      = "ru-central1-c"
-  }
+  * С быстрым сетевым хранилищем объемом 32 ГБ.
+  * С именем базы данных `db1`.
+  * C именем пользователя `user1` и паролем `user1user1`.
 
-  resource "yandex_mdb_clickhouse_cluster" "mych" {
-    name                = "mych"
-    environment         = "PRESTABLE"
-    network_id          = yandex_vpc_network.mynet.id
-    security_group_ids  = [ yandex_vpc_security_group.mych-sg.id ]
-    deletion_protection = true
+  Конфигурационные файлы для такого кластера выглядят так:
 
-    clickhouse {
-      resources {
-        resource_preset_id = "{{ host-class }}"
-        disk_type_id       = "network-ssd"
-        disk_size          = 32
-      }
-    }
+  1. Конфигурационный файл с описанием настроек провайдера:
 
-    database {
-      name = "my_db"
-    }
+      {% include [terraform-provider](../../_includes/mdb/terraform-provider.md) %}
 
-    user {
-      name     = "user1"
-      password = "user1user1"
-      permission {
-        database_name = "my_db"
-      }
-    }
+  1. Конфигурационный файл с описанием облачной сети и подсети:
 
-    host {
-      type      = "CLICKHOUSE"
-      zone      = "ru-central1-c"
-      subnet_id = yandex_vpc_subnet.mysubnet.id
-    }
-  }
+      {% include [terraform-mdb-single-network](../../_includes/mdb/terraform-single-network.md) %}
 
-  resource "yandex_vpc_network" "mynet" { name = "mynet" }
+  1. Конфигурационный файл с описанием группы безопасности:
 
-  resource "yandex_vpc_subnet" "mysubnet" {
-    name           = "mysubnet"
-    zone           = "ru-central1-c"
-    network_id     = yandex_vpc_network.mynet.id
-    v4_cidr_blocks = ["10.5.0.0/24"]
-  }
+      {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
 
-  resource "yandex_vpc_security_group" "mych-sg" {
-    name       = "mych-sg"
-    network_id = yandex_vpc_network.mynet.id
+  1. Конфигурационный файл с описанием кластера и его хоста:
 
-    ingress {
-      description    = "MCHSSSH"
-      port           = 8443
-      protocol       = "TCP"
-      v4_cidr_blocks = [ "0.0.0.0/0" ]
-    }
+      {% include [terraform-mch-single-host-single-shard](../../_includes/mdb/mch/terraform/single-host-single-shard.md) %}
 
-    ingress {
-      description    = "MCHSSH2"
-      port           = 9440
-      protocol       = "TCP"
-      v4_cidr_blocks = [ "0.0.0.0/0" ]
-    }
-  }
-  ```
+{% endlist %}
+
+### Создание кластера из нескольких хостов {#creating-a-multi-host-cluster}
+
+{% list tabs %}
+
+- {{ TF }}
+
+  Допустим, нужно создать {{ CH }}-кластер со следующими характеристиками:
+
+  * С именем `mych`.
+  * В окружении `PRESTABLE`.
+  * В облаке с идентификатором `{{ tf-cloud-id }}`.
+  * В каталоге с идентификатором `{{ tf-folder-id }}`.
+  * В новой облачной сети `cluster-net`.
+
+  * С тремя {{ CH }}-хостами класса `{{ host-class }}` и тремя {{ ZK }}- хостами класса `{{ zk-host-class }}` (для обеспечения работы [репликации](../concepts/replication.md)).
+
+    По одному хосту каждого типа будет размещено в новых подсетях:
+    * `cluster-subnet-ru-central1-a`: `172.16.1.0/24`, зона доступности `ru-central1-a`.
+    * `cluster-subnet-ru-central1-b`: `172.16.2.0/24`, зона доступности `ru-central1-b`.
+    * `cluster-subnet-ru-central1-c`: `172.16.3.0/24`, зона доступности `ru-central1-c`.
+
+    Эти подсети будут принадлежать сети `cluster-net`.
+
+  * В новой [группе безопасности по умолчанию](connect.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающей подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
+  * С быстрым сетевым хранилищем объемом 32 ГБ для каждого {{ CH }}-хоста кластера.
+  * С быстрым сетевым хранилищем объемом 10 ГБ для каждого {{ ZK }}-хоста кластера.
+  * С именем базы данных `db1`.
+  * C именем пользователя `user1` и паролем `user1user1`.
+
+  Конфигурационные файлы для такого кластера выглядят так:
+
+  1. Конфигурационный файл с описанием настроек провайдера:
+
+      {% include [terraform-provider](../../_includes/mdb/terraform-provider.md) %}
+
+  1. Конфигурационный файл с описанием облачной сети и подсетей:
+
+      {% include [terraform-mdb-multiple-networks](../../_includes/mdb/terraform-multiple-networks.md) %}
+
+  1. Конфигурационный файл с описанием группы безопасности:
+
+      {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
+
+  1. Конфигурационный файл с описанием кластера и его хостов:
+
+      {% include [terraform-mch-multiple-hosts-single-shard](../../_includes/mdb/mch/terraform/multiple-hosts-single-shard.md) %}
 
 {% endlist %}

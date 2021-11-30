@@ -114,6 +114,9 @@ items:
           Настройка Kafka Connect для работы с кластером Yandex Managed Service for
           Apache Kafka®
         href: dataplatform/kafka-connect.md
+      - name: >-
+          Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей
+        href: dataplatform/mdb-dns-peering.md
   - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии

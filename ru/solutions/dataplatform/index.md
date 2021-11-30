@@ -5,3 +5,4 @@
 * [{#T}](kafka-cdc.md)
 * [Миграция базы данных из {{ mmy-full-name }} в {{ MY }}](mmy-to-mysql-migration.md)
 * [{#T}](mssql-data-migration.md)
+* [{#T}](mdb-dns-peering.md)
