@@ -145,7 +145,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
   1. Under **Disks**, enter 50 GB for the size of the boot disk.
 
   1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%.

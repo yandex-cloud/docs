@@ -62,7 +62,7 @@ To create a fixed-size instance group:
 
           ```
           instance_template:
-              platform_id: standard-v1
+              platform_id: standard-v3
               resources_spec:
                   memory: 2g
                   cores: 2
@@ -126,7 +126,7 @@ To create a fixed-size instance group:
           service_account_id: ajed6ilf11qg839dcl1e
           description: "This instance group was created from YAML config."
           instance_template:
-              platform_id: standard-v1
+              platform_id: standard-v3
               resources_spec:
                   memory: 2g
                   cores: 2
@@ -237,7 +237,7 @@ To create a fixed-size instance group:
        folder_id          = "<folder ID>"
        service_account_id = "${yandex_iam_service_account.ig-sa.id}"
        instance_template {
-         platform_id = "standard-v1"
+         platform_id = "standard-v3"
          resources {
            memory = <RAM in GB>
            cores  = <number of vCPU cores>

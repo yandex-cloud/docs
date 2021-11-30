@@ -52,11 +52,11 @@ Example of a YAML file entry:
 ```yaml
 ...
 instance_template:
-  platform_id: standard-v1
+  platform_id: standard-v3
   resources_spec:
     memory: 2G
-    cores: 1
-    core_fraction: 5
+    cores: 2
+    core_fraction: 20
   boot_disk_spec:
     mode: READ_WRITE
     disk_spec:
