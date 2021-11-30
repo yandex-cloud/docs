@@ -2,6 +2,8 @@
 
 {{ marketplace-name }} allows you to add your products to the catalog of ready-to-use {{ yandex-cloud }} solutions and earn a profit from them. You can only add ready-to-use, cloud-based images and solutions for {{ datalens-full-name }}.
 
+![mp-way](../_assets/marketplace/Marketplace.svg)
+
 ## Submitting an application {#send-application}
 
 Fill out the questionnaire on the [Marketplace page]({{ link-cloud-marketplace }}) and describe your product. A detailed description of useful product functions and features will help us review your application faster. By submitting the request, you accept the [Offer](https://yandex.ru/legal/marketplace_offer/) for Software Product Access on the Marketplace. If your business already has a billing account, specify it when submitting your application.
