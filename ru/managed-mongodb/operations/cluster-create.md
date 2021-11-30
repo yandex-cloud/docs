@@ -164,7 +164,7 @@
        deletion_protection = <защита от удаления кластера: true или false>
 
        cluster_config {
-         version = "<версия MongoDB: 4.0, 4.2 или 4.4>"
+         version = "<версия MongoDB: 4.0, 4.2, 4.4 или 5.0>"
        }
 
        database {
