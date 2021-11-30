@@ -24,4 +24,10 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    href: pricing.md  
+    href: pricing.md
+  - name: Amazon Kinesis Data Streams compatible HTTP API
+    items:
+      - name: Methods
+        items:
+          - name: PutRecord
+            href: kinesisapi/methods/putrecord.md

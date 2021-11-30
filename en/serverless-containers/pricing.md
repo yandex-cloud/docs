@@ -2,30 +2,27 @@
 editable: false
 ---
 
-# Pricing policy for {{ serverless-containers-name }}
-
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ serverless-containers-name }} can be used free of charge.
-
-Until and including September 23st of 2021, {{ serverless-containers-name }} can be used free of charge. Since September 24st of 2021, service will become paid.
+# Pricing for {{ serverless-containers-name }}
 
 ## What goes into the cost of using {{ serverless-containers-name }} {#rules}
 
-In In {{ serverless-containers-name }}, you're billed for the number of containers invoked, computing resources allocated for the applications, and outgoing traffic.
+In {{ serverless-containers-name }}, you're billed for the number of container calls, computing resources allocated for the application, and outgoing traffic.
 
-When billing computing resources, the number of cores (vCPU), the memory allocated for the application and application execution time are taken into account:
-* The number of cores specified when creating a revision is measured in vCPU and is a positive real number.
-* The amount of memory specified when creating a revision, in GB.
-* The total running time of the container in hours, rounded up to the nearest multiple of 100 ms.
+When billing computing resources, the number of cores (vCPUs), the memory allocated for the application, and the time that the application runs are taken into account:
+
+* The number of cores specified when creating a revision is measured in vCPUs and is a positive real number.
+* The memory size specified when creating a revision is measured in GB.
+* The total container time is measured in hours and is rounded up to a multiple of 100 ms.
 
 {% note warning %}
 
-You're charged for all the containers invoked that trigger your application to run.
+You're charged for all the container invocations that trigger your code to run.
 
 {% endnote %}
 
 ## Pricing {#prices}
 
-### Invoking a container {#prices-invoke}
+### Invoking a container {#prices-invoking}
 
 {% if region == "ru" %}
 

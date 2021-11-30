@@ -8,6 +8,18 @@ links:
   - title: Getting started
     description: Prepare a Docker image and create a container
     href: quickstart
+  - title: Step-by-step instructions
+    description: Instructions on how to perform routine operations
+    href: operations/index
+  - title: Concepts
+    description: Learn more about Serverless Containers concepts
+    href: concepts/index
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+  - title: Access management
+    description: Permissions required for using the service
+    href: security/index
