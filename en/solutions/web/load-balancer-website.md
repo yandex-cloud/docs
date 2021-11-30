@@ -52,9 +52,9 @@ Create a virtual machine:
    * **LAMP** for Linux, Apache, MySQL, and PHP
 
 1. Under **Computing resources**:
-   * **Platform**: Intel Cascade Lake.
+   * **Platform**: Intel Ice Lake.
    * **vCPU**: 2.
-   * **Guaranteed vCPU share**: 5%.
+   * **Guaranteed vCPU share**: 20%.
    * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.
@@ -82,9 +82,9 @@ Create a second virtual machine:
    * **LAMP** for Linux, Apache, MySQL, and PHP
 
 1. Under **Computing resources**:
-   * **Platform**: Intel Cascade Lake.
+   * **Platform**: Intel Ice Lake.
    * **vCPU**: 2.
-   * **Guaranteed vCPU share**: 5%.
+   * **Guaranteed vCPU share**: 20%.
    * **RAM**: 1 GB.
 
 1. In the **Network settings** section, select the subnet to connect the VM to when creating it.

@@ -36,7 +36,7 @@ The cost of using a virtual router and test VM includes:
 1. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
     - Specify the number of vCPUs and amount of RAM:
-      * **Platform**: Intel Cascade Lake.
+      * **Platform**: Intel Ice Lake.
       * **Guaranteed vCPU share**: 100%.
       * **vCPU**: 2.
       * **RAM**: 2 GB.
@@ -76,10 +76,10 @@ Create a test VM in the subnet that hosts the router, to test connectivity betwe
 1. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md) for the VM.
     - Specify the necessary number of vCPUs and amount of RAM.
-     * **Platform**: Intel Cascade Lake.
-     * **Guaranteed vCPU share**: 5%.
+     * **Platform**: Intel Ice Lake.
+     * **Guaranteed vCPU share**: 20%.
      * **vCPU**: 2.
-     * **RAM**: 0.5 GB.
+     * **RAM**: 1 GB.
 
 1. Under **Network settings**, select the network and subnet hosting the `mikrotik-router` VM.
 

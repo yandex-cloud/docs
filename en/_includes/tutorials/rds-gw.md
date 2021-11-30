@@ -173,7 +173,7 @@ Create a VM with a static address:
      1. Under **Image/boot disk selection**, select the **2019 Datacenter** image.
      1. Under **Disks**, enter 60 GB for the size of the boot disk.
      1. Under **Computing resources**:
-         * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+         * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
          * Specify the number of vCPUs and amount of RAM:
              * **vCPU**: 2
              * **Guaranteed vCPU share**: 100%
@@ -361,7 +361,7 @@ The gateway VM with the RDGW role configured allows `BUILTIN\Administrators` loc
         1. Under **Image/boot disk selection**, select the **2019 Datacenter** image.
         1. Under **Disks**, enter 60 GB for the size of the boot disk.
         1. Under **Computing resources**:
-            * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+            * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
             * Specify the number of vCPUs and amount of RAM:
                 * **vCPU**: 2
                 * **Guaranteed vCPU share**: 100%

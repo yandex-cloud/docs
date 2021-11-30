@@ -59,7 +59,7 @@ To create an instance group built on a {{ coi }}:
 
         ```
         instance_template:
-            platform_id: standard-v1
+            platform_id: standard-v3
             resources_spec:
                 memory: 2G
                 cores: 2
@@ -132,7 +132,7 @@ To create an instance group built on a {{ coi }}:
         description: "This instance group was created from YAML config."
         instance_template:
             service_account_id: aje3932acd8avp6edhbt # ID of the service account to access private Docker images.
-            platform_id: standard-v1
+            platform_id: standard-v3
             resources_spec:
                 memory: 2G
                 cores: 2

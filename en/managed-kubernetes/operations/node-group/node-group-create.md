@@ -22,7 +22,7 @@ To create a node group, [create a {{ k8s }} cluster](../kubernetes-cluster/kuber
   yc managed-kubernetes node-group create \
     --name my-node-group \
     --cluster-name test-k8s \
-    --platform-id standard-v2 \
+    --platform-id standard-v3 \
     --location subnet-name=yc-auto-subnet-0,zone=ru-central1-a \
     --public-ip \
     --cores 2 \
