@@ -1,3 +1,4 @@
-| Resource | Cost of 1 million requests<br>per month, with VAT  |
+| Resource category | Price per 1 million requests per month, with VAT |
 |-------------------|-----------------------|
-| Public DNS requests | ₸120.0000 |
+| Public DNS Requests - Authoritative | ₸120.0000 |
+| Public DNS Requests - Recursive  | ₸120.0000 |
