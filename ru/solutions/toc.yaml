@@ -23,6 +23,8 @@ items:
         href: web/wordpress-mysql.md
       - name: Веб-сайт на базе 1С-Битрикс
         href: web/bitrix-website.md
+      - name: Сине-зеленое и канареечное развертывание версий сервиса
+        href: web/blue-green-canary-deployment.md
   - name: Интернет-магазины
     items:
       - name: Все сценарии
@@ -113,6 +115,10 @@ items:
           Настройка Kafka Connect для работы с кластером Yandex Managed Service
           for Apache Kafka®
         href: dataplatform/kafka-connect.md
+      - name: >-
+          Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз
+          данных из других облачных сетей
+        href: dataplatform/mdb-dns-peering.md
   - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии

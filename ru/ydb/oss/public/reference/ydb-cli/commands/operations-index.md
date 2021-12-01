@@ -4,7 +4,7 @@
 
 ## Добавление вторичного индекса {#operation-index}
 
-Добавьте индекс `title_index` по колонкам `title` и `series`:
+Добавьте индекс `title_index` по колонке `title` таблицы `series`:
 
 ```bash
 {{ ydb-cli }} table index add global \

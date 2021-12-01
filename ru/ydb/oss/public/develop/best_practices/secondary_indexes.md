@@ -122,7 +122,7 @@ UPDATE table1 ON SELECT * FROM $to_update
 Чтобы удалить все данные о сериалах с нулевым количеством просмотров в таблице `series`, выполните запрос:
 
 ```sql
-DELETE FROM ON
+DELETE FROM series ON
 SELECT series_id, 
 FROM series view views_index
 WHERE views == 0;

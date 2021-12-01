@@ -19,6 +19,8 @@ description: "Класс хостов определяет вычислител�
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code.md) %}
 
+{% include [additional-types](../../_includes/mdb/additional-instance-types.md) %}
+
 | Имя класса хостов | Количество vCPU | Производительность CPU | RAM, ГБ |
 |-------------------|-----------------|------------------------|---------|
 | **Intel Broadwell**                                                    |

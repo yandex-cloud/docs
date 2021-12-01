@@ -12,5 +12,5 @@
 | RAM (for 1 GB)                     | {{ sku|USD|mdb.cluster.redis.v2.ram|string }}      | {{ sku|USD|v1.commitment.y1.mdb.redis.ram.v2|string }} ({{ sku|USD|v1.commitment.y1.mdb.redis.ram.v2|cud.y1|discount|percent|string }}) | {{ sku|USD|v1.commitment.y3.mdb.redis.ram.v2|string }} ({{ sku|USD|v1.commitment.y3.mdb.redis.ram.v2|cud.y3|discount|percent|string }}) |
 | **Intel Ice Lake** |
 | 50% vCPU                           | {{ sku|USD|mdb.cluster.redis.v3.cpu.c50|string }}  | —                | — |
-| 100% vCPU                          | {{ sku|USD|mdb.cluster.redis.v3.cpu.c100|string }} | $0.008538 (-30%) | — |
-| RAM (for 1 GB)                     | {{ sku|USD|mdb.cluster.redis.v3.ram|string }}      | $0.002077 (-36%) | — |
+| 100% vCPU                          | {{ sku|USD|mdb.cluster.redis.v3.cpu.c100|string }} | $0.008538 (-30%) | $0.006577 (-46%) |
+| RAM (for 1 GB)                     | {{ sku|USD|mdb.cluster.redis.v3.ram|string }}      | $0.002077 (-36%) | $0.001615 (-50%) |

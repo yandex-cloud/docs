@@ -43,6 +43,12 @@ items:
         href: solutions/local-dns-cache.md
       - name: Миграция DNS-зон из Яндекс.Коннект
         href: solutions/connect-migration.md
+      - name: Интеграция с корпоративным сервисом DNS
+        href: solutions/dns-integration.md
+      - name: >-
+          Настройка {{ dns-name }} для доступа к кластерам управляемых баз
+          данных из других облачных сетей
+        href: solutions/mdb-dns-peering.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
