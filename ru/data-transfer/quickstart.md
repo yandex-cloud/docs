@@ -4,82 +4,124 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. Перейдите в [консоль]({{ link-console-main }}) {{ yandex-cloud }} и выберите каталог, в котором будете выполнять операции. Если такого каталога нет, создайте его:
+
+    {% list tabs %}
+
+    - Консоль управления
+
+         {% include [create-folder](../_includes/create-folder.md) %}
+
+    - CLI
+
+         {% include [cli-install](../_includes/cli-install.md) %}
+
+        1. Посмотрите описание команды создания каталога:
+
+            ```bash
+            yc resource-manager folder create --help
+            ```
+
+        1. Создайте новый каталог:
+
+            * с именем и без описания:
+
+                 ```bash
+                 yc resource-manager folder create \
+                    --name new-folder
+                 ```
+
+                 {% include [name-format](../_includes/name-format.md) %}
+
+            * с именем и описанием:
+
+                ```bash
+                yc resource-manager folder create \
+                   --name new-folder \
+                   --description "my first folder with description"
+                ```
+
+    - API
+
+        Воспользуйтесь методом [create](../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../resource-manager/api-ref/Folder/index.md) сервиса {{ resmgr-full-name }}.
+
+    {% endlist %}
+
+
 1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
-1. На странице [Управление доступом]({{ link-console-access-management }}) убедитесь, что у вас есть роль `editor` или выше. Роль должна быть назначена на каталог, в котором вы будете работать, или на облако, которому принадлежит этот каталог.
+1. На странице [Управление доступом]({{ link-console-access-management }}) убедитесь, что у вас есть роль `editor` или выше на нужный каталог или облако, которому принадлежит этот каталог.
 
 ## Настройте источник и приемник {#db-settings}
 
 Подготовьте сервис-источник к отправке данных:
 
-* [{{ KF }}](operations/prepare.md#prepare-source-kf);
-* [{{ CH }}](operations/prepare.md#prepare-source-ch);
-* [{{ MG }}](operations/prepare.md#prepare-source-mg);
-* [{{ MY }}](operations/prepare.md#prepare-source-my);
-* [{{ PG }}](operations/prepare.md#prepare-source-pg);
-* [{{ yds-full-name }}](operations/prepare.md#prepare-source-yds).
+* [{{ KF }}](operations/prepare.md#source-kf);
+* [{{ CH }}](operations/prepare.md#source-ch);
+* [{{ MG }}](operations/prepare.md#source-mg);
+* [{{ MY }}](operations/prepare.md#source-my);
+* [{{ PG }}](operations/prepare.md#source-pg);
+* [{{ yds-full-name }}](operations/prepare.md#source-yds).
 
 Подготовьте сервис-приемник к получению данных:
 
-* [{{ CH }}](operations/prepare.md#prepare-target-ch);
-* [{{ MG }}](operations/prepare.md#prepare-target-mg);
-* [{{ MY }}](operations/prepare.md#prepare-target-my);
-* [{{ objstorage-name }}](operations/prepare.md#prepare-target-storage);
-* [{{ PG }}](operations/prepare.md#prepare-target-pg).
+* [{{ CH }}](operations/prepare.md#target-ch);
+* [{{ MG }}](operations/prepare.md#target-mg);
+* [{{ MY }}](operations/prepare.md#target-my);
+* [{{ objstorage-name }}](operations/prepare.md#target-storage);
+* [{{ PG }}](operations/prepare.md#target-pg).
 
 Чтобы принимать данные в сервисе {{ ydb-name }}, подготовка не требуется.
 
-## Создайте эндпоинт-источник {#source}
+## Создайте эндпоинт для источника {#source}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
+1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-name }}**.
 1. На вкладке **Эндпоинты** нажмите кнопку **Создать эндпоинт**.
-1. Убедитесь, что в поле **Направление** указано **Источник**.
+1. Убедитесь, что в поле **Направление** указано `Источник`.
 1. Укажите имя эндпоинта.
-1. В поле **База данных** выберите тип СУБД, из которой вы хотите передавать данные.
+1. В поле **Тип базы данных** выберите тип СУБД, из которой вы хотите передавать данные.
 1. Укажите параметры эндпоинта в соответствующем блоке настроек.
 1. Нажмите кнопку **Создать**.
 
-Подробнее о создании эндпоинтов-источников см. в разделе [{#T}](operations/source-endpoint.md).
+Подробнее см. в разделе [{#T}](operations/source-endpoint.md).
 
-## Создайте эндпоинт-приемник {#target}
+## Создайте эндпоинт для приемника {#target}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
+1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-name }}**.
 1. На вкладке **Эндпоинты** нажмите кнопку **Создать эндпоинт**.
-1. Убедитесь, что в поле **Направление** указано **Приемник**.
+1. Убедитесь, что в поле **Направление** указано `Приемник`.
 1. Укажите имя эндпоинта.
-1. В поле **База данных** выберите тип СУБД, в которую вы хотите передавать данные.
+1. В поле **Тип базы данных** выберите тип СУБД, в которую вы хотите передавать данные.
 1. Укажите параметры эндпоинта в соответствующем блоке настроек.
 1. Нажмите кнопку **Создать**.
 
-Подробнее о создании эндпоинтов-приемников см. в разделе [{#T}](operations/target-endpoint.md).
+Подробнее см. в разделе [{#T}](./operations/target-endpoint.md).
 
 ## Создайте трансфер {#create-transfer}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
+1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-name }}**.
 1. На вкладке **Трансферы** нажмите кнопку **Создать трансфер**.
-1. Выберите эндпоинт-источник и эндпоинт-приемник.
+1. Выберите эндпоинт для источника и эндпоинт для приемника.
 1. Укажите имя трансфера.
-1. Выберите тип трансфера:
-    - _{{ dt-copy-repl }}_ для создания полной копии данных источника и поддержания ее в актуальном состоянии.
-    - _{{ dt-copy }}_ для создания полной копии данных без дальнейшего получения обновлений из источника.
-    - _{{ dt-repl }}_ для непрерывного получения изменений данных от источника и применения их к приемнику (без создания полной копии данных источника).
+1. Выберите [тип трансфера](./concepts/index.md#transfer-type.md):
+    * `{{ dt-type-copy-repl }}` — чтобы создать полную копию данных источника и поддерживать ее в актуальном состоянии.
+    * `{{ dt-type-copy }}` — чтобы создать полную копию данных без дальнейшего получения обновлений из источника.
+    * `{{ dt-type-repl }}` — чтобы непрерывно получать изменения данных от источника и применять их к приемнику (без создания полной копии данных источника).
 1. (Опционально) добавьте описание трансфера.
 1. Нажмите кнопку **Создать**.
 
-Подробнее об управлении трансферами см. в разделе [{#T}](operations/transfer.md).
+Подробнее см. в разделе [Типы трансферов](./concepts/transfer-lifecycle.md#transfer-types).
 
 ## Активируйте трансфер {#activate}
 
-Чтобы начать процесс переноса данных, активируйте трансфер:
-
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
+1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-name }}**.
 1. На вкладке **Трансферы** нажмите на значок ![ellipsis](../_assets/horizontal-ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Активировать**.
 
-Подробнее об управлении трансферами см. в разделе [{#T}](operations/transfer.md).
+Начнется процесс переноса данных.
+
+Подробнее см. в разделе [{#T}](operations/transfer.md).
 
 ## Что дальше {#whats-next}
 
-- Изучите [концепции сервиса](concepts/index.md).
-- Узнайте больше о [подготовке баз данных для использования сервиса](operations/prepare.md) и [настройке трансферов](operations/transfer.md).
-- Ознакомьтесь с [вопросами и ответами](qa/index.md).
+* Изучите [концепции сервиса](concepts/index.md).
+* Узнайте больше о [подготовке баз данных для использования сервиса](operations/prepare.md) и [настройке трансферов](operations/transfer.md).
+* Ознакомьтесь с [вопросами и ответами](qa/index.md).

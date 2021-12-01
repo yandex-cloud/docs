@@ -10,9 +10,9 @@ items:
         href: operations/index.md
       - name: Подготовка к трансферу
         href: operations/prepare.md
-      - name: Управление эндпоинтом-источником
+      - name: Управление эндпоинтом для источника
         href: operations/source-endpoint.md
-      - name: Управление эндпоинтом-приемником
+      - name: Управление эндпоинтом для приемника
         href: operations/target-endpoint.md
       - name: Управление трансфером
         href: operations/transfer.md

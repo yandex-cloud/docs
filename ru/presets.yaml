@@ -426,6 +426,8 @@ default:
   link-cloud-marketplace: https://cloud.yandex.ru/marketplace
   link-yandex-connect: https://connect.yandex.ru
   link-passport-login: https://passport.yandex.ru/auth
+  link-pci-dss-en: https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
+  link-pci-dss-ru: https://storage.yandexcloud.net/yc-compliance/certificates/YC_PCI_DSS_Guide.pdf
   link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.cloud.yandex.ru/
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
@@ -461,9 +463,17 @@ default:
   ml-project-size: 10 ГБ
 
   # Data Transfer
-  dt-copy: Копировать
-  dt-repl: Реплицировать
-  dt-copy-repl: Копировать и реплицировать
+  dt-status-copy: "**Копируется**"
+  dt-status-created: "**Создан**"
+  dt-status-creation: "**Создается**"
+  dt-status-error: "**Ошибка**"
+  dt-status-finished: "**Завершен**"
+  dt-status-repl: "**Реплицируется**"
+  dt-status-stopped: "**Остановлен**"
+  dt-status-stopping: "**Останавливается**"
+  dt-type-copy-repl: Копировать и реплицировать
+  dt-type-copy: Копировать
+  dt-type-repl: Реплицировать
 
   # Провайдеры Terraform
   tf-provider-mch: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
