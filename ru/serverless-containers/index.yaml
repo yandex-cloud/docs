@@ -11,6 +11,12 @@ links:
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/index
+  - title: Node.js
+    description: Разработка контейнера на языке JavaScript
+    href: lang/nodejs/index
+  - title: Go
+    description: Разработка контейнера на языке Go
+    href: lang/golang/index
   - title: Концепции
     description: Читайте подробнее про концепции Serverless Containers
     href: concepts/index
