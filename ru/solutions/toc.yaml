@@ -24,6 +24,8 @@ items:
         href: web/wordpress-mysql.md
       - name: Веб-сайт на базе 1С-Битрикс
         href: web/bitrix-website.md
+      - name: Сине-зеленое и канареечное развертывание версий сервиса
+        href: web/blue-green-canary-deployment.md
   - name: Интернет-магазины
     items:
       - name: Все сценарии
