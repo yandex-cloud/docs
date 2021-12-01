@@ -1,6 +1,6 @@
 # Управление пользовательскими сеансами
 
-Вы можете запросить список активных пользовательских [сеансов](https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) в кластере {{ MS }}, а также принудительно завершить любой из них.
+Вы можете [запросить список](#get) активных [пользовательских сеансов]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql){% endif %} в кластере {{ MS }}, а также принудительно [завершить](#kill) любой из них.
 
 ## Получить список сеансов {#get}
 
@@ -52,9 +52,9 @@
          - `Suspended` — приостановлен;
       3. `request_command` — тип выполняемой в данный момент команды;
       4. `blocking_session_id` — идентификатор сеанса, блокирующего данный запрос;
-      5. `wait_type` — [тип ожидания](https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits) при блокировке;
+      5. `wait_type` — [тип ожидания]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %} при блокировке;
       6. `wait_time` — продолжительность ожидания при блокировке (в миллисекундах);
-      7. `last_wait_type` — [тип последнего ожидания](https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits), если запрос был блокирован ранее;
+      7. `last_wait_type` — [тип последнего ожидания]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %}, если запрос был блокирован ранее;
       8. `wait_resource` — ресурс, освобождения которого ожидает запрос при блокировке;
    3. Сведения о текстах и планах запросов из представлений `sys.dm_exec_sql_text` и `sys.dm_exec_query_plan`:
       1. `object_id` — идентификатор объекта (например, хранимой процедуры или функции) для этого плана запроса;
@@ -81,7 +81,7 @@
    EXECUTE dbo.mdb_sessions_kill <идентификатор сеанса>;
    ```
 
-Чтобы узнать идентификатор нужного сеанса, воспользуйтесь [процедурой](#get) `dbo.mdb_sessions_get`.
+   Чтобы узнать идентификатор нужного сеанса, воспользуйтесь [процедурой](#get) `dbo.mdb_sessions_get`.
 
 {% note info %}
 
