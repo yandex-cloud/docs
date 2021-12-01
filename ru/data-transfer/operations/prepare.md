@@ -148,6 +148,8 @@
 
         {% endnote %}
 
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера <q>{{ dt-repl }}</q> и <q>{{ dt-copy-repl }}</q>). Подробнее см. в разделе [Параметры эндпойнта-источника {{ MY }}](source-endpoint.md#settings-mysql).  
+
 - {{ MY }}
 
     1. Убедитесь, что источник использует подсистему хранения данных низкого уровня MyISAM или InnoDB. При использовании других подсистем трансфер может завершиться с ошибкой.
@@ -182,6 +184,8 @@
         Если создание первичного ключа завершается ошибкой «`Creating index 'PRIMARY' required more than 'innodb_online_alter_log_max_size' bytes of modification log. Please try again`», увеличьте в настройках СУБД значение параметра [inno_db_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size).
 
         {% endnote %}
+
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера <q>{{ dt-repl }}</q> и <q>{{ dt-copy-repl }}</q>). Подробнее см. в разделе [Параметры эндпойнта-источника {{ MY }}](source-endpoint.md#settings-mysql).  
 
 {% endlist %}
 
@@ -222,6 +226,8 @@
                 ```sql
                 ALTER TABLE MY_TBL REPLICA IDENTITY FULL;
                 ```
+
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера <q>{{ dt-repl }}</q> и <q>{{ dt-copy-repl }}</q>). Подробнее см. в разделе [Параметры эндпойнта-источника {{ PG }}](source-endpoint.md#settings-postgresql).
 
 - {{ PG }}
 
@@ -265,6 +271,8 @@
                 ```sql
                 ALTER TABLE MY_TBL REPLICA IDENTITY FULL;
                 ```
+
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера <q>{{ dt-repl }}</q> и <q>{{ dt-copy-repl }}</q>). Подробнее см. в разделе [Параметры эндпойнта-источника {{ PG }}](source-endpoint.md#settings-postgresql).
 
 {% endlist %}
 
@@ -586,3 +594,7 @@
         После старта трансфер подключится к приемнику от имени этого пользователя.
 
 {% endlist %}
+
+### {{ ydb-full-name }} {#prepare-source-ydb}
+
+Чтобы принимать данные в сервисе {{ ydb-name }}, подготовка не требуется.

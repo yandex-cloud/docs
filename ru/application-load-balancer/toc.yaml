@@ -51,7 +51,7 @@ items:
         href: solutions/virtual-hosting.md
       - name: Создание балансировщика с защитой от DDoS
         href: solutions/alb-with-ddos-protection.md
-      - name: «Сине-зеленое развертывание» для переключения между версиями сервиса
+      - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: solutions/l7-bluegreen-deploy.md
       - name: Терминирование TLS-соединений
         href: solutions/tls-termination.md

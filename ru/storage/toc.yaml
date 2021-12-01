@@ -75,6 +75,8 @@ items:
         href: solutions/billing-resource-detailing.md
       - name: Шифрование на стороне сервера
         href: solutions/server-side-encryption.md
+      - name: Сине-зеленое и канареечное развертывание
+        href: solutions/blue-green-canary-deployment.md
   - name: Концепции
     items:
       - name: Обзор

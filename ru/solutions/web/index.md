@@ -8,3 +8,4 @@
 * [{#T}](wordpress.md)
 * [{#T}](wordpress-mysql.md)
 * [{#T}](bitrix-website.md)
+* [{#T}](blue-green-canary-deployment.md)

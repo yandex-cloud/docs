@@ -4,7 +4,6 @@
 
 * [{#T}](resources/create-resource.md)
 * [{#T}](resources/configure-basics.md)
-* [{#T}](resources/disable-resource.md)
 * [{#T}](resources/configure-caching.md)
 * [{#T}](resources/prefetch-files.md)
 * [{#T}](resources/purge-cache.md)
@@ -13,6 +12,8 @@
 * [{#T}](resources/configure-http.md)
 * [{#T}](resources/enable-compression.md)
 * [{#T}](resources/enable-segmentation.md)
+* [{#T}](resources/disable-resource.md)
+* [{#T}](resources/delete-resource.md)
 
 ## Группы источников {#origin-groups}
 

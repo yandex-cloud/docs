@@ -242,6 +242,85 @@
 
 {% endlist %}
 
+## Изменить пароль пользователя admin {#admin-password-change}
+
+{% list tabs %}
+
+- CLI
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы изменить пароль пользователя `admin`, выполните команду:
+
+    ```bash
+    {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
+       --admin-password <новый пароль пользователя admin>
+    ```
+
+    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    {% note tip %}
+
+    * Для повышения безопасности вместо `--admin-password` используйте параметр `--read-admin-password`: новый пароль нужно будет ввести с клавиатуры, и он не сохранится в истории команд.
+    * Чтобы сгенерировать пароль автоматически, используйте параметр `--generate-admin-password`. Ответ на команду будет содержать новый пароль.
+
+    {% endnote %}
+
+- Terraform
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+    1. Измените значение поля `admin_password`:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+          ...
+          admin_password = "<пароль пользователя admin>"
+          ...
+        }
+        ```
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+
+- SQL
+
+    1. [Подключитесь](./connect.md) к кластеру от [имени пользователя `admin`](#sql-user-management).
+    1. Выполните SQL-запрос:
+
+        ```sql
+        ALTER USER admin IDENTIFIED BY '<новый пароль>';
+        ```
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
+    Подробнее см. [в документации {{ CH }}](https://clickhouse.tech/docs/ru/sql-reference/statements/alter/user/).
+
+- API
+
+    Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    * Новый пароль в параметре `configSpec.adminPassword`.
+    * Список полей конфигурации кластера, подлежащих изменению (в данном случае — `configSpec.adminPassword`), в параметре `updateMask`.
+
+    {% include [note-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+
+{% endlist %}
+
 ## Изменить настройки пользователя {#update-settings}
 
 {% list tabs %}

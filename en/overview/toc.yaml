@@ -47,6 +47,10 @@ items:
         href: security/conform.md
       - name: Security tools available to cloud service users
         href: security/user-side.md
+      - name: Building a secure infrastructure
+        items:
+          - name: Network security
+            href: security/domains/network.md
       - name: Security bulletins
         href: security-bulletins/index.md
       - name: Rules for performing external security scans

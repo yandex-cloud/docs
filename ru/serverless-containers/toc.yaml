@@ -25,10 +25,6 @@ items:
             href: operations/update.md
           - name: Удаление контейнера
             href: operations/delete.md
-  - name: Разработка контейнера на языке JavaScript
-    href: lang/nodejs/index.md
-  - name: Разработка контейнера на языке Go
-    href: lang/golang/index.md
   - name: Концепции
     items:
       - name: Обзор
