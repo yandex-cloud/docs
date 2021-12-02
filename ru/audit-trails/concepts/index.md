@@ -6,16 +6,19 @@ description: 'Yandex Audit Trails позволяет собирать аудит
 # Обзор сервиса {{ at-full-name }}
 
 {{ at-full-name }} позволяет собирать аудитные логи ресурсов {{ yandex-cloud }} и загружать их в бакет {{ objstorage-name }} или в лог-группу {{ cloud-logging-name }}:
-* [Загрузка аудитных логов в бакет](../operations/export-bucket.md).
+
+* [Загрузка аудитных логов в бакет](../operations/export-bucket.md)
 * [Загрузка аудитных логов в Cloud Logging](../operations/export-cloud-logging.md). 
 
 Сбор аудитных логов позволяет применять инструменты анализа и оперативного реагирования на события уровня сервисов {{ yandex-cloud }}:
-* [Поиск по аудитным логам в бакете](../solutions/search-bucket.md).
-* [Поиск по аудитным логам в лог-группе](../solutions/search-cloud-logging.md).
-* [Загрузка аудитных логов в SIEM](./export-siem.md).
-* [Настройка алертов в {{ monitoring-full-name }}](../solutions/alerts-monitoring.md).
+
+* [Поиск по аудитным логам в бакете](../solutions/search-bucket.md)
+* [Поиск по аудитным логам в лог-группе](../solutions/search-cloud-logging.md)
+* [Загрузка аудитных логов в SIEM](./export-siem.md)
+* [Настройка алертов в {{ monitoring-full-name }}](../solutions/alerts-monitoring.md)
 
 Сервисы {{ yandex-cloud }}, аудитные логи которых собирает {{ at-name }}:
+
 * {{ at-full-name }}
 * {{ cloud-logging-full-name }}
 * {{ compute-full-name }}
@@ -28,6 +31,7 @@ description: 'Yandex Audit Trails позволяет собирать аудит
 * {{ vpc-full-name }}
 
 Логируются следующие события:
+
 * Входы федеративных пользователей.
 * Создание/удаление сервисных аккаунтов.
 * Создание/удаление ключей сервисных аккаунтов.
