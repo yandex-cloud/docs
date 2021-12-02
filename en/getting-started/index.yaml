@@ -14,10 +14,10 @@ description:
 meta:
   title: Getting started
 links:
-  - title: Начало работы
+  - title: How to start
     description: For individuals
     href: quickstart-individuals
-  - title: Регистрация в Yandex.Cloud
+  - title: Start with Yandex.Cloud
     description: For legal entity
     href: quickstart-legal-entity
   - title: How to use the free trial
