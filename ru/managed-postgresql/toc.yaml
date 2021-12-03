@@ -43,6 +43,8 @@ items:
     items:
       - name: Создание кластера PostgreSQL для 1С
         href: solutions/1c-postgresql
+      - name: Выгрузка базы данных в {{ dataproc-full-name }}
+        href: solutions/sqoop.md
       - name: Анализ производительности и оптимизация
         href: solutions/profiling.md
       - name: Репликация и миграция
