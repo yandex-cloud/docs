@@ -29,39 +29,39 @@
 
 ## Миграция данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
-1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#prepare-source-mg).
-1. [Подготовьте кластер-приемник](../../data-transfer/operations/prepare.md#prepare-target-mg).
-1. [Создайте эндпоинт-источник](../../data-transfer/operations/source-endpoint.md#create-endpoint) со следующими параметрами:
+1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-mg).
+1. [Подготовьте кластер-приемник](../../data-transfer/operations/prepare.md#target-mg).
+1. [Создайте эндпоинт для источника](../../data-transfer/operations/source-endpoint.md#create) со следующими параметрами:
 
     * **Тип базы данных**: `MongoDB`.
     * **Параметры эндпоинта** → **Настройки подключения**: `Пользовательская инсталляция`.
         Укажите параметры подключения к кластеру-источнику.
 
-1. [Создайте эндпоинт-приемник](../../data-transfer/operations/target-endpoint.md#create-endpoint) со следующими параметрами:
+1. [Создайте эндпоинт для приемника](../../data-transfer/operations/target-endpoint.md#create) со следующими параметрами:
 
     * **Тип базы данных**: `MongoDB`.
     * **Параметры эндпоинта** → **Настройки подключения**: `Кластер MDB`.
         Укажите идентификатор кластера-приемника.
 
-1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create-transfer) типа <q>{{ dt-copy-repl }}</q>, использующий созданные эндпоинты.
-1. [Активируйте](../../data-transfer/operations/transfer.md#activate-transfer) его.
+1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
+1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     {% note info %}
 
-    Избегайте любых изменений в схеме данных в кластере-источнике и кластере-приемнике во время работы трансфера. Если схема данных в кластере-источнике изменилась, [перезагрузите](../../data-transfer/operations/transfer.md#reupload-transfer) трансфер.
+    Избегайте любых изменений в схеме данных в кластере-источнике и кластере-приемнике во время работы трансфера. Если схема данных в кластере-источнике изменилась, [перезагрузите](../../data-transfer/operations/transfer.md#reupload) трансфер.
 
     {% endnote %}
 
 1. Дождитесь перехода трансфера в статус `Реплицируется`.
 1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
 1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum lag on delivery**. Это значит, что на кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
-1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate-transfer) трансфер и дождитесь его перехода в статус `Остановлен`.
+1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус `Остановлен`.
 
     Подробнее о жизненном цикле трансфера см. в [соответствующем разделе](../../data-transfer/concepts/transfer-lifecycle.md).
 
-1. [Удалите](../../data-transfer/operations/transfer.md#delete-transfer) остановленный трансфер.
-1. [Удалите эндпоинт-источник](../../data-transfer/operations/source-endpoint.md#delete-endpoint).
-1. [Удалите эндпоинт-приемник](../../data-transfer/operations/target-endpoint.md#delete-endpoint).
+1. [Удалите](../../data-transfer/operations/transfer.md#delete) остановленный трансфер.
+1. [Удалите эндпоинт для источника](../../data-transfer/operations/source-endpoint.md#delete).
+1. [Удалите эндпоинт для приемника](../../data-transfer/operations/target-endpoint.md#delete).
 
 
 ## Миграция при помощи дампа базы {#dump-and-restore}

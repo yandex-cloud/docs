@@ -9,3 +9,4 @@ description: 'Different scenarios for using Yandex Key Management Service in the
 * [{#T}](k8s.md)
 * [{#T}](terraform-key.md)
 * [{#T}](terraform-secret.md)
+* [{#T}](vault-secret.md)

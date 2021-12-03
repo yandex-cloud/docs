@@ -14,30 +14,31 @@
 
   1. Посмотрите описание команды создания каталога:
 
-      ```
-      $ yc resource-manager folder create --help
+      ```bash
+      yc resource-manager folder create --help
       ```
 
-  2. Создайте новый каталог:
+  1. Создайте новый каталог:
 
       * с именем и без описания:
-          ```
-          $ yc resource-manager folder create \
-              --name new-folder
+
+          ```bash
+          yc resource-manager folder create \
+             --name new-folder
           ```
 
           {% include [name-format](name-format.md) %}
 
       * с именем и описанием:
 
-          ```
-          $ yc resource-manager folder create \
-              --name new-folder \
-              --description "my first folder with description"
+          ```bash
+          yc resource-manager folder create \
+             --name new-folder \
+             --description "my first folder with description"
           ```
 
 - API
 
-  Чтобы создать каталог, воспользуйтесь методом [create](../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../resource-manager/api-ref/Folder/index.md) сервиса {{ resmgr-full-name }}.
+  Воспользуйтесь методом [create](../resource-manager/api-ref/Folder/create.md) для ресурса [Folder](../resource-manager/api-ref/Folder/index.md) сервиса {{ resmgr-full-name }}.
 
 {% endlist %}

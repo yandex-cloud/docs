@@ -104,7 +104,7 @@ default:
   marketplace-name: Cloud Marketplace
   data-transfer-name: Data Transfer
   api-gw-name: API Gateway
-  lockbox-name: Lockbox
+  lockbox-name: Yandex Lockbox
   tracker-name: Tracker
   alb-name: Application Load Balancer
   dns-name: Cloud DNS

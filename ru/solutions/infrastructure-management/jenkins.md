@@ -205,7 +205,7 @@ Packer позволяет создавать [образы дисков вирт
    $ git clone git@github.com:<логин на GitHub>/examples.git
    ```
 
-1. Внесите изменения в шаблоны Packer, находящиеся в директории `jenkins-packer/packer/`. Документацию шаблонов Packer можно найти на [сайте](http://packer.io/docs/templates/index.html) разработчика. В параметрах `image_family` и `source_image_family` указываются семейства образов, которые будет собирать Jenkins. Подробнее о семействах см. [Семейства образов](../../compute/concepts/images#family).
+1. Внесите изменения в шаблоны Packer, находящиеся в директории `jenkins-packer/packer/`. Документацию шаблонов Packer можно найти на [сайте](http://packer.io/docs/templates/index.html) разработчика. В параметрах `image_family` и `source_image_family` указываются семейства образов, которые будет собирать Jenkins. Подробнее о семействах см. [Семейства образов](../../compute/concepts/image#family).
 1. Внесите изменения в файл описания Pipeline для Jenkins `Jenkinsfile`, расположенный в корневой директории репозитория. Документацию Pipeline см. на [сайте](https://jenkins.io/doc/book/pipeline/syntax/) разработчика. 
 1. Загрузите изменения на Github:
 

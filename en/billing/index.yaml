@@ -11,24 +11,24 @@ meta:
 links:
   - title: Getting started
     description: Create your first billing account
-    href: quickstart/index
+    href: quickstart/
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
-    href: operations/index
+    href: operations/
   - title: Concepts
     description: Introduction to the terms and concepts used in the service
-    href: concepts/index
+    href: concepts/
   - title: Resource payments
     description: >-
       Find out about payment methods and billing cycles for individuals,
       businesses, and individual entrepreneurs
-    href: payment/index
+    href: payment/
   - title: Access management
     description: Set up access rights to manage your billing account
-    href: security/index
+    href: security/
   - title: Pricing policy
     description: Prices and rates of Yandex.Cloud services
     href: pricing
   - title: API Billing reference
     description: HTTP API method descriptions
-    href: billing/api-ref/
+    href: api-ref/

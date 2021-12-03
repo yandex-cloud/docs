@@ -1,6 +1,6 @@
 # Управление пользовательскими сеансами
 
-Вы можете запросить список активных пользовательских [сеансов](https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) в кластере {{ MS }}, а также принудительно завершить любой из них.
+Вы можете [запросить список](#get) активных [пользовательских сеансов](https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) в кластере {{ MS }}, а также принудительно [завершить](#kill) любой из них.
 
 ## Получить список сеансов {#get}
 
@@ -81,7 +81,7 @@
    EXECUTE dbo.mdb_sessions_kill <идентификатор сеанса>;
    ```
 
-Чтобы узнать идентификатор нужного сеанса, воспользуйтесь [процедурой](#get) `dbo.mdb_sessions_get`.
+   Чтобы узнать идентификатор нужного сеанса, воспользуйтесь [процедурой](#get) `dbo.mdb_sessions_get`.
 
 {% note info %}
 
