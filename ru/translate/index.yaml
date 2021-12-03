@@ -23,7 +23,7 @@ links:
     href: quickstart
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
-    href: operations/index
+    href: operations/
   - title: Концепции
     description: Узнайте про концепции сервиса
     href: concepts/

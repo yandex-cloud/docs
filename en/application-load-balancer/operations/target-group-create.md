@@ -1,4 +1,4 @@
-## Create target group
+# Create target group
 
 To create a target group:
 

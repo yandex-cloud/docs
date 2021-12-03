@@ -19,10 +19,10 @@ links:
     href: quickstart
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
-    href: operations/index
+    href: operations/
   - title: Concepts
     description: Learn about the concepts and resources of the service
-    href: concepts/index
+    href: concepts/
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/

@@ -10,7 +10,7 @@ links:
     href: quickstart
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
-    href: operations/index
+    href: operations/
   - title: Concepts
     description: Learn more about Cloud Logging concepts
     href: concepts/log-group
@@ -22,7 +22,7 @@ links:
     href: pricing
   - title: Access management
     description: Permissions required for using the service
-    href: security/index
+    href: security/
   - title: API reference
     description: HTTP API method description
     href: api-ref/grpc/
