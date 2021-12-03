@@ -30,7 +30,7 @@ items:
         href: operations/shards.md
       - name: Управление резервными копиями
         href: operations/cluster-backups.md
-      - name: Сменить мастер
+      - name: Переключение мастера
         href: operations/failover.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
