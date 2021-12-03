@@ -43,7 +43,7 @@
 
 Если источник данных — {{ CH }}, найдите запросы от {{ datalens-short-name }} в [system.query_log](https://clickhouse.tech/docs/en/operations/system-tables/query_log/).
 
-Если  источник данных — MBD {{ PG }}, посмотрите [анализ производительности](https://cloud.yandex.ru/docs/managed-postgresql/solutions/profiling).
+Если  источник данных — MBD {{ PG }}, посмотрите [анализ производительности](../../../managed-postgresql/solutions/profiling.md).
 
 {% endnote %}
 
