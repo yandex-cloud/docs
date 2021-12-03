@@ -39,9 +39,9 @@ spark:spark.driver.cores : 1
 | `hiveserver2`        | `/etc/hive/conf/hiveserver2-site.xml`   | [HIVE Server2](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)                                   |
 | `tez`                | `/etc/tez/conf/tez-site.xml`            | [Tez 0.9.2](https://tez.apache.org/releases/0.9.2/tez-api-javadocs/configs/TezConfiguration.html) и [Tez 0.10.0](https://tez.apache.org/releases/0.10.0/tez-api-javadocs/configs/TezConfiguration.html) |
 | `zeppelin`           | `/etc/zeppelin/conf/zeppelin-site.xml`  | [Zeppelin](https://zeppelin.apache.org/docs/0.9.0/setup/operation/configuration.html)                                       |
-   
+
  Настройки запуска заданий указываются в особых свойствах:
- 
+
  * `dataproc:version` — версия dataproc-agent, который выполняет задания, отсылает признак состояния кластера и проксирует UI. Используется для отладки. Значение по умолчанию — `latest`.
  * `dataproc:max-concurrent-jobs` — количество одновременно запускаемых заданий. Значение по умолчанию — `auto` (рассчитывается исходя из свойств `min-free-memory-to-enqueue-new-job` и `job-memory-footprint`).
  * `dataproc:min-free-memory-to-enqueue-new-job` — минимальное количество свободной памяти для запуска задания (в байтах). Значение по умолчанию — `1073741824` (1 ГБ).
@@ -51,13 +51,13 @@ spark:spark.driver.cores : 1
 
 Для Apache Spark доступны следующие настройки:
 
-| Настройка                         | Значение по умолчанию                                   | Описание                                                                           |
+| Настройка                         | Значение по умолчанию                                   | Описание                                                                           |
 |:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| `fs.s3a.access.key`               | —                                                       | Идентификатор [статического ключа](../../iam/concepts/authorization/access-key.md) |
-| `fs.s3a.secret.key`               | —                                                       | Секретный ключ                                                                     |
-| `fs.s3a.endpoint`                 | `storage.yandexcloud.net`                               | Эндпоинт для подключения к {{ objstorage-name }}                                   |
-| `fs.s3a.signing-algorithm`        | Пустое значение                                         | Алгоритм подписи                                                                   |
-| `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Поставщик учетных данных                                                           |
+| `fs.s3a.access.key`               | —                                                       | Идентификатор [статического ключа](../../iam/concepts/authorization/access-key.md) |
+| `fs.s3a.secret.key`               | —                                                       | Секретный ключ                                                                     |
+| `fs.s3a.endpoint`                 | `storage.yandexcloud.net`                               | Эндпоинт для подключения к {{ objstorage-name }}                                   |
+| `fs.s3a.signing-algorithm`        | Пустое значение                                         | Алгоритм подписи                                                                   |
+| `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Поставщик учетных данных                                                           |
 
 Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
 

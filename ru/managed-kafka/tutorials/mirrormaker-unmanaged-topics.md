@@ -1,5 +1,11 @@
 # Миграция с помощью MirrorMaker 2.0
 
+{% note info %}
+
+В этом руководстве описана миграция с помощью самостоятельной инсталляции утилиты Mirrormaker 2.0. О работе со встроенным в {{ mkf-name }} MirrorMaker-коннектором читайте в разделе [{#T}](../operations/cluster-connector.md).
+
+{% endnote %}
+
 MirrorMaker 2.0 — утилита для репликации [топиков](../concepts/topics.md) между кластерами {{ KF }}. Подробнее см. [в документации {{ KF }}](https://kafka.apache.org/documentation/#georeplication).
 
 Утилиту можно использовать для непрерывной миграции данных в кластер {{ mkf-name }} с включенным [управлением топиками через Admin API {{ KF }}](../concepts/topics.md#management).

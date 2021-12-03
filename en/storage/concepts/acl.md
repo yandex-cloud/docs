@@ -1,5 +1,5 @@
 ---
-title: ACL - Access control lists
+title: Access control lists (ACL)
 description: Users with the appropriate access rights can edit and upload ACLs for {{ objstorage-name }} buckets and objects. An {{ objstorage-name }} ACL is a list of permissions for each object and bucket and is stored directly in {{ objstorage-name }}.
 keywords:
   - ACL

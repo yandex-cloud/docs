@@ -41,7 +41,7 @@ November 17, 2020
 
 November 12, 2020
 
-- [Presentation](https://jing.yandex-team.ru/files/paveldubinin/2020%20Матемаркетинг%20v13%20Final.pptx)
+- [Presentation](https://disk.yandex.com/i/BHn6F70EQGj6mQ)
 - Description:
    1. A brief look at Yandex Music podcasts.
    1. Partner analytics.
@@ -51,7 +51,7 @@ November 12, 2020
 
 October 24, 2020
 
-- [Presentation](https://jing.yandex-team.ru/files/paveldubinin/746-roman-ko-3%20%282%29.pptx)
+- [Presentation](https://disk.yandex.com/i/OOX4x7lezZJHJg)
 - [Webinar recording](https://www.youtube.com/watch?v=AEJuXBrgOtg)
 - Description:
    1. User categories from coronavirus analytics.
@@ -108,7 +108,7 @@ April 16, 2020
 
 March 07, 2020
 
-- [Presentation](https://disk.yandex.ru/public/nda/?hash=frdVjTf/zS2Ylxzwd3FYZmwbCv9L/4O6zTYmS1LOgcSqulH1kQC2V/fxaVt8cfb0q/J6bpmRyOJonT3VoXnDag%3D%3D)
+- [Presentation](https://disk.yandex.com/i/3F-yXa9XaCMCpg)
 - [Webinar recording](https://www.youtube.com/watch?v=C_QoBlkwHVI)
 - Description:
    1. Benefits of {{ datalens-short-name }}.
@@ -118,7 +118,7 @@ March 07, 2020
 
 February 20, 2020
 
-- [Presentation](https://disk.yandex.ru/public/nda/?hash=NV0gb/JS5w6xfP0Tr9jd7zt6lSfJq%2BD7hbuz2t3DFElmxFgkGPDg6IVQQ/3W2jFiq/J6bpmRyOJonT3VoXnDag%3D%3D)
+- [Presentation](https://disk.yandex.com/i/56HrdPfe7EEt_w)
 - [Webinar recording](https://youtu.be/yQXu5Lx0-b0?t=4278)
 - Description:
    1. Differences between {{ datalens-short-name }} and other BI systems.

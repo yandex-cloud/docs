@@ -11,19 +11,19 @@
 
 1. [Подготовьте базу данных кластера-источника](../../data-transfer/operations/prepare.md#prepare-source-my).
 1. [Подготовьте базу данных кластера-приемника](../../data-transfer/operations/prepare.md#prepare-target-my).
-1. [Создайте эндпоинт-источник](../../data-transfer/operations/source-endpoint.md#create-endpoint):
+1. [Создайте эндпоинт для источника](../../data-transfer/operations/source-endpoint.md#create-endpoint):
 
     * **Тип базы данных**: `{{ MY }}`.
     * **Настройки подключения**: `Кластер MDB`.
         Укажите идентификатор кластера-источника.
 
-1. [Создайте эндпоинт-приемник](../../data-transfer/operations/target-endpoint.md#create-endpoint):
+1. [Создайте эндпоинт для приемника](../../data-transfer/operations/target-endpoint.md#create-endpoint):
 
     * **Тип базы данных**: `{{ MY }}`.
     * **Настройки подключения**: `Пользовательская инсталляция`.
         Укажите параметры подключения к кластеру-приемнику.
 
-1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create-transfer) типа <q>{{ dt-copy-repl }}</q>, использующий созданные эндпоинты.
+1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create-transfer) типа _{{ dt-type-copy-repl }}_, использующий созданные эндпоинты.
 1. [Активируйте](../../data-transfer/operations/transfer.md#activate-transfer) его.
 
     {% note warning %}
@@ -40,5 +40,5 @@
     Подробнее о жизненном цикле трансфера читайте в [документации {{ data-transfer-full-name }}](../../data-transfer/concepts/transfer-lifecycle.md).
 
 1. [Удалите](../../data-transfer/operations/transfer.md#delete-transfer) остановленный трансфер.
-1. [Удалите эндпоинт-источник](../../data-transfer/operations/source-endpoint.md#delete-endpoint).
-1. [Удалите эндпоинт-приемник](../../data-transfer/operations/target-endpoint.md#delete-endpoint).
+1. [Удалите эндпоинт для источника](../../data-transfer/operations/source-endpoint.md#delete-endpoint).
+1. [Удалите эндпоинт для приемника](../../data-transfer/operations/target-endpoint.md#delete-endpoint).

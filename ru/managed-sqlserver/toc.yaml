@@ -33,14 +33,16 @@ items:
         href: operations/cluster-delete.md
       - name: Диагностика производительности
         href: operations/performance-diagnostics.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
+      - name: Обслуживание баз данных
+        href: operations/maintenance.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
         href: tutorials/index.md
       - name: Миграция базы данных в Managed Service for Microsoft SQL Server
         href: tutorials/data-migration.md
+      - name: Мониторинг состояния кластера и хостов
+        href: operations/monitoring.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

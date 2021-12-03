@@ -12,10 +12,10 @@ links:
     href: quickstart
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
-    href: operations/index
+    href: operations/
   - title: Концепции
     description: Читайте подробнее про концепции Serverless Containers
-    href: concepts/index
+    href: concepts/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

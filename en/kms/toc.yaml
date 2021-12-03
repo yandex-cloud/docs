@@ -51,6 +51,8 @@ items:
         href: solutions/terraform-key.md
       - name: Encrypting secrets in Hashicorp Terraform
         href: solutions/terraform-secret.md
+      - name: Auto Unseal in Hashicorp Vault
+        href: solutions/vault-secret.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

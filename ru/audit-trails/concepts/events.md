@@ -7,7 +7,9 @@
 ```text
 yandex.cloud.audit.<имя сервиса>.<имя события>
 ```
+
 Ниже описаны события для сервисов:
+
 * [{{ at-name }}](#audit-trails)
 * [{{ cloud-logging-name }}](#cloud-logging-name)
 * [{{ compute-name }}](#compute)

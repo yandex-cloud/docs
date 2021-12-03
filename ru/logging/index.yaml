@@ -11,7 +11,7 @@ links:
     href: quickstart
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
-    href: operations/index
+    href: operations/
   - title: Концепции
     description: Читайте подробнее про концепции Cloud Logging
     href: concepts/log-group
@@ -23,7 +23,7 @@ links:
     href: pricing
   - title: Управление доступом
     description: Какие права доступа нужны для работы с сервисом
-    href: security/index
+    href: security/
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/grpc/

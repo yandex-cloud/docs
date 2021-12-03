@@ -16,6 +16,7 @@ Below are events for services:
 * [{{ iam-name }}](#iam)
 * [{{ kms-name }}](#kms)
 * [{{ lockbox-name }}](#lockbox)
+* [{{ network-load-balancer-name }}](#network-load-balancer)
 * [{{ objstorage-name }}](#objstorage)
 * [{{ resmgr-name }}](#resmgr)
 * [{{ vpc-name }}](#vpc)
@@ -23,19 +24,19 @@ Below are events for services:
 
 ## {{ at-name }} {#audit-trails}
 
-Service name: `audittrails`.
+Service Name: `audittrails`.
 
 | Event name | Description |
 | --- | --- |
 | `CreateTrail` | Creating a trail |
 | `DeleteTrail` | Deleting a trail |
 | `SetTrailAccessBindings` | Setting access bindings for a trail |
-| `UpdateTrail` | Editing a trail |
+| `UpdateTrail` | Editing the trail |
 | `UpdateTrailAccessBindings` | Updating access bindings for a trail |
 
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
-Service name: `logging`.
+Service Name: `logging`.
 
 | Event name | Description |
 | --- | --- |
@@ -51,34 +52,39 @@ Service name: `compute`.
 
 | Event name | Description |
 | --- | --- |
-| `AddInstanceOneToOneNat` | Adding a public IP address for a VM instance |
-| `AttachInstanceDisk` | Attaching a disk to a VM instance |
+| `AddInstanceOneToOneNat` | Adding a public IP address to a VM |
+| `AttachInstanceDisk` | Connecting a disk to a VM |
+| `AttachInstanceFilesystem` | Connecting a file system to a VM |
 | `CreateDisk` | Creating a disk |
+| `CreateFilesystem` | Creating a file system |
 | `CreateImage` | Creating a disk image |
-| `CreateInstance` | Creating a VM instance |
+| `CreateInstance` | Creating a VM |
 | `CreateSnapshot` | Creating a disk snapshot |
 | `DeleteDisk` | Deleting a disk |
+| `DeleteFilesystem` | Deleting a file system |
 | `DeleteImage` | Deleting a disk image |
 | `DeleteInstance` | Delete VM |
 | `DeleteSnapshot` | Deleting a disk snapshot |
-| `DetachInstanceDisk` | Detaching a disk from a VM instance |
+| `DetachInstanceDisk` | Detaching a disk from a VM |
+| `DetachInstanceFilesystem` | Detaching a file system from a VM |
 | `RemoveInstanceOneToOneNat` | Removing a VM's public IP address |
-| `RestartInstance` | Restarting a VM instance |
-| `StartInstance` | Starting a VM instance |
-| `StopInstance` | Stopping a VM instance |
-| `UpdateDisk` | Updating a disk |
-| `UpdateImage` | Updating a disk image |
-| `UpdateInstance` | Updating a VM instance |
-| `UpdateInstanceMetadata` | Updating VM instance metadata |
-| `UpdateInstanceNetworkInterface` | Updating VM network settings |
-| `UpdateSnapshot` | Updating a disk snapshot |
+| `RestartInstance` | Restarting a VM |
+| `StartInstance` | Starting a VM |
+| `StopInstance` | Stopping a VM |
+| `UpdateDisk` | Changing a disk |
+| `UpdateFilesystem` | Modifying a file system |
+| `UpdateImage` | Changing a disk image |
+| `UpdateInstance` | Changing a VM |
+| `UpdateInstanceMetadata` | Changing VM metadata |
+| `UpdateInstanceNetworkInterface` | Changing a VM's network settings |
+| `UpdateSnapshot` | Changing a disk snapshot |
 | `instancegroup.CreateInstanceGroup` | Creating an instance group |
 | `instancegroup.DeleteInstanceGroup` | Deleting an instance group. |
 | `instancegroup.PauseInstanceGroup` | Pausing instance group management processes |
-| `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes |
+| `instancegroup.ResumeInstanceGroup` | Resuming instance group's management processes |
 | `instancegroup.StartInstanceGroup` | Starting an instance group |
 | `instancegroup.StopInstanceGroup` | Stopping an instance group |
-| `instancegroup.UpdateInstanceGroup` | Updating an instance group |
+| `instancegroup.UpdateInstanceGroup` | Changing an instance group |
 | `instancegroup.UpdateInstanceGroupAccessBindings` | Assigning a role to an instance group |
 
 ## {{ iam-name }} {#iam}
@@ -116,7 +122,7 @@ Service name: `kms`.
 | Event name | Description |
 | --- | --- |
 | `CancelDeleteSymmetricKey` | Canceling a previously scheduled key destruction |
-| `CancelSymmetricKeyVersionDestruction` | Canceling a previously planned destruction of a symmetric key version |
+| `CancelSymmetricKeyVersionDestruction` | Canceling a previously planned destruction of the symmetric key version |
 | `CreateSymmetricKey` | Creating a symmetric key |
 | `DeleteSymmetricKey` | Deleting a symmetric key |
 | `RotateSymmetricKey` | Rotating a symmetric key |
@@ -133,15 +139,36 @@ Service Name: `lockbox`.
 | Event name | Description |
 | --- | --- |
 | `AddVersion` | Adding a version of a secret |
-| `ActivateSecret` | Activating a secret |
+| `ActivateSecret` | Activating the secret |
 | `CancelVersionDestruction` | Canceling a previously scheduled destruction of a secret version |
 | `CreateSecret` | Creating a secret |
-| `DeactivateSecret` | Deactivating a secret |
+| `DeactivateSecret` | Deactivate secret |
 | `DeleteSecret` | Destroying a secret |
-| `ScheduleVersionDestruction` | Scheduling the destruction of a secret version |
+| `ScheduleVersionDestruction` | Scheduling destruction of the secret version |
 | `SetSecretAccessBindings` | Selecting access bindings for a secret |
-| `UpdateSecret` | Updating a secret |
+| `UpdateSecret` | Editing a secret |
 | `UpdateSecretAccessBindings` | Updating access bindings for a secret |
+
+## {{ network-load-balancer-name }} {#network-load-balancer}
+
+Service name: `loadbalancer`.
+
+| Event name | Description |
+| --- | --- |
+| `AddNetworkLoadBalancerListener` | Adding listener to network load balancer |
+| `AddTargetGroupTargets` | Adding a VM to a target group |
+| `AttachNetworkLoadBalancerTargetGroup` | Connecting a target group to a network load balancer |
+| `CreateNetworkLoadBalancer` | Creating a network load balancer |
+| `CreateTargetGroup` | Creating a target group |
+| `DeleteNetworkLoadBalancer` | Deleting a network load balancer |
+| `DeleteTargetGroup` | Deleting a target group |
+| `DetachNetworkLoadBalancerTargetGroup` | Detaching a target group from a network load balancer |
+| `RemoveNetworkLoadBalancerListener` | Removing a listener from a network load balancer |
+| `RemoveTargetGroupTargets` | Removing a VM from a target group |
+| `StartNetworkLoadBalancer` | Starting a network load balancer |
+| `StopNetworkLoadBalancer` | Stopping a network load balancer |
+| `UpdateNetworkLoadBalancer` | Updating a network load balancer |
+| `UpdateTargetGroup` | Editing a target group |
 
 ## {{ objstorage-name }} {#objstorage}
 
@@ -149,17 +176,17 @@ Service name: `storage`.
 
 | Event name | Description |
 | --- | --- |
-| `BucketAclUpdate` | Updating the ACL for a bucket |
-| `BucketCorsUpdate` | Updating the CORS configuration for a bucket |
+| `BucketAclUpdate` | Changing a bucket's ACL |
+| `BucketCorsUpdate` | Changing the configuration of a CORS bucket |
 | `BucketCreate` | Creating a bucket |
 | `BucketDelete` | Deleting a bucket |
-| `BucketHttpsUpdate` | Updating the HTTPS configuration for a bucket |
+| `BucketHttpsUpdate` | Changing an HTTPS configuration for a bucket |
 | `BucketLifecycleUpdate` | Changing the lifecycle of an object in a bucket |
-| `BucketPolicyUpdate` | Updating the access policies for a bucket |
+| `BucketPolicyUpdate` | Changing bucket access policies |
 | `BucketUpdate` | Updating a bucket |
-| `BucketWebsiteUpdate` | Updating a website configuration |
+| `BucketWebsiteUpdate` | Changing a website configuration |
 | `ObjectCreate` | Creating an object in a bucket |
-| `ObjectDelete` | Deleting an object from a bucket |
+| `ObjectDelete` | Deleting an object in a bucket |
 | `ObjectUpdate` | Updating an object in a bucket |
 
 ## {{ resmgr-name }} {#resmgr}
@@ -193,20 +220,20 @@ Service name: `network`.
 | `DeleteRouteTable` | Deleting a routing table |
 | `DeleteSecurityGroup` | Deleting a security group |
 | `DeleteSubnet` | Deleting a cloud subnet |
-| `MoveAddress` | Moving the address of cloud resources to another folder |
-| `MoveNetwork` | Moving a cloud network to another folder |
-| `MoveRouteTable` | Moving a routing table to another folder |
-| `MoveSecurityGroup` | Moving a security group to another folder |
-| `MoveSubnet` | Moving a cloud subnet to another folder |
-| `UpdateAddress` | Updating the address of a cloud resource |
-| `UpdateNetwork` | Updating a cloud network |
-| `UpdateRouteTable` | Updating a routing table |
-| `UpdateSecurityGroup` | Updating a security group |
-| `UpdateSubnet` | Updating a cloud subnet |
+| `MoveAddress` | Moving an address of cloud resources to another folder |
+| `MoveNetwork` | Moving a cloud network to a different folder |
+| `MoveRouteTable` | Moving a routing table to a different folder |
+| `MoveSecurityGroup` | Moving a security group to a different folder |
+| `MoveSubnet` | Moving a cloud subnet to a different folder |
+| `UpdateAddress` | Changing a cloud resource address |
+| `UpdateNetwork` | Changing a cloud network |
+| `UpdateRouteTable` | Changing a routing table |
+| `UpdateSecurityGroup` | Changing a security group |
+| `UpdateSubnet` | Changing a cloud subnet |
 
 ## {{ ydb-short-name }} {#YDB}
 
-Service name: `ydb`.
+Service Name: `ydb`.
 
 | Event name | Description |
 | --- | --- |
@@ -217,5 +244,4 @@ Service name: `ydb`.
 | `RestoreBackup` | Restoring a database from a backup |
 | `StartDatabase` | Starting a database |
 | `StopDatabase` | Stopping a database |
-| `UpdateDatabase` | Updating a database |
-
+| `UpdateDatabase` | Edit database |

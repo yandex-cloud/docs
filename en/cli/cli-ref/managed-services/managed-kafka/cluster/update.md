@@ -20,6 +20,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the Kafka cluster as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Kafka cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
+|`--version`|<b>`string`</b><br/> Version of the Kafka server software.|
 |`--zone-ids`|<b>`value[,value]`</b><br/> List of availability zones.|
 |`--brokers-count`|<b>`int`</b><br/> Count of brokers in each availability zone.|
 |`--resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a Kafka host (CPU, RAM etc.).|

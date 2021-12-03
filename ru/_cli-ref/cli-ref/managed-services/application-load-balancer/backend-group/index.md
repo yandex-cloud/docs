@@ -22,6 +22,9 @@ Aliases:
 - [yc application-load-balancer backend-group add-http-backend](add-http-backend.md) — Add HTTP backend to the backend group
 - [yc application-load-balancer backend-group update-http-backend](update-http-backend.md) — Update HTTP backend to the backend group
 - [yc application-load-balancer backend-group delete-http-backend](delete-http-backend.md) — Delete HTTP backend from the backend group
+- [yc application-load-balancer backend-group add-stream-backend](add-stream-backend.md) — Add Stream backend to the backend group
+- [yc application-load-balancer backend-group update-stream-backend](update-stream-backend.md) — Update Stream backend to the backend group
+- [yc application-load-balancer backend-group delete-stream-backend](delete-stream-backend.md) — Delete Stream backend from the backend group
 
 #### Flags
 

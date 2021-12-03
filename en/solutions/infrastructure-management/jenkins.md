@@ -224,7 +224,7 @@ The image is built in Jenkins automatically after you `push` to the `master` bra
    $ git clone git@github.com:<GitHub login>/examples.git
    ```
 
-1. Make changes to the Packer templates hosted in the `jenkins-packer/packer/` folder. You can find the Packer template documentation on the developer's [website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the families of images to be built by Jenkins. For more information about families, see [Image families](../../compute/concepts/images#family).
+1. Make changes to the Packer templates hosted in the `jenkins-packer/packer/` folder. You can find the Packer template documentation on the developer's [website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the families of images to be built by Jenkins. For more information about families, see [Image families](../../compute/concepts/image#family).
 
 1. Make changes to the `Jenkinsfile` Pipeline description file for Jenkins located in the root of the repository. For the Pipeline documentation, see the developer's [website](https://jenkins.io/doc/book/pipeline/syntax/).
 

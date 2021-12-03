@@ -33,7 +33,7 @@
 
 ## Статистика для подкастеров в Яндекс.Музыке: как мы делали дашборд для тысяч авторов {#matemarketing-2020}
 2020-11-12
-- [Презентация](https://jing.yandex-team.ru/files/paveldubinin/2020%20Матемаркетинг%20v13%20Final.pptx)
+- [Презентация](https://disk.yandex.ru/i/BHn6F70EQGj6mQ)
 - Описание:
    1. Краткий рассказ о подкастах в Яндекс.Музыке.
    1. Партнерская аналитика.
@@ -41,7 +41,7 @@
 
 ## {{ datalens-short-name }}: аналитика за пределами собственных данных {#scale-2020}
 2020-10-24
-- [Презентация](https://jing.yandex-team.ru/files/paveldubinin/746-roman-ko-3%20%282%29.pptx)
+- [Презентация](https://disk.yandex.ru/i/OOX4x7lezZJHJg)
 - [Запись трансляции](https://www.youtube.com/watch?v=AEJuXBrgOtg)
 - Описание: 
    1. Категории пользователей на примере аналитики коронавируса.
@@ -88,7 +88,7 @@
 
 ## Анализ и визуализация открытых данных с {{ datalens-full-name }} {#opendata-day-2020}
 2020-03-07
-- [Презентация](https://disk.yandex.ru/public/nda/?hash=frdVjTf/zS2Ylxzwd3FYZmwbCv9L/4O6zTYmS1LOgcSqulH1kQC2V/fxaVt8cfb0q/J6bpmRyOJonT3VoXnDag%3D%3D)
+- [Презентация](https://disk.yandex.ru/i/3F-yXa9XaCMCpg)
 - [Запись транляции](https://www.youtube.com/watch?v=C_QoBlkwHVI)
 - Описание:
    1. Достоинства {{ datalens-short-name }}.
@@ -96,7 +96,7 @@
 
 ## {{ datalens-full-name }}: Зачем использовать и как? {#about-cloud-2020}
 2020-02-20
-- [Презентация](https://disk.yandex.ru/public/nda/?hash=NV0gb/JS5w6xfP0Tr9jd7zt6lSfJq%2BD7hbuz2t3DFElmxFgkGPDg6IVQQ/3W2jFiq/J6bpmRyOJonT3VoXnDag%3D%3D)
+- [Презентация](https://disk.yandex.ru/i/56HrdPfe7EEt_w)
 - [Запись трансляции](https://youtu.be/yQXu5Lx0-b0?t=4278)
 - Описание:
    1. Отличия {{ datalens-short-name }} от других BI.

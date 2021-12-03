@@ -11,21 +11,21 @@ meta:
 links:
   - title: Начало работы
     description: Создайте первый платежный аккаунт
-    href: quickstart/index
+    href: quickstart/
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
-    href: operations/index
+    href: operations/
   - title: Концепции
     description: Узнайте термины и понятия, используемые в сервисе
-    href: concepts/index
+    href: concepts/
   - title: Оплата ресурсов
     description: >-
       Узнайте про способы оплаты, циклы оплаты для физических лиц, организаций и
       ИП
-    href: payment/index
+    href: payment/
   - title: Управление доступом
     description: Настройте права доступа для управления платежным аккаунтом
-    href: security/index
+    href: security/
   - title: Правила тарификации
     description: Цены и тарифы на использование сервисов Yandex.Cloud
     href: pricing

@@ -30,6 +30,7 @@ Aliases:
 	- [yc resource-manager folder update](folder/update.md) — Update the specified folder
 	- [yc resource-manager folder add-labels](folder/add-labels.md) — Add labels to specified folder
 	- [yc resource-manager folder remove-labels](folder/remove-labels.md) — Remove labels from specified folder
+	- [yc resource-manager folder delete](folder/delete.md) — Delete the specified folder
 	- [yc resource-manager folder list-access-bindings](folder/list-access-bindings.md) — List access bindings for the specified folder
 	- [yc resource-manager folder set-access-bindings](folder/set-access-bindings.md) — Set access bindings for the specified folder and delete all existing access bindings if there were any
 	- [yc resource-manager folder add-access-binding](folder/add-access-binding.md) — Add access binding for the specified folder

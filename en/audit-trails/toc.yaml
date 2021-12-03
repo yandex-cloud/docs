@@ -19,6 +19,8 @@ items:
         href: concepts/export-siem.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Metrics
+        href: concepts/user-metrics.md
   - name: Step-by-step instructions
     items:
       - name: Uploading audit logs to a log group
@@ -31,6 +33,8 @@ items:
         href: solutions/search-bucket.md
       - name: Searching a log group
         href: solutions/search-cloud-logging.md
+      - name: Setting up alerts in {{ monitoring-name }}
+        href: solutions/alerts-monitoring.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
