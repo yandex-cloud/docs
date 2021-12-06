@@ -3,7 +3,9 @@ The total amount charged depends on whether you have used your [grant](../concep
 The amount charged is calculated using the formula:
 ![image](../../_assets/billing/formula.png)
 
-  {% list tabs %}
+{% if region == "ru" %}
+
+{% list tabs %}
 
 - Example 1
   
@@ -34,5 +36,7 @@ The amount charged is calculated using the formula:
   <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 (rubles).
   <br/>At the beginning of the next reporting period, 1,300 rubles will be debited from the linked bank card.
   
-  {% endlist %}
+{% endlist %}
+
+{% endif %}
 
