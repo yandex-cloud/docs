@@ -17,15 +17,15 @@ To create a new [security group](../concepts/security-groups.md):
   1. Under **Rules**, create traffic management rules:
      1. Select the **Outgoing traffic** or **Incoming traffic** tab.
      1. Click **Add rule**.
-     1. In the **Port** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+     1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
      1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
-     1. In the **Purpose** field, select the purpose of the rule:
+     1. In the **Purpose** or **Source** field, select the purpose of the rule:
         1. **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
         1. **Security group**: The rule will apply to the VMs from the current group or the selected security group.
   1. Click **Save**. If necessary, add other rules.
   1. Click **Save**.
 
-- СLI
+- CLI
 
   When creating a security group, you can use the following parameters:
   * `--name`: Security group name.
@@ -45,7 +45,7 @@ To create a new [security group](../concepts/security-groups.md):
 
 - Terraform
 
-  If you don't have Terraform, [install it and configure the Yandex.Cloud provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a security group with multiple rules:
 
