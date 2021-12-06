@@ -22,8 +22,11 @@ default:
   link-passport: https://passport.yandex.ru/
   link-500-users: https://cloud.yandex.ru/services/tracker#contact-form
   link-tracker-support: https://support.cloud.yandex.ru/?referral=tracker
+  link-billing: https://billing.cloud.yandex.ru/
   link-tracker-example-1: https://tracker.yandex.ru/TEST-1234
   link-tracker-example-2: https://tracker.yandex.ru/ключОчереди
+  link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/
+  link-balance-invoices: https://balance.yandex.ru/invoices.xml
   link-org-add-federation: https://cloud.yandex.ru/docs/organization/add-federation
   support-connect-account: https://yandex.ru/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.ru/support/connect/add-domain.html
