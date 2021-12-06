@@ -66,6 +66,8 @@ items:
         href: tutorials/fetch-data-from-mkf.md
       - name: Получение данных из RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
+      - name: Обмен данными с Data Proc
+        href: tutorials/exchange-data-with-dp.md
       - name: >-
           Настройка {{ dns-full-name }} для доступа к кластеру из других облачных сетей
         href: tutorials/dns-peering.md
