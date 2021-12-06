@@ -380,9 +380,13 @@ items:
 - name: Правила тарификации
   when: audience == "external"
   href: pricing.md
-#  items:
-#    - name: Оплата
-#      href: payment.md
+  items:
+    - name: Настроить платежный аккаунт
+      href: billing-account.md
+    - name: Пополнить счет
+      href: pay-the-bill.md
+    - name: Посмотреть детализацию услуг
+      href: check-charges.md
 - name: Справочник API
   items: null
   include:
