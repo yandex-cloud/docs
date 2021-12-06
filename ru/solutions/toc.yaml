@@ -101,6 +101,8 @@ items:
         href: dataplatform/index.md
       - name: Синхронизация данных из MySQL с помощью Yandex DataTransfer
         href: dataplatform/sync-mysql.md
+      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+        href: dataplatform/dp-mch-data-exchange.md
       - name: >-
           Использование Confluent Schema Registry с Yandex Managed Service for
           Apache Kafka®

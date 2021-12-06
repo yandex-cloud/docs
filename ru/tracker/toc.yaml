@@ -337,6 +337,13 @@ items:
         href: manager/add-repository.md
   - name: Правила тарификации
     href: pricing.md
+    items:
+      - name: Настроить платежный аккаунт
+        href: billing-account.md
+      - name: Пополнить счет
+        href: pay-the-bill.md
+      - name: Посмотреть детализацию услуг
+        href: check-charges.md
   - name: Справочник API
     items:
       - name: Обзор

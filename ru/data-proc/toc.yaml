@@ -26,6 +26,8 @@ items:
         href: solutions/configure-network.md
       - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
         href: solutions/copy-files-from-object-storage.md
+      - name: Обмен данными с {{ mch-name }}
+        href: solutions/exchange-data-with-mch.md
       - name: Импорт базы данных с использованием Sqoop
         href: solutions/sqoop.md
   - name: Пошаговые инструкции
