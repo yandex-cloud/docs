@@ -15,7 +15,7 @@ items:
         href: operations/api-gw-domains.md
       - name: Удаление API-шлюза
         href: operations/api-gw-delete.md
-      - name: Просмотр графика мониторинга
+      - name: Мониторинг
         href: operations/api-gw-monitoring.md
       - name: Просмотр журнала выполнения
         href: operations/api-gw-logs.md
