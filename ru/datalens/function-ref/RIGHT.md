@@ -23,7 +23,7 @@ RIGHT( string, number )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 RIGHT("Computer", 3) = "ter"

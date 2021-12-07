@@ -14,7 +14,7 @@ After creating a cloud network, you can change its name and description, and add
   1. Click ![image](../../_assets/options.svg) in the row of the group you want to update.
   1. In the menu that opens, click **Edit**.
 
-- СLI
+- CLI
 
   To update the security group, run the command:
 
@@ -24,7 +24,7 @@ After creating a cloud network, you can change its name and description, and add
 
 {% endlist %}
 
-## Add a new rule {#add-rule}
+## Adding a new rule {#add-rule}
 
 {% list tabs %}
 
@@ -35,14 +35,14 @@ After creating a cloud network, you can change its name and description, and add
   1. Under **Rules**, create traffic management rules:
      1. Select the **Outgoing traffic** or **Incoming traffic** tab.
      1. Click **Add rule**.
-     1. In the **Port** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+     1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
      1. In the **Protocol** field, specify the desired protocol or leave **Any** to allow traffic transmission over any protocol.
-     1. In the **Purpose** field, select the purpose of the rule:
+     1. In the **Purpose** or **Source** field, select the purpose of the rule:
         1. **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
         1. **Security group**: The rule will apply to the VMs from the current group or the selected security group.
   1. Click **Save**.
 
-- СLI
+- CLI
 
   To add a new rule to an existing group, specify its ID or name in the command and describe the new rule:
 
@@ -52,7 +52,7 @@ After creating a cloud network, you can change its name and description, and add
 
 {% endlist %}
 
-## Delete a rule {#remove-rule}
+## Deleting a rule {#remove-rule}
 
 {% list tabs %}
 
@@ -64,7 +64,7 @@ After creating a cloud network, you can change its name and description, and add
   1. In the menu that opens, click **Delete**.
   1. In the window that opens, click **Delete**.
 
-- СLI
+- CLI
 
   To delete a rule from a group, specify its ID in the command:
 

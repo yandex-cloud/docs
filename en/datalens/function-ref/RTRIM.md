@@ -22,7 +22,7 @@ Returns the string `string` without spaces at the end of the string.
 
 **Return type**: `String`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 RTRIM("Computer ") = "Computer"

@@ -22,7 +22,7 @@ Returns the number of the hour in the day of the specified date and time `dateti
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 HOUR(#2019-01-23 15:07:47#) = 15

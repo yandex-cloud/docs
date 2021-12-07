@@ -23,7 +23,7 @@ See the full [list of toponyms]({{ geopoints-list-link }}).
 
 **Return type**: `Geopoint`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 TOPONYM_TO_GEOPOINT("Комсомольск-на-Амуре") = [50.549923,137.007948]

@@ -22,7 +22,7 @@ Returns the statistical variance of all values in an expression across the entir
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 VARP([Profit])

@@ -22,7 +22,7 @@ Returns the number of items in the group meeting the `condition` condition.
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 COUNT_IF([Profit] > 5)

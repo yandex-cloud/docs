@@ -22,7 +22,7 @@ Returns the arcsine of `number` in radians.
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 ASIN(1) = 1.57080

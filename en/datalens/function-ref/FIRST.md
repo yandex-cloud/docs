@@ -29,7 +29,7 @@ Returns the value of `value` from the first row in the window. See also [LAST](L
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 FIRST(SUM([Sales]) WITHIN [Month] ORDER BY [Date])

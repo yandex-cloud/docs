@@ -39,7 +39,7 @@ GEOINFO( address, scale )
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 GEOINFO("посёлок Свободный Серп", "country") = "Россия"

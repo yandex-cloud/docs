@@ -21,7 +21,7 @@ Returns the current date and time, depending on the data source and connection t
 
 **Return type**: `Datetime`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 NOW() = #2019-01-23 12:53:07#

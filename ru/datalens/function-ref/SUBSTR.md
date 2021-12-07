@@ -26,7 +26,7 @@ SUBSTR( string, from_index [ , length ] )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 SUBSTR("Computer", 3) = "mputer"

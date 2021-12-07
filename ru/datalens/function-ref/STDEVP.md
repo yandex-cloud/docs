@@ -22,7 +22,7 @@ STDEVP( value )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 STDEVP([Profit])

@@ -22,7 +22,7 @@ Returns the number of the month in the year of the specified date `datetime`.
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 MONTH(#2019-01-23#) = 1

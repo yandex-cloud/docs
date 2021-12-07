@@ -28,7 +28,7 @@ If `value`:
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 MAX([Profit])

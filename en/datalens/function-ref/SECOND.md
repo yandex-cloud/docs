@@ -22,7 +22,7 @@ Returns the number of the second in the minute of the specified date `datetime`.
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 SECOND(#2019-01-23 15:07:47#) = 47

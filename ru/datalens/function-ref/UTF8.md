@@ -23,7 +23,7 @@ UTF8( string, old_encoding )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 UTF8([Name], "CP-1251")

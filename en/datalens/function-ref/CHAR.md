@@ -22,7 +22,7 @@ Converts the numeric representation of an ASCII character to a value.
 
 **Return type**: `String`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 CHAR(78) = "N"

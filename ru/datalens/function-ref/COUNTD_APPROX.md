@@ -22,7 +22,7 @@ COUNTD_APPROX( value )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 COUNTD_APPROX([ClienID])

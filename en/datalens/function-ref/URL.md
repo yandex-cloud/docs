@@ -23,7 +23,7 @@ Wraps `text` into a hyperlink to URL `address`.
 
 **Return type**: `Markup`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 URL('https://example.com/?value=' + [value], [value])
