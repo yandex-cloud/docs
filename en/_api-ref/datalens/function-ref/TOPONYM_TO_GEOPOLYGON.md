@@ -23,7 +23,7 @@ See the full [list of toponyms]({{ geopolygons-list-link }}).
 
 **Return type**: `Geopolygon`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 TOPONYM_TO_GEOPOLYGON("Алтайский край") = [[[53.290641,77.907506],[53.367469,77.889413], ... ]]

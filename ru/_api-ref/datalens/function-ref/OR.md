@@ -30,7 +30,7 @@ value_1 OR value_2
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 [Month] = "January" OR [Year] < 2019

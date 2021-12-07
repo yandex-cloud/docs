@@ -23,7 +23,7 @@ SUM_IF( expression, condition )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`expression`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 SUM_IF([Profit], [Profit] > 15)

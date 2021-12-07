@@ -33,7 +33,7 @@ Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create
 
 
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 REGEXP_MATCH("RU 912873","\w\s\d") = TRUE

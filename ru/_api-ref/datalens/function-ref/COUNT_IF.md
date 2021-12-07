@@ -22,7 +22,7 @@ COUNT_IF( condition )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 COUNT_IF([Profit] > 5)

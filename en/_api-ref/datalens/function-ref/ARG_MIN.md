@@ -23,7 +23,7 @@ Returns `value` for the minimum value of `comp` in the group. If multiple values
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 ARG_MIN([Sales], [Profit])

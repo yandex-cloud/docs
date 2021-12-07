@@ -23,7 +23,7 @@ LEFT( string, number )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 LEFT("Computer", 4) = "Comp"

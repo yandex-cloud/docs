@@ -22,7 +22,7 @@ Returns the year number in the specified date `datetime`.
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 YEAR(#2019-01-23#) = 2019

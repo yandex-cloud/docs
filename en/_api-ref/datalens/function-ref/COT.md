@@ -22,7 +22,7 @@ Returns the cotangent of `number` in radians.
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 COT(PI()/4) = 1.0

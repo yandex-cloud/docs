@@ -22,7 +22,7 @@ Returns the median value.
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 MEDIAN([Profit])

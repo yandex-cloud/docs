@@ -22,7 +22,7 @@ Returns the string `string` without spaces at the beginning of the string.
 
 **Return type**: `String`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 LTRIM(" Computer") = "Computer"

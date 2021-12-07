@@ -24,7 +24,7 @@ Merges marked up text pieces. Can also be used for converting strings to marked 
 
 **Return type**: `Markup`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 MARKUP(BOLD([a]), ': ', [b])

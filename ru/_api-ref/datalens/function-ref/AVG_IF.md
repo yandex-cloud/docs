@@ -23,7 +23,7 @@ AVG_IF( expression, condition )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 AVG_IF([Profit], [Profit] > 5)

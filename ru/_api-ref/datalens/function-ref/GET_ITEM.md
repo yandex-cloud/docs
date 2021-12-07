@@ -23,7 +23,7 @@ GET_ITEM( array, index )
 
 **Возвращаемый тип**: Зависит от типов аргументов
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 GET_ITEM([array_field], 2)
