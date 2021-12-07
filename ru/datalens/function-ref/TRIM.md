@@ -22,7 +22,7 @@ TRIM( string )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 TRIM(" Computer ") = "Computer"

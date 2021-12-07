@@ -40,7 +40,7 @@ Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create
 
 
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 REGEXP_EXTRACT_NTH("RU 912 EN 873", "[A-Z]+\s+(\d+)", 2) = "873"

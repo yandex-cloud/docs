@@ -22,7 +22,7 @@ Returns the arctangent of `number` in radians.
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 ATAN(10) = 1.47113

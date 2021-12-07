@@ -40,7 +40,7 @@ DATE( expression [ , timezone ] )
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 DATE("2019-01-23") = #2019-01-23#

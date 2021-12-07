@@ -22,7 +22,7 @@ Returns the number `value` with the opposite sign.
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 - (5) = -5

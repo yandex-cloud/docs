@@ -22,7 +22,7 @@ RTRIM( string )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 RTRIM("Computer ") = "Computer"

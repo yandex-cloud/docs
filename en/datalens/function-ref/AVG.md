@@ -22,7 +22,7 @@ Returns the average of all values. Applicable to numeric data types as well as `
 
 **Return type**: Depends on argument types
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 AVG([Profit])

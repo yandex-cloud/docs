@@ -22,7 +22,7 @@ Returns one of the values of `value` from the group. This is a nondeterministic 
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 ANY([Profit])

@@ -22,7 +22,7 @@ Returns the statistical standard deviation of all values in the expression based
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 STDEVP([Profit])

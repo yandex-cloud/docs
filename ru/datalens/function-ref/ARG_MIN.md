@@ -23,7 +23,7 @@ ARG_MIN( value, comp )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 ARG_MIN([Sales], [Profit])

@@ -30,7 +30,7 @@ IFNULL( check_value, alt_value )
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 IFNULL([Profit], 0)

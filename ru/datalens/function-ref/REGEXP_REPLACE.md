@@ -36,7 +36,7 @@ REGEXP_REPLACE( string, pattern, replace_with )
 
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"

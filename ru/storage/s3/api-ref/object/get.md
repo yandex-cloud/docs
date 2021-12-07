@@ -27,7 +27,7 @@ GET /{bucket}/{key} HTTP/2
 `response-cache-control` | Устанавливает заголовок ответа `Cache-Control`.
 `response-content-disposition` | Устанавливает заголовок ответа `Content-Disposition`.
 `response-content-encoding` | Устанавливает заголовок ответа `Content-Encoding`.
-`version-id` | Ссылка на конкретную версию объекта.
+`versionId` | Ссылка на конкретную версию объекта.
 
 
 ### Заголовки {#request-headers}

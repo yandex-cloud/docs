@@ -22,7 +22,7 @@ Returns the statistical variance of all values in an expression based on a selec
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 VAR([Profit])

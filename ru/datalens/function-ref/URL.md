@@ -23,7 +23,7 @@ URL( address, text )
 
 **Возвращаемый тип**: `Разметка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 URL('https://example.com/?value=' + [value], [value])

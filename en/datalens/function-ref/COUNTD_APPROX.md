@@ -22,7 +22,7 @@ Returns the approximate number of unique values in the group. Faster than [COUNT
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 COUNTD_APPROX([ClienID])

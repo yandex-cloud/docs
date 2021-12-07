@@ -40,7 +40,7 @@ REGEXP_EXTRACT_NTH( string, pattern, match_index )
 
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 REGEXP_EXTRACT_NTH("RU 912 EN 873", "[A-Z]+\s+(\d+)", 2) = "873"

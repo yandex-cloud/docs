@@ -39,7 +39,7 @@ DATETIME( expression [ , timezone ] )
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 DATETIME("2019-01-23 15:07:47") = #2019-01-23 15:07:47#

@@ -59,7 +59,7 @@ Security groups don't block sending traffic to the addresses of services require
 To enable [health checks](../../network-load-balancer/concepts/health-check.md) for resources connected to the network load balancer, use one of the following methods:
 
 * Recommended method: in the `predefined_target` field, enter `loadbalancer_healthchecks`.
-* Manually allow traffic to be transferred between `198.18.235.0/24`, `198.18.248.0/24` and target resources.
+* Manually allow traffic to be transferred between `198.18.235.0/24`, `198.18.248.0/24`, and target resources.
 
 ## Default security group {#default-security-group}
 

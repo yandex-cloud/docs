@@ -23,7 +23,7 @@ Returns the element with the index `index` from the array `array`. Index must be
 
 **Return type**: Depends on argument types
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 GET_ITEM([array_field], 2)

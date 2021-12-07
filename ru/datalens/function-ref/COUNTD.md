@@ -24,7 +24,7 @@ COUNTD( value )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 COUNTD([ClientID])

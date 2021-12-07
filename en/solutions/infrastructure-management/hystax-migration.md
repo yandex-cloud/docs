@@ -96,7 +96,7 @@ Create a VM with a boot disk from an `acura` image:
 
 1. Open the `hystax-acura-vm` VM page in the management console and find its public IP address.
 
-1. Open the `hystax-acura-vm` VM public IP address in the browser. In 8 to 20 minutes, the Hystax Acura initial setup screen will open.
+1. Open the `hystax-acura-vm` VM public IP address in the browser. In 8-20 minutes, the Hystax Acura initial setup screen opens.
 
 1. On the page that opens, fill in the following fields:
    * **Organization**: The name of your organization.
@@ -158,7 +158,7 @@ The agents are installed on virtual machines to be migrated to {{ yandex-cloud }
 
      1. Select **New VMware vSphere** and fill in the fields:
         * **Platform Name**: The name of the platform.
-        * **Endpoint**: The IP address of a VMware ESXi host, on which a replication agent will be deployed.
+        * **Endpoint**: The IP address of the VMware ESXi host where the replication agent will be deployed.
         * **Login**: The user's login.
         * **Password**: The user's password.
 
@@ -203,7 +203,7 @@ When the agents are installed, create VM replicas. VM replicas include all the d
 1. Select the source cloud platform for migration.
 1. Click **Next**.
 1. Under **Machines Groups**, select the virtual machines to be replicated.
-1. You can specify additional parameters for the `network-ssd` volume in the replication edit menu.
+1. You can specify additional parameters for the `network-ssd` volume in the replication editing menu.
 1. Click **Bulk actions**. In the menu that opens, select **Start replication**.
 
 Make sure that the replicas of the selected VMs are shown in the {{ compute-name }} VM list.
@@ -215,9 +215,9 @@ As soon as the replicated status of the VMs is `Synced`, you can create a migrat
 1. Click **Add Migration plan**.
 1. Enter a name for the migration plan: `YC Migration`
 1. Under **Devices & Ranks**, click ![options](../../_assets/options.svg). In the menu that opens, select **Add machine**, the VM instance group, and VM to be added to the migration plan. Repeat the steps for all the VMs to migrate.
-1. In the **Subnet ID** field, specify the ID and the CIDR of the subnet to connect the VMs to after migration.
-1. Edit the **Flavor name** (the parameters of the VM being created) as follows: `<platform>-<cpu>-<ram>-<core_fraction>`. For example, `2-8-16-100`.
-1. In the **Port Ip** field, enter the VM's new IP address from the current subnet.
+1. In the **Subnet ID** field, specify the ID and CIDR of the subnet to connect the VMs to after migration.
+1. Edit the **Flavor name** (parameters of the VM being created) as follows: `<platform>-<cpu>-<ram>-<core_fraction>`. For example, `2-8-16-100`.
+1. In the **Port Ip** field, enter a new IP address for the VM from the current subnet.
 1. Click **Save**.
 
 ## Start migration {#start-migration}
@@ -233,7 +233,7 @@ You can now migrate using the plan you created.
 
 Wait until the migration is complete. Make sure all the necessary resources migrated and your applications are ready. If the migrated infrastructure runs as expected, click **Detach** on the **CloudSite** page. If you don't want to migrate anything else, you can delete the VM with Hystax Acura and Hystax Cloud Agent.
 
-## Delete the created resources {#clear-out}
+## Delete the resources you created {#clear-out}
 
 To avoid paying more for the migration infrastructure, [delete](../../compute/operations/vm-control/vm-delete.md) the `hystax-acura-vm` virtual machine and other VMs created by it with `cloud-agent` in their names. If you don't need the migrated VMs any more, you can delete them too.
 

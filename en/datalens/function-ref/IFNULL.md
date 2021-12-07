@@ -30,7 +30,7 @@ Arguments (`check_value`, `alt_value`) must be of the same type.
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 IFNULL([Profit], 0)
