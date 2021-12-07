@@ -17,6 +17,8 @@ items:
           href: operations/projects/control-compute-resources.md
         - name: Управление потреблением
           href: operations/projects/custom-limits.md
+        - name: Изменение размера хранилища проекта
+          href: operations/projects/storage-resize.md
         - name: Изменение имени или описания
           href: operations/projects/update.md
         - name: Удаление проекта
