@@ -3,55 +3,83 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
-  - name: Релизы
-    href: release-notes.md
   - name: Распознавание речи
     items:
-      - name: О технологии
-        href: stt/index.md
-      - name: Распознавание коротких аудио
+    - name: О технологии
+      href: stt/index.md
+    - name: Потоковое распознавание
+      href: stt/streaming.md
+    - name: Распознавание аудиофайлов
+      items:
+      - name: Синхронное распознавание
         href: stt/request.md
-      - name: Распознавание длинных аудио
+      - name: Асинхронное распознавание
         href: stt/transcribation.md
-      - name: Потоковое распознавание
-        href: stt/streaming.md
-      - name: Форматы аудио
-        href: stt/formats.md
-      - name: Модели распознавания
-        href: stt/models.md
-      - name: Расширение модели распознавания речи
-        href: stt/additional-training.md
-      - name: Разметка аудио
-        href: stt/markup.md
+    - name: Форматы аудио
+      href: stt/formats.md
+    - name: Модели распознавания
+      href: stt/models.md
+    - name: Расширение модели распознавания речи
+      href: stt/additional-training.md
+    - name: Разметка аудио
+      href: stt/markup.md
+    - name: Справочник API
+      items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: API v1 REST
+        items:
+        - name: API потокового распознавания
+          href: stt/api/streaming-api.md
+        - name: Примеры использования API потокового распознавания
+          href: stt/api/streaming-examples.md
+        - name: API синхронного распознавания
+          href: stt/api/request-api.md
+        - name: Примеры использования API синхронного распознавания
+          href: stt/api/request-examples.md
+        - name: API асинхронного распознавания
+          href: stt/api/transcribation-api.md
+        - name: Распознавание речи в формате LPCM
+          href: stt/api/transcribation-lpcm.md
+        - name: Распознавание речи в формате OggOpus
+          href: stt/api/transcribation-ogg.md
+      - name: API v3 gRPC (англ.)
+        items: null
+        include:
+            repo: docs
+            path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
   - name: Синтез речи
     items:
-      - name: О технологии
-        href: tts/index.md
+    - name: О технологии
+      href: tts/index.md
+    - name: Список голосов
+      href: tts/voices.md
+    - name: SpeechKit Brand Voice
+      items:
+      - name: О технологии SpeechKit Brand Voice
+        href: tts/brand-voice/index.md
+      - name: Формат входных данных Brand Voice Adaptive
+        href: tts/brand-voice/income-data-format.md
+      - name: Импорт данных для Brand Voice
+        href: tts/brand-voice/import-data.md
+    - name: Описание API
+      items:
       - name: Описание метода API
         href: tts/request.md
-      - name: Список голосов
-        href: tts/voices.md
       - name: Использование SSML
         href: tts/ssml.md
       - name: Список поддерживаемых фонем в SSML
         href: tts/supported-phonemes.md
-      - name: SpeechKit Brand Voice
+
+      - name: Справочник APIv3
         items:
-          - name: О технологии SpeechKit Brand Voice
-            href: tts/brand-voice/index.md
-          - name: Формат входных данных Brand Voice Adaptive
-            href: tts/brand-voice/income-data-format.md
-          - name: Импорт данных для Brand Voice
-            href: tts/brand-voice/import-data.md
-          - name: Справочник APIv3
-            items:
-            - name: Аутентификация в API
-              href: api-ref/authentication.md
-            - name: gRPC (англ.)
-              items: null
-              include:
-                repo: docs
-                path: en/_api-ref-grpc/ai/tts/v3/toc.yaml
+        - name: Аутентификация в API
+          href: api-ref/authentication.md
+        - name: gRPC (англ.)
+          items: null
+          include:
+            repo: docs
+            path: en/_api-ref-grpc/ai/tts/v3/toc.yaml
   - name: SpeechKit Hybrid
     items:
         - name: О технологии
@@ -94,13 +122,13 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    href: pricing.md
+  - name: Релизы
     items:
-      - name: Действующие правила
-        href: pricing.md
-      - name: Архив
-        items:
-          - name: Правила до 1 января 2019 года
-            href: pricing-archive/pricing-01012019.md
+      - name: Релизы моделей синтеза
+        href: release-notes-tts.md
+      - name: Архив релизов
+        href: release-notes.md
   - name: Публичные материалы
     href: public-talks.md
   - name: Вопросы и ответы
