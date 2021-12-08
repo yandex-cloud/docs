@@ -9,9 +9,16 @@
 
 
 ## Перед началом работы {#before-you-begin}
+{% if audience != "internal" %}
 
 1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. Этот бакет будет использоваться в качестве репозитория снапшотов.
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md). Он необходим для доступа к бакету из кластера-источника и кластера-приемника.
+
+{% else %}
+
+1. Создайте бакет {{ objstorage-name }} с ограниченным доступом. Этот бакет будет использоваться в качестве репозитория снапшотов.
+1. Создайте сервисный аккаунт. Он необходим для доступа к бакету из кластера-источника и кластера-приемника.
+{% endif %}
 1. Перед созданием кластера-приемника [проверьте совместимость](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html#snapshot-restore-version-compatibility) кластера-источника и выбранной версии кластера-приемника.
 
    {% note warning %}
@@ -26,16 +33,33 @@
 
 ## Создайте снапшот на кластере-источнике {#create-snapshot}
 
-1. [Назначьте роль](../../iam/operations/sa/assign-role-for-sa) `storage.editor` [созданному ранее](#before-you-begin) сервисному аккаунту.
+{% if audience != "internal" %}
+
+1. [Назначьте роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor` [созданному ранее](#before-you-begin) сервисному аккаунту.
+
 1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для этого сервисного аккаунта.
+
+{% else %}
+1. Назначьте роль `storage.editor` [созданному ранее](#before-you-begin) сервисному аккаунту.
+
+1. Создайте статический ключ доступа для этого сервисного аккаунта.
+
+{% endif %}
    
    {% note warning %}
 
    Сохраните **идентификатор ключа** и **секретный ключ**. Они понадобятся позднее. 
 
    {% endnote %}
+{% if audience != "internal" %}
 
 1. [Настройте ACL](../../storage/operations/buckets/edit-acl.md) для [созданного ранее](#before-you-begin) бакета:
+
+{% else %}
+
+1. Настройте ACL для [созданного ранее](#before-you-begin) бакета:
+
+{% endif %}
    1. В выпадающем списке **Выберите пользователя** укажите сервисный аккаунт.
    1. Задайте разрешения `READ + WRITE` для выбранного сервисного аккаунта.
    1. Нажмите кнопку **Добавить**.
@@ -161,5 +185,15 @@
 1. При необходимости [отключите репозиторий снапшотов](https://www.elastic.co/guide/en/elasticsearch/reference/current/delete-snapshot-repo-api.html) на стороне кластера-источника и кластера-приемника.
    
 1. При необходимости удалите неиспользуемые ресурсы в {{ yandex-cloud }}:
+   {% if audience != "internal" %}
+
    * [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
    * [Удалите снапшоты](../../storage/operations/objects/delete.md) из бакета и затем удалите [бакет целиком](../../storage/operations/buckets/delete.md).
+
+   {% else %}
+
+   * Удалите сервисный аккаунт.
+   * Удалите снапшоты из бакета и затем удалите бакет целиком.
+
+   {% endif %}
+   

@@ -234,10 +234,11 @@
 
 {% if audience == "external" %}
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
+1. (Опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
 {% else %}
 1. Создайте поток данных.
+1. (Опционально) Создайте функцию обработки.
 {% endif %}
-1. (Опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
 
     {% cut "Пример функции обработки" %}
 
@@ -474,8 +475,17 @@
 
 ### Приемник {{ objstorage-name }} {#target-storage}
 
-1. [Создайте бакет](../../storage/operations/buckets/create.md) нужной вам конфигурации.
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader`.
+{% if audience != "internal" %}
+
+   1. [Создайте бакет](../../storage/operations/buckets/create.md) нужной вам конфигурации.
+   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader`.
+
+{% else %}
+
+   1. Создайте бакет нужной вам конфигурации.
+   1. Создайте сервисный аккаунт с ролью `storage.uploader`.
+
+{% endif %}
 
 ### Приемник {{ PG }} {#target-pg}
 

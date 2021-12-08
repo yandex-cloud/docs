@@ -26,8 +26,15 @@ MirrorMaker 2.0 — утилита для репликации [топиков](
 1. Создайте в кластере-источнике пользователя с правом управления топиками через Admin API.
 
 1. Подготовьте ВМ с MirrorMaker:
+    {% if audience != "internal" %}
 
     1. [Создайте новую ВМ Linux](../../compute/operations/vm-create/create-linux-vm.md) в той же сети, к которой подключен кластер-приемник.
+
+    {% else %}
+
+    1. Создайте новую ВМ Linux в той же сети, к которой подключен кластер-приемник.
+
+    {% endif %}
     1. Установите JDK:
         ```bash
         sudo apt update && sudo apt install -y default-jdk
@@ -39,8 +46,15 @@ MirrorMaker 2.0 — утилита для репликации [топиков](
 1. Убедитесь, что ВМ с MirrorMaker может подключаться к кластеру-источнику и к кластеру-приемнику с помощью утилиты [kafkacat](../operations/connect.md#bash).
 
 ## Настройте конфигурацию MirrorMaker {#configure-mirrormaker}
+{% if audience != "internal" %}
 
 1. [Подключитесь к ВМ с MirrorMaker по SSH](../../compute/operations/vm-connect/ssh.md).
+
+{% else %}
+
+1. Подключитесь к ВМ с MirrorMaker по SSH.
+
+{% endif %}
 1. Скачайте [SSL-сертификат](../operations/connect#get-ssl-cert) для подключения кластеру {{ mkf-name }}.
 1. Выберите пароль для хранилища сертификатов, создайте хранилище и добавьте в него SSL-сертификат для подключения к кластеру:
 

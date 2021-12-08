@@ -93,7 +93,15 @@ pip3 install protobuf varint pycapnp
    
    {% endlist %}
 
+{% if audience != "internal" %}
+
 1. [Загрузите файл](../../storage/operations/objects/upload.md) в {{ objstorage-name }} и [получите ссылку](../../storage/operations/objects/link-for-download.md) на него.
+
+{% else %}
+
+1. Загрузите файл в {{ objstorage-name }} и получите ссылку на него.
+
+{% endif %}
 
 1. [Подключите схему формата данных](format-schemas.md#add-format-schema) к кластеру `chcluster`:
    - Для схемы формата данных Cap'n Proto (файл `user.capnp`) задайте имя `schema-capnproto`.

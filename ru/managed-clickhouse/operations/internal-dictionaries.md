@@ -42,11 +42,23 @@
 
 {{ mch-short-name }} работает только с геобазами, которые загружены в {{ objstorage-name }} и к которым предоставлен публичный доступ на чтение:
 
+{% if audience != "internal" %}
+
 1. [Загрузите](../../storage/operations/objects/upload.md) архив с геобазой в {{ objstorage-name }}.
 
 1. [Настройте публичный доступ](../../storage/operations/objects/edit-acl.md) на чтение к файлу геобазы.
 
 1. [Получите](../../storage/operations/objects/link-for-download.md) публичную ссылку на геобазу.
+
+{% else %}
+
+1. Загрузите архив с геобазой в {{ objstorage-name }}.
+
+1. Настройте публичный доступ на чтение к файлу геобазы.
+
+1. Получите публичную ссылку на геобазу.
+
+{% endif %}
 
 ## Подключить геобазу {#add-geobase}
 

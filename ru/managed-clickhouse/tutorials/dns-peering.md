@@ -24,7 +24,15 @@
 
 ### Проверьте доступность кластера (необязательный шаг) {#check-cluster-availability-without-dns}
 
+{% if audience != "internal" %}
+
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к виртуальным машинам `cluster-vm` и `other-vm` по SSH.
+
+{% else %}
+
+1. Подключитесь к виртуальным машинам `cluster-vm` и `other-vm` по SSH.
+
+{% endif %}
 
     {% include [mdb-peering-vm-user](../../_includes/tutorials/mdb-dns-peering/vm-user-warning.md) %}
 
@@ -42,7 +50,15 @@
 
 ## Проверьте доступность кластера {#check-cluster-availability}
 
+{% if audience != "internal" %}
+
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к виртуальным машинам `cluster-vm` и `other-vm` по SSH.
+
+{% else %}
+
+1. Подключитесь к виртуальным машинам `cluster-vm` и `other-vm` по SSH.
+
+{% endif %}
 
     {% include [mdb-peering-vm-user](../../_includes/tutorials/mdb-dns-peering/vm-user-warning.md) %}
 

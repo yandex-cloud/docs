@@ -11,16 +11,36 @@
 
 ## Подключить сервисный аккаунт к кластеру {#connect-service-account}
 
+{% if audience != "internal" %}
+
 1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#change-additional-settings) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
+
 1. Убедитесь, что этому аккаунту [назначена роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`.
+
+{% else %}
+
+1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#change-additional-settings) кластера выберите существующий сервисный аккаунт, либо создайте новый.
+
+1. Убедитесь, что этому аккаунту назначена роль `storage.editor`.
+
+{% endif %}
+
+
 
 
 ## Настроить права доступа {#configure-acl}
+{% if audience != "internal" %}
 
 1. В консоли управления выберите каталог, в котором хранится нужный бакет. Если бакета не существует — [создайте](../../storage/operations/buckets/create.md) его.
+
+{% else %}
+
+1. В консоли управления выберите каталог, в котором хранится нужный бакет. Если бакета не существует — создайте его.
+
+{% endif %}
 1. Выберите сервис **{{ objstorage-name }}**.
 1. Выберите вкладку **Бакеты**.
-1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md):
+1. {% if audience != "internal" %}Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md){% else %}Настройте ACL бакета{% endif %}:
     1. В выпадающем списке **Выберите пользователя** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
     1. Задайте разрешения `READ + WRITE` для выбранного сервисного аккаунта.
     1. Нажмите кнопку **Добавить**.

@@ -12,7 +12,6 @@
 - Сервисный аккаунт
 
   В этом сервисе есть 2 способа аутентификации с сервисным аккаунтом:
-
   * С помощью [API-ключей](../iam/concepts/authorization/api-key).
 
       {% include [api-keys-disclaimer](iam/api-keys-disclaimer.md) %}

@@ -71,6 +71,7 @@ items:
       - name: Анализ производительности и оптимизация
         href: tutorials/profiling.md
       - name: Выгрузка базы данных в {{ dataproc-full-name }}
+        when: audience != "internal"
         href: tutorials/sqoop.md
       - name: Миграция базы данных в Managed Service for MySQL
         href: tutorials/data-migration.md

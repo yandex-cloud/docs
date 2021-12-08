@@ -87,8 +87,12 @@
     {% include [Required MongoDB settings](../../_includes/data-transfer/necessary-settings/mongodb.md) %}
 
 * Дополнительные настройки:
-
+    
+    {% if audience != "internal" %}
+    
     * {% include [Field Subnet ID](../../_includes/data-transfer/fields/subnet-id.md) %}
+    {% endif %}
+    
     * **Сертификат CA** — для шифрования передаваемых данных загрузите файл [PEM-сертификата](../../managed-mongodb/operations/connect.md#get-ssl-cert) или добавьте его содержимое в текстовом виде.
     * {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop-truncate.md) %}
 
@@ -116,9 +120,19 @@
 
 ### {{ objstorage-name }} {#settings-storage}
 
+{% if audience != "internal" %}
+
 * **Бакет** — имя [бакета](../../storage/concepts/bucket.md), в который будут загружаться данные из источника.
 
 * **SA Аккаунт** — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролью `storage.uploader`, под которым будет осуществляться доступ к [{{ yds-full-name }}](../../data-streams).
+
+{% else %}
+
+* **Бакет** — имя бакета, в который будут загружаться данные из источника.
+
+* **SA Аккаунт** — сервисный аккаунт с ролью `storage.uploader`, под которым будет осуществляться доступ к [{{ yds-full-name }}](../../data-streams).
+
+{% endif %}
 
 * **Выходной формат** — формат, в котором данные будут записаны в бакет, `JSON` или `CSV`.
 
@@ -137,18 +151,22 @@
 {% include [PostgreSQL required settings](../../_includes/data-transfer/necessary-settings/postgresql.md) %}
 
 * Дополнительные настройки:
-
+    
+    {% if audience != "internal" %}
+    
     * **Сетевой интерфейс для эндпоинта** — выберите или [создайте](../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../overview/concepts/geo-scope.md).
-
+    
         Если источник и приемник географически близки, подключение через выбранную подсеть ускорит работу трансфера.
-
+    
+    {% endif %}
+    
     * {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop-truncate.md) %}
 
     * Сохранение границ транзакций — включите, чтобы сервис записывал данные в базу-приемник только после полного чтения данных транзакции из базы-источника.
 
         {% note warning %}
 
-        Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+        Эта функциональность находится на стадии {% if audience != "internal" %}[Preview](../../overview/concepts/launch-stages.md){% else %}Preview{% endif %}.
 
         {% endnote %}
 
@@ -174,7 +192,9 @@
     * **Количество таблиц** — необходимое количество таблиц в базе-приемнике.
     * **Разбивать по колонке** — по значениям какой колонки разбивать (_партицировать_) таблицу. Колонка должна иметь тип <q>время</q>.
 
+        {% if audience != "internal" %}
         Подробнее о партицировании таблиц см. в документации [{{ ydb-full-name }}](../../ydb/oss/public/develop/concepts/datamodel.md#partitioning)
+        {% endif %}
 
     Если используется эта настройка, в базе-приемнике создается указанное количество таблиц для данных за различные интервалы времени. Имя каждой таблицы выбирается автоматически по дате и времени начала интервала. В зависимости от значений в указанной колонке таблицы-источника, исходные строки распределяются по соответствующим таблицам базы-приемника.
 

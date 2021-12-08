@@ -6,4 +6,8 @@
 * `editor`,
 * `vpc.admin`.
 
+{% if audience != "internal" %}
+
 О том, как назначить роль, см. в [документации {{ iam-full-name }}](../../../iam/operations/roles/grant.md).
+
+{% endif %}

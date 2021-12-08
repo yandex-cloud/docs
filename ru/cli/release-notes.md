@@ -314,7 +314,7 @@
 
 {{ cloud-logging-name }} — сервис для чтения и записи логов сервисов и пользовательских приложений.
 
-Сервис {{ cloud-logging-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее о сервисе читайте в [документации](../logging/).
+{% if audience != "internal" %}Сервис {{ cloud-logging-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). {% endif %}Подробнее о сервисе читайте в [документации](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -821,7 +821,8 @@
 
 #### {{ vpc-name }} {#vpc}
 
-* Добавлена группа команд `yc vpc address` для управления [IP-адресами](../vpc/concepts/address.md#public-addresses).
+* Добавлена группа команд `yc vpc address` для управления {% if audience != "internal" %}[IP-адресами](../vpc/concepts/address.md#public-addresses){% else %}IP-адресами{% endif %}.
+
 
 ### Версия 0.62.0 (20.08.20) {#version0.62.0}
 
@@ -874,7 +875,15 @@
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
 
+   {% if audience != "internal" %}
+
    Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](../cos/concepts/index.md#coi-spec-example).
+
+   {% else %}
+
+   Добавлен флаг `--coi-spec-file` для передачи спецификации образа.
+   
+   {% endif %}
 
 ##### {{ vpc-name }} {#vpc}
 
@@ -1234,13 +1243,14 @@
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{iam-name}} {#iam}
-* Добавлены команды для создания и управления SAML-совместимыми федерациями удостоверений и сертификатами к ним: `yc iam federation` и `yc iam certificate`. Подробнее про SAML-совместимые федерации удостоверений можно узнать в [документации](../organization/add-federation.md).
+* Добавлены команды для создания и управления SAML-совместимыми федерациями удостоверений и сертификатами к ним: `yc iam federation` и `yc iam certificate`. {% if audience != "internal" %}Подробнее про SAML-совместимые федерации удостоверений можно узнать в [документации](../organization/add-federation.md){% endif %}.
+
 
 ### Версия 0.50.0 (27.01.20) {#version0.50.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-* Для [ресурсов, на которые можно назначать роли](../iam/concepts/access-control/resources-with-access-control.md).
+* {% if audience != "internal" %}Для [ресурсов, на которые можно назначать роли](../iam/concepts/access-control/resources-with-access-control.md). {% else %}Для ресурсов, на которые можно назначать роли.{% endif %}
 
     Добавлены альтернативы флагу `--subject` для команд управления ролями: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login` и `--all-authenticated-users`.
 
@@ -1328,14 +1338,27 @@
 #### Изменения в CLI {#cli}
 **Улучшено**
 
+{% if audience != "internal" %}
+
 * Добавлена возможность [аутентификации с помощью федерации](operations/authentication/federated-user.md) при вызове `yc` в неинтерактивном режиме. Этот режим используется, когда CLI запускается пользователем не напрямую, например в скрипте или в `kubectl` при работе с [кластером Kubernetes](../managed-kubernetes/concepts/index.md#kubernetes-cluster) в {{ managed-k8s-name }}.
+
+{% else %}
+
+* Добавлена возможность [аутентификации с помощью федерации](operations/authentication/federated-user.md) при вызове `yc` в неинтерактивном режиме. Этот режим используется, когда CLI запускается пользователем не напрямую, например в скрипте или в `kubectl` при работе с кластером Kubernetes в {{ managed-k8s-name }}.
+
+{% endif %}
+
 
 ### Версия 0.46.0 (13.12.19) {#version0.46.0}
 
 #### Изменения в CLI {#cli}
 
 **Улучшено**
+{% if audience != "internal" %}
+
 * Для ускорения диагностики проблем авторизации, в журнал отладки запроса пишется CRC32 отправляемого [IAM-токена](../iam/concepts/authorization/iam-token.md).
+
+{% endif %}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -1383,13 +1406,19 @@
 
 ### Версия 0.43.1 (14.11.19)
 
+{% if audience != "internal" %}
+
 #### Изменения в CLI {#cli}
 
 **Исправлено**
 
 * Для Windows Subsystem for Linux (WSL) при авторизации в CLI с помощью [SAML-совместимых федераций удостоверений](../organization/add-federation.md) теперь корректно происходит переход в браузер.
 
+{% endif %}
+
 ### Версия 0.43.0 (11.11.19) {#version0.43.0}
+
+{% if audience != "internal" %}
 
 #### Изменения в CLI {#cli}
 
@@ -1397,11 +1426,21 @@
 
     Для этого выполните команду `yc init --federation-id=<FEDERATION_ID>`, после чего можно использовать CLI для работы от имени пользователя этой федерации.
 
+{% endif %}
+
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ compute-name }} {#compute}
 
+{% if audience != "internal" %}
+
 * Добавлены подробности в лог и в текст об ошибке при [авторизации изнутри виртуальной машины](../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) (с помощью IAM-токена из метаданных).
+
+{% else %}
+
+* Добавлены подробности в лог и в текст об ошибке при авторизации изнутри виртуальной машины (с помощью IAM-токена из метаданных).
+
+{% endif %}
 
 #### Изменения в сервисах управляемых баз данных {#managed-db}
 

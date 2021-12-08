@@ -1,7 +1,16 @@
 # Аутентификация от имени пользователя
 
 Вы можете аутентифицироваться в процессе [интерактивного создания профиля](../profile/profile-create.md#interactive-create) с помощью команды `yc init` или выполнив следующие шаги:
+{% if audience != "internal" %}
+
 1. Получите [OAuth-токен](../../../iam/concepts/authorization/oauth-token.md).
+
+{% else %}
+
+1. Получите OAuth-токен.
+
+{% endif %}
+
 1. [Создайте профиль](../profile/profile-create.md#create).
 1. Укажите в параметре `token` ваш OAuth-токен:
     ```

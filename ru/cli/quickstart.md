@@ -76,6 +76,7 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
      ```
      yc config list
      ```
+{% if audience != "internal" %}
 
 - От имени сервисного аккаунта
 
@@ -90,8 +91,6 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
     {% include [include](../_includes/cli/auth-federated-user.md) %}
 
 {% endlist %}
-
-{% if audience != "internal" %}
 
 ## Примеры команд {#example}
 

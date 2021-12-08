@@ -1,6 +1,10 @@
 {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
+{% if audience != "internal" %}
+
 Подробнее о Terraform [читайте в документации](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+{% endif %}
 
 Чтобы удалить кластер, созданный с помощью {{ TF }}:
 

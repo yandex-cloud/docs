@@ -39,12 +39,26 @@
     1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ей права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
+{% if audience != "internal" %}
 
 1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) c Ubuntu 20.04 и публичным IP-адресом.
 
+{% else %}
+
+1. В той же сети, что и кластер {{ mkf-name }}, создайте виртуальную машину c Ubuntu 20.04 и публичным IP-адресом.
+
+{% endif %}
+
 1. Чтобы разрешить прохождение трафика между кластером {{ mkf-name }} и виртуальной машиной, [настройте группы безопасности](../../managed-kafka/operations/connect.md#configuring-security-groups).
+{% if audience != "internal" %}
 
 1. В группах безопасности виртуальной машины [создайте правило](../../vpc/operations/security-group-update.md#add-rule) для входящего трафика, разрешающее подключение через порт `8081` — через него производитель и потребитель будут обращаться к реестру схем:
+
+{% else %}
+
+1. В группах безопасности виртуальной машины создайте правило для входящего трафика, разрешающее подключение через порт `8081` — через него производитель и потребитель будут обращаться к реестру схем:
+
+{% endif %}
 
     * **Диапазон портов**: `8081`.
     * **Протокол**: `TCP`.
@@ -72,8 +86,15 @@
     От имени этой учетной записи Confluent Schema Registry будет работать со служебным топиком `_schemas`.
 
 ## Установите и настройте Confluent Schema Registry на виртуальной машине {#configure-vm}
+{% if audience != "internal" %}
 
 1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md).
+
+{% else %}
+
+1. Подключитесь к виртуальной машине по SSH.
+
+{% endif %}
 1. Подключите репозиторий Confluent Schema Registry:
 
     ```bash
@@ -353,7 +374,16 @@
     ```
 
 ## Удалите созданные ресурсы {#clear-out}
+{% if audience != "internal" %}
 
 Если вам больше не нужны созданные ресурсы, удалите [виртуальную машину](../../compute/operations/vm-control/vm-delete.md) и [кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
 
 Если вы зарезервировали для созданной виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+
+{% else %}
+
+Если вам больше не нужны созданные ресурсы, удалите виртуальную машину и [кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+
+Если вы зарезервировали для созданной виртуальной машины публичный статический IP-адрес, удалите его.
+
+{% endif %}

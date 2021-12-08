@@ -48,8 +48,15 @@ description: "Вы можете запросить детальную инфор
   1. Нажмите на имя нужного кластера.
 
   {% note tip %}
+  {% if audience != "internal" %}
 
   Чтобы запросить доступ к технологии [Point-in-Time-Recovery](../concepts/backup.md) (PITR) в режиме [Preview](../../overview/concepts/launch-stages.md), нажмите на ссылку **Запросить доступ** в строке **Point-in-time recovery** и заполните форму.
+
+  {% else %}
+
+  Чтобы запросить доступ к технологии [Point-in-Time-Recovery](../concepts/backup.md) (PITR) в режиме Preview, нажмите на ссылку **Запросить доступ** в строке **Point-in-time recovery** и заполните форму.
+
+  {% endif %}
 
   {% endnote %}
 

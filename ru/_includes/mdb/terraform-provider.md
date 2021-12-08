@@ -16,4 +16,8 @@ provider "yandex" {
 }
 ```
 
+{% if audience != "internal" %}
+
 Для получения [токена OAuth](../../iam/concepts/authorization/oauth-token.md) или [статического ключа доступа](../../iam/operations/sa/create-access-key.md) см. инструкции {{ iam-full-name }}.
+
+{% endif %}

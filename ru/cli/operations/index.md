@@ -9,7 +9,7 @@ description: "Из статьи вы узнаете как работать с �
 
 ## Аутентификация {#auth}
 
-- [{#T}](authentication/user.md)
+{% if audience != "internal" %}- [{#T}](authentication/user.md){% endif %}
 - [{#T}](authentication/service-account.md)
 
 ## Управление профилем {#profile}

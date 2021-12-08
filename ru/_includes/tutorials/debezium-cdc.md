@@ -12,23 +12,42 @@
     * с пользователем `user1`.
 
 1. Создайте *кластер-приемник* [{{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам конфигурации с хостами в публичном доступе.
+{% if audience != "internal" %}
 
 1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для Debezium с Ubuntu 20.04 и публичным IP-адресом.
+
+{% else %}
+
+1. Создайте виртуальную машину для Debezium с Ubuntu 20.04 и публичным IP-адресом.
+
+{% endif %}
 
 1. Настройте группы безопасности так, чтобы к кластерам можно было подключиться из созданной виртуальной машины:
 
     * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups);
     * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
+{% if audience != "internal" %}
 
 1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH и установите зависимости:
 
+{% else %}
+
+1. Подключитесь к виртуальной машине по SSH и установите зависимости:
+
+{% endif %}
     ```bash
     sudo apt update && \
     sudo apt install -y git docker.io kafkacat postgresql-client
     ```
+{% if audience != "internal" %}
 
 1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH и проверьте, что доступны кластеры:
 
+{% else %}
+
+1. Подключитесь к виртуальной машине по SSH и проверьте, что доступны кластеры:
+
+{% endif %}
     * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#connection-string) (используйте утилиту `psql`);
     * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#connection-string) (используйте утилиту `kafkacat`).
 
@@ -82,8 +101,15 @@
 
 
 ## Настройте Debezium {#setup-debezium}
+{% if audience != "internal" %}
 
 1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH.
+
+{% else %}
+
+1. Подключитесь к виртуальной машине по SSH.
+
+{% endif %}
 
 1. Склонируйте репозиторий:
 
@@ -291,10 +317,19 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Если созданные ресурсы вам больше не нужны, удалите их:
+{% if audience != "internal" %}
 
 1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 
 1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+
+{% else %}
+
+1. Удалите виртуальную машину.
+
+1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, удалите его.
+
+{% endif%}
 
 1. Удалите кластеры:
 

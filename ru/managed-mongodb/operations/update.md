@@ -294,8 +294,15 @@
     Вы можете изменить следующие настройки:
 
     * `--backup-retain-period` — срок хранения автоматических резервных копий (в днях).
+      {% if audience != "internal" %}
 
       Значение параметра `<срок хранения>` задается в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} (по умолчанию — {{ mmg-backup-retention }}). Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Подробнее см. в разделе [{#T}](../concepts/backup.md).
+
+      {% else %}
+
+      Значение параметра `<срок хранения>` задается в диапазоне от {{ mmg-backup-retention-min }} до {{ mmg-backup-retention-max }} (по умолчанию — {{ mmg-backup-retention }}). Эта функциональность находится на стадии Preview. Подробнее см. в разделе [{#T}](../concepts/backup.md).
+
+      {% endif %}
 
       Изменение срока хранения затрагивает как новые автоматические резервные копии, так и уже существующие.
 

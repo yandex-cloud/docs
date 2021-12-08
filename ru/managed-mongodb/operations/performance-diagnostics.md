@@ -4,7 +4,15 @@
 
 {% note warning %}
 
+{% if audience != "internal" %}
+
 Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+
+{% else %}
+
+Эта функциональность находится на стадии Preview.
+
+{% endif %}
 
 {% endnote %}
 
