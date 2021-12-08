@@ -23,6 +23,10 @@ items:
             href: operations/invoke.md
           - name: Изменение контейнера
             href: operations/update.md
+          - name: Мониторинг
+            href: operations/monitoring.md
+          - name: Просмотр журнала выполнения
+            href: operations/logs.md
           - name: Удаление контейнера
             href: operations/delete.md
   - name: Концепции
@@ -37,8 +41,6 @@ items:
         href: concepts/runtime.md
       - name: Логи контейнера
         href: concepts/logs.md
-      - name: Мониторинг
-        href: concepts/monitoring.md
       - name: Резервное копирование
         href: concepts/backup.md
       - name: Квоты и лимиты
