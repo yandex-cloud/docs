@@ -81,6 +81,8 @@ items:
     href: office365/cross-site-tracking.md
 - name: Управление страницами
   items:
+  - name: Настройки страницы
+    href: page-managment/page-settings.md    
   - name: Ограничить просмотр страницы
     href: page-managment/access-setup.md
   - name: Запретить редактирование страницы
