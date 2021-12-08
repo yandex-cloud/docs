@@ -27,7 +27,7 @@ Set of methods for managing symmetric KMS keys.
 
 ## Create {#Create}
 
---- control plane Creates a symmetric KMS key in the specified folder.
+Creates a symmetric KMS key in the specified folder.
 
 **rpc Create ([CreateSymmetricKeyRequest](#CreateSymmetricKeyRequest)) returns ([operation.Operation](#Operation))**
 
