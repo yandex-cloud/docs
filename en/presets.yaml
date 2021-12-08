@@ -242,6 +242,7 @@ default:
   ES: Elasticsearch
   GP: Greenplum<sup>®</sup>
   KF: Apache Kafka<sup>®</sup>
+  KFC: Kafka Connect
   MG: MongoDB
   MS: SQL Server
   MY: MySQL
