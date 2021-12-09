@@ -1,4 +1,4 @@
-Create a trigger for the [message queue](../../message-queue/concepts/queue.md) of {{ message-queue-full-name }} and process messages using the [function](../../functions/concepts/function.md) {{ sf-name }}.
+Create a trigger for the [message queue](../../message-queue/concepts/queue.md) of {{ message-queue-full-name }} and process messages using a [function](../../functions/concepts/function.md) in {{ sf-name }} or a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }}.
 
 {% note warning %}
 
@@ -11,11 +11,19 @@ Create a trigger for the [message queue](../../message-queue/concepts/queue.md) 
 
 To create a trigger, you need:
 
-1. [Functions](../../functions/concepts/function.md) the trigger will send messages to for processing. If you don't have a function:
-    * [Create a function](../../functions/operations/function/function-create.md).
-    * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
-1. [A message queue](../../message-queue/concepts/queue.md) that the trigger will pick up messages from. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-1. Service accounts with rights to read messages from a message queue and to call a function. You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
+* A function or container the the trigger will launch.
+    * If you don't have a function:
+        * [Create a function](../../functions/operations/function/function-create.md).
+        * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
+    * If you don't have a container:
+        * [Create a container](../../serverless-containers/operations/create.md).
+        * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
+* A message queue that the trigger receives messages from. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* Service accounts with rights:
+    * To invoke a function or a container.
+    * To read from the queue the trigger receives messages from.
+    * (optional) To write to the [Dead Letter Queue](../../functions/concepts/dlq.md).
+You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -31,14 +39,18 @@ To create a trigger, you need:
     1. Under **Basic parameters**:
         * Enter a name and description for the trigger.
         * In the **Type** field, select **Message Queue**.
+        * Choose what will fire a trigger — a function or a container.
     1. Under **Message Queue settings**, select a message queue and a service account with rights to read messages from it.
     1. (optional) Under **Batch message settings**, specify:
         * Batch size. Values can be from 1 to 10. The default is 1.
-        * Maximum wait time. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the queue reaches the specified batch size or the maximum waiting time expires.
-    1. Under **Function settings**:
-        * Select the function for the trigger to invoke.
-        * Specify the [function version tag](../../functions/concepts/function.md#tag).
-        * Specify the service account to be used to invoke the function.
+        * Maximum wait time. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function or the container when the number of messages in the queue reaches the specified batch size or the maximum waiting time expires.
+    1. If the trigger launches:
+        * A function, select one under **Function settings** and specify:
+            * [Tag of the function version](../../functions/concepts/function.md#tag).
+            * A service account to be used to invoke the function.
+        * A container, select one under **Container settings** and specify:
+            * [A container revision](../../serverless-containers/concepts/container.md#revision).
+            * A service account to be used to invoke the container.
     1. Click **Create trigger**.
 
 - CLI
@@ -47,7 +59,7 @@ To create a trigger, you need:
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    To create a trigger, run the command:
+    To create a trigger that launches a function, run the command:
 
     ```
     yc serverless trigger create message-queue \
@@ -60,7 +72,7 @@ To create a trigger, you need:
         --batch-cutoff 10s
     ```
 
-    where:
+    Where:
     * `--name`: Trigger name.
     * `--queue`: Queue ID.
     To find out the queue ID:

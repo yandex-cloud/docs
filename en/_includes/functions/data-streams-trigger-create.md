@@ -1,27 +1,23 @@
-Create a trigger for the device [topic](../../iot-core/concepts/index.md) or {{ iot-name }} service registry, and process message copies using the [function](../../functions/concepts/function.md) in {{ sf-name }} or a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }}.
+Create triggers for [{{ yds-name }}](../../data-streams/) that'll invoke a [function](../../functions/concepts/function.md) in {{ sf-name }} or a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} when data is sent to the [stream](../../data-streams/concepts/glossary.md#stream-concepts).
 
-{% note warning %}
-
-The trigger must be in the same cloud with the registry or device it reads messages from.
-
-{% endnote %}
-
-## Before you start {#before-begin}
+## Before you start {#before-you-begin}
 
 To create a trigger, you need:
 
-* [Functions](../../functions/concepts/function.md) or [containers](../../serverless-containers/concepts/container.md) that the trigger will launch.
+* A function or container the the trigger will launch.
     * If you don't have a function:
         * [Create a function](../../functions/operations/function/function-create.md).
         * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
     * If you don't have a container:
         * [Create a container](../../serverless-containers/operations/create.md).
         * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
-* [Registries](../../iot-core/concepts/index.md#registry) or [devices](../../iot-core/concepts/index.md#device) whose topics the trigger will accept copies of messages from. If you don't have these:
-    * [Create a registry](../../iot-core/operations/registry/registry-create.md).
-    * [Create a device](../../iot-core/operations/device/device-create.md).
+* The stream that activates the trigger when data is sent there. If you don't have a stream, [create one](../../data-streams/quickstart/create-stream.md).
 * (optional) The [Dead Letter Queue](../../functions/concepts/dlq.md), where messages that the function or container could not process will be redirected. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-* Service accounts with rights to invoke a function or a container and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
+* Service accounts with rights:
+    * To invoke a function or a container.
+    * To read from the stream that activates the trigger when data is sent there.
+    * (optional) To write to the [Dead Letter Queue](../../functions/concepts/dlq.md).
+You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -36,9 +32,9 @@ To create a trigger, you need:
     1. Click **Create trigger**.
     1. Under **Basic parameters**:
         * Enter a name and description for the trigger.
-        * In the **Type** field, select **Yandex IoT Core**.
+        * In the **Type** field, select **Data Streams**.
         * Choose what will fire a trigger — a function or a container.
-    1. Under **Yandex IoT Core message settings**, specify the registry, device, and MQTT topic to create a trigger for. If you're creating a trigger for a registry topic, you can omit the device.
+    1. Under **Data Streams settings**, select a data stream and a service account with rights to read data from and write data to it.
     1. If the trigger launches:
         * A function, select one under **Function settings** and specify:
             * [Tag of the function version](../../functions/concepts/function.md#tag).
@@ -61,11 +57,10 @@ To create a trigger, you need:
     To create a trigger that launches a function, run the command:
 
     ```
-    yc serverless trigger create internet-of-things \
+    yc serverless trigger create yds \
         --name <trigger name> \
-        --registry-id <registry ID> \
-        --device-id <device ID> \
-        --mqtt-topic '$devices/<device ID>/events' \
+        --stream <data stream name> \
+        --stream-service-account-id <service account ID> \
         --invoke-function-id <function ID> \
         --invoke-function-service-account-id <service account ID> \
         --retry-attempts 1 \
@@ -76,41 +71,42 @@ To create a trigger, you need:
 
     Where:
     * `--name`: Trigger name.
-    * `--registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
-    * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you're creating a trigger for a registry topic, you can omit this parameter.
-    * `--mqtt-topic`: The topic you want to create a trigger for.
+    * `--stream`: Data stream name.
+    * `--stream-service-account-id`: ID of the service account with rights to read from the data stream and write to it.
     * `--invoke-function-id`: Function ID.
-    * `--invoke-function-service-account-id`: Service account with rights to call the function.
+    * `--invoke-function-service-account-id`: ID of the service account with rights to invoke the function.
     * `--retry-attempts`: The time after which the function will be invoked again if the current attempt fails. Optional parameter. Values can be from 10 to 60 seconds. The default is 10 seconds.
-    * `--retry-interval`: The number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional parameter. Values can be from 1 to 5. The default is 1.
+    * `--retry-interval`: The number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../message-queue/concepts/dlq.md). Optional parameter. Values can be from 1 to 5. The default is 1.
     * `--dlq-queue-id`: ID of the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional parameter.
     * `--dlq-service-account-id`: Service account with rights to write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). Optional parameter.
 
     Result:
 
     ```
-    id: a1sl0mkmimfj3uv52fr8
+    id: a1sfe084v4se4morbu2i
     folder_id: b1g88tflru0ek1omtsu0
-    created_at: "2019-09-25T13:54:35.654935Z"
-    name: iot-trigger
+    created_at: "2019-12-04T08:45:31.131391Z"
+    name: data-streams-trigger
     rule:
-      iot_message:
-        registry_id: arenou2oj4ct42eq8g3n
-        device_id: areqjd6un3afc3cefcvm
-        mqtt_topic: $devices/areqjd6un3afc3cefcvm/events
+      yds:
         invoke_function:
-          function_id: d4eofc7n0m03lmudse8l
+          stream: my-beta-stream
+          stream-service-account-id: aje3932acd0c********
+          function_id: d4eofc7n0m03********
           function_tag: $latest
-          service_account_id: aje3932acd0c5ur7dagp
+          service_account_id: aje3932acd0c********
           retry_settings:
             retry_attempts: "1"
             interval: 10s
+          dead_letter_queue:
+            queue-id: yrn:yc:ymq:ru-central1:aoek49ghmknn********:dlq
+            service-account-id: aje3932acd0c********
     status: ACTIVE
     ```
 
 - API
 
-  You can create a trigger for {{ iot-name }} using the [create](../../functions/triggers/api-ref/Trigger/create.md) API method.
+    You can create a trigger using the [create](../../functions/triggers/api-ref/Trigger/create.md) API method.
 
 {% endlist %}
 
