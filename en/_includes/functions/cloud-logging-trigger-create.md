@@ -22,6 +22,7 @@ To create a trigger, you need:
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a trigger.
     1. Open **{{ sf-name }}**.
     1. Go to the **Triggers** tab.
@@ -31,6 +32,9 @@ To create a trigger, you need:
         * In the **Type** field, select **Cloud Logging**.
         * Choose what will fire a trigger — a function or a container.
     1. Under **Cloud Logging settings**, select a log group and (optionally) resource types and IDs and logging levels.
+    1. (optional) Under **Batch message settings**, specify:
+        * Batch size. Valid values range from 1 to 100. The default is 1.
+        * Maximum wait time. Valid values range from 1 to 60 seconds. The default is 1 second. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. At the same time, the number of messages does not exceed the specified group size.
     1. If the trigger launches:
     	* A function, select one under **Function settings** and specify:
             * [Tag of the function version](../../functions/concepts/function.md#tag).
@@ -56,8 +60,8 @@ To create a trigger, you need:
     yc serverless trigger create logging \
         --name <trigger name> \
         --log-group-name <log group name> \
-        invoke-function-id <function ID> \
-        invoke-function-service-account-id <service account ID> \
+        --invoke-function-id <function ID> \
+        --invoke-function-service-account-id <service account ID> \
         --retry-attempts 1 \
         --retry-interval 10s \
         --dlq-queue-id <Dead Letter Queue ID> \
@@ -65,8 +69,11 @@ To create a trigger, you need:
     ```
 
     Where:
+
     * `--name`: Trigger name.
     * `--log-group-name`: Name of the log group that invokes the function when messages are delivered there.
+    * `--batch-size`: Message batch size. Optional. Valid values range from 1 to 100. The default is 1.
+    * `--batch-cutoff`: Maximum waiting time. Optional. Valid values range from 0 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. At the same time, the number of messages does not exceed `batch-size`.
     * `--invoke-function-id`: Function ID.
     * `--invoke-function-service-account-id`: ID of the service account with rights to invoke the function.
     * `--retry-attempts`: The time after which the function will be invoked again if the current attempt fails. Optional parameter. Values can be from 10 to 60 seconds. The default is 10 seconds.
@@ -84,6 +91,9 @@ To create a trigger, you need:
     rule:
       logging:
         log-group-name: default
+        batch_settings:
+          size: "1"
+          cutoff: 1s
         invoke_function:
           function_id: d4eofc7n0m03********
           function_tag: $latest
@@ -106,4 +116,3 @@ To create a trigger, you need:
 ## Checking the result {#check-result}
 
 {% include [check-result](check-result.md) %}
-

@@ -1,4 +1,4 @@
-Создайте триггер для [{{ cloud-logging-name }}](../../logging/), который будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при добавлении записей в [лог-группу]((../../logging/concepts/log-group.md)).
+Создайте триггер для [{{ cloud-logging-name }}](../../logging/), который будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при добавлении записей в [лог-группу](../../logging/concepts/log-group.md).
 
 ## Перед началом работы {#before-you-begin}
 

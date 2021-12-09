@@ -43,7 +43,7 @@ You can use the same service account or different ones. If you don't have a serv
     1. Under **Message Queue settings**, select a message queue and a service account with rights to read messages from it.
     1. (optional) Under **Batch message settings**, specify:
         * Batch size. Values can be from 1 to 10. The default is 1.
-        * Maximum wait time. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function or the container when the number of messages in the queue reaches the specified batch size or the maximum waiting time expires.
+        * Maximum wait time. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. At the same time, the number of messages does not exceed the specified group size.
     1. If the trigger launches:
         * A function, select one under **Function settings** and specify:
             * [Tag of the function version](../../functions/concepts/function.md#tag).
@@ -73,18 +73,22 @@ You can use the same service account or different ones. If you don't have a serv
     ```
 
     Where:
+
     * `--name`: Trigger name.
     * `--queue`: Queue ID.
-    To find out the queue ID:
+
+        To find out the queue ID:
+
         1. In the [management console]({{ link-console-main }}), go to the folder where the queue is located.
         1. Open {{ message-queue-full-name }}.
         1. Select the desired queue.
         1. You can see the queue ID under **General information** in the **ARN** field.
+    
     * `--invoke-function-id`: Function ID.
     * `--queue-service-account-name`: Service account with rights to read messages from the queue.
     * `--invoke-function-service-account-id`: Service account with rights to call the function.
     * `--batch-size`: Message batch size. Optional parameter. Values can be from 1 to 10. The default is 1.
-    * `--batch-cutoff`: Maximum waiting time. Optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the queue reaches the `batch-size` or the `batch-cutoff` expires.
+    * `--batch-cutoff`: Maximum waiting time. Optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. At the same time, the number of messages does not exceed `batch-size`.
 
     Result:
 
@@ -103,8 +107,8 @@ You can use the same service account or different ones. If you don't have a serv
         invoke_function:
           function_id: b09e5lu91ta21vdrrgma
           function_tag: $latest
-          service_account_id: bfbqqeo6jkpls2tse5o6  
-    status: ACTIVE      
+          service_account_id: bfbqqeo6jkpls2tse5o6
+    status: ACTIVE
     ```
 
 - API
@@ -124,9 +128,9 @@ You can use the same service account or different ones. If you don't have a serv
 - Message Queue
 
     Check that the number of enqueued messages is decreasing. To do this, view the queue statistics:
+
     1. Open **Message Queue**.
     1. Select the queue that you created the trigger for.
     1. Go to **Monitoring**. View the **Messages in queue** chart.
 
 {% endlist %}
-

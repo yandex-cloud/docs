@@ -76,11 +76,14 @@
 
     * `--name` — имя триггера.
     * `--queue` — идентификатор очереди.
-    Чтобы узнать идентификатор очереди:
+
+        Чтобы узнать идентификатор очереди:
+
         1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится очередь.
         1. Откройте сервис {{ message-queue-full-name }}.
         1. Выберите очередь.
         1. Идентификатор очереди будет в блоке **Общая информация**, в поле **ARN**.
+
     * `--invoke-function-id` — идентификатор функции.
     * `--queue-service-account-name` — сервисный аккаунт с правами на чтение из очереди сообщений.
     * `--invoke-function-service-account-id` — сервисный аккаунт с правами на вызов функции.
@@ -103,8 +106,8 @@
         invoke_function:
           function_id: b09e5lu91ta21vdrrgma
           function_tag: $latest
-          service_account_id: bfbqqeo6jkpls2tse5o6  
-    status: ACTIVE      
+          service_account_id: bfbqqeo6jkpls2tse5o6
+    status: ACTIVE
     ```
 
 - API
@@ -112,7 +115,6 @@
     Создать триггер для {{ message-queue-full-name }} можно с помощью метода API [create](../../functions/triggers/api-ref/Trigger/create.md).
 
 {% endlist %}
-
 
 ## Проверить результат {#check-result}
 
@@ -125,6 +127,7 @@
 - Message Queue
 
     Проверьте, что количество сообщений в очереди уменьшается. Для этого посмотрите статистику очереди:
+
     1. Откройте сервис **Message Queue**.
     1. Выберите очередь, для которой создали триггер.
     1. Перейдите в раздел **Мониторинг**. Посмотрите график **Сообщений в очереди**.
