@@ -6,70 +6,107 @@ The relationship between the payment invoice, billing account, and cloud is show
 
 ![image](../../_assets/billing/1-1-cloud.png)
 
-## Issuing a payment invoice {#agregate}
+## Issuing an invoice {#agregate}
 
-A payment invoice is issued at the beginning of the next reporting period if the following conditions are met:
+A payment invoice is generated automatically and issued at the beginning of the following reporting period under the conditions below:
 
 * The selected payment method is [Transfer from your bank account](../payment/payment-methods-business.md).
 * [The total invoice amount](#payment-amount) is greater than zero.
 
 {% note info %}
 
-Yandex.Cloud reserves the right to issue a payment invoice during the current reporting period if you exceed the established credit limit.
+{{ yandex-cloud }} reserves the right to issue a payment invoice during the current reporting period if you exceed your established credit limit.
 
 {% endnote %}
 
-## Payment invoice amount {#payment-amount}
+## Invoice amount {#payment-amount}
 
 {% include [bill-amount](../_includes/bill-amount.md) %}
 
-<br/>![image](../../_assets/billing/formula.png)
+![image](../../_assets/billing/formula.png)
 
 {% list tabs %}
 
+{% if region == "ru" %}
+
 - Example 1
 
-  <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
-<br/>The balance has not been topped up during the entire reporting period (0 rubles).
-<br/>The grant amount is 1000 rubles.
-<br/>The credit limit is 1000 rubles.
-<br/>At the end of the reporting period, the credit limit has not been reached and the amount for resources consumed is 1400 rubles.
-<br/>Total amount: 1400 - (0 + 0 + 1000) = 400 (rubles).
-<br/>At the beginning of the next reporting period, you will be issued a payment invoice for the amount you have actually used (in this case, 400 rubles).
+  The personal account balance at the beginning of the reporting period is 0 rubles.
+  The balance has not been topped up during the entire reporting period (0 rubles).
+  The grant amount is 1000 rubles.
+  The credit limit is 1000 rubles.
+  At the end of the reporting period, the credit limit has not been reached and the amount for resources consumed is 1400 rubles.
+  Total amount: 1400 - (0 + 0 + 1000) = 400 (rubles).
+  At the beginning of the next reporting period, you will be issued a payment invoice for the amount you have actually used (in this case, 400 rubles).
 
 - Example 2
 
-  <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
-<br/>The balance has not been topped up during the entire reporting period (0 rubles).
-<br/>The grant amount is 1000 rubles.
-<br/>The credit limit is not enabled.
-<br/>By the end of the reporting period, the amount for resources consumed is 800 rubles.
-<br/>The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
-<br/>At the beginning of the next reporting month, no payment invoice will be generated.
+  The personal account balance at the beginning of the reporting period is 0 rubles.
+  The balance has not been topped up during the entire reporting period (0 rubles).
+  The grant amount is 1000 rubles.
+  The credit limit is not enabled.
+  By the end of the reporting period, the amount for resources consumed is 800 rubles.
+  The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
+  At the beginning of the next reporting month, no payment invoice will be generated.
 
 - Example 3
 
-  <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
-<br/>The balance has not been topped up during the entire reporting period (0 rubles).
-<br/>The grant amount is 1000 rubles.
-<br/>The credit limit is 1000 rubles.
-<br/>In the middle of the reporting period, the established credit limit has been reached and the amount for resources consumed is 2000 rubles.
-<br/>Total amount: 2000 - (0 + 0 + 1000) = 1000 (rubles).
-<br/>In the middle of the reporting period, you will be issued a payment invoice for the amount actually used (in this case, 1000 rubles).
+  The personal account balance at the beginning of the reporting period is 0 rubles.
+  The balance has not been topped up during the entire reporting period (0 rubles).
+  The grant amount is 1000 rubles.
+  The credit limit is 1000 rubles.
+  In the middle of the reporting period, the established credit limit has been reached and the amount for resources consumed is 2000 rubles.
+  Total amount: 2000 - (0 + 0 + 1000) = 1000 (rubles).
+  In the middle of the reporting period, you will be issued a payment invoice for the amount actually used (in this case, 1000 rubles).
+
+{% endif %}
+
+{% if region == "kz" %}
+
+- Example 1
+
+  The balance of the personal account at the beginning of the reporting period is 0 tenge.
+  The balance was not topped up during the entire reporting period (0 tenge).
+  The grant amount is 1000 tenge.
+  Your credit limit is 1000 tenge.
+  As of the end of the reporting period, you have not used up your credit limit, and the amount for resources consumed is 1400 tenge.
+  Total amount: 1400 - (0 + 0 + 1000) = 400 tenge.
+  At the beginning of the next reporting period, you will receive an invoice for the amount you have actually spent, which is 400 tenge.
+
+- Example 2
+
+  The balance of the personal account at the beginning of the reporting period is 0 tenge.
+  The balance was not topped up during the entire reporting period (0 tenge).
+  The grant amount is 1000 tenge.
+  The credit limit is not enabled.
+  As of the end of the reporting period, the amount for resources consumed was 800 tenge.
+  The grant amount as of the end of the reporting period is 200 tenge. The personal account balance has not changed.
+  At the beginning of the next reporting month, no payment invoice will be generated.
+
+- Example 3
+
+  The balance of the personal account at the beginning of the reporting period is 0 tenge.
+  The balance was not topped up during the entire reporting period (0 tenge).
+  The grant amount is 1000 tenge.
+  Your credit limit is 1000 tenge.
+  In the middle of the reporting period, you used up your credit limit, and the amount for resources consumed was 2000 tenge.
+  Total amount: 2000 - (0 + 0 + 1000) = 1000 tenge.
+  In the middle of the reporting period, you will receive a payment invoice for the amount actually spent, which is 1000 tenge.
+
+{% endif %}
 
 {% endlist %}
 
-## Payment {#payment}
+## Making payment {#payment}
 
 Invoices must be paid before the deadline stipulated in the [agreement](../concepts/contract.md). Payment is made by bank transfer. For more information, see [Payment methods for businesses](../payment/payment-methods-business.md).
 
 {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
-## Payment invoice details {#parameters}
+## Invoice details {#parameters}
 
 {% include [[bill-requisites](../_includes/bill-requisites.md) %}
 
-## Tax and fee accounting {#nds}
+## Taxes and fees {#nds}
 
 {% include [nds](../_includes/nds.md) %}
-
