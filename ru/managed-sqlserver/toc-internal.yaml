@@ -45,6 +45,8 @@ items:
         href: concepts/backup.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
+      - name: Доступ к компонентам SQL Server
+        href: concepts/components.md
   - name: Управление доступом
     href: security/index.md
   - name: Ресурсы и квоты
