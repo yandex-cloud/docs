@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/list.md
 ---
+
 
 # Method list
 Retrieves the list of PostgreSQL Cluster resources that belong

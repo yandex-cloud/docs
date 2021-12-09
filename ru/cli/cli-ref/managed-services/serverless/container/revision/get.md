@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/revision/get.md
+---
 # yc serverless container revision get
 
 Show information about the specified container revision

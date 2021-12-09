@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/resourcemanager/api-ref/Cloud/update.md
 ---
+
 
 # Method update
 Updates the specified cloud.

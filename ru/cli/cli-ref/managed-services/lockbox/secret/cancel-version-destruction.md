@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/cancel-version-destruction.md
+---
 # yc lockbox secret cancel-version-destruction
 
 Cancel destruction of the specified secret version

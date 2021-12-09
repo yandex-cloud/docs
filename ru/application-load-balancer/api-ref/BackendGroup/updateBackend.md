@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/updateBackend.md
 ---
+
 
 # Method updateBackend
 Updates the specified backend.

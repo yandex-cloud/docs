@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/Certificate/update.md
 ---
+
 
 # Method update
 Updates the specified certificate.

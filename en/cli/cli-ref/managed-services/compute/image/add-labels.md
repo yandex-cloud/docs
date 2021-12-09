@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/image/add-labels.md
+---
 # yc compute image add-labels
 
 Add labels to specified image

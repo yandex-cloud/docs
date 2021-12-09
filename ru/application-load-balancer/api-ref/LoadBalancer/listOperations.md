@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/listOperations.md
 ---
+
 
 # Method listOperations
 Lists operations for the specified application load balancer.

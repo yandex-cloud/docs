@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/snapshot/list.md
+---
 # yc compute snapshot list
 
 List snapshots

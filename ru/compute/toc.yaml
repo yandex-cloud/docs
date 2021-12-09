@@ -174,7 +174,9 @@ items:
           - name: Создать автоматически масштабируемую группу ВМ
             href: operations/instance-groups/create-autoscaled-group.md
           - name: Создать группу ВМ с Container Optimized Image
-            href: operations/instance-groups/create-with-coi
+            href: operations/instance-groups/create-with-coi.md
+          - name: Создать группу ВМ по YAML-спецификации
+            href: operations/instance-groups/create-from-yaml.md
       - name: Получение информации о группе виртуальных машин
         items:
           - name: Получить список групп ВМ
@@ -187,6 +189,8 @@ items:
         items:
           - name: Изменить группу ВМ
             href: operations/instance-groups/update.md
+          - name: Изменить группу ВМ по YAML-спецификации
+            href: operations/instance-groups/update-from-yaml.md
           - name: Настроить проверку состояния приложения на ВМ
             href: operations/instance-groups/enable-autohealing.md
           - name: Обновить группу
@@ -275,6 +279,8 @@ items:
             href: concepts/instance-groups/index.md
           - name: Доступ
             href: concepts/instance-groups/access.md
+          - name: YAML-спецификация
+            href: concepts/instance-groups/specification.md
           - name: Шаблон виртуальной машины
             href: concepts/instance-groups/instance-template.md
           - name: Переменные в шаблоне виртуальной машины

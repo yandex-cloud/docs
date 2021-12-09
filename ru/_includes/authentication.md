@@ -1,5 +1,6 @@
 # Аутентификация в API
 
+
 Для выполнения операций через API необходимо получить [IAM-токен](../iam/concepts/authorization/iam-token.md):
 
 * [Инструкция](../iam/operations/iam-token/create.md) для аккаунта на Яндексе.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/attach-disk.md
+---
 # yc compute instance attach-disk
 
 Attach existing disk to the the specified virtual machine instance

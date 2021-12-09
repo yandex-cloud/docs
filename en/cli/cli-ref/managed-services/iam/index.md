@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/index.md
+---
 # yc iam
 
 Manage Yandex Identity and Access Manager resources

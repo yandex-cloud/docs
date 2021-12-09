@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/user/create.md
+---
 # yc managed-kafka user create
 
 Create a Kafka user.

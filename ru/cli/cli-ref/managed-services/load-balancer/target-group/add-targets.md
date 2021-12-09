@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/load-balancer/target-group/add-targets.md
+---
 # yc load-balancer target-group add-targets
 
 Add targets to the specified target group

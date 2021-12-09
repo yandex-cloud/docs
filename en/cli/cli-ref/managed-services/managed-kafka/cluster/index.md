@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/index.md
+---
 # yc managed-kafka cluster
 
 Manage Kafka clusters.

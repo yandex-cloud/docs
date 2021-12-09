@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/subnet/remove-labels.md
+---
 # yc vpc subnet remove-labels
 
 Remove labels from a subnet.

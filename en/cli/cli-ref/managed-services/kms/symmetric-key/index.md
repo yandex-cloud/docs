@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/index.md
+---
 # yc kms symmetric-key
 
 Manage symmetric keys

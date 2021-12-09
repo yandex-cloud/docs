@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/addZookeeper.md
 ---
+
 
 # Method addZookeeper
 Adds a ZooKeeper subcluster to the specified ClickHouse cluster.

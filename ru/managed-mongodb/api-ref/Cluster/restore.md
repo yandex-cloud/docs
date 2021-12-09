@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/restore.md
 ---
+
 
 # Method restore
 Creates a new MongoDB cluster using the specified backup.

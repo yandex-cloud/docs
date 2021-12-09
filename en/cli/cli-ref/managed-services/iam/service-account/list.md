@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/service-account/list.md
+---
 # yc iam service-account list
 
 List service accounts

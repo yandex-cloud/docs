@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/update.md
+---
 # yc managed-sqlserver user update
 
 Update the specified SQLServer user

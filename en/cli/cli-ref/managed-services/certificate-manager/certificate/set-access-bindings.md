@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/set-access-bindings.md
+---
 # yc certificate-manager certificate set-access-bindings
 
 Set access bindings for the specified certificate and delete all existing access bindings if there were any

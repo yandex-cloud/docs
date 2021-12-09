@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/HostGroup/listHosts.md
 ---
+
 
 # Method listHosts
 Lists hosts that belongs to the specified host group.

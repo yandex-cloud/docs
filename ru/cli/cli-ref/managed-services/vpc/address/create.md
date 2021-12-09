@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/address/create.md
+---
 # yc vpc address create
 
 Create an address.

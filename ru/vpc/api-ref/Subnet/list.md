@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Subnet/list.md
 ---
+
 
 # Method list
 Retrieves the list of Subnet resources in the specified folder.

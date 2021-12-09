@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/FormatSchema/list.md
 ---
+
 
 # Method list
 

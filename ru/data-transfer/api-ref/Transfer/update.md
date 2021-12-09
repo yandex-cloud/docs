@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/update.md
 ---
+
 
 # Method update
 

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/count-issues.md
+---
 # Find out the number of issues
 
 Use this request to find out the number of issues that meet the conditions of your request.

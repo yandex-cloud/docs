@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/update-listener.md
+---
 # yc application-load-balancer load-balancer update-listener
 
 Updates listener in the specified application load balancer.

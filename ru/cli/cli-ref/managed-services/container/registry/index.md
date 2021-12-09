@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/registry/index.md
+---
 # yc container registry
 
 Manage registries.

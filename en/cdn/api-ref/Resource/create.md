@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Resource/create.md
 ---
+
 
 # Method create
 Creates client's CDN resource.

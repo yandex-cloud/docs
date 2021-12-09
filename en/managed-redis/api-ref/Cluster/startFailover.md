@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/startFailover.md
 ---
+
 
 # Method startFailover
 Start a manual failover on the specified Redis cluster.

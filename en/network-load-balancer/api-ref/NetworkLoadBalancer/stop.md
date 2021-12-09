@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/stop.md
 ---
+
 
 # Method stop
 Stops load balancing and health checking with the specified network load balancer.

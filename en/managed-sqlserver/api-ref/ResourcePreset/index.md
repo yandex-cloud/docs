@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/sqlserver/api-ref/ResourcePreset/index.md
 ---
+
 
 # ResourcePreset
 A set of methods for managing resource presets.

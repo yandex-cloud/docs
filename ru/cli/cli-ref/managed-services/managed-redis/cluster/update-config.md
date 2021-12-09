@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/cluster/update-config.md
+---
 # yc managed-redis cluster update-config
 
 Update the specified Redis cluster config

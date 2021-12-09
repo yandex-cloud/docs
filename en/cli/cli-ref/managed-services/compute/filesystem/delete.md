@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/filesystem/delete.md
+---
 # yc compute filesystem delete
 
 Delete the specified filesystem

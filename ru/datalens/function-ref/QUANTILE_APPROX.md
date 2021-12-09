@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/QUANTILE_APPROX.md
 ---
+
 
 # QUANTILE_APPROX
 

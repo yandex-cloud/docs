@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/add-zookeeper.md
+---
 # yc managed-clickhouse cluster add-zookeeper
 
 Adds Zookeeper hosts for a ClickHouse cluster.

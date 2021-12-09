@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/TOPONYM_TO_GEOPOINT.md
 ---
+
 
 # TOPONYM_TO_GEOPOINT
 

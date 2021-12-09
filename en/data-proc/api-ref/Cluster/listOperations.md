@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Cluster/listOperations.md
 ---
+
 
 # Method listOperations
 Lists operations for the specified cluster.

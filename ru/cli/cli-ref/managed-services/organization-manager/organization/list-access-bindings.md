@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/organization/list-access-bindings.md
+---
 # yc organization-manager organization list-access-bindings
 
 List access bindings for the specified organization

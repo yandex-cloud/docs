@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/detachDisk.md
 ---
+
 
 # Method detachDisk
 Detaches the disk from the instance.

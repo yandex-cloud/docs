@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/billing/api-ref/Service/get.md
 ---
+
 
 # Method get
 Returns the specified service.

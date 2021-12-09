@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/issue-worklog.md
+---
 # Get all records for an issue
 
 Use this request to get data about the time spent on an issue.

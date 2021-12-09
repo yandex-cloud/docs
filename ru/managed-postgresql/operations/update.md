@@ -350,7 +350,7 @@
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
-
+    
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
     {% include [Защита от удаления кластера](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
@@ -435,6 +435,7 @@
 
     {% endnote %}
 
+  
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 {% endlist %}

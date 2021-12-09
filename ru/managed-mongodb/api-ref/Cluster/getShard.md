@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/getShard.md
 ---
+
 
 # Method getShard
 Returns the specified shard.

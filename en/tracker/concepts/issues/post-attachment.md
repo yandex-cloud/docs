@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/post-attachment.md
+---
 # Attach a file
 
 Use this request to attach a file to an issue.

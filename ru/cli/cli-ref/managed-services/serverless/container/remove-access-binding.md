@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/remove-access-binding.md
+---
 # yc serverless container remove-access-binding
 
 Remove access binding for the specified container

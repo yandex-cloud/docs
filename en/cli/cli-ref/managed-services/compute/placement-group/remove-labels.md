@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/placement-group/remove-labels.md
+---
 # yc compute placement-group remove-labels
 
 Remove labels from the specified placement group

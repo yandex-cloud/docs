@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/ServiceAccount/setAccessBindings.md
 ---
+
 
 # Method setAccessBindings
 Sets access bindings for the service account.

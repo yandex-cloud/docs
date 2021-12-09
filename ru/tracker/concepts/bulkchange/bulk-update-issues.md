@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/bulkchange/bulk-update-issues.md
+---
 # Массовое редактирование задач
 
 Запрос позволяет изменить параметры нескольких задач одновременно.

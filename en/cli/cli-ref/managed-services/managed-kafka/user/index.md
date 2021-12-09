@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/user/index.md
+---
 # yc managed-kafka user
 
 Manage Kafka users.

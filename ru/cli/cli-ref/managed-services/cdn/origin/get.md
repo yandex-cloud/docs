@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/origin/get.md
+---
 # yc cdn origin get
 
 Show information about the specified origin

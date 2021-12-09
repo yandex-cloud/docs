@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/projects/get-project-queues.md
+---
 # Get a list of project queues
 
 Use this request to get a list of queues whose issues are included in a [project](../../manager/projects.md).

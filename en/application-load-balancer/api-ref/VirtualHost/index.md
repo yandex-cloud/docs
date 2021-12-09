@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/index.md
 ---
+
 
 # VirtualHost
 A set of methods for managing virtual hosts of HTTP routers.

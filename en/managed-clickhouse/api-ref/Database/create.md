@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Database/create.md
 ---
+
 
 # Method create
 Creates a new ClickHouse database in the specified cluster.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/import/import-ticket.md
+---
 # Import an issue
 
 {% note warning %}

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/link-issue.md
+---
 # Link issues
 
 Use this request to create links between two issues. A link is created between the current issue (specified in the [issue-id](#id) request parameter) and the linked one (specified in the [issue](#issue) field of the request body).

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/image/list.md
+---
 # yc container image list
 
 List Docker images.

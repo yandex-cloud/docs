@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-yc/init.md
+---
 # yc init
 
 CLI initialization

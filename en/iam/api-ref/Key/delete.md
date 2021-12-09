@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/Key/delete.md
 ---
+
 
 # Method delete
 Deletes the specified key pair.

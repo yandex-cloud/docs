@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/Connector/resume.md
 ---
+
 
 # Method resume
 Resume the specified Apache Kafka connector.

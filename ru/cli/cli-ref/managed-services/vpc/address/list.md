@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/address/list.md
+---
 # yc vpc address list
 
 List addresses in a folder.

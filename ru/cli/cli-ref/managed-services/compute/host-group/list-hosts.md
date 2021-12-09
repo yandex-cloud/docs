@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/host-group/list-hosts.md
+---
 # yc compute host-group list-hosts
 
 List hosts of the specified host group

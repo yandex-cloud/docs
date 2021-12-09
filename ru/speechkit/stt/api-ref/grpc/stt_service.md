@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/ai/stt/v3/stt/api-ref/grpc/stt_service.md
 ---
+
 
 # Recognizer
 

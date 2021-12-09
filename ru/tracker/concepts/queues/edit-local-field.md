@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/queues/edit-local-field.md
+---
 # Редактировать локальное поле очереди
 
 Запрос позволяет редактировать [локальное поле](../../local-fields.md) задачи, привязанное к заданной очереди.

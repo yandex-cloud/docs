@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/access-key/delete.md
+---
 # yc iam access-key delete
 
 Delete the specified access key Access keys are used for the authentication by Yandex Object Storage API to provide compatibility with Amazon S3 API.

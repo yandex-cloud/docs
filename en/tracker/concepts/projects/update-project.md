@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/projects/update-project.md
+---
 # Edit a project
 
 Use this request to update information about a [project](../../manager/projects.md).

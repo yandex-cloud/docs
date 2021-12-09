@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/folder/get.md
+---
 # yc resource-manager folder get
 
 Show information about the specified folder

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Address/list.md
 ---
+
 
 # Method list
 Retrieves the list of Address resources in the specified folder.

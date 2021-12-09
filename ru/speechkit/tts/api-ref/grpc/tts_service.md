@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/ai/tts/v3/tts/api-ref/grpc/tts_service.md
 ---
+
 
 # Synthesizer
 

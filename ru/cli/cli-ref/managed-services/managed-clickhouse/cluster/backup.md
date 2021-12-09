@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/backup.md
+---
 # yc managed-clickhouse cluster backup
 
 Create a backup for a ClickHouse cluster.

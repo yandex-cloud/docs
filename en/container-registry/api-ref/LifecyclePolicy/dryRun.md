@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/dryRun.md
 ---
+
 
 # Method dryRun
 Creates a request of a dry run of the lifecycle policy.

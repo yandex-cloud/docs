@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Origin/index.md
 ---
+
 
 # Origin
 Origin management service.

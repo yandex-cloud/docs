@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/triggers/triggers/api-ref/Trigger/delete.md
 ---
+
 
 # Method delete
 Deletes the specified trigger.

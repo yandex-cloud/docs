@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/projects/get-project.md
+---
 # Get project parameters
 
 Use this request to get information about [projects](../../manager/projects.md).

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/cluster/update.md
+---
 # yc dataproc cluster update
 
 Modify attributes of a cluster.

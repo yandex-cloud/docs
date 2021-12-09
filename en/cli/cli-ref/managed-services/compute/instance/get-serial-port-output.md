@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/get-serial-port-output.md
+---
 # yc compute instance get-serial-port-output
 
 Return the serial port output of the specified virtual machine instance

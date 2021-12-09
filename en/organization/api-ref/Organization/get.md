@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/get.md
 ---
+
 
 # Method get
 Returns the specified Organization resource.

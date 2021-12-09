@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/post-macros.md
+---
 # Create a macro
 
 Use this request to create macros.

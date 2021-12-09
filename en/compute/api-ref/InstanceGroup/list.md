@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/list.md
 ---
+
 
 # Method list
 Retrieves the list of InstanceGroup resources in the specified folder.

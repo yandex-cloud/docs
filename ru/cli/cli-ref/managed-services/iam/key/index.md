@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/key/index.md
+---
 # yc iam key
 
 Manage IAM keys. IAM keys can be issued for authenticated user account or a service account. IAM key may be used to authorize service account in CLI and API.

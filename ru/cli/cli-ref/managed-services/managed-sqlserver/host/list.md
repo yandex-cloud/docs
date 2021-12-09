@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/host/list.md
+---
 # yc managed-sqlserver host list
 
 List hosts for the specified SQLServer cluster

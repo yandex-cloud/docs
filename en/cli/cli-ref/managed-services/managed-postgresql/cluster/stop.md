@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/stop.md
+---
 # yc managed-postgresql cluster stop
 
 Stop the specified PostgreSQL cluster

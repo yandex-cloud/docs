@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/import/import-comments.md
+---
 # Import comments
 
 {% note warning %}

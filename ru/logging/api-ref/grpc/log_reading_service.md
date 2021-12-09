@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/logging/api-ref/grpc/log_reading_service.md
 ---
+
 
 # LogReadingService
 

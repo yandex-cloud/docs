@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/backup.md
+---
 # yc managed-mongodb cluster backup
 
 Create a backup for the specified MongoDB cluster.

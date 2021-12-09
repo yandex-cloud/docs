@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Registry/delete.md
 ---
+
 
 # Method delete
 Deletes the specified registry.

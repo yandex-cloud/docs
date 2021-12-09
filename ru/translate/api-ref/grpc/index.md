@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_api-ref-grpc/translate/api-ref/grpc/index.md
+---
 # Yandex Translation API v2
 Сервис не оперирует ресурсами. Все методы сервиса представлены на странице [Translation](Translation/).
 

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/security-group/index.md
+---
 # yc vpc security-group
 
 Manage security groups.

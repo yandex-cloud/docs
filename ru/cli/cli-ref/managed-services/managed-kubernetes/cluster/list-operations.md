@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/list-operations.md
+---
 # yc managed-kubernetes cluster list-operations
 
 List operations for the specified Kubernetes cluster.

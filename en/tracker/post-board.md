@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/post-board.md
+---
 # Create a board
 
 Use this request to create boards.

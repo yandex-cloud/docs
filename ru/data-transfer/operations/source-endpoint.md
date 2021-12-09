@@ -20,6 +20,7 @@
         * [{#T}](#settings-clickhouse);
         * [{#T}](#settings-mongodb);
         * [{#T}](#settings-mysql);
+        * [{#T}](#settings-oracle);
         * [{#T}](#settings-postgresql);
         * [{#T}](#settings-yds).
 
@@ -41,6 +42,7 @@
         * [{#T}](#settings-clickhouse);
         * [{#T}](#settings-mongodb);
         * [{#T}](#settings-mysql);
+        * [{#T}](#settings-oracle);
         * [{#T}](#settings-postgresql);
         * [{#T}](#settings-yds).
 
@@ -99,9 +101,9 @@
     Если вы используете несколько эндпойнтов, то для каждого из них необходимо создать отдельный трансфер.
 
     {% endnote %}
-
+    
+        
     * {% include [Field Subnet ID](../../_includes/data-transfer/fields/subnet-id.md) %}
-
 ### {{ MY }} {#settings-mysql}
 
 * **Настройки подключения** — выбор типа подключения к БД:
@@ -129,6 +131,10 @@
         Этот этап выполняется в конце работы трансфера, при его деактивации. Если трансфер постоянно работает в режиме репликации, то финальная стадия переноса будет выполнена только при остановке репликации. На этом этапе вы можете включить перенос представлений, хранимых процедур и функций, триггеров.
 
         На финальной стадии предполагается, что при деактивации трансфера на источнике нет пишущей нагрузки. Это можно гарантировать переводом в режим <q>только чтение</q> (read-only). На этой стадии схема базы данных на приемнике приводится в соответствие схеме на источнике.
+
+### Oracle {#settings-oracle}
+
+{% include [Oracle required settings](../../_includes/data-transfer/necessary-settings/oracle.md) %}
 
 ### {{ PG }} {#settings-postgresql}
 

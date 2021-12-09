@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/list.md
+---
 # yc managed-mongodb cluster list
 
 List MongoDB clusters in a folder.

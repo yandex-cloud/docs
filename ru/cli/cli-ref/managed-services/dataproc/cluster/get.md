@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/cluster/get.md
+---
 # yc dataproc cluster get
 
 Get information about a cluster.

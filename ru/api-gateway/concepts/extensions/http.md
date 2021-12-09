@@ -17,7 +17,7 @@
 
 Пример спецификации:
 
-```
+```yaml
 x-yc-apigateway-integration:
   type: http
   url: https://example.com/backend1

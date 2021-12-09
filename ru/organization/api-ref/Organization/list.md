@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/list.md
 ---
+
 
 # Method list
 Retrieves the list of Organization resources.

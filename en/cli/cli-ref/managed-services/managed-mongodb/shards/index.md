@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/shards/index.md
+---
 # yc managed-mongodb shards
 
 Manage shards in a MongoDB cluster.

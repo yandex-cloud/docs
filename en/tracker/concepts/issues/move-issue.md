@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/move-issue.md
+---
 # Move an issue to another queue
 
 Use this request to move an issue to a different queue.

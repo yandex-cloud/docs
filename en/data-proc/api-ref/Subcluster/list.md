@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Subcluster/list.md
 ---
+
 
 # Method list
 Retrieves a list of subclusters in the specified cluster.

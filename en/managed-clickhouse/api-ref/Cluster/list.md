@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/list.md
 ---
+
 
 # Method list
 Retrieves a list of ClickHouse clusters that belong

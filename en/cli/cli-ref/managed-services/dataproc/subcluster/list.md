@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/subcluster/list.md
+---
 # yc dataproc subcluster list
 
 List subclusters in a cluster.

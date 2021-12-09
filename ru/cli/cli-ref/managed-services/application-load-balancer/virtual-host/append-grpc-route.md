@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/append-grpc-route.md
+---
 # yc application-load-balancer virtual-host append-grpc-route
 
 Appends grpc route to the specified virtual host of the http router

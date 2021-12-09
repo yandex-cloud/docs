@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/index.md
+---
 # yc managed-kafka
 
 Manage Apache Kafka clusters, brokers, topics and users.

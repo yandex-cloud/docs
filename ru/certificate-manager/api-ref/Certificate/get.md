@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/get.md
 ---
+
 
 # Method get
 Returns the specified certificate.

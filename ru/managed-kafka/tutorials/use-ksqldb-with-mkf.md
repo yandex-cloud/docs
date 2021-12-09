@@ -15,6 +15,7 @@ ksqlDB — это база данных, которая предназначен
 1. [Создайте кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей вам конфигурации:
     
     * Если сервер ksqlDB размещен в интернете, создайте кластер {{ mkf-name }} с публичным доступом.
+    
     * Если сервер ksqlDB размещен в {{ yandex-cloud }}, создайте кластер {{ mkf-name }} в той же [облачной сети](../../vpc/concepts/network.md), где находится ksqlDB.
 
 1. [Создайте топики](../../managed-kafka/operations/cluster-topics.md#create-topic) в кластере {{ mkf-name }}:

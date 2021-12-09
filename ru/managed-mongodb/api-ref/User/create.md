@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/User/create.md
 ---
+
 
 # Method create
 Creates a MongoDB user in the specified cluster.

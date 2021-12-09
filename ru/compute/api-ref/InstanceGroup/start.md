@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/start.md
 ---
+
 
 # Method start
 Starts the specified instance group.

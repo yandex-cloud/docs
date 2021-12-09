@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/bulkchange/bulk-move-issues.md
+---
 # Массовый перенос задач в другую очередь
 
 Запрос позволяет переместить в другую очередь одновременно несколько задач.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/remove-graphite-rollup.md
+---
 # yc managed-clickhouse cluster remove-graphite-rollup
 
 Remove graphite rollup configuration from a ClickHouse cluster.

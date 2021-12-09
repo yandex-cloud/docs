@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/start.md
+---
 # yc managed-kubernetes cluster start
 
 Start a Kubernetes cluster and all its node groups.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/mqtt/index.md
+---
 # yc iot mqtt
 
 Exchange MQTT messages

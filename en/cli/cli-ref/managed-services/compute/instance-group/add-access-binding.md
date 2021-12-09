@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/add-access-binding.md
+---
 # yc compute instance-group add-access-binding
 
 Add access binding for the specified instance group

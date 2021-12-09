@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/database/list.md
+---
 # yc ydb database list
 
 List YDB databases in a folder.

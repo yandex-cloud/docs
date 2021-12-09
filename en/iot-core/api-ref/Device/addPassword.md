@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Device/addPassword.md
 ---
+
 
 # Method addPassword
 Adds password for the specified device.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/reschedule-maintenance.md
+---
 # yc managed-redis cluster reschedule-maintenance
 
 Reschedule currently planned maintenance operation.

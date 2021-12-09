@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/list.md
 ---
+
 
 # Method list
 Retrieves the list of lifecycle policies in the specified repository.

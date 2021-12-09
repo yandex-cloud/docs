@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/create.md
+---
 # yc managed-kafka cluster create
 
 Create Kafka cluster

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/LOG10.md
 ---
+
 
 # LOG10
 

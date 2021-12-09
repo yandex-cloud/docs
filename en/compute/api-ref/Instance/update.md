@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/update.md
 ---
+
 
 # Method update
 Updates the specified instance.

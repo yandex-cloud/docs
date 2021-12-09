@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/deleteHosts.md
 ---
+
 
 # Method deleteHosts
 Deletes the specified hosts for a cluster.

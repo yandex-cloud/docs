@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/security-group/create.md
+---
 # yc vpc security-group create
 
 Create a security group.

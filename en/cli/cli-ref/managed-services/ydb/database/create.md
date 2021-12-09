@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/create.md
+---
 # yc ydb database create
 
 Create YDB database.

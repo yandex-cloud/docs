@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/listInstances.md
 ---
+
 
 # Method listInstances
 Lists instances for the specified instance group.

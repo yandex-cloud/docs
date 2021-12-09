@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/start.md
+---
 # yc managed-elasticsearch cluster start
 
 Start the specified ElasticSearch cluster.

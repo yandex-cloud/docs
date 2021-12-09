@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/resource/delete.md
+---
 # yc cdn resource delete
 
 Delete resource.

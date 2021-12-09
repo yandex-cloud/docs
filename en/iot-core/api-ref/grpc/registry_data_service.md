@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/iot-core/api-ref/grpc/registry_data_service.md
 ---
+
 
 # RegistryDataService
 

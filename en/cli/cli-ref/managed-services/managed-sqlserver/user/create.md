@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/create.md
+---
 # yc managed-sqlserver user create
 
 Create a SQLServer user

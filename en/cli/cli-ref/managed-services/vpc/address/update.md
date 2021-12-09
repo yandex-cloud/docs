@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/address/update.md
+---
 # yc vpc address update
 
 Modify configuration or attributes of the address.

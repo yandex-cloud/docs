@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/database/list.md
+---
 # yc managed-mysql database list
 
 List MySQL databases

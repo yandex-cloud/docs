@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/list.md
 ---
+
 
 # Method list
 Retrieves the list of API gateways in the specified folder.

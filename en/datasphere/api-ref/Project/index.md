@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datasphere/api-ref/Project/index.md
 ---
+
 
 # Project
 A set of methods for managing Project resources.

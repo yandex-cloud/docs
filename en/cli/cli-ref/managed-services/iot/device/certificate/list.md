@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/certificate/list.md
+---
 # yc iot device certificate list
 
 List certificates associated with specified device

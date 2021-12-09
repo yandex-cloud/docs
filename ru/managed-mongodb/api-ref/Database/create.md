@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/Database/create.md
 ---
+
 
 # Method create
 Creates a new MongoDB database in the specified cluster.

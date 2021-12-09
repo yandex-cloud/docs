@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/cdn/api-ref/grpc/provider_service.md
 ---
+
 
 # ProviderService
 

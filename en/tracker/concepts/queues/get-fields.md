@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/queues/get-fields.md
+---
 # Get required queue fields
 
 Use this request to get information about required queue fields. The queue is selected when the ID or key is specified.

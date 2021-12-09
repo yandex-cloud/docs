@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/placement-group/list.md
+---
 # yc compute placement-group list
 
 List placement groups

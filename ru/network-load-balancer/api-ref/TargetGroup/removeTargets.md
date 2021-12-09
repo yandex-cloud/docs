@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/TargetGroup/removeTargets.md
 ---
+
 
 # Method removeTargets
 Removes targets from the target group.

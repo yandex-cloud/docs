@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Registry/deleteCertificate.md
 ---
+
 
 # Method deleteCertificate
 Deletes the specified registry certificate.

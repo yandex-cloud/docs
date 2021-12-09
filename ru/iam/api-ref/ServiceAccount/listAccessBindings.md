@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/ServiceAccount/listAccessBindings.md
 ---
+
 
 # Method listAccessBindings
 Lists access bindings for the specified service account.

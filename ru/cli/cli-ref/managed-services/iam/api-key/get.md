@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/api-key/get.md
+---
 # yc iam api-key get
 
 Show information about the specified API key

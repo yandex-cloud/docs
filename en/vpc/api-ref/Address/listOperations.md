@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Address/listOperations.md
 ---
+
 
 # Method listOperations
 List operations for the specified address.

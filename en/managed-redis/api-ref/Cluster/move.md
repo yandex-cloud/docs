@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/move.md
 ---
+
 
 # Method move
 Moves a Redis cluster to the specified folder.

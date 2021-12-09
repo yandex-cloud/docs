@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Subcluster/get.md
 ---
+
 
 # Method get
 Returns the specified subcluster.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/create.md
 ---
+
 
 # Method create
 Creates a function in the specified folder.

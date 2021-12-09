@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Scanner/get.md
 ---
+
 
 # Method get
 Returns the specified ScanResult resource.

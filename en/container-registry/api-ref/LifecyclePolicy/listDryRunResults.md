@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/listDryRunResults.md
 ---
+
 
 # Method listDryRunResults
 Retrieves the list of the dry run results.

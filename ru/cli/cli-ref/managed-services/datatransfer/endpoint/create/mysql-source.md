@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/create/mysql-source.md
+---
 # yc datatransfer endpoint create mysql-source
 
 Create MySQL source

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/list.md
 ---
+
 
 # Method list
 Retrieves the list of SQL Server clusters that belong to the specified folder.

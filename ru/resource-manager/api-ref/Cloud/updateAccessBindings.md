@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/resourcemanager/api-ref/Cloud/updateAccessBindings.md
 ---
+
 
 # Method updateAccessBindings
 Updates access bindings for the specified cloud.

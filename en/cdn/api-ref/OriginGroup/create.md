@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/OriginGroup/create.md
 ---
+
 
 # Method create
 Creates origin group.

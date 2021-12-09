@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/billing/api-ref/Service/list.md
 ---
+
 
 # Method list
 Retrieves the list of services.

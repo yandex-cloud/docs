@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/hosts/delete.md
+---
 # yc managed-mysql hosts delete
 
 Delete the specified hosts

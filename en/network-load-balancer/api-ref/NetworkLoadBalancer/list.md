@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/list.md
 ---
+
 
 # Method list
 Retrieves the list of NetworkLoadBalancer resources in the specified folder.

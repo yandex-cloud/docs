@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Registry/deletePassword.md
 ---
+
 
 # Method deletePassword
 Deletes the specified password.

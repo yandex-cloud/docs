@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/resumeProcesses.md
 ---
+
 
 # Method resumeProcesses
 Resumes all processes regarding management of the specified instance group,

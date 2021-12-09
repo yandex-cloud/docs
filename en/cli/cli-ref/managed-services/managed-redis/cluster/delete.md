@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/delete.md
+---
 # yc managed-redis cluster delete
 
 Delete the specified Redis cluster

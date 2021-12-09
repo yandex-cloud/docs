@@ -61,6 +61,8 @@ items:
         href: concepts/replication.md
       - name: Настройки SQL Server
         href: concepts/settings-list.md
+      - name: Доступ к компонентам SQL Server
+        href: concepts/components.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

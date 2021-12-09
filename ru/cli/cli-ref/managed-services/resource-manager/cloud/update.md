@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/cloud/update.md
+---
 # yc resource-manager cloud update
 
 Update the specified cloud

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/backend-group/index.md
+---
 # yc application-load-balancer backend-group
 
 Manage application load balancer backend groups

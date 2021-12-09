@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/index.md
+---
 # yc serverless trigger
 
 Manage triggers

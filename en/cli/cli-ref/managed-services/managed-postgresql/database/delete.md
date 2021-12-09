@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/database/delete.md
+---
 # yc managed-postgresql database delete
 
 Delete the specified PostgreSQL database

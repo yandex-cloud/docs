@@ -4,5 +4,5 @@
 
 Чтобы привести такое значение в поле к типу `Дата`, создайте новое поле с формулой `DATE_PARSE([название_поле_где_дата_в_формате_DD.MM.YYYY])`.
 
-Аналогично работает функция [`DATETIME_PARSE`](https://cloud.yandex.ru/docs/datalens/function-ref/DATETIME_PARSE), которая переводит строку в тип `Дата и Время`.
+Аналогично работает функция [`DATETIME_PARSE`](../../../datalens/function-ref/DATETIME_PARSE.md), которая переводит строку в тип `Дата и Время`.
 

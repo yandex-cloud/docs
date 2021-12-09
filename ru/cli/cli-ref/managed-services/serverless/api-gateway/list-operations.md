@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/api-gateway/list-operations.md
+---
 # yc serverless api-gateway list-operations
 
 List API Gateway operations

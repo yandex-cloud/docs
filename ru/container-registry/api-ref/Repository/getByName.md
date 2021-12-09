@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Repository/getByName.md
 ---
+
 
 # Method getByName
 Returns the specified Repository resource.

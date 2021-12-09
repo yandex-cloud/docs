@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Address/index.md
 ---
+
 
 # Address
 A set of methods for managing Address resources.

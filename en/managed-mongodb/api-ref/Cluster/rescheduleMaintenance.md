@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/rescheduleMaintenance.md
 ---
+
 
 # Method rescheduleMaintenance
 Reschedules planned maintenance operation.

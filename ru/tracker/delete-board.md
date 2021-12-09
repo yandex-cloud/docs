@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/delete-board.md
+---
 # Удалить доску
 
 Запрос позволяет удалить доску задач.

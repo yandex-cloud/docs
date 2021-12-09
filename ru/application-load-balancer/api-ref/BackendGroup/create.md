@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/create.md
 ---
+
 
 # Method create
 Creates a backend group in the specified folder.

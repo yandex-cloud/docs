@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/index.md
 ---
+
 
 # Cluster
 A set of methods for managing Apache Kafka® clusters.

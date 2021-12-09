@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/certificate/list-operations.md
+---
 # yc organization-manager federation saml certificate list-operations
 
 List operations for the specified certificate

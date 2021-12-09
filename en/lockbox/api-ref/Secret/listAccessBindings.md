@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Secret/listAccessBindings.md
 ---
+
 
 # Method listAccessBindings
 Lists existing access bindings for the specified secret.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-yc/help.md
+---
 # yc help
 
 Help provides help for any command in the application. Simply type yc help [path to command] for full details.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/application-load-balancer/api-ref/grpc/backend_group_service.md
 ---
+
 
 # BackendGroupService
 

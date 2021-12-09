@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/Version/list.md
 ---
+
 
 # Method list
 Retrieves the list of versions in the specified release channel.

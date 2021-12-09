@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/move.md
+---
 # yc managed-mongodb cluster move
 
 Move the specified MongoDB cluster into the folder

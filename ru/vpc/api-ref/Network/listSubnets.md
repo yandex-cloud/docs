@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Network/listSubnets.md
 ---
+
 
 # Method listSubnets
 Lists subnets from the specified network.

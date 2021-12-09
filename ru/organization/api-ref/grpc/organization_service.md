@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/organization-manager/api-ref/grpc/organization_service.md
 ---
+
 
 # OrganizationService
 

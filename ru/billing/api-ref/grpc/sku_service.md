@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/billing/api-ref/grpc/sku_service.md
 ---
+
 
 # SkuService
 

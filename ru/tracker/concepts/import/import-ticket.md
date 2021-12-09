@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/import/import-ticket.md
+---
 # Импортировать задачу
 
 {% note warning %}

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dns/api-ref/DnsZone/list.md
 ---
+
 
 # Method list
 Retrieves the list of DNS zones in the specified folder.

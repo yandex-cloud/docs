@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-worklog.md
+---
 # Select records by parameters
 
 Use this request to fetch data about the time spent by a specific user or during a certain period. You can make a `GET` or `POST` request.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/transfer/index.md
+---
 # yc datatransfer transfer
 
 Manage transfers

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/image/get.md
+---
 # yc compute image get
 
 Show information about the specified image

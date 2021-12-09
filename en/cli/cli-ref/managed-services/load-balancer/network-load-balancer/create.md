@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/create.md
+---
 # yc load-balancer network-load-balancer create
 
 Create a network load balancer

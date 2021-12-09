@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/restart.md
+---
 # yc compute instance restart
 
 Restart the specified virtual machine instance

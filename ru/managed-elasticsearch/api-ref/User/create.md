@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/User/create.md
 ---
+
 
 # Method create
 Creates a user in the specified cluster.

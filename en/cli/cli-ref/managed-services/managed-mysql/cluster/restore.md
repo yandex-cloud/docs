@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/restore.md
+---
 # yc managed-mysql cluster restore
 
 Restore MySQL cluster

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/DATETIME_PARSE.md
 ---
+
 
 # DATETIME_PARSE
 

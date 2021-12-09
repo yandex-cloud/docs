@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/vision/v2/api-ref/grpc/image_classifier_service.md
 ---
+
 
 # ImageClassifierService
 

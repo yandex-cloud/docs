@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/User/create.md
 ---
+
 
 # Method create
 Creates a Kafka user in the specified cluster.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/queues/create-local-field.md
+---
 # Create a local queue field
 
 Use this request to create an issue [local field](../../local-fields.md) linked to the specified queue.

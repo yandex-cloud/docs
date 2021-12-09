@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/setPrimaryVersion.md
 ---
+
 
 # Method setPrimaryVersion
 Sets the primary version for the specified key. The primary version is used

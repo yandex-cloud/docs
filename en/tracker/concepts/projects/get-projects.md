@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/projects/get-projects.md
+---
 # Get a list of all projects
 
 Use this request to get a list of all [projects](../../manager/projects.md) in the organization.

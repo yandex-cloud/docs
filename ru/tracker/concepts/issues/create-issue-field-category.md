@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/create-issue-field-category.md
+---
 # Создать категорию поля задачи
 
 Запрос позволяет создать категорию поля задачи.

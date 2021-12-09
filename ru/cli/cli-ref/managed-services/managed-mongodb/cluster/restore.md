@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/restore.md
+---
 # yc managed-mongodb cluster restore
 
 Restore a MongoDB cluster from a backup.

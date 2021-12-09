@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/device/certificate/add.md
+---
 # yc iot device certificate add
 
 Add new certificate to specified device

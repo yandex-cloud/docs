@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/backup.md
 ---
+
 
 # Method backup
 Creates a backup for the specified MySQL cluster.

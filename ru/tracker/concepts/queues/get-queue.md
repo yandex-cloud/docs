@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/queues/get-queue.md
+---
 # Получить параметры очереди
 
 Запрос позволяет получить информацию об очереди.

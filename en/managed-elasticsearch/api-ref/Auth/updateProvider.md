@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Auth/updateProvider.md
 ---
+
 
 # Method updateProvider
 Updates registered auth provider.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-key/set-primary-version.md
+---
 # yc kms symmetric-key set-primary-version
 
 Set primary version of the specified symmetric key

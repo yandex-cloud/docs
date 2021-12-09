@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/listLogs.md
 ---
+
 
 # Method listLogs
 Retrieves logs for the specified ClickHouse cluster.

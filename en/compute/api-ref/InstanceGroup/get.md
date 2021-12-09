@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/get.md
 ---
+
 
 # Method get
 Returns the specified InstanceGroup resource.

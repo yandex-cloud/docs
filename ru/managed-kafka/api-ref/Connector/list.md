@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/Connector/list.md
 ---
+
 
 # Method list
 Retrieves the list of Apache Kafka Connector resources in the specified cluster.

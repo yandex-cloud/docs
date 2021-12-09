@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/User/list.md
 ---
+
 
 # Method list
 Retrieves the list of Elasticsearch users in the specified cluster.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/post-board.md
+---
 # Создать доску
 
 Запрос позволяет создать доску.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/requestNew.md
 ---
+
 
 # Method requestNew
 Request a certificate in the specified folder.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/User/deleteMembership.md
 ---
+
 
 # Method deleteMembership
 Delete user membership.

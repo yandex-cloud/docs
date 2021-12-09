@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/create.md
+---
 # yc logging group create
 
 Create log group

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/hosts/index.md
+---
 # yc managed-postgresql hosts
 
 Manage PostgreSQL cluster hosts

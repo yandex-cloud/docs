@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-operation/operation/index.md
+---
 # yc operation
 
 Manage operations

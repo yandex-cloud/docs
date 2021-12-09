@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/IamToken/index.md
 ---
+
 
 # IamToken
 A set of methods for managing IAM tokens.

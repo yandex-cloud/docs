@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/listOperations.md
 ---
+
 
 # Method listOperations
 Retrieves the list of operations for the specified MySQL cluster.

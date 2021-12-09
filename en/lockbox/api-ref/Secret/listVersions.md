@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Secret/listVersions.md
 ---
+
 
 # Method listVersions
 Retrieves the list of versions of the specified secret.

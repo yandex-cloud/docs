@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/revoke-permission.md
+---
 # yc managed-sqlserver user revoke-permission
 
 Revoke database access from the specified SQLServer user

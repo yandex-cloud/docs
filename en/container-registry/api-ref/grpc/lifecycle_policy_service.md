@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/container-registry/api-ref/grpc/lifecycle_policy_service.md
 ---
+
 
 # LifecyclePolicyService
 

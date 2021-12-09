@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/encrypt.md
 ---
+
 
 # Method encrypt
 Encrypts given plaintext with the specified key.

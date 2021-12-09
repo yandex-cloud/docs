@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/update.md
+---
 # yc managed-kafka cluster update
 
 Modify configuration or attributes of a Kafka cluster.

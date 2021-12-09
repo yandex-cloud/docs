@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/format-schema/create.md
+---
 # yc managed-clickhouse format-schema create
 
 Create format schema in a ClickHouse cluster.

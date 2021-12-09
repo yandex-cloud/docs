@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/reschedule-maintenance.md
+---
 # yc managed-mysql cluster reschedule-maintenance
 
 Reschedule currently planned maintenance operation.

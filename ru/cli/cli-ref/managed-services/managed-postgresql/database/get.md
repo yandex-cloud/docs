@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/database/get.md
+---
 # yc managed-postgresql database get
 
 Show information about the specified PostgreSQL database

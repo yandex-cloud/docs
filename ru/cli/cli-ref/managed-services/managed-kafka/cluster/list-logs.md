@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/list-logs.md
+---
 # yc managed-kafka cluster list-logs
 
 Retrieve logs for a Kafka cluster.

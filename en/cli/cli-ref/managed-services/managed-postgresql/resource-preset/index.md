@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/resource-preset/index.md
+---
 # yc managed-postgresql resource-preset
 
 Manage PostgreSQL resource presets

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/index.md
+---
 # yc vpc subnet
 
 Manage subnets.

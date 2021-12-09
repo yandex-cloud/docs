@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/User/grantPermission.md
 ---
+
 
 # Method grantPermission
 Grants permission to the specified Kafka user.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/subcluster/create.md
+---
 # yc dataproc subcluster create
 
 Create a subcluster.

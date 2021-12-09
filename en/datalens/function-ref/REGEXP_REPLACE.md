@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/REGEXP_REPLACE.md
 ---
+
 
 # REGEXP_REPLACE
 

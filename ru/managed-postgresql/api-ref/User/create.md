@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/User/create.md
 ---
+
 
 # Method create
 Creates a PostgreSQL user in the specified cluster.

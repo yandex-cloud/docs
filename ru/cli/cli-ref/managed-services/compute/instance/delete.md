@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/delete.md
+---
 # yc compute instance delete
 
 Delete the specified virtual machine instance

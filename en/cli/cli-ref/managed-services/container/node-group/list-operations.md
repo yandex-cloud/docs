@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/node-group/list-operations.md
+---
 # yc container node-group list-operations
 
 List operations for the specified node group.

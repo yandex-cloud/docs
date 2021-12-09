@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/updateFromYaml.md
 ---
+
 
 # Method updateFromYaml
 Updates the specified instance group from a YAML file.

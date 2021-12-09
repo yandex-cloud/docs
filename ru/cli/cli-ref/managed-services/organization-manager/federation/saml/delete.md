@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/delete.md
+---
 # yc organization-manager federation saml delete
 
 Delete the specified federation

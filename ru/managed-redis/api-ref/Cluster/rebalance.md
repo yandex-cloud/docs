@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/rebalance.md
 ---
+
 
 # Method rebalance
 Rebalances the cluster. Evenly distributes all the hash slots between the shards.

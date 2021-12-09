@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/get-sprint.md
+---
 # Get a sprint
 
 Use this request to get sprint parameters.

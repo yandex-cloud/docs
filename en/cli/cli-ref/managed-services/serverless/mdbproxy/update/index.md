@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/update/index.md
+---
 # yc serverless mdbproxy update
 
 Update the specified proxy

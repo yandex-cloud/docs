@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/start.md
 ---
+
 
 # Method start
 Start the specified MongoDB cluster.

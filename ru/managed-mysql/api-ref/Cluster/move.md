@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/move.md
 ---
+
 
 # Method move
 Moves the specified MySQL cluster to the specified folder.

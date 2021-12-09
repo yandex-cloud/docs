@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/list-operations.md
+---
 # yc serverless function list-operations
 
 Show operations for the specified function

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk/list-operations.md
+---
 # yc compute disk list-operations
 
 List operations for the specified disk

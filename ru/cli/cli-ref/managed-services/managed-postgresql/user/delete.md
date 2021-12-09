@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/user/delete.md
+---
 # yc managed-postgresql user delete
 
 Delete the specified PostgreSQL user

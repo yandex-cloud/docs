@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/Key/get.md
 ---
+
 
 # Method get
 Returns the specified Key resource.

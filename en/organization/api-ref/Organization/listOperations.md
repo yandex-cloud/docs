@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/listOperations.md
 ---
+
 
 # Method listOperations
 Lists operations for the specified organization.

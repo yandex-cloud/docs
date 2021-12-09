@@ -93,6 +93,7 @@ pip3 install protobuf varint pycapnp
    
    {% endlist %}
 
+
 1. [Загрузите файл](../../storage/operations/objects/upload.md) в {{ objstorage-name }} и [получите ссылку](../../storage/operations/objects/link-for-download.md) на него.
 
 1. [Подключите схему формата данных](format-schemas.md#add-format-schema) к кластеру `chcluster`:

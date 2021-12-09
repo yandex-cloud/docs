@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/bulkchange/bulk-transition.md
+---
 # Массовое изменение статуса задач
 
 Запрос позволяет выполнить переход в новый статус для нескольких задач одновременно. 

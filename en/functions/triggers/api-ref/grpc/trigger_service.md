@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/functions/triggers/triggers/api-ref/grpc/trigger_service.md
 ---
+
 
 # TriggerService
 

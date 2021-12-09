@@ -52,8 +52,8 @@
 1. [Удалите эндпоинт для источника](../../data-transfer/operations/source-endpoint.md#delete).
 1. [Удалите эндпоинт для приемника](../../data-transfer/operations/target-endpoint.md#delete).
 
-Реальный пример миграции базы данных {{ MY }} с помощью сервиса {{ data-transfer-name }} см. в разделе [{#T}](../../solutions/dataplatform/sync-mysql.md).
 
+Реальный пример миграции базы данных {{ MY }} с помощью сервиса {{ data-transfer-name }} см. в разделе [{#T}](../../solutions/dataplatform/sync-mysql.md).
 ## Перенос данных через создание и восстановление логического дампа {#logical-dump}
 
 Перенести данные в кластер {{ mmy-name }} можно с помощью утилит `mysqldump` и `mysql`: создайте логический дамп рабочей базы и восстановите его в нужном кластере.

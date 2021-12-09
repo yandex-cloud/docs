@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/remove-external-dictionary.md
+---
 # yc managed-clickhouse cluster remove-external-dictionary
 
 Remove an external dictionary from a ClickHouse cluster.

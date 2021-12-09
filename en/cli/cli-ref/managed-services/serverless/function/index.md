@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/index.md
+---
 # yc serverless function
 
 Manage functions

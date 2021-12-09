@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/resetup.md
+---
 # yc managed-mongodb hosts resetup
 
 Resetup specified MongoD hosts.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/HttpRouter/list.md
 ---
+
 
 # Method list
 Lists HTTP routers in the specified folder.

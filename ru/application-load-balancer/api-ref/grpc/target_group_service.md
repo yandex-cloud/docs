@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/application-load-balancer/api-ref/grpc/target_group_service.md
 ---
+
 
 # TargetGroupService
 

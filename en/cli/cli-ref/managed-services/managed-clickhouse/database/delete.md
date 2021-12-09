@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/database/delete.md
+---
 # yc managed-clickhouse database delete
 
 Delete a ClickHouse database.

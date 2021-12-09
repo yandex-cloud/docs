@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/list.md
 ---
+
 
 # Method list
 Lists virtual hosts of the specified HTTP router.

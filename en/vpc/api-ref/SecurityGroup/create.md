@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/SecurityGroup/create.md
 ---
+
 
 # Method create
 

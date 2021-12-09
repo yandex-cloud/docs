@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/create-token.md
+---
 # yc managed-kubernetes create-token
 
 Create K8S token and print to STDOUT.

@@ -23,6 +23,8 @@ items:
         href: operations/cluster-topics.md
       - name: Managing Kafka accounts
         href: operations/cluster-accounts.md
+      - name: Managing connectors
+        href: operations/cluster-connector.md
       - name: Viewing cluster logs
         href: operations/cluster-logs.md
       - name: Deleting a cluster
@@ -57,6 +59,8 @@ items:
         href: concepts/limits.md
       - name: Storage types
         href: concepts/storage.md
+      - name: Connectors
+        href: concepts/connectors.md
       - name: Apache Kafka® settings
         href: concepts/settings-list.md
   - name: Access management

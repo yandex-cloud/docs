@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/security-group/delete.md
+---
 # yc vpc security-group delete
 
 Delete a security group.

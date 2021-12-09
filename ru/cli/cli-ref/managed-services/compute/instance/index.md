@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/index.md
+---
 # yc compute instance
 
 Manage virtual machine instances

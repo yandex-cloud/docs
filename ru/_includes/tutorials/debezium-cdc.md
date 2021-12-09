@@ -21,14 +21,12 @@
     * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
 
 1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH и установите зависимости:
-
     ```bash
     sudo apt update && \
     sudo apt install -y git docker.io kafkacat postgresql-client
     ```
 
 1. [Подключитесь к виртуальной машине](../../compute/operations/vm-connect/ssh.md#vm-connect) по SSH и проверьте, что доступны кластеры:
-
     * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#connection-string) (используйте утилиту `psql`);
     * [{{ mkf-name }}](../../managed-kafka/operations/connect.md#connection-string) (используйте утилиту `kafkacat`).
 

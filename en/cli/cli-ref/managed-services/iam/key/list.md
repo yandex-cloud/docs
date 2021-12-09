@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/key/list.md
+---
 # yc iam key list
 
 List IAM keys for authenticated account or the specified service account

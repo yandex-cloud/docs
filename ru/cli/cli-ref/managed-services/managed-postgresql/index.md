@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/index.md
+---
 # yc managed-postgresql
 
 Manage PostgreSQL clusters, hosts, databases, backups and users.

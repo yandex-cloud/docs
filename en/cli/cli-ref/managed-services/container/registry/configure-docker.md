@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/configure-docker.md
+---
 # yc container registry configure-docker
 
 Configure docker to use Yandex.Cloud credential helper.

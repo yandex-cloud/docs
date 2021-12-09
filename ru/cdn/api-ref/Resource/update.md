@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Resource/update.md
 ---
+
 
 # Method update
 Updates of client's CDN resource. (PATCH behavior)

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/filesystem/list.md
+---
 # yc compute filesystem list
 
 List filesystems

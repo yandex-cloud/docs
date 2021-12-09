@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/update.md
+---
 # yc compute instance-group update
 
 Update the specified instance group

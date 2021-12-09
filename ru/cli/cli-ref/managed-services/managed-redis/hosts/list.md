@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/hosts/list.md
+---
 # yc managed-redis hosts list
 
 List hosts for the specified Redis cluster

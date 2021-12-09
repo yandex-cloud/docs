@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/create.md
 ---
+
 
 # Method create
 Creates a ClickHouse cluster in the specified folder.

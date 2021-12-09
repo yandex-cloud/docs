@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/SecurityGroup/updateRule.md
 ---
+
 
 # Method updateRule
 update rule description or labels

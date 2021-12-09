@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/filesystem/remove-labels.md
+---
 # yc compute filesystem remove-labels
 
 Remove labels from specified filesystem

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/delete-column.md
+---
 # Удалить колонку
 
 Запрос позволяет удалить колонку.

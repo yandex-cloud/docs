@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Scanner/index.md
 ---
+
 
 # Scanner
 A set of methods for scanning Docker images.

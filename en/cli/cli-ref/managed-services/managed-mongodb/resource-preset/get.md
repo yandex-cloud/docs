@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/resource-preset/get.md
+---
 # yc managed-mongodb resource-preset get
 
 Get information about a MongoDB resource preset.

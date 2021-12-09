@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/RouteTable/list.md
 ---
+
 
 # Method list
 Retrieves the list of RouteTable resources in the specified folder.

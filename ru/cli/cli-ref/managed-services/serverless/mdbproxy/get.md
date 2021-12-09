@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/get.md
+---
 # yc serverless mdbproxy get
 
 Show information about the specified proxy

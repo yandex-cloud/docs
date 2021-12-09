@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/delete.md
+---
 # yc managed-postgresql cluster delete
 
 Delete the specified PostgreSQL cluster

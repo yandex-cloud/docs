@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/cloud/list-access-bindings.md
+---
 # yc resource-manager cloud list-access-bindings
 
 List access bindings for the specified cloud

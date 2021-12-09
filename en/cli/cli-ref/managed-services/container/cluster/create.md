@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/cluster/create.md
+---
 # yc container cluster create
 
 Create a Kubernetes cluster.

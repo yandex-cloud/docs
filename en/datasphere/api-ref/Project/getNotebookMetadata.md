@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datasphere/api-ref/Project/getNotebookMetadata.md
 ---
+
 
 # Method getNotebookMetadata
 Returns metadata of the specified notebook.

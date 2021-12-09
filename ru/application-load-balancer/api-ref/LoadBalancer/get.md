@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/get.md
 ---
+
 
 # Method get
 Returns the specified application load balancer.

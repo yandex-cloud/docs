@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/patch-column.md
+---
 # Edit a column
 
 Use this request to edit column parameters.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Snapshot/listOperations.md
 ---
+
 
 # Method listOperations
 Lists operations for the specified snapshot.

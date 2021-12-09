@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/index.md
 ---
+
 
 # LoadBalancer
 A set of methods for managing application load balancers.

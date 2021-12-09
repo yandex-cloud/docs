@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/listAccessBindings.md
 ---
+
 
 # Method listAccessBindings
 Lists existing access bindings for the specified certificate.

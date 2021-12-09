@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Registry/get.md
 ---
+
 
 # Method get
 Returns the specified registry.

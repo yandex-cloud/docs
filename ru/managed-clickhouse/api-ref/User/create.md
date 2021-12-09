@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/User/create.md
 ---
+
 
 # Method create
 Creates a ClickHouse user in the specified cluster.

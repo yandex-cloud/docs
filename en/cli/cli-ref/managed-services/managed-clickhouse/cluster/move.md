@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/move.md
+---
 # yc managed-clickhouse cluster move
 
 Move the specified ClickHouse cluster into the folder

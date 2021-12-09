@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/listTagHistory.md
 ---
+
 
 # Method listTagHistory
 Returns the log of tags assigned to versions of the specified function.

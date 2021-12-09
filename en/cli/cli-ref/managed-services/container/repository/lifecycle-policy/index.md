@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/lifecycle-policy/index.md
+---
 # yc container repository lifecycle-policy
 
 Manage lifecycle policies for Docker image repositories.

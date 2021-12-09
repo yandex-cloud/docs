@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/Cluster/update.md
 ---
+
 
 # Method update
 Updates the specified Kubernetes cluster.

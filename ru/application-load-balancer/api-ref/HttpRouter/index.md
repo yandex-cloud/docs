@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/HttpRouter/index.md
 ---
+
 
 # HttpRouter
 A set of methods for managing HTTP routers.

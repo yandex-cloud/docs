@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/user/remove.md
+---
 # yc organization-manager user remove
 
 Remove user accounts from the specified organization

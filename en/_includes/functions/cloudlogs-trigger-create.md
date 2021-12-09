@@ -1,12 +1,18 @@
+{% note alert %}
+
+Triggers for {{ cloud-logs-name }} are deprecated. Use [triggers for {{ cloud-logging-name }}](../../functions/concepts/trigger/cloud-logging-trigger.md).
+
+{% endnote %}
+
 Create a [trigger for {{ cloud-logs-name }}](../../functions/concepts/trigger/cloudlogs-trigger.md) that will run your function when messages are received in a [log group](../../functions/concepts/log-group.md).
 
 To create a trigger, you need:
 
-1. [Functions](../../functions/concepts/function.md) that the trigger will call. If you don't have a function:
+* [Functions](../../functions/concepts/function.md) that the trigger will call. If you don't have a function:
     * [Create a function](../../functions/operations/function/function-create.md).
     * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
-1. (optional) The [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that the function couldn't process are moved. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-1. Service account with rights to invoke the function and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
+* (optional) The [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that the function couldn't process are moved. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* Service account with rights to invoke the function and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 

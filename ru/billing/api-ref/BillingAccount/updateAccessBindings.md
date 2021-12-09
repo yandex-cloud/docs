@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/billing/api-ref/BillingAccount/updateAccessBindings.md
 ---
+
 
 # Method updateAccessBindings
 Updates access bindings for the specified billing account.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-crypto/re-encrypt.md
+---
 # yc kms symmetric-crypto re-encrypt
 
 Re-encrypt a ciphertext with the specified symmetric key

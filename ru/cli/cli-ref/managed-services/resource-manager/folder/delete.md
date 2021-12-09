@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/folder/delete.md
+---
 # yc resource-manager folder delete
 
 Delete the specified folder

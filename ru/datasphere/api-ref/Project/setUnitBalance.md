@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datasphere/api-ref/Project/setUnitBalance.md
 ---
+
 
 # Method setUnitBalance
 Sets the unit balance of the specified project.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/http-router/get.md
+---
 # yc application-load-balancer http-router get
 
 Show information about the specified http router

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Subnet/create.md
 ---
+
 
 # Method create
 Creates a subnet in the specified folder and network.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/delete.md
 ---
+
 
 # Method delete
 Deletes the specified virtual host.

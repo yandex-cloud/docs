@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/remove-access-binding.md
+---
 # yc container repository remove-access-binding
 
 Remove access binding for the specified repository

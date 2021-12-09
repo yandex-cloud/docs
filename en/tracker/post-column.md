@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/post-column.md
+---
 # Create a column
 
 Use this request to create a column on an issue board.
