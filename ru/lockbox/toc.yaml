@@ -3,6 +3,15 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+    items:
+      - name: Все инструкции
+        href: operations/index.md    
+      - name: Создать секрет
+        href: operations/secret-create.md
+      - name: Изменить секрет
+        href: operations/secret-update.md
+      - name: Удалить секрет
+        href: operations/secret-delete.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
