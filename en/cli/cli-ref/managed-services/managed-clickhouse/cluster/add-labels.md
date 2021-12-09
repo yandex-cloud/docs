@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/add-labels.md
+---
 # yc managed-clickhouse cluster add-labels
 
 Assign labels to a ClickHouse cluster.

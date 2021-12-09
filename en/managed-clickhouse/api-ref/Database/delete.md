@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Database/delete.md
 ---
+
 
 # Method delete
 Deletes the specified ClickHouse database.

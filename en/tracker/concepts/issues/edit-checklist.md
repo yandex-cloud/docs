@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/edit-checklist.md
+---
 # Edit a checklist
 
 Use this request to edit checklist items in an issue.

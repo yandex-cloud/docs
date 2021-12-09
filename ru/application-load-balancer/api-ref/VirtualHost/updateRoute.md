@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/updateRoute.md
 ---
+
 
 # Method updateRoute
 Updates the specified route of the specified virtual host.

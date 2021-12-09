@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/resource/list.md
+---
 # yc cdn resource list
 
 List resources in the specified folder

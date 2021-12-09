@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/RouteTable/create.md
 ---
+
 
 # Method create
 Creates a route table in the specified folder and network.

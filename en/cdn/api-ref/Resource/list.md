@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Resource/list.md
 ---
+
 
 # Method list
 Lists CDN resources.

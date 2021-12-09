@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/queues/delete-queue.md
+---
 # Delete a queue
 
 Use this request to delete queues.

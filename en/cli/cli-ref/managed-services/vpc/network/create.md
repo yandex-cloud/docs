@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/create.md
+---
 # yc vpc network create
 
 Create a network.

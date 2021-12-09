@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/add-comment.md
+---
 # Add a comment
 
 Use this request to add a comment to an issue.

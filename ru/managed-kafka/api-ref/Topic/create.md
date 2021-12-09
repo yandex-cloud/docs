@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/Topic/create.md
 ---
+
 
 # Method create
 Creates a new Kafka topic in the specified cluster.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/createVersion.md
 ---
+
 
 # Method createVersion
 Creates a version for the specified function.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/list.md
+---
 # yc application-load-balancer load-balancer list
 
 List application load balancers

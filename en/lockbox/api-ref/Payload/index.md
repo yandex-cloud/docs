@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Payload/index.md
 ---
+
 
 # Payload
 Set of methods to access payload of secrets.

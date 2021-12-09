@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/resource-manager/api-ref/grpc/cloud_service.md
 ---
+
 
 # CloudService
 

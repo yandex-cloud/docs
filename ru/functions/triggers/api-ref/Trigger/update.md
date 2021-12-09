@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/triggers/triggers/api-ref/Trigger/update.md
 ---
+
 
 # Method update
 Updates the specified trigger.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/resource-preset/list.md
+---
 # yc dataproc resource-preset list
 
 List available resource presets for Data Proc.

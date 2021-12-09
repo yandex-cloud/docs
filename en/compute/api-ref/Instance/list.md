@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/list.md
 ---
+
 
 # Method list
 Retrieves the list of Instance resources in the specified folder.

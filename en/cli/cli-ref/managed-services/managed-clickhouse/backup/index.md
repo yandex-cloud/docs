@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/backup/index.md
+---
 # yc managed-clickhouse backup
 
 Manage ClickHouse backups.

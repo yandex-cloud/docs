@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/hosts/add.md
+---
 # yc managed-clickhouse hosts add
 
 Add new hosts to the cluster in specified availability zones.

@@ -73,8 +73,9 @@
      ```
      $ yc vpc subnet list
      ```
-
+     
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+
 
   1. Посмотрите описание команды CLI для создания кластера:
 
@@ -109,9 +110,8 @@
 - Terraform
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
-
+  
   Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
-
   Чтобы создать кластер:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:

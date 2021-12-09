@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/get-columns.md
+---
 # Get parameters of all columns
 
 Use this request to get parameters of all columns of a board.

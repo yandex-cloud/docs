@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/role_service.md
 ---
+
 
 # RoleService
 

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/start-failover.md
+---
 # yc managed-postgresql cluster start-failover
 
 Start manual failover for the specified PostgreSQL cluster

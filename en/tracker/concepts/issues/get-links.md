@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-links.md
+---
 # Get issue links
 
 Use this request to get information about issue links. The issue is selected when its ID or key is specified.

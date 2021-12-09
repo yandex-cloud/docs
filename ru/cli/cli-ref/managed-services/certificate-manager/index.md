@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/certificate-manager/index.md
+---
 # yc certificate-manager
 
 Manage Certificate Manager resources

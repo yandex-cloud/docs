@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/route-table/list.md
+---
 # yc vpc route-table list
 
 List route tables in a folder.

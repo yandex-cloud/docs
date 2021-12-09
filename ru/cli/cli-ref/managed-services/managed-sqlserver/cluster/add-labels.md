@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/add-labels.md
+---
 # yc managed-sqlserver cluster add-labels
 
 Add labels to SQLServer cluster

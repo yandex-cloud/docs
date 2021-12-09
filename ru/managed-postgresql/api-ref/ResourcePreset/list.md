@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/ResourcePreset/list.md
 ---
+
 
 # Method list
 Retrieves the list of available ResourcePreset resources.

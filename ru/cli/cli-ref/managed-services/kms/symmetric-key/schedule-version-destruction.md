@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-key/schedule-version-destruction.md
+---
 # yc kms symmetric-key schedule-version-destruction
 
 Schedule destruction of the specified symmetric key version

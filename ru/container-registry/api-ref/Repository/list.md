@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Repository/list.md
 ---
+
 
 # Method list
 Retrieves the list of Repository resources in the specified registry.

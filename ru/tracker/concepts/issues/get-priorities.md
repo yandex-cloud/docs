@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/get-priorities.md
+---
 # Получить приоритеты
 
 Запрос позволяет получить список приоритетов для задачи.

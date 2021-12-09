@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/folder/update.md
+---
 # yc resource-manager folder update
 
 Update the specified folder

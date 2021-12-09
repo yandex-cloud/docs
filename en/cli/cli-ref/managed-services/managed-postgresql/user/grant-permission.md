@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/user/grant-permission.md
+---
 # yc managed-postgresql user grant-permission
 
 Grant permission to the specified PostgreSQL user

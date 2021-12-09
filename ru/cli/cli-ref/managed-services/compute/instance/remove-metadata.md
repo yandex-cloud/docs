@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/remove-metadata.md
+---
 # yc compute instance remove-metadata
 
 Remove keys from metadata for the specified virtual machine instance

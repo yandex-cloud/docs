@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/update.md
+---
 # yc managed-kubernetes cluster update
 
 Modify configuration or attributes of a Kubernetes cluster.

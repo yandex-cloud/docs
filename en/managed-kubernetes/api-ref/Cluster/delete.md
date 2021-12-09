@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/Cluster/delete.md
 ---
+
 
 # Method delete
 Deletes the specified Kubernetes cluster.

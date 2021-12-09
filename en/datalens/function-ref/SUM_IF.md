@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/SUM_IF.md
 ---
+
 
 # SUM_IF
 

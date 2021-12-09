@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Subnet/get.md
 ---
+
 
 # Method get
 Returns the specified Subnet resource.

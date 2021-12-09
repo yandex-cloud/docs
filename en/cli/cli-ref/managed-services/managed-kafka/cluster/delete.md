@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/delete.md
+---
 # yc managed-kafka cluster delete
 
 Delete the specified Kafka cluster

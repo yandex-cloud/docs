@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Cluster/listHosts.md
 ---
+
 
 # Method listHosts
 Retrieves the list of hosts in the specified cluster.

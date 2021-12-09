@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/topic/create.md
+---
 # yc managed-kafka topic create
 
 Create a Kafka topic.

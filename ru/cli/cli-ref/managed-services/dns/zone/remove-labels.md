@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/zone/remove-labels.md
+---
 # yc dns zone remove-labels
 
 Remove labels from the specified dns zone

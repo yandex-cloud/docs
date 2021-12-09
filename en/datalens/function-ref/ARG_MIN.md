@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/ARG_MIN.md
 ---
+
 
 # ARG_MIN
 

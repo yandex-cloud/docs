@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/get.md
 ---
+
 
 # Method get
 Returns the specified virtual host.

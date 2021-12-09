@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Secret/setAccessBindings.md
 ---
+
 
 # Method setAccessBindings
 Sets access bindings for the secret.

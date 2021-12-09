@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Registry/setIpPermission.md
 ---
+
 
 # Method setIpPermission
 Set ip permissions for the specified registry.

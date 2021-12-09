@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/create.md
+---
 # yc managed-clickhouse cluster create
 
 Create a ClickHouse cluster.

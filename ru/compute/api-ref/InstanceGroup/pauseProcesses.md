@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/pauseProcesses.md
 ---
+
 
 # Method pauseProcesses
 Pauses all processes regarding management of the specified instance group,

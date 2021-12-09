@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/content.md
+---
 # yc certificate-manager certificate content
 
 Download content of the specified certificate: chain and private key

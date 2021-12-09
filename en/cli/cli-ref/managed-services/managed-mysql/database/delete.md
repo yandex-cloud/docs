@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/database/delete.md
+---
 # yc managed-mysql database delete
 
 Delete the specified MySQL database

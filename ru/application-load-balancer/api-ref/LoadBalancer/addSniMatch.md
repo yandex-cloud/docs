@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/addSniMatch.md
 ---
+
 
 # Method addSniMatch
 Adds a SNI handler to the specified listener.

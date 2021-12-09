@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/patch-issue-field-value.md
+---
 # Изменить возможные значения поля задачи
 
 ## Формат запроса {#section_kty_1vh_4gb}

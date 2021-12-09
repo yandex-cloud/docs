@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/user/get.md
+---
 # yc managed-mysql user get
 
 Show information about the specified MySQL user

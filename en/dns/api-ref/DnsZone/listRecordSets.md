@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dns/api-ref/DnsZone/listRecordSets.md
 ---
+
 
 # Method listRecordSets
 Retrieves the list of record sets in the specified folder.

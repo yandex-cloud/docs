@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/NodeGroup/create.md
 ---
+
 
 # Method create
 Creates a node group in the specified Kubernetes cluster.

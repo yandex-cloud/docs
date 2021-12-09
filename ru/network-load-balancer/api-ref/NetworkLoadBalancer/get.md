@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/get.md
 ---
+
 
 # Method get
 Returns the specified NetworkLoadBalancer resource.

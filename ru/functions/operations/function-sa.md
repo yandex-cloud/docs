@@ -14,83 +14,89 @@
      {% list tabs %}
 
      - Node.js
-        1. Сохраните следующий код в файл с названием `index.js`, чтобы получить IAM-токен:      
-            * из контекста обработчика.
-                ```js
-                exports.main = async function (event, context) {
-                    return {
-                        'statusCode': 200,
-                        'headers': {
-                            'Content-Type': 'text/plain'
-                        },
-                        'isBase64Encoded': false,
-                        'body': context.token
-                    }
-                };
-                ```
-            * с помощью API.
-                ```js
-                const fetch = require("node-fetch");
-                let url = 'http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token';
-                let headers = {'Metadata-Flavor': 'Google'};
-
-                exports.main = async function (event) {
-                    const resp = await fetch(url, {
-                        headers: headers,
-                    });
-                    return {
-                        code: resp.status,
-                        body: await resp.text()
+        1. Подготовьте ZIP-архив с кодом функции:
+            1. Сохраните следующий код в файл с названием `index.js`, чтобы получить IAM-токен:
+                * из контекста обработчика.
+                    ```js
+                    exports.main = async function (event, context) {
+                        return {
+                            'statusCode': 200,
+                            'headers': {
+                                'Content-Type': 'text/plain'
+                            },
+                            'isBase64Encoded': false,
+                            'body': context.token
+                        }
                     };
-                };
-                ```
-        1. Добавьте файл  `index.js` в ZIP-архив `index-js.zip`.
+                    ```
+                * с помощью API.
+                    ```js
+                    const fetch = require("node-fetch");
+                    let url = 'http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token';
+                    let headers = {'Metadata-Flavor': 'Google'};
+
+                    exports.main = async function (event) {
+                        const resp = await fetch(url, {
+                            headers: headers,
+                        });
+                        return {
+                            code: resp.status,
+                            body: await resp.text()
+                        };
+                    };
+                    ```
+            1. Добавьте файл  `index.js` в ZIP-архив `index-js.zip`.
         1. [Создайте](../operations/function/version-manage.md#version-create) версию функции. Укажите:
-            * среду выполнения `nodejs12`;
-            * сервисный аккаунт, для которого нужно получить IAM-токен;
-            * точку входа `index.main`.
+            * среду выполнения — `nodejs12`;
+            * способ загрузки кода — `ZIP-архив`;
+            * файл — `index-js.zip`;
+            * точку входа — `index.main`;
+            * сервисный аккаунт, для которого нужно получить IAM-токен.
 
     - Python
-        1. Сохраните следующий код в файл с названием `index.py`, чтобы получить IAM-токен:      
-            * из контекста обработчика.
-                ```py
-                def main(event, context):
+        1. Подготовьте ZIP-архив с кодом функции:
+            1. Сохраните следующий код в файл с названием `index.py`, чтобы получить IAM-токен:
+                * из контекста обработчика.
+                    ```py
+                    def main(event, context):
 
-                    return {
-                        'statusCode': 200,
-                        'headers': {
-                            'Content-Type': 'text/plain'
-                        },
-                        'isBase64Encoded': False,
-                        'body': context.token
-                    }
-                ```
-            * с помощью API.
-                ```py
-                import requests
+                        return {
+                            'statusCode': 200,
+                            'headers': {
+                                'Content-Type': 'text/plain'
+                            },
+                            'isBase64Encoded': False,
+                            'body': context.token
+                        }
+                    ```
+                * с помощью API.
+                    ```py
+                    import requests
 
-                url = 'http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token'
-                headers = {'Metadata-Flavor': 'Google'}
+                    url = 'http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token'
+                    headers = {'Metadata-Flavor': 'Google'}
 
 
-                def main(event, context):
+                    def main(event, context):
 
-                    resp = requests.get(url, headers=headers)
+                        resp = requests.get(url, headers=headers)
 
-                    return {
-                        'statusCode': 200,
-                        'headers': {
-                            'Content-Type': 'text/plain'
-                        },
-                        'isBase64Encoded': False,
-                        'body': resp.content.decode('UTF-8')
-                    }
-                ```
-        1. Добавьте файл  `index.py` в ZIP-архив `index-py.zip`.
+                        return {
+                            'statusCode': 200,
+                            'headers': {
+                                'Content-Type': 'text/plain'
+                            },
+                            'isBase64Encoded': False,
+                            'body': resp.content.decode('UTF-8')
+                        }
+                    ```
+            1. Добавьте файл  `index.py` в ZIP-архив `index-py.zip`.
         1. [Создайте](../operations/function/version-manage.md#version-create) версию функции. Укажите:
-            * среду выполнения `python37`;
-            * сервисный аккаунт, для которого нужно получить IAM-токен;
-            * точку входа `index.main`.
+            * среду выполнения — `python37`;
+            * способ загрузки кода — `ZIP-архив`;
+            * файл — `index-py.zip`;
+            * точку входа — `index.main`;
+            * сервисный аккаунт, для которого нужно получить IAM-токен.
 
     {% endlist %}
 

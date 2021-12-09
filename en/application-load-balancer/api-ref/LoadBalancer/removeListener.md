@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/removeListener.md
 ---
+
 
 # Method removeListener
 Deletes the specified listener.

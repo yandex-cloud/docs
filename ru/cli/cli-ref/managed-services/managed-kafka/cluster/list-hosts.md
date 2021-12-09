@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/list-hosts.md
+---
 # yc managed-kafka cluster list-hosts
 
 List hosts for a cluster.

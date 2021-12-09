@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/PlacementGroup/update.md
 ---
+
 
 # Method update
 Updates the specified placement group.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/get-attachment.md
+---
 # Скачать файл
 
 Запрос позволяет скачать прикрепленный к задаче файл.

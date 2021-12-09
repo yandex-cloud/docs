@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/patch-issue-field-name.md
+---
 # Изменить название поля задачи
 
 ## Формат запроса {#section_v3n_hbv_ngb}

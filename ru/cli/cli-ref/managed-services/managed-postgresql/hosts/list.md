@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/hosts/list.md
+---
 # yc managed-postgresql hosts list
 
 List hosts for the specified PostgreSQL cluster

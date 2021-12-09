@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/index.md
+---
 # yc lockbox
 
 [PREVIEW] Manage Yandex Lockbox resources

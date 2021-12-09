@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/provider/list-activated.md
+---
 # yc cdn provider list-activated
 
 List activated CDN providers

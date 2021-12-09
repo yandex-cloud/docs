@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-yc/config/profile/list.md
+---
 # yc config profile list
 
 List configuration profiles

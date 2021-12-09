@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/node-group/add-metadata.md
+---
 # yc container node-group add-metadata
 
 Add or update metadata of the node template of the specified node group.

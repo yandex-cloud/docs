@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/lifecycle-policy/list.md
+---
 # yc container repository lifecycle-policy list
 
 List lifecycle policies.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datasphere/api-ref/Project/update.md
 ---
+
 
 # Method update
 Updates the specified project.

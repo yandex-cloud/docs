@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/index.md
+---
 # yc managed-mysql
 
 Manage MySQL clusters, hosts, databases, backups and users.

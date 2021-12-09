@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/get.md
+---
 # yc container repository get
 
 Get information about a Docker image repository.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/topic/list.md
+---
 # yc managed-kafka topic list
 
 List topics of a Kafka cluster.

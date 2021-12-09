@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/vpc/api-ref/grpc/address_service.md
 ---
+
 
 # AddressService
 

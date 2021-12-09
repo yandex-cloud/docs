@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/logging/api-ref/LogGroup/updateAccessBindings.md
 ---
+
 
 # Method updateAccessBindings
 Updates access bindings for the specified log group.

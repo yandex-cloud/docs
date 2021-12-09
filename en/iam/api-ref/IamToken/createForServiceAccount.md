@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/IamToken/createForServiceAccount.md
 ---
+
 
 # Method createForServiceAccount
 Create iam token for service account.

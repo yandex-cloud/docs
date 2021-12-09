@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/create.md
 ---
+
 
 # Method create
 Creates an SQL Server cluster in the specified folder.

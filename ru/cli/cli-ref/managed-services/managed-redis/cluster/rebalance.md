@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/cluster/rebalance.md
+---
 # yc managed-redis cluster rebalance
 
 Rebalance the specified Redis cluster

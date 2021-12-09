@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/bulkchange/bulk-transition.md
+---
 # Make bulk changes to issue statuses
 
 Use this request to switch multiple issues to a new status at once.

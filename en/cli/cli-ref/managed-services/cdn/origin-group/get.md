@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin-group/get.md
+---
 # yc cdn origin-group get
 
 Show information about the specified origin group

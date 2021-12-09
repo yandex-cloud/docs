@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/certificate/list.md
+---
 # yc iot registry certificate list
 
 List certificates associated with specified registry

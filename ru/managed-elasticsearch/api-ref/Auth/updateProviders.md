@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Auth/updateProviders.md
 ---
+
 
 # Method updateProviders
 Replase the list of auth providers.

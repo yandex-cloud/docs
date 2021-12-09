@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/start.md
 ---
+
 
 # Method start
 Starts the stopped instance.

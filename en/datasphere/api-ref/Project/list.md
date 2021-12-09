@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datasphere/api-ref/Project/list.md
 ---
+
 
 # Method list
 Lists projects for the specified folder.

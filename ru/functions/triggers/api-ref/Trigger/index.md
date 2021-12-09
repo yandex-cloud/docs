@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/triggers/triggers/api-ref/Trigger/index.md
 ---
+
 
 # Trigger
 A set of methods for managing triggers for serverless functions.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/resource/get.md
+---
 # yc cdn resource get
 
 Show information about resource

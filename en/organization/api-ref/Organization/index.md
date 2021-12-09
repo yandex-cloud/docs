@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/index.md
 ---
+
 
 # Organization
 A set of methods for managing Organization resources.

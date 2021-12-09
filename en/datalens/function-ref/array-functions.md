@@ -1,7 +1,9 @@
 ---
 title: Array functions
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/array-functions.md
 ---
+
 
 # Array functions
 

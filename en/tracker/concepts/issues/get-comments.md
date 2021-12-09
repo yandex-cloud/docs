@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-comments.md
+---
 # Get issue comments
 
 Use this request to get a list of comments on an issue.

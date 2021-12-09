@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/pause.md
+---
 # yc serverless trigger pause
 
 Pause the specified trigger

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/rotate.md
 ---
+
 
 # Method rotate
 Rotates the specified key: creates a new key version and makes it the primary version.

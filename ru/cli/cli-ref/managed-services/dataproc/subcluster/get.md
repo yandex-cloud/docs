@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/subcluster/get.md
+---
 # yc dataproc subcluster get
 
 Get information about a subcluster.

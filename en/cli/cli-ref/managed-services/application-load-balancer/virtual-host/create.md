@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/create.md
+---
 # yc application-load-balancer virtual-host create
 
 Create an virtual host for the http router

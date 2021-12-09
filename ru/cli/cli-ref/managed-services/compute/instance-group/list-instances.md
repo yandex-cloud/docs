@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/list-instances.md
+---
 # yc compute instance-group list-instances
 
 List instances of the specified instance group

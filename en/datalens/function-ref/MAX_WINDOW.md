@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/MAX_WINDOW.md
 ---
+
 
 # MAX (window)
 

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/start.md
+---
 # yc managed-clickhouse cluster start
 
 Start the specified ClickHouse cluster

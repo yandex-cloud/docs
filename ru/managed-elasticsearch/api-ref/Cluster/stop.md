@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/stop.md
 ---
+
 
 # Method stop
 Stops the specified Elasticsearch cluster.

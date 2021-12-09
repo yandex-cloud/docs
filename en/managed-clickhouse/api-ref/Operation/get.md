@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Operation/get.md
 ---
+
 
 # Method get
 Returns the specified Operation resource.

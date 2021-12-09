@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/delete-macros.md
+---
 # Удалить макрос
 
 Запрос позволяет удалить макрос.

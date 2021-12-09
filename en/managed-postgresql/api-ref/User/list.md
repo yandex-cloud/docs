@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/User/list.md
 ---
+
 
 # Method list
 Retrieves the list of PostgreSQL User resources in the specified cluster.

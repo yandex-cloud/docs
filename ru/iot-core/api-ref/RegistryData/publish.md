@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/RegistryData/publish.md
 ---
+
 
 # Method publish
 Publishes message on behalf of specified registry

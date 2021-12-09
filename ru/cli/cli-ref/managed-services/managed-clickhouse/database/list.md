@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/database/list.md
+---
 # yc managed-clickhouse database list
 
 List databases for a ClickHouse cluster.

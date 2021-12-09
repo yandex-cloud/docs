@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/service-account/create.md
+---
 # yc iam service-account create
 
 Create a service account

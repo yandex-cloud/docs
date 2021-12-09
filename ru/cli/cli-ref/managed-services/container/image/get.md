@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/image/get.md
+---
 # yc container image get
 
 Get information about a Docker image.

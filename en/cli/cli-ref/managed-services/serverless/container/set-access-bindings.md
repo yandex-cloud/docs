@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/set-access-bindings.md
+---
 # yc serverless container set-access-bindings
 
 Set access bindings for the specified container and delete all existing access bindings if there were any

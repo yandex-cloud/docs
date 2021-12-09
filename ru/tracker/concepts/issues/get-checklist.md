@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/get-checklist.md
+---
 # Получить параметры чеклиста
 
 Запрос позволяет получить параметры [чеклиста](../../user/checklist.md) в задаче.

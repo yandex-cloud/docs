@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/stop.md
 ---
+
 
 # Method stop
 Stops the running instance.

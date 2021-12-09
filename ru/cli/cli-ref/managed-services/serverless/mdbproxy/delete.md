@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/delete.md
+---
 # yc serverless mdbproxy delete
 
 Delete the specified proxy

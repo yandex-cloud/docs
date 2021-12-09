@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/add-sni.md
+---
 # yc application-load-balancer load-balancer add-sni
 
 Adds sni match to application load balancer's listener.

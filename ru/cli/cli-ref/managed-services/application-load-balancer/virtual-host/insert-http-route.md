@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/insert-http-route.md
+---
 # yc application-load-balancer virtual-host insert-http-route
 
 Removes http route from the specified virtual host of the http router

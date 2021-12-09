@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/list-access-bindings.md
+---
 # yc certificate-manager certificate list-access-bindings
 
 List access bindings for the specified certificate

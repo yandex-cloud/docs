@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Image/list.md
 ---
+
 
 # Method list
 Retrieves the list of Image resources in the specified registry or repository.

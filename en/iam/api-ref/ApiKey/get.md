@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/ApiKey/get.md
 ---
+
 
 # Method get
 Returns the specified API key.

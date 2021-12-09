@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Cluster/update.md
 ---
+
 
 # Method update
 Updates the configuration of the specified cluster.

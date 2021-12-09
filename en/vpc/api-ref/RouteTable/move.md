@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/RouteTable/move.md
 ---
+
 
 # Method move
 Move route table to another folder.

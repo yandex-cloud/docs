@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/create/index.md
+---
 # yc datatransfer endpoint create
 
 Create endpoint

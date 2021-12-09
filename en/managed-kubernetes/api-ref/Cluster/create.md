@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/Cluster/create.md
 ---
+
 
 # Method create
 Creates a Kubernetes cluster in the specified folder.

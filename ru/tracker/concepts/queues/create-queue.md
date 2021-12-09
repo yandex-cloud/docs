@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/queues/create-queue.md
+---
 # Создать очередь
 
 Запрос позволяет создать очередь.

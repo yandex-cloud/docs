@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/user/revoke-permission.md
+---
 # yc managed-mongodb user revoke-permission
 
 Revoke a permission from the specified MongoDB user.

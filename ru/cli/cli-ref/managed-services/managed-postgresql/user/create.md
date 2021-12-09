@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/user/create.md
+---
 # yc managed-postgresql user create
 
 Create a PostgreSQL user

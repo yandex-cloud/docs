@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/list-operations.md
+---
 # yc managed-clickhouse cluster list-operations
 
 List operations for a ClickHouse cluster.

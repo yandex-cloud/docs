@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-crypto/generate-data-key.md
+---
 # yc kms symmetric-crypto generate-data-key
 
 Generate data key and encrypt it with specified symmetric key

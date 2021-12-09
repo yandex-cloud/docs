@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/get-board.md
+---
 # Get board parameters
 
 Use this request to get the parameters of an issue board.

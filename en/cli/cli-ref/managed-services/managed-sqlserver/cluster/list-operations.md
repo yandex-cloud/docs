@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/list-operations.md
+---
 # yc managed-sqlserver cluster list-operations
 
 List operations for the specified SQLServer cluster

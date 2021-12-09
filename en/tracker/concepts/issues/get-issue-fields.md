@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-issue-fields.md
+---
 # Get issue field parameters
 
 ## Request format {#section_nrf_1vp_4gb}

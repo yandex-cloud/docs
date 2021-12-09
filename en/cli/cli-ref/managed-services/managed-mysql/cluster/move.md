@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/move.md
+---
 # yc managed-mysql cluster move
 
 Move the specified MySQL cluster into the folder

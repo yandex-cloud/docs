@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/database/get.md
+---
 # yc managed-mongodb database get
 
 Get information about a MongoDB database.

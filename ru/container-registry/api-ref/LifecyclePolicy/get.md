@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/get.md
 ---
+
 
 # Method get
 Returns the specified lifecycle policy.

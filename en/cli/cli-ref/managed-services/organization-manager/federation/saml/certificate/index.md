@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/certificate/index.md
+---
 # yc organization-manager federation saml certificate
 
 Manage certificates for the SAML-compatible identity federation

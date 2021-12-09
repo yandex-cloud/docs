@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/create.md
+---
 # yc managed-mysql cluster create
 
 Create MySQL cluster

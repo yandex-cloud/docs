@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/job/list.md
+---
 # yc dataproc job list
 
 List Dataproc jobs for a cluster.

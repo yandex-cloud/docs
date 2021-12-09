@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/restore.md
 ---
+
 
 # Method restore
 Creates a new ClickHouse cluster using the specified backup.

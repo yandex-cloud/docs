@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Subnet/addCidrBlocks.md
 ---
+
 
 # Method addCidrBlocks
 Adds CIDR blocks to the specified subnet.

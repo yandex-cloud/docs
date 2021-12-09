@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/move.md
 ---
+
 
 # Method move
 Moves the specified MongoDB cluster to the specified folder.

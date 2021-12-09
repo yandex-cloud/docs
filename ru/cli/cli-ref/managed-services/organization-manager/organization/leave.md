@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/organization/leave.md
+---
 # yc organization-manager organization leave
 
 Remove user accounts from the specified organization. Operation is performed by the account that wants to leave.

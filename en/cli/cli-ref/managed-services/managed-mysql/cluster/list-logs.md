@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/list-logs.md
+---
 # yc managed-mysql cluster list-logs
 
 Retrieves logs for the specified MySQL cluster

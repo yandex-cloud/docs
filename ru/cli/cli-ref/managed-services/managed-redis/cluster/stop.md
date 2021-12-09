@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/cluster/stop.md
+---
 # yc managed-redis cluster stop
 
 Stop the specified Redis cluster

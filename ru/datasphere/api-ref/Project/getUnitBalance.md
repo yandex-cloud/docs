@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datasphere/api-ref/Project/getUnitBalance.md
 ---
+
 
 # Method getUnitBalance
 Returns the unit balance of the specified project.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/TargetGroup/addTargets.md
 ---
+
 
 # Method addTargets
 Adds targets to the target group.

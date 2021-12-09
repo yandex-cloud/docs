@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/queues/get-local-fields.md
+---
 # Получить локальные поля очереди
 
 Запрос позволяет получить [локальные поля](../../local-fields.md) задачи, привязанные к заданной очереди.

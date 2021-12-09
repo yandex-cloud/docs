@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/stop.md
+---
 # yc load-balancer network-load-balancer stop
 
 Stops load balancing and health checking with the specified network load balancer.

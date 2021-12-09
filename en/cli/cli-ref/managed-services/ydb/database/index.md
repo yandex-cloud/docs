@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/index.md
+---
 # yc ydb database
 
 Manage YDB databases.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/updateAccessBindings.md
 ---
+
 
 # Method updateAccessBindings
 Updates access bindings for the specified certificate.

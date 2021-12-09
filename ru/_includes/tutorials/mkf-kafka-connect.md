@@ -40,6 +40,7 @@
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
 
+
 1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) c Ubuntu 20.04 и публичным IP-адресом.
 
 1. Подготовьте виртуальную машину к работе с {{ KFC }}:
@@ -179,4 +180,5 @@
 
 * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 * Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+
 * [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).

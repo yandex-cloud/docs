@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/vpc/api-ref/grpc/route_table_service.md
 ---
+
 
 # RouteTableService
 

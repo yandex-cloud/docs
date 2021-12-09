@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/lockbox/api-ref/grpc/payload_service.md
 ---
+
 
 # PayloadService
 

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/list-operations.md
+---
 # yc compute instance-group list-operations
 
 List operations for the specified instance group

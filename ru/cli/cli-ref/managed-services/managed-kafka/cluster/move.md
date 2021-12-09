@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/move.md
+---
 # yc managed-kafka cluster move
 
 Move the specified Kafka cluster into the folder

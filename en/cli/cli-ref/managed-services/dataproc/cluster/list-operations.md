@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/cluster/list-operations.md
+---
 # yc dataproc cluster list-operations
 
 List operations for a cluster.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Scanner/scan.md
 ---
+
 
 # Method scan
 Executes scanning of specified image.

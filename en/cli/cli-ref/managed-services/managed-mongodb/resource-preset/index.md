@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/resource-preset/index.md
+---
 # yc managed-mongodb resource-preset
 
 Learn about MongoDB resource presets.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/HostGroup/list.md
 ---
+
 
 # Method list
 Retrieves the list of host groups in the specified folder.

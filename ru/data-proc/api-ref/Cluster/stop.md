@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Cluster/stop.md
 ---
+
 
 # Method stop
 Stops the specified cluster.

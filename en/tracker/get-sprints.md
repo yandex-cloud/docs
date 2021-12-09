@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/get-sprints.md
+---
 # Get all sprints of a board
 
 Use this request to get the parameters of a board's sprints.

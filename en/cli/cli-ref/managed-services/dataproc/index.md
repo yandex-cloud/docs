@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/index.md
+---
 # yc dataproc
 
 Manage data processing clusters.

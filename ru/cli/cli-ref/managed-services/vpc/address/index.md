@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/address/index.md
+---
 # yc vpc address
 
 Manage addresses.

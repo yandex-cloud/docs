@@ -1,3 +1,6 @@
+---
+sourcePath: en/_api-ref-grpc/vision/v2/api-ref/grpc/index.md
+---
 # Yandex Vision API
 The service does not operate with resources. All service's methods are presented on the [Vision](Vision/) page.
 

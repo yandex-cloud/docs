@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Secret/list.md
 ---
+
 
 # Method list
 Retrieves the list of secrets in the specified folder.

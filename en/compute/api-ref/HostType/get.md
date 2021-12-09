@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/HostType/get.md
 ---
+
 
 # Method get
 Returns information about specified host type.

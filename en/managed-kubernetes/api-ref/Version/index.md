@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/Version/index.md
 ---
+
 
 # Version
 A set of methods for managing Kubernetes versions.

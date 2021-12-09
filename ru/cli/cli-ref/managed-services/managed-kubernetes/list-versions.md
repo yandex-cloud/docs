@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/list-versions.md
+---
 # yc managed-kubernetes list-versions
 
 List available kubernetes versions.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/get.md
+---
 # yc managed-sqlserver user get
 
 Show information about the specified SQLServer user

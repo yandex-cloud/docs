@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/User/listMembers.md
 ---
+
 
 # Method listMembers
 List organization active members.

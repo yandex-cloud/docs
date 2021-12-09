@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/projects/create-project.md
+---
 # Create a project
 
 Use this request to create [projects](../../manager/projects.md).

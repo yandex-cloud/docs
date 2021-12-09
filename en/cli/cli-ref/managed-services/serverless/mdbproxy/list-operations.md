@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/list-operations.md
+---
 # yc serverless mdbproxy list-operations
 
 Show history of the tag for the specified proxy

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Address/delete.md
 ---
+
 
 # Method delete
 Deletes the specified address.

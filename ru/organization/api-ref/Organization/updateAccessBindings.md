@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/updateAccessBindings.md
 ---
+
 
 # Method updateAccessBindings
 Updates access bindings for the specified organization.

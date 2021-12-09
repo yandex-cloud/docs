@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/setAccessBindings.md
 ---
+
 
 # Method setAccessBindings
 Sets access bindings for the specified organization.

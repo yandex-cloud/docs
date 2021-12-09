@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/password/index.md
+---
 # yc iot registry password
 
 Manage IoT device registry passwords

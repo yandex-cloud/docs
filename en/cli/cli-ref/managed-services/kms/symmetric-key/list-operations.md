@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/list-operations.md
+---
 # yc kms symmetric-key list-operations
 
 List operations for the specified symmetric key

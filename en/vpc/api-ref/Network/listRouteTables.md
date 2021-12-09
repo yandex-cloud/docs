@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Network/listRouteTables.md
 ---
+
 
 # Method listRouteTables
 Lists route tables from the specified network.

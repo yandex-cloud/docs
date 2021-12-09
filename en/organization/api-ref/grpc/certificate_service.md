@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/organization-manager/api-ref/grpc/certificate_service.md
 ---
+
 
 # CertificateService
 

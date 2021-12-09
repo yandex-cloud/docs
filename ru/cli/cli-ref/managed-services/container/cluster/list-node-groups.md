@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/cluster/list-node-groups.md
+---
 # yc container cluster list-node-groups
 
 List Kubernetes cluster node groups.

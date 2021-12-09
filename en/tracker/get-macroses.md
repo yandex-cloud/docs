@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/get-macroses.md
+---
 # Get queue macros
 
 Use this request to get parameters of all macros in a queue.

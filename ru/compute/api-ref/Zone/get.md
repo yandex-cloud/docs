@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Zone/get.md
 ---
+
 
 # Method get
 Returns the information about the specified availability zone.

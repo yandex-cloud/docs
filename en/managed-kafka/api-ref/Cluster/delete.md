@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/delete.md
 ---
+
 
 # Method delete
 Deletes the specified Apache Kafka® cluster.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/restore.md
+---
 # yc managed-sqlserver cluster restore
 
 Restore SQLServer cluster

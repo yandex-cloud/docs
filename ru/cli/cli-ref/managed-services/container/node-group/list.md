@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/node-group/list.md
+---
 # yc container node-group list
 
 List node groups available in a folder.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/update.md
 ---
+
 
 # Method update
 Updates the specified PostgreSQL cluster.

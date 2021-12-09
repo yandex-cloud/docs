@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/patch-issue-field-value.md
+---
 # Edit possible values of issue fields
 
 ## Request format {#section_kty_1vh_4gb}

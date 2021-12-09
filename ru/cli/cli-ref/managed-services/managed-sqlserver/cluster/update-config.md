@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/update-config.md
+---
 # yc managed-sqlserver cluster update-config
 
 Update the specified SQLServer cluster config

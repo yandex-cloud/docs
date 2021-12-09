@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/GET_ITEM.md
 ---
+
 
 # GET_ITEM
 

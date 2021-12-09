@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Origin/delete.md
 ---
+
 
 # Method delete
 Deletes origin from origin group.

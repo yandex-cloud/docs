@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/add-version.md
+---
 # yc lockbox secret add-version
 
 Add new payload version for the specified secret based on an existing one

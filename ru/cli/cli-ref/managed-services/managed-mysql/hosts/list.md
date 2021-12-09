@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/hosts/list.md
+---
 # yc managed-mysql hosts list
 
 List hosts for the specified MySQL cluster

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/resourcemanager/api-ref/Cloud/listOperations.md
 ---
+
 
 # Method listOperations
 Lists operations for the specified cloud.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/NodeGroup/update.md
 ---
+
 
 # Method update
 Updates the specified node group.

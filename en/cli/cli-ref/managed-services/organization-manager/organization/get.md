@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/organization/get.md
+---
 # yc organization-manager organization get
 
 Show information about the specified organization

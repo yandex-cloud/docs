@@ -16,7 +16,7 @@
 
 Пример спецификации:
 
-```
+```yaml
 /node/call:
     post:
       summary: Call DataSphere Node

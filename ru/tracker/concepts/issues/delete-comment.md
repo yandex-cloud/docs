@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/delete-comment.md
+---
 # Удалить комментарий
 
 Запрос позволяет удалить комментарий к задаче.

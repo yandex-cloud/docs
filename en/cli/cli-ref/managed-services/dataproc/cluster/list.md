@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/cluster/list.md
+---
 # yc dataproc cluster list
 
 List clusters in a folder.

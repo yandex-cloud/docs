@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/create/container-registry.md
+---
 # yc serverless trigger create container-registry
 
 Create container registry trigger

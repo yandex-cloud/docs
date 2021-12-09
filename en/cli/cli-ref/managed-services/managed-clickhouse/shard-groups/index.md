@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/shard-groups/index.md
+---
 # yc managed-clickhouse shard-groups
 
 Manage shard groups in a ClickHouse cluster.

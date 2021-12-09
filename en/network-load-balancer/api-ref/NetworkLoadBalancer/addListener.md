@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/addListener.md
 ---
+
 
 # Method addListener
 Adds a listener to the specified network load balancer.

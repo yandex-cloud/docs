@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/listOperations.md
 ---
+
 
 # Method listOperations
 Lists operations for the specified backend group.

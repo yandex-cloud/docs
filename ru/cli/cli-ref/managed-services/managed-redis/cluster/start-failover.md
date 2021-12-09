@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/cluster/start-failover.md
+---
 # yc managed-redis cluster start-failover
 
 Start manual failover for the specified Redis cluster

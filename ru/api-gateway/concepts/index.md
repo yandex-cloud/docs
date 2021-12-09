@@ -13,10 +13,11 @@ API-шлюз задается декларативно при помощи сп�
 * [Статический ответ](../concepts/extensions/dummy.md).
 * [Вызов функции](../concepts/extensions/cloud-functions.md).
 * [Обращение по HTTP](../concepts/extensions/http.md).
-* [Интеграция с Object Storage](../concepts/extensions/object-storage.md).
-* [Интеграция с DataSphere](../concepts/extensions/datasphere.md).
-* [Интеграция с Data Streams](../concepts/extensions/datastreams.md).
-* [Интеграция с Serverless Containers](../concepts/extensions/containers.md).
+* [Интеграция с {{ objstorage-name }}](../concepts/extensions/object-storage.md).
+* [Интеграция с {{ ml-platform-name }}](../concepts/extensions/datasphere.md).
+* [Интеграция с {{ yds-name }}](../concepts/extensions/datastreams.md).
+* [Интеграция с {{ serverless-containers-name }}](../concepts/extensions/containers.md).
+* [Интеграция с {{ message-queue-short-name }}](../concepts/extensions/ymq.md).
 * [Жадные параметры](../concepts/extensions/greedy-parameters.md).
 * [Обобщенный HTTP-метод](../concepts/extensions/any-method.md).
 

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md
+---
 # yc managed-clickhouse cluster add-graphite-rollup
 
 Apply graphite configuration to a ClickHouse cluster.

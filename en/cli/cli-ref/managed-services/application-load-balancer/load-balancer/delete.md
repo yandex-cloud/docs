@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/delete.md
+---
 # yc application-load-balancer load-balancer delete
 
 Delete the specified application load balancer

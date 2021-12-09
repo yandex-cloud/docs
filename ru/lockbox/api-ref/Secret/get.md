@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Secret/get.md
 ---
+
 
 # Method get
 Returns the specified secret.

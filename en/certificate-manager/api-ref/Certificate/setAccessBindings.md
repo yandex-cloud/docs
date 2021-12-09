@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/setAccessBindings.md
 ---
+
 
 # Method setAccessBindings
 Sets access bindings for the certificate.

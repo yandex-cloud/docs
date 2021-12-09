@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/decrypt.md
 ---
+
 
 # Method decrypt
 Decrypts the given ciphertext with the specified key.

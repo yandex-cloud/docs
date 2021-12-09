@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/backup/get.md
+---
 # yc managed-redis backup get
 
 Show information about the specified Redis backup

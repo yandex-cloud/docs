@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/index.md
+---
 # yc serverless mdbproxy
 
 Manage proxies

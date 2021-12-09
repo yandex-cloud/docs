@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Cluster/get.md
 ---
+
 
 # Method get
 Returns the specified cluster.

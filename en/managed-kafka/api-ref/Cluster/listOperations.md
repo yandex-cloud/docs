@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/listOperations.md
 ---
+
 
 # Method listOperations
 Retrieves the list of operations for the specified Apache Kafka® cluster.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/list.md
+---
 # yc logging group list
 
 List log groups

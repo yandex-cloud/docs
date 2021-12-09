@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/index.md
+---
 # yc lockbox secret
 
 Manage secrets

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Job/listLog.md
 ---
+
 
 # Method listLog
 Returns a log for specified job.

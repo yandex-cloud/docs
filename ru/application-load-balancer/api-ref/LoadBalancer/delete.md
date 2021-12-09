@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/delete.md
 ---
+
 
 # Method delete
 Deletes the specified application load balancer.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-type/list.md
+---
 # yc compute host-type list
 
 List host types

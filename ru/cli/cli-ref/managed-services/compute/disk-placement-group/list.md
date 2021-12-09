@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk-placement-group/list.md
+---
 # yc compute disk-placement-group list
 
 List disk placement groups

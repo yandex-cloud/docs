@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/new-transition.md
+---
 # Выполнить переход в статус
 
 Запрос позволяет перевести задачу в новый статус.

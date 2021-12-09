@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/delete.md
+---
 # yc lockbox secret delete
 
 Delete the specified secret

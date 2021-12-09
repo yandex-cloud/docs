@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/projects/delete-project.md
+---
 # Delete a project
 
 Use this request to delete [projects](../../manager/projects.md).

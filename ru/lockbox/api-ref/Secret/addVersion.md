@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Secret/addVersion.md
 ---
+
 
 # Method addVersion
 Adds new version based on a previous one.

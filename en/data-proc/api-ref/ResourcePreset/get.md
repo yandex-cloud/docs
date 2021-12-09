@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/ResourcePreset/get.md
 ---
+
 
 # Method get
 Returns the specified ResourcePreset resource.

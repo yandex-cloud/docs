@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
+---
 # Импортировать файлы
 
 {% note warning %}

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/list-nodes.md
+---
 # yc managed-kubernetes cluster list-nodes
 
 List nodes in all node groups of the specified Kubernetes cluster.

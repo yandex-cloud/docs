@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/getShardGroup.md
 ---
+
 
 # Method getShardGroup
 Returns the specified shard group.

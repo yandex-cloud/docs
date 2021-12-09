@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/RANK_DENSE.md
 ---
+
 
 # RANK_DENSE (window)
 

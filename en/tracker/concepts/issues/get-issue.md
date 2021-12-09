@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-issue.md
+---
 # Get issue parameters
 
 Use this request to get information about an issue.

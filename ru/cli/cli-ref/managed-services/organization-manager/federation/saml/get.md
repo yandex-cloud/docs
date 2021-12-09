@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/get.md
+---
 # yc organization-manager federation saml get
 
 Show information about the specified federation

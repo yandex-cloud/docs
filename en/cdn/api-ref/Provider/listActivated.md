@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Provider/listActivated.md
 ---
+
 
 # Method listActivated
 List activated providers for specified client.

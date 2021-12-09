@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/list-operations.md
+---
 # yc serverless container list-operations
 
 Show operations for the specified container

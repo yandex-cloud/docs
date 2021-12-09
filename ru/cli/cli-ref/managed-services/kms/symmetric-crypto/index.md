@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-crypto/index.md
+---
 # yc kms symmetric-crypto
 
 Perform symmetric crypto operations

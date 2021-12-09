@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-attachment-preview.md
+---
 # Download a thumbnail
 
 Use this request to get thumbnails of image files attached to issues.

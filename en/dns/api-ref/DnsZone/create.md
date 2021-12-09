@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dns/api-ref/DnsZone/create.md
 ---
+
 
 # Method create
 Creates a DNS zone in the specified folder.

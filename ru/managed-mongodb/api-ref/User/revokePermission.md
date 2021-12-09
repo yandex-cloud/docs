@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/User/revokePermission.md
 ---
+
 
 # Method revokePermission
 Revokes permission from the specified MongoDB user.

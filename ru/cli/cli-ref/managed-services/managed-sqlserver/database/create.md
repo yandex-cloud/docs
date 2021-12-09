@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/create.md
+---
 # yc managed-sqlserver database create
 
 Create SQLServer database

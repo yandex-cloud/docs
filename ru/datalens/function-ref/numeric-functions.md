@@ -1,7 +1,9 @@
 ---
 title: Математические функции
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/numeric-functions.md
 ---
+
 
 # Математические функции
 

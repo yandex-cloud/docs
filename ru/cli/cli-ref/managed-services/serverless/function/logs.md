@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/logs.md
+---
 # yc serverless function logs
 
 Show logs for the specified function

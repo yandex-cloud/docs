@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/user/update.md
+---
 # yc managed-mongodb user update
 
 Modify attributes of a MongoDB user.

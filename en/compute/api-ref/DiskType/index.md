@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/DiskType/index.md
 ---
+
 
 # DiskType
 A set of methods to retrieve information about disk types.

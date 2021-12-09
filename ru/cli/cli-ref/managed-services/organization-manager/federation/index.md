@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/federation/index.md
+---
 # yc organization-manager federation
 
 Manage federations

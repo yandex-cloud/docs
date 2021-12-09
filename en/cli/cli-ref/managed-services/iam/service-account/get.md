@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/service-account/get.md
+---
 # yc iam service-account get
 
 Show information about the specified service account

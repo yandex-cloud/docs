@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/list.md
+---
 # yc compute instance list
 
 List virtual machine instances

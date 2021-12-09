@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/network/list-security-groups.md
+---
 # yc vpc network list-security-groups
 
 List security groups in a network.

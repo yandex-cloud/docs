@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/certificate/get.md
+---
 # yc iam certificate get
 
 Show information about the specified certificate

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/get.md
 ---
+
 
 # Method get
 Returns the specified API gateway. Note that only API gateway basic attributes are returned.

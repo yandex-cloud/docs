@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/billing/api-ref/Budget/index.md
 ---
+
 
 # Budget
 A set of methods for managing Budget resources.

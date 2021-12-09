@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/get.md
 ---
+
 
 # Method get
 Returns the specified symmetric KMS key.

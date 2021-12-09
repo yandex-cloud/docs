@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/DeviceData/publish.md
 ---
+
 
 # Method publish
 Publishes message on behalf of specified device

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/hosts/update.md
+---
 # yc managed-postgresql hosts update
 
 Update the specified hosts

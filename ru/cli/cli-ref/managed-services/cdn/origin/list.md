@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/origin/list.md
+---
 # yc cdn origin list
 
 List origins in the specified origin group

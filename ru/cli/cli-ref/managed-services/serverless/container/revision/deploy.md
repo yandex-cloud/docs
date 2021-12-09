@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/revision/deploy.md
+---
 # yc serverless container revision deploy
 
 Deploy new container revision

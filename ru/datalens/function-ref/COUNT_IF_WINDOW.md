@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/COUNT_IF_WINDOW.md
 ---
+
 
 # COUNT_IF (оконная)
 

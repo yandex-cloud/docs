@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/remove-labels.md
+---
 # yc compute instance-group remove-labels
 
 Remove labels from specified instance group

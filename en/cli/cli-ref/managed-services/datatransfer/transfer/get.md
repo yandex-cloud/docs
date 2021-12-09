@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/transfer/get.md
+---
 # yc datatransfer transfer get
 
 Get transfer

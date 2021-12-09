@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/image/list-scan-results.md
+---
 # yc container image list-scan-results
 
 [PREVIEW] List scan results of Docker image.

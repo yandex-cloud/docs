@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/index.md
+---
 # yc organization-manager
 
 Manage Yandex Organization Manager resources

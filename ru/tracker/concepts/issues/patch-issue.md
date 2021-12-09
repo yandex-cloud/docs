@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/patch-issue.md
+---
 # Редактировать задачу
 
 Запрос позволяет внести изменения в задачу.

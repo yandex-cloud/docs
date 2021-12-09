@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/delete.md
+---
 # yc managed-sqlserver user delete
 
 Delete the specified SQLServer user

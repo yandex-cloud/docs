@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/get-external-links.md
+---
 # Получить список внешних связей задачи
 
 Запрос позволяет получить список связей задачи с [объектами внешних приложений](../../external-links.md).

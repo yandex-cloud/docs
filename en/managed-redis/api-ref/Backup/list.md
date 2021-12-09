@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/redis/api-ref/Backup/list.md
 ---
+
 
 # Method list
 Retrieves the list of Redis backups available for the specified folder.

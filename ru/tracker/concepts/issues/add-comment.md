@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/add-comment.md
+---
 # Добавить комментарий
 
 Запрос позволяет добавить комментарий в задачу.

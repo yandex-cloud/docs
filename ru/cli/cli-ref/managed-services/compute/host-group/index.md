@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/host-group/index.md
+---
 # yc compute host-group
 
 Manage host groups

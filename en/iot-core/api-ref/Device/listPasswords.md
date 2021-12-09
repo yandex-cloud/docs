@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Device/listPasswords.md
 ---
+
 
 # Method listPasswords
 Retrieves the list of passwords for the specified device.

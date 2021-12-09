@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/list.md
+---
 # yc managed-mongodb hosts list
 
 List hosts for a MongoDB cluster.

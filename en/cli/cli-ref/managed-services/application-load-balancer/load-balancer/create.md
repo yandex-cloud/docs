@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/create.md
+---
 # yc application-load-balancer load-balancer create
 
 Create an application load balancer

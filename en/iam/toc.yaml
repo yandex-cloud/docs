@@ -101,6 +101,8 @@ items:
         href: concepts/users/service-accounts.md
       - name: SAML-compatible identity federations
         href: concepts/users/identity-federations.md
+      - name: Identity federations
+        href: concepts/federations.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: How to use Yandex.Cloud securely

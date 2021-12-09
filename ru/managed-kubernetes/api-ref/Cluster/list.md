@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/Cluster/list.md
 ---
+
 
 # Method list
 Retrieves the list of Kubernetes cluster in the specified folder.

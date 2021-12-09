@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/billing/api-ref/Sku/index.md
 ---
+
 
 # Sku
 A set of methods for managing Sku resources.

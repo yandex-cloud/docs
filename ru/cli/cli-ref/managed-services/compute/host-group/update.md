@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/host-group/update.md
+---
 # yc compute host-group update
 
 Update the specified host group

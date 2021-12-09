@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/database/index.md
+---
 # yc managed-postgresql database
 
 Manage PostgreSQL databases

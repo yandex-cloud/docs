@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/resourcemanager/api-ref/Folder/update.md
 ---
+
 
 # Method update
 Updates the specified folder.

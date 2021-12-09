@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/ai/translate/api-ref/Translation/translate.md
 ---
+
 
 # Метод translate
 Переводит текст на указанный язык.

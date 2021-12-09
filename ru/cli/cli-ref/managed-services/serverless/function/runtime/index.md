@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/runtime/index.md
+---
 # yc serverless function runtime
 
 Inspect function runtimes

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/addOneToOneNat.md
 ---
+
 
 # Method addOneToOneNat
 Enables One-to-one NAT on the network interface.

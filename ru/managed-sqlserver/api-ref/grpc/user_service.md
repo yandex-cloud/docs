@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/managed-sqlserver/api-ref/grpc/user_service.md
 ---
+
 
 # UserService
 

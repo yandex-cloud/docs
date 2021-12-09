@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Resource/get.md
 ---
+
 
 # Method get
 Get client's CDN resource by resource id.

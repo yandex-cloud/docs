@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/setAccessBindings.md
 ---
+
 
 # Method setAccessBindings
 Sets access bindings for the key.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/queues/get-local-fields.md
+---
 # Get local queue fields
 
 Use this request to get issue [local fields](../../local-fields.md) linked to the specified queue.

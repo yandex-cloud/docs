@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/restart.md
+---
 # yc managed-mongodb hosts restart
 
 Restart specified MongoD hosts.

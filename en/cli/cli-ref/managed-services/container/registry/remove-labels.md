@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/remove-labels.md
+---
 # yc container registry remove-labels
 
 Remove labels from a registry.

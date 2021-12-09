@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/list.md
 ---
+
 
 # Method list
 Retrieves the list of MySQL clusters that belong to the specified folder.

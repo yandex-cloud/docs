@@ -1,4 +1,4 @@
-Create a trigger for the device [topic](../../iot-core/concepts/topic/index.md) or {{ iot-name }} service registry, and process message copies using a [function](../../functions/concepts/function.md) {{ sf-name }}.
+Create a trigger for the device [topic](../../iot-core/concepts/index.md) or {{ iot-name }} service registry, and process message copies using the [function](../../functions/concepts/function.md) in {{ sf-name }} or a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }}.
 
 {% note warning %}
 
@@ -10,14 +10,18 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 To create a trigger, you need:
 
-1. [Functions](../../functions/concepts/function.md) the trigger will send messages to for processing. If you don't have a function:
-    * [Create a function](../../functions/operations/function/function-create.md).
-    * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
-1. [Registries](../../iot-core/concepts/index.md#registry) or [devices](../../iot-core/concepts/index.md#device) whose topics the trigger will accept copies of messages from. If you don't have these:
+* [Functions](../../functions/concepts/function.md) or [containers](../../serverless-containers/concepts/container.md) that the trigger will launch.
+    * If you don't have a function:
+        * [Create a function](../../functions/operations/function/function-create.md).
+        * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
+    * If you don't have a container:
+        * [Create a container](../../serverless-containers/operations/create.md).
+        * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
+* [Registries](../../iot-core/concepts/index.md#registry) or [devices](../../iot-core/concepts/index.md#device) whose topics the trigger will accept copies of messages from. If you don't have these:
     * [Create a registry](../../iot-core/operations/registry/registry-create.md).
     * [Create a device](../../iot-core/operations/device/device-create.md).
-1. (optional) The [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that the function couldn't process are moved. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-1. Service accounts with rights to invoke the function and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
+* (optional) The [Dead Letter Queue](../../functions/concepts/dlq.md), where messages that the function or container could not process will be redirected. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* Service accounts with rights to invoke a function or a container and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -33,13 +37,17 @@ To create a trigger, you need:
     1. Under **Basic parameters**:
         * Enter a name and description for the trigger.
         * In the **Type** field, select **Yandex IoT Core**.
+        * Choose what will fire a trigger — a function or a container.
     1. Under **Yandex IoT Core message settings**, specify the registry, device, and MQTT topic to create a trigger for. If you're creating a trigger for a registry topic, you can omit the device.
-    1. Under **Function settings**:
-        * Select the function for the trigger to invoke.
-        * Specify the [function version tag](../../functions/concepts/function.md#tag).
-        * Specify the service account to be used to invoke the function.
+    1. If the trigger launches:
+        * A function, select one under **Function settings** and specify:
+            * [Tag of the function version](../../functions/concepts/function.md#tag).
+            * A service account to be used to invoke the function.
+        * A container, select one under **Container settings** and specify:
+            * [A container revision](../../serverless-containers/concepts/container.md#revision).
+            * A service account to be used to invoke the container.
     1. (optional) Under **Repeat request settings**:
-        * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
+        * In the **Interval** field, specify the time after which the function or the container will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
         * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
     1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and service account with rights to write messages to it.
     1. Click **Create trigger**.
@@ -50,7 +58,7 @@ To create a trigger, you need:
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    To create a trigger, run the command:
+    To create a trigger that launches a function, run the command:
 
     ```
     yc serverless trigger create internet-of-things \
@@ -66,7 +74,7 @@ To create a trigger, you need:
         --dlq-service-account-id <service account ID>
     ```
 
-    where:
+    Where:
     * `--name`: Trigger name.
     * `--registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
     * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you're creating a trigger for a registry topic, you can omit this parameter.

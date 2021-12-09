@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/list-device-topic-aliases.md
+---
 # yc iot registry list-device-topic-aliases
 
 List all topic aliases set for devices in this registry

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/TargetGroup/get.md
 ---
+
 
 # Method get
 Returns the specified target group.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/index.md
+---
 # yc kms
 
 Manage Yandex Key Management Service resources

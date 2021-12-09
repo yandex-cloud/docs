@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/job/create-spark.md
+---
 # yc dataproc job create-spark
 
 Create a Dataproc Spark job.

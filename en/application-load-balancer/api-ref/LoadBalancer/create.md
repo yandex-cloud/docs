@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/create.md
 ---
+
 
 # Method create
 Creates an application load balancer in the specified folder.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/resource-preset/get.md
+---
 # yc managed-elasticsearch resource-preset get
 
 Get information about a ElasticSearch resource preset.

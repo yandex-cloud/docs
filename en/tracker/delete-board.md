@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/delete-board.md
+---
 # Delete a board
 
 Use this request to delete an issue board.

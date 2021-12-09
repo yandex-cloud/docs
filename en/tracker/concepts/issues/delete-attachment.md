@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/delete-attachment.md
+---
 # Delete a file
 
 Use this request to delete attached files.

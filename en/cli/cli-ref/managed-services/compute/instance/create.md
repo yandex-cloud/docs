@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/create.md
+---
 # yc compute instance create
 
 Create a virtual machine instance

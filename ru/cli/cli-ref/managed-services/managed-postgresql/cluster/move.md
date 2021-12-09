@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/move.md
+---
 # yc managed-postgresql cluster move
 
 Move the specified PostgreSQL cluster into the folder

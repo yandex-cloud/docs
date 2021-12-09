@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/list.md
+---
 # yc managed-sqlserver database list
 
 List SQLServer databases

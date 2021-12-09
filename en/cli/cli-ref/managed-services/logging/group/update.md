@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/update.md
+---
 # yc logging group update
 
 Update log group

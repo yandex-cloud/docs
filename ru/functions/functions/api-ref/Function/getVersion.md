@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/getVersion.md
 ---
+
 
 # Method getVersion
 Returns the specified version of a function.

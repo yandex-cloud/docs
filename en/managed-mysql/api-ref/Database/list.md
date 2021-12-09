@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/Database/list.md
 ---
+
 
 # Method list
 Retrieves the list of MySQL databases in the specified cluster.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/update-network-interface.md
+---
 # yc compute instance update-network-interface
 
 Update the specified network interface of virtual machine instance

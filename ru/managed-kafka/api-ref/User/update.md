@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/User/update.md
 ---
+
 
 # Method update
 Updates the specified Kafka user.

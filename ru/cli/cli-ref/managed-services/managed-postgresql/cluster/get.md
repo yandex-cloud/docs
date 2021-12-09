@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/get.md
+---
 # yc managed-postgresql cluster get
 
 Show information about the specified PostgreSQL cluster

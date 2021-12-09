@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/stop.md
 ---
+
 
 # Method stop
 Stop the specified Redis cluster.

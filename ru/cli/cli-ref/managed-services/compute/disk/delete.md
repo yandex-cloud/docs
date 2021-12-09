@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk/delete.md
+---
 # yc compute disk delete
 
 Delete the specified disk

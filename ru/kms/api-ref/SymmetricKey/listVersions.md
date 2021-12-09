@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/listVersions.md
 ---
+
 
 # Method listVersions
 Returns the list of versions of the specified symmetric KMS key.

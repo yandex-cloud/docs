@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/index.md
+---
 # yc managed-kubernetes cluster
 
 Manage Kubernetes clusters.

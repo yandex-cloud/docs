@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Address/create.md
 ---
+
 
 # Method create
 Creates an address in the specified folder and network.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref-grpc/vision/api-ref/grpc/vision_service.md
 ---
+
 
 # VisionService
 

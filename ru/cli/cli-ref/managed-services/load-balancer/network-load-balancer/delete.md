@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/delete.md
+---
 # yc load-balancer network-load-balancer delete
 
 Delete the specified load balancer

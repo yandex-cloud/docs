@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/api-key/index.md
+---
 # yc iam api-key
 
 Manage service account API keys. API keys are used for authentication with Yandex Cloud services.

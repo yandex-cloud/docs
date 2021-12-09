@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/move.md
 ---
+
 
 # Method move
 Moves a ClickHouse cluster to the specified folder.

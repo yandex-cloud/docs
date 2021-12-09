@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Repository/setAccessBindings.md
 ---
+
 
 # Method setAccessBindings
 Sets access bindings for the specified repository.

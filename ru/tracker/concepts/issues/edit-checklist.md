@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/edit-checklist.md
+---
 # Редактировать чеклист
 
 Запрос позволяет редактировать пункты [чеклиста](../../user/checklist.md) в задаче. 

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Cluster/listUILinks.md
 ---
+
 
 # Method listUILinks
 Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.

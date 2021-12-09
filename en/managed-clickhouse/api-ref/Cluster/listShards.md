@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/listShards.md
 ---
+
 
 # Method listShards
 Retrieves a list of shards that belong to the specified cluster.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/generateDataKey.md
 ---
+
 
 # Method generateDataKey
 Generates a new symmetric data encryption key (not a KMS key) and returns

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/get-issue.md
+---
 # Получить параметры задачи
 
 Запрос позволяет получить информацию о задаче.

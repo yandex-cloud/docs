@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Snapshot/create.md
 ---
+
 
 # Method create
 Creates a snapshot of the specified disk.

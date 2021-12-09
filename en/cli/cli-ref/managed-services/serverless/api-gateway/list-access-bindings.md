@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/list-access-bindings.md
+---
 # yc serverless api-gateway list-access-bindings
 
 List API Gateway access bindings

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/move-issue.md
+---
 # Перенести задачу в другую очередь
 
 Запрос позволяет переместить задачу в другую очередь.

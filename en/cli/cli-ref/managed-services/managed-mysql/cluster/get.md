@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/get.md
+---
 # yc managed-mysql cluster get
 
 Show information about the specified MySQL cluster

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/hosts/delete.md
+---
 # yc managed-clickhouse hosts delete
 
 Remove specified hosts from the a cluster.

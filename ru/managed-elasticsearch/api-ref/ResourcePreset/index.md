@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/ResourcePreset/index.md
 ---
+
 
 # ResourcePreset
 A set of methods for managing Elasticsearch resource presets.

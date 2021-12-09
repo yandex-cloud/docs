@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/folder/add-access-binding.md
+---
 # yc resource-manager folder add-access-binding
 
 Add access binding for the specified folder

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/create-issue.md
+---
 # Создать задачу
 
 Запрос позволяет создать задачу.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/backup/index.md
+---
 # yc ydb backup
 
 Manage YDB backups.

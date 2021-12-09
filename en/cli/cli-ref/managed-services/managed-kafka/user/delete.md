@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/user/delete.md
+---
 # yc managed-kafka user delete
 
 Delete a Kafka user.

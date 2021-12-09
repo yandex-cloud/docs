@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/security-group/remove-labels.md
+---
 # yc vpc security-group remove-labels
 
 Remove labels from a security group.

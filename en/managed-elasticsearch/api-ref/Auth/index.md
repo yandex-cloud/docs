@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Auth/index.md
 ---
+
 
 # Auth
 A set of methods for managing Elasticsearch Authentication resources.

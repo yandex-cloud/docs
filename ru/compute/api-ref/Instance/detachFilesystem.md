@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/detachFilesystem.md
 ---
+
 
 # Method detachFilesystem
 Detaches the filesystem from the instance.

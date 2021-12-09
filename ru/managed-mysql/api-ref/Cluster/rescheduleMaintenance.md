@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/rescheduleMaintenance.md
 ---
+
 
 # Method rescheduleMaintenance
 Reschedules planned maintenance operation.

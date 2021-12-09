@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin/create.md
+---
 # yc cdn origin create
 
 Create origin

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/delete-attachment.md
+---
 # Удалить файл
 
 Запрос позволяет удалить прикрепленный файл.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/getTargetStates.md
 ---
+
 
 # Method getTargetStates
 Returns the statuses of all targets of the specified backend group in all their availability zones.

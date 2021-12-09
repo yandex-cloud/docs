@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/logging/api-ref/LogGroup/listResources.md
 ---
+
 
 # Method listResources
 Retrieves the resources (type and IDs) in the specified log group.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/post-sprint.md
+---
 # Create a sprint
 
 Use this request to create sprints.

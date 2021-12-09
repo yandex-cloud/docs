@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-key/set-access-bindings.md
+---
 # yc kms symmetric-key set-access-bindings
 
 Set access bindings for the specified symmetric key and delete all existing access bindings if there were any

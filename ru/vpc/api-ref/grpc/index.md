@@ -1,3 +1,6 @@
+---
+sourcePath: en/_api-ref-grpc/vpc/api-ref/grpc/index.md
+---
 # Yandex Virtual Private Cloud API
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 

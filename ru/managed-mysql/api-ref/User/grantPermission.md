@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/User/grantPermission.md
 ---
+
 
 # Method grantPermission
 Grants a permission to the specified MySQL user.

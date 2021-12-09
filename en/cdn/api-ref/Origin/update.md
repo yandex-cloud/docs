@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Origin/update.md
 ---
+
 
 # Method update
 Updates origin from origin group.

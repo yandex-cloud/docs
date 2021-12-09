@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/shards/get.md
+---
 # yc managed-redis shards get
 
 Get information about a shard in a Redis cluster.

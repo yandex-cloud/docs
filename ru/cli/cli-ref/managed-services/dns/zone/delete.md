@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dns/zone/delete.md
+---
 # yc dns zone delete
 
 Delete a dns zone.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/format-schema/delete.md
+---
 # yc managed-clickhouse format-schema delete
 
 Delete ClickHouse format schema.

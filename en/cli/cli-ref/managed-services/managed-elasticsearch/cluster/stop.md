@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/stop.md
+---
 # yc managed-elasticsearch cluster stop
 
 Stop the specified ElasticSearch cluster.

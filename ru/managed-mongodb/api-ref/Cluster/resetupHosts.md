@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/resetupHosts.md
 ---
+
 
 # Method resetupHosts
 Resetups hosts.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/DiskPlacementGroup/index.md
 ---
+
 
 # DiskPlacementGroup
 A set of methods for managing DiskPlacementGroup resources.

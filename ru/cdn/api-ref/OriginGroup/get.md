@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/OriginGroup/get.md
 ---
+
 
 # Method get
 Gets origin group with specified origin group id.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/index.md
 ---
+
 
 # InstanceGroup
 A set of methods for managing InstanceGroup resources.

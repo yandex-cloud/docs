@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/projects/update-project.md
+---
 # Изменить проект
 
 Запрос позволяет обновить информацию о [проекте](../../manager/projects.md).

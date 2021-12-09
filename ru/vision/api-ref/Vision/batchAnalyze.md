@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/ai/vision/api-ref/Vision/batchAnalyze.md
 ---
+
 
 # Метод batchAnalyze
 Анализирует набор изображений и возвращает результаты с аннотациями.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/database/get.md
+---
 # yc ydb database get
 
 Get information about the specified YDB database.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Registry/listOperations.md
 ---
+
 
 # Method listOperations
 Lists operations for the specified registry.

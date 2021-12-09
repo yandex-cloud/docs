@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/network-load-balancer/api-ref/grpc/network_load_balancer_service.md
 ---
+
 
 # NetworkLoadBalancerService
 

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/add-checklist-item.md
+---
 # Создать чеклист или добавить в него пункты
 
 Запрос позволяет создать [чеклист](../../user/checklist.md) и добавить в него новые пункты.

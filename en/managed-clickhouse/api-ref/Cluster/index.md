@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/index.md
 ---
+
 
 # Cluster
 A set of methods for managing ClickHouse clusters.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/start.md
+---
 # yc compute instance start
 
 Start the specified virtual machine instance

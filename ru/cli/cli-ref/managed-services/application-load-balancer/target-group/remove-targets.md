@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/target-group/remove-targets.md
+---
 # yc application-load-balancer target-group remove-targets
 
 Remove targets from the specified target group

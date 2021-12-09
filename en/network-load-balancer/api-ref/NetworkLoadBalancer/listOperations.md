@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/listOperations.md
 ---
+
 
 # Method listOperations
 Lists operations for the specified network load balancer.

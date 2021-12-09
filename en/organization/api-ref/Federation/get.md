@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Federation/get.md
 ---
+
 
 # Method get
 Returns the specified federation.

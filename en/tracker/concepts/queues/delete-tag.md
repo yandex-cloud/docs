@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/queues/delete-tag.md
+---
 # Remove a tag from a queue
 
 Use this request to remove a tag from the queue.

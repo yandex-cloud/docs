@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/add-labels.md
+---
 # yc managed-mysql cluster add-labels
 
 Add labels to MySQL cluster

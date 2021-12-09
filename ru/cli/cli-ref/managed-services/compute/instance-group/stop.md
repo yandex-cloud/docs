@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/stop.md
+---
 # yc compute instance-group stop
 
 Stop the specified instance group

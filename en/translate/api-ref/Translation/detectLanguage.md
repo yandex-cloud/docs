@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/ai/translate/api-ref/Translation/detectLanguage.md
 ---
+
 
 # Method detectLanguage
 Detects the language of the text.

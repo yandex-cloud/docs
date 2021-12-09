@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/temp-attachment.md
+---
 # Upload a temporary file
 
 Use this request to upload temporary files. Use this request to upload a file to {{ tracker-name }} first, and then attach it when creating an [issue](create-issue.md) or adding a [comment](add-comment.md).

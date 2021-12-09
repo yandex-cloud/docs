@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/image/index.md
+---
 # yc compute image
 
 Manage images

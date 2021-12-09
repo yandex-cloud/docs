@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Registry/update.md
 ---
+
 
 # Method update
 Updates the specified registry.

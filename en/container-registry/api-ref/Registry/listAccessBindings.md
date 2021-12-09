@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Registry/listAccessBindings.md
 ---
+
 
 # Method listAccessBindings
 Lists access bindings for the specified registry.

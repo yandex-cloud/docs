@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/reEncrypt.md
 ---
+
 
 # Method reEncrypt
 Re-encrypts a ciphertext with the specified KMS key.

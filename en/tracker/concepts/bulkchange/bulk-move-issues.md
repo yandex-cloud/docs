@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/bulkchange/bulk-move-issues.md
+---
 # Perform a bulk move of issues to a different queue
 
 Use this request to move multiple issues to another queue at once.

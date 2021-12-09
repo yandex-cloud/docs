@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/logging/api-ref/LogGroup/listAccessBindings.md
 ---
+
 
 # Method listAccessBindings
 Lists existing access bindings for the specified log group.

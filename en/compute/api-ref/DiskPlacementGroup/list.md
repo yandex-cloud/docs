@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/DiskPlacementGroup/list.md
 ---
+
 
 # Method list
 Retrieves the list of placement groups in the specified folder.

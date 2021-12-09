@@ -123,6 +123,7 @@ description: "Пошаговые инструкции по работе и уп�
 ## Управление группой виртуальных машин {#ig-control}
 
 * [{#T}](instance-groups/update.md)
+* [{#T}](instance-groups/update-from-yaml.md)
 * [{#T}](instance-groups/enable-autohealing.md)
 * [{#T}](instance-groups/deploy/rolling-update.md)
 * [{#T}](instance-groups/deploy/zero-downtime.md)

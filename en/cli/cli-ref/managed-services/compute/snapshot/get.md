@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot/get.md
+---
 # yc compute snapshot get
 
 Show information about the specified snapshot

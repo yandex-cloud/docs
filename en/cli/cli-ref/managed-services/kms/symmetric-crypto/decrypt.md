@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-crypto/decrypt.md
+---
 # yc kms symmetric-crypto decrypt
 
 Decrypt data with specified symmetric key

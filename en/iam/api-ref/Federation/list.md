@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/Federation/list.md
 ---
+
 
 # Method list
 Retrieves the list of federations in the specified folder.

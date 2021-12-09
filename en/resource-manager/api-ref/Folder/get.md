@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/resourcemanager/api-ref/Folder/get.md
 ---
+
 
 # Method get
 Returns the specified Folder resource.

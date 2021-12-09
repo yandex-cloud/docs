@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/hosts/index.md
+---
 # yc managed-clickhouse hosts
 
 Manage hosts of a ClickHouse cluster.

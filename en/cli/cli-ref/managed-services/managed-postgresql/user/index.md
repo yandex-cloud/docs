@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/user/index.md
+---
 # yc managed-postgresql user
 
 Manage PostgreSQL users

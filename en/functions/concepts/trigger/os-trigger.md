@@ -1,6 +1,6 @@
-# Triggers for {{ objstorage-name }}
+# Trigger for {{ objstorage-name }}
 
-[Triggers](../trigger/) for {{ objstorage-name }} run a function when certain events occur with an [object](../../../storage/concepts/object.md) from {{ objstorage-full-name }}. The trigger must be in the same cloud as the bucket whose events it's subscribed to.
+[Trigger](../trigger/) for {{ objstorage-name }} activates a [function](../function.md) in {{ sf-name }} or a [container](../../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} when a certain event happens to an [object](../../../storage/concepts/object.md) in {{ objstorage-full-name }}. The trigger must be in the same cloud as the bucket whose events it's subscribed to.
 
 A trigger for {{ objstorage-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke the function.
 
@@ -24,13 +24,15 @@ Prefixes and suffixes can be any length. When using a prefix and suffix at the s
 ## Roles required for the proper operation of a trigger for {{ objstorage-name }} {#roles}
 
 - To create a trigger, you need a permission for a service account that runs the trigger executing the operation. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
-- To run a trigger, the service account needs the `{{ roles-functions-ivoker }}` role for the folder containing the function called by the trigger.
+- For a trigger to work, the service account needs:
+  * `{{ roles-functions-ivoker }}` for the folder with the function that the trigger invokes.
+  * `serverless.containers.invoker` for the folder with the container that invokes the trigger.
 
-Learn more about [access management](../../security/index.md).
+Read more about [access management](../../security/index.md).
 
-## Trigger message format {{ objstorage-name }} {#ymq-format}
+## {{ objstorage-name }} trigger message format {#ymq-format}
 
-After the trigger is activated, it sends the following message to the function:
+After the trigger is activated, it sends the following message to the function or the container:
 
 ```json
 {

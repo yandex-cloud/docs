@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Registry/listCertificates.md
 ---
+
 
 # Method listCertificates
 Retrieves the list of registry certificates for the specified registry.

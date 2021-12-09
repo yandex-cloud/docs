@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/backup.md
+---
 # yc ydb database backup
 
 Backup YDB database.

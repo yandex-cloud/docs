@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/delete.md
 ---
+
 
 # Method delete
 Deletes the specified symmetric KMS key. This action also automatically schedules

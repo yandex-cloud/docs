@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/set-access-bindings.md
+---
 # yc logging group set-access-bindings
 
 Set access bindings for the specified log group and delete all existing access bindings if there were any

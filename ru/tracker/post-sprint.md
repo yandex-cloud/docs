@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/post-sprint.md
+---
 # Создать спринт
 
 Запрос позволяет создать спринт.

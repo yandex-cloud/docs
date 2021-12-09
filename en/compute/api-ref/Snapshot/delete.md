@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Snapshot/delete.md
 ---
+
 
 # Method delete
 Deletes the specified snapshot.

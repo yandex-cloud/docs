@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/backup/list.md
+---
 # yc managed-redis backup list
 
 List available backups

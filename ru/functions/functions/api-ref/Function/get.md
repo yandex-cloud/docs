@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/get.md
 ---
+
 
 # Method get
 Returns the specified function.

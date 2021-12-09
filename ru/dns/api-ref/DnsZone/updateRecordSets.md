@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dns/api-ref/DnsZone/updateRecordSets.md
 ---
+
 
 # Method updateRecordSets
 Method with strict control for changing zone state. Returns error when:

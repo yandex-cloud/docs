@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/index.md
+---
 # yc application-load-balancer virtual-host
 
 Manage http router virtual host

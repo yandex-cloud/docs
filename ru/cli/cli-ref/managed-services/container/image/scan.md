@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/image/scan.md
+---
 # yc container image scan
 
 [PREVIEW] Start scan of Docker image for vulnerabilities.

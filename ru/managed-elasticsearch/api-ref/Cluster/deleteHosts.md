@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/deleteHosts.md
 ---
+
 
 # Method deleteHosts
 Deletes specified hosts from the specified Elasticsearch cluster.

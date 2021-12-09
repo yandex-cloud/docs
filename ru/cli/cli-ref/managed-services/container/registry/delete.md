@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/registry/delete.md
+---
 # yc container registry delete
 
 Delete a registry.

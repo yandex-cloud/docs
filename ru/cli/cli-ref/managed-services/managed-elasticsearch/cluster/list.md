@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/list.md
+---
 # yc managed-elasticsearch cluster list
 
 List ElasticSearch clusters in a folder.

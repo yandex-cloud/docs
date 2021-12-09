@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/update.md
+---
 # yc application-load-balancer virtual-host update
 
 Update the specified virtual host

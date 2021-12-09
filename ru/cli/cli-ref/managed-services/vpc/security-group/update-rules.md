@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/security-group/update-rules.md
+---
 # yc vpc security-group update-rules
 
 Update rules of a security group.

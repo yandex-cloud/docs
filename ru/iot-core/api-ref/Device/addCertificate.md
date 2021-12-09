@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Device/addCertificate.md
 ---
+
 
 # Method addCertificate
 Adds a certificate.

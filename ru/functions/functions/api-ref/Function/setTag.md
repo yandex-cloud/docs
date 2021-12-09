@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/setTag.md
 ---
+
 
 # Method setTag
 Set a tag for the specified version of a function.

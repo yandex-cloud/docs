@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Snapshot/update.md
 ---
+
 
 # Method update
 Updates the specified snapshot.

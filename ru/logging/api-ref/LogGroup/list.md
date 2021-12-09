@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/logging/api-ref/LogGroup/list.md
 ---
+
 
 # Method list
 Retrieves the list of log groups in the specified folder.

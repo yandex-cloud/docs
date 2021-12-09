@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/User/delete.md
 ---
+
 
 # Method delete
 Deletes the specified PostgreSQL user.

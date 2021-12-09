@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/update.md
 ---
+
 
 # Method update
 Updates the specified Elasticsearch cluster.

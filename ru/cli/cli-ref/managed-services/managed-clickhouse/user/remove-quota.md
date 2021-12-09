@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/remove-quota.md
+---
 # yc managed-clickhouse user remove-quota
 
 Remove quota from a ClickHouse user by interval.

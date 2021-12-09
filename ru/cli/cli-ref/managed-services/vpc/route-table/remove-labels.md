@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/route-table/remove-labels.md
+---
 # yc vpc route-table remove-labels
 
 Remove labels from a route table.

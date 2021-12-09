@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/get.md
+---
 # yc managed-clickhouse user get
 
 Get information about a ClickHouse user.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Repository/index.md
 ---
+
 
 # Repository
 A set of methods for managing Repository resources.

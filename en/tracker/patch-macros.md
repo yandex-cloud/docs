@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/patch-macros.md
+---
 # Edit a macro
 
 Use this request to edit macro parameters.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/import/import-attachments.md
+---
 # Import files
 
 {% note warning %}

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Subnet/update.md
 ---
+
 
 # Method update
 Updates the specified subnet.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/restore.md
 ---
+
 
 # Method restore
 Creates a new PostgreSQL cluster using the specified backup.

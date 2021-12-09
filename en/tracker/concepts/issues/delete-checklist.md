@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/delete-checklist.md
+---
 # Delete a checklist
 
 Use this request to delete a checklist from an issue.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/list-ip-permissions.md
+---
 # yc container registry list-ip-permissions
 
 List ip permissions for the specified registry

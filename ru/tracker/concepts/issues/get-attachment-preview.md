@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/get-attachment-preview.md
+---
 # Скачать миниатюру
 
 Запрос позволяет получить миниатюру графического файла, прикрепленного к задаче.

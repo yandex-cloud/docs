@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/Backup/get.md
 ---
+
 
 # Method get
 Returns the specified PostgreSQL Backup resource.

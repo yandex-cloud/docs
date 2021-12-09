@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/create.md
+---
 # yc serverless function create
 
 Create a function

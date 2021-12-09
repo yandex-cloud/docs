@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/target-group/index.md
+---
 # yc load-balancer target-group
 
 Manage target groups

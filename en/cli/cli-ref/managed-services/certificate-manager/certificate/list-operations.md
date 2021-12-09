@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/list-operations.md
+---
 # yc certificate-manager certificate list-operations
 
 List operations for the specified certificate

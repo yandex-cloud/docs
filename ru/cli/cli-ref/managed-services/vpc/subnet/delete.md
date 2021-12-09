@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/subnet/delete.md
+---
 # yc vpc subnet delete
 
 Delete a subnet.

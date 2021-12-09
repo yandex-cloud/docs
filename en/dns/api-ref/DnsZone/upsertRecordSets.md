@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dns/api-ref/DnsZone/upsertRecordSets.md
 ---
+
 
 # Method upsertRecordSets
 Method without strict control for changing zone state. Nothing happens if deleted record doesn't exist.

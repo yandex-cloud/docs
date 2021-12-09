@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/create-issue-field-category.md
+---
 # Create an issue field category
 
 Use this request to create an issue field category.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/request.md
+---
 # yc certificate-manager certificate request
 
 Request a managed certificate

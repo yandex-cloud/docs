@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/database/index.md
+---
 # yc managed-clickhouse database
 
 Manage ClickHouse databases.

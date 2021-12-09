@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/list-backups.md
+---
 # yc managed-mongodb cluster list-backups
 
 List available backups for the specified MongoDB cluster.

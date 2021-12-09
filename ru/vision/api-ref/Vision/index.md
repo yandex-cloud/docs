@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/ai/vision/api-ref/Vision/index.md
 ---
+
 
 # Vision
 Набор методов для сервиса Yandex Vision.

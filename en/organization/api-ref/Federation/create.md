@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Federation/create.md
 ---
+
 
 # Method create
 Creates a federation in the specified organization.

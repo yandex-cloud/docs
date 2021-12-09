@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/patch-board.md
+---
 # Edit a board
 
 Use this request to edit board parameters.

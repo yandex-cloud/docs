@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/shard-groups/list.md
+---
 # yc managed-clickhouse shard-groups list
 
 List shard groups for a ClickHouse cluster.

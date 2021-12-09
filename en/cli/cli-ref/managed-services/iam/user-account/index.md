@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/user-account/index.md
+---
 # yc iam user-account
 
 Manage user accounts

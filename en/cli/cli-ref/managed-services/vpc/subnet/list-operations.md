@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/list-operations.md
+---
 # yc vpc subnet list-operations
 
 List operations for a subnet.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/User/revokePermission.md
 ---
+
 
 # Method revokePermission
 Revokes a permission from the specified ClickHouse user.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/addListener.md
 ---
+
 
 # Method addListener
 Adds a listener to the specified application load balancer.

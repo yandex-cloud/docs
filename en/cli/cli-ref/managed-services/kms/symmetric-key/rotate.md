@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/rotate.md
+---
 # yc kms symmetric-key rotate
 
 Rotate the specified symmetric key: creates a new key version and makes it the primary version

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/triggers/triggers/api-ref/Trigger/resume.md
 ---
+
 
 # Method resume
 Restarts the specified trigger.

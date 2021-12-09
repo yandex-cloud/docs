@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/HostGroup/update.md
 ---
+
 
 # Method update
 Updates the specified host group.

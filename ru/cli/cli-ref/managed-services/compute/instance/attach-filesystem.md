@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/attach-filesystem.md
+---
 # yc compute instance attach-filesystem
 
 Attach existing filesystem to the the specified virtual machine instance

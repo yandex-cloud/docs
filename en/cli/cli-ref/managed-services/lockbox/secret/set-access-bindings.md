@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/set-access-bindings.md
+---
 # yc lockbox secret set-access-bindings
 
 Set access bindings for the specified secret and delete all existing access bindings if there were any

@@ -52,9 +52,11 @@
      * Выберите объем хранилища, который будет использоваться для данных.
 
   1. В блоке **Сетевые настройки**:
+     
      1. Выберите одну или несколько [зон доступности](../../overview/concepts/geo-scope.md), в которых нужно разместить брокеры {{ KF }}.
      1. Выберите [сеть](../../vpc/concepts/network.md).
      1. Выберите подсети в каждой зоне доступности для этой сети. Чтобы [создать новую подсеть](../../vpc/operations/subnet-create.md), нажмите на кнопку **Создать новую** рядом с нужной зоной доступности.
+     
 
         {% note info %}
 
@@ -145,6 +147,7 @@
 
     {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
+    
     Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
     Чтобы создать кластер:

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-priorities.md
+---
 # Get priorities
 
 Use this request to get a list of priorities for an issue.

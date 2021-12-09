@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/create.md
+---
 # yc organization-manager federation saml create
 
 Create a federation

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/billing/api-ref/BillingAccount/list.md
 ---
+
 
 # Method list
 Retrieves the list of billing accounts available for current user.

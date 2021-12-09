@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/api-gateway/remove-domain.md
+---
 # yc serverless api-gateway remove-domain
 
 Detach domain from the specified API Gateway

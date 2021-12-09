@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/TargetGroup/list.md
 ---
+
 
 # Method list
 Retrieves the list of TargetGroup resources in the specified folder.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Network/get.md
 ---
+
 
 # Method get
 Returns the specified Network resource.

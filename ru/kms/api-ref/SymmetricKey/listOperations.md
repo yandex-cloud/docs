@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/listOperations.md
 ---
+
 
 # Method listOperations
 Lists operations for the specified symmetric KMS key.

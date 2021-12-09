@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/datatransfer/index.md
+---
 # yc datatransfer
 
 Manage Data Transfer endpoints and transfers

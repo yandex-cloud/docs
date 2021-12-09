@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/ml-model/index.md
+---
 # yc managed-clickhouse ml-model
 
 Manage ClickHouse machine learning models.

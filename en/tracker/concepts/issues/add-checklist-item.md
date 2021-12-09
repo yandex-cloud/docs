@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/add-checklist-item.md
+---
 # Create a checklist or add items to it
 
 Use this request to create a [checklist](../../user/checklist.md) and add new items to it.

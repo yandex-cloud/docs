@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/image/get-latest-from-family.md
+---
 # yc compute image get-latest-from-family
 
 Show information about the latest image that is part of an image family

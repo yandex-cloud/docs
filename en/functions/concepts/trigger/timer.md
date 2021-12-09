@@ -1,6 +1,6 @@
 # Timer
 
-_Timer_ is a [trigger](../trigger/) that runs a function on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+_Timer_ is a [trigger](../trigger/) that launches a [function](../function.md) in {{ sf-name }} or a [container](../../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} as scheduled. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [Coordinated Universal Time (UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 ## Cron expression format {#cron-expression}
 
@@ -10,7 +10,7 @@ The order of fields in the cron expression: `Minutes Hours Day-of-month Month Da
 
 {% note info %}
 
-Special characters used, as well as the names of months and days of the week, are case-insensitive: `MON` is equivalent to `mon`.
+Special characters used, as well as the names of months and days of the week, are case-insensitive: `MON` is the same as `mon`.
 
 {% endnote %}
 
@@ -25,19 +25,19 @@ Special characters used, as well as the names of months and days of the week, ar
 
 ### Special characters {#special-characters}
 
-You can use the following special characters in the cron expressions:
+You can use the following special characters in cron expressions:
 
 * `*` — Select all values in the field.
 
-    > The `*` character in the `Minutes` field: the trigger starts `every minute`.
+    > The `*` character in the `Minutes` field: The trigger starts `every minute`.
 
-* `?` — Select any field value. You cannot fill `Day of month` and `Day of week` at the same time. If you entered a value in one of these fields, enter `?` in the other field.
+* `?` — Select any field value. You can't add values for `Day of month` and `Day of week` at the same time. If you entered a value in one of these fields, enter `?` in the other field.
 
-    > `10` in `Day of month` and `?` in `Day of week`: the trigger is launched every 10th day of the month.
+    > `10` in `Day of month` and `?` in `Day of week`: The trigger is launched every 10th day of the month.
 
 * `` — Select a range of values.
 
-    > The `10-12` range in `Hours`: the trigger runs at 10 a.m., 11 a.m., and at noon.
+    > The `10-12` range in `Hours`: the trigger runs at 10 a.m., 11 a.m., and noon.
 
 * `,` — Select multiple values.
 
@@ -75,16 +75,18 @@ You can use the following special characters in the cron expressions:
 | `0 * ? * * *` | The trigger is run every hour. |
 | `15 10 ? * * *` | The trigger is run every day at 10:15 a.m. |
 
-## Roles required for the timer to run correctly {#roles}
+## Roles required for timers to run correctly {#roles}
 
-- To create a timer, you need a permission for the service account that runs the timer executing the operation. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
-- To run a timer, the service account needs the `{{ roles-functions-ivoker }}` role for the folder containing the function called by the timer.
+* To create a timer, you need a permission for the service account that runs the timer executing the operation. This permission is included in the roles [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [editor](../../../iam/concepts/access-control/roles.md#editor), and higher.
+* For a timer to work, the service account needs a role:
+  * `{{ roles-functions-ivoker }}` for the folder with the function that the timer invokes.
+  * `serverless.containers.invoker` for the folder with the container that the timer invokes.
 
-Learn more about [access management](../../security/index.md).
+Read more about [access management](../../security/index.md).
 
 ## Timer message format {#timer-format}
 
-After the trigger is activated, it sends the following message to the function:
+After the trigger is activated, it sends the following message to the function or the container:
 
 ```json
 {

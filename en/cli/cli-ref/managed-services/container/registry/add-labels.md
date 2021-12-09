@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/add-labels.md
+---
 # yc container registry add-labels
 
 Add labels to a registry.

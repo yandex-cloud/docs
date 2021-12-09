@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/certificate/list-operations.md
+---
 # yc iam certificate list-operations
 
 List operations for the specified certificate

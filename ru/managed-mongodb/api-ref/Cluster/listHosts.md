@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/listHosts.md
 ---
+
 
 # Method listHosts
 Retrieves a list of hosts for the specified cluster.

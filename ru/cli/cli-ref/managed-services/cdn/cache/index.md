@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/cache/index.md
+---
 # yc cdn cache
 
 Manage CDN resources cache

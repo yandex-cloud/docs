@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/certificate/delete.md
+---
 # yc iot device certificate delete
 
 Delete specified certificate from device

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/attachFilesystem.md
 ---
+
 
 # Method attachFilesystem
 Attaches the filesystem to the instance.

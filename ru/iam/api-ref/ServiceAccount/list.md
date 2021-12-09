@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/ServiceAccount/list.md
 ---
+
 
 # Method list
 Retrieves the list of ServiceAccount resources in the specified folder.

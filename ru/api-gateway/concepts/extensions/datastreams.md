@@ -17,7 +17,7 @@
 
 Пример спецификации:
 
-```
+```yaml
   /pets-stream/{petId}:
     post:
       x-yc-apigateway-integration:

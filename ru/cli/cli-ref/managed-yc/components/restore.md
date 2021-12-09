@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-yc/components/restore.md
+---
 # yc components restore
 
 Restore the installation to its previous state

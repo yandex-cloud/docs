@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/Key/index.md
 ---
+
 
 # Key
 A set of methods for managing Key resources.

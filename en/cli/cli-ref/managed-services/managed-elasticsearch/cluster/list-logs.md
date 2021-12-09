@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/list-logs.md
+---
 # yc managed-elasticsearch cluster list-logs
 
 Retrieve logs for a ElasticSearch cluster.

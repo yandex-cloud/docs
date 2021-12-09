@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/lifecycle-policy/update.md
+---
 # yc container repository lifecycle-policy update
 
 Modify configuration or attributes of a lifecycle policy.

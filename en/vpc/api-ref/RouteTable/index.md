@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/RouteTable/index.md
 ---
+
 
 # RouteTable
 A set of methods for managing RouteTable resources.

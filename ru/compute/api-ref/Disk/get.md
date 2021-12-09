@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Disk/get.md
 ---
+
 
 # Method get
 Returns the specified Disk resource.

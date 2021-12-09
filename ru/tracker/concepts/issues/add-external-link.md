@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/add-external-link.md
+---
 # Добавить внешнюю связь
 
 Запрос позволяет создать связь для работы с [объектом внешнего приложения](../../external-links.md).

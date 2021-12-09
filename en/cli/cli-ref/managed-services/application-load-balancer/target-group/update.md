@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/target-group/update.md
+---
 # yc application-load-balancer target-group update
 
 Update the specified target group

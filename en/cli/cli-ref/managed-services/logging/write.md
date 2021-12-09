@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/write.md
+---
 # yc logging write
 
 Write to log

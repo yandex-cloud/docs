@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/Topic/delete.md
 ---
+
 
 # Method delete
 Deletes the specified Kafka topic.

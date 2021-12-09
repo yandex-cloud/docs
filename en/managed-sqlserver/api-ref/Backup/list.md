@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Backup/list.md
 ---
+
 
 # Method list
 Retrieves the list of SQL Server backups available for the specified folder.

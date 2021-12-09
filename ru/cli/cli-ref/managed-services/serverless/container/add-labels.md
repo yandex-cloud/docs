@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/add-labels.md
+---
 # yc serverless container add-labels
 
 Add labels to specified container

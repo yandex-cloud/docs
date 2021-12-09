@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/DiskPlacementGroup/listDisks.md
 ---
+
 
 # Method listDisks
 Lists disks for the specified placement group.

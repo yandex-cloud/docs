@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/index.md
+---
 # yc vpc
 
 Manage Yandex Virtual Private Cloud resources

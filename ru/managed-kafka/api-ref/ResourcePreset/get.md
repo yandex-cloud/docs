@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/ResourcePreset/get.md
 ---
+
 
 # Method get
 Returns the specified resource preset.

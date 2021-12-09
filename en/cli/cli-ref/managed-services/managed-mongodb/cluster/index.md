@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/index.md
+---
 # yc managed-mongodb cluster
 
 Manage MongoDB clusters.

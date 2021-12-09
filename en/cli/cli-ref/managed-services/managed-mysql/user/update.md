@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/user/update.md
+---
 # yc managed-mysql user update
 
 Update the specified MySQL user

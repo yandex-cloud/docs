@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/ResourcePreset/list.md
 ---
+
 
 # Method list
 Retrieves the list of available ResourcePreset resources.

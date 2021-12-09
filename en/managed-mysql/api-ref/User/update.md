@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/User/update.md
 ---
+
 
 # Method update
 Modifies the specified MySQL user.

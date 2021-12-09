@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/Certificate/create.md
 ---
+
 
 # Method create
 Creates a certificate in the specified federation.

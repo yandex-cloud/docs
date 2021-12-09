@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/queues/delete-tag.md
+---
 # Удалить тег из очереди
 
 Запрос позволяет удалить тег из очереди.

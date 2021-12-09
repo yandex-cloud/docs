@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/get-issue-fields.md
+---
 # Получить параметры поля задачи
 
 ## Формат запроса {#section_nrf_1vp_4gb}

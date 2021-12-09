@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/User/list.md
 ---
+
 
 # Method list
 Retrieves the list of Kafka users in the specified cluster.

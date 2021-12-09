@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/resource-preset/get.md
+---
 # yc managed-mysql resource-preset get
 
 Show information about the specified MySQL resource preset

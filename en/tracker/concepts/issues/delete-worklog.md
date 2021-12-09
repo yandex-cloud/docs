@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/delete-worklog.md
+---
 # Delete a record of time spent
 
 Use this request to delete a record of the time spent on an issue.

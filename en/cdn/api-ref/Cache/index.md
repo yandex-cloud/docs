@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Cache/index.md
 ---
+
 
 # Cache
 A set of methods for managing Cache Service resources.

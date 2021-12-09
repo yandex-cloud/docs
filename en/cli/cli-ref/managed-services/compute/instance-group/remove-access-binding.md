@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/remove-access-binding.md
+---
 # yc compute instance-group remove-access-binding
 
 Remove access binding for the specified instance group

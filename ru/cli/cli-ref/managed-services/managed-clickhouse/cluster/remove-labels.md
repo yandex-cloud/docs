@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/remove-labels.md
+---
 # yc managed-clickhouse cluster remove-labels
 
 Remove labels from a ClickHouse cluster.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/get-boards.md
+---
 # Get parameters of all boards
 
 Use this request to get parameters of all issue boards created by the organization's users.

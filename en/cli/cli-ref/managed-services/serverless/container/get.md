@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/get.md
+---
 # yc serverless container get
 
 Show information about the specified container

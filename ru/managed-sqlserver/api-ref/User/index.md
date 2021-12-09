@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/sqlserver/api-ref/User/index.md
 ---
+
 
 # User
 A set of methods for managing SQL Server users.

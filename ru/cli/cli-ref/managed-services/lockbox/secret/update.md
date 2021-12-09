@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/update.md
+---
 # yc lockbox secret update
 
 Update the specified secret

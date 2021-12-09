@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/user/grant-permission.md
+---
 # yc managed-mysql user grant-permission
 
 Grant permission to the specified MySQL user

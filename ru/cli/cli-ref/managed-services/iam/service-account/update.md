@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/service-account/update.md
+---
 # yc iam service-account update
 
 Update the specified service account

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/kms/api-ref/SymmetricKey/cancelVersionDestruction.md
 ---
+
 
 # Method cancelVersionDestruction
 Cancels previously scheduled version destruction, if the version hasn't been destroyed yet.

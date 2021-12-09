@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/User/get.md
 ---
+
 
 # Method get
 Returns the specified MongoDB User resource.

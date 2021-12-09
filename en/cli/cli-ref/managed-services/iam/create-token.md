@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/create-token.md
+---
 # yc iam create-token
 
 Create IAM token and print to STDOUT

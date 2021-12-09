@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Cluster/create.md
 ---
+
 
 # Method create
 Creates a new Elasticsearch cluster in the specified folder.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Backup/list.md
 ---
+
 
 # Method list
 Retrieves the list of Backup resources available for the specified folder.

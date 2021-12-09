@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/hosts/update.md
+---
 # yc managed-mysql hosts update
 
 Update the specified hosts

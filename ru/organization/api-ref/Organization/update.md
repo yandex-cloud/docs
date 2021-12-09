@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/update.md
 ---
+
 
 # Method update
 Updates the specified organization.

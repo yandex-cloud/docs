@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/role/index.md
+---
 # yc iam role
 
 Manage roles

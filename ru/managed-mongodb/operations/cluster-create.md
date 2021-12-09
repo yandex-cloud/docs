@@ -92,9 +92,8 @@
 - Terraform
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
-
+  
   Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
-
   Чтобы создать кластер:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:

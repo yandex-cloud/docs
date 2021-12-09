@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/host-group/remove-labels.md
+---
 # yc compute host-group remove-labels
 
 Remove labels from the specified host group

@@ -1,7 +1,9 @@
 ---
 title: Type conversion functions
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/type-conversion-functions.md
 ---
+
 
 # Type conversion functions
 

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/add-listener.md
+---
 # yc load-balancer network-load-balancer add-listener
 
 Adds a listener to the specified network load balancer.

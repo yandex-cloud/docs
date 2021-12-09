@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/stats.md
+---
 # yc logging group stats
 
 Show consumed resources for log group(s)

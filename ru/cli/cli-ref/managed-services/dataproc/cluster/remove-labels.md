@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/cluster/remove-labels.md
+---
 # yc dataproc cluster remove-labels
 
 Remove labels from a cluster.

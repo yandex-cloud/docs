@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/ml-model/list.md
+---
 # yc managed-clickhouse ml-model list
 
 List machine learning models in a ClickHouse cluster.

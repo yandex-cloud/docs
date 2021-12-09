@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/update-config.md
+---
 # yc managed-postgresql cluster update-config
 
 Update the specified PostgreSQL cluster config

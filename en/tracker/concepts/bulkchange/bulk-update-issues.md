@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/bulkchange/bulk-update-issues.md
+---
 # Make bulk changes to issues
 
 Use this request to change parameters for multiple issues at once.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/format-schema/index.md
+---
 # yc managed-clickhouse format-schema
 
 Manage ClickHouse format schemas.

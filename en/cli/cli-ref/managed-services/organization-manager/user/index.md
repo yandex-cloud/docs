@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/user/index.md
+---
 # yc organization-manager user
 
 Manage users in organizations

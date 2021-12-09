@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/key_service.md
 ---
+
 
 # KeyService
 

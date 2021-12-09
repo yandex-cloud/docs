@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/list-access-bindings.md
+---
 # yc serverless container list-access-bindings
 
 List access bindings for the specified container

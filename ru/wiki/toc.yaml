@@ -55,6 +55,8 @@ items:
         href: add-diagram-formula.md
   - name: Управление страницами
     items:
+      - name: Настройки страницы
+        href: page-managment/page-settings.md
       - name: Ограничить просмотр страницы
         href: page-managment/access-setup.md
       - name: Запретить редактирование страницы

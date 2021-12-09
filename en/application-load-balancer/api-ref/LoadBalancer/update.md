@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/update.md
 ---
+
 
 # Method update
 Updates the specified application load balancer.

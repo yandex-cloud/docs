@@ -6,4 +6,5 @@
 * `editor`,
 * `vpc.admin`.
 
+
 О том, как назначить роль, см. в [документации {{ iam-full-name }}](../../../iam/operations/roles/grant.md).

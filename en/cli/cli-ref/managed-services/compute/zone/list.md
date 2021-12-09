@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/zone/list.md
+---
 # yc compute zone list
 
 List availability zones

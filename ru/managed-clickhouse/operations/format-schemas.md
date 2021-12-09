@@ -9,6 +9,8 @@
 {{ mch-name }} работает только со схемами формата данных, которые загружены в {{ objstorage-name }}. Перед подключением схемы к кластеру:
 
 1. Подготовьте файл со схемой формата (см. документацию [Cap'n Proto](https://capnproto.org/language.html) и [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru)).
+
+
 1. [Загрузите файл](../../storage/operations/objects/upload.md) со схемой формата в {{ objstorage-name }}.
 1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на этот файл.
 
@@ -88,6 +90,7 @@
 
 Чтобы актуализировать содержимое схемы, которая уже подключена к кластеру:
 
+
 1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной схемой формата данных в {{ objstorage-name }}.
 1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на этот файл.
 1. Измените параметры схемы формата данных, подключенной к {{ mch-name }}, передав новую ссылку на файл со схемой формата.
@@ -150,6 +153,7 @@
 ## Отключить схему формата данных {#disable-format-schema}
 
 {% note info %}
+
 
 После отключения схемы формата данных соответствующий объект остается в бакете {{ objstorage-name }}. Если этот объект со схемой формата больше не нужен, его можно [удалить](../../storage/operations/objects/delete.md).
 

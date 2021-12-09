@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk-type/index.md
+---
 # yc compute disk-type
 
 Show available disk types

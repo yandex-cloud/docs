@@ -1,7 +1,9 @@
 ---
 title: Geographical functions
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/geographical-functions.md
 ---
+
 
 # Geographical functions
 

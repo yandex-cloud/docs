@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/disable-traffic.md
+---
 # yc application-load-balancer load-balancer disable-traffic
 
 Disables traffic in specified zones for application load balancer.

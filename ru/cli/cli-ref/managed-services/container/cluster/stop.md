@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/cluster/stop.md
+---
 # yc container cluster stop
 
 Stop a Kubernetes cluster and all its node groups.

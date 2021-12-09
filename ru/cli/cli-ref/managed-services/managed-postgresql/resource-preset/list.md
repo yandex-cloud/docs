@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/resource-preset/list.md
+---
 # yc managed-postgresql resource-preset list
 
 List available PostgreSQL resource presets.

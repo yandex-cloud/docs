@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/createExternalDictionary.md
 ---
+
 
 # Method createExternalDictionary
 Creates an external dictionary for the specified ClickHouse cluster.

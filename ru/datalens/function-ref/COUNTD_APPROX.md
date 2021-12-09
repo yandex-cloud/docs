@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/COUNTD_APPROX.md
 ---
+
 
 # COUNTD_APPROX
 

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/AVG_IF_WINDOW.md
 ---
+
 
 # AVG_IF (window)
 

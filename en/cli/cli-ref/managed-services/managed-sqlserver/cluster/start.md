@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/start.md
+---
 # yc managed-sqlserver cluster start
 
 Start the specified SQLServer cluster

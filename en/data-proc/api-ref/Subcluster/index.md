@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Subcluster/index.md
 ---
+
 
 # Subcluster
 A set of methods for managing Data Proc subclusters.

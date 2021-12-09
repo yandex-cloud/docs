@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/Cluster/listNodes.md
 ---
+
 
 # Method listNodes
 Lists cluster's nodes.
