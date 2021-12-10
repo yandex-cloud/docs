@@ -2,6 +2,7 @@
 title: "Yandex DataLens. FAQ"
 description: "How to get the logs of my work in the Yandex DataLens service? Answers to this and other questions in this article."
 ---
+
 # General questions
 
 This section includes answers to frequently asked user questions about {{ datalens-short-name }}.
@@ -52,7 +53,7 @@ To allow another user with a Yandex account to open your dashboard, configure ac
 
 {% endcut %}
 
-You can send the link to the dashboard from the browser. To learn more about permissions for {{ datalens-short-name }} objects, see the [documentation](https://cloud.yandex.com/en-ru/docs/datalens/security/#permissions).
+You can send the link to the dashboard from the browser. To learn more about permissions for {{ datalens-short-name }} objects, see the [documentation]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/datalens/security/#permissions){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/docs/datalens/security/#permissions){% endif %}.
 
 You can also make your dashboard public using [{#T}](../concepts/datalens-public.md).
 
@@ -114,6 +115,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [sign-last-point](../../_includes/datalens/qa/sign-last-point.md) %}
 
+{% include [sign-multiple-lines](../../_includes/datalens/qa/sign-multiple-lines.md) %}
+
 {% include [resize-column](../../_includes/datalens/qa/resize-column.md) %}
 
 {% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}
@@ -144,9 +147,9 @@ Yes, you can request log records about your resources from {{ yandex-cloud }} se
 
 {{ datalens-short-name }} is offered only as a cloud service. We would also like to note:
 
-- {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. For more information, see [{{ yandex-cloud }} security](https://cloud.yandex.com/en-ru/security).
+- {{ datalens-short-name }} is a {{ yandex-cloud }} service, which complies with Federal Law No. 152 and industry safety standards. For more information, see [{{ yandex-cloud }} security]{% if lang == "ru" %}(https://cloud.yandex.ru/security){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/security){% endif %}.
 
-- For {{ datalens-short-name }}, you can [set up identity federations](https://cloud.yandex.com/en-ru/docs/iam/operations/#federations).
+- For {{ datalens-short-name }} you can [set up identity federations]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/iam/operations/federations){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/docs/iam/operations/#federations){% endif %}.
 
 ### Why is the cloud with a {{ datalens-short-name }} instance blocked? {#datalens-suspended}
 
@@ -154,7 +157,7 @@ Your cloud may be blocked in the following cases:
 
 - Outstanding charges for {{ yandex-cloud }} paid services that are in the same cloud as {{ datalens-short-name }}.
 - Expiration of a trial period for {{ yandex-cloud }} paid services.
-- Violation of the {{ yandex-cloud }} [Terms of Use](https://yandex.ru/legal/cloud_termsofuse/?lang=en).
+- Violation of [Terms of Use]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %} {{ yandex-cloud }}.
 
 When a cloud is suspended, your {{ datalens-short-name }} instance will be unavailable. You won't be able to use {{ datalens-short-name }} until access to the cloud is restored.
 
@@ -164,7 +167,7 @@ For more information about cloud suspension, see [Automatic cloud suspension](..
 
 There are two ways to report a problem:
 
-* From the {{ datalens-full-name }} interface. In the {{ datalens-full-name }} interface, next to the error code, click **Report problem** and enter all the necessary details of the problem in the description. A {{ yandex-cloud }} support ticket will be created automatically.
+* Via the {{ datalens-full-name }} interface. In the {{ datalens-full-name }} interface, next to the error code, click **Report problem** and leave all the necessary details of the problem in the description. A {{ yandex-cloud }} support ticket will be created automatically.
 * As a direct query to [technical support]({{ link-console-support }}) {{ yandex-cloud }}.
 
 In your report, please provide (if possible):
@@ -174,5 +177,5 @@ In your report, please provide (if possible):
 
 You can leave your ideas and suggestions in the [{{ yandex-cloud }} community](https://cloud.yandex.ru/features?serviceId=23).
 
-To receive news and discuss best service practices, join the [DataLens](https://t.me/YandexDataLens) community in Telegram.
+To receive the news and discuss best service practices, join the [DataLens](https://t.me/YandexDataLens) community in Telegram.
 

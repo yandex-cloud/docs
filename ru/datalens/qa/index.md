@@ -52,7 +52,7 @@ description: "Как получить логи моей работы в серв
 
 {% endcut %}
 
-Ссылку на дашборд при этом можно будет отправлять из браузера. Подробнее про права доступа на объекты {{ datalens-short-name }} см. в [документации](https://cloud.yandex.ru/docs/datalens/security/#permissions).
+Ссылку на дашборд при этом можно будет отправлять из браузера. Подробнее про права доступа на объекты {{ datalens-short-name }} см. в [документации]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/datalens/security/#permissions){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/docs/datalens/security/#permissions){% endif %}.
 
 Также вы можете сделать свой дашборд публичным с помощью [{#T}](../concepts/datalens-public.md).
 
@@ -152,9 +152,9 @@ description: "Как получить логи моей работы в серв
 
 {{ datalens-short-name }} представлен только в виде облачного сервиса. Также хотим отметить:
 
-- {{ datalens-short-name }} — это сервис {{ yandex-cloud }}, который соответствует ФЗ-152 и индустриальным стандартам безопасности. Подробнее в разделе [Безопасность {{ yandex-cloud }}](https://cloud.yandex.ru/security).
+- {{ datalens-short-name }} — это сервис {{ yandex-cloud }}, который соответствует ФЗ-152 и индустриальным стандартам безопасности. Подробнее в разделе [Безопасность {{ yandex-cloud }}]{% if lang == "ru" %}(https://cloud.yandex.ru/security){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/security){% endif %}.
 
-- Для {{ datalens-short-name }} можно [настроить федерацию учетных записей](https://cloud.yandex.ru/docs/iam/operations/#federations).
+- Для {{ datalens-short-name }} можно [настроить федерацию учетных записей]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/iam/operations/federations){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/docs/iam/operations/#federations){% endif %}.
 
 ### Почему заблокировано облако c экземпляром {{ datalens-short-name }}? {#datalens-suspended}
 
@@ -162,7 +162,7 @@ description: "Как получить логи моей работы в серв
 
 - Наличие задолженности за использование платных сервисов {{ yandex-cloud }}, которые находятся в том же облаке, что и {{ datalens-short-name }}.
 - Пробный период за использование платных сервисов {{ yandex-cloud }} завершен.
-- При нарушении [условий использования](https://yandex.ru/legal/cloud_termsofuse/) {{ yandex-cloud }}.
+- При нарушении [условий использования]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_termsofuse/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_termsofuse/?lang=en){% endif %} {{ yandex-cloud }}.
 
 После блокировки облака ваш экземпляр {{ datalens-short-name }} будет недоступен. Работа с {{ datalens-short-name }} будет невозможна до восстановления облака.
 
