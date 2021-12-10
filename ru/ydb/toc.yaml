@@ -695,35 +695,33 @@ items:
           - name: SchemeShard
             href: internals/tablet_schemeshard.md
           - name: DataShard
-            items:
-            - name: DataShard
-              href: internals/tablet_datashard.md
-            - name: Concurrency control
-              href: internals/tablet_datashard_cc.md
-            - name: Тест изоляции транзакций SmallBank
-              href: internals/tablet_datashard_smallbank.md
-            - name: Выполнение транзакций Out-of-order
-              href: internals/tablet_datashard_ooo.md
-            - name: SoftUpdates
-              href: internals/tablet_datashard_soft_updates.md
-          - name: Coordinator
-            href: internals/tablet_coordinator.md
-          - name: Mediator
-            href: internals/tablet_mediator.md
-          - name: Transaction Proxy (TxProxy)
-            href: internals/tablet_txproxy.md
-        - name: Features
-          items:
-          - name: Автоматическое шардирование
-            href: internals/datashard_autosplit.md
-          - name: МежДЦ
-            href: internals/crossdc.md
-        - name: Multitenancy
-          href: internals/multitenancy.md
-        - name: Domains
-          href: internals/domains.md
-        - name: SubDomains
-          href: internals/subdomains.md
+            href: internals/tablet_datashard.md
+          - name: Concurrency control
+            href: internals/tablet_datashard_cc.md
+          - name: Тест изоляции транзакций SmallBank
+            href: internals/tablet_datashard_smallbank.md
+          - name: Выполнение транзакций Out-of-order
+            href: internals/tablet_datashard_ooo.md
+          - name: SoftUpdates
+            href: internals/tablet_datashard_soft_updates.md
+        - name: Coordinator
+          href: internals/tablet_coordinator.md
+        - name: Mediator
+          href: internals/tablet_mediator.md
+        - name: Transaction Proxy (TxProxy)
+          href: internals/tablet_txproxy.md
+      - name: Features
+        items:
+        - name: Автоматическое шардирование
+          href: internals/datashard_autosplit.md
+        - name: МежДЦ
+          href: internals/crossdc.md
+      - name: Multitenancy  
+        href: internals/multitenancy.md
+      - name: Domains
+        href: internals/domains.md
+      - name: SubDomains
+        href: internals/subdomains.md
       - name: Конфигурация и развертывание
         href: getting_started/confdeploy.md
       - name: Мониторинг с помощью Solomon
@@ -744,6 +742,8 @@ items:
         when: audience == "tech"
       - name: Системные таблицы
         href: troubleshooting/system_views.md
+      - name: Мониторинг
+        href: troubleshooting/monitoring.md
       - name: Как анализировать отладочные логи
         href: troubleshooting/understand_debug_logs.md
         when: audience == "tech"
