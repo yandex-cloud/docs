@@ -14,10 +14,11 @@
 
 * SDK
 
-  * [AWS Java SDK](aws-sdk-java.md)
-  * [Python SDK (boto)](boto.md)
-  * [AWS .NET SDK](aws-sdk-net.md)
-  * [AWS C++ SDK](aws-sdk-cpp.md)
+  * [AWS SDK для Java](aws-sdk-java.md)
+  * [SDK для Python (boto)](boto.md)
+  * [AWS SDK для .NET](aws-sdk-net.md)
+  * [AWS SDK для C++](aws-sdk-cpp.md)
+  * [AWS SDK для PHP](aws-sdk-php.md)
 
 * FUSE
 
