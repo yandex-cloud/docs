@@ -1,0 +1,1 @@
+Для установки AWS SDK для PHP воспользуйтесь [инструкцией](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_index.html) на сайте производителя.
