@@ -135,6 +135,8 @@ items:
             href: tools/aws-sdk-net.md
           - name: AWS SDK для C++
             href: tools/aws-sdk-cpp.md
+          - name: AWS SDK для PHP
+            href: tools/aws-sdk-php.md
       - name: FUSE
         items:
           - name: GeeseFS
