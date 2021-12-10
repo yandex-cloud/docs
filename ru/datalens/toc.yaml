@@ -45,6 +45,9 @@ items:
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         when: audience == "external"
         href: solutions/data-from-podcasts.md
+      - name: Построение чартов customer journeys на данных AppMetrica
+        when: audience == "external"
+        href: solutions/data-from-appmetrica-yc-visualization.md
   - name: Концепции
     items:
       - name: Обзор сервиса

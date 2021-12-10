@@ -18,6 +18,7 @@ description: 'В разделе описаны сценарии использо
 - [Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики](data-from-metrica-yc-visualization.md)
 - [Аналитика мобильного приложения на данных AppMetrica](data-from-appmetrica-visualization.md)
 - [Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)](data-from-podcasts.md)
+- [Построение чартов customer journeys на данных AppMetrica](data-from-appmetrica-yc-visualization.md)
 
 {% endif %}
 
