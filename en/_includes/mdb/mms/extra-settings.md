@@ -15,3 +15,7 @@
 
 - **{{ datalens-name }} access**: Allows you to analyze cluster data in [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
 
+- **Deletion protection**: Enable this option to protect a cluster from accidental deletion by your cloud's users.
+
+    {% include [Deletion protection limits](../deletion-protection-limits-db.md) %}
+

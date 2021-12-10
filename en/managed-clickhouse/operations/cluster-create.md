@@ -37,18 +37,26 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
   1. In the management console, select the folder where you want to create a DB cluster.
 {% if audience != "internal" %}
+
   1. Select **{{ mch-name }}**.
 {% endif %}
+
   1. Click **Create cluster**.
+
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+
   1. From the **Version** drop-down list, select the version of {{ CH }} which the {{ mch-name }} cluster will use:
      1. For most clusters, it's recommended to select the latest LTS version.
      1. If you plan to use hybrid storage in a cluster, it's recommended to select the latest version. This type of storage is supported starting from {{ CH }} {{ mch-hs-version }}.
+
   1. If you plan to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up a service account to access data in a bucket, see [{#T}](s3-access.md).
+
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mch-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+
   1. Select the host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
+
   1. Under **Storage size**:
 
       {% if audience != "internal" %}
@@ -60,11 +68,9 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
         * The size of non-replicated network storage can only be changed in 93 GB increments.
 
       {% endif %}
-
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
-
       * DB name.
       * Username.
       * User password. At least 8 characters.
@@ -117,7 +123,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
       $ {{ yc-mdb-ch }} cluster create --help
       ```
 
-  1. Specify the cluster parameters in the create command (the example shows only mandatory flags):
+  1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
      {% if audience != "internal" %}
 
@@ -132,7 +138,8 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
         --clickhouse-disk-size <storage size in GB> \
         --user name=<username>,password=<user password> \
         --database name=<database name> \
-        --security-group-ids <list of security group IDs>
+        --security-group-ids <list of security group IDs> \
+        --deletion-protection=<protect cluster from deletion: true or false>
      ```
 
      The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
@@ -150,30 +157,31 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
          --clickhouse-disk-size <storage size in GB> \
          --user name=<username>,password=<user password> \
          --database name=<database name> \
-         --security-group-ids <list of security group IDs>
+         --security-group-ids <list of security group IDs> \
+         --deletion-protection=<protect cluster from deletion: true or false>
       ```
 
-    {% endif %}
+     {% endif %}
 
-      1. To enable [user management via SQL mode](cluster-users.md#sql-user-management):
-      
+     {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      1. To enable [SQL user management](cluster-users.md#sql-user-management):
+
           {% include [sql-db-and-users-alers](../../_includes/mdb/mch-sql-db-and-users-alert.md) %}
-      
-          * Set the `--enable-sql-user-management` parameter to `true`.
-          * Set the `admin` user password in the `--admin-password` parameter.
-      
+          * Set `--enable-sql-user-management` to `true`.
+          * Set a password for the `admin` user in the `--admin-password` parameter.
+
           ```bash
           {{ yc-mdb-ch }} cluster create \
              ...
              --enable-sql-user-management=true \
              --admin-password <admin user password>
           ```
-      
-      1. To enable [database management via SQL mode](databases.md#sql-database-management):
-      
-          * Set the `--enable-sql-user-management` and `--enable-sql-database-management` parameters to `true`.
-          * Set the `admin` user password in the `--admin-password` parameter.
-      
+
+      1. To enable [SQL database management](databases.md#sql-database-management):
+          * Set `--enable-sql-user-management` and `--enable-sql-database-management` to `true`.
+          * Set a password for the `admin` user in the `--admin-password` parameter.
+
           ```bash
           {{ yc-mdb-ch }} cluster create \
              ...
@@ -191,7 +199,6 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
   To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
-
        * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md).
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
@@ -200,10 +207,11 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
        ```hcl
        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
-         name               = "<cluster name>"
-         environment        = "<environment>"
-         network_id         = "<network ID>"
+         name                = "<cluster name>"
+         environment         = "<environment>"
+         network_id          = "<network ID>"
          security_group_ids = ["<list of security groups>"]
+         deletion_protection = <protect cluster from deletion: true or false>
        
          clickhouse {
            resources {
@@ -242,6 +250,8 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
        }
        ```
 
+       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
        For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
     1. Make sure the settings are correct.
@@ -271,7 +281,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
   * `configSpec.adminPassword` : Set the password for the `admin` user whose account is used for management.
 
   When creating a cluster with multiple hosts:
-    * If a cluster in the[virtual network](../../vpc/concepts/network.md) has subnets in each of the [availability zones](../../overview/concepts/geo-scope.md), one {{ ZK }} host is automatically added to each subnet if you don't explicitly specify the settings for these hosts. If necessary, you can explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
+    * If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each of the [availability zones](../../overview/concepts/geo-scope.md), one {{ ZK }} host is automatically added to each subnet if you don't explicitly specify the settings for these hosts. If necessary, you can explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
     * If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
 
 {% endlist %}
@@ -295,7 +305,6 @@ If you specified security group IDs when creating a cluster, you may also need t
   Let's say we need to create a {{ CH }} cluster with the following characteristics:
 
   {% if audience != "internal" %}
-  
   * Named `mych`.
   * In the `production` environment.
   * In the `default` network.
@@ -304,9 +313,9 @@ If you specified security group IDs when creating a cluster, you may also need t
   * With 20 GB of fast network storage (`{{ disk-type-example }}`).
   * With one user, `user1`, with the password `user1user1`.
   * With one database, `db1`.
+  * With protection against accidental cluster deletion.
 
   {% else %}
-  
   * Named `mych`.
   * In the `production` environment.
   * In the `default` network.
@@ -315,6 +324,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   * With 20 GB fast local storage (`local-ssd`).
   * With one user, `user1`, with the password `user1user1`.
   * With one database, `db1`.
+  * With protection against accidental cluster deletion.
 
   {% endif %}
 
@@ -324,31 +334,33 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   ```bash
   {{ yc-mdb-ch }} cluster create \
-       --name mych \
-       --environment=production \
-       --network-name default \
-       --clickhouse-resource-preset {{ host-class }} \
-       --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
-       --clickhouse-disk-size 20 \
-       --clickhouse-disk-type {{ disk-type-example }} \
-       --user name=user1,password=user1user1 \
-       --database name=db1 \
-       --security-group-ids {{ security-group }}
+     --name mych \
+     --environment=production \
+     --network-name default \
+     --clickhouse-resource-preset {{ host-class }} \
+     --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
+     --clickhouse-disk-size 20 \
+     --clickhouse-disk-type {{ disk-type-example }} \
+     --user name=user1,password=user1user1 \
+     --database name=db1 \
+     --security-group-ids {{ security-group }} \
+     --deletion-protection=true
   ```
 
   {% else %}
 
   ```bash
   {{ yc-mdb-ch }} cluster create \
-       --name mych \
-       --environment=production \
-       --clickhouse-resource-preset s2.nano \
-       --host type=clickhouse,zone-id=man \
-       --clickhouse-disk-size 20 \
-       --clickhouse-disk-type local-ssd \
-       --user name=user1,password=user1user1 \
-       --database name=db1 \
-       --security-group-ids {{ security-group }}
+     --name mych \
+     --environment=production \
+     --clickhouse-resource-preset s2.nano \
+     --host type=clickhouse,zone-id=man \
+     --clickhouse-disk-size 20 \
+     --clickhouse-disk-type local-ssd \
+     --user name=user1,password=user1user1 \
+     --database name=db1 \
+     --security-group-ids {{ security-group }} \
+     --deletion-protection=true
   ```
 
 {% endif %}
@@ -366,6 +378,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     * With 32 GB of fast network storage.
     * With the database name `my_db`.
     * With the username `user1` and password `user1user1`.
+    * With protection against accidental cluster deletion.
 
   The configuration file for the cluster looks like this:
 
@@ -378,10 +391,11 @@ If you specified security group IDs when creating a cluster, you may also need t
   }
   
   resource "yandex_mdb_clickhouse_cluster" "mych" {
-    name               = "mych"
-    environment        = "PRESTABLE"
-    network_id         = yandex_vpc_network.mynet.id
-    security_group_ids = [ yandex_vpc_security_group.mych-sg.id ]
+    name                = "mych"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.mych-sg.id ]
+    deletion_protection = true
   
     clickhouse {
       resources {
@@ -440,3 +454,4 @@ If you specified security group IDs when creating a cluster, you may also need t
   ```
 
 {% endlist %}
+

@@ -78,15 +78,15 @@ After creating a cluster, you can:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mrd }}).
 
 - API
 
-  To change the cluster name and description, use the API [update](../api-ref/Cluster/update.md) method: pass the values in the `name` and `description` request parameters.
+  Use the API [update](../api-ref/Cluster/update.md) method: pass the requisite values in the `name` and `description` parameters.
 
 {% endlist %}
 
-## Change the host class {#change-resource-preset}
+## Changing the host class {#change-resource-preset}
 
 {% list tabs %}
 
@@ -154,8 +154,6 @@ After creating a cluster, you can:
 
 - {{ TF }}
 
-    To change the [host class](../concepts/instance-types.md) for the cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](./cluster-create.md).
@@ -180,11 +178,11 @@ After creating a cluster, you can:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mrd }}).
 
 - API
 
-  You can change the [host class](../concepts/instance-types.md) using the API [update](../api-ref/Cluster/update.md) method: pass the necessary values in the `configSpec.resources.resourcePresetId` request parameter.
+  Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.resources.resourcePresetId` parameter.
 
   To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
@@ -233,8 +231,6 @@ After creating a cluster, you can:
 
 - {{ TF }}
 
-    To increase the storage size for a cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](./cluster-create.md).
@@ -259,11 +255,11 @@ After creating a cluster, you can:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mrd }}).
 
 - API
 
-  You can change the {{ RD }} host disk size using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the `configSpec.resources.diskSize` request parameter.
+  Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.resources.diskSize` parameter.
 
   Make sure the cloud quota is sufficient to increase the disk size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the **Managed Databases** section still has space available in the **hddSpace** line.
 
@@ -276,6 +272,8 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 {% list tabs %}
 
 - Management console
+
+  To modify the DBMS settings for a cluster:
   1. Go to the folder page and select **{{ mrd-name }}**.
   1. Select the cluster and click **Edit cluster** at the top of the page.
   1. Under **DBMS settings**, click **Settings**.
@@ -312,7 +310,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mrd }}).
 
 - API
 
@@ -355,7 +353,8 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
         ```bash
         {{ yc-mdb-rd }} cluster update <cluster name> \
             --backup-window-start <backup start time> \
-            --maintenance-window type=<weekly or anytime>
+            --maintenance-window type=<weekly or anytime> \
+            --deletion-protection=<protect cluster from deletion: true or false>
         ```
 
     You can change the following settings:
@@ -363,6 +362,8 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
     {% include [backup-window-start](../../_includes/mdb/cli-additional-settings/backup-window-start.md) %}
 
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+
+    {% include [deletion-protection-db](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
 
     You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -400,8 +401,6 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - {{ TF }}
 
-    To edit the list of cluster security groups:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
         For information about how to create this file, see [{#T}](./cluster-create.md).
@@ -423,11 +422,11 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }} provider's documentation]({{ tf-provider-mrd }}).
+    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mrd }}).
 
 - API
 
-    To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
     - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
     - The list of groups in the `securityGroupIds` parameter.
     - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.

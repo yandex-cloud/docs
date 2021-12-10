@@ -82,8 +82,6 @@ After creating a cluster, you can:
 
 - Terraform
 
-  To change the [host class](../concepts/instance-types.md) for the cluster:
-
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For information about how to create this file, see [{#T}](cluster-create.md).
@@ -112,7 +110,7 @@ After creating a cluster, you can:
 
 - API
 
-  You can change the cluster [host class](../concepts/instance-types.md) using the API's [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_3_64_2.mongod.configresources.resourcePresetId`.
+  Use the API [update](../api-ref/Cluster/update.md) method and transmit the requisite values in the `configSpec.mongodbSpec_4_2.mongod.resources.resourcePresetId` parameter.
 
   To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
@@ -175,8 +173,6 @@ After creating a cluster, you can:
 
 - Terraform
 
-  To increase the storage size for a cluster:
-
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For information about how to create this file, see [{#T}](cluster-create.md).
@@ -205,7 +201,7 @@ After creating a cluster, you can:
 
 - API
 
-  You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_4_2.mongod.resources.diskSize`.
+  Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.mongodbSpec_4_2.mongod.resources.diskSize` parameter.
 
   Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mmg-full-name }} section still has space available in the **space** line.
 
@@ -248,7 +244,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-  You can update the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings) for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate values in the request parameter `configSpec.mongodbSpec_4_2.mongod.config`.
+  Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.mongodbSpec_4_2.mongod.config` parameter.
 
   All supported settings are described [in the API reference](../api-ref/Cluster/update.md).
 
@@ -288,9 +284,9 @@ You can change the DBMS settings of the hosts in your cluster.
 
         ```bash
         {{ yc-mdb-mg }} cluster update <cluster name> \
-            --backup-retain-period-days=<retention period> \
-            --backup-window-start <backup start time> \
-            --maintenance-window type=<weekly or anytime>
+           --backup-retain-period-days=<retention period> \
+           --backup-window-start <backup start time> \
+           --maintenance-window type=<weekly or anytime>
         ```
 
     You can change the following settings:
@@ -307,11 +303,11 @@ You can change the DBMS settings of the hosts in your cluster.
 
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
 
+    {% include [deletion-protection-db](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
+
     You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
-
-  To change additional cluster settings:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -347,6 +343,17 @@ You can change the DBMS settings of the hosts in your cluster.
         }
         ```
 
+    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
+
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
+          ...
+          deletion_protection = <protect cluster from deletion: true or false>
+        }
+        ```
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
     1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -359,7 +366,27 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+    * The cluster ID in the `clusterId` parameter.
+
+    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
+
+    * Settings for access from other services in the `configSpec.access` parameter.
+
+    * Cluster deletion protection settings in the `deletionProtection` parameter.
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    * List of cluster configuration fields to be changed in the `updateMask` parameter.
+
+     You can get the cluster ID with a [list of clusters in a folder ](./cluster-list.md#list-clusters).
+
+    {% note warning %}
+
+    This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, pass the names of the fields to be changed in the `updateMask` parameter.
+
+    {% endnote %}
 
 {% endlist %}
 
@@ -395,8 +422,6 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - Terraform
 
-  To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
-
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
        For information about how to create this file, see [{#T}](cluster-create.md).
@@ -423,7 +448,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
 - API
 
-  To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
     - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
     - The list of groups in the `securityGroupIds` parameter.
     - The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.

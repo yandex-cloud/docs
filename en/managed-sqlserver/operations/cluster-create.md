@@ -56,7 +56,6 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
         - The size of non-replicated network storage can only be changed in 93 GB increments.
 
       {% endif %}
-
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the database attributes:
@@ -97,11 +96,12 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
         ```hcl
         resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
-          name               = "<cluster name>"
-          environment        = "<PRESTABLE or PRODUCTION>"
-          network_id         = "<network ID>"
-          version            = "<version: 2016sp2std or 2016sp2ent>"
-          security_groups_id = ["<list of security group IDs>"]
+          name                = "<cluster name>"
+          environment         = "<environment: PRESTABLE or PRODUCTION>"
+          network_id          = "<network ID>"
+          version             = "<version: 2016sp2std or 2016sp2ent>"
+          security_groups_id  = ["<list of security group IDs>"]
+          deletion_protection = <protect cluster from deletion: true or false>
         
           resources {
             resource_preset_id = "<host class>"
@@ -144,6 +144,8 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
         }
         ```
 
+       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
        For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-mms }}).
 
     1. Make sure the settings are correct.
@@ -154,19 +156,32 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+        After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
 
 - API
 
-  Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
+  Use the API [create](../api-ref/Cluster/create.md) method and pass the following information in the request:
+
   - In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+
   - The cluster name, in the `name` parameter.
+
   - Cluster configuration, in the `configSpec` parameter.
+
   - Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+
   - Cluster database configuration, in one or more `databaseSpecs` parameters.
+
   - Configuration of the accounts in the cluster database, in one or more `userSpecs` parameters.
+
   - Network ID, in the `networkId` parameter.
   - The names of the collation settings for the cluster databases in the `sqlcollation` parameter.
+
+  - The names of the sort settings for the cluster databases in the `sqlcollation` parameter.
+
+  - Cluster deletion protection settings in the `deletionProtection` parameter.
+
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
 {% endlist %}
 
@@ -190,6 +205,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
     - With 32 GB of fast network storage.
     - With a database called `db1`.
     - With a user with `user1` as the login and `user1user1` as the password. This user will own the `db1` database ([predefined role `DB_OWNER`](./grant.md#predefined-db-roles)).
+    - With protection against accidental cluster deletion.
 
     The configuration file for the cluster looks like this:
 
@@ -210,11 +226,12 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
     }
     
     resource "yandex_mdb_sqlserver_cluster" "mssql-1" {
-      name               = "mssql-1"
-      environment        = "PRODUCTION"
-      version            = "2016sp2std"
-      network_id         = yandex_vpc_network.mynet.id
-      security_group_ids = [yandex_vpc_security_group.ms-sql-sg.id]
+      name                = "mssql-1"
+      environment         = "PRODUCTION"
+      version             = "2016sp2std"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [yandex_vpc_security_group.ms-sql-sg.id]
+      deletion_protection = true
     
       resources {
         resource_preset_id = "s2.small"

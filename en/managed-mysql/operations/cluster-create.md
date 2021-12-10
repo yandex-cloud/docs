@@ -98,22 +98,25 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
 
   1. Specify the cluster parameters in the create command:
 
-     ```
-     $ {{ yc-mdb-my }} cluster create \
+     ```bash
+     {{ yc-mdb-my }} cluster create \
         --name=<cluster name> \
         --environment <prestable or production> \
         --network-name <network name> \
         --host zone-id=<availability zone>,subnet-id=<subnet ID> \
         --mysql-version <MySQL version> \
         --resource-preset <host class> \
-        --user name=<username>,password=<user password> \
+        --user name=<username>,password=<user password> \|
         --database name=<database name> \
         --disk-size <storage size in GB> \
         --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-        --security-group-ids <list of security group IDs>
+        --security-group-ids <list of security group IDs> \
+        --deletion-protection=<protect cluster from deletion: true or false>
      ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-settings).
 
@@ -148,11 +151,12 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
      }
      
      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
-       name               = "<cluster name>"
-       environment        = "<PRESTABLE or PRODUCTION>"
-       network_id         = "<network ID>"
-       version            = "<MySQL version: 5.7 or 8.0>"
-       security_group_ids = [ "<list of security groups>" ]
+       name                = "<cluster name>"
+       environment         = "<environment, PRESTABLE or PRODUCTION>"
+       network_id          = "<network ID>"
+       version             = "<MySQL version: 5.7 or 8.0>"
+       security_group_ids  = [ "<list of security groups>" ]
+       deletion_protection = <protect cluster from deletion: true or false>
      
        resources {
          resource_preset_id = "<host class>"
@@ -189,6 +193,8 @@ If database storage is 95% full, the cluster switches to read-only mode. Increas
      }
      ```
 
+     {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
      For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_mysql_cluster.html).
 
   1. Make sure that the configuration files are correct.
@@ -220,7 +226,6 @@ If you specified security group IDs when creating a cluster, you may also need t
   Let's say we need to create a {{ MY }} cluster with the following characteristics:
 
     {% if audience != "internal" %}
-
     - Named `my-mysql`.
     - Version `8.0`.
     - In the `production` environment.
@@ -230,9 +235,9 @@ If you specified security group IDs when creating a cluster, you may also need t
     - With 20 GB fast network storage (`{{ disk-type-example }}`).
     - With one user (`user1`) with the password `user1user1`.
     - With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
+    - With protection against accidental cluster deletion.
 
     {% else %}
-
     - Named `my-mysql`.
     - Version `8.0`.
     - In the `production` environment.
@@ -240,6 +245,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     - With 20 GB fast local storage (`local-ssd`).
     - With one user (`user1`) with the password `user1user1`.
     - With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
+    - With protection against accidental cluster deletion.
 
     {% endif %}
 
@@ -259,7 +265,8 @@ If you specified security group IDs when creating a cluster, you may also need t
          --disk-type {{ disk-type-example }} \
          --disk-size 20 \
          --user name=user1,password="user1user1" \
-         --database name=db1
+         --database name=db1 \
+         --deletion-protection=true
       ```
 
       {% else %}
@@ -275,7 +282,8 @@ If you specified security group IDs when creating a cluster, you may also need t
          --disk-type local-ssd \
          --disk-size 20 \
          --user name=user1,password="user1user1" \
-         --database name=db1
+         --database name=db1 \
+         --deletion-protection=true
       ```
 
       {% endif %}
@@ -292,7 +300,6 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
   Let's say we need to create a {{ MY }} cluster and a network for it with the following characteristics:
-
     - Named `my-mysql`.
     - Version `8.0`.
     - In the `PRESTABLE` environment.
@@ -304,10 +311,11 @@ If you specified security group IDs when creating a cluster, you may also need t
     - With 20 GB of fast network storage (`{{ disk-type-example }}`).
     - With one user (`user1`) with the password `user1user1`.
     - With 1 `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
+    - With protection against accidental cluster deletion.
 
   The configuration file for the cluster looks like this:
 
-  ```go
+  ```hcl
   terraform {
     required_providers {
       yandex = {
@@ -317,18 +325,19 @@ If you specified security group IDs when creating a cluster, you may also need t
   }
   
   provider "yandex" {
-    token     = "<OAuth or static key of service account>"
+    token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
-    name               = "my-mysql"
-    environment        = "PRESTABLE"
-    network_id         = yandex_vpc_network.mynet.id
-    version            = "8.0"
-    security_group_ids = [ yandex_vpc_security_group.mysql-sg.id ]
+    name                = "my-mysql"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    version             = "8.0"
+    security_group_ids  = [ yandex_vpc_security_group.mysql-sg.id ]
+    deletion_protection = true
   
     resources {
       resource_preset_id = "{{ host-class }}"
@@ -378,3 +387,4 @@ If you specified security group IDs when creating a cluster, you may also need t
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
+

@@ -52,7 +52,7 @@ After creating a cluster, you can:
 
   {% note info %}
 
-  You can change the class of {{ ZK }} hosts only if [fault tolerance is enabled](zk-hosts.md#add-zk) for the cluster.
+  You can change the class of {{ ZK }} hosts only if [fault tolerance](zk-hosts.md#add-zk) is enabled for the cluster.
 
   {% endnote %}
 
@@ -154,7 +154,7 @@ After creating a cluster, you can:
 
 - API
 
-  You can change the [host class](../concepts/instance-types.md) using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.clickhouse.resources.resourcePresetId` (for ZooKeeper — `configSpec.zookeeper.resources.resourcePresetId`).
+  Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.clickhouse.resources.resourcePresetId` parameter (`configSpec.zookeeper.resources.resourcePresetId` for ZooKeeper).
 
   To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
@@ -256,7 +256,7 @@ After creating a cluster, you can:
 
 - API
 
-  You can change the cluster's storage size using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.clickhouse.resources.diskSize` (for ZooKeeper, the parameter is `configSpec.zookeeper.resources.diskSize`).
+  Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.clickhouse.resources.diskSize` parameter (`configSpec.zookeeper.resources.diskSize` for ZooKeeper).
 
   Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{link-console-quotas}}) page for your cloud and check that the {{ mch-full-name }} section still has space available in the **space** line.
 
@@ -342,7 +342,7 @@ After creating a cluster, you can:
 
 - API
 
-  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.clickhouse.config` request parameter.
+  Use the API [update](../api-ref/Cluster/update.md) method and pass all the requisite values in the `configSpec.clickhouse.config` parameter.
 
   All supported settings are described in [{#T}](../concepts/settings-list.md#dbms-cluster-settings) and the [API reference](../api-ref/Cluster/update.md).
 
@@ -382,11 +382,12 @@ After creating a cluster, you can:
 
         ```bash
         {{ yc-mdb-ch }} cluster update <cluster name> \
-            --backup-window-start <backup start time> \
-            --datalens-access=<true or false> \
-            --maintenance-window type=<weekly or anytime> \
-            --metrika-access=<true or false> \
-            --websql-access=<true or false>
+           --backup-window-start <backup start time> \
+           --datalens-access=<true or false> \
+           --maintenance-window type=<weekly or anytime> \
+           --metrika-access=<true or false> \
+           --websql-access=<true or false>
+           --deletion-protection=<protect cluster from deletion: true or false>
         ```
 
     You can change the following settings:
@@ -399,6 +400,8 @@ After creating a cluster, you can:
     * `--metrika-access`: Enables the [import of AppMetrica data to a cluster]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/cloud/index.html){% endif %}. Default value: `false`.
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. Default value: `false`.
+
+    {% include [deletion-protection-db](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
 
     You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -436,6 +439,17 @@ After creating a cluster, you can:
         }
         ```
 
+    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          deletion_protection = <protect cluster from deletion: true or false>
+        }
+        ```
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
     1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -448,7 +462,27 @@ After creating a cluster, you can:
 
 - API
 
-  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+    * The cluster ID in the `clusterId` parameter.
+
+    * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
+
+    * Backup window settings in the `configSpec.backupWindowStart` parameter.
+
+    * Cluster deletion protection settings in the `deletionProtection` parameter.
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    * List of cluster configuration fields to be changed in the `updateMask` parameter.
+
+     You can get the cluster ID with a [list of clusters in a folder ](./cluster-list.md#list-clusters).
+
+    {% note warning %}
+
+    This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, pass the names of the fields to be changed in the `updateMask` parameter.
+
+    {% endnote %}
 
 {% endlist %}
 
@@ -509,8 +543,7 @@ After creating a cluster, you can:
 
 - API
 
-  To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
-
+  Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
   * The list of groups in the `securityGroupIds` parameter.
   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
@@ -519,6 +552,7 @@ After creating a cluster, you can:
 
 {% note warning %}
 
-You may need to additionally [set up the security groups](connect.md#configuring-security-groups) to connect to the cluster.
+You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+

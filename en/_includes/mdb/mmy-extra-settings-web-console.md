@@ -22,3 +22,7 @@
 
 - **Collect statistics**: Enable this option to use the [{#T}](../../managed-mysql/operations/performance-diagnostics.md) tool in the cluster.
 
+- **Deletion protection**: Enable this option to protect a cluster from accidental deletion by your cloud's users.
+
+    {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+

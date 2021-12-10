@@ -141,8 +141,9 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
          --user name=<username>,password=<user password> \
          --database name=<database name>,owner=<database owner name> \
          --disk-size <storage size, GB> \
-         --disk-type  <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-         --security-group-ids <list of security group IDs>
+         --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
+         --security-group-ids <list of security group IDs> \
+         --deletion-protection=<protect cluster from deletion: true or false>
       ```
       
       The `subnet-id` should be specified if the selected availability zone contains two or more subnets.
@@ -164,6 +165,8 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
   {% endif %}
 
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      
       You can also specify some additional options in the `--host` parameter to manage replication in the cluster:
       - Replication source for the host in the `replication-source` option to [manually manage replication threads](../concepts/replication.md#replication-manual).
       - Host priority in the `priority` option to [influence the selection of a synchronous replica](../concepts/replication.md#selecting-the-master-and-a-synchronous-replica):
@@ -203,22 +206,23 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
      }
      
      resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
-       name               = "<cluster name>"
-       environment        = "<PRESTABLE or PRODUCTION>"
-       network_id         = "<network ID>"
-       security_group_ids = [ "<list of security groups>" ]
+       name                = "<cluster name>"
+       environment         = "<environment, PRESTABLE or PRODUCTION>"
+       network_id          = "<network ID>"
+       security_group_ids  = [ "<list of security groups>" ]
+       deletion_protection = <protect cluster from deletion: true or false>
      
        config {
          version = "<PostgreSQL version: 10, 10-1c, 11, 11-1c, 12, 12-1c, or 13>"
          resources {
            resource_preset_id = "<host class>"
            disk_type_id       = "<storage type>"
-           disk_size          = "<storage size, GB>"
+           disk_size          = <storage size in GB>
          }
        }
      
        database {
-         name  = "<database name>"
+         name = "<database name>"
          owner = "<name of the database owner>"
        }
      
@@ -246,20 +250,21 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
      }
      ```
 
-     For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_postgresql_cluster.html).
+     {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-  1. Make sure that the configuration files are correct.
+     For more information about the resources you can create using Terraform, see the [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
 
-     {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
+  1. Make sure the settings are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
   1. Create a cluster.
 
-     {% include [terraform-create-cluster-step-3](../../_includes/mdb/terraform-create-cluster-step-3.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - API
 
-  To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
-
+  Use the API [create](../api-ref/Cluster/create.md) method and pass the following information in the request:
     * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
     * The cluster name, in the `name` parameter.
     * The environment of the cluster, in the `environment` parameter.
@@ -291,7 +296,6 @@ If you specified security group IDs when creating a cluster, you may also need t
   Let's say we need to create a {{ PG }} cluster with the following characteristics:
 
   {% if audience != "internal" %}
-
   - Named `mypg`.
   - In the `production` environment.
   - In the `default` network.
@@ -300,9 +304,9 @@ If you specified security group IDs when creating a cluster, you may also need t
   - With 20 GB of fast network storage (`{{ disk-type-example }}`).
   - With one user (`user1`) with the password `user1user1`.
   - With one `db1` database owned by the user `user1`.
+  - With protection against accidental cluster deletion.
 
   {% else %}
-
   - Named `mypg`.
   - In the `production` environment.
   - In the security group `{{ security-group }}`.
@@ -310,6 +314,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   - With 20 GB fast local storage (`local-ssd`).
   - With one user (`user1`) with the password `user1user1`.
   - With one `db1` database owned by the user `user1`.
+  - With protection against accidental cluster deletion.
 
   {% endif %}
 
@@ -317,7 +322,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   {% if audience != "internal" %}
 
-  ```
+  ```bash
   {{ yc-mdb-pg }} cluster create \
     --name mypg \
     --environment production \
@@ -328,7 +333,8 @@ If you specified security group IDs when creating a cluster, you may also need t
     --disk-size 20 \
     --user name=user1,password=user1user1 \
     --database name=db1,owner=user1 \
-    --security-group-ids {{ security-group }}
+    --security-group-ids {{ security-group }} \
+    --deletion-protection=true
   ```
 
   {% else %}
@@ -363,10 +369,11 @@ If you specified security group IDs when creating a cluster, you may also need t
   - With 20 GB of fast network storage (`{{ disk-type-example }}`).
   - With one user (`user1`) with the password `user1user1`.
   - With one `db1` database owned by the user `user1`.
+  - With protection against accidental cluster deletion.
 
   The configuration file for the cluster looks like this:
 
-  ```go
+  ```hcl
   terraform {
     required_providers {
       yandex = {
@@ -376,17 +383,18 @@ If you specified security group IDs when creating a cluster, you may also need t
   }
   
   provider "yandex" {
-    token     = "<OAuth or static key of service account>"
+    token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_postgresql_cluster" "mypg" {
-    name               = "mypg"
-    environment        = "PRESTABLE"
-    network_id         = yandex_vpc_network.mynet.id
-    security_group_ids = [ yandex_vpc_security_group.pgsql-sg.id ]
+    name                = "mypg"
+    environment         = "PRESTABLE"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.pgsql-sg.id ]
+    deletion_protection = true
   
     config {
       version = 13
@@ -441,3 +449,4 @@ If you specified security group IDs when creating a cluster, you may also need t
   ```
 
 {% endlist %}
+
