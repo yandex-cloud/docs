@@ -39,6 +39,8 @@ items:
             href: operations/objects/link-for-download.md
           - name: Deleting an object
             href: operations/objects/delete.md
+          - name: Deleting all objects
+            href: operations/objects/delete-all.md
           - name: Deleting a partially uploaded object
             href: operations/objects/deleting-multipart.md
           - name: Editing an object ACL
@@ -123,12 +125,12 @@ items:
             href: tools/winscp.md
       - name: SDK
         items:
-        - name: AWS SDK for Java
-          href: tools/aws-sdk-java.md
-        - name: Python SDK (boto)
-          href: tools/boto.md
-        - name: The AWS SDK for.NET
-          href: tools/aws-sdk-net.md
+          - name: AWS SDK for Java
+            href: tools/aws-sdk-java.md
+          - name: Python SDK (boto)
+            href: tools/boto.md
+          - name: The AWS SDK for.NET
+            href: tools/aws-sdk-net.md
       - name: FUSE
         items:
           - name: GeeseFS
