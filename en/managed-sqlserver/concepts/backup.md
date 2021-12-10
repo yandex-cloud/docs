@@ -14,8 +14,6 @@ keywords:
 
 A backup is automatically created once a day and stored for 7 days. You can't disable automatic backups or change the retention period.
 
-The backup start time is set when [creating](../operations/cluster-create.md) or [updating](../operations/update.md) a cluster. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
-
 {{ mms-name }} lets you restore the cluster state _to any point in time_ (Point-in-Time-Recovery, PITR) after the creation of the oldest full backup until the moment when the most recent transaction log is archived. For this purpose, the backup selected as the recovery starting point is updated with entries from the cluster transaction log.
 
 When creating backups and restoring data from them to a given point in time, keep in mind the following:
@@ -26,7 +24,7 @@ When creating backups and restoring data from them to a given point in time, kee
 
 For more information about PITR, see the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model?view=sql-server-2016){% endif %}.
 
-To restore a cluster from a backup, [follow the instructions](../operations/cluster-backups.md).
+To restore a cluster or an individual database from a backup, [follow the instructions](../operations/cluster-backups.md).
 
 {% note warning %}
 
@@ -43,7 +41,9 @@ Backups can be automatic or manual. In both cases, the following scheme is used:
 
 After a backup is created, it's compressed for storage. The exact backup size isn't displayed.
 
-Backups are only created on running clusters. If you don't use a {{ mch-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
+The backup start time is set when [creating](../operations/cluster-create.md) or [updating](../operations/update.md) a cluster. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
+
+Backups are only created on running clusters. If you don't use a {{ mms-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
 To learn how to manually create a backup, see [{#T}](../operations/cluster-backups.md).
 
@@ -69,5 +69,5 @@ Backup integrity is checked on synthetic data using integration tests available 
 
 ### Checking backup recovery {#capabilities}
 
-To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
+To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md#restore-cluster) and check the integrity of your data.
 
