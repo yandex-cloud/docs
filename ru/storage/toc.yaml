@@ -59,10 +59,6 @@ items:
             href: operations/hosting/multiple-domains.md
           - name: Настройка HTTPS
             href: operations/hosting/certificate.md
-      - name: Управление доступом
-        items:
-          - name: Применение политики доступа
-            href: operations/access/apply-policy.md
   - name: Сценарии использования
     items:
       - name: Получение статистики запросов к объекту с использованием S3 Select
