@@ -15,13 +15,19 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 - Management console
 
   1. In the management console, select the folder where you want to create a DB cluster.
+
   1. Select **{{ mrd-name }}**.
+
   1. Click **Create cluster**.
+
   1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+
   1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
       * `PRESTABLE`: For testing, including the {{ mrd-short-name }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+
   1. Select the DBMS version.
+
   1. If necessary, enable [cluster sharding](../concepts/sharding.md).
 
      {% note warning %}
@@ -30,7 +36,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
 
      {% endnote %}
 
-  1. If necessary, enable support for encrypted SSL connections to the cluster (for {{ RD }} version 6 or higher).
+  1. If required, enable support for encrypted SSL connections to the cluster (for {{ RD }} version 6 or higher).
 
      {% note warning %}
 
@@ -42,8 +48,11 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
       * Select the host type: it defines the [guaranteed vCPU performance](../../compute/concepts/performance-levels.md). **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
       * Select the amount of RAM for the host.
       * Select the disk size. The available disk size depends on the amount of RAM and is limited by [quotas and limits](../concepts/limits.md#limits). The minimum disk size is twice the selected amount of RAM, while the maximum disk size is 8 times the selected amount of RAM.
+
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
+
   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
   1. Under **Hosts**, click **Add host** and select the availability zone and subnet to connect the host to. Create the necessary number of hosts. To change the availability zone and the added host, click the pencil icon in the host line.
 
      If you enabled sharding, enter names for the shards.
@@ -88,7 +97,7 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   1. Specify the cluster parameters in the create command (only some of the supported flags are given in the example):
 
       ```bash
-      $ {{ yc-mdb-rd }} cluster create \
+      {{ yc-mdb-rd }} cluster create \
          --name <cluster name> \
          --environment <prestable or production> \
          --network-name <network name> \
@@ -99,17 +108,20 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
          --disk-size <storage size in GB> \
          --password=<user password> \
          --backup-window-start <backup start time in HH:MM:SS format>
+         --deletion-protection=<protect cluster from deletion: true or false>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
 - API
 
-  To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
+  Use the API [create](../api-ref/Cluster/create.md) method and pass the following information in the request:
   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
   * The cluster name, in the `name` parameter.
   * Security group IDs in the parameter `securityGroupIds`.
-  * The `tlsEnabled=true` flag to create a cluster with support for encrypted SSL connections (for {{ RD }} version 6 or higher).
+  * `tlsEnabled=true` flag to create a cluster with encrypted SSL connection support (for {{ RD }} version 6 or higher).
 
 - Terraform
 
@@ -120,12 +132,11 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   To create a cluster:
 
     1. In the configuration file, describe the parameters of resources that you want to create:
-    
        * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md).
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
        * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
-       Example configuration file structure for creating clusters with SSL support:
+       Sample configuration file structure for creating clusters with SSL support:
 
        ```hcl
        terraform {
@@ -144,12 +155,13 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
        }
        
        resource "yandex_mdb_redis_cluster" "<cluster name>" {
-         name               = "<cluster name>"
-         environment        = "<PRESTABLE or PRODUCTION>"
-         network_id         = "<network ID>"
-         security_group_ids = [ "<security group IDs>" ]
-         tls_enabled        = true
-         sharded            = <sharding: true or false>
+         name                = "<cluster name>"
+         environment         = "<environment: PRESTABLE or PRODUCTION>"
+         network_id          = "<network ID>"
+         security_group_ids  = [ "<security group IDs>" ]
+         tls_enabled         = true
+         sharded             = <sharding: true or false>
+         deletion_protection = <protect cluster from deletion: true or false>
        
          config {
            password = "<password>"
@@ -178,7 +190,9 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
        }
        ```
 
-       For more information about the resources you can create using {{ TF }}, see the [provider's documentation]({{ tf-provider-mrd }}).
+       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+       For more information about the resources you can create using {{ TF }}, see [provider documentation]({{ tf-provider-mrd }}).
 
     1. Make sure the settings are correct.
 
@@ -209,37 +223,37 @@ If you specified security group IDs when creating a cluster, you may also need t
   To create a cluster with a single host, pass a single `--host` parameter.
 
   Let's say we need to create a {{ RD }} cluster with the following characteristics:
-
   * Named `myredis`.
   * With version `6.0`.
   * In the `production` environment.
   * In the `default` network.
   * With a single `hm1.nano` host in the `b0rcctk2rvtr8efcch64` subnet, the `{{ zone-id }}` availability zone, and the `{{ security-group }}` security group.
-  * With support for SSL connections.
+  * With SSL support.
   * With a 16 GB fast network storage (`{{ disk-type-example }}`).
   * With the `user1user1` password.
+  * With protection against accidental cluster deletion.
 
   Run the command:
 
-  ```
-  $ {{ yc-mdb-rd }} cluster create \
-       --name myredis \
-       --redis-version 6.0 \
-       --environment production \
-       --network-name default \
-       --resource-preset hm1.nano \
-       --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
-       --security-group-ids {{ security-group }} \
-       --enable-tls \
-       --disk-type-id {{ disk-type-example }} \
-       --disk-size 16 \
-       --password=user1user1
+  ```bash
+  {{ yc-mdb-rd }} cluster create \
+     --name myredis \
+     --redis-version 6.0 \
+     --environment production \
+     --network-name default \
+     --resource-preset hm1.nano \
+     --host zone-id={{ zone-id }},subnet-id=b0rcctk2rvtr8efcch64 \
+     --security-group-ids {{ security-group }} \
+     --enable-tls \
+     --disk-type-id {{ disk-type-example }} \
+     --disk-size 16 \
+     --password=user1user1 \
+     --deletion-protection=true
   ```
 
 - Terraform
 
   Let's say we need to create a {{ RD }} cluster and a network for it with the following characteristics:
-
     * Named `myredis`.
     * With version `6.0`.
     * In the `PRODUCTION` environment.
@@ -248,9 +262,10 @@ If you specified security group IDs when creating a cluster, you may also need t
     * Network: `mynet`.
     * With 1 `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ zone-id }}` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
     * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any address in the `mysubnet` subnet.
-    * With support for SSL connections.
+    * With SSL support.
     * With a 16 GB fast network storage (`{{ disk-type-example }}`).
     * With the `user1user1` password.
+    * With protection against accidental cluster deletion.
 
   The configuration file for the cluster looks like this:
 
@@ -271,11 +286,12 @@ If you specified security group IDs when creating a cluster, you may also need t
   }
   
   resource "yandex_mdb_redis_cluster" "myredis" {
-    name               = "myredis"
-    environment        = "PRODUCTION"
-    network_id         = yandex_vpc_network.mynet.id
-    security_group_ids = [ yandex_vpc_security_group.redis-sg.id ]
-    tls_enabled        = true
+    name                = "myredis"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.redis-sg.id ]
+    tls_enabled         = true
+    deletion_protection = true
   
     config {
       password = "user1user1"
@@ -332,7 +348,6 @@ If you specified security group IDs when creating a cluster, you may also need t
 - Terraform
 
     Let's say we need to create a [sharded](../concepts/sharding.md) {{RD}} cluster with the following characteristics:
-
     * Named `myredis`.
     * In the `PRODUCTION` environment.
     * In the cloud with the ID `{{ tf-cloud-id }}`.
@@ -346,6 +361,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     * In the new `redis-sg` security group that allows connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect.md)) from any subnet address.
     * With a 16 GB fast network storage (`{{ disk-type-example }}`).
     * With the `user1user1` password.
+    * With protection against accidental cluster deletion.
 
     The configuration file for the cluster looks like this:
 
@@ -366,11 +382,12 @@ If you specified security group IDs when creating a cluster, you may also need t
     }
     
     resource "yandex_mdb_redis_cluster" "myredis" {
-      name               = "myredis"
-      environment        = "PRODUCTION"
-      network_id         = yandex_vpc_network.mynet.id
-      security_group_ids = [yandex_vpc_security_group.redis-sg.id]
-      sharded            = true
+      name                = "myredis"
+      environment         = "PRODUCTION"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [yandex_vpc_security_group.redis-sg.id]
+      sharded             = true
+      deletion_protection = true
     
       config {
         password = "user1user1"
@@ -475,3 +492,4 @@ If you specified security group IDs when creating a cluster, you may also need t
     ```
 
 {% endlist %}
+

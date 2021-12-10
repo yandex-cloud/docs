@@ -59,4 +59,3 @@ After creating a cluster, you can modify its basic and advanced settings.
     You can query the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
 {% endlist %}
-
