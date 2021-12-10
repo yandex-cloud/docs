@@ -11,7 +11,7 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to databases
+      - name: Connecting to a database
         href: operations/connect.md
       - name: Stopping and starting clusters
         href: operations/cluster-stop.md
@@ -19,10 +19,12 @@ items:
         href: operations/update.md
       - name: Managing SQL Server hosts
         href: operations/hosts.md
-      - name: Database management
+      - name: Managing databases
         href: operations/databases.md
       - name: Managing users
         href: operations/cluster-users.md
+      - name: Managing user sessions
+        href: operations/sessions.md
       - name: Assigning privileges and roles
         href: operations/grant.md
       - name: Managing backups
@@ -33,6 +35,12 @@ items:
         href: operations/performance-diagnostics.md
       - name: Monitoring the state of a cluster and hosts
         href: operations/monitoring.md
+  #- name: Use cases
+  #  items:
+  #    - name: All use cases
+  #      href: tutorials/index.md
+  #    - name: Migrating databases to Managed Service for Microsoft SQL Server
+  #      href: tutorials/data-migration.md
   - name: Concepts
     items:
       - name: Relationship between service resources

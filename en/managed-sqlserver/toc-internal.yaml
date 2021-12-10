@@ -11,16 +11,18 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to databases
+      - name: Connecting to a database
         href: operations/connect.md
       - name: Changing cluster and database settings
         href: operations/update.md
       - name: Managing SQL Server hosts
         href: operations/hosts.md
-      - name: Database management
+      - name: Managing databases
         href: operations/databases.md
       - name: Managing users
         href: operations/cluster-users.md
+      - name: Managing user sessions
+        href: operations/sessions.md
       - name: Assigning privileges and roles
         href: operations/grant.md
       - name: Managing backups
@@ -47,7 +49,7 @@ items:
     href: quotas.md
   - name: API reference
     items:
-      - name: Authentication in the API
+      - name: Authentication
         href: api-ref/authentication.md
       - name: gRPC
         items: null
@@ -65,5 +67,5 @@ items:
         href: qa/general.md
       - name: Questions about SQL Server
         href: qa/sqlserver.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md
