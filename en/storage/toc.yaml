@@ -39,6 +39,8 @@ items:
             href: operations/objects/link-for-download.md
           - name: Deleting an object
             href: operations/objects/delete.md
+          - name: Deleting all objects
+            href: operations/objects/delete-all.md
           - name: Deleting a partially uploaded object
             href: operations/objects/deleting-multipart.md
           - name: Editing an object ACL

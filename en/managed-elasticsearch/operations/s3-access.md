@@ -10,7 +10,7 @@ To access {{ objstorage-name }} bucket data from a cluster:
 
 ## Connecting a service account to a cluster {#connect-service-account}
 
-1. When [creating](./cluster-create.md) or [updating](./cluster-update.md#update-additional-settings) a cluster, select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
+1. When [creating](./cluster-create.md) or [modifying](./cluster-update.md#change-additional-settings) a cluster, select an existing [service account](../../iam/concepts/users/service-accounts.md) or [create a new one](../../iam/operations/sa/create.md).
 1. Make sure that this account has the [role of](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor` assigned.
 
 ## Setting up access rights {#configure-acl}
@@ -28,18 +28,18 @@ To access {{ objstorage-name }} bucket data from a cluster:
 
 {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
-1. When [creating](./cluster-create.md) or [updating](./cluster-update.md#update-additional-settings) a cluster, enable the [repository-s3](../concepts/plugins.md) plugin.
+1. When [creating](./cluster-create.md) or [modifying](./cluster-update.md#change-additional-settings) a cluster, enable the [repository-s3](../concepts/plugins.md) extension.
 
 1. Register the bucket as a snapshot repository using the public [{{ ES }} API](https://www.elastic.co/guide/en/elasticsearch/reference/current/put-snapshot-repo-api.html):
 
     ```http
-    PUT --cacert ~/.elasticsearch/root.crt https://admin:<password>@<FQDN or host IP address>:9200/_snapshot/<repository>
+    PUT --cacert ~/.elasticsearch/root.crt https://admin:<password>@<FQDN or IP address of the host>:9200/_snapshot/<repository>
     ```
 
     In the request parameters, specify the bucket associated with the cluster service account:
 
     ```bash
-    curl --cacert ~/.elasticsearch/root.crt https://admin:<password>@<FQDN or host IP address>:9200/_snapshot/<repository> \
+    curl --cacert ~/.elasticsearch/root.crt https://admin:<password>@<FQDN or IP address of the host>:9200/_snapshot/<repository> \
          -X PUT \
          --header "Content-Type: application/json" \
          --data '{

@@ -20,6 +20,7 @@
 | Number of hosts in a shard when using non-replicated network storage | 3 | 7 |
 | Number of hosts in a shard when using local storage | 2 | 7 |
 | Total number of hosts per cluster | 1 | 353 (50 shards × 7 hosts + 3 {{ ZK }} hosts) |
-| Amount of data on the host when using standard or fast network storage | 10 GB | 4096 GB |
+| Amount of data on the host when using standard network storage | 10 GB | 4096 GB |
+| Amount of data on the host when using fast network storage | 10 GB | 8192 GB |
 | Amount of data on the host when using non-replicated network storage | 93 GB | 8184 GB |
 | Amount of data on the host when using local storage | 100 GB | 1500 GB |

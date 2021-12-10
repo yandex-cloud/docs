@@ -36,7 +36,7 @@ If you plan to use multiple security groups for a cluster, enable all traffic be
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
+You can set more detailed rules for security groups, such as to allow traffic in only specific subnets.
 
 Security groups must be configured correctly for all subnets that will include cluster hosts.
 
@@ -54,7 +54,7 @@ You can set up security groups for [connections to cluster hosts](./connect.md) 
 
   1. Click **Create resource** and select **{{ dataproc-name }} cluster** from the drop-down list.
 
-  1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. Select a relevant [image version](../concepts/environment.md) and the components you want to use in the cluster.
 
@@ -78,11 +78,11 @@ You can set up security groups for [connections to cluster hosts](./connect.md) 
 
       {% note warning %}
 
-      When creating a cluster, security group settings are verified. If a cluster cannot function with these settings, a warning is issued. See [above](#change-security-groups) for an example of working settings.
+      When creating a cluster, security group settings are verified. If a cluster cannot function with these settings, you get a warning. See [above](#change-security-groups) for an example of working settings.
 
       {% endnote %}
 
-  1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }}  components](../concepts/ui-proxy.md).
+  1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/ui-proxy.md).
 
   1. To send cluster logs to [{{ cloud-logging-name }}](../../logging/), select a log group from the list. If necessary, [create a new log group](../../logging/operations/create-group.md).
 
@@ -95,11 +95,8 @@ You can set up security groups for [connections to cluster hosts](./connect.md) 
   1. For each subcluster, you can configure:
 
      * The number of hosts.
-
      * [The host class](../concepts/instance-types.md), which dictates the platform and computing resources available to the host.
-
      * Storage size and type.
-
      * A subnet.
 
        NAT to the internet must be enabled in the subnet for the subcluster with the `Master` role. To learn more, see [{#T}](#setup-network).
@@ -107,6 +104,7 @@ You can set up security groups for [connections to cluster hosts](./connect.md) 
   1. For `Compute` subclusters, you can specify the [autoscaling](../concepts/autoscaling.md) parameters.
 
      {% include [note-info-service-account-roles](../../_includes/data-proc/service-account-roles.md) %}
+	 
      1. Under **Add subcluster**, click **Add**.
      1. In the **Roles** field, select _COMPUTENODE_.
      1. Under **Scalability**, enable **Automatic scaling**.

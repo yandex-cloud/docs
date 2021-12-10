@@ -12,3 +12,7 @@
 
 - **Access from Yandex.Metrica and AppMetrica**: Enable this option to be able to [import data from AppMetrica](https://appmetrica.yandex.com/docs/cloud/index.html) to the cluster.
 
+- **Deletion protection**: Enable this option to protect a cluster from accidental deletion by your cloud's users.
+
+    {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+

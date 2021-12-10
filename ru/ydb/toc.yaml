@@ -395,6 +395,8 @@ items:
     items:
       - name: Системные таблицы
         href: troubleshooting/system_views.md
+      - name: Мониторинг
+        href: troubleshooting/monitoring.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы

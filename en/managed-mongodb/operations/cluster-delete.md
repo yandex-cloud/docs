@@ -4,7 +4,15 @@ description: "After deleting a MongoDB database cluster, its backups are preserv
 ---
 # Deleting a cluster
 
-{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+## Before deleting a cluster {#before-you-delete}
+
+* [Disable deletion protection](update.md#change-additional-settings) for the cluster if it is enabled.
+
+* [Save the cluster ID](cluster-list.md#list-clusters).
+
+  {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+
+## Deleting the cluster {#delete}
 
 {% list tabs %}
 
@@ -21,8 +29,8 @@ description: "After deleting a MongoDB database cluster, its backups are preserv
 
   To delete a cluster, run the command:
 
-  ```
-  $ {{ yc-mdb-mg }} cluster delete <cluster name or ID>
+  ```bash
+  {{ yc-mdb-mg }} cluster delete <cluster name or ID>
   ```
 
   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).

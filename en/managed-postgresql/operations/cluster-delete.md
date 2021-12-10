@@ -5,7 +5,15 @@ description: "After deleting a PostgreSQL database cluster, its backups are pres
 
 # Deleting clusters
 
-{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+## Before deleting a cluster {#before-you-delete}
+
+* [Disable deletion protection](update.md#change-additional-settings) for the cluster if it is enabled.
+
+* [Save the cluster ID](cluster-list.md#list-clusters).
+
+  {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+
+## Deleting the cluster {#delete}
 
 {% list tabs %}
 
@@ -22,8 +30,8 @@ description: "After deleting a PostgreSQL database cluster, its backups are pres
 
   To delete a cluster, run the command:
 
-  ```
-  $ {{ yc-mdb-pg }} cluster delete <cluster name or ID>
+  ```bash
+  {{ yc-mdb-pg }} cluster delete <cluster name or ID>
   ```
 
   You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).

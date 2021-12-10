@@ -12,7 +12,7 @@ You can perform the following actions for any subcluster:
 
 You can change the number of hosts in `DATANODE` and `COMPUTENODE` clusters:
 
-1. In [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
+1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
 1. Select {{ dataproc-name }} and the desired cluster.
 1. Go to **Subclusters**.
 1. Click ![image](../../_assets/options.svg) for the appropriate subcluster and select **Edit**.
@@ -31,7 +31,7 @@ You can change the computing power of hosts in a separate subcluster:
 - Management console
 
     To change the [host class](../concepts/instance-types.md) for a subcluster:
-    1. In [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
     1. Select {{ dataproc-name }} and the desired cluster.
     1. Go to **Subclusters**.
     1. Click ![image](../../_assets/options.svg) for the appropriate subcluster and select **Edit**.
@@ -72,7 +72,7 @@ Currently, you cannot reduce storage size. If necessary, re-create the {{ datapr
 - Management console
 
     To change the storage size for a subcluster:
-    1. In [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster whose subcluster you want to change.
     1. Select {{ dataproc-name }} and the desired cluster.
     1. Go to **Subclusters**.
     1. Click ![image](../../_assets/options.svg) for the appropriate subcluster and select **Edit**.
@@ -88,7 +88,6 @@ Currently, you cannot reduce storage size. If necessary, re-create the {{ datapr
 {% list tabs %}
 
 - Management console
-
     1. Go to the folder page and select **{{ dataproc-name }}**.
     1. Click on the name of the cluster you want and select the **Hosts** tab.
     1. Click on the name of the host you want.
@@ -103,3 +102,4 @@ Currently, you cannot reduce storage size. If necessary, re-create the {{ datapr
 You may need to additionally [set up security groups](./connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+

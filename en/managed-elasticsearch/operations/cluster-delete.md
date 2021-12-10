@@ -11,6 +11,12 @@ keywords:
 
 You can delete an {{ ES }} cluster if you no longer need it. All data in the cluster will be deleted.
 
+## Before deleting a cluster {#before-you-delete}
+
+[Disable deletion protection](cluster-update.md#change-additional-settings) for the cluster if it is enabled.
+
+## Deleting the cluster {#delete}
+
 {% list tabs %}
 
 - Management console
@@ -35,8 +41,9 @@ You can delete an {{ ES }} cluster if you no longer need it. All data in the clu
 
 - API
 
-  To delete the cluster, use the `delete` API method: pass the ID of the desired cluster in the `clusterId` request parameter.
+  Use the API `backup` method and pass the ID of the cluster to be deleted in the `clusterId` call parameter.
 
   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
+

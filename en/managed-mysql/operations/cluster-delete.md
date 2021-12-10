@@ -5,7 +5,15 @@ description: "After deleting a MySQL database cluster, its backups are preserved
 
 # Deleting clusters
 
-{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+## Before deleting a cluster {#before-you-delete}
+
+* [Disable deletion protection](update.md#change-additional-settings) for the cluster if it is enabled.
+
+* [Save the cluster ID](cluster-list.md#list-clusters).
+
+  {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+
+## Deleting the cluster {#delete}
 
 {% list tabs %}
 

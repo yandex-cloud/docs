@@ -17,7 +17,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
 - Management console
 
-  To create a cluster, follow these steps:
+  To create a cluster:
 
   1. In the management console, select the folder where you want to create a cluster.
 
@@ -38,7 +38,6 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
      1. To manage topics via the {{ KF }} Admin API:
 
          {% include [mkf-admin-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
          1. Enable **Manage topics via the API**.
          1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
@@ -46,9 +45,10 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
      The host class defines the technical specifications of the VMs where the [{{ KF }} brokers](../concepts/brokers.md) will be deployed. All available options are listed in [Host classes](../concepts/instance-types.md).
 
-     When you [change the host class](cluster-update.md#update-cluster) for the cluster, the characteristics of all existing instances change.
+     By [changing the host class](cluster-update.md#change-resource-preset) for a cluster, you also change the characteristics of all the existing instances.
 
   1. Under **Storage**:
+
      * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
 
         When selecting a storage type, remember that:
@@ -67,7 +67,7 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 
         {% note info %}
 
-        For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [{#T}](../concepts/index.md).
+        For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
 
         {% endnote %}
 
@@ -90,6 +90,10 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
      * Adding more than one host to the cluster automatically adds three {{ ZK }} hosts.
 
   1. If you specify two or more broker hosts, under **Host class {{ ZK }}**, specify the characteristics of the [hosts{{ ZK }}](../concepts/index.md) to be located in each of the selected availability zones.
+
+  1. If necessary, configure additional cluster settings:
+
+      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
 
   1. If necessary, configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings).
 
@@ -117,15 +121,18 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
       {{ yc-mdb-kf }} cluster create \
          --name <cluster name> \
          --environment <prestable or production> \
-         --version <version: 2.1 or 2.6> \
+         --version <2.1 or 2.6> \
          --network-name <network name> \
          --brokers-count <number of brokers in the zone> \
          --resource-preset <host class> \
          --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --disk-size <storage size in GB> \
          --assign-public-ip <public access> \
-         --security-group-ids <list of security group IDs>
+         --security-group-ids <list of security group IDs> \
+         --deletion-protection=<protect cluster from deletion: true or false>
       ```
+
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
 
@@ -176,10 +183,11 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
         }
         
         resource "yandex_mdb_kafka_cluster" "<cluster name>" {
-          environment        = "<PRESTABLE or PRODUCTION>"
-          name               = "<cluster name>"
-          network_id         = "<network ID>"
-          security_group_ids = ["<list of cluster security group IDs>"]
+          environment         = "<environment: PRESTABLE or PRODUCTION>"
+          name                = "<cluster name>"
+          network_id          = "<network ID>"
+          security_group_ids  = ["<list of cluster security group IDs>"]
+          deletion_protection = <protect cluster from deletion: true or false>
         
           config {
             assign_public_ip = "<public access to the cluster: true or false>"
@@ -208,8 +216,9 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
           zone           = "<availability zone>"
           network_id     = "<network ID>"
           v4_cidr_blocks = ["<range>"]
-        }
         ```
+
+        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. Make sure the settings are correct.
 
@@ -226,14 +235,20 @@ After creating a cluster, you can add extra broker hosts to it if there are enou
 - API
 
   To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
+
   * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
+
   * The cluster name, in the `name` parameter.
+
   * Security group IDs in the parameter `securityGroupIds`.
+
+  * Cluster deletion protection settings in the `deletionProtection` parameter.
+
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
   To manage topics via the {{ KF }} Admin API:
 
   {% include [mkf-topic-api-alert](../../_includes/mdb/mkf/admin-api-alert.md) %}
-
   1. Pass `true` for the `unmanagedTopics` parameter.
   1. After creating a cluster, [create an administrator account](./cluster-accounts.md#create-account).
 
@@ -264,6 +279,7 @@ If you specified security group IDs when creating a cluster, you may also need t
   * With one broker.
   * With 10 GB fast network storage (`{{ disk-type-example }}`).
   * With public access.
+  * With protection against accidental cluster deletion.
 
   Run the command:
 
@@ -280,7 +296,8 @@ If you specified security group IDs when creating a cluster, you may also need t
   --disk-size 10 \
   --disk-type {{ disk-type-example }} \
   --assign-public-ip \
-  --security-group-ids {{ security-group }}
+  --security-group-ids {{ security-group }} \
+  --deletion-protection=true
   ```
 
 - Terraform
@@ -297,6 +314,7 @@ If you specified security group IDs when creating a cluster, you may also need t
     * With one broker.
     * With 10 GB fast network storage (`{{ disk-type-example }}`).
     * With public access.
+    * With protection against accidental cluster deletion.
 
   The configuration file for the cluster looks like this:
 
@@ -317,10 +335,11 @@ If you specified security group IDs when creating a cluster, you may also need t
     }
     
     resource "yandex_mdb_kafka_cluster" "mykf" {
-      environment = "PRODUCTION"
-      name        = "mykf"
-      network_id  = yandex_vpc_network.mynet.id
-      security_group_ids = [ yandex_vpc_security_group.mykf-sg.id ]
+      environment         = "PRODUCTION"
+      name                = "mykf"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [ yandex_vpc_security_group.mykf-sg.id ]
+      deletion_protection = true
     
       config {
         assign_public_ip = true

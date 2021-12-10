@@ -5,13 +5,20 @@ description: "After deleting a PostgreSQL database cluster, its backups are pres
 
 # Deleting a cluster
 
-{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+## Before deleting a cluster {#before-you-delete}
+
+* [Disable deletion protection](update.md#change-additional-settings) for the cluster if it is enabled.
+
+* [Save the cluster ID](cluster-list.md#list-clusters).
+
+  {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+
+## Deleting the cluster {#delete}
 
 {% list tabs %}
 
 - Management console
-  1. Open the folder page in the management console.
-  1. Select **{{ mch-name }}**.
+  1. Go to the folder page and select **{{ mch-name }}**.
   1. Click ![image](../../_assets/options.svg) for the necessary cluster and select **Delete**.
 
 - CLI
@@ -22,11 +29,11 @@ description: "After deleting a PostgreSQL database cluster, its backups are pres
 
   To delete a cluster, run the command:
 
-  ```
-  $ {{ yc-mdb-ch }} cluster delete <cluster name or ID>
+  ```bash
+  {{ yc-mdb-ch }} cluster delete <cluster name or ID>
   ```
 
-  The cluster name and ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
 

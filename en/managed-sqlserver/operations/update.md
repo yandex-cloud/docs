@@ -180,10 +180,14 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 - Management console
 
     1. Go to the folder page and select **{{ mms-name }}**.
+
     1. Select the cluster and click **Edit** in the top panel.
+
     1. Change additional cluster settings:
 
         {% include [extra-settings](../../_includes/mdb/mms/extra-settings.md) %}
+
+          {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     1. Click **Save changes**.
 
@@ -205,6 +209,17 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
           ...
         }
         ```
+
+    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
+
+        ```hcl
+        resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
+          ...
+          deletion_protection = <protect cluster from deletion: true or false>
+        }
+        ```
+
+        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     1. Make sure the settings are correct.
 
@@ -232,7 +247,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
 - API
 
-  Use the [move](../api-ref/Cluster/move.md) API method and pass the following in the query:
+  Use the API [move](../api-ref/Cluster/move.md) method and pass the following in the call:
   - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
   - The ID of the destination folder in the `destinationFolderId` parameter.
 

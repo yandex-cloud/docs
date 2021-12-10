@@ -6,3 +6,7 @@
 
   Maintenance may include updating the DBMS version, applying patches, and so on.
 
+- **Deletion protection**: Enable this option to protect a cluster from accidental deletion by your cloud's users.
+
+    {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
