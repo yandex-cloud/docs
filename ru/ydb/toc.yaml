@@ -744,6 +744,7 @@ items:
         href: troubleshooting/system_views.md
       - name: Мониторинг
         href: troubleshooting/monitoring.md
+        when: audience == "external"
       - name: Как анализировать отладочные логи
         href: troubleshooting/understand_debug_logs.md
         when: audience == "tech"
