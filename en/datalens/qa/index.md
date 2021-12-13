@@ -73,6 +73,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [csv-long-loading](../../_includes/datalens/qa/csv-long-loading.md) %}
 
+{% include [csv-network-error](../../_includes/datalens/qa/csv-network-error.md) %}
+
 ## Data materialization {#materialization}
 
 {% include [qa-materialization-error](../../_includes/datalens/qa/materialization-error.md) %}

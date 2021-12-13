@@ -15,6 +15,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
     1. Select **{{ sf-name }}**.
     1. Select a function.
@@ -53,7 +54,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
 
     You can invoke a specific function version using the `tag` parameter. The function with the `$latest` tag is invoked by default.
 
-    - Example of function invocation with no additional parameters:
+    * Example of function invocation with no additional parameters:
 
         ```
         {{ sf-url }}/b09bhaokchn9pnbrlseb
@@ -65,7 +66,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
         Hello, World!
         ```
 
-    - Example of function invocation with the `name` parameter added to the URL:
+    * Example of function invocation with the `name` parameter added to the URL:
 
         ```
         {{ sf-url }}/b09bhaokchn9pnbrlseb?name=<username>
@@ -77,7 +78,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
         Hello, Username!
         ```
 
-    - Example of invoking a specific function version with the `tag` parameter added to the URL:
+    * Example of invoking a specific function version with the `tag` parameter added to the URL:
 
         ```
         {{ sf-url }}/b09bhaokchn9pnbrlseb?tag=<version tag>
@@ -91,7 +92,7 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
 
     You can invoke a specific function version using the `--tag` parameter. The function with the `$latest` tag is invoked by default.
 
-    - Invoke the function by specifying in the parameter a name for the greeting:
+    * Invoke the function by specifying in the parameter a name for the greeting:
 
         ```
         yc serverless function invoke <function ID> -d '{"queryStringParameters": {"name": "Username"}}'
@@ -103,11 +104,15 @@ As an example, we'll use the function described in [{#T}](version-manage.md#func
         {"statusCode": 200, "headers": {"Content-Type": "text/plain"}, "isBase64Encoded": false, "body": "Hello, Username!"}
         ```
 
-    - Invoke a specific version of the function using the `--tag` parameter:
+    * Invoke a specific version of the function using the `--tag` parameter:
 
         ```
         yc serverless function invoke <function ID> --tag <function version tag>
         ```
+
+- Yandex.Cloud Toolkit
+
+    You can invoke a function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

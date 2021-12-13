@@ -9,6 +9,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
     1. Select **{{ sf-name }}**.
     1. Select a function.
@@ -18,21 +19,22 @@ To allow any user to invoke your function, [make it public](../../functions/oper
     1. In the **Input** field, enter:
 
         ```
-	    {"queryStringParameters": {"name": "Username"}}
+        {"queryStringParameters": {"name": "Username"}}
         ```
+
     1. Click **Run test**.
     1. You will see the testing status under **Test result** in the **Function status** field. **Important**: The maximum function execution time before [timeout](../../functions/operations/function/version-manage.md#version-create) (including original initialization at initial launch) is 10 minutes.
     1. You will see the function execution result in the **Function output** field:
 
         ```
-	    {
-	    	"statusCode": 200,
-	    	"headers": {
-	    		"Content-Type": "text/plain"
-	    	},
-	    	"isBase64Encoded": false,
-	    	"body": "Hello, Username!"
-    	}
+        {
+        	"statusCode": 200,
+        	"headers": {
+        		"Content-Type": "text/plain"
+        	},
+        	"isBase64Encoded": false,
+        	"body": "Hello, Username!"
+        }
         ```
 
 - CLI
@@ -62,14 +64,18 @@ To allow any user to invoke your function, [make it public](../../functions/oper
     For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invocation link in the browser address bar and adding the `name` parameter to the URL:
 
     ```
-	{{ sf-url }}/b09bhaokchn9pnbrlseb?name=Username
+    {{ sf-url }}/b09bhaokchn9pnbrlseb?name=Username
     ```
 
     The following response appears on the page:
 
     ```
-	Hello, Username!
+    Hello, Username!
     ```
+
+- Yandex.Cloud Toolkit
+
+    You can invoke a function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

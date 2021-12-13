@@ -9,6 +9,7 @@ You can change the [name](function-update.md#update-name) and [description](func
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to change the name of a [function](../../concepts/function.md).
     1. Open **{{ sf-name }}**.
     1. Select a function.
@@ -46,6 +47,10 @@ You can change the [name](function-update.md#update-name) and [description](func
 
     You can change the function name using the API method [update](../../functions/api-ref/Function/update.md).
 
+- Yandex.Cloud Toolkit
+
+    You can rename the function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+
 {% endlist %}
 
 ## Updating the description of a function {#update-description}
@@ -53,6 +58,7 @@ You can change the [name](function-update.md#update-name) and [description](func
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to change the description of a [function](../../concepts/function.md).
     1. Open **{{ sf-name }}**.
     1. Select a function.
@@ -90,6 +96,10 @@ You can change the [name](function-update.md#update-name) and [description](func
 - API
 
     You can update the description of a function using the API method [update](../../functions/api-ref/Function/update.md).
+
+- Yandex.Cloud Toolkit
+
+    You can update the description of a function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -149,7 +159,7 @@ You can perform the following actions with function labels:
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To update a label of a function, run the command:
+    To update the function label, run the command:
 
     {% note warning %}
 

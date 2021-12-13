@@ -13,6 +13,8 @@ items:
     items:
       - name: Обзор сервиса
         href: overview.md
+      - name: Работа в Yandex Wiki
+        href: concepts.md
       - name: Структура Yandex Wiki
         href: structure.md
   - name: Создание страниц

@@ -110,7 +110,7 @@
         1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
         2. Выполните проверку с помощью команды:
             ```
-            $ terraform plan
+            terraform plan
             ```
         Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
          
@@ -118,7 +118,7 @@
 
         1. Если в конфигурации нет ошибок, выполните команду:
             ```
-            $ terraform apply
+            terraform apply
             ```
         2. Подтвердите создание ресурсов.
       
@@ -126,6 +126,6 @@
 
 - Yandex.Cloud Toolkit
 
-    Создать функцию можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе Intellij](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+    Создать функцию можно с помощью [плагина Yandex.Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
