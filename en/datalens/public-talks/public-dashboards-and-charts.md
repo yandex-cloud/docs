@@ -8,6 +8,7 @@ This page shows examples of public dashboards and charts built in third-party po
 - [Air quality analysis based on public Sensor.Community data](https://datalens.yandex/60g9rtvykwps2)
 - [ClickHouse Package Downloads](https://datalens.yandex/pjzq4rot3t2ql)
 - [Price comparison of cloud providers](https://datalens.yandex/b3ptndvhcukq7)
+- [DataLens Demo Dashboard](https://datalens.yandex/9fms9uae7ip02)
 
 ## Built-in charts {#embedded-charts}
 

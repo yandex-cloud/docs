@@ -14,7 +14,7 @@
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* Команда `yc k8s node-group update`
+* Команда `yc k8s node-group update`.
 
   Добавлен параметр `--node-ipv4-mask-size` — он измеряет размер `CIDR`, выделяемый на каждый узел кластера.
 
@@ -70,7 +70,7 @@
 
 * Команда `yc dataproc cluster create`, флаг `--subcluster`.
 
-  Добавлен параметр `assign-public-ip`, позволяющий выделить публичные ip адреса для всех хостов подкластера.
+  Добавлен параметр `assign-public-ip`, позволяющий выделить публичные IP-адреса для всех хостов подкластера.
 
 ### Версия 0.83.0 (26.10.21) {#version0.83.0}
 
@@ -150,7 +150,7 @@
 
 ##### {{ ydb-name }} {#ydb}
 
-* Добавлены параметры для управления лимитами баз данных в режиме Serverless в команды `yc ydb database create`и `yc ydb database update`:
+* Добавлены параметры для управления лимитами баз данных в режиме Serverless в команды `yc ydb database create` и `yc ydb database update`:
 
   * `--sls-storage-size`
   * `--sls-throttling-rcu`
@@ -177,25 +177,25 @@
 
 #### Изменения в CLI {#cli}
 
-- Добавлено описание флагов и команд в автодополнении по умолчанию.
-- Команда `yc completion <SHELL>`
+* Добавлено описание флагов и команд в автодополнении по умолчанию.
+* Команда `yc completion <SHELL>`.
    
    Добавлен флаг `--without-desc` для отключения описания в автодополнении.
-- Поддержено автодополнение флагов: `folder-id`, `folder-name`, `cloud-id`, `format`, `profile`.
+* Поддержено автодополнение флагов: `folder-id`, `folder-name`, `cloud-id`, `format`, `profile`.
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ sf-name }} {#serverless-functions}
 
-- Добавлена команда `yc serverless trigger create billing-budget` для создания триггеров на события от биллинга.
+* Добавлена команда `yc serverless trigger create billing-budget` для создания триггеров на события от биллинга.
 
-- Добавлены команды для управления подключениями к управляемым БД
+* Добавлены команды для управления подключениями к управляемым БД
   `yc serverless mdbproxy update clickhouse`
   `yc serverless mdbproxy create clickhouse`
 
 ##### {{ cloud-logging-name }} {#logging}
 
-- Исключена суб-команда `get-default` из `logging group`
+* Исключена суб-команда `get-default` из `logging group`.
 
 ### Версия 0.80.0 (19.08.21) {#version0.80.0}
 
@@ -203,7 +203,7 @@
 
 ##### {{ ig-name }} {#instance-groups}
 
-- Добавлены новые флаги для команды обновления группы виртуальных машин (`yc compute instance-group update`):
+* Добавлены новые флаги для команды обновления группы виртуальных машин (`yc compute instance-group update`):
   `--new-name`,
   `--description`,
   `--labels`,
@@ -228,7 +228,7 @@
 
 ##### {{ sf-name }} {#serverless-functions}
 
-- Добавлена команда `yc serverless trigger create logging` для создания триггеров на {{ cloud-logging-name }}.
+* Добавлена команда `yc serverless trigger create logging` для создания триггеров на {{ cloud-logging-name }}.
 
 ##### {{ alb-name }} {#alb}
 
@@ -265,7 +265,7 @@
 
 * Команда `yc managed-mysql hosts update`.
 
-  Добавлена команда`yc managed-mysql hosts update HOST --replication-source HOST` для указания источника репликации каскадной реплики
+  Добавлена команда`yc managed-mysql hosts update HOST --replication-source HOST` для указания источника репликации каскадной реплики.
 
 **{{ mms-name }}**
 
@@ -296,7 +296,6 @@
 {{ org-full-name }} — это решение для корпоративных клиентов, с помощью которого можно подключить к вашей организации сервисы {{ yandex-cloud }} и управлять доступом сотрудников к этим сервисам.
 
 Сервис {{ org-full-name }} находится на стадии Preview. Подробнее про сервис читайте в [документации](../organization/).
-
 
 ##### {{ sf-name }} {#serverless-functions}
 

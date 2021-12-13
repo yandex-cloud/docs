@@ -9,6 +9,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a function.
     1. Open **{{ sf-name }}**.
     1. Click **Create function**.
@@ -41,7 +42,11 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 
 - API
 
-    You can create a function version using the [create](../../functions/api-ref/Function/create.md) API method.
+    You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can create a function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -76,16 +81,16 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 - Management console
     1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
     1. Select **{{ sf-name }}**.
-    1. Select the function named `nodejs-function`.
+    1. Select `nodejs-function`.
     1. Under **Latest version**, click **Create in editor**.
     1. Set the version parameters:
-        - **Runtime environment:** `nodejs12`.
-        - **Method:** ZIP archive.
-        - **File:** `hello-js.zip`.
-        - **Entry point:** `hello.handler`.
-        - **Timeout, seconds:** 3.
-        - **RAM:** 128 MB.
-        - **Service account:** Not selected.
+        * **Runtime environment:** `nodejs12`.
+        * **Method:** ZIP archive.
+        * **File:** `hello-js.zip`.
+        * **Entry point:** `hello.handler`.
+        * **Timeout, seconds:** 3.
+        * **RAM:** 128 MB.
+        * **Service account:** Not selected.
     1. Click **Create version**.
 
 - CLI
@@ -107,7 +112,7 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
     ```
 
     where:
-    * `--function-name`: The function you want to create a version of.
+    * `--function-name`: The name of the function you want to create a version of.
     * `--runtime`: The runtime environment.
     * `--entrypoint`: The entry point specified in <function file name>.<handler name> format.
     * `--memory`: The amount of RAM.
@@ -136,6 +141,10 @@ Create and execute a [function](../../concepts/function.md) in Node.js that welc
 - API
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can create a function version using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

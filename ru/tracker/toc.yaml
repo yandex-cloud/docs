@@ -534,6 +534,8 @@ items:
                 href: concepts/issues/get-worklog.md
       - name: Поля задачи
         items:
+          - name: Получить глобальные поля
+            href: concepts/issues/get-global-fields.md
           - name: Создать поле задачи
             href: concepts/issues/create-field.md
           - name: Получить параметры поля задачи

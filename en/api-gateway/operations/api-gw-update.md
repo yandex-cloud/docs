@@ -14,9 +14,9 @@
 
 - CLI
 
-    To update an API gateway specification:
+    To change the API gateway specification:
 
-    1. Make your changes in the specification file `hello-world.yaml`
+    1. Make your changes in the `hello-world.yaml` specification file.
 
     1. Run the command with the following parameters:
         - `id`: ID of the API gateway.
@@ -35,6 +35,14 @@
         domain: d5dug9gkmu187iojcpvp.apigw.yandexcloud.net
         log_group_id: ckghq1hm19q7ek5sjnh5
         ```
+
+- API
+
+    You can change the name, description, or specification of an API gateway using the [update](../apigateway/api-ref/ApiGateway/update.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can change the name, description, or specification of an API gateway using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

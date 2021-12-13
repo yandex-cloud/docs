@@ -127,3 +127,4 @@ Wait for the connection to be saved.
 * Learn more about [use cases](solutions/index.md).
 * Read about [service concepts](concepts/index.md).
 * See [step-by-step instructions](operations/index.md).
+* See an [example of a ready-made dashboard](https://datalens.yandex/9fms9uae7ip02).

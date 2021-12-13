@@ -9,6 +9,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
     1. Select **{{ sf-name }}**.
     1. Select a function.
@@ -40,14 +41,18 @@ To allow any user to invoke your function, [make it public](../../functions/oper
     For security reasons, you can only invoke the function via HTTPS. Invoke it as a regular HTTP request by inserting the function invocation link in the browser address bar:
 
     ```
-	{{ sf-url }}/b09bhaokchn9pnbrlseb
+    {{ sf-url }}/b09bhaokchn9pnbrlseb
     ```
 
     The following response appears on the page:
 
     ```
-	    Hello, World!
+    Hello, World!
     ```
+
+- Yandex.Cloud Toolkit
+
+    You can invoke a function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

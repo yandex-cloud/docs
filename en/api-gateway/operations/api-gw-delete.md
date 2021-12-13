@@ -14,12 +14,20 @@
 - CLI
 
     To delete an API gateway, run the command with the following parameters:
-    - `id`: ID of the API gateway.
+    * `id`: ID of the API gateway.
 
     ```
     yc serverless api-gateway delete --id d5dug9gkmu187iojcpvp
     done (18s)
     ```
+
+- API
+
+    You can delete an API gateway using the [delete](../apigateway/api-ref/ApiGateway/delete.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can delete an API gateway using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
