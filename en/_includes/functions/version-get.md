@@ -1,6 +1,7 @@
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
     1. Open **{{ sf-name }}**.
     1. Go to the **Functions** tab.
@@ -66,6 +67,10 @@
 - API
 
     You can get details of the function version using the [getVersion](../../functions/functions/api-ref/Function/getVersion.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can get details of the function version using the [Yandex.Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the family of IDEs on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

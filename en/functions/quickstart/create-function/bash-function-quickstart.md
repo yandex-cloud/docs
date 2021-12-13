@@ -9,6 +9,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a function.
     1. Open **{{ sf-name }}**.
     1. Click **Create function**.
@@ -41,7 +42,11 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
 - API
 
-    You can create a function version using the [create](../../functions/api-ref/Function/create.md) API method.
+    You can create a function using the [create](../../functions/api-ref/Function/create.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can create a function using the [Yandex.Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the family of IDEs on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -66,9 +71,10 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
     1. Select **{{ sf-name }}**.
-    1. Select the function named `bash-function`.
+    1. Select `bash-function`.
     1. Under **Latest version**, click **Create in editor**.
     1. Set the version parameters:
         - **Runtime environment:** `bash`.
@@ -99,7 +105,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
     ```
 
     where:
-    * `--function-name`: The function you want to create a version of.
+    * `--function-name`: The name of the function you want to create a version of.
     * `--runtime`: The runtime environment.
     * `--entrypoint`: The entry point specified in <function file name>.<handler name> format.
     * `--memory`: The amount of RAM.
@@ -128,6 +134,10 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 - API
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can create a function version using the [Yandex.Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the family of IDEs on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

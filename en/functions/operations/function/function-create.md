@@ -4,17 +4,16 @@
 
 - Management console
 
-	1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a function.
-
-	1. Open **{{ sf-name }}**.
-
-	1. Click **Create function**.
+    1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a function.
     
-	1. Enter a name and description for the function. Name format:
+    1. Open **{{ sf-name }}**.
+    
+    1. Click **Create function**.
+    1. Enter a name and description for the function. Name format:
 
-		{% include [name-format](../../../_includes/name-format.md) %}
+        {% include [name-format](../../../_includes/name-format.md) %}
 
-	1. Click **Create**.
+    1. Click **Create**.
 
 - CLI
 
@@ -46,13 +45,13 @@
 
 - Terraform
 
-   {% include [terraform-definition](../../../_includes/solutions/terraform-definition.md) %}
+    {% include [terraform-definition](../../../_includes/solutions/terraform-definition.md) %}
 
-   If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+    If you don't have Terraform yet, [install it and configure the {{ yandex-cloud }} provider](../../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To create a function:
+    To create a function:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+    1. In the configuration file, describe the parameters of resources that you want to create:
 
         * `yandex_function`: Description of the function being created and its source code.
             * `name`: Function name.
@@ -97,7 +96,7 @@
             service_account_id = "<service account ID>"
             tags               = ["my_tag"]
             content {
-                zip_filename = "<path to ZIP archive>"
+                zip_filename   = "<path to ZIP archive>"
             }
         }
         
@@ -105,7 +104,7 @@
             value = "${yandex_function.test-function.id}"
         }
         ```
-
+        
         For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 
     2. Make sure that the configuration files are correct.
@@ -113,7 +112,7 @@
         2. Run the check using the command:
 
             ```
-            $ terraform plan
+            terraform plan
             ```
 
         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
@@ -122,11 +121,15 @@
         1. If the configuration doesn't contain any errors, run the command:
 
             ```
-            $ terraform apply
+            terraform apply
             ```
         2. Confirm that you want to create the resources.
 
         Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+
+- Yandex.Cloud Toolkit
+
+    You can create a function using the [Yandex.Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the family of IDEs on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

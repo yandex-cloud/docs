@@ -42,19 +42,20 @@ When creating a version, set the following parameters:
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
     1. Open **{{ sf-name }}**.
     1. Select the function to create a version of.
     1. Under **Latest version**, click **Create in editor**.
     1. Set the version parameters:
-       - Runtime environment: `nodejs`.
-       - Timeout: 5 sec.
-       - RAM: 128 MB.
-       - Service account: None selected.
+       * Runtime environment: `nodejs`.
+       * Timeout: 5 sec.
+       * RAM: 128 MB.
+       * Service account: None selected.
     1. Prepare the function code:
-       - Method: ZIP archive.
-       - File: `hello-js.zip`.
-       - Entry point: `index.handler`.
+       * Method: ZIP archive.
+       * File: `hello-js.zip`.
+       * Entry point: `index.handler`.
     1. Click **Create version**.
 
 - CLI
@@ -77,12 +78,12 @@ When creating a version, set the following parameters:
 
     where:
 
-    `--function-name`: The function you want to create a version of.
-`--runtime`: The runtime environment.
-`--entrypoint`: The entry point specified in <function file name>.<handler name> format.
-`--memory`: The amount of RAM.
-`--execution-timeout`: The maximum function execution time before the timeout is reached.
-`--source-path`: ZIP archive with the function code and required dependencies.
+    `--function-name`: The name of the function you want to create a version of.
+    `--runtime`: The runtime environment.
+    `--entrypoint`: The entry point specified in <function file name>.<handler name> format.
+    `--memory`: The amount of RAM.
+    `--execution-timeout`: The maximum function execution time before the timeout is reached.
+    `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
 
@@ -107,6 +108,10 @@ When creating a version, set the following parameters:
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
 
+- Yandex.Cloud Toolkit
+
+    You can create a function version using the [Yandex.Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the family of IDEs on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
+
 {% endlist %}
 
 ## Getting information about a function version {#version-info}
@@ -126,6 +131,7 @@ When you add environment variables, a new version of the function is created. Yo
 {% list tabs %}
 
 - Management console
+
     1. In the [management console]({{ link-console-main }}), go to the folder where the function is located.
     1. Open **{{ sf-name }}**.
     1. Select the function whose version you want to add an environment variable for.
@@ -161,16 +167,20 @@ When you add environment variables, a new version of the function is created. Yo
     where:
 
     `--function-name`: The function name.
-`--runtime`: The runtime environment.
-`--entrypoint`: The entry point specified in <function file name>.<handler name> format.
-`--memory`: The amount of RAM.
-`--execution-timeout`: The maximum function execution time before the timeout is reached.
-`--source-version-id`: The ID of the function version to copy the code of.
-`--environment`: Environment variables in key=value format. You can specify multiple pairs separated by commas.
+    `--runtime`: The runtime environment.
+    `--entrypoint`: The entry point specified in <function file name>.<handler name> format.
+    `--memory`: The amount of RAM.
+    `--execution-timeout`: The maximum function execution time before the timeout is reached.
+    `--source-version-id`: The ID of the function version to copy the code of.
+    `--environment`: Environment variables in key=value format. You can specify multiple pairs separated by commas.
 
 - API
 
     You can add environment variables using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can add environment labels using the [Yandex.Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the family of IDEs on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% end list %}
 
@@ -219,6 +229,10 @@ To access the function version, use its unique ID. For information about how to 
 
     You can add a tag using the [setTag](../../functions/api-ref/Function/setTag.md) API method.
 
+- Yandex.Cloud Toolkit
+
+    You can add a tag using the [Yandex.Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the family of IDEs on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
+
 {% endlist %}
 
 ### Removing a tag {#remove-tag}
@@ -258,6 +272,10 @@ To access the function version, use its unique ID. For information about how to 
 - API
 
     You can remove a tag using the [removeTag](../../functions/api-ref/Function/removeTag.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can remove a tag using [Yandex.Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the family of IDEs on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

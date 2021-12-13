@@ -5,13 +5,13 @@ description: "You can view the monitoring schedule in Yandex Cloud Functions usi
 
 # Viewing the execution log
 
-Function execution logs are stored for 14 days. The log uses Coordinated Universal Time, [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
+Function execution logs are stored for 14 days. The log uses [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
 
 {% list tabs %}
 
 - Management console
 
-    1. Select **{{ sf-name }}** in [management console]({{ link-console-main }}).
+    1. Select **{{ sf-name }}** in the [management console]({{ link-console-main }}).
     1. Click the function you want to view the execution log for.
     1. In the window that opens, go to **Logs** and specify the time period. The default time period is 1 hour.
 
@@ -28,7 +28,7 @@ Function execution logs are stored for 14 days. The log uses Coordinated Univers
     View the function execution log:
 
     ```
-    $ yc serverless function logs <function name>
+    yc serverless function logs <function name>
     ```
 
     Result:
@@ -48,6 +48,10 @@ Function execution logs are stored for 14 days. The log uses Coordinated Univers
     If you called a function with a specific tag, you must also specify this tag when viewing the execution log: `yc serverless function logs my-python-function --tag test`.
 
     {% endnote %}
+
+- Yandex.Cloud Toolkit
+
+    You can view the function execution log using the [Yandex.Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the family of IDEs on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

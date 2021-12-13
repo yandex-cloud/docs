@@ -111,5 +111,13 @@
         log_group_id: ckghq1hm19q7ek5sjnh5
         ```
 
+- API
+
+    You can create an API gateway using the [create](../apigateway/api-ref/ApiGateway/create.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can create an API gateway using the [Yandex.Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the family of IDEs on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
+
 {% endlist %}
 
