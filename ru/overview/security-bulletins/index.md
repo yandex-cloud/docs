@@ -2,7 +2,7 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
-## 10.12.2021 — CVE-2021-44228 – Удаленное выполнение кода (Log4Shell, Apache Log4j) 
+## 10.12.2021 — CVE-2021-44228 – Удаленное выполнение кода (Log4Shell, Apache Log4j) {#CVE-2021-44228}
 
 ### Описание
 
@@ -26,7 +26,7 @@ CVSSv3.1 рейтинг: 9.8 [CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:P/R
 
 Библиотека Log4j включена в почти все enterprise-решения Apache Software Foundation, такие как: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Flink, Apache Kafka, Apache Dubbo и т.д. 
 
-Предположительно, влияние уязвимости есть в таких open-source продуктах, как Redis, ElasticSearch, Elastic Logstash, the NSA’s Ghidra и т.д.
+Предположительно, влияние уязвимости есть в таких open-source продуктах, как ElasticSearch, Elastic Logstash, the NSA’s Ghidra и т.д.
 
 #### Влияние на сервисы {{ yandex-cloud }}
 
