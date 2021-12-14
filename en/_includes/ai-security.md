@@ -14,7 +14,7 @@ To use the service, you must have one of the following [roles](../iam/concepts/a
 
 {% note info %}
 
-Users with a Yandex or [federated account](../iam/concepts/users/identity-federations.md) need the `resource-manager.cloud.member` role for the cloud along with the `editor` or `admin` role. This role is assigned to the user automatically when they are [added to the cloud](../iam/operations/users/create.md).
+Users with a Yandex or [federated account](../organization/add-federation.md) need the `resource-manager.cloud.member` role for the cloud along with the `editor` or `admin` role. This role is assigned to the user automatically when they are [added to the cloud](../iam/operations/users/create.md).
 
 {% endnote %}
 

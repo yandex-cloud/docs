@@ -35,16 +35,6 @@ items:
             href: operations/sa/get-id.md
           - name: Deleting service accounts
             href: operations/sa/delete.md
-      - name: Identity federations
-        items:
-          - name: Authentication using Active Directory
-            href: operations/federations/integration-adfs.md
-          - name: Authentication using G Suite
-            href: operations/federations/integration-gsuite.md
-          - name: Authentication using an identity federation
-            href: operations/federations/integration-common.md
-          - name: Adding users
-            href: operations/federations/add-users.md
       - name: Roles
         items:
           - name: Assigning roles
@@ -61,6 +51,9 @@ items:
             href: operations/iam-token/create-for-sa.md
           - name: Getting an IAM token for a federated account
             href: operations/iam-token/create-for-federation.md
+          - name: Getting an IAM token for a robot
+            when: audience == "internal"
+            href: operations/iam-token/create-for-robot.md
       - name: Keys
         items:
           - name: Creating API keys
@@ -99,8 +92,6 @@ items:
             href: concepts/authorization/access-key.md
       - name: Service accounts
         href: concepts/users/service-accounts.md
-      - name: SAML-compatible identity federations
-        href: concepts/users/identity-federations.md
       - name: Identity federations
         href: concepts/federations.md
       - name: Quotas and limits

@@ -52,7 +52,7 @@ _A federated account_ is a user account from an identity federation, like Active
 
 {% include [about-saml-federations](../../_includes/iam/about-saml-federations.md) %}
 
-For more information, see [{#T}](users/identity-federations.md).
+For more information, see [{#T}](../../organization/add-federation.md).
 
 ## Authorization keys {#keys}
 
