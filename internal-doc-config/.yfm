@@ -82,6 +82,7 @@ docs-viewer:
     title: Yandex Cloud
     description: Документация Yandex.Cloud
     service-url: https://yc.yandex-team.ru/
+  search-by-toc: true
 
 apply-presets: true
 varsPreset: 'internal'
