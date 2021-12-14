@@ -25,6 +25,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](volumes/static-create-pv.md)
 * [{#T}](volumes/manage-storage-class.md)
 * [{#T}](volumes/volume-expansion.md)
+* [{#T}](volumes/statefulset-pvc-expansion.md)
 * [{#T}](volumes/mode-block.md)
 
 ## Сетевые сценарии {#network-scenarios}
