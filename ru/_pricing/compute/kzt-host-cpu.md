@@ -2,3 +2,5 @@
 --- | ---
 **Intel Cascade Lake** |
 100% | 325,6800 ₸
+**Intel Ice Lake** |
+100% | 479,0400 ₸
