@@ -135,7 +135,7 @@ items:
             href: operations/image-create/create-from-snapshot.md
           - name: Создать образ из другого пользовательского образа
             href: operations/image-create/create-from-image.md
-          - name: перенос работающей ВМ внутри облака
+          - name: Перенос работающей ВМ между облаками или каталогами
             href: operations/image-create/move.md            
       - name: Управление образом
         items:
