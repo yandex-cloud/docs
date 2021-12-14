@@ -16,9 +16,9 @@
 
 {% if audience == "internal" %}
 
-Для форматирования исходного кода в {{wiki-name}} используется открытая библиотека `[highlight.js](https://highlightjs.org/)`.
+Для форматирования исходного кода в {{wiki-name}} используется открытая библиотека [highlight.js](https://highlightjs.org/).
 
-Темы можно менять в [настройках](https://wiki.yandex-team.ru/_settings/) {{wiki-name}}.
+Тему оформления кода можно выбрать на [странице личных настроек](https://wiki.yandex-team.ru/_settings/) {{wiki-name}}.
 
 {% endif %}
 

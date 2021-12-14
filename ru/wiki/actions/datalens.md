@@ -16,8 +16,4 @@
 ```
 {{iframe frameborder="0" width="350px" height="420px" src="https://charts.yandex-team.ru/preview/editor/fwnyltulelsq9?_embedded=1"}}
 ```
-Подробнее о параметрах `iframe` можно посмотреть в разделе [{#T}](iframe.md).
-
-#### См. также
-
-- [{#T}](iframe.md)
+Подробнее о параметрах блока `iframe` читайте в разделе [{#T}](iframe.md).

@@ -99,6 +99,9 @@ items:
     href: exp-page.md
   - name: Удалить страницу
     href: delete-page.md
+  - name: Настроить внешний вид вики-страниц
+    when: audience == "internal"
+    href: settings-wiki.md
 - name: Навигация по Wiki
   items:
   - name: Поиск по Wiki
