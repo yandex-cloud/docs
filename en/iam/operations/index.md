@@ -23,11 +23,7 @@ description: "Step-by-step instructions for managing access rights to Yandex.Clo
 
 ## Identity federations {#federations}
 
-
-- [{#T}](federations/integration-adfs.md)
-- [{#T}](federations/integration-gsuite.md)
-- [{#T}](federations/integration-common.md)
-- [{#T}](federations/add-users.md)
+Instructions for managing identity federations are now included in the [documentation](../../organization/index.yaml) for {{ org-full-name }}.
 
 ## Roles {#roles}
 
@@ -39,6 +35,7 @@ description: "Step-by-step instructions for managing access rights to Yandex.Clo
 - [{#T}](iam-token/create.md)
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
+
 
 ## API keys {#api-keys}
 

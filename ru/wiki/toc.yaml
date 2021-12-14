@@ -85,6 +85,8 @@ items:
         href: my-pages.md
       - name: Просмотреть измененные мной страницы
         href: edited-pages-list.md
+      - name: Посмотреть все ссылки на страницу
+        href: all-links.md
   - name: Интеграция с другими сервисами
     items:
       - name: Формы из Yandex Forms

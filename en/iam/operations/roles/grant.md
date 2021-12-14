@@ -202,7 +202,7 @@ This section describes how to assign a role to a user with a Yandex account. The
 
 {% include [include](../../../_includes/saml-assign-role-note.md) %}
 
-Currently, [a federated user](../../concepts/users/identity-federations.md) can only be assigned a role from the management console.
+Currently, [a federated user](../../../organization/add-federation.md) can only be assigned a role from the management console.
 
 {% list tabs %}
 

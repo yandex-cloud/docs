@@ -1,10 +1,10 @@
-# Увеличение размера тома
+# Увеличение размера тома для подов
 
-Чтобы увеличить размер [тома](../../concepts/volume.md), необходимо выполнить следующие действия.
+Чтобы увеличить размер [тома](../../concepts/volume.md) для [подов](../../concepts/index.md#pod), выполните следующие действия.
 
 ## Включите механизм увеличения размера тома {#enabling-expansion}
 
-Чтобы включить механизм увеличения размера тома, в описании [класса хранилища](manage-storage-class.md) (`StorageClass`) должен быть указан параметр `allowVolumeExpansion: true`. В хранилищах сервиса {{ managed-k8s-short-name }} этот механизм включен по умолчанию:
+Чтобы включить механизм увеличения размера тома, в описании [класса хранилища](manage-storage-class.md) (`StorageClass`) должен быть указан параметр `allowVolumeExpansion: true`. В хранилищах сервиса {{ managed-k8s-name }} этот механизм включен по умолчанию:
 
 ```yaml
 kind: StorageClass
@@ -22,7 +22,7 @@ reclaimPolicy: Delete
 
 ## Создайте объект PersistentVolumeClaim {#create-pvc}
 
-1. Сохраните следующую спецификацию для создания объекта [PersistentVolumeClaim](dynamic-create-pv.md) в YAML-файл с названием `pvc-expansion.yaml`.
+1. Сохраните следующую спецификацию для [создания объекта PersistentVolumeClaim](dynamic-create-pv.md) в YAML-файл с названием `pvc-expansion.yaml`.
 
    Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
@@ -41,7 +41,7 @@ reclaimPolicy: Delete
    ```
 
 1. Создайте объект `PersistentVolumeClaim`:
-    
+
    ```bash
    kubectl create -f pvc-expansion.yaml
    ```
@@ -78,14 +78,14 @@ reclaimPolicy: Delete
          claimName:  pvc-expansion
    ```
 
-1. Создайте под: 
+1. Создайте под:
 
    ```bash
    kubectl create -f pod.yaml
    ```
 
    Результат выполнения команды:
-   
+
    ```bash
    pod/pod created
    ```
@@ -101,7 +101,7 @@ reclaimPolicy: Delete
    ```
 
    Результат выполнения команды:
-   
+
    ```bash
    pod "pod" deleted
    ```
@@ -150,7 +150,7 @@ reclaimPolicy: Delete
 
    В поле `spec.resources.requests.storage` появился запрошенный объем тома:
 
-   ```yaml  
+   ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
@@ -173,13 +173,13 @@ reclaimPolicy: Delete
 ## Создайте под с томом {#restart-pod}
 
 1. Чтобы размер тома увеличился, необходимо создать под:
- 
+
    ```bash
    kubectl create -f pod.yaml
    ```
 
    Результат выполнения команды:
-   
+
    ```bash
    pod/pod created
    ```
@@ -192,7 +192,7 @@ reclaimPolicy: Delete
 
    Размер тома увеличен. В поле `status.capacity.storage` появился увеличенный объем:
 
-   ```yaml  
+   ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:

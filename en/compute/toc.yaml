@@ -161,6 +161,8 @@ items:
             href: operations/instance-groups/create-fixed-group.md
           - name: Creating a fixed-size instance group with a network load balancer
             href: operations/instance-groups/create-with-balancer.md
+          - name: Creating a fixed-size instance group with an L7 load balancer
+            href: operations/instance-groups/create-with-load-balancer.md
           - name: Creating an automatically scaled instance group
             href: operations/instance-groups/create-autoscaled-group.md
           - name: Creating an instance group from a Container Optimized Image
