@@ -10,19 +10,19 @@ keywords:
 
 # Загрузить свой образ диска в {{ yandex-cloud }}
 
-Эта инструкция описывает, как перенести виртуальную машину с ОС Linux в другое [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud), или [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder). 
+Эта инструкция описывает, как перенести виртуальную машину с ОС Linux в другое [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder). 
 
 ## Подготовьте ВМ к переносу дисков {#prepare-vm}
 
 На время операций переноса рекомендуется остановить все операции, связанные с изменением данных: сервисы приложения, баз данных.
 
-[Подключите](../../../compute/operations/vm-control/vm-attach-disk.md) к ВМ которую нужно перенести дополнительный диск, с размером равным суммуарному размеру всех клонируемых дисков и запас в несколько процентов. Например, если к ВМ подключен один диск размером 20ГБ, то дополнительный диск должен быть чуть больше - 22ГБ.
+[Подключите](../../../compute/operations/vm-control/vm-attach-disk.md) к ВМ, которую нужно перенести, дополнительный диск с размером, равным суммарному размеру всех клонируемых дисков, и запасом в несколько процентов. Например, если к ВМ подключен один диск размером 20 ГБ, то дополнительный диск должен быть чуть больше — 22 ГБ.
 
 ## Сделайте образ дисков {#create-image}
 
-Вывести список дисков и определить (по размеру) подключенный ранее диск:
+Выведите список дисков и определите (по размеру) подключенный ранее диск:
    ```
-#lablk
+#lsblk
 NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
 vda    252:0    0  20G  0 disk
 ├─vda1 252:1    0   1M  0 part
@@ -30,7 +30,7 @@ vda    252:0    0  20G  0 disk
 vdb    252:16   0  22G  0 disk
    ```
    
- Создайте файловую систему на подключенном диске (в примре это диск /dev/vdb):
+ Создайте файловую систему на подключенном диске (в примере это диск /dev/vdb):
  
  ```sh
  sudo gdisk /dev/vdb
@@ -41,16 +41,21 @@ vdb    252:16   0  22G  0 disk
  sudo mkfs.ext4 /dev/vdb1
  ```
  
-Создайте папку для монтирования и примонтируйте к ней созданный ранее раздел
+Создайте папку для монтирования и примонтируйте к ней созданный ранее раздел:
  
  ```sh
 sudo mkdir /mnt/backup
 sudo mount /dev/vdb1 /mnt/backup/
 ```
  
-Далее скопируем образ диска в эту папку
+Далее скопируем образ диска в эту папку:
 ```sh
 dd if=/dev/vda bs=4M conv=sparse status=progress > /mnt/backup/vm.iso
+```
+
+Чтобы сократить размер образа за счёт исключения из него пустого места, его можно передать сразу в формате Qcow2, но потребуется дополнительное место на подключённом ранее диске для хранения образа в Qcow2:
+```sh
+qemu-img convert -p -O qcow2 -o cluster_size=2M /mnt/backup/vm.iso /mnt/backup/vm.qcow2
 ```
 
 ## Загрузите файл образа в {{ objstorage-name }} {#upload-image}
@@ -58,14 +63,9 @@ dd if=/dev/vda bs=4M conv=sparse status=progress > /mnt/backup/vm.iso
 1. Если у вас еще нет бакета в {{ objstorage-name }}, [создайте](../../../storage/operations/buckets/create.md) его.
 1. Загрузите образ в ваш бакет, например, через утилиту [s3cmd](../../../storage/tools/s3cmd.md):
 
-```sh
-s3cmd put /mnt/backup/vm.iso s3://your-backet/vm.iso
-```
-
-Чтобы сократить размер образа за счёт исключения из него пустого места, его можно передать сразу в формате Qcow2, но потребуется дополнительное место на подключённом ранее диске для хранения образа в Qcow2:
-```sh
-qemu-img convert -p -O qcow2 -o cluster_size=2M /mnt/backup/vm.iso /mnt/backup/vm.qcow2
-```
+   ```sh
+   s3cmd put /mnt/backup/vm.iso s3://your-backet/vm.iso
+   ```
 
 1. [Получите ссылку](../../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в {{ compute-name }}.
 
@@ -187,10 +187,10 @@ qemu-img convert -p -O qcow2 -o cluster_size=2M /mnt/backup/vm.iso /mnt/backup/v
 
 О стоимости использования {{ objstorage-name }} читайте в разделе [{#T}](../../../storage/pricing.md).
 
-## Удалим вспомогательный диск{#delete-temp-disk}
-После успешного переноса отключим новый диск внутри ОС в исходной ВМ 
+## Удалите вспомогательный диск {#delete-temp-disk}
+После успешного переноса отключите новый диск внутри ОС в исходной ВМ: 
 ```sh
 umount /mnt/backup
 ```
 
-А также [отключим](../../../compute/operations/vm-control/vm-detach-disk.md) его от ВМ, и [удалим](../../../compute/operations/disk-control/delete.md) из списка дисков в консоли.
+А также [отключите](../../../compute/operations/vm-control/vm-detach-disk.md) его от ВМ и [удалите](../../../compute/operations/disk-control/delete.md) из списка дисков в консоли.
