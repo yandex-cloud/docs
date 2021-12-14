@@ -106,6 +106,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 * [{#T}](instance-groups/create-fixed-group.md)
 * [{#T}](instance-groups/create-with-balancer.md)
+* [{#T}](instance-groups/create-with-load-balancer.md)
 * [{#T}](instance-groups/create-autoscaled-group.md)
 * [{#T}](instance-groups/create-with-coi.md)
 

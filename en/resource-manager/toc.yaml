@@ -17,6 +17,8 @@ items:
             href: operations/cloud/set-access-bindings.md
           - name: Switch clouds
             href: operations/cloud/switch-cloud.md
+          - name: Changing an organization for a cloud
+            href: operations/cloud/change-organization.md
           - name: Cloud incident notifications
             href: operations/cloud/notify.md
       - name: Folders

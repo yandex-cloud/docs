@@ -1,4 +1,4 @@
-To authenticate using an [SAML-compatible identity federation](../../iam/concepts/users/identity-federations.md):
+To authenticate using an [SAML-compatible identity federation](../../organization/add-federation.md):
 
 1. Get your federation ID from your administrator.
 

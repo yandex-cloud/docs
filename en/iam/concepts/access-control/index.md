@@ -55,7 +55,7 @@ Roles are assigned to subjects. There are four types of subjects:
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 
-* `federatedUser`: A user account from an [identity federation](../users/identity-federations.md), like Active Directory.
+* `federatedUser`: A user account from an [identity federation](../../../organization/add-federation.md), like Active Directory.
 
     {% include [include](../../../_includes/saml-assign-role-note.md) %}
 

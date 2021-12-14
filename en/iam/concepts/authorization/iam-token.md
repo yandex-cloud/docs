@@ -18,7 +18,7 @@ The IAM token lifetime can be less than 12 hours if:
 
   The metadata service returns the remaining token lifetime along with the IAM token. Account for your token lifetime or request the token more often, like once per hour or with every operation.
 
-* You passed [federated authentication](../../../cli/operations/authentication/federated-user.md) in the CLI. Then the IAM token lifetime is also limited by the cookie lifetime in the [federation](../users/identity-federations.md).
+* You passed [federated authentication](../../../cli/operations/authentication/federated-user.md) in the CLI. Then the IAM token lifetime is also limited by the cookie lifetime in the [federation](../../../organization/add-federation.md).
 
 ## Services that support this authentication method {#supported-services}
 

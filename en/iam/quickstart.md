@@ -16,14 +16,16 @@ These instructions are intended for cloud [owners](../resource-manager/concepts/
 
 ## Add a new user to the cloud {#add-user}
 
-To grant a user access to resources, add the user to your cloud:
+To grant a user access to resources, add them to the [organization](../organization/enable-org.md) assigned to the cloud:
 
-1. {% include [grant-role-console-first-steps](../_includes/iam/grant-role-console-first-steps.md) %}
-1. On the **Users and roles** page, click the **Add user** button in the upper-right corner.
+1. [Log in to the account]({{ link-passport-login }}) your organization's administrator.
+1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+1. In the left panel, select [Users](https://org.cloud.yandex.com/users) ![icon-users](../_assets/organization/icon-users.png).
+1. In the upper-right corner, click **Add user**.
 1. Enter the user's Yandex email address.
 1. Click **Add**.
 
-When a new user is added to the cloud, they are automatically assigned the [cloud member role](../iam/concepts/access-control/roles.md#member): `{{ roles-cloud-member }}`. This role is necessary for the user to access resources in the cloud. However, this role doesn't give you the right to perform any operations and is only used in combination with other roles, such as `admin`, `editor`, or `viewer`.
+Now the user will gain access to the services enabled for the organization. When a new user is added to an organization, they are automatically assigned the [cloud member role](../iam/concepts/access-control/roles.md#member): `{{ roles-cloud-member }}`. This role is necessary for the user to access resources in the cloud. However, this role doesn't give you the right to perform any operations and is only used in combination with other roles, such as `admin`, `editor`, or `viewer`.
 
 ## Assign roles to the user {#assign-role}
 
@@ -59,9 +61,9 @@ If you want to revoke all roles at once, [delete the user](operations/users/dele
 ## What's next {#what-is-next}
 
 * [The step-by-step instructions](operations/index.md) will help you with your tasks in {{ iam-name }}.
-* Learn about [access management in Yandex.Cloud](concepts/access-control/index.md).
-* See the [best practices for using Yandex.Cloud securely](best-practices/using-iam-securely.md).
-* Learn about [authentication in Yandex.Cloud](concepts/authorization/index.md#authentication).
+* Learn about [access management in {{ yandex-cloud }}](concepts/access-control/index.md).
+* See the [best practices for using {{ yandex-cloud }}](best-practices/using-iam-securely.md) securely.
+* Learn about [authentication in {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
 * [Learn how to work with service accounts](quickstart-sa.md).
 * See [answers to frequently asked questions](qa/index.md).
 

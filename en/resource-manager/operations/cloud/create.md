@@ -8,7 +8,9 @@ To create an additional cloud:
   1. Open the [management console]({{ link-console-main }}) homepage.
   1. Click ![image](../../../_assets/options.svg) next to your billing account.
   1. Select **Create cloud**.
-  1. Enter a name for the cloud and click **Create**. The `default` folder page in the new cloud opens.
+  1. Enter the name of the cloud.
+  1. Enter the organization you are going to link the cloud to. If you don't have an organization yet, one will be created automatically.
+  1. Click **Create**. The `default` folder page in the new cloud opens.
 
 {% note info %}
 
@@ -16,7 +18,7 @@ When you create a cloud, you are automatically given the [owner](../../concepts/
 
 {% endnote %}
 
-#### See also
+#### See also {#see-also}
 
 * [{#T}](update.md)
 * [{#T}](set-access-bindings.md)
