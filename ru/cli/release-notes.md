@@ -4,7 +4,7 @@
 
 ### Изменения в CLI {#cli}
 
-* Добавлена возможность передачи [IAM-токена](../iam/concepts/authorization/iam-token.md) через переменную окружения `YC_IAM_TOKEN`.
+* Добавлена возможность передачи {% if audience != "internal" %} [IAM-токена](../iam/concepts/authorization/iam-token.md) {% else %} IAM-токена {% endif %} через переменную окружения `YC_IAM_TOKEN`.
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
