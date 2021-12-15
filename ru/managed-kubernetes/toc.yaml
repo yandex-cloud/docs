@@ -91,6 +91,8 @@ items:
         href: solutions/dns-autoscaler.md
       - name: Настройка локального кеширования DNS
         href: solutions/node-local-dns.md
+      - name: Настройка Fluent Bit для работы с Yandex Cloud Logging
+        href: solutions/fluent-bit-logging.md
       - name: Синхронизация с секретами Yandex Lockbox
         href: solutions/kubernetes-lockbox-secrets.md
   - name: Концепции

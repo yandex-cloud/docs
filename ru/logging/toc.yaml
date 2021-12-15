@@ -25,6 +25,12 @@ items:
           href: operations/monitoring.md
         - name: Удаление лог-группы
           href: operations/delete-group.md
+  - name: Сценарии использования
+    items:
+      - name: Все сценарии
+        href: solutions/index.md
+      - name: Передача логов кластера Yandex Managed Service for Kubernetes в Cloud Logging
+        href: solutions/k8s-fluent-bit-logging.md
   - name: Концепции
     items:
       - name: Лог-группа
