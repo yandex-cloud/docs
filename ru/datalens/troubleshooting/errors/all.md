@@ -25,6 +25,7 @@
 [ERR.DS_API.FIELD.NOT_FOUND](ERR-DS_API-FIELD-NOT_FOUND.md) | Unknown field |
 {% if audience == "internal" %}[ERR.DS_API.FILTER.INVALID_VALUE](ERR-DS_API-FILTER-INVALID_VALUE.md) | Filter invalid value |{% endif %}
 [ERR.DS_API.FORMULA.TRANSLATION.UNKNOWN_FIELD](ERR-DS_API-FORMULA-TRANSLATION-UNKNOWN_FIELD.md) | Unknown referenced column |
+[ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED](ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md) | Referenced connection <идентификатор подключения> cannot be loaded: access denied |
 [ERR.DS_API.ROW_COUNT_LIMIT](ERR-DS_API-ROW_COUNT_LIMIT.md) | Received too many result data rows |
 [ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED](ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md) | Table is not ready yet |
 [ERR.DS_API.US.ACCESS_DENIED](ERR-DS_API-US-ACCESS_DENIED.md) | Access denied |
