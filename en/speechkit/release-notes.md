@@ -1,11 +1,5 @@
 # YC SpeechKit releases
 
-{% note tip %}
-
-To keep up to date with the latest changes and updates, subscribe to our Telegram [news channel{{ speechkit-name }}](https://t.me/joinchat/AAAAAEWFLWnJDwxnfZq3kg).
-
-{% endnote %}
-
 {{ speechkit-name }} provides updates based on the system model and version.
 
 ### For recognition {#for-sst}
@@ -20,6 +14,10 @@ For more information about voice models, see [About the technology](tts/index.md
 
 ## Current version {#current}
 
+For information about text-to-speech models see [{#T}](release-notes-tts.md).
+
+## Previous versions {#previous}
+
 ### Release 30.09.21 {#300921}
 
 Major upgrade of premium voices available in the REST API. Voice updates are available by the tags `alena:rc` and `filipp:rc`.
@@ -27,8 +25,6 @@ Major upgrade of premium voices available in the REST API. Voice updates are ava
 Various improvements in synthesis quality, including the synthesis of questions. Fixed a rare problem with looping synthesis.
 
 For testing purposes, a function for adding stress to specific words is available. It allows you to better control intonation, especially when synthesizing questions. To add a stress after a word that needs to be emphasized, add `<[accented]>`. For example, in `Are you glad <[accented]> to see me?`, the word **glad** is emphasized.
-
-## Previous versions {#previous}
 
 ### Release 09.03.21 {#0903}
 
@@ -127,11 +123,11 @@ In streaming, transcription, and short audio recognition:
 * `general` and `general:rc`: _Zeno_ version.
 * `general:deprecated`: The _Anaximander_ version.
 
-### Release 17.10.20 {#1710}
+### Release 17.11.20 {#1711}
 
 Numerous corrections in the pronunciation of individual words thanks to improved normalization. Declension of numerals fixed. A new version of the `alena` premium voice is now available by the `alena` tag.
 
-#### Version availability by tags {#tags-1710}
+#### Version availability by tags {#tags-1711}
 
 No changes.
 

@@ -8,15 +8,15 @@
 
 ## Числовые типы {#numeric}
 
-{% include [datatypes](../../../oss/public/_includes/datatypes_primitive_number.md) %}
+{% include [datatypes](../../../_includes/datatypes_primitive_number.md) %}
 
 ## Строковые типы {#string}
 
-{% include [datatypes](../../../oss/public/_includes/datatypes_primitive_string.md) %}
+{% include [datatypes](../../../_includes/datatypes_primitive_string.md) %}
 
 ## Дата и время {#datetime}
 
-{% include [datatypes](../../../oss/public/_includes/datatypes_primitive_datetime.md) %}
+{% include [datatypes](../../../_includes/datatypes_primitive_datetime.md) %}
 
 ## Приведение простых типов данных {#cast}
 

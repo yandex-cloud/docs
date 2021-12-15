@@ -1,3 +1,3 @@
 # Опциональные (nullable)
 
-{% include [datatypes](../../../oss/public/_includes/datatypes-optional.md) %}
+{% include [datatypes](../../../_includes/datatypes-optional.md) %}

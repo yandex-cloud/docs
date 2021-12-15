@@ -7,7 +7,7 @@
 Получите список профилей:
 
 ```bash
-ydb config profile list
+{{ ydb-cli }} config profile list
 ```
 
 Результат:
@@ -21,7 +21,7 @@ example (active)
 Получите подробную информацию о профиле с именем `example`:
 
 ```bash
-ydb config profile get example
+{{ ydb-cli }} config profile get example
 ```
 
 Результат:

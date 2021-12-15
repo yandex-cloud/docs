@@ -164,17 +164,17 @@ items:
       - name: Термины и определения
         href: concepts/databases.md
       - name: Модель данных и схема
-        href: oss/public/develop/concepts/datamodel.md
+        href: concepts/datamodel.md
       - name: Режимы работы Serverless и Dedicated
         href: concepts/serverless_and_dedicated.md
       - name: Типы данных
-        href: oss/public/develop/concepts/datatypes.md
+        href: concepts/datatypes.md
       - name: Транзакции
         href: oss/public/develop/concepts/transactions.md
       - name: Вторичные индексы
         href: oss/public/develop/concepts/secondary_indexes.md
       - name: Time to Live (TTL)
-        href: oss/public/develop/concepts/ttl.md
+        href: concepts/ttl.md
       - name: Скан запросы
         href: oss/public/develop/concepts/scan_query.md
       - name: Квоты и лимиты
@@ -206,13 +206,13 @@ items:
       - name: Партицирование таблиц
         href: oss/public/develop/best_practices/table_sharding.md
       - name: Вторичные индексы
-        href: oss/public/develop/best_practices/secondary_indexes.md
+        href: best_practices/secondary_indexes.md
       - name: Постраничный вывод
-        href: oss/public/develop/best_practices/paging.md
+        href: best_practices/paging.md
       - name: Загрузка больших объемов данных
-        href: oss/public/develop/best_practices/batch_upload.md
+        href: best_practices/batch_upload.md
       - name: Использование таймаутов
-        href: oss/public/develop/best_practices/timeouts.md
+        href: best_practices/timeouts.md
   - name: HTTP API, совместимый с Amazon DynamoDB
     items:
       - name: Справочник API
