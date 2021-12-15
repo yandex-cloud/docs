@@ -17,6 +17,8 @@ items:
           href: operations/projects/control-compute-resources.md
         - name: Consumption management
           href: operations/projects/custom-limits.md
+        - name: Resizing project storage
+          href: operations/projects/storage-resize.md
         - name: Changing a name or description
           href: operations/projects/update.md
         - name: Deleting a project
@@ -84,7 +86,7 @@ items:
       - name: Available commands
         href: concepts/magic.md
       - name: '#pragma service commands'
-        href: concepts/pragma.md        
+        href: concepts/pragma.md
       - name: Computing resource configurations
         href: concepts/configurations.md
       - name: Integration with version and data control systems
