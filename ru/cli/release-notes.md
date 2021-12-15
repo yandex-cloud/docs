@@ -57,11 +57,11 @@
 
 ## Предыдущие релизы {#previous-releases}
 
-## Версия 0.85.0 (29.11.21) {#version0.85.0}
+### Версия 0.85.0 (29.11.21) {#version0.85.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mkf-name }}**
 
@@ -69,13 +69,13 @@
 
   Добавлен флаг `--version`, позволяющий обновить версию Kafka кластера.
 
-#### {{ managed-k8s-name }} {#k8s}
+##### {{ managed-k8s-name }} {#k8s}
 
 * Команда `yc k8s cluster update`.
 
   Добавлен параметр `--node-ipv4-mask-size` — он измеряет размер `CIDR`, выделяемый на каждый узел кластера.
 
-#### {{ alb-name }} {#alb}
+##### {{ alb-name }} {#alb}
 
 * Добавлены команды для работы с Stream бэкендами:
 
@@ -83,11 +83,11 @@
   * Изменение Stream бэкенда: `yc application-load-balancer backend-group update-stream-backend`.
   * Удаление Stream бэкенда: `yc application-load-balancer backend-group delete-stream-backend`.
 
-#### {{ resmgr-name }} {#resmgr}
+##### {{ resmgr-name }} {#resmgr}
 
 * Добавлена команда `yc resource-manager folder delete`, которая позволяет удалить каталог.
 
-### Изменения в CLI {#cli}
+#### Изменения в CLI {#cli}
 
 Исправлена ошибка в команде `yc init`. Теперь при проверке доступности endpoints не игнорируются 
 настройки proxy.
