@@ -1,6 +1,6 @@
 # Load balancers
 
-A load balancer is used for receiving incoming traffic and transmitting it to the backend endpoints. Request routing follows the rules defined in the [HTTP routers](http-router.md) connected to the load balancer's [listeners](#listener). Settings for transmitting traffic to backends are configured in [backend groups](backend-group.md).
+A load balancer is used for receiving incoming traffic and transmitting it to the backend endpoints. Routing requests follow the rules defined in the [HTTP routers](http-router.md) connected to the load balancer [listeners](#listener). Settings for transmitting traffic to backends are configured in [backend groups](backend-group.md).
 
 The load balancer stores a list of endpoints, which accept traffic and disables TLS encryption before sending the traffic to backends. Load balancer supports modern TLS versions (TLSv1.2, TLSv1.3) and encryption methods. If the load balancer is going to serve multiple domains, you can configure individual certificates and [HTTP routers](http-router.md) for each domain by using the TLS SNI mechanism.
 
@@ -35,6 +35,20 @@ The listener determines the ports, addresses, and protocols the load balancer wi
 The listener can accept HTTP traffic on port 80 and redirect traffic to HTTPS port 443. The listener gets an HTTP request from a client and returns a response with HTTP code 302. Further requests will be accepted at port 443 via HTTPS.
 
 If an HTTPS listener is used, make sure to specify a [certificate](../../certificate-manager/concepts/imported-certificate.md) from {{ certificate-manager-name }} to be used for TLS termination.
+
+## Statistics {#stats}
+
+Load balancer statistics are automatically logged in the {{ monitoring-full-name }} metrics. The following metrics are available:
+
+* **RPS**: Number of load balancer requests per second.
+* **4XX**, **5XX**: Number of load balancer responses containing HTTP codes 4XX and 5XX and [the corresponding gRPC codes](../../api-design-guide/concepts/errors.md#error-list), per second.
+* **Request size**: Total volume of load balancer requests per second.
+* **Response size**: Total volume of load balancer responses per second.
+* **Latency**: Response delay (the time between the balancer receiving the first byte of a request to sending the last byte of the response), 50th to 99th percentiles.
+
+{{ alb-name }} has aggregate load balancer statistics available. In {{ monitoring-name }}, you can view statistics itemized by the resources associated with the load balancer (HTTP routers, virtual hosts, routes, and the like) as well as [create alerts](../../monitoring/operations/alert/create-alert.md).
+
+For instructions on viewing statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
 
 ## Logging {#logging}
 
