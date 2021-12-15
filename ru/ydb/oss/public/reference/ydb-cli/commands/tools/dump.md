@@ -5,7 +5,7 @@
 Общий вид команды:
 
 ```bash
-ydb [global options...] tools dump [options...]
+{{ ydb-cli }} [global options...] tools dump [options...]
 ```
 
 * `global options` — [глобальные параметры](../global-options.md).
@@ -14,7 +14,7 @@ ydb [global options...] tools dump [options...]
 Посмотрите описание команды для дампа данных:
 
 ```bash
-ydb tools dump --help
+{{ ydb-cli }} tools dump --help
 ```
 
 ## Параметры подкоманды {#options}
@@ -35,7 +35,7 @@ ydb tools dump --help
 Создайте дамп таблицы `seasons` в локальной директории `~/dump` с консистентностью на уровне таблицы:
 
 ```bash
-ydb tools dump \
+{{ ydb-cli }} tools dump \
   --path seasons \
   --output ~/dump \
   --consistency-level table

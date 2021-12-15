@@ -104,6 +104,9 @@ default:
   yandex-cloud: Yandex.Cloud
   s3-storage-host: storage.yandexcloud.net
   yc-ydb: yc ydb
+  yql-full-name: Yandex Query Language
+  yql-short-name: YQL
+  PG: PostgreSQL
   oss: false
 
   # Роли

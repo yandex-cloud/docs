@@ -5,7 +5,7 @@
 Общий вид команды:
 
 ```bash
-ydb [global options...] tools copy [options...]
+{{ ydb-cli }} [global options...] tools copy [options...]
 ```
 
 * `global options` — [глобальные параметры](../global-options.md).
@@ -14,7 +14,7 @@ ydb [global options...] tools copy [options...]
 Посмотрите описание команды для копирования таблицы:
 
 ```bash
-ydb tools copy --help
+{{ ydb-cli }} tools copy --help
 ```
 
 ## Параметры подкоманды {#options}

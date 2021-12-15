@@ -5,7 +5,7 @@
 Общий вид команды:
 
 ```bash
-ydb [global options...] tools restore [options...]
+{{ ydb-cli }} [global options...] tools restore [options...]
 ```
 
 * `global options` — [глобальные параметры](../global-options.md).
@@ -14,7 +14,7 @@ ydb [global options...] tools restore [options...]
 Посмотрите описание команды для восстановления данных из дампа:
 
 ```bash
-ydb tools restore --help
+{{ ydb-cli }} tools restore --help
 ```
 
 ## Параметры подкоманды {#options}
@@ -53,7 +53,7 @@ ydb tools restore --help
 Сделайте дамп БД:
 
 ```bash
-ydb tools dump -o ~/dump
+{{ ydb-cli }} tools dump -o ~/dump
 ```
 
 Посмотрите список объектов директории `dump`:

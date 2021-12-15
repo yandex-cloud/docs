@@ -693,6 +693,8 @@ items:
     items:
       - name: Установка YDB CLI
         href: oss/public/reference/ydb-cli/install.md
+      - name: Авторизация в YDB CLI
+        href: ydb-cli/authorization.md
       - name: Управление профилем
         items:
           - name: Создание профиля

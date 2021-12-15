@@ -9,7 +9,7 @@
 Посмотрите описание команды для экспорта данных:
 
 ```bash
-ydb export s3 --help
+{{ ydb-cli }} export s3 --help
 ```
 
 Параметры подкоманды:
@@ -63,7 +63,7 @@ ydb export s3 --help
                               proto-json-base64
                                 Output result protobuf in json format, binary st
 
-ydb export s3 --s3-endpoint storage.yandexcloud.net --bucket ydb-backup --item d=ydb256,s=/ru-central1/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e
+{{ ydb-cli }} export s3 --s3-endpoint storage.yandexcloud.net --bucket ydb-backup --item d=ydb256,s=/ru-central1/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e
 
 ┌────────────────────────────────────────┬───────┬─────────┬───────────┬──────────────────────────────────┬────────────┐
 | id                                     | ready | status  | progress  | endpoint                         | bucket     |
@@ -88,7 +88,7 @@ ydb export s3 --s3-endpoint storage.yandexcloud.net --bucket ydb-backup --item d
 Посмотрите описание команды для импорта данных:
 
 ```bash
-ydb import s3 --help
+{{ ydb-cli }} import s3 --help
 ```
 
 

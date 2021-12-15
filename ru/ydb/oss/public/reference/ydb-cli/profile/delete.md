@@ -5,7 +5,7 @@
 Удалите профиль `example`:
 
 ```bash
-ydb config profile delete example
+{{ ydb-cli }} config profile delete example
 ```
 
 Результат:
