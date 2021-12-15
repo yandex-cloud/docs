@@ -147,7 +147,7 @@ items:
             href: operations/dataset/create-filter.md
           - name: Обновление полей в датасете
             href: operations/dataset/update-field.md
-          - name: Добавление данных в датасет с помощью SQL
+          - name: Описание датасета через SQL-запрос к источнику
             href: operations/dataset/add-data.md
           - name: Материализация датасета
             href: operations/dataset/materialize.md
