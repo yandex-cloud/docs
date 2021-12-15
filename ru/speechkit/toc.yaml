@@ -70,7 +70,6 @@ items:
         href: tts/ssml.md
       - name: Список поддерживаемых фонем в SSML
         href: tts/supported-phonemes.md
-
       - name: Справочник APIv3
         items:
         - name: Аутентификация в API
