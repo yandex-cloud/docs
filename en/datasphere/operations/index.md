@@ -11,6 +11,7 @@ description: "From this article you will learn how to work with machine learning
 * [{#T}](projects/checkpoints.md)
 * [{#T}](projects/control-compute-resources.md)
 * [{#T}](projects/custom-limits.md)
+* [{#T}](projects/storage-resize.md)
 * [{#T}](user-images.md)
 * [{#T}](user-images-cell.md)
 * [{#T}](projects/clear-kernel-state.md)
@@ -34,3 +35,4 @@ description: "From this article you will learn how to work with machine learning
 
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
+

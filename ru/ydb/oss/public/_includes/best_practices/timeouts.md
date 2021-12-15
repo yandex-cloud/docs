@@ -42,4 +42,24 @@ description: 'Значение operation_timeout определяет время
     )
   ```
 
+
+- Go
+
+  ```go
+  import (
+      "context"
+      "a.yandex-team.ru/kikimr/public/sdk/go/ydb"
+      "a.yandex-team.ru/kikimr/public/sdk/go/ydb/table"
+  )
+
+  func executeInTx(ctx context.Context, s *table.Session, query string) {
+      newCtx, close := context.WithTimeout(ctx, time.Millisecond*300)         // client and by default operation timeout
+      newCtx2 := ydb.WithOperationTimeout(newCtx, time.Millisecond*400)       // operation timeout override
+      newCtx3 := ydb.WithOperationCancelAfter(newCtx2, time.Millisecond*300)  // cancel after timeout
+      defer close()
+      tx := table.TxControl(table.BeginTx(table.WithSerializableReadWrite()), table.CommitTx())
+      _, res, err := session.Execute(newCtx3, tx, query)
+  }
+  ```
+
 {% endlist %}

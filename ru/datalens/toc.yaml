@@ -117,7 +117,7 @@ items:
             href: operations/dataset/create-filter.md
           - name: Обновление полей в датасете
             href: operations/dataset/update-field.md
-          - name: Добавление данных в датасет с помощью SQL
+          - name: Описание датасета через SQL-запрос к источнику
             href: operations/dataset/add-data.md
           - name: Материализация датасета
             href: operations/dataset/materialize.md
@@ -616,6 +616,11 @@ items:
       - name: Received too many result data rows
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
+      - name: >-
+          Referenced connection <идентификатор подключения> cannot be loaded
+          access denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
       - name: Request size limit exceeded
         hidden: true
         href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md

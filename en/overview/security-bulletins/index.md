@@ -1,6 +1,52 @@
 # Security bulletins
 
-This page lists security recommendations given by Yandex.Cloud experts.
+TThis page contains security recommendations from {{ yandex-cloud }} experts.
+
+## 10.12.2021: CVE-2021-44228: Remote code execution (Log4Shell, Apache Log4j)
+
+### Description
+
+Vulnerability [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) is found in the Apache Log4j library, Version 2.14.1 and lower.
+
+A zero-day exploit was discovered that results in remote code execution (RCE) by having a certain line entered into a log.
+
+An attacker that can control log messages or log message parameters can execute arbitrary code downloaded from LDAP servers when the `message lookup substitution` feature is active. Starting with log4j version 2.15.0, this behavior is disabled by default.
+
+A detailed description of the exploit and this behavior is provided in a [Lunasec article](https://www.lunasec.io/docs/blog/log4j-zero-day/).
+
+Original report from logging.apache.org: [Fixed in Log4j 2.15.0](https://logging.apache.org/log4j/2.x/security.html).
+
+Vulnerability description: [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228).
+
+CVSSv3.1 rating: 9.8 [CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:P/RL:O/RC:C] Learn more at https://www.securitylab.ru/vulnerability/527362.php
+
+### Impact
+
+#### General impact
+
+The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
+
+The vulnerability likely impacts such open-source products as ElasticSearch, Elastic Logstash, the NSA's Ghidra, and so on.
+
+#### Impact on {{ yandex-cloud }} services
+
+Some {{ yandex-cloud }} services use the version of the library affected by the vulnerability. The most critical services impacted by the vulnerability: {{ mes-full-name }}, {{ dataproc-full-name }}, as well as a number of the basic platform services.
+
+The critical services have undergone a successful update as recommended by the manufacturer. The rest of the services are currently being updated.
+
+{{ yandex-cloud }} has collected information on users that have utilized these services, and appropriate alerts have gone out.
+
+Currently, an effort is underway to identify additional services that may be vulnerable in order to update them.
+
+An update to this bulletin will be rolled out based on the outcome of the final activities.
+
+### Compensatory measures
+
+If your infrastructure uses this library or the products listed in the "General Impact" section, follow the steps below.
+
+Update any vulnerable software to Version log4j-2.15.0-rc2 or higher. If you are using a vulnerable software version from version 2.10 or higher, you can work around the vulnerability by setting the `log4j2.formatMsgNoLookups` parameter to `true` or by deleting the `JndiLookup class` from  `classpath` (example: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`).
+
+If you are using [Java 8u121](https://www.oracle.com/java/technologies/javase/8u121-relnotes.html), protect yourself from RCE by setting `com.sun.jndi.rmi.object.trustURLCodebase` and `com.sun.jndi.cosnaming.object.trustURLCodebase` to `false`. Source: https://logging.apache.org/log4j/2.x/security.html
 
 ## 12.10.2021 – CVE-2021-25741 – Symlink Exchange Can Allow Host Filesystem Access
 

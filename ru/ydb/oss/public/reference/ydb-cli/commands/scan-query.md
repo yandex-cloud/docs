@@ -1,6 +1,6 @@
 # Выполнение скан запросов
 
-Запуск запроса через [Scan Queries](../../../develop/concepts/scan_query.md) посредством {{ ydb-short-name }} CLI осуществляется добавлением флага `-t scan` в команду `{{ ydb-cli }} table query execute`.
+Запуск запроса через [Scan Queries](https://cloud.yandex.ru/docs/ydb/oss/public/develop/concepts/scan_query) посредством {{ ydb-short-name }} CLI осуществляется добавлением флага `-t scan` в команду `{{ ydb-cli }} table query execute`.
 
 Выполните запрос к данным:
 

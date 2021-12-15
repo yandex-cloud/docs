@@ -5,7 +5,7 @@
 Активируйте профиль с именем `example`:
 
 ```bash
-ydb config profile activate example
+{{ ydb-cli }} config profile activate example
 ```
 
 Результат:

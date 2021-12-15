@@ -588,6 +588,9 @@ items:
         href: qa/index.md
       - name: DataLens errors
         href: troubleshooting/errors/all.md
+      - name: Access denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
@@ -600,25 +603,24 @@ items:
       - name: Data is not available because materialization is not yet complete
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
-      - name: Memory limit has been exceeded during query execution
+      - name: Data source refused connection
         hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
-      - name: Table is not ready yet
-        hidden: true
-        href: >-
-          troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
-      - name: Inconsistent aggregation among operands
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md
-      - name: Window function has no aggregated expressions among its arguments
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md
-      - name: Too many series on the chart
-        hidden: true
-        href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
+        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md
       - name: Data source timed out
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
+      - name: Inconsistent aggregation among operands
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md
+      - name: Memory limit has been exceeded during query execution
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
+      - name: Received too many result data rows
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
+      - name: Request size limit exceeded
+        hidden: true
+        href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
@@ -626,16 +628,20 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
+      - name: Table is not ready yet
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
+      - name: Too many series on the chart
+        hidden: true
+        href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
+      - name: Unknown field
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FIELD-NOT_FOUND.md
       - name: Unknown referenced column
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-TRANSLATION-UNKNOWN_FIELD.md
-      - name: Request size limit exceeded
+      - name: Window function has no aggregated expressions among its arguments
         hidden: true
-        href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md
-      - name: Access denied
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
-      - name: Received too many result data rows
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
+        href: troubleshooting/errors/ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md
 base: en/datalens

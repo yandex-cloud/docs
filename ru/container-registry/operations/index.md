@@ -19,7 +19,7 @@ description: "Пошаговые инструкции по работе с Docke
 * [{#T}](docker-image/docker-image-pull.md)
 * [{#T}](docker-image/docker-image-delete.md)
 
-## Управление Helm-чартом {#lifecycle-policy}
+## Управление Helm-чартом {#helm-charts}
 
 * [{#T}](helm-chart/helm-chart-list.md)
 * [{#T}](helm-chart/helm-chart-push.md)

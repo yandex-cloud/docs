@@ -1,6 +1,10 @@
 # Релизы YC CLI
 
-## Версия 0.85.0 (29.11.21) {#latest-release}
+## Версия 0.86.0 (15.12.21) {#latest-release}
+
+### Изменения в CLI {#cli}
+
+* Добавлена возможность передачи [IAM-токена](../iam/concepts/authorization/iam-token.md) через переменную окружения `YC_IAM_TOKEN`.
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -8,17 +12,70 @@
 
 **{{ mkf-name }}**
 
+* В команду `yc managed-kafka cluster update` добавлен параметр `--maintenance-window`, позволяющий задать параметры окна обслуживания.
+* Добавлена команда `yc managed-kafka cluster reschedule-maintenance`, позволяющая изменить время запуска запланированной задачи по обслуживанию кластера.
+
+#### {{ alb-name }} {#alb}
+
+* В команды `yc application-load-balancer target-group {add,update,remove}-targets` для параметра `--target` добавлен ключ `private-ip-address`, который позволяет не указывать идентификаторы подсетей для адресов из приватных диапазонов.
+* Добавлены команды для управления TCP-обработчиками L7-балансировщиков: 
+  
+  * `yc alb load-balancer add-stream-listener`;
+  * `yc alb load-balancer update-stream-listener`;
+  * `yc alb load-balancer add-stream-sni`;
+  * `yc alb load-balancer update-stream-sni`.
+
+* Добавлены синонимы (алиасы) команд для управления обработчиками L7-балансировщиков:
+
+  * `yc alb load-balancer add-listener` — `add-http-listener`;
+  * `yc alb load-balancer update-listener` — `update-http-listener`;
+  * `yc alb load-balancer add-sni` — `add-http-sni`;
+  * `yc alb load-balancer update-sni` — `update-http-sni`;
+  * `yc alb load-balancer remove-listener` — `remove-http-listener`, `remove-stream-listener`;
+  * `yc alb load-balancer remove-sni` — `remove-http-sni`, `remove-stream-sni`.
+
+#### {{ cdn-name }} {#cdn}
+
+* Добавлены команды для управления CDN-ресурсами: 
+  
+  * `yc cdn resource create`;
+  * `yc cdn resource update`.
+
+#### {{ cloud-logging-name }} {#cloud-logging}
+
+* В команды `yc logging group {create,update}` добавлен параметр `--data-stream` для поддержки {{ yds-full-name }}.
+
+#### {{ vpc-name }} {#vpc}
+
+* Добавлены команды `yc vpc subnet add-range` и `remove-range` для добавления или удаления диапазонов адресов в подсетях.
+
+#### {{ ydb-name }} {#ydb}
+
+* В команду `yc ydb database create` добавлен параметр `--labels` — он задает набор меток для базы данных.
+* В команду `yc ydb database update` добавлен параметр `--labels` — он меняет весь набор меток для базы данных.
+* Добавлены команды для управления метками `yc ydb database add-labels` и `yc ydb database remove-labels`.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.85.0 (29.11.21) {#version0.85.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
 * Команда `yc managed-kafka cluster update`.
 
   Добавлен флаг `--version`, позволяющий обновить версию Kafka кластера.
 
-#### {{ managed-k8s-name }} {#k8s}
+##### {{ managed-k8s-name }} {#k8s}
 
-* Команда `yc k8s node-group update`.
+* Команда `yc k8s cluster update`.
 
   Добавлен параметр `--node-ipv4-mask-size` — он измеряет размер `CIDR`, выделяемый на каждый узел кластера.
 
-#### {{ alb-name }} {#alb}
+##### {{ alb-name }} {#alb}
 
 * Добавлены команды для работы с Stream бэкендами:
 
@@ -26,16 +83,14 @@
   * Изменение Stream бэкенда: `yc application-load-balancer backend-group update-stream-backend`.
   * Удаление Stream бэкенда: `yc application-load-balancer backend-group delete-stream-backend`.
 
-#### {{ resmgr-name }} {#resmgr}
+##### {{ resmgr-name }} {#resmgr}
 
 * Добавлена команда `yc resource-manager folder delete`, которая позволяет удалить каталог.
 
-### Изменения в CLI {#cli}
+#### Изменения в CLI {#cli}
 
 Исправлена ошибка в команде `yc init`. Теперь при проверке доступности endpoints не игнорируются 
 настройки proxy.
-
-## Предыдущие релизы {#previous-releases}
 
 
 ### Версия 0.84.0 (16.11.21) {#version0.84.0}

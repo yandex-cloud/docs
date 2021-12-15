@@ -13,6 +13,7 @@
 {% endnote %}
 
 <small>Листинг 1 — запрос для организации постраничного вывода</small>
+
 ```sql
 --  Table `schools`:
 -- ┌─────────┬─────────┬─────┐
@@ -54,3 +55,9 @@ ORDER BY city, number LIMIT $limit;
 В YDB все колонки, включая ключевые, могут иметь значение NULL. Несмотря на это использование NULL в качестве значений в ключевых колонках крайне не рекомендуется, так как по SQL стандарту NULL нельзя сравнивать. Как следствие, лаконичные SQL конструкции с простыми операторами сравнения будут работать некорректно. Вместо них придется использовать громоздкие конструкции с IS NULL/IS NOT NULL выражениями.
 
 {% endnote %}
+
+## Примеры реализации постраничного вывода
+
+* [Java](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/src/main/java/com/yandex/ydb/examples/pagination)
+* [Python](https://github.com/yandex-cloud/ydb-python-sdk/tree/master/examples/pagination)
+

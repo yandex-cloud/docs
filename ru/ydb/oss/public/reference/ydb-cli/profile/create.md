@@ -15,7 +15,7 @@
 1. Выполните команду:
 
     ```bash
-    ydb config profile create example
+    {{ ydb-cli }} config profile create example
     ```
 
 1. Введите эндпоинт или не сохраняйте этот параметр для профиля:

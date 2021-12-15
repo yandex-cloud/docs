@@ -1,6 +1,6 @@
 # Типы данных {{ ydb-name }}
 
-В {{ ydb-short-name }} используются типы данных [YQL](../../../../yql/reference/overview.md). Некоторые из типов YQL поддерживаются с ограничениями — они применяются только в вычислениях и не могут быть типом столбца или частью первичного ключа. Все столбцы, включая ключевые, могут содержать специальное значение `NULL`.
+В {{ ydb-short-name }} используются типы данных [YQL](../yql/reference/overview.md). Некоторые из типов YQL поддерживаются с ограничениями — они применяются только в вычислениях и не могут быть типом столбца или частью первичного ключа. Все столбцы, включая ключевые, могут содержать специальное значение `NULL`.
 
 {% note warning %}
 
@@ -10,31 +10,31 @@
 
 ## Числовые типы {#numeric}
 
-{% include [datatypes-primitive-number](../../_includes/datatypes_primitive_number.md) %}
+{% include [datatypes-primitive-number](../_includes/datatypes_primitive_number.md) %}
 
 ## Строковые типы {#string}
 
-{% include [datatypes-primitive-string](../../_includes/datatypes_primitive_string.md) %}
+{% include [datatypes-primitive-string](../_includes/datatypes_primitive_string.md) %}
 
 В отличие от типа данных `Json`, который хранит исходное текстовое представление, переданное пользователем, `JsonDocument` использует бинарное индексированное представление. Важное отличие с точки зрения семантики состоит в том, что `JsonDocument` не сохраняет форматирование, порядок ключей в объектах и их дубликаты.
 
-За счет индексированного представления `JsonDocument` позволяет обходить документную модель с использованием `JsonPath` без необходимости парсинга всего содержимого. Это позволяет эффективно выполнять операции из [JSON API](../../../../yql/reference/builtins/json.md), уменьшая задержки и стоимость пользовательских запросов. Выполнение запросов над `JsonDocument` может быть до нескольких раз эффективнее в зависимости от типа нагрузки.
+За счет индексированного представления `JsonDocument` позволяет обходить документную модель с использованием `JsonPath` без необходимости парсинга всего содержимого. Это позволяет эффективно выполнять операции из [JSON API](../yql/reference/builtins/json.md), уменьшая задержки и стоимость пользовательских запросов. Выполнение запросов над `JsonDocument` может быть до нескольких раз эффективнее в зависимости от типа нагрузки.
 
 Из-за добавленной избыточности `JsonDocument` менее эффективен в хранении. Дополнительные накладные расходы на хранение зависят от конкретного содержимого и в среднем составляют 20–30% от исходного объема. Сохранение данных в формате `JsonDocument` требует дополнительной конвертации из текстового представления, что делает его запись менее эффективной. Тем не менее, для большинства read-intensive сценариев, подразумевающих обработку данных из JSON, этот тип данных является предпочтительным и рекомендуется к использованию.
 
 {% note warning %}
 
-Для хранения чисел (JSON Number) в `JsonDocument`, а также для арифметических операций над ними в [JSON API](../../../../yql/reference/builtins/json.md) используется тип [Double](https://en.wikipedia.org/wiki/Double-precision_floating-point_format). Возможна потеря точности при использовании нестандартных представлений чисел в исходном JSON-документе.
+Для хранения чисел (JSON Number) в `JsonDocument`, а также для арифметических операций над ними в [JSON API](../yql/reference/builtins/json.md) используется тип [Double](https://en.wikipedia.org/wiki/Double-precision_floating-point_format). Возможна потеря точности при использовании нестандартных представлений чисел в исходном JSON-документе.
 
 {% endnote %}
 
 ## Дата и время {#datetime}
 
-{% include [datatypes-primitive-datetime](../../_includes/datatypes_primitive_datetime.md) %}
+{% include [datatypes-primitive-datetime](../_includes/datatypes_primitive_datetime.md) %}
 
 ## Опциональные типы {#optional}
 
-{% include [datatypes-optional](../../_includes/datatypes-optional.md) %}
+{% include [datatypes-optional](../_includes/datatypes-optional.md) %}
 
 Опциональные типы данных — это один из видов [контейнеров](#containers), которые могут быть произвольным образом вложены друг в друга или в другие контейнеры.
 
@@ -57,7 +57,7 @@ select if($found is not null, unwrap($found), -1);
 
 ## Контейнеры {#containers}
 
-{% include [datatypes-containers](../../_includes/datatypes-containers.md) %}
+{% include [datatypes-containers](../_includes/datatypes-containers.md) %}
 
 При необходимости контейнеры можно вкладывать друг в друга в произвольных комбинациях. Например, `List<Tuple<Int32, Int32>>` — список, содержащий в качестве элементов кортежи.
 
@@ -65,11 +65,11 @@ select if($found is not null, unwrap($found), -1);
 
 Для представления множеств следует использовать словарь с значениями типа `Void` — `Dict<T, Void>`.
 
-Для обращения к элементам контейнера используется [точка или фигурные скобки](../../../../yql/reference/syntax/expressions.md#items-access), в зависимости от его типа.
+Для обращения к элементам контейнера используется [точка или фигурные скобки](../yql/reference/syntax/expressions.md#items-access), в зависимости от его типа.
 
 ## Специальные типы данных {#special}
 
-{% include [datatypes-special](../../_includes/datatypes-special.md) %}
+{% include [datatypes-special](../_includes/datatypes-special.md) %}
 
 ## Представление данных {{ ydb-short-name }} в формате JSON {#type-json}
 
