@@ -13,6 +13,8 @@ items:
         href: operations/node-connect-ssh.md
       - name: Создание файла конфигурации
         href: operations/create-static-conf.md
+      - name: Работа с {{ marketplace-name }}
+        href: operations/marketplace.md
       - name: Сетевые сценарии
         items:
           - name: >-

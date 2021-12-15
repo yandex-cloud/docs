@@ -109,6 +109,7 @@ default:
   cos-name: Container Solution
   certificate-manager-name: Certificate Manager
   marketplace-name: Cloud Marketplace
+  marketplace-short-name: Marketplace
   data-transfer-name: Data Transfer
   api-gw-name: API Gateway
   lockbox-name: Yandex Lockbox
