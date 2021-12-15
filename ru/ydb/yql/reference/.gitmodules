@@ -1,0 +1,3 @@
+[submodule "yql-core"]
+    path = yql-core
+    url = https://bb.yandex-team.ru/scm/cloud/yql-docs-core.git

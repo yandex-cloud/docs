@@ -29,8 +29,8 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 2. Удаление устаревших данных.
 
 *BRO* обладает следующими свойствами:
-* Единицей параллельности является [партиция таблицы](datamodel.md#partitioning).
-* Для таблиц со [вторичными индексами](secondary_indexes.md) стадия удаления является [распределенной транзакцией](transactions.md#distributed-tx).
+* Единицей параллельности является [партиция таблицы](../../../../concepts/datamodel.md#partitioning).
+* Для таблиц со [вторичными индексами](../../develop/concepts/secondary_indexes.md) стадия удаления является [распределенной транзакцией](../../develop/concepts/transactions.md#distributed-tx).
 
 ## Гарантии {#guarantees}
 
@@ -59,8 +59,8 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 Управление настройками TTL в настоящий момент возможно с использованием:
 
-* [YQL](../../../../yql/reference/overview.md).
-* [Консольного клиента {{ ydb-short-name }}](../../../../quickstart/yql-api/ydb-cli.md).
+* [YQL]{% if audience == "external" %}(../../../../yql/reference/overview.md){% else %}(https://yql.yandex-team.ru/docs/ydb/){% endif %}.
+* [Консольного клиента {{ ydb-short-name }}](https://cloud.yandex.ru/docs/ydb/quickstart/yql-api/ydb-cli).
 * [{{ ydb-short-name }} Python SDK](https://github.com/yandex-cloud/ydb-python-sdk).
 
 {% note info %}
@@ -85,7 +85,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   $ {{ ydb-cli }} -e <endpoint> -d <database> table ttl set --column created_at --expire-after 3600 mytable
   ```
 
-{% if audience != "external" %}
+{% if oss == true %}
 - C++
   ```c++
   session.AlterTable(
@@ -128,7 +128,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   );
   ```
 
-{% if audience != "external" %}
+{% if oss == true %}
 - C++
   ```c++
   session.CreateTable(
@@ -171,7 +171,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   $ {{ ydb-cli }} -e <endpoint> -d <database> table ttl drop mytable
   ```
 
-{% if audience != "external" %}
+{% if oss == true %}
 - C++
   ```c++
   session.AlterTable(
@@ -202,7 +202,7 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   $ {{ ydb-cli }} -e <endpoint> -d <database> scheme describe mytable
   ```
 
-{% if audience != "external" %}
+{% if oss == true %}
 - C++
   ```c++
   auto desc = session.DescribeTable("mytable").GetValueSync().GetTableDescription();
@@ -217,3 +217,14 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   ```
 
 {% endlist %}
+
+{% if audience != "external" %}
+
+Управление настройками TTL в настоящий момент возможно с использованием:
+
+* [YQL](../../../../yql.md).
+* [Консольного клиента {{ ydb-short-name }}](../../../../getting_started/ydb_cli.md).
+* [{{ ydb-short-name }} C++ SDK](../../../../getting_started/start_cpp.md).
+* [{{ ydb-short-name }} Python SDK](../../../../getting_started/start_python.md).
+
+{% endif %}

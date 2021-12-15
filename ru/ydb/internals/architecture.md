@@ -14,7 +14,7 @@
 
 ## Основные характеристики YDB
 
-  * представляет собой [табличную базу данных](../concepts/internal/datamodel.md);
+  * представляет собой [табличную базу данных](../concepts/datamodel.md);
   * реализует эффективное выполнение меж-объектных транзакций (cross-row/cross-table transactions);
   * реализует согласованность в режиме strict-consistency with serializable isolation;
   * предоставляет универсальный язык взаимодействия с платформой YQL;
@@ -105,7 +105,7 @@
 
 Кроме таблиц YDB позволяет создавать партицированные очереди (аналог Topiс-ов в Kafka) и примитивы для распределенной координации -- Coordination Service.
 
-Более подробно про [модель данных](../concepts/internal/datamodel.md)
+Более подробно про [модель данных](../concepts/datamodel.md)
 
 ![kikimrstructure3.png](../_assets/kikimrstructure3.png)
 

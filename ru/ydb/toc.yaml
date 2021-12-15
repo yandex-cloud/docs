@@ -1,25 +1,14 @@
 title: Yandex Database
 href: index.yaml
 items:
-  - name: Оглавление
-    href: index.md
-    when: audience != "external"
-  - name: Как попробовать
-    href: quickstart.md
-    when: audience != "external"
-  - name: Обзор
-    href: overview.md
-    when: audience != "external"
   - name: Начало работы
+    when: audience == "external"
     items:
       - name: Обзор
         href: quickstart/index.md
-        when: audience == "external"
       - name: Создание базы данных
         href: quickstart/create-db.md
-        when: audience == "external"
       - name: YQL API
-        when: audience == "external"
         items:
           - name: Работа с данными через консоль управления
             href: quickstart/yql-api/ydb-ui.md
@@ -28,7 +17,6 @@ items:
           - name: Работа с YDB SDK
             href: quickstart/yql-api/ydb-sdk.md
       - name: Document API, совместимый с Amazon DynamoDB
-        when: audience == "external"
         items:
           - name: Настройка инструментов AWS
             href: quickstart/document-api/aws-setup.md
@@ -84,71 +72,18 @@ items:
               - name: Работа с AWS SDK
                 href: quickstart/aws-instrument/aws-sdk.md
                 when: audience != "external"
-      - name: Базы данных — создание и управление
-        href: getting_started/create_manage_database.md
-        when: audience != "external"
-      - name: Настройка сетевого доступа к базе данных
-        href: getting_started/setup_network_access.md
-        when: audience != "external"
-      - name: Разграничение прав доступа
-        href: getting_started/start_auth.md
-        when: audience != "external"
-      - name: Где взять
-        href: getting_started/get_cluster.md
-        when: audience == "tech"
-      - name: Старт локального кластера
-        href: getting_started/start_local_cluster.md
-        when: audience == "tech"
-      - name: Использование консольного клиента YDB
-        href: getting_started/ydb_cli.md
-        when: audience != "external"
-      - name: Работа со схемой
-        href: getting_started/start_scheme.md
-        when: audience != "external"
-      - name: Работа с данными
-        href: getting_started/crud.md
-        when: audience != "external"
-      - name: Разработка на C++
-        href: getting_started/start_cpp.md
-        when: audience != "external"
-      - name: Разработка на Java
-        href: getting_started/start_java.md
-        when: audience != "external"
-      - name: Разработка на Python
-        href: getting_started/start_python.md
-        when: audience != "external"
-      - name: Использование рецепта YDB
-        href: getting_started/ydb_recipe.md
-        when: audience != "external"
-      - name: ClickHouse over YDB
-        href: getting_started/start_chydb.md
-        when: audience != "external"
-      - name: Сервис координации
-        href: coordination/overview.md
-        when: audience != "external"
-      - name: REST API
-        href: getting_started/start_rest.md
-        when: audience == "tech"
   - name: Пошаговые инструкции
     when: audience == "external"
     items:
       - name: Использование плана запроса и AST
-        when: audience == "external"
         href: oss/public/develop/operations/get-query-plan.md
       - name: Управление базами данных
-        href: operations/create_manage_database.md
-      - name: Управление базами данных (Internal)
-        when: audience != "external"
         href: operations/create_manage_database.md
       - name: Управление таблицами
         href: operations/schema.md
       - name: Чтение и запись данных
         href: operations/crud.md
-      - name: Чтение и запись данных (Internal)
-        when: audience != "external"
-        href: operations/internal/crud.md
       - name: Работа со вторичными индексами
-        when: audience == "external"
         href: oss/public/develop/operations/indexes.md
   - name: Работа с YDB CLI
     when: audience == "external"
@@ -200,16 +135,12 @@ items:
           #    - name: restore
           #      href: oss/public/reference/ydb-cli/commands/tools/restore.md
   - name: YDB SDK
+    when: audience == "external"
     items:
       - name: Работа с SDK
         href: oss/public/reference/ydb-sdk/index.md
-        when: audience == "external"
-      - name: Работа с SDK
-        href: ydb-sdk/internal/index.md
-        when: audience != "external"
       - name: Обработка ошибок в API
         href: oss/public/reference/ydb-sdk/error_handling.md
-        when: audience == "external"
   - name: Сценарии использования
     when: audience == "external"
     items:
@@ -264,79 +195,35 @@ items:
             href: oss/public/administration/monitoring/charts.md
       - name: Возможные проблемы
   - name: Концепции
+    when: audience == "external"
     items:
       - name: Обзор
         href: concepts/index.md
-        when: audience == "external"
-      - name: Обзор
-        href: concepts/internal/index.md
-        when: audience != "external"
       - name: Термины и определения
         href: concepts/databases.md
-      - name: Термины и определения (Internal)
-        href: concepts/internal/databases.md
-        when: audience != "external"
       - name: Модель данных и схема
-        href: oss/public/develop/concepts/datamodel.md
-        when: audience == "external"
-      - name: Модель данных и схема
-        href: concepts/internal/datamodel.md
-        when: audience != "external"
+        href: concepts/datamodel.md
       - name: Режимы работы Serverless и Dedicated
         href: concepts/serverless_and_dedicated.md
-        when: audience == "external"
-      - name: Кластеры
-        href: concepts/clusters.md
-        when: audience != "external"        
       - name: Типы данных
-        href: oss/public/develop/concepts/datatypes.md
-        when: audience == "external"
+        href: concepts/datatypes.md
       - name: Транзакции
         href: oss/public/develop/concepts/transactions.md
-        when: audience == "external"
-      - name: Порядок выполнения транзакций
-        href: concepts/out_of_order.md
-        when: audience != "external"        
       - name: Вторичные индексы
         href: oss/public/develop/concepts/secondary_indexes.md
-        when: audience == "external"
       - name: Time to Live (TTL)
-        href: oss/public/develop/concepts/ttl.md
-        when: audience == "external"
-      - name: Time to Live (TTL) (Internal)
-        href: concepts/internal/ttl.md
-        when: audience != "external"
+        href: concepts/ttl.md
       - name: Скан запросы
         href: oss/public/develop/concepts/scan_query.md
-        when: audience == "external"
-      - name: Разграничение прав доступа
-        href: concepts/internal/iam.md
-        when: audience != "external"        
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Квоты и лимиты (Internal)
-        href: concepts/quotas_and_limits.md
-        when: audience != "external"        
       - name: Ограничения базы данных
         href: oss/public/develop/concepts/limits-ydb.md
-        when: audience == "external"
-      - name: YDB в сравнении
-        href: concepts/comparision.md
-        when: audience == "tech"
-      - name: OLAP сценарии
-        href: concepts/olap.md
-        when: audience == "tech"
-      - name: Использование ролей
-        href: howto/apply_iam.md
-        when: audience == "tech"
-      - name: Сессии
-        href: concepts/sessions.md
-        when: audience == "tech"
   - name: Управление доступом
     href: security/start_auth.md
     when: audience == "external"
   - name: Правила тарификации
-    # when: audience == "external"
+    when: audience == "external"
     items:
       - name: Обзор
         href: pricing.md
@@ -352,52 +239,21 @@ items:
             href: pricing/request_units_special.md
       - name: Режим с выделенными инстансами
         href: pricing/dedicated.md
-  - name: Интерфейсы доступа к данным
-    items:
-      - name: Scan queries
-        href: data_interfaces/scan_queries.md
-        when: audience != "external"
   - name: Рекомендации
+    when: audience == "external"
     items:
       - name: Проектирование схемы
         href: oss/public/develop/best_practices/schema_design.md
-        when: audience == "external"
       - name: Партицирование таблиц
         href: oss/public/develop/best_practices/table_sharding.md
-        when: audience == "external"
       - name: Вторичные индексы
-        href: oss/public/develop/best_practices/secondary_indexes.md
-        when: audience == "external"
-      - name: Вторичные индексы
-        href: best_practices/internal/secondary_indexes.md
-        when: audience != "external"
+        href: best_practices/secondary_indexes.md
       - name: Постраничный вывод
-        when: audience == "external"
-        href: oss/public/develop/best_practices/paging.md
-      - name: Постраничный вывод
-        when: audience != "external"
-        href: best_practices/internal/paging.md
+        href: best_practices/paging.md
       - name: Загрузка больших объемов данных
-        href: oss/public/develop/best_practices/batch_upload.md
-        when: audience == "external"
-      - name: Загрузка больших объемов данных
-        href: best_practices/internal/batch_upload.md
-        when: audience != "external"
-      - name: Удаление устаревших данных с помощью вспомогательных таблиц
-        href: best_practices/internal/ttl.md
-        when: audience != "external"
-      - name: Загрузка данных из YT
-        href: best_practices/internal/import_from_yt.md
-        when: audience != "external"
-      - name: Настройка групп колонок
-        href: best_practices/internal/column_families.md
-        when: audience == "tech"
+        href: best_practices/batch_upload.md
       - name: Использование таймаутов
-        href: oss/public/develop/best_practices/timeouts.md
-        when: audience == "external"
-      - name: Использование таймаутов
-        href: best_practices/internal/timeouts.md
-        when: audience != "external"
+        href: best_practices/timeouts.md
   - name: YDB API и справочник
     when: audience == "tech"
     items:
@@ -598,12 +454,10 @@ items:
       - name: Удаление таблицы
         href: oss/public/develop/tutorial/delete_table.md
   - name: Обслуживание
+    when: audience == "external"
     items:
       - name: Резервное копирование
         href: maintenance/backup_and_recovery.md
-      - name: Мониторинг
-        href: maintenance/monitoring.md
-        when: audience != "external"
   - name: Безопасность
     when: audience == "tech"
     items:
@@ -727,13 +581,226 @@ items:
       - name: Мониторинг с помощью Solomon
         href: howto/monitoring_solomon.md
   - name: Диагностика
+    when: audience == "external"
+    items:
+      - name: Системные таблицы
+        href: troubleshooting/system_views.md
+      - name: Мониторинг
+        href: troubleshooting/monitoring.md
+  - name: Вопросы и ответы
+    when: audience == "external"
+    items:
+      - name: Общие вопросы
+        href: oss/public/faq/common.md
+      - name: Ошибки
+        href: oss/public/faq/errors.md
+      - name: YQL
+        href: oss/public/faq/yql.md
+      - name: Serverless
+        href: faq/serverless.md
+      - name: Все вопросы на одной странице
+        href: oss/public/faq/all.md
+# TOC internal
+  - name: Оглавление
+    href: index.md
+    when: audience != "external"
+  - name: Как попробовать
+    href: quickstart.md
+    when: audience != "external"
+  - name: Обзор
+    href: overview.md
+    when: audience != "external"
+  - name: Концепции
+    when: audience != "external"
+    items:
+      - name: Термины и определения
+        href: concepts/databases.md
+      - name: Модель данных и схема
+        href: concepts/datamodel.md
+      - name: Режимы работы Serverless и Dedicated
+        href: concepts/serverless_and_dedicated.md
+      - name: Кластеры
+        href: concepts/clusters.md
+      - name: Типы данных
+        href: oss/public/develop/concepts/datatypes.md
+      - name: Транзакции и запросы к YDB
+        href: oss/public/develop/concepts/transactions.md
+      - name: Порядок выполнения транзакций
+        href: concepts/out_of_order.md     
+      - name: Вторичные индексы
+        href: oss/public/develop/concepts/secondary_indexes.md
+      - name: Time to Live (TTL)
+        href: concepts/ttl.md
+      - name: Разграничение прав доступа
+        href: concepts/internal/iam.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+      - name: Квоты и лимиты (Internal)
+        href: concepts/quotas_and_limits.md      
+      - name: Ограничения базы данных
+        href: oss/public/develop/concepts/limits-ydb.md
+      - name: YDB в сравнении
+        href: concepts/comparision.md
+        when: audience == "tech"
+      - name: OLAP сценарии
+        href: concepts/olap.md
+        when: audience == "tech"
+      - name: Использование ролей
+        href: howto/apply_iam.md
+        when: audience == "tech"
+      # Was empty file sessions.md
+      # - name: Сессии 
+      #  href: yndx/concepts/sessions.md
+      #  when: audience == "tech"
+  - name: Начало работы
+    when: audience != "external"
+    items:
+      - name: Базы данных — создание и управление
+        href: getting_started/create_manage_database.md
+      - name: Настройка сетевого доступа к базе данных
+        href: getting_started/setup_network_access.md
+      - name: Разграничение прав доступа
+        href: getting_started/start_auth.md
+      - name: Где взять
+        href: getting_started/get_cluster.md
+        when: audience == "tech"
+      - name: Старт локального кластера
+        href: getting_started/start_local_cluster.md
+        when: audience == "tech"
+      - name: Использование консольного клиента YDB
+        href: getting_started/ydb_cli.md
+      - name: Работа со схемой
+        href: getting_started/start_scheme.md
+      - name: Работа с данными
+        href: getting_started/crud.md
+      - name: Разработка на C++
+        href: getting_started/start_cpp.md
+      - name: Разработка на Java
+        href: getting_started/start_java.md
+      - name: Разработка на Python
+        href: getting_started/start_python.md
+      - name: Использование рецепта YDB
+        href: getting_started/ydb_recipe.md
+      - name: ClickHouse over YDB
+        href: getting_started/start_chydb.md
+      - name: Сервис координации
+        href: coordination/overview.md
+      - name: REST API
+        href: getting_started/start_rest.md
+        when: audience == "tech"
+  - name: Работа с YDB CLI
+    when: audience != "external"
+    items:
+      - name: Установка YDB CLI
+        href: oss/public/reference/ydb-cli/install.md
+      - name: Управление профилем
+        items:
+          - name: Создание профиля
+            href: oss/public/reference/ydb-cli/profile/create.md
+          - name: Получение информации о профиле
+            href: oss/public/reference/ydb-cli/profile/list-and-get.md
+          - name: Активация профиля
+            href: oss/public/reference/ydb-cli/profile/activate.md
+          - name: Удаление профиля
+            href: oss/public/reference/ydb-cli/profile/delete.md
+      - name: Команды
+        items:
+          - name: Обзор
+            href: oss/public/reference/ydb-cli/commands/index.md
+          - name: Структура и описание команд YDB CLI
+            href: oss/public/reference/ydb-cli/commands/commands.md
+          - name: Глобальные параметры
+            href: oss/public/reference/ydb-cli/commands/global-options.md
+          - name: Листинг объектов
+            href: oss/public/reference/ydb-cli/commands/scheme-ls.md
+          - name: Получение информации об объекте схемы
+            href: oss/public/reference/ydb-cli/commands/scheme-describe.md
+          - name: Получение списка эндпоинтов для базы данных
+            href: oss/public/reference/ydb-cli/commands/discovery-list.md
+          - name: Выполнение запроса к данным
+            href: oss/public/reference/ydb-cli/commands/query.md
+          - name: Потоковое чтение таблицы
+            href: oss/public/reference/ydb-cli/commands/readtable.md
+          - name: Работа со вторичными индексами
+            href: oss/public/reference/ydb-cli/commands/operations-index.md
+          - name: Работа с директориями
+            href: oss/public/reference/ydb-cli/commands/scheme-mkdir.md
+          - name: Скан запросы
+            href: oss/public/reference/ydb-cli/commands/scan-query.md
+          #- name: tools
+          #  items:
+          #    - name: copy
+          #      href: oss/public/reference/ydb-cli/commands/tools/copy.md
+          #    - name: dump
+          #      href: oss/public/reference/ydb-cli/commands/tools/dump.md
+          #    - name: restore
+          #      href: oss/public/reference/ydb-cli/commands/tools/restore.md
+  - name: YDB SDK
+    when: audience != "external"
+    items:
+      - name: Работа с SDK (Internal)
+        href: ydb-sdk/internal/index.md
+      - name: Обработка ошибок в API
+        href: oss/public/reference/ydb-sdk/error_handling.md
+  - name: Правила тарификации
+    when: audience != "external"
+    items:
+      - name: Обзор
+        href: pricing.md
+      - name: Бессерверный режим
+        items:
+          - name: Правила тарификации для бессерверного режима
+            href: pricing/serverless.md
+          - name: Стоимость запроса для YQL
+            href: pricing/request_units_yql.md
+          - name: Стоимость запроса для Document API
+            href: pricing/request_units_docapi.md
+          - name: Стоимость запроса для специальных API
+            href: pricing/request_units_special.md
+      - name: Режим с выделенными инстансами
+        href: pricing/dedicated.md
+  - name: Интерфейсы доступа к данным
+    when: audience != "external"
+    items:
+      - name: Scan queries
+        href: data_interfaces/scan_queries.md
+  - name: Рекомендации
+    when: audience != "external"
+    items:
+      - name: Проектирование схемы
+        href: oss/public/develop/best_practices/schema_design.md
+      - name: Партицирование таблиц
+        href: oss/public/develop/best_practices/table_sharding.md
+      - name: Вторичные индексы
+        href: best_practices/secondary_indexes.md
+      - name: Постраничный вывод
+        href: best_practices/paging.md
+      - name: Загрузка больших объемов данных
+        href: best_practices/batch_upload.md
+      - name: Удаление устаревших данных с помощью вспомогательных таблиц
+        href: best_practices/internal/ttl.md
+      - name: Загрузка данных из YT
+        href: best_practices/internal/import_from_yt.md
+      - name: Настройка групп колонок
+        href: best_practices/internal/column_families.md
+        when: audience == "tech"
+      - name: Использование таймаутов
+        href: best_practices/timeouts.md
+  - name: Обслуживание
+    when: audience != "external"
+    items:
+      - name: Резервное копирование
+        href: maintenance/backup_and_recovery.md
+      - name: Мониторинг
+        href: maintenance/monitoring.md
+  - name: Диагностика
+    when: audience != "external"
     items:
       - name: Обзор
         href: troubleshooting/overview.md
         when: audience == "tech"
       - name: Использование диагностического дашборда
         href: troubleshooting/diag_dashboard.md
-        when: audience != "external"
       - name: Общие (частые) ошибки
         href: troubleshooting/common_errors.md
         when: audience == "tech"
@@ -742,9 +809,6 @@ items:
         when: audience == "tech"
       - name: Системные таблицы
         href: troubleshooting/system_views.md
-      - name: Мониторинг
-        href: troubleshooting/monitoring.md
-        when: audience == "external"
       - name: Как анализировать отладочные логи
         href: troubleshooting/understand_debug_logs.md
         when: audience == "tech"
@@ -755,25 +819,20 @@ items:
     href: yql.md
     when: audience != "external"
   - name: Вопросы и ответы
+    when: audience != "external"
     items:
       - name: Общие вопросы
         href: oss/public/faq/common.md
-        when: audience == "external"
-      - name: Общие вопросы (Yandex-Team)
+      - name: Общие вопросы (Internal)
         href: faq/internal/common.md
-        when: audience != "external"
       - name: Ошибки
         href: oss/public/faq/errors.md
-        when: audience == "external"
       - name: YQL
         href: oss/public/faq/yql.md
-        when: audience == "external"
       - name: Serverless
         href: faq/serverless.md
-        when: audience == "external"
       - name: Все вопросы на одной странице
         href: oss/public/faq/all.md
-        when: audience == "external"
   - name: Публичные материалы
     href: public_talks.md
-    when: lang == "ru"
+    when: lang == "ru" or audience == "internal"

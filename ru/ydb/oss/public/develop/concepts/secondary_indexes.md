@@ -230,4 +230,4 @@
 
 #### Что дальше
 
-Другие примеры работы с вторичными индексами смотрите в [документации](../best_practices/secondary_indexes.md).
+Другие примеры работы с вторичными индексами смотрите в [документации]{% if audience == external %}(../best_practices/secondary_indexes.md){% else %}(../../../../best_practices/secondary_indexes.md){% endif %}.

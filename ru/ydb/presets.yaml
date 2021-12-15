@@ -104,6 +104,7 @@ default:
   yandex-cloud: Yandex.Cloud
   s3-storage-host: storage.yandexcloud.net
   yc-ydb: yc ydb
+  oss: false
 
   # Роли
   roles-admin: admin
@@ -122,13 +123,17 @@ tech:
   objstorage-name: MDS
   s3-storage-host: mds.yandex.ru
   deploy: arc
+  oss: true
 internal:
   audience: internal
   ydb-cli: ya ydb
   objstorage-name: MDS
   s3-storage-host: mds.yandex.ru
   deploy: arc
+  oss: true
 external:
   audience: external
   deploy: arc
   ydb-cli: ydb
+  oss: false
+

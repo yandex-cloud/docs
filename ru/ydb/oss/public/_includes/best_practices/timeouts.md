@@ -42,4 +42,49 @@ description: 'Значение operation_timeout определяет время
     )
   ```
 
+{% if oss == true %}
+
+- С++
+
+  ```cpp
+  #include <kikimr/public/sdk/cpp/client/ydb.h>
+  #include <kikimr/public/sdk/cpp/client/ydb_table.h>
+  #include <kikimr/public/sdk/cpp/client/ydb_value.h>
+
+  using namespace NYdb;
+  using namespace NYdb::NTable;
+
+  TAsyncStatus ExecuteInTx(TSession& session, TString query, TParams params) {
+    return session.ExecuteDataQuery(
+        query
+        , TTxControl::BeginTx(TTxSettings::SerializableRW()).CommitTx()
+        , TExecDataQuerySettings()
+        .OperationTimeout(TDuration::MilliSeconds(300))  // operation timeout
+        .ClientTimeout(TDuration::MilliSeconds(400))   // transport timeout
+        .CancelAfter(TDuration::MilliSeconds(300)));  // cancel after timeout
+  }
+
+  ```
+
+{% endif %}
+
+- Go
+
+  ```go
+  import (
+      "context"
+      "a.yandex-team.ru/kikimr/public/sdk/go/ydb"
+      "a.yandex-team.ru/kikimr/public/sdk/go/ydb/table"
+  )
+
+  func executeInTx(ctx context.Context, s *table.Session, query string) {
+      newCtx, close := context.WithTimeout(ctx, time.Millisecond*300)         // client and by default operation timeout
+      newCtx2 := ydb.WithOperationTimeout(newCtx, time.Millisecond*400)       // operation timeout override
+      newCtx3 := ydb.WithOperationCancelAfter(newCtx2, time.Millisecond*300)  // cancel after timeout
+      defer close()
+      tx := table.TxControl(table.BeginTx(table.WithSerializableReadWrite()), table.CommitTx())
+      _, res, err := session.Execute(newCtx3, tx, query)
+  }
+  ```
+
 {% endlist %}

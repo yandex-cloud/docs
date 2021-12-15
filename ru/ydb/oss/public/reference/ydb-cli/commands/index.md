@@ -12,7 +12,7 @@
 
 Перед выполнением примеров:
 
-1. [Создайте](../../../../../operations/create_manage_database.md#create-db) базу данных.
-1. [Создайте](../../../develop/tutorial/create_demo_tables.md) таблицу и [добавьте](../../../develop/tutorial/fill_tables_with_data.md) в нее данные.
+1. [Создайте](https://cloud.yandex.ru/docs/ydb/operations/create_manage_database#create-db) базу данных.
+1. [Создайте](https://cloud.yandex.ru/docs/ydb/oss/public/develop/tutorial/create_demo_tables) таблицу и [добавьте](https://cloud.yandex.ru/docs/ydb/oss/public/develop/tutorial/fill_tables_with_data) в нее данные.
 1. [Установите](../install.md) {{ ydb-short-name }} CLI.
 1. [Настройте](../profile/create.md) профиль {{ ydb-short-name }} CLI.
