@@ -4,7 +4,7 @@
 
 - [Изменить класс хостов](#change-resource-preset).
 
-- [Увеличить размер хранилища](#change-disk-size) (доступно только для сетевого хранилища, `network-hdd` и `network-ssd`).
+- [Увеличить размер хранилища](#change-disk-size) (доступно только для [типов хранилищ](../concepts/storage.md) `network-hdd` и `network-ssd`).
 
 - [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
 
@@ -108,7 +108,7 @@
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - API
 
@@ -145,7 +145,7 @@
 
   1. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции {{ mmg-full-name }} не исчерпано место в строке **space**.
 
-  1. Проверьте, что нужный кластер использует именно сетевое хранилище (увеличить размер локального хранилища пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-ssd`:
+  1. Проверьте, что нужный кластер использует именно хранилище на сетевых дисках (увеличить размер хранилища на локальных SSD-дисках пока невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-ssd`:
 
       ```
       $ {{ yc-mdb-mg }} cluster get <имя кластера>
@@ -165,10 +165,10 @@
       ...
       ```
 
-  1. Укажите нужный объем хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
+  1. Укажите нужный объем хранилища в команде изменения кластера. Новый объем должен быть не меньше, чем текущее значение `disk_size` в свойствах кластера.
 
       ```
-      $ {{ yc-mdb-mg }} cluster update <имя кластера>
+      $ {{ yc-mdb-mg }} cluster update <имя кластера> \
            --mongod-disk-size <размер хранилища в ГБ>
       ```
 
@@ -200,7 +200,7 @@
     
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
    
-    Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - API
 
@@ -371,7 +371,7 @@
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - API
 
@@ -451,7 +451,7 @@
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - API
 

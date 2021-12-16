@@ -1,0 +1,1 @@
+{% if lang == "ru" %}\* Эти типы хранилищ доступны только для определенных платформ, подробнее см. в разделе [{#T}]{% endif %}{% if lang == "en" %}\* Read more about how a platform selection impacts [available storage types]{% endif %}(../../../managed-mongodb/concepts/storage.md).

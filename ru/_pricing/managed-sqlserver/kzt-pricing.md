@@ -26,7 +26,7 @@
 | Услуга                                  | Цена за ГБ в месяц                                                     |
 |-----------------------------------------|------------------------------------------------------------------------|
 | Стандартное сетевое хранилище           | {{ sku|KZT|mdb.cluster.network-hdd.mssql|month|string }}               |
-| Нереплицируемое сетевое хранилище       | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.mssql|month|string }} |
+| Нереплицируемое сетевое хранилище       | 33,0000 ₸                                                              |
 | Быстрое сетевое хранилище               | {{ sku|KZT|mdb.cluster.network-nvme.mssql|month|string }}              |
 | Быстрое локальное хранилище             | {{ sku|KZT|mdb.cluster.local-nvme.mssql|month|string }}                |
 | Резервные копии сверх размера хранилища | 15,2544 ₸                                                              |

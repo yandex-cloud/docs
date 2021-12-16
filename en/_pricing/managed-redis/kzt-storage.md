@@ -1,6 +1,6 @@
-{% include [local-ssd for Ice Lake only by request](../../_includes/ice-lake-local-ssd-note.md) %}
-
-| Service                 | Rate for 1 GB per month, with VAT                         |
-|-------------------------|-----------------------------------------------------------|
-|Fast network storage     | {{ sku|KZT|mdb.cluster.network-nvme.redis|month|string }} |
+| Service                                              | Cost of 1 GB per month, with VAT     |
+|------------------------------------------------------|-----------------------------------------------------------|
+| Storage based on non-replicated SSD disks            | ₸33.0000                                       |
+| Storage based on network SSD disks                   | {{ sku|KZT|mdb.cluster.network-nvme.redis|month|string }} |
+| Storage based on local SSD disks                     | ₸48.8136                                                   |
 |Backup over storage size | ₸15.2544                                                  |
