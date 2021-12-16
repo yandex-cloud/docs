@@ -211,7 +211,7 @@ options.<br>queryParamsOptions.<br>ignoreQueryString.<br>value | **boolean** (bo
 options.<br>queryParamsOptions.<br>queryParamsWhitelist | **object** <br>`options.queryParamsOptions` includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`<br><br><p>A set of the string list parameters.</p> 
 options.<br>queryParamsOptions.<br>queryParamsWhitelist.<br>enabled | **boolean** (boolean)<br><p>True - the option is enabled and its ``value`` is applied to the resource. False - the option is disabled and its default value is used for the resource.</p> 
 options.<br>queryParamsOptions.<br>queryParamsWhitelist.<br>value[] | **string**<br><p>Value of the option.</p> 
-options.<br>queryParamsOptions.<br>queryParamsBlacklist | **object**<br>Ignore All Except.  Files with the specified query parameters are cached as objects with different keys,  files with other parameters are cached as objects with the same key. <br>`options.queryParamsOptions` includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`<br><br><p>A set of the string list parameters.</p> 
+options.<br>queryParamsOptions.<br>queryParamsBlacklist | **object**<br>Ignore All Except. Files with the specified query parameters are cached as objects with different keys, files with other parameters are cached as objects with the same key. <br>`options.queryParamsOptions` includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`<br><br><p>A set of the string list parameters.</p> 
 options.<br>queryParamsOptions.<br>queryParamsBlacklist.<br>enabled | **boolean** (boolean)<br><p>True - the option is enabled and its ``value`` is applied to the resource. False - the option is disabled and its default value is used for the resource.</p> 
 options.<br>queryParamsOptions.<br>queryParamsBlacklist.<br>value[] | **string**<br><p>Value of the option.</p> 
 options.<br>slice | **object**<br><p>Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte.</p> <p>The origin must support HTTP Range requests.</p> <p>By default the option is disabled.</p> <p>Set up bool values.</p> 
@@ -221,10 +221,10 @@ options.<br>compressionOptions | **object**<br><p>Set up compression variant.</p
 options.<br>compressionOptions.<br>fetchCompressed | **object**<br>Using `ResourceOptionsBoolOption`. Selected by default. Files with different query parameters are cached as objects with the same key regardless of the parameter value. <br>`options.compressionOptions` includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`<br><br><p>Set up bool values.</p> 
 options.<br>compressionOptions.<br>fetchCompressed.<br>enabled | **boolean** (boolean)<br><p>True - the option is enabled and its ``value`` is applied to the resource. False - the option is disabled and its default value is used for the resource.</p> 
 options.<br>compressionOptions.<br>fetchCompressed.<br>value | **boolean** (boolean)<br><p>Value of the option.</p> 
-options.<br>compressionOptions.<br>gzipOn | **object**<br>The Fetch compressed option helps you to reduce the bandwidth between origin and CDN servers.  Also, content delivery speed becomes higher because of reducing the time for compressing files in a CDN. <br>`options.compressionOptions` includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`<br><br><p>Set up bool values.</p> 
+options.<br>compressionOptions.<br>gzipOn | **object**<br>The Fetch compressed option helps you to reduce the bandwidth between origin and CDN servers. Also, content delivery speed becomes higher because of reducing the time for compressing files in a CDN. <br>`options.compressionOptions` includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`<br><br><p>Set up bool values.</p> 
 options.<br>compressionOptions.<br>gzipOn.<br>enabled | **boolean** (boolean)<br><p>True - the option is enabled and its ``value`` is applied to the resource. False - the option is disabled and its default value is used for the resource.</p> 
 options.<br>compressionOptions.<br>gzipOn.<br>value | **boolean** (boolean)<br><p>Value of the option.</p> 
-options.<br>compressionOptions.<br>brotliCompression | **object**<br>Ignore only. Files with the specified query parameters are cached as objects with the same key,  files with other parameters are cached as objects with different keys. <br>`options.compressionOptions` includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`<br><br><p>A set of the string list parameters.</p> 
+options.<br>compressionOptions.<br>brotliCompression | **object**<br>Ignore only. Files with the specified query parameters are cached as objects with the same key, files with other parameters are cached as objects with different keys. <br>`options.compressionOptions` includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`<br><br><p>A set of the string list parameters.</p> 
 options.<br>compressionOptions.<br>brotliCompression.<br>enabled | **boolean** (boolean)<br><p>True - the option is enabled and its ``value`` is applied to the resource. False - the option is disabled and its default value is used for the resource.</p> 
 options.<br>compressionOptions.<br>brotliCompression.<br>value[] | **string**<br><p>Value of the option.</p> 
 options.<br>redirectOptions | **object**<br><p>Set up redirects.</p> <p>A set of the redirect parameters.</p> 
@@ -276,12 +276,12 @@ secondaryHostnames[] | **string**<br><p>List of secondary hostname strings.</p>
 originGroupId | **string** (int64)<br><p>ID of the origin group.</p> 
 originGroupName | **string**<br><p>Name of the origin group.</p> 
 originProtocol | **string**<br><p>Specify the protocol schema to be used in communication with origin.</p> <p>This option defines the protocol that will be used by CDN servers to request content from an origin source. If not specified, we will use HTTP to connect to an origin server.</p> <ul> <li>HTTP: CDN servers will connect to your origin via HTTP.</li> <li>HTTPS: CDN servers will connect to your origin via HTTPS.</li> <li>MATCH: Connection protocol will be chosen automatically (content on the origin source should be available for the CDN both through HTTP and HTTPS).</li> </ul> 
-sslCertificate | **object**<br><p>SSL certificate options.</p> <p>A SSL sertificate patameters.</p> 
-sslCertificate.<br>type | **string**<br><p>Type of the sertificate.</p> <p>A certificate type patameters.</p> <ul> <li>SSL_CERTIFICATE_TYPE_UNSPECIFIED: SSL certificate is unspecified.</li> <li>DONT_USE: No SSL certificate is added, the requests are sent via HTTP.</li> <li>LETS_ENCRYPT_GCORE: Works only if you have already pointed your domain name to the protected IP address in your DNS</li> <li>CM: Add your SSL certificate by uploading the certificate in PEM format and your private key</li> </ul> 
-sslCertificate.<br>status | **string**<br><p>Active status.</p> <p>A certificate status patameters.</p> <ul> <li>SSL_CERTIFICATE_STATUS_UNSPECIFIED: SSL certificate is unspecified.</li> <li>READY: SSL certificate is ready to use.</li> <li>CREATING: SSL certificate is creating.</li> </ul> 
-sslCertificate.<br>data | **object**<br><p>Certificate data.</p> <p>A certificate data patameters.</p> 
-sslCertificate.<br>data.<br>cm | **object**<br><p>A certificate data custom patameters.</p> 
-sslCertificate.<br>data.<br>cm.<br>id | **string**<br><p>ID of the custom sertificate.</p> 
+sslCertificate | **object**<br><p>SSL certificate options.</p> <p>A SSL certificate parameters.</p> 
+sslCertificate.<br>type | **string**<br><p>Type of the certificate.</p> <p>A certificate type parameters.</p> <ul> <li>SSL_CERTIFICATE_TYPE_UNSPECIFIED: SSL certificate is unspecified.</li> <li>DONT_USE: No SSL certificate is added, the requests are sent via HTTP.</li> <li>LETS_ENCRYPT_GCORE: Works only if you have already pointed your domain name to the protected IP address in your DNS</li> <li>CM: Add your SSL certificate by uploading the certificate in PEM format and your private key</li> </ul> 
+sslCertificate.<br>status | **string**<br><p>Active status.</p> <p>A certificate status parameters.</p> <ul> <li>SSL_CERTIFICATE_STATUS_UNSPECIFIED: SSL certificate is unspecified.</li> <li>READY: SSL certificate is ready to use.</li> <li>CREATING: SSL certificate is creating.</li> </ul> 
+sslCertificate.<br>data | **object**<br><p>Certificate data.</p> <p>A certificate data parameters.</p> 
+sslCertificate.<br>data.<br>cm | **object**<br><p>A certificate data custom parameters.</p> 
+sslCertificate.<br>data.<br>cm.<br>id | **string**<br><p>ID of the custom certificate.</p> 
 
 ## Methods {#methods}
 Method | Description
@@ -289,6 +289,6 @@ Method | Description
 [create](create.md) | Creates client's CDN resource.
 [delete](delete.md) | Deletes client's CDN resource.
 [get](get.md) | Get client's CDN resource by resource id.
-[getProviderCName](getProviderCName.md) | Get Provider's CNAME (edge endpoint) binded to specified folder id. Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
+[getProviderCName](getProviderCName.md) | Get Provider's CNAME (edge endpoint) bind to specified folder id. Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
 [list](list.md) | Lists CDN resources.
 [update](update.md) | Updates of client's CDN resource. (PATCH behavior)

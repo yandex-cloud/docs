@@ -19,12 +19,22 @@ items:
         href: api-ref/Auth/updateProvider.md
       - name: updateProviders
         href: api-ref/Auth/updateProviders.md
+  - name: Backup
+    items:
+      - name: Overview
+        href: api-ref/Backup/index.md
+      - name: get
+        href: api-ref/Backup/get.md
+      - name: list
+        href: api-ref/Backup/list.md
   - name: Cluster
     items:
       - name: Overview
         href: api-ref/Cluster/index.md
       - name: addHosts
         href: api-ref/Cluster/addHosts.md
+      - name: backup
+        href: api-ref/Cluster/backup.md
       - name: create
         href: api-ref/Cluster/create.md
       - name: delete
@@ -35,6 +45,8 @@ items:
         href: api-ref/Cluster/get.md
       - name: list
         href: api-ref/Cluster/list.md
+      - name: listBackups
+        href: api-ref/Cluster/listBackups.md
       - name: listHosts
         href: api-ref/Cluster/listHosts.md
       - name: listLogs
@@ -43,6 +55,10 @@ items:
         href: api-ref/Cluster/listOperations.md
       - name: move
         href: api-ref/Cluster/move.md
+      - name: rescheduleMaintenance
+        href: api-ref/Cluster/rescheduleMaintenance.md
+      - name: restore
+        href: api-ref/Cluster/restore.md
       - name: start
         href: api-ref/Cluster/start.md
       - name: stop

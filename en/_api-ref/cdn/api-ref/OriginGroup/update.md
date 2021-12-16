@@ -9,7 +9,7 @@ Updates origin group.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://cdn.api.cloud.yandex.net/cdn/v1/origin_groups
+PATCH https://cdn.api.cloud.yandex.net/cdn/v1/originGroups
 ```
  
 ## Body parameters {#body_params}

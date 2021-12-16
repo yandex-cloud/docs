@@ -65,7 +65,22 @@ A set of methods for managing Elasticsearch clusters.
     "string"
   ],
   "serviceAccountId": "string",
-  "deletionProtection": true
+  "deletionProtection": true,
+  "maintenanceWindow": {
+
+    // `maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "anytime": {},
+    "weeklyMaintenanceWindow": {
+      "day": "string",
+      "hour": "string"
+    },
+    // end of the list of possible fields`maintenanceWindow`
+
+  },
+  "plannedOperation": {
+    "info": "string",
+    "delayedUntil": "string"
+  }
 }
 ```
  
@@ -113,20 +128,32 @@ status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKN
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> 
+maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
+maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br>
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
+plannedOperation | **object**<br><p>Maintenance operation planned at nearest maintenance_window.</p> 
+plannedOperation.<br>info | **string**<br><p>The maximum string length in characters is 256.</p> 
+plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 
 ## Methods {#methods}
 Method | Description
 --- | ---
 [addHosts](addHosts.md) | Adds new hosts to the specified Elasticsearch cluster.
+[backup](backup.md) | Create a backup for the specified ElasticSearch cluster.
 [create](create.md) | Creates a new Elasticsearch cluster in the specified folder.
 [delete](delete.md) | Deletes the specified Elasticsearch cluster.
 [deleteHosts](deleteHosts.md) | Deletes specified hosts from the specified Elasticsearch cluster.
 [get](get.md) | Returns the specified Elasticsearch cluster.
 [list](list.md) | Retrieves the list of Elasticsearch clusters that belong to the specified folder.
+[listBackups](listBackups.md) | Returns the list of available backups for the specified Elasticsearch cluster.
 [listHosts](listHosts.md) | Retrieves a list of hosts for the specified Elasticsearch cluster.
 [listLogs](listLogs.md) | Retrieves logs for the specified Elasticsearch cluster.
 [listOperations](listOperations.md) | Retrieves the list of operations for the specified Elasticsearch cluster.
 [move](move.md) | Moves the specified Elasticsearch cluster to the specified folder.
+[rescheduleMaintenance](rescheduleMaintenance.md) | Reschedule planned maintenance operation.
+[restore](restore.md) | Creates a new ElasticSearch cluster from the specified backup.
 [start](start.md) | Starts the specified Elasticsearch cluster.
 [stop](stop.md) | Stops the specified Elasticsearch cluster.
 [streamLogs](streamLogs.md) | Same as [listLogs](/docs/managed-elasticsearch/api-ref/Cluster/listLogs) but using server-side streaming. Also supports `tail -f` semantics.

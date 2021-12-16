@@ -1555,6 +1555,7 @@ components:
         It will be updated, recreated or deleted shortly.
          - STOPPED: Instance was stopped.
          - DELETED: Instance was deleted.
+         - PREPARING_RESOURCES: Instance Groups is preparing dependent resources.
       type: string
       enum:
       - CREATING_INSTANCE
@@ -1571,6 +1572,7 @@ components:
       - RUNNING_OUTDATED
       - STOPPED
       - DELETED
+      - PREPARING_RESOURCES
     ManagedInstancesState:
       type: object
       properties:
@@ -3141,6 +3143,7 @@ components:
         It will be updated, recreated or deleted shortly.
          - STOPPED: Instance was stopped.
          - DELETED: Instance was deleted.
+         - PREPARING_RESOURCES: Instance Groups is preparing dependent resources.
       type: string
       enum:
       - CREATING_INSTANCE
@@ -3157,6 +3160,7 @@ components:
       - RUNNING_OUTDATED
       - STOPPED
       - DELETED
+      - PREPARING_RESOURCES
     PrimaryAddress_in_NetworkInterface_primaryV4Address:
       description: Primary IPv4 address that is assigned to the instance for this
         network interface.

@@ -8,6 +8,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 Resource | Description
 --- | ---
 [Auth](Auth/index.md) | A set of methods for managing Elasticsearch Authentication resources.
+[Backup](Backup/index.md) | 
 [Cluster](Cluster/index.md) | A set of methods for managing Elasticsearch clusters.
 [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing Elasticsearch resource presets.
 [User](User/index.md) | A set of methods for managing Elasticsearch users.

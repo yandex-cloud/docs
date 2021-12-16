@@ -1918,6 +1918,9 @@ components:
           grpc:
             $ref: '#/components/schemas/GrpcBackendGroup'
             description: List of gRPC backends that the backend group consists of.
+          stream:
+            $ref: '#/components/schemas/StreamBackendGroup'
+            description: List of Stream backends that the backend group consists of.
     CreateHttpRouterMetadata:
       type: object
       properties:
@@ -4000,6 +4003,10 @@ components:
           grpc:
             $ref: '#/components/schemas/GrpcBackendGroup'
             description: New list of gRPC backends that the backend group will consist
+              of.
+          stream:
+            $ref: '#/components/schemas/StreamBackendGroup'
+            description: New list of Stream backends that the backend group will consist
               of.
     UpdateBackendMetadata:
       type: object

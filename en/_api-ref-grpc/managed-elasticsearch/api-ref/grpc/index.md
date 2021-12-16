@@ -6,6 +6,7 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 Service | Description
 --- | ---
 [AuthService](./auth_service.md) | A set of methods for managing Elasticsearch Authentication resources.
+[BackupService](./backup_service.md) | 
 [ClusterService](./cluster_service.md) | A set of methods for managing Elasticsearch clusters.
 [ResourcePresetService](./resource_preset_service.md) | A set of methods for managing Elasticsearch resource presets.
 [UserService](./user_service.md) | A set of methods for managing Elasticsearch users.

@@ -9,5 +9,6 @@ Service | Description
 [OriginGroupService](./origin_group_service.md) | Origin Groups management service.
 [OriginService](./origin_service.md) | Origin management service. Origin is not a standalone entity. It can live only within origin group.
 [ProviderService](./provider_service.md) | A set of methods for managing Provider Service resources.
+[RawLogsService](./raw_logs_service.md) | 
 [ResourceService](./resource_service.md) | Provider's resources management service.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

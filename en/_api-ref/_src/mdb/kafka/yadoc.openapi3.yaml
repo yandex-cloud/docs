@@ -2802,7 +2802,10 @@ components:
             All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
-          description: Volume of the storage available to a host, in bytes.
+          description: Volume of the storage available to a host, in bytes. Must be
+            greater than 2 * partition segment size in bytes * partitions count, so
+            each partition can have one active segment file and one closed segment
+            file that can be deleted.
           type: string
           format: int64
         diskTypeId:
@@ -3565,7 +3568,10 @@ components:
             All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
-          description: Volume of the storage available to a host, in bytes.
+          description: Volume of the storage available to a host, in bytes. Must be
+            greater than 2 * partition segment size in bytes * partitions count, so
+            each partition can have one active segment file and one closed segment
+            file that can be deleted.
           type: string
           format: int64
         diskTypeId:
@@ -3886,7 +3892,10 @@ components:
             All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
           type: string
         diskSize:
-          description: Volume of the storage available to a host, in bytes.
+          description: Volume of the storage available to a host, in bytes. Must be
+            greater than 2 * partition segment size in bytes * partitions count, so
+            each partition can have one active segment file and one closed segment
+            file that can be deleted.
           type: string
           format: int64
         diskTypeId:

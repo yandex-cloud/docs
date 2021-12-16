@@ -9,6 +9,8 @@ items:
     href: api-ref/grpc/origin_service.md
   - name: ProviderService
     href: api-ref/grpc/provider_service.md
+  - name: RawLogsService
+    href: api-ref/grpc/raw_logs_service.md
   - name: ResourceService
     href: api-ref/grpc/resource_service.md
   - name: OperationService

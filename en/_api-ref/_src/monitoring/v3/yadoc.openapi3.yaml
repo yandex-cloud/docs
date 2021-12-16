@@ -1598,6 +1598,10 @@ components:
          - UNIT_MILE: Mile.
          - UNIT_PPM: Parts per million (ppm).
          - UNIT_EVENTS_PER_SECOND: Events per second
+         - UNIT_PACKETS: Packets
+         - UNIT_DBM: dBm (dbm)
+         - UNIT_VIRTUAL_CPU: Virtual CPU cores based on CPU time (vcpu)
+         - UNIT_MESSAGES_PER_SECOND: Messages per second (mps)
       type: string
       enum:
       - UNIT_NONE
@@ -1686,6 +1690,10 @@ components:
       - UNIT_MILE
       - UNIT_PPM
       - UNIT_EVENTS_PER_SECOND
+      - UNIT_PACKETS
+      - UNIT_DBM
+      - UNIT_VIRTUAL_CPU
+      - UNIT_MESSAGES_PER_SECOND
     ChartWidgetVisualizationSettingsVisualizationType:
       description: |-
         Chart visualization type.
@@ -3518,6 +3526,10 @@ components:
          - UNIT_MILE: Mile.
          - UNIT_PPM: Parts per million (ppm).
          - UNIT_EVENTS_PER_SECOND: Events per second
+         - UNIT_PACKETS: Packets
+         - UNIT_DBM: dBm (dbm)
+         - UNIT_VIRTUAL_CPU: Virtual CPU cores based on CPU time (vcpu)
+         - UNIT_MESSAGES_PER_SECOND: Messages per second (mps)
       type: string
       enum:
       - UNIT_NONE
@@ -3606,6 +3618,10 @@ components:
       - UNIT_MILE
       - UNIT_PPM
       - UNIT_EVENTS_PER_SECOND
+      - UNIT_PACKETS
+      - UNIT_DBM
+      - UNIT_VIRTUAL_CPU
+      - UNIT_MESSAGES_PER_SECOND
     ChartWidgetVisualizationSettingsYaxis_in_ChartWidgetVisualizationSettingsYaxisSettings_left:
       description: |-
         Left Y axis settings.

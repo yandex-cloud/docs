@@ -3,6 +3,8 @@ items:
     href: api-ref/grpc/index.md
   - name: AuthService
     href: api-ref/grpc/auth_service.md
+  - name: BackupService
+    href: api-ref/grpc/backup_service.md
   - name: ClusterService
     href: api-ref/grpc/cluster_service.md
   - name: ResourcePresetService

@@ -256,6 +256,75 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteAuthProvidersMetadata'
       x-y-operation-response: Empty
+  /managed-elasticsearch/v1/backups/{backupId}:
+    get:
+      tags:
+      - Backup
+      summary: Returns the specified backup of Elasticsearch cluster.
+      operationId: BackupGet
+      parameters:
+      - name: backupId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the backup to return.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Backup'
+      x-y-navtitle: get
+  /managed-elasticsearch/v1/backups:
+    get:
+      tags:
+      - Backup
+      summary: Returns the list of available backups for the specified Elasticsearch
+        cluster.
+      operationId: BackupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Required. ID of the folder to list backups in.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListBackups requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups
+          request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBackupsResponse'
+      x-y-navtitle: list
   /managed-elasticsearch/v1/clusters/{clusterId}:
     get:
       tags:
@@ -527,6 +596,104 @@ paths:
       x-y-navtitle: stop
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-elasticsearch/api-ref/Cluster#representation)'
+  /managed-elasticsearch/v1/clusters/{clusterId}:backup:
+    post:
+      tags:
+      - Cluster
+      summary: Create a backup for the specified ElasticSearch cluster.
+      operationId: ClusterBackup
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the ElasticSearch cluster to back up.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: backup
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/BackupClusterMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-elasticsearch/api-ref/Cluster#representation)'
+  /managed-elasticsearch/v1/clusters/{clusterId}/backups:
+    get:
+      tags:
+      - Cluster
+      summary: Returns the list of available backups for the specified Elasticsearch
+        cluster.
+      operationId: ClusterListBackups
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the Elasticsearch cluster.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than `page_size`, the service returns a `next_page_token` that can be used
+          to get the next page of results in subsequent ListClusterBackups requests.
+          Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set `page_token` to the `next_page_token` returned by a previous ListClusterBackups
+          request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterBackupsResponse'
+      x-y-navtitle: listBackups
+  /managed-elasticsearch/v1/clusters:restore:
+    post:
+      tags:
+      - Cluster
+      summary: Creates a new ElasticSearch cluster from the specified backup.
+      operationId: ClusterRestore
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestoreClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: restore
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RestoreClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-elasticsearch/api-ref/Cluster#representation)'
   /managed-elasticsearch/v1/clusters/{clusterId}:logs:
     get:
@@ -892,6 +1059,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteClusterHostsMetadata'
       x-y-operation-response: Empty
+  /managed-elasticsearch/v1/clusters/{clusterId}:rescheduleMaintenance:
+    post:
+      tags:
+      - Cluster
+      summary: Reschedule planned maintenance operation.
+      operationId: ClusterRescheduleMaintenance
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the Elasticsearch cluster to maintenance reschedule.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RescheduleMaintenanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: rescheduleMaintenance
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RescheduleMaintenanceMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-elasticsearch/api-ref/Cluster#representation)'
   /managed-elasticsearch/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
@@ -1217,6 +1418,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HostSpec'
+    AnytimeMaintenanceWindow:
+      type: object
+      properties: {}
     AuthProvider:
       type: object
       allOf:
@@ -1266,6 +1470,57 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AuthProvider'
+    Backup:
+      type: object
+      properties:
+        id:
+          description: Required. ID of the backup.
+          type: string
+        folderId:
+          description: ID of the folder that the backup belongs to.
+          type: string
+        sourceClusterId:
+          description: ID of the associated Elasticsearch cluster.
+          type: string
+        startedAt:
+          description: |-
+            The time when the backup operation was started.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        createdAt:
+          description: |-
+            The time when the backup was created (i.e. when the backup operation completed).
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        indices:
+          description: |-
+            Indices names. (max 100)
+
+            The maximum number of elements is 100.
+          type: array
+          items:
+            type: string
+        elasticsearchVersion:
+          description: Elasticsearch version used to create the snapshot
+          type: string
+        sizeBytes:
+          description: Total size of all indices in backup. in bytes
+          type: string
+          format: int64
+        indicesTotal:
+          description: Total count of indices in backup
+          type: string
+          format: int64
+    BackupClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the ElasticSearch cluster.
+          type: string
     Cluster:
       description: |-
         An Elasticsearch cluster resource.
@@ -1333,6 +1588,10 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
+        plannedOperation:
+          $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
     ClusterConfig:
       type: object
       properties:
@@ -1499,6 +1758,8 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow'
     CreateUserMetadata:
       type: object
       properties:
@@ -1780,6 +2041,38 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AuthProvider'
+    ListBackupsResponse:
+      type: object
+      properties:
+        backups:
+          description: Requested list of backups.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for ListBackups requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListBackups request. Subsequent ListBackups
+            requests will have their own `next_page_token` to continue paging through the results.
+          type: string
+    ListClusterBackupsResponse:
+      type: object
+      properties:
+        backups:
+          description: Requested list of backups.
+          type: array
+          items:
+            $ref: '#/components/schemas/Backup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for ListClusterBackups requests,
+            if the number of results is larger than `page_size` specified in the request.
+            To get the next page, specify the value of `next_page_token` as a value for
+            the `page_token` parameter in the next ListClusterBackups request. Subsequent ListClusterBackups
+            requests will have their own `next_page_token` to continue paging through the results.
+          type: string
     ListClusterHostsResponse:
       type: object
       properties:
@@ -1896,6 +2189,28 @@ components:
           type: object
           additionalProperties:
             type: string
+    MaintenanceOperation:
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    MaintenanceWindow:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     Monitoring:
       description: Metadata of monitoring system.
       type: object
@@ -1989,6 +2304,37 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    RescheduleMaintenanceMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the Elasticsearch cluster.
+          type: string
+        delayedUntil:
+          description: |-
+            Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE".
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequest:
+      type: object
+      properties:
+        rescheduleType:
+          $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
+        delayedUntil:
+          description: |-
+            The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequestRescheduleType:
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ResourcePreset:
       description: A ResourcePreset resource for describing hardware configuration
         presets.
@@ -2029,6 +2375,90 @@ components:
           description: |-
             Type of the storage environment for the host.
             All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage).
+          type: string
+    RestoreClusterMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: Required. ID of the new ElasticSearch cluster.
+          type: string
+        backupId:
+          description: Required. ID of the backup used for recovery.
+          type: string
+    RestoreClusterRequest:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            Required.
+            Required. ID of the backup to restore from.
+          type: string
+        name:
+          description: |-
+            Required.
+            Name of the ElasticSearch cluster. The name must be unique within the folder.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+        description:
+          description: |-
+            Description of the ElasticSearch cluster.
+
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource.
+            For example, "project": "mvp" or "source": "dictionary".
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        environment:
+          $ref: '#/components/schemas/ClusterEnvironment_in_RestoreClusterRequest_environment'
+        configSpec:
+          $ref: '#/components/schemas/ConfigSpec_in_RestoreClusterRequest_configSpec'
+        hostSpecs:
+          description: |-
+            Required.
+            Required. Configuration of ElasticSearch hosts.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/HostSpec'
+        networkId:
+          description: |-
+            Required.
+            ID of the network to create the cluster in.
+
+            The maximum string length in characters is 50.
+          type: string
+        securityGroupIds:
+          description: User security groups
+          type: array
+          items:
+            type: string
+        serviceAccountId:
+          description: ID of the service account used for access to Yandex Object
+            Storage.
+          type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create the ElasticSearch cluster in.
+
+            The maximum string length in characters is 50.
           type: string
     SamlSettings:
       type: object
@@ -2198,6 +2628,8 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
     UpdateUserMetadata:
       type: object
       properties:
@@ -2246,6 +2678,28 @@ components:
 
             The string length in characters must be 8-128.
           type: string
+    WeeklyMaintenanceWindow:
+      type: object
+      properties:
+        day:
+          $ref: '#/components/schemas/WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day'
+        hour:
+          description: |-
+            Hour of the day in UTC.
+
+            Acceptable values are 1 to 24, inclusive.
+          type: string
+          format: int64
+    WeeklyMaintenanceWindowWeekDay:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -2322,6 +2776,30 @@ components:
       - STOPPED
       - STARTING
       default: STATUS_UNKNOWN
+    MaintenanceWindow_in_Cluster_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    MaintenanceOperation_in_Cluster_plannedOperation:
+      description: Maintenance operation planned at nearest maintenance_window.
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
     Elasticsearch_in_ClusterConfig_elasticsearch:
       description: Configuration and resource allocation for Elasticsearch nodes.
       type: object
@@ -2396,6 +2874,18 @@ components:
             Required.
             ElasticSearch admin password.
           type: string
+    MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     UserSpec_in_CreateUserRequest_userSpec:
       description: |-
         Required.
@@ -2661,6 +3151,44 @@ components:
       enum:
       - DATA_NODE
       - MASTER_NODE
+    RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
+      description: |-
+        Required.
+        Required. The type of reschedule request.
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
+    ClusterEnvironment_in_RestoreClusterRequest_environment:
+      description: |-
+        Deployment environment of the ElasticSearch cluster.
+
+         - PRODUCTION: stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
+         - PRESTABLE: environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.
+      type: string
+      enum:
+      - PRODUCTION
+      - PRESTABLE
+    ConfigSpec_in_RestoreClusterRequest_configSpec:
+      description: |-
+        Required.
+        Configuration and resources for hosts that should be created for the ElasticSearch cluster.
+      type: object
+      properties:
+        version:
+          description: Elasticsearch version.
+          type: string
+        elasticsearchSpec:
+          $ref: '#/components/schemas/ElasticsearchSpec_in_ConfigSpec_elasticsearchSpec'
+        edition:
+          description: ElasticSearch edition.
+          type: string
+        adminPassword:
+          description: |-
+            Required.
+            ElasticSearch admin password.
+          type: string
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -2770,6 +3298,18 @@ components:
         adminPassword:
           description: ElasticSearch admin password.
           type: string
+    MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     FieldMask_in_UpdateUserRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -2781,9 +3321,20 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
 tags:
 - name: Auth
   description: A set of methods for managing Elasticsearch Authentication resources.
+- name: Backup
 - name: Cluster
   description: A set of methods for managing Elasticsearch clusters.
 - name: ResourcePreset

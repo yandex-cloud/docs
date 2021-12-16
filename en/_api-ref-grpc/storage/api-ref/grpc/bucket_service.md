@@ -629,7 +629,7 @@ max_size | **int64**<br>Maximum size of bucket. For more information, see [Size 
 cors[] | **[CorsRule](#CorsRule3)**<br>CORS settings for bucket, hosted as website. For more information, see [CORS](/docs/storage/concepts/cors) 
 website_settings | **[WebsiteSettings](#WebsiteSettings3)**<br>Website settings of bucket. For more information, see [Static site hosting](/docs/storage/concepts/hosting) 
 versioning | enum **Versioning**<br>Bucket's versioning mode. For more information, see [Versioning](/docs/storage/concepts/versioning) <ul><ul/>
-licecycle_rules[] | **[LifecycleRule](#LifecycleRule3)**<br>Objects's lifecycle rules. For more information, see [Lifecycles](/docs/storage/concepts/lifecycles) 
+lifecycle_rules[] | **[LifecycleRule](#LifecycleRule3)**<br>Objects's lifecycle rules. For more information, see [Lifecycles](/docs/storage/concepts/lifecycles) 
 policy | **google.protobuf.Struct**<br>Bucket's policy. For more information, see [Bucket Policy](/docs/storage/concepts/policy) 
 acl | **[ACL](#ACL4)**<br>Bucket's ACL. For more information, see [ACL](#ACL4)(/docs/storage/concepts/acl) 
 

@@ -9,7 +9,7 @@ Gets origin group with specified origin group id.
  
 ## HTTP request {#https-request}
 ```
-GET https://cdn.api.cloud.yandex.net/cdn/v1/origin_groups/{originGroupId}
+GET https://cdn.api.cloud.yandex.net/cdn/v1/originGroups/{originGroupId}
 ```
  
 ## Path parameters {#path_params}

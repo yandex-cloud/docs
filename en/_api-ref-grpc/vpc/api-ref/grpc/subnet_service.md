@@ -285,7 +285,7 @@ Adds CIDR blocks to the specified subnet. Method starts an asynchronous operatio
 **rpc AddCidrBlocks ([AddSubnetCidrBlocksRequest](#AddSubnetCidrBlocksRequest)) returns ([operation.Operation](#Operation2))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddSubnetCidrBlocksMetadata](#AddSubnetCidrBlocksMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSubnetMetadata](#UpdateSubnetMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subnet](#Subnet4)<br>
 
 ### AddSubnetCidrBlocksRequest {#AddSubnetCidrBlocksRequest}
@@ -306,13 +306,13 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddSubnetCidrBlocksMetadata](#AddSubnetCidrBlocksMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSubnetMetadata](#UpdateSubnetMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet4)>**<br>if operation finished successfully. 
 
 
-### AddSubnetCidrBlocksMetadata {#AddSubnetCidrBlocksMetadata}
+### UpdateSubnetMetadata {#UpdateSubnetMetadata1}
 
 Field | Description
 --- | ---
@@ -353,7 +353,7 @@ Removes CIDR blocks from the specified subnet. Method starts an asynchronous ope
 **rpc RemoveCidrBlocks ([RemoveSubnetCidrBlocksRequest](#RemoveSubnetCidrBlocksRequest)) returns ([operation.Operation](#Operation3))**
 
 Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RemoveSubnetCidrBlocksMetadata](#RemoveSubnetCidrBlocksMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateSubnetMetadata](#UpdateSubnetMetadata)<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Subnet](#Subnet5)<br>
 
 ### RemoveSubnetCidrBlocksRequest {#RemoveSubnetCidrBlocksRequest}
@@ -374,13 +374,13 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 created_by | **string**<br>ID of the user or service account who initiated the operation. 
 modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
 done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RemoveSubnetCidrBlocksMetadata](#RemoveSubnetCidrBlocksMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateSubnetMetadata](#UpdateSubnetMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
 result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
 &nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
 &nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Subnet](#Subnet5)>**<br>if operation finished successfully. 
 
 
-### RemoveSubnetCidrBlocksMetadata {#RemoveSubnetCidrBlocksMetadata}
+### UpdateSubnetMetadata {#UpdateSubnetMetadata2}
 
 Field | Description
 --- | ---

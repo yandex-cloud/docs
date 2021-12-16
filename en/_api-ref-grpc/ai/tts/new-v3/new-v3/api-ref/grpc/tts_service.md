@@ -29,6 +29,7 @@ Utterance | **oneof:** `text` or `text_template`<br>Text to synthesis, one of te
 hints[] | **[Hints](#Hints)**<br>Optional hints for synthesis. 
 output_audio_spec | **[AudioFormatOptions](#AudioFormatOptions)**<br>Optional. Default: 22050 Hz, linear 16-bit signed little-endian PCM, with WAV header 
 loudness_normalization_type | enum **LoudnessNormalizationType**<br>Optional. Default: LUFS, type of loudness normalization, default value -19. <ul><ul/>
+unsafe_mode | **bool**<br>Optional. Automatically split long text to several utterances and bill accordingly. Some degradation in service quality is possible. 
 
 
 ### TextTemplate {#TextTemplate}

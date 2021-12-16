@@ -2658,6 +2658,46 @@ components:
             Acceptable values are 1048576 to 268435456, inclusive.
           type: integer
           format: int64
+        slowQueryLog:
+          description: |-
+            Manages slow query log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+          type: boolean
+          format: boolean
+        slowQueryLogAlwaysWriteTime:
+          description: |-
+            Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+          type: number
+          format: double
+        logSlowRateType:
+          $ref: '#/components/schemas/MysqlConfig5_7LogSlowRateType_in_MysqlConfig5_7_logSlowRateType'
+        logSlowRateLimit:
+          description: |-
+            Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+
+            Acceptable values are 1 to 1000, inclusive.
+          type: integer
+          format: int64
+        logSlowSpStatements:
+          description: |-
+            When TRUE, statements executed by stored procedures are logged to the slow log
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+          type: boolean
+          format: boolean
+        logSlowFilter:
+          description: |-
+            Filters the slow log by the query's execution plan
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig5_7LogSlowFilterType'
     MysqlConfig5_7AuthPlugin:
       description: |2-
          - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
@@ -2673,6 +2713,20 @@ components:
       - FULL
       - MINIMAL
       - NOBLOB
+    MysqlConfig5_7LogSlowFilterType:
+      type: string
+      enum:
+      - FULL_SCAN
+      - FULL_JOIN
+      - TMP_TABLE
+      - TMP_TABLE_ON_DISK
+      - FILESORT
+      - FILESORT_ON_DISK
+    MysqlConfig5_7LogSlowRateType:
+      type: string
+      enum:
+      - SESSION
+      - QUERY
     MysqlConfig5_7SQLMode:
       type: string
       enum:
@@ -3168,6 +3222,46 @@ components:
             Acceptable values are 1048576 to 268435456, inclusive.
           type: integer
           format: int64
+        slowQueryLog:
+          description: |-
+            Manages slow query log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+          type: boolean
+          format: boolean
+        slowQueryLogAlwaysWriteTime:
+          description: |-
+            Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+          type: number
+          format: double
+        logSlowRateType:
+          $ref: '#/components/schemas/MysqlConfig8_0LogSlowRateType_in_MysqlConfig8_0_logSlowRateType'
+        logSlowRateLimit:
+          description: |-
+            Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+
+            Acceptable values are 1 to 1000, inclusive.
+          type: integer
+          format: int64
+        logSlowSpStatements:
+          description: |-
+            When TRUE, statements executed by stored procedures are logged to the slow log
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+          type: boolean
+          format: boolean
+        logSlowFilter:
+          description: |-
+            Filters the slow log by the query's execution plan
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig8_0LogSlowFilterType'
     MysqlConfig8_0AuthPlugin:
       description: |2-
          - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
@@ -3184,6 +3278,20 @@ components:
       - FULL
       - MINIMAL
       - NOBLOB
+    MysqlConfig8_0LogSlowFilterType:
+      type: string
+      enum:
+      - FULL_SCAN
+      - FULL_JOIN
+      - TMP_TABLE
+      - TMP_TABLE_ON_DISK
+      - FILESORT
+      - FILESORT_ON_DISK
+    MysqlConfig8_0LogSlowRateType:
+      type: string
+      enum:
+      - SESSION
+      - QUERY
     MysqlConfig8_0SQLMode:
       type: string
       enum:
@@ -4183,6 +4291,15 @@ components:
       enum:
       - DATABASE
       - LOGICAL_CLOCK
+    MysqlConfig5_7LogSlowRateType_in_MysqlConfig5_7_logSlowRateType:
+      description: |-
+        Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION
+
+        For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type).
+      type: string
+      enum:
+      - SESSION
+      - QUERY
     MysqlConfig8_0AuthPlugin_in_MysqlConfig8_0_defaultAuthenticationPlugin:
       description: |-
         Authentication plugin used in the managed MySQL cluster.
@@ -4226,6 +4343,15 @@ components:
       enum:
       - DATABASE
       - LOGICAL_CLOCK
+    MysqlConfig8_0LogSlowRateType_in_MysqlConfig8_0_logSlowRateType:
+      description: |-
+        Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION
+
+        For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type).
+      type: string
+      enum:
+      - SESSION
+      - QUERY
     MysqlConfig5_7_in_MysqlConfigSet5_7_effectiveConfig:
       description: |-
         Effective settings for a MySQL 5.7 cluster (a combination of settings defined
@@ -4670,6 +4796,46 @@ components:
             Acceptable values are 1048576 to 268435456, inclusive.
           type: integer
           format: int64
+        slowQueryLog:
+          description: |-
+            Manages slow query log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+          type: boolean
+          format: boolean
+        slowQueryLogAlwaysWriteTime:
+          description: |-
+            Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+          type: number
+          format: double
+        logSlowRateType:
+          $ref: '#/components/schemas/MysqlConfig5_7LogSlowRateType_in_MysqlConfig5_7_logSlowRateType'
+        logSlowRateLimit:
+          description: |-
+            Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+
+            Acceptable values are 1 to 1000, inclusive.
+          type: integer
+          format: int64
+        logSlowSpStatements:
+          description: |-
+            When TRUE, statements executed by stored procedures are logged to the slow log
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+          type: boolean
+          format: boolean
+        logSlowFilter:
+          description: |-
+            Filters the slow log by the query's execution plan
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig5_7LogSlowFilterType'
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         User-defined settings for a MySQL 5.7 cluster.
@@ -5113,6 +5279,46 @@ components:
             Acceptable values are 1048576 to 268435456, inclusive.
           type: integer
           format: int64
+        slowQueryLog:
+          description: |-
+            Manages slow query log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+          type: boolean
+          format: boolean
+        slowQueryLogAlwaysWriteTime:
+          description: |-
+            Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+          type: number
+          format: double
+        logSlowRateType:
+          $ref: '#/components/schemas/MysqlConfig5_7LogSlowRateType_in_MysqlConfig5_7_logSlowRateType'
+        logSlowRateLimit:
+          description: |-
+            Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+
+            Acceptable values are 1 to 1000, inclusive.
+          type: integer
+          format: int64
+        logSlowSpStatements:
+          description: |-
+            When TRUE, statements executed by stored procedures are logged to the slow log
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+          type: boolean
+          format: boolean
+        logSlowFilter:
+          description: |-
+            Filters the slow log by the query's execution plan
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig5_7LogSlowFilterType'
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Default configuration for a MySQL 5.7 cluster.
@@ -5556,6 +5762,46 @@ components:
             Acceptable values are 1048576 to 268435456, inclusive.
           type: integer
           format: int64
+        slowQueryLog:
+          description: |-
+            Manages slow query log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+          type: boolean
+          format: boolean
+        slowQueryLogAlwaysWriteTime:
+          description: |-
+            Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+          type: number
+          format: double
+        logSlowRateType:
+          $ref: '#/components/schemas/MysqlConfig5_7LogSlowRateType_in_MysqlConfig5_7_logSlowRateType'
+        logSlowRateLimit:
+          description: |-
+            Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+
+            Acceptable values are 1 to 1000, inclusive.
+          type: integer
+          format: int64
+        logSlowSpStatements:
+          description: |-
+            When TRUE, statements executed by stored procedures are logged to the slow log
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+          type: boolean
+          format: boolean
+        logSlowFilter:
+          description: |-
+            Filters the slow log by the query's execution plan
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig5_7LogSlowFilterType'
     MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
       description: |-
         Effective settings for a MySQL 8.0 cluster (a combination of settings defined
@@ -6009,6 +6255,46 @@ components:
             Acceptable values are 1048576 to 268435456, inclusive.
           type: integer
           format: int64
+        slowQueryLog:
+          description: |-
+            Manages slow query log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+          type: boolean
+          format: boolean
+        slowQueryLogAlwaysWriteTime:
+          description: |-
+            Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+          type: number
+          format: double
+        logSlowRateType:
+          $ref: '#/components/schemas/MysqlConfig8_0LogSlowRateType_in_MysqlConfig8_0_logSlowRateType'
+        logSlowRateLimit:
+          description: |-
+            Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+
+            Acceptable values are 1 to 1000, inclusive.
+          type: integer
+          format: int64
+        logSlowSpStatements:
+          description: |-
+            When TRUE, statements executed by stored procedures are logged to the slow log
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+          type: boolean
+          format: boolean
+        logSlowFilter:
+          description: |-
+            Filters the slow log by the query's execution plan
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig8_0LogSlowFilterType'
     MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig:
       description: |-
         User-defined settings for a MySQL 8.0 cluster.
@@ -6461,6 +6747,46 @@ components:
             Acceptable values are 1048576 to 268435456, inclusive.
           type: integer
           format: int64
+        slowQueryLog:
+          description: |-
+            Manages slow query log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+          type: boolean
+          format: boolean
+        slowQueryLogAlwaysWriteTime:
+          description: |-
+            Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+          type: number
+          format: double
+        logSlowRateType:
+          $ref: '#/components/schemas/MysqlConfig8_0LogSlowRateType_in_MysqlConfig8_0_logSlowRateType'
+        logSlowRateLimit:
+          description: |-
+            Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+
+            Acceptable values are 1 to 1000, inclusive.
+          type: integer
+          format: int64
+        logSlowSpStatements:
+          description: |-
+            When TRUE, statements executed by stored procedures are logged to the slow log
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+          type: boolean
+          format: boolean
+        logSlowFilter:
+          description: |-
+            Filters the slow log by the query's execution plan
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig8_0LogSlowFilterType'
     MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig:
       description: |-
         Default configuration for a MySQL 8.0 cluster.
@@ -6913,6 +7239,46 @@ components:
             Acceptable values are 1048576 to 268435456, inclusive.
           type: integer
           format: int64
+        slowQueryLog:
+          description: |-
+            Manages slow query log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+          type: boolean
+          format: boolean
+        slowQueryLogAlwaysWriteTime:
+          description: |-
+            Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time).
+          type: number
+          format: double
+        logSlowRateType:
+          $ref: '#/components/schemas/MysqlConfig8_0LogSlowRateType_in_MysqlConfig8_0_logSlowRateType'
+        logSlowRateLimit:
+          description: |-
+            Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit).
+
+            Acceptable values are 1 to 1000, inclusive.
+          type: integer
+          format: int64
+        logSlowSpStatements:
+          description: |-
+            When TRUE, statements executed by stored procedures are logged to the slow log
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements).
+          type: boolean
+          format: boolean
+        logSlowFilter:
+          description: |-
+            Filters the slow log by the query's execution plan
+
+            For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter).
+          type: array
+          items:
+            $ref: '#/components/schemas/MysqlConfig8_0LogSlowFilterType'
     RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
       description: |-
         Required.

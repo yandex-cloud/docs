@@ -610,7 +610,7 @@ components:
           $ref: '#/components/schemas/WebsiteSettings_in_UpdateBucketRequest_websiteSettings'
         versioning:
           $ref: '#/components/schemas/Versioning_in_UpdateBucketRequest_versioning'
-        licecycleRules:
+        lifecycleRules:
           description: |-
             Objects's lifecycle rules.
             For more information, see [Lifecycles](/docs/storage/concepts/lifecycles)

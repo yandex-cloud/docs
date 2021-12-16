@@ -1456,7 +1456,7 @@ assign_public_ip | **bool**<br>The flag that defines whether a public IP address
 Field | Description
 --- | ---
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory, etc.). All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). 
-disk_size | **int64**<br>Volume of the storage available to a host, in bytes. 
+disk_size | **int64**<br><ul><li> * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.</li></ul> 
 disk_type_id | **string**<br>Type of the storage environment for the host. 
 
 

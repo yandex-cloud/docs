@@ -1382,7 +1382,7 @@ paths:
                 $ref: '#/components/schemas/Operation'
       x-y-navtitle: addCidrBlocks
       x-y-operation-metadata:
-        $ref: '#/components/schemas/AddSubnetCidrBlocksMetadata'
+        $ref: '#/components/schemas/UpdateSubnetMetadata'
       x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
   /vpc/v1/subnets/{subnetId}:remove-cidr-blocks:
     post:
@@ -1418,7 +1418,7 @@ paths:
                 $ref: '#/components/schemas/Operation'
       x-y-navtitle: removeCidrBlocks
       x-y-operation-metadata:
-        $ref: '#/components/schemas/RemoveSubnetCidrBlocksMetadata'
+        $ref: '#/components/schemas/UpdateSubnetMetadata'
       x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
   /vpc/v1/subnets/{subnetId}/operations:
     get:
@@ -1501,12 +1501,6 @@ paths:
       x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
 components:
   schemas:
-    AddSubnetCidrBlocksMetadata:
-      type: object
-      properties:
-        subnetId:
-          description: ID of the Subnet resource that is being updated.
-          type: string
     AddSubnetCidrBlocksRequest:
       type: object
       properties:
@@ -2342,12 +2336,6 @@ components:
             * `type = managed-mysql.cluster, id = <cluster id>`
           type: string
         id:
-          type: string
-    RemoveSubnetCidrBlocksMetadata:
-      type: object
-      properties:
-        subnetId:
-          description: ID of the Subnet resource that is being updated.
           type: string
     RemoveSubnetCidrBlocksRequest:
       type: object

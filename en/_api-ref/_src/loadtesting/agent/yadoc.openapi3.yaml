@@ -6,6 +6,31 @@ info:
 paths: {}
 components:
   schemas:
+    AmmoType:
+      description: |-
+        Ammo type for generators: phantom.ammo_type,
+        ammo.type in pandora.config_content.pool
+      type: string
+      enum:
+      - HTTP_JSON
+      - RAW
+      - URI
+      - URIPOST
+      - PHANTOM
+      - ACCESS
+    ClaimAgentStatusRequestStatus:
+      type: string
+      enum:
+      - READY_FOR_TEST
+      - PREPARING_TEST
+      - TESTING
+      - TANK_FAILED
+    ClaimAgentStatusResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          format: int64
     ClaimJobStatusRequestJobStatus:
       type: string
       enum:
@@ -37,6 +62,11 @@ components:
         code:
           type: string
           format: int64
+    CreateTestMetadata:
+      type: object
+      properties:
+        testId:
+          type: string
     CreateTrailResponse:
       type: object
       properties:
@@ -71,12 +101,236 @@ components:
       type: string
       enum:
       - STOP
+    ListOperationsResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          type: string
+    LoadSchedule:
+      description: |-
+        Load schedule string:
+        {duration: 180s, type: line, from: 1, to: 10000} for pandora,
+        step(25, 5, 5, 60) for phantom.
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ScheduleType_in_LoadSchedule_type'
+        instances:
+          type: string
+          format: int64
+        duration:
+          type: string
+        rpsFrom:
+          type: string
+          format: int64
+        rpsTo:
+          type: string
+          format: int64
+        step:
+          type: string
+          format: int64
+        ops:
+          type: string
+          format: int64
+        stpdPath:
+          type: string
+    LoadType:
+      description: 'Load type: phantom.load_profile.load_type,'
+      type: string
+      enum:
+      - RPS
+      - INSTANCES
+      - STPD_FILE
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    RegisterResponse:
+      type: object
+      properties:
+        agentInstanceId:
+          type: string
     SayHelloResponse:
       type: object
       properties:
         code:
           type: string
           format: int64
+    Schedule:
+      description: 'Load profile in general: phantom.load_profile, pool schedule for
+        pandora'
+      type: object
+      properties:
+        loadType:
+          $ref: '#/components/schemas/LoadType_in_Schedule_loadType'
+        loadSchedule:
+          type: array
+          items:
+            $ref: '#/components/schemas/LoadSchedule'
+        loadProfile:
+          type: array
+          items:
+            type: string
+    ScheduleType:
+      description: |-
+        Schedule type: phantom.load_profile.schedule,
+        rps.schedule.type in pandora.config_content.pool
+      type: string
+      enum:
+      - ONCE
+      - CONST
+      - LINE
+      - STEP
+    Test:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: string
+          folderId:
+            type: string
+          name:
+            type: string
+          description:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+          createdAt:
+            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.
+            type: string
+            format: date-time
+          startedAt:
+            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.
+            type: string
+            format: date-time
+          finishedAt:
+            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.
+            type: string
+            format: date-time
+          updatedAt:
+            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.
+            type: string
+            format: date-time
+          generator:
+            $ref: '#/components/schemas/TestGenerator'
+          agentInstanceId:
+            description: AgentInstance ID where Test is running.
+            type: string
+          targetAddress:
+            description: Target VM.
+            type: string
+          targetPort:
+            type: string
+            format: int64
+          targetVersion:
+            description: Version of object under test.
+            type: string
+          config:
+            description: Test details
+            type: string
+          cases:
+            type: array
+            items:
+              type: string
+          status:
+            $ref: '#/components/schemas/TestStatus'
+          errors:
+            type: array
+            items:
+              type: string
+          favorite:
+            type: boolean
+            format: boolean
+      - title: ammo
+        type: object
+        maxProperties: 1
+        properties:
+          ammoUrls:
+            type: string
+          ammoId:
+            type: string
+    TestGenerator:
+      type: string
+      enum:
+      - PANDORA
+      - PHANTOM
+    TestStatus:
+      type: string
+      enum:
+      - CREATED
+      - INITIATED
+      - PREPARING
+      - RUNNING
+      - FINISHING
+      - DONE
+      - POST_PROCESSING
+      - FAILED
+      - STOPPING
+      - STOPPED
     Trail:
       type: object
       properties:
@@ -174,6 +428,22 @@ components:
         count:
           type: string
           format: int64
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
     File_in_Job_ammo:
       type: object
       properties:
@@ -186,8 +456,29 @@ components:
       type: string
       enum:
       - STOP
+    ScheduleType_in_LoadSchedule_type:
+      description: |-
+        Schedule type: phantom.load_profile.schedule,
+        rps.schedule.type in pandora.config_content.pool
+      type: string
+      enum:
+      - ONCE
+      - CONST
+      - LINE
+      - STEP
+    LoadType_in_Schedule_loadType:
+      description: 'Load type: phantom.load_profile.load_type,'
+      type: string
+      enum:
+      - RPS
+      - INSTANCES
+      - STPD_FILE
 tags:
+- name: AgentInstance
 - name: Greeter
 - name: Job
+- name: Operation
+- name: Registration
 - name: Tank
+- name: Test
 - name: Trail

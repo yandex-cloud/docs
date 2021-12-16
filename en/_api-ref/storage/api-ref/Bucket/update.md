@@ -72,7 +72,7 @@ name | Required. Unique name of the bucket. To get the bucket name, use [list](/
     ]
   },
   "versioning": "string",
-  "licecycleRules": [
+  "lifecycleRules": [
     {
       "id": "string",
       "enabled": true,
@@ -159,26 +159,26 @@ websiteSettings.<br>routingRules[].<br>redirect.<br>protocol | **string**<br>
 websiteSettings.<br>routingRules[].<br>redirect.<br>replaceKeyPrefixWith | **string**<br>
 websiteSettings.<br>routingRules[].<br>redirect.<br>replaceKeyWith | **string**<br>
 versioning | **string**<br><p>Bucket's versioning mode. For more information, see <a href="/docs/storage/concepts/versioning">Versioning</a></p> 
-licecycleRules[] | **object**<br><p>Objects's lifecycle rules. For more information, see <a href="/docs/storage/concepts/lifecycles">Lifecycles</a></p> 
-licecycleRules[].<br>id | **string**<br>
-licecycleRules[].<br>enabled | **boolean** (boolean)<br>
-licecycleRules[].<br>filter | **object**<br>
-licecycleRules[].<br>filter.<br>prefix | **string**<br>
-licecycleRules[].<br>expiration | **object**<br>
-licecycleRules[].<br>expiration.<br>date | **string** (date-time)<br><p>If date is set, days parameter not allowed</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-licecycleRules[].<br>expiration.<br>days | **integer** (int64)<br><p>If days are set, date parameter not allowed</p> 
-licecycleRules[].<br>expiration.<br>expiredObjectDeleteMarker | **boolean** (boolean)<br><p>if expired_object_delete_marker is set, other parameters are not allowed.</p> 
-licecycleRules[].<br>transitions[] | **object**<br>
-licecycleRules[].<br>transitions[].<br>date | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-licecycleRules[].<br>transitions[].<br>days | **integer** (int64)<br>
-licecycleRules[].<br>transitions[].<br>storageClass | **string**<br><p>Required.</p> 
-licecycleRules[].<br>abortIncompleteMultipartUpload | **object**<br>
-licecycleRules[].<br>abortIncompleteMultipartUpload.<br>daysAfterExpiration | **integer** (int64)<br>
-licecycleRules[].<br>noncurrentExpiration | **object**<br>
-licecycleRules[].<br>noncurrentExpiration.<br>noncurrentDays | **integer** (int64)<br>
-licecycleRules[].<br>noncurrentTransitions[] | **object**<br>
-licecycleRules[].<br>noncurrentTransitions[].<br>noncurrentDays | **integer** (int64)<br>
-licecycleRules[].<br>noncurrentTransitions[].<br>storageClass | **string**<br><p>Required.</p> 
+lifecycleRules[] | **object**<br><p>Objects's lifecycle rules. For more information, see <a href="/docs/storage/concepts/lifecycles">Lifecycles</a></p> 
+lifecycleRules[].<br>id | **string**<br>
+lifecycleRules[].<br>enabled | **boolean** (boolean)<br>
+lifecycleRules[].<br>filter | **object**<br>
+lifecycleRules[].<br>filter.<br>prefix | **string**<br>
+lifecycleRules[].<br>expiration | **object**<br>
+lifecycleRules[].<br>expiration.<br>date | **string** (date-time)<br><p>If date is set, days parameter not allowed</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+lifecycleRules[].<br>expiration.<br>days | **integer** (int64)<br><p>If days are set, date parameter not allowed</p> 
+lifecycleRules[].<br>expiration.<br>expiredObjectDeleteMarker | **boolean** (boolean)<br><p>if expired_object_delete_marker is set, other parameters are not allowed.</p> 
+lifecycleRules[].<br>transitions[] | **object**<br>
+lifecycleRules[].<br>transitions[].<br>date | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+lifecycleRules[].<br>transitions[].<br>days | **integer** (int64)<br>
+lifecycleRules[].<br>transitions[].<br>storageClass | **string**<br><p>Required.</p> 
+lifecycleRules[].<br>abortIncompleteMultipartUpload | **object**<br>
+lifecycleRules[].<br>abortIncompleteMultipartUpload.<br>daysAfterExpiration | **integer** (int64)<br>
+lifecycleRules[].<br>noncurrentExpiration | **object**<br>
+lifecycleRules[].<br>noncurrentExpiration.<br>noncurrentDays | **integer** (int64)<br>
+lifecycleRules[].<br>noncurrentTransitions[] | **object**<br>
+lifecycleRules[].<br>noncurrentTransitions[].<br>noncurrentDays | **integer** (int64)<br>
+lifecycleRules[].<br>noncurrentTransitions[].<br>storageClass | **string**<br><p>Required.</p> 
 policy | **object**<br><p>Bucket's policy. For more information, see <a href="/docs/storage/concepts/policy">Bucket Policy</a></p> 
 acl | **object**<br><p>Bucket's ACL. For more information, see <a href="/docs/storage/concepts/acl">ACL</a></p> <p>ACL model.</p> 
 acl.<br>grants[] | **object**<br>
