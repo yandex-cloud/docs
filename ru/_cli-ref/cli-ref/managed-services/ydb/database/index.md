@@ -23,6 +23,8 @@ Aliases:
 - [yc ydb database stop](stop.md) — Stop the specified YDB database.
 - [yc ydb database start](start.md) — Start the specified YDB database.
 - [yc ydb database delete](delete.md) — Delete the specified YDB database.
+- [yc ydb database add-labels](add-labels.md) — Add labels to specified YDB database.
+- [yc ydb database remove-labels](remove-labels.md) — Remove labels from specified YDB database.
 
 #### Flags
 

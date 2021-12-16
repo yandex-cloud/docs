@@ -1,4 +1,4 @@
-# Создание продукта 
+# Создание продукта в кабинете партнера Marketplace
 
 Чтобы добавить продукт в Marketplace, нужно загрузить образ на базе ОС [Linux](create-image.md#create) или [Windows Server](create-image-ms.md) в {{ yandex-cloud }}.
 

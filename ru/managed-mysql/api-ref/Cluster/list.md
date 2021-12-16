@@ -21,7 +21,7 @@ Parameter | Description
 folderId | Required. ID of the folder to list MySQL clusters in. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-mysql/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests.  Acceptable values are 0 to 1000, inclusive.
 pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-mysql/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-mysql/api-ref/Cluster/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-mysql/api-ref/Cluster#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.  The maximum string length in characters is 1000.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-mysql/api-ref/Cluster#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -121,7 +121,15 @@ filter | A filter expression that filters resources listed in the response. The 
             "waitTimeout": "integer",
             "mdbOfflineModeEnableLag": "integer",
             "mdbOfflineModeDisableLag": "integer",
-            "rangeOptimizerMaxMemSize": "integer"
+            "rangeOptimizerMaxMemSize": "integer",
+            "slowQueryLog": true,
+            "slowQueryLogAlwaysWriteTime": "number",
+            "logSlowRateType": "string",
+            "logSlowRateLimit": "integer",
+            "logSlowSpStatements": true,
+            "logSlowFilter": [
+              "string"
+            ]
           },
           "userConfig": {
             "innodbBufferPoolSize": "integer",
@@ -180,7 +188,15 @@ filter | A filter expression that filters resources listed in the response. The 
             "waitTimeout": "integer",
             "mdbOfflineModeEnableLag": "integer",
             "mdbOfflineModeDisableLag": "integer",
-            "rangeOptimizerMaxMemSize": "integer"
+            "rangeOptimizerMaxMemSize": "integer",
+            "slowQueryLog": true,
+            "slowQueryLogAlwaysWriteTime": "number",
+            "logSlowRateType": "string",
+            "logSlowRateLimit": "integer",
+            "logSlowSpStatements": true,
+            "logSlowFilter": [
+              "string"
+            ]
           },
           "defaultConfig": {
             "innodbBufferPoolSize": "integer",
@@ -239,7 +255,15 @@ filter | A filter expression that filters resources listed in the response. The 
             "waitTimeout": "integer",
             "mdbOfflineModeEnableLag": "integer",
             "mdbOfflineModeDisableLag": "integer",
-            "rangeOptimizerMaxMemSize": "integer"
+            "rangeOptimizerMaxMemSize": "integer",
+            "slowQueryLog": true,
+            "slowQueryLogAlwaysWriteTime": "number",
+            "logSlowRateType": "string",
+            "logSlowRateLimit": "integer",
+            "logSlowSpStatements": true,
+            "logSlowFilter": [
+              "string"
+            ]
           }
         },
         "mysqlConfig_8_0": {
@@ -301,7 +325,15 @@ filter | A filter expression that filters resources listed in the response. The 
             "waitTimeout": "integer",
             "mdbOfflineModeEnableLag": "integer",
             "mdbOfflineModeDisableLag": "integer",
-            "rangeOptimizerMaxMemSize": "integer"
+            "rangeOptimizerMaxMemSize": "integer",
+            "slowQueryLog": true,
+            "slowQueryLogAlwaysWriteTime": "number",
+            "logSlowRateType": "string",
+            "logSlowRateLimit": "integer",
+            "logSlowSpStatements": true,
+            "logSlowFilter": [
+              "string"
+            ]
           },
           "userConfig": {
             "innodbBufferPoolSize": "integer",
@@ -361,7 +393,15 @@ filter | A filter expression that filters resources listed in the response. The 
             "waitTimeout": "integer",
             "mdbOfflineModeEnableLag": "integer",
             "mdbOfflineModeDisableLag": "integer",
-            "rangeOptimizerMaxMemSize": "integer"
+            "rangeOptimizerMaxMemSize": "integer",
+            "slowQueryLog": true,
+            "slowQueryLogAlwaysWriteTime": "number",
+            "logSlowRateType": "string",
+            "logSlowRateLimit": "integer",
+            "logSlowSpStatements": true,
+            "logSlowFilter": [
+              "string"
+            ]
           },
           "defaultConfig": {
             "innodbBufferPoolSize": "integer",
@@ -421,7 +461,15 @@ filter | A filter expression that filters resources listed in the response. The 
             "waitTimeout": "integer",
             "mdbOfflineModeEnableLag": "integer",
             "mdbOfflineModeDisableLag": "integer",
-            "rangeOptimizerMaxMemSize": "integer"
+            "rangeOptimizerMaxMemSize": "integer",
+            "slowQueryLog": true,
+            "slowQueryLogAlwaysWriteTime": "number",
+            "logSlowRateType": "string",
+            "logSlowRateLimit": "integer",
+            "logSlowSpStatements": true,
+            "logSlowFilter": [
+              "string"
+            ]
           }
         },
         // end of the list of possible fields`clusters[].config`
@@ -541,6 +589,12 @@ clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>waitTimeout | 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>mdbOfflineModeEnableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.</p> <p>Acceptable values are 600 to 432000, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>mdbOfflineModeDisableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag.</p> <p>Acceptable values are 60 to 86400, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>rangeOptimizerMaxMemSize | **integer** (int64)<br><p>The limit on memory consumption for the range optimizer.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1048576 to 268435456, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>slowQueryLog | **boolean** (boolean)<br><p>Manages slow query log</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log">MySQL documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>slowQueryLogAlwaysWriteTime | **number** (double)<br><p>Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>logSlowRateType | **string**<br><p>Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>logSlowRateLimit | **integer** (int64)<br><p>Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit">Percona documentation for the variable</a>.</p> <p>Acceptable values are 1 to 1000, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>logSlowSpStatements | **boolean** (boolean)<br><p>When TRUE, statements executed by stored procedures are logged to the slow log</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>effectiveConfig.<br>logSlowFilter[] | **string**<br><p>Filters the slow log by the query's execution plan</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter">Percona documentation for the variable</a>.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig | **object**<br><p>User-defined settings for a MySQL 5.7 cluster.</p> <p>Options and structure of ``MysqlConfig5_7`` reflects MySQL 5.7 configuration file</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation for the parameter</a>.</p> <p>The minimum value is 5242880.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -597,6 +651,12 @@ clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>waitTimeout | **int
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>mdbOfflineModeEnableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.</p> <p>Acceptable values are 600 to 432000, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>mdbOfflineModeDisableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag.</p> <p>Acceptable values are 60 to 86400, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>rangeOptimizerMaxMemSize | **integer** (int64)<br><p>The limit on memory consumption for the range optimizer.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1048576 to 268435456, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>slowQueryLog | **boolean** (boolean)<br><p>Manages slow query log</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log">MySQL documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>slowQueryLogAlwaysWriteTime | **number** (double)<br><p>Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>logSlowRateType | **string**<br><p>Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>logSlowRateLimit | **integer** (int64)<br><p>Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit">Percona documentation for the variable</a>.</p> <p>Acceptable values are 1 to 1000, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>logSlowSpStatements | **boolean** (boolean)<br><p>When TRUE, statements executed by stored procedures are logged to the slow log</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>userConfig.<br>logSlowFilter[] | **string**<br><p>Filters the slow log by the query's execution plan</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter">Percona documentation for the variable</a>.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig | **object**<br><p>Default configuration for a MySQL 5.7 cluster.</p> <p>Options and structure of ``MysqlConfig5_7`` reflects MySQL 5.7 configuration file</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation for the parameter</a>.</p> <p>The minimum value is 5242880.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -653,6 +713,12 @@ clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>waitTimeout | **
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>mdbOfflineModeEnableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.</p> <p>Acceptable values are 600 to 432000, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>mdbOfflineModeDisableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag.</p> <p>Acceptable values are 60 to 86400, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>rangeOptimizerMaxMemSize | **integer** (int64)<br><p>The limit on memory consumption for the range optimizer.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1048576 to 268435456, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>slowQueryLog | **boolean** (boolean)<br><p>Manages slow query log</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log">MySQL documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>slowQueryLogAlwaysWriteTime | **number** (double)<br><p>Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>logSlowRateType | **string**<br><p>Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>logSlowRateLimit | **integer** (int64)<br><p>Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit">Percona documentation for the variable</a>.</p> <p>Acceptable values are 1 to 1000, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>logSlowSpStatements | **boolean** (boolean)<br><p>When TRUE, statements executed by stored procedures are logged to the slow log</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_5_7.<br>defaultConfig.<br>logSlowFilter[] | **string**<br><p>Filters the slow log by the query's execution plan</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter">Percona documentation for the variable</a>.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0 | **object**<br>Configuration of a MySQL 8.0 server. <br>`clusters[].config` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br><br>
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig | **object**<br><p>Effective settings for a MySQL 8.0 cluster (a combination of settings defined in ``userConfig`` and ``defaultConfig``).</p> <p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation for the parameter</a>.</p> <p>The minimum value is 5242880.</p> 
@@ -711,6 +777,12 @@ clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>waitTimeout | 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>mdbOfflineModeEnableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.</p> <p>Acceptable values are 600 to 432000, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>mdbOfflineModeDisableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag.</p> <p>Acceptable values are 60 to 86400, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>rangeOptimizerMaxMemSize | **integer** (int64)<br><p>The limit on memory consumption for the range optimizer.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1048576 to 268435456, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>slowQueryLog | **boolean** (boolean)<br><p>Manages slow query log</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log">MySQL documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>slowQueryLogAlwaysWriteTime | **number** (double)<br><p>Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>logSlowRateType | **string**<br><p>Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>logSlowRateLimit | **integer** (int64)<br><p>Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit">Percona documentation for the variable</a>.</p> <p>Acceptable values are 1 to 1000, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>logSlowSpStatements | **boolean** (boolean)<br><p>When TRUE, statements executed by stored procedures are logged to the slow log</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>effectiveConfig.<br>logSlowFilter[] | **string**<br><p>Filters the slow log by the query's execution plan</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter">Percona documentation for the variable</a>.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig | **object**<br><p>User-defined settings for a MySQL 8.0 cluster.</p> <p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation for the parameter</a>.</p> <p>The minimum value is 5242880.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -768,6 +840,12 @@ clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>waitTimeout | **int
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>mdbOfflineModeEnableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.</p> <p>Acceptable values are 600 to 432000, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>mdbOfflineModeDisableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag.</p> <p>Acceptable values are 60 to 86400, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>rangeOptimizerMaxMemSize | **integer** (int64)<br><p>The limit on memory consumption for the range optimizer.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1048576 to 268435456, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>slowQueryLog | **boolean** (boolean)<br><p>Manages slow query log</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log">MySQL documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>slowQueryLogAlwaysWriteTime | **number** (double)<br><p>Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>logSlowRateType | **string**<br><p>Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>logSlowRateLimit | **integer** (int64)<br><p>Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit">Percona documentation for the variable</a>.</p> <p>Acceptable values are 1 to 1000, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>logSlowSpStatements | **boolean** (boolean)<br><p>When TRUE, statements executed by stored procedures are logged to the slow log</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>userConfig.<br>logSlowFilter[] | **string**<br><p>Filters the slow log by the query's execution plan</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter">Percona documentation for the variable</a>.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig | **object**<br><p>Default configuration for a MySQL 8.0 cluster.</p> <p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation for the parameter</a>.</p> <p>The minimum value is 5242880.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -825,6 +903,12 @@ clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>waitTimeout | **
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>mdbOfflineModeEnableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.</p> <p>Acceptable values are 600 to 432000, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>mdbOfflineModeDisableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag.</p> <p>Acceptable values are 60 to 86400, inclusive.</p> 
 clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>rangeOptimizerMaxMemSize | **integer** (int64)<br><p>The limit on memory consumption for the range optimizer.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1048576 to 268435456, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>slowQueryLog | **boolean** (boolean)<br><p>Manages slow query log</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log">MySQL documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>slowQueryLogAlwaysWriteTime | **number** (double)<br><p>Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>logSlowRateType | **string**<br><p>Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>logSlowRateLimit | **integer** (int64)<br><p>Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit">Percona documentation for the variable</a>.</p> <p>Acceptable values are 1 to 1000, inclusive.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>logSlowSpStatements | **boolean** (boolean)<br><p>When TRUE, statements executed by stored procedures are logged to the slow log</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements">Percona documentation for the variable</a>.</p> 
+clusters[].<br>config.<br>mysqlConfig_8_0.<br>defaultConfig.<br>logSlowFilter[] | **string**<br><p>Filters the slow log by the query's execution plan</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter">Percona documentation for the variable</a>.</p> 
 clusters[].<br>networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 

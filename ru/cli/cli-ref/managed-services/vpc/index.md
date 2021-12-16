@@ -53,6 +53,8 @@ Syntax:
 	- [yc vpc subnet list](subnet/list.md) — List subnets in a folder.
 	- [yc vpc subnet create](subnet/create.md) — Create a subnet in the specified network.
 	- [yc vpc subnet update](subnet/update.md) — Modify configuration or attributes of a subnet.
+	- [yc vpc subnet add-range](subnet/add-range.md) — Add CIDR range to a subnet.
+	- [yc vpc subnet remove-range](subnet/remove-range.md) — Remove CIDR range from a subnet.
 	- [yc vpc subnet add-labels](subnet/add-labels.md) — Assign labels to a subnet.
 	- [yc vpc subnet remove-labels](subnet/remove-labels.md) — Remove labels from a subnet.
 	- [yc vpc subnet delete](subnet/delete.md) — Delete a subnet.

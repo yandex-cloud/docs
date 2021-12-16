@@ -11,6 +11,11 @@ Syntax:
 
 `yc application-load-balancer load-balancer remove-listener <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
+Aliases: 
+
+- `remove-http-listener`
+- `remove-stream-listener`
+
 #### Global Flags
 
 | Flag | Description |

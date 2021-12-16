@@ -212,7 +212,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list Kubernetes cluster in. To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-61 characters long and match the regular expression `|[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -767,6 +767,7 @@ master_spec | **[MasterUpdateSpec](#MasterUpdateSpec)**<br>Specification of the 
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. Selected service account should have `edit` role on the folder where the Kubernetes cluster will be located and on the folder where selected network resides. 
 node_service_account_id | **string**<br>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. 
 network_policy | **[NetworkPolicy](#NetworkPolicy4)**<br> 
+ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy4)**<br> 
 
 
 ### MasterUpdateSpec {#MasterUpdateSpec}
@@ -840,6 +841,17 @@ Field | Description
 provider | enum **Provider**<br> <ul><ul/>
 
 
+### IPAllocationPolicy {#IPAllocationPolicy4}
+
+Field | Description
+--- | ---
+cluster_ipv4_cidr_block | **string**<br>CIDR block. IP range for allocating pod addresses. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets. 
+node_ipv4_cidr_mask_size | **int64**<br>Size of the masks that are assigned for each node in the cluster. <br>If not specified, 24 is used. Value must be equal to 0,24,25,26,27,28.
+service_ipv4_cidr_block | **string**<br>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from. <br>It should not overlap with any subnet in the network the Kubernetes cluster located in. 
+cluster_ipv6_cidr_block | **string**<br>IPv6 range for allocating pod IP addresses. 
+service_ipv6_cidr_block | **string**<br>IPv6 range for allocating Kubernetes service IP addresses 
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -877,7 +889,7 @@ status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISION
 health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li><ul/>
 network_id | **string**<br>ID of the network the Kubernetes cluster belongs to. 
 master | **[Master](#Master3)**<br>Properties of the master for the Kubernetes cluster. 
-ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy4)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
+ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy5)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
 internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
@@ -994,7 +1006,7 @@ start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
-### IPAllocationPolicy {#IPAllocationPolicy4}
+### IPAllocationPolicy {#IPAllocationPolicy5}
 
 Field | Description
 --- | ---
@@ -1120,7 +1132,7 @@ status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISION
 health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li><ul/>
 network_id | **string**<br>ID of the network the Kubernetes cluster belongs to. 
 master | **[Master](#Master4)**<br>Properties of the master for the Kubernetes cluster. 
-ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy5)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
+ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy6)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
 internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
@@ -1237,7 +1249,7 @@ start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
-### IPAllocationPolicy {#IPAllocationPolicy5}
+### IPAllocationPolicy {#IPAllocationPolicy6}
 
 Field | Description
 --- | ---
@@ -1323,7 +1335,7 @@ status | enum **Status**<br>Status of the Kubernetes cluster. <ul><li>`PROVISION
 health | enum **Health**<br>Health of the Kubernetes cluster. <ul><li>`HEALTHY`: Kubernetes cluster is alive and well.</li><li>`UNHEALTHY`: Kubernetes cluster is inoperable.</li><ul/>
 network_id | **string**<br>ID of the network the Kubernetes cluster belongs to. 
 master | **[Master](#Master5)**<br>Properties of the master for the Kubernetes cluster. 
-ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy6)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
+ip_allocation_policy | **[IPAllocationPolicy](#IPAllocationPolicy7)**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. 
 internet_gateway | **oneof:** `gateway_ipv4_address`<br>
 &nbsp;&nbsp;gateway_ipv4_address | **string**<br>Gateway IPv4 address. The maximum string length in characters is 15.
 service_account_id | **string**<br>Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. 
@@ -1440,7 +1452,7 @@ start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/
 duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Window duration. Acceptable values are 1h to 24h, inclusive.
 
 
-### IPAllocationPolicy {#IPAllocationPolicy6}
+### IPAllocationPolicy {#IPAllocationPolicy7}
 
 Field | Description
 --- | ---

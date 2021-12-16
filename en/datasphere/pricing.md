@@ -67,7 +67,7 @@ Each project {{ml-platform-name }} has a storage within which data storage is no
 
 {% note warning %}
 
-From December 15, 2021, a fee will be charged for all projects with a volume of more than {{ ml-project-size }}. To change the project storage, contact [technical support](https://console.cloud.yandex.com/support). The reduction is possible to the actual occupied volume, rounded up to GB.
+From December 15, 2021, a fee will be charged for all projects with a volume of more than {{ ml-project-size }}. To change the project storage, see [{#T}](operations/projects/storage-resize.md). The reduction is possible to the actual occupied volume, rounded up to GB.
 
 {% endnote %}
 

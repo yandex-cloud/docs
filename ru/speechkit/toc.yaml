@@ -46,9 +46,9 @@ items:
           - name: API v3 gRPC (англ.)
             items:
               - name: Overview
-                href: stt/api-ref/grpc/index.md
+                href: v3/api-ref/grpc/index.md
               - name: Recognizer
-                href: stt/api-ref/grpc/stt_service.md
+                href: v3/api-ref/grpc/stt_service.md
   - name: Синтез речи
     items:
       - name: О технологии
@@ -78,9 +78,9 @@ items:
               - name: gRPC (англ.)
                 items:
                   - name: Overview
-                    href: tts/api-ref/grpc/index.md
+                    href: new-v3/api-ref/grpc/index.md
                   - name: Synthesizer
-                    href: tts/api-ref/grpc/tts_service.md
+                    href: new-v3/api-ref/grpc/tts_service.md
   - name: SpeechKit Hybrid
     items:
       - name: О технологии
@@ -101,15 +101,15 @@ items:
           - name: Синтез речи
             items:
               - name: Overview
-                href: tts/api-ref/grpc/index.md
+                href: new-v3/api-ref/grpc/index.md
               - name: Synthesizer
-                href: tts/api-ref/grpc/tts_service.md
+                href: new-v3/api-ref/grpc/tts_service.md
           - name: Потоковое распознавание
             items:
               - name: Overview
-                href: stt/api-ref/grpc/index.md
+                href: v3/api-ref/grpc/index.md
               - name: Recognizer
-                href: stt/api-ref/grpc/stt_service.md
+                href: v3/api-ref/grpc/stt_service.md
   - name: Интеграция телефонии
     href: concepts/ivr-integration.md
   - name: Использование API

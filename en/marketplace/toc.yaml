@@ -1,4 +1,4 @@
-title: Cloud Marketplace Partner Interface
+title: Yandex Cloud Marketplace partner interface overview
 href: index.md
 items:
   - name: Step-by-step instructions
@@ -9,11 +9,13 @@ items:
         href: operations/registration.md
       - name: Creating a service plan
         href: operations/create-tariff.md
-      - name: Creating a Linux-based product image
+      - name: Linux image requirements
         href: operations/create-image.md
-      - name: Creating a Windows-based product image
+      - name: Windows image requirements
         href: operations/create-image-ms.md
-      - name: Creating a product
+      - name: Managed Service for Kubernetes product requirements
+        href: operations/create-container.md
+      - name: Creating a product in the Marketplace Partner interface
         href: operations/create-product.md
       - name: Updating a product
         href: operations/change-product.md

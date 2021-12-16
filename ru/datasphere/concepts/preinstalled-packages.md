@@ -322,7 +322,7 @@
 %pip list
 ```
 
-По умолчанию в проектах {{ ml-platform-short-name }} используется Python 3.7. Если вам нужен Python 3.8, [создайте](../operations/user-images.md) и запустите в проекте Docker-образ. 
+По умолчанию в проектах {{ ml-platform-short-name }} используется Python 3.8. Если вам нужен Python 3.7, воспользуйтесь инструкцией [{#T}](../operations/projects/python-version.md). 
 
 ## Обновление {#update}
 
@@ -349,7 +349,7 @@
 %pip install tensorflow==2.3.1
 ```
 
-Обратите внимание, что по умолчанию по-прежнему устанавливается версия TensorFlow 1.15.
+Обратите внимание, что версия TensorFlow, установленная по умолчанию, зависит от [выбранной версии Python](../operations/projects/python-version.md). В проектах с Python 3.7 устанавливается TensorFlow 1.15, с Python 3.8 — TensorFlow 2.6.
 
 {% note warning %}
 

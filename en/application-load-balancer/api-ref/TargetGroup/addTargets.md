@@ -27,6 +27,7 @@ targetGroupId | Required. ID of the target group to add targets to.  To get the 
   "targets": [
     {
       "subnetId": "string",
+      "privateIpv4Address": true,
       "ipAddress": "string"
     }
   ]
@@ -38,6 +39,7 @@ Field | Description
 --- | ---
 targets[] | **object**<br><p>A target resource. For details about the concept, see <a href="/docs/application-load-balancer/concepts/target-group">documentation</a>.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that the target is connected to.</p> 
+targets[].<br>privateIpv4Address | **boolean** (boolean)<br><p>If set, will not require ``subnet_id`` to validate the target. Instead, the address should belong to one of the following ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 Only one of ``subnet_id`` or ``private_ipv4_address`` should be set.</p> 
 targets[].<br>ipAddress | **string**<br><p>IP address of the target.</p> 
  
 ## Response {#responses}

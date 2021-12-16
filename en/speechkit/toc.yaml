@@ -48,9 +48,9 @@ items:
           - name: gRPC
             items:
               - name: Overview
-                href: tts/api-ref/grpc/index.md
+                href: new-v3/api-ref/grpc/index.md
               - name: Synthesizer
-                href: tts/api-ref/grpc/tts_service.md
+                href: new-v3/api-ref/grpc/tts_service.md
   - name: SpeechKit Hybrid
     items:
       - name: About the technology

@@ -1,6 +1,8 @@
 # Creating a Linux-based product image to upload to {{ marketplace-name }}
 
-To add a product to the Marketplace, you need to upload an image to {{ yandex-cloud }}. The products can be based on Linux and Windows Server. These instructions will help you create an image based on Linux. To create an image with Windows, see [{#T}](create-image-ms.md).
+To add a product for {{ compute-full-name }} to the Marketplace, you need to upload the image to {{ yandex-cloud }}. The products can be based on Linux and Windows Server. These instructions will help you create an image based on Linux. To create an image with Windows, see [{#T}](create-image-ms.md).
+
+If you wish to add a product for {{ managed-k8s-full-name }}, follow the [relevant instructions](create-container.md).
 
 ## Creating an image {#create}
 
@@ -21,21 +23,13 @@ To use the image for a Marketplace product, also follow these steps:
    * The data on configurations previously received via DHCP (`dhcp.leases` and `dhcp.log`).
    * The `/etc/machine-id` file.
 
-### Preparing an image {#preparation}
+1. Make sure that:
+   * The image only has the system users that the applications need.
+   * There are no pre-generated SSH keys or passwords in the image. If necessary, application passwords are generated at VM startup. The user can change them the first time they log in via the serial console or SSH. Password-based access via SSH must be disabled for all users. They may log in only using a key obtained from the [metadata service](../../compute/operations/vm-info/get-info.md#inside-instance).
+   * The `/etc/sudoers*` file has no extra privileges configured for users.
 
-Clean up:
-
-* The `/tmp`, `/var/tmp`, and `/var/log` directories.
-* The package manager cache.
-* `.bash_history` for all users.
-* The data on configurations previously received via DHCP (`dhcp.leases` and `dhcp.log`).
-* The `/etc/machine-id` file.
-
-Make sure that:
-
-* The image only has the system users that the applications need.
-* There are no pre-generated SSH keys or passwords in the image. If necessary, application passwords are generated at VM startup. The user can change them the first time they log in via the serial console or SSH. Password-based access via SSH must be disabled for all users. They may log in only using a key obtained from the [metadata service](../../compute/operations/vm-info/get-info.md#inside-instance).
-* The `/etc/sudoers*` file has no extra privileges configured for users.
+1. Use the supplemental guidelines for configuring images for the Marketplace:
+   * The `/etc/fstab` configuration file is missing the lines to connect swap.
 
 ## Checking your image {#check-image}
 

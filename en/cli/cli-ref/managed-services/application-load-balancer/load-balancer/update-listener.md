@@ -3,7 +3,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-
 ---
 # yc application-load-balancer load-balancer update-listener
 
-Updates listener in the specified application load balancer.
+Updates http listener in the specified application load balancer.
 
 #### Command Usage
 
@@ -11,26 +11,30 @@ Syntax:
 
 `yc application-load-balancer load-balancer update-listener <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
+Aliases: 
+
+- `update-http-listener`
+
 #### Global Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/> ID of the Application load balancer.|
 |`--name`|<b>`string`</b><br/> Name of the Application load balancer.|
-|`--listener-name`|<b>`string`</b><br/> Name of listener to update in application load balancer.|
+|`--listener-name`|<b>`string`</b><br/> Name of listener to add/update in application load balancer.|
 |`--enable-tls`| Enable TLS for specified listener.|
-|`--disable-tls`| Disable TLS for specified listener.|
-|`--redirect-to-https`| Redirect HTTP requests to HTTPS for specified listener.|
 |`--certificate-id`|<b>`value[,value]`</b><br/> Certificate ID for specified listener.|
-|`--allow-http10`| Allow HTTP1.0 for specified listener.|
-|`--http2-options`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> HTTP2 options for specified listener.  Possible property names:  max-concurrent-streams Max concurrent streams for HTTP2 listener.  |
-|`--external-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  address Use allocated address for the new listener.  |
-|`--disable-external-ipv4-endpoint`| Disable external ipv4 endpoint for specified listener.|
+|`--external-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the listener.  address Use allocated address for the listener.  |
 |`--internal-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Internal IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  subnet-id Subnet for internal endpoint.  |
+|`--external-ipv6-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv6 endpoint settings for specified listener.  Possible property names:  port Port for the listener.  address Use allocated address for the listener.  |
+|`--disable-tls`| Disable TLS for specified listener.|
+|`--disable-external-ipv4-endpoint`| Disable external ipv4 endpoint for specified listener.|
 |`--disable-internal-ipv4-endpoint`| Disable internal ipv4 endpoint for specified listener.|
-|`--external-ipv6-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv6 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  address Use allocated address for the new listener.  |
 |`--disable-external-ipv6-endpoint`| Disable external ipv6 endpoint for specified listener.|
 |`--clear-sni-matches`| Disable TLS for specified listener.|
+|`--redirect-to-https`| Redirect HTTP requests to HTTPS for specified listener.|
+|`--allow-http10`| Allow HTTP1.0 for specified listener.|
+|`--http2-options`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> HTTP2 options for specified listener.  Possible property names:  max-concurrent-streams Max concurrent streams for HTTP2 listener.  |
 |`--http-router-id`|<b>`string`</b><br/> HTTP router id for specified listener.|
 |`--http-router-name`|<b>`string`</b><br/> HTTP router name for specified listener.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

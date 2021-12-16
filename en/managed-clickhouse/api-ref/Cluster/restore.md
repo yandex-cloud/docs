@@ -19,6 +19,9 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
 ```json 
 {
   "backupId": "string",
+  "additionalBackupIds": [
+    "string"
+  ],
   "name": "string",
   "description": "string",
   "labels": "object",
@@ -255,7 +258,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
     },
     "sqlDatabaseManagement": true,
     "sqlUserManagement": true,
-    "adminPassword": "string"
+    "adminPassword": "string",
+    "embeddedKeeper": true
   },
   "hostSpecs": [
     {
@@ -278,7 +282,8 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters:restore
  
 Field | Description
 --- | ---
-backupId | **string**<br><p>Required. ID of the backup to create a cluster from. To get the backup ID, use a <a href="/docs/managed-clickhouse/api-ref/Cluster/listBackups">listBackups</a> request.</p> 
+backupId | **string**<br><p>Required. ID of the backup to restore from. This backup will be used to create one cluster shard. To get the backup ID, use a <a href="/docs/managed-clickhouse/api-ref/Cluster/listBackups">listBackups</a> request.</p> 
+additionalBackupIds[] | **string**<br><p>Additional IDs of the backups to restore from. Each additional backup is responsible for restoring separate shard. Restored cluster will have len(additional_backup_ids)+1 shards in total. To get the backup ID, use a <a href="/docs/managed-clickhouse/api-ref/Cluster/listBackups">listBackups</a> request.</p> 
 name | **string**<br><p>Required. Name of the new ClickHouse cluster. The name must be unique within the folder.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the new ClickHouse cluster.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Custom labels for the ClickHouse cluster as ``key:value`` pairs. Maximum 64 per resource. For example, &quot;project&quot;: &quot;mvp&quot; or &quot;source&quot;: &quot;dictionary&quot;.</p> <p>No more than 64 per resource. The maximum string length in characters for each key is 63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
@@ -459,6 +464,7 @@ configSpec.<br>cloudStorage.<br>enabled | **boolean** (boolean)<br><p>Whether to
 configSpec.<br>sqlDatabaseManagement | **boolean** (boolean)<br><p>Whether database management through SQL commands is enabled.</p> 
 configSpec.<br>sqlUserManagement | **boolean** (boolean)<br><p>Whether user management through SQL commands is enabled.</p> 
 configSpec.<br>adminPassword | **string**<br><p>Password for user 'admin' that has SQL user management access.</p> 
+configSpec.<br>embeddedKeeper | **boolean** (boolean)<br><p>Whether cluster should use embedded Keeper instead of Zookeeper</p> 
 hostSpecs[] | **object**<br><p>Required. Configurations for ClickHouse hosts that should be created for the cluster that is being created from the backup.</p> <p>Must contain at least one element.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides. To get a list of available zones, use the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>type | **string**<br><p>Required. Type of the host to be deployed.</p> <ul> <li>CLICKHOUSE: ClickHouse host.</li> <li>ZOOKEEPER: ZooKeeper host.</li> </ul> 

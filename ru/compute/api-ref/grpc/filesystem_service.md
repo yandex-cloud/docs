@@ -62,7 +62,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list filesystems in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListFilesystemsResponse.next_page_token](#ListFilesystemsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFilesystemsResponse.next_page_token](#ListFilesystemsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Filesystem.name](#Filesystem1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{,61}[a-z0-9])?$`. </li></ol> 
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Filesystem.name](#Filesystem1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`. </li></ol> 
 
 
 ### ListFilesystemsResponse {#ListFilesystemsResponse}

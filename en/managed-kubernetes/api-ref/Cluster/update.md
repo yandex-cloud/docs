@@ -81,6 +81,13 @@ clusterId | Required. ID of the Kubernetes cluster to update. To get the Kuberne
   "networkPolicy": {
     "provider": "string"
   },
+  "ipAllocationPolicy": {
+    "clusterIpv4CidrBlock": "string",
+    "nodeIpv4CidrMaskSize": "string",
+    "serviceIpv4CidrBlock": "string",
+    "clusterIpv6CidrBlock": "string",
+    "serviceIpv6CidrBlock": "string"
+  },
   "gatewayIpv4Address": "string"
 }
 ```
@@ -121,6 +128,12 @@ serviceAccountId | **string**<br><p>Service account to be used for provisioning 
 nodeServiceAccountId | **string**<br><p>Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.</p> 
 networkPolicy | **object**<br>
 networkPolicy.<br>provider | **string**<br>
+ipAllocationPolicy | **object**<br>Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones.<br>
+ipAllocationPolicy.<br>clusterIpv4CidrBlock | **string**<br><p>CIDR block. IP range for allocating pod addresses.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be set up for this CIDR blocks in node subnets.</p> 
+ipAllocationPolicy.<br>nodeIpv4CidrMaskSize | **string** (int64)<br><p>Size of the masks that are assigned for each node in the cluster.</p> <p>If not specified, 24 is used.</p> <p>Value must be one of 0, 24, 25, 26, 27 or 28.</p> 
+ipAllocationPolicy.<br>serviceIpv4CidrBlock | **string**<br><p>CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.</p> <p>It should not overlap with any subnet in the network the Kubernetes cluster located in.</p> 
+ipAllocationPolicy.<br>clusterIpv6CidrBlock | **string**<br><p>IPv6 range for allocating pod IP addresses.</p> 
+ipAllocationPolicy.<br>serviceIpv6CidrBlock | **string**<br><p>IPv6 range for allocating Kubernetes service IP addresses</p> 
 gatewayIpv4Address | **string**<br><p>Gateway IPv4 address.</p> <p>The maximum string length in characters is 15.</p> 
  
 ## Response {#responses}

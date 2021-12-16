@@ -1,11 +1,11 @@
 ---
-sourcePath: en/_api-ref-grpc/vision/v2/api-ref/grpc/index.md
+sourcePath: ru/_api-ref-grpc/vision/api-ref/grpc/index.md
 ---
 # Yandex Vision API
-The service does not operate with resources. All service's methods are presented on the [Vision](Vision/) page.
+Сервис не оперирует ресурсами. Все методы сервиса представлены на странице [Vision](Vision/).
 
-See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+Спецификации API Яндекс.Облака смотрите на [GitHub](https://github.com/yandex-cloud/cloudapi).
 
-Service | Description
+Сервис | Описание
 --- | ---
-[ImageClassifierService](./image_classifier_service.md) | 
+[VisionService](./vision_service.md) | Набор методов для сервиса Yandex Vision.

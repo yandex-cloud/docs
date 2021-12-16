@@ -60,7 +60,18 @@ clusterId | Required. ID of the Elasticsearch cluster to update.  To get the Ela
     "string"
   ],
   "serviceAccountId": "string",
-  "deletionProtection": true
+  "deletionProtection": true,
+  "maintenanceWindow": {
+
+    // `maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "anytime": {},
+    "weeklyMaintenanceWindow": {
+      "day": "string",
+      "hour": "string"
+    },
+    // end of the list of possible fields`maintenanceWindow`
+
+  }
 }
 ```
 
@@ -93,6 +104,11 @@ name | **string**<br><p>New name for the Elasticsearch cluster.</p> <p>The maxim
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> 
+maintenanceWindow.<br>anytime | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
+maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br>
+maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

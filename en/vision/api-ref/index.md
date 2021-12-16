@@ -1,6 +1,6 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/vision/api-ref/index.md
+sourcePath: en/_api-ref/ai/vision_old/api-ref/index.md
 ---
 
 

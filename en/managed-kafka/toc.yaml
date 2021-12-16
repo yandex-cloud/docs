@@ -111,6 +111,8 @@ items:
                 href: api-ref/Cluster/listOperations.md
               - name: move
                 href: api-ref/Cluster/move.md
+              - name: rescheduleMaintenance
+                href: api-ref/Cluster/rescheduleMaintenance.md
               - name: start
                 href: api-ref/Cluster/start.md
               - name: stop
@@ -135,6 +137,8 @@ items:
                 href: api-ref/Connector/pause.md
               - name: resume
                 href: api-ref/Connector/resume.md
+              - name: update
+                href: api-ref/Connector/update.md
           - name: ResourcePreset
             items:
               - name: Overview

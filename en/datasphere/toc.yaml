@@ -137,6 +137,8 @@ items:
             href: api-ref/grpc/index.md
           - name: AppTokenService
             href: api-ref/grpc/app_token_service.md
+          - name: FolderBudgetService
+            href: api-ref/grpc/folder_budget_service.md
           - name: NodeService
             href: api-ref/grpc/node_service.md
           - name: ProjectDataService
@@ -155,6 +157,14 @@ items:
                 href: api-ref/AppToken/index.md
               - name: validate
                 href: api-ref/AppToken/validate.md
+          - name: FolderBudget
+            items:
+              - name: Overview
+                href: api-ref/FolderBudget/index.md
+              - name: get
+                href: api-ref/FolderBudget/get.md
+              - name: set
+                href: api-ref/FolderBudget/set.md
           - name: Node
             items:
               - name: Overview

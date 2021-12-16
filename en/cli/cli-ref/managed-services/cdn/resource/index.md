@@ -15,6 +15,8 @@ Syntax:
 
 - [yc cdn resource get](get.md) — Show information about resource
 - [yc cdn resource list](list.md) — List resources in the specified folder
+- [yc cdn resource create](create.md) — Create resource
+- [yc cdn resource update](update.md) — Update resource
 - [yc cdn resource get-provider-cname](get-provider-cname.md) — Get provider CNAME
 - [yc cdn resource delete](delete.md) — Delete resource.
 

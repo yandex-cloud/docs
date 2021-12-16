@@ -1,12 +1,16 @@
 # yc application-load-balancer load-balancer add-sni
 
-Adds sni match to application load balancer's listener.
+Adds HTTP sni match to application load balancer's listener.
 
 #### Command Usage
 
 Syntax: 
 
 `yc application-load-balancer load-balancer add-sni <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
+
+Aliases: 
+
+- `add-http-sni`
 
 #### Global Flags
 
@@ -15,8 +19,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/> ID of the Application load balancer.|
 |`--name`|<b>`string`</b><br/> Name of the Application load balancer.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
-|`--listener-name`|<b>`string`</b><br/> Name of the listener to add SNI match to.|
-|`--sni-name`|<b>`string`</b><br/> Name of the SNI match to add.|
+|`--listener-name`|<b>`string`</b><br/> Name of the listener to add/update SNI match to.|
+|`--sni-name`|<b>`string`</b><br/> Name of the SNI match to add/update.|
 |`--server-name`|<b>`value[,value]`</b><br/> Server name to match.|
 |`--certificate-id`|<b>`value[,value]`</b><br/> Certificate ID for SNI match.|
 |`--allow-http10`| Allow HTTP1.0 for SNI match.|

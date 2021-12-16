@@ -84,6 +84,8 @@ items:
         href: concepts/limits.md
       - name: Component properties
         href: concepts/settings-list.md
+      - name: Logs in Data Proc
+        href: concepts/logs.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -138,6 +140,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Job/index.md
+              - name: cancel
+                href: api-ref/Job/cancel.md
               - name: create
                 href: api-ref/Job/create.md
               - name: get

@@ -15,3 +15,4 @@
 | Maximum size of data to be uploaded per request | 5 GB |
 | Minimum size of data parts for multipart uploading, except the last one | 5 MB |
 | Maximum number of parts in multi-part uploading | 10,000 |
+| Maximum bucket policy size | 20 KB |

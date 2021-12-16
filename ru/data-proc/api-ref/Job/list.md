@@ -26,7 +26,7 @@ Parameter | Description
 --- | ---
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/data-proc/api-ref/Job/list#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Job/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
 pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/data-proc/api-ref/Job/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters jobs listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [Job.name](/docs/data-proc/api-ref/Job#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. Example of a filter: `name=my-job`.  The maximum string length in characters is 1000.
+filter | A filter expression that filters jobs listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [Job.name](/docs/data-proc/api-ref/Job#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-job`.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -166,7 +166,7 @@ jobs[].<br>startedAt | **string** (date-time)<br><p>The time when the job was st
 jobs[].<br>finishedAt | **string** (date-time)<br><p>The time when the job was finished.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 jobs[].<br>name | **string**<br><p>Name of the job, specified in the <a href="/docs/data-proc/api-ref/Job/create">create</a> request.</p> 
 jobs[].<br>createdBy | **string**<br><p>The id of the user who created the job</p> 
-jobs[].<br>status | **string**<br>Job status.<br><ul> <li>PROVISIONING: Job is logged in the database and is waiting for the agent to run it.</li> <li>PENDING: Job is acquired by the agent and is in the queue for execution.</li> <li>RUNNING: Job is being run in the cluster.</li> <li>ERROR: Job failed to finish the run properly.</li> <li>DONE: Job is finished.</li> </ul> 
+jobs[].<br>status | **string**<br>Job status.<br><ul> <li>PROVISIONING: Job is logged in the database and is waiting for the agent to run it.</li> <li>PENDING: Job is acquired by the agent and is in the queue for execution.</li> <li>RUNNING: Job is being run in the cluster.</li> <li>ERROR: Job failed to finish the run properly.</li> <li>DONE: Job is finished.</li> <li>CANCELLED: Job is cancelled.</li> <li>CANCELLING: Job is waiting for cancellation.</li> </ul> 
 jobs[].<br>applicationInfo | **object**<br>Attributes of YARN application.<br>
 jobs[].<br>applicationInfo.<br>id | **string**<br><p>ID of YARN application</p> 
 jobs[].<br>applicationInfo.<br>applicationAttempts[] | **object**<br><p>YARN application attempts</p> 

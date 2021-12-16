@@ -11,7 +11,7 @@ Lists origins of origin group.
  
 ## HTTP request {#https-request}
 ```
-GET https://cdn.api.cloud.yandex.net/cdn/v1/origin_groups
+GET https://cdn.api.cloud.yandex.net/cdn/v1/originGroups
 ```
  
 ## Query parameters {#query_params}
