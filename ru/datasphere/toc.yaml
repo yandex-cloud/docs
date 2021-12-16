@@ -11,6 +11,8 @@ items:
         items:
         - name: Создание проекта
           href: operations/projects/create.md
+        - name: Выбор версии Python
+          href: operations/projects/python-version.md
         - name: Установка зависимостей
           href: operations/projects/install-dependencies.md
         - name: Управление вычислительными ресурсами
