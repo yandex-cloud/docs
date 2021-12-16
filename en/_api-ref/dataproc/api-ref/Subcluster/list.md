@@ -24,7 +24,7 @@ Parameter | Description
 --- | ---
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/data-proc/api-ref/Subcluster/list#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Subcluster/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
 pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/data-proc/api-ref/Subcluster/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters subclusters listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [Subcluster.name](/docs/data-proc/api-ref/Subcluster#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. Example of a filter: `name=dataproc123_subcluster456`.  The maximum string length in characters is 1000.
+filter | A filter expression that filters subclusters listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [Subcluster.name](/docs/data-proc/api-ref/Subcluster#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=dataproc123_subcluster456`.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -45,6 +45,7 @@ filter | A filter expression that filters subclusters listed in the response.  T
       },
       "subnetId": "string",
       "hostsCount": "string",
+      "assignPublicIp": true,
       "autoscalingConfig": {
         "maxHostsCount": "string",
         "preemptible": true,
@@ -76,6 +77,7 @@ subclusters[].<br>resources.<br>diskTypeId | **string**<br><p>Type of the storag
 subclusters[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 subclusters[].<br>subnetId | **string**<br><p>ID of the VPC subnet used for hosts in the subcluster.</p> 
 subclusters[].<br>hostsCount | **string** (int64)<br><p>Number of hosts in the subcluster.</p> 
+subclusters[].<br>assignPublicIp | **boolean** (boolean)<br><p>Assign public ip addresses for all hosts in subcluter.</p> 
 subclusters[].<br>autoscalingConfig | **object**<br><p>Configuration for instance group based subclusters</p> 
 subclusters[].<br>autoscalingConfig.<br>maxHostsCount | **string** (int64)<br><p>Upper limit for total instance subcluster count.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
 subclusters[].<br>autoscalingConfig.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 

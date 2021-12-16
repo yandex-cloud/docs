@@ -56,19 +56,26 @@ items:
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: gRPC v1
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/vision/toc.yaml
+          path: en/_api-ref-grpc/vision/vision/toc.yaml
       - name: REST
         items:
-          - name: Handling errors
-            href: api-ref/errors-handling.md
-          - name: Troubleshooting
-            href: api-ref/support-headers.md
+        - name: Handling errors
+          href: api-ref/errors-handling.md
+        - name: Troubleshooting
+          href: api-ref/support-headers.md
         include:
           repo: docs
-          path: en/_api-ref/ai/vision/toc.yaml
+          path: en/_api-ref/ai/vision_old/toc.yaml
+      - name: Classifier API
+        items:
+          - name: gRPC
+            items: null
+            include:
+              repo: docs
+              path: en/_api-ref-grpc/vision/classifier/toc.yaml
   - name: Questions and answers
     href: qa/index.md

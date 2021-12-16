@@ -73,7 +73,7 @@ image.<br>environment | **object**<br><p>Each key must match the regular express
 image.<br>workingDir | **string**<br>
 resources | **object**<br>
 resources.<br>memory | **string** (int64)<br><p>Acceptable values are 134217728 to 8589934592, inclusive.</p> 
-resources.<br>cores | **string** (int64)<br><p>Value must be one of 1, 2 or 4.</p> 
+resources.<br>cores | **string** (int64)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 resources.<br>coreFraction | **string** (int64)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
 executionTimeout | **string**<br>
 concurrency | **string** (int64)<br>

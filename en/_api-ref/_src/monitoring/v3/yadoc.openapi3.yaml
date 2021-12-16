@@ -1,4 +1,4 @@
-openapi: "3.0"
+openapi: 3.0.0
 info:
   title: Yandex.Cloud Monitoring API
   description: This API reference is organized by resource. Actions are performed
@@ -1426,6 +1426,10 @@ components:
         title:
           description: Inside chart title.
           type: string
+        showLabels:
+          description: Show chart labels.
+          type: boolean
+          format: boolean
     ChartWidgetVisualizationSettingsColorSchemeSettings:
       type: object
       allOf:
@@ -3218,6 +3222,10 @@ components:
         title:
           description: Inside chart title.
           type: string
+        showLabels:
+          description: Show chart labels.
+          type: boolean
+          format: boolean
     ChartWidgetNameHidingSettings_in_ChartWidget_nameHidingSettings:
       description: |-
         Name hiding settings.

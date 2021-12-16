@@ -72,12 +72,12 @@ items:
           include:
             repo: docs
             path: ru/_api-ref/ai/vision/toc.yaml
-      - name: APIv2
+      - name: Classifier API (англ.)
         items:
           - name: gRPC
             items: null
             include:
               repo: docs
-              path: en/_api-ref-grpc/vision/v2/toc.yaml
+              path: en/_api-ref-grpc/vision/classifier/toc.yaml
   - name: Вопросы и ответы
     href: qa/index.md

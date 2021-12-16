@@ -160,7 +160,8 @@ A set of methods for managing InstanceGroup resources.
           "folderId": "string",
           "service": "string"
         }
-      ]
+      ],
+      "autoScaleType": "string"
     },
 
     // `scalePolicy` includes only one of the fields `fixedScale`, `autoScale`
@@ -187,7 +188,8 @@ A set of methods for managing InstanceGroup resources.
           "folderId": "string",
           "service": "string"
         }
-      ]
+      ],
+      "autoScaleType": "string"
     },
     // end of the list of possible fields`scalePolicy`
 
@@ -366,16 +368,17 @@ scalePolicy.<br>testAutoScale.<br>measurementDuration | **string**<br><p>Time in
 scalePolicy.<br>testAutoScale.<br>warmupDuration | **string**<br><p>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.</p> <p>The maximum value is 600 seconds.</p> 
 scalePolicy.<br>testAutoScale.<br>stabilizationDuration | **string**<br><p>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
 scalePolicy.<br>testAutoScale.<br>initialSize | **string** (int64)<br><p>Target group size.</p> <p>The minimum value is 1.</p> 
-scalePolicy.<br>testAutoScale.<br>cpuUtilizationRule | **object**<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> 
+scalePolicy.<br>testAutoScale.<br>cpuUtilizationRule | **object**<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> <p>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (``customRules``), the size of the instance group will be equal to the maximum of sizes calculated according to each metric.</p> 
 scalePolicy.<br>testAutoScale.<br>cpuUtilizationRule.<br>utilizationTarget | **number** (double)<br><p>Target CPU utilization level. Instance Groups maintains this level for each availability zone.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
-scalePolicy.<br>testAutoScale.<br>customRules[] | **object**<br><p>Defines an autoscaling rule based on a <a href="/docs/monitoring/operations/metric/add">custom metric</a> from Yandex Monitoring.</p> <p>The maximum number of elements is 1.</p> 
-scalePolicy.<br>testAutoScale.<br>customRules[].<br>ruleType | **string**<br><p>Required. Custom metric rule type. This field affects which label from the custom metric should be used: ``zone_id`` or ``instance_id``.</p> <ul> <li>UTILIZATION: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone. This type of metric must have the ``instance_id`` label.</li> <li>WORKLOAD: This type means that the metric applies to instances in one availability zone. This type of metric must have the ``zone_id`` label.</li> </ul> 
+scalePolicy.<br>testAutoScale.<br>customRules[] | **object**<br><p>Defines an autoscaling rule based on a <a href="/docs/monitoring/operations/metric/add">custom metric</a> from Yandex Monitoring.</p> <p>If more than one rule is specified, e.g. CPU utilization (``cpuUtilizationRule``) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric.</p> <p>The maximum number of elements is 3.</p> 
+scalePolicy.<br>testAutoScale.<br>customRules[].<br>ruleType | **string**<br><p>Required. Custom metric rule type. This field affects which label from the custom metric should be used: ``zone_id`` or ``instance_id``.</p> <ul> <li>UTILIZATION: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the ``instance_id`` label.</li> <li>WORKLOAD: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the ``zone_id`` label if ZONAL autoscaling type is chosen.</li> </ul> 
 scalePolicy.<br>testAutoScale.<br>customRules[].<br>metricType | **string**<br><p>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value.</p> <ul> <li>GAUGE: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance.</li> </ul> <p>Instance Groups calculates the average metric value for the period specified in the ``measurementDuration`` field.</p> <ul> <li>COUNTER: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance.</li> </ul> <p>Instance Groups calculates the average value increase for the period specified in the ``measurementDuration`` field.</p> 
 scalePolicy.<br>testAutoScale.<br>customRules[].<br>metricName | **string**<br><p>Required. Name of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Value must match the regular expression ``[a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]&lt;&gt;-]{0,198}``.</p> 
 scalePolicy.<br>testAutoScale.<br>customRules[].<br>labels | **object**<br><p>Labels of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Each key must match the regular expression ``^[a-zA-Z][0-9a-zA-Z_]{0,31}$``. Each value must match the regular expression ``[a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]&lt;&gt;-]{0,198}``.</p> 
 scalePolicy.<br>testAutoScale.<br>customRules[].<br>target | **number** (double)<br><p>Target value for the custom metric. Instance Groups maintains this level for each availability zone.</p> <p>Value must be greater than 0.</p> 
 scalePolicy.<br>testAutoScale.<br>customRules[].<br>folderId | **string**<br><p>Folder id of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>The maximum string length in characters is 50.</p> 
 scalePolicy.<br>testAutoScale.<br>customRules[].<br>service | **string**<br><p>Service of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>The maximum string length in characters is 200.</p> 
+scalePolicy.<br>testAutoScale.<br>autoScaleType | **string**<br><p>Autoscaling type.</p> <ul> <li>ZONAL: Scale each zone independently. This is the default.</li> <li>REGIONAL: Scale group as a whole.</li> </ul> 
 scalePolicy.<br>fixedScale | **object** <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
 scalePolicy.<br>fixedScale.<br>size | **string** (int64)<br><p>Number of instances in the instance group.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
 scalePolicy.<br>autoScale | **object**<br>Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. <br>`scalePolicy` includes only one of the fields `fixedScale`, `autoScale`<br><br>
@@ -385,16 +388,17 @@ scalePolicy.<br>autoScale.<br>measurementDuration | **string**<br><p>Time in sec
 scalePolicy.<br>autoScale.<br>warmupDuration | **string**<br><p>The warmup time of the instance in seconds. During this time, traffic is sent to the instance, but instance metrics are not collected.</p> <p>The maximum value is 600 seconds.</p> 
 scalePolicy.<br>autoScale.<br>stabilizationDuration | **string**<br><p>Minimum amount of time in seconds allotted for monitoring before Instance Groups can reduce the number of instances in the group. During this time, the group size doesn't decrease, even if the new metric values indicate that it should.</p> <p>Acceptable values are 60 seconds to 1800 seconds, inclusive.</p> 
 scalePolicy.<br>autoScale.<br>initialSize | **string** (int64)<br><p>Target group size.</p> <p>The minimum value is 1.</p> 
-scalePolicy.<br>autoScale.<br>cpuUtilizationRule | **object**<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> 
+scalePolicy.<br>autoScale.<br>cpuUtilizationRule | **object**<br><p>Defines an autoscaling rule based on the average CPU utilization of the instance group.</p> <p>If more than one rule is specified, e.g. CPU utilization and one or more Yandex Monitoring metrics (``customRules``), the size of the instance group will be equal to the maximum of sizes calculated according to each metric.</p> 
 scalePolicy.<br>autoScale.<br>cpuUtilizationRule.<br>utilizationTarget | **number** (double)<br><p>Target CPU utilization level. Instance Groups maintains this level for each availability zone.</p> <p>Acceptable values are 10 to 100, inclusive.</p> 
-scalePolicy.<br>autoScale.<br>customRules[] | **object**<br><p>Defines an autoscaling rule based on a <a href="/docs/monitoring/operations/metric/add">custom metric</a> from Yandex Monitoring.</p> <p>The maximum number of elements is 1.</p> 
-scalePolicy.<br>autoScale.<br>customRules[].<br>ruleType | **string**<br><p>Required. Custom metric rule type. This field affects which label from the custom metric should be used: ``zone_id`` or ``instance_id``.</p> <ul> <li>UTILIZATION: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone. This type of metric must have the ``instance_id`` label.</li> <li>WORKLOAD: This type means that the metric applies to instances in one availability zone. This type of metric must have the ``zone_id`` label.</li> </ul> 
+scalePolicy.<br>autoScale.<br>customRules[] | **object**<br><p>Defines an autoscaling rule based on a <a href="/docs/monitoring/operations/metric/add">custom metric</a> from Yandex Monitoring.</p> <p>If more than one rule is specified, e.g. CPU utilization (``cpuUtilizationRule``) and one or more Yandex Monitoring metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric.</p> <p>The maximum number of elements is 3.</p> 
+scalePolicy.<br>autoScale.<br>customRules[].<br>ruleType | **string**<br><p>Required. Custom metric rule type. This field affects which label from the custom metric should be used: ``zone_id`` or ``instance_id``.</p> <ul> <li>UTILIZATION: This type means that the metric applies to one instance. First, Instance Groups calculates the average metric value for each instance, then averages the values for instances in one availability zone or in whole group depends on autoscaling type. This type of metric must have the ``instance_id`` label.</li> <li>WORKLOAD: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type. This type of metric must have the ``zone_id`` label if ZONAL autoscaling type is chosen.</li> </ul> 
 scalePolicy.<br>autoScale.<br>customRules[].<br>metricType | **string**<br><p>Required. Type of custom metric. This field affects how Instance Groups calculates the average metric value.</p> <ul> <li>GAUGE: This type is used for metrics that show the metric value at a certain point in time, such as requests per second to the server on an instance.</li> </ul> <p>Instance Groups calculates the average metric value for the period specified in the ``measurementDuration`` field.</p> <ul> <li>COUNTER: This type is used for metrics that monotonically increase over time, such as the total number of requests to the server on an instance.</li> </ul> <p>Instance Groups calculates the average value increase for the period specified in the ``measurementDuration`` field.</p> 
 scalePolicy.<br>autoScale.<br>customRules[].<br>metricName | **string**<br><p>Required. Name of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Value must match the regular expression ``[a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]&lt;&gt;-]{0,198}``.</p> 
 scalePolicy.<br>autoScale.<br>customRules[].<br>labels | **object**<br><p>Labels of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>Each key must match the regular expression ``^[a-zA-Z][0-9a-zA-Z_]{0,31}$``. Each value must match the regular expression ``[a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]&lt;&gt;-]{0,198}``.</p> 
 scalePolicy.<br>autoScale.<br>customRules[].<br>target | **number** (double)<br><p>Target value for the custom metric. Instance Groups maintains this level for each availability zone.</p> <p>Value must be greater than 0.</p> 
 scalePolicy.<br>autoScale.<br>customRules[].<br>folderId | **string**<br><p>Folder id of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>The maximum string length in characters is 50.</p> 
 scalePolicy.<br>autoScale.<br>customRules[].<br>service | **string**<br><p>Service of custom metric in Yandex Monitoring that should be used for scaling.</p> <p>The maximum string length in characters is 200.</p> 
+scalePolicy.<br>autoScale.<br>autoScaleType | **string**<br><p>Autoscaling type.</p> <ul> <li>ZONAL: Scale each zone independently. This is the default.</li> <li>REGIONAL: Scale group as a whole.</li> </ul> 
 deployPolicy | **object**<br><p>Deployment policy of the instance group.</p> 
 deployPolicy.<br>maxUnavailable | **string** (int64)<br><p>The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time during the update process. If ``maxExpansion`` is not specified or set to zero, ``maxUnavailable`` must be set to a non-zero value.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
 deployPolicy.<br>maxDeleting | **string** (int64)<br><p>The maximum number of instances that can be deleted at the same time.</p> <p>The value 0 is any number of virtual machines within the allowed values.</p> <p>Acceptable values are 0 to 100, inclusive.</p> 
@@ -405,21 +409,21 @@ deployPolicy.<br>strategy | **string**<br><p>Affects the lifecycle of the instan
 allocationPolicy | **object**<br><p>Allocation policy of the instance group by zones and regions.</p> 
 allocationPolicy.<br>zones[] | **object**<br><p>Required. List of availability zones.</p> <p>The minimum number of elements is 1.</p> 
 allocationPolicy.<br>zones[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the instance resides.</p> 
-loadBalancerState | **object**<br><p>Information that indicates which entities can be related to this load balancer.</p> 
-loadBalancerState.<br>targetGroupId | **string**<br><p>ID of the target group used for load balancing.</p> 
+loadBalancerState | **object**<br><p>Status of the Network Load Balancer target group attributed to the instance group.</p> 
+loadBalancerState.<br>targetGroupId | **string**<br><p>ID of the Network Load Balancer target group attributed to the instance group.</p> 
 loadBalancerState.<br>statusMessage | **string**<br><p>Status message of the target group.</p> 
 managedInstancesState | **object**<br><p>States of instances for this instance group.</p> 
 managedInstancesState.<br>targetSize | **string** (int64)<br><p>Target number of instances for this instance group.</p> 
 managedInstancesState.<br>runningActualCount | **string** (int64)<br><p>The number of running instances that match the current instance template. For more information, see ``RUNNING_ACTUAL``.</p> 
 managedInstancesState.<br>runningOutdatedCount | **string** (int64)<br><p>The number of running instances that does not match the current instance template. For more information, see ``RUNNING_OUTDATED``.</p> 
 managedInstancesState.<br>processingCount | **string** (int64)<br><p>The number of instances in flight (for example, updating, starting, deleting). For more information, see ``ManagedInstanceStatus``.</p> 
-loadBalancerSpec | **object**<br><p>Load balancing specification.</p> 
+loadBalancerSpec | **object**<br><p>Settings for balancing load between instances via <a href="/docs/network-load-balancer/concepts">Network Load Balancer</a> (OSI model layer 3).</p> 
 loadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Specification of the target group that the instance group will be added to. For more information, see <a href="/docs/load-balancer/concepts/target-resources">Target groups and resources</a>.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the target group.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> <p>The maximum string length in characters is 256.</p> 
 loadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 loadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
-healthChecksSpec | **object**<br><p>Health checking specification. For more information, see <a href="/docs/load-balancer/concepts/health-check">Health check</a>.</p> 
+healthChecksSpec | **object**<br><p>Health checking specification. For more information, see <a href="/docs/network-load-balancer/concepts/health-check">Health check</a>.</p> 
 healthChecksSpec.<br>healthCheckSpecs[] | **object**<br><p>Required. Health checking specification. For more information, see <a href="/docs/load-balancer/concepts/health-check">Health check</a>.</p> <p>The minimum number of elements is 1.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>interval | **string**<br><p>The interval between health checks. The default is 2 seconds.</p> <p>Acceptable values are 1 seconds to 300 seconds, inclusive.</p> 
 healthChecksSpec.<br>healthCheckSpecs[].<br>timeout | **string**<br><p>Timeout for the managed instance to return a response for the health check. The default is 1 second.</p> <p>Acceptable values are 1 seconds to 60 seconds, inclusive.</p> 
@@ -437,15 +441,15 @@ variables[] | **object**<br>
 variables[].<br>key | **string**<br><p>The string length in characters must be 1-128. Value must match the regular expression ``[a-zA-Z0-9._-]*``.</p> 
 variables[].<br>value | **string**<br><p>The maximum string length in characters is 128.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Flag prohibiting deletion of the instance group.</p> <p>Allowed values:</br>- ``false``: The instance group can be deleted.</br>- ``true``: The instance group cannot be deleted.</p> <p>The default is ``false``.</p> 
-applicationLoadBalancerSpec | **object**<br><p>Application load balancer spec</p> 
-applicationLoadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Required. Specification of the alb's target group that the instance group will be added to.</p> 
+applicationLoadBalancerSpec | **object**<br><p>Settings for balancing load between instances via <a href="/docs/application-load-balancer/concepts">Application Load Balancer</a> (OSI model layer 7).</p> 
+applicationLoadBalancerSpec.<br>targetGroupSpec | **object**<br><p>Required. Basic properties of the Application Load Balancer target group attributed to the instance group.</p> 
 applicationLoadBalancerSpec.<br>targetGroupSpec.<br>name | **string**<br><p>Name of the target group.</p> 
 applicationLoadBalancerSpec.<br>targetGroupSpec.<br>description | **string**<br><p>Description of the target group.</p> 
 applicationLoadBalancerSpec.<br>targetGroupSpec.<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
 applicationLoadBalancerSpec.<br>maxOpeningTrafficDuration | **string**<br><p>Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded, the VM will be turned off based on the deployment policy. Specified in seconds.</p> <p>The minimum value is 1 seconds.</p> 
-applicationLoadBalancerState | **object**<br><p>Application load balancer state</p> 
-applicationLoadBalancerState.<br>targetGroupId | **string**<br>
-applicationLoadBalancerState.<br>statusMessage | **string**<br>
+applicationLoadBalancerState | **object**<br><p>Status of the Application Load Balancer target group attributed to the instance group.</p> <p>Returned if there is a working load balancer that the target group is connected to.</p> 
+applicationLoadBalancerState.<br>targetGroupId | **string**<br><p>ID of the Application Load Balancer target group attributed to the instance group.</p> 
+applicationLoadBalancerState.<br>statusMessage | **string**<br><p>Status message of the target group.</p> 
 
 ## Methods {#methods}
 Method | Description

@@ -1,4 +1,4 @@
-openapi: "3.0"
+openapi: 3.0.0
 info:
   title: Yandex Cloud DNS API
   description: This API reference is organized by resource. Actions are performed
@@ -131,9 +131,8 @@ paths:
         description: "A filter expression that filters DNS zones listed in the response.\n\nThe
           expression must specify: \n1. The field name. Currently you can use filtering
           only on the [DnsZone.name](/docs/dns/api-ref/DnsZone#representation) field.
-          \n2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT
-          IN` for lists of values.\n3. The value or lists of values. Must be 3-63
-          characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample
+          \n2. An `=` operator.\n3. The value in double quotes (`\"`). Must be 3-63
+          characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample
           of a filter: `name=my-dns-zone`.\n\nThe maximum string length in characters
           is 1000."
         schema:
@@ -250,10 +249,9 @@ paths:
         in: query
         description: "A filter expression that filters record sets listed in the response.\n\nThe
           expression must specify: \n1. The field name. Currently you can use filtering
-          only on the `name` and `type` fields. \n2. An operator. Can be either `=`
-          or `!=` for single values, `IN` or `NOT IN` for lists of values.\n3. The
-          value or lists of values. Must be 3-63 characters long and match the regular
-          expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample of a filter: `name=my-record-set`.\n\nThe
+          only on the `name` and `type` fields. \n2. An `=` operator.\n3. The value
+          in double quotes (`\"`). Must be 3-63 characters long and match the regular
+          expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample of a filter: `name=my-record-set`.\n\nThe
           maximum string length in characters is 1000."
         schema:
           type: string
@@ -379,9 +377,8 @@ paths:
         description: "A filter expression that filters DNS zones listed in the response.\n\nThe
           expression must specify: \n1. The field name. Currently you can use filtering
           only on the [DnsZone.name](/docs/dns/api-ref/DnsZone#representation) field.
-          \n2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT
-          IN` for lists of values.\n3. The value or lists of values. Must be 3-63
-          characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample
+          \n2. An `=` operator.\n3. The value in double quotes (`\"`). Must be 3-63
+          characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.\nExample
           of a filter: `name=my-dns-zone`.\n\nThe maximum string length in characters
           is 1000."
         schema:

@@ -151,7 +151,7 @@ startedAt | **string** (date-time)<br><p>The time when the job was started.</p> 
 finishedAt | **string** (date-time)<br><p>The time when the job was finished.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 name | **string**<br><p>Name of the job, specified in the <a href="/docs/data-proc/api-ref/Job/create">create</a> request.</p> 
 createdBy | **string**<br><p>The id of the user who created the job</p> 
-status | **string**<br>Job status.<br><ul> <li>PROVISIONING: Job is logged in the database and is waiting for the agent to run it.</li> <li>PENDING: Job is acquired by the agent and is in the queue for execution.</li> <li>RUNNING: Job is being run in the cluster.</li> <li>ERROR: Job failed to finish the run properly.</li> <li>DONE: Job is finished.</li> </ul> 
+status | **string**<br>Job status.<br><ul> <li>PROVISIONING: Job is logged in the database and is waiting for the agent to run it.</li> <li>PENDING: Job is acquired by the agent and is in the queue for execution.</li> <li>RUNNING: Job is being run in the cluster.</li> <li>ERROR: Job failed to finish the run properly.</li> <li>DONE: Job is finished.</li> <li>CANCELLED: Job is cancelled.</li> <li>CANCELLING: Job is waiting for cancellation.</li> </ul> 
 applicationInfo | **object**<br>Attributes of YARN application.<br>
 applicationInfo.<br>id | **string**<br><p>ID of YARN application</p> 
 applicationInfo.<br>applicationAttempts[] | **object**<br><p>YARN application attempts</p> 

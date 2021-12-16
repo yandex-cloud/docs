@@ -1,4 +1,4 @@
-openapi: "3.0"
+openapi: 3.0.0
 info:
   title: Yandex Managed Service for PostgreSQL API
   description: This API reference is organized by resource. Actions are performed
@@ -215,8 +215,8 @@ paths:
           A filter expression that filters resources listed in the response.
           The expression must specify:
           1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-postgresql/api-ref/Cluster#representation) field.
-          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          3. The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -610,8 +610,8 @@ paths:
           The expression must specify:
           1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname],
           [LogRecord.logs.message.error_severity] (for POSTGRESQL service), [LogRecord.logs.message.level] (for POOLER service) fields.
-          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
           Examples of a filter:
           `message.hostname='node1.db.cloud.yandex.net'`
           `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`
@@ -2982,6 +2982,8 @@ components:
       enum:
       - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+      - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
+      - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
     PostgresqlConfig10SynchronousCommit:
       type: string
       enum:
@@ -3427,6 +3429,8 @@ components:
       enum:
       - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+      - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
+      - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
     PostgresqlConfig10_1CSynchronousCommit:
       type: string
       enum:
@@ -3892,6 +3896,8 @@ components:
       enum:
       - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+      - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
+      - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
     PostgresqlConfig11SynchronousCommit:
       type: string
       enum:
@@ -4357,6 +4363,8 @@ components:
       enum:
       - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+      - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
+      - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
     PostgresqlConfig11_1CSynchronousCommit:
       type: string
       enum:
@@ -4834,6 +4842,8 @@ components:
       enum:
       - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+      - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
+      - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
     PostgresqlConfig12SynchronousCommit:
       type: string
       enum:
@@ -5311,6 +5321,8 @@ components:
       enum:
       - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+      - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
+      - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
     PostgresqlConfig12_1CSynchronousCommit:
       type: string
       enum:
@@ -5835,6 +5847,8 @@ components:
       enum:
       - SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN
       - SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN
+      - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
+      - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
     PostgresqlConfig13SynchronousCommit:
       type: string
       enum:

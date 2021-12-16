@@ -1,9 +1,9 @@
 items:
   - name: Overview
-    href: undefined/index.md
+    href: api-ref/index.md
   - name: ImageProductUsage
     items:
       - name: Overview
-        href: undefined/ImageProductUsage/index.md
+        href: api-ref/ImageProductUsage/index.md
       - name: write
-        href: undefined/ImageProductUsage/write.md
+        href: api-ref/ImageProductUsage/write.md

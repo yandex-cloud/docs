@@ -76,7 +76,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list DNS zones in. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDnsZonesResponse.next_page_token](#ListDnsZonesResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDnsZonesResponse.next_page_token](#ListDnsZonesResponse) returned by a previous list request. The maximum string length in characters is 1000.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [DnsZone.name](#DnsZone1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value or lists of values. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [DnsZone.name](#DnsZone1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListDnsZonesResponse {#ListDnsZonesResponse}
@@ -357,7 +357,7 @@ Field | Description
 dns_zone_id | **string**<br>ID of the DNS zone to list record sets in. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDnsZoneRecordSetsResponse.next_page_token](#ListDnsZoneRecordSetsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDnsZoneRecordSetsResponse.next_page_token](#ListDnsZoneRecordSetsResponse) returned by a previous list request. The maximum string length in characters is 1000.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [RecordSet.name](#RecordSet1) and [RecordSet.type](#RecordSet1) fields. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value or lists of values. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [RecordSet.name](#RecordSet1) and [RecordSet.type](#RecordSet1) fields. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListDnsZoneRecordSetsResponse {#ListDnsZoneRecordSetsResponse}
@@ -490,7 +490,7 @@ Field | Description
 dns_zone_id | **string**<br>ID of the DNS zone to list operations for. <br>To get a DNS zone ID, make a [DnsZoneService.List](#List) request. The string length in characters must be equal to 20.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDnsZoneOperationsResponse.next_page_token](#ListDnsZoneOperationsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDnsZoneOperationsResponse.next_page_token](#ListDnsZoneOperationsResponse) returned by a previous list request. The maximum string length in characters is 1000.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [DnsZone.name](#DnsZone4) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value or lists of values. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [DnsZone.name](#DnsZone4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListDnsZoneOperationsResponse {#ListDnsZoneOperationsResponse}

@@ -3,6 +3,8 @@ items:
     href: api-ref/grpc/index.md
   - name: AppTokenService
     href: api-ref/grpc/app_token_service.md
+  - name: FolderBudgetService
+    href: api-ref/grpc/folder_budget_service.md
   - name: NodeService
     href: api-ref/grpc/node_service.md
   - name: ProjectDataService

@@ -1,4 +1,4 @@
-openapi: "3.0"
+openapi: 3.0.0
 info:
   title: Yandex Managed Service for Apache Kafka® API
   description: This API reference is organized by resource. Actions are performed
@@ -275,6 +275,40 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/StopClusterMetadata'
       x-y-operation-response: '[Cluster](/docs/managed-kafka/api-ref/Cluster#representation)'
+  /managed-kafka/v1/clusters/{clusterId}:rescheduleMaintenance:
+    post:
+      tags:
+      - Cluster
+      summary: Reschedule planned maintenance operation.
+      operationId: ClusterRescheduleMaintenance
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Kafka cluster to reschedule the maintenance operation for.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RescheduleMaintenanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: rescheduleMaintenance
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RescheduleMaintenanceMetadata'
+      x-y-operation-response: '[Cluster](/docs/managed-kafka/api-ref/Cluster#representation)'
   /managed-kafka/v1/clusters/{clusterId}:logs:
     get:
       tags:
@@ -361,8 +395,8 @@ paths:
 
           The expression must specify:
           1. The field name to filter by. Currently filtering can be applied to the `hostname` field.
-          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
 
           Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
@@ -445,8 +479,8 @@ paths:
 
           The expression must specify:
           1. The field name to filter by. Currently filtering can be applied to the `hostname` field.
-          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 
           Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
 
@@ -635,6 +669,52 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/DeleteConnectorMetadata'
       x-y-operation-response: Empty
+    patch:
+      tags:
+      - Connector
+      summary: Updates an Apache Kafka connector in the specified cluster.
+      operationId: ConnectorUpdate
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          Required. ID of the Apache Kafka cluster to update a connector in.
+          To get the cluster ID use a [list](/docs/managed-kafka/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: connectorName
+        in: path
+        description: |-
+          Required.
+          Required. Name of the connector to update.
+          To get the name of the connector, use a [list](/docs/managed-kafka/api-ref/Connector/list) request.
+
+          The maximum string length in characters is 256.
+          Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateConnectorRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateConnectorMetadata'
+      x-y-operation-response: '[Connector](/docs/managed-kafka/api-ref/Connector#representation)'
   /managed-kafka/v1/clusters/{clusterId}/connectors:
     get:
       tags:
@@ -1394,6 +1474,9 @@ paths:
       x-y-operation-response: '[User](/docs/managed-kafka/api-ref/User#representation)'
 components:
   schemas:
+    AnytimeMaintenanceWindow:
+      type: object
+      properties: {}
     Cluster:
       description: |-
         An Apache Kafka® cluster resource.
@@ -1462,6 +1545,10 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_Cluster_maintenanceWindow'
+        plannedOperation:
+          $ref: '#/components/schemas/MaintenanceOperation_in_Cluster_plannedOperation'
     ClusterConnection:
       description: |-
         Resource ClusterConnection -
@@ -1850,6 +1937,8 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow'
     CreateConnectorMetadata:
       type: object
       properties:
@@ -2495,6 +2584,28 @@ components:
           type: object
           additionalProperties:
             type: string
+    MaintenanceOperation:
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    MaintenanceWindow:
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     Monitoring:
       description: Metadata of monitoring system.
       type: object
@@ -2626,6 +2737,41 @@ components:
       - ACCESS_ROLE_PRODUCER
       - ACCESS_ROLE_CONSUMER
       - ACCESS_ROLE_ADMIN
+    RescheduleMaintenanceMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: ID of the Kafka cluster.
+          type: string
+        delayedUntil:
+          description: |-
+            The time until which this maintenance operation is to be delayed.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequest:
+      type: object
+      properties:
+        rescheduleType:
+          $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
+        delayedUntil:
+          description: |-
+            The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [reschedule_type.IMMEDIATE] reschedule type is chosen.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+    RescheduleMaintenanceRequestRescheduleType:
+      description: |2-
+         - IMMEDIATE: Start the maintenance operation immediately.
+         - NEXT_AVAILABLE_WINDOW: Start the maintenance operation within the next available maintenance window.
+         - SPECIFIC_TIME: Start the maintenance operation at the specific time.
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     ResourcePreset:
       description: A ResourcePreset resource for describing hardware configuration
         presets.
@@ -3103,6 +3249,58 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        maintenanceWindow:
+          $ref: '#/components/schemas/MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow'
+    UpdateConnectorMetadata:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            Required.
+            ID of the Apache Kafka cluster where a connector is being updated.
+
+            The maximum string length in characters is 50.
+          type: string
+        connectorName:
+          description: |-
+            Required.
+            Name of the Apache Kafka connector that is being updated.
+
+            The maximum string length in characters is 256.
+            Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
+          type: string
+    UpdateConnectorRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateConnectorRequest_updateMask'
+        connectorSpec:
+          $ref: '#/components/schemas/UpdateConnectorSpec_in_UpdateConnectorRequest_connectorSpec'
+    UpdateConnectorSpec:
+      description: An Apache Kafka® connector's update specification.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          tasksMax:
+            description: Maximum number of tasks to update.
+            type: integer
+            format: int64
+          properties:
+            description: |-
+              Properties passed with connector config to Connect service, that
+              we should change or add in existing Properties-set of connector.
+              Example: 'sync.topics.config.enabled: false'
+            type: object
+            additionalProperties:
+              type: string
+      - title: connector_config
+        type: object
+        maxProperties: 1
+        properties:
+          connectorConfigMirrormaker:
+            $ref: '#/components/schemas/ConnectorConfigMirrorMakerSpec'
+            description: Update specification for MirrorMaker.
     UpdateTopicMetadata:
       type: object
       properties:
@@ -3187,6 +3385,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Permission'
+    WeeklyMaintenanceWindow:
+      type: object
+      properties:
+        day:
+          $ref: '#/components/schemas/WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day'
+        hour:
+          description: |-
+            Hour of the day in UTC.
+
+            Acceptable values are 1 to 24, inclusive.
+          type: string
+          format: int64
+    WeeklyMaintenanceWindowWeekDay:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
     rpcStatus:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -3286,6 +3506,30 @@ components:
       - STOPPED
       - STARTING
       default: STATUS_UNKNOWN
+    MaintenanceWindow_in_Cluster_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    MaintenanceOperation_in_Cluster_plannedOperation:
+      description: Scheduled maintenance operation.
+      type: object
+      properties:
+        info:
+          description: The maximum string length in characters is 256.
+          type: string
+        delayedUntil:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
     ConfigSpecKafka_in_ConfigSpec_kafka:
       description: Configuration and resource allocation for Kafka brokers.
       type: object
@@ -3508,6 +3752,18 @@ components:
           description: Enables managed schema registry on cluster
           type: boolean
           format: boolean
+    MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow:
+      description: Window of maintenance operations.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
     ConnectorSpec_in_CreateConnectorRequest_connectorSpec:
       description: |-
         Required.
@@ -3717,6 +3973,19 @@ components:
       - ACCESS_ROLE_PRODUCER
       - ACCESS_ROLE_CONSUMER
       - ACCESS_ROLE_ADMIN
+    RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
+      description: |-
+        Required.
+        The type of reschedule request.
+
+         - IMMEDIATE: Start the maintenance operation immediately.
+         - NEXT_AVAILABLE_WINDOW: Start the maintenance operation within the next available maintenance window.
+         - SPECIFIC_TIME: Start the maintenance operation at the specific time.
+      type: string
+      enum:
+      - IMMEDIATE
+      - NEXT_AVAILABLE_WINDOW
+      - SPECIFIC_TIME
     Permission_in_RevokeUserPermissionRequest_permission:
       description: |-
         Required.
@@ -3889,6 +4158,60 @@ components:
           description: Enables managed schema registry on cluster
           type: boolean
           format: boolean
+    MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
+      description: New maintenance window settings for the cluster.
+      type: object
+      allOf:
+      - title: policy
+        type: object
+        maxProperties: 1
+        properties:
+          anytime:
+            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
+    FieldMask_in_UpdateConnectorRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Connector resource should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    UpdateConnectorSpec_in_UpdateConnectorRequest_connectorSpec:
+      description: |-
+        Required.
+        Required. Configuration of the connector to update.
+
+        An Apache Kafka® connector's update specification.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          tasksMax:
+            description: Maximum number of tasks to update.
+            type: integer
+            format: int64
+          properties:
+            description: |-
+              Properties passed with connector config to Connect service, that
+              we should change or add in existing Properties-set of connector.
+              Example: 'sync.topics.config.enabled: false'
+            type: object
+            additionalProperties:
+              type: string
+      - title: connector_config
+        type: object
+        maxProperties: 1
+        properties:
+          connectorConfigMirrormaker:
+            $ref: '#/components/schemas/ConnectorConfigMirrorMakerSpec'
+            description: Update specification for MirrorMaker.
     FieldMask_in_UpdateTopicRequest_updateMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -3941,6 +4264,16 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
+      type: string
+      enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
 tags:
 - name: Cluster
   description: A set of methods for managing Apache Kafka® clusters.

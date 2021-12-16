@@ -1,4 +1,4 @@
-openapi: "3.0"
+openapi: 3.0.0
 info:
   title: Yandex IAM API
   description: This API reference is organized by resource. Actions are performed

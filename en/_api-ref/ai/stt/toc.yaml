@@ -1,9 +1,9 @@
 items:
   - name: Overview
-    href: api-ref/index.md
+    href: v2/api-ref/index.md
   - name: Stt
     items:
       - name: Overview
-        href: api-ref/Stt/index.md
+        href: v2/api-ref/Stt/index.md
       - name: longRunningRecognize
-        href: api-ref/Stt/longRunningRecognize.md
+        href: v2/api-ref/Stt/longRunningRecognize.md

@@ -7,6 +7,14 @@ items:
         href: api-ref/AppToken/index.md
       - name: validate
         href: api-ref/AppToken/validate.md
+  - name: FolderBudget
+    items:
+      - name: Overview
+        href: api-ref/FolderBudget/index.md
+      - name: get
+        href: api-ref/FolderBudget/get.md
+      - name: set
+        href: api-ref/FolderBudget/set.md
   - name: Node
     items:
       - name: Overview

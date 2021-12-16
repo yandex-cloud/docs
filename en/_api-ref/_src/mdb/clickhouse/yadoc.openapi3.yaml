@@ -1,4 +1,4 @@
-openapi: "3.0"
+openapi: 3.0.0
 info:
   title: Yandex Managed Service for ClickHouse API
   description: This API reference is organized by resource. Actions are performed
@@ -215,8 +215,8 @@ paths:
           A filter expression that filters resources listed in the response.
           The expression must specify:
           1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-clickhouse/api-ref/Cluster#representation) field.
-          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          3. The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
 
           The maximum string length in characters is 1000.
         schema:
@@ -603,8 +603,8 @@ paths:
           A filter expression that filters resources listed in the response.
           The expression must specify:
           1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.severity] fields.
-          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
           Examples of a filter:
           - `message.hostname='node1.db.cloud.yandex.net'`
           - `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`.
@@ -3267,6 +3267,10 @@ components:
           description: Whether user management through SQL commands is enabled.
           type: boolean
           format: boolean
+        embeddedKeeper:
+          description: Whether cluster should use embedded Keeper instead of Zookeeper.
+          type: boolean
+          format: boolean
     ClusterConfigClickhouse:
       type: object
       properties:
@@ -3352,6 +3356,10 @@ components:
         adminPassword:
           description: Password for user 'admin' that has SQL user management access.
           type: string
+        embeddedKeeper:
+          description: Whether cluster should use embedded Keeper instead of Zookeeper
+          type: boolean
+          format: boolean
     ConfigSpecClickhouse:
       type: object
       properties:
@@ -4313,9 +4321,18 @@ components:
         backupId:
           description: |-
             Required.
-            ID of the backup to create a cluster from.
+            ID of the backup to restore from. This backup will be used to create one cluster shard.
             To get the backup ID, use a [listBackups](/docs/managed-clickhouse/api-ref/Cluster/listBackups) request.
           type: string
+        additionalBackupIds:
+          description: |-
+            Additional IDs of the backups to restore from.
+            Each additional backup is responsible for restoring separate shard.
+            Restored cluster will have len(additional_backup_ids)+1 shards in total.
+            To get the backup ID, use a [listBackups](/docs/managed-clickhouse/api-ref/Cluster/listBackups) request.
+          type: array
+          items:
+            type: string
         name:
           description: |-
             Required.
@@ -5694,7 +5711,8 @@ components:
             The string length in characters must be 8-128.
           type: string
         permissions:
-          description: Set of permissions to grant to the user.
+          description: Set of permissions to grant to the user. If not set, it's granted
+            permissions to access all databases.
           type: array
           items:
             $ref: '#/components/schemas/Permission'
@@ -6674,6 +6692,10 @@ components:
           description: Whether user management through SQL commands is enabled.
           type: boolean
           format: boolean
+        embeddedKeeper:
+          description: Whether cluster should use embedded Keeper instead of Zookeeper.
+          type: boolean
+          format: boolean
     ClusterHealth_in_Cluster_health:
       description: |-
         Aggregated cluster health.
@@ -7295,6 +7317,10 @@ components:
         adminPassword:
           description: Password for user 'admin' that has SQL user management access.
           type: string
+        embeddedKeeper:
+          description: Whether cluster should use embedded Keeper instead of Zookeeper
+          type: boolean
+          format: boolean
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.
@@ -7346,7 +7372,8 @@ components:
             The string length in characters must be 8-128.
           type: string
         permissions:
-          description: Set of permissions to grant to the user.
+          description: Set of permissions to grant to the user. If not set, it's granted
+            permissions to access all databases.
           type: array
           items:
             $ref: '#/components/schemas/Permission'
@@ -7492,6 +7519,10 @@ components:
         adminPassword:
           description: Password for user 'admin' that has SQL user management access.
           type: string
+        embeddedKeeper:
+          description: Whether cluster should use embedded Keeper instead of Zookeeper
+          type: boolean
+          format: boolean
     ServiceType_in_Service_type:
       description: |-
         Type of the service provided by the host.
@@ -7852,6 +7883,10 @@ components:
         adminPassword:
           description: Password for user 'admin' that has SQL user management access.
           type: string
+        embeddedKeeper:
+          description: Whether cluster should use embedded Keeper instead of Zookeeper
+          type: boolean
+          format: boolean
     MaintenanceWindow_in_UpdateClusterRequest_maintenanceWindow:
       description: |-
         New maintenance window settings for the cluster.

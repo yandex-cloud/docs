@@ -78,7 +78,7 @@ items:
           items: null
           include:
             repo: docs
-            path: en/_api-ref-grpc/ai/tts/v3/toc.yaml
+            path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
   - name: SpeechKit Hybrid
     items:
         - name: О технологии
@@ -100,7 +100,7 @@ items:
               items: null
               include:
                 repo: docs
-                path: en/_api-ref-grpc/ai/tts/v3/toc.yaml
+                path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
             - name: Потоковое распознавание
               items: null
               include:

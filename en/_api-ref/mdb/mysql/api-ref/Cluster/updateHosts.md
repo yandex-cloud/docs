@@ -41,7 +41,7 @@ updateHostSpecs[] | **object**<br><p>Required. New configurations to apply to ho
 updateHostSpecs[].<br>hostName | **string**<br><p>Required. Name of the host to update. To get the MySQL host name, use a <a href="/docs/managed-mysql/api-ref/Cluster/listHosts">listHosts</a> request.</p> 
 updateHostSpecs[].<br>replicationSource | **string**<br><p>``name`` of the host to be used as the replication source (for cascading replication). To get the MySQL host name, use a <a href="/docs/managed-mysql/api-ref/Cluster/listHosts">listHosts</a> request.</p> 
 updateHostSpecs[].<br>updateMask | **string**<br><p>Field mask that specifies which fields of the MySQL host should be updated.</p> <p>A comma-separated names off ALL fields to be updated. Оnly the specified fields will be changed. The others will be left untouched. If the field is specified in ``updateMask`` and no value for that field was sent in the request, the field's value will be reset to the default. The default value for most fields is null or 0.</p> <p>If ``updateMask`` is not sent in the request, all fields' values will be updated. Fields specified in the request will be updated to provided values. The rest of the fields will be reset to the default.</p> 
-updateHostSpecs[].<br>backupPriority | **string** (int64)<br><p>Host backup priority, where 1 is the lowest priority</p> 
+updateHostSpecs[].<br>backupPriority | **string** (int64)<br><p>Host backup priority</p> 
 updateHostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> 
  
 ## Response {#responses}

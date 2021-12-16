@@ -1,0 +1,962 @@
+openapi: 3.0.0
+info:
+  title: Yandex Storage API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://storage.api.cloud.yandex.net
+paths:
+  /storage/v1/buckets:
+    get:
+      tags:
+      - Bucket
+      summary: |-
+        Returns the list of buckets for specified folder id.
+        The following fields will not be set in listing:
+        * "cors"
+        * "website_settings"
+        * "lifecycle_rules"
+        * "acl"
+        * "policy"
+        will be empty.
+      operationId: BucketList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          Folder id for requested buckets.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBucketsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Bucket
+      summary: Create a new bucket in specified folder.
+      operationId: BucketCreate
+      requestBody:
+        description: CreateBucketRequest creates bucket for S3.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBucketRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateBucketMetadata'
+      x-y-operation-response: '[Bucket](/docs/storage/api-ref/Bucket#representation)'
+  /storage/v1/buckets/{name}:
+    get:
+      tags:
+      - Bucket
+      summary: Get specific bucket.
+      description: To get the lis of available buckets, make a [list](/docs/storage/api-ref/Bucket/list)
+        request.
+      operationId: BucketGet
+      parameters:
+      - name: name
+        in: path
+        description: |-
+          Required.
+          Bucket's name.
+          To get the bucket name, use [list](/docs/storage/api-ref/Bucket/list) request.
+        required: true
+        schema:
+          type: string
+      - name: view
+        in: query
+        description: Defines properties that should be returned by a request.
+        schema:
+          $ref: '#/components/schemas/GetBucketRequestView'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bucket'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Bucket
+      summary: Delete the specified bucket.
+      operationId: BucketDelete
+      parameters:
+      - name: name
+        in: path
+        description: |-
+          Required.
+          Unique name of the bucket.
+          To get the bucket name, use [list](/docs/storage/api-ref/Bucket/list) request.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteBucketMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Bucket
+      summary: Update the specified bucket.
+      operationId: BucketUpdate
+      parameters:
+      - name: name
+        in: path
+        description: |-
+          Required.
+          Unique name of the bucket.
+          To get the bucket name, use [list](/docs/storage/api-ref/Bucket/list) request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: |-
+          UpdateBucketRequest acts like patch method in HTTP world
+          In order to update most of the properties, the user must
+          have the appropriate permissions.
+
+          In most cases, storage.editor permission should be enough, but
+          might be limited by the bucket's Policy.
+
+          For more information, see [Policy](/docs/storage/concepts/policy)
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateBucketRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateBucketMetadata'
+      x-y-operation-response: '[Bucket](/docs/storage/api-ref/Bucket#representation)'
+components:
+  schemas:
+    ACL:
+      description: ACL model.
+      type: object
+      properties:
+        grants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ACLGrant'
+    ACLGrant:
+      type: object
+      properties:
+        permission:
+          $ref: '#/components/schemas/ACLGrantPermission_in_ACLGrant_permission'
+        grantType:
+          $ref: '#/components/schemas/ACLGrantGrantType_in_ACLGrant_grantType'
+        granteeId:
+          description: '[semi-optional] grantee id is used only when grant_type is
+            TO_ACCOUNT'
+          type: string
+    ACLGrantGrantType:
+      description: |2-
+         - GRANT_TYPE_ACCOUNT: equal to 'id' grantee value
+         - GRANT_TYPE_ALL_AUTHENTICATED_USERS: equal to 'uri' authenticated users
+         - GRANT_TYPE_ALL_USERS: equal to 'uri' all users
+      type: string
+      enum:
+      - GRANT_TYPE_ACCOUNT
+      - GRANT_TYPE_ALL_AUTHENTICATED_USERS
+      - GRANT_TYPE_ALL_USERS
+    ACLGrantPermission:
+      description: |2-
+         - PERMISSION_FULL_CONTROL: header X-Amz-Grant-Full-Control
+         - PERMISSION_WRITE: header X-Amz-Grant-Write
+         - PERMISSION_WRITE_ACP: header X-Amz-Grant-Write-Acp
+         - PERMISSION_READ: header X-Amz-Grant-Read
+         - PERMISSION_READ_ACP: header X-Amz-Grant-Read-Acp
+      type: string
+      enum:
+      - PERMISSION_FULL_CONTROL
+      - PERMISSION_WRITE
+      - PERMISSION_WRITE_ACP
+      - PERMISSION_READ
+      - PERMISSION_READ_ACP
+    AnonymousAccessFlags:
+      type: object
+      properties:
+        read:
+          type: boolean
+          format: boolean
+        list:
+          type: boolean
+          format: boolean
+        configRead:
+          type: boolean
+          format: boolean
+    Bucket:
+      description: |-
+        Bucket is a core entity of the storage service.
+        For more information, see [Bucket](/docs/storage/concepts/bucket).
+      type: object
+      properties:
+        id:
+          description: |-
+            Bucket's ID, treated as name. Properties id and name are equal
+            to each other, but name has priority over id.
+          type: string
+        name:
+          description: Bucket's uniqe name.
+          type: string
+        folderId:
+          description: Folder id to which this bucket belongs.
+          type: string
+        anonymousAccessFlags:
+          $ref: '#/components/schemas/AnonymousAccessFlags_in_Bucket_anonymousAccessFlags'
+        defaultStorageClass:
+          description: |-
+            Storage class of bucket.
+            For more information, see [Storage Class](/docs/storage/concepts/storage-class)
+          type: string
+        versioning:
+          $ref: '#/components/schemas/Versioning_in_Bucket_versioning'
+        maxSize:
+          description: |-
+            Maximum size of bucket.
+            For more information, see [Size limits](/docs/storage/operations/buckets/limit-max-volume)
+          type: string
+          format: int64
+        policy:
+          description: |-
+            Bucket's policy.
+            For more information, see [Bucket Policy](/docs/storage/concepts/policy)
+          type: object
+        acl:
+          $ref: '#/components/schemas/ACL_in_Bucket_acl'
+        createdAt:
+          description: |-
+            Creating date.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        cors:
+          description: |-
+            CORS settings for bucket, hosted as website.
+            For more information, see [CORS](/docs/storage/concepts/cors)
+          type: array
+          items:
+            $ref: '#/components/schemas/CorsRule'
+        websiteSettings:
+          $ref: '#/components/schemas/WebsiteSettings_in_Bucket_websiteSettings'
+        lifecycleRules:
+          description: |-
+            Objects's lifecycle rules.
+            For more information, see [Lifecycles](/docs/storage/concepts/lifecycles)
+          type: array
+          items:
+            $ref: '#/components/schemas/LifecycleRule'
+    CorsRule:
+      type: object
+      properties:
+        id:
+          type: string
+        allowedMethods:
+          description: |-
+            Required.
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/CorsRuleMethod'
+        allowedHeaders:
+          description: |-
+            allowed_headers elements might be either as exact value
+            (i.e. Test-Header-Field) or as pattern (i.e. Test-*-Field)
+            But only one star allowed.
+          type: array
+          items:
+            type: string
+        allowedOrigins:
+          description: |-
+            Required.
+            allowed_origins elements might be either as exact value
+            (i.e. some-value) or as pattern (i.e. some*value)
+            But only one star allowed.
+
+            Must contain at least one element.
+          type: array
+          items:
+            type: string
+        exposeHeaders:
+          type: array
+          items:
+            type: string
+        maxAgeSeconds:
+          type: integer
+          format: int64
+    CorsRuleMethod:
+      type: string
+      enum:
+      - METHOD_GET
+      - METHOD_HEAD
+      - METHOD_POST
+      - METHOD_PUT
+      - METHOD_DELETE
+    CreateBucketMetadata:
+      type: object
+      properties:
+        name:
+          type: string
+    CreateBucketRequest:
+      description: CreateBucketRequest creates bucket for S3.
+      type: object
+      properties:
+        name:
+          description: |-
+            Required.
+            Unique name of the bucket.
+            This name is treated as unique identifier and used among the whole Cloud.
+            For naming limitations and rules, see [Bucket naming](/docs/storage/concepts/bucket#naming)
+          type: string
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a bucket in.
+            To get the folder ID, use [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        defaultStorageClass:
+          description: |-
+            Class of the storage.
+            For more information, see [Storage Class](/docs/storage/concepts/storage-class)
+          type: string
+        maxSize:
+          description: |-
+            Maximum size of bucket.
+            For more information, see [Size limits](/docs/storage/operations/buckets/limit-max-volume)
+          type: string
+          format: int64
+        anonymousAccessFlags:
+          $ref: '#/components/schemas/AnonymousAccessFlags_in_CreateBucketRequest_anonymousAccessFlags'
+        acl:
+          $ref: '#/components/schemas/ACL_in_CreateBucketRequest_acl'
+    DeleteBucketMetadata:
+      type: object
+      properties:
+        name:
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    GetBucketRequestView:
+      description: |-
+        View allows to setup the amount of information
+        returned by the server.
+        Please note, that fetching extended information
+        may require additional permissions according to
+        bucket ACL and cloud access policy.
+
+         - VIEW_UNSPECIFIED: No specified view. Treated as basic value.
+         - VIEW_BASIC: Fetches basic information about bucket.
+         - VIEW_ACL: Fetches basic information with acl.
+         - VIEW_FULL: Includes all available fields in a bucket.
+      type: string
+      enum:
+      - VIEW_BASIC
+      - VIEW_ACL
+      - VIEW_FULL
+    LifecycleRule:
+      type: object
+      properties:
+        id:
+          type: string
+        enabled:
+          type: boolean
+          format: boolean
+        filter:
+          $ref: '#/components/schemas/LifecycleRuleRuleFilter_in_LifecycleRule_filter'
+        expiration:
+          $ref: '#/components/schemas/LifecycleRuleExpiration_in_LifecycleRule_expiration'
+        transitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LifecycleRuleTransition'
+        abortIncompleteMultipartUpload:
+          $ref: '#/components/schemas/LifecycleRuleAfterDays_in_LifecycleRule_abortIncompleteMultipartUpload'
+        noncurrentExpiration:
+          $ref: '#/components/schemas/LifecycleRuleNoncurrentExpiration_in_LifecycleRule_noncurrentExpiration'
+        noncurrentTransitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LifecycleRuleNoncurrentTransition'
+    LifecycleRuleAfterDays:
+      type: object
+      properties:
+        daysAfterExpiration:
+          type: integer
+          format: int64
+    LifecycleRuleExpiration:
+      type: object
+      properties:
+        date:
+          description: |-
+            If date is set, days parameter not allowed
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        days:
+          description: If days are set, date parameter not allowed
+          type: integer
+          format: int64
+        expiredObjectDeleteMarker:
+          description: |-
+            if expired_object_delete_marker is set, other parameters
+            are not allowed.
+          type: boolean
+          format: boolean
+    LifecycleRuleNoncurrentExpiration:
+      type: object
+      properties:
+        noncurrentDays:
+          type: integer
+          format: int64
+    LifecycleRuleNoncurrentTransition:
+      type: object
+      properties:
+        noncurrentDays:
+          type: integer
+          format: int64
+        storageClass:
+          description: Required.
+          type: string
+    LifecycleRuleRuleFilter:
+      type: object
+      properties:
+        prefix:
+          type: string
+    LifecycleRuleTransition:
+      type: object
+      properties:
+        date:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        days:
+          type: integer
+          format: int64
+        storageClass:
+          description: Required.
+          type: string
+    ListBucketsResponse:
+      type: object
+      properties:
+        buckets:
+          description: list of buckets that satisfies request.
+          type: array
+          items:
+            $ref: '#/components/schemas/Bucket'
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/Status'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    Status:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    UpdateBucketMetadata:
+      type: object
+      properties:
+        name:
+          type: string
+    UpdateBucketRequest:
+      description: |-
+        UpdateBucketRequest acts like patch method in HTTP world
+        In order to update most of the properties, the user must
+        have the appropriate permissions.
+
+        In most cases, storage.editor permission should be enough, but
+        might be limited by the bucket's Policy.
+
+        For more information, see [Policy](/docs/storage/concepts/policy)
+      type: object
+      properties:
+        fieldMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateBucketRequest_fieldMask'
+        anonymousAccessFlags:
+          $ref: '#/components/schemas/AnonymousAccessFlags_in_UpdateBucketRequest_anonymousAccessFlags'
+        defaultStorageClass:
+          description: |-
+            Storage class of bucket.
+            For more information, see [Storage Class](/docs/storage/concepts/storage-class)
+          type: string
+        maxSize:
+          description: |-
+            Maximum size of bucket.
+            For more information, see [Size limits](/docs/storage/operations/buckets/limit-max-volume)
+          type: string
+          format: int64
+        cors:
+          description: |-
+            CORS settings for bucket, hosted as website.
+            For more information, see [CORS](/docs/storage/concepts/cors)
+          type: array
+          items:
+            $ref: '#/components/schemas/CorsRule'
+        websiteSettings:
+          $ref: '#/components/schemas/WebsiteSettings_in_UpdateBucketRequest_websiteSettings'
+        versioning:
+          $ref: '#/components/schemas/Versioning_in_UpdateBucketRequest_versioning'
+        licecycleRules:
+          description: |-
+            Objects's lifecycle rules.
+            For more information, see [Lifecycles](/docs/storage/concepts/lifecycles)
+          type: array
+          items:
+            $ref: '#/components/schemas/LifecycleRule'
+        policy:
+          description: |-
+            Bucket's policy.
+            For more information, see [Bucket Policy](/docs/storage/concepts/policy)
+          type: object
+        acl:
+          $ref: '#/components/schemas/ACL_in_UpdateBucketRequest_acl'
+    Versioning:
+      type: string
+      enum:
+      - VERSIONING_DISABLED
+      - VERSIONING_ENABLED
+      - VERSIONING_SUSPENDED
+    WebsiteSettings:
+      type: object
+      properties:
+        index:
+          description: |-
+            index points to entrypoint of the website.
+            Either property "index" or "redirect_all_requests"
+            should be set in order to operate.
+          type: string
+        error:
+          type: string
+        redirectAllRequests:
+          $ref: '#/components/schemas/WebsiteSettingsScheme_in_WebsiteSettings_redirectAllRequests'
+        routingRules:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebsiteSettingsRoutingRule'
+    WebsiteSettingsCondition:
+      type: object
+      properties:
+        httpErrorCodeReturnedEquals:
+          type: string
+        keyPrefixEquals:
+          type: string
+    WebsiteSettingsProtocol:
+      type: string
+      enum:
+      - PROTOCOL_HTTP
+      - PROTOCOL_HTTPS
+    WebsiteSettingsRedirect:
+      type: object
+      properties:
+        hostname:
+          type: string
+        httpRedirectCode:
+          description: |-
+            http_redirect_code allowed values ranges between 301 and 399.
+            by default value 301 will be used.
+
+            Value must match the regular expression `` 3(0[1-9]|[1-9][0-9]) ``.
+          type: string
+        protocol:
+          $ref: '#/components/schemas/WebsiteSettingsProtocol_in_WebsiteSettingsRedirect_protocol'
+        replaceKeyPrefixWith:
+          type: string
+        replaceKeyWith:
+          type: string
+    WebsiteSettingsRoutingRule:
+      type: object
+      properties:
+        condition:
+          $ref: '#/components/schemas/WebsiteSettingsCondition_in_WebsiteSettingsRoutingRule_condition'
+        redirect:
+          $ref: '#/components/schemas/WebsiteSettingsRedirect_in_WebsiteSettingsRoutingRule_redirect'
+    WebsiteSettingsScheme:
+      type: object
+      properties:
+        protocol:
+          $ref: '#/components/schemas/WebsiteSettingsProtocol_in_WebsiteSettingsScheme_protocol'
+        hostname:
+          type: string
+    ACLGrantPermission_in_ACLGrant_permission:
+      description: |-
+        Required.
+
+         - PERMISSION_FULL_CONTROL: header X-Amz-Grant-Full-Control
+         - PERMISSION_WRITE: header X-Amz-Grant-Write
+         - PERMISSION_WRITE_ACP: header X-Amz-Grant-Write-Acp
+         - PERMISSION_READ: header X-Amz-Grant-Read
+         - PERMISSION_READ_ACP: header X-Amz-Grant-Read-Acp
+      type: string
+      enum:
+      - PERMISSION_FULL_CONTROL
+      - PERMISSION_WRITE
+      - PERMISSION_WRITE_ACP
+      - PERMISSION_READ
+      - PERMISSION_READ_ACP
+    ACLGrantGrantType_in_ACLGrant_grantType:
+      description: |-
+        Required.
+
+         - GRANT_TYPE_ACCOUNT: equal to 'id' grantee value
+         - GRANT_TYPE_ALL_AUTHENTICATED_USERS: equal to 'uri' authenticated users
+         - GRANT_TYPE_ALL_USERS: equal to 'uri' all users
+      type: string
+      enum:
+      - GRANT_TYPE_ACCOUNT
+      - GRANT_TYPE_ALL_AUTHENTICATED_USERS
+      - GRANT_TYPE_ALL_USERS
+    AnonymousAccessFlags_in_Bucket_anonymousAccessFlags:
+      description: |-
+        Access flags for anonymous access.
+        For more information, see [Bucket Access](/docs/storage/concepts/bucket#bucket-access)
+      type: object
+      properties:
+        read:
+          type: boolean
+          format: boolean
+        list:
+          type: boolean
+          format: boolean
+        configRead:
+          type: boolean
+          format: boolean
+    Versioning_in_Bucket_versioning:
+      description: |-
+        Bucket's versioning mode.
+        For more information, see [Versioning](/docs/storage/concepts/versioning)
+      type: string
+      enum:
+      - VERSIONING_DISABLED
+      - VERSIONING_ENABLED
+      - VERSIONING_SUSPENDED
+    ACL_in_Bucket_acl:
+      description: |-
+        Bucket's ACL.
+        For more information, see [ACL](/docs/storage/concepts/acl)
+
+        ACL model.
+      type: object
+      properties:
+        grants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ACLGrant'
+    WebsiteSettings_in_Bucket_websiteSettings:
+      description: |-
+        Website settings of bucket.
+        For more information, see [Static site hosting](/docs/storage/concepts/hosting)
+      type: object
+      properties:
+        index:
+          description: |-
+            index points to entrypoint of the website.
+            Either property "index" or "redirect_all_requests"
+            should be set in order to operate.
+          type: string
+        error:
+          type: string
+        redirectAllRequests:
+          $ref: '#/components/schemas/WebsiteSettingsScheme_in_WebsiteSettings_redirectAllRequests'
+        routingRules:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebsiteSettingsRoutingRule'
+    AnonymousAccessFlags_in_CreateBucketRequest_anonymousAccessFlags:
+      description: |-
+        Access flags for anonymous access.
+        For more information, see [Bucket Access](/docs/storage/concepts/bucket#bucket-access)
+      type: object
+      properties:
+        read:
+          type: boolean
+          format: boolean
+        list:
+          type: boolean
+          format: boolean
+        configRead:
+          type: boolean
+          format: boolean
+    ACL_in_CreateBucketRequest_acl:
+      description: |-
+        ACL of bucket.
+        For more information, see [Bucket Policy](/docs/storage/concepts/acl)
+
+        ACL model.
+      type: object
+      properties:
+        grants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ACLGrant'
+    LifecycleRuleRuleFilter_in_LifecycleRule_filter:
+      type: object
+      properties:
+        prefix:
+          type: string
+    LifecycleRuleExpiration_in_LifecycleRule_expiration:
+      type: object
+      properties:
+        date:
+          description: |-
+            If date is set, days parameter not allowed
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        days:
+          description: If days are set, date parameter not allowed
+          type: integer
+          format: int64
+        expiredObjectDeleteMarker:
+          description: |-
+            if expired_object_delete_marker is set, other parameters
+            are not allowed.
+          type: boolean
+          format: boolean
+    LifecycleRuleAfterDays_in_LifecycleRule_abortIncompleteMultipartUpload:
+      type: object
+      properties:
+        daysAfterExpiration:
+          type: integer
+          format: int64
+    LifecycleRuleNoncurrentExpiration_in_LifecycleRule_noncurrentExpiration:
+      type: object
+      properties:
+        noncurrentDays:
+          type: integer
+          format: int64
+    FieldMask_in_UpdateBucketRequest_fieldMask:
+      description: |-
+        Required.
+        field_maks defines fields that should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    AnonymousAccessFlags_in_UpdateBucketRequest_anonymousAccessFlags:
+      description: |-
+        Access flags for anonymous access.
+        For more information, see [Bucket Access](/docs/storage/concepts/bucket#bucket-access)
+      type: object
+      properties:
+        read:
+          type: boolean
+          format: boolean
+        list:
+          type: boolean
+          format: boolean
+        configRead:
+          type: boolean
+          format: boolean
+    WebsiteSettings_in_UpdateBucketRequest_websiteSettings:
+      description: |-
+        Website settings of bucket.
+        For more information, see [Static site hosting](/docs/storage/concepts/hosting)
+      type: object
+      properties:
+        index:
+          description: |-
+            index points to entrypoint of the website.
+            Either property "index" or "redirect_all_requests"
+            should be set in order to operate.
+          type: string
+        error:
+          type: string
+        redirectAllRequests:
+          $ref: '#/components/schemas/WebsiteSettingsScheme_in_WebsiteSettings_redirectAllRequests'
+        routingRules:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebsiteSettingsRoutingRule'
+    Versioning_in_UpdateBucketRequest_versioning:
+      description: |-
+        Bucket's versioning mode.
+        For more information, see [Versioning](/docs/storage/concepts/versioning)
+      type: string
+      enum:
+      - VERSIONING_DISABLED
+      - VERSIONING_ENABLED
+      - VERSIONING_SUSPENDED
+    ACL_in_UpdateBucketRequest_acl:
+      description: |-
+        Bucket's ACL.
+        For more information, see [ACL](/docs/storage/concepts/acl)
+
+        ACL model.
+      type: object
+      properties:
+        grants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ACLGrant'
+    WebsiteSettingsScheme_in_WebsiteSettings_redirectAllRequests:
+      description: |-
+        redirect_all_requests redirects all requests to other uri.
+        If this field  used, no other fields should be defined.
+      type: object
+      properties:
+        protocol:
+          $ref: '#/components/schemas/WebsiteSettingsProtocol_in_WebsiteSettingsScheme_protocol'
+        hostname:
+          type: string
+    WebsiteSettingsProtocol_in_WebsiteSettingsRedirect_protocol:
+      type: string
+      enum:
+      - PROTOCOL_HTTP
+      - PROTOCOL_HTTPS
+    WebsiteSettingsCondition_in_WebsiteSettingsRoutingRule_condition:
+      type: object
+      properties:
+        httpErrorCodeReturnedEquals:
+          type: string
+        keyPrefixEquals:
+          type: string
+    WebsiteSettingsRedirect_in_WebsiteSettingsRoutingRule_redirect:
+      type: object
+      properties:
+        hostname:
+          type: string
+        httpRedirectCode:
+          description: |-
+            http_redirect_code allowed values ranges between 301 and 399.
+            by default value 301 will be used.
+
+            Value must match the regular expression `` 3(0[1-9]|[1-9][0-9]) ``.
+          type: string
+        protocol:
+          $ref: '#/components/schemas/WebsiteSettingsProtocol_in_WebsiteSettingsRedirect_protocol'
+        replaceKeyPrefixWith:
+          type: string
+        replaceKeyWith:
+          type: string
+    WebsiteSettingsProtocol_in_WebsiteSettingsScheme_protocol:
+      description: by default, http will be used.
+      type: string
+      enum:
+      - PROTOCOL_HTTP
+      - PROTOCOL_HTTPS
+tags:
+- name: Bucket
+  description: |-
+    BucketService is a control plane for managing buckets inside object
+    storage.

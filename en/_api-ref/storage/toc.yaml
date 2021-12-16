@@ -1,0 +1,17 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: Bucket
+    items:
+      - name: Overview
+        href: api-ref/Bucket/index.md
+      - name: create
+        href: api-ref/Bucket/create.md
+      - name: delete
+        href: api-ref/Bucket/delete.md
+      - name: get
+        href: api-ref/Bucket/get.md
+      - name: list
+        href: api-ref/Bucket/list.md
+      - name: update
+        href: api-ref/Bucket/update.md

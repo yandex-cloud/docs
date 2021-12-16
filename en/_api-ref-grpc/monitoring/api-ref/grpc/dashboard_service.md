@@ -125,6 +125,7 @@ color_scheme_settings | **[ColorSchemeSettings](#ColorSchemeSettings)**<br>Color
 heatmap_settings | **[HeatmapSettings](#HeatmapSettings)**<br>Heatmap settings. 
 yaxis_settings | **[YaxisSettings](#YaxisSettings)**<br>Y axis settings. 
 title | **string**<br>Inside chart title. 
+show_labels | **bool**<br>Show chart labels. 
 
 
 ### ColorSchemeSettings {#ColorSchemeSettings}
@@ -382,6 +383,7 @@ color_scheme_settings | **[ColorSchemeSettings](#ColorSchemeSettings1)**<br>Colo
 heatmap_settings | **[HeatmapSettings](#HeatmapSettings1)**<br>Heatmap settings. 
 yaxis_settings | **[YaxisSettings](#YaxisSettings1)**<br>Y axis settings. 
 title | **string**<br>Inside chart title. 
+show_labels | **bool**<br>Show chart labels. 
 
 
 ### ColorSchemeSettings {#ColorSchemeSettings1}
@@ -623,6 +625,7 @@ color_scheme_settings | **[ColorSchemeSettings](#ColorSchemeSettings2)**<br>Colo
 heatmap_settings | **[HeatmapSettings](#HeatmapSettings2)**<br>Heatmap settings. 
 yaxis_settings | **[YaxisSettings](#YaxisSettings2)**<br>Y axis settings. 
 title | **string**<br>Inside chart title. 
+show_labels | **bool**<br>Show chart labels. 
 
 
 ### ColorSchemeSettings {#ColorSchemeSettings2}
@@ -879,6 +882,7 @@ color_scheme_settings | **[ColorSchemeSettings](#ColorSchemeSettings3)**<br>Colo
 heatmap_settings | **[HeatmapSettings](#HeatmapSettings3)**<br>Heatmap settings. 
 yaxis_settings | **[YaxisSettings](#YaxisSettings3)**<br>Y axis settings. 
 title | **string**<br>Inside chart title. 
+show_labels | **bool**<br>Show chart labels. 
 
 
 ### ColorSchemeSettings {#ColorSchemeSettings3}
@@ -1121,6 +1125,7 @@ color_scheme_settings | **[ColorSchemeSettings](#ColorSchemeSettings4)**<br>Colo
 heatmap_settings | **[HeatmapSettings](#HeatmapSettings4)**<br>Heatmap settings. 
 yaxis_settings | **[YaxisSettings](#YaxisSettings4)**<br>Y axis settings. 
 title | **string**<br>Inside chart title. 
+show_labels | **bool**<br>Show chart labels. 
 
 
 ### ColorSchemeSettings {#ColorSchemeSettings4}
@@ -1377,6 +1382,7 @@ color_scheme_settings | **[ColorSchemeSettings](#ColorSchemeSettings5)**<br>Colo
 heatmap_settings | **[HeatmapSettings](#HeatmapSettings5)**<br>Heatmap settings. 
 yaxis_settings | **[YaxisSettings](#YaxisSettings5)**<br>Y axis settings. 
 title | **string**<br>Inside chart title. 
+show_labels | **bool**<br>Show chart labels. 
 
 
 ### ColorSchemeSettings {#ColorSchemeSettings5}

@@ -1,4 +1,4 @@
-openapi: "3.0"
+openapi: 3.0.0
 info:
   title: Yandex Cloud Serverless Containers Service
   description: This API reference is organized by resource. Actions are performed
@@ -660,7 +660,7 @@ components:
           type: string
           format: int64
         cores:
-          description: Value must be one of 1, 2 or 4.
+          description: Acceptable values are 0 to 1, inclusive.
           type: string
           format: int64
         coreFraction:
@@ -889,7 +889,7 @@ components:
           type: string
           format: int64
         cores:
-          description: Value must be one of 1, 2 or 4.
+          description: Acceptable values are 0 to 1, inclusive.
           type: string
           format: int64
         coreFraction:
@@ -972,7 +972,7 @@ components:
           type: string
           format: int64
         cores:
-          description: Value must be one of 1, 2 or 4.
+          description: Acceptable values are 0 to 1, inclusive.
           type: string
           format: int64
         coreFraction:

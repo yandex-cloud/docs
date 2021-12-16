@@ -11,6 +11,8 @@ items:
         href: api-ref/Endpoint/delete.md
       - name: get
         href: api-ref/Endpoint/get.md
+      - name: list
+        href: api-ref/Endpoint/list.md
       - name: update
         href: api-ref/Endpoint/update.md
   - name: Transfer
@@ -27,5 +29,7 @@ items:
         href: api-ref/Transfer/delete.md
       - name: get
         href: api-ref/Transfer/get.md
+      - name: list
+        href: api-ref/Transfer/list.md
       - name: update
         href: api-ref/Transfer/update.md

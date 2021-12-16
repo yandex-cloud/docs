@@ -19,7 +19,7 @@ Parameter | Description
 folderId | Required. ID of the folder to list API gateways in.  To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 pageSize | The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/list#responses) that can be used to get the next page of results in subsequent list requests.  Default value: 100.
 pageToken | Page token. To get the next page of results, set `pageToken` to the [nextPageToken](/docs/functions/api-gateway/api-ref/ApiGateway/list#responses) returned by a previous list request.
-filter | A filter expression that filters functions listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [ApiGateway.name](/docs/functions/api-gateway/api-ref/ApiGateway#representation) field. 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 1-63 characters long and match the regular expression `^[a-z]([-a-z0-9]{0,61}[a-z0-9])?$`. Example of a filter: `name=my-apigw`.
+filter | A filter expression that filters functions listed in the response.  The expression must specify: 1. The field name. Currently filtering can only be applied to the [ApiGateway.name](/docs/functions/api-gateway/api-ref/ApiGateway#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{0,61}[a-z0-9])?`. Example of a filter: `name=my-apigw`.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

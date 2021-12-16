@@ -1,0 +1,79 @@
+---
+editable: false
+---
+
+# Method list
+Retrieves the list of desktop resources.
+ 
+
+ 
+## HTTP request {#https-request}
+```
+GET https://cloud-desktop.api.cloud.yandex.net/cloud-desktop/v1/desktops
+```
+ 
+## Query parameters {#query_params}
+ 
+Parameter | Description
+--- | ---
+folderId | Required. ID of the folder to create a DesktopGroup in.  To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
+pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/cloud-desktop/api-ref/Desktop/list#query_params), the service returns a [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/cloud-desktop/api-ref/Desktop/list#query_params) to the [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/Desktop#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. Value or a list of values to compare against the values of the field.  The maximum string length in characters is 1000.
+orderBy | Sorting the list by [Desktop.name](/docs/cloud-desktop/api-ref/Desktop#representation), [Desktop.createdAt](/docs/cloud-desktop/api-ref/Desktop#representation) and [Desktop.status](/docs/cloud-desktop/api-ref/Desktop#representation) fields. The default sorting order is ascending.  The maximum string length in characters is 100.
+ 
+## Response {#responses}
+**HTTP Code: 200 - OK**
+
+```json 
+{
+  "desktops": [
+    {
+      "id": "string",
+      "folderId": "string",
+      "desktopGroupId": "string",
+      "createdAt": "string",
+      "status": "string",
+      "name": "string",
+      "resources": {
+        "memory": "string",
+        "cores": "string",
+        "coreFraction": "string"
+      },
+      "networkInterfaces": [
+        {
+          "networkId": "string",
+          "subnetId": "string"
+        }
+      ],
+      "users": [
+        {
+          "subjectId": "string"
+        }
+      ]
+    }
+  ],
+  "nextPageToken": "string"
+}
+```
+
+ 
+Field | Description
+--- | ---
+desktops[] | **object**<br><p>A desktop resource.</p> 
+desktops[].<br>id | **string**<br><p>Desktop ID.</p> 
+desktops[].<br>folderId | **string**<br><p>ID of the folder that the desktop belongs to.</p> 
+desktops[].<br>desktopGroupId | **string**<br><p>ID of the desktop group that the desktop belongs to.</p> 
+desktops[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+desktops[].<br>status | **string**<br><p>Status of the desktop.</p> <ul> <li>CREATING: Desktop is being created.</li> <li>ACTIVE: Desktop is ready to use.</li> <li>DELETING: Desktop is being deleted.</li> </ul> 
+desktops[].<br>name | **string**<br><p>Name of the desktop.</p> 
+desktops[].<br>resources | **object**<br><p>Resources of the desktop.</p> 
+desktops[].<br>resources.<br>memory | **string** (int64)<br><p>The minimum value is 1.</p> 
+desktops[].<br>resources.<br>cores | **string** (int64)<br><p>The minimum value is 1.</p> 
+desktops[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
+desktops[].<br>networkInterfaces[] | **object**<br>
+desktops[].<br>networkInterfaces[].<br>networkId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
+desktops[].<br>networkInterfaces[].<br>subnetId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
+desktops[].<br>users[] | **object**<br>
+desktops[].<br>users[].<br>subjectId | **string**<br><p>Required. Identity of the access binding.</p> 
+nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/cloud-desktop/api-ref/Desktop/list#query_params">pageSize</a>, use the <a href="/docs/cloud-desktop/api-ref/Desktop/list#responses">nextPageToken</a> as the value for the <a href="/docs/cloud-desktop/api-ref/Desktop/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/cloud-desktop/api-ref/Desktop/list#responses">nextPageToken</a> to continue paging through the results.</p> 

@@ -1,0 +1,9 @@
+items:
+  - name: Overview
+    href: api-ref/grpc/index.md
+  - name: DesktopGroupService
+    href: api-ref/grpc/desktop_group_service.md
+  - name: DesktopService
+    href: api-ref/grpc/desktop_service.md
+  - name: OperationService
+    href: api-ref/grpc/operation_service.md

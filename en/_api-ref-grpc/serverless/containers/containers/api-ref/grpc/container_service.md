@@ -271,7 +271,7 @@ concurrency | **int64**<br>
 Field | Description
 --- | ---
 memory | **int64**<br> Acceptable values are 134217728 to 8589934592, inclusive.
-cores | **int64**<br> Value must be equal to 1,2,4.
+cores | **int64**<br> Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br> Acceptable values are 0 to 100, inclusive.
 
 
@@ -370,7 +370,7 @@ args[] | **string**<br>
 Field | Description
 --- | ---
 memory | **int64**<br> Acceptable values are 134217728 to 8589934592, inclusive.
-cores | **int64**<br> Value must be equal to 1,2,4.
+cores | **int64**<br> Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br> Acceptable values are 0 to 100, inclusive.
 
 
@@ -434,7 +434,7 @@ args[] | **string**<br>
 Field | Description
 --- | ---
 memory | **int64**<br> Acceptable values are 134217728 to 8589934592, inclusive.
-cores | **int64**<br> Value must be equal to 1,2,4.
+cores | **int64**<br> Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br> Acceptable values are 0 to 100, inclusive.
 
 
@@ -511,7 +511,7 @@ args[] | **string**<br>
 Field | Description
 --- | ---
 memory | **int64**<br> Acceptable values are 134217728 to 8589934592, inclusive.
-cores | **int64**<br> Value must be equal to 1,2,4.
+cores | **int64**<br> Acceptable values are 0 to 1, inclusive.
 core_fraction | **int64**<br> Acceptable values are 0 to 100, inclusive.
 
 

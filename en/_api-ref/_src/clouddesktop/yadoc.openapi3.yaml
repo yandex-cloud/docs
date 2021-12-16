@@ -1,0 +1,1454 @@
+openapi: 3.0.0
+info:
+  title: Yandex Cloud Desktop API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://cloud-desktop.api.cloud.yandex.net
+paths:
+  /cloud-desktop/v1/desktopGroups/{desktopGroupId}:
+    get:
+      tags:
+      - DesktopGroup
+      summary: Returns the specified desktop group resource.
+      description: To get the list of available desktop groups, make a [list](/docs/cloud-desktop/api-ref/DesktopGroup/list)
+        request.
+      operationId: DesktopGroupGet
+      parameters:
+      - name: desktopGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the desktop group resource to return.
+
+          To get the desktop group ID use a [list](/docs/cloud-desktop/api-ref/DesktopGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DesktopGroup'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - DesktopGroup
+      summary: Deletes the specified desktop group.
+      operationId: DesktopGroupDelete
+      parameters:
+      - name: desktopGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the desktop group to delete.
+
+          To get a desktop group ID make a [list](/docs/cloud-desktop/api-ref/DesktopGroup/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDesktopGroupMetadata'
+      x-y-operation-response: Empty
+  /cloud-desktop/v1/desktopGroups:
+    get:
+      tags:
+      - DesktopGroup
+      summary: Retrieves the list of desktop group resources.
+      operationId: DesktopGroupList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list desktop groups in.
+
+          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/cloud-desktop/api-ref/DesktopGroup/list#query_params),
+          the service returns a [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/cloud-desktop/api-ref/DesktopGroup/list#query_params) to the
+          [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [DesktopGroup.name](/docs/cloud-desktop/api-ref/DesktopGroup#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. Value or a list of values to compare against the values of the field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: |-
+          Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/DesktopGroup#representation), [DesktopGroup.createdAt](/docs/cloud-desktop/api-ref/DesktopGroup#representation) and [DesktopGroup.status](/docs/cloud-desktop/api-ref/DesktopGroup#representation) fields.
+          The default sorting order is ascending.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDesktopGroupsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - DesktopGroup
+      summary: Creates desktop group in the specified folder.
+      operationId: DesktopGroupCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDesktopGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDesktopGroupMetadata'
+      x-y-operation-response: '[DesktopGroup](/docs/cloud-desktop/api-ref/DesktopGroup#representation)'
+  /cloud-desktop/v1/desktopGroups/{desktopGroupId}/desktops:
+    get:
+      tags:
+      - DesktopGroup
+      summary: Retrieves the list of desktops resources.
+      operationId: DesktopGroupListDesktops
+      parameters:
+      - name: desktopGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the desktop group.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#query_params),
+          the service returns a [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#query_params) to the
+          [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/Desktop#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. Value or a list of values to compare against the values of the field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: |-
+          Sorting the list by [Desktop.name](/docs/cloud-desktop/api-ref/Desktop#representation), [Desktop.createdAt](/docs/cloud-desktop/api-ref/Desktop#representation) and [Desktop.status](/docs/cloud-desktop/api-ref/Desktop#representation) fields.
+          The default sorting order is ascending.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDesktopGroupDesktopsResponse'
+      x-y-navtitle: listDesktops
+  /cloud-desktop/v1/desktopGroups/{desktopGroupId}/operations:
+    get:
+      tags:
+      - DesktopGroup
+      summary: Returns list of the operations for the specified desktop group.
+      operationId: DesktopGroupListOperations
+      parameters:
+      - name: desktopGroupId
+        in: path
+        description: |-
+          Required.
+          ID of the desktop group.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#query_params),
+          the service returns a [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#query_params) to the
+          [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/DesktopGroup#representation) field.
+          The default sorting order is ascending.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDesktopGroupOperationsResponse'
+      x-y-navtitle: listOperations
+  /cloud-desktop/v1/desktopGroups/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - DesktopGroup
+      summary: Returns a list of the access bindings for the specified desktop group.
+      operationId: DesktopGroupListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than pageSize,
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set pageToken
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /cloud-desktop/v1/desktopGroups/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - DesktopGroup
+      summary: Sets access bindings for the specified desktop group.
+      operationId: DesktopGroupSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /cloud-desktop/v1/desktopGroups/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - DesktopGroup
+      summary: Updates access bindings of the specified desktop group.
+      operationId: DesktopGroupUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /cloud-desktop/v1/desktops/{desktopId}:
+    get:
+      tags:
+      - Desktop
+      summary: Returns the specified desktop resource.
+      description: To get the list of available desktops, make a [list](/docs/cloud-desktop/api-ref/Desktop/list)
+        request.
+      operationId: DesktopGet
+      parameters:
+      - name: desktopId
+        in: path
+        description: |-
+          Required.
+          ID of the desktop resource to return.
+
+          To get the desktop ID use a [list](/docs/cloud-desktop/api-ref/Desktop/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Desktop'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Desktop
+      summary: Deletes the specified desktop.
+      operationId: DesktopDelete
+      parameters:
+      - name: desktopId
+        in: path
+        description: |-
+          Required.
+          ID of the desktop to delete.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteDesktopMetadata'
+      x-y-operation-response: Empty
+  /cloud-desktop/v1/desktops/{desktopId}:getRdpFile:
+    get:
+      tags:
+      - Desktop
+      summary: Returns a RDP file for the specified desktop.
+      operationId: DesktopGetRdpFile
+      parameters:
+      - name: desktopId
+        in: path
+        description: |-
+          Required.
+          ID of the desktop resource to return.
+
+          To get the desktop ID use a [list](/docs/cloud-desktop/api-ref/Desktop/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: user.subjectId
+        in: query
+        description: |-
+          Required.
+          Identity of the access binding.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RdpFileResponse'
+      x-y-navtitle: getRdpFile
+  /cloud-desktop/v1/desktops:
+    get:
+      tags:
+      - Desktop
+      summary: Retrieves the list of desktop resources.
+      operationId: DesktopList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to create a DesktopGroup in.
+
+          To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/cloud-desktop/api-ref/Desktop/list#query_params),
+          the service returns a [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/cloud-desktop/api-ref/Desktop/list#query_params) to the
+          [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/Desktop#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. Value or a list of values to compare against the values of the field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: |-
+          Sorting the list by [Desktop.name](/docs/cloud-desktop/api-ref/Desktop#representation), [Desktop.createdAt](/docs/cloud-desktop/api-ref/Desktop#representation) and [Desktop.status](/docs/cloud-desktop/api-ref/Desktop#representation) fields.
+          The default sorting order is ascending.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDesktopsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Desktop
+      summary: Creates desktop in the specified folder.
+      operationId: DesktopCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDesktopRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateDesktopMetadata'
+      x-y-operation-response: '[Desktop](/docs/cloud-desktop/api-ref/Desktop#representation)'
+  /cloud-desktop/v1/desktops/{desktopId}/operations:
+    get:
+      tags:
+      - Desktop
+      summary: Returns list of the operations for the specified desktop.
+      operationId: DesktopListOperations
+      parameters:
+      - name: desktopId
+        in: path
+        description: |-
+          Required.
+          ID of the desktop.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/cloud-desktop/api-ref/Desktop/listOperations#query_params),
+          the service returns a [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#query_params) to the
+          [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/Desktop#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. Value or a list of values to compare against the values of the field.
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListDesktopOperationsResponse'
+      x-y-navtitle: listOperations
+  /cloud-desktop/v1/desktops/{desktopId}:getTmpPassword:
+    get:
+      tags:
+      - Desktop
+      summary: Returns temporary password for the specified desktop.
+      operationId: DesktopGetTmpPassword
+      parameters:
+      - name: desktopId
+        in: path
+        description: |-
+          Required.
+          ID of the desktop.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: subjectId
+        in: query
+        description: User of the desktop.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TmpPasswordResponse'
+      x-y-navtitle: getTmpPassword
+  /cloud-desktop/v1/desktops/{desktopId}:resetTmpPassword:
+    post:
+      tags:
+      - Desktop
+      summary: Reset temporary password for the specified desktop.
+      operationId: DesktopResetTmpPassword
+      parameters:
+      - name: desktopId
+        in: path
+        description: |-
+          Required.
+          ID of the desktop.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetTmpPasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: resetTmpPassword
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/ResetTmpPasswordMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    CreateDesktopGroupMetadata:
+      type: object
+      properties:
+        desktopGroupId:
+          description: ID of the desktop group that is being created.
+          type: string
+    CreateDesktopGroupRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a DesktopGroup in.
+
+            To get a folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the DesktopGroup.
+            The name must be unique within the folder.
+
+            Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9]) ``.
+          type: string
+        description:
+          description: |-
+            Description of the DesktopGroup.
+
+            The maximum string length in characters is 1024.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_CreateDesktopGroupRequest_resourcesSpec'
+        networkInterfaceSpec:
+          $ref: '#/components/schemas/NetworkInterfaceSpec_in_CreateDesktopGroupRequest_networkInterfaceSpec'
+    CreateDesktopMetadata:
+      type: object
+      properties:
+        desktopId:
+          description: ID of the desktop that is being created.
+          type: string
+    CreateDesktopRequest:
+      type: object
+      properties:
+        desktopGroupId:
+          description: |-
+            Required.
+            ID of the desktop group.
+
+            The maximum string length in characters is 50.
+          type: string
+        users:
+          description: |-
+            Required.
+            List of users.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    DeleteDesktopGroupMetadata:
+      type: object
+      properties:
+        desktopGroupId:
+          description: ID of the desktop group that is being deleted.
+          type: string
+    DeleteDesktopMetadata:
+      type: object
+      properties:
+        desktopId:
+          description: ID of the desktop that is being deleted.
+          type: string
+    Desktop:
+      description: A desktop resource.
+      type: object
+      properties:
+        id:
+          description: Desktop ID.
+          type: string
+        folderId:
+          description: ID of the folder that the desktop belongs to.
+          type: string
+        desktopGroupId:
+          description: ID of the desktop group that the desktop belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/DesktopStatus_in_Desktop_status'
+        name:
+          description: Name of the desktop.
+          type: string
+        resources:
+          $ref: '#/components/schemas/Resources_in_Desktop_resources'
+        networkInterfaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterface'
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    DesktopGroup:
+      description: A desktop group resource.
+      type: object
+      properties:
+        id:
+          description: Desktop group ID.
+          type: string
+        folderId:
+          description: ID of the folder that the desktop group belongs to.
+          type: string
+        createdAt:
+          description: |-
+            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/DesktopGroupStatus_in_DesktopGroup_status'
+        name:
+          description: Name of the desktop group.
+          type: string
+        description:
+          description: Description of the desktop group.
+          type: string
+        resourcesSpec:
+          $ref: '#/components/schemas/ResourcesSpec_in_DesktopGroup_resourcesSpec'
+        networkInterfaceSpec:
+          $ref: '#/components/schemas/NetworkInterfaceSpec_in_DesktopGroup_networkInterfaceSpec'
+    DesktopGroupStatus:
+      description: |2-
+         - CREATING: Desktop group is being created.
+         - ACTIVE: Desktop group is ready to use.
+         - DELETING: Desktop group is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+    DesktopStatus:
+      description: |2-
+         - CREATING: Desktop is being created.
+         - ACTIVE: Desktop is ready to use.
+         - DELETING: Desktop is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than pageSize, use
+            the nextPageToken as the value
+            for the pageToken query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListDesktopGroupDesktopsResponse:
+      type: object
+      properties:
+        desktop:
+          description: List of desktops.
+          type: array
+          items:
+            $ref: '#/components/schemas/Desktop'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#query_params), use
+            the [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#responses) as the value
+            for the [ListDesktopsDGS Request.page_token] query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#responses) to continue paging through the results.
+          type: string
+    ListDesktopGroupOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified desktop group.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#query_params), use
+            the [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#responses) as the value
+            for the [pageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#responses) to continue paging through the results.
+          type: string
+    ListDesktopGroupsResponse:
+      type: object
+      properties:
+        desktopGroups:
+          description: List of desktop groups.
+          type: array
+          items:
+            $ref: '#/components/schemas/DesktopGroup'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/cloud-desktop/api-ref/DesktopGroup/list#query_params), use
+            the [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/list#responses) as the value
+            for the [pageToken](/docs/cloud-desktop/api-ref/DesktopGroup/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/list#responses) to continue paging through the results.
+          type: string
+    ListDesktopOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified desktop.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/cloud-desktop/api-ref/Desktop/listOperations#query_params), use
+            the [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#responses) as the value
+            for the [pageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#responses) to continue paging through the results.
+          type: string
+    ListDesktopsResponse:
+      type: object
+      properties:
+        desktops:
+          description: List of desktops.
+          type: array
+          items:
+            $ref: '#/components/schemas/Desktop'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/cloud-desktop/api-ref/Desktop/list#query_params), use
+            the [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/list#responses) as the value
+            for the [pageToken](/docs/cloud-desktop/api-ref/Desktop/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/cloud-desktop/api-ref/Desktop/list#responses) to continue paging through the results.
+          type: string
+    NetworkInterface:
+      type: object
+      properties:
+        networkId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        subnetId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+    NetworkInterfaceSpec:
+      type: object
+      properties:
+        networkId:
+          description: |-
+            Required.
+            ID of the network interface specification.
+
+            The maximum string length in characters is 50.
+          type: string
+        subnetIds:
+          description: |-
+            Required.
+            List of subnet IDs.
+
+            Must contain at least one element.
+            The maximum string length in characters for each value is 50.
+          type: array
+          items:
+            type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: |-
+              The time when the Operation resource was last modified.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    RdpFileResponse:
+      type: object
+      properties:
+        headers:
+          description: HTTP headers mapping.
+          type: object
+          additionalProperties:
+            type: string
+        content:
+          description: RDP file content.
+          type: string
+    ResetTmpPasswordMetadata:
+      type: object
+      properties:
+        desktopId:
+          description: ID of the desktop.
+          type: string
+        subjectId:
+          description: Subject ID of the desktop.
+          type: string
+    ResetTmpPasswordRequest:
+      type: object
+      properties:
+        subjectId:
+          description: Subject ID of the desktop.
+          type: string
+    Resources:
+      type: object
+      properties:
+        memory:
+          description: The minimum value is 1.
+          type: string
+          format: int64
+        cores:
+          description: The minimum value is 1.
+          type: string
+          format: int64
+        coreFraction:
+          description: Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+    ResourcesSpec:
+      type: object
+      properties:
+        memory:
+          description: |-
+            RAM volume, in bytes.
+
+            The minimum value is 1.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            Number of CPU cores.
+
+            The minimum value is 1.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Baseline level of CPU performance with the ability to burst performance above that baseline level.
+            This field sets baseline performance for each core.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Required.
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    TmpPasswordResponse:
+      type: object
+      properties:
+        password:
+          description: Desktop user password.
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    User:
+      type: object
+      properties:
+        subjectId:
+          description: |-
+            Required.
+            Identity of the access binding.
+          type: string
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex.Connect, added to Yandex.Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    ResourcesSpec_in_CreateDesktopGroupRequest_resourcesSpec:
+      description: Resource specification of the desktop group.
+      type: object
+      properties:
+        memory:
+          description: |-
+            RAM volume, in bytes.
+
+            The minimum value is 1.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            Number of CPU cores.
+
+            The minimum value is 1.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Baseline level of CPU performance with the ability to burst performance above that baseline level.
+            This field sets baseline performance for each core.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+    NetworkInterfaceSpec_in_CreateDesktopGroupRequest_networkInterfaceSpec:
+      description: Network interface specification of the desktop group.
+      type: object
+      properties:
+        networkId:
+          description: |-
+            Required.
+            ID of the network interface specification.
+
+            The maximum string length in characters is 50.
+          type: string
+        subnetIds:
+          description: |-
+            Required.
+            List of subnet IDs.
+
+            Must contain at least one element.
+            The maximum string length in characters for each value is 50.
+          type: array
+          items:
+            type: string
+    DesktopStatus_in_Desktop_status:
+      description: |-
+        Status of the desktop.
+
+         - CREATING: Desktop is being created.
+         - ACTIVE: Desktop is ready to use.
+         - DELETING: Desktop is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+    Resources_in_Desktop_resources:
+      description: Resources of the desktop.
+      type: object
+      properties:
+        memory:
+          description: The minimum value is 1.
+          type: string
+          format: int64
+        cores:
+          description: The minimum value is 1.
+          type: string
+          format: int64
+        coreFraction:
+          description: Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+    DesktopGroupStatus_in_DesktopGroup_status:
+      description: |-
+        Status of the desktop group.
+
+         - CREATING: Desktop group is being created.
+         - ACTIVE: Desktop group is ready to use.
+         - DELETING: Desktop group is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - DELETING
+    ResourcesSpec_in_DesktopGroup_resourcesSpec:
+      description: Resource specification of the desktop group.
+      type: object
+      properties:
+        memory:
+          description: |-
+            RAM volume, in bytes.
+
+            The minimum value is 1.
+          type: string
+          format: int64
+        cores:
+          description: |-
+            Number of CPU cores.
+
+            The minimum value is 1.
+          type: string
+          format: int64
+        coreFraction:
+          description: |-
+            Baseline level of CPU performance with the ability to burst performance above that baseline level.
+            This field sets baseline performance for each core.
+
+            Acceptable values are 0 to 100, inclusive.
+          type: string
+          format: int64
+    NetworkInterfaceSpec_in_DesktopGroup_networkInterfaceSpec:
+      description: Network interface specification of the desktop group.
+      type: object
+      properties:
+        networkId:
+          description: |-
+            Required.
+            ID of the network interface specification.
+
+            The maximum string length in characters is 50.
+          type: string
+        subnetIds:
+          description: |-
+            Required.
+            List of subnet IDs.
+
+            Must contain at least one element.
+            The maximum string length in characters for each value is 50.
+          type: array
+          items:
+            type: string
+tags:
+- name: DesktopGroup
+  description: A set of methods for managing desktop group resources.
+- name: Desktop
+  description: A set of methods for managing desktop resources.

@@ -1,4 +1,4 @@
-openapi: "3.0"
+openapi: 3.0.0
 info:
   title: Yandex DataTransfer API
   description: This API reference is organized by resource. Actions are performed
@@ -55,6 +55,7 @@ paths:
       parameters:
       - name: endpointId
         in: path
+        description: Identifier of the endpoint to be updated.
         required: true
         schema:
           type: string
@@ -75,6 +76,45 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateEndpointMetadata'
       x-y-operation-response: '[Endpoint](/docs/datatransfer/api-ref/Endpoint#representation)'
+  /v1/endpoints/list/{folderId}:
+    get:
+      tags:
+      - Endpoint
+      operationId: EndpointList
+      parameters:
+      - name: folderId
+        in: path
+        description: Identifier of the folder containing the endpoints to be listed.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of endpoints to be sent in the response message. If the
+          folder contains more endpoints than page_size, next_page_token will be included
+          in the response message. Include it into the subsequent ListEndpointRequest to
+          fetch the next page. Defaults to 100 if not specified. The maximum allowed value
+          for this field is 100.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Opaque value identifying the endpoints page to be fetched. Should be empty in
+          the first ListEndpointsRequest. Subsequent request should have this field filled
+          with the next_page_token from the previous ListEndpointsResponse.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListEndpointsResponse'
+      x-y-navtitle: list
   /v1/endpoint:
     post:
       tags:
@@ -166,6 +206,7 @@ paths:
       parameters:
       - name: transferId
         in: path
+        description: Identifier of the transfer to be updated.
         required: true
         schema:
           type: string
@@ -186,6 +227,45 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateTransferMetadata'
       x-y-operation-response: '[Transfer](/docs/datatransfer/api-ref/Transfer#representation)'
+  /v1/transfers/list/{folderId}:
+    get:
+      tags:
+      - Transfer
+      operationId: TransferList
+      parameters:
+      - name: folderId
+        in: path
+        description: Identifier of the folder containing the transfers to be listed.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of transfers to be sent in the response message. If the
+          folder contains more transfers than page_size, next_page_token will be included
+          in the response message. Include it into the subsequent ListTransfersRequest to
+          fetch the next page. Defaults to 100 if not specified. The maximum allowed value
+          for this field is 100.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Opaque value identifying the transfers page to be fetched. Should be empty in
+          the first ListTransfersRequest. Subsequent request should have this field filled
+          with the next_page_token from the previous ListTransfersResponse.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTransfersResponse'
+      x-y-navtitle: list
   /v1/transfer/{transferId}:deactivate:
     post:
       tags:
@@ -266,6 +346,10 @@ components:
           type: string
         description:
           type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
         settings:
           $ref: '#/components/schemas/EndpointSettings_in_CreateEndpointRequest_settings'
     CreateTransferMetadata:
@@ -284,6 +368,10 @@ components:
           type: string
         description:
           type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
         folderId:
           type: string
         type:
@@ -321,6 +409,10 @@ components:
           type: string
         description:
           type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
         settings:
           $ref: '#/components/schemas/EndpointSettings_in_Endpoint_settings'
     EndpointSettings:
@@ -338,6 +430,53 @@ components:
             $ref: '#/components/schemas/MysqlTarget'
           postgresTarget:
             $ref: '#/components/schemas/PostgresTarget'
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListEndpointsResponse:
+      type: object
+      properties:
+        endpoints:
+          description: |-
+            The list of endpoints. If there are more endpoints in the folder, then
+            next_page_token is a non-empty string to be included into the subsequent
+            ListEndpointsRequest to fetch the next endpoints page.
+          type: array
+          items:
+            $ref: '#/components/schemas/Endpoint'
+        nextPageToken:
+          description: |-
+            Opaque value identifying the next endpoints page. This field is empty if there
+            are no more endpoints in the folder. Otherwise it is non-empty and should be
+            included in the subsequent ListEndpointsRequest to fetch the next endpoints
+            page.
+          type: string
+    ListTransfersResponse:
+      type: object
+      properties:
+        transfers:
+          description: |-
+            The list of transfers. If there are more transfers in the folder, then
+            next_page_token is a non-empty string to be included into the subsequent
+            ListTransfersRequest to fetch the next transfers page.
+          type: array
+          items:
+            $ref: '#/components/schemas/Transfer'
+        nextPageToken:
+          description: |-
+            Opaque value identifying the next transfers page. This field is empty if there
+            are no more transfers in the folder. Otherwise it is non-empty and should be
+            included in the subsequent ListTransfersRequest to fetch the next transfers
+            page.
+          type: string
     MysqlConnection:
       type: object
       allOf:
@@ -347,7 +486,7 @@ components:
         properties:
           mdbClusterId:
             description: |-
-              MDB cluster
+              Managed cluster
 
               Yandex.Cloud Managed MySQL cluster ID
             type: string
@@ -463,7 +602,7 @@ components:
           description: |-
             Database port
 
-            Will be used if the cluster ID is not specified. Default: 6432.
+            Default: 3306.
           type: string
           format: int64
         tlsMode:
@@ -562,7 +701,7 @@ components:
         properties:
           mdbClusterId:
             description: |-
-              MDB cluster
+              Managed cluster
 
               Yandex.Cloud Managed PostgreSQL cluster ID
             type: string
@@ -625,7 +764,7 @@ components:
           $ref: '#/components/schemas/Secret_in_PostgresSource_password'
         includeTables:
           description: |-
-            List of tables
+            Included tables
 
             If none or empty list is presented, all tables are replicated. Can contain
             regular expression.
@@ -734,6 +873,10 @@ components:
           type: string
         description:
           type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
         source:
           $ref: '#/components/schemas/Endpoint_in_Transfer_source'
         target:
@@ -774,11 +917,19 @@ components:
       type: object
       properties:
         name:
+          description: The new endpoint name. Must be unique within the folder.
           type: string
         description:
+          description: The new description for the endpoint.
           type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
         settings:
           $ref: '#/components/schemas/EndpointSettings_in_UpdateEndpointRequest_settings'
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateEndpointRequest_updateMask'
     UpdateTransferMetadata:
       type: object
       properties:
@@ -788,9 +939,17 @@ components:
       type: object
       properties:
         description:
+          description: The new description for the transfer.
           type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
         name:
+          description: The new transfer name. Must be unique within the folder.
           type: string
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateTransferRequest_updateMask'
     EndpointSettings_in_CreateEndpointRequest_settings:
       type: object
       allOf:
@@ -874,7 +1033,7 @@ components:
         properties:
           mdbClusterId:
             description: |-
-              MDB cluster
+              Managed cluster
 
               Yandex.Cloud Managed MySQL cluster ID
             type: string
@@ -924,7 +1083,7 @@ components:
         properties:
           mdbClusterId:
             description: |-
-              MDB cluster
+              Managed cluster
 
               Yandex.Cloud Managed MySQL cluster ID
             type: string
@@ -1151,7 +1310,7 @@ components:
         properties:
           mdbClusterId:
             description: |-
-              MDB cluster
+              Managed cluster
 
               Yandex.Cloud Managed PostgreSQL cluster ID
             type: string
@@ -1227,7 +1386,7 @@ components:
         properties:
           mdbClusterId:
             description: |-
-              MDB cluster
+              Managed cluster
 
               Yandex.Cloud Managed PostgreSQL cluster ID
             type: string
@@ -1262,6 +1421,10 @@ components:
           type: string
         description:
           type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
         settings:
           $ref: '#/components/schemas/EndpointSettings_in_Endpoint_settings'
     Endpoint_in_Transfer_target:
@@ -1275,6 +1438,10 @@ components:
           type: string
         description:
           type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
         settings:
           $ref: '#/components/schemas/EndpointSettings_in_Endpoint_settings'
     TransferStatus_in_Transfer_status:
@@ -1299,6 +1466,7 @@ components:
       - SNAPSHOT_ONLY
       - INCREMENT_ONLY
     EndpointSettings_in_UpdateEndpointRequest_settings:
+      description: The new endpoint name. Must be unique within the folder.
       type: object
       allOf:
       - title: settings
@@ -1313,6 +1481,40 @@ components:
             $ref: '#/components/schemas/MysqlTarget'
           postgresTarget:
             $ref: '#/components/schemas/PostgresTarget'
+    FieldMask_in_UpdateEndpointRequest_updateMask:
+      description: |-
+        Field mask specifying endpoint fields to be updated. Semantics for this field is
+        described here:
+        https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask
+        The only exception is that if the repeated field is specified in the mask, then
+        the new value replaces the old one instead of being appended to the old one.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    FieldMask_in_UpdateTransferRequest_updateMask:
+      description: |-
+        Field mask specifying transfer fields to be updated. Semantics for this field is
+        described here:
+        https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask
+        The only exception is that if the repeated field is specified in the mask, then
+        the new value replaces the old one instead of being appended to the old one.
+
+        A comma-separated names off ALL fields to be updated.
+        Оnly the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
 tags:
 - name: Endpoint
 - name: Transfer

@@ -130,7 +130,22 @@ filter | Filter support is not currently implemented. Any filters are ignored.  
       "hostGroupIds": [
         "string"
       ],
-      "deletionProtection": true
+      "deletionProtection": true,
+      "maintenanceWindow": {
+
+        // `clusters[].maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+        "anytime": {},
+        "weeklyMaintenanceWindow": {
+          "day": "string",
+          "hour": "string"
+        },
+        // end of the list of possible fields`clusters[].maintenanceWindow`
+
+      },
+      "plannedOperation": {
+        "info": "string",
+        "delayedUntil": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -223,4 +238,12 @@ clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <ul> 
 clusters[].<br>securityGroupIds[] | **string**<br><p>User security groups</p> 
 clusters[].<br>hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 clusters[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+clusters[].<br>maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> 
+clusters[].<br>maintenanceWindow.<br>anytime | **object** <br>`clusters[].maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
+clusters[].<br>maintenanceWindow.<br>weeklyMaintenanceWindow | **object** <br>`clusters[].maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br><br>
+clusters[].<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br>
+clusters[].<br>maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
+clusters[].<br>plannedOperation | **object**<br><p>Scheduled maintenance operation.</p> 
+clusters[].<br>plannedOperation.<br>info | **string**<br><p>The maximum string length in characters is 256.</p> 
+clusters[].<br>plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
 nextPageToken | **string**<br><p>Token that allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-kafka/api-ref/Cluster/list#query_params">pageSize</a>, use <a href="/docs/managed-kafka/api-ref/Cluster/list#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kafka/api-ref/Cluster/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kafka/api-ref/Cluster/list#responses">nextPageToken</a> to continue paging through the results.</p> 

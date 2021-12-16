@@ -42,6 +42,7 @@ role | enum **Role**<br>Role that is fulfilled by hosts of the subcluster. <ul><
 resources | **[Resources](#Resources)**<br>Resources allocated for each host in the subcluster. 
 subnet_id | **string**<br>ID of the VPC subnet used for hosts in the subcluster. 
 hosts_count | **int64**<br>Number of hosts in the subcluster. 
+assign_public_ip | **bool**<br>Assign public ip addresses for all hosts in subcluter. 
 autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig)**<br>Configuration for instance group based subclusters 
 instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
 
@@ -81,7 +82,7 @@ Field | Description
 cluster_id | **string**<br>Required. ID of the Data Proc cluster to list subclusters in. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListSubclustersResponse.next_page_token](#ListSubclustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListSubclustersResponse.next_page_token](#ListSubclustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Subcluster.name](#Subcluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Subcluster.name](#Subcluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListSubclustersResponse {#ListSubclustersResponse}
@@ -104,6 +105,7 @@ role | enum **Role**<br>Role that is fulfilled by hosts of the subcluster. <ul><
 resources | **[Resources](#Resources1)**<br>Resources allocated for each host in the subcluster. 
 subnet_id | **string**<br>ID of the VPC subnet used for hosts in the subcluster. 
 hosts_count | **int64**<br>Number of hosts in the subcluster. 
+assign_public_ip | **bool**<br>Assign public ip addresses for all hosts in subcluter. 
 autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig1)**<br>Configuration for instance group based subclusters 
 instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
 
@@ -211,6 +213,7 @@ role | enum **Role**<br>Role that is fulfilled by hosts of the subcluster. <ul><
 resources | **[Resources](#Resources3)**<br>Resources allocated for each host in the subcluster. 
 subnet_id | **string**<br>ID of the VPC subnet used for hosts in the subcluster. 
 hosts_count | **int64**<br>Number of hosts in the subcluster. 
+assign_public_ip | **bool**<br>Assign public ip addresses for all hosts in subcluter. 
 autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig3)**<br>Configuration for instance group based subclusters 
 instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
 
@@ -319,6 +322,7 @@ role | enum **Role**<br>Role that is fulfilled by hosts of the subcluster. <ul><
 resources | **[Resources](#Resources5)**<br>Resources allocated for each host in the subcluster. 
 subnet_id | **string**<br>ID of the VPC subnet used for hosts in the subcluster. 
 hosts_count | **int64**<br>Number of hosts in the subcluster. 
+assign_public_ip | **bool**<br>Assign public ip addresses for all hosts in subcluter. 
 autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig5)**<br>Configuration for instance group based subclusters 
 instance_group_id | **string**<br>ID of Compute Instance Group for autoscaling subclusters 
 

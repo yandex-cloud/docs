@@ -83,7 +83,7 @@ revisions[].<br>image.<br>environment | **object**<br><p>Each key must match the
 revisions[].<br>image.<br>workingDir | **string**<br>
 revisions[].<br>resources | **object**<br>
 revisions[].<br>resources.<br>memory | **string** (int64)<br><p>Acceptable values are 134217728 to 8589934592, inclusive.</p> 
-revisions[].<br>resources.<br>cores | **string** (int64)<br><p>Value must be one of 1, 2 or 4.</p> 
+revisions[].<br>resources.<br>cores | **string** (int64)<br><p>Acceptable values are 0 to 1, inclusive.</p> 
 revisions[].<br>resources.<br>coreFraction | **string** (int64)<br><p>Acceptable values are 0 to 100, inclusive.</p> 
 revisions[].<br>executionTimeout | **string**<br>
 revisions[].<br>concurrency | **string** (int64)<br>

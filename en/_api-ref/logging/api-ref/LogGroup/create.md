@@ -20,7 +20,8 @@ POST https://logging.api.cloud.yandex.net/logging/v1/logGroups
   "name": "string",
   "description": "string",
   "labels": "object",
-  "retentionPeriod": "string"
+  "retentionPeriod": "string",
+  "dataStream": "string"
 }
 ```
 
@@ -32,6 +33,7 @@ name | **string**<br><p>Name of the log group. The name must be unique within th
 description | **string**<br><p>Description of the log group.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Log group labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
 retentionPeriod | **string**<br><p>Log group entry retention period.</p> <p>Entries will be present in group during this period. If specified, must be non-negative. Empty or zero value is treated as no limit.</p> 
+dataStream | **string**<br><p>If specified, all log records will be written to this data stream</p> <p>The maximum string length in characters is 512.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
