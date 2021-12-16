@@ -1,6 +1,8 @@
 # Создание образа продукта на базе Windows Server для загрузки в {{ marketplace-name }}
 
-Продукты Marketplace могут быть созданы на базе ОС Linux и Windows Server. Эта инструкция поможет создать образ на базе Windows Server. Чтобы создать образ на базе Linux, воспользуйтесь инструкцией [{#T}](create-image.md). 
+Чтобы добавить в Marketplace продукт для {{ compute-full-name }}, нужно загрузить образ в {{ yandex-cloud }}. Продукты для {{ compute-full-name }} могут быть созданы на базе ОС Linux и Windows Server. Эта инструкция поможет создать образ на базе Windows Server. Чтобы создать образ на базе Linux, воспользуйтесь инструкцией [{#T}](create-image.md). 
+
+Если вы хотите добавить продукт для {{ managed-k8s-full-name }}, воспользуйтесь [соответствующей инструкцией](create-container.md).
 
 ## Создать ВМ {#create}
 
