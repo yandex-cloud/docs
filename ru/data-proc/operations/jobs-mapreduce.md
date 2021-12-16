@@ -142,6 +142,8 @@
 
 ## Получить логи выполнения задания {#get-logs}
 
+{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+
 {% list tabs %}
 
 * Консоль управления

@@ -18,7 +18,7 @@ items:
           - name: Работа с заданиями Spark
             href: solutions/spark-job-basics.md
           - name: Использование Apache Hive
-            href: solutions/how-to-use-hive.md            
+            href: solutions/how-to-use-hive.md
           - name: Запуск Spark-приложений
             href: solutions/run-spark-job.md
           - name: Запуск приложений с удаленного хоста
@@ -91,6 +91,8 @@ items:
         href: concepts/limits.md
       - name: Свойства компонентов
         href: concepts/settings-list.md
+      - name: Логи в Data Proc
+        href: concepts/logs.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

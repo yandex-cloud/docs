@@ -85,6 +85,8 @@ items:
         href: concepts/limits.md
       - name: Component properties
         href: concepts/settings-list.md
+      - name: Logs in Data Proc
+        href: concepts/logs.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
