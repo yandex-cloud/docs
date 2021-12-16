@@ -1,6 +1,8 @@
 # Creating a Windows Server-based product image to upload to {{ marketplace-name }}
 
-Products in Marketplace can be based on Linux and Windows Server. These instructions will help you create an image based on Windows Server. To create a Linux-based image, follow the instructions [{#T}](create-image.md).
+To add a product for {{ compute-full-name }} to the Marketplace, you need to upload the image to {{ yandex-cloud }}. You can create products for {{ compute-full-name }} that run on Linux and Windows Server. These instructions will help you create an image based on Windows Server. To create a Linux-based image, follow the instructions [{#T}](create-image.md).
+
+If you wish to add a product for {{ managed-k8s-full-name }}, follow the [relevant instructions](create-container.md).
 
 ## Creating a VM {#create}
 
@@ -10,7 +12,7 @@ If you don't have a VM that you would like to use as your basic VM, [create](../
 
 ## General recommendations for creating images {#advices}
 
-* Install applications before running the [`sysprep` utility]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Sysprep){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Sysprep){% endif %}, if the applications allow for this.
+* Install the applications before launching [`sysprep` utility]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Sysprep){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Sysprep){% endif %} if they support it.
 * If `sysprep` affects an installed application, but the effects can be fixed, use [SetupComplete](#setupcomplete) or [TaskScheduler](#taskscheduler) to set up the application when you run the OS environment for the first time.
 * If an application can't be installed before running `sysprep` and the startup configuration doesn't help, use SetupComplete or TaskScheduler to install the application the first time the OS environment starts up.
 * To make sure that your image is available from an external network, use SetupComplete or TaskScheduler to set `passwordneverexpires` for your local admin account. The password can't be reset from outside the VM.
@@ -25,13 +27,13 @@ After you install the applications, make sure that the image you are creating st
 
 For a complete list of basic image transformations, see [Changes to Windows VM images](../../microsoft/list-of-instances.md#changes).
 
-## Preparing the image for deployment
+## Preparing the image for deployment {#preparing-image}
 
 Before uploading an image to Marketplace, prepare the image using the `sysprep` utility and clear it once more of temporary files and personal data.
 
-### Preparing the answer file
+### Preparing the answer file {#preparing-file}
 
-Each Windows version has its own `sysprep` copy installed. Run the locally installed utility, located at `$env:SystemRoot\System32\Sysprep\Sysprep.exe`, with the options `/oobe /generalize /quiet /quit /unattend:<unattend_answer_file_path>`, where `<unattend_answer_file_path>` is the path to an [answer file]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep){% endif %}. You need an answer file to configure and automate OS depersonalization. If you omit an explicit path to an answer file when running `sysprep`, Windows Installer will search for the `Autounattend.xml` answer file in [default locations]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-hardware/manufacture/desktop/windows-setup-automation-overview#implicit-answer-file-search-order){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-automation-overview#implicit-answer-file-search-order){% endif %}.
+Each Windows version has its own `sysprep` copy installed. Run the local utility found in `$env:SystemRoot\System32\Sysprep\Sysprep.exe` with the options `/oobe /generalize /quiet /quit /unattend:<unattend_answer_file_path>`, where `<unattend_answer_file_path>` is the path to [answer file]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep){% endif %}. You need an answer file to configure and automate OS depersonalization. If at `sysprep` launch you do not specify an explicit path to an answer file, the utility will attempt to find a previous answer file in the cache or run without it. Launching `sysprep` without an answer file may damage the image you prepared.
 
 {% cut "Answer file example" %}
 
@@ -104,7 +106,7 @@ At the _specialize_ stage, actions are run in a restricted environment. For exam
 
 {% endnote %}
 
-### Run the sysprep utility {#run-sysprep}
+### Running sysprep {#run-sysprep}
 
 1. Before running `sysprep`, delete the previous tag file:
 
@@ -161,13 +163,13 @@ For example, the following command will create a script execution task in the `u
 & schtasks /Create /TN "userdata" /RU SYSTEM /SC ONSTART /RL HIGHEST /TR "Powershell -NoProfile -ExecutionPolicy Bypass -Command \`"& {iex (irm -H @{\\\`"Metadata-Flavor\\\`"=\\\`"Google\\\`"} \\\`"http://169.254.169.254/computeMetadata/v1/instance/attributes/user-data\\\`")}\`"" | Out-Null
 ```
 
-## Create image {#create-image}
+## Creating an image {#create-image}
 
 Create an image from the VM's boot disk.
 
 {% list tabs %}
 
-* CLI
+- CLI
 
   ```powershell
     yc compute image create `

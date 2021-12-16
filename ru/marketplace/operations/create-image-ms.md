@@ -27,11 +27,11 @@
 
 С полным списком преобразований базовых образов можно ознакомиться в разделе [Изменения в образах ВМ с операционной системой Windows](../../microsoft/list-of-instances.md#changes).
 
-## Подготовить образ к тиражированию
+## Подготовить образ к тиражированию {#preparing-image}
 
 Перед загрузкой образа в Marketplace вам нужно подготовить образ с помощью утилиты `sysprep` и повторно очистить его от временных файлов и персональных данных.
 
-### Подготовить файл ответов
+### Подготовить файл ответов {#preparing-file}
 
 В каждой версии ОС Windows установлена своя копия `sysprep`. Запустите локально установленную утилиту, расположенную в `$env:SystemRoot\System32\Sysprep\Sysprep.exe`, с ключами `/oobe /generalize /quiet /quit /unattend:<unattend_answer_file_path>`, где `<unattend_answer_file_path>` — путь к [файлу ответов]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/use-answer-files-with-sysprep){% endif %}. Файл ответов необходим для настройки и автоматизации обезличивания ОС. Если при запуске `sysprep` вы не укажете явный путь к файлу ответов, утилита попробует найти предыдущий файл ответов в кеше или запустится без него. Запуск `sysprep` без файла ответов может повредить подготовленный вами образ.
 
@@ -168,7 +168,7 @@
 
 {% list tabs %}
 
-* CLI
+- CLI
 
   ```powershell
     yc compute image create `
