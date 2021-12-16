@@ -19,3 +19,7 @@
 * `text/xml`.
 
 MIME-тип определяется по значению HTTP-заголовка `Content-Type` в ответе источника на запрос CDN-сервера.
+
+#### См. также {#see-also}
+
+* [Инструкция по включению сжатия](../operations/resources/enable-compression.md).

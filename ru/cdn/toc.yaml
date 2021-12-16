@@ -55,18 +55,30 @@ items:
         href: concepts/index.md
       - name: Ресурс
         href: concepts/resource.md
-      - name: Кеширование контента
-        href: concepts/caching.md
-      - name: CORS
-        href: concepts/cors.md
-      - name: Сжатие контента
-        href: concepts/compression.md
-      - name: Сегментация контента
-        href: concepts/slicing.md
       - name: Источники и их группы
         href: concepts/origins.md
-      - name: Экранирование источников
-        href: concepts/origins-shielding.md
+      - name: Обмен данными между клиентами и CDN
+        items:
+          - name: Обзор
+            href: concepts/clients-to-servers.md
+          - name: TLS-сертификаты
+            href: concepts/clients-to-servers-tls.md
+          - name: CORS
+            href: concepts/cors.md
+          - name: Сжатие контента
+            href: concepts/compression.md
+      - name: Обмен данными между CDN и источниками
+        items:
+          - name: Обзор
+            href: concepts/servers-to-origins.md
+          - name: Заголовок Host
+            href: concepts/servers-to-origins-host.md
+          - name: Сегментация контента
+            href: concepts/slicing.md
+          - name: Экранирование источников
+            href: concepts/origins-shielding.md
+      - name: Кеширование контента
+        href: concepts/caching.md
       - name: Выгрузка логов
         href: concepts/logs.md
       - name: Квоты и лимиты
