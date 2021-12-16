@@ -90,6 +90,8 @@ items:
         href: concepts/limits.md
       - name: Свойства компонентов
         href: concepts/settings-list.md
+      - name: Логи в Data Proc
+        href: concepts/logs.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -144,6 +146,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/Job/index.md
+              - name: cancel
+                href: api-ref/Job/cancel.md
               - name: create
                 href: api-ref/Job/create.md
               - name: get

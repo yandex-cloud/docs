@@ -9,3 +9,7 @@
 * Запретить CORS-запросы: отключить добавление заголовка `Access-Control-Allow-Origin` к ответам.
 
 Настройки CORS действуют для всех файлов ресурса.
+
+#### См. также {#see-also}
+
+* [Инструкция по настройке CORS](../operations/resources/configure-cors.md).

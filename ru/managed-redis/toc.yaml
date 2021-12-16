@@ -63,6 +63,8 @@ items:
         href: concepts/supported-features.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Типы хранилища
+        href: concepts/storage.md
       - name: Настройки Redis
         href: concepts/settings-list.md
   - name: Управление доступом

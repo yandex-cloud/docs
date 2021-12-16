@@ -23,6 +23,8 @@ Syntax:
 	- [yc ydb database stop](database/stop.md) — Stop the specified YDB database.
 	- [yc ydb database start](database/start.md) — Start the specified YDB database.
 	- [yc ydb database delete](database/delete.md) — Delete the specified YDB database.
+	- [yc ydb database add-labels](database/add-labels.md) — Add labels to specified YDB database.
+	- [yc ydb database remove-labels](database/remove-labels.md) — Remove labels from specified YDB database.
 - [yc ydb storage-type](storage-type/index.md) — View YDB storage types.
 	- [yc ydb storage-type get](storage-type/get.md) — Get information about the specified YDB storage type preset.
 	- [yc ydb storage-type list](storage-type/list.md) — List YDB storage types.

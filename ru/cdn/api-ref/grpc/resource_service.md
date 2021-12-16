@@ -15,7 +15,7 @@ Provider's resources management service.
 | [Create](#Create) | Creates client's CDN resource. |
 | [Update](#Update) | Updates of client's CDN resource. |
 | [Delete](#Delete) | Deletes client's CDN resource. |
-| [GetProviderCName](#GetProviderCName) | Get Provider's CNAME (edge endpoint) binded to specified folder id. |
+| [GetProviderCName](#GetProviderCName) | Get Provider's CNAME (edge endpoint) bind to specified folder id. |
 
 ## Calls ResourceService {#calls}
 
@@ -201,7 +201,7 @@ flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. I
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the sertificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
 status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li><ul/>
 data | **[SSLCertificateData](#SSLCertificateData)**<br>Certificate data. 
 
@@ -218,7 +218,7 @@ ssl_certificate_data_variant | **oneof:** `cm`<br>
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the custom sertificate. 
+id | **string**<br>ID of the custom certificate. 
 
 
 ## List {#List}
@@ -413,7 +413,7 @@ flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. I
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the sertificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
 status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li><ul/>
 data | **[SSLCertificateData](#SSLCertificateData1)**<br>Certificate data. 
 
@@ -430,7 +430,7 @@ ssl_certificate_data_variant | **oneof:** `cm`<br>
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the custom sertificate. 
+id | **string**<br>ID of the custom certificate. 
 
 
 ## Create {#Create}
@@ -464,7 +464,7 @@ Field | Description
 origin_variant | **oneof:** `origin_group_id`, `origin_source` or `origin_source_params`<br>
 &nbsp;&nbsp;origin_group_id | **int64**<br>ID of pre-created origin group. 
 &nbsp;&nbsp;origin_source | **string**<br>Create new Origins group with single source, it's id will be returned in result. 
-&nbsp;&nbsp;origin_source_params | **[ResourceOriginParams](#ResourceOriginParams)**<br>Set up resourse origin parameters. 
+&nbsp;&nbsp;origin_source_params | **[ResourceOriginParams](#ResourceOriginParams)**<br>Set up resource origin parameters. 
 
 
 ### Origin {#Origin}
@@ -662,7 +662,7 @@ flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. I
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the sertificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
 data | **[SSLCertificateData](#SSLCertificateData2)**<br>Certificate data. 
 
 
@@ -678,7 +678,7 @@ ssl_certificate_data_variant | **oneof:** `cm`<br>
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the custom sertificate. 
+id | **string**<br>ID of the custom certificate. 
 
 
 ### Operation {#Operation}
@@ -873,7 +873,7 @@ flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. I
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the sertificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
 status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li><ul/>
 data | **[SSLCertificateData](#SSLCertificateData3)**<br>Certificate data. 
 
@@ -890,7 +890,7 @@ ssl_certificate_data_variant | **oneof:** `cm`<br>
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the custom sertificate. 
+id | **string**<br>ID of the custom certificate. 
 
 
 ## Update {#Update}
@@ -1074,7 +1074,7 @@ flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. I
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the sertificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
 data | **[SSLCertificateData](#SSLCertificateData4)**<br>Certificate data. 
 
 
@@ -1090,7 +1090,7 @@ ssl_certificate_data_variant | **oneof:** `cm`<br>
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the custom sertificate. 
+id | **string**<br>ID of the custom certificate. 
 
 
 ### Operation {#Operation1}
@@ -1285,7 +1285,7 @@ flag | enum **RewriteFlag**<br>Break flag is applied to the option by default. I
 
 Field | Description
 --- | ---
-type | enum **SSLCertificateType**<br>Type of the sertificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
+type | enum **SSLCertificateType**<br>Type of the certificate. <ul><li>`SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.</li><li>`LETS_ENCRYPT_GCORE`: Works only if you have already pointed your domain name to the protected IP address in your DNS</li><li>`CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key</li><ul/>
 status | enum **SSLCertificateStatus**<br>Active status. <ul><li>`SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.</li><li>`READY`: SSL certificate is ready to use.</li><li>`CREATING`: SSL certificate is creating.</li><ul/>
 data | **[SSLCertificateData](#SSLCertificateData5)**<br>Certificate data. 
 
@@ -1302,7 +1302,7 @@ ssl_certificate_data_variant | **oneof:** `cm`<br>
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the custom sertificate. 
+id | **string**<br>ID of the custom certificate. 
 
 
 ## Delete {#Delete}
@@ -1347,7 +1347,7 @@ resource_id | **string**<br>ID of deleted resource.
 
 ## GetProviderCName {#GetProviderCName}
 
-Get Provider's CNAME (edge endpoint) binded to specified folder id. Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
+Get Provider's CNAME (edge endpoint) bind to specified folder id. Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
 
 **rpc GetProviderCName ([GetProviderCNameRequest](#GetProviderCNameRequest)) returns ([GetProviderCNameResponse](#GetProviderCNameResponse))**
 

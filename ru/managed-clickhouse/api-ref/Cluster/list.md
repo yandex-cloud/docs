@@ -22,7 +22,7 @@ Parameter | Description
 folderId | Required. ID of the folder to list ClickHouse clusters in. To get the folder ID, use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-clickhouse/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
 pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-clickhouse/api-ref/Cluster/list#query_params) to the [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-clickhouse/api-ref/Cluster#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.  The maximum string length in characters is 1000.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-clickhouse/api-ref/Cluster#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -676,7 +676,8 @@ filter | A filter expression that filters resources listed in the response. The 
           "enabled": true
         },
         "sqlDatabaseManagement": true,
-        "sqlUserManagement": true
+        "sqlUserManagement": true,
+        "embeddedKeeper": true
       },
       "networkId": "string",
       "health": "string",
@@ -1196,6 +1197,7 @@ clusters[].<br>config.<br>cloudStorage | **object**<br>
 clusters[].<br>config.<br>cloudStorage.<br>enabled | **boolean** (boolean)<br><p>Whether to use Yandex Object Storage for storing ClickHouse data.</p> 
 clusters[].<br>config.<br>sqlDatabaseManagement | **boolean** (boolean)<br><p>Whether database management through SQL commands is enabled.</p> 
 clusters[].<br>config.<br>sqlUserManagement | **boolean** (boolean)<br><p>Whether user management through SQL commands is enabled.</p> 
+clusters[].<br>config.<br>embeddedKeeper | **boolean** (boolean)<br><p>Whether cluster should use embedded Keeper instead of Zookeeper.</p> 
 clusters[].<br>networkId | **string**<br><p>ID of the network that the cluster belongs to.</p> 
 clusters[].<br>health | **string**<br><p>Aggregated cluster health.</p> <ul> <li>HEALTH_UNKNOWN: State of the cluster is unknown (``health`` for every host in the cluster is UNKNOWN).</li> <li>ALIVE: Cluster is alive and well (``health`` for every host in the cluster is ALIVE).</li> <li>DEAD: Cluster is inoperable (``health`` for every host in the cluster is DEAD).</li> <li>DEGRADED: Cluster is working below capacity (``health`` for at least one host in the cluster is not ALIVE).</li> </ul> 
 clusters[].<br>status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKNOWN: Cluster state is unknown.</li> <li>CREATING: Cluster is being created.</li> <li>RUNNING: Cluster is running normally.</li> <li>ERROR: Cluster encountered a problem and cannot operate.</li> <li>UPDATING: Cluster is being updated.</li> <li>STOPPING: Cluster is stopping.</li> <li>STOPPED: Cluster stopped.</li> <li>STARTING: Cluster is starting.</li> </ul> 

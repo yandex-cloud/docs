@@ -87,3 +87,4 @@ Method | Description
 [list](list.md) | Retrieves the list of Apache Kafka Connector resources in the specified cluster.
 [pause](pause.md) | Pause the specified Apache Kafka connector.
 [resume](resume.md) | Resume the specified Apache Kafka connector.
+[update](update.md) | Updates an Apache Kafka connector in the specified cluster.

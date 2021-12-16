@@ -31,6 +31,7 @@ targetGroupId | Required. ID of the target group to update.  To get the target g
   "targets": [
     {
       "subnetId": "string",
+      "privateIpv4Address": true,
       "ipAddress": "string"
     }
   ]
@@ -46,6 +47,7 @@ description | **string**<br><p>New description of the target group.</p> <p>The m
 labels | **object**<br><p>Target group labels as ``key:value`` pairs. For details about the concept, see <a href="/docs/overview/concepts/services#labels">documentation</a>.</p> <p>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label:</p> <ol> <li>Get the current set of labels with a <a href="/docs/application-load-balancer/api-ref/TargetGroup/get">get</a> request.</li> <li>Add or remove a label in this set.</li> <li>Send the new set in this field.</li> </ol> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 targets[] | **object**<br><p>A target resource. For details about the concept, see <a href="/docs/application-load-balancer/concepts/target-group">documentation</a>.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that the target is connected to.</p> 
+targets[].<br>privateIpv4Address | **boolean** (boolean)<br><p>If set, will not require ``subnet_id`` to validate the target. Instead, the address should belong to one of the following ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 Only one of ``subnet_id`` or ``private_ipv4_address`` should be set.</p> 
 targets[].<br>ipAddress | **string**<br><p>IP address of the target.</p> 
  
 ## Response {#responses}

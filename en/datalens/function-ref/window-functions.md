@@ -1,8 +1,6 @@
 ---
 title: Window functions
-description: >-
-  Window functions are calculated in the same way as aggregations, but they do
-  not merge multiple entries into one.
+description: Window functions are calculated in the same way as aggregations, but they do not merge multiple entries into one.
 editable: false
 sourcePath: en/_api-ref/datalens/function-ref/window-functions.md
 ---

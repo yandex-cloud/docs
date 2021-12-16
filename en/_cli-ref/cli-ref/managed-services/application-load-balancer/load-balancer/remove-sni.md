@@ -8,6 +8,11 @@ Syntax:
 
 `yc application-load-balancer load-balancer remove-sni <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
+Aliases: 
+
+- `remove-http-sni`
+- `remove-stream-sni`
+
 #### Global Flags
 
 | Flag | Description |

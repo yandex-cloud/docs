@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/cdn/api-ref/Resource/getProviderCName.md
 
 
 # Method getProviderCName
-Get Provider's CNAME (edge endpoint) binded to specified folder id.
+Get Provider's CNAME (edge endpoint) bind to specified folder id.
 Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
  
 

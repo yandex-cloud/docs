@@ -149,7 +149,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list MySQL clusters in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-zA-Z0-9_-]+$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can only use filtering with the [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -353,7 +353,7 @@ zone_id | **string**<br>ID of the availability zone where the host resides. To g
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster2). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
-backup_priority | **int64**<br>Host backup priority, where 1 is the lowest priority 
+backup_priority | **int64**<br>Host backup priority 
 
 
 ### Operation {#Operation}
@@ -1286,7 +1286,7 @@ zone_id | **string**<br>ID of the availability zone where the host resides. To g
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster8). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host) of the host to be used as the replication source (for cascading replication). 
-backup_priority | **int64**<br>Host backup priority, where 1 is the lowest priority 
+backup_priority | **int64**<br>Host backup priority 
 
 
 ### Operation {#Operation7}
@@ -1719,7 +1719,7 @@ service_type | enum **ServiceType**<br> <ul><li>`MYSQL_ERROR`: MySQL error log.<
 from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request. 
 to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request. If this field is not set, all existing logs will be sent and then the new ones as they appear. In essence it has 'tail -f' semantics. 
 record_token | **string**<br>Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs request to start streaming from next log record. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.hostname](#LogRecord) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.hostname](#LogRecord) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### StreamLogRecord {#StreamLogRecord}
@@ -1848,7 +1848,7 @@ services[] | **[Service](#Service)**<br>Services provided by the host.
 subnet_id | **string**<br>ID of the subnet that the host belongs to. 
 assign_public_ip | **bool**<br>Flag showing public IP assignment status to this host. 
 replication_source | **string**<br>Name of the host to be used as the replication source for cascading replication. 
-backup_priority | **int64**<br>Host backup priority, where 1 is the lowest priority 
+backup_priority | **int64**<br>Host backup priority 
 
 
 ### Resources {#Resources14}
@@ -1894,7 +1894,7 @@ zone_id | **string**<br>ID of the availability zone where the host resides. To g
 subnet_id | **string**<br>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field [Cluster.network_id](#Cluster11). The maximum string length in characters is 50.
 assign_public_ip | **bool**<br><ul><li>false - don't assign a public IP to the host. </li><li>true - the host should have a public IP address.</li></ul> 
 replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). 
-backup_priority | **int64**<br>Host backup priority, where 1 is the lowest priority 
+backup_priority | **int64**<br>Host backup priority 
 
 
 ### Operation {#Operation11}
@@ -1946,7 +1946,7 @@ Field | Description
 host_name | **string**<br>Required. Name of the host to update. To get the MySQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
 replication_source | **string**<br>[Host.name](#Host1) of the host to be used as the replication source (for cascading replication). To get the MySQL host name, use a [ClusterService.ListHosts](#ListHosts) request. 
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the MySQL host should be updated. 
-backup_priority | **int64**<br>Host backup priority, where 1 is the lowest priority 
+backup_priority | **int64**<br>Host backup priority 
 assign_public_ip | **bool**<br>Whether the host should get a public IP address on creation. 
 
 

@@ -64,3 +64,13 @@ You can read more at:
 
 * [Opinion on compliance (in Russian)](https://storage.yandexcloud.net/yc-compliance/conformance_ru_finance.pdf).
 * [Shared responsibility as part of compliance with GOST R 57580 (in Russian)](https://storage.yandexcloud.net/yc-compliance/RST_577580_Yandex.Cloud_responsibility_matrix.pdf).
+
+## Cloud Security Alliance {#csa}
+
+The {{ yandex-cloud }} platform is a corporate member of the Cloud Security Alliance, an international organization dedicated to developing and raising awareness of best practices in information security for cloud services.
+
+{{ yandex-cloud }} meets the requirements of the Security, Trust, Assurance and Risk (STAR) program at Level 1: Self-Assessment.
+
+A high-level description of the platform’s security measures is available to the public in the [CSA STAR](https://cloudsecurityalliance.org/star/registry/yandex-cloud/services/yandex-cloud/) registry in one of the most popular formats: the Consensus Assessments Initiative Questionnaire (CAIQ) v. 4.
+
+We also participate in the Trusted Cloud Provider program, which reflects our commitment to a holistic approach to security, including the continuous professional development of our employees and active participation in the international professional community.

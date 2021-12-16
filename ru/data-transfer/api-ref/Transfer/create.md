@@ -22,6 +22,7 @@ POST https://datatransfer.api.cloud.yandex.net/v1/transfer
   "targetId": "string",
   "name": "string",
   "description": "string",
+  "labels": "object",
   "folderId": "string",
   "type": "string"
 }
@@ -34,6 +35,7 @@ sourceId | **string**<br>
 targetId | **string**<br>
 name | **string**<br>
 description | **string**<br>
+labels | **object**<br>
 folderId | **string**<br>
 type | **string**<br><ul> <li>SNAPSHOT_AND_INCREMENT: Snapshot and increment</li> <li>SNAPSHOT_ONLY: Snapshot</li> <li>INCREMENT_ONLY: Increment</li> </ul> 
  

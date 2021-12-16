@@ -120,7 +120,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder that the network load balancer belongs to. To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [<ResponseMessage>.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListNetworkLoadBalancersResponse.next_page_token](#ListNetworkLoadBalancersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can only filter by the [NetworkLoadBalancer.name](#NetworkLoadBalancer1) field. </li><li>An operator. Can be either `=` or `!=` for single values, or `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can only filter by the [NetworkLoadBalancer.name](#NetworkLoadBalancer1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListNetworkLoadBalancersResponse {#ListNetworkLoadBalancersResponse}
@@ -220,7 +220,7 @@ labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. No 
 region_id | **string**<br>ID of the region where the network load balancer resides. The maximum string length in characters is 50.
 type | **[NetworkLoadBalancer.Type](#NetworkLoadBalancer2)**<br>Required. Type of the network load balancer. Only external network load balancers are currently available. 
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>List of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
-attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup2)**<br>List of attached target groups for the network load balancer. The maximum number of elements is 5.
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup2)**<br>List of attached target groups for the network load balancer. The maximum number of elements is 1000.
 
 
 ### ListenerSpec {#ListenerSpec}
@@ -401,7 +401,7 @@ name | **string**<br>Name of the network load balancer. The name must be unique 
 description | **string**<br>Description of the network load balancer. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. <br>The existing set of `` labels `` is completely replaced with the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>A list of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
-attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup4)**<br>A list of attached target groups for the network load balancer. The maximum number of elements is 5.
+attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup4)**<br>A list of attached target groups for the network load balancer. The maximum number of elements is 1000.
 
 
 ### ListenerSpec {#ListenerSpec1}

@@ -22,11 +22,15 @@ Aliases:
 - [yc application-load-balancer load-balancer stop](stop.md) — Stop the specified application load balancer
 - [yc application-load-balancer load-balancer delete](delete.md) — Delete the specified application load balancer
 - [yc application-load-balancer load-balancer add-listener](add-listener.md) — Adds a listener to the specified application load balancer.
-- [yc application-load-balancer load-balancer update-listener](update-listener.md) — Updates listener in the specified application load balancer.
+- [yc application-load-balancer load-balancer add-stream-listener](add-stream-listener.md) — Adds a Stream listener to the specified application load balancer.
+- [yc application-load-balancer load-balancer update-listener](update-listener.md) — Updates http listener in the specified application load balancer.
+- [yc application-load-balancer load-balancer update-stream-listener](update-stream-listener.md) — Updates Stream listener in the specified application load balancer.
 - [yc application-load-balancer load-balancer remove-listener](remove-listener.md) — Removes the listener from the specified application load balancer.
 - [yc application-load-balancer load-balancer remove-sni](remove-sni.md) — Removes sni match from application load balancer's listener.
-- [yc application-load-balancer load-balancer add-sni](add-sni.md) — Adds sni match to application load balancer's listener.
-- [yc application-load-balancer load-balancer update-sni](update-sni.md) — Updates sni match of the application load balancer's listener.
+- [yc application-load-balancer load-balancer add-sni](add-sni.md) — Adds HTTP sni match to application load balancer's listener.
+- [yc application-load-balancer load-balancer add-stream-sni](add-stream-sni.md) — Adds Stream sni match to application load balancer's listener.
+- [yc application-load-balancer load-balancer update-sni](update-sni.md) — Updates HTTP sni match of the application load balancer's listener.
+- [yc application-load-balancer load-balancer update-stream-sni](update-stream-sni.md) — Updates Stream sni match of the application load balancer's listener.
 - [yc application-load-balancer load-balancer list-operations](list-operations.md) — List operations for the specified application load balancer
 - [yc application-load-balancer load-balancer disable-traffic](disable-traffic.md) — Disables traffic in specified zones for application load balancer.
 - [yc application-load-balancer load-balancer enable-traffic](enable-traffic.md) — Enables traffic in specified zones for application load balancer.

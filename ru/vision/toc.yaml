@@ -78,14 +78,14 @@ items:
                     href: api-ref/Vision/index.md
                   - name: batchAnalyze
                     href: api-ref/Vision/batchAnalyze.md
-      - name: APIv2
+      - name: Classifier API (англ.)
         items:
           - name: gRPC
             items:
               - name: Overview
-                href: api-ref/grpc/index.md
+                href: classifier/api-ref/grpc/index.md
               - name: ImageClassifierService
-                href: api-ref/grpc/image_classifier_service.md
+                href: classifier/api-ref/grpc/image_classifier_service.md
   - name: Вопросы и ответы
     href: qa/index.md
 base: ru/vision

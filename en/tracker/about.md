@@ -1,10 +1,6 @@
 ---
 title: Yandex Tracker API. Overview
-description: >-
-  Yandex Tracker API is designed for web services and applications that work
-  with the tasks of your organization on behalf of a user. In this case, API
-  capabilities depend on the access rights of the user on whose behalf the
-  requests are made. You can control Tracker using HTTP REST API requests.
+description: Yandex Tracker API is designed for web services and applications that work with the tasks of your organization on behalf of a user. In this case, API capabilities depend on the access rights of the user on whose behalf the requests are made. You can control Tracker using HTTP REST API requests.
 sourcePath: en/tracker/api-ref/about.md
 ---
 

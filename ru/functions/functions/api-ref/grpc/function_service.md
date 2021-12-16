@@ -79,7 +79,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list functions in. <br>To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsResponse.next_page_token](#ListFunctionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. 
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsResponse.next_page_token](#ListFunctionsResponse) returned by a previous list request. 
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function1) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> 
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> 
 
 
 ### ListFunctionsResponse {#ListFunctionsResponse}
@@ -479,7 +479,7 @@ id | **oneof:** `folder_id` or `function_id`<br>
 &nbsp;&nbsp;function_id | **string**<br>ID of the function to list versions for. To get a function ID use a [FunctionService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFunctionsVersionsResponse {#ListFunctionsVersionsResponse}
@@ -542,7 +542,7 @@ id | **oneof:** `folder_id` or `function_id`<br>
 &nbsp;&nbsp;function_id | **string**<br>ID of the function to list versions for. To get a function ID use a [FunctionService.List](#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionsVersionsResponse.next_page_token](#ListFunctionsVersionsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFunctionsVersionsResponse {#ListFunctionsVersionsResponse1}
@@ -760,7 +760,7 @@ function_id | **string**<br>Required. ID of the function to retrieve tag history
 tag | **string**<br>Specific tag that history should be limited to. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFunctionTagHistoryResponse {#ListFunctionTagHistoryResponse}
@@ -796,7 +796,7 @@ function_id | **string**<br>Required. ID of the function to retrieve tag history
 tag | **string**<br>Specific tag that history should be limited to. Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can only be applied to the [Function.name](#Function4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFunctionTagHistoryResponse {#ListFunctionTagHistoryResponse1}
@@ -1078,7 +1078,7 @@ Field | Description
 function_id | **string**<br>Required. ID of the function to list operations for. 
 page_size | **int64**<br>The maximum number of results per page that should be returned. If the number of available results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) that can be used to get the next page of results in subsequent list requests. <br>Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `pageToken` to the [ListFunctionOperationsResponse.next_page_token](#ListFunctionOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation7), [operation.Operation.created_by](#Operation7) field. </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [operation.Operation.done](#Operation7), [operation.Operation.created_by](#Operation7) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFunctionOperationsResponse {#ListFunctionOperationsResponse}
