@@ -109,7 +109,6 @@ default:
   cos-name: Container Solution
   certificate-manager-name: Certificate Manager
   marketplace-name: Cloud Marketplace
-  marketplace-short-name: Marketplace
   data-transfer-name: Data Transfer
   api-gw-name: API Gateway
   lockbox-name: Yandex Lockbox
@@ -149,7 +148,7 @@ default:
   dsvm-short-name: DSVM
   speechkit-short-name: SpeechKit
   translate-short-name: Translate
-  marketplace-short-name:  Marketplace
+  marketplace-short-name: Marketplace
   network-load-balancer-short-name: Network Load Balancer
   message-queue-short-name: Message Queue
   cloud-logs-short-name: Cloud Logs
