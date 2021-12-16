@@ -9,15 +9,23 @@ links:
   - title: Порядок оказания технической поддержки
     description: Как обратиться в службу технической поддержки
     href: overview
+    when: audience != "internal"
+  - title: Как получить техническую поддержку
+    href: overview
+    when: audience == "internal"
   - title: Оповещения от поддержки Yandex.Cloud
     description: О каких событиях и каким образом оповещает вас техническая поддержка
     href: notify
+    when: audience != "internal"
   - title: Запросы данных
     description: Какие данные можно запросить у технической поддержки
     href: request
+    when: audience != "internal"
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг технической поддержки
     href: pricing
+    when: audience != "internal"
   - title: Вопросы и ответы
     description: Ответы на частые вопросы про техническую поддержку
     href: qa
+    when: audience != "internal"

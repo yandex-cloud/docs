@@ -1,3 +1,5 @@
+{% if audience != "internal" %}
+
 # Порядок оказания технической поддержки
 
 {{ yandex-cloud }} оказывает техническую поддержку с разными тарифными планами — вы можете выбрать тот, который подходит вам.
@@ -61,3 +63,21 @@
     * на тариф Премиум, заполните форму и нажмите **Отправить**.
 
 Повышение тарифного плана происходит сразу, понижение — первого числа следующего месяца.
+
+{% else %}
+
+# Как получить техническую поддержку
+
+## Managed Databases (MDB) {#mdb}
+
+{% include [internal-mdb](../_includes/support/internal-mdb.md) %}
+
+## Другие сервисы {#other-services}
+
+Чтобы получить поддержку для других сервисов, обращайтесь в их профильные чаты в Telegram или очереди в Трекере:
+
+* Yandex Database — чат [YDB for Yandex.Cloud (NDA)](https://t.me/joinchat/DmVJUQy61Ehm9ZwPOpVK5Q) (дежурный — `/duty ydb`).
+* Data Transfer — очередь [DTSUPPORT](https://st.yandex-team.ru/createTicket?queue=DTSUPPORT&_form=56921), чат [Data Transfer/Transfer Manager Support/DTSUPPORT](https://t.me/joinchat/AqxpCBURpBhW79Uwq6Pcjw).
+* Object Storage — очередь [MDSSUPPORT](https://st.yandex-team.ru/createTicket?queue=MDSSUPPORT), чат [MDS/Avatars/S3/Yarl support](https://t.me/joinchat/Bbsak0DREDckUOGhK-m3aw) (дежурный — `/onduty@YaIncBot s3`).
+
+{% endif %}

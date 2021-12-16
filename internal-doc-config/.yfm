@@ -57,7 +57,6 @@ ignore:
   - "ru/speechkit/*"
   - "ru/speechkit-pro/*"
   - "ru/storage/*"
-  - "ru/support/*"
   - "ru/tracker/api-ref/*"
   - "en/tracker/api-ref/*"
   - "ru/translate/*"
