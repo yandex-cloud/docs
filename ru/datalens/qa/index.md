@@ -154,7 +154,7 @@ description: "Как получить логи моей работы в серв
 
 - {{ datalens-short-name }} — это сервис {{ yandex-cloud }}, который соответствует ФЗ-152 и индустриальным стандартам безопасности. Подробнее в разделе [Безопасность {{ yandex-cloud }}]{% if lang == "ru" %}(https://cloud.yandex.ru/security){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/security){% endif %}.
 
-- Для {{ datalens-short-name }} можно [настроить федерацию учетных записей]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/iam/operations/federations){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/docs/iam/operations/#federations){% endif %}.
+- Для {{ datalens-short-name }} можно [настроить федерацию учетных записей](../../organization/quick-start.md).
 
 ### Почему заблокировано облако c экземпляром {{ datalens-short-name }}? {#datalens-suspended}
 
