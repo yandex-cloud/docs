@@ -230,7 +230,7 @@
 
 {% endlist %}
 
-{% note info %}
+{% note warning %}
 
 Если на вашем источнике настроена репликация через [Patroni](https://github.com/zalando/patroni), то необходимо добавить в его конфигурацию [следующий блок](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings):
 ```yaml
