@@ -56,7 +56,7 @@ Source: https://logging.apache.org/log4j/2.x/security.html
 
 ## 10.12.2021: CVE-2021-44228: Remote code execution (Log4Shell, Apache Log4j)
 
-Updated 17.10.2021
+Updated 17.12.2021
 
 ### Description
 
