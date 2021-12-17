@@ -1,0 +1,3 @@
+[submodule "ru/ydb/yql/reference/yql-docs-core"]
+	path = ru/ydb/yql/reference/yql-docs-core
+	url = ssh://git@bb.yandex-team.ru/cloud/yql-docs-core.git

@@ -516,7 +516,6 @@ default:
   # Внешние ссылки
   link-saml: https://ru.wikipedia.org/wiki/SAML
 
-
 internal:
   audience: internal
   console-link: https://yc.yandex-team.ru
