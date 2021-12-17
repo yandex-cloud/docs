@@ -1,3 +1,5 @@
-# Специальные типы данных
+---
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/special.md
+---
 
-{% include [datatypes-special](../../../_includes/datatypes-special.md) %}
+{% include [x](_includes/special.md) %}

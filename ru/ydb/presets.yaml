@@ -115,3 +115,15 @@ default:
   link-console-billing: https://console.cloud.yandex.ru/billing
   link-console-main: https://console.cloud.yandex.ru/
   link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
+  tech: false
+  backend_name: YDB
+  backend_name_lower: ydb
+  ydb: true
+  example_cluster: ydbtest
+  feature_secondary_index: true
+  feature_replace: true
+  feature_upsert: true
+  feature_join: true
+  feature_map_tables: true
+  feature_group_by_rollup_cube: true
+  feature_window_functions: true

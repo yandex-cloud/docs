@@ -1,3 +1,5 @@
-# Контейнеры
+---
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/containers.md
+---
 
-{% include [datatypes-containers](../../../_includes/datatypes-containers.md) %}
+{% include [x](_includes/containers.md) %}

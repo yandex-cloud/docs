@@ -16,7 +16,7 @@ links:
     href: quickstart
   - title: Use cases
     description: See usage examples and tutorials for using DataLens
-    href: ../solutions/datalens
+    href: solutions/
   - title: Concepts
     description: Learn about basic concepts and service functions
     href: concepts/

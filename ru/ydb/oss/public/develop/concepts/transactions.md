@@ -16,7 +16,7 @@
 
 Режим выполнения транзакции задается в настройках транзакции при ее создании.
 
-## Язык YQL
+## Язык YQL {#language-yql}
 
 Реализованные конструкции YQL можно разделить на два класса: [data definition language (DDL)](https://en.wikipedia.org/wiki/Data_definition_language) и [data manipulation language (DML)](https://en.wikipedia.org/wiki/Data_manipulation_language).
 

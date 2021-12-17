@@ -2,11 +2,65 @@
 
 TThis page contains security recommendations from {{ yandex-cloud }} experts.
 
-## 10.12.2021: CVE-2021-44228: Remote code execution (Log4Shell, Apache Log4j)
+## 17.12.2021 — CVE-2021-45046 – Remote code execution (Log4j) {#CVE-2021-45046}
 
 ### Description
 
-Vulnerability [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) is found in the Apache Log4j library, Version 2.14.1 and lower.
+Vulnerability [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046) is found in the Apache Log4j library, all versions from 2.0-beta9 to 2.15.0, excluding 2.12.2.
+
+A detailed description of the exploit and this behavior is provided in a [Lunasec article](https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/).
+
+Original report from logging.apache.org: [Fixed in Log4j 2.15.0](https://logging.apache.org/log4j/2.x/security.html).
+
+Vulnerability description: [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046).
+
+CVSSv3.1 rating: 9.0 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H)
+
+### Impact
+
+#### General impact
+
+The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
+
+The vulnerability likely impacts such open-source products as ElasticSearch, Elastic Logstash, the NSA's Ghidra, and so on.
+
+#### Impact on {{ yandex-cloud }} services
+
+Some {{ yandex-cloud }} services use the version of the library affected by the vulnerability. The most critical services impacted by the vulnerability: {{ mes-full-name }}, {{ dataproc-full-name }}, as well as a number of the basic platform services.
+
+The critical services have undergone a successful update as recommended by the manufacturer. The rest of the services are currently being updated.
+
+{{ yandex-cloud }} has collected information on users that have utilized these services, and appropriate alerts have gone out.
+
+Currently, an effort is underway to identify additional services that may be vulnerable in order to update them.
+
+An update to this bulletin will be rolled out based on the outcome of the final activities.
+
+### Compensatory measures
+
+#### Log4j 1.x 
+
+Log4j 1.x is not impacted by this vulnerability.
+
+#### Log4j 2.x
+
+* Java 8 (or later) users should upgrade to release 2.16.0.
+* Java 7 users should upgrade to release 2.12.2.
+* Otherwise, in any release other than 2.16.0, you may remove the `JndiLookup` class from the classpath: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`
+
+Users are advised not to enable JNDI in Log4j 2.16.0. If the JMS Appender is required, use Log4j 2.12.2.
+
+Note that only the `log4j-core JAR` file is impacted by this vulnerability. Applications using only the `log4j-api JAR` file without the `log4j-core JAR` file are not impacted by this vulnerability.
+
+Source: https://logging.apache.org/log4j/2.x/security.html
+
+## 10.12.2021: CVE-2021-44228: Remote code execution (Log4Shell, Apache Log4j)
+
+Updated 17.12.2021
+
+### Description
+
+Vulnerability [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) is found in the Apache Log4j library, version 2.14.1 and lower.
 
 A zero-day exploit was discovered that results in remote code execution (RCE) by having a certain line entered into a log.
 
@@ -42,11 +96,19 @@ An update to this bulletin will be rolled out based on the outcome of the final 
 
 ### Compensatory measures
 
-If your infrastructure uses this library or the products listed in the "General Impact" section, follow the steps below.
+#### Log4j 1.x 
 
-Update any vulnerable software to Version log4j-2.15.0-rc2 or higher. If you are using a vulnerable software version from version 2.10 or higher, you can work around the vulnerability by setting the `log4j2.formatMsgNoLookups` parameter to `true` or by deleting the `JndiLookup class` from  `classpath` (example: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`).
+Log4j 1.x does not have Lookups so the risk is lower. Applications using Log4j 1.x are only vulnerable to this attack when they use JNDI in their configuration. A separate CVE (CVE-2021-4104) has been filed for this vulnerability. To mitigate: audit your logging configuration to ensure it has no JMSAppender configured. Log4j 1.x configurations without JMSAppender are not impacted by this vulnerability.
 
-If you are using [Java 8u121](https://www.oracle.com/java/technologies/javase/8u121-relnotes.html), protect yourself from RCE by setting `com.sun.jndi.rmi.object.trustURLCodebase` and `com.sun.jndi.cosnaming.object.trustURLCodebase` to `false`. Source: https://logging.apache.org/log4j/2.x/security.html
+#### Log4j 2.x
+
+•	Java 8 (or later) users should upgrade to release 2.16.0.
+•	Users requiring Java 7 should upgrade to release 2.12.2 when it becomes available (work in progress, expected to be available soon).
+•	Otherwise, remove the `JndiLookup` class from the classpath: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`
+
+Note that only the `log4j-core JAR` file is impacted by this vulnerability. Applications using only the `log4j-api JAR` file without the `log4j-core JAR` file are not impacted by this vulnerability.
+
+Source: https://logging.apache.org/log4j/2.x/security.html
 
 ## 12.10.2021 – CVE-2021-25741 – Symlink Exchange Can Allow Host Filesystem Access
 

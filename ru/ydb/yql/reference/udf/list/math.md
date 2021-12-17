@@ -1,10 +1,10 @@
-# Math UDF
-
-
-Набор обёрток вокруг функций из библиотеки libm.
+---
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/math.md
+---
+# Math
+Набор обёрток вокруг функций из библиотеки libm, а также утилит Яндекс.
 
 ## Константы {#constants}
-
 **Список функций**
 
 * ```Math::Pi() -> Double```
@@ -71,7 +71,7 @@ SELECT Math::Sqrt(256);     -- 16
 SELECT Math::Trunc(1.2345); -- 1
 ```
 
-#### (Double, Double) -> Double {#doubledouble-double}
+## (Double, Double) -> Double {#doubledouble-double}
 
 **Список функций**
 
@@ -93,8 +93,7 @@ SELECT Math::Remainder(2.1, 2); -- 0.1
 **Список функций**
 
 * ```Math::Ldexp(Double{Flags:AutoMap}, Int32{Flags:AutoMap}) -> Double```
-* ```Math::Round(Double{Flags:AutoMap}, [Int32?]) -> Double```
-   Во втором аргументе указывается степень 10, до которой округляем (отрицательная для знаков после запятой и положительная для округления до десятков—тысяч—миллионов); по умолчанию 0.
+* ```Math::Round(Double{Flags:AutoMap}, [Int32?]) -> Double``` - во втором аргументе указывается степень 10, до которой округляем (отрицательная для знаков после запятой и положительная для округления до десятков—тысяч—миллионов); по умолчанию 0
 
 **Примеры**
 
@@ -107,11 +106,29 @@ SELECT Math::Round(1.2345, -2); -- 1.23
 
 **Список функций**
 
-* ```Math::FuzzyEquals(Double{Flags:AutoMap}, Double{Flags:AutoMap}, [Double?]) -> Bool```
-   Сравнивает два Double на нахождение внутри окрестности, задаваемой третьим аргументом; по умолчанию 1.0e-13.
+* ```Math::FuzzyEquals(Double{Flags:AutoMap}, Double{Flags:AutoMap}, [Double?]) -> Bool``` - сравнивает два Double на нахождение внутри окрестности, задаваемой третьим аргументом; по умолчанию 1.0e-13
 
 **Примеры**
 
 ```sql
 SELECT Math::FuzzyEquals(1.01, 1.0, 0.05); -- true
+```
+
+## Функции взятия остатка
+
+**Список функций**
+
+* ```Math::Mod(Int64{Flags:AutoMap}, Int64) -> Int64?```
+* ```Math::Rem(Int64{Flags:AutoMap}, Int64) -> Int64?```
+
+Ведут себя аналогично встроенному оператору % в случае неотрицательных аргументов. Различия заметны при отрицательных аргументах:
+* Math::Mod сохраняет знак второго аргумента (делителя).
+* Math::Rem сохраняет знак первого аргумента (делимого).
+Функции возвращают null, если делитель равен нулю.
+
+**Примеры**
+
+```sql
+SELECT Math::Mod(-1, 7);        -- 6
+SELECT Math::Rem(-1, 7);        -- -1
 ```
