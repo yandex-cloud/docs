@@ -126,14 +126,16 @@ items:
             href: oss/public/reference/ydb-cli/commands/scheme-mkdir.md
           - name: Скан запросы
             href: oss/public/reference/ydb-cli/commands/scan-query.md
-          #- name: tools
-          #  items:
+          - name: tools
+            items:
           #    - name: copy
           #      href: oss/public/reference/ydb-cli/commands/tools/copy.md
           #    - name: dump
           #      href: oss/public/reference/ydb-cli/commands/tools/dump.md
           #    - name: restore
           #      href: oss/public/reference/ydb-cli/commands/tools/restore.md
+              - name: rename
+                href: oss/public/reference/ydb-cli/commands/tools/rename.md
   - name: YDB SDK
     when: audience == "external"
     items:
@@ -219,6 +221,8 @@ items:
         href: concepts/limits.md
       - name: Ограничения базы данных
         href: oss/public/develop/concepts/limits-ydb.md
+      - name: Переименование таблиц
+        href: oss/public/develop/concepts/rename.md
   - name: Управление доступом
     href: security/start_auth.md
     when: audience == "external"

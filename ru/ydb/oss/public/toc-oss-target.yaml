@@ -29,6 +29,8 @@ items:
             href: concepts/secondary_indexes.md
           - name: Time to Live (TTL)
             href: concepts/ttl.md
+          - name: Переименование таблиц
+            href: concepts/rename.md
           - name: Скан запросы
             href: concepts/scan_query.md
           - name: Ограничения базы данных
@@ -169,14 +171,16 @@ items:
                 href: ydb-cli/commands/scheme-mkdir.md
               - name: Скан запросы
                 href: ydb-cli/commands/scan-query.md
-              #- name: tools
-              #  items:
+              - name: tools
+                items:
               #    - name: copy
               #      href: ydb-cli/commands/tools/copy.md
               #    - name: dump
               #      href: ydb-cli/commands/tools/dump.md
               #    - name: restore
               #      href: ydb-cli/commands/tools/restore.md
+                  - name: rename
+                    href: ydb-cli/commands/tools/rename.md
       - name: SDK
         items:
           - name: Работа с SDK
