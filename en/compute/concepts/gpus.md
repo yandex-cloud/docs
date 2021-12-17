@@ -86,7 +86,7 @@ To use vGPU technology, you need:
 * A VM running on the [platform](vm-platforms.md) `vgpu-standard-v1` with one of the following images:
   * [Ubuntu 18.04 lts vGPU](https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h).
   * [Windows Server 2019 Datacenter vGPU](https://cloud.yandex.com/marketplace/products/f2ent6cnb49sf5n9s1u2).
-* License to use [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf) technology.
+* [NVIDIA® RTX vWS](https://www.nvidia.com/en-us/design-visualization/virtual-workstation/) license to use [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf) technology.
 * [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
 
 To work with the license, you can:

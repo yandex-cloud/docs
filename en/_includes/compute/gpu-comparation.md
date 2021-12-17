@@ -6,4 +6,5 @@
 | CUDA<sup>®</sup> | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Working with graphics (support for Vulkan, OpenGL, and Direct3D) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | License server required | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| License required | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) [RTX vWS](https://www.nvidia.com/en-us/design-visualization/virtual-workstation/) |
 

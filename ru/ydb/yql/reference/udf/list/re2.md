@@ -1,4 +1,7 @@
-# Re2 UDF
+---
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/re2.md
+---
+# Re2
 
 **Список функций**
 
@@ -10,11 +13,11 @@
 * ```Re2::Count(String) -> (String?) -> Uint32```
 * ```Re2::Options([CaseSensitive:Bool?,DotNl:Bool?,Literal:Bool?,LogErrors:Bool?,LongestMatch:Bool?,MaxMem:Uint64?,NeverCapture:Bool?,NeverNl:Bool?,OneLine:Bool?,PerlClasses:Bool?,PosixSyntax:Bool?,Utf8:Bool?,WordBoundary:Bool?]) -> Struct<CaseSensitive:Bool,DotNl:Bool,Literal:Bool,LogErrors:Bool,LongestMatch:Bool,MaxMem:Uint64,NeverCapture:Bool,NeverNl:Bool,OneLine:Bool,PerlClasses:Bool,PosixSyntax:Bool,Utf8:Bool,WordBoundary:Bool>```
 
-В силу ограничений библиотеки Pire, связанных с оптимизацией для эффективной проверки строк на соответствие регулярным выражениям, бывают ситуации, когда решить задачу с помощью [Pire UDF](pire.md) неоправданно сложно или невозможно. Для таких ситуаций мы добавили ещё один модуль для работы с регулярными выражениями на основе [google::RE2](https://github.com/google/re2), где предоставляется более широкий ассортимент возможностей ([см. официальную документацию](https://github.com/google/re2/wiki/Syntax)).
+В силу ограничений библиотеки Pire, связанных с оптимизацией для эффективной проверки строк на соответствие регулярным выражениям, бывают ситуации, когда решить задачу с помощью [Pire](pire.md) неоправданно сложно или невозможно. Для таких ситуаций мы добавили ещё один модуль для работы с регулярными выражениями на основе [google::RE2](https://github.com/google/re2), где предоставляется более широкий ассортимент возможностей ([см. официальную документацию](https://github.com/google/re2/wiki/Syntax)).
 
 По умолчанию UTF-8 режим включается автоматически, если регулярное выражение является валидной строкой в кодировке UTF-8, но не является валидной ASCII-строкой. Вручную настройками библиотеки re2 можно управлять с помощью передачи результата функции `Re2::Options` вторым аргументом другим функциям модуля, рядом с регулярным выражением.
 
-{% note alert %}
+{% note warning %}
 
 Все обратные слеши в регулярных выражениях (если они записаны в строке с кавычками) нужно удваивать, так как стандартные строковые литералы в SQL рассматриваются как С-escaped строки. Также можно записывать регулярное выражение в форме raw строки `@@regexp@@` — в этом случае удвоение слешей не требуется.
 
@@ -55,7 +58,7 @@ SELECT
 
 ## Re2::Capture {#capture}
 
-В отличие от [Pire::Capture](pire.md#capture) в `Re2:Capture` поддерживаются множественные и именованные группы захвата (capturing groups).
+В отличие от [Pire::Capture](pire.md#capture) в `Re2::Capture` поддерживаются множественные и именованные группы захвата (capturing groups).
 Тип результата: структура с полями типа `String?`.
 
 * Каждое поле соответствует группе захвата с соответствующим именем.

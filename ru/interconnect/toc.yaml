@@ -5,6 +5,8 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
+      - name: Маршрутизация
+        href: concepts/routing.md
       - name: Пользовательские метрики
         href: concepts/user-metrics.md
       - name: Квоты и лимиты

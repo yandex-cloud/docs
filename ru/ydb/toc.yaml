@@ -111,6 +111,10 @@ items:
             href: oss/public/reference/ydb-cli/commands/scheme-mkdir.md
           - name: Скан запросы
             href: oss/public/reference/ydb-cli/commands/scan-query.md
+          - name: tools
+            items:
+              - name: rename
+                href: oss/public/reference/ydb-cli/commands/tools/rename.md
   - name: YDB SDK
     items:
       - name: Работа с SDK
@@ -181,6 +185,8 @@ items:
         href: concepts/limits.md
       - name: Ограничения базы данных
         href: oss/public/develop/concepts/limits-ydb.md
+      - name: Переименование таблиц
+        href: oss/public/develop/concepts/rename.md
   - name: Управление доступом
     href: security/start_auth.md
   - name: Правила тарификации
@@ -261,6 +267,8 @@ items:
         href: yql/reference/overview.md
       - name: Типы данных
         items:
+          - name: Обзор
+            href: yql/reference/types/index.md
           - name: Простые
             href: yql/reference/types/primitive.md
           - name: Опциональные
@@ -269,46 +277,58 @@ items:
             href: yql/reference/types/containers.md
           - name: Специальные
             href: yql/reference/types/special.md
+          - name: Преобразования типов
+            href: yql/reference/types/cast.md
+          - name: Текстовое представление типов данных
+            href: yql/reference/types/type_string.md
+          - name: JSON
+            href: yql/reference/types/json.md
       - name: Синтаксис
         items:
-          - name: Неподдерживаемые конструкции
-            href: yql/reference/misc/not_yet_supported.md
-          - name: Работа с текстовым представлением типов данных
-            href: yql/reference/misc/type_string.md
+          - name: Обзор
+            href: yql/reference/syntax/index.md
+          - name: Лексическая структура
+            href: yql/reference/syntax/lexer.md
           - name: Выражения
             href: yql/reference/syntax/expressions.md
+          - name: SELECT
+            href: yql/reference/syntax/select.md
+          - name: VALUES
+            href: yql/reference/syntax/values.md
           - name: CREATE TABLE
             href: yql/reference/syntax/create_table.md
           - name: DROP TABLE
             href: yql/reference/syntax/drop_table.md
-          - name: INSERT INTO
+          - name: INSERT
             href: yql/reference/syntax/insert_into.md
-          - name: UPSERT INTO
-            href: yql/reference/syntax/upsert_into.md
-          - name: REPLACE INTO
-            href: yql/reference/syntax/replace_into.md
           - name: UPDATE
             href: yql/reference/syntax/update.md
           - name: DELETE
             href: yql/reference/syntax/delete.md
-          - name: SELECT
-            href: yql/reference/syntax/select.md
+          - name: REPLACE
+            href: yql/reference/syntax/replace_into.md
+          - name: UPSERT
+            href: yql/reference/syntax/upsert_into.md
           - name: GROUP BY
             href: yql/reference/syntax/group_by.md
           - name: JOIN
             href: yql/reference/syntax/join.md
+          - name: WINDOW
+            href: yql/reference/syntax/window.md
           - name: FLATTEN
             href: yql/reference/syntax/flatten.md
           - name: ACTION
             href: yql/reference/syntax/action.md
           - name: DISCARD
             href: yql/reference/syntax/discard.md
+          - name: INTO RESULT
+            href: yql/reference/syntax/into_result.md
           - name: PRAGMA
             href: yql/reference/syntax/pragma.md
           - name: DECLARE
             href: yql/reference/syntax/declare.md
-          - name: OVER, PARTITION BY и WINDOW
-            href: yql/reference/syntax/window.md
+          - name: Неподдерживаемые конструкции
+            href: yql/reference/syntax/not_yet_supported.md
       - name: Встроенные функции
         items:
           - name: Базовые
@@ -321,38 +341,42 @@ items:
             href: yql/reference/builtins/list.md
           - name: Для работы со словарями
             href: yql/reference/builtins/dict.md
-          - name: Для работы с JSON
-            href: yql/reference/builtins/json.md
           - name: Для работы со структурами
             href: yql/reference/builtins/struct.md
           - name: Для работы с типами
             href: yql/reference/builtins/types.md
-      - name: Предустановленные пользовательские функции
-        items:
-          - name: HyperScan
-            href: yql/reference/udf/list/hyperscan.md
-          - name: Pcre
-            href: yql/reference/udf/list/pcre.md
-          - name: Pire
-            href: yql/reference/udf/list/pire.md
-          - name: Re2
-            href: yql/reference/udf/list/re2.md
-          - name: String
-            href: yql/reference/udf/list/string.md
-          - name: Unicode
-            href: yql/reference/udf/list/unicode.md
-          - name: Datetime
-            href: yql/reference/udf/list/datetime.md
-          - name: Url
-            href: yql/reference/udf/list/url.md
-          - name: Ip
-            href: yql/reference/udf/list/ip.md
-          - name: Digest
-            href: yql/reference/udf/list/digest.md
-          - name: Math
-            href: yql/reference/udf/list/math.md
-          - name: Histogram
-            href: yql/reference/udf/list/histogram.md
+          - name: Для работы с JSON
+            href: yql/reference/builtins/json.md
+          - name: Библиотеки C++
+            items:
+              - name: Обзор
+                href: yql/reference/udf/list/index.md
+              - name: Hyperscan
+                href: yql/reference/udf/list/hyperscan.md
+              - name: Pcre
+                href: yql/reference/udf/list/pcre.md
+              - name: Pire
+                href: yql/reference/udf/list/pire.md
+              - name: Re2
+                href: yql/reference/udf/list/re2.md
+              - name: String
+                href: yql/reference/udf/list/string.md
+              - name: Unicode
+                href: yql/reference/udf/list/unicode.md
+              - name: DateTime
+                href: yql/reference/udf/list/datetime.md
+              - name: Url
+                href: yql/reference/udf/list/url.md
+              - name: Ip
+                href: yql/reference/udf/list/ip.md
+              - name: Yson
+                href: yql/reference/udf/list/yson.md
+              - name: Digest
+                href: yql/reference/udf/list/digest.md
+              - name: Math
+                href: yql/reference/udf/list/math.md
+              - name: Histogram
+                href: yql/reference/udf/list/histogram.md
   - name: Туториал YQL
     items:
       - name: Обзор

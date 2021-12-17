@@ -59,6 +59,7 @@ ydb
 │  ├─ drop                  Drop a table
 │  ├─ index                 Index operations
 │  │  ├─ add                Add index in to the specified table
+│  │  │  ├─ global-async    Add global async index. The command returns operation
 │  │  │  └─ global-sync     Add global sync index. The command returns operation (aliases: global)
 │  │  └─ drop               Drop index from the specified table
 │  ├─ query                 Query operations
@@ -71,13 +72,15 @@ ydb
 ├─ tools                    YDB tools service
 │  ├─ copy                  Copy table(s)
 │  ├─ dump                  Dump specified database directory or table into local directory
+│  ├─ rename                Rename or repalce table(s)
 │  └─ restore               Restore database from local dump into specified directory
 ├─ update                   Update current YDB CLI binary if there is a newer version available
-└─ version                  Print Yandex.Cloud YDB CLI version
+├─ version                  Print Yandex.Cloud YDB CLI version
+└─ yql                      Execute YQL script (streaming)
 
 
 Options:
-  {-?|-h|--help}        print usage
+  {-?|-h|--help}        Print usage
   {-e|--endpoint} [PROTOCOL://]HOST[:PORT]
                         [Required] Endpoint to connect. Protocols: grpc, grpcs (Default: grpcs).
                           Endpoint search order:
@@ -90,17 +93,21 @@ Options:
                             2. Profile specified with --profile option
                             3. Active configuration profile
   {-v|--verbose}        Increase verbosity of operations (default: 0)
-  --ca-file PATH        Path to a file containing the PEM encoding of the server root certificates for tls connections.
+  --ca-file PATH        Path to a file containing the PEM encoding of the server root certificates for
+                        tls connections.
                         If this parameter is empty, the default roots will be used.
   --iam-token-file PATH IAM token file. Note: IAM tokens expire in 12 hours.
-                          For more info go to: cloud.yandex.ru/docs/iam/concepts/authorization/iam-token
+                          For more info go to:
+                        cloud.yandex.ru/docs/iam/concepts/authorization/iam-token
                           Token search order:
                             1. This option
                             2. Profile specified with --profile option
                             3. "IAM_TOKEN" environment variable
                             4. Active configuration profile
-  --yc-token-file PATH  YC token file. It should contain OAuth token of a Yandex Passport user to get IAM token with.
-                          For more info go to: cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token
+  --yc-token-file PATH  YC token file. It should contain OAuth token of a Yandex Passport user to get
+                        IAM token with.
+                          For more info go to:
+                        cloud.yandex.ru/docs/iam/concepts/authorization/oauth-token
                           Token search order:
                             1. This option
                             2. Profile specified with --profile option
@@ -108,14 +115,16 @@ Options:
                             4. Active configuration profile
   --use-metadata-credentials
                         Use metadata service on a virtual machine to get credentials
-                          For more info go to: cloud.yandex.ru/docs/compute/operations/vm-connect/auth-inside-vm
+                          For more info go to:
+                        cloud.yandex.ru/docs/compute/operations/vm-connect/auth-inside-vm
                           Definition priority:
                             1. This option
                             2. Profile specified with --profile option
                             3. "USE_METADATA_CREDENTIALS" environment variable
                             4. Active configuration profile (default: 0)
-  --sa-key-file PATH    Security account key file
-                          For more info go to: cloud.yandex.ru/docs/iam/operations/iam-token/create-for-sa
+  --sa-key-file PATH    Service account key file
+                          For more info go to:
+                        cloud.yandex.ru/docs/iam/operations/iam-token/create-for-sa
                           Definition priority:
                             1. This option
                             2. Profile specified with --profile option
