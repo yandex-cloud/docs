@@ -230,6 +230,22 @@
 
 {% endlist %}
 
+{% note info %}
+
+Если на вашем источнике настроена репликация через [Patroni](https://github.com/zalando/patroni), то необходимо добавить в его конфигурацию [следующий блок](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings):
+```yaml
+ignore_slots:
+  - database: <имя базы данных, для которой настроен трансфер>
+    name: <имя слота репликации>
+    plugin: wal2json
+    type: logical
+```
+Имя базы данных и имя слота репликации должны совпадать со значениями, указанными в [настройках эндпойнта-источника](../../data-transfer/operations/source-endpoint.md#settings-postgresql). По-умолчанию `имя слота репликации` совпадает с `ID трансфера`.
+
+В противном случае, начало этапа репликации завершится ошибкой: `Warn(Termination): unable to create new pg source: Replication slotID <Ваш ID слота репликации> does not exist`.
+
+{% endnote %}
+
 ### Источник {{ yds-full-name }} {#source-yds}
 
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
