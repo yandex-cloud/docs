@@ -51,7 +51,11 @@ items:
     href: quotas.md
     when: state != "public-preview"
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Действующие правила
+        href: pricing/index.md
+      - name: Правила тарификации на стадии General Availability
+        href: pricing/general-availability.md
   - name: Справочник API
     when: api != "no-show"
     items:
