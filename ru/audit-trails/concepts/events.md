@@ -10,18 +10,17 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 
 Ниже описаны события для сервисов:
 
-- [Справочник событий](#справочник-событий)
-  - [{{ at-name }} {#audit-trails}](#-at-name--audit-trails)
-  - [{{ cloud-logging-name }} {#cloud-logging-name}](#-cloud-logging-name--cloud-logging-name)
-  - [{{ compute-name }} {#compute}](#-compute-name--compute)
-  - [{{ iam-name }} {#iam}](#-iam-name--iam)
-  - [{{ kms-name }} {#kms}](#-kms-name--kms)
-  - [{{ lockbox-name }} {#lockbox}](#-lockbox-name--lockbox)
-  - [{{ network-load-balancer-name }} {#network-load-balancer}](#-network-load-balancer-name--network-load-balancer)
-  - [{{ objstorage-name }} {#objstorage}](#-objstorage-name--objstorage)
-  - [{{ resmgr-name }} {#resmgr}](#-resmgr-name--resmgr)
-  - [{{ vpc-name }} {#vpc}](#-vpc-name--vpc)
-  - [{{ ydb-short-name }} {#YDB}](#-ydb-short-name--ydb)
+- [{{ at-name }}](#audit-trails)
+- [{{ cloud-logging-name }}](#cloud-logging-name)
+- [{{ compute-name }}](#compute)
+- [{{ iam-name }}](#iam)
+- [{{ kms-name }}](#kms)
+- [{{ lockbox-name }}](#lockbox)
+- [{{ network-load-balancer-name }}](#network-load-balancer)
+- [{{ objstorage-name }}](#objstorage)
+- [{{ resmgr-name }}](#resmgr)
+- [{{ vpc-name }}](#vpc)
+- [{{ ydb-short-name }}](#YDB)
 
 ## {{ at-name }} {#audit-trails}
 
