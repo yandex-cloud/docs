@@ -1,16 +1,16 @@
-{% include [Introduction](../oss/public/_includes/concepts/datamodel/intro.md) %}
+{% include [Introduction](_includes/datamodel/intro.md) %}
 
-{% include [Table](../oss/public/_includes/concepts/datamodel/table.md) %}
+{% include [Table](_includes/datamodel/table.md) %}
 
 {% if audience == "internal" or audience == "tech" %}
 Возможности настройки таблиц подробно описаны в разделе [{#T}](../getting_started/start_scheme.md).
 {% endif %}
 
-{% include [Folder](../oss/public/_includes/concepts/datamodel/folder.md) %}
+{% include [Folder](_includes/datamodel/folder.md) %}
 
 {% if audience == "internal" or audience == "tech" %}
 
-{% include [Persistent Queue](../oss/public/_includes/concepts/datamodel/pq.md) %}
+{% include [Persistent Queue](_includes/datamodel/pq.md) %}
 
 {% if audience == "internal" %}
 
@@ -22,7 +22,7 @@
 
 {% endif %}
 
-{% include [Block Device](../oss/public/_includes/concepts/datamodel/blockdevice.md) %}
+{% include [Block Device](_includes/datamodel/blockdevice.md) %}
 
 {% if audience == "internal" %}
 

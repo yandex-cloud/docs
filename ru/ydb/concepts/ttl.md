@@ -1,2 +1,2 @@
 
-{% include [ttl.md](../oss/public/_includes/concepts/ttl.md) %}
+{% include [ttl.md](_includes/ttl.md) %}

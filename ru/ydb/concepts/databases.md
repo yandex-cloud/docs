@@ -1,7 +1,7 @@
 
-{% include [intro.md](../oss/public/_includes/concepts/databases/intro.md) %}
+{% include [intro.md](_includes/databases/intro.md) %}
 
-{% include [database.md](../oss/public/_includes/concepts/databases/database.md) %}
+{% include [database.md](_includes/databases/database.md) %}
 
 {% if audience == "external" %}
 В Yandex.Cloud БД привязывается к определенному каталогу в облаке, а также доступны Serverless базы данных на базе {{ ydb-short-name }}, не требующие выделения ресурсов пользователям, и использующие совместно ресурсы БД {{ ydb-short-name }}, в которой они обслуживаются.
@@ -9,17 +9,17 @@
 Описание порядка получения БД в Yandex.Cloud описано в разделе ["Создание БД"](../operations/create_manage_database.md)
 {% endif %}
 
-{% include [cluster.md](../oss/public/_includes/concepts/databases/cluster.md) %}
+{% include [cluster.md](_includes/databases/cluster.md) %}
 
 {% if audience == "external" %}
 В Yandex.Cloud обслуживанием кластеров занимается команда облака, а разработчики приложений взаимодействуют напрямую с БД {{ ydb-short-name }}.
 {% endif %}
 
 {% if audience == "tech" %}
-  {% include [base_hierarchy.md](../oss/public/_includes/concepts/databases/base_hierarchy.md) %}
+  {% include [base_hierarchy.md](_includes/databases/base_hierarchy.md) %}
 {% endif %}
 
-{% include [regions.md](../oss/public/_includes/concepts/databases/regions.md) %}
+{% include [regions.md](_includes/databases/regions.md) %}
 
 {% if audience == "external" %}
 Облачные БД {{ ydb-short-name }} в Yandex.Cloud предоставляются в геораспределенном регионе центральной России `ru-central1`, с тремя зонами доступности. Подробнее о регионах и зонах доступности Yandex.Cloud читайте в разделе [{#T}](../../overview/concepts/geo-scope.md).
@@ -35,7 +35,7 @@
 {% endnote %}
 {% endif %}
 
-{% include [compute.md](../oss/public/_includes/concepts/databases/compute.md) %}
+{% include [compute.md](_includes/databases/compute.md) %}
 
 {% if audience == "external" %}
 ### БД {{ ydb-short-name }} в Yandex.Cloud на выделенных ресурсах (Dedicated)
@@ -59,14 +59,14 @@
 
 {% if audience == "internal" or audience == "tech" %}
 
-  {% include [slots.md](../oss/public/_includes/concepts/databases/slots.md) %}
+  {% include [slots.md](_includes/databases/slots.md) %}
 
   {% if audience == "internal" %}
 Подробнее использование команды `discovery` описано в [документации по CLI](../getting_started/ydb_cli.md#discovery_list).
   {% endif %}
 {% endif %}
 
-{% include [storage_groups.md](../oss/public/_includes/concepts/databases/storage_groups.md) %}
+{% include [storage_groups.md](_includes/databases/storage_groups.md) %}
 
 {% if audience == "external" %}
 В облачных БД {{ ydb-short-name }} Yandex.Cloud используется по 3 диска в каждой из 3 зон доступности, как для БД на выделенных ресурсах, так и для бессерверных БД. Такая конфигурация гарантирует устойчивость при отказе одной из зон или отказе одного из дисков, а также обеспечивает избыточность с коэффициентом 3.

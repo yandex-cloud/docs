@@ -1,18 +1,10 @@
-# Работа с YDB SDK
-
-Для знакомства с работой {{ ydb-short-name }} SDK вы можете воспользоваться тестовыми приложениями на [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Go](https://github.com/yandex-cloud/ydb-go-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) или [Java](https://github.com/yandex-cloud/ydb-java-sdk). Настройте подключение к базе данных, после чего установите и запустите соответствующее тестовое приложение.
-
-{% note info %}
-
-Подробный разбор кода тестовых приложений читайте в [документации](../../oss/public/reference/ydb-sdk/index.md).
-
-{% endnote %}
+# Установка YDB SDK
 
 ## Настройка подключения к базе данных {#connect-to-db}
 
 Чтобы подключиться к базе данных:
 
-1. Получите YDB эндпоинт и полный путь к [созданной БД](../create-db.md).
+1. Получите YDB эндпоинт и полный путь к [созданной БД](../../quickstart/create-db.md).
 
     {% cut "Как получить YDB эндпоинт и путь к БД" %}
 
@@ -41,9 +33,7 @@
     * `--service-account-name` — имя созданного ранее сервисного аккаунта.
     * `--output` — имя файла, в который будет сохранен авторизованный ключ, например `sa_authorized.json`.
 
-## Запуск тестового приложения {#run-app}
-
-Чтобы установить и запустить тестовое приложение:
+## Установка и конфигурация SDK {#setup-sdk}
 
 {% list tabs %}
 
@@ -72,6 +62,72 @@
       ```
 
       {% endnote %}
+
+- Go
+
+  1. Установите [YDB Go SDK](https://github.com/yandex-cloud/ydb-go-sdk):
+
+      ```bash
+      go get -u github.com/yandex-cloud/ydb-go-sdk
+      ```
+
+  1. Установите переменную окружения `YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS` для аутентификации приложения:
+
+      ```bash
+      export YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS=~/sa_authorized.json
+      ```
+
+- Node.js
+
+  1. Установите [YDB Node.js SDK](https://github.com/yandex-cloud/ydb-nodejs-sdk):
+
+      ```bash
+      git clone https://github.com/yandex-cloud/ydb-nodejs-sdk.git
+      cd ydb-nodejs-sdk/examples
+      npm install
+      npm run build
+      ```
+
+  1. Установите переменную окружения `YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS` для аутентификации приложения:
+
+      ```bash
+      export YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS=~/sa_authorized.json
+      ```
+
+      {% note info %}
+
+      Чтобы подключиться к {{ ydb-short-name }} Dedicated БД, получите сертификат и сохраните путь файла сертификата в переменную окружения:
+
+      ```bash
+      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/CA.pem
+      export YDB_SSL_ROOT_CERTIFICATES_FILE=~/CA.pem
+      ```
+
+      {% endnote %}
+
+- Java
+
+  1. Склонируйте репозиторий [YDB Java SDK](https://github.com/yandex-cloud/ydb-java-sdk):
+
+    ```bash
+    git clone https://github.com/yandex-cloud/ydb-java-sdk.git
+    ```
+
+  1. Установите переменную окружения `SA_KEY_FILE` для аутентификации приложения:
+
+     ```bash
+     export SA_KEY_FILE=~/sa_authorized.json
+     ```
+
+{% endlist %}
+
+## Запуск тестового приложения {#run-app}
+
+Тестовое приложение позволяет проверить корректность установки и конфигурации SDK, а также ознакомиться с примером кода.
+
+{% list tabs %}
+
+- Python
 
   1. Запустите тестовое приложение `basic_example_v1`:
 
@@ -112,18 +168,6 @@
 
 - Go
 
-  1. Установите [YDB Go SDK](https://github.com/yandex-cloud/ydb-go-sdk):
-
-      ```bash
-      go get -u github.com/yandex-cloud/ydb-go-sdk
-      ```
-
-  1. Установите переменную окружения `YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS` для аутентификации приложения:
-
-      ```bash
-      export YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS=~/sa_authorized.json
-      ```
-
   1. Скомпилируйте тестовое приложение `basic_example_v1`:
 
       ```bash
@@ -155,32 +199,6 @@
       ```
 
 - Node.js
-
-  1. Установите [YDB Node.js SDK](https://github.com/yandex-cloud/ydb-nodejs-sdk):
-
-      ```bash
-      git clone https://github.com/yandex-cloud/ydb-nodejs-sdk.git
-      cd ydb-nodejs-sdk/examples
-      npm install
-      npm run build
-      ```
-
-  1. Установите переменную окружения `YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS` для аутентификации приложения:
-
-      ```bash
-      export YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS=~/sa_authorized.json
-      ```
-
-      {% note info %}
-
-      Чтобы подключиться к {{ ydb-short-name }} Dedicated БД, получите сертификат и сохраните путь файла сертификата в переменную окружения:
-
-      ```bash
-      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" -O ~/CA.pem
-      export YDB_SSL_ROOT_CERTIFICATES_FILE=~/CA.pem
-      ```
-
-      {% endnote %}
 
   1. Запустите тестовое приложение `basic_example_v1`:
 
@@ -248,31 +266,17 @@
 
 - Java
 
-  1. Соберите тестовое приложение:
+  1. Перейдите в директорию с тестовым приложением `ydb-java-sdk/examples/maven_project`:
 
-     1. Склонируйте репозиторий [YDB Java SDK](https://github.com/yandex-cloud/ydb-java-sdk):
+    ```bash
+    cd ydb-java-sdk/examples/maven_project
+    ```
 
-        ```bash
-        git clone https://github.com/yandex-cloud/ydb-java-sdk.git
-        ```
+  1. Соберите его:
 
-     1. Перейдите в директорию с тестовым приложением `ydb-java-sdk/examples/maven_project`:
-
-        ```bash
-        cd ydb-java-sdk/examples/maven_project
-        ```
-
-     1. Соберите его:
-
-        ```bash
-        mvn package
-        ```
-
-  1. Установите переменную окружения `SA_KEY_FILE` для аутентификации приложения:
-
-     ```bash
-     export SA_KEY_FILE=~/sa_authorized.json
-     ```
+    ```bash
+    mvn package
+    ```
 
   1. Запустите тестовое приложение:
 
@@ -295,3 +299,5 @@
       ```
 
 {% endlist %}
+
+Далее вы можете ознакомиться с [комментариями к коду тестового приложения](example_code.md).
