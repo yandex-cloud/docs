@@ -26,7 +26,7 @@ editable: false
 
 Бессерверный режим работы {{ ydb-full-name }} поддерживает несколько способов работы с данными:
 
-* YQL - диалект SQL для работы с реляционными таблицами, поддерживаемый в {% if deploy != "arc" %}[SDK](../oss/public/reference/ydb-sdk/index.md), [CLI](../quickstart/yql-api/ydb-cli.md) и [консоли управления {{ ydb-short-name }}](../quickstart/yql-api/ydb-ui.md){% else %}SDK, CLI и консоли управления{% endif %}.
+* YQL - диалект SQL для работы с реляционными таблицами, поддерживаемый в {% if deploy != "arc" %}[SDK](../reference/ydb-sdk/index.md), [CLI](../quickstart/yql-api/ydb-cli.md) и [консоли управления {{ ydb-short-name }}](../quickstart/yql-api/ydb-ui.md){% else %}SDK, CLI и консоли управления{% endif %}.
 * Document API — HTTP API, совместимый с Amazon DynamoDB. С помощью этого API можно выполнять операции над документными таблицами.
 
 Кроме этого, к базе данных могут быть сделаны запросы через специализированные API, доступные в виде отдельных функций в SDK, CLI или консоли управления {{ ydb-short-name }}.
