@@ -143,7 +143,7 @@
 
   ## функция на Node.js
   Функцию будем разворачивать из отдельного репозитария github
-  [сслыка на github](https://github.com/Ulibka68/yandex-YDB-connect-from-serverless-function)
+  [сслыка на github](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function)
 
   Это небольшой проект на typescript развертывание которого осуществляется с помощью bash скриптов. Для компиляции проекта используется tsc.
 
