@@ -41,33 +41,7 @@
 
 ## Шаг 1. Создайте подключение и датасет {#step1}
 
-1. Перейдите на [страницу подключений]{% if region == "int" %}(https://datalens.yandex.com/connections){% else %}(https://datalens.yandex.ru/connections){% endif %}.
-
-1. Нажмите кнопку **Создать подключение**.
-
-1. Выберите подключение **ClickHouse**.
-
-    1. В открывшемся окне укажите параметры подключения:
-
-       * Название подключения — `Sample ClickHouse`.
-
-       * Подключение — тип **Указать вручную**.
-
-       * Имя хоста —  `rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net`.
-
-       * Порт HTTP-интерфейса — `8443` (по умолчанию).
-
-       * Имя пользователя — `samples_ro`.
-
-       * Пароль — `MsgfcjEhJk`.
-
-    1. Активируйте опции **HTTPS** и **Разрешить подзапросы в датасетах**.
-
-    1. Проверьте подключение и нажмите кнопку **Cоздать**.
-
-       ![create-connection](../../_assets/datalens/solution-02/02-create-sample-connection.png)
-
-       Дождитесь сохранения подключения.
+{% include [datalens-create-sample-connection](../datalens/operations/datalens-create-sample-connection.md) %}
 
 1. В правом верхнем углу нажмите кнопку **Создать датасет**.
 

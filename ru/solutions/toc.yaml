@@ -186,6 +186,8 @@ items:
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         when: audience == "external"
         href: datalens/data-from-podcasts.md
+      - name: Визуализация данных с помощью SQL-чарта
+        href: datalens/data-from-ch-to-sql-chart.md
       - name: Анализ customer journey мобильного приложения на данных AppMetrica
         when: audience == "external"
         href: datalens/data-from-appmetrica-yc-visualization.md
