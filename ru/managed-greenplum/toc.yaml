@@ -33,5 +33,9 @@ items:
       - name: Типы хранилища
         href: concepts/storage.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Действующие правила
+        href: pricing/index.md
+      - name: Правила тарификации на стадии General Availability
+        href: pricing/general-availability.md
 base: ru/managed-greenplum

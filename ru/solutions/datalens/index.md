@@ -11,5 +11,6 @@
 - [Веб-аналитика с расчетом воронок и когорт на данных Яндекс.Метрики](data-from-metrica-yc-visualization.md)
 - [Аналитика мобильного приложения на данных AppMetrica](data-from-appmetrica-visualization.md)
 - [Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)](data-from-podcasts.md)
+- [Визуализация данных с помощью SQL-чарта](data-from-ch-to-sql-chart.md)
 - [Анализ customer journey мобильного приложения на данных AppMetrica](data-from-appmetrica-yc-visualization.md)
 
