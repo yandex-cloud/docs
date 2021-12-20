@@ -25,7 +25,7 @@
 
 ## Настройка авторизации {#iam}
 
-В этой инструкции для авторизации в {{ ydb-short-name }} используется [IAM-токен](../../../iam/concepts/authorization/iam-token.md). О других способах авторизации читайте в разделе [{#T}](../../ydb-cli/authorization.md).
+В этой инструкции для авторизации в {{ ydb-short-name }} используется [IAM-токен](../../../iam/concepts/authorization/iam-token.md). О других способах авторизации читайте в разделе [{#T}](../../oss/public/reference/ydb-cli/authorization.md).
 
 1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md):
 

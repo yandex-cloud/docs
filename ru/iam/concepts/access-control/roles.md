@@ -66,9 +66,13 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
 
+{% include [roles-compute-viewer](../../../_includes/roles-compute-viewer.md) %}
+
 {% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}
 
 {% include [roles-images-user](../../../_includes/roles-images-user.md) %}
+
+{% include [roles-compute-operator](../../../_includes/roles-compute-operator.md) %}
 
 ## {{ container-registry-name }} {#cr-roles}
 

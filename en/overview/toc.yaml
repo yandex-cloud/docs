@@ -53,6 +53,10 @@ items:
             href: security/domains/network.md
           - name: Authentication and access control
             href: security/domains/access.md
+          - name: Vulnerability management
+            href: security/domains/vulnerability-management.md
+          - name: Physical security
+            href: security/domains/physical-security.md
       - name: Security bulletins
         href: security-bulletins/index.md
       - name: Rules for performing external security scans

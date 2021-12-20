@@ -1,4 +1,4 @@
-Чтобы добавить [вторичный индекс](../develop/concepts/secondary_indexes.md) при создании таблицы, используйте конструкцию `INDEX IndexName GLOBAL ON (SomeKey1, ... SomeKeyN)`:
+Чтобы добавить [вторичный индекс](../../../concepts/secondary_indexes.md) при создании таблицы, используйте конструкцию `INDEX IndexName GLOBAL ON (SomeKey1, ... SomeKeyN)`:
 
 ```sql
 CREATE TABLE TableName (

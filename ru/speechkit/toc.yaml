@@ -63,24 +63,24 @@ items:
             href: tts/brand-voice/income-data-format.md
           - name: Импорт данных для Brand Voice
             href: tts/brand-voice/import-data.md
-      - name: Описание API
+      - name: Справочник API
         items:
-          - name: Описание метода API
-            href: tts/request.md
-          - name: Использование SSML
-            href: tts/ssml.md
-          - name: Список поддерживаемых фонем в SSML
-            href: tts/supported-phonemes.md
-          - name: Справочник APIv3
+          - name: Аутентификация в API
+            href: api-ref/authentication.md
+          - name: API v1
             items:
-              - name: Аутентификация в API
-                href: api-ref/authentication.md
-              - name: gRPC (англ.)
-                items:
-                  - name: Overview
-                    href: new-v3/api-ref/grpc/index.md
-                  - name: Synthesizer
-                    href: new-v3/api-ref/grpc/tts_service.md
+              - name: Описание метода API
+                href: tts/request.md
+              - name: Использование SSML
+                href: tts/ssml.md
+              - name: Список поддерживаемых фонем в SSML
+                href: tts/supported-phonemes.md
+          - name: API v3 gRPC (англ.)
+            items:
+              - name: Overview
+                href: new-v3/api-ref/grpc/index.md
+              - name: Synthesizer
+                href: new-v3/api-ref/grpc/tts_service.md
   - name: SpeechKit Hybrid
     items:
       - name: О технологии
