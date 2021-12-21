@@ -66,20 +66,6 @@ items:
     href: getting_started/start_rest.md
     when: audience == "tech"
 
-- name: Пошаговые инструкции
-  when: audience == "external"
-  items:
-  - name: Использование плана запроса и AST
-    href: oss/public/develop/operations/get-query-plan.md
-  - name: Управление базами данных
-    href: operations/create_manage_database.md
-  - name: Управление таблицами
-    href: operations/schema.md
-  - name: Чтение и запись данных
-    href: operations/crud.md
-  - name: Работа со вторичными индексами
-    href: oss/public/develop/operations/indexes.md
-
 - name: Сценарии использования
   when: audience == "external"
   items:
@@ -157,6 +143,22 @@ items:
   - { name: OLAP сценарии,                          href: concepts/olap.md,                       when: audience == "tech" }
   - { name: Использование ролей,                    href: howto/apply_iam.md,                     when: audience == "tech" }
 
+- name: Пошаговые инструкции
+  when: audience == "external"
+  items:
+  - name: Переименование
+    href: operations/rename.md
+  - name: Использование плана запроса и AST
+    href: operations/get-query-plan.md
+  - name: Управление базами данных
+    href: operations/create_manage_database.md # !!!!!!!!!!!!
+  - name: Управление таблицами
+    href: operations/schema.md
+  - name: Чтение и запись данных
+    href: operations/crud.md
+  - name: Работа со вторичными индексами
+    href: operations/secondary_indexes.md
+
 - name: Управление доступом
   href: security/start_auth.md
   when: audience == "external"
@@ -181,9 +183,9 @@ items:
 - name: Рекомендации
   items:
   - name: Проектирование схемы
-    href: oss/public/develop/best_practices/schema_design.md
+    href: best_practices/schema_design.md
   - name: Партицирование таблиц
-    href: oss/public/develop/best_practices/table_sharding.md
+    href: best_practices/table_sharding.md
   - name: Вторичные индексы
     href: best_practices/secondary_indexes.md
   - name: Постраничный вывод
@@ -282,35 +284,35 @@ items:
     - name: Обзор
       href: yql/tutorial/index.md
     - name: Создание таблицы
-      href: oss/public/develop/tutorial/create_demo_tables.md
+      href: yql/tutorial/create_demo_tables.md
     - name: Добавление данных в таблицу
-      href: oss/public/develop/tutorial/fill_tables_with_data.md
+      href: yql/tutorial/fill_tables_with_data.md
     - name: Выборка данных из всех колонок
-      href: oss/public/develop/tutorial/select_all_columns.md
+      href: yql/tutorial/select_all_columns.md
     - name: Выборка данных из определенных колонок
-      href: oss/public/develop/tutorial/select_specific_columns.md
+      href: yql/tutorial/select_specific_columns.md
     - name: Сортировка и фильтрация
-      href: oss/public/develop/tutorial/basic_filter_and_sort.md
+      href: yql/tutorial/basic_filter_and_sort.md
     - name: Агрегирование данных
-      href: oss/public/develop/tutorial/basic_aggregation.md
+      href: yql/tutorial/basic_aggregation.md
     - name: Дополнительные условия выборки
-      href: oss/public/develop/tutorial/conditional_values.md
+      href: yql/tutorial/conditional_values.md
     - name: Объединение таблиц с помощью JOIN
-      href: oss/public/develop/tutorial/join_tables.md
+      href: yql/tutorial/join_tables.md
     - name: Вставка и модификация данных с помощью REPLACE
-      href: oss/public/develop/tutorial/replace_into.md
+      href: yql/tutorial/replace_into.md
     - name: Вставка и модификация данных с помощью UPSERT
-      href: oss/public/develop/tutorial/upsert_into.md
+      href: yql/tutorial/upsert_into.md
     - name: Вставка данных с помощью INSERT
-      href: oss/public/develop/tutorial/insert_into.md
+      href: yql/tutorial/insert_into.md
     - name: Обновление данных с помощью UPDATE
-      href: oss/public/develop/tutorial/update.md
+      href: yql/tutorial/update.md
     - name: Удаление данных
-      href: oss/public/develop/tutorial/delete.md
+      href: yql/tutorial/delete.md
     - name: Добавление и удаление колонок
-      href: oss/public/develop/tutorial/alter_table.md
+      href: yql/tutorial/alter_table.md
     - name: Удаление таблицы
-      href: oss/public/develop/tutorial/delete_table.md
+      href: yql/tutorial/delete_table.md
 
 - name: Обслуживание
   when: audience == "external"
@@ -331,7 +333,7 @@ items:
   include: { mode: link, path: internals/toc_i.yaml }
 
 - name: Работа с YDB CLI
-  include: { mode: link, path: oss/public/reference/ydb-cli/toc_i.yaml }
+  include: { mode: link, path: reference/ydb-cli/toc_i.yaml }
 
 - name: Работа с YDB SDK
   items:

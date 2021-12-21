@@ -15,7 +15,7 @@ description: 'Yandex Database (YDB) — это горизонтально мас
 * высокую доступность с автоматической обработкой отказов вычислительных узлов, стоек, или зон доступности;
 * автоматическое партицирование данных при увеличении их объема или увеличении нагрузки.
 
-Для взаимодействия с {{ ydb-short-name }} доступен [YDB CLI]{% if audience == "external" %}(../../quickstart/yql-api/ydb-cli.md){% else %}(../../oss/public/reference/ydb-cli/install.md){% endif %}, а также SDK для {% if oss %}[C++](../../getting_started/start_cpp.md),{% endif %}  [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk)
+Для взаимодействия с {{ ydb-short-name }} доступен [YDB CLI]{% if audience == "external" %}(../../quickstart/yql-api/ydb-cli.md){% else %}(../../reference/ydb-cli/install.md){% endif %}, а также SDK для {% if oss %}[C++](../../getting_started/start_cpp.md),{% endif %}  [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk)
 
 {{ ydb-short-name }} поддерживает реляционную [модель данных](../../concepts/datamodel.md) и оперирует таблицами с предопределённой схемой. Для удобства организации таблиц поддерживается создание директорий по аналогии с файловой системой.
 
