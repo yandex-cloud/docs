@@ -120,8 +120,10 @@ items:
   items:
     - name: Формы из Yandex Forms
       href: actions/forms.md
-    - name: Список задач из Yandex Tracker 
+    - name: Задачи из Yandex Tracker 
       href: actions/tracker.md
+    - name: Cчетчик Яндекс.Метрики
+      href: add-metrika.md
     - name: Графики из {{ datalens-full-name }}
       when: audience == "internal"
       href: actions/datalens.md
