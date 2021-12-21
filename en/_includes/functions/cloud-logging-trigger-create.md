@@ -1,4 +1,4 @@
-Create triggers for [{{ cloud-logging-name }}](../../logging/) that will invoke a [function](../../functions/concepts/function.md) in {{ sf-name }} or a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} when records are added to the [log group]((../../logging/concepts/log-group.md)).
+Create a trigger for [{{ cloud-logging-name }}](../../logging/) that will invoke a [function](../../functions/concepts/function.md) in {{ sf-name }} or a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} when records are added to the [log group]((../../logging/concepts/log-group.md)).
 
 ## Before you start {#before-you-begin}
 
@@ -11,9 +11,9 @@ To create a trigger, you need:
     * If you don't have a container:
         * [Create a container](../../serverless-containers/operations/create.md).
         * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
-* A log group that activates the trigger when messages are delivered there. If you don't have a log group, [create one](../../logging/operations/create-group.md).
+* The log group that activates the trigger when records are added to it. If you don't have a log group, [create one](../../logging/operations/create-group.md).
 * (optional) The [Dead Letter Queue](../../functions/concepts/dlq.md), where messages that the function or container could not process will be redirected. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-* Service accounts with rights to invoke a function or a container and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
+* Service accounts with rights to invoke a function or a container and (optional) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -29,14 +29,20 @@ To create a trigger, you need:
     1. Click **Create trigger**.
     1. Under **Basic parameters**:
         * Enter a name and description for the trigger.
-        * In the **Type** field, select **Cloud Logging**.
+        * In the **Type** field, select **{{ cloud-logging-name }}**.
         * Choose what will fire a trigger — a function or a container.
-    1. Under **Cloud Logging settings**, select a log group and (optionally) resource types and IDs and logging levels.
+    1. Under **{{ cloud-logging-name }} settings**, specify:
+        * The log group.
+        * (Optional) Resource types: {{ yandex-cloud }} or your services, such as, `serverless.function`.
+        * (Optional) IDs of {{ yandex-cloud }} or your resources, such as {{ sf-name }} functions.
+        * (Optional) Logging levels.
+
+        A trigger activates when records that match all the optional settings are added to the specified log group. If an optional setting is undefined, the trigger activates for any value of the setting.
     1. (optional) Under **Batch message settings**, specify:
         * Batch size. Valid values range from 1 to 100. The default is 1.
         * Maximum wait time. Valid values range from 1 to 60 seconds. The default is 1 second. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function or container. At the same time, the number of messages does not exceed the specified group size.
     1. If the trigger launches:
-    	* A function, select one under **Function settings** and specify:
+        * A function, select one under **Function settings** and specify:
             * [Tag of the function version](../../functions/concepts/function.md#tag).
             * A service account to be used to invoke the function.
         * A container, select one under **Container settings** and specify:
@@ -71,9 +77,9 @@ To create a trigger, you need:
     Where:
 
     * `--name`: Trigger name.
-    * `--log-group-name`: Name of the log group that invokes the function when messages are delivered there.
-    * `--batch-size`: Message batch size. Optional. Valid values range from 1 to 100. The default is 1.
-    * `--batch-cutoff`: Maximum waiting time. Optional. Valid values range from 0 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. At the same time, the number of messages does not exceed `batch-size`.
+    * `--log-group-name`: The name of the log group that will cause the function to be called when records are added.
+    * `--batch-size`: Message batch size. Optional parameter. Valid values range from 1 to 100. The default is 1.
+    * `--batch-cutoff`: Maximum waiting time. Optional parameter. Valid values range from 0 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. At the same time, the number of messages does not exceed `batch-size`.
     * `--invoke-function-id`: Function ID.
     * `--invoke-function-service-account-id`: ID of the service account with rights to invoke the function.
     * `--retry-attempts`: The time after which the function will be invoked again if the current attempt fails. Optional parameter. Values can be from 10 to 60 seconds. The default is 10 seconds.
