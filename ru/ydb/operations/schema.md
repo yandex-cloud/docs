@@ -86,7 +86,7 @@
 
    {% note info %}
 
-   Подробнее о том, как добавить вторичные индексы при создании таблицы, читайте в разделе [{#T}](../yql/reference/syntax/create_table.md#si-add).
+   Подробнее о том, как добавить вторичные индексы при создании таблицы, читайте в [документации YQL](../yql/reference/syntax/create_table.md#secondary_index).
 
    {% endnote %}
 

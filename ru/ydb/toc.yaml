@@ -315,10 +315,12 @@ items:
       href: yql/tutorial/delete_table.md
 
 - name: Обслуживание
-  when: audience == "external"
   items:
-  - name: Резервное копирование
-    href: maintenance/backup_and_recovery.md
+    - name: Резервное копирование
+      href: maintenance/backup_and_recovery.md
+    - name: Мониторинг
+      href: maintenance/monitoring.md
+      when: audience != "external"
 
 - name: Безопасность
   when: audience == "tech"
@@ -352,14 +354,6 @@ items:
   items:
     - name: Scan queries
       href: data_interfaces/scan_queries.md
-
-- name: Обслуживание
-  when: audience != "external"
-  items:
-    - name: Резервное копирование
-      href: maintenance/backup_and_recovery.md
-    - name: Мониторинг
-      href: maintenance/monitoring.md
 
 - name: Диагностика
   include: { mode: link, path: troubleshooting/toc_i.yaml }

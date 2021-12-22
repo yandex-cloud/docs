@@ -7,6 +7,7 @@ items:
 - { name: VALUES,                       href: values.md }
 - { name: SELECT STREAM,                href: select_stream.md,              when: feature_mapreduce and process_command == "PROCESS STREAM" }
 - { name: CREATE TABLE,                 href: create_table.md }
+- { name: ALTER TABLE,                  href: alter_table.md,                when: feature_map_tables }
 - { name: DROP TABLE,                   href: drop_table.md }
 - { name: INSERT,                       href: insert_into.md }
 - { name: UPDATE,                       href: update.md,                     when: feature_map_tables }
