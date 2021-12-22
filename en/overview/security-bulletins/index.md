@@ -56,7 +56,7 @@ Source: https://logging.apache.org/log4j/2.x/security.html
 
 ## 10.12.2021: CVE-2021-44228: Remote code execution (Log4Shell, Apache Log4j)
 
-Updated 17.12.2021
+Updated 22.12.2021
 
 ### Description
 
@@ -78,9 +78,12 @@ CVSSv3.1 rating: 9.8 [CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:P/RL:O/RC:C
 
 #### General impact
 
-The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
+1. The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
 
-The vulnerability likely impacts such open-source products as ElasticSearch, Elastic Logstash, the NSA's Ghidra, and so on.
+2. The vulnerability impacts such open-source products as ElasticSearch, Elastic Logstash, the NSA's Ghidra, and so on.
+
+3. Hystax products are vulnerable because they use a vulnerable version of Elasticsearch Logstash.
+Hystax is working on new product releases.
 
 #### Impact on {{ yandex-cloud }} services
 
@@ -109,6 +112,10 @@ Log4j 1.x does not have Lookups so the risk is lower. Applications using Log4j 1
 Note that only the `log4j-core JAR` file is impacted by this vulnerability. Applications using only the `log4j-api JAR` file without the `log4j-core JAR` file are not impacted by this vulnerability.
 
 Source: https://logging.apache.org/log4j/2.x/security.html
+
+#### Hystax 
+
+Hystax Acura controller (or respective Load Balancer in case of HA deployment): allow ingress traffic for UDP-port 12201 only for a list of known source IP ranges where replication agents work.
 
 ## 12.10.2021 – CVE-2021-25741 – Symlink Exchange Can Allow Host Filesystem Access
 
