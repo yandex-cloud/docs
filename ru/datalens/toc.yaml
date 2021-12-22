@@ -428,15 +428,18 @@ items:
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
-      - name: Data source timed out
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
-      - name: Data source refused connection
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md
       - name: Data is not available because materialization is not yet complete
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
+      - name: Data source (table) does not exist
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md
+      - name: Data source refused connection
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md
+      - name: Data source timed out
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
       - name: Filter invalid value
         when: audience == "internal"
         hidden: true
