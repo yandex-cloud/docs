@@ -194,6 +194,9 @@ items:
       href: actions/toc.md
     - name: Закладка на странице
       href: actions/anchor.md
+    - name: Ссылки на сотрудников и текущая дата
+      when: audience =="internal"
+      href: actions/users.md
     - name: Веб-страница или видео
       href: actions/iframe.md
     - name: Контент из другого источника
