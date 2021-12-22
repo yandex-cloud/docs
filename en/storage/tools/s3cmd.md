@@ -14,9 +14,9 @@ To learn how to download and install S3cmd, see the [Download](https://s3tools.o
 
 To configure S3cmd, use the `s3cmd --configure` command. The command requests values for the following parameters:
 
-1. `Access Key`: Enter the ID of the key that you received when generating the static key.
+1. `Access Key`: Enter the ID of the key that you received when generating the [static key](../../iam/concepts/authorization/access-key.md).
 
-1. `Secret Key`: Enter the secret key that you received when generating the static key.
+1. `Secret Key`: Enter the secret key that you received when generating the [static key](../../iam/concepts/authorization/access-key.md).
 
 1. `Default Region`: Enter `ru-central1`.
 
