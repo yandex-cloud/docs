@@ -16,7 +16,7 @@
 
 Использование читаемых реплик значительно снижает нагрузку по обработке операций чтения с первичной реплики, но обладает рядом особенностей:
 
-* За использование каждой читаемой реплики взимается дополнительная плата, т. к. для таких реплик [требуются лицензии на ПО](../pricing.md#license).
+* За использование каждой читаемой реплики взимается дополнительная плата, т. к. для таких реплик [требуются лицензии на ПО](../pricing/index.md#license).
 * Между первичной и вторичной репликами возникает [задержка](https://docs.microsoft.com/ru-ru/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-2016#data-latency). Она обусловлена тем, что на применение изменений из журнала изменений на вторичной реплике требуется некоторое время, в течение которого состояние базы на вторичной реплике будет отличаться от состояния базы на первичной. Если важна консистентность читаемых данных, [подключайтесь](../operations/connect.md) к кластеру только через первичную реплику.
 
 Подробнее см. в [документации {{ MS }}](https://docs.microsoft.com/ru-ru/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups?view=sql-server-2016).

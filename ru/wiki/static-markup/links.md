@@ -112,7 +112,6 @@
 `<mail@example.com>` | ![](../../_assets/wiki/mail-ref-notitle.png)
 `{{ example-link-mail }}` | ![](../../_assets/wiki/mail-ref.png)
 
-
 ## Сноски {#footnotes}
 
 Сноска — это примечание к тексту, которое обычно расположено внизу страницы. Чтобы добавить на страницу сноску:

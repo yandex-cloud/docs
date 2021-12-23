@@ -1,4 +1,4 @@
-# Wiki
+# Вики
 
 
 {% note info %}

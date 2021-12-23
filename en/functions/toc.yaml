@@ -65,7 +65,7 @@ items:
             href: operations/function/function-update.md
           - name: Scaling a function
             href: operations/function/function-scale.md
-          - name: View monitoring charts
+          - name: Function monitoring
             href: operations/function/function-monitoring.md
           - name: Viewing the execution log
             href: operations/function/function-logs.md
@@ -95,6 +95,8 @@ items:
             href: operations/trigger/data-streams-trigger-create.md
           - name: Updating a trigger
             href: operations/trigger/trigger-update.md
+          - name: Trigger monitoring
+            href: operations/trigger/trigger-monitoring.md
           - name: Deleting a trigger
             href: operations/trigger/trigger-delete.md
   - name: Concepts

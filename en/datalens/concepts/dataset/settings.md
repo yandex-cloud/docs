@@ -21,19 +21,31 @@ You can run your dataset in one of two modes, depending on the data source.
 Datasets can work with data sources in the following modes:
 
 - [Direct access](#direct). {{ datalens-short-name }} executes all the data queries on the data source side.
-- [Materialization](#materialization). {{ datalens-short-name }} pre-saves the data to the database and then works with the data.
+- [Materialization](#materialization). {{ datalens-short-name }} pre-saves the data to its own database for processing.
+  - [One-time materialization](#one-time-materialization). The data is uploaded to the {{ datalens-short-name }} materialization database once.
+  - [Periodic materialization](#periodic-materialization). The data is uploaded to the {{ datalens-short-name }} materialization database an unlimited number of times, on a schedule.
 
-{% note info %}
+The table shows the data source operating modes:
 
-Materialization mode is not available for Yandex.Metrica API and AppMetrica API sources. To configure the database to populate from AppMetrica, [export data to Yandex.Cloud](https://appmetrica.yandex.com/docs/cloud/index.html).
-
-{% endnote %}
+| Operating mode<br/>Source | Direct access | One-time<br/>materialization | Periodic<br/>materialization |
+| ---- | ---- | ---- | ---- |
+| CSV file | - | ✔ | - |
+| {{ CH }} | ✔ | ✔ | ✔ |
+| {{ PG }} | ✔ | ✔ | ✔ |
+| {{ MY }} | ✔ | ✔ | ✔ |
+| MS SQL Server | ✔ | ✔ | ✔ |
+| Oracle Database | ✔ | ✔ | ✔ |
+| Greenplum | ✔ | ✔ | ✔ |
+| Google Sheets | ✔ | ✔ | ✔ |
+| {{ ydb-name }} | ✔ | - | - |
+| Yandex.Metrica | ✔ | - | - |
+| AppMetrica | ✔ | - | - |
 
 ### Direct access {#direct}
 
 All data requests are executed on the data source side.
 
-### Materialization {#materializaton}
+### Materialization {#materialization}
 
 Materialization is the process of uploading data from the data source to the {{ datalens-short-name }} database.
 You can run materialization as a one-time process or periodically on a schedule.
