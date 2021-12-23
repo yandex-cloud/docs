@@ -21,7 +21,7 @@ editable: false
 
 * тип и объем хранилища (дискового пространства);
 
-* вычислительные ресурсы, выделенные хостам кластера (в том числе хостам {{ ZK }});
+* вычислительные ресурсы, выделенные хостам кластера (в том числе хостам {{ ZK }}), и тип хостов;
 
 * объем исходящего трафика из {{ yandex-cloud }} в интернет.
 
@@ -33,6 +33,16 @@ editable: false
 
 Вы можете выбрать класс хостов как для хостов-брокеров {{ KF }}, так и для хостов {{ ZK }} (в соответствии с ожидаемой нагрузкой реплицирования).
 
+В зависимости от [типа хоста](./concepts/index.md) стоимость вычисляется по-разному:
+
+* Стандартные хосты
+
+    Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
+
+* Выделенные хосты
+
+    {% include [Dedicated hosts prices](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
 {% note warning %}
 
 При создании кластера с 2 и более хостами-брокерами {{ KF }} автоматически создается 3 хоста {{ ZK }} минимального класса в трех зонах доступности, которые обеспечивают репликацию и отказоустойчивость кластера. При создании кластера с 1 хостом-брокером хосты {{ ZK }} не создаются.
@@ -43,9 +53,7 @@ editable: false
 
 ### Использование дискового пространства {#rules-storage}
 
-Оплачивается:
-
-* Объем хранилища, выделенный для кластеров.
+Оплачивается объем хранилища, выделенный для кластеров.
 
   * Хранилище на быстрых локальных дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами-брокерами и более:
       * для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;
@@ -58,17 +66,23 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
-Например, вы создали кластер:
+{% list tabs %}
 
-* с 3 хостами-брокерами {{ KF }} с классом хостов `s2.micro` (2 vCPU, 8 ГБ RAM),
-* с 3 автоматически созданными хостами {{ ZK }} класса `b2.medium` (2 vCPU, 50% vCPU, 4 ГБ RAM).
-* c 100 ГБ стандартного сетевого хранилища.
+* Стандартные хосты
 
-Стоимость часа работы хостов: `3 × (2 × 1,05 ₽ + 8 × 0,28 ₽) + 3 × (2 × 0,49 ₽ + 4 × 0,20 ₽) = 18,36 ₽`
+    Например, вы создали кластер:
 
-Общая стоимость кластера в месяц (хосты и хранилище): `720 × 18,36 ₽ + 100 × 2,2881 ₽ = 13 448,01 ₽`
+    * с 3 хостами-брокерами {{ KF }} с классом хостов `s2.micro` (2 vCPU, 8 ГБ RAM),
+    * с 3 автоматически созданными хостами {{ ZK }} класса `b2.medium` (2 vCPU, 50% vCPU, 4 ГБ RAM).
+    * c 100 ГБ стандартного сетевого хранилища.
 
-{% endif %}
+    Стоимость часа работы хостов: `3 × (2 × 1,05 ₽ + 8 × 0,28 ₽) + 3 × (2 × 0,49 ₽ + 4 × 0,20 ₽) = 18,36 ₽`
+
+    Общая стоимость кластера в месяц (хосты и хранилище): `720 × 18,36 ₽ + 100 × 2,2881 ₽ = 13 448,01 ₽`
+
+    {% endif %}
+
+{% endlist %}
 
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
@@ -86,25 +100,61 @@ editable: false
 
 Все цены указаны с включением НДС.
 
+Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
+
+От типа хостов также зависит цена на быстрое локальное хранилище.
+
 ### Вычислительные ресурсы хостов-брокеров {{ KF }} {#prices-kafka-brokers}
 
-{% if region == "ru" %}
+{% list tabs %}
 
-{% include notitle [rub-hosts-and-storage.md](../_pricing/managed-kafka/rub-hosts-and-storage.md) %}
+* Стандартные хосты
 
-{% endif %}
+    {% if region == "ru" %} {% include notitle [RUB: standard broker hosts](../_pricing/managed-kafka/rub-hosts-standard.md) %}{% endif %}
+    {% if region == "kz" %} {% include notitle [KZT: standard broker hosts](../_pricing/managed-kafka/kzt-hosts-standard.md) %}{% endif %}
+    {% if region == "int" %}{% include notitle [USD: standard broker hosts](../_pricing/managed-kafka/usd-hosts-standard.md) %}{% endif %}
 
-{% if region == "kz" %}
+* Выделенные хосты
 
-{% include notitle [kzt-hosts-and-storage.md](../_pricing/managed-kafka/kzt-hosts-and-storage.md) %}
+    {% include [Цена на выделенные хосты](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
-{% endif %}
+    {% if region == "ru" %} {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}{% endif %}
+    {% if region == "kz" %} {% include notitle [KZT: dedicated broker hosts](../_pricing/managed-kafka/kzt-hosts-dedicated.md) %}{% endif %}
+    {% if region == "int" %}{% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-dedicated.md) %}{% endif %}
 
-{% if region == "int" %}
+{% endlist %}
 
-{% include notitle [usd-hosts-and-storage.md](../_pricing/managed-kafka/usd-hosts-and-storage.md) %}
+### Вычислительные ресурсы хостов {{ ZK }} {#prices-zookeeper}
 
-{% endif %}
+{% note info %}
+
+Заказать ресурсы хостов {{ ZK }} с помощью механизма CVoS невозможно.
+
+{% endnote %}
+
+{% list tabs %}
+
+* Стандартные хосты
+
+    {% if region == "ru" %} {% include notitle [RUB: standard ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-standard.md) %}{% endif %}
+    {% if region == "kz" %} {% include notitle [KZT: standard ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-standard.md) %}{% endif %}
+    {% if region == "int" %}{% include notitle [USD: standard ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-standard.md) %}{% endif %}
+
+* Выделенные хосты
+
+    {% include [Цена на выделенные хосты](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+
+    {% if region == "ru" %} {% include notitle [RUB: dedicated ZooKeeper hosts](../_pricing/managed-kafka/rub-hosts-zk-dedicated.md) %}{% endif %}
+    {% if region == "kz" %} {% include notitle [KZT: dedicated ZooKeeper hosts](../_pricing/managed-kafka/kzt-hosts-zk-dedicated.md) %}{% endif %}
+    {% if region == "int" %}{% include notitle [USD: dedicated ZooKeeper hosts](../_pricing/managed-kafka/usd-hosts-zk-dedicated.md) %}{% endif %}
+
+{% endlist %}
+
+### Хранилище {#prices-storage}
+
+{% if region == "ru" %} {% include notitle [RUB: Storage prices](../_pricing/managed-kafka/rub-storage.md) %}{% endif %}
+{% if region == "kz" %} {% include notitle [KZT: Storage prices](../_pricing/managed-kafka/kzt-storage.md) %}{% endif %}
+{% if region == "int" %}{% include notitle [USD: Storage prices](../_pricing/managed-kafka/usd-storage.md) %}{% endif %}
 
 ### Исходящий трафик {#prices-traffic}
 

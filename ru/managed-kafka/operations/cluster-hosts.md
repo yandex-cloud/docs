@@ -2,8 +2,6 @@
 
 Вы можете получать список хостов-брокеров в кластере {{ KF }}.
 
-{% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
-
 ## Получить список хостов в кластере {#list-hosts}
 
 {% list tabs %}
