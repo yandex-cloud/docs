@@ -27,7 +27,7 @@ items:
         href: operations/cluster-backups.md
         when: state != "public-preview"
       - name: Использование внешних таблиц
-        href: operations/pxf-tables.md
+        href: operations/external-tables.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
       - name: Мониторинг состояния кластера и хостов
@@ -44,6 +44,10 @@ items:
         href: concepts/limits.md
       - name: Типы хранилища
         href: concepts/storage.md
+      - name: Шардирование
+        href: concepts/sharding.md
+      - name: Типы хранения данных
+        href: concepts/tables.md
   - name: Управление доступом
     href: security/index.md
     when: state != "public-preview"
