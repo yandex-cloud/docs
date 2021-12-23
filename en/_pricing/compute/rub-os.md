@@ -1,17 +1,17 @@
 OS | Cost per vCPU per hour, with VAT
 --- | ---
 Linux for all core types | Free
-Windows Server Datacenter for 5% of vCPU | ₽0.73
-Windows Server Datacenter for 20% and 50% vCPU | ₽0.86
-Windows Server Datacenter for 100% vCPU | ₽1.46
+Windows Server Datacenter for 5% of vCPU | ₽0.8300
+Windows Server Datacenter for 20% and 50% vCPU | ₽0.9800
+Windows Server Datacenter for 100% vCPU | ₽1.6700
 
-{% cut "Prices until October 1st of 2021" %}
+{% cut "Prices until January 1st of 2022" %}
 
 OS | Cost per vCPU per hour, with VAT
 --- | ---
 Linux for all core types | Free
-Windows Server Datacenter for 5% of vCPU | ₽0.6346
-Windows Server Datacenter for 20% and 50% vCPU | ₽0.75
-Windows Server Datacenter for 100% vCPU | ₽1.2691
+Windows Server Datacenter for 5% of vCPU | ₽0.7300
+Windows Server Datacenter for 20% and 50% vCPU | ₽0.8600
+Windows Server Datacenter for 100% vCPU | ₽1.4600
 
 {% endcut %}
