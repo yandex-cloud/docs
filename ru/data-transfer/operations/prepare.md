@@ -228,6 +228,24 @@
 
     1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в разделе [Параметры эндпойнта для источника {{ PG }}](source-endpoint.md#settings-postgresql).
 
+    1. Если на источнике настроена репликация через [Patroni](https://github.com/zalando/patroni), добавьте в его конфигурацию [блок ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings):
+
+       ```yaml
+       ignore_slots:
+         - database: <имя базы данных, для которой настроен трансфер>
+           name: <имя слота репликации>
+           plugin: wal2json
+           type: logical
+       ```
+       
+       Имя базы данных и имя слота репликации должны совпадать со значениями, указанными в [настройках эндпойнта для источника](../../data-transfer/operations/source-endpoint.md#settings-postgresql). По-умолчанию `имя слота репликации` совпадает с `ID трансфера`.
+
+       В противном случае начало этапа репликации завершится ошибкой:
+      
+       ```
+       Warn(Termination): unable to create new pg source: Replication slotID <имя слота репликации> does not exist.
+       ```
+
 {% endlist %}
 
 ### Источник {{ yds-full-name }} {#source-yds}
