@@ -60,6 +60,8 @@ NVIDIA® A100, построенная на базе микроархитекту
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
   --- | --- | --- | ---
   1   | 80  | 28  | 119
+  2   | 160 | 56  | 238
+  4   | 320 | 112 | 476
   8   | 640 | 224 | 952
 
 {% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}
@@ -78,7 +80,7 @@ NVIDIA® A100, построенная на базе микроархитекту
 
 Чтобы воспользоваться технологией vGPU, необходимы:
 * ВМ на [платформе](vm-platforms.md) `vgpu-standard-v1` с одним из образов:
-  * [Ubuntu 18.04 lts vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %};
+  * [Ubuntu 18.04 LTS vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2e8k6h1vu1rc360rr0h){% endif %};
   * [Windows Server 2019 Datacenter vGPU]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/marketplace/products/f2ent6cnb49sf5n9s1u2){% endif %}.
 * Лицензия [NVIDIA® RTX vWS](https://www.nvidia.com/ru-ru/design-visualization/virtual-workstation/) для использования технологии [NVIDIA® vGPU](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/Virtual-GPU-Packaging-and-Licensing-Guide.pdf).
 * Сервер лицензий [NVIDIA® vGPU Software License Server](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html).
