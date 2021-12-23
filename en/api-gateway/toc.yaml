@@ -15,7 +15,7 @@ items:
         href: operations/api-gw-domains.md
       - name: Deleting API gateways
         href: operations/api-gw-delete.md
-      - name: Viewing monitoring charts
+      - name: Monitoring
         href: operations/api-gw-monitoring.md
       - name: Viewing the execution log
         href: operations/api-gw-logs.md
