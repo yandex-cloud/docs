@@ -2,7 +2,13 @@
 editable: false
 ---
 
-# Правила тарификации для {{ mms-name }}
+# Правила тарификации для {{ mms-name }} с 1 января 2022
+
+{% note info %}
+
+Указанные тарифы действуют с 1 января 2022. Тарифы до 31 декабря 2021 года включительно см. в разделе [{#T}](index.md).
+
+{% endnote %}
 
 ## Статус кластера {#running-stopped}
 
@@ -24,10 +30,10 @@ editable: false
 
 * стоимость лицензий ПО Windows Server Datacenter и Microsoft SQL Server;
 
-{% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
+{% include [pricing-rules](../../_includes/mdb/pricing-rules.md) %}
 
 
-{% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+{% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 
 ### Использование лицензий ПО {#license}
 
@@ -39,12 +45,12 @@ editable: false
 * При запуске кластера, который был остановлен в предыдущем периоде, взимается полная стоимость лицензий за весь период тарификации. Если кластер останавливался и запускался несколько раз за один период, плата за лицензии взимается только при первом запуске. 
 * Если вы изменили конфигурацию кластера и снизили потребление ресурсов, стоимость освободившихся лицензий в этом периоде не возвращается. Новая стоимость начинает действовать с первого числа следующего месяца.
 * Если вы изменили конфигурацию кластера и увеличили потребление ресурсов, вам понадобятся дополнительные лицензии. Их стоимость будет рассчитана исходя из оставшихся в отчетном периоде дней. Например, если в месяце 30 дней и до конца месяца осталось 7 дней, доплата составит 7/30 от месячной стоимости новых лицензий.
-* Многохостовый кластер {{ MS }} с [нечитаемыми вторичными репликами](./concepts/replication.md#readable-and-non-readable-replicas) требует только одну лицензию на Microsoft SQL Server Enterprise — для первичной реплики.
-* Многохостовый кластер {{ MS }} с [читаемыми вторичными репликами](./concepts/replication.md#readable-and-non-readable-replicas) требует лицензии на Microsoft SQL Server Enterprise для каждой реплики.
+* Многохостовый кластер {{ MS }} с [нечитаемыми вторичными репликами](../concepts/replication.md#readable-and-non-readable-replicas) требует только одну лицензию на Microsoft SQL Server Enterprise — для первичной реплики.
+* Многохостовый кластер {{ MS }} с [читаемыми вторичными репликами](../concepts/replication.md#readable-and-non-readable-replicas) требует лицензии на Microsoft SQL Server Enterprise для каждой реплики.
 
 ### Использование хостов БД {#rules-hosts-uptime}
 
-Стоимость использования хостов БД вычисляется в соответствии с их классом. Точные характеристики классов приведены в разделе [{#T}](concepts/instance-types.md). Плата за использование взимается в порядке, предусмотренном заключенным договором.
+Стоимость использования хостов БД вычисляется в соответствии с их классом. Точные характеристики классов приведены в разделе [{#T}](../concepts/instance-types.md). Плата за использование взимается в порядке, предусмотренном заключенным договором.
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост БД не может выполнять свои основные функции, не тарифицируется.
 
@@ -76,19 +82,19 @@ editable: false
 
 {% if region == "ru"%}
 
-{% include [rub-pricing.md](../_pricing/managed-sqlserver/rub-pricing.md) %}
+{% include [rub-pricing.md](../../_pricing/managed-sqlserver/rub-pricing.md) %}
 
 {% endif %}
 
 {% if region == "kz"%}
 
-{% include [kzt-pricing.md](../_pricing/managed-sqlserver/kzt-pricing.md) %}
+{% include [kzt-pricing.md](../../_pricing/managed-sqlserver/kzt-pricing.md) %}
 
 {% endif %}
 
 {% if region == "int"%}
 
-{% include [usd-pricing.md](../_pricing/managed-sqlserver/usd-pricing.md) %}
+{% include [usd-pricing.md](../../_pricing/managed-sqlserver/usd-pricing.md) %}
 
 {% endif %}
 
@@ -96,48 +102,19 @@ editable: false
 
 {% if region == "ru" %}
 
-{% include notitle [rub-egress-traffic.md](../_pricing/rub-egress-traffic.md) %}
+{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
 
 {% endif %}
 
 {% if region == "kz" %}
 
-{% include notitle [kzt-egress-traffic.md](../_pricing/kzt-egress-traffic.md) %}
+{% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %}
 
 {% endif %}
 
 {% if region == "int" %}
 
-{% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
 
-{% if audience == "draft" %}
-
-## Расчетные цены для классов хостов {#calculated-prices}
-
-Цены за время работы хостов рассчитаны исходя из конфигураций [классов хостов](concepts/instance-types.md) и приведенных выше цен за использование лицензий ПО, vCPU и RAM для соответствующей платформы. Чтобы точно рассчитать стоимость нужного кластера, воспользуйтесь [калькулятором](https://cloud.yandex.ru/services/managed-sqlserver#calculator).
-
-{% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
-
-За месяц работы хоста из расчета 720 часов в месяц, округлено до целых рублей.
-
-{% if region == "ru"%}
-
-{% include [rub-licence.md](../_pricing/managed-sqlserver/rub-licence.md) %}
-
-{% endif %}
-
-{% if region == "kz"%}
-
-{% include [kzt-licence.md](../_pricing/managed-sqlserver/kzt-licence.md) %}
-
-{% endif %}
-
-{% if region == "int"%}
-
-{% include [usd-licence.md](../_pricing/managed-sqlserver/usd-licence.md) %}
-
-{% endif %}
-
-{% endif %}

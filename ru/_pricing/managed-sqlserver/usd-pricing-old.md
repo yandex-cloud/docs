@@ -4,9 +4,9 @@ For the following products, funds are debited once for the calendar month in adv
 
 | Resource | Cost per vCPU per month, without VAT
 | --- | ---
-| Windows Server Datacenter | $11.7144
-| Microsoft SQL Server Standard | $75.59615
-| Microsoft SQL Server Enterprise | $258.50001
+| Windows Server Datacenter | $13.474359
+| Microsoft SQL Server Standard | $87.076924
+| Microsoft SQL Server Enterprise | $297.786543
 
 ### Host computing resources {#prices-hosts}
 
@@ -26,7 +26,7 @@ For the following products, funds are debited once for the calendar month in adv
 | Service                         | Cost of 1 GB per month, without VAT                                    |
 |---------------------------------|------------------------------------------------------------------------|
 | Standard network storage        | {{ sku|USD|mdb.cluster.network-hdd.mssql|month|string }}               |
-| Non-replicated network storage  | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.mssql|month|string }} |
+| Non-replicated network storage  | $0.070512                                                              |
 | Fast network storage            | {{ sku|USD|mdb.cluster.network-nvme.mssql|month|string }}              |
 | Fast local storage              | {{ sku|USD|mdb.cluster.local-nvme.mssql|month|string }}                |
 | Backups beyond the storage size | $0.032594                                                              |

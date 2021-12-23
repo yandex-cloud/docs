@@ -62,7 +62,7 @@ keywords:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    Подробнее см. в разделе [Правила тарификации для {{ mms-name }}](../pricing.md#rules-storage).
+    Подробнее см. в разделе [Правила тарификации для {{ mms-name }}](../pricing/index.md#rules-storage).
 
 ## Проверка резервной копии {#verify}
 

@@ -4,9 +4,9 @@
 
 | Продукт | Цена за 1 vCPU в месяц
 | --- | ---
-| Windows Server Datacenter | 5 482,512 ₸
-| Microsoft SQL Server Standard | 35 379 ₸
-| Microsoft SQL Server Enterprise | 12 0978 ₸
+| Windows Server Datacenter | 6 306,0 ₸
+| Microsoft SQL Server Standard | 40 752,0 ₸
+| Microsoft SQL Server Enterprise | 139 364,1 ₸
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
@@ -26,7 +26,7 @@
 | Услуга                                  | Цена за ГБ в месяц                                                     |
 |-----------------------------------------|------------------------------------------------------------------------|
 | Стандартное сетевое хранилище           | {{ sku|KZT|mdb.cluster.network-hdd.mssql|month|string }}               |
-| Нереплицируемое сетевое хранилище       | {{ sku|KZT|mdb.cluster.network-ssd-nonreplicated.mssql|month|string }} |
+| Нереплицируемое сетевое хранилище       | 33,0000 ₸                                                              |
 | Быстрое сетевое хранилище               | {{ sku|KZT|mdb.cluster.network-nvme.mssql|month|string }}              |
 | Быстрое локальное хранилище             | {{ sku|KZT|mdb.cluster.local-nvme.mssql|month|string }}                |
 | Резервные копии сверх размера хранилища | 15,2544 ₸                                                              |
