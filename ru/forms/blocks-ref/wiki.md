@@ -1,4 +1,4 @@
-# Wiki
+# Вики
 
 {% if audience == "external" %}
 
