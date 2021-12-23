@@ -1,6 +1,6 @@
 # Security bulletins
 
-TThis page contains security recommendations from {{ yandex-cloud }} experts.
+This page contains security recommendations from {{ yandex-cloud }} experts.
 
 ## 17.12.2021 — CVE-2021-45046 – Remote code execution (Log4j) {#CVE-2021-45046}
 
@@ -117,100 +117,108 @@ Source: https://logging.apache.org/log4j/2.x/security.html
 
 Hystax Acura controller (or respective Load Balancer in case of HA deployment): allow ingress traffic for UDP-port 12201 only for a list of known source IP ranges where replication agents work.
 
-## 12.10.2021 – CVE-2021-25741 – Symlink Exchange Can Allow Host Filesystem Access
+## 12.10.2021: CVE-2021-25741: Risk of accessing a host's filesystem
 
 ### Description
 
-A [security issue](https://github.com/kubernetes/kubernetes/issues/104980) in Kubernetes was discovered, whereby a user could create a container with subpath volume mounts to access files and directories outside of the volume, including on the host file system.
+A [security issue](https://github.com/kubernetes/kubernetes/issues/104980) was discovered in Kubernetes, which allows unauthorized access to a node's filesystem when a user logs in to a cluster.
 
-###  Impact on Yandex.Cloud services
+### Impact on Yandex.Cloud services
 
-{{ managed-k8s-full-name }} does not support anonymous access to the cluster and is not vulnerable to external attackers. 
+{{ managed-k8s-full-name }} does not provide anonymous cluster access and is not affected by the vulnerability from an external attacker.
 
 ### Compensatory measures
 
-To eliminate potential attacks by an internal intruder, please update all existing clusters and node groups in the service to version 1.19 or higher. If your clusters and node groups have already been updated to version 1.19 or higher, update the revisions. An update that closes vulnerabilities is available in all release channels.
+To remove the attack vector from an internal attacker, update all existing service clusters and node groups to version 1.19 or higher. If your clusters and node groups are already updated to version 1.19 or higher, update the revisions. An update that fixes the bug is available in all release channels.
 
-We also recommend:
-* Automatically update clusters and node groups to the latest versions or revisions.
-* Schedule manual updates at least once a month if you cannot apply automatic updates.
-* Prohibit the root user from running pods for unverified downloads.
+We also recommend that you:
 
-You can use the following tools to do so:
+* Automatically update your clusters and node groups to the latest versions or revisions.
+* Schedule manual updates at least once a month if you can't apply automatic updates.
+* Disable running pods as root for untrusted uploads.
+
+To do this, you can use the following tools:
+
 * [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/users)
 * [Kyverno](https://kyverno.io/policies/pod-security/restricted/require-run-as-nonroot/require-run-as-nonroot/)
 
-## 03.03.2021 — CVE-2021-21309 — remote code execution in {{ RD }}
+### More information
+
+A checklist for a secure Kubernetes configuration is available [here](../security/domains/checklist#kubernetes-security).
+
+## 03.03.2021: CVE-2021-21309: Remote code execution via a vulnerability in {{ RD }}
 
 ### Description
 
-In affected versions of Redis an integer overflow bug in 32-bit Redis version 4.0 or newer could be exploited to corrupt the heap and potentially result with remote code execution.
+In 32-bit {{ RD }} versions 4.0 and higher, an integer overflow vulnerability was discovered, which, under certain conditions, may lead to a remote code execution.
 
 ### Impact on Yandex.Cloud services
 
-{{ mrd-full-name }} uses the 64-bit version of {{ RD }} and is not vulnerable.
+{{ mrd-full-name }} uses 64-bit {{ RD }} instances and is not affected by the vulnerability.
 
-## 26.01.2021 — CVE-2021-3156 - privilege escalation via sudo
+## 26.01.2021: CVE-2021-3156: Privilege escalation through vulnerabilities in sudo.
 
 ### Description
 
-A number of [vulnerabilities](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) in `sudo` utility allowed any unprivileged user to gain `root` privileges on the vulnerable host.
+A number of [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) vulnerabilities were discovered in `sudo`. They allow attackers to execute privilege escalation to `root`.
 
-###  Impact on Yandex.Cloud services
+### Impact on Yandex.Cloud services
 
-The following Linux images have been updated:
-* all images from the {{ yandex-cloud }} publisher available in the {{ marketplace-name }};
-* the {{ coi }} image;
-* node images for the {{ managed-k8s-short-name }};
-* hosts images for managed databases clusters;
-* host images for the {{ dataproc-short-name }} clusters.
+The following Linux OS images were updated:
 
-### Additional Information
+* All images from the {{ yandex-cloud }} publisher available in {{ marketplace-name }}.
+* A {{ coi }}.
+* An image that is used to create {{ managed-k8s-short-name }} nodes.
+* Images that are used to create managed database clusters.
+* An image that is used to create {{ dataproc-short-name }} clusters.
+
+### More information
 
 * [Buffer overflow in command line unescaping](https://www.sudo.ws/alerts/unescape_overflow.html)
-* [CVE-2021-3156: Heap-Based Buffer Overflow in Sudo (Baron Samedit)](https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)%
+* [CVE-2021-3156: Heap-Based Buffer Overflow in Sudo (Baron Samedit)](https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)
 
-## 24.12.2020 — CVE-2020-25695 - privilege escalation in PostgreSQL
-
-### Description
-
-A privilege escalation [vulnerability](https://nvd.nist.gov/vuln/detail/CVE-2020-25695) was found in PostgreSQL. The vulnerability allowed unprivileged users to perform SQL queries with identity of superuser under certain conditions.
-
-###  Impact on Yandex.Cloud services
-
-All PostgreSQL database management systems used in the Yandex Managed Service for PostgreSQL have been [updated](https://www.postgresql.org/about/news/postgresql-131-125-1110-1015-9620-and-9524-released-2111/). All new clusters are created with a patched version of PostgreSQL.
-
-## 19.11.2020: Deprecation of outdated TLS protocols
+## 24.12.2020: CVE-2020-25695: Privilege escalation in PostgreSQL
 
 ### Description
 
-To improve security of data transmission, {{ yandex-cloud }} recommends all users to migrate towards solutions that support [TLS 1.2](https://tools.ietf.org/html/rfc5246) protocol and higher.
+The [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695) vulnerability was discovered in the PostgreSQL database management system, which allows an attacker having permission to create non-temporary objects to execute arbitrary SQL queries under the identity of a superuser.
 
 ### Impact on Yandex.Cloud services
 
-All {{ yandex-cloud}} services support TLS 1.2 and higher. Support for outdated protocols will be phased out soon. We strongly recommend to switch all customer applications to higher TLS versions in advance.
+All PostgreSQL instances used in Yandex Managed Service for PostgreSQL were [updated](https://www.postgresql.org/about/news/postgresql-131-125-1110-1015-9620-and-9524-released-2111/).
+
+## 19.11.2020: Discontinue support for deprecated TLS protocols.
+
+### Description
+
+To make data transmission more secure, {{ yandex-cloud }} recommends that all users switch to technologies that provide encryption via [TLS 1.2](https://tools.ietf.org/html/rfc5246) and higher.
+
+### Impact on {{ yandex-cloud }} services
+
+All {{ yandex-cloud }} services support TLS 1.2 and higher. Legacy protocols will gradually be discontinued. We recommend that you upgrade your applications to the latest TLS versions in advance.
 
 ## 20.09.2020: CVE-2020-1472 (aka Zerologon)
 
 ### Description
 
-A flaw in Windows Netlogon Remote Protocol allows an unauthenticated attacker with network access to a domain controller to completely compromise all Active Directory identity services. 
+A Windows Netlogon Remote Protocol vulnerability that allows an unauthenticated attacker with network access permissions to a domain controller to compromise all Active Directory identification services.
 
 Original report from Secura: [Zerologon](https://www.secura.com/whitepapers/zerologon-whitepaper).
 
-Microsoft advisory: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
+Vulnerability description by Microsoft: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
 
-Microsoft guide on change management : [How to manage the changes in Netlogon secure channel connections associated with CVE-2020-1472](https://support.microsoft.com/en-us/help/4557222/how-to-manage-the-changes-in-netlogon-secure-channel-connections-assoc).
+Change management guide from Microsoft: [How to manage the changes in Netlogon secure channel connections associated with CVE-2020-1472](https://support.microsoft.com/en-us/help/4557222/how-to-manage-the-changes-in-netlogon-secure-channel-connections-assoc).
 
-### Impact on Yandex.Cloud services
+### Impact on {{ yandex-cloud }} services
 
-The OS images available to {{ compute-full-name }} are already contain all the necessary patches. However, the new VMs created in {{ compute-full-name }} are not vulnerable to those vulnerabilities.
+OS images available to {{ compute-full-name }} users already contain updates that fix the vulnerability. All VMs created in {{ compute-full-name }} after the issue was reported are protected against the described attack.
 
-### Mitigation Techniques
+### Compensatory measures
 
-In addition to the patches you can implement and enforce network access control so that your DC is not accessible from untrusted networks. This can be achieved by:
-* setting up Windows Firewall or Security Groups;
-* putting your DC under a NAT-gateway.
+In addition to the updates, to restrict access to your domain controller from untrusted networks, use the following network access control systems:
+
+* Windows Firewall or security groups.
+* Moving the domain controller behind a NAT gateway.
 
 ## 15.06.2020: Special Register Buffer Data Sampling Attack (aka CrossTalk)
 
@@ -220,9 +228,9 @@ On certain Intel CPU models, VUSec [detected a new attack]( https://www.vusec.ne
 
 Intel's report: [Deep Dive: Special Register Buffer Data Sampling](https://software.intel.com/security-software-guidance/insights/deep-dive-special-register-buffer-data-sampling).
 
-### Impact on Yandex.Cloud services
+### Impact on {{ yandex-cloud }} services
 
-Yandex.Cloud uses CPU models that are **not vulnerable to** CrossTalk attacks.
+{{ yandex-cloud }} uses CPU models that are **not vulnerable to CrossTalk attacks**.
 
 ## 28.08.2019: TCP SACK
 
@@ -238,9 +246,9 @@ Original report from Netflix: [NFLX-2019-001](https://github.com/Netflix/securit
 
 Vulnerability analysis from Red Hat: [TCP SACK PANIC](https://access.redhat.com/security/vulnerabilities/tcpsack).
 
-### Impact on Yandex.Cloud services
+### Impact on {{ yandex-cloud }} services
 
-* The Yandex.Cloud infrastructure was promptly protected and updated.
+* The {{ yandex-cloud }} infrastructure was promptly protected and updated.
 * The OS images available to Yandex Compute Cloud users were updated as soon as the appropriate fixes became available. Therefore, the new VMs created in Yandex Compute Cloud are not vulnerable to those vulnerabilities.
 
 ## 19.08.2019: Some Yandex Object Storage domains are included in the Public Suffix List
@@ -260,7 +268,7 @@ Domains in the Public Suffix List get the properties of top-level domains, such 
 
 For more information, see [our blog](https://cloud.yandex.ru/blog/posts/2019/08/storage-domains).
 
-### Impact on Yandex.Cloud services
+### Impact on {{ yandex-cloud }} services
 
-These changes will improve the security of Yandex.Cloud users.
+These changes will improve the security for {{ yandex-cloud }} users.
 
