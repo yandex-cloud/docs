@@ -75,6 +75,8 @@ items:
         items:
           - name: Создание ноды из ячейки с кодом на Python
             href: operations/node-cell.md
+          - name: Настройка окружения ноды
+            href: operations/node-customization.md
           - name: Запросы в ноды
             href: operations/node-api.md
   - name: Концепции

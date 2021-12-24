@@ -35,3 +35,8 @@ description: "Из статьи вы узнаете как работать с Y
 
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
+
+## Развертывание эксплуатации моделей {#deployment}
+* [{#T}](node-cell.md)
+* [{#T}](node-customization.md)
+* [{#T}](node-api.md)
