@@ -42,7 +42,7 @@ meta:
 links:
   - title: Начало работы
     description: Создайте первую базу и выполните простейшие операции с ней
-    href: quickstart/index
+    href: quickstart/
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/create_manage_database
@@ -69,7 +69,7 @@ links:
     href: yql/tutorial/
   - title: HTTP API, совместимый с Amazon DynamoDB
     description: Описание Document API, совместимого с Amazon DynamoDB
-    href: docapi/api-ref/index
+    href: docapi/api-ref/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
