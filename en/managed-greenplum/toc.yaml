@@ -4,6 +4,10 @@ stage: preview
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: Using external tables
+        href: operations/pxf-tables.md
   - name: Concepts
     items:
       - name: Relationship between service resources
