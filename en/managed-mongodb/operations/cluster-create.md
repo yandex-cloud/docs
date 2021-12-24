@@ -138,7 +138,15 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
+  {% if audience != "internal" %}
+
   If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% else %}
+
+  If you don't have Terraform, install it and configure the provider.
+
+  {% endif %}
 
   To create a cluster:
 
@@ -172,7 +180,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
        deletion_protection = <protect cluster from deletion: true or false>
      
        cluster_config {
-         version = "<MongoDB version: 4.0, 4.2, or 4.4>"
+         version = "<MongoDB version: 4.0, 4.2, 4.4 or 5.0>"
        }
      
        database {
