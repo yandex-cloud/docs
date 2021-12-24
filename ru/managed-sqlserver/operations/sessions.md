@@ -7,7 +7,7 @@
 Чтобы получить список активных пользовательских сеансов:
 
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи с ролью `DB_OWNER` или `DB_SECURITYADMIN`.
-2. Выполните запрос:
+1. Выполните запрос:
 
     ```sql
    USE msdb;
@@ -25,47 +25,47 @@
    `show_session_wait_stats` | `0` | При значении `1` — дополнительный вывод статистики ожидания по сеансам из представления `sys.dm_exec_session_wait_stats` в отдельной таблице.
    `show_version` | `0` | При значении `1` — вывод версии процедуры. В таком случае другие параметры игнорируются.
 
-3. Вы получите таблицу со списком активных сеансов и их параметрами:
+1. Вы получите таблицу со списком активных сеансов и их параметрами:
    1. Данные о сеансах из представления `sys.dm_exec_sessions`:
       1. `database_name` — имя базы данных, к которой обращается сеанс;
-      2. `session_id` — идентификатор сеанса;
-      3. `login_time` — время подключения сеанса;
-      4. `host_name` — имя хоста, указанное в сеансе;
-      5. `program_name` — имя клиентской программы, которая инициировала сеанс;
-      6. `login_name` — имя учетной записи, под которой выполняется сеанс;
-      7. `status` — состояние сеанса:
-         - `Running` — выполняется один или несколько запросов;
-         - `Sleeping` — запросы не выполняются;
-         - `Dormant` — сеанс был сброшен из-за пула соединений и находится в состоянии предварительного входа (pre-login);
-         - `Preconnect` — сеанс находится в классификаторе регулятора ресурсов;
-      8. `session_cpu_time` — процессорное время, использованное сеансом (в миллисекундах);
-      9. `last_request_start_time` — время поступления последнего запроса;
-      10. `session_database_id` — идентификатор базы данных, к которой обращается сеанс;
-      11. `open_transaction_count` — количество открытых транзакций на сеанс;
-   2. Сведения об активных запросах из представления `sys.dm_exec_requests`:
+      1. `session_id` — идентификатор сеанса;
+      1. `login_time` — время подключения сеанса;
+      1. `host_name` — имя хоста, указанное в сеансе;
+      1. `program_name` — имя клиентской программы, которая инициировала сеанс;
+      1. `login_name` — имя учетной записи, под которой выполняется сеанс;
+      1. `status` — состояние сеанса:
+         * `Running` — выполняется один или несколько запросов;
+         * `Sleeping` — запросы не выполняются;
+         * `Dormant` — сеанс был сброшен из-за пула соединений и находится в состоянии предварительного входа (pre-login);
+         * `Preconnect` — сеанс находится в классификаторе регулятора ресурсов;
+      1. `session_cpu_time` — процессорное время, использованное сеансом (в миллисекундах);
+      1. `last_request_start_time` — время поступления последнего запроса;
+      1. `session_database_id` — идентификатор базы данных, к которой обращается сеанс;
+      1. `open_transaction_count` — количество открытых транзакций на сеанс;
+   1. Сведения об активных запросах из представления `sys.dm_exec_requests`:
       1. `request_start_time` — время поступления запроса;
-      2. `request_status` — состояние запроса:
-         - `Background` — выполняется в фоне;
-         - `Running` — запущен;
-         - `Runnable` — готов к запуску;
-         - `Sleeping` — в режиме ожидания;
-         - `Suspended` — приостановлен;
-      3. `request_command` — тип выполняемой в данный момент команды;
-      4. `blocking_session_id` — идентификатор сеанса, блокирующего данный запрос;
-      5. `wait_type` — [тип ожидания]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %} при блокировке;
-      6. `wait_time` — продолжительность ожидания при блокировке (в миллисекундах);
-      7. `last_wait_type` — [тип последнего ожидания]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %}, если запрос был блокирован ранее;
-      8. `wait_resource` — ресурс, освобождения которого ожидает запрос при блокировке;
-   3. Сведения о текстах и планах запросов из представлений `sys.dm_exec_sql_text` и `sys.dm_exec_query_plan`:
+      1. `request_status` — состояние запроса:
+         * `Background` — выполняется в фоне;
+         * `Running` — запущен;
+         * `Runnable` — готов к запуску;
+         * `Sleeping` — в режиме ожидания;
+         * `Suspended` — приостановлен;
+      1. `request_command` — тип выполняемой в данный момент команды;
+      1. `blocking_session_id` — идентификатор сеанса, блокирующего данный запрос;
+      1. `wait_type` — [тип ожидания]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %} при блокировке;
+      1. `wait_time` — продолжительность ожидания при блокировке (в миллисекундах);
+      1. `last_wait_type` — [тип последнего ожидания]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?#types-of-waits){% endif %}, если запрос был блокирован ранее;
+      1. `wait_resource` — ресурс, освобождения которого ожидает запрос при блокировке;
+   1. Сведения о текстах и планах запросов из представлений `sys.dm_exec_sql_text` и `sys.dm_exec_query_plan`:
       1. `object_id` — идентификатор объекта (например, хранимой процедуры или функции) для этого плана запроса;
-      2. `query_text` — текст SQL-запроса, имеет значение `NULL` для зашифрованных объектов;
-      3. `query_plan` — представление `Showplan` времени компиляции для плана выполнения запроса.
+      1. `query_text` — текст SQL-запроса, имеет значение `NULL` для зашифрованных объектов;
+      1. `query_plan` — представление `Showplan` времени компиляции для плана выполнения запроса.
 
 {% note info %}
 
 Процедура `dbo.mdb_sessions_get` не возвращает сеансы, которые:
-- запущены от имени системных привилегированных пользователей;
-- обращаются к базам данных, где у вызывающего процедуру пользователя нет роли `DB_OWNER` или `DB_SECURITYADMIN`.
+* запущены от имени системных привилегированных пользователей;
+* обращаются к базам данных, где у вызывающего процедуру пользователя нет роли `DB_OWNER` или `DB_SECURITYADMIN`.
 
 {% endnote %}
 
@@ -74,7 +74,7 @@
 Чтобы прервать активный пользовательский сеанс:
 
 1. [Подключитесь](connect.md) к базе данных с помощью учетной записи с ролью `DB_OWNER` или `DB_SECURITYADMIN`.
-2. Выполните запрос:
+1. Выполните запрос:
 
     ```sql
    USE msdb;
@@ -86,7 +86,7 @@
 {% note info %}
 
 Процедура `dbo.mdb_sessions_kill` не прерывает сеансы, которые:
-- запущены от имени системных привилегированных пользователей;
-- обращаются к базам данных, где у вызывающего процедуру пользователя нет роли `DB_OWNER` или `DB_SECURITYADMIN`.
+* запущены от имени системных привилегированных пользователей;
+* обращаются к базам данных, где у вызывающего процедуру пользователя нет роли `DB_OWNER` или `DB_SECURITYADMIN`.
 
 {% endnote %}

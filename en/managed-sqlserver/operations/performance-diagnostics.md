@@ -22,7 +22,6 @@ To begin gathering statistics, enable the [query store]{% if lang == "ru" %}(htt
       ```
 
     - SQL Server Management Studio
-
       1. Select a database in the **Object Explorer** window.
       1. Right-click and select **Properties**.
       1. Select the **Query Store** page.
@@ -31,9 +30,10 @@ To begin gathering statistics, enable the [query store]{% if lang == "ru" %}(htt
 
     {% endlist %}
 
-## Getting information on sessions and queries {#get-sessions-queries}
+## Getting information about sessions and queries {#get-sessions-queries}
 
 To view this data:
 
-* [Run an SQL query]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting){% endif %} directly to the query store.
+* [Run the SQL query]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15#performance-auditing-and-troubleshooting){% endif %} directly to the query store.
 * Use [SQL Server Management Studio]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/performance/performance-dashboard?view=sql-server-ver15){% endif %}.
+* Use [built-in stored procedures](sessions.md).
