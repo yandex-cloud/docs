@@ -1,5 +1,7 @@
 # Приложение на C++
 
+На этой странице подробно разбирается код [тестового приложения](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/examples/basic_example), доступного в составе [C++ SDK](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp) {{ ydb-short-name }}.
+
 {% include [intro.md](example/step-init-intro.md) %}
 
 Фрагмент кода приложения для инициализации драйвера:

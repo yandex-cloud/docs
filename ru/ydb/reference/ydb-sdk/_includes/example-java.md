@@ -1,6 +1,6 @@
 # Приложение на Java
 
-На этой странице подробно разбирается код тестового приложения, доступного в составе Java SDK {{ ydb-short-name }}.
+На этой странице подробно разбирается код [тестового приложения](https://github.com/yandex-cloud/ydb-java-sdk/tree/master/examples/maven_project), доступного в составе [Java SDK](https://github.com/yandex-cloud/ydb-java-sdk) {{ ydb-short-name }}.
 
 {% include [intro.md](example/step-init-intro.md) %}
 
