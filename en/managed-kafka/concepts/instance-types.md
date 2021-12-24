@@ -9,7 +9,7 @@ The host class determines the computing power allocated for each host in the clu
 
 {% if audience != "internal" %}
 
-The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).
+The available storage doesn't depend on the host class. For storage limitations, see [Quotas and limits in Managed Service for Apache Kafka®](limits.md).
 
 {% endif %}
 
@@ -46,7 +46,6 @@ The full list of possible host configurations on each platform is provided below
 | m2.6xlarge        | 48              | 100%                      | 384     |
 | m2.7xlarge        | 56              | 100%                      | 448     |
 | m2.8xlarge        | 64              | 100%                      | 512     |
-| m2.9xlarge        | 80              | 100%                      | 640     |
 | s2.micro          | 2               | 100%                      | 8       |
 | s2.small          | 4               | 100%                      | 16      |
 | s2.medium         | 8               | 100%                      | 32      |
@@ -57,8 +56,8 @@ The full list of possible host configurations on each platform is provided below
 | s2.4xlarge        | 40              | 100%                      | 160     |
 | s2.5xlarge        | 48              | 100%                      | 192     |
 | s2.6xlarge        | 64              | 100%                      | 256     |
-| s2.7xlarge        | 80              | 100%                      | 320     |
 | **Intel Ice Lake**                                                        |
+| b3-c1-m4          | 2               | 50%                       | 4       |
 | s3-c2-m8          | 2               | 100%                      | 8       |
 | s3-c4-m16         | 4               | 100%                      | 16      |
 | s3-c8-m32         | 8               | 100%                      | 32      |
