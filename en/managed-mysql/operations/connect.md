@@ -10,9 +10,9 @@ If a cluster has public access set up for certain hosts only, an automatic maste
 
 {% endnote %}
 
-The maximum number of simultaneous connections to a {{ mmy-name }} cluster host is set by the `max_connections` parameter and by default is equal to `100 × <number of vCPU on the host> × <vCPU share on the host>`, but no less than `100`.
+The maximum number of simultaneous connections to a {{ mmy-name }} cluster host depends on `max_connections` and is `<amount of RAM per host, MB> / 32`. The minimum value is `100` by default.
 
-For example, for a [s1.micro](../concepts/instance-types.md) host with 2 vCPUs and a 100% share, the default value of the `max_connections` parameter is `200`: `100×2×1`.
+For a [s1.micro class](../concepts/instance-types.md) host, for instance, with 8 GB of RAM, the default value of `max_connections` is `256`: `8 × 1024 / 32`.
 
 ## Configuring security groups {#configure-security-groups}
 
