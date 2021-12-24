@@ -100,9 +100,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 - API
 
-  You can change the [host class](../concepts/instance-types.md) using the API [update](../api-ref/Cluster/update.md) method: pass the necessary value in the request parameter `configSpec.resources.resourcePresetId`.
-
-  To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
+    To change the [host class](../concepts/instance-types.md), use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * The desired host class in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
 {% endlist %}
 
@@ -202,7 +202,9 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
 - API
 
-  You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.resources.diskSize`.
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * Storage size in the `configSpec.resources.diskSize` parameter.
 
 {% endlist %}
 
@@ -215,7 +217,7 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 - Management console
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
-  1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-settings) by clicking **Configure** under **DBMS settings**.
+  1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**.
   1. Click **Save**.
   1. Click **Save changes**.
 
@@ -225,7 +227,7 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To update the [{{ MY }} settings](../concepts/settings-list.md#dbms-settings):
+  To update the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings):
 
   1. View a description of the CLI's update cluster configuration command:
 
@@ -274,7 +276,11 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
 - API
 
-  You can update the [{{ MY }} settings](../concepts/settings-list.md#dbms-settings) for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate values in the request parameter `configSpec.mysql_config_5_7`.
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * An array with new {{ MY }} settings in the following parameter:
+        * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} 5.7.
+        * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} 8.0.
 
 {% endlist %}
 
@@ -466,10 +472,12 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
 - API
 
-    To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
     * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    * The list of groups in the `securityGroupIds` parameter.
-    * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+    * The list of security group IDs in the `securityGroupIds` parameter.
+    * The list of settings to update in the `updateMask` parameter.
+
+    {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 

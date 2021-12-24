@@ -129,42 +129,44 @@
 
 - Python
 
-  1. Запустите тестовое приложение `basic_example_v1`:
+  Запустите тестовое приложение `basic_example_v1`:
 
-      ```bash
-      cd ./ydb-python-sdk/examples/basic_example_v1
-      python3 __main__.py \
-        -e grpcs://lb.etn03umae82ti1blt4er.ydb.mdb.yandexcloud.net:2135 \
-        -d /ru-central1/b1gia87mbaomkfvscrus/etn03umae82ti1blt4er
-      ```
+  ```bash
+  cd ./ydb-python-sdk/examples/basic_example_v1
+  python3 __main__.py \
+    -e grpcs://lb.etn03umae82ti1blt4er.ydb.mdb.yandexcloud.net:2135 \
+    -d /ru-central1/b1gia87mbaomkfvscrus/etn03umae82ti1blt4er
+  ```
 
-      * `-e` — эндпоинт базы данных.
-      * `-d` — полный путь базы данных.
+  * `-e` — эндпоинт базы данных.
+  * `-d` — полный путь базы данных.
 
-      Результат:
+  Результат:
 
-      ```bash
-      > describe table: series
-      column, name: series_id , Uint64
-      column, name: title , Utf8
-      column, name: series_info , Utf8
-      column, name: release_date , Uint64
-      column, name: comment , Utf8
+  ```bash
+  > describe table: series
+  column, name: series_id , Uint64
+  column, name: title , Utf8
+  column, name: series_info , Utf8
+  column, name: release_date , Uint64
+  column, name: comment , Utf8
 
-      > select_simple_transaction:
-      series, id:  1 , title:  IT Crowd , release date:  b'2006-02-03'
+  > select_simple_transaction:
+  series, id:  1 , title:  IT Crowd , release date:  b'2006-02-03'
 
-      > select_prepared_transaction:
-      episode title: To Build a Better Beta , air date: b'2016-06-05'
+  > select_prepared_transaction:
+  episode title: To Build a Better Beta , air date: b'2016-06-05'
 
-      > select_prepared_transaction:
-      episode title: Bachman's Earnings Over-Ride , air date: b'2016-06-12'
+  > select_prepared_transaction:
+  episode title: Bachman's Earnings Over-Ride , air date: b'2016-06-12'
 
-      > explicit TCL call
+  > explicit TCL call
 
-      > select_prepared_transaction:
-      episode title: TBD , air date: b'2019-05-10'
-      ```
+  > select_prepared_transaction:
+  episode title: TBD , air date: b'2019-05-10'
+  ```
+
+  Далее вы можете ознакомиться с [комментариями к коду тестового приложения](example-python.md).
 
 - Go
 
@@ -197,6 +199,9 @@
   
       > select_simple_transaction: 1 IT Crowd 2006-02-03
       ```
+
+  Далее вы можете ознакомиться с [комментариями к коду тестового приложения](example-go.md).
+
 
 - Node.js
 
@@ -264,6 +269,8 @@
       ]
       ```
 
+  Далее вы можете ознакомиться с [комментариями к коду тестового приложения](example-nodejs.md).
+
 - Java
 
   1. Перейдите в директорию с тестовым приложением `ydb-java-sdk/examples/maven_project`:
@@ -298,6 +305,6 @@
       price: 10.000000
       ```
 
-{% endlist %}
+  Далее вы можете ознакомиться с [комментариями к коду тестового приложения](example-java.md).
 
-Далее вы можете ознакомиться с [комментариями к коду тестового приложения](example_code.md).
+{% endlist %}

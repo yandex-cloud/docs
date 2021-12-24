@@ -2,25 +2,13 @@
 title: "MySQL backup management"
 description: "You can back up and restore clusters from your existing MySQL backups. Point-in-Time Recovery (PITR) technology allows you to restore the state of the cluster to any point in time from the backup to the current moment."
 ---
-
 # Managing backups
 
-You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
+You can create backups and restore clusters from existing backups, including point-in-time recovery. For more information, see [{#T}](../concepts/backup.md).
 
 ## Restoring clusters from backups {#restore}
 
-Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time in the interval from creating the oldest full backup to archiving the most recent binary log. For more information, see [{#T}](../concepts/backup.md).
-
-For example, if the backup operation ended August 10, 2020, 12:00:00 UTC, the current date is August 15, 2020, 19:00:00 UTC, and the latest binary log was saved August 15, 2020, 18:50:00 UTC, the cluster can be restored to any state between August 10, 2020, 12:00:01 UTC and August 15, 2020, 18:50:00 UTC inclusive.
-
-When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
-
-For a new cluster, you should set all the parameters that are required at creation, except for the cluster type (a {{ CH }} backup cannot be restored as a {{ MY }} cluster).
-
-When restoring to the current state, the new cluster will reflect the state of:
-
-* An existing cluster at the time of recovery.
-* A deleted cluster at the time of archiving the last binary log.
+For a new cluster, you should set all the parameters that are required at creation, except for the cluster type.
 
 {% list tabs %}
 
@@ -36,7 +24,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
 
-  1. To restore the cluster state from a desired point of time after creating this backup, configure the **Date and time of recovery (UTC)** setting. You can enter the value manually or select it from the drop-down calendar.
+  1. To restore the cluster state [to the desired point in time](../concepts/backup.md) after creating this backup (Point-in-Time-Recovery), configure the **Date and time of recovery (UTC)** setting.
 
      If you don't change the setting, the cluster is restored to the state when the backup was completed.
 
@@ -114,12 +102,13 @@ When restoring to the current state, the new cluster will reflect the state of:
       This results in a new {{ MY }} cluster with the following characteristics:
 
 
-            - With the name `mynewmy`.
-      - In the `PRODUCTION` environment.
-      - In the `{{ network-name }}` network.
-      - With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
-      - With databases and users that existed in the cluster at the time of recovery.
-      - With 20 GB fast network storage (`{{ disk-type-example }}`).
+      
+      * With the name `mynewmy`.
+      * In the `PRODUCTION` environment.
+      * In the `{{ network-name }}` network.
+      * With a single `{{ host-class }}` class host in the `b0rcctk2rvtr8efcch63` subnet of the `{{ zone-id }}` availability zone.
+      * With databases and users that existed in the cluster at the time of recovery.
+      * With 20 GB fast network storage (`{{ disk-type-example }}`).
 
 - Terraform
 
@@ -213,6 +202,13 @@ When restoring to the current state, the new cluster will reflect the state of:
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+- API
+
+  Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+  * ID of the desired backup, in the `backupId` parameter. To find out the ID, [get a list of backups](#list-backups).
+  * The timestamp of the point to which you want to recover the cluster, in the `time` parameter.
+  * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+
 {% endlist %}
 
 ## Creating a backup {#create-backup}
@@ -245,6 +241,12 @@ When restoring to the current state, the new cluster will reflect the state of:
       ```
 
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
+
+- API
+
+  Use the [backup](../api-ref/Cluster/backup.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+  {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -281,6 +283,14 @@ When restoring to the current state, the new cluster will reflect the state of:
   +----------+----------------------+----------------------+----------------------+
   ```
 
+- API
+
+  To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+  To get a list of backups for all the **{{ mmy-name }}** clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+
+  {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+
 {% endlist %}
 
 ## Getting information about backups {#get-backup}
@@ -310,6 +320,12 @@ When restoring to the current state, the new cluster will reflect the state of:
   ```
 
   The backup ID can be retrieved with the [list of backups](#list-backups).
+
+- API
+
+  Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter.
+
+  To find out the ID, [get a list of backups](#list-backups).
 
 {% endlist %}
 
@@ -359,5 +375,13 @@ When restoring to the current state, the new cluster will reflect the state of:
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
-{% endlist %}
+- API
 
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+    * The cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
+    * List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
+
+    {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
+
+{% endlist %}

@@ -1,4 +1,6 @@
 # Building a data platform on {{ yandex-cloud }}
 
 * [{#T}](sync-mysql.md)
-* [{#T}](kafka-cdc.md)
+* [Delivering data to {{ mkf-name }} using Debezium](kafka-cdc.md)
+* [{#T}](mssql-data-migration.md)
+

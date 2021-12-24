@@ -1,10 +1,12 @@
 * **Geobase uri**{#setting-geobase-uri} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Address of the archive with the [user geobase](../../managed-clickhouse/concepts/dictionaries.md#internal-dicts) in {{ objstorage-name }}.
+    Address of the archive with the [user geobase](../../managed-clickhouse/concepts/dictionaries.md#internal-dicts) in {{ objstorage-name }}.
 
 * **Keep alive timeout**{#setting-} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Amount of time in seconds after the last request to {{ CH }}, during which the server waits for a new request. If no requests are received during this time, {{ CH }} breaks the connection. To learn more, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#keep-alive-timeout).
+    The time (in seconds) since {{ CH }} received its last query before a connection was interrupted. If a new query comes in during this time, the connection does not terminate.
+
+    The default is `3`.
 
 * **Log level**{#setting-log-level} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
@@ -12,185 +14,189 @@
   1. `ERROR`: Information about errors in the cluster.
   1. `WARNING`: Information about events that may cause errors in the cluster.
   1. `INFORMATION`: Confirmations, information about events that don't lead to errors in the cluster.
-  1. `DEBUG`: System information to be used later in debugging.
-  1. `TRACE`: All available information about cluster performance.
+  1. `DEBUG`: System information for subsequent use in debugging.
+  1. `TRACE`: All available information on cluster operation.
 
-  For more information about log levels, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger).
+  For more information about logging levels, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-logger).
 
 * **Mark cache size**{#setting-mark-cache-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Approximate size (in bytes) of the mark cache used by MergeTree table engines. The cache is shared by the server and memory is allocated as needed.
+    Approximate size (in bytes) of the mark cache used by table engines in the [MergeTree] family (https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/). The cache is shared by a cluster host. Memory is allocated as needed.
 
-  To learn more about logging in {{ CH }}, see the [documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server-mark-cache-size).
+    The selected parameter value is not a hard and fast restriction. {{ CH }} can make this cache a little smaller or larger.
+
+    The default is `5368709120`.
 
 * **Max concurrent queries**{#setting-max-concurrent-queries} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Maximum number of simultaneously processed requests.
+    Maximum number of simultaneously processed requests.
 
-  To learn more, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max-concurrent-queries).
+    Minimum value is `10`. Default is `500`.
 
 * **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Maximum number of inbound connections.
+    Maximum number of inbound client connections. This setting does not account for housekeeping connections established to run distributed subqueries.
 
-  To learn more, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max-connections).
+    Minimum value is `10`. Default is `4096`.
 
 * **Max partition size to drop**{#setting-max-partition-size-to-drop} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Maximum size (in bytes) of a [partition](https://clickhouse.yandex/docs/en/operations/table_engines/custom_partitioning_key/) in a [MergeTree](https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/) table, which you can delete using a `DROP` query.
+    Maximum size (in bytes) of the [partition](https://clickhouse.yandex/docs/en/operations/table_engines/custom_partitioning_key/) of a table in the [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) family at which you can delete a table using a `DROP TABLE` query. You can use the setting to protect tables with real data from inadvertent deletion because these tables will normally be larger than test ones.
+
+    The default is `53687091200` (50 GB). When the value is `0`, you can delete tables of any size.
 
 * **Max table size to drop**{#setting-max-table-size-to-drop} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Maximum size (in bytes) of a [MergeTree](https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/) table, which you can delete using a `DROP` query.
+    Maximum size (bytes) of a table in the [MergeTree] (https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) family that you can delete using a `DROP TABLE` query. You can use the setting to protect tables with real data from inadvertent deletion because these tables will normally be larger than test ones.
 
-  Default value: `53687091200` (50 GB).
-
-  If 0, you can delete all tables without restrictions.
-
-  To learn more, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#max-table-size-to-drop).
+    The default is `53687091200` (50 GB). When the value is `0`, you can delete tables of any size.
 
 * **Metric log enabled**{#setting-metric-log-enabled} {{ tag-con }} {{ tag-tf }}
 
-  Enables or disables logging of the history of metric values from the [system.metrics](https://clickhouse.tech/docs/en/operations/system-tables/metrics) and [system.events](https://clickhouse.tech/docs/en/operations/system-tables/events) tables to the [system.metric_log](https://clickhouse.tech/docs/en/operations/system-tables/metric_log) table.
+    Determines whether metric values from the `system.metrics` and the `system.events` tables will be logged to `system.metric_log`.
 
-  Logging is enabled by default (`true`).
+    The default is `true`.
 
 * **Metric log retention size**{#setting-metric-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.metric_log](https://clickhouse.tech/docs/en/operations/system-tables/metric_log) table can reach before old records start being deleted from it.
+    The size of the `system.metric_log` table (in bytes), which will cause old records to be deleted from this table when exceeded.
 
-  A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
+    The default is `536870912` (0.5 GB). When the value is `0`, old records will not be deleted as the table grows in size.
 
 * **Metric log retention time**{#setting-metric-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.metric_log](https://clickhouse.tech/docs/en/operations/system-tables/metric_log) table is deleted. Time is counted as soon as the record is created in the table.
+    Time (in milliseconds) between making an entry in the `system.metric_log` table and its deletion. The value must be a multiple of 1000.
 
-  A value of 0 means that records aren't deleted when the time elapses. The value must be a multiple of 1000. Default value: 2592000000 (30 days).
+    The default is `2592000000` (30 days). When the value is `0`, records are stored indefinitely.
 
 * **Part log retention size**{#setting-part-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.part_log](https://clickhouse.tech/docs/en/operations/system-tables/part_log) table can reach before old records start being deleted from it.
+    The size of the `system.part_log` table (in bytes), which will cause old records to be deleted from this table when exceeded.
 
-  A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
+    The default is `536870912` (0.5 GB). When the value is `0`, old records will not be deleted as the table grows in size.
 
 * **Part log retention time**{#setting-part-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.part_log](https://clickhouse.tech/docs/en/operations/system-tables/part_log) table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
+    Time (in milliseconds) between the making of an entry in the `system.part_log` table and its deletion. The value must be a multiple of 1000.
 
-  A value of 0 means that records aren't deleted when the time elapses. Default value: 2592000000 (30 days).
+    The default is `2592000000` (30 days). When the value is `0`, records are stored indefinitely.
 
 * **Query log retention size**{#setting-query-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.query_log](https://clickhouse.tech/docs/en/operations/system-tables/query_log) table can reach before old records start being deleted from it.
+    The size of the `system.query_log` table (in bytes), which will cause old records to be deleted from this table when exceeded.
 
-  A value of 0 means that the old records aren't deleted as the table size grows. Default value: 1073741824 (1 GB).
+    The default is `1073741824` (1 GB). When the value is `0`, old records will not be deleted as the table grows in size.
 
 * **Query log retention time**{#setting-query-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.query_log](https://clickhouse.tech/docs/en/operations/system-tables/query_log) table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
+    Time (in milliseconds) between the making of an entry in the `system.query_log` table and its deletion. The value must be a multiple of 1000.
 
-  A value of 0 means that records aren't deleted when the time elapses. Default value: 2592000000 (30 days).
+    The default is `2592000000` (30 days). When the value is `0`, records are stored indefinitely.
 
 * **Query thread log enabled**{#setting-query-thread-log-enabled} {{ tag-con }} {{ tag-tf }}
 
-  Enables or disables logging of information about the threads that execute requests, such as the name of the thread, time it was started, and how long a request was processed. Logs are written to the [system.query_thread_log](https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log) table.
+    Determines whether information about the threads used to run queries will be logged. Logs are saved to the `system.query_thread_log` table.
 
-  Logging is enabled by default (`true`).
+    The default is `true`.
+
+    For more information, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log).
 
 * **Query thread log retention size**{#setting-query-thread-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.query_thread_log](https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log) table can reach before old records start being deleted from it.
+    The size of the `system.query_thread_log` table (in bytes), which will cause old records to be deleted from this table when exceeded.
 
-  A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
+   The default is `536870912` (0.5 GB). When the value is `0`, old records will not be deleted as the table grows in size.
 
 * **Query thread log retention time**{#setting-query-thread-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.query_thread_log](https://clickhouse.tech/docs/en/operations/system-tables/query_thread_log) table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
+    Time (in milliseconds) between the making of an entry in the `system.query_thread_log` table and its deletion. The value must be a multiple of 1000.
 
-  A value of 0 means that records aren't deleted when the time elapses. Default value: 2592000000 (30 days).
+    The default is `2592000000` (30 days). When the value is `0`, records are stored indefinitely.
 
 * **Text log enabled**{#setting-text-log-enabled} {{ tag-con }} {{ tag-tf }}
 
-  Enables or disables writing of system logs to the [system.text_log](https://clickhouse.tech/docs/en/operations/system-tables/text_log) table.
+    Determines whether system logs will be made. These logs are saved to the `system.text_log` table.
 
-  Logging is disabled by default (`false`).
+    The default is `false`.
 
 * **Text log level**{#setting-text-log-level} {{ tag-con }} {{ tag-tf }}
 
-  The level of event logging in the [system.text_log](https://clickhouse.tech/docs/en/operations/system-tables/text_log) table. At each next level, the log will contain complete information from the previous one:
+  Event logging level for the [system.text_log](https://clickhouse.tech/docs/en/operations/system-tables/text_log) table. At each next level, the log will contain complete information from the previous one:
   1. `ERROR`: Information about errors in the DBMS.
   1. `WARNING`: Information about events that may cause errors in the DBMS.
   1. `INFORMATION`: Confirmation and information about events that don't lead to errors in the DBMS.
-  1. `DEBUG`: System information to be used later in debugging.
-  1. `TRACE`: All available information about DBMS performance.
+  1. `DEBUG`: System information for subsequent use in debugging.
+  1. `TRACE`: All available information on the DBMS operation.
+
+    `TRACE` is the default.
 
 * **Text log retention size**{#setting-text-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.text_log](https://clickhouse.tech/docs/en/operations/system-tables/text_log) table can reach before old records start being deleted from it.
+    The size of the `system.text_log` table (in bytes), which will cause old records to be deleted from this table when exceeded.
 
-  A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
+    The default is `536870912` (0.5 GB). When the value is `0`, old records will not be deleted as the table grows in size.
 
 * **Text log retention time**{#setting-text-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.text_log](https://clickhouse.tech/docs/en/operations/system-tables/text_log) table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
+    Time (in milliseconds) between the making of an entry in the `system.text_log` table and its deletion. The value must be a multiple of 1000.
 
-  A value of 0 means that records aren't deleted when the time elapses. Default value: 2592000000 (30 days).
+    The default is `2592000000` (30 days). When the value is `0`, records are stored indefinitely.
 
 * **Timezone**{#setting-timezone} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Server time zone. Specified by the IANA identifier as the UTC time zone or geographical location (for example, Africa/Abidjan).
 
-  For more information, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone).
+  For more information, see the [{{ CH }}](https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-timezone) documentation.
 
 * **Trace log enabled**{#setting-trace-log-enabled} {{ tag-con }} {{ tag-tf }}
 
-  Enables or disables logging of stack traces collected by the request profiler to the [system.trace_log](https://clickhouse.tech/docs/en/operations/system-tables/trace_log) table.
+    Determines whether stack traces collected by the query profiler will be logged. Stack traces are saved to the `system.trace_log`  table.
 
-  Logging is enabled by default (`true`).
+    The default is `true`.
 
 * **Trace log retention size**{#setting-trace-log-retention-size} {{ tag-con }} {{ tag-tf }}
 
-  The maximum size in bytes that the [system.trace_log](https://clickhouse.tech/docs/en/operations/system-tables/trace_log) table can reach before old records start being deleted from it.
+    The size of the `system.trace_log` table (in bytes), which will cause old records to be deleted from this table when exceeded.
 
-  A value of 0 means that the old records aren't deleted as the table size grows. Default value: 536870912 (0.5 GB).
+    The default is `536870912` (0.5 GB). When the value is `0`, old records will not be deleted as the table grows in size.
 
 * **Trace log retention time**{#setting-trace-log-retention-time} {{ tag-con }} {{ tag-tf }}
 
-  The period of time in milliseconds after which a record in the [system.trace_log](https://clickhouse.tech/docs/en/operations/system-tables/trace_log) table is deleted. Time is counted as soon as the record is created in the table. The value must be a multiple of 1000.
+    Time (in milliseconds) between the making of an entry in the `system.trace_log` table and its deletion. The value must be a multiple of 1000.
 
-  A value of 0 means that records aren't deleted when the time elapses. Default value: 2592000000 (30 days).
+    The default is `2592000000` (30 days). When the value is `0`, records are stored indefinitely.
 
 * **Uncompressed cache size**{#setting-uncompressed-cache-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Cache size in bytes for uncompressed data used by the MergeTree table engines.
+    Size (in bytes) of the uncompressed data cache used by table engines in the [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) family.
 
-  To learn more, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#server-settings-uncompressed_cache_size).
+    The default is `8589934592` (8 GB).
 
 * **Compression**{#setting-compression} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Rules for compressing data in [MergeTree](https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree) tables:
-   * **Method**: Compression method. Two methods are available: [LZ4](https://lz4.github.io/lz4/) and [zstd](https://facebook.github.io/zstd/).
-   * **Min part size**: Minimum size (in bytes) of a [data part](https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/#mergetree-data-storage) in a table. {{ CH }} only applies the rule to tables with data parts greater than or equal to the **Min part size** value.
-   * **Min part size ratio**: Minimum ratio of table part size to total table size. {{ CH }} only applies the rule to tables in which this ratio is greater than or equal to the **Min part size ratio** value.
+    Data compression rules for tables in the [MergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/mergetree/) family. For each rule, specify:
+    * **Method**: Compression method. Two methods are available: [LZ4](https://lz4.github.io/lz4/) and [zstd](https://facebook.github.io/zstd/).
+    * **Min part size** is the minimum size of a [data part](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/) (in bytes).
+    * **Min part size ratio**: Minimum ratio of table part size to total table size. {{ CH }} only applies the rule to tables in which this ratio is greater than or equal to the **Min part size ratio** value.
 
-   You can add multiple compression rules. {{ CH }} checks the **Min part size** and **Min part size ratio** conditions and applies the rules to those tables that meet both of them. If multiple rules can be applied to the same table, {{ CH }} applies the first one. If none of the rules are applicable, {{ CH }} uses the LZ4 compression method.
+    You can add multiple compression rules. {{ CH }} checks the **Min part size** and **Min part size ratio** conditions and applies the rules to those tables that meet both of them. If multiple rules can be applied to the same table, {{ CH }} applies the first one. If no rule fits, {{ CH }} will apply the [LZ4](https://lz4.github.io/lz4/) compression method.
 
-   To learn more, see the [{{ CH }} documentation](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression).
+    For more information, see the [{{ CH }}](https://clickhouse.yandex/docs/en/operations/server_settings/settings/#compression) documentation.
 
 * **Graphite rollup**{#setting-graphite-rollup} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  [GraphiteMergeTree](https://clickhouse.yandex/docs/en/operations/table_engines/graphitemergetree/) engine configurations for thinning and aggregating/averaging (rollup) [Graphite](http://graphite.readthedocs.io/en/latest/index.html) data:
-  * **Name**: Configuration name.
-  * **Patterns**: Set of thinning rules. A rule applies if the metric name matches the **Regexp** parameter value and the age of the data matches the **Retention** parameter group value.
-     * **Function**: Aggregation function name.
-     * **Regexp**: Regular expression that the metric name must match.
-     * **Retention**: Retention parameters. The function applies to data whose age is in the range of [Age, Age + Precision]. You can set several groups of these parameters.
-       * **Age**: Minimum data age, in seconds.
-       * **Precision**: Accuracy of determining the age of the data, in seconds. Must be a divisor of 86,400 (the number of seconds in 24 hours).
+    Engine configuration for [GraphiteMergeTree](https://clickhouse.yandex/docs/en/operations/table_engines/graphitemergetree/) to decimate and aggregate/roll up [Graphite](http://graphite.readthedocs.io/en/latest/index.html) data:
+    * **Name**: Configuration name.
+    * **Patterns**: Set of thinning rules. A rule applies if the metric name matches the **Regexp** parameter value and the age of the data matches the **Retention** parameter group value.
+       * **Function**: Aggregation function name.
+       * **Regexp**: Regular expression that the metric name must match.
+       * **Retention**: Retention parameters. The function applies to data whose age is in the range of [Age, Age + Precision]. You can set several groups of these parameters.
+         * **Age**: Minimum data age, in seconds.
+         * **Precision**: Accuracy of determining the age of the data, in seconds. The value must be a multiple of `86400` (number of seconds in 24 hours).
 
-  You can set up multiple configurations and use them for different tables.
+    You can set up multiple configurations and use them for different tables.
 
-  To learn more about Graphite support in {{ CH }}, see the [documentation](https://clickhouse.yandex/docs/en/operations/table_engines/graphitemergetree/).
+    For more information on Graphite support, see the [{{ CH }}](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/graphitemergetree/) documentation.
 
 * **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-tf }}
 
@@ -211,30 +217,52 @@
 
 * **Kafka topics**{#setting-kafka-topics} {{ tag-con }} {{ tag-tf }}
 
-  Authentication settings at the level of [topics](../../managed-kafka/concepts/topics.md) for [integration with {{ KF }}](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/):
-  * **Name**: {{ KF }} topic name.
-  * **Settings**: Topic-level authentication settings similar to the global authentication settings in the [**Kafka**](#setting-kafka) section.
+    Authentication settings at the [topics](../../managed-kafka/concepts/topics.md) level for [integration with {{ KF }}](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/):
 
-  If no topic authentication data is found for a table that runs on the [Kafka engine](https://clickhouse.tech/docs/en/engines/table-engines/integrations/kafka/), the global settings from the **Kafka** section are used.
+     * **Name**: {{ KF }} topic name.
 
-  For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#security).
+     * **Settings**: Topic-level authentication settings similar to the global authentication settings in the [**Kafka**](#setting-kafka) section.
+
+       If topic-level authentication settings are not specified for a table using the Kafka engine, global settings from the **Kafka** section will be used.
+
+       For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#security).
 
 * **Merge tree**{#setting-merge-tree} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  MergeTree engine configuration:
-  * **Max bytes to merge at min space in pool**: Maximum total size of a [data part](https://clickhouse.yandex/docs/en/operations/table_engines/mergetree/#mergetree-data-storage) to merge when the number of free threads in the background pool is minimum.
-  * **Max replicated merges in queue**: Maximum number of merge tasks that can be in the `ReplicatedMergeTree` queue at the same time.
-  * **Number of free entries in pool to lower max size of merge**: Threshold value of free entries in the pool. If the number of entries in the pool falls below this value, {{ CH }} reduces the maximum size of a data part to merge. This helps handle small merges faster, rather than filling the pool with lengthy merges.
-  * **Parts to delay insert**: Number of active data parts in a table. When exceed, {{ CH }} starts artificially reducing the rate of inserting data into the table.
-  * **Parts to throw insert**: Threshold value of active data parts in a table. When exceeded,{{ CH }} throws the 'Too many parts ...' exception.
-  * **Replicated deduplication window**: Number of recent hash blocks that {{ ZK }} stores (old ones are deleted).
-  * **Replicated deduplication window seconds**: Time during which {{ ZK }} stores hash blocks (old ones are deleted).
+    MergeTree engine configuration:
 
-  For more information, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree).
+    * **Max bytes to merge at min space in pool**: Maximum total size of [data chunks](https://clickhouse.tech/docs/en/operations/settings/merge-tree-settings/#max-bytes-to-merge-at-min-space-in-pool) for merging when the number of free threads in the background pool is at its minimum.
+
+      The default is `1048576` (1 MB).
+
+    * **Max replicated merges in queue**: Maximum number of merge tasks that can be in the `ReplicatedMergeTree` queue at the same time.
+
+      The default is `16`.
+
+    * **Number of free entries in pool to lower max size of merge**: Threshold value of free entries in the pool. If the number of entries in the pool falls below this value, {{ CH }} reduces the maximum size of a data part to merge. This helps handle small merges faster.
+
+      The default is `8`.
+
+    * **Parts to delay insert**: Number of active data chunks in a table. When it is exceeded, {{ CH }} will throttle the speed of table data inserts. An active chunk is a new chunk of data resulting from a merge.
+
+      The default is `150`.
+
+    * **Parts to throw insert**: Threshold number of active data chunks in a table. When it is exceeded, {{ CH }} throws the `Too many parts ...` exception.
+
+      The default is `300`.
+
+    * **Replicated deduplication window**: Number of blocks for recent hash inserts that {{ ZK }} will store. Deduplication only works for the most recently inserted data. Old blocks will be deleted.
+
+      The default is `100`.
+
+    * **Replicated deduplication window seconds**: Time interval during which {{ ZK }} stores blocks of recent hash inserts. Deduplication only works for the most recently inserted data. Old blocks will be deleted.
+
+      The default is `604800`.
+
+    For more information, see the [{{ CH }} documentation](https://clickhouse.tech/docs/en/operations/server-configuration-parameters/settings/#server_configuration_parameters-merge_tree).
 
 * **Rabbitmq**{#setting-rabbitmq} {{ tag-con }} {{ tag-tf }}
 
-  Global authentication settings for [integration with {{ RMQ }}](https://clickhouse.tech/docs/en/engines/table-engines/integrations/rabbitmq/):
-  * **Password**: Password of an {{ RMQ }} account.
-  * **Username**: Username of an {{ RMQ }} account.
-
+    Global authentication settings for [integration with {{ RMQ }}](https://clickhouse.tech/docs/en/engines/table-engines/integrations/rabbitmq/):
+    * **Password**: {{ RMQ }} Account password.
+    * **Username**: {{ RMQ }} Account name.

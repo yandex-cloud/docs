@@ -9,7 +9,6 @@ You can add and remove users, as well as manage their settings.
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and then select the **Users** tab.
 
@@ -28,6 +27,12 @@ You can add and remove users, as well as manage their settings.
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
+- API
+
+  Use the [list](../api-ref/User/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+  {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+
 {% endlist %}
 
 ## Adding a user {#adduser}
@@ -35,7 +40,6 @@ You can add and remove users, as well as manage their settings.
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click **Add**.
@@ -106,6 +110,22 @@ You can add and remove users, as well as manage their settings.
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+- API
+
+  Use the [create](../api-ref/User/create.md) API method and pass the following in the request:
+
+  * The ID of the cluster where you want to create a user, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
+  * Username, in the `userSpec.name` parameter.
+
+  * User password, in the `userSpec.password` parameter.
+
+      {% include [username-and-password-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+
+  * The names of the databases that the user should have access to, in the required number of `userSpec.permissions.databaseName` parameters.
+
+  * [User privileges](../concepts/user-rights.md#db-privileges) for each of the selected databases, in one or more `userSpec.permissions.roles` parameters.
+
 {% endlist %}
 
 ## Changing a password {#updateuser}
@@ -113,7 +133,6 @@ You can add and remove users, as well as manage their settings.
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Change password**.
@@ -172,6 +191,22 @@ You can add and remove users, as well as manage their settings.
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+- API
+
+  Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+
+  * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
+  * Username, in the `userName` parameter. To find out the username, [get a list of users in the cluster](#list-users).
+
+  * New user password, in the `password` parameter.
+
+      {% include [password-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
+
+  * List of user configuration fields to be changed (in this case, `password`), in the `updateMask` parameter.
+
+  {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
+
 {% endlist %}
 
 ## Changing user settings {#update-settings}
@@ -185,7 +220,6 @@ To change the user's permissions to access certain databases, follow the [instru
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure**.
@@ -261,6 +295,16 @@ To change the user's permissions to access certain databases, follow the [instru
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+- API
+
+  Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+  * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Username, in the `userName` parameter. To find out the username, [get a list of users in the cluster](#list-users).
+  * New values for user settings.
+  * List of user configuration fields to be changed, in the `updateMask` parameter.
+
+  {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
+
 {% endlist %}
 
 ## Deleting a user {#removeuser}
@@ -268,7 +312,6 @@ To change the user's permissions to access certain databases, follow the [instru
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
@@ -306,7 +349,12 @@ To change the user's permissions to access certain databases, follow the [instru
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+- API
+
+  Use the [delete](../api-ref/User/delete.md) API method and pass the following in the request:
+  * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Username, in the `userName` parameter. To find out the username, [get a list of users in the cluster](#list-users).
+
 {% endlist %}
 
 {% include [user-ro](../../_includes/mdb/mmy-user-examples.md) %}
-

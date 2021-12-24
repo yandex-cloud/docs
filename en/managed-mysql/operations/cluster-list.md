@@ -2,7 +2,6 @@
 title: "Information about clusters in {{ mmy-short-name }}"
 description: "You can request detailed information about each {{ mmy-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mmy-name }} service."
 ---
-
 # Information about existing clusters
 
 You can request detailed information about each {{ mmy-short-name }} cluster you created.
@@ -34,6 +33,10 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
   +----------------------+--------------+---------------------+--------+---------+
   ```
 
+- API
+
+  Use the [list](../api-ref/Cluster/list.md) API method and pass the folder ID in the `folderId` request parameter.
+
 {% endlist %}
 
 ## Getting detailed information about a cluster {#get-cluster}
@@ -42,7 +45,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 - Management console
   1. Go to the folder page and select **{{ mmy-name }}**.
-  1. Click on the name of the cluster you need.
+  1. Click on the name of the desired cluster.
 
 - CLI
 
@@ -58,6 +61,12 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
   The cluster name and ID can be requested with a [list of clusters in the folder](#list-clusters).
 
+- API
+
+  Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+  {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+
 {% endlist %}
 
 ## Viewing a list of operations in a cluster {#list-operations}
@@ -68,7 +77,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 - Management console
   1. Go to the folder page and select **{{ mmy-name }}**.
-  1. Click on the name of the cluster you need.
+  1. Click on the name of the desired cluster.
   1. Go to the **Operations** tab.
 
 - CLI
@@ -87,7 +96,8 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
 - API
 
-  To get a list of operations, use the [listOperations](../api-ref/Cluster/listOperations.md) method.
+  Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+  {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
-

@@ -1,6 +1,6 @@
 # Version update {{ MG }}
 
-You can upgrade {{ mmg-name }} clusters to versions 4.2 or 4.4.
+You can upgrade {{ mmg-name }} clusters to versions 4.2 or 4.4. Upgrading clusters to version 5.0 is not supported.
 
 You can upgrade only to the version that immediately follows the current one, namely:
 
@@ -25,8 +25,6 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 1. [Back up](cluster-backups.md#create-backup) the main cluster prior to upgrading.
 
 ## Upgrading a cluster {#start-update}
-
-To upgrade a {{ mmg-name }} cluster:
 
 {% list tabs %}
 
@@ -69,8 +67,6 @@ To upgrade a {{ mmg-name }} cluster:
      Learn more about backward compatibility in the [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
 - Terraform
-
-  To change the {{ MG }} version:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -158,4 +154,3 @@ Let's say you need to upgrade your cluster from version 4.0 to version 4.2.
       ```
 
 {% endlist %}
-

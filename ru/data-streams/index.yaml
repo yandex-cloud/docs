@@ -19,7 +19,7 @@ links:
     href: operations/
   - title: Концепции
     description: Узнайте о концепциях и возможностях сервиса
-    href: concepts/index
+    href: concepts/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

@@ -116,7 +116,7 @@
    
    {% endnote %}
 
-*  [Агент чтения журнала (Log Reader Agent)](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/replication-agents-overview#log-reader-agent) переносит транзакции из лога транзакций на распространителя.
+* [Агент чтения журнала (Log Reader Agent)](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/replication-agents-overview#log-reader-agent) переносит транзакции из лога транзакций на распространителя.
 * Снапшот и транзакции из распространителя переносятся с помощью [агента распространителя (Distribution Agent)](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/agents/replication-agents-overview#distribution-agent) к [подписчику (subscriber)](https://docs.microsoft.com/ru-ru/sql/relational-databases/replication/publish/replication-publishing-model-overview#subscribers).
 
 В такой схеме издатель, распространитель и оба агента располагаются в кластере-источнике, а подписчик — в кластере-приемнике. Возможны и другие варианты распределения ролей, например выделенные сервера для распространителя.

@@ -19,7 +19,9 @@ The full list of possible host configurations on each platform is provided below
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code.md) %}
 
-| Host class name | Number of vCPUs | CPU performance | RAM, GB |
+{% include [additional-types](../../_includes/mdb/additional-instance-types.md) %}
+
+| Host class name   | Number of vCPUs | CPU performance        | RAM, GB |
 |-------------------|-----------------|------------------------|---------|
 | **Intel Broadwell**                                                    |
 | b1.nano           | 2               | 5%                     | 2       |

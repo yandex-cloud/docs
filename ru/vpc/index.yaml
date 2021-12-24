@@ -27,7 +27,7 @@ meta:
 links:
   - title: Начало работы
     description: Создайте первую облачную сеть
-    href: quickstart/
+    href: quickstart
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/

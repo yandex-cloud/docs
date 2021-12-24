@@ -34,4 +34,4 @@
 
 ## Как воспользоваться
 
-Как и другие виды запросов, *Scan Queries* доступны через [консоль управления]({{ link-console-main }})(В запросе требуется указать прагму `PRAGMA Kikimr.ScanQuery = "true";`), [CLI](../../reference/ydb-cli/commands/scan-query.md) и [SDK](../../reference/ydb-sdk/example_code.md#scan-query).
+Как и другие виды запросов, *Scan Queries* доступны через [консоль управления]({{ link-console-main }})(В запросе требуется указать прагму `PRAGMA Kikimr.ScanQuery = "true";`), [CLI](../../reference/ydb-cli/commands/scan-query.md) и [SDK](../../reference/ydb-sdk/index.md).

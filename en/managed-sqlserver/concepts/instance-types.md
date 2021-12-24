@@ -18,9 +18,9 @@ The full list of possible host configurations on each platform is provided below
 
 * **s2**, **s3**: Standard configurations, with 4:1 GB RAM to vCPU ratio.
 * **m2**, **m3**: Configurations with an increased GB RAM to vCPU ratio (8:1).
-* **hm3**: Configurations with a significant predominance of the number of GB RAM over the number of vCPUs (up to 32:1).
+* **hm2**, **hm3**: Configurations with a significant predominance of the number of GB RAM over the number of vCPUs (up to 32:1).
 
-Configurations **m2**, **m3** and **hm3** can be useful for clusters with higher cache requirements.
+Configurations **m2**, **m3**, **hm2** and **hm3** can be useful for clusters with higher cache requirements.
 
 | Host class name | Number of CPUs | CPU performance | RAM, GB |
 |-----------------|----------------|-----------------|---------|
@@ -45,6 +45,20 @@ Configurations **m2**, **m3** and **hm3** can be useful for clusters with higher
 | s2.4xlarge      | 40             | 100%            | 160     |
 | s2.5xlarge      | 48             | 100%            | 192     |
 | s2.6xlarge      | 64             | 100%            | 256     |
+| hm2.small       | 4              | 100%            | 16      |
+| hm2.medium      | 4              | 100%            | 24      |
+| hm2.large       | 4              | 100%            | 32      |
+| hm2.xlarge      | 4              | 100%            | 48      |
+| hm2.96xlarge    | 6              | 100%            | 96      |
+| hm2.128xlarge   | 8              | 100%            | 128     |
+| hm2.160xlarge   | 10             | 100%            | 160     |
+| hm2.192xlarge   | 12             | 100%            | 192     |
+| hm2.224xlarge   | 14             | 100%            | 224     |
+| hm2.256xlarge   | 16             | 100%            | 256     |
+| hm2.320xlarge   | 20             | 100%            | 320     |
+| hm2.384xlarge   | 24             | 100%            | 384     |
+| hm2.448xlarge   | 28             | 100%            | 448     |
+| hm2.512xlarge   | 32             | 100%            | 512     |
 | **Intel Ice Lake**                                           |
 | s3-c4-m16       | 4              | 100%            | 16      |
 | s3-c8-m32       | 8              | 100%            | 32      |

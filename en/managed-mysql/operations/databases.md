@@ -1,4 +1,4 @@
-# Database management
+# Managing databases
 
 You can add and remove databases, view information about them, and manage some database settings using {{ mmy-name }} interfaces.
 
@@ -27,6 +27,12 @@ You can add and remove databases, view information about them, and manage some d
 
   The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
+- API
+
+  Use the [list](../api-ref/Database/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+  {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+
 {% endlist %}
 
 ## Creating a database {#add-db}
@@ -43,7 +49,7 @@ Created databases are not available to cluster users by default. To connect to a
 
 - Management console
   1. Go to the folder page and select **{{ mmy-name }}**.
-  1. Click on the name of the cluster you need.
+  1. Click on the name of the desired cluster.
   1. If the owner of the new database still doesn't exist, [add the user](cluster-users.md#adduser).
   1. Select the **Databases** tab.
   1. Click **Add**.
@@ -106,6 +112,16 @@ Created databases are not available to cluster users by default. To connect to a
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
+- API
+
+  Use the [create](../api-ref/Database/create.md) API method and pass the following in the request:
+
+  * The ID of the cluster where you want to create a database, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
+  * Database name, in the `databaseSpec.name` parameter.
+
+      {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
 {% endlist %}
 
 ## Deleting a database {#remove-db}
@@ -150,6 +166,12 @@ Created databases are not available to cluster users by default. To connect to a
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+- API
+
+  Use the [delete](../api-ref/Database/delete.md) API method and pass the following in the request:
+  * The ID of the cluster where the database is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Database name, in the `databaseName` parameter. To find out the database name, [get a list of databases in the cluster](#list-db).
 
 {% endlist %}
 
@@ -222,7 +244,13 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
 - API
 
-  Pass the `sqlMode` array in the new {{ MY }} configuration by making the [update](../api-ref/Cluster/update.md) query.
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * An array with new {{ MY }} settings in the following parameter:
+        * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} 5.7.
+        * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} 8.0.
+
+    {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -243,4 +271,3 @@ To set the `CHARACTER SET` and `COLLATE` settings for the database:
    ```sql
    ALTER TABLE <DB name>.<table name> CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'.
    ```
-

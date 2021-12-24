@@ -424,8 +424,20 @@ items:
         href: reference/ydb-sdk/index.md
       - name: Установка и конфигурация
         href: reference/ydb-sdk/yc_setup.md
-      - name: Тестовое приложение
-        href: reference/ydb-sdk/example_code.md
+      - name: Комментарии к коду тестового приложения
+        items:
+          - name: C# (.NET)
+            href: reference/ydb-sdk/example-dotnet.md
+          - name: Go
+            href: reference/ydb-sdk/example-go.md
+          - name: Java
+            href: reference/ydb-sdk/example-java.md
+          - name: Node.js
+            href: reference/ydb-sdk/example-nodejs.md
+          - name: PHP
+            href: reference/ydb-sdk/example-php.md
+          - name: Python
+            href: reference/ydb-sdk/example-python.md
       - name: Обработка ошибок в API
         href: reference/ydb-sdk/error_handling.md
   - name: Диагностика

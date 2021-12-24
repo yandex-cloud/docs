@@ -13,7 +13,6 @@ You can manage user permissions at the level of an individual database by updati
 {% list tabs %}
 
 - Management console
-
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you need and select the **Users** tab.
   1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure**.
@@ -57,21 +56,6 @@ You can manage user permissions at the level of an individual database by updati
 
       To grant or revoke the `ALL_PRIVILEGES` privilege, pass the synonym `ALL` as the privilege name.
 
-- API
-
-  Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
-  - In the `clusterId` parameter, the ID of the cluster where the user is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  - Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
-  - The name of the DB that you want to change the list of user privileges for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
-  - Array of the new list of user privileges, in the `permissions.roles` parameter.
-  - List of user configuration fields to be changed (in this case, `permissions`), in the `updateMask` parameter.
-
-  {% note warning %}
-
-  This API method resets any settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the name of the field to be changed (in this case, `permissions`), in the `updateMask` parameter.
-
-  {% endnote %}
-
 - Terraform
 
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
@@ -105,6 +89,17 @@ You can manage user permissions at the level of an individual database by updati
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
   For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+
+- API
+
+  Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+  * In the `clusterId` parameter, the ID of the cluster where the user is located. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
+  * The name of the DB that you want to change the list of user privileges for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
+  * Array of the new list of user privileges, in the `permissions.roles` parameter.
+  * List of user configuration fields to be changed (in this case, `permissions`), in the `updateMask` parameter.
+
+  {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 

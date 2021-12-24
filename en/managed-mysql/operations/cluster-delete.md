@@ -2,7 +2,6 @@
 title: "Deleting MySQL clusters"
 description: "After deleting a MySQL database cluster, its backups are preserved and can be used for recovery within 7 days. To restore a deleted cluster from a backup, you will need its ID, so save the cluster ID in a safe place before deleting."
 ---
-
 # Deleting clusters
 
 ## Before deleting a cluster {#before-you-delete}
@@ -40,5 +39,10 @@ description: "After deleting a MySQL database cluster, its backups are preserved
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
-{% endlist %}
+- API
 
+  Use the [delete](../api-ref/Cluster/delete.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+  {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+
+{% endlist %}

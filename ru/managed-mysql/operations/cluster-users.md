@@ -123,7 +123,7 @@
       {% include [username-and-password-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
   * Имена баз данных, к которым пользователь должен иметь доступ, в необходимом количестве параметров `userSpec.permissions.databaseName`.
-  * [Роли пользователя](../concepts/user-rights.md#db-roles) для каждой из выбранных баз данных в одном или нескольких параметрах `userSpec.permissions.roles`.
+  * [Привилегии пользователя](../concepts/user-rights.md#db-privileges) для каждой из выбранных баз данных в одном или нескольких параметрах `userSpec.permissions.roles`.
 
 {% endlist %}
 
