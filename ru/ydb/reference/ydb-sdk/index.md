@@ -1,23 +1,4 @@
-# YDB SDK
-
-Для работы с YDB доступны OpenSource SDK для следующих языков программирования:
-
-{% if cpp_oss_link %}
-- C++ [{{ cpp_oss_link }}]({{ cpp_oss_link }}){% endif %}
-- Python [https://github.com/yandex-cloud/ydb-python-sdk](https://github.com/yandex-cloud/ydb-python-sdk)
-- Go [https://github.com/yandex-cloud/ydb-go-sdk](https://github.com/yandex-cloud/ydb-go-sdk)
-- Node.js [https://github.com/yandex-cloud/ydb-nodejs-sdk](https://github.com/yandex-cloud/ydb-nodejs-sdk)
-- PHP [https://github.com/yandex-cloud/ydb-php-sdk](https://github.com/yandex-cloud/ydb-php-sdk)
-- Java [https://github.com/yandex-cloud/ydb-java-sdk](https://github.com/yandex-cloud/ydb-java-sdk)
-- .NET [https://github.com/ydb-platform/ydb-dotnet-sdk](https://github.com/ydb-platform/ydb-dotnet-sdk)
-
-{% if audience == "external" %}
-
-При работе с Yandex.Cloud вы можете воспользоваться материалами со следующих страниц:
-- [Установка и конфигурация SDK](yc_setup.md)
-- [Комментарии к коду тестового приложения](example_code.md)
-
-{% endif %}
+{% include [intro.md](_includes/index/intro.md) %}
 
 {% if audience == "internal" or audience == "tech" %}
 
@@ -31,6 +12,14 @@
 | Node.js | [https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/nodejs](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/nodejs) | |
 | PHP     | Запрещен внутри Yandex | |
 | Java    | [https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/java](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/java) | [Разработка на Java](../../getting_started/start_java.md) |
-| .NET    | | |
+| C# (.NET)    | | |
 
 {% endif %}
+
+{% if audience == "external" %}
+
+При работе с Yandex.Cloud вы можете воспользоваться материалами раздела [Установка и конфигурация SDK](yc_setup.md).
+
+{% endif %}
+
+{% include [examples.md](_includes/index/examples.md) %}

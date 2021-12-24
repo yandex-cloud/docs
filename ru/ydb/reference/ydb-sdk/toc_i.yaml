@@ -1,0 +1,25 @@
+items:
+  - name: Обзор
+    href: index.md
+  - name: Установка и конфигурация
+    href: yc_setup.md
+    when: audience == "external"
+  - name: Комментарии к коду тестового приложения
+    items:
+      - name: C++
+        href: example-cpp.md
+        when: audience != "external"
+      - name: C# (.NET)
+        href: example-dotnet.md
+      - name: Go
+        href: example-go.md
+      - name: Java
+        href: example-java.md
+      - name: Node.js
+        href: example-nodejs.md
+      - name: PHP
+        href: example-php.md
+      - name: Python
+        href: example-python.md
+  - name: Обработка ошибок в API
+    href: error_handling.md

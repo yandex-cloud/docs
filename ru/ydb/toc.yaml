@@ -52,10 +52,13 @@ items:
     href: getting_started/crud.md
   - name: Разработка на C++
     href: getting_started/start_cpp.md
+    hidden: true
   - name: Разработка на Java
     href: getting_started/start_java.md
+    hidden: true
   - name: Разработка на Python
     href: getting_started/start_python.md
+    hidden: true
   - name: Использование рецепта YDB
     href: getting_started/ydb_recipe.md
   - name: ClickHouse over YDB
@@ -164,6 +167,7 @@ items:
   when: audience == "external"
 
 - name: Правила тарификации
+  when: audience == "external"
   items:
   - name: Обзор
     href: pricing.md
@@ -338,16 +342,7 @@ items:
   include: { mode: link, path: reference/ydb-cli/toc_i.yaml }
 
 - name: Работа с YDB SDK
-  items:
-    - name: Обзор
-      href: reference/ydb-sdk/index.md
-    - name: Установка и конфигурация
-      href: reference/ydb-sdk/yc_setup.md
-      when: audience == "external"
-    - name: Тестовое приложение
-      href: reference/ydb-sdk/example_code.md
-    - name: Обработка ошибок в API
-      href: reference/ydb-sdk/error_handling.md
+  include: { mode: link, path: reference/ydb-sdk/toc_i.yaml }
 
 - name: Интерфейсы доступа к данным
   when: audience != "external"
