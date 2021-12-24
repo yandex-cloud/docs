@@ -15,5 +15,5 @@
 - [{#T}](shards.md)
 - [{#T}](cluster-delete.md)
 - [{#T}](monitoring.md)
+- [{#T}](performance-diagnostics.md)
 - [{#T}](tools.md)
-

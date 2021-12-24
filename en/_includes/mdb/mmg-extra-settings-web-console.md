@@ -8,3 +8,8 @@
 
   Maintenance may include updating the DBMS version, applying patches, and so on.
 
+- **Collect statistics**: Enable this option to use [{#T}](../../managed-mongodb/operations/performance-diagnostics.md) in the cluster. This feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+
+- **Deletion protection**: Enable this option to protect a cluster from accidental deletion by your cloud's users.
+
+    {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
