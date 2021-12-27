@@ -8,6 +8,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](security-groups.md)
 * [{#T}](node-connect-ssh.md)
 * [{#T}](create-static-conf.md)
+* [{#T}](update-kubernetes.md)
 * [{#T}](marketplace.md)
 
 ## Сетевые сценарии {#network-scenarios}

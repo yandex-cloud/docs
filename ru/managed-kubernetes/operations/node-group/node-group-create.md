@@ -58,14 +58,14 @@
      * `--memory` — количество памяти для узлов.
      * `--name` — имя группы узлов.
      * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
-        * `standard` — без ускорения;
+        * `standard` — без ускорения.
         * `software-accelerated` — программно-ускоренная сеть.
      * `--network-interface` — настройки сети:
 
-         {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %} 
+       {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
      * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
-     * `--preemptible` — флаг, который указывается, если ВМ должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md). 
+     * `--preemptible` — флаг, который указывается, если ВМ должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--version` — версия {{ k8s }} на узлах группы.
 
@@ -82,6 +82,16 @@
            hours: 22
          duration: 36000s
      ```
+
+  1. Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) для узлов:
+     1. Получите список групп размещения с помощью команды `yc compute placement-group list`.
+     1. Передайте имя или идентификатор группы размещения в параметре `--placement group` при создании группы узлов:
+
+        ```bash
+        {{ yc-k8s }} node-group-create \
+        ...
+          --placement-group <имя или идентификатор группы размещения>
+        ```
 
 - Terraform
 
@@ -106,8 +116,10 @@
        * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных  образов](../../../compute/operations/images-with-pre-installed-software/get-list.md).
          * `size` — размер диска узла Гб. Минимальный размер: 64 Гб.
          * `type` — тип диска.
-     * `scheduling_policy` — настройка политики планирования:
-        * `preemptible` — флаг, который указывает, что будут созданы прерываемые ВМ.
+       * `placement_policy` — (опционально) настройка группы размещения:
+         * `placement_group_id` — идентификатор [группы размещения](../../../compute/concepts/placement-groups.md) для узлов.
+       * `scheduling_policy` — настройка политики планирования:
+         * `preemptible` — флаг, который указывает, что будут созданы прерываемые ВМ.
      * `scale_policy` — настройки [политики масштабирования](../../../compute/concepts/instance-groups/policies/scale-policy.md):
        * `fixed_scale` — ключ определяет группу ВМ фиксированного размера.
        * `size` — количество ВМ в группе.
@@ -146,6 +158,9 @@
          boot_disk {
            type = "network-hdd"
            size = 64
+         }
+         placement_policy {
+           placement_group_id = "my_placement_group_id"
          }
          scheduling_policy {
            preemptible = false
@@ -188,7 +203,7 @@
 
      Результат выполнения команды:
 
-     ```
+     ```text
      Refreshing Terraform state in-memory prior to plan...
      The refreshed state will be used to calculate this plan, but will not be
      persisted to local or remote state storage.
@@ -235,6 +250,18 @@
 
 - API
 
-  Чтобы создать группу узлов, воспользуйтесь методом [create](../../api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../api-ref/NodeGroup). Чтобы разрешить использование узлами группы [небезопасных параметров ядра](../../concepts/index.md#node-group), передайте их имена в параметре `allowedUnsafeSysctls`.
+  Воспользуйтесь методом [create](../../api-ref/NodeGroup/create.md) и передайте в запросе:
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md).
+  * [Конфигурацию группы узлов](../../concepts/index.md#config) в параметре `nodeTemplate`.
+  * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
+  * Настройки размещения группы узлов в параметре `allocationPolicy`.
+  * Политику обновлений в параметре `maintenancePolicy`.
+  * Список изменяемых настроек в параметре `updateMask`.
+
+    {% include [updateMask warning](../../../_includes/mdb/warning-default-settings.md) %}
+
+  Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) узлов кластера, передайте идентификатор группы размещения в параметре `nodeTemplate.placementPolicy.placementGroupId`.
+
+  Чтобы разрешить использование узлами группы [небезопасных параметров ядра](../../concepts/index.md#node-group), передайте их имена в параметре `allowedUnsafeSysctls`.
 
 {% endlist %}
