@@ -52,7 +52,11 @@ items:
           - name: Network security
             href: security/domains/network.md
           - name: Authentication and access control
-            href: security/domains/access.md
+            href: security/domains/access.md             
+          - name: Secure configuration
+            href: security/domains/secure-config.md
+          - name: Audit logs
+            href: security/domains/audit-logs.md
           - name: Vulnerability management
             href: security/domains/vulnerability-management.md
           - name: Physical security
