@@ -1,6 +1,6 @@
 # Приложение на C# (.NET)
 
-На этой странице подробно разбирается код тестового приложения, доступного в составе C# (.NET) SDK {{ ydb-short-name }}.
+На этой странице подробно разбирается код [тестового приложения](https://github.com/ydb-platform/ydb-dotnet-examples), доступного в составе [C# (.NET) SDK](https://github.com/ydb-platform/ydb-dotnet-sdk) {{ ydb-short-name }}.
 
 {% include [addition.md](example/addition.md) %}
 

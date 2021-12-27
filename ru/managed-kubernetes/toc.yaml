@@ -15,6 +15,8 @@ items:
         href: operations/node-connect-ssh.md
       - name: Создание файла конфигурации
         href: operations/create-static-conf.md
+      - name: Обновление {{ k8s }}
+        href: operations/update-kubernetes.md
       - name: Работа с {{ marketplace-name }}
         href: operations/marketplace.md
       - name: Сетевые сценарии

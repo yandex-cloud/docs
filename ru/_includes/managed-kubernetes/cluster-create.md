@@ -8,7 +8,7 @@
 
     {% include [write-once-settings](./write-once-setting.md) %}
 
-1. Укажите [релизный канал](../../managed-kubernetes/concepts/release-channels-and-updates.md).
+1. Укажите [релизный канал](../../managed-kubernetes/concepts/release-channels-and-updates.md). Эту настройку невозможно изменить после создания кластера.
 1. В блоке **Конфигурация мастера**:
    * В поле **Версия {{ k8s }}** выберите версию {{ k8s }}, которая будет установлена на мастере.
    * В поле **Публичный адрес** выберите способ назначения адреса:

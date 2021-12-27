@@ -1,6 +1,6 @@
 # Приложение на PHP
 
-На этой странице подробно разбирается код тестового приложения, доступного в составе PHP SDK {{ ydb-short-name }}.
+На этой странице подробно разбирается код тестового приложения, доступного в составе [PHP SDK](https://github.com/yandex-cloud/ydb-php-sdk) {{ ydb-short-name }}.
 
 {% include [addition.md](example/addition.md) %}
 

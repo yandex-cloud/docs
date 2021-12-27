@@ -484,6 +484,10 @@ default:
     https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_redis_cluster
   tf-provider-mes: >-
     https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_elasticsearch_cluster
+  tf-provider-k8s-cluster: >-
+    https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster
+  tf-provider-k8s-node-group: >-
+    https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group
   port-any: 0-65535
   port-http: 80
   port-https: 443

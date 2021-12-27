@@ -7,4 +7,4 @@
 - Node.js [https://github.com/yandex-cloud/ydb-nodejs-sdk](https://github.com/yandex-cloud/ydb-nodejs-sdk)
 - PHP [https://github.com/yandex-cloud/ydb-php-sdk](https://github.com/yandex-cloud/ydb-php-sdk)
 - Java [https://github.com/yandex-cloud/ydb-java-sdk](https://github.com/yandex-cloud/ydb-java-sdk)
-- .NET [https://github.com/ydb-platform/ydb-dotnet-sdk](https://github.com/ydb-platform/ydb-dotnet-sdk)
+- С# (.NET) [https://github.com/ydb-platform/ydb-dotnet-sdk](https://github.com/ydb-platform/ydb-dotnet-sdk)
