@@ -222,6 +222,15 @@ items:
             href: operations/permission/revoke.md
           - name: Запрос прав доступа
             href: operations/permission/request.md
+      - name: Работа с DataLens Marketplace
+        when: audience == "external"
+        items:
+          - name: Добавление продукта из Marketplace
+            href: operations/marketplace/add-marketplace-product.md
+          - name: Удаление продукта из Marketplace
+            href: operations/marketplace/delete-marketplace-product.md
+          - name: Создание и подключение коннектора (для партнеров)
+            href: operations/marketplace/create-connector-for-partners.md
   - name: Управление доступом
     items:
       - name: Управление доступом к DataLens
