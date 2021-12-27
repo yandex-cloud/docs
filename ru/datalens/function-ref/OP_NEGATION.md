@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/OP_NEGATION.md
 ---
+
 
 # Отрицание (-)
 
@@ -22,7 +24,7 @@ editable: false
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 - (5) = -5

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/target-group/list-operations.md
+---
 # yc load-balancer target-group list-operations
 
 List operations for the specified target group

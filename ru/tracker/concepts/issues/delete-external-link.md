@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/delete-external-link.md
+---
 # Удалить внешнюю связь
 
 Запрос позволяет удалить связь задачи с [объектом внешнего приложения](../../external-links.md).

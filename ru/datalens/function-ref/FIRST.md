@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/FIRST.md
 ---
+
 
 # FIRST (оконная)
 
@@ -29,7 +31,7 @@ FIRST( value [ TOTAL | WITHIN ... | AMONG ... ] [ ORDER BY ... ] [ BEFORE FILTER
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 FIRST(SUM([Sales]) WITHIN [Month] ORDER BY [Date])

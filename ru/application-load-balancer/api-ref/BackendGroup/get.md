@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/get.md
 ---
+
 
 # Method get
 Returns the specified backend group.
@@ -356,7 +358,7 @@ grpc.<br>cookie | **object**<br>Cookie-based session affinity configuration. <br
 grpc.<br>cookie.<br>name | **string**<br><p>Name of the cookie that is used for session affinity.</p> <p>The string length in characters must be 1-256.</p> 
 grpc.<br>cookie.<br>ttl | **string**<br><p>Maximum age of cookies that are generated for sessions (persistent cookies).</p> <p>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts.</p> 
 stream | **object**<br>List of stream backends that the backend group consist of. <br> includes only one of the fields `http`, `grpc`, `stream`<br><br><p>A Stream backend group resource.</p> 
-stream.<br>backends[] | **object**<br><p>A stream backend resource.</p> 
+stream.<br>backends[] | **object**<br>New settings for the Stream backend.<br><p>A stream backend resource.</p> 
 stream.<br>backends[].<br>name | **string**<br><p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 stream.<br>backends[].<br>backendWeight | **integer** (int64)<br><p>If not set, backend will be disabled.</p> 
 stream.<br>backends[].<br>loadBalancingConfig | **object**<br>Load balancing configuration for the backend.<br><p>A load balancing configuration resource.</p> 

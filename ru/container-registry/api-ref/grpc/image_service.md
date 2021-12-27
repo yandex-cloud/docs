@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/container-registry/api-ref/grpc/image_service.md
 ---
+
 
 # ImageService
 
@@ -29,7 +31,7 @@ repository_name | **string**<br>Name of the repository to list Docker images in.
 folder_id | **string**<br>ID of the folder to list Docker images in. <br>`folder_id` is ignored if a [ListImagesRequest.repository_name](#ListImagesRequest) or a [ListImagesRequest.registry_id](#ListImagesRequest) are specified in the request. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListImagesResponse.next_page_token](#ListImagesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListImagesResponse.next_page_token](#ListImagesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Image.name](#Image) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be a maximum of 256 characters and match the regular expression `[a-z0-9]+(?:[._-](./#)(./#)[a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Image.name](#Image) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be a maximum of 256 characters long and match the regular expression `[a-z0-9]+(?:[._-](./#)(./#)[a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.</li></ol> The maximum string length in characters is 1000.
 order_by | **string**<br> The maximum string length in characters is 100.
 
 

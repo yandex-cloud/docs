@@ -19,7 +19,7 @@ To change the name and description of a disk:
   1. Change the name and description of the disk.
   1. Click **Save changes**.
 
-  {{ compute-short-name }} will start the operation to change the disk.
+  {{ compute-short-name }} will start the operation to update the disk.
 
 - CLI
 
@@ -47,7 +47,7 @@ To change the name and description of a disk:
        --description "Updated disk via CLI"
      ```
 
-     {{ compute-short-name }} will start the operation to change the disk.
+     {{ compute-short-name }} will start the operation to update the disk.
 
 - API
 
@@ -57,7 +57,13 @@ To change the name and description of a disk:
 
 {% endlist %}
 
-## Increasing the disk size {#change-disk-size}
+## Increasing a disk's size {#change-disk-size}
+
+{% note info %}
+
+You can only change the size of a disk by increasing it. You cannot reduce the size of a disk.
+
+{% endnote %}
 
 You can only increase the size of a disk that is not attached to a running VM. To increase the disk size, make sure that the VM is stopped.
 
@@ -72,7 +78,7 @@ You can only increase the size of a disk that is not attached to a running VM. T
   1. Click ![image](../../../_assets/dots.svg) next to the disk and select **Edit**.
   1. Increase the disk size.
   1. Click **Save changes**.
-{{ compute-short-name }} will run the update disk size operation.
+  {{ compute-short-name }} will launch the operation to change the disk size.
   1. When the operation finishes, go back to the **Virtual machines** page and restart the VM.
 
 - CLI
@@ -106,7 +112,7 @@ You can only increase the size of a disk that is not attached to a running VM. T
        --size 32
      ```
 
-     {{ compute-short-name }} will start the operation to change the disk size.
+     {{ compute-short-name }} will launch the operation to change the disk size.
 
   1. Run the VM:
 
@@ -120,7 +126,7 @@ You can only increase the size of a disk that is not attached to a running VM. T
 
   To request the list of available disks, use the [list](../../api-ref/Disk/list.md) method for the [Disk](../../api-ref/Disk/) resource.
 
-  To stop or start the VM, use the [stop](../../api-ref/Instance/stop.md) and [start](../../api-ref/Instance/get.md) methods for the [Instance](../../api-ref/Instance/) resource.
+  To stop or start the VM, use the [stop](../../api-ref/Instance/stop.md) and [start](../../api-ref/Instance/start.md) methods for the [Instance](../../api-ref/Instance/) resource.
 
 {% endlist %}
 
@@ -146,7 +152,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
      lsblk
      ```
 
-     Command execution result:
+     Command output:
 
      ```bash
      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
@@ -165,7 +171,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
      sudo e2fsck -f /dev/vdb1
      ```
 
-     Command execution result:
+     Command output:
 
      ```bash
      e2fsck 1.44.1 (24-Mar-2018)
@@ -187,7 +193,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
      * `/dev/vdb` is the name of the device.
      * `1` is the partition number, so it's separated by a space.
 
-     Command execution result:
+     Command output:
 
      ```bash
      CHANGED: partition=1 start=2048 old: size=67106816 end=67108864 new: size=134215647,end=134217695
@@ -202,7 +208,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
      Where:
      * `dev/vdb1` is the name of the partition.
 
-     Command execution result:
+     Command output:
 
      ```bash
      Resizing the filesystem on /dev/vdb1 to 16776955 (4k) blocks.
@@ -215,7 +221,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
      lsblk
      ```
 
-     Command execution result:
+     Command output:
 
      ```bash
      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
@@ -232,7 +238,7 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
 
   1. In the search bar, type `diskmgmt.msc` to perform a search by system and start the found snap-in.
 
-  1. In the **Disk Management** window that opens, select the desired disk. Open the context menu and select **Extend Volume...**.
+  1. In the **Disk Management** window that opens, select the desired disk. Open the context menu and select **Extend volume...**.
 
   1. Enter a new partition volume and confirm the action.
 

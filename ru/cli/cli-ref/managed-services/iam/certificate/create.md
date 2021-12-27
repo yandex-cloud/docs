@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/certificate/create.md
+---
 # yc iam certificate create
 
 Create a certificate

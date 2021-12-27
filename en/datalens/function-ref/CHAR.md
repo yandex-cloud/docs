@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/CHAR.md
 ---
+
 
 # CHAR
 
@@ -22,7 +24,7 @@ Converts the numeric representation of an ASCII character to a value.
 
 **Return type**: `String`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 CHAR(78) = "N"

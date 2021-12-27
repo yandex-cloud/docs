@@ -12,3 +12,4 @@ editable: false
 
 {% include [compute.md](../../_includes/monitoring/metrics-ref/monitoring.md) %}
 
+{% include [monitoring_sensors](../../ydb/_includes/monitoring_sensors.md) %}

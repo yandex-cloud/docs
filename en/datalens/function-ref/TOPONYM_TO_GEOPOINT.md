@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/TOPONYM_TO_GEOPOINT.md
 ---
+
 
 # TOPONYM_TO_GEOPOINT
 
@@ -23,7 +25,7 @@ See the full [list of toponyms]({{ geopoints-list-link }}).
 
 **Return type**: `Geopoint`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 TOPONYM_TO_GEOPOINT("Комсомольск-на-Амуре") = [50.549923,137.007948]

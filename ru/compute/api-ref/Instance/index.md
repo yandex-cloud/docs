@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/index.md
 ---
+
 
 # Instance
 A set of methods for managing Instance resources.

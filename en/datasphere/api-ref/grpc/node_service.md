@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/datasphere/api-ref/grpc/node_service.md
 ---
+
 
 # NodeService
 

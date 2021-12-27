@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/GET_ITEM.md
 ---
+
 
 # GET_ITEM
 
@@ -23,7 +25,7 @@ GET_ITEM( array, index )
 
 **Возвращаемый тип**: Зависит от типов аргументов
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 GET_ITEM([array_field], 2)

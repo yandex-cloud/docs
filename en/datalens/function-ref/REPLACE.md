@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/REPLACE.md
 ---
+
 
 # REPLACE
 
@@ -26,7 +28,7 @@ If the substring is not found, the string is not changed.
 
 **Return type**: `String`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 REPLACE("350 RUB", "RUB", "USD") = "350 USD"

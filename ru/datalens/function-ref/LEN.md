@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/LEN.md
 ---
+
 
 # LEN
 
@@ -22,7 +24,7 @@ LEN( value )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 LEN("Computer") = 8

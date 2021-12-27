@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/disk_placement_group_service.md
 ---
+
 
 # DiskPlacementGroupService
 

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/get.md
+---
 # yc managed-kafka cluster get
 
 Show information about the specified Kafka cluster

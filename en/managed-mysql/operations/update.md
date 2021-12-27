@@ -6,11 +6,11 @@ After creating a cluster, you can:
 
 * [Increase the storage size](#change-disk-size) (available only for `network-hdd` standard network storage and `network-ssd` fast network storage).
 
-* [Change {{ MY }} settings](#change-mysql-config).
+* [Configure the {{ MY }} servers](#change-mysql-config).
 
     {% note warning %}
 
-    You can't change {{ MY }} settings using SQL commands.
+    You can't change {{ MY }} server settings using SQL commands.
 
     {% endnote %}
 
@@ -96,13 +96,13 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mmy }}).
 
 - API
 
-  You can change the [host class](../concepts/instance-types.md) using the API [update](../api-ref/Cluster/update.md) method: pass the necessary value in the request parameter `configSpec.resources.resourcePresetId`.
-
-  To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
+    To change the [host class](../concepts/instance-types.md), use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * The desired host class in the `configSpec.resources.resourcePresetId` parameter. To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset` resources.
 
 {% endlist %}
 
@@ -198,11 +198,13 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mmy }}).
 
 - API
 
-  You can change the storage size for a cluster using the API [update](../api-ref/Cluster/update.md) method: pass the appropriate values in the request parameter `configSpec.resources.diskSize`.
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * Storage size in the `configSpec.resources.diskSize` parameter.
 
 {% endlist %}
 
@@ -215,7 +217,7 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 - Management console
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Select the cluster and click **Edit cluster** in the top panel.
-  1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-settings) by clicking **Configure** under **DBMS settings**.
+  1. Change the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **Configure** under **DBMS settings**.
   1. Click **Save**.
   1. Click **Save changes**.
 
@@ -225,7 +227,7 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To update the [{{ MY }} settings](../concepts/settings-list.md#dbms-settings):
+  To update the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings):
 
   1. View a description of the CLI's update cluster configuration command:
 
@@ -256,7 +258,7 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
         ...
         mysql_config = {
-          <{{ MY }} setting name> = <value>
+          <setting name {{ MY }}> = <value>
           ...
         }
       }
@@ -274,7 +276,11 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
 - API
 
-  You can update the [{{ MY }} settings](../concepts/settings-list.md#dbms-settings) for a cluster using the [update](../api-ref/Cluster/update.md) API method: pass the appropriate values in the request parameter `configSpec.mysql_config_5_7`.
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * An array with new {{ MY }} settings in the following parameter:
+        * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} 5.7.
+        * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} 8.0.
 
 {% endlist %}
 
@@ -313,7 +319,7 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
            --backup-window-start <backup start time> \
            --datalens-access=<true or false> \
            --maintenance-window type=<weekly or anytime> \
-           --websql-access=<true or false> \
+           --websql-access=<true or false>
            --deletion-protection=<protect cluster from deletion: true or false>
         ```
 
@@ -325,6 +331,8 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. Default value: `false`.
 
+    {% include [deletion-protection-db](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
+
     You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - Terraform
@@ -333,7 +341,7 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
       For information about how to create this file, see [{#T}](cluster-create.md).
 
-  1. To change the backup start time, add a `backup_window_start` block to the {{ mmy-name }} cluster description:
+  1. To change the backup start time, add a {{ mmy-name }}backup_window_start` block to the ` cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster name>" {
@@ -360,6 +368,17 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
       }
       ```
 
+  1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
+
+      ```hcl
+      resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+        ...
+        deletion_protection = <protect cluster from deletion: true or false>
+      }
+      ```
+
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -368,11 +387,31 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mmy }}).
 
 - API
 
-  Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.access` and `configSpec.backupWindowStart` request parameters.
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+    * The cluster ID in the `clusterId` parameter.
+
+    * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
+
+    * Backup window settings in the `configSpec.backupWindowStart` parameter.
+
+    * Cluster deletion protection settings in the `deletionProtection` parameter.
+
+        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+    * List of cluster configuration fields to be changed in the `updateMask` parameter.
+
+     You can get the cluster ID with a [list of clusters in a folder ](./cluster-list.md#list-clusters).
+
+    {% note warning %}
+
+    This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, pass the names of the fields to be changed in the `updateMask` parameter.
+
+    {% endnote %}
 
 {% endlist %}
 
@@ -429,14 +468,16 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
+  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mmy }}).
 
 - API
 
-    To edit the list of cluster [security groups](../concepts/network.md#security-groups), use the `update` API method and pass the following in the request:
+    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
     * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    * The list of groups in the `securityGroupIds` parameter.
-    * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+    * The list of security group IDs in the `securityGroupIds` parameter.
+    * The list of settings to update in the `updateMask` parameter.
+
+    {% include [Resetting the settings of the object being modified](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -445,3 +486,4 @@ Storage capacity in {{ mmy-short-name }} clusters is limited by the HDD and SSD 
 You may need to additionally [set up security groups](connect.md#configure-security-groups) to connect to the cluster.
 
 {% endnote %}
+

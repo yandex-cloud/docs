@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/list.md
+---
 # yc application-load-balancer virtual-host list
 
 List http router virtual hosts

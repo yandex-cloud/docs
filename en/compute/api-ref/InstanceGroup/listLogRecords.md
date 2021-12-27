@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/listLogRecords.md
 ---
+
 
 # Method listLogRecords
 Lists logs for the specified instance group.

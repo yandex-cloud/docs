@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Secret/create.md
 ---
+
 
 # Method create
 Creates a secret in the specified folder.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/shards/delete.md
+---
 # yc managed-redis shards delete
 
 Delete shard.

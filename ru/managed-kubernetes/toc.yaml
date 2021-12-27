@@ -1,6 +1,8 @@
 title: Yandex Managed Service for Kubernetes
 href: index.yaml
 items:
+  - name: Сопоставление с другими сервисами Yandex.Cloud
+    href: service-comparison.md
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
@@ -13,6 +15,8 @@ items:
         href: operations/node-connect-ssh.md
       - name: Создание файла конфигурации
         href: operations/create-static-conf.md
+      - name: Работа с {{ marketplace-name }}
+        href: operations/marketplace.md
       - name: Сетевые сценарии
         items:
           - name: >-
@@ -35,8 +39,10 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Управление классами хранилищ
             href: operations/volumes/manage-storage-class.md
-          - name: Увеличение размера тома
+          - name: Увеличение размера тома для подов
             href: operations/volumes/volume-expansion.md
+          - name: Увеличение размера тома для контроллера StatefulSet
+            href: operations/volumes/statefulset-pvc-expansion.md
           - name: Подключение тома в блочном режиме
             href: operations/volumes/mode-block.md
           - name: Интеграция с Object Storage
@@ -89,6 +95,8 @@ items:
         href: solutions/dns-autoscaler.md
       - name: Настройка локального кеширования DNS
         href: solutions/node-local-dns.md
+      - name: Настройка Fluent Bit для работы с Yandex Cloud Logging
+        href: solutions/fluent-bit-logging.md
       - name: Синхронизация с секретами Yandex Lockbox
         href: solutions/kubernetes-lockbox-secrets.md
   - name: Концепции

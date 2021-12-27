@@ -11,8 +11,12 @@
 
 ## Подключить сервисный аккаунт к кластеру {#connect-service-account}
 
+
 1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#change-additional-settings) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
+
 1. Убедитесь, что этому аккаунту [назначена роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`.
+
+
 
 
 ## Настроить права доступа {#configure-acl}

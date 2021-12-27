@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md
 ---
+
 
 # Method attachTargetGroup
 Attaches a target group to the specified network load balancer.

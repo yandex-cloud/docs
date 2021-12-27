@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-changelog.md
+---
 # Get the history of issue changes
 
 Use this request to get the history of changes to issues. If there are more than 50 records in the response, use the [`perPage` parameter](#params).

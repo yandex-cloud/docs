@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Cluster/list.md
 ---
+
 
 # Method list
 Retrieves the list of clusters in the specified folder.
@@ -19,7 +21,7 @@ Parameter | Description
 folderId | Required. ID of the folder to list clusters in.  To get the folder ID make a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/data-proc/api-ref/Cluster/list#query_params), the service returns a [nextPageToken](/docs/data-proc/api-ref/Cluster/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
 pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/data-proc/api-ref/Cluster/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters clusters listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [Cluster.name](/docs/data-proc/api-ref/Cluster#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. Example of a filter: `name=my-cluster`.  The maximum string length in characters is 1000.
+filter | A filter expression that filters clusters listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [Cluster.name](/docs/data-proc/api-ref/Cluster#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-cluster`.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -102,5 +104,5 @@ clusters[].<br>uiProxy | **boolean** (boolean)<br><p>Whether UI Proxy feature is
 clusters[].<br>securityGroupIds[] | **string**<br><p>User security groups.</p> 
 clusters[].<br>hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 clusters[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
-clusters[].<br>logGroupId | **string**<br><p>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service</p> 
+clusters[].<br>logGroupId | **string**<br><p>ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used. To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/data-proc/api-ref/Cluster/list#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/data-proc/api-ref/Cluster/list#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

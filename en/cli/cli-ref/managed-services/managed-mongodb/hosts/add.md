@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/add.md
+---
 # yc managed-mongodb hosts add
 
 Add new hosts to the cluster in specified availability zones.

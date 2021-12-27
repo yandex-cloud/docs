@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/hosts/delete.md
+---
 # yc managed-redis hosts delete
 
 Delete the specified hosts

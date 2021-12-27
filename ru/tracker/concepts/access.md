@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/access.md
+---
 # Доступ к API
 
 Для доступа приложений к {{ api-name }} используется авторизация по [протоколу OAuth 2.0](#section_about_OAauth) или по [IAM-токену](#iam-token).

@@ -1,0 +1,34 @@
+title: Yandex Load Testing
+description:
+  - >-
+    <em>Yandex Load Testing is currently at the <a
+    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+  - >-
+    With Yandex Load Testing, you can run load tests to analyze the performance
+    of your services and applications.
+  - >-
+    Use the service to: <ul>
+      <li>Create a preconfigured load generator in your cloud based on <a
+    href="https://cloud.yandex.com/en/docs/load-testing/concepts/tank">Yandex.Tank</a>.
+      <li>Configure a test in the interface and generate the load from the created generator.</li>
+      <li>View test reports.</li>
+      <li>Store and manage data on previously conducted tests.</li>
+    </ul> You can manage the service using the management console.
+meta:
+  title: Yandex Load Testing
+links:
+  - title: Getting started
+    description: How to run load tests with Yandex Load Testing
+    href: quickstart
+  - title: Concepts
+    description: Service operation and basic concepts
+    href: concepts/
+  - title: Access management
+    description: Configure access rights to work with the service
+    href: security/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

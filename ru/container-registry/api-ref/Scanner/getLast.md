@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Scanner/getLast.md
 ---
+
 
 # Method getLast
 Returns the last finished ScanResult for the specified Image.

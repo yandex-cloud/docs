@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/index.md
+---
 # yc managed-kafka cluster
 
 Manage Kafka clusters.
@@ -25,6 +28,7 @@ Aliases:
 - [yc managed-kafka cluster create](create.md) — Create Kafka cluster
 - [yc managed-kafka cluster update](update.md) — Modify configuration or attributes of a Kafka cluster.
 - [yc managed-kafka cluster move](move.md) — Move the specified Kafka cluster into the folder
+- [yc managed-kafka cluster reschedule-maintenance](reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 
 #### Flags
 

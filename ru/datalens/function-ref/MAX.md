@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/MAX.md
 ---
+
 
 # MAX
 
@@ -28,7 +30,7 @@ MAX( value )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 MAX([Profit])

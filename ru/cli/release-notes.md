@@ -1,14 +1,107 @@
 # Релизы YC CLI
 
-## Версия 0.84.0 (16.11.21) {#latest-release}
+## Версия 0.86.0 (15.12.21) {#latest-release}
 
-#### Изменения в сервисах {{yandex-cloud}} {#services}
+### Изменения в CLI {#cli}
+
+* Добавлена возможность передачи [IAM-токена](../iam/concepts/authorization/iam-token.md) через переменную окружения `YC_IAM_TOKEN`.
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+* В команду `yc managed-kafka cluster update` добавлен параметр `--maintenance-window`, позволяющий задать параметры окна обслуживания.
+* Добавлена команда `yc managed-kafka cluster reschedule-maintenance`, позволяющая изменить время запуска запланированной задачи по обслуживанию кластера.
+
+#### {{ alb-name }} {#alb}
+
+* В команды `yc application-load-balancer target-group {add,update,remove}-targets` для параметра `--target` добавлен ключ `private-ip-address`, который позволяет не указывать идентификаторы подсетей для адресов из приватных диапазонов.
+* Добавлены команды для управления TCP-обработчиками L7-балансировщиков: 
+  
+  * `yc alb load-balancer add-stream-listener`;
+  * `yc alb load-balancer update-stream-listener`;
+  * `yc alb load-balancer add-stream-sni`;
+  * `yc alb load-balancer update-stream-sni`.
+
+* Добавлены синонимы (алиасы) команд для управления обработчиками L7-балансировщиков:
+
+  * `yc alb load-balancer add-listener` — `add-http-listener`;
+  * `yc alb load-balancer update-listener` — `update-http-listener`;
+  * `yc alb load-balancer add-sni` — `add-http-sni`;
+  * `yc alb load-balancer update-sni` — `update-http-sni`;
+  * `yc alb load-balancer remove-listener` — `remove-http-listener`, `remove-stream-listener`;
+  * `yc alb load-balancer remove-sni` — `remove-http-sni`, `remove-stream-sni`.
 
 #### {{ cdn-name }} {#cdn}
 
+* Добавлены команды для управления CDN-ресурсами: 
+  
+  * `yc cdn resource create`;
+  * `yc cdn resource update`.
+
+#### {{ cloud-logging-name }} {#cloud-logging}
+
+* В команды `yc logging group {create,update}` добавлен параметр `--data-stream` для поддержки {{ yds-full-name }}.
+
+#### {{ vpc-name }} {#vpc}
+
+* Добавлены команды `yc vpc subnet add-range` и `remove-range` для добавления или удаления диапазонов адресов в подсетях.
+
+#### {{ ydb-name }} {#ydb}
+
+* В команду `yc ydb database create` добавлен параметр `--labels` — он задает набор меток для базы данных.
+* В команду `yc ydb database update` добавлен параметр `--labels` — он меняет весь набор меток для базы данных.
+* Добавлены команды для управления метками `yc ydb database add-labels` и `yc ydb database remove-labels`.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.85.0 (29.11.21) {#version0.85.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mkf-name }}**
+
+* Команда `yc managed-kafka cluster update`.
+
+  Добавлен флаг `--version`, позволяющий обновить версию Kafka кластера.
+
+##### {{ managed-k8s-name }} {#k8s}
+
+* Команда `yc k8s cluster update`.
+
+  Добавлен параметр `--node-ipv4-mask-size` — он измеряет размер `CIDR`, выделяемый на каждый узел кластера.
+
+##### {{ alb-name }} {#alb}
+
+* Добавлены команды для работы с Stream бэкендами:
+
+  * Добавление Stream бэкенда: `yc application-load-balancer backend-group add-stream-backend`.
+  * Изменение Stream бэкенда: `yc application-load-balancer backend-group update-stream-backend`.
+  * Удаление Stream бэкенда: `yc application-load-balancer backend-group delete-stream-backend`.
+
+##### {{ resmgr-name }} {#resmgr}
+
+* Добавлена команда `yc resource-manager folder delete`, которая позволяет удалить каталог.
+
+#### Изменения в CLI {#cli}
+
+Исправлена ошибка в команде `yc init`. Теперь при проверке доступности endpoints не игнорируются 
+настройки proxy.
+
+
+### Версия 0.84.0 (16.11.21) {#version0.84.0}
+
+#### Изменения в сервисах {{yandex-cloud}} {#services}
+
+##### {{ cdn-name }} {#cdn}
+
 * Добавлена команда `yc cdn resource` для управления CDN-ресурсами (get, list, delete, get-provider-cname).
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mkf-name }}**
 
@@ -28,19 +121,17 @@
 В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster restore` добавлены новые флаги:
 * `--embedded-keeper` — позволяет создать кластер, используя Clickhouse Keeper вместо ZK.
 
-#### {{ dataproc-name }} {#dataproc}
+##### {{ dataproc-name }} {#dataproc}
 
 * Команда `yc dataproc cluster create`, флаг `--subcluster`.
 
-  Добавлен параметр `assign-public-ip`, позволяющий выделить публичные ip адреса для всех хостов подкластера.
+  Добавлен параметр `assign-public-ip`, позволяющий выделить публичные IP-адреса для всех хостов подкластера.
 
-## Предыдущие релизы {#previous-releases}
+### Версия 0.83.0 (26.10.21) {#version0.83.0}
 
-## Версия 0.83.0 (26.10.21) {#version0.83.0}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
-
-#### {{ cdn-name }} {#cdn}
+##### {{ cdn-name }} {#cdn}
 
 * Добавлены группы команд для поддержки сервиса {{ cdn-name }}, который позволяет организовать доставку контента до конечных потребителей с помощью сети распространения контента (Content Delivery Network, CDN):
 
@@ -49,15 +140,15 @@
   * `yc cdn provider` — для подключения к провайдеру CDN.
   * `yc cdn cache` — для управления кешированием контента CDN-ресурсов.
 
-#### {{ alb-name }} {#alb}
+##### {{ alb-name }} {#alb}
 
 * Добавлены команды `yc application-load-balancer load-balancer start` и `yc application-load-balancer load-balancer stop` для запуска и остановки L7-балансировщика.
 
-#### {{ ydb-name }} {#ydb}
+##### {{ ydb-name }} {#ydb}
 
 * Добавлены команды `yc ydb database start` и `yc ydb database stop` для запуска и остановки базы данных.
 
-#### Сервисы управляемых баз данных {#managed-db}
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mrd-name }}**
 
@@ -78,7 +169,7 @@
 
 * В команду `yc managed-postgresql hosts update` добавлен параметр `--assign-public-ip` для управления публичным доступом к хосту: `true` — хост доступен по публичному IP-адресу, `false` — публичный доступ отключен.
 
-## Версия 0.82.0 (23.09.21) {#version0.82.0}
+### Версия 0.82.0 (23.09.21) {#version0.82.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -114,7 +205,7 @@
 
 ##### {{ ydb-name }} {#ydb}
 
-* Добавлены параметры для управления лимитами баз данных в режиме Serverless в команды `yc ydb database create`и `yc ydb database update`:
+* Добавлены параметры для управления лимитами баз данных в режиме Serverless в команды `yc ydb database create` и `yc ydb database update`:
 
   * `--sls-storage-size`
   * `--sls-throttling-rcu`
@@ -141,25 +232,25 @@
 
 #### Изменения в CLI {#cli}
 
-- Добавлено описание флагов и команд в автодополнении по умолчанию.
-- Команда `yc completion <SHELL>`
+* Добавлено описание флагов и команд в автодополнении по умолчанию.
+* Команда `yc completion <SHELL>`.
    
    Добавлен флаг `--without-desc` для отключения описания в автодополнении.
-- Поддержено автодополнение флагов: `folder-id`, `folder-name`, `cloud-id`, `format`, `profile`.
+* Поддержено автодополнение флагов: `folder-id`, `folder-name`, `cloud-id`, `format`, `profile`.
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ sf-name }} {#serverless-functions}
 
-- Добавлена команда `yc serverless trigger create billing-budget` для создания триггеров на события от биллинга.
+* Добавлена команда `yc serverless trigger create billing-budget` для создания триггеров на события от биллинга.
 
-- Добавлены команды для управления подключениями к управляемым БД
+* Добавлены команды для управления подключениями к управляемым БД
   `yc serverless mdbproxy update clickhouse`
   `yc serverless mdbproxy create clickhouse`
 
 ##### {{ cloud-logging-name }} {#logging}
 
-- Исключена суб-команда `get-default` из `logging group`
+* Исключена суб-команда `get-default` из `logging group`.
 
 ### Версия 0.80.0 (19.08.21) {#version0.80.0}
 
@@ -167,7 +258,7 @@
 
 ##### {{ ig-name }} {#instance-groups}
 
-- Добавлены новые флаги для команды обновления группы виртуальных машин (`yc compute instance-group update`):
+* Добавлены новые флаги для команды обновления группы виртуальных машин (`yc compute instance-group update`):
   `--new-name`,
   `--description`,
   `--labels`,
@@ -192,7 +283,7 @@
 
 ##### {{ sf-name }} {#serverless-functions}
 
-- Добавлена команда `yc serverless trigger create logging` для создания триггеров на {{ cloud-logging-name }}.
+* Добавлена команда `yc serverless trigger create logging` для создания триггеров на {{ cloud-logging-name }}.
 
 ##### {{ alb-name }} {#alb}
 
@@ -229,7 +320,7 @@
 
 * Команда `yc managed-mysql hosts update`.
 
-  Добавлена команда`yc managed-mysql hosts update HOST --replication-source HOST` для указания источника репликации каскадной реплики
+  Добавлена команда`yc managed-mysql hosts update HOST --replication-source HOST` для указания источника репликации каскадной реплики.
 
 **{{ mms-name }}**
 
@@ -261,7 +352,6 @@
 
 Сервис {{ org-full-name }} находится на стадии Preview. Подробнее про сервис читайте в [документации](../organization/).
 
-
 ##### {{ sf-name }} {#serverless-functions}
 
 * Команда `yc serverless trigger create`.
@@ -278,7 +368,7 @@
 
 {{ cloud-logging-name }} — сервис для чтения и записи логов сервисов и пользовательских приложений.
 
-Сервис {{ cloud-logging-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md). Подробнее о сервисе читайте в [документации](../logging/).
+Сервис {{ cloud-logging-name }} находится на стадии [Preview](../overview/concepts/launch-stages.md).Подробнее о сервисе читайте в [документации](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -787,6 +877,7 @@
 
 * Добавлена группа команд `yc vpc address` для управления [IP-адресами](../vpc/concepts/address.md#public-addresses).
 
+
 ### Версия 0.62.0 (20.08.20) {#version0.62.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -838,6 +929,7 @@
 
 * Команды `yc compute instance create-with-container` и `yc compute instance update-container`.
 
+   
    Добавлен флаг `--coi-spec-file` для передачи [спецификации образа](../cos/concepts/index.md#coi-spec-example).
 
 ##### {{ vpc-name }} {#vpc}
@@ -1200,6 +1292,7 @@
 #### {{iam-name}} {#iam}
 * Добавлены команды для создания и управления SAML-совместимыми федерациями удостоверений и сертификатами к ним: `yc iam federation` и `yc iam certificate`. Подробнее про SAML-совместимые федерации удостоверений можно узнать в [документации](../organization/add-federation.md).
 
+
 ### Версия 0.50.0 (27.01.20) {#version0.50.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -1292,13 +1385,16 @@
 #### Изменения в CLI {#cli}
 **Улучшено**
 
+
 * Добавлена возможность [аутентификации с помощью федерации](operations/authentication/federated-user.md) при вызове `yc` в неинтерактивном режиме. Этот режим используется, когда CLI запускается пользователем не напрямую, например в скрипте или в `kubectl` при работе с [кластером Kubernetes](../managed-kubernetes/concepts/index.md#kubernetes-cluster) в {{ managed-k8s-name }}.
+
 
 ### Версия 0.46.0 (13.12.19) {#version0.46.0}
 
 #### Изменения в CLI {#cli}
 
 **Улучшено**
+
 * Для ускорения диагностики проблем авторизации, в журнал отладки запроса пишется CRC32 отправляемого [IAM-токена](../iam/concepts/authorization/iam-token.md).
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -1347,6 +1443,7 @@
 
 ### Версия 0.43.1 (14.11.19)
 
+
 #### Изменения в CLI {#cli}
 
 **Исправлено**
@@ -1354,6 +1451,7 @@
 * Для Windows Subsystem for Linux (WSL) при авторизации в CLI с помощью [SAML-совместимых федераций удостоверений](../organization/add-federation.md) теперь корректно происходит переход в браузер.
 
 ### Версия 0.43.0 (11.11.19) {#version0.43.0}
+
 
 #### Изменения в CLI {#cli}
 
@@ -1364,6 +1462,7 @@
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 #### {{ compute-name }} {#compute}
+
 
 * Добавлены подробности в лог и в текст об ошибке при [авторизации изнутри виртуальной машины](../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) (с помощью IAM-токена из метаданных).
 

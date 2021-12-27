@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/SUM_IF.md
 ---
+
 
 # SUM_IF
 
@@ -23,7 +25,7 @@ Returns the sum of all the expression values that meet the `condition` condition
 
 **Return type**: Same type as (`expression`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 SUM_IF([Profit], [Profit] > 15)

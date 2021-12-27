@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/delete.md
 ---
+
 
 # Method delete
 Deletes the specified instance group.

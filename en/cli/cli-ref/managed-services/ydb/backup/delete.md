@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/backup/delete.md
+---
 # yc ydb backup delete
 
 Delete the specified YDB backups.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/billing/api-ref/BillingAccount/index.md
 ---
+
 
 # BillingAccount
 A set of methods for managing BillingAccount resources.

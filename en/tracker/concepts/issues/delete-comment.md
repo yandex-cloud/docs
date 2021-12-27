@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/delete-comment.md
+---
 # Delete a comment
 
 Use this request to delete issue comments.

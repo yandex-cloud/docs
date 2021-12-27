@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/MEDIAN.md
 ---
+
 
 # MEDIAN
 
@@ -22,7 +24,7 @@ MEDIAN( value )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 MEDIAN([Profit])

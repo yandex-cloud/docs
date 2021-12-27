@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datasphere/api-ref/Project/execute.md
 ---
+
 
 # Method execute
 Executes code in the specified cell or notebook.

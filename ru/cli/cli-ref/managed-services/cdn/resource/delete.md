@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/resource/delete.md
+---
 # yc cdn resource delete
 
 Delete resource.
@@ -12,7 +15,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>Specifies the origin ID.|
+|`--id`|<b>`string`</b><br/>Specifies the resource ID.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

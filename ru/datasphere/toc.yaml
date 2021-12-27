@@ -11,12 +11,16 @@ items:
         items:
           - name: Создание проекта
             href: operations/projects/create.md
+          - name: Выбор версии Python
+            href: operations/projects/python-version.md
           - name: Установка зависимостей
             href: operations/projects/install-dependencies.md
           - name: Управление вычислительными ресурсами
             href: operations/projects/control-compute-resources.md
           - name: Управление потреблением
             href: operations/projects/custom-limits.md
+          - name: Изменение размера хранилища проекта
+            href: operations/projects/storage-resize.md
           - name: Изменение имени или описания
             href: operations/projects/update.md
           - name: Удаление проекта
@@ -71,6 +75,8 @@ items:
         items:
           - name: Создание ноды из ячейки с кодом на Python
             href: operations/node-cell.md
+          - name: Настройка окружения ноды
+            href: operations/node-customization.md
           - name: Запросы в ноды
             href: operations/node-api.md
   - name: Концепции
@@ -137,6 +143,8 @@ items:
             href: api-ref/grpc/index.md
           - name: AppTokenService
             href: api-ref/grpc/app_token_service.md
+          - name: FolderBudgetService
+            href: api-ref/grpc/folder_budget_service.md
           - name: NodeService
             href: api-ref/grpc/node_service.md
           - name: ProjectDataService
@@ -155,6 +163,14 @@ items:
                 href: api-ref/AppToken/index.md
               - name: validate
                 href: api-ref/AppToken/validate.md
+          - name: FolderBudget
+            items:
+              - name: Overview
+                href: api-ref/FolderBudget/index.md
+              - name: get
+                href: api-ref/FolderBudget/get.md
+              - name: set
+                href: api-ref/FolderBudget/set.md
           - name: Node
             items:
               - name: Overview

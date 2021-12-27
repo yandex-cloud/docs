@@ -7,6 +7,7 @@
 - [{#T}](web-sql-query.md)
 - [{#T}](update.md)
 - [{#T}](datalens-connect.md)
+- [{#T}](cluster-version-update.md)
 - [{#T}](hosts.md)
 - [{#T}](databases.md)
 - [{#T}](cluster-extensions.md)
@@ -16,4 +17,3 @@
 - [{#T}](cluster-delete.md)
 - [{#T}](performance-diagnostics.md)
 - [{#T}](monitoring.md)
-

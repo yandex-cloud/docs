@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/Federation/index.md
 ---
+
 
 # Federation
 A set of methods for managing federations.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/start.md
 ---
+
 
 # Method start
 Starts the specified application load balancer.

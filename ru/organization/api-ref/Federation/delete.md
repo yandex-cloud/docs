@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Federation/delete.md
 ---
+
 
 # Method delete
 Deletes the specified federation.

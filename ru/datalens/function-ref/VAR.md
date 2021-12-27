@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/VAR.md
 ---
+
 
 # VAR
 
@@ -22,7 +24,7 @@ VAR( value )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 VAR([Profit])

@@ -4,6 +4,7 @@ This page shows examples of public dashboards and charts built in third-party po
 
 ## Dashboards {#dashboards}
 
+- [DataLens Demo Dashboard](https://datalens.yandex/9fms9uae7ip02)
 - [Statistics for COVID-19 and the self-isolation index](https://datalens.yandex/covid19)
 - [Air quality analysis based on public Sensor.Community data](https://datalens.yandex/60g9rtvykwps2)
 - [ClickHouse Package Downloads](https://datalens.yandex/pjzq4rot3t2ql)

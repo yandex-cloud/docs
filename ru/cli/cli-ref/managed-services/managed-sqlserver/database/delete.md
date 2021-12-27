@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/delete.md
+---
 # yc managed-sqlserver database delete
 
 Delete the specified SQLServer database

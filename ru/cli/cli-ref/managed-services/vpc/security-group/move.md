@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/security-group/move.md
+---
 # yc vpc security-group move
 
 Move a security group to another folder.

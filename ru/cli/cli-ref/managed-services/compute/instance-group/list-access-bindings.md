@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance-group/list-access-bindings.md
+---
 # yc compute instance-group list-access-bindings
 
 List access bindings for the specified instance group

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/list-records.md
+---
 # yc dns zone list-records
 
 List dns zone records.

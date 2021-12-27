@@ -21,8 +21,8 @@ Keys:
 
 | Key | Value |
 | ----- | ----- |
-| `max_creating` | Maximum number of instances created at the same time.<br>Valid values are from 0 to 100. Value 0: Any number of instances within the allowed range. |
-| `max_deleting` | Maximum number of instances deleted at the same time.<br>Valid values are from 0 to 100. Value 0: Any number of instances within the allowed range. |
+| `max_creating` | Maximum number of instances started at the same time.<br>Valid values are from 0 to 100. Value 0: Any number of instances within the allowed range. |
+| `max_deleting` | Maximum number of instances stopped at the same time.<br>Valid values are from 0 to 100. Value 0: Any number of instances within the allowed range. |
 | `max_unavailable` | The maximum number of instances in the `RUNNING` state that can be removed to reduce the target size of the group.<br>Valid values are from 0 to 100. |
 | `max_expansion` | The maximum number of instances that can be additionally allocated to expand the target size of the group. If the `max_unavailable` key is not specified or is zero, then the `max_expansion` key value must be non-zero.<br>Valid values are from 0 to 100. |
 | `startup_duration` | Startup duration of an instance in the group. The instance starts receiving traffic only after the startup time expires and all the health checks are passed.<br>Valid values are from 0 to 100. |

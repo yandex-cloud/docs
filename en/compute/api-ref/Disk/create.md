@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Disk/create.md
 ---
+
 
 # Method create
 Creates a disk in the specified folder.

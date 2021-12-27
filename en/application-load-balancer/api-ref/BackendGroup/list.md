@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/list.md
 ---
+
 
 # Method list
 Lists backend groups in the specified folder.
@@ -19,7 +21,7 @@ Parameter | Description
 folderId | Required. ID of the folder to list backend groups in.  To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
 pageSize | The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [nextPageToken](/docs/application-load-balancer/api-ref/BackendGroup/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  Acceptable values are 0 to 1000, inclusive.
 pageToken | Page token. To get the next page of results, set `page_token` to the [nextPageToken](/docs/application-load-balancer/api-ref/BackendGroup/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters backend groups listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [BackendGroup.name](/docs/application-load-balancer/api-ref/BackendGroup#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-backend-group`.  The maximum string length in characters is 1000.
+filter | A filter expression that filters backend groups listed in the response.  The expression must specify: 1. The field name. Currently you can use filtering only on [BackendGroup.name](/docs/application-load-balancer/api-ref/BackendGroup#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter: `name=my-backend-group`.  The maximum string length in characters is 1000.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
@@ -364,7 +366,7 @@ backendGroups[].<br>grpc.<br>cookie | **object**<br>Cookie-based session affinit
 backendGroups[].<br>grpc.<br>cookie.<br>name | **string**<br><p>Name of the cookie that is used for session affinity.</p> <p>The string length in characters must be 1-256.</p> 
 backendGroups[].<br>grpc.<br>cookie.<br>ttl | **string**<br><p>Maximum age of cookies that are generated for sessions (persistent cookies).</p> <p>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts.</p> 
 backendGroups[].<br>stream | **object**<br>List of stream backends that the backend group consist of. <br>`backendGroups[]` includes only one of the fields `http`, `grpc`, `stream`<br><br><p>A Stream backend group resource.</p> 
-backendGroups[].<br>stream.<br>backends[] | **object**<br><p>A stream backend resource.</p> 
+backendGroups[].<br>stream.<br>backends[] | **object**<br>New settings for the Stream backend.<br><p>A stream backend resource.</p> 
 backendGroups[].<br>stream.<br>backends[].<br>name | **string**<br><p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 backendGroups[].<br>stream.<br>backends[].<br>backendWeight | **integer** (int64)<br><p>If not set, backend will be disabled.</p> 
 backendGroups[].<br>stream.<br>backends[].<br>loadBalancingConfig | **object**<br>Load balancing configuration for the backend.<br><p>A load balancing configuration resource.</p> 

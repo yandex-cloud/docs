@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/shards/get.md
+---
 # yc managed-mongodb shards get
 
 Get information about a shard in a MongoDB cluster.

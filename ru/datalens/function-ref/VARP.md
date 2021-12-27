@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/VARP.md
 ---
+
 
 # VARP
 
@@ -22,7 +24,7 @@ VARP( value )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 VARP([Profit])

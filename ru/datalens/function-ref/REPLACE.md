@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/REPLACE.md
 ---
+
 
 # REPLACE
 
@@ -26,7 +28,7 @@ REPLACE( string, substring, replace_with )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 REPLACE("350 RUB", "RUB", "USD") = "350 USD"

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/import/import-comments.md
+---
 # Импортировать комментарии
 
 {% note warning %}

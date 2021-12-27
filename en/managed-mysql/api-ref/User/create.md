@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/User/create.md
 ---
+
 
 # Method create
 Creates a MySQL user in the specified cluster.

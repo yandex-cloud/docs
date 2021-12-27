@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/list-access-bindings.md
+---
 # yc logging group list-access-bindings
 
 List log group access bindings

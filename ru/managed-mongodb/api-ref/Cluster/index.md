@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/index.md
 ---
+
 
 # Cluster
 A set of methods for managing MongoDB Cluster resources.

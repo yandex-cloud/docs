@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/listHosts.md
 ---
+
 
 # Method listHosts
 Retrieves a list of hosts for the specified MySQL cluster.
@@ -77,5 +79,5 @@ hosts[].<br>services[].<br>health | **string**<br><p>Status code of server avail
 hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs to.</p> 
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Flag showing public IP assignment status to this host.</p> 
 hosts[].<br>replicationSource | **string**<br><p>Name of the host to be used as the replication source for cascading replication.</p> 
-hosts[].<br>backupPriority | **string** (int64)<br><p>Host backup priority, where 1 is the lowest priority</p> 
+hosts[].<br>backupPriority | **string** (int64)<br><p>Host backup priority</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#query_params">pageSize</a>, use the <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#responses">nextPageToken</a> as the value for the <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-mysql/api-ref/Cluster/listHosts#responses">nextPageToken</a> to continue paging through the results.</p> 

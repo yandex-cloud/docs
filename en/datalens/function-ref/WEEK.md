@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/WEEK.md
 ---
+
 
 # WEEK
 
@@ -22,7 +24,7 @@ The number of the week according to [ISO 8601](https://en.wikipedia.org/wiki/ISO
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 WEEK(#1971-01-14 01:02:03#) = 2

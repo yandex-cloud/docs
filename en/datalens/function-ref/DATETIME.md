@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/DATETIME.md
 ---
+
 
 # DATETIME
 
@@ -39,7 +41,7 @@ Argument `timezone` is available only for `Materialized Dataset`, `ClickHouse` s
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 DATETIME("2019-01-23 15:07:47") = #2019-01-23 15:07:47#

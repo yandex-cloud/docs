@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/removeRoute.md
 ---
+
 
 # Method removeRoute
 Deletes the specified route from the specified virtual host.

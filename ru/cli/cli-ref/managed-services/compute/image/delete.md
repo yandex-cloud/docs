@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/image/delete.md
+---
 # yc compute image delete
 
 Delete the specified image

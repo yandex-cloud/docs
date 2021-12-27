@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/COUNTD_IF.md
 ---
+
 
 # COUNTD_IF
 
@@ -25,7 +27,7 @@ COUNTD_IF( expression, condition )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 COUNTD_IF([ClientID], [Profit] > 5)

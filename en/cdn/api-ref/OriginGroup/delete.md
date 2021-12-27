@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/OriginGroup/delete.md
 ---
+
 
 # Method delete
 Deletes origin group with specified origin group id.
@@ -9,7 +11,7 @@ Deletes origin group with specified origin group id.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://cdn.api.cloud.yandex.net/cdn/v1/origin_groups/{originGroupId}
+DELETE https://cdn.api.cloud.yandex.net/cdn/v1/originGroups/{originGroupId}
 ```
  
 ## Path parameters {#path_params}

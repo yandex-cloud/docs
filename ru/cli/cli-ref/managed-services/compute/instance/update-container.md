@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/update-container.md
+---
 # yc compute instance update-container
 
 Update the specified virtual machine instance running Docker container

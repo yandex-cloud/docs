@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/LEFT.md
 ---
+
 
 # LEFT
 
@@ -23,7 +25,7 @@ Returns a string that contains the number of characters specified in `number` fr
 
 **Return type**: `String`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 LEFT("Computer", 4) = "Comp"

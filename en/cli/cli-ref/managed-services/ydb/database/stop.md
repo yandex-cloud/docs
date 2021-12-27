@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/stop.md
+---
 # yc ydb database stop
 
 Stop the specified YDB database.

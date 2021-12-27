@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/URL.md
 ---
+
 
 # URL
 
@@ -23,7 +25,7 @@ Wraps `text` into a hyperlink to URL `address`.
 
 **Return type**: `Markup`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 URL('https://example.com/?value=' + [value], [value])

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/add-access-binding.md
+---
 # yc serverless container add-access-binding
 
 Add access binding for the specified container

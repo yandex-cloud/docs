@@ -8,22 +8,7 @@
 
 ## Создайте подключение {#create-connection}
 
-1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
-1. Нажмите кнопку **Создать подключение**.
-1. Выберите подключение **ClickHouse**.
-    1. В открывшемся окне укажите параметры подключения:
-       * Название подключения — `CH connect`.
-       * Подключение — тип **Указать вручную**.
-       * Имя хоста —  `rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net`.
-       * Порт HTTP-интерфейса — `8443` (по умолчанию).
-       * Имя пользователя — `samples_ro`.
-       * Пароль — `MsgfcjEhJk`.
-    1. Активируйте опции **HTTPS** и **Разрешить использование подзапросов в качестве источника**.  
-    1. Проверьте подключение и нажмите кнопку **Cоздать**.
-
-    ![create-connection](../_assets/datalens/quickstart/01-create-connection.png)
-
-Дождитесь сохранения подключения.
+{% include [datalens-create-sample-connection](../_includes/datalens/operations/datalens-create-sample-connection.md) %}
 
 ## Создайте датасет {#create-dataset}
 
@@ -127,3 +112,4 @@
 * Пройдите [туториалы](solutions/index.md) с примерами использования сервиса.
 * Ознакомьтесь с [концепциями сервиса](concepts/index.md).
 * Изучите [пошаговые инструкции](operations/index.md).
+* Посмотрите [пример готового дашборда](https://datalens.yandex/9fms9uae7ip02).

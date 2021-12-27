@@ -3,7 +3,7 @@
 Запросы могут быть отправлены для выполнения в YDB следующими способами:
 
 * из [консоли управления](#web-sql);
-* из приложения, написанного с использованием [YDB SDK](../oss/public/reference/ydb-sdk/index.md) для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk);
+* из приложения, написанного с использованием [YDB SDK](../reference/ydb-sdk/index.md) для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk);
 * с помощью [API, совместимого с Amazon DynamoDB](../docapi/api-ref/index.md) — для документальных таблиц.
 
 Для выполнения запросов в этом разделе будет использоваться консоль управления.
@@ -126,7 +126,7 @@ UPDATE имя_таблицы SET имя_столбца1=новое_значен�
 
 {% note info %}
 
-Подробнее о том, как запросить данные по вторичному индексу, читайте в разделе [{#T}](../yql/reference/syntax/select.md#si-select).
+Подробнее о том, как запросить данные по вторичному индексу, [читайте в документации YQL](../yql/reference/syntax/select.md#secondary_index).
 
 {% endnote %}
 

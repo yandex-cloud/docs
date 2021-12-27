@@ -1,4 +1,4 @@
-{% include [Дополнительные настройки](./extra-settings.md) %}
+{% include [extra-settings](./extra-settings.md) %}
 
 - **SQL Server Collation** — определяет правила, по которым сортируются и сравниваются данные. В {{ mms-name }} эта настройка задается на уровне всего кластера. Значение по умолчанию — `Cyrillic_General_CI_AS`.
 

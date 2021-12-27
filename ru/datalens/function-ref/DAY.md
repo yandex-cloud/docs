@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/DAY.md
 ---
+
 
 # DAY
 
@@ -22,7 +24,7 @@ DAY( datetime )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 DAY(#2019-01-23#) = 23

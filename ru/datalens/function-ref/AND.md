@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/AND.md
 ---
+
 
 # AND
 
@@ -30,7 +32,7 @@ value_1 AND value_2
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 [Profit] > 30 AND [Weekday] IN ("Saturday", "Sunday")

@@ -30,7 +30,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
     To view a function's scaling settings, run the command:
 
     ```
-	yc serverless function list-scaling-policies --id=d4eokpuol55h********
+    yc serverless function list-scaling-policies --id=d4eokpuol55h********
     ```
 
     * `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
@@ -38,12 +38,20 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
     Result:
 
     ```
-	+----------------------+---------+----------------------+---------------------+
-	|     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT |
-	+----------------------+---------+----------------------+---------------------+
-	| d4eokpuol55hmj15k7g1 | $latest |                    1 |                   2 |
-	+----------------------+---------+----------------------+---------------------+
+    +----------------------+---------+----------------------+---------------------+
+    |     FUNCTION ID      |   TAG   | ZONE INSTANCES LIMIT | ZONE REQUESTS LIMIT |
+    +----------------------+---------+----------------------+---------------------+
+    | d4eokpuol55hmj15k7g1 | $latest |                    1 |                   2 |
+    +----------------------+---------+----------------------+---------------------+
     ```
+
+- API
+
+    You can view a function's scaling settings using the [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can view a function's scaling settings using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -56,25 +64,25 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
     To add scaling settings for a function, run the command:
 
     ```
-	yc serverless function set-scaling-policy \
-		--id=d4eokpuol55h******** \
-		--tag=\$latest \
-		--zone-instances-limit=1 \
-		--zone-requests-limit=2
+    yc serverless function set-scaling-policy \
+        --id=d4eokpuol55h******** \
+        --tag=\$latest \
+        --zone-instances-limit=1 \
+        --zone-requests-limit=2
     ```
 
     * `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
     * `--tag`: [Tag](../../concepts/function.md#tag) of the function version.
-    * `zone-instances-limit`: Number of function instances.
-    * `zone-requests-limit`: Number of calls-in-progress.
+    * `--zone-instances-limit`: Number of function instances.
+    * `--zone-requests-limit`: Number of calls-in-progress.
 
     Result:
 
     ```
-	function_id: d4eokpuol55h********
-	tag: $latest
-	zone_instances_limit: "1"
-	zone_requests_limit: "2"
+    function_id: d4eokpuol55h********
+    tag: $latest
+    zone_instances_limit: "1"
+    zone_requests_limit: "2"
     ```
 
 - Terraform
@@ -108,14 +116,13 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
         		tag = "$latest"
         		zone_instances_limit = 2
         		zone_requests_limit  = 1
-        	}
+          	}
         }
         ```
 
         For more information about the resources you can create using Terraform, see the [provider documentation](https://www.terraform.io/docs/providers/yandex/index.html).
 
     1. Make sure that the configuration files are correct.
-
         1. In the command line, go to the directory where you created the configuration file.
         1. Run the check using the command:
 
@@ -126,7 +133,6 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
 
    1. Deploy the cloud resources.
-
         1. If the configuration doesn't contain any errors, run the command:
 
             ```
@@ -134,7 +140,15 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
             ```
         1. Confirm that you want to create the resources.
 
-        Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in [management console]({{ link-console-main }}).
+        Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+
+- API
+
+    You can add scaling settings for a function using the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can add scaling settings for a function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -147,12 +161,20 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
     To delete a function's scaling settings, run the command:
 
     ```
-	yc serverless function remove-scaling-policy \
-		--id=d4eokpuol55h******** \
-		--tag=\$latest
-    ```
+    yc serverless function remove-scaling-policy \
+    	--id=d4eokpuol55h******** \
+    	--tag=\$latest
+```
+    * `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
+    * `--tag`: [Tag](../../concepts/function.md#tag) of the function version.
 
-	* `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
-	* `--tag`: [Tag](../../concepts/function.md#tag) of the function version.
+- API
+
+    You can delete scaling settings for a function using the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) API method.
+
+- Yandex.Cloud Toolkit
+
+    You can delete scaling settings for a function using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
+

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/NOW.md
 ---
+
 
 # NOW
 
@@ -21,7 +23,7 @@ NOW()
 
 **Возвращаемый тип**: `Дата и время`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 NOW() = #2019-01-23 12:53:07#

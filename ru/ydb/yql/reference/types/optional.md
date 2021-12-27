@@ -1,3 +1,5 @@
-# Опциональные (nullable)
+---
+sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/optional.md
+---
 
-{% include [datatypes](../../../oss/public/_includes/datatypes-optional.md) %}
+{% include [x](_includes/optional.md) %}

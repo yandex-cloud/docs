@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/REGEXP_EXTRACT.md
 ---
+
 
 # REGEXP_EXTRACT
 
@@ -39,7 +41,7 @@ Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create
 
 
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 REGEXP_EXTRACT("RU 912873", "[A-Z]+\s+(\d+)") = "912873"

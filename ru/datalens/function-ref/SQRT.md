@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/SQRT.md
 ---
+
 
 # SQRT
 
@@ -22,7 +24,7 @@ SQRT( number )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 SQRT(9) = 3.0

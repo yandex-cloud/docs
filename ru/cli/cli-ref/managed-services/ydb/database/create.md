@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/database/create.md
+---
 # yc ydb database create
 
 Create YDB database.
@@ -15,6 +18,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/> Name of the database.|
 |`--description`|<b>`string`</b><br/> Description of the database.|
 |`--resource-preset`|<b>`string`</b><br/> Database resource preset ID.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--public-ip`| Assign public ips for the database.|
 |`--network-id`|<b>`string`</b><br/> Network id.|
 |`--network-name`|<b>`string`</b><br/> Network name.|

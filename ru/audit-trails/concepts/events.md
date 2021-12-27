@@ -7,18 +7,20 @@
 ```text
 yandex.cloud.audit.<имя сервиса>.<имя события>
 ```
+
 Ниже описаны события для сервисов:
-* [{{ at-name }}](#audit-trails)
-* [{{ cloud-logging-name }}](#cloud-logging-name)
-* [{{ compute-name }}](#compute)
-* [{{ iam-name }}](#iam)
-* [{{ kms-name }}](#kms)
-* [{{ lockbox-name }}](#lockbox)
-* [{{ network-load-balancer-name }}](#network-load-balancer)
-* [{{ objstorage-name }}](#objstorage)
-* [{{ resmgr-name }}](#resmgr)
-* [{{ vpc-name }}](#vpc)
-* [{{ ydb-short-name }}](#YDB)
+
+- [{{ at-name }}](#audit-trails)
+- [{{ cloud-logging-name }}](#cloud-logging-name)
+- [{{ compute-name }}](#compute)
+- [{{ iam-name }}](#iam)
+- [{{ kms-name }}](#kms)
+- [{{ lockbox-name }}](#lockbox)
+- [{{ network-load-balancer-name }}](#network-load-balancer)
+- [{{ objstorage-name }}](#objstorage)
+- [{{ resmgr-name }}](#resmgr)
+- [{{ vpc-name }}](#vpc)
+- [{{ ydb-short-name }}](#YDB)
 
 ## {{ at-name }} {#audit-trails}
 
@@ -183,9 +185,12 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `BucketPolicyUpdate` | Изменение политик доступа бакета
 `BucketUpdate` | Изменение бакета
 `BucketWebsiteUpdate` | Изменение конфигурации веб-сайта
-`ObjectCreate` | Создание объекта в бакете
-`ObjectDelete` | Удаление объекта в бакете
-`ObjectUpdate` | Изменение объекта в бакете
+`ObjectCreate` | Создание объекта в бакете *
+`ObjectDelete` | Удаление объекта в бакете *
+`ObjectUpdate` | Изменение объекта в бакете *
+
+\* Указанные события по умолчанию не входят в аудитный лог. Чтобы добавить эти события в аудитный лог, обратитесь в [службу технической поддержки]({{ link-console-support }}). Шаблон обращения:
+«Просьба включить запись событий data plane object storage в audit trail <id трейла>».
 
 ## {{ resmgr-name }} {#resmgr}
 

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/create.md
 ---
+
 
 # Method create
 Creates a lifecycle policy in the specified repository.

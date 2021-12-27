@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/container-registry/api-ref/grpc/repository_service.md
 ---
+
 
 # RepositoryService
 
@@ -75,7 +77,7 @@ registry_id | **string**<br>ID of the registry to list repositories in. <br>To g
 folder_id | **string**<br>ID of the folder to list registries in. <br>`folder_id` is ignored if a [ListImagesRequest.registry_id](#ListImagesRequest) is specified in the request. <br>To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListRepositoriesResponse.next_page_token](#ListRepositoriesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRepositoriesResponse.next_page_token](#ListRepositoriesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Repository.name](#Repository2) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>Value or a list of values to compare against the values of the field.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Repository.name](#Repository2) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 order_by | **string**<br> The maximum string length in characters is 100.
 
 

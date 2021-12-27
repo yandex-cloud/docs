@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/TOPONYM_TO_GEOPOLYGON.md
 ---
+
 
 # TOPONYM_TO_GEOPOLYGON
 
@@ -23,7 +25,7 @@ TOPONYM_TO_GEOPOLYGON( name )
 
 **Возвращаемый тип**: `Геополигон`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 TOPONYM_TO_GEOPOLYGON("Алтайский край") = [[[53.290641,77.907506],[53.367469,77.889413], ... ]]

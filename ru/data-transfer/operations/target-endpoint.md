@@ -1,71 +1,71 @@
-# Управление эндпоинтом-приемником
+# Управление эндпоинтом для приемника
 
-[Эндпоинт](../concepts/index.md#endpoint)-приемник описывает настройки базы данных, в которую будет производиться перенос информации с помощью {{ data-transfer-name }}. Вы можете [создать](#create-endpoint), [изменить](#update-endpoint) или [удалить](#delete-endpoint) такой эндпоинт.
+[Эндпоинт](../concepts/index.md#endpoint) для приемника описывает настройки базы данных, в которую будет перенесена информация с помощью {{ data-transfer-name }}. Вы можете [создать](#create), [изменить](#update) или [удалить](#delete) такой эндпоинт.
 
-## Создать эндпоинт {#create-endpoint}
+## Создать эндпоинт для приемника {#create}
 
 {% list tabs %}
 
 * Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name}}**.
+    1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-name}}**.
     1. На вкладке **Эндпоинты** нажмите кнопку **Создать эндпоинт**.
-    1. В поле **Направление** выберите **Приемник**.
+    1. В поле **Направление** выберите `Приемник`.
     1. Укажите имя эндпоинта. Используйте строчные латинские буквы и цифры.
-    1. (Опционально) укажите описание эндпоинта.
+    1. (Опционально) Укажите описание эндпоинта.
     1. В поле **Тип базы данных** выберите тип приемника, в который вы хотите передавать данные.
     1. Задайте параметры эндпоинта:
 
-        * [{#T}](#settings-clickhouse).
-        * [{#T}](#settings-mongodb).
-        * [{#T}](#settings-mysql).
-        * [{#T}](#settings-storage).
-        * [{#T}](#settings-postgresql).
+        * [{#T}](#settings-clickhouse);
+        * [{#T}](#settings-mongodb);
+        * [{#T}](#settings-mysql);
+        * [{#T}](#settings-storage);
+        * [{#T}](#settings-postgresql);
         * [{#T}](#settings-yandex-database).
 
     1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
-## Изменить эндпоинт {#update-endpoint}
+## Изменить эндпоинт для приемника {#update}
 
 {% list tabs %}
 
 * Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ data-transfer-name }}**.
+    1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-name }}**.
     1. На вкладке **Эндпоинты** выберите эндпоинт и нажмите кнопку ![pencil](../../_assets/pencil.svg) **Редактировать** на панели сверху.
     1. Отредактируйте параметры эндпоинта:
 
-        * [{#T}](#settings-clickhouse).
-        * [{#T}](#settings-mongodb).
-        * [{#T}](#settings-mysql).
-        * [{#T}](#settings-storage).
-        * [{#T}](#settings-postgresql).
+        * [{#T}](#settings-clickhouse);
+        * [{#T}](#settings-mongodb);
+        * [{#T}](#settings-mysql);
+        * [{#T}](#settings-storage);
+        * [{#T}](#settings-postgresql);
         * [{#T}](#settings-yandex-database).
 
     1. Нажмите кнопку **Применить**.
 
 {% endlist %}
 
-## Удалить эндпоинт {#delete-endpoint}
+## Удалить эндпоинт для приемника {#delete}
 
-{% include [delete-endpoint](../../_includes/delete-endpoint.md) %}
+{% include [delete-endpoint](../../_includes/data-transfer/delete-endpoint.md) %}
 
-## Параметры эндпоинтов {#endpoint-settings}
+## Параметры эндпоинта для приемника {#settings}
 
 ### {{ CH }} {#settings-clickhouse}
 
 * **Тип подключения** — выбор типа подключения к БД:
 
-    {% include [ch-connection-necessary-settings.md](../../_includes/data-transfer/ch-connection-necessary-settings.md) %}
+    {% include [ClickHouse required settings](../../_includes/data-transfer/necessary-settings/clickhouse.md) %}
 
 * Дополнительные настройки:
 
-    * **Имя кластера ClickHouse**.
-    * **Переопределение имен таблиц**.
-    * **Колонка шардирования**.
-    * **Шардирование по идентификатору трансфера**.
+    * **Имя кластера ClickHouse** — укажите имя кластера, в который будут передаваться данные.
+    * **Переопределение имен таблиц** — заполните, если необходимо переименовать таблицы источника при переносе в базу-приемник.
+    * **Колонка шардирования** — имя колонки в таблицах, по которой следует [шардировать](../../managed-clickhouse/concepts/sharding.md) данные.
+    * **Шардирование по идентификатору трансфера** — данные по шардам будут распределяться на основе значения идентификатора трансфера.
 
         {% note warning %}
 
@@ -73,53 +73,51 @@
 
         {% endnote %}
 
-    * **Мапинг шардов**.
-
-        Если используется шардирование по колонке, настройте распределение значений по шардам кластера-приемника.
+    * **Мапинг шардов** — если используется шардирование по колонке, настройте распределение значений по шардам кластера-приемника.
 
     * **Загружать данные в JSON формате** — для необязательных полей будут использованы значения по умолчанию, если они определены. Включите эту настройку, если трансфер будет подключаться к приемнику через HTTP-порт, а не нативный.
 
-    * **Интервал записи**.
-
-    * {% include [cleanup-policy-drop.md](../../_includes/data-transfer/cleanup-policy-drop.md) %}
+    * **Интервал записи** — укажите задержку, с которой данные должны поступать в кластер-приемник. Увеличьте значение в этом поле, если {{ CH }} не успевает делать слияние кусков данных.
+    * {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop.md) %}
 
 ### {{ MG }} {#settings-mongodb}
 
 * **Настройки подключения** — выбор типа подключения к БД:
 
-    {% include  [mongodb-connection-necessary-settings.md](../../_includes/data-transfer/mongodb-connection-necessary-settings.md) %}
+    {% include [Required MongoDB settings](../../_includes/data-transfer/necessary-settings/mongodb.md) %}
 
 * Дополнительные настройки:
-
-    * **Идентификатор подсети** — выберите подсеть, через которую сервис должен соединяться с кластером-приемником.
-    * Для шифрования передаваемых данных в поле **PEM-сертификат** нажмите кнопку **Загрузить файл**.
-        Загрузите файл [PEM-сертификата](../../managed-mongodb/operations/connect.md#get-ssl-cert) или добавьте его содержимое в текстовом виде.
-
-    * {% include [cleanup-policy-drop-truncate.md](../../_includes/data-transfer/cleanup-policy-drop-truncate.md) %}
+    
+        
+    * {% include [Field Subnet ID](../../_includes/data-transfer/fields/subnet-id.md) %}
+    
+    * **Сертификат CA** — для шифрования передаваемых данных загрузите файл [PEM-сертификата](../../managed-mongodb/operations/connect.md#get-ssl-cert) или добавьте его содержимое в текстовом виде.
+    * {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop-truncate.md) %}
 
 ### {{ MY }} {#settings-mysql}
 
 * **Настройки подключения** — выбор типа подключения к БД:
 
-    {% include  [mysql-connection-necessary-settings.md](../../_includes/data-transfer/mysql-connection-necessary-settings.md) %}
+    {% include [Required MySQL settings](../../_includes/data-transfer/necessary-settings/mysql.md) %}
 
 * Дополнительные настройки:
 
-    * [Режим sql_mode](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html).
+    * **Режим sql_mod** — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html).
 
-    * Отключение проверки внешних ключей на приемнике. Используются настройки `FOREIGN_KEY_CHECKS=0` и `UNIQUE_CHECKS=0`.
+    * **Отключение проверки констрейтов** — используется для ускорения репликации: настройки `FOREIGN_KEY_CHECKS` и `UNIQUE_CHECKS` устанавливаются в значение `0` (проверки не производятся).
 
-      {% note warning %}
+        {% note warning %}
 
-      Отключение проверки внешних ключей (`FOREIGN_KEY_CHECKS=0`) ускорит репликацию, но может привести к нарушению целостности данных при использовании каскадных операций.
+        Отключение проверки констрейтов ускорит репликацию, но может привести к нарушению целостности данных при использовании каскадных операций.
 
-      {% endnote %}
+        {% endnote %}
 
-    * **Часовой пояс базы**, указывается как идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
-    
-    * {% include [cleanup-policy-drop-truncate.md](../../_includes/data-transfer/cleanup-policy-drop-truncate.md) %}
+    * {% include [Field Timezone](../../_includes/data-transfer/fields/timezone.md) %}
+
+    * {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop-truncate.md) %}
 
 ### {{ objstorage-name }} {#settings-storage}
+
 
 * **Бакет** — имя [бакета](../../storage/concepts/bucket.md), в который будут загружаться данные из источника.
 
@@ -139,36 +137,55 @@
 
 * **Настройки подключения** — выбор типа подключения к БД:
 
-  {% include [pg-connection-necessary-settings.md](../../_includes/data-transfer/pg-connection-necessary-settings.md) %}
+{% include [PostgreSQL required settings](../../_includes/data-transfer/necessary-settings/postgresql.md) %}
 
 * Дополнительные настройки:
+    
+        
+    * **Сетевой интерфейс для эндпоинта** — выберите или [создайте](../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../overview/concepts/geo-scope.md).
+    
+        Если источник и приемник географически близки, подключение через выбранную подсеть ускорит работу трансфера.
+    
+    * {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop-truncate.md) %}
 
-    * {% include [cleanup-policy-drop-truncate.md](../../_includes/data-transfer/cleanup-policy-drop-truncate.md) %}
+    * Сохранение границ транзакций — включите, чтобы сервис записывал данные в базу-приемник только после полного чтения данных транзакции из базы-источника.
+
+        {% note warning %}
+
+        Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+
+        {% endnote %}
 
 ### {{ ydb-name }} {#settings-yandex-database}
 
 Для подключения настройте обязательные параметры:
 
-{% include [yd-connection-necessary-settings.md](../../_includes/data-transfer/ydb-connection-necessary-settings.md) %}
+{% include [Обязательные настройки YDB](../../_includes/data-transfer/necessary-settings/ydb.md) %}
 
 Дополнительные настройки:
 
-* **Количество шардов для разделения трафика**.
+* **Количество шардов для разделения трафика** — укажите нужное количество шардов `N`.
 
-    Если эта настройка задана, в таблицу добавляется колонка <q>_shard_col</q>. Ее значение вычисляется как остаток от деления H/N, где H — результат хеш-функции от текущего времени, а N — указанное настройкой количество шардов.
+    Если настройка задана, в таблицы добавляется колонка <q>_shard_col</q>. Значения в ней вычисляются как остаток от деления `H/N`, где `H` — результат хеш-функции от текущего времени, а `N` — указанное настройкой количество шардов.
 
 * **Ротация таблиц**:
 
     * **Единица измерения** — час, день или месяц.
-    * **Размер таблицы** в выбранных единицах измерения.
-    * **Количество таблиц**.
-    * **Разбивать по колонке** — по значениям какой колонки разбивать таблицу. Колонка должна иметь тип <q>время</q>.
+    * **Размер таблицы** — в выбранных единицах измерения.
+
+        По истечении временного интервала, равного выбранной единице измерения, будет удалена самая старая таблица базы и создана новая.
+
+    * **Количество таблиц** — необходимое количество таблиц в базе-приемнике.
+    * **Разбивать по колонке** — по значениям какой колонки разбивать (_партицировать_) таблицу. Колонка должна иметь тип <q>время</q>.
+
+            
+        Подробнее о партицировании таблиц см. в документации [{{ ydb-full-name }}](../../ydb/concepts/datamodel.md#partitioning)
 
     Если используется эта настройка, в базе-приемнике создается указанное количество таблиц для данных за различные интервалы времени. Имя каждой таблицы выбирается автоматически по дате и времени начала интервала. В зависимости от значений в указанной колонке таблицы-источника, исходные строки распределяются по соответствующим таблицам базы-приемника.
 
-* **Переопределение имен таблиц**.
-* **Поддиректория куда разместить таблицы**.
+* **Переопределение имен таблиц** — заполните, если необходимо переименовать таблицы базы-источника при переносе в базу-приемник.
+* **Поддиректория куда разместить таблицы** — укажите [поддиректорию](../../ydb/concepts/databases.md#directory) для размещения таблиц.
 
     Итоговый путь размещения таблицы: `<Путь в Yandex Database>/<Поддиректория>/<Таблица>`.
 
-* {% include [cleanup-policy-drop.md](../../_includes/data-transfer/cleanup-policy-drop.md) %}
+* {% include [Field Cleanup policy](../../_includes/data-transfer/fields/cleanup-policy-disabled-drop.md) %}

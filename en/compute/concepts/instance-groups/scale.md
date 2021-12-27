@@ -4,7 +4,7 @@ Choose the instance group scaling type when creating each group. The type determ
 
 {% note info %}
 
-If for an instance group, [processes are paused ](stopping-pausing.md) ([status](statuses.md#group-statuses) is `PAUSED`), it does not scale up.
+If for an instance group, [processes are paused](stopping-pausing.md) ([status](statuses.md#group-statuses) is `PAUSED`), it does not scale up.
 
 {% endnote %}
 

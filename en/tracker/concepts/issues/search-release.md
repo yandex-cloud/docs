@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/search-release.md
+---
 # Release scroll view resources
 
 Use this request to release the resources after viewing a search snapshot in the [{#T}](search-issues.md) request.

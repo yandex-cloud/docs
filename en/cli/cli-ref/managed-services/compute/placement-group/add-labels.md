@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/placement-group/add-labels.md
+---
 # yc compute placement-group add-labels
 
 Add labels to the specified placement group

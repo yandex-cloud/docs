@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/hosts/add.md
+---
 # yc managed-redis hosts add
 
 Create new hosts for the cluster in the specified availability zones

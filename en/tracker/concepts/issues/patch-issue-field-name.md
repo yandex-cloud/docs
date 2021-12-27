@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/patch-issue-field-name.md
+---
 # Edit issue field names
 
 ## Request format {#section_v3n_hbv_ngb}

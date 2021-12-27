@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/patch-issue.md
+---
 # Edit an issue
 
 Use this request to make changes to issues.

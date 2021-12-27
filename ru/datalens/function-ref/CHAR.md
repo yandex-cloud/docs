@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/CHAR.md
 ---
+
 
 # CHAR
 
@@ -22,7 +24,7 @@ CHAR( string )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 CHAR(78) = "N"

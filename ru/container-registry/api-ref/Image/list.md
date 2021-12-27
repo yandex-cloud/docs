@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/Image/list.md
 ---
+
 
 # Method list
 Retrieves the list of Image resources in the specified registry or repository.
@@ -21,7 +23,7 @@ repositoryName | Name of the repository to list Docker images in.  To get the re
 folderId | ID of the folder to list Docker images in.  [folderId](/docs/container-registry/api-ref/Image/list#query_params) is ignored if a [repositoryName](/docs/container-registry/api-ref/Image/list#query_params) or a [registryId](/docs/container-registry/api-ref/Image/list#query_params) are specified in the request.  To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.  The maximum string length in characters is 50.
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/container-registry/api-ref/Image/list#query_params), the service returns a [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) that can be used to get the next page of results in subsequent list requests. Default value: 100.  The maximum value is 1000.
 pageToken | Page token. To get the next page of results, set [pageToken](/docs/container-registry/api-ref/Image/list#query_params) to the [nextPageToken](/docs/container-registry/api-ref/Image/list#responses) returned by a previous list request.  The maximum string length in characters is 100.
-filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Image.name](/docs/container-registry/api-ref/Image#representation) field. 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. 3. The value. Must be a maximum of 256 characters and match the regular expression `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.  The maximum string length in characters is 1000.
+filter | A filter expression that filters resources listed in the response. The expression must specify: 1. The field name. Currently you can use filtering only on [Image.name](/docs/container-registry/api-ref/Image#representation) field. 2. An `=` operator. 3. The value in double quotes (`"`). Must be a maximum of 256 characters long and match the regular expression `[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))`.  The maximum string length in characters is 1000.
 orderBy | The maximum string length in characters is 100.
  
 ## Response {#responses}

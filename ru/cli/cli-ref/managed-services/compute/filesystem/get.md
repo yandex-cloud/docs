@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/filesystem/get.md
+---
 # yc compute filesystem get
 
 Show information about the specified filesystem

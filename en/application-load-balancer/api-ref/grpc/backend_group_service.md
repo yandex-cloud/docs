@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/application-load-balancer/api-ref/grpc/backend_group_service.md
 ---
+
 
 # BackendGroupService
 
@@ -417,7 +419,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list backend groups in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListBackendGroupsResponse.next_page_token](#ListBackendGroupsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListBackendGroupsResponse.next_page_token](#ListBackendGroupsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [BackendGroup.name](#BackendGroup1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [BackendGroup.name](#BackendGroup1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListBackendGroupsResponse {#ListBackendGroupsResponse}
@@ -817,9 +819,10 @@ folder_id | **string**<br>Required. ID of the folder to create a backend group i
 name | **string**<br>Name of the backend group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
 description | **string**<br>Description of the backend group. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-backend | **oneof:** `http` or `grpc`<br>Backends that the backend group will consist of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group will consist of. <br>A backend group must consist of either HTTP backends or gRPC backends.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup2)**<br>List of HTTP backends that the backend group will consist of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup2)**<br>List of gRPC backends that the backend group consists of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup2)**<br>List of Stream backends that the backend group consists of. 
 
 
 ### HttpBackendGroup {#HttpBackendGroup2}
@@ -1073,70 +1076,27 @@ name | **string**<br>Name of the cookie that is used for session affinity. The s
 ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
-### Operation {#Operation}
+### StreamBackendGroup {#StreamBackendGroup2}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateBackendGroupMetadata](#CreateBackendGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup2)>**<br>if operation finished successfully. 
+backends[] | **[StreamBackend](#StreamBackend2)**<br> 
+session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity8)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
 
 
-### CreateBackendGroupMetadata {#CreateBackendGroupMetadata}
+### StreamBackend {#StreamBackend2}
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>ID of the backend group that is being created. 
-
-
-### BackendGroup {#BackendGroup2}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the backend group. Generated at creation time. 
-name | **string**<br>Name of the backend group. The name is unique within the folder. The string length in characters is 3-63. 
-description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
-folder_id | **string**<br>ID of the folder that the backend group belongs to. 
-labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
-&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup3)**<br>List of HTTP backends that the backend group consists of. 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup3)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup2)**<br>List of stream backends that the backend group consist of. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-
-
-### HttpBackendGroup {#HttpBackendGroup3}
-
-Field | Description
---- | ---
-backends[] | **[HttpBackend](#HttpBackend3)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend3)), its [HttpBackend.backend_type](#HttpBackend3) should be [TargetGroupsBackend](#TargetGroupsBackend8), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig8) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity8)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity6)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity6)**<br>Cookie-based session affinity configuration. 
-
-
-### HttpBackend {#HttpBackend3}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig8)**<br>Load balancing configuration for the backend. 
-port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend8)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
-&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend3)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
-healthchecks[] | **[HealthCheck](#HealthCheck8)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
-tls | **[BackendTls](#BackendTls8)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls8). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
+name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig8)**<br> 
+port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend8)**<br> 
+healthchecks[] | **[HealthCheck](#HealthCheck8)**<br> 
+tls | **[BackendTls](#BackendTls8)**<br> 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig8}
@@ -1156,13 +1116,6 @@ Field | Description
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
 
 
-### StorageBucketBackend {#StorageBucketBackend3}
-
-Field | Description
---- | ---
-bucket | **string**<br>Required. Name of the bucket. 
-
-
 ### HealthCheck {#HealthCheck8}
 
 Field | Description
@@ -1172,7 +1125,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend4) or [GrpcBackend.port](#GrpcBackend3)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend3) or [GrpcBackend.port](#GrpcBackend3)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck8)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck8)**<br>HTTP health check settings. 
@@ -1227,44 +1180,70 @@ Field | Description
 source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
-### HeaderSessionAffinity {#HeaderSessionAffinity6}
+### Operation {#Operation}
 
 Field | Description
 --- | ---
-header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[CreateBackendGroupMetadata](#CreateBackendGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup2)>**<br>if operation finished successfully. 
 
 
-### CookieSessionAffinity {#CookieSessionAffinity6}
+### CreateBackendGroupMetadata {#CreateBackendGroupMetadata}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
+backend_group_id | **string**<br>ID of the backend group that is being created. 
 
 
-### GrpcBackendGroup {#GrpcBackendGroup3}
+### BackendGroup {#BackendGroup2}
 
 Field | Description
 --- | ---
-backends[] | **[GrpcBackend](#GrpcBackend3)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend3)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig9) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+id | **string**<br>ID of the backend group. Generated at creation time. 
+name | **string**<br>Name of the backend group. The name is unique within the folder. The string length in characters is 3-63. 
+description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
+folder_id | **string**<br>ID of the folder that the backend group belongs to. 
+labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup3)**<br>List of HTTP backends that the backend group consists of. 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup3)**<br>List of gRPC backends that the backend group consists of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup3)**<br>List of stream backends that the backend group consist of. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+
+
+### HttpBackendGroup {#HttpBackendGroup3}
+
+Field | Description
+--- | ---
+backends[] | **[HttpBackend](#HttpBackend3)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend3)), its [HttpBackend.backend_type](#HttpBackend3) should be [TargetGroupsBackend](#TargetGroupsBackend9), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig9) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
 &nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity9)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity7)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity7)**<br>Cookie-based session affinity configuration. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity6)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity6)**<br>Cookie-based session affinity configuration. 
 
 
-### GrpcBackend {#GrpcBackend3}
+### HttpBackend {#HttpBackend3}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig9)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend9)**<br>Target groups that belong to the backend. 
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend9)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend3)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
 healthchecks[] | **[HealthCheck](#HealthCheck9)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls9)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls9). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig9}
@@ -1284,6 +1263,13 @@ Field | Description
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
 
 
+### StorageBucketBackend {#StorageBucketBackend3}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Name of the bucket. 
+
+
 ### HealthCheck {#HealthCheck9}
 
 Field | Description
@@ -1293,7 +1279,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend4) or [GrpcBackend.port](#GrpcBackend4)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend4) or [GrpcBackend.port](#GrpcBackend3)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck9)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck9)**<br>HTTP health check settings. 
@@ -1348,14 +1334,14 @@ Field | Description
 source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
-### HeaderSessionAffinity {#HeaderSessionAffinity7}
+### HeaderSessionAffinity {#HeaderSessionAffinity6}
 
 Field | Description
 --- | ---
 header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
-### CookieSessionAffinity {#CookieSessionAffinity7}
+### CookieSessionAffinity {#CookieSessionAffinity6}
 
 Field | Description
 --- | ---
@@ -1363,27 +1349,29 @@ name | **string**<br>Name of the cookie that is used for session affinity. The s
 ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
-### StreamBackendGroup {#StreamBackendGroup2}
+### GrpcBackendGroup {#GrpcBackendGroup3}
 
 Field | Description
 --- | ---
-backends[] | **[StreamBackend](#StreamBackend2)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity10)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+backends[] | **[GrpcBackend](#GrpcBackend3)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend3)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig10) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity10)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity7)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity7)**<br>Cookie-based session affinity configuration. 
 
 
-### StreamBackend {#StreamBackend2}
+### GrpcBackend {#GrpcBackend3}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig10)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend10)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck10)**<br> 
-tls | **[BackendTls](#BackendTls10)**<br> 
+name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig10)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend10)**<br>Target groups that belong to the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck10)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls10)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls10). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig10}
@@ -1467,55 +1455,42 @@ Field | Description
 source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
-## Update {#Update}
-
-Updates the specified backend group.
-
-**rpc Update ([UpdateBackendGroupRequest](#UpdateBackendGroupRequest)) returns ([operation.Operation](#Operation1))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateBackendGroupMetadata](#UpdateBackendGroupMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](#BackendGroup3)<br>
-
-### UpdateBackendGroupRequest {#UpdateBackendGroupRequest}
+### HeaderSessionAffinity {#HeaderSessionAffinity7}
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>Required. ID of the backend group to update. <br>To get the backend group ID, make a [BackendGroupService.List](#List) request. 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the backend group should be updated. 
-name | **string**<br>New name for the backend group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
-description | **string**<br>New description of the backend group. The maximum string length in characters is 256.
-labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [BackendGroupService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
-backend | **oneof:** `http` or `grpc`<br>New list of backends in the backend group. <br>A backend group must consist of either HTTP backends or gRPC backends. <br>Existing list of backends is completely replaced by the specified list, so if you just want to add or remove a target, make a [BackendGroupService.AddBackend](#AddBackend) request or a [BackendGroupService.RemoveBackend](#RemoveBackend) request.
-&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup4)**<br>New list of HTTP backends that the backend group will consist of. 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup4)**<br>New list of gRPC backends that the backend group will consist of. 
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
-### HttpBackendGroup {#HttpBackendGroup4}
+### CookieSessionAffinity {#CookieSessionAffinity7}
 
 Field | Description
 --- | ---
-backends[] | **[HttpBackend](#HttpBackend4)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend4)), its [HttpBackend.backend_type](#HttpBackend4) should be [TargetGroupsBackend](#TargetGroupsBackend11), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig11) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity11)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity8)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity8)**<br>Cookie-based session affinity configuration. 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
-### HttpBackend {#HttpBackend4}
+### StreamBackendGroup {#StreamBackendGroup3}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig11)**<br>Load balancing configuration for the backend. 
-port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend11)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
-&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend4)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
-healthchecks[] | **[HealthCheck](#HealthCheck11)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
-tls | **[BackendTls](#BackendTls11)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls11). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
+backends[] | **[StreamBackend](#StreamBackend3)**<br> 
+session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity11)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+
+
+### StreamBackend {#StreamBackend3}
+
+Field | Description
+--- | ---
+name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig11)**<br> 
+port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend11)**<br> 
+healthchecks[] | **[HealthCheck](#HealthCheck11)**<br> 
+tls | **[BackendTls](#BackendTls11)**<br> 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig11}
@@ -1535,13 +1510,6 @@ Field | Description
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
 
 
-### StorageBucketBackend {#StorageBucketBackend4}
-
-Field | Description
---- | ---
-bucket | **string**<br>Required. Name of the bucket. 
-
-
 ### HealthCheck {#HealthCheck11}
 
 Field | Description
@@ -1551,7 +1519,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend5) or [GrpcBackend.port](#GrpcBackend4)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend4) or [GrpcBackend.port](#GrpcBackend4)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck11)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck11)**<br>HTTP health check settings. 
@@ -1606,44 +1574,56 @@ Field | Description
 source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
-### HeaderSessionAffinity {#HeaderSessionAffinity8}
+## Update {#Update}
+
+Updates the specified backend group.
+
+**rpc Update ([UpdateBackendGroupRequest](#UpdateBackendGroupRequest)) returns ([operation.Operation](#Operation1))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateBackendGroupMetadata](#UpdateBackendGroupMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](#BackendGroup3)<br>
+
+### UpdateBackendGroupRequest {#UpdateBackendGroupRequest}
 
 Field | Description
 --- | ---
-header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+backend_group_id | **string**<br>Required. ID of the backend group to update. <br>To get the backend group ID, make a [BackendGroupService.List](#List) request. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the backend group should be updated. 
+name | **string**<br>New name for the backend group. The name must be unique within the folder. Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
+description | **string**<br>New description of the backend group. The maximum string length in characters is 256.
+labels | **map<string,string>**<br><ol><li>Get the current set of labels with a [BackendGroupService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\\@0-9a-z]* `.
+backend | **oneof:** `http`, `grpc` or `stream`<br>New list of backends in the backend group. <br>A backend group must consist of either HTTP backends or gRPC backends. <br>Existing list of backends is completely replaced by the specified list, so if you just want to add or remove a target, make a [BackendGroupService.AddBackend](#AddBackend) request or a [BackendGroupService.RemoveBackend](#RemoveBackend) request.
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup4)**<br>New list of HTTP backends that the backend group will consist of. 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup4)**<br>New list of gRPC backends that the backend group will consist of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup4)**<br>New list of Stream backends that the backend group will consist of. 
 
 
-### CookieSessionAffinity {#CookieSessionAffinity8}
+### HttpBackendGroup {#HttpBackendGroup4}
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
-
-
-### GrpcBackendGroup {#GrpcBackendGroup4}
-
-Field | Description
---- | ---
-backends[] | **[GrpcBackend](#GrpcBackend4)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend4)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig12) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+backends[] | **[HttpBackend](#HttpBackend4)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend4)), its [HttpBackend.backend_type](#HttpBackend4) should be [TargetGroupsBackend](#TargetGroupsBackend12), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig12) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
 &nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity12)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity9)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity9)**<br>Cookie-based session affinity configuration. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity8)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity8)**<br>Cookie-based session affinity configuration. 
 
 
-### GrpcBackend {#GrpcBackend4}
+### HttpBackend {#HttpBackend4}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig12)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend12)**<br>Target groups that belong to the backend. 
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend12)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend4)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
 healthchecks[] | **[HealthCheck](#HealthCheck12)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls12)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls12). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig12}
@@ -1663,6 +1643,13 @@ Field | Description
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
 
 
+### StorageBucketBackend {#StorageBucketBackend4}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Name of the bucket. 
+
+
 ### HealthCheck {#HealthCheck12}
 
 Field | Description
@@ -1672,7 +1659,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend5) or [GrpcBackend.port](#GrpcBackend5)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend5) or [GrpcBackend.port](#GrpcBackend4)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck12)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck12)**<br>HTTP health check settings. 
@@ -1727,14 +1714,14 @@ Field | Description
 source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
-### HeaderSessionAffinity {#HeaderSessionAffinity9}
+### HeaderSessionAffinity {#HeaderSessionAffinity8}
 
 Field | Description
 --- | ---
 header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
-### CookieSessionAffinity {#CookieSessionAffinity9}
+### CookieSessionAffinity {#CookieSessionAffinity8}
 
 Field | Description
 --- | ---
@@ -1742,70 +1729,29 @@ name | **string**<br>Name of the cookie that is used for session affinity. The s
 ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
-### Operation {#Operation1}
+### GrpcBackendGroup {#GrpcBackendGroup4}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateBackendGroupMetadata](#UpdateBackendGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup3)>**<br>if operation finished successfully. 
-
-
-### UpdateBackendGroupMetadata {#UpdateBackendGroupMetadata}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>ID of the backend group that is being updated. 
-
-
-### BackendGroup {#BackendGroup3}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the backend group. Generated at creation time. 
-name | **string**<br>Name of the backend group. The name is unique within the folder. The string length in characters is 3-63. 
-description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
-folder_id | **string**<br>ID of the folder that the backend group belongs to. 
-labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
-&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup5)**<br>List of HTTP backends that the backend group consists of. 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup5)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup3)**<br>List of stream backends that the backend group consist of. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-
-
-### HttpBackendGroup {#HttpBackendGroup5}
-
-Field | Description
---- | ---
-backends[] | **[HttpBackend](#HttpBackend5)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend5)), its [HttpBackend.backend_type](#HttpBackend5) should be [TargetGroupsBackend](#TargetGroupsBackend13), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig13) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+backends[] | **[GrpcBackend](#GrpcBackend4)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend4)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig13) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
 &nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity13)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity10)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity10)**<br>Cookie-based session affinity configuration. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity9)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity9)**<br>Cookie-based session affinity configuration. 
 
 
-### HttpBackend {#HttpBackend5}
+### GrpcBackend {#GrpcBackend4}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig13)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend13)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
-&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend5)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend13)**<br>Target groups that belong to the backend. 
 healthchecks[] | **[HealthCheck](#HealthCheck13)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls13)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls13). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig13}
@@ -1825,13 +1771,6 @@ Field | Description
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
 
 
-### StorageBucketBackend {#StorageBucketBackend5}
-
-Field | Description
---- | ---
-bucket | **string**<br>Required. Name of the bucket. 
-
-
 ### HealthCheck {#HealthCheck13}
 
 Field | Description
@@ -1841,7 +1780,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend6) or [GrpcBackend.port](#GrpcBackend5)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend5) or [GrpcBackend.port](#GrpcBackend5)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck13)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck13)**<br>HTTP health check settings. 
@@ -1896,14 +1835,14 @@ Field | Description
 source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
-### HeaderSessionAffinity {#HeaderSessionAffinity10}
+### HeaderSessionAffinity {#HeaderSessionAffinity9}
 
 Field | Description
 --- | ---
 header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
-### CookieSessionAffinity {#CookieSessionAffinity10}
+### CookieSessionAffinity {#CookieSessionAffinity9}
 
 Field | Description
 --- | ---
@@ -1911,29 +1850,27 @@ name | **string**<br>Name of the cookie that is used for session affinity. The s
 ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
-### GrpcBackendGroup {#GrpcBackendGroup5}
+### StreamBackendGroup {#StreamBackendGroup4}
 
 Field | Description
 --- | ---
-backends[] | **[GrpcBackend](#GrpcBackend5)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend5)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig14) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity14)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity11)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity11)**<br>Cookie-based session affinity configuration. 
+backends[] | **[StreamBackend](#StreamBackend4)**<br> 
+session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity14)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
 
 
-### GrpcBackend {#GrpcBackend5}
+### StreamBackend {#StreamBackend4}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig14)**<br>Load balancing configuration for the backend. 
-port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend14)**<br>Target groups that belong to the backend. 
-healthchecks[] | **[HealthCheck](#HealthCheck14)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
-tls | **[BackendTls](#BackendTls14)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls14). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
+name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig14)**<br> 
+port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend14)**<br> 
+healthchecks[] | **[HealthCheck](#HealthCheck14)**<br> 
+tls | **[BackendTls](#BackendTls14)**<br> 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig14}
@@ -1962,7 +1899,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend6) or [GrpcBackend.port](#GrpcBackend6)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend5) or [GrpcBackend.port](#GrpcBackend5)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck14)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck14)**<br>HTTP health check settings. 
@@ -2017,42 +1954,70 @@ Field | Description
 source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
-### HeaderSessionAffinity {#HeaderSessionAffinity11}
+### Operation {#Operation1}
 
 Field | Description
 --- | ---
-header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateBackendGroupMetadata](#UpdateBackendGroupMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup3)>**<br>if operation finished successfully. 
 
 
-### CookieSessionAffinity {#CookieSessionAffinity11}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
-
-
-### StreamBackendGroup {#StreamBackendGroup3}
-
-Field | Description
---- | ---
-backends[] | **[StreamBackend](#StreamBackend3)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity15)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
-
-
-### StreamBackend {#StreamBackend3}
+### UpdateBackendGroupMetadata {#UpdateBackendGroupMetadata}
 
 Field | Description
 --- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig15)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend15)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck15)**<br> 
-tls | **[BackendTls](#BackendTls15)**<br> 
+backend_group_id | **string**<br>ID of the backend group that is being updated. 
+
+
+### BackendGroup {#BackendGroup3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the backend group. Generated at creation time. 
+name | **string**<br>Name of the backend group. The name is unique within the folder. The string length in characters is 3-63. 
+description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
+folder_id | **string**<br>ID of the folder that the backend group belongs to. 
+labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup5)**<br>List of HTTP backends that the backend group consists of. 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup5)**<br>List of gRPC backends that the backend group consists of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup5)**<br>List of stream backends that the backend group consist of. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+
+
+### HttpBackendGroup {#HttpBackendGroup5}
+
+Field | Description
+--- | ---
+backends[] | **[HttpBackend](#HttpBackend5)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend5)), its [HttpBackend.backend_type](#HttpBackend5) should be [TargetGroupsBackend](#TargetGroupsBackend15), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig15) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity15)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity10)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity10)**<br>Cookie-based session affinity configuration. 
+
+
+### HttpBackend {#HttpBackend5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig15)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend15)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend5)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
+healthchecks[] | **[HealthCheck](#HealthCheck15)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls15)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls15). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig15}
@@ -2072,6 +2037,13 @@ Field | Description
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
 
 
+### StorageBucketBackend {#StorageBucketBackend5}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Name of the bucket. 
+
+
 ### HealthCheck {#HealthCheck15}
 
 Field | Description
@@ -2081,7 +2053,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend6) or [GrpcBackend.port](#GrpcBackend6)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend6) or [GrpcBackend.port](#GrpcBackend5)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck15)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck15)**<br>HTTP health check settings. 
@@ -2130,6 +2102,246 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 
 
 ### ConnectionSessionAffinity {#ConnectionSessionAffinity15}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity10}
+
+Field | Description
+--- | ---
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity10}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
+
+
+### GrpcBackendGroup {#GrpcBackendGroup5}
+
+Field | Description
+--- | ---
+backends[] | **[GrpcBackend](#GrpcBackend5)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend5)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig16) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity16)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity11)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity11)**<br>Cookie-based session affinity configuration. 
+
+
+### GrpcBackend {#GrpcBackend5}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig16)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend16)**<br>Target groups that belong to the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck16)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls16)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls16). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig16}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
+
+
+### TargetGroupsBackend {#TargetGroupsBackend16}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck16}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
+interval_jitter_percent | **double**<br> 
+healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
+unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend6) or [GrpcBackend.port](#GrpcBackend6)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck16)**<br>TCP stream health check settings. 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck16)**<br>HTTP health check settings. 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck16)**<br>gRPC health check settings. 
+
+
+### StreamHealthCheck {#StreamHealthCheck16}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
+receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
+
+
+### HttpHealthCheck {#HttpHealthCheck16}
+
+Field | Description
+--- | ---
+host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
+path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck16}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+
+
+### BackendTls {#BackendTls16}
+
+Field | Description
+--- | ---
+sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext16)**<br>Validation context for TLS connections. 
+
+
+### ValidationContext {#ValidationContext16}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
+### ConnectionSessionAffinity {#ConnectionSessionAffinity16}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity11}
+
+Field | Description
+--- | ---
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity11}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
+
+
+### StreamBackendGroup {#StreamBackendGroup5}
+
+Field | Description
+--- | ---
+backends[] | **[StreamBackend](#StreamBackend5)**<br> 
+session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity17)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+
+
+### StreamBackend {#StreamBackend5}
+
+Field | Description
+--- | ---
+name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig17)**<br> 
+port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend17)**<br> 
+healthchecks[] | **[HealthCheck](#HealthCheck17)**<br> 
+tls | **[BackendTls](#BackendTls17)**<br> 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig17}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
+
+
+### TargetGroupsBackend {#TargetGroupsBackend17}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck17}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
+interval_jitter_percent | **double**<br> 
+healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
+unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend6) or [GrpcBackend.port](#GrpcBackend6)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck17)**<br>TCP stream health check settings. 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck17)**<br>HTTP health check settings. 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck17)**<br>gRPC health check settings. 
+
+
+### StreamHealthCheck {#StreamHealthCheck17}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
+receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
+
+
+### HttpHealthCheck {#HttpHealthCheck17}
+
+Field | Description
+--- | ---
+host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
+path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck17}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+
+
+### BackendTls {#BackendTls17}
+
+Field | Description
+--- | ---
+sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext17)**<br>Validation context for TLS connections. 
+
+
+### ValidationContext {#ValidationContext17}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
+### ConnectionSessionAffinity {#ConnectionSessionAffinity17}
 
 Field | Description
 --- | ---
@@ -2191,248 +2403,13 @@ Metadata and response of Operation:<br>
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required. ID of the backend group to add a backend to. <br>To get the backend group ID, make a [BackendGroupService.List](#List) request. 
-backend | **oneof:** `http` or `grpc`<br>Backend to add to the backend group. <br>A backend group must consist of either HTTP backends or gRPC backends.
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backend to add to the backend group. <br>A backend group must consist of either HTTP backends or gRPC backends.
 &nbsp;&nbsp;http | **[HttpBackend](#HttpBackend6)**<br>HTTP backend to add to the backend group. 
 &nbsp;&nbsp;grpc | **[GrpcBackend](#GrpcBackend6)**<br>gRPC backend to add to the backend group. 
+&nbsp;&nbsp;stream | **[StreamBackend](#StreamBackend6)**<br>New settings for the Stream backend. 
 
 
 ### HttpBackend {#HttpBackend6}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig16)**<br>Load balancing configuration for the backend. 
-port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend16)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
-&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend6)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
-healthchecks[] | **[HealthCheck](#HealthCheck16)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
-tls | **[BackendTls](#BackendTls16)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls16). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
-
-
-### LoadBalancingConfig {#LoadBalancingConfig16}
-
-Field | Description
---- | ---
-panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
-locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
-strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
-
-
-### TargetGroupsBackend {#TargetGroupsBackend16}
-
-Field | Description
---- | ---
-target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
-
-
-### StorageBucketBackend {#StorageBucketBackend6}
-
-Field | Description
---- | ---
-bucket | **string**<br>Required. Name of the bucket. 
-
-
-### HealthCheck {#HealthCheck16}
-
-Field | Description
---- | ---
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
-interval_jitter_percent | **double**<br> 
-healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
-unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend7) or [GrpcBackend.port](#GrpcBackend6)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
-healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
-&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck16)**<br>TCP stream health check settings. 
-&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck16)**<br>HTTP health check settings. 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck16)**<br>gRPC health check settings. 
-
-
-### StreamHealthCheck {#StreamHealthCheck16}
-
-Field | Description
---- | ---
-send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
-receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
-
-
-### HttpHealthCheck {#HttpHealthCheck16}
-
-Field | Description
---- | ---
-host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
-path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
-
-
-### GrpcHealthCheck {#GrpcHealthCheck16}
-
-Field | Description
---- | ---
-service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
-
-
-### BackendTls {#BackendTls16}
-
-Field | Description
---- | ---
-sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext16)**<br>Validation context for TLS connections. 
-
-
-### ValidationContext {#ValidationContext16}
-
-Field | Description
---- | ---
-trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
-&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
-&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
-
-
-### GrpcBackend {#GrpcBackend6}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig17)**<br>Load balancing configuration for the backend. 
-port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend17)**<br>Target groups that belong to the backend. 
-healthchecks[] | **[HealthCheck](#HealthCheck17)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
-tls | **[BackendTls](#BackendTls17)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls17). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
-
-
-### LoadBalancingConfig {#LoadBalancingConfig17}
-
-Field | Description
---- | ---
-panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
-locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
-strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
-
-
-### TargetGroupsBackend {#TargetGroupsBackend17}
-
-Field | Description
---- | ---
-target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
-
-
-### HealthCheck {#HealthCheck17}
-
-Field | Description
---- | ---
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
-interval_jitter_percent | **double**<br> 
-healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
-unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend7) or [GrpcBackend.port](#GrpcBackend7)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
-healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
-&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck17)**<br>TCP stream health check settings. 
-&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck17)**<br>HTTP health check settings. 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck17)**<br>gRPC health check settings. 
-
-
-### StreamHealthCheck {#StreamHealthCheck17}
-
-Field | Description
---- | ---
-send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
-receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
-
-
-### HttpHealthCheck {#HttpHealthCheck17}
-
-Field | Description
---- | ---
-host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
-path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
-
-
-### GrpcHealthCheck {#GrpcHealthCheck17}
-
-Field | Description
---- | ---
-service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
-
-
-### BackendTls {#BackendTls17}
-
-Field | Description
---- | ---
-sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext17)**<br>Validation context for TLS connections. 
-
-
-### ValidationContext {#ValidationContext17}
-
-Field | Description
---- | ---
-trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
-&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
-&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
-
-
-### Operation {#Operation3}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddBackendMetadata](#AddBackendMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup4)>**<br>if operation finished successfully. 
-
-
-### AddBackendMetadata {#AddBackendMetadata}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>ID of the backend group that the backend is being added to. 
-backend_name | **string**<br>Name of the backend that is being added to the backend group. 
-
-
-### BackendGroup {#BackendGroup4}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the backend group. Generated at creation time. 
-name | **string**<br>Name of the backend group. The name is unique within the folder. The string length in characters is 3-63. 
-description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
-folder_id | **string**<br>ID of the folder that the backend group belongs to. 
-labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
-&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup6)**<br>List of HTTP backends that the backend group consists of. 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup6)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup4)**<br>List of stream backends that the backend group consist of. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-
-
-### HttpBackendGroup {#HttpBackendGroup6}
-
-Field | Description
---- | ---
-backends[] | **[HttpBackend](#HttpBackend7)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend7)), its [HttpBackend.backend_type](#HttpBackend7) should be [TargetGroupsBackend](#TargetGroupsBackend18), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig18) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity16)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity12)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity12)**<br>Cookie-based session affinity configuration. 
-
-
-### HttpBackend {#HttpBackend7}
 
 Field | Description
 --- | ---
@@ -2442,7 +2419,7 @@ load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig18)**<br>Loa
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend18)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
-&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend7)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend6)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
 healthchecks[] | **[HealthCheck](#HealthCheck18)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls18)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls18). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -2465,7 +2442,7 @@ Field | Description
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
 
 
-### StorageBucketBackend {#StorageBucketBackend7}
+### StorageBucketBackend {#StorageBucketBackend6}
 
 Field | Description
 --- | ---
@@ -2481,7 +2458,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend8) or [GrpcBackend.port](#GrpcBackend7)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend7) or [GrpcBackend.port](#GrpcBackend6)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck18)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck18)**<br>HTTP health check settings. 
@@ -2529,40 +2506,7 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
-### ConnectionSessionAffinity {#ConnectionSessionAffinity16}
-
-Field | Description
---- | ---
-source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
-
-
-### HeaderSessionAffinity {#HeaderSessionAffinity12}
-
-Field | Description
---- | ---
-header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
-
-
-### CookieSessionAffinity {#CookieSessionAffinity12}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
-
-
-### GrpcBackendGroup {#GrpcBackendGroup6}
-
-Field | Description
---- | ---
-backends[] | **[GrpcBackend](#GrpcBackend7)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend7)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig19) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity17)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity13)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity13)**<br>Cookie-based session affinity configuration. 
-
-
-### GrpcBackend {#GrpcBackend7}
+### GrpcBackend {#GrpcBackend6}
 
 Field | Description
 --- | ---
@@ -2602,7 +2546,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend8) or [GrpcBackend.port](#GrpcBackend8)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend7) or [GrpcBackend.port](#GrpcBackend7)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck19)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck19)**<br>HTTP health check settings. 
@@ -2650,38 +2594,7 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
-### ConnectionSessionAffinity {#ConnectionSessionAffinity17}
-
-Field | Description
---- | ---
-source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
-
-
-### HeaderSessionAffinity {#HeaderSessionAffinity13}
-
-Field | Description
---- | ---
-header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
-
-
-### CookieSessionAffinity {#CookieSessionAffinity13}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
-
-
-### StreamBackendGroup {#StreamBackendGroup4}
-
-Field | Description
---- | ---
-backends[] | **[StreamBackend](#StreamBackend4)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity18)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
-
-
-### StreamBackend {#StreamBackend4}
+### StreamBackend {#StreamBackend6}
 
 Field | Description
 --- | ---
@@ -2721,7 +2634,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend8) or [GrpcBackend.port](#GrpcBackend8)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend7) or [GrpcBackend.port](#GrpcBackend7)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck20)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck20)**<br>HTTP health check settings. 
@@ -2769,7 +2682,395 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### Operation {#Operation3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddBackendMetadata](#AddBackendMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup4)>**<br>if operation finished successfully. 
+
+
+### AddBackendMetadata {#AddBackendMetadata}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>ID of the backend group that the backend is being added to. 
+backend_name | **string**<br>Name of the backend that is being added to the backend group. 
+
+
+### BackendGroup {#BackendGroup4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the backend group. Generated at creation time. 
+name | **string**<br>Name of the backend group. The name is unique within the folder. The string length in characters is 3-63. 
+description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
+folder_id | **string**<br>ID of the folder that the backend group belongs to. 
+labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup6)**<br>List of HTTP backends that the backend group consists of. 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup6)**<br>List of gRPC backends that the backend group consists of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup6)**<br>List of stream backends that the backend group consist of. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+
+
+### HttpBackendGroup {#HttpBackendGroup6}
+
+Field | Description
+--- | ---
+backends[] | **[HttpBackend](#HttpBackend7)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend7)), its [HttpBackend.backend_type](#HttpBackend7) should be [TargetGroupsBackend](#TargetGroupsBackend21), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig21) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity18)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity12)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity12)**<br>Cookie-based session affinity configuration. 
+
+
+### HttpBackend {#HttpBackend7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig21)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend21)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend7)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
+healthchecks[] | **[HealthCheck](#HealthCheck21)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls21)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls21). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig21}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
+
+
+### TargetGroupsBackend {#TargetGroupsBackend21}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend7}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Name of the bucket. 
+
+
+### HealthCheck {#HealthCheck21}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
+interval_jitter_percent | **double**<br> 
+healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
+unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend8) or [GrpcBackend.port](#GrpcBackend7)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck21)**<br>TCP stream health check settings. 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck21)**<br>HTTP health check settings. 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck21)**<br>gRPC health check settings. 
+
+
+### StreamHealthCheck {#StreamHealthCheck21}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
+receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
+
+
+### HttpHealthCheck {#HttpHealthCheck21}
+
+Field | Description
+--- | ---
+host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
+path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck21}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+
+
+### BackendTls {#BackendTls21}
+
+Field | Description
+--- | ---
+sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext21)**<br>Validation context for TLS connections. 
+
+
+### ValidationContext {#ValidationContext21}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### ConnectionSessionAffinity {#ConnectionSessionAffinity18}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity12}
+
+Field | Description
+--- | ---
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity12}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
+
+
+### GrpcBackendGroup {#GrpcBackendGroup6}
+
+Field | Description
+--- | ---
+backends[] | **[GrpcBackend](#GrpcBackend7)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend7)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig22) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity19)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity13)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity13)**<br>Cookie-based session affinity configuration. 
+
+
+### GrpcBackend {#GrpcBackend7}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig22)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend22)**<br>Target groups that belong to the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck22)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls22)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls22). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig22}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
+
+
+### TargetGroupsBackend {#TargetGroupsBackend22}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck22}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
+interval_jitter_percent | **double**<br> 
+healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
+unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend8) or [GrpcBackend.port](#GrpcBackend8)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck22)**<br>TCP stream health check settings. 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck22)**<br>HTTP health check settings. 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck22)**<br>gRPC health check settings. 
+
+
+### StreamHealthCheck {#StreamHealthCheck22}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
+receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
+
+
+### HttpHealthCheck {#HttpHealthCheck22}
+
+Field | Description
+--- | ---
+host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
+path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck22}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+
+
+### BackendTls {#BackendTls22}
+
+Field | Description
+--- | ---
+sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext22)**<br>Validation context for TLS connections. 
+
+
+### ValidationContext {#ValidationContext22}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
+### ConnectionSessionAffinity {#ConnectionSessionAffinity19}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity13}
+
+Field | Description
+--- | ---
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity13}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
+
+
+### StreamBackendGroup {#StreamBackendGroup6}
+
+Field | Description
+--- | ---
+backends[] | **[StreamBackend](#StreamBackend7)**<br> 
+session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity20)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+
+
+### StreamBackend {#StreamBackend7}
+
+Field | Description
+--- | ---
+name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig23)**<br> 
+port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend23)**<br> 
+healthchecks[] | **[HealthCheck](#HealthCheck23)**<br> 
+tls | **[BackendTls](#BackendTls23)**<br> 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig23}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
+
+
+### TargetGroupsBackend {#TargetGroupsBackend23}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck23}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
+interval_jitter_percent | **double**<br> 
+healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
+unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend8) or [GrpcBackend.port](#GrpcBackend8)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck23)**<br>TCP stream health check settings. 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck23)**<br>HTTP health check settings. 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck23)**<br>gRPC health check settings. 
+
+
+### StreamHealthCheck {#StreamHealthCheck23}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
+receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
+
+
+### HttpHealthCheck {#HttpHealthCheck23}
+
+Field | Description
+--- | ---
+host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
+path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck23}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+
+
+### BackendTls {#BackendTls23}
+
+Field | Description
+--- | ---
+sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext23)**<br>Validation context for TLS connections. 
+
+
+### ValidationContext {#ValidationContext23}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
+### ConnectionSessionAffinity {#ConnectionSessionAffinity20}
 
 Field | Description
 --- | ---
@@ -2830,7 +3131,7 @@ labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. Fo
 backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
 &nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup7)**<br>List of HTTP backends that the backend group consists of. 
 &nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup7)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup5)**<br>List of stream backends that the backend group consist of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup7)**<br>List of stream backends that the backend group consist of. 
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
 
 
@@ -2839,8 +3140,8 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 Field | Description
 --- | ---
 backends[] | **[HttpBackend](#HttpBackend8)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend8)), its [HttpBackend.backend_type](#HttpBackend8) should be [TargetGroupsBackend](#TargetGroupsBackend21), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig21) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity19)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend8)), its [HttpBackend.backend_type](#HttpBackend8) should be [TargetGroupsBackend](#TargetGroupsBackend24), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig24) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity21)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
 &nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity14)**<br>HTTP-header-field-based session affinity configuration. 
 &nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity14)**<br>Cookie-based session affinity configuration. 
 
@@ -2851,376 +3152,11 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
 backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig21)**<br>Load balancing configuration for the backend. 
-port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend21)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
-&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend8)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
-healthchecks[] | **[HealthCheck](#HealthCheck21)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
-tls | **[BackendTls](#BackendTls21)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls21). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
-
-
-### LoadBalancingConfig {#LoadBalancingConfig21}
-
-Field | Description
---- | ---
-panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
-locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
-strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
-
-
-### TargetGroupsBackend {#TargetGroupsBackend21}
-
-Field | Description
---- | ---
-target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
-
-
-### StorageBucketBackend {#StorageBucketBackend8}
-
-Field | Description
---- | ---
-bucket | **string**<br>Required. Name of the bucket. 
-
-
-### HealthCheck {#HealthCheck21}
-
-Field | Description
---- | ---
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
-interval_jitter_percent | **double**<br> 
-healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
-unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend9) or [GrpcBackend.port](#GrpcBackend8)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
-healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
-&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck21)**<br>TCP stream health check settings. 
-&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck21)**<br>HTTP health check settings. 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck21)**<br>gRPC health check settings. 
-
-
-### StreamHealthCheck {#StreamHealthCheck21}
-
-Field | Description
---- | ---
-send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
-receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
-
-
-### HttpHealthCheck {#HttpHealthCheck21}
-
-Field | Description
---- | ---
-host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
-path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
-
-
-### GrpcHealthCheck {#GrpcHealthCheck21}
-
-Field | Description
---- | ---
-service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
-
-
-### BackendTls {#BackendTls21}
-
-Field | Description
---- | ---
-sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext21)**<br>Validation context for TLS connections. 
-
-
-### ValidationContext {#ValidationContext21}
-
-Field | Description
---- | ---
-trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
-&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
-&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
-
-
-### ConnectionSessionAffinity {#ConnectionSessionAffinity19}
-
-Field | Description
---- | ---
-source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
-
-
-### HeaderSessionAffinity {#HeaderSessionAffinity14}
-
-Field | Description
---- | ---
-header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
-
-
-### CookieSessionAffinity {#CookieSessionAffinity14}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
-
-
-### GrpcBackendGroup {#GrpcBackendGroup7}
-
-Field | Description
---- | ---
-backends[] | **[GrpcBackend](#GrpcBackend8)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend8)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig22) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity20)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity15)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity15)**<br>Cookie-based session affinity configuration. 
-
-
-### GrpcBackend {#GrpcBackend8}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig22)**<br>Load balancing configuration for the backend. 
-port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend22)**<br>Target groups that belong to the backend. 
-healthchecks[] | **[HealthCheck](#HealthCheck22)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
-tls | **[BackendTls](#BackendTls22)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls22). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
-
-
-### LoadBalancingConfig {#LoadBalancingConfig22}
-
-Field | Description
---- | ---
-panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
-locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
-strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
-
-
-### TargetGroupsBackend {#TargetGroupsBackend22}
-
-Field | Description
---- | ---
-target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
-
-
-### HealthCheck {#HealthCheck22}
-
-Field | Description
---- | ---
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
-interval_jitter_percent | **double**<br> 
-healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
-unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend9) or [GrpcBackend.port](#GrpcBackend9)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
-healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
-&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck22)**<br>TCP stream health check settings. 
-&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck22)**<br>HTTP health check settings. 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck22)**<br>gRPC health check settings. 
-
-
-### StreamHealthCheck {#StreamHealthCheck22}
-
-Field | Description
---- | ---
-send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
-receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
-
-
-### HttpHealthCheck {#HttpHealthCheck22}
-
-Field | Description
---- | ---
-host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
-path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
-
-
-### GrpcHealthCheck {#GrpcHealthCheck22}
-
-Field | Description
---- | ---
-service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
-
-
-### BackendTls {#BackendTls22}
-
-Field | Description
---- | ---
-sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext22)**<br>Validation context for TLS connections. 
-
-
-### ValidationContext {#ValidationContext22}
-
-Field | Description
---- | ---
-trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
-&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
-&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
-
-
-### ConnectionSessionAffinity {#ConnectionSessionAffinity20}
-
-Field | Description
---- | ---
-source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
-
-
-### HeaderSessionAffinity {#HeaderSessionAffinity15}
-
-Field | Description
---- | ---
-header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
-
-
-### CookieSessionAffinity {#CookieSessionAffinity15}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
-
-
-### StreamBackendGroup {#StreamBackendGroup5}
-
-Field | Description
---- | ---
-backends[] | **[StreamBackend](#StreamBackend5)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity21)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
-
-
-### StreamBackend {#StreamBackend5}
-
-Field | Description
---- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig23)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend23)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck23)**<br> 
-tls | **[BackendTls](#BackendTls23)**<br> 
-
-
-### LoadBalancingConfig {#LoadBalancingConfig23}
-
-Field | Description
---- | ---
-panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
-locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
-strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
-mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
-
-
-### TargetGroupsBackend {#TargetGroupsBackend23}
-
-Field | Description
---- | ---
-target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
-
-
-### HealthCheck {#HealthCheck23}
-
-Field | Description
---- | ---
-timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
-interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
-interval_jitter_percent | **double**<br> 
-healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
-unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend9) or [GrpcBackend.port](#GrpcBackend9)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
-healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
-&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck23)**<br>TCP stream health check settings. 
-&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck23)**<br>HTTP health check settings. 
-&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck23)**<br>gRPC health check settings. 
-
-
-### StreamHealthCheck {#StreamHealthCheck23}
-
-Field | Description
---- | ---
-send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
-receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
-
-
-### HttpHealthCheck {#HttpHealthCheck23}
-
-Field | Description
---- | ---
-host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
-path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
-
-
-### GrpcHealthCheck {#GrpcHealthCheck23}
-
-Field | Description
---- | ---
-service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
-
-
-### BackendTls {#BackendTls23}
-
-Field | Description
---- | ---
-sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
-validation_context | **[ValidationContext](#ValidationContext23)**<br>Validation context for TLS connections. 
-
-
-### ValidationContext {#ValidationContext23}
-
-Field | Description
---- | ---
-trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
-&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
-&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
-
-
-### ConnectionSessionAffinity {#ConnectionSessionAffinity21}
-
-Field | Description
---- | ---
-source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
-
-
-## UpdateBackend {#UpdateBackend}
-
-Updates the specified backend.
-
-**rpc UpdateBackend ([UpdateBackendRequest](#UpdateBackendRequest)) returns ([operation.Operation](#Operation5))**
-
-Metadata and response of Operation:<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateBackendMetadata](#UpdateBackendMetadata)<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](#BackendGroup6)<br>
-
-### UpdateBackendRequest {#UpdateBackendRequest}
-
-Field | Description
---- | ---
-backend_group_id | **string**<br>Required. ID of the backend group to update the backend in. 
-update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the backend should be updated. 
-backend | **oneof:** `http` or `grpc`<br>Name of the backend to update (required) and new settings for the backend.
-&nbsp;&nbsp;http | **[HttpBackend](#HttpBackend9)**<br>New settings for the HTTP backend. 
-&nbsp;&nbsp;grpc | **[GrpcBackend](#GrpcBackend9)**<br>New settings for the gRPC backend. 
-
-
-### HttpBackend {#HttpBackend9}
-
-Field | Description
---- | ---
-name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig24)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
 backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
 &nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend24)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
-&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend9)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend8)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
 healthchecks[] | **[HealthCheck](#HealthCheck24)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls24)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls24). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
@@ -3243,7 +3179,7 @@ Field | Description
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
 
 
-### StorageBucketBackend {#StorageBucketBackend9}
+### StorageBucketBackend {#StorageBucketBackend8}
 
 Field | Description
 --- | ---
@@ -3259,7 +3195,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend10) or [GrpcBackend.port](#GrpcBackend9)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend9) or [GrpcBackend.port](#GrpcBackend8)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck24)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck24)**<br>HTTP health check settings. 
@@ -3307,7 +3243,40 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
-### GrpcBackend {#GrpcBackend9}
+### ConnectionSessionAffinity {#ConnectionSessionAffinity21}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity14}
+
+Field | Description
+--- | ---
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity14}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
+
+
+### GrpcBackendGroup {#GrpcBackendGroup7}
+
+Field | Description
+--- | ---
+backends[] | **[GrpcBackend](#GrpcBackend8)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend8)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig25) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity22)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity15)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity15)**<br>Cookie-based session affinity configuration. 
+
+
+### GrpcBackend {#GrpcBackend8}
 
 Field | Description
 --- | ---
@@ -3347,7 +3316,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend10) or [GrpcBackend.port](#GrpcBackend10)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend9) or [GrpcBackend.port](#GrpcBackend9)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck25)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck25)**<br>HTTP health check settings. 
@@ -3395,71 +3364,49 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
-### Operation {#Operation5}
+### ConnectionSessionAffinity {#ConnectionSessionAffinity22}
 
 Field | Description
 --- | ---
-id | **string**<br>ID of the operation. 
-description | **string**<br>Description of the operation. 0-256 characters long. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-created_by | **string**<br>ID of the user or service account who initiated the operation. 
-modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
-done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
-metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateBackendMetadata](#UpdateBackendMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
-result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
-&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
-&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup6)>**<br>if operation finished successfully. 
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
-### UpdateBackendMetadata {#UpdateBackendMetadata}
+### HeaderSessionAffinity {#HeaderSessionAffinity15}
 
 Field | Description
 --- | ---
-backend_group_id | **string**<br>ID of the backend group that the backend is being updated it. 
-backend_name | **string**<br>Name of the backend that is being updated. 
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
 
 
-### BackendGroup {#BackendGroup6}
-
-Field | Description
---- | ---
-id | **string**<br>ID of the backend group. Generated at creation time. 
-name | **string**<br>Name of the backend group. The name is unique within the folder. The string length in characters is 3-63. 
-description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
-folder_id | **string**<br>ID of the folder that the backend group belongs to. 
-labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
-backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
-&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup8)**<br>List of HTTP backends that the backend group consists of. 
-&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup8)**<br>List of gRPC backends that the backend group consists of. 
-&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup6)**<br>List of stream backends that the backend group consist of. 
-created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
-
-
-### HttpBackendGroup {#HttpBackendGroup8}
+### CookieSessionAffinity {#CookieSessionAffinity15}
 
 Field | Description
 --- | ---
-backends[] | **[HttpBackend](#HttpBackend10)**<br>List of HTTP backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend10)), its [HttpBackend.backend_type](#HttpBackend10) should be [TargetGroupsBackend](#TargetGroupsBackend26), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig26) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity22)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity16)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity16)**<br>Cookie-based session affinity configuration. 
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
 
 
-### HttpBackend {#HttpBackend10}
+### StreamBackendGroup {#StreamBackendGroup7}
 
 Field | Description
 --- | ---
-name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig26)**<br>Load balancing configuration for the backend. 
-port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend26)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
-&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend10)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
-healthchecks[] | **[HealthCheck](#HealthCheck26)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
-tls | **[BackendTls](#BackendTls26)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls26). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
-use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
+backends[] | **[StreamBackend](#StreamBackend8)**<br> 
+session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity23)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+
+
+### StreamBackend {#StreamBackend8}
+
+Field | Description
+--- | ---
+name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig26)**<br> 
+port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend26)**<br> 
+healthchecks[] | **[HealthCheck](#HealthCheck26)**<br> 
+tls | **[BackendTls](#BackendTls26)**<br> 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig26}
@@ -3479,13 +3426,6 @@ Field | Description
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
 
 
-### StorageBucketBackend {#StorageBucketBackend10}
-
-Field | Description
---- | ---
-bucket | **string**<br>Required. Name of the bucket. 
-
-
 ### HealthCheck {#HealthCheck26}
 
 Field | Description
@@ -3495,7 +3435,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend11) or [GrpcBackend.port](#GrpcBackend10)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend9) or [GrpcBackend.port](#GrpcBackend9)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck26)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck26)**<br>HTTP health check settings. 
@@ -3543,51 +3483,49 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
-### ConnectionSessionAffinity {#ConnectionSessionAffinity22}
+### ConnectionSessionAffinity {#ConnectionSessionAffinity23}
 
 Field | Description
 --- | ---
 source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
 
 
-### HeaderSessionAffinity {#HeaderSessionAffinity16}
+## UpdateBackend {#UpdateBackend}
+
+Updates the specified backend.
+
+**rpc UpdateBackend ([UpdateBackendRequest](#UpdateBackendRequest)) returns ([operation.Operation](#Operation5))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateBackendMetadata](#UpdateBackendMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[BackendGroup](#BackendGroup6)<br>
+
+### UpdateBackendRequest {#UpdateBackendRequest}
 
 Field | Description
 --- | ---
-header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+backend_group_id | **string**<br>Required. ID of the backend group to update the backend in. 
+update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which attributes of the backend should be updated. 
+backend | **oneof:** `http`, `grpc` or `stream`<br>Name of the backend to update (required) and new settings for the backend.
+&nbsp;&nbsp;http | **[HttpBackend](#HttpBackend9)**<br>New settings for the HTTP backend. 
+&nbsp;&nbsp;grpc | **[GrpcBackend](#GrpcBackend9)**<br>New settings for the gRPC backend. 
+&nbsp;&nbsp;stream | **[StreamBackend](#StreamBackend9)**<br>New settings for the Stream backend. 
 
 
-### CookieSessionAffinity {#CookieSessionAffinity16}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
-
-
-### GrpcBackendGroup {#GrpcBackendGroup8}
-
-Field | Description
---- | ---
-backends[] | **[GrpcBackend](#GrpcBackend10)**<br>List of gRPC backends. 
-session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend10)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig27) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity23)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
-&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity17)**<br>HTTP-header-field-based session affinity configuration. 
-&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity17)**<br>Cookie-based session affinity configuration. 
-
-
-### GrpcBackend {#GrpcBackend10}
+### HttpBackend {#HttpBackend9}
 
 Field | Description
 --- | ---
 name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
 load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig27)**<br>Load balancing configuration for the backend. 
 port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend27)**<br>Target groups that belong to the backend. 
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend27)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend9)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
 healthchecks[] | **[HealthCheck](#HealthCheck27)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
 tls | **[BackendTls](#BackendTls27)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls27). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig27}
@@ -3607,6 +3545,13 @@ Field | Description
 target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
 
 
+### StorageBucketBackend {#StorageBucketBackend9}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Name of the bucket. 
+
+
 ### HealthCheck {#HealthCheck27}
 
 Field | Description
@@ -3616,7 +3561,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend11) or [GrpcBackend.port](#GrpcBackend11)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend10) or [GrpcBackend.port](#GrpcBackend9)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck27)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck27)**<br>HTTP health check settings. 
@@ -3664,49 +3609,18 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
-### ConnectionSessionAffinity {#ConnectionSessionAffinity23}
+### GrpcBackend {#GrpcBackend9}
 
 Field | Description
 --- | ---
-source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
-
-
-### HeaderSessionAffinity {#HeaderSessionAffinity17}
-
-Field | Description
---- | ---
-header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
-
-
-### CookieSessionAffinity {#CookieSessionAffinity17}
-
-Field | Description
---- | ---
-name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
-ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
-
-
-### StreamBackendGroup {#StreamBackendGroup6}
-
-Field | Description
---- | ---
-backends[] | **[StreamBackend](#StreamBackend6)**<br> 
-session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
-&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity24)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
-
-
-### StreamBackend {#StreamBackend6}
-
-Field | Description
---- | ---
-name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
-backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
-load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig28)**<br> 
-port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
-backend_type | **oneof:** `target_groups`<br>
-&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend28)**<br> 
-healthchecks[] | **[HealthCheck](#HealthCheck28)**<br> 
-tls | **[BackendTls](#BackendTls28)**<br> 
+name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig28)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend28)**<br>Target groups that belong to the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck28)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls28)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls28). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
 
 
 ### LoadBalancingConfig {#LoadBalancingConfig28}
@@ -3735,7 +3649,7 @@ interval | **[google.protobuf.Duration](https://developers.google.com/protocol-b
 interval_jitter_percent | **double**<br> 
 healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
 unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
-healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend11) or [GrpcBackend.port](#GrpcBackend11)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend10) or [GrpcBackend.port](#GrpcBackend10)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
 healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
 &nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck28)**<br>TCP stream health check settings. 
 &nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck28)**<br>HTTP health check settings. 
@@ -3783,7 +3697,483 @@ trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate
 &nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
 
 
+### StreamBackend {#StreamBackend9}
+
+Field | Description
+--- | ---
+name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig29)**<br> 
+port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend29)**<br> 
+healthchecks[] | **[HealthCheck](#HealthCheck29)**<br> 
+tls | **[BackendTls](#BackendTls29)**<br> 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig29}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
+
+
+### TargetGroupsBackend {#TargetGroupsBackend29}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck29}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
+interval_jitter_percent | **double**<br> 
+healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
+unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend10) or [GrpcBackend.port](#GrpcBackend10)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck29)**<br>TCP stream health check settings. 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck29)**<br>HTTP health check settings. 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck29)**<br>gRPC health check settings. 
+
+
+### StreamHealthCheck {#StreamHealthCheck29}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
+receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
+
+
+### HttpHealthCheck {#HttpHealthCheck29}
+
+Field | Description
+--- | ---
+host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
+path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck29}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+
+
+### BackendTls {#BackendTls29}
+
+Field | Description
+--- | ---
+sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext29)**<br>Validation context for TLS connections. 
+
+
+### ValidationContext {#ValidationContext29}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
+### Operation {#Operation5}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateBackendMetadata](#UpdateBackendMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[BackendGroup](#BackendGroup6)>**<br>if operation finished successfully. 
+
+
+### UpdateBackendMetadata {#UpdateBackendMetadata}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>ID of the backend group that the backend is being updated it. 
+backend_name | **string**<br>Name of the backend that is being updated. 
+
+
+### BackendGroup {#BackendGroup6}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the backend group. Generated at creation time. 
+name | **string**<br>Name of the backend group. The name is unique within the folder. The string length in characters is 3-63. 
+description | **string**<br>Description of the backend group. The string is 0-256 characters long. 
+folder_id | **string**<br>ID of the folder that the backend group belongs to. 
+labels | **map<string,string>**<br>Backend group labels as `key:value` pairs. For details about the concept, see [documentation](/docs/overview/concepts/services#labels). The maximum number of labels is 64. 
+backend | **oneof:** `http`, `grpc` or `stream`<br>Backends that the backend group consists of. <br>A backend group must consist of either HTTP backends or gRPC backends.
+&nbsp;&nbsp;http | **[HttpBackendGroup](#HttpBackendGroup8)**<br>List of HTTP backends that the backend group consists of. 
+&nbsp;&nbsp;grpc | **[GrpcBackendGroup](#GrpcBackendGroup8)**<br>List of gRPC backends that the backend group consists of. 
+&nbsp;&nbsp;stream | **[StreamBackendGroup](#StreamBackendGroup8)**<br>List of stream backends that the backend group consist of. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+
+
+### HttpBackendGroup {#HttpBackendGroup8}
+
+Field | Description
+--- | ---
+backends[] | **[HttpBackend](#HttpBackend10)**<br>List of HTTP backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [HttpBackend.backend_weight](#HttpBackend10)), its [HttpBackend.backend_type](#HttpBackend10) should be [TargetGroupsBackend](#TargetGroupsBackend30), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig30) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity24)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity16)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity16)**<br>Cookie-based session affinity configuration. 
+
+
+### HttpBackend {#HttpBackend10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends in a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig30)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups` or `storage_bucket`<br>Reference to targets that belong to the backend. <br>A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend30)**<br>Target groups that belong to the backend. For details about target groups, see [documentation](/docs/application-load-balancer/concepts/target-group). 
+&nbsp;&nbsp;storage_bucket | **[StorageBucketBackend](#StorageBucketBackend10)**<br>Object Storage bucket to use as the backend. For details about buckets, see [documentation](/docs/storage/concepts/bucket). <br>If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability). 
+healthchecks[] | **[HealthCheck](#HealthCheck30)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls30)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls30). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in connections between load balancer nodes and backend targets. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig30}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
+
+
+### TargetGroupsBackend {#TargetGroupsBackend30}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### StorageBucketBackend {#StorageBucketBackend10}
+
+Field | Description
+--- | ---
+bucket | **string**<br>Required. Name of the bucket. 
+
+
+### HealthCheck {#HealthCheck30}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
+interval_jitter_percent | **double**<br> 
+healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
+unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend11) or [GrpcBackend.port](#GrpcBackend10)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck30)**<br>TCP stream health check settings. 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck30)**<br>HTTP health check settings. 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck30)**<br>gRPC health check settings. 
+
+
+### StreamHealthCheck {#StreamHealthCheck30}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
+receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
+
+
+### HttpHealthCheck {#HttpHealthCheck30}
+
+Field | Description
+--- | ---
+host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
+path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck30}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+
+
+### BackendTls {#BackendTls30}
+
+Field | Description
+--- | ---
+sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext30)**<br>Validation context for TLS connections. 
+
+
+### ValidationContext {#ValidationContext30}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
 ### ConnectionSessionAffinity {#ConnectionSessionAffinity24}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity16}
+
+Field | Description
+--- | ---
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity16}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
+
+
+### GrpcBackendGroup {#GrpcBackendGroup8}
+
+Field | Description
+--- | ---
+backends[] | **[GrpcBackend](#GrpcBackend10)**<br>List of gRPC backends. 
+session_affinity | **oneof:** `connection`, `header` or `cookie`<br>Session affinity configuration for the backend group. <br>For details about the concept, see [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity). <br>If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive [GrpcBackend.backend_weight](#GrpcBackend10)), and its [LoadBalancingConfig.load_balancing_mode](#LoadBalancingConfig31) should be `MAGLEV_HASH`. If any of these conditions are not met, session affinity will not work.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity25)**<br>Connection-based session affinity configuration. <br>For now, a connection is defined only by an IP address of the client. 
+&nbsp;&nbsp;header | **[HeaderSessionAffinity](#HeaderSessionAffinity17)**<br>HTTP-header-field-based session affinity configuration. 
+&nbsp;&nbsp;cookie | **[CookieSessionAffinity](#CookieSessionAffinity17)**<br>Cookie-based session affinity configuration. 
+
+
+### GrpcBackend {#GrpcBackend10}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the backend. Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Backend weight. Traffic is distributed between backends of a backend group according to their weights. <br>Weights must be set either for all backends of a group or for none of them. Setting no weights is the same as setting equal non-zero weights for all backends. <br>If the weight is non-positive, traffic is not sent to the backend. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig31)**<br>Load balancing configuration for the backend. 
+port | **int64**<br>Port used by all targets to receive traffic. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>Reference to targets that belong to the backend. For now, targets are referenced via target groups.
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend31)**<br>Target groups that belong to the backend. 
+healthchecks[] | **[HealthCheck](#HealthCheck31)**<br>Health checks to perform on targets from target groups. For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks). <br>If no health checks are specified, active health checking is not performed. 
+tls | **[BackendTls](#BackendTls31)**<br>Settings for TLS connections between load balancer nodes and backend targets. <br>If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets and compares received certificates with the one specified in [BackendTls.validation_context](#BackendTls31). If not specified, the load balancer establishes unencrypted HTTP connections with targets. 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig31}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
+
+
+### TargetGroupsBackend {#TargetGroupsBackend31}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck31}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
+interval_jitter_percent | **double**<br> 
+healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
+unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend11) or [GrpcBackend.port](#GrpcBackend11)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck31)**<br>TCP stream health check settings. 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck31)**<br>HTTP health check settings. 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck31)**<br>gRPC health check settings. 
+
+
+### StreamHealthCheck {#StreamHealthCheck31}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
+receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
+
+
+### HttpHealthCheck {#HttpHealthCheck31}
+
+Field | Description
+--- | ---
+host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
+path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck31}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+
+
+### BackendTls {#BackendTls31}
+
+Field | Description
+--- | ---
+sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext31)**<br>Validation context for TLS connections. 
+
+
+### ValidationContext {#ValidationContext31}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
+### ConnectionSessionAffinity {#ConnectionSessionAffinity25}
+
+Field | Description
+--- | ---
+source_ip | **bool**<br>Specifies whether an IP address of the client is used to define a connection for session affinity. 
+
+
+### HeaderSessionAffinity {#HeaderSessionAffinity17}
+
+Field | Description
+--- | ---
+header_name | **string**<br>Name of the HTTP header field that is used for session affinity. The string length in characters must be 1-256.
+
+
+### CookieSessionAffinity {#CookieSessionAffinity17}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the cookie that is used for session affinity. The string length in characters must be 1-256.
+ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Maximum age of cookies that are generated for sessions (persistent cookies). <br>If not set, session cookies are used, which are stored by clients in temporary memory and are deleted on client restarts. 
+
+
+### StreamBackendGroup {#StreamBackendGroup8}
+
+Field | Description
+--- | ---
+backends[] | **[StreamBackend](#StreamBackend10)**<br> 
+session_affinity | **oneof:** `connection`<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH.
+&nbsp;&nbsp;connection | **[ConnectionSessionAffinity](#ConnectionSessionAffinity26)**<br>session_affinity is applicable when load_balancing_mode of the selected backend is MAGLEV_HASH. 
+
+
+### StreamBackend {#StreamBackend10}
+
+Field | Description
+--- | ---
+name | **string**<br> Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>If not set, backend will be disabled. 
+load_balancing_config | **[LoadBalancingConfig](#LoadBalancingConfig32)**<br> 
+port | **int64**<br>Optional alternative port for all targets. Acceptable values are 0 to 65535, inclusive.
+backend_type | **oneof:** `target_groups`<br>
+&nbsp;&nbsp;target_groups | **[TargetGroupsBackend](#TargetGroupsBackend32)**<br> 
+healthchecks[] | **[HealthCheck](#HealthCheck32)**<br> 
+tls | **[BackendTls](#BackendTls32)**<br> 
+
+
+### LoadBalancingConfig {#LoadBalancingConfig32}
+
+Field | Description
+--- | ---
+panic_threshold | **int64**<br>Threshold for panic mode. <br>If percentage of healthy backends in the group drops below threshold, panic mode will be activated and traffic will be routed to all backends, regardless of their health check status. This helps to avoid overloading healthy backends. For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode). <br>If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+locality_aware_routing_percent | **int64**<br>Percentage of traffic that a load balancer node sends to healthy backends in its availability zone. The rest is divided equally between other zones. For details about zone-aware routing, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If there are no healthy backends in an availability zone, all the traffic is divided between other zones. <br>If `strict_locality` is `true`, the specified value is ignored. A load balancer node sends all the traffic within its availability zone, regardless of backends' health. <br>Default value: `0`. Acceptable values are 0 to 100, inclusive.
+strict_locality | **bool**<br>Specifies whether a load balancer node should only send traffic to backends in its availability zone, regardless of their health, and ignore backends in other zones. <br>If set to `true` and there are no healthy backends in the zone, the node in this zone will respond to incoming traffic with errors. For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality). <br>If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored. <br>Default value: `false`. 
+mode | enum **LoadBalancingMode**<br>Load balancing mode for the backend. <br>For detals about load balancing modes, see [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode). <ul><li>`ROUND_ROBIN`: Round robin load balancing mode. <br>All endpoints of the backend take their turns to receive requests attributed to the backend.</li><li>`RANDOM`: Random load balancing mode. Default value. <br>For a request attributed to the backend, an endpoint that receives it is picked at random.</li><li>`LEAST_REQUEST`: Least request load balancing mode. <br>To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used; that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active requests.</li><li>`MAGLEV_HASH`: Maglev hashing load balancing mode, used only if session affinity is working for the backend group. <br>Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies the same amount of rows. An attribute of each request, specified in session affinity configuration of the backend group, is also hashed by the same function. The row with the same number as the resulting value is looked up in the table to determine the endpoint that receives the request. <br>If session affinity is not working for the backend group (i.e. it is not configured or the group contains more than one backend with positive weight), endpoints for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.</li><ul/>
+
+
+### TargetGroupsBackend {#TargetGroupsBackend32}
+
+Field | Description
+--- | ---
+target_group_ids[] | **string**<br>List of ID's of target groups that belong to the backend. <br>To get the ID's of all available target groups, make a [TargetGroupService.List](./target_group_service#List) request. The number of elements must be greater than 0.
+
+
+### HealthCheck {#HealthCheck32}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Health check timeout. <br>The timeout is the time allowed for the target to respond to a check. If the target doesn't respond in time, the check is considered failed. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Base interval between consecutive health checks. 
+interval_jitter_percent | **double**<br> 
+healthy_threshold | **int64**<br>Number of consecutive successful health checks required to mark an unhealthy target as healthy. <br>Both `0` and `1` values amount to one successful check required. <br>The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check. <br>Default value: `0`. 
+unhealthy_threshold | **int64**<br>Number of consecutive failed health checks required to mark a healthy target as unhealthy. <br>Both `0` and `1` values amount to one unsuccessful check required. <br>The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target (not applicable to TCP stream health checks). The target is immediately marked unhealthy. <br>Default value: `0`. 
+healthcheck_port | **int64**<br>Port used for health checks. <br>If not specified, the backend port ([HttpBackend.port](#HttpBackend11) or [GrpcBackend.port](#GrpcBackend11)) is used for health checks. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `stream`, `http` or `grpc`<br>Protocol-specific health check settings. <br>The protocols of the backend and of its health check may differ, e.g. a gRPC health check may be specified for an HTTP backend.
+&nbsp;&nbsp;stream | **[StreamHealthCheck](#StreamHealthCheck32)**<br>TCP stream health check settings. 
+&nbsp;&nbsp;http | **[HttpHealthCheck](#HttpHealthCheck32)**<br>HTTP health check settings. 
+&nbsp;&nbsp;grpc | **[GrpcHealthCheck](#GrpcHealthCheck32)**<br>gRPC health check settings. 
+
+
+### StreamHealthCheck {#StreamHealthCheck32}
+
+Field | Description
+--- | ---
+send | **[Payload](#Payload)**<br>Message sent to targets during TCP data transfer. <br>If not specified, no data is sent to the target. 
+receive | **[Payload](#Payload)**<br>Data that must be contained in the messages received from targets for a successful health check. <br>If not specified, no messages are expected from targets, and those that are received are not checked. 
+
+
+### HttpHealthCheck {#HttpHealthCheck32}
+
+Field | Description
+--- | ---
+host | **string**<br>Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. 
+path | **string**<br>Required. HTTP path used in requests to targets: request URI for HTTP/1.1 request line or value for the HTTP/2 `:path` pseudo-header. 
+use_http2 | **bool**<br>Enables HTTP/2 usage in health checks. <br>Default value: `false`, HTTP/1.1 is used. 
+
+
+### GrpcHealthCheck {#GrpcHealthCheck32}
+
+Field | Description
+--- | ---
+service_name | **string**<br>Name of the gRPC service to be checked. <br>If not specified, overall health is checked. <br>For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). 
+
+
+### BackendTls {#BackendTls32}
+
+Field | Description
+--- | ---
+sni | **string**<br>Server Name Indication (SNI) string for TLS connections. 
+validation_context | **[ValidationContext](#ValidationContext32)**<br>Validation context for TLS connections. 
+
+
+### ValidationContext {#ValidationContext32}
+
+Field | Description
+--- | ---
+trusted_ca | **oneof:** `trusted_ca_id` or `trusted_ca_bytes`<br>TLS certificate issued by a trusted certificate authority (CA).
+&nbsp;&nbsp;trusted_ca_id | **string**<br>TLS certificate issued by a trusted certificate authority (CA). 
+&nbsp;&nbsp;trusted_ca_bytes | **string**<br>X.509 certificate contents in PEM format. 
+
+
+### ConnectionSessionAffinity {#ConnectionSessionAffinity26}
 
 Field | Description
 --- | ---

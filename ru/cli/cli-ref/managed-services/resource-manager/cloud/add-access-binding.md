@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/resource-manager/cloud/add-access-binding.md
+---
 # yc resource-manager cloud add-access-binding
 
 Add access binding for the specified cloud

@@ -1,17 +1,17 @@
 ---
 title: "Viewing the execution log in Yandex Cloud Functions"
-description: "You can view the monitoring schedule in Yandex Cloud Functions using the management console. To do this, select the Cloud Functions service, click on the function whose execution log you want to view. In the window that opens, go to the Logs section and specify the period. By default, the period is set in 1 hour. The function execution logs are stored for 14 days. The time in the log is specified in UTC."
+description: "You can view the monitoring schedule in Yandex Cloud Functions using the management console. To do this, select the Cloud Functions service, click on the function whose execution log you want to view. In the window that opens, go to the Logs section and specify the period. By default, the period is set in 1 hour. The function execution logs are stored for 3 days. The time in the log is specified in UTC."
 ---
 
 # Viewing the execution log
 
-Function execution logs are stored for 14 days. The log uses Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+Function execution logs are stored for 3 days. The log uses [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 {% list tabs %}
 
 - Management console
 
-    1. Select **{{ sf-name }}** in [management console]({{ link-console-main }}).
+    1. Select **{{ sf-name }}** in the [management console]({{ link-console-main }}).
     1. Click the function you want to view the execution log for.
     1. In the window that opens, go to **Logs** and specify the time period. The default time period is 1 hour.
 
@@ -28,7 +28,7 @@ Function execution logs are stored for 14 days. The log uses Coordinated Univers
     View the function execution log:
 
     ```
-    $ yc serverless function logs <function name>
+    yc serverless function logs <function name>
     ```
 
     Result:
@@ -48,6 +48,10 @@ Function execution logs are stored for 14 days. The log uses Coordinated Univers
     If you called a function with a specific tag, you must also specify this tag when viewing the execution log: `yc serverless function logs my-python-function --tag test`.
 
     {% endnote %}
+
+- Yandex.Cloud Toolkit
+
+    You can view the function execution log using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

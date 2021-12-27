@@ -13,8 +13,6 @@ items:
             href: operations/resources/create-resource.md
           - name: Изменить основные настройки ресурса
             href: operations/resources/configure-basics.md
-          - name: Отключить ресурс
-            href: operations/resources/disable-resource.md
           - name: Настроить кеширование ресурса
             href: operations/resources/configure-caching.md
           - name: Предзагрузить файлы на CDN-серверы
@@ -31,6 +29,10 @@ items:
             href: operations/resources/enable-compression.md
           - name: Включить сегментацию файлов
             href: operations/resources/enable-segmentation.md
+          - name: Отключить ресурс
+            href: operations/resources/disable-resource.md
+          - name: Удалить ресурс
+            href: operations/resources/delete-resource.md
       - name: Группы источников
         items:
           - name: Создать группу источников
@@ -45,24 +47,38 @@ items:
     items:
       - name: Публикация обновлений для игр
         href: solutions/prefetch.md
+      - name: Сине-зеленое и канареечное развертывание
+        href: solutions/blue-green-canary-deployment.md
   - name: Концепции
     items:
       - name: Обзор сервиса
         href: concepts/index.md
       - name: Ресурс
         href: concepts/resource.md
-      - name: Кеширование контента
-        href: concepts/caching.md
-      - name: CORS
-        href: concepts/cors.md
-      - name: Сжатие контента
-        href: concepts/compression.md
-      - name: Сегментация контента
-        href: concepts/slicing.md
       - name: Источники и их группы
         href: concepts/origins.md
-      - name: Экранирование источников
-        href: concepts/origins-shielding.md
+      - name: Обмен данными между клиентами и CDN
+        items:
+          - name: Обзор
+            href: concepts/clients-to-servers.md
+          - name: TLS-сертификаты
+            href: concepts/clients-to-servers-tls.md
+          - name: CORS
+            href: concepts/cors.md
+          - name: Сжатие контента
+            href: concepts/compression.md
+      - name: Обмен данными между CDN и источниками
+        items:
+          - name: Обзор
+            href: concepts/servers-to-origins.md
+          - name: Заголовок Host
+            href: concepts/servers-to-origins-host.md
+          - name: Сегментация контента
+            href: concepts/slicing.md
+          - name: Экранирование источников
+            href: concepts/origins-shielding.md
+      - name: Кеширование контента
+        href: concepts/caching.md
       - name: Выгрузка логов
         href: concepts/logs.md
       - name: Квоты и лимиты
@@ -87,6 +103,8 @@ items:
             href: api-ref/grpc/origin_service.md
           - name: ProviderService
             href: api-ref/grpc/provider_service.md
+          - name: RawLogsService
+            href: api-ref/grpc/raw_logs_service.md
           - name: ResourceService
             href: api-ref/grpc/resource_service.md
           - name: OperationService
@@ -139,6 +157,18 @@ items:
                 href: api-ref/Provider/activate.md
               - name: listActivated
                 href: api-ref/Provider/listActivated.md
+          - name: RawLogs
+            items:
+              - name: Overview
+                href: api-ref/RawLogs/index.md
+              - name: activate
+                href: api-ref/RawLogs/activate.md
+              - name: deactivate
+                href: api-ref/RawLogs/deactivate.md
+              - name: get
+                href: api-ref/RawLogs/get.md
+              - name: update
+                href: api-ref/RawLogs/update.md
           - name: Resource
             items:
               - name: Overview

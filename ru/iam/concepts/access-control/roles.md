@@ -62,13 +62,25 @@ _Роль_ — это набор разрешений, который опре�
 
 {% include [roles-cdn-admin](../../../_includes/roles-cdn-admin.md) %}
 
+## {{ dns-name }} {#dns-roles}
+
+{% include [roles-dns-viewer](../../../_includes/iam/roles/dns-viewer.md) %}
+
+{% include [roles-dns-editor](../../../_includes/iam/roles/dns-editor.md) %}
+
+{% include [roles-dns-admin](../../../_includes/iam/roles/dns-admin.md) %}
+
 ## {{ compute-name }} {#compute-roles}
 
 {% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
 
+{% include [roles-compute-viewer](../../../_includes/roles-compute-viewer.md) %}
+
 {% include [roles-disks-user](../../../_includes/roles-disks-user.md) %}
 
 {% include [roles-images-user](../../../_includes/roles-images-user.md) %}
+
+{% include [roles-compute-operator](../../../_includes/roles-compute-operator.md) %}
 
 ## {{ container-registry-name }} {#cr-roles}
 

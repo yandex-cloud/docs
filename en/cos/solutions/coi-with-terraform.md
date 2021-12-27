@@ -239,7 +239,7 @@ Run the VM with a {{ coi }} using the Terraform configuration.
      folder_id = "<folder ID>"
      service_account_id = "<service account ID>"
      instance_template {
-       platform_id = "standard-v1"
+       platform_id = "standard-v3"
        resources {
          memory = 2
          cores  = 2

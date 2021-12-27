@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/HttpRouter/create.md
 ---
+
 
 # Method create
 Creates an HTTP router in the specified folder.

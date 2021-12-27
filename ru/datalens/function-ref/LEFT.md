@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/LEFT.md
 ---
+
 
 # LEFT
 
@@ -23,7 +25,7 @@ LEFT( string, number )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 LEFT("Computer", 4) = "Comp"

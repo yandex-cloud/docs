@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/ACOS.md
 ---
+
 
 # ACOS
 
@@ -22,7 +24,7 @@ Returns the arccosine of `number` in radians.
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 ACOS(-1) = 3.14159

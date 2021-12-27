@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/ARG_MIN.md
 ---
+
 
 # ARG_MIN
 
@@ -23,7 +25,7 @@ ARG_MIN( value, comp )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 ARG_MIN([Sales], [Profit])

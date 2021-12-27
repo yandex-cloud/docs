@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Provider/index.md
 ---
+
 
 # Provider
 A set of methods for managing Provider Service resources.

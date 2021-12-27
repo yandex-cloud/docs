@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/user/list.md
+---
 # yc managed-postgresql user list
 
 List users for the specified PostgreSQL cluster

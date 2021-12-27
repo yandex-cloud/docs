@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/index.md
+---
 # yc iot registry
 
 Manage IoT registries

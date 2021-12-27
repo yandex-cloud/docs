@@ -16,7 +16,7 @@
 
 Пример спецификации: 
 
-```
+```yaml
 x-yc-apigateway-integration:
   type: dummy
   http_code: 302

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/list.md
+---
 # yc lockbox secret list
 
 List secrets for the specified folder

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/MONTH.md
 ---
+
 
 # MONTH
 
@@ -22,7 +24,7 @@ Returns the number of the month in the year of the specified date `datetime`.
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 MONTH(#2019-01-23#) = 1

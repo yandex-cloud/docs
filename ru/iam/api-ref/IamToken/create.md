@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/IamToken/create.md
 ---
+
 
 # Method create
 Creates an IAM token for the specified identity.

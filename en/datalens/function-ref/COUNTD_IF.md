@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/COUNTD_IF.md
 ---
+
 
 # COUNTD_IF
 
@@ -25,7 +27,7 @@ See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 COUNTD_IF([ClientID], [Profit] > 5)

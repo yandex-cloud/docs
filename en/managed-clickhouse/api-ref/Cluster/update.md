@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/update.md
 ---
+
 
 # Method update
 Updates the specified ClickHouse cluster.
@@ -257,7 +259,8 @@ clusterId | Required. ID of the ClickHouse Cluster resource to update. To get th
     },
     "sqlDatabaseManagement": true,
     "sqlUserManagement": true,
-    "adminPassword": "string"
+    "adminPassword": "string",
+    "embeddedKeeper": true
   },
   "name": "string",
   "serviceAccountId": "string",
@@ -461,6 +464,7 @@ configSpec.<br>cloudStorage.<br>enabled | **boolean** (boolean)<br><p>Whether to
 configSpec.<br>sqlDatabaseManagement | **boolean** (boolean)<br><p>Whether database management through SQL commands is enabled.</p> 
 configSpec.<br>sqlUserManagement | **boolean** (boolean)<br><p>Whether user management through SQL commands is enabled.</p> 
 configSpec.<br>adminPassword | **string**<br><p>Password for user 'admin' that has SQL user management access.</p> 
+configSpec.<br>embeddedKeeper | **boolean** (boolean)<br><p>Whether cluster should use embedded Keeper instead of Zookeeper</p> 
 name | **string**<br><p>New name for the cluster.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 serviceAccountId | **string**<br><p>ID of the service account used for access to Yandex Object Storage.</p> 
 maintenanceWindow | **object**<br><p>New maintenance window settings for the cluster.</p> <p>A maintenance window settings.</p> 

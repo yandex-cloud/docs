@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/QUARTER.md
 ---
+
 
 # QUARTER
 
@@ -22,7 +24,7 @@ QUARTER( datetime )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 QUARTER(#2019-01-23#) = 1

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Network/create.md
 ---
+
 
 # Method create
 Creates a network in the specified folder using the data specified in the request.

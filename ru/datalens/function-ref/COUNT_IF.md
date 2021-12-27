@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/COUNT_IF.md
 ---
+
 
 # COUNT_IF
 
@@ -22,7 +24,7 @@ COUNT_IF( condition )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 COUNT_IF([Profit] > 5)

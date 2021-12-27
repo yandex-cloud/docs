@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/ai/translate/api-ref/Translation/detectLanguage.md
 ---
+
 
 # Метод detectLanguage
 Определяет язык текста.

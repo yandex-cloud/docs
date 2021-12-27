@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/COUNTD.md
 ---
+
 
 # COUNTD
 
@@ -24,7 +26,7 @@ COUNTD( value )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 COUNTD([ClientID])

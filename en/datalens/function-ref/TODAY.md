@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/TODAY.md
 ---
+
 
 # TODAY
 
@@ -21,7 +23,7 @@ Returns the current date, depending on the data source and connection type:
 
 **Return type**: `Date`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 TODAY() = #2019-01-23#

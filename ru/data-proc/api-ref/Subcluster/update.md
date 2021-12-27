@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Subcluster/update.md
 ---
+
 
 # Method update
 Updates the specified subcluster.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/Database/index.md
 ---
+
 
 # Database
 A set of methods for managing PostgreSQL Database resources.

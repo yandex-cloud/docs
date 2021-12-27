@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/ATAN2.md
 ---
+
 
 # ATAN2
 
@@ -23,7 +25,7 @@ ATAN2( x, y )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 ATAN2(5, 7) = 0.62024

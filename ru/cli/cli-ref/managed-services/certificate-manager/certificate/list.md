@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/list.md
+---
 # yc certificate-manager certificate list
 
 List certificates in the specified folder

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/disk/list.md
+---
 # yc compute disk list
 
 List disks

@@ -11,8 +11,24 @@ items:
         items:
           - name: Fluentd
             href: quickstart/fluentd.md
+          - name: Logstash
+            href: quickstart/logstash.md
+          - name: AWS CLI
+            href: quickstart/aws-cli.md
       - name: Saving data to ClickHouse
         href: quickstart/send-to-clickhouse.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Work with AWS CLI
+        items:
+          - name: Sending data to a stream
+            href: operations/aws-cli/send.md
+      - name: Work with AWS SDK
+        items:
+          - name: Sending data to a stream
+            href: operations/aws-sdk/send.md
   - name: Concepts
     items:
       - name: Overview
@@ -25,4 +41,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Amazon Kinesis Data Streams compatible HTTP API
+    items:
+      - name: Methods
+        items:
+          - name: PutRecord
+            href: kinesisapi/methods/putrecord.md
 base: en/data-streams

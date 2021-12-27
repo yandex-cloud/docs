@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/WEEK.md
 ---
+
 
 # WEEK
 
@@ -22,7 +24,7 @@ WEEK( value )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 WEEK(#1971-01-14 01:02:03#) = 2

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/get.md
+---
 # yc lockbox secret get
 
 Show information about the specified secret

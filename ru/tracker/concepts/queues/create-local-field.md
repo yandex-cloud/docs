@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/queues/create-local-field.md
+---
 # Создать локальное поле очереди
 
 Запрос позволяет создать [локальное поле](../../local-fields.md) задачи, привязанное к заданной очереди.

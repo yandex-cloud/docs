@@ -37,6 +37,8 @@ items:
         href: operations/cluster-delete.md
       - name: Monitoring the state of a cluster and hosts
         href: operations/monitoring.md
+      - name: Performance diagnostics
+        href: operations/performance-diagnostics.md
       - name: Performance analysis tools
         href: operations/tools.md
   - name: Use cases

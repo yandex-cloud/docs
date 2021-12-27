@@ -95,7 +95,7 @@ System and user-defined variables are specified as values for template fields in
    instance_template:
      name: production-{short_zone_var_{instance.zone_id}}-{instance.index}
      hostname: production-{instance.index}
-     platform_id: standard-v2
+     platform_id: standard-v3
    ...
    ```
 
@@ -117,7 +117,7 @@ System and user-defined variables are specified as values for template fields in
    instance_template:
      name: production-{short_zone_var_ru-central1-a}-1
      hostname: production-1
-     platform_id: standard-v2
+     platform_id: standard-v3
    ...
    ```
 
@@ -136,7 +136,7 @@ System and user-defined variables are specified as values for template fields in
    instance_template:
      name: production-rc1a-1
      hostname: production-1
-     platform_id: standard-v2
+     platform_id: standard-v3
    ...
    ```
 

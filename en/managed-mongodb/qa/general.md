@@ -84,7 +84,7 @@ Maintenance in {{ mmg-short-name }} implies:
 
 #### Which version of {{ MG }} does {{ mmg-short-name }} use? {#dbms-version}
 
-{{ mmg-short-name }} supports {{ MG }} versions 4.0, 4.2, and 4.4.
+{{ mmg-short-name }} supports {{ MG }} versions 4.0, 4.2, 4.4 and 5.0.
 
 #### What happens when a new DBMS version is released? {#new-version}
 

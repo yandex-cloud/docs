@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/resource/get.md
+---
 # yc cdn resource get
 
 Show information about resource
@@ -13,7 +16,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--no-options`|Enable resource view without options|
-|`--id`|<b>`string`</b><br/>Specifies the origin ID.|
+|`--id`|<b>`string`</b><br/>Specifies the resource ID.|
 
 #### Flags
 

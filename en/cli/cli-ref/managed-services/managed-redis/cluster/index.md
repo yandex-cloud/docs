@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/index.md
+---
 # yc managed-redis cluster
 
 Manage Redis clusters

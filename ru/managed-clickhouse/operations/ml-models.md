@@ -6,6 +6,7 @@
 
 {{ mch-short-name }} работает только с моделями, которые загружены в {{ objstorage-name }} и к которым предоставлен публичный доступ на чтение:
 
+
 1. [Загрузите](../../storage/operations/objects/upload.md) файл обученной модели в {{ objstorage-name }}.
 
 1. [Настройте публичный доступ](../../storage/operations/objects/edit-acl.md) на чтение к файлу модели.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iot/registry/list.md
+---
 # yc iot registry list
 
 List IoT registries

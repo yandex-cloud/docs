@@ -15,7 +15,7 @@
 
 Пример спецификации:
 
-```(json)
+```yaml
 /example/{ID}:
     x-yc-apigateway-any-method:
       summary: Operating with examples

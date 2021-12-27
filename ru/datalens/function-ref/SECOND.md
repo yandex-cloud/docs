@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/SECOND.md
 ---
+
 
 # SECOND
 
@@ -22,7 +24,7 @@ SECOND( datetime )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 SECOND(#2019-01-23 15:07:47#) = 47

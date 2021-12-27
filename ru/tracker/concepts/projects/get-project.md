@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/projects/get-project.md
+---
 # Получить параметры проекта
 
 Запрос позволяет получить информацию о [проекте](../../manager/projects.md).

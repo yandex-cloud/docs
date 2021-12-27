@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/list-operations.md
+---
 # yc application-load-balancer load-balancer list-operations
 
 List operations for the specified application load balancer

@@ -39,6 +39,8 @@ items:
             href: operations/objects/link-for-download.md
           - name: Deleting an object
             href: operations/objects/delete.md
+          - name: Deleting all objects
+            href: operations/objects/delete-all.md
           - name: Deleting a partially uploaded object
             href: operations/objects/deleting-multipart.md
           - name: Editing an object ACL
@@ -65,6 +67,8 @@ items:
         href: solutions/user-agent-statistics.md
       - name: Generating a billing report with resource break-down using S3 Select
         href: solutions/billing-resource-detailing.md
+      - name: Server-side encryption
+        href: solutions/server-side-encryption.md
   - name: Concepts
     items:
       - name: Overview

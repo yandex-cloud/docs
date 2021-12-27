@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/create-issue.md
+---
 # Create an issue
 
 Use this request to create issues.

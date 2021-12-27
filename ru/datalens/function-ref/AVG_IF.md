@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/AVG_IF.md
 ---
+
 
 # AVG_IF
 
@@ -23,7 +25,7 @@ AVG_IF( expression, condition )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 AVG_IF([Profit], [Profit] > 5)

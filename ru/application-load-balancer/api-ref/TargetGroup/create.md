@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/TargetGroup/create.md
 ---
+
 
 # Method create
 Creates a target group in the specified folder.
@@ -23,6 +25,7 @@ POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups
   "targets": [
     {
       "subnetId": "string",
+      "privateIpv4Address": true,
       "ipAddress": "string"
     }
   ]
@@ -38,6 +41,7 @@ description | **string**<br><p>Description of the target group.</p> <p>The maxim
 labels | **object**<br><p>Target group labels as ``key:value`` pairs. For details about the concept, see <a href="/docs/overview/concepts/services#labels">documentation</a>.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 
 targets[] | **object**<br><p>A target resource. For details about the concept, see <a href="/docs/application-load-balancer/concepts/target-group">documentation</a>.</p> 
 targets[].<br>subnetId | **string**<br><p>ID of the subnet that the target is connected to.</p> 
+targets[].<br>privateIpv4Address | **boolean** (boolean)<br><p>If set, will not require ``subnet_id`` to validate the target. Instead, the address should belong to one of the following ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 Only one of ``subnet_id`` or ``private_ipv4_address`` should be set.</p> 
 targets[].<br>ipAddress | **string**<br><p>IP address of the target.</p> 
  
 ## Response {#responses}

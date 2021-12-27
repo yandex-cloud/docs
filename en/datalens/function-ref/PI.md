@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/PI.md
 ---
+
 
 # PI
 
@@ -18,7 +20,7 @@ Returns PI. The accuracy depends on the data source.
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 PI() = 3.14159

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/listBackups.md
 ---
+
 
 # Method listBackups
 Retrieves the list of available backups for the specified ClickHouse cluster.

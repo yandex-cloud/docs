@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/enable-sharding.md
+---
 # yc managed-mongodb cluster enable-sharding
 
 Enable sharding for MongoDB cluster.

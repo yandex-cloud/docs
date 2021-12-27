@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/route-table/update.md
+---
 # yc vpc route-table update
 
 Modify configuration or attributes of a route table.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/filesystem/index.md
+---
 # yc compute filesystem
 
 Manage filesystems

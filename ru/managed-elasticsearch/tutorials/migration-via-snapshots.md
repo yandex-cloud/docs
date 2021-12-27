@@ -26,7 +26,9 @@
 
 ## Создайте снапшот на кластере-источнике {#create-snapshot}
 
-1. [Назначьте роль](../../iam/operations/sa/assign-role-for-sa) `storage.editor` [созданному ранее](#before-you-begin) сервисному аккаунту.
+
+1. [Назначьте роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor` [созданному ранее](#before-you-begin) сервисному аккаунту.
+
 1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для этого сервисного аккаунта.
    
    {% note warning %}
@@ -161,5 +163,7 @@
 1. При необходимости [отключите репозиторий снапшотов](https://www.elastic.co/guide/en/elasticsearch/reference/current/delete-snapshot-repo-api.html) на стороне кластера-источника и кластера-приемника.
    
 1. При необходимости удалите неиспользуемые ресурсы в {{ yandex-cloud }}:
+   
    * [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
    * [Удалите снапшоты](../../storage/operations/objects/delete.md) из бакета и затем удалите [бакет целиком](../../storage/operations/buckets/delete.md).
+   

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/YEAR.md
 ---
+
 
 # YEAR
 
@@ -22,7 +24,7 @@ YEAR( datetime )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 YEAR(#2019-01-23#) = 2019

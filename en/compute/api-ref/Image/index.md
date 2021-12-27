@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Image/index.md
 ---
+
 
 # Image
 A set of methods for managing Image resources.

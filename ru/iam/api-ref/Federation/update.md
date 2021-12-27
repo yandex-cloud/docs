@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/Federation/update.md
 ---
+
 
 # Method update
 Updates the specified federation.

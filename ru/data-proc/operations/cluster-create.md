@@ -78,7 +78,7 @@
       {% endnote %}
 
   1. Включите опцию **UI Proxy**, чтобы получить доступ к [веб-интерфейсам компонентов](../concepts/ui-proxy.md) {{ dataproc-name }}.
-  1. Чтобы отправлять логи кластера в сервис [{{ cloud-logging-name }}](../../logging/), выберите лог-группу из списка. При необходимости [создайте новую лог-группу](../../logging/operations/create-group.md).
+  1. Логи кластера сохраняются в сервисе [{{ cloud-logging-full-name }}](../../logging/). Выберите нужную лог-группу из списка или [создайте новую](../../logging/operations/create-group.md).
 
       Для работы этой функции [назначьте сервисному аккаунту кластера](../../iam/operations/roles/grant.md#access-to-sa) роль `logging.writer`. Подробнее см. в [документации {{ cloud-logging-full-name }}](../../logging/security/index.md).
 

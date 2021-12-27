@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/security-group/list.md
+---
 # yc vpc security-group list
 
 List security groups in a folder.

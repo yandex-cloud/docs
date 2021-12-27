@@ -1,13 +1,17 @@
-Create a [trigger for {{ objstorage-name }}](../../functions/concepts/trigger/os-trigger.md) that will run your function when you create, move, or delete an [object](../../storage/concepts/object.md) in the bucket.
+Create a [trigger for {{ objstorage-name }}](../../functions/concepts/trigger/os-trigger.md) that will invoke a [function](../../functions/concepts/function.md) in {{ sf-name }} or a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} when you create, move, or delete an [object](../../storage/concepts/object.md) in the bucket.
 
 To create a trigger, you need:
 
-1. [Functions](../../functions/concepts/function.md) that the trigger will call. If you don't have a function:
-    * [Create a function](../../functions/operations/function/function-create.md).
-    * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
-1. [A bucket](../../storage/concepts/bucket.md) whose object events will fire the trigger. If you don't have a bucket, [create one](../../storage/operations/buckets/create.md).
-1. (optional) The [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that the function couldn't process are moved. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
-1. Service account with rights to invoke the function and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
+* A function or container the the trigger will launch.
+    * If you don't have a function:
+        * [Create a function](../../functions/operations/function/function-create.md).
+        * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
+    * If you don't have a container:
+        * [Create a container](../../serverless-containers/operations/create.md).
+        * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
+* [A bucket](../../storage/concepts/bucket.md) whose object events will fire the trigger. If you don't have a bucket, [create one](../../storage/operations/buckets/create.md).
+* (optional) The [Dead Letter Queue](../../functions/concepts/dlq.md), where messages that the function or container could not process will be redirected. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* Service account with rights to invoke a function or a container and (optionally) write messages to the [Dead Letter Queue](../../functions/concepts/dlq.md). You can use the same service account or different ones. If you don't have a service account, [create one](../../iam/operations/sa/create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -23,17 +27,21 @@ To create a trigger, you need:
     1. Under **Basic parameters**:
         * Enter a name and description for the trigger.
         * In the **Type** field, select **Object Storage**.
+        * Choose what will fire a trigger — a function or a container.
     1. Under **Object Storage settings**:
         * In the **Bucket** field, select the bucket whose object events you want to create a trigger for.
         * In the **Event types** field, select the [events](../../functions/concepts/trigger/os-trigger.md#event) that will trigger the trigger.
         * (optional) In the **Object key prefix** field, enter a [prefix](../../functions/concepts/trigger/os-trigger.md#filter) for filtering.
         * (optional) In the **Object key suffix** field, enter a [suffix](../../functions/concepts/trigger/os-trigger.md#filter) for filtering.
-    1. Under **Function settings**:
-        * Select the function for the trigger to invoke.
-        * Specify the [function version tag](../../functions/concepts/function.md#tag).
-        * Specify the service account to be used to invoke the function.
+    1. If the trigger launches:
+        * A function, select one under **Function settings** and specify:
+            * [Tag of the function version](../../functions/concepts/function.md#tag).
+            * A service account to be used to invoke the function.
+        * A container, select one under **Container settings** and specify:
+            * [A container revision](../../serverless-containers/concepts/container.md#revision).
+            * A service account to be used to invoke the container.
     1. (optional) Under **Repeat request settings**:
-        * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
+        * In the **Interval** field, specify the time after which the function or the container will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
         * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
     1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and service account with rights to write messages to it.
     1. Click **Create trigger**.
@@ -44,7 +52,7 @@ To create a trigger, you need:
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    To create a trigger, run the command:
+    To create a trigger that launches a function, run the command:
 
     ```
     yc serverless trigger create object-storage \
@@ -61,7 +69,7 @@ To create a trigger, you need:
         --dlq-service-account-id <service account ID>
     ```
 
-    where:
+    Where:
     * `--name`: Timer name.
     * `--bucket-id`: Bucket ID.
     * `--prefix`: [Prefix](../../functions/concepts/trigger/os-trigger.md#filter) of the bucket object key. Optional parameter. Used for filtering.

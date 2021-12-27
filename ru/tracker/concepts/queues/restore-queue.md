@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/queues/restore-queue.md
+---
 # Восстановить очередь
 
 Запрос позволяет восстановить удаленную очередь.

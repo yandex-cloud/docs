@@ -1,3 +1,6 @@
+---
+sourcePath: en/_api-ref-grpc/cdn/api-ref/grpc/index.md
+---
 # Yandex CDN management API
 This API reference is organized around CDN resources. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
@@ -9,5 +12,6 @@ Service | Description
 [OriginGroupService](./origin_group_service.md) | Origin Groups management service.
 [OriginService](./origin_service.md) | Origin management service. Origin is not a standalone entity. It can live only within origin group.
 [ProviderService](./provider_service.md) | A set of methods for managing Provider Service resources.
+[RawLogsService](./raw_logs_service.md) | 
 [ResourceService](./resource_service.md) | Provider's resources management service.
 [OperationService](./operation_service.md) | A set of methods for managing operations for asynchronous API requests.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/SPACE.md
 ---
+
 
 # SPACE
 
@@ -22,7 +24,7 @@ Returns a string with the specified number of spaces.
 
 **Return type**: `String`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 SPACE(5) = "     "

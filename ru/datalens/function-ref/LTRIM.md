@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/LTRIM.md
 ---
+
 
 # LTRIM
 
@@ -22,7 +24,7 @@ LTRIM( string )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 LTRIM(" Computer") = "Computer"

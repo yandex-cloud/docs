@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/ASIN.md
 ---
+
 
 # ASIN
 
@@ -22,7 +24,7 @@ ASIN( number )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 ASIN(1) = 1.57080

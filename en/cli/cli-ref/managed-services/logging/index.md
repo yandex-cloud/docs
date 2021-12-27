@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/index.md
+---
 # yc logging
 
 [PREVIEW] Manage Yandex Cloud Logging

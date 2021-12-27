@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/organization/list.md
+---
 # yc organization-manager organization list
 
 List organizations

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/updateMetadata.md
 ---
+
 
 # Method updateMetadata
 Updates the metadata of the specified instance.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/MIN.md
 ---
+
 
 # MIN
 
@@ -28,7 +30,7 @@ MIN( value )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 MIN([Profit])

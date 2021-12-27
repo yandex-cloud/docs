@@ -1,44 +1,33 @@
 ---
 title: "Viewing monitoring graphs in Yandex API Gateway"
-description: "You can see the monitoring graphs in Yandex API Gateway for the following indicators, such as the number of requests to the API gateway, the number of errors that occurred when accessing the API gateway. To see the graph, open the API Gateway section in the API gateway directory, information about which you want to get. In the window that opens, select the API gateway whose monitoring graphs you want to view. "
+description: "You can see the monitoring graphs in Yandex API Gateway for the following indicators, such as the number of requests to the API gateway, the number of errors that occurred when accessing the API gateway. To see the graph, open the API Gateway section in the API gateway directory, information about which you want to get. In the window that opens, select the API gateway whose monitoring graphs you want to view."
 ---
 
-# View monitoring charts
+# Monitoring
 
-You can view charts for the following metrics:
+You can monitor the status of API gateways using the monitoring tools in the management console. These tools display diagnostic information in the form of charts.
 
-- [Number of API gateway requests](#requests)
-- [Number of errors that occurred when accessing the API gateway](#errors)
+The chart update period is 15 seconds.
 
-## Number of API gateway requests {#requests}
+## Viewing monitoring charts {#charts}
 
-To view the chart:
-
-1. Open the **{{ api-gw-name }}** section in the folder with the API gateway you want to get information about.
-
-1. In the window that opens, select the API gateway that you want to view monitoring charts for.
-
+1. In the [management console]({{ link-console-main }}), go to the folder where the API gateway is located.
+1. Open **{{ api-gw-name }}**.
+1. Select the API gateway whose monitoring charts you want to view.
 1. Go to the **Monitoring** tab.
+1. The following charts open on the page:
 
-1. Select the period for the chart. You can choose a predefined interval (hour, day, week, month) or enter a custom period in the date fields.
+    * **Requests**: The number of API gateway requests.
+     
+	    ![image](../../_assets/api-gateway/requests.png)
 
-1. The number of requests to the API gateway is shown in the **Requests** chart:
+    * **Errors**: The number of API gateway access errors.
+     
+	    ![image](../../_assets/api-gateway/errors.png)
 
-    ![image](../../_assets/api-gateway/requests.svg)
+    * **Latency**: Amount of time its takes for an API gateway request to run.
+     
+	    ![image](../../_assets/api-gateway/latency.png)
 
-## Number of errors that occurred when accessing the API gateway {#errors}
-
-To view the chart:
-
-1. Open the **{{ api-gw-name }}** section in the folder with the API gateway you want to get information about.
-
-1. In the window that opens, select the API gateway that you want to view monitoring charts for.
-
-1. Go to the **Monitoring** tab.
-
-1. Select the period for the chart. You can choose a predefined interval (hour, day, week, month) or enter a custom period in the date fields.
-
-1. The number of errors that occurred when accessing the API gateway is shown in the **Errors** chart:
-
-    ![image](../../_assets/api-gateway/error.svg)
+    You can select the time interval to display information for: hour, day, week, month, or a custom interval.
 

@@ -29,7 +29,7 @@ items:
         href: operations/shards.md
       - name: Управление резервными копиями
         href: operations/cluster-backups.md
-      - name: Сменить мастер
+      - name: Переключение мастера
         href: operations/failover.md
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
@@ -57,10 +57,14 @@ items:
         href: concepts/replication.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
-      - name: Ограничения Managed Service for Redis
+      - name: Управление памятью в Managed Service for Redis
+        href: concepts/memory-management.md
+      - name: Доступные команды Managed Service for Redis
         href: concepts/supported-features.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Типы хранилища
+        href: concepts/storage.md
       - name: Настройки Redis
         href: concepts/settings-list.md
   - name: Управление доступом

@@ -1,6 +1,8 @@
 title: Yandex Cloud Functions
 href: index.yaml
 items:
+  - name: Сопоставление с другими сервисами Yandex.Cloud
+    href: service-comparison.md
   - name: Начало работы
     items:
       - name: Обзор
@@ -65,7 +67,7 @@ items:
             href: operations/function/function-update.md
           - name: Масштабирование функции
             href: operations/function/function-scale.md
-          - name: Просмотр графиков мониторинга
+          - name: Мониторинг функции
             href: operations/function/function-monitoring.md
           - name: Просмотр журнала выполнения
             href: operations/function/function-logs.md
@@ -95,6 +97,8 @@ items:
             href: operations/trigger/data-streams-trigger-create.md
           - name: Изменение триггера
             href: operations/trigger/trigger-update.md
+          - name: Мониторинг триггера
+            href: operations/trigger/trigger-monitoring.md
           - name: Удаление триггера
             href: operations/trigger/trigger-delete.md
   - name: Концепции
@@ -141,10 +145,8 @@ items:
             href: concepts/trigger/data-streams-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
-      - name: Лог-группы
+      - name: Лог-группа
         href: concepts/log-group.md
-      - name: Мониторинг
-        href: concepts/monitoring.md
       - name: Резервное копирование
         href: concepts/backup.md
       - name: Квоты и лимиты

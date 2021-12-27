@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/resource-preset/get.md
+---
 # yc managed-clickhouse resource-preset get
 
 Get information about a ClickHouse resource preset.

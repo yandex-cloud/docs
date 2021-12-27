@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/queues/create-queue.md
+---
 # Create a queue
 
 Use this request to create queues.

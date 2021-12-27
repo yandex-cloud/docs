@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/LTRIM.md
 ---
+
 
 # LTRIM
 
@@ -22,7 +24,7 @@ Returns the string `string` without spaces at the beginning of the string.
 
 **Return type**: `String`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 LTRIM(" Computer") = "Computer"

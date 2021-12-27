@@ -1,5 +1,7 @@
 # Fluentd
 
+{% include [trigger](../../_includes/data-streams/trigger.md) %}
+
 1. Download and install [Fluentd](https://www.fluentd.org/download).
 
 1. Install the Fluentd plugin to support the AWS Kinesis Data Streams protocol. This protocol will be used for streaming data.
@@ -38,18 +40,18 @@
      </store>
      <store>
        @type kinesis_streams
-
+   
        aws_key_id <key_id>
        aws_sec_key <secret>
-
+   
        # kinesis stream name
        stream_name /ru-central1/aoegtvhtp8ob9rqq8sto/cc8004q4lbo6bv9iivr0/test
-
+   
        # region
        region ru-central-1
-
+   
        endpoint https://yds.serverless.yandexcloud.net 
-
+   
        <buffer>
          flush_interval 5s
        </buffer>

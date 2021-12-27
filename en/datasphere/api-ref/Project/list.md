@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datasphere/api-ref/Project/list.md
 ---
+
 
 # Method list
 Lists projects for the specified folder.
@@ -36,7 +38,10 @@ pageToken | Page token. To get the next page of results, set [pageToken](/docs/d
         "serviceAccountId": "string",
         "subnetId": "string",
         "dataProcClusterId": "string",
-        "commitMode": "string"
+        "commitMode": "string",
+        "securityGroupIds": [
+          "string"
+        ]
       },
       "limits": {
         "maxUnitsPerHour": "integer",
@@ -62,6 +67,7 @@ projects[].<br>settings.<br>serviceAccountId | **string**<br><p>ID of the servic
 projects[].<br>settings.<br>subnetId | **string**<br><p>ID of the subnet where the DataProc cluster resides. Currently only subnets created in the availability zone ru-central1-a are supported.</p> 
 projects[].<br>settings.<br>dataProcClusterId | **string**<br><p>ID of the DataProc cluster.</p> 
 projects[].<br>settings.<br>commitMode | **string**<br><p>Commit mode that is assigned to the project.</p> <ul> <li>STANDARD: Commit happens after the execution of a cell or group of cells or after completion with an error.</li> <li>AUTO: Commit happens periodically. Also, automatic saving of state occurs when switching to another type of computing resource.</li> </ul> 
+projects[].<br>settings.<br>securityGroupIds[] | **string**<br><p>Network interfaces security groups.</p> 
 projects[].<br>limits | **object**<br><p>Limits of the project.</p> 
 projects[].<br>limits.<br>maxUnitsPerHour | **integer** (int64)<br><p>The number of units that can be spent per hour.</p> 
 projects[].<br>limits.<br>maxUnitsPerExecution | **integer** (int64)<br><p>The number of units that can be spent on the one execution.</p> 

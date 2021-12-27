@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/node-group/get.md
+---
 # yc container node-group get
 
 Get information about a node group.

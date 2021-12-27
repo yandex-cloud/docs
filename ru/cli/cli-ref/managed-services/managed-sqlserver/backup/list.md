@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/backup/list.md
+---
 # yc managed-sqlserver backup list
 
 List available backups

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/update.md
+---
 # yc serverless function update
 
 Update the specified function

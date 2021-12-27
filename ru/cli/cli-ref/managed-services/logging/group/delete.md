@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/delete.md
+---
 # yc logging group delete
 
 Delete log group

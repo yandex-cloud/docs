@@ -13,6 +13,8 @@ items:
     items:
       - name: Обзор сервиса
         href: overview.md
+      - name: Работа в Yandex Wiki
+        href: concepts.md
       - name: Структура Yandex Wiki
         href: structure.md
   - name: Создание страниц
@@ -55,6 +57,8 @@ items:
         href: add-diagram-formula.md
   - name: Управление страницами
     items:
+      - name: Настройки страницы
+        href: page-managment/page-settings.md
       - name: Ограничить просмотр страницы
         href: page-managment/access-setup.md
       - name: Запретить редактирование страницы
@@ -81,12 +85,16 @@ items:
         href: my-pages.md
       - name: Просмотреть измененные мной страницы
         href: edited-pages-list.md
+      - name: Посмотреть все ссылки на страницу
+        href: all-links.md
   - name: Интеграция с другими сервисами
     items:
       - name: Формы из Yandex Forms
         href: actions/forms.md
-      - name: Список задач из Yandex Tracker
+      - name: Задачи из Yandex Tracker
         href: actions/tracker.md
+      - name: Cчетчик Яндекс.Метрики
+        href: add-metrika.md
   - name: Справочник разметки
     items:
       - name: Разметка Markdown

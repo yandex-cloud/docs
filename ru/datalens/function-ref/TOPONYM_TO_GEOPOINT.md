@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/TOPONYM_TO_GEOPOINT.md
 ---
+
 
 # TOPONYM_TO_GEOPOINT
 
@@ -23,7 +25,7 @@ TOPONYM_TO_GEOPOINT( name )
 
 **Возвращаемый тип**: `Геоточка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 TOPONYM_TO_GEOPOINT("Комсомольск-на-Амуре") = [50.549923,137.007948]

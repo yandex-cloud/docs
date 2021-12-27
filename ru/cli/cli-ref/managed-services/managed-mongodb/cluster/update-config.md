@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/update-config.md
+---
 # yc managed-mongodb cluster update-config
 
 Update the configuration of a MongoDB cluster.

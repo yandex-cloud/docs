@@ -78,13 +78,13 @@ items:
     items:
       - name: Обзор
         href: blocks-ref/blocks-reference.md
-      - name: Wiki
+      - name: Вики
         href: blocks-ref/wiki.md
       - name: Выпадающий список
         href: blocks-ref/dropdown.md
       - name: Города и страны
         href: blocks-ref/cities.md
-      - name: Да / нет
+      - name: Да / Нет
         href: blocks-ref/yes-no.md
       - name: Дата
         href: blocks-ref/date.md

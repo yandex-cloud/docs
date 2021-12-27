@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/ANY.md
 ---
+
 
 # ANY
 
@@ -22,7 +24,7 @@ ANY( value )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 ANY([Profit])

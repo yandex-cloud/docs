@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/MIN.md
 ---
+
 
 # MIN
 
@@ -28,7 +30,7 @@ If `value`:
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 MIN([Profit])

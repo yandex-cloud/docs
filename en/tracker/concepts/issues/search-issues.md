@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/search-issues.md
+---
 # Find issues
 
 Use this request to get a list of issues that meet specific criteria. If there are more than 50 issues in the response, use [paging](#section_mtj_ldk_p1b).

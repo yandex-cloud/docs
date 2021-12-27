@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/get-macros.md
+---
 # Get a macro
 
 Use this request to get macro parameters.

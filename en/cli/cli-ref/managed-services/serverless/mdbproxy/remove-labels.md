@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/remove-labels.md
+---
 # yc serverless mdbproxy remove-labels
 
 Remove labels from specified proxy

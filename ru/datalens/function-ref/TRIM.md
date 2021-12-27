@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/TRIM.md
 ---
+
 
 # TRIM
 
@@ -22,7 +24,7 @@ TRIM( string )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 TRIM(" Computer ") = "Computer"

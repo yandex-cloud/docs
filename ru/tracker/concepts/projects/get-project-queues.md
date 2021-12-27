@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/projects/get-project-queues.md
+---
 # Получить список очередей проекта
 
 Запрос позволяет получить список очередей, задачи которых попадают в [проект](../../manager/projects.md).

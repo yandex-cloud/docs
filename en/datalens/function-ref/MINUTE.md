@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/MINUTE.md
 ---
+
 
 # MINUTE
 
@@ -22,7 +24,7 @@ Returns the number of the minute in the hour of the specified date `datetime`. W
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 MINUTE(#2019-01-23 15:07:47#) = 7

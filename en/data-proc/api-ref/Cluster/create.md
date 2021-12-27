@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dataproc/api-ref/Cluster/create.md
 ---
+
 
 # Method create
 Creates a cluster in the specified folder.
@@ -42,6 +44,7 @@ POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
         },
         "subnetId": "string",
         "hostsCount": "string",
+        "assignPublicIp": true,
         "autoscalingConfig": {
           "maxHostsCount": "string",
           "preemptible": true,
@@ -91,6 +94,7 @@ configSpec.<br>subclustersSpec[].<br>resources.<br>diskTypeId | **string**<br><p
 configSpec.<br>subclustersSpec[].<br>resources.<br>diskSize | **string** (int64)<br><p>Volume of the storage available to a host, in bytes.</p> 
 configSpec.<br>subclustersSpec[].<br>subnetId | **string**<br><p>Required. ID of the VPC subnet used for hosts in the subcluster.</p> <p>The maximum string length in characters is 50.</p> 
 configSpec.<br>subclustersSpec[].<br>hostsCount | **string** (int64)<br><p>Required. Number of hosts in the subcluster.</p> <p>The minimum value is 1.</p> 
+configSpec.<br>subclustersSpec[].<br>assignPublicIp | **boolean** (boolean)<br><p>Assign public ip addresses for all hosts in subcluter.</p> 
 configSpec.<br>subclustersSpec[].<br>autoscalingConfig | **object**<br><p>Configuration for instance group based subclusters</p> 
 configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>maxHostsCount | **string** (int64)<br><p>Upper limit for total instance subcluster count.</p> <p>Acceptable values are 1 to 100, inclusive.</p> 
 configSpec.<br>subclustersSpec[].<br>autoscalingConfig.<br>preemptible | **boolean** (boolean)<br><p>Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time if their resources are needed by Compute. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible Virtual Machines</a>.</p> 

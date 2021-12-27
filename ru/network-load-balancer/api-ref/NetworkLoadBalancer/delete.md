@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/delete.md
 ---
+
 
 # Method delete
 Deletes the specified network load balancer.

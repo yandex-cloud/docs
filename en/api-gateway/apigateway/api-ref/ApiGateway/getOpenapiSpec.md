@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/serverless/apigateway/apigateway/api-ref/ApiGateway/getOpenapiSpec.md
 ---
+
 
 # Method getOpenapiSpec
 Returns the OpenAPI specification of specified API gateway.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/ARG_MAX.md
 ---
+
 
 # ARG_MAX
 
@@ -23,7 +25,7 @@ Returns `value` for the maximum value of `comp` in the group. If multiple values
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 ARG_MAX([Sales], [Profit])

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/MARKUP.md
 ---
+
 
 # MARKUP
 
@@ -24,7 +26,7 @@ MARKUP( arg_1, arg_2, arg_3 [ , ... ] )
 
 **Возвращаемый тип**: `Разметка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 MARKUP(BOLD([a]), ': ', [b])

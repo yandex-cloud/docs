@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/restore.md
+---
 # yc managed-postgresql cluster restore
 
 Restore PostgreSQL cluster

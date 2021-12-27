@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/delete-macros.md
+---
 # Delete a macro
 
 Use this request to delete macros.

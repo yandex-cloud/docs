@@ -1,7 +1,7 @@
 # Scan method
 
 Returns items and attributes from the specified table.
-By default, all items are returned, but no more than 1 MB at a time. If there is more data in the table, the `LastEvaluatedKey` parameter returns the last primary key evaluated by the scan operation You can use it to continue scanning.
+By default, all items are returned, but no more than 1 MB at a time or up to 100 records. If there is more data in the table, the `LastEvaluatedKey` parameter returns the last primary key evaluated by the scan operation You can use it to continue scanning.
 
 Filters specified in the `FilterExpression` parameter only apply after the main selection.
 

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/load-balancer/target-group/delete.md
+---
 # yc load-balancer target-group delete
 
 Delete the specified target group

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/delete-column.md
+---
 # Delete a column
 
 Use this request to delete columns.

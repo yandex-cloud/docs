@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/kms/symmetric-key/delete.md
+---
 # yc kms symmetric-key delete
 
 Delete the specified symmetric key

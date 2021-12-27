@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/URL.md
 ---
+
 
 # URL
 
@@ -23,7 +25,7 @@ URL( address, text )
 
 **Возвращаемый тип**: `Разметка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 URL('https://example.com/?value=' + [value], [value])

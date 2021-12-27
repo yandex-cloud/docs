@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/get.md
+---
 # yc logging group get
 
 Show information about the specified log group

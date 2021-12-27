@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/ACOS.md
 ---
+
 
 # ACOS
 
@@ -22,7 +24,7 @@ ACOS( number )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 ACOS(-1) = 3.14159

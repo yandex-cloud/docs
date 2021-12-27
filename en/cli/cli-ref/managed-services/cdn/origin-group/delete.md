@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin-group/delete.md
+---
 # yc cdn origin-group delete
 
 Delete the specified origin group.

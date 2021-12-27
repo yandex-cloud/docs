@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-checklist.md
+---
 # Get checklist parameters
 
 Use this request to get the parameters of the checklist in the issue.

@@ -133,7 +133,7 @@ Create two VMs for Active Directory domain controllers. These VMs don't have int
   1. Under **Disks**, enter 35 GB for the size of the boot disk.
 
   1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 4.
          * **Guaranteed vCPU share**: 100%.
@@ -188,7 +188,7 @@ A file server with internet access is used to configure VMs with Active Director
   1. Under **Images from {{ marketplace-name }}**, click **Select**. In the window that opens, select the **2016 Datacenter** image.
   1. Under **Disks**, enter 35 GB for the size of the boot disk.
   1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
       - Specify the number of vCPUs and amount of RAM:
          * **vCPU**: 2.
          * **Guaranteed vCPU share**: 100%.

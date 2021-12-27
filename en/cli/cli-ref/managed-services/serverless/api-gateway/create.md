@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/create.md
+---
 # yc serverless api-gateway create
 
 Create API Gateway

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Secret/delete.md
 ---
+
 
 # Method delete
 Deletes the specified secret.

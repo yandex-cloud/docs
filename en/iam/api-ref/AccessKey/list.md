@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iam/api-ref/AccessKey/list.md
 ---
+
 
 # Method list
 Retrieves the list of access keys for the specified service account.

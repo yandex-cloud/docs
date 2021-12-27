@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/target-group/update.md
+---
 # yc application-load-balancer target-group update
 
 Update the specified target group
@@ -17,7 +20,7 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/> A new name of the target group.|
 |`--description`|<b>`string`</b><br/> A description of the target group.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
-|`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of targets.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  ip-address IP Address.  |
+|`--target`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> List of targets.  Possible property names:  subnet-id Subnet id.  subnet-name Subnet name.  ip-address IP Address.  private-ip-address Private IPv4 address.  |
 |`--clear-targets`| Remove all targets.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 

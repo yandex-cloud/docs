@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/add-labels.md
+---
 # yc serverless trigger add-labels
 
 Add labels to specified trigger

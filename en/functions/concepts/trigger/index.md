@@ -3,9 +3,9 @@ title: Trigger. Overview
 description: 'Trigger — a condition, when executed, a certain function is automatically launched. Triggers allow you to automate work with other Yandex.Cloud services, for example — Yandex Object Storage, Yandex Message Queue and Yandex IoT Core. '
 ---
 
-# Trigger. Overview
+# Triggers. Overview
 
-_Triggers_ are the criteria that automatically launch a specific function when met. Triggers let you automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ iot-full-name }}.
+_Triggers_ are the criteria that automatically launch a [function](../function.md) in {{ sf-name }} or a [container](../../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }}. Triggers let you automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ iot-full-name }}.
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
@@ -17,10 +17,13 @@ The following types of triggers are available in {{ sf-name }}:
 * [Trigger for {{ iot-name }}](iot-core-trigger.md).
 * [Trigger for {{ container-registry-name }}](cr-trigger.md).
 * [Trigger for {{ cloud-logs-name }}](cloudlogs-trigger.md).
+* [Trigger for {{ cloud-logging-name }}](cloud-logging-trigger.md).
+* [Trigger for budgets](budget-trigger.md).
+* [Trigger for {{ yds-name }}](data-streams-trigger.md).
 
 ## Specifics of functions invoked by triggers {#invoke}
 
-Triggers call functions based on the preset [quotas and limits](../../../functions/concepts/limits.md).
+Triggers call functions based on preset [quotas and limits](../../../functions/concepts/limits.md).
 
 When a function is called by a trigger, the following specifics apply:
 

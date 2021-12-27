@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Registry/list.md
 ---
+
 
 # Method list
 Retrieves the list of registries in the specified folder.

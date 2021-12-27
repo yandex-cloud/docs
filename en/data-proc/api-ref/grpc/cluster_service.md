@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/data-proc/api-ref/grpc/cluster_service.md
 ---
+
 
 # ClusterService
 
@@ -55,7 +57,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used. To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true 
 
 
 ### Monitoring {#Monitoring}
@@ -97,7 +99,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list clusters in. <br>To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#ListClustersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#ListClustersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClustersResponse {#ListClustersResponse}
@@ -129,7 +131,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used. To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true 
 
 
 ### Monitoring {#Monitoring1}
@@ -214,6 +216,7 @@ role | enum **Role**<br>Required. Role of the subcluster in the Data Proc cluste
 resources | **[Resources](#Resources)**<br>Required. Resource configuration for hosts in the subcluster. 
 subnet_id | **string**<br>Required. ID of the VPC subnet used for hosts in the subcluster. The maximum string length in characters is 50.
 hosts_count | **int64**<br>Required. Number of hosts in the subcluster. The minimum value is 1.
+assign_public_ip | **bool**<br>Assign public ip addresses for all hosts in subcluter. 
 autoscaling_config | **[AutoscalingConfig](#AutoscalingConfig)**<br>Configuration for instance group based subclusters 
 
 
@@ -283,7 +286,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used. To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true 
 
 
 ### Monitoring {#Monitoring2}
@@ -435,7 +438,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used. To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true 
 
 
 ### Monitoring {#Monitoring3}
@@ -566,7 +569,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used. To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true 
 
 
 ### Monitoring {#Monitoring4}
@@ -657,7 +660,7 @@ ui_proxy | **bool**<br>Whether UI Proxy feature is enabled.
 security_group_ids[] | **string**<br>User security groups. 
 host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service 
+log_group_id | **string**<br>ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used. To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true 
 
 
 ### Monitoring {#Monitoring5}
@@ -738,7 +741,7 @@ Field | Description
 cluster_id | **string**<br>ID of the cluster to list hosts for. <br>To get a cluster ID, make a [ClusterService.List](#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#ListClusterHostsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster6) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [Cluster.name](#Cluster6) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListClusterHostsResponse {#ListClusterHostsResponse}

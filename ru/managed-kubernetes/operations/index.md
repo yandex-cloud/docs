@@ -8,6 +8,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](security-groups.md)
 * [{#T}](node-connect-ssh.md)
 * [{#T}](create-static-conf.md)
+* [{#T}](marketplace.md)
 
 ## Сетевые сценарии {#network-scenarios}
 
@@ -25,6 +26,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](volumes/static-create-pv.md)
 * [{#T}](volumes/manage-storage-class.md)
 * [{#T}](volumes/volume-expansion.md)
+* [{#T}](volumes/statefulset-pvc-expansion.md)
 * [{#T}](volumes/mode-block.md)
 
 ## Сетевые сценарии {#network-scenarios}

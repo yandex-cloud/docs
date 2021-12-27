@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/ARG_MAX.md
 ---
+
 
 # ARG_MAX
 
@@ -23,7 +25,7 @@ ARG_MAX( value, comp )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`value`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 ARG_MAX([Sales], [Profit])

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/delete.md
+---
 # yc managed-mongodb hosts delete
 
 Remove specified hosts from the a cluster.

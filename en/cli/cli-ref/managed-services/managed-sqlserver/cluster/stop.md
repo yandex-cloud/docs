@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/stop.md
+---
 # yc managed-sqlserver cluster stop
 
 Stop the specified SQLServer cluster

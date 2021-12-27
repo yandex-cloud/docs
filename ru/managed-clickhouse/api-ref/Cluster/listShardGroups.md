@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/listShardGroups.md
 ---
+
 
 # Method listShardGroups
 Retrieves a list of shard groups that belong to specified cluster.

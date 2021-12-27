@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/COUNTD_APPROX.md
 ---
+
 
 # COUNTD_APPROX
 
@@ -22,7 +24,7 @@ COUNTD_APPROX( value )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 COUNTD_APPROX([ClienID])

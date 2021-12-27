@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/index.md
+---
 # yc managed-elasticsearch
 
 Manage ElasticSearch clusters, hosts, indexes and backups.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/index.md
+---
 # yc managed-kafka
 
 Manage Apache Kafka clusters, brokers, topics and users.
@@ -26,6 +29,7 @@ Aliases:
 	- [yc managed-kafka cluster create](cluster/create.md) — Create Kafka cluster
 	- [yc managed-kafka cluster update](cluster/update.md) — Modify configuration or attributes of a Kafka cluster.
 	- [yc managed-kafka cluster move](cluster/move.md) — Move the specified Kafka cluster into the folder
+	- [yc managed-kafka cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 - [yc managed-kafka topic](topic/index.md) — Manage Kafka topics.
 	- [yc managed-kafka topic get](topic/get.md) — Get information about a Kafka topic.
 	- [yc managed-kafka topic list](topic/list.md) — List topics of a Kafka cluster.

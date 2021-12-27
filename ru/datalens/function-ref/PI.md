@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/PI.md
 ---
+
 
 # PI
 
@@ -18,7 +20,7 @@ PI()
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 PI() = 3.14159

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/get-applications.md
+---
 # Получить список внешних приложений
 
 Запрос позволяет получить список внешних приложений, с которыми можно [создать связь](../../external-links.md).

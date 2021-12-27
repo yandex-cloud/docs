@@ -21,20 +21,22 @@ description: "Управление доступом в сервисе предо
 
 ![image](../../_assets/compute/security/service-roles-hierarchy.svg)
 
-### Сервисные роли
+### Сервисные роли {#service-roles}
 
 Роль | Разрешения
 ----- | -----
 `compute.admin` | Дает права на управление виртуальными машинами и [группами виртуальных машин](../../compute/concepts/instance-groups/index.md).
+`compute.viewer` | Дает права на просмотр информации о [ресурсах {{ compute-name }}](../concepts/index.md).
 `compute.disks.user` | Позволяет использовать диски для создания новых ресурсов, например виртуальных машин.
 `compute.images.user` | Позволяет использовать образы для создания новых ресурсов, например виртуальных машин.
+`compute.operator` | Позволяет [останавливать, запускать и перезапускать виртуальные машины](../../compute/operations/vm-control/vm-stop-and-start.md), но не позволяет создавать и удалять ВМ.
 `iam.serviceAccounts.user` | Подтверждает права на использование сервисного аккаунта.<br/>Эта роль необходима для выполнения операций с группами ВМ. Если вы указали сервисный аккаунт в запросе, {{ iam-short-name }} проверит, есть ли у вас права на использование этого аккаунта.
 `resource-manager.clouds.member` | Роль, необходимая для доступа к ресурсам в облаке всем, кроме [владельцев облака](../../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
 `resource-manager.clouds.owner` | Дает полный доступ к облаку и ресурсам в нем. Можно назначить только на облако.
 
 Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
 
-### Примитивные роли
+### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 

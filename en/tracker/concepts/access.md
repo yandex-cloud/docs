@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/access.md
+---
 # API access
 
 Applications use the OAuth 2.0 protocol to access {{ api-name }}.

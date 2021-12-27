@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/version/remove-tag.md
+---
 # yc serverless function version remove-tag
 
 Remove a tag from the specified function version

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/SUM_IF.md
 ---
+
 
 # SUM_IF
 
@@ -23,7 +25,7 @@ SUM_IF( expression, condition )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`expression`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 SUM_IF([Profit], [Profit] > 15)

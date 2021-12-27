@@ -1,3 +1,6 @@
+---
+sourcePath: en/_api-ref-grpc/managed-elasticsearch/api-ref/grpc/index.md
+---
 # Yandex Managed Service for Elasticsearch API
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about Yandex.Cloud API architecture, see [API Concepts](/docs/api-design-guide/).
 
@@ -6,6 +9,7 @@ See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com
 Service | Description
 --- | ---
 [AuthService](./auth_service.md) | A set of methods for managing Elasticsearch Authentication resources.
+[BackupService](./backup_service.md) | 
 [ClusterService](./cluster_service.md) | A set of methods for managing Elasticsearch clusters.
 [ResourcePresetService](./resource_preset_service.md) | A set of methods for managing Elasticsearch resource presets.
 [UserService](./user_service.md) | A set of methods for managing Elasticsearch users.

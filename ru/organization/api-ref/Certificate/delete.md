@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/organizationmanager/api-ref/Certificate/delete.md
 ---
+
 
 # Method delete
 Deletes the specified certificate.

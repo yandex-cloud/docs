@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Subnet/removeCidrBlocks.md
 ---
+
 
 # Method removeCidrBlocks
 Removes CIDR blocks from the specified subnet.

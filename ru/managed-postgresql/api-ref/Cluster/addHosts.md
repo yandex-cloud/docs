@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/addHosts.md
 ---
+
 
 # Method addHosts
 Creates new hosts for a cluster.

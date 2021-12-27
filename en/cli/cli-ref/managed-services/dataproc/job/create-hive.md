@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/job/create-hive.md
+---
 # yc dataproc job create-hive
 
 Create a Dataproc Hive job.

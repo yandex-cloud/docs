@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md
+---
 # yc application-load-balancer load-balancer add-listener
 
 Adds a listener to the specified application load balancer.
@@ -8,21 +11,25 @@ Syntax:
 
 `yc application-load-balancer load-balancer add-listener <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
+Aliases: 
+
+- `add-http-listener`
+
 #### Global Flags
 
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/> ID of the Application load balancer.|
 |`--name`|<b>`string`</b><br/> Name of the Application load balancer.|
-|`--listener-name`|<b>`string`</b><br/> Name of listener to add to application load balancer.|
-|`--enable-tls`| Enable TLS for new listener.|
+|`--listener-name`|<b>`string`</b><br/> Name of listener to add/update in application load balancer.|
+|`--enable-tls`| Enable TLS for specified listener.|
+|`--certificate-id`|<b>`value[,value]`</b><br/> Certificate ID for specified listener.|
+|`--external-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the listener.  address Use allocated address for the listener.  |
+|`--internal-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Internal IPv4 endpoint settings for specified listener.  Possible property names:  port Port for the new listener.  subnet-id Subnet for internal endpoint.  |
+|`--external-ipv6-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv6 endpoint settings for specified listener.  Possible property names:  port Port for the listener.  address Use allocated address for the listener.  |
 |`--redirect-to-https`| Redirect HTTP requests to HTTPS for new listener.|
-|`--certificate-id`|<b>`value[,value]`</b><br/> Certificate ID for new listener.|
 |`--allow-http10`| Allow HTTP1.0 for new listener.|
 |`--http2-options`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> HTTP2 options for new listener.  Possible property names:  max-concurrent-streams Max concurrent streams for HTTP2 listener.  |
-|`--external-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv4 endpoint settings for new listener.  Possible property names:  port Port for the new listener.  address Use allocated address for the new listener.  |
-|`--internal-ipv4-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Internal IPv4 endpoint settings for new listener.  Possible property names:  port Port for the new listener.  subnet-id Subnet for internal endpoint.  |
-|`--external-ipv6-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> External IPv6 endpoint settings for new listener.  Possible property names:  port Port for the new listener.  address Use allocated address for the new listener.  |
 |`--http-router-id`|<b>`string`</b><br/> HTTP router id for new listener.|
 |`--http-router-name`|<b>`string`</b><br/> HTTP router name for new listener.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|

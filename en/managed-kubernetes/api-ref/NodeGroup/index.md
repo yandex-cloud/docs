@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/NodeGroup/index.md
 ---
+
 
 # NodeGroup
 A set of methods for managing node groups.

@@ -27,6 +27,10 @@ items:
         href: solutions/data-from-appmetrica-visualization.md
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         href: solutions/data-from-podcasts.md
+      - name: Визуализация данных с помощью SQL-чарта
+        href: solutions/data-from-ch-to-sql-chart.md
+      - name: Построение чартов customer journeys на данных AppMetrica
+        href: solutions/data-from-appmetrica-yc-visualization.md
   - name: Концепции
     items:
       - name: Обзор сервиса
@@ -115,7 +119,7 @@ items:
             href: operations/dataset/create-filter.md
           - name: Обновление полей в датасете
             href: operations/dataset/update-field.md
-          - name: Добавление данных в датасет с помощью SQL
+          - name: Описание датасета через SQL-запрос к источнику
             href: operations/dataset/add-data.md
           - name: Материализация датасета
             href: operations/dataset/materialize.md
@@ -586,7 +590,7 @@ items:
         href: troubleshooting/errors/all.md
       - name: Access denied
         hidden: true
-        href: troubleshooting/errors/ERR-DS-US-ACCESS_DENIED_DATASET.md
+        href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
@@ -596,12 +600,18 @@ items:
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
-      - name: Data source timed out
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
       - name: Data is not available because materialization is not yet complete
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
+      - name: Data source (table) does not exist
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md
+      - name: Data source refused connection
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md
+      - name: Data source timed out
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
       - name: Inconsistent aggregation among operands
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md
@@ -611,6 +621,11 @@ items:
       - name: Received too many result data rows
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
+      - name: >-
+          Referenced connection <идентификатор подключения> cannot be loaded
+          access denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
       - name: Request size limit exceeded
         hidden: true
         href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-yc/config/get.md
+---
 # yc config get
 
 Get value for the specified configuration property

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/container/image/get-last-scan-result.md
+---
 # yc container image get-last-scan-result
 
 [PREVIEW] Get recent scan result of Docker image.

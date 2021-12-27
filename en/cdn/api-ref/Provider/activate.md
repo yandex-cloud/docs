@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/Provider/activate.md
 ---
+
 
 # Method activate
 Activate provider for specified client.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/image/remove-labels.md
+---
 # yc compute image remove-labels
 
 Remove labels from specified image

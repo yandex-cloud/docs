@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/MEDIAN.md
 ---
+
 
 # MEDIAN
 
@@ -22,7 +24,7 @@ Returns the median value.
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 MEDIAN([Profit])

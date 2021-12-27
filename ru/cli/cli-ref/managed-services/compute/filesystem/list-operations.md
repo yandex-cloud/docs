@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/filesystem/list-operations.md
+---
 # yc compute filesystem list-operations
 
 List operations for the specified filesystem

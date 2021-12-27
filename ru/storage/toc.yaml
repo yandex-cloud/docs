@@ -59,10 +59,6 @@ items:
             href: operations/hosting/multiple-domains.md
           - name: Настройка HTTPS
             href: operations/hosting/certificate.md
-      - name: Управление доступом
-        items:
-          - name: Применение политики доступа
-            href: operations/access/apply-policy.md
   - name: Сценарии использования
     items:
       - name: Получение статистики запросов к объекту с использованием S3 Select
@@ -75,6 +71,8 @@ items:
         href: solutions/billing-resource-detailing.md
       - name: Шифрование на стороне сервера
         href: solutions/server-side-encryption.md
+      - name: Сине-зеленое и канареечное развертывание
+        href: solutions/blue-green-canary-deployment.md
   - name: Концепции
     items:
       - name: Обзор
@@ -139,6 +137,8 @@ items:
             href: tools/aws-sdk-net.md
           - name: AWS SDK для C++
             href: tools/aws-sdk-cpp.md
+          - name: AWS SDK для PHP
+            href: tools/aws-sdk-php.md
       - name: FUSE
         items:
           - name: GeeseFS

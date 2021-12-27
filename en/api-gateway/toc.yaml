@@ -15,7 +15,7 @@ items:
         href: operations/api-gw-domains.md
       - name: Deleting API gateways
         href: operations/api-gw-delete.md
-      - name: Viewing monitoring charts
+      - name: Monitoring
         href: operations/api-gw-monitoring.md
       - name: Viewing the execution log
         href: operations/api-gw-logs.md
@@ -41,12 +41,16 @@ items:
             href: concepts/extensions/dummy.md
           - name: Invoking a function
             href: concepts/extensions/cloud-functions.md
+          - name: Integration with Serverless Containers
+            href: concepts/extensions/containers.md
           - name: Access via HTTP
             href: concepts/extensions/http.md
           - name: Integration with Object Storage
             href: concepts/extensions/object-storage.md
           - name: DataSphere integration
             href: concepts/extensions/datasphere.md
+          - name: Data Streams integration
+            href: concepts/extensions/datastreams.md
           - name: Greedy parameters
             href: concepts/extensions/greedy-parameters.md
           - name: Generalized HTTP method

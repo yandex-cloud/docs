@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/application-load-balancer/api-ref/grpc/load_balancer_service.md
 ---
+
 
 # LoadBalancerService
 
@@ -64,10 +66,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener)**<br>HTTPS (HTTP over TLS) listener settings. 
-&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener)**<br>TCP listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener)**<br>Stream listener settings. 
 
 
 ### Endpoint {#Endpoint}
@@ -146,8 +148,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch) values. 
+default_handler | **[TlsHandler](#TlsHandler)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch) values. 
 
 
 ### TlsHandler {#TlsHandler}
@@ -227,7 +229,7 @@ Field | Description
 backend_group_id | **string**<br>Required.  
 
 
-### TcpListener {#TcpListener}
+### StreamListener {#StreamListener}
 
 Field | Description
 --- | ---
@@ -270,7 +272,7 @@ Field | Description
 folder_id | **string**<br>Required. ID of the folder to list application load balancers in. <br>To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. 
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListLoadBalancersResponse.next_page_token](#ListLoadBalancersResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListLoadBalancersResponse.next_page_token](#ListLoadBalancersResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [LoadBalancer.name](#LoadBalancer1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [LoadBalancer.name](#LoadBalancer1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. </li></ol> The maximum string length in characters is 1000.
 
 
 ### ListLoadBalancersResponse {#ListLoadBalancersResponse}
@@ -306,10 +308,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint1)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener1)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener1)**<br>HTTPS (HTTP over TLS) listener settings. 
-&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener1)**<br>TCP listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener1)**<br>Stream listener settings. 
 
 
 ### Endpoint {#Endpoint1}
@@ -388,8 +390,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler2)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch1)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch1) values. 
+default_handler | **[TlsHandler](#TlsHandler2)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch1)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch1) values. 
 
 
 ### TlsHandler {#TlsHandler2}
@@ -469,7 +471,7 @@ Field | Description
 backend_group_id | **string**<br>Required.  
 
 
-### TcpListener {#TcpListener1}
+### StreamListener {#StreamListener1}
 
 Field | Description
 --- | ---
@@ -530,9 +532,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 endpoint_specs[] | **[EndpointSpec](#EndpointSpec)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. The number of elements must be greater than 0.
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener2)**<br>HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener2)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener2)**<br>TLS listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener2)**<br>TCP listener settings. 
 
 
 ### EndpointSpec {#EndpointSpec}
@@ -611,8 +614,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler4)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch2)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch2) values. 
+default_handler | **[TlsHandler](#TlsHandler4)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch2)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch2) values. 
 
 
 ### TlsHandler {#TlsHandler4}
@@ -692,6 +695,20 @@ Field | Description
 backend_group_id | **string**<br>Required.  
 
 
+### StreamListener {#StreamListener2}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler8)**<br>Required.  
+
+
+### StreamHandler {#StreamHandler8}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
 ### AllocationPolicy {#AllocationPolicy2}
 
 Field | Description
@@ -756,10 +773,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint2)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener3)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener3)**<br>HTTPS (HTTP over TLS) listener settings. 
-&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener2)**<br>TCP listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener3)**<br>Stream listener settings. 
 
 
 ### Endpoint {#Endpoint2}
@@ -838,8 +855,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler6)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch3)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch3) values. 
+default_handler | **[TlsHandler](#TlsHandler6)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch3)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch3) values. 
 
 
 ### TlsHandler {#TlsHandler6}
@@ -848,7 +865,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler10)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler8)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler9)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -869,7 +886,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler8}
+### StreamHandler {#StreamHandler9}
 
 Field | Description
 --- | ---
@@ -891,7 +908,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler11)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler9)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler10)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -912,21 +929,21 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler9}
+### StreamHandler {#StreamHandler10}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required.  
 
 
-### TcpListener {#TcpListener2}
+### StreamListener {#StreamListener3}
 
 Field | Description
 --- | ---
-handler | **[StreamHandler](#StreamHandler10)**<br>Required.  
+handler | **[StreamHandler](#StreamHandler11)**<br>Required.  
 
 
-### StreamHandler {#StreamHandler10}
+### StreamHandler {#StreamHandler11}
 
 Field | Description
 --- | ---
@@ -979,9 +996,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 endpoint_specs[] | **[EndpointSpec](#EndpointSpec)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. The number of elements must be greater than 0.
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener4)**<br>HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener4)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener4)**<br>TLS listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener4)**<br>TCP listener settings. 
 
 
 ### EndpointSpec {#EndpointSpec1}
@@ -1060,8 +1078,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler8)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch4)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch4) values. 
+default_handler | **[TlsHandler](#TlsHandler8)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch4)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch4) values. 
 
 
 ### TlsHandler {#TlsHandler8}
@@ -1070,7 +1088,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler13)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler11)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler12)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1091,7 +1109,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler11}
+### StreamHandler {#StreamHandler12}
 
 Field | Description
 --- | ---
@@ -1113,7 +1131,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler14)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler12)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler13)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1134,7 +1152,21 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler12}
+### StreamHandler {#StreamHandler13}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### StreamListener {#StreamListener4}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler14)**<br>Required.  
+
+
+### StreamHandler {#StreamHandler14}
 
 Field | Description
 --- | ---
@@ -1205,10 +1237,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint3)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener5)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener5)**<br>HTTPS (HTTP over TLS) listener settings. 
-&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener3)**<br>TCP listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener5)**<br>Stream listener settings. 
 
 
 ### Endpoint {#Endpoint3}
@@ -1287,8 +1319,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler10)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch5)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch5) values. 
+default_handler | **[TlsHandler](#TlsHandler10)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch5)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch5) values. 
 
 
 ### TlsHandler {#TlsHandler10}
@@ -1297,7 +1329,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler16)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler13)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler15)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1318,7 +1350,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler13}
+### StreamHandler {#StreamHandler15}
 
 Field | Description
 --- | ---
@@ -1340,7 +1372,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler17)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler14)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler16)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1361,21 +1393,21 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler14}
+### StreamHandler {#StreamHandler16}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required.  
 
 
-### TcpListener {#TcpListener3}
+### StreamListener {#StreamListener5}
 
 Field | Description
 --- | ---
-handler | **[StreamHandler](#StreamHandler15)**<br>Required.  
+handler | **[StreamHandler](#StreamHandler17)**<br>Required.  
 
 
-### StreamHandler {#StreamHandler15}
+### StreamHandler {#StreamHandler17}
 
 Field | Description
 --- | ---
@@ -1503,10 +1535,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint4)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener6)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener6)**<br>HTTPS (HTTP over TLS) listener settings. 
-&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener4)**<br>TCP listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener6)**<br>Stream listener settings. 
 
 
 ### Endpoint {#Endpoint4}
@@ -1585,8 +1617,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler12)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch6)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch6) values. 
+default_handler | **[TlsHandler](#TlsHandler12)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch6)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch6) values. 
 
 
 ### TlsHandler {#TlsHandler12}
@@ -1595,7 +1627,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler19)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler16)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler18)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1616,7 +1648,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler16}
+### StreamHandler {#StreamHandler18}
 
 Field | Description
 --- | ---
@@ -1638,7 +1670,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler20)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler17)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler19)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1659,21 +1691,21 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler17}
+### StreamHandler {#StreamHandler19}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required.  
 
 
-### TcpListener {#TcpListener4}
+### StreamListener {#StreamListener6}
 
 Field | Description
 --- | ---
-handler | **[StreamHandler](#StreamHandler18)**<br>Required.  
+handler | **[StreamHandler](#StreamHandler20)**<br>Required.  
 
 
-### StreamHandler {#StreamHandler18}
+### StreamHandler {#StreamHandler20}
 
 Field | Description
 --- | ---
@@ -1761,10 +1793,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint5)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener7)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener7)**<br>HTTPS (HTTP over TLS) listener settings. 
-&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener5)**<br>TCP listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener7)**<br>Stream listener settings. 
 
 
 ### Endpoint {#Endpoint5}
@@ -1843,8 +1875,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler14)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch7)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch7) values. 
+default_handler | **[TlsHandler](#TlsHandler14)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch7)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch7) values. 
 
 
 ### TlsHandler {#TlsHandler14}
@@ -1853,7 +1885,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler22)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler19)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler21)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1874,7 +1906,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler19}
+### StreamHandler {#StreamHandler21}
 
 Field | Description
 --- | ---
@@ -1896,7 +1928,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler23)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler20)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler22)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -1917,21 +1949,21 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler20}
+### StreamHandler {#StreamHandler22}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required.  
 
 
-### TcpListener {#TcpListener5}
+### StreamListener {#StreamListener7}
 
 Field | Description
 --- | ---
-handler | **[StreamHandler](#StreamHandler21)**<br>Required.  
+handler | **[StreamHandler](#StreamHandler23)**<br>Required.  
 
 
-### StreamHandler {#StreamHandler21}
+### StreamHandler {#StreamHandler23}
 
 Field | Description
 --- | ---
@@ -1978,9 +2010,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 endpoint_specs[] | **[EndpointSpec](#EndpointSpec)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. The number of elements must be greater than 0.
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener8)**<br>HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener8)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener8)**<br>TLS listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener8)**<br>TCP listener settings. 
 
 
 ### EndpointSpec {#EndpointSpec2}
@@ -2059,8 +2092,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler16)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch8)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch8) values. 
+default_handler | **[TlsHandler](#TlsHandler16)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch8)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch8) values. 
 
 
 ### TlsHandler {#TlsHandler16}
@@ -2069,7 +2102,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler25)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler22)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler24)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2090,7 +2123,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler22}
+### StreamHandler {#StreamHandler24}
 
 Field | Description
 --- | ---
@@ -2112,7 +2145,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler26)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler23)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler25)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2133,7 +2166,21 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler23}
+### StreamHandler {#StreamHandler25}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### StreamListener {#StreamListener8}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler26)**<br>Required.  
+
+
+### StreamHandler {#StreamHandler26}
 
 Field | Description
 --- | ---
@@ -2189,10 +2236,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint6)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener9)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener9)**<br>HTTPS (HTTP over TLS) listener settings. 
-&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener6)**<br>TCP listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener9)**<br>Stream listener settings. 
 
 
 ### Endpoint {#Endpoint6}
@@ -2271,8 +2318,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler18)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch9)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch9) values. 
+default_handler | **[TlsHandler](#TlsHandler18)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch9)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch9) values. 
 
 
 ### TlsHandler {#TlsHandler18}
@@ -2281,7 +2328,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler28)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler24)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler27)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2302,7 +2349,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler24}
+### StreamHandler {#StreamHandler27}
 
 Field | Description
 --- | ---
@@ -2324,7 +2371,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler29)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler25)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler28)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2345,21 +2392,21 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler25}
+### StreamHandler {#StreamHandler28}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required.  
 
 
-### TcpListener {#TcpListener6}
+### StreamListener {#StreamListener9}
 
 Field | Description
 --- | ---
-handler | **[StreamHandler](#StreamHandler26)**<br>Required.  
+handler | **[StreamHandler](#StreamHandler29)**<br>Required.  
 
 
-### StreamHandler {#StreamHandler26}
+### StreamHandler {#StreamHandler29}
 
 Field | Description
 --- | ---
@@ -2449,10 +2496,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint7)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener10)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener10)**<br>HTTPS (HTTP over TLS) listener settings. 
-&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener7)**<br>TCP listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener10)**<br>Stream listener settings. 
 
 
 ### Endpoint {#Endpoint7}
@@ -2531,8 +2578,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler20)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch10)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch10) values. 
+default_handler | **[TlsHandler](#TlsHandler20)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch10)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch10) values. 
 
 
 ### TlsHandler {#TlsHandler20}
@@ -2541,7 +2588,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler31)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler27)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler30)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2562,7 +2609,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler27}
+### StreamHandler {#StreamHandler30}
 
 Field | Description
 --- | ---
@@ -2584,7 +2631,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler32)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler28)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler31)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2605,21 +2652,21 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler28}
+### StreamHandler {#StreamHandler31}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required.  
 
 
-### TcpListener {#TcpListener7}
+### StreamListener {#StreamListener10}
 
 Field | Description
 --- | ---
-handler | **[StreamHandler](#StreamHandler29)**<br>Required.  
+handler | **[StreamHandler](#StreamHandler32)**<br>Required.  
 
 
-### StreamHandler {#StreamHandler29}
+### StreamHandler {#StreamHandler32}
 
 Field | Description
 --- | ---
@@ -2667,9 +2714,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
 endpoint_specs[] | **[EndpointSpec](#EndpointSpec)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. The number of elements must be greater than 0.
-listener | **oneof:** `http` or `tls`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener11)**<br>HTTP listener settings. 
-&nbsp;&nbsp;tls | **[TlsListener](#TlsListener11)**<br>HTTPS (HTTP over TLS) listener settings. 
+&nbsp;&nbsp;tls | **[TlsListener](#TlsListener11)**<br>TLS listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener11)**<br>TCP listener settings. 
 
 
 ### EndpointSpec {#EndpointSpec3}
@@ -2748,8 +2796,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler22)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch11)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch11) values. 
+default_handler | **[TlsHandler](#TlsHandler22)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch11)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch11) values. 
 
 
 ### TlsHandler {#TlsHandler22}
@@ -2758,7 +2806,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler34)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler30)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler33)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2779,7 +2827,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler30}
+### StreamHandler {#StreamHandler33}
 
 Field | Description
 --- | ---
@@ -2801,7 +2849,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler35)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler31)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler34)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2822,7 +2870,21 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler31}
+### StreamHandler {#StreamHandler34}
+
+Field | Description
+--- | ---
+backend_group_id | **string**<br>Required.  
+
+
+### StreamListener {#StreamListener11}
+
+Field | Description
+--- | ---
+handler | **[StreamHandler](#StreamHandler35)**<br>Required.  
+
+
+### StreamHandler {#StreamHandler35}
 
 Field | Description
 --- | ---
@@ -2878,10 +2940,10 @@ Field | Description
 --- | ---
 name | **string**<br>Required. Name of the listener. The name is unique within the application load balancer. The string length in characters is 3-63. 
 endpoints[] | **[Endpoint](#Endpoint8)**<br>Endpoints of the listener. <br>Endpoints are defined by their IP addresses and ports. 
-listener | **oneof:** `http`, `tls` or `tcp`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
+listener | **oneof:** `http`, `tls` or `stream`<br>HTTP or HTTPS (HTTP over TLS) listener settings.
 &nbsp;&nbsp;http | **[HttpListener](#HttpListener12)**<br>HTTP listener settings. 
 &nbsp;&nbsp;tls | **[TlsListener](#TlsListener12)**<br>HTTPS (HTTP over TLS) listener settings. 
-&nbsp;&nbsp;tcp | **[TcpListener](#TcpListener8)**<br>TCP listener settings. 
+&nbsp;&nbsp;stream | **[StreamListener](#StreamListener12)**<br>Stream listener settings. 
 
 
 ### Endpoint {#Endpoint8}
@@ -2960,8 +3022,8 @@ http_to_https | **bool**<br>Redirects all unencrypted HTTP requests to the same 
 
 Field | Description
 --- | ---
-default_handler | **[TlsHandler](#TlsHandler24)**<br>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
-sni_handlers[] | **[SniMatch](#SniMatch12)**<br>Settings for handling HTTPS requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch12) values. 
+default_handler | **[TlsHandler](#TlsHandler24)**<br>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the `sni_handlers`. 
+sni_handlers[] | **[SniMatch](#SniMatch12)**<br>Settings for handling requests with Server Name Indication (SNI) matching one of [SniMatch.server_names](#SniMatch12) values. 
 
 
 ### TlsHandler {#TlsHandler24}
@@ -2970,7 +3032,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler37)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler32)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler36)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -2991,7 +3053,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler32}
+### StreamHandler {#StreamHandler36}
 
 Field | Description
 --- | ---
@@ -3013,7 +3075,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler38)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler33)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler37)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -3034,21 +3096,21 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler33}
+### StreamHandler {#StreamHandler37}
 
 Field | Description
 --- | ---
 backend_group_id | **string**<br>Required.  
 
 
-### TcpListener {#TcpListener8}
+### StreamListener {#StreamListener12}
 
 Field | Description
 --- | ---
-handler | **[StreamHandler](#StreamHandler34)**<br>Required.  
+handler | **[StreamHandler](#StreamHandler38)**<br>Required.  
 
 
-### StreamHandler {#StreamHandler34}
+### StreamHandler {#StreamHandler38}
 
 Field | Description
 --- | ---
@@ -3098,7 +3160,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler39)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler35)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler39)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -3119,7 +3181,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler35}
+### StreamHandler {#StreamHandler39}
 
 Field | Description
 --- | ---
@@ -3179,7 +3241,7 @@ Field | Description
 --- | ---
 handler | **oneof:** `http_handler` or `stream_handler`<br>Settings for handling requests.
 &nbsp;&nbsp;http_handler | **[HttpHandler](#HttpHandler40)**<br>HTTP handler. 
-&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler36)**<br>Stream handler 
+&nbsp;&nbsp;stream_handler | **[StreamHandler](#StreamHandler40)**<br>Stream handler 
 certificate_ids[] | **string**<br>ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/). <br>RSA and ECDSA certificates are supported, and only the first certificate of each type is used. The number of elements must be greater than 0.
 
 
@@ -3200,7 +3262,7 @@ Field | Description
 max_concurrent_streams | **int64**<br>Maximum number of concurrent HTTP/2 streams in a connection. 
 
 
-### StreamHandler {#StreamHandler36}
+### StreamHandler {#StreamHandler40}
 
 Field | Description
 --- | ---
@@ -3329,6 +3391,7 @@ Field | Description
 address_type | **oneof:** `ip_address`<br>Reference to the target. As of now, targets must only be referred to by their IP addresses.
 &nbsp;&nbsp;ip_address | **string**<br>IP address of the target. 
 subnet_id | **string**<br>ID of the subnet that the target is connected to. 
+private_ipv4_address | **bool**<br>If set, will not require `subnet_id` to validate the target. Instead, the address should belong to one of the following ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 Only one of `subnet_id` or `private_ipv4_address` should be set. 
 
 
 ## ListOperations {#ListOperations}

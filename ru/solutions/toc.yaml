@@ -23,6 +23,8 @@ items:
         href: web/wordpress-mysql.md
       - name: Веб-сайт на базе 1С-Битрикс
         href: web/bitrix-website.md
+      - name: Сине-зеленое и канареечное развертывание версий сервиса
+        href: web/blue-green-canary-deployment.md
   - name: Интернет-магазины
     items:
       - name: Все сценарии
@@ -99,6 +101,8 @@ items:
         href: dataplatform/index.md
       - name: Синхронизация данных из MySQL с помощью Yandex DataTransfer
         href: dataplatform/sync-mysql.md
+      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
+        href: dataplatform/dp-mch-data-exchange.md
       - name: >-
           Использование Confluent Schema Registry с Yandex Managed Service for
           Apache Kafka®
@@ -113,6 +117,10 @@ items:
           Настройка Kafka Connect для работы с кластером Yandex Managed Service
           for Apache Kafka®
         href: dataplatform/kafka-connect.md
+      - name: >-
+          Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз
+          данных из других облачных сетей
+        href: dataplatform/mdb-dns-peering.md
   - name: Windows в Yandex.Cloud
     items:
       - name: Все сценарии
@@ -169,6 +177,10 @@ items:
         href: datalens/data-from-appmetrica-visualization.md
       - name: Анализ статистики подкастов Яндекс.Музыки (для авторов подкастов)
         href: datalens/data-from-podcasts.md
+      - name: Визуализация данных с помощью SQL-чарта
+        href: datalens/data-from-ch-to-sql-chart.md
+      - name: Анализ customer journey мобильного приложения на данных AppMetrica
+        href: datalens/data-from-appmetrica-yc-visualization.md
   - name: Интернет вещей
     items:
       - name: Сценарии работы с интернетом вещей

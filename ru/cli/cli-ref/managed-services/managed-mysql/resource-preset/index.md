@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/resource-preset/index.md
+---
 # yc managed-mysql resource-preset
 
 Manage MySQL resource presets

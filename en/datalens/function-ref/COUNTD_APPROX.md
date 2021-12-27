@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/COUNTD_APPROX.md
 ---
+
 
 # COUNTD_APPROX
 
@@ -22,7 +24,7 @@ Returns the approximate number of unique values in the group. Faster than [COUNT
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 COUNTD_APPROX([ClienID])

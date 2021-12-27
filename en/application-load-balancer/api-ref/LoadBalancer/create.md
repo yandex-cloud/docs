@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/LoadBalancer/create.md
 ---
+
 
 # Method create
 Creates an application load balancer in the specified folder.
@@ -51,7 +53,7 @@ POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers
         }
       ],
 
-      // `listenerSpecs[]` includes only one of the fields `http`, `tls`
+      // `listenerSpecs[]` includes only one of the fields `http`, `tls`, `stream`
       "http": {
         "handler": {
           "httpRouterId": "string",
@@ -124,6 +126,11 @@ POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers
           }
         ]
       },
+      "stream": {
+        "handler": {
+          "backendGroupId": "string"
+        }
+      },
       // end of the list of possible fields`listenerSpecs[]`
 
     }
@@ -164,7 +171,7 @@ listenerSpecs[].<br>endpointSpecs[].<br>addressSpecs[].<br>internalIpv4AddressSp
 listenerSpecs[].<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec | **object**<br>Public IPv6 endpoint address. <br>`listenerSpecs[].endpointSpecs[].addressSpecs[]` includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`<br><br>
 listenerSpecs[].<br>endpointSpecs[].<br>addressSpecs[].<br>externalIpv6AddressSpec.<br>address | **string**<br><p>IPv6 address.</p> 
 listenerSpecs[].<br>endpointSpecs[].<br>ports[] | **string** (int64)<br><p>Required. Endpoint ports.</p> <p>Must contain at least one element. Acceptable values are 1 to 65535, inclusive.</p> 
-listenerSpecs[].<br>http | **object**<br>HTTP listener settings. <br>`listenerSpecs[]` includes only one of the fields `http`, `tls`<br><br><p>An HTTP listener resource.</p> 
+listenerSpecs[].<br>http | **object**<br>HTTP listener settings. <br>`listenerSpecs[]` includes only one of the fields `http`, `tls`, `stream`<br><br><p>An HTTP listener resource.</p> 
 listenerSpecs[].<br>http.<br>handler | **object**<br><p>Settings for handling HTTP requests.</p> <p>Only one of ``handler`` and ``redirects`` can be specified.</p> <p>An HTTP handler resource.</p> 
 listenerSpecs[].<br>http.<br>handler.<br>httpRouterId | **string**<br><p>ID of the HTTP router processing requests.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/http-router">documentation</a>.</p> 
 listenerSpecs[].<br>http.<br>handler.<br>http2Options | **object**<br>HTTP/2 settings.  If specified, incoming HTTP/2 requests are supported by the listener. <br>`listenerSpecs[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>An HTTP/2 options resource.</p> 
@@ -172,8 +179,8 @@ listenerSpecs[].<br>http.<br>handler.<br>http2Options.<br>maxConcurrentStreams |
 listenerSpecs[].<br>http.<br>handler.<br>allowHttp10 | **boolean** (boolean) <br>`listenerSpecs[].http.handler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.</p> 
 listenerSpecs[].<br>http.<br>redirects | **object**<br><p>Redirects settings.</p> <p>Only one of ``redirects`` and ``handler`` can be specified.</p> <p>A listener redirects resource.</p> 
 listenerSpecs[].<br>http.<br>redirects.<br>httpToHttps | **boolean** (boolean)<br><p>Redirects all unencrypted HTTP requests to the same URI with scheme changed to ``https``.</p> <p>The setting has the same effect as a single, catch-all ``HttpRoute`` with ``replaceScheme`` set to ``https``.</p> 
-listenerSpecs[].<br>tls | **object**<br>HTTPS (HTTP over TLS) listener settings. <br>`listenerSpecs[]` includes only one of the fields `http`, `tls`<br><br><p>An HTTPS (HTTP over TLS) listener resource.</p> 
-listenerSpecs[].<br>tls.<br>defaultHandler | **object**<br><p>Required. Settings for handling HTTPS requests by default, with Server Name Indication (SNI) not matching any of the ``sniHandlers``.</p> <p>An HTTPS (HTTP over TLS) handler resource.</p> 
+listenerSpecs[].<br>tls | **object**<br>TLS listener settings. <br>`listenerSpecs[]` includes only one of the fields `http`, `tls`, `stream`<br><br><p>An HTTPS (HTTP over TLS) listener resource.</p> 
+listenerSpecs[].<br>tls.<br>defaultHandler | **object**<br><p>Required. Settings for handling requests by default, with Server Name Indication (SNI) not matching any of the ``sniHandlers``.</p> <p>An HTTPS (HTTP over TLS) handler resource.</p> 
 listenerSpecs[].<br>tls.<br>defaultHandler.<br>certificateIds[] | **string**<br><p>Required. ID's of the TLS server certificates from <a href="/docs/certificate-manager/">Certificate Manager</a>.</p> <p>RSA and ECDSA certificates are supported, and only the first certificate of each type is used.</p> <p>Must contain at least one element.</p> 
 listenerSpecs[].<br>tls.<br>defaultHandler.<br>httpHandler | **object**<br>HTTP handler. <br>`listenerSpecs[].tls.defaultHandler` includes only one of the fields `httpHandler`, `streamHandler`<br><br><p>An HTTP handler resource.</p> 
 listenerSpecs[].<br>tls.<br>defaultHandler.<br>httpHandler.<br>httpRouterId | **string**<br><p>ID of the HTTP router processing requests.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/http-router">documentation</a>.</p> 
@@ -194,6 +201,9 @@ listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>http2O
 listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>httpHandler.<br>allowHttp10 | **boolean** (boolean) <br>`listenerSpecs[].tls.sniHandlers[].handler.httpHandler` includes only one of the fields `http2Options`, `allowHttp10`<br><br><p>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.</p> 
 listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>streamHandler | **object**<br>Stream handler <br>`listenerSpecs[].tls.sniHandlers[].handler` includes only one of the fields `httpHandler`, `streamHandler`<br><br><p>A stream handler resource.</p> 
 listenerSpecs[].<br>tls.<br>sniHandlers[].<br>handler.<br>streamHandler.<br>backendGroupId | **string**<br><p>Required.</p> 
+listenerSpecs[].<br>stream | **object**<br>TCP listener settings. <br>`listenerSpecs[]` includes only one of the fields `http`, `tls`, `stream`<br><br><p>A Stream listener resource.</p> 
+listenerSpecs[].<br>stream.<br>handler | **object**<br><p>Required.</p> <p>A stream handler resource.</p> 
+listenerSpecs[].<br>stream.<br>handler.<br>backendGroupId | **string**<br><p>Required.</p> 
 allocationPolicy | **object**<br><p>Locality settings of the application load balancer.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/application-load-balancer#lb-location">documentation</a>.</p> <p>A locality settings (allocation policy) resource.</p> 
 allocationPolicy.<br>locations[] | **object**<br><p>An application load balancer location resource.</p> <p>For details about the concept, see <a href="/docs/application-load-balancer/concepts/application-load-balancer#lb-location">documentation</a>.</p> 
 allocationPolicy.<br>locations[].<br>zoneId | **string**<br><p>Required. ID of the availability zone where the application load balancer resides.</p> <p>Each Yandex Cloud availability zone can only be specified once.</p> 

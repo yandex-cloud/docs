@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/post-macros.md
+---
 # Создать макрос
 
 Запрос позволяет создать макрос.

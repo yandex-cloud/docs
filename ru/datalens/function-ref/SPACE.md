@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/SPACE.md
 ---
+
 
 # SPACE
 
@@ -22,7 +24,7 @@ SPACE( value )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 SPACE(5) = "     "

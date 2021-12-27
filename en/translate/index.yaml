@@ -24,7 +24,7 @@ links:
     href: quickstart
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
-    href: operations/index
+    href: operations/
   - title: Concepts
     description: Learn more about the concepts of the service
     href: concepts/

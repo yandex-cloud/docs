@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/STDEV.md
 ---
+
 
 # STDEV
 
@@ -22,7 +24,7 @@ STDEV( value )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 STDEV([Profit])

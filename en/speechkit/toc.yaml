@@ -3,8 +3,6 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Releases
-    href: release-notes.md
   - name: Speech recognition
     items:
       - name: About the technology
@@ -50,9 +48,9 @@ items:
           - name: gRPC
             items:
               - name: Overview
-                href: tts/api-ref/grpc/index.md
+                href: new-v3/api-ref/grpc/index.md
               - name: Synthesizer
-                href: tts/api-ref/grpc/tts_service.md
+                href: new-v3/api-ref/grpc/tts_service.md
   - name: SpeechKit Hybrid
     items:
       - name: About the technology
@@ -88,6 +86,12 @@ items:
         items:
           - name: Policy before January 1, 2019
             href: pricing-archive/pricing-01012019.md
+  - name: Releases
+    items:
+      - name: Text to speech release notes
+        href: release-notes-tts.md
+      - name: Archive release notes
+        href: release-notes.md
   - name: Questions and answers
     href: qa/index.md
 base: en/speechkit

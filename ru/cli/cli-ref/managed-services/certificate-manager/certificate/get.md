@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/get.md
+---
 # yc certificate-manager certificate get
 
 Show information about the specified certificate

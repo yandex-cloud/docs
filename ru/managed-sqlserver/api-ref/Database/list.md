@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Database/list.md
 ---
+
 
 # Method list
 Retrieves the list of SQL Server databases in the specified cluster.

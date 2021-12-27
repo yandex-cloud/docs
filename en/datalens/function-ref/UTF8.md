@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/UTF8.md
 ---
+
 
 # UTF8
 
@@ -23,7 +25,7 @@ Converts the `string` string encoding to `UTF8`.
 
 **Return type**: `String`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 UTF8([Name], "CP-1251")

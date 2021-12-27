@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/restore.md
+---
 # yc ydb database restore
 
 Restore backup.

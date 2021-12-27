@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/REGEXP_EXTRACT.md
 ---
+
 
 # REGEXP_EXTRACT
 
@@ -39,7 +41,7 @@ REGEXP_EXTRACT( string, pattern )
 
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 REGEXP_EXTRACT("RU 912873", "[A-Z]+\s+(\d+)") = "912873"

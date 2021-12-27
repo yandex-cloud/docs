@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/RIGHT.md
 ---
+
 
 # RIGHT
 
@@ -23,7 +25,7 @@ RIGHT( string, number )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 RIGHT("Computer", 3) = "ter"

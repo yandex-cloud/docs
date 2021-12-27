@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/managed-redis/api-ref/grpc/resource_preset_service.md
 ---
+
 
 # ResourcePresetService
 

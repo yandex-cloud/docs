@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/dataproc/cluster/delete.md
+---
 # yc dataproc cluster delete
 
 Delete a cluster.

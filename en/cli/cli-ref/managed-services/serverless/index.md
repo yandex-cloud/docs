@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/index.md
+---
 # yc serverless
 
 Manage Serverless resources.

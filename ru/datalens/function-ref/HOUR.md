@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/HOUR.md
 ---
+
 
 # HOUR
 
@@ -22,7 +24,7 @@ HOUR( datetime )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 HOUR(#2019-01-23 15:07:47#) = 15

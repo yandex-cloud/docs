@@ -10,7 +10,7 @@ With the {{ yandex-cloud }} mobile app, you can:
 
 ## Access to the mobile app {#how}
 
-To use the mobile app, make sure you have an account in [Yandex.Passport](../../iam/concepts/index.md#passport).
+To log in, use your [Yandex ID](../../iam/concepts/index.md#passport) or an account in the [identity federation](../../organization/add-federation.md).
 
 ## Supported devices and OS {#devices-os}
 

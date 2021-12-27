@@ -33,14 +33,16 @@ items:
         href: operations/cluster-delete.md
       - name: Диагностика производительности
         href: operations/performance-diagnostics.md
-      - name: Мониторинг состояния кластера и хостов
-        href: operations/monitoring.md
+      - name: Обслуживание баз данных
+        href: operations/maintenance.md
   - name: Сценарии использования
     items:
       - name: Все сценарии
         href: tutorials/index.md
       - name: Миграция базы данных в Managed Service for Microsoft SQL Server
         href: tutorials/data-migration.md
+      - name: Мониторинг состояния кластера и хостов
+        href: operations/monitoring.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -59,10 +61,16 @@ items:
         href: concepts/replication.md
       - name: Настройки SQL Server
         href: concepts/settings-list.md
+      - name: Доступ к компонентам SQL Server
+        href: concepts/components.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Правила тарификации до 31 декабря 2021
+        href: pricing/index.md
+      - name: Правила тарификации с 1 января 2022
+        href: pricing/pricing.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

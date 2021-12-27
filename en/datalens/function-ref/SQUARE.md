@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/SQUARE.md
 ---
+
 
 # SQUARE
 
@@ -22,7 +24,7 @@ Returns the number `number` raised to the power of 2.
 
 **Return type**: Same type as (`number`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 SQUARE(9) = 81.0

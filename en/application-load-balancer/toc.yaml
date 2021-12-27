@@ -37,6 +37,8 @@ items:
             href: operations/application-load-balancer-create.md
           - name: Edit an L7 load balancer
             href: operations/application-load-balancer-update.md
+          - name: View L7 load balancer statistics
+            href: operations/application-load-balancer-get-stats.md
           - name: View the L7 load balancer logs
             href: operations/application-load-balancer-get-logs.md
           - name: Get the ID of the log group of the L7 load balancer

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-yc/config/unset.md
+---
 # yc config unset
 
 Unset value for the specified configuration property

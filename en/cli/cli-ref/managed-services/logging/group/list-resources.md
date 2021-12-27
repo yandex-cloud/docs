@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/list-resources.md
+---
 # yc logging group list-resources
 
 List log group resources

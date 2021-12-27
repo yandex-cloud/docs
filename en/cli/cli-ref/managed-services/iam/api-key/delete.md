@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iam/api-key/delete.md
+---
 # yc iam api-key delete
 
 Delete the specified API key

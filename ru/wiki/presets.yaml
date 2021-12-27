@@ -8,7 +8,14 @@ default:
   link-passport: https://passport.yandex.ru/
   link-forms-int: https://forms.yandex-team.ru/admin/
   link-tracker: https://tracker.yandex.ru/
+  link-metrika: https://metrika.yandex.ru
+  link-metrica_termsofuse: https://yandex.ru/legal/metrica_termsofuse/
   support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
+  support-metrica: https://yandex.ru/support/metrica/
+  support-metrica-cr-counter: https://yandex.ru/support/metrica/general/creating-counter.html
+  support-metrica-count-general: https://yandex.ru/support/metrica/general/counter-general.html
+  support-metrica-qs: https://yandex.ru/support/metrica/quick-start.html
+  support-metrica-report-general: https://yandex.ru/support/metrica/reports/report-general.html
   link-about-markdown: https://ru.wikipedia.org/wiki/Markdown
   link-about-graphviz: https://ru.wikipedia.org/wiki/Graphviz
   link-about-diagram: https://ru.wikipedia.org/wiki/Диаграмма_последовательности
@@ -26,3 +33,4 @@ default:
   example-link-mail: '[Почта Олега](mailto:oleg@yandex.ru)'
   exapmlle-anchor: m-mojjrazdel
   example-account: login@yandex.ru
+  yandex-music: https://music.yandex.ru

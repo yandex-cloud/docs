@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/dns/api-ref/DnsZone/listAccessBindings.md
 ---
+
 
 # Method listAccessBindings
 Lists existing access bindings for the specified DNS zone.

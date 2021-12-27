@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/REGEXP_REPLACE.md
 ---
+
 
 # REGEXP_REPLACE
 
@@ -36,7 +38,7 @@ Use the [ClickHouse](https://github.com/google/re2/wiki/Syntax) syntax to create
 
 
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"

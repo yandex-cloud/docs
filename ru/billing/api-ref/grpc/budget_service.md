@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/billing/api-ref/grpc/budget_service.md
 ---
+
 
 # BudgetService
 

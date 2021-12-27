@@ -13,7 +13,9 @@ keywords:
 - lod
 - уровень детализации
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/aggregation-functions.md
 ---
+
 
 # Агрегатные функции
 Агрегатные функции (агрегации) — это функции, которые вычисляются от группы значений и объединяют их в одно результирующее.

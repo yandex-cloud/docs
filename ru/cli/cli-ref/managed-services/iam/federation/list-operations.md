@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/iam/federation/list-operations.md
+---
 # yc iam federation list-operations
 
 List operations for the specified federation

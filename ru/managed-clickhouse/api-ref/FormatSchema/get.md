@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/FormatSchema/get.md
 ---
+
 
 # Method get
 

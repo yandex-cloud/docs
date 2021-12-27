@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/list-logs.md
+---
 # yc managed-clickhouse cluster list-logs
 
 Retrieve logs for a ClickHouse cluster.

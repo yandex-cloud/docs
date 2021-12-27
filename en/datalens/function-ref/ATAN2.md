@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/ATAN2.md
 ---
+
 
 # ATAN2
 
@@ -23,7 +25,7 @@ Returns the arctangent in radians for the specified coordinates `x` and `y`.
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 ATAN2(5, 7) = 0.62024

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/ATAN.md
 ---
+
 
 # ATAN
 
@@ -22,7 +24,7 @@ Returns the arctangent of `number` in radians.
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 ATAN(10) = 1.47113

@@ -87,6 +87,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
 {% list tabs %}
 
 - Management console
+
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a function.
   1. Select **{{ sf-name }}**.
   1. Click **Create function**.
@@ -114,7 +115,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
       yc serverless function create --name=add-task
       ```
 
-      Command execution result:
+      Command output:
 
       ```bash
       id: d4ejb1799eko6re4omb1
@@ -142,13 +143,13 @@ Create a [function](../functions/concepts/function.md) for each servlet:
       Parameters:
       * `function-name`: The name of the function you want to create a version of.
       * `runtime`: The runtime environment.
-      * `entrypoint`: The entry point specified in the \<function file name>.\<handler name> format.
+      * `entrypoint`: The entry point specified in \<function file name>.\<handler name> format.
       * `memory`: The amount of RAM.
       * `execution-timeout`: The maximum function execution time before the timeout is reached.
       * `source-path`: A ZIP archive with the function code and required dependencies.
       * `environment`: Environment variables in key=value format.
 
-      Command execution result:
+      Command output:
 
       ```bash
       done (1s)
@@ -174,6 +175,10 @@ Create a [function](../functions/concepts/function.md) for each servlet:
 - API
 
   Use the [create](../functions/functions/api-ref/Function/create) and [createVersion](../functions/functions/api-ref/Function/createVersion) API methods.
+
+- Yandex.Cloud Toolkit
+
+  You can create a function and its version using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -294,7 +299,7 @@ Create a [function](../functions/concepts/function.md) for each servlet:
           --description "simple todo list"
           ```
 
-          Command execution result:
+          Command output:
 
           ```bash
           done (41s)
@@ -307,6 +312,10 @@ Create a [function](../functions/concepts/function.md) for each servlet:
           domain: d5delqeel34qjjfcdj81.apigw.yandexcloud.net
           log_group_id: ckg2hdmevnvcngprqvqb
           ```
+
+    - Yandex.Cloud Toolkit
+
+      You can create an API gateway using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
     {% endlist %}
 

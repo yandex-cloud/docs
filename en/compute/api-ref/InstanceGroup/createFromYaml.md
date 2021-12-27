@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/createFromYaml.md
 ---
+
 
 # Method createFromYaml
 Creates an instance group in the specified folder from a YAML file.

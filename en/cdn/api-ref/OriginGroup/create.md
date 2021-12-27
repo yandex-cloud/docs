@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/OriginGroup/create.md
 ---
+
 
 # Method create
 Creates origin group.
@@ -9,7 +11,7 @@ Creates origin group.
  
 ## HTTP request {#https-request}
 ```
-POST https://cdn.api.cloud.yandex.net/cdn/v1/origin_groups
+POST https://cdn.api.cloud.yandex.net/cdn/v1/originGroups
 ```
  
 ## Body parameters {#body_params}

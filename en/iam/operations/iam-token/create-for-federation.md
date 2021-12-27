@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Lifetime of an [IAM token](../../../iam/concepts/authorization/iam-token.md) cannot exceed {{ iam-token-lifetime }} and is limited by the cookie lifetime for the [federation](../../concepts/users/identity-federations.md).
+Lifetime of an [IAM token](../../../iam/concepts/authorization/iam-token.md) cannot exceed {{ iam-token-lifetime }} and is limited by the cookie lifetime for the [federation](../../../organization/add-federation.md).
 
 {% endnote %}
 

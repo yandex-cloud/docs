@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/certificate/add.md
+---
 # yc iot registry certificate add
 
 Add new certificate to specified registry

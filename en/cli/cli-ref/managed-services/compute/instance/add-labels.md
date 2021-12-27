@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/add-labels.md
+---
 # yc compute instance add-labels
 
 Add labels to specified virtual machine instance

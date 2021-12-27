@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/search-release.md
+---
 # Освободить ресурсы просмотра прокрутки
 
 Запрос позволяет освободить ресурсы после просмотра слепка поиска в запросе [{#T}](search-issues.md).

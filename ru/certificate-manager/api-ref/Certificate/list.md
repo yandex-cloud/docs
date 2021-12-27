@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/list.md
 ---
+
 
 # Method list
 Returns the list of certificates in the specified folder.

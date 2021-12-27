@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/GEOCODE.md
 ---
+
 
 # GEOCODE
 
@@ -28,7 +30,7 @@ GEOCODE( address )
 
 **Возвращаемый тип**: `Геоточка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 GEOCODE("посёлок Свободный Серп") = [53.650704, 37.224461]

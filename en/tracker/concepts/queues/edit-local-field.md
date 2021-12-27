@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/queues/edit-local-field.md
+---
 # Edit a local queue field
 
 Use this request to edit an issue [local field](../../local-fields.md) linked to the specified queue.

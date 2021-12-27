@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Network/move.md
 ---
+
 
 # Method move
 Move network to another folder.

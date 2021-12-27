@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/organization-manager/organization/add-access-binding.md
+---
 # yc organization-manager organization add-access-binding
 
 Add access binding for the specified organization

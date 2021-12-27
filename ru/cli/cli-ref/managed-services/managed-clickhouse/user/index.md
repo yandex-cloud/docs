@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/index.md
+---
 # yc managed-clickhouse user
 
 Manage ClickHouse users.

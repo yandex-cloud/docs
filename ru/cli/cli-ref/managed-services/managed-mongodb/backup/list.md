@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/backup/list.md
+---
 # yc managed-mongodb backup list
 
 List MongoDB backups available in a folder.

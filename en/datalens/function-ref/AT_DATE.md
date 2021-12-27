@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/AT_DATE.md
 ---
+
 
 # AT_DATE
 

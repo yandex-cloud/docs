@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/database/create.md
+---
 # yc managed-mongodb database create
 
 Create a database in a MongoDB cluster.

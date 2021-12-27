@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/MONTH.md
 ---
+
 
 # MONTH
 
@@ -22,7 +24,7 @@ MONTH( datetime )
 
 **Возвращаемый тип**: `Целое число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 MONTH(#2019-01-23#) = 1

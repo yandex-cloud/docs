@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/list.md
+---
 # yc managed-sqlserver cluster list
 
 List SQLServer clusters

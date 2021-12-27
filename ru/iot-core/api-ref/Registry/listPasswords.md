@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/iot/devices/api-ref/Registry/listPasswords.md
 ---
+
 
 # Method listPasswords
 Retrieves the list of passwords for the specified registry.

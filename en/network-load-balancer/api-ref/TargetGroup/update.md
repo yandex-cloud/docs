@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/loadbalancer/api-ref/TargetGroup/update.md
 ---
+
 
 # Method update
 Updates the specified target group.

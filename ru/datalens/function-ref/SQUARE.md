@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/SQUARE.md
 ---
+
 
 # SQUARE
 
@@ -22,7 +24,7 @@ SQUARE( number )
 
 **Возвращаемый тип**: Совпадает с типом аргументов (`number`)
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 SQUARE(9) = 81.0

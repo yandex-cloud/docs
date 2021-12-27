@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/start.md
 ---
+
 
 # Method start
 Starts the specified MySQL cluster.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/grant-permission.md
+---
 # yc managed-clickhouse user grant-permission
 
 Grant a permission to a ClickHouse user.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/compute/instance/detach-filesystem.md
+---
 # yc compute instance detach-filesystem
 
 Detach filesystem from the the specified virtual machine instance

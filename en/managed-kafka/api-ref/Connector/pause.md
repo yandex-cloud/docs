@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/kafka/api-ref/Connector/pause.md
 ---
+
 
 # Method pause
 Pause the specified Apache Kafka connector.

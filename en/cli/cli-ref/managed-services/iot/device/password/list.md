@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/password/list.md
+---
 # yc iot device password list
 
 List passwords associated with specified device

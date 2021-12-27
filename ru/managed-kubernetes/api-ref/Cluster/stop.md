@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/k8s/api-ref/Cluster/stop.md
 ---
+
 
 # Method stop
 Stops the specified Kubernetes cluster.

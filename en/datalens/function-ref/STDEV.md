@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/STDEV.md
 ---
+
 
 # STDEV
 
@@ -22,7 +24,7 @@ Returns the statistical standard deviation of all values in the expression based
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 STDEV([Profit])

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/User/list.md
 ---
+
 
 # Method list
 Retrieves the list of ClickHouse User resources in the specified cluster.

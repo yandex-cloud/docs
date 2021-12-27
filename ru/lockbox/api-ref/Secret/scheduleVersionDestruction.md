@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Secret/scheduleVersionDestruction.md
 ---
+
 
 # Method scheduleVersionDestruction
 Schedules the specified version for destruction.

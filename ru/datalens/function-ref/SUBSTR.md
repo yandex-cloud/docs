@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/SUBSTR.md
 ---
+
 
 # SUBSTR
 
@@ -26,7 +28,7 @@ SUBSTR( string, from_index [ , length ] )
 
 **Возвращаемый тип**: `Строка`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 SUBSTR("Computer", 3) = "mputer"

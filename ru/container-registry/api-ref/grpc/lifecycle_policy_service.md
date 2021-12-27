@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/container-registry/api-ref/grpc/lifecycle_policy_service.md
 ---
+
 
 # LifecyclePolicyService
 
@@ -72,7 +74,7 @@ id | **oneof:** `registry_id` or `repository_id`<br>
 &nbsp;&nbsp;repository_id | **string**<br>Repository of the lifecycle policy. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListLifecyclePoliciesResponse.next_page_token](#ListLifecyclePoliciesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListLifecyclePoliciesResponse.next_page_token](#ListLifecyclePoliciesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [LifecyclePolicy.name](#LifecyclePolicy1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [LifecyclePolicy.name](#LifecyclePolicy1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 order_by | **string**<br>Sorting the list by [LifecyclePolicy.name](#LifecyclePolicy1), [LifecyclePolicy.created_at](#LifecyclePolicy1) and [LifecyclePolicy.status](#LifecyclePolicy1) fields. The default sorting order is ascending. The maximum string length in characters is 100.
 
 
@@ -394,7 +396,7 @@ Field | Description
 lifecycle_policy_id | **string**<br>Required. ID of the lifecycle policy. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDryRunLifecyclePolicyResultsResponse.next_page_token](#ListDryRunLifecyclePolicyResultsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDryRunLifecyclePolicyResultsResponse.next_page_token](#ListDryRunLifecyclePolicyResultsResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [LifecyclePolicy.name](#LifecyclePolicy4) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [LifecyclePolicy.name](#LifecyclePolicy4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 order_by | **string**<br>Sorting the list by [DryRunLifecyclePolicyResult.run_at](#DryRunLifecyclePolicyResult) and [DryRunLifecyclePolicyResult.affected_images_count](#DryRunLifecyclePolicyResult) fields. The default sorting order is ascending. The maximum string length in characters is 100.
 
 
@@ -429,7 +431,7 @@ Field | Description
 dry_run_lifecycle_policy_result_id | **string**<br>Required. ID of the dry run result of the lifecycle policy The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListDryRunLifecyclePolicyResultAffectedImagesResponse.next_page_token](#ListDryRunLifecyclePolicyResultAffectedImagesResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListDryRunLifecyclePolicyResultAffectedImagesResponse.next_page_token](#ListDryRunLifecyclePolicyResultAffectedImagesResponse) returned by a previous list request. The maximum string length in characters is 100.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [LifecyclePolicy.name](#LifecyclePolicy4) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on [LifecyclePolicy.name](#LifecyclePolicy4) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 order_by | **string**<br>Sorting the list by [LifecyclePolicy.name](#LifecyclePolicy4) and [LifecyclePolicy.created_at](#LifecyclePolicy4) fields. The default sorting order is ascending. The maximum string length in characters is 100.
 
 

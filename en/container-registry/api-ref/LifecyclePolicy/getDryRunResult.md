@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/getDryRunResult.md
 ---
+
 
 # Method getDryRunResult
 Returns the dry run result of the specified lifecycle policy.

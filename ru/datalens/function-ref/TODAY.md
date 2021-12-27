@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/TODAY.md
 ---
+
 
 # TODAY
 
@@ -21,7 +23,7 @@ TODAY()
 
 **Возвращаемый тип**: `Дата`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 TODAY() = #2019-01-23#

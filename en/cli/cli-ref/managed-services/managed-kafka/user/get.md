@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/user/get.md
+---
 # yc managed-kafka user get
 
 Get information about a Kafka user.

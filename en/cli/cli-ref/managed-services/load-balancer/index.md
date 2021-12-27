@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/index.md
+---
 # yc load-balancer
 
 Manage Yandex Load Balancer resources

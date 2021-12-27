@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/version/list.md
+---
 # yc serverless function version list
 
 List function versions

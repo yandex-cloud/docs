@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/listOperations.md
 ---
+
 
 # Method listOperations
 Retrieves the list of Operation resources for the specified cluster.

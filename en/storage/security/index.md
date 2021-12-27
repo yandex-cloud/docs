@@ -2,7 +2,6 @@
 title: Access management in Yandex Object Storage (S3)
 description: "Access management in the service providing a scalable storage solution — Yandex Object Storage (S3). The section describes which resources can be assigned a role, which roles are active in the service."
 ---
-
 # Access management in {{ objstorage-name }}
 
 In this section, you'll learn:
@@ -24,7 +23,7 @@ For information about managing access to buckets and objects, see [{#T}](../conc
 
 ![service-roles-hierarchy](../../_assets/storage/service-roles-hierarchy.svg)
 
-### Service roles
+### Service roles {#service-roles}
 
 | Role | Permissions |
 | ----- | ----- |
@@ -39,7 +38,7 @@ For information about managing access to buckets and objects, see [{#T}](../conc
 
 For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
 
-### Primitive roles
+### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
 

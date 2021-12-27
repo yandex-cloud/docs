@@ -57,8 +57,12 @@ items:
             href: security/domains/access.md
           - name: Безопасная конфигурация
             href: security/domains/secure-config.md
+          - name: Управление уязвимостями
+            href: security/domains/vulnerability-management.md
           - name: Аудитные логи
             href: security/domains/audit-logs.md
+          - name: Физическая безопасность
+            href: security/domains/physical-security.md
       - name: Бюллетени безопасности
         href: security-bulletins/index.md
       - name: Правила проведения внешних сканирований безопасности

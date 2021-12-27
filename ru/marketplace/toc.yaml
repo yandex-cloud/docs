@@ -1,4 +1,4 @@
-title: Обзор кабинета партнера Cloud Marketplace
+title: Обзор кабинета партнера Yandex Cloud Marketplace
 href: index.md
 items:
   - name: Пошаговые инструкции
@@ -9,11 +9,13 @@ items:
         href: operations/registration.md
       - name: Создание тарифа
         href: operations/create-tariff.md
-      - name: Создание образа продукта на базе Linux
+      - name: Требования к образу на базе Linux
         href: operations/create-image.md
-      - name: Создание образа продукта на базе Windows
+      - name: Требования к образу на базе Windows
         href: operations/create-image-ms.md
-      - name: Создание продукта
+      - name: Требования к продуктам для Managed Service for Kubernetes
+        href: operations/create-container.md
+      - name: Создание продукта в кабинете партнера Marketplace
         href: operations/create-product.md
       - name: Изменение продукта
         href: operations/change-product.md
@@ -25,4 +27,24 @@ items:
         href: concepts/product.md
       - name: Тариф
         href: concepts/tariff.md
+      - name: Тарификация продуктов на основе метрик издателя
+        href: metering/api-usage.md
+  - name: Справочник API
+    items:
+      - name: REST
+        items:
+          - name: Обзор
+            href: metering/api-ref/index.md
+          - name: ImageProductUsage
+            items:
+              - name: Описание
+                href: metering/api-ref/ImageProductUsage/index.md
+              - name: write
+                href: metering/api-ref/ImageProductUsage/write.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: ImageProductUsageService
+            href: api-ref/grpc/image_product_usage_service.md
 base: ru/marketplace

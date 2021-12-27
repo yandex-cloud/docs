@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/OR.md
 ---
+
 
 # OR
 
@@ -30,7 +32,7 @@ Arguments (`value_1`, `value_2`) must be of the same type.
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 [Month] = "January" OR [Year] < 2019

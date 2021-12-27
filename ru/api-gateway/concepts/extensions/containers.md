@@ -16,7 +16,7 @@
 
 Пример спецификации:
 
-```
+```yaml
 /example/{ID}:
     get:
       summary: Get ID

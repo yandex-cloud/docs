@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/GEOCODE.md
 ---
+
 
 # GEOCODE
 
@@ -28,7 +30,7 @@ To enable the function, go to the [Service Settings]({{ link-datalens-settings }
 
 **Return type**: `Geopoint`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 GEOCODE("посёлок Свободный Серп") = [53.650704, 37.224461]

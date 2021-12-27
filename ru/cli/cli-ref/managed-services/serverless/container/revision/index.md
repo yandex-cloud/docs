@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/container/revision/index.md
+---
 # yc serverless container revision
 
 Manage container revisions

@@ -22,20 +22,7 @@ To allow access to {{ mrd-name }} service resources (DB clusters and hosts, clus
 
 ## What roles exist in the service {#roles-list}
 
-The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
-
-![image](../../_assets/mdb/service-roles-hierarchy.svg)
-
-Active roles in the service:
-
-* Service roles:
-    * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
-    * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}
-    * {% include [mdb.admin](../../_includes/iam/roles/short-descriptions/mdb.admin.md) %}
-* Primitive roles:
-    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
-    * {% include [editor](../../_includes/iam/roles/short-descriptions/editor.md) %}
-    * {% include [admin](../../_includes/iam/roles/short-descriptions/admin.md) %}
+{% include [roles-mdb](../../_includes/roles-mdb.md) %}
 
 ## What roles do I need {#required-roles}
 

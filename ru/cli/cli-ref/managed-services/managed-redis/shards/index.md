@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-redis/shards/index.md
+---
 # yc managed-redis shards
 
 Manage shards in a Redis cluster.

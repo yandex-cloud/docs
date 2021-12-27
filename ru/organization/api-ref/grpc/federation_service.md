@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/organization-manager/api-ref/grpc/federation_service.md
 ---
+
 
 # FederationService
 
@@ -71,7 +73,7 @@ Field | Description
 organization_id | **string**<br>Required. ID of the organization to list federations in. To get the organization ID, make a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization-manager/api-ref/grpc/organization_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListFederationsResponse.next_page_token](#ListFederationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100 Acceptable values are 0 to 1000, inclusive.
 page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFederationsResponse.next_page_token](#ListFederationsResponse) returned by a previous list request. The maximum string length in characters is 50.
-filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Federation.name](#Federation1) field. </li><li>An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]$`.</li></ol> The maximum string length in characters is 1000.
+filter | **string**<br><ol><li>The field name. Currently you can use filtering only on the [Federation.name](#Federation1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
 ### ListFederationsResponse {#ListFederationsResponse}

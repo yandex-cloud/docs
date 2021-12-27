@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mysql/user/list.md
+---
 # yc managed-mysql user list
 
 List users for the specified MySQL cluster

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/listOperations.md
 ---
+
 
 # Method listOperations
 Retrieves the list of Operation resources for the specified cluster.

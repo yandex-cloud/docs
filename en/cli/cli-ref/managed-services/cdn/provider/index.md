@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/provider/index.md
+---
 # yc cdn provider
 
 Manage CDN providers

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk-placement-group/list-operations.md
+---
 # yc compute disk-placement-group list-operations
 
 List operations for the specified disk placement group

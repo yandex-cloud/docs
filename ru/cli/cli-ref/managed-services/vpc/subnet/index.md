@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/vpc/subnet/index.md
+---
 # yc vpc subnet
 
 Manage subnets.
@@ -18,6 +21,8 @@ Aliases:
 - [yc vpc subnet list](list.md) — List subnets in a folder.
 - [yc vpc subnet create](create.md) — Create a subnet in the specified network.
 - [yc vpc subnet update](update.md) — Modify configuration or attributes of a subnet.
+- [yc vpc subnet add-range](add-range.md) — Add CIDR range to a subnet.
+- [yc vpc subnet remove-range](remove-range.md) — Remove CIDR range from a subnet.
 - [yc vpc subnet add-labels](add-labels.md) — Assign labels to a subnet.
 - [yc vpc subnet remove-labels](remove-labels.md) — Remove labels from a subnet.
 - [yc vpc subnet delete](delete.md) — Delete a subnet.

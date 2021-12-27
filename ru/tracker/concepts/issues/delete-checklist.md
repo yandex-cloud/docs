@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/delete-checklist.md
+---
 # Удалить чеклист
 
 Запрос позволяет удалить чеклист из задачи.

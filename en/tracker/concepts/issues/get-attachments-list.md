@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-attachments-list.md
+---
 # Get a list of attached files
 
 Use this request to get a list of files attached to an issue and to comments below it.

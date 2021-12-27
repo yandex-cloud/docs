@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/create-field.md
+---
 # Создать поле задачи
 
 Запрос позволяет создать [глобальное поле](../../user/create-param#section_global_field) задачи.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/create/index.md
+---
 # yc serverless mdbproxy create
 
 Create proxies

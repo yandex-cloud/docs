@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/User/delete.md
 ---
+
 
 # Method delete
 Deletes the specified MySQL user.

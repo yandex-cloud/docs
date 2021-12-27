@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/patch-board.md
+---
 # Редактировать доску
 
 Запрос позволяет изменить параметры доски.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/SQRT.md
 ---
+
 
 # SQRT
 
@@ -22,7 +24,7 @@ Returns the square root of the specified number.
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 SQRT(9) = 3.0

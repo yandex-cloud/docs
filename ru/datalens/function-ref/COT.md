@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/COT.md
 ---
+
 
 # COT
 
@@ -22,7 +24,7 @@ COT( number )
 
 **Возвращаемый тип**: `Дробное число`
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 COT(PI()/4) = 1.0

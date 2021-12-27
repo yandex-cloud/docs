@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-type/index.md
+---
 # yc compute host-type
 
 Show available host types

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/resource-preset/get.md
+---
 # yc ydb resource-preset get
 
 Get information about the specified YDB resource preset.

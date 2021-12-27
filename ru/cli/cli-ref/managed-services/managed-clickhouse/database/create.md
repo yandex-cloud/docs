@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/database/create.md
+---
 # yc managed-clickhouse database create
 
 Create a database in a ClickHouse cluster.

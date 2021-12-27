@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/GET_ITEM.md
 ---
+
 
 # GET_ITEM
 
@@ -23,7 +25,7 @@ Returns the element with the index `index` from the array `array`. Index must be
 
 **Return type**: Depends on argument types
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 GET_ITEM([array_field], 2)

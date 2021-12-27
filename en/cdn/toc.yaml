@@ -87,6 +87,8 @@ items:
             href: api-ref/grpc/origin_service.md
           - name: ProviderService
             href: api-ref/grpc/provider_service.md
+          - name: RawLogsService
+            href: api-ref/grpc/raw_logs_service.md
           - name: ResourceService
             href: api-ref/grpc/resource_service.md
           - name: OperationService
@@ -139,6 +141,18 @@ items:
                 href: api-ref/Provider/activate.md
               - name: listActivated
                 href: api-ref/Provider/listActivated.md
+          - name: RawLogs
+            items:
+              - name: Overview
+                href: api-ref/RawLogs/index.md
+              - name: activate
+                href: api-ref/RawLogs/activate.md
+              - name: deactivate
+                href: api-ref/RawLogs/deactivate.md
+              - name: get
+                href: api-ref/RawLogs/get.md
+              - name: update
+                href: api-ref/RawLogs/update.md
           - name: Resource
             items:
               - name: Overview

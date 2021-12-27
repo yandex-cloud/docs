@@ -2,7 +2,9 @@
 title: Window functions
 description: Window functions are calculated in the same way as aggregations, but they do not merge multiple entries into one.
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/window-functions.md
 ---
+
 
 # Window functions
 Window functions are calculated in the same way as aggregations, but they do not merge multiple entries into one. In some cases, this leads to duplication of values among entries in the same group (for example, `SUM(... TOTAL)`).

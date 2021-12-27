@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/SUBSTR.md
 ---
+
 
 # SUBSTR
 
@@ -26,7 +28,7 @@ If an additional argument `length` is specified, a substring of the specified le
 
 **Return type**: `String`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 SUBSTR("Computer", 3) = "mputer"

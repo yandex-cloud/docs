@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/index.md
+---
 # yc managed-kubernetes node-group
 
 Manage node groups.

@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/error-codes.md
+---
 # Возможные коды ответа
 
 200

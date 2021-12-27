@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/ai/translate/api-ref/Translation/index.md
 ---
+
 
 # Translation
 Набор методов для сервиса Yandex Translate.

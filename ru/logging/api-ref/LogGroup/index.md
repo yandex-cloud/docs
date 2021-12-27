@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/logging/api-ref/LogGroup/index.md
 ---
+
 
 # LogGroup
 A set of methods for managing log groups.
@@ -15,7 +17,8 @@ A set of methods for managing log groups.
   "description": "string",
   "labels": "object",
   "status": "string",
-  "retentionPeriod": "string"
+  "retentionPeriod": "string",
+  "dataStream": "string"
 }
 ```
  
@@ -30,6 +33,7 @@ description | **string**<br><p>Log group description.</p>
 labels | **object**<br><p>Log group labels.</p> 
 status | **string**<br><p>Status of the log group.</p> <p>Possible log group statuses.</p> <ul> <li>STATUS_UNSPECIFIED: Unknown status.</li> </ul> <p>Should never occur.</p> <ul> <li>CREATING: Log group is creating.</li> <li>ACTIVE: Log group is ready to accept messages,</li> <li>DELETING: Log group is being deleted.</li> </ul> <p>No messages will be accepted.</p> <ul> <li>ERROR: Log group is in failed state.</li> </ul> 
 retentionPeriod | **string**<br><p>Log group entry retention period.</p> <p>Entries will be present in group during this period.</p> 
+dataStream | **string**<br>
 
 ## Methods {#methods}
 Method | Description

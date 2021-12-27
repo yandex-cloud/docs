@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/lockbox/api-ref/Secret/activate.md
 ---
+
 
 # Method activate
 Activates the specified secret.

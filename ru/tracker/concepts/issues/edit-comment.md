@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/concepts/issues/edit-comment.md
+---
 # Редактировать комментарий
 
 Запрос позволяет редактировать комментарий.

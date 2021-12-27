@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/index.md
+---
 # yc vpc network
 
 Manage networks.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/MARKUP.md
 ---
+
 
 # MARKUP
 
@@ -24,7 +26,7 @@ Merges marked up text pieces. Can also be used for converting strings to marked 
 
 **Return type**: `Markup`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 MARKUP(BOLD([a]), ': ', [b])

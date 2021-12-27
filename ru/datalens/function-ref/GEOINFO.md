@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/GEOINFO.md
 ---
+
 
 # GEOINFO
 
@@ -39,7 +41,7 @@ GEOINFO( address, scale )
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 GEOINFO("посёлок Свободный Серп", "country") = "Россия"

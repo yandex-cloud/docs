@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-clickhouse/shards/get.md
+---
 # yc managed-clickhouse shards get
 
 Get information about a shard in a ClickHouse cluster.

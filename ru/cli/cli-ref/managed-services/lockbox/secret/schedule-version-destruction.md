@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/lockbox/secret/schedule-version-destruction.md
+---
 # yc lockbox secret schedule-version-destruction
 
 Schedule destruction of the specified secret version

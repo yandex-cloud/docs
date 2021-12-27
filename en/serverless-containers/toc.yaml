@@ -1,0 +1,52 @@
+title: Yandex Serverless Containers
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Getting an IAM token for a service account
+        href: operations/sa.md
+      - name: Managing a container
+        items:
+          - name: Creating a container
+            href: operations/create.md
+          - name: Getting a container list
+            href: operations/list.md
+          - name: Managing container revisions
+            href: operations/manage-revision.md
+          - name: Managing container access rights
+            href: operations/access-rights.md
+          - name: Invoking a container
+            href: operations/invoke.md
+          - name: Updating a container
+            href: operations/update.md
+          - name: Deleting a container
+            href: operations/delete.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Container
+        href: concepts/container.md
+      - name: Invoking a container
+        href: concepts/invoke.md
+      - name: Runtime environment
+        href: concepts/runtime.md
+      - name: Container logs
+        href: concepts/logs.md
+      - name: Monitoring
+        href: concepts/monitoring.md
+      - name: Backups
+        href: concepts/backup.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: Questions and answers
+    href: qa/index.md
+base: en/serverless-containers

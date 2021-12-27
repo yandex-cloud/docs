@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/update.md
+---
 # yc application-load-balancer load-balancer update
 
 Update the specified application load balancer

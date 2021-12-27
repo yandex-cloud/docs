@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/new-transition.md
+---
 # Make a status transition
 
 Use this request to switch an issue to a new status.

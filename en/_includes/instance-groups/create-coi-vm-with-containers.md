@@ -125,7 +125,7 @@ Docker containers are created based on the [Docker Compose specification](../..
    service_account_id: ajeabccde01d23efl1v5 # Service account ID.
    instance_template:
      service_account_id: ajeabccde01d23efl1v5 # ID of the service account to access private Docker images.
-     platform_id: standard-v2 # Platform ID.
+     platform_id: standard-v3 # Platform ID.
      resources_spec:
        memory: 2G # Amount of memory (RAM).
        cores: 2 # Number of processor cores (vCPUs).

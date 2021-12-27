@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/image/list.md
+---
 # yc compute image list
 
 List images

@@ -237,7 +237,6 @@
   ```
 
   **Connecting:**
-
   ```bash
   php connect.php
   ```
@@ -252,7 +251,7 @@
      sudo apt update && sudo apt install -y default-jdk maven
      ```
 
-  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MG }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password for additional storage security using the `-storepass` parameter:
+  1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MG }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password for storage security using the `-storepass` parameter:
 
      ```bash
      cd ~/.mongodb && \

@@ -1,6 +1,6 @@
 # Scaling policy
 
-When creating an instance group, you can choose how to increase and decrease the number of VM in the group.
+When creating an instance group, you can choose how to increase and decrease the number of instances in the group.
 
 The policy is defined in the `scale-policy` key in the YAML file.
 
@@ -56,9 +56,9 @@ Keys:
 | `initial_size`* | Initial number of instances in the group.<br>Valid values are from 0 to 100. |
 | `max_size` | Maximum number of instances in the group.<br>Valid values are from 0 to 100. |
 | `min_zone_size` | Minimum number of instances in one availability zone.<br>Valid values are from 0 to 100. |
-| `measurement_duration`* | Time in seconds allotted for averaging metrics based on CPU load. If the average load at the end of the interval is higher than `cpu_utilization_rule.utilization_target`, {{ ig-name }} increases the number of instances in the group.<br>Valid values are from 60 to 600 seconds. |
-| `warmup_duration`* | Warm-up period for the instance. During this time, traffic is sent to the instance, but CPU utilization metrics aren't considered.<br>Valid values are from 0 to 600 seconds. |
-| `stabilization_duration` | The minimum amount of time to monitor CPU utilization before {{ ig-name }} can reduce the number of instances in the group. During this time, the group is not resized, even if the average CPU utilization drops below the `cpu_utilization_rule.utilization_target` value.<br>Valid values are from 60 to 1800 seconds. |
+| `measurement_duration`* | Utilization measurement period: The value of each metric is computed as the average of all the measurements taken during the period in question. If this value turns out to be greater than `cpu_utilization_rule.utilization_target`, {{ ig-name }} will increase the number of VMs in the group.<br>Valid values are between 60 and 600 seconds. |
+| `warmup_duration`* | Instance warmup period. This is a period of time following startup that traffic is routed to the VM but the values of metrics from this VM are not used to scale the group. The average values of the group metrics are used instead.<br>Valid values are between 0 and 600 seconds. |
+| `stabilization_duration` | Stabilization period. After the number of VMs increases, the group size does not decrease until the end of a stabilization period even if the average value of the metric has dropped below `cpu_utilization_rule.utilization_target`.<br>Valid values are between 60 and 1800 seconds. |
 | `cpu_utilization_rule` | Sets the target CPU utilization to run scaling based on the average CPU utilization in the instance group. |
 | `utilization_target` | Target CPU utilization to be supported by {{ ig-name }}.<br>If the average CPU utilization is below the target value, {{ ig-name }} will reduce the number of instances until it reaches `min_zone_size` in each availability zone.<br>If the average CPU utilization is higher than the target value, {{ ig-name }} will create instances until it reaches `max_size`.<br>Valid values are from 10 to 100. |
 

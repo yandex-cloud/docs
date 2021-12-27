@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/REGEXP_MATCH.md
 ---
+
 
 # REGEXP_MATCH
 
@@ -33,7 +35,7 @@ REGEXP_MATCH( string, pattern )
 
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 REGEXP_MATCH("RU 912873","\w\s\d") = TRUE

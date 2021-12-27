@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/edit-comment.md
+---
 # Edit a comment
 
 Use this request to edit comments.

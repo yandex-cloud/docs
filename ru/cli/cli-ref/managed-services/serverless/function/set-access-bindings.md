@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/set-access-bindings.md
+---
 # yc serverless function set-access-bindings
 
 Set access bindings for the specified function and delete all existing access bindings if there were any

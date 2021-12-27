@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/new-worklog.md
+---
 # Add a record of time spent
 
 Use this request to add a record of the time spent on an issue.

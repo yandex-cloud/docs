@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/user/delete.md
+---
 # yc managed-mongodb user delete
 
 Delete a MongoDB user.

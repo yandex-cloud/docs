@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/COUNTD.md
 ---
+
 
 # COUNTD
 
@@ -24,7 +26,7 @@ See also [COUNTD_APPROX](COUNTD_APPROX.md).
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 COUNTD([ClientID])

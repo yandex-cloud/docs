@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/create.md
 ---
+
 
 # Method create
 Creates a MySQL cluster in the specified folder.
@@ -97,7 +99,15 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters
       "waitTimeout": "integer",
       "mdbOfflineModeEnableLag": "integer",
       "mdbOfflineModeDisableLag": "integer",
-      "rangeOptimizerMaxMemSize": "integer"
+      "rangeOptimizerMaxMemSize": "integer",
+      "slowQueryLog": true,
+      "slowQueryLogAlwaysWriteTime": "number",
+      "logSlowRateType": "string",
+      "logSlowRateLimit": "integer",
+      "logSlowSpStatements": true,
+      "logSlowFilter": [
+        "string"
+      ]
     },
     "mysqlConfig_8_0": {
       "innodbBufferPoolSize": "integer",
@@ -157,7 +167,15 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters
       "waitTimeout": "integer",
       "mdbOfflineModeEnableLag": "integer",
       "mdbOfflineModeDisableLag": "integer",
-      "rangeOptimizerMaxMemSize": "integer"
+      "rangeOptimizerMaxMemSize": "integer",
+      "slowQueryLog": true,
+      "slowQueryLogAlwaysWriteTime": "number",
+      "logSlowRateType": "string",
+      "logSlowRateLimit": "integer",
+      "logSlowSpStatements": true,
+      "logSlowFilter": [
+        "string"
+      ]
     },
     // end of the list of possible fields`configSpec`
 
@@ -286,6 +304,12 @@ configSpec.<br>mysqlConfig_5_7.<br>waitTimeout | **integer** (int64)<br><p>The n
 configSpec.<br>mysqlConfig_5_7.<br>mdbOfflineModeEnableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.</p> <p>Acceptable values are 600 to 432000, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>mdbOfflineModeDisableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag.</p> <p>Acceptable values are 60 to 86400, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>rangeOptimizerMaxMemSize | **integer** (int64)<br><p>The limit on memory consumption for the range optimizer.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1048576 to 268435456, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>slowQueryLog | **boolean** (boolean)<br><p>Manages slow query log</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>slowQueryLogAlwaysWriteTime | **number** (double)<br><p>Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time">Percona documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>logSlowRateType | **string**<br><p>Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type">Percona documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>logSlowRateLimit | **integer** (int64)<br><p>Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit">Percona documentation for the variable</a>.</p> <p>Acceptable values are 1 to 1000, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>logSlowSpStatements | **boolean** (boolean)<br><p>When TRUE, statements executed by stored procedures are logged to the slow log</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements">Percona documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>logSlowFilter[] | **string**<br><p>Filters the slow log by the query's execution plan</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter">Percona documentation for the variable</a>.</p> 
 configSpec.<br>mysqlConfig_8_0 | **object**<br>Configuration for a MySQL 8.0 cluster. <br>`configSpec` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br><br><p>Options and structure of ``MysqlConfig8_0`` reflects MySQL 8.0 configuration file</p> 
 configSpec.<br>mysqlConfig_8_0.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation for the parameter</a>.</p> <p>The minimum value is 5242880.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -343,6 +367,12 @@ configSpec.<br>mysqlConfig_8_0.<br>waitTimeout | **integer** (int64)<br><p>The n
 configSpec.<br>mysqlConfig_8_0.<br>mdbOfflineModeEnableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.</p> <p>Acceptable values are 600 to 432000, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>mdbOfflineModeDisableLag | **integer** (int64)<br><p>Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'. Should be less than mdb_offline_mode_enable_lag.</p> <p>Acceptable values are 60 to 86400, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>rangeOptimizerMaxMemSize | **integer** (int64)<br><p>The limit on memory consumption for the range optimizer.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1048576 to 268435456, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>slowQueryLog | **boolean** (boolean)<br><p>Manages slow query log</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>slowQueryLogAlwaysWriteTime | **number** (double)<br><p>Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time">Percona documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>logSlowRateType | **string**<br><p>Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type">Percona documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>logSlowRateLimit | **integer** (int64)<br><p>Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit">Percona documentation for the variable</a>.</p> <p>Acceptable values are 1 to 1000, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>logSlowSpStatements | **boolean** (boolean)<br><p>When TRUE, statements executed by stored procedures are logged to the slow log</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements">Percona documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>logSlowFilter[] | **string**<br><p>Filters the slow log by the query's execution plan</p> <p>For details, see <a href="https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter">Percona documentation for the variable</a>.</p> 
 databaseSpecs[] | **object**<br><p>Descriptions of databases to be created in the MySQL cluster.</p> 
 databaseSpecs[].<br>name | **string**<br><p>Required. Name of the MySQL database.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 userSpecs[] | **object**<br><p>Descriptions of database users to be created in the MySQL cluster.</p> 
@@ -363,7 +393,7 @@ hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to. The ID of the network is set in the field <a href="/docs/managed-mysql/api-ref/Cluster#representation">Cluster.networkId</a>.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host should get a public IP address on creation.</p> <p>After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with ``assignPublicIp`` set as needed.</p> <p>Possible values:</p> <ul> <li>false - don't assign a public IP to the host.</li> <li>true - the host should have a public IP address.</li> </ul> 
 hostSpecs[].<br>replicationSource | **string**<br><p>``name`` of the host to be used as the replication source (for cascading replication).</p> 
-hostSpecs[].<br>backupPriority | **string** (int64)<br><p>Host backup priority, where 1 is the lowest priority</p> 
+hostSpecs[].<br>backupPriority | **string** (int64)<br><p>Host backup priority</p> 
 networkId | **string**<br><p>ID of the network to create the cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 

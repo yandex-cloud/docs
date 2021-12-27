@@ -34,7 +34,9 @@ You can add and remove cluster hosts.
 
 - API
 
-  To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) method.
+  Use the [listHosts](../api-ref/Cluster/listHosts.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
 
 {% endlist %}
 
@@ -53,11 +55,11 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
   1. Click **Add host**.
 
   1. Specify the host parameters:
-     - Availability zone.
-     - Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
-     - Priority of the host as a {{ MY }} replica.
-     - Replication source (if you use cascading replication).
-     - Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
+     * Availability zone.
+     * Subnet (if the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md)).
+     * Priority of the host as a {{ MY }} replica.
+     * Replication source (if you use cascading replication).
+     * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
 
 - CLI
 
@@ -102,7 +104,7 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mmy-short-name }} automatically selects a single subnet. You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }}
 
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -136,7 +138,9 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
 - API
 
-  To add a host to the cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) method.
+    Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and pass the following in the request:
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * New host settings in one or more `hostSpecs` parameters.
 
 {% endlist %}
 
@@ -194,6 +198,8 @@ If the host is the master when deleted, {{ mmy-short-name }} automatically assig
 
 - API
 
-  To remove a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method.
+    Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) API method and pass the following in the request:
+    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+    * The name(s) of the host(s) to delete, in the `hostNames` parameter.
 
 {% endlist %}

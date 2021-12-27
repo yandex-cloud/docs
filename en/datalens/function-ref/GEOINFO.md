@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/GEOINFO.md
 ---
+
 
 # GEOINFO
 
@@ -39,7 +41,7 @@ Only constant values are accepted for arguments (`scale`).
 {% endnote %}
 
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 GEOINFO("посёлок Свободный Серп", "country") = "Россия"

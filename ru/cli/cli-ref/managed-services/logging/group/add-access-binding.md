@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/logging/group/add-access-binding.md
+---
 # yc logging group add-access-binding
 
 Add access binding for the specified log group

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/compute/api-ref/Instance/attachDisk.md
 ---
+
 
 # Method attachDisk
 Attaches the disk to the instance.

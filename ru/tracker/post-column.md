@@ -1,3 +1,6 @@
+---
+sourcePath: ru/tracker/api-ref/post-column.md
+---
 # Создать колонку
 
 Запрос позволяет создать колонку на доске задач.

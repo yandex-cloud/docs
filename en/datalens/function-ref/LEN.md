@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/LEN.md
 ---
+
 
 # LEN
 
@@ -22,7 +24,7 @@ Returns the number of characters in the string or items in array `value`.
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 LEN("Computer") = 8

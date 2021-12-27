@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/managed-redis/api-ref/grpc/backup_service.md
 ---
+
 
 # BackupService
 

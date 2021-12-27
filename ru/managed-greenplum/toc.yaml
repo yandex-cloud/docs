@@ -14,6 +14,8 @@ items:
         href: operations/connect.md
       - name: Управление хостами кластера
         href: operations/cluster-hosts.md
+      - name: Использование внешних таблиц
+        href: operations/external-tables.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
       - name: Мониторинг состояния кластера и хостов
@@ -30,6 +32,14 @@ items:
         href: concepts/limits.md
       - name: Типы хранилища
         href: concepts/storage.md
+      - name: Шардирование
+        href: concepts/sharding.md
+      - name: Типы хранения данных
+        href: concepts/tables.md
   - name: Правила тарификации
-    href: pricing.md
+    items:
+      - name: Действующие правила
+        href: pricing/index.md
+      - name: Правила тарификации на стадии General Availability
+        href: pricing/general-availability.md
 base: ru/managed-greenplum

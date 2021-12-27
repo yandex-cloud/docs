@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/serverless/function/list-access-bindings.md
+---
 # yc serverless function list-access-bindings
 
 List access bindings for the specified function

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/DATE.md
 ---
+
 
 # DATE
 
@@ -40,7 +42,7 @@ DATE( expression [ , timezone ] )
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 DATE("2019-01-23") = #2019-01-23#

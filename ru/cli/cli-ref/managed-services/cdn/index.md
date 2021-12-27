@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/cdn/index.md
+---
 # yc cdn
 
 Manage CDN resources
@@ -13,6 +16,8 @@ Syntax:
 - [yc cdn resource](resource/index.md) — Manage CDN resources
 	- [yc cdn resource get](resource/get.md) — Show information about resource
 	- [yc cdn resource list](resource/list.md) — List resources in the specified folder
+	- [yc cdn resource create](resource/create.md) — Create resource
+	- [yc cdn resource update](resource/update.md) — Update resource
 	- [yc cdn resource get-provider-cname](resource/get-provider-cname.md) — Get provider CNAME
 	- [yc cdn resource delete](resource/delete.md) — Delete resource.
 - [yc cdn origin](origin/index.md) — Manage origins inside origin group

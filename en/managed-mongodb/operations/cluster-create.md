@@ -21,6 +21,8 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
 - Management console
 
+  To create a cluster:
+
   1. In the management console, select the folder where you want to create a DB cluster.
 
   1. Select **{{ mmg-name }}**.
@@ -83,11 +85,11 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
       $ {{ yc-mdb-mg }} cluster create --help
       ```
 
-  1. Specify the cluster parameters in the create command (the example shows only mandatory flags):
+  1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
       
-      ```
-      $ {{ yc-mdb-mg }} cluster create \
+      ```bash
+      {{ yc-mdb-mg }} cluster create \
          --name <cluster name> \
          --environment=<prestable or production> \
          --network-name <network name> \
@@ -96,15 +98,19 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
          --user name=<username>,password=<user password> \
          --database name=<database name> \
          --mongod-disk-type <network-hdd | network-ssd | local-ssd> \
-         --mongod-disk-size <storage size, GB>
+         --mongod-disk-size <storage size in GB> \
+         --deletion-protection=<protect cluster from deletion: true or false>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
+
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
 - Terraform
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
+  
   If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   To create a cluster:
@@ -132,13 +138,14 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
      }
      
      resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
-       name               = "<cluster name>"
-       environment        = "<PRESTABLE or PRODUCTION>"
-       network_id         = "<network ID>"
-       security_group_ids = [ "<list of security groups>" ]
+       name                = "<cluster name>"
+       environment         = "<environment: PRESTABLE or PRODUCTION>"
+       network_id          = "<network ID>"
+       security_group_ids  = [ "<list of security groups>" ]
+       deletion_protection = <protect cluster from deletion: true or false>
      
        cluster_config {
-         version = "<MongoDB version: 4.0, 4.2, or 4.4>"
+         version = "<MongoDB version: 4.0, 4.2, 4.4 or 5.0>"
        }
      
        database {
@@ -176,7 +183,9 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
      }
      ```
 
-     For more information about resources that can be created using Terraform, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mongodb_cluster).
+     {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+     For more information about the resources you can create using Terraform, see the [provider documentation]({{ tf-provider-mmg }}).
 
   1. Make sure the settings are correct.
 
@@ -208,8 +217,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
   Let's say we need to create a {{ MG }} cluster with the following characteristics:
 
-  
-  - Named `mymg`.
+    - Named `mymg`.
   - In the `production` environment.
   - In the `{{ network-name }}` network.
   - In the security group with the ID `{{ security-group }}`.
@@ -217,12 +225,13 @@ If you specified security group IDs when creating a cluster, you may also need t
   - With 20 GB of fast network storage (`{{ disk-type-example }}`).
   - With one user, `user1`, with the password `user1user1`.
   - With one database, `db1`.
+  - With protection against accidental cluster deletion.
 
   Run the command:
 
   
-  ```
-  $ {{ yc-mdb-mg }} cluster create \
+  ```bash
+  {{ yc-mdb-mg }} cluster create \
        --name mymg \
        --environment production \
        --network-name {{ network-name }} \
@@ -232,13 +241,13 @@ If you specified security group IDs when creating a cluster, you may also need t
        --mongod-disk-size 20 \
        --mongod-disk-type {{ disk-type-example }} \
        --user name=user1,password=user1user1 \
-       --database name=db1
+       --database name=db1 \
+       --deletion-protection=true
   ```
 
 - Terraform
 
   Let's say we need to create a {{ MG }} cluster and a network for it with the following characteristics:
-
     - Named `mymg`.
     - Version `4.4`.
     - In the `PRODUCTION` environment.
@@ -250,10 +259,11 @@ If you specified security group IDs when creating a cluster, you may also need t
     - With 20 GB of fast network storage (`{{ disk-type-example }}`).
     - With one user, `user1`, with the password `user1user1`.
     - With one database, `db1`.
+    - With protection against accidental cluster deletion.
 
   The configuration file for the cluster looks like this:
 
-  ```go
+  ```hcl
   terraform {
     required_providers {
       yandex = {
@@ -263,17 +273,18 @@ If you specified security group IDs when creating a cluster, you may also need t
   }
   
   provider "yandex" {
-    token     = "<OAuth or static key of service account>"
+    token = "<OAuth or static key of service account>"
     cloud_id  = "{{ tf-cloud-id }}"
     folder_id = "{{ tf-folder-id }}"
     zone      = "{{ zone-id }}"
   }
   
   resource "yandex_mdb_mongodb_cluster" "mymg" {
-    name               = "mymg"
-    environment        = "PRODUCTION"
-    network_id         = yandex_vpc_network.mynet.id
-    security_group_ids = [ yandex_vpc_security_group.mymg-sg.id ]
+    name                = "mymg"
+    environment         = "PRODUCTION"
+    network_id          = yandex_vpc_network.mynet.id
+    security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
+    deletion_protection = true
   
     cluster_config {
       version = "4.4"
@@ -328,3 +339,4 @@ If you specified security group IDs when creating a cluster, you may also need t
   ```
 
 {% endlist %}
+

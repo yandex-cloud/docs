@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/update.md
+---
 # yc managed-kafka cluster update
 
 Modify configuration or attributes of a Kafka cluster.
@@ -20,6 +23,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the Kafka cluster as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the Kafka cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
+|`--version`|<b>`string`</b><br/> Version of the Kafka server software.|
 |`--zone-ids`|<b>`value[,value]`</b><br/> List of availability zones.|
 |`--brokers-count`|<b>`int`</b><br/> Count of brokers in each availability zone.|
 |`--resource-preset`|<b>`string`</b><br/> Resource preset for computational resources available to a Kafka host (CPU, RAM etc.).|
@@ -41,6 +45,7 @@ Syntax:
 |`--auto-create-topics-enable`| Allows to set Kafka cluster configuration property "auto.create.topics.enable". Enable auto creation of topic on the server.|
 |`--num-partitions`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "num.partitions". Default number of partitions per topic on the whole cluster.|
 |`--default-replication-factor`|<b>`int`</b><br/> Allows to set Kafka cluster configuration property "default.replication.factor". Default replication factor of the topic on the whole cluster.|
+|`--maintenance-window`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Maintenance window settings  Possible property names:  type Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.  hour Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.  day Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'|
 
 #### Flags
 

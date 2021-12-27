@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/remove-listener.md
+---
 # yc application-load-balancer load-balancer remove-listener
 
 Removes the listener from the specified application load balancer.
@@ -7,6 +10,11 @@ Removes the listener from the specified application load balancer.
 Syntax: 
 
 `yc application-load-balancer load-balancer remove-listener <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
+
+Aliases: 
+
+- `remove-http-listener`
+- `remove-stream-listener`
 
 #### Global Flags
 

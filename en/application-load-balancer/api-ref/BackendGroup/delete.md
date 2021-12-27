@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/delete.md
 ---
+
 
 # Method delete
 Deletes the specified backend group.

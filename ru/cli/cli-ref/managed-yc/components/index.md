@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-yc/components/index.md
+---
 # yc components
 
 Manage installed components

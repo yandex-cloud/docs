@@ -15,6 +15,6 @@ Assess the risk of enabling access via the serial console considering the follow
 We recommend using the serial console only when absolutely necessary, grant access to a narrow group of people, and use strong VM passwords.
 Make sure you [disable access](../../compute/operations/serial-console/disable.md) when you finish working with the serial console.
 
-[Federated users](../../iam/concepts/users/identity-federations.md) can only connect to the serial console using the [CLI](../../cli/) or [SSH](../../compute/operations/vm-connect/ssh.md). These users can't access the serial console from the {{ yandex-cloud }} management console.
+[Federated users](../../organization/add-federation.md) can only connect to the serial console using the [CLI](../../cli/) or [SSH](../../compute/operations/vm-connect/ssh.md). These users can't access the serial console from the {{ yandex-cloud }} management console.
 
 {% endnote %}

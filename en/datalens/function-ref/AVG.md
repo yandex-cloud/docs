@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/AVG.md
 ---
+
 
 # AVG
 
@@ -22,7 +24,7 @@ Returns the average of all values. Applicable to numeric data types as well as `
 
 **Return type**: Depends on argument types
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 AVG([Profit])

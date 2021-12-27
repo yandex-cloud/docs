@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/queues/get-queue.md
+---
 # Get queue parameters
 
 Use this request to get information about a queue.

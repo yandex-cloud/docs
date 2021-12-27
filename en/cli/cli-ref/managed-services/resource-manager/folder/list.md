@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/folder/list.md
+---
 # yc resource-manager folder list
 
 List folders

@@ -123,6 +123,24 @@ You can create a dataset:
 
   {% endlist %}
 
+* From local files.
+
+  {% list tabs %}
+
+  - Bash
+
+    To create a dataset in an arbitrary format, copy the local files:
+
+    ```bash
+    #!:bash
+    #pragma dataset init  <DATASET_NAME> --size 1Gb
+    
+    set -e
+    cp -r <SOURCE_FOLDER_NAME> /home/jupyter/mnt/datasets/<DATASET_NAME>
+    ```
+
+  {% endlist %}
+
 ## Using a dataset {#use}
 
 After initialization, datasets are accessible via code using a path in the format `/home/jupyter/mnt/datasets/<DATASET_NAME>`.

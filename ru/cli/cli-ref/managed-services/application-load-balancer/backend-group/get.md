@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/application-load-balancer/backend-group/get.md
+---
 # yc application-load-balancer backend-group get
 
 Show information about the specified backend group

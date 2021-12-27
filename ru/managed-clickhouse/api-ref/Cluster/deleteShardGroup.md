@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/deleteShardGroup.md
 ---
+
 
 # Method deleteShardGroup
 Deletes the specified shard group.

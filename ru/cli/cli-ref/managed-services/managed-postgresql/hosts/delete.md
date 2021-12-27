@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-postgresql/hosts/delete.md
+---
 # yc managed-postgresql hosts delete
 
 Delete the specified hosts

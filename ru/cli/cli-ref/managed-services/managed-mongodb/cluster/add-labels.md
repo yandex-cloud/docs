@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/add-labels.md
+---
 # yc managed-mongodb cluster add-labels
 
 Assign labels to a MongoDB cluster.

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/replace-records.md
+---
 # yc dns zone replace-records
 
 Replace all records specified by name and type in dns zone with new ones.

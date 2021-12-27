@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/grant-permission.md
+---
 # yc managed-sqlserver user grant-permission
 
 Grant database access to the specified SQLServer user

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk-placement-group/delete.md
+---
 # yc compute disk-placement-group delete
 
 Delete the specified disk placement group

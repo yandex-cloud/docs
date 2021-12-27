@@ -16,7 +16,7 @@ links:
     href: quickstart
   - title: Сценарии использования
     description: Пройдите туториалы с примерами использования сервиса DataLens
-    href: ../solutions/datalens
+    href: solutions/
   - title: Концепции
     description: Узнайте про устройство и возможности сервиса
     href: concepts/

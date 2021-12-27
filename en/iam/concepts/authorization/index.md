@@ -73,7 +73,7 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
   {% include [federated-user-auth](../../../_includes/iam/federated-user-auth.md) %}
 
-  The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../users/identity-federations.md).
+  The authentication process for a federated user depends on the IdP server settings. For more information, see [{#T}](../../../organization/add-federation.md).
 
 - CLI
 

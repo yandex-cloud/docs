@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/get.md
+---
 # yc iot registry get
 
 Show information about specified registry

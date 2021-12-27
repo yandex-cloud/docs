@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/DAY.md
 ---
+
 
 # DAY
 
@@ -22,7 +24,7 @@ Returns the number of the day in the month of the specified date `datetime`.
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 DAY(#2019-01-23#) = 23

@@ -1,101 +1,224 @@
 # Security bulletins
 
-This page lists security recommendations given by Yandex.Cloud experts.
+This page contains security recommendations from {{ yandex-cloud }} experts.
 
-## 12.10.2021 – CVE-2021-25741 – Symlink Exchange Can Allow Host Filesystem Access
+## 17.12.2021 — CVE-2021-45046 – Remote code execution (Log4j) {#CVE-2021-45046}
 
 ### Description
 
-A [security issue](https://github.com/kubernetes/kubernetes/issues/104980) in Kubernetes was discovered, whereby a user could create a container with subpath volume mounts to access files and directories outside of the volume, including on the host file system.
+Vulnerability [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046) is found in the Apache Log4j library, all versions from 2.0-beta9 to 2.15.0, excluding 2.12.2.
 
-###  Impact on Yandex.Cloud services
+A detailed description of the exploit and this behavior is provided in a [Lunasec article](https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/).
 
-{{ managed-k8s-full-name }} does not support anonymous access to the cluster and is not vulnerable to external attackers. 
+Original report from logging.apache.org: [Fixed in Log4j 2.15.0](https://logging.apache.org/log4j/2.x/security.html).
+
+Vulnerability description: [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046).
+
+CVSSv3.1 rating: 9.0 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H)
+
+### Impact
+
+#### General impact
+
+The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
+
+The vulnerability likely impacts such open-source products as ElasticSearch, Elastic Logstash, the NSA's Ghidra, and so on.
+
+#### Impact on {{ yandex-cloud }} services
+
+Some {{ yandex-cloud }} services use the version of the library affected by the vulnerability. The most critical services impacted by the vulnerability: {{ mes-full-name }}, {{ dataproc-full-name }}, as well as a number of the basic platform services.
+
+The critical services have undergone a successful update as recommended by the manufacturer. The rest of the services are currently being updated.
+
+{{ yandex-cloud }} has collected information on users that have utilized these services, and appropriate alerts have gone out.
+
+Currently, an effort is underway to identify additional services that may be vulnerable in order to update them.
+
+An update to this bulletin will be rolled out based on the outcome of the final activities.
 
 ### Compensatory measures
 
-To eliminate potential attacks by an internal intruder, please update all existing clusters and node groups in the service to version 1.19 or higher. If your clusters and node groups have already been updated to version 1.19 or higher, update the revisions. An update that closes vulnerabilities is available in all release channels.
+#### Log4j 1.x 
 
-We also recommend:
-* Automatically update clusters and node groups to the latest versions or revisions.
-* Schedule manual updates at least once a month if you cannot apply automatic updates.
-* Prohibit the root user from running pods for unverified downloads.
+Log4j 1.x is not impacted by this vulnerability.
 
-You can use the following tools to do so:
+#### Log4j 2.x
+
+* Java 8 (or later) users should upgrade to release 2.16.0.
+* Java 7 users should upgrade to release 2.12.2.
+* Otherwise, in any release other than 2.16.0, you may remove the `JndiLookup` class from the classpath: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`
+
+Users are advised not to enable JNDI in Log4j 2.16.0. If the JMS Appender is required, use Log4j 2.12.2.
+
+Note that only the `log4j-core JAR` file is impacted by this vulnerability. Applications using only the `log4j-api JAR` file without the `log4j-core JAR` file are not impacted by this vulnerability.
+
+Source: https://logging.apache.org/log4j/2.x/security.html
+
+## 10.12.2021: CVE-2021-44228: Remote code execution (Log4Shell, Apache Log4j)
+
+Updated 22.12.2021
+
+### Description
+
+Vulnerability [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) is found in the Apache Log4j library, version 2.14.1 and lower.
+
+A zero-day exploit was discovered that results in remote code execution (RCE) by having a certain line entered into a log.
+
+An attacker that can control log messages or log message parameters can execute arbitrary code downloaded from LDAP servers when the `message lookup substitution` feature is active. Starting with log4j version 2.15.0, this behavior is disabled by default.
+
+A detailed description of the exploit and this behavior is provided in a [Lunasec article](https://www.lunasec.io/docs/blog/log4j-zero-day/).
+
+Original report from logging.apache.org: [Fixed in Log4j 2.15.0](https://logging.apache.org/log4j/2.x/security.html).
+
+Vulnerability description: [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228).
+
+CVSSv3.1 rating: 9.8 [CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:P/RL:O/RC:C] Learn more at https://www.securitylab.ru/vulnerability/527362.php
+
+### Impact
+
+#### General impact
+
+1. The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
+
+2. The vulnerability impacts such open-source products as ElasticSearch, Elastic Logstash, the NSA's Ghidra, and so on.
+
+3. Hystax products are vulnerable because they use a vulnerable version of Elasticsearch Logstash.
+Hystax is working on new product releases.
+
+#### Impact on {{ yandex-cloud }} services
+
+Some {{ yandex-cloud }} services use the version of the library affected by the vulnerability. The most critical services impacted by the vulnerability: {{ mes-full-name }}, {{ dataproc-full-name }}, as well as a number of the basic platform services.
+
+The critical services have undergone a successful update as recommended by the manufacturer. The rest of the services are currently being updated.
+
+{{ yandex-cloud }} has collected information on users that have utilized these services, and appropriate alerts have gone out.
+
+Currently, an effort is underway to identify additional services that may be vulnerable in order to update them.
+
+An update to this bulletin will be rolled out based on the outcome of the final activities.
+
+### Compensatory measures
+
+#### Log4j 1.x 
+
+Log4j 1.x does not have Lookups so the risk is lower. Applications using Log4j 1.x are only vulnerable to this attack when they use JNDI in their configuration. A separate CVE (CVE-2021-4104) has been filed for this vulnerability. To mitigate: audit your logging configuration to ensure it has no JMSAppender configured. Log4j 1.x configurations without JMSAppender are not impacted by this vulnerability.
+
+#### Log4j 2.x
+
+•	Java 8 (or later) users should upgrade to release 2.16.0.
+•	Users requiring Java 7 should upgrade to release 2.12.2 when it becomes available (work in progress, expected to be available soon).
+•	Otherwise, remove the `JndiLookup` class from the classpath: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`
+
+Note that only the `log4j-core JAR` file is impacted by this vulnerability. Applications using only the `log4j-api JAR` file without the `log4j-core JAR` file are not impacted by this vulnerability.
+
+Source: https://logging.apache.org/log4j/2.x/security.html
+
+#### Hystax 
+
+Hystax Acura controller (or respective Load Balancer in case of HA deployment): allow ingress traffic for UDP-port 12201 only for a list of known source IP ranges where replication agents work.
+
+## 12.10.2021: CVE-2021-25741: Risk of accessing a host's filesystem
+
+### Description
+
+A [security issue](https://github.com/kubernetes/kubernetes/issues/104980) was discovered in Kubernetes, which allows unauthorized access to a node's filesystem when a user logs in to a cluster.
+
+### Impact on Yandex.Cloud services
+
+{{ managed-k8s-full-name }} does not provide anonymous cluster access and is not affected by the vulnerability from an external attacker.
+
+### Compensatory measures
+
+To remove the attack vector from an internal attacker, update all existing service clusters and node groups to version 1.19 or higher. If your clusters and node groups are already updated to version 1.19 or higher, update the revisions. An update that fixes the bug is available in all release channels.
+
+We also recommend that you:
+
+* Automatically update your clusters and node groups to the latest versions or revisions.
+* Schedule manual updates at least once a month if you can't apply automatic updates.
+* Disable running pods as root for untrusted uploads.
+
+To do this, you can use the following tools:
+
 * [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/users)
 * [Kyverno](https://kyverno.io/policies/pod-security/restricted/require-run-as-nonroot/require-run-as-nonroot/)
 
-## 03.03.2021 — CVE-2021-21309 — remote code execution in {{ RD }}
+### More information
+
+A checklist for a secure Kubernetes configuration is available [here](../security/domains/checklist#kubernetes-security).
+
+## 03.03.2021: CVE-2021-21309: Remote code execution via a vulnerability in {{ RD }}
 
 ### Description
 
-In affected versions of Redis an integer overflow bug in 32-bit Redis version 4.0 or newer could be exploited to corrupt the heap and potentially result with remote code execution.
+In 32-bit {{ RD }} versions 4.0 and higher, an integer overflow vulnerability was discovered, which, under certain conditions, may lead to a remote code execution.
 
 ### Impact on Yandex.Cloud services
 
-{{ mrd-full-name }} uses the 64-bit version of {{ RD }} and is not vulnerable.
+{{ mrd-full-name }} uses 64-bit {{ RD }} instances and is not affected by the vulnerability.
 
-## 26.01.2021 — CVE-2021-3156 - privilege escalation via sudo
+## 26.01.2021: CVE-2021-3156: Privilege escalation through vulnerabilities in sudo.
 
 ### Description
 
-A number of [vulnerabilities](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) in `sudo` utility allowed any unprivileged user to gain `root` privileges on the vulnerable host.
+A number of [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) vulnerabilities were discovered in `sudo`. They allow attackers to execute privilege escalation to `root`.
 
-###  Impact on Yandex.Cloud services
+### Impact on Yandex.Cloud services
 
-The following Linux images have been updated:
-* all images from the {{ yandex-cloud }} publisher available in the {{ marketplace-name }};
-* the {{ coi }} image;
-* node images for the {{ managed-k8s-short-name }};
-* hosts images for managed databases clusters;
-* host images for the {{ dataproc-short-name }} clusters.
+The following Linux OS images were updated:
 
-### Additional Information
+* All images from the {{ yandex-cloud }} publisher available in {{ marketplace-name }}.
+* A {{ coi }}.
+* An image that is used to create {{ managed-k8s-short-name }} nodes.
+* Images that are used to create managed database clusters.
+* An image that is used to create {{ dataproc-short-name }} clusters.
+
+### More information
 
 * [Buffer overflow in command line unescaping](https://www.sudo.ws/alerts/unescape_overflow.html)
-* [CVE-2021-3156: Heap-Based Buffer Overflow in Sudo (Baron Samedit)](https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)%
+* [CVE-2021-3156: Heap-Based Buffer Overflow in Sudo (Baron Samedit)](https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)
 
-## 24.12.2020 — CVE-2020-25695 - privilege escalation in PostgreSQL
-
-### Description
-
-A privilege escalation [vulnerability](https://nvd.nist.gov/vuln/detail/CVE-2020-25695) was found in PostgreSQL. The vulnerability allowed unprivileged users to perform SQL queries with identity of superuser under certain conditions.
-
-###  Impact on Yandex.Cloud services
-
-All PostgreSQL database management systems used in the Yandex Managed Service for PostgreSQL have been [updated](https://www.postgresql.org/about/news/postgresql-131-125-1110-1015-9620-and-9524-released-2111/). All new clusters are created with a patched version of PostgreSQL.
-
-## 19.11.2020: Deprecation of outdated TLS protocols
+## 24.12.2020: CVE-2020-25695: Privilege escalation in PostgreSQL
 
 ### Description
 
-To improve security of data transmission, {{ yandex-cloud }} recommends all users to migrate towards solutions that support [TLS 1.2](https://tools.ietf.org/html/rfc5246) protocol and higher.
+The [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695) vulnerability was discovered in the PostgreSQL database management system, which allows an attacker having permission to create non-temporary objects to execute arbitrary SQL queries under the identity of a superuser.
 
 ### Impact on Yandex.Cloud services
 
-All {{ yandex-cloud}} services support TLS 1.2 and higher. Support for outdated protocols will be phased out soon. We strongly recommend to switch all customer applications to higher TLS versions in advance.
+All PostgreSQL instances used in Yandex Managed Service for PostgreSQL were [updated](https://www.postgresql.org/about/news/postgresql-131-125-1110-1015-9620-and-9524-released-2111/).
+
+## 19.11.2020: Discontinue support for deprecated TLS protocols.
+
+### Description
+
+To make data transmission more secure, {{ yandex-cloud }} recommends that all users switch to technologies that provide encryption via [TLS 1.2](https://tools.ietf.org/html/rfc5246) and higher.
+
+### Impact on {{ yandex-cloud }} services
+
+All {{ yandex-cloud }} services support TLS 1.2 and higher. Legacy protocols will gradually be discontinued. We recommend that you upgrade your applications to the latest TLS versions in advance.
 
 ## 20.09.2020: CVE-2020-1472 (aka Zerologon)
 
 ### Description
 
-A flaw in Windows Netlogon Remote Protocol allows an unauthenticated attacker with network access to a domain controller to completely compromise all Active Directory identity services. 
+A Windows Netlogon Remote Protocol vulnerability that allows an unauthenticated attacker with network access permissions to a domain controller to compromise all Active Directory identification services.
 
 Original report from Secura: [Zerologon](https://www.secura.com/whitepapers/zerologon-whitepaper).
 
-Microsoft advisory: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
+Vulnerability description by Microsoft: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
 
-Microsoft guide on change management : [How to manage the changes in Netlogon secure channel connections associated with CVE-2020-1472](https://support.microsoft.com/en-us/help/4557222/how-to-manage-the-changes-in-netlogon-secure-channel-connections-assoc).
+Change management guide from Microsoft: [How to manage the changes in Netlogon secure channel connections associated with CVE-2020-1472](https://support.microsoft.com/en-us/help/4557222/how-to-manage-the-changes-in-netlogon-secure-channel-connections-assoc).
 
-### Impact on Yandex.Cloud services
+### Impact on {{ yandex-cloud }} services
 
-The OS images available to {{ compute-full-name }} are already contain all the necessary patches. However, the new VMs created in {{ compute-full-name }} are not vulnerable to those vulnerabilities.
+OS images available to {{ compute-full-name }} users already contain updates that fix the vulnerability. All VMs created in {{ compute-full-name }} after the issue was reported are protected against the described attack.
 
-### Mitigation Techniques
+### Compensatory measures
 
-In addition to the patches you can implement and enforce network access control so that your DC is not accessible from untrusted networks. This can be achieved by:
-* setting up Windows Firewall or Security Groups;
-* putting your DC under a NAT-gateway.
+In addition to the updates, to restrict access to your domain controller from untrusted networks, use the following network access control systems:
+
+* Windows Firewall or security groups.
+* Moving the domain controller behind a NAT gateway.
 
 ## 15.06.2020: Special Register Buffer Data Sampling Attack (aka CrossTalk)
 
@@ -105,9 +228,9 @@ On certain Intel CPU models, VUSec [detected a new attack]( https://www.vusec.ne
 
 Intel's report: [Deep Dive: Special Register Buffer Data Sampling](https://software.intel.com/security-software-guidance/insights/deep-dive-special-register-buffer-data-sampling).
 
-### Impact on Yandex.Cloud services
+### Impact on {{ yandex-cloud }} services
 
-Yandex.Cloud uses CPU models that are **not vulnerable to** CrossTalk attacks.
+{{ yandex-cloud }} uses CPU models that are **not vulnerable to CrossTalk attacks**.
 
 ## 28.08.2019: TCP SACK
 
@@ -123,9 +246,9 @@ Original report from Netflix: [NFLX-2019-001](https://github.com/Netflix/securit
 
 Vulnerability analysis from Red Hat: [TCP SACK PANIC](https://access.redhat.com/security/vulnerabilities/tcpsack).
 
-### Impact on Yandex.Cloud services
+### Impact on {{ yandex-cloud }} services
 
-* The Yandex.Cloud infrastructure was promptly protected and updated.
+* The {{ yandex-cloud }} infrastructure was promptly protected and updated.
 * The OS images available to Yandex Compute Cloud users were updated as soon as the appropriate fixes became available. Therefore, the new VMs created in Yandex Compute Cloud are not vulnerable to those vulnerabilities.
 
 ## 19.08.2019: Some Yandex Object Storage domains are included in the Public Suffix List
@@ -145,7 +268,7 @@ Domains in the Public Suffix List get the properties of top-level domains, such 
 
 For more information, see [our blog](https://cloud.yandex.ru/blog/posts/2019/08/storage-domains).
 
-### Impact on Yandex.Cloud services
+### Impact on {{ yandex-cloud }} services
 
-These changes will improve the security of Yandex.Cloud users.
+These changes will improve the security for {{ yandex-cloud }} users.
 

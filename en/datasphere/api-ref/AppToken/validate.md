@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datasphere/api-ref/AppToken/validate.md
 ---
+
 
 # Method validate
 Validates app token.

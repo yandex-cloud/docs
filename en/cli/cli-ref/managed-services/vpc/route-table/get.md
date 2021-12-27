@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/route-table/get.md
+---
 # yc vpc route-table get
 
 Get information about a route table.

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/vpc/api-ref/Network/listOperations.md
 ---
+
 
 # Method listOperations
 Lists operations for the specified network.

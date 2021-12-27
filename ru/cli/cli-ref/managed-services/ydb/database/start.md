@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/ydb/database/start.md
+---
 # yc ydb database start
 
 Start the specified YDB database.

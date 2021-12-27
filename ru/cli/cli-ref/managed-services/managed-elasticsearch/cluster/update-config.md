@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/update-config.md
+---
 # yc managed-elasticsearch cluster update-config
 
 Update the configuration of a ElasticSearch cluster.

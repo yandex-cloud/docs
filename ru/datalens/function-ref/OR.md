@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/OR.md
 ---
+
 
 # OR
 
@@ -30,7 +32,7 @@ value_1 OR value_2
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 [Month] = "January" OR [Year] < 2019

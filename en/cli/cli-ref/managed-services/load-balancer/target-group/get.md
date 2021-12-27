@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/target-group/get.md
+---
 # yc load-balancer target-group get
 
 Show information about the specified target group

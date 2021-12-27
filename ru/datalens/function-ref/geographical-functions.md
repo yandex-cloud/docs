@@ -1,7 +1,9 @@
 ---
 title: Географические функции
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/geographical-functions.md
 ---
+
 
 # Географические функции
 

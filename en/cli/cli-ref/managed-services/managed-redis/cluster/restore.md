@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/restore.md
+---
 # yc managed-redis cluster restore
 
 Restore Redis cluster

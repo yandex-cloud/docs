@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/AVG.md
 ---
+
 
 # AVG
 
@@ -22,7 +24,7 @@ AVG( value )
 
 **Возвращаемый тип**: Зависит от типов аргументов
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 AVG([Profit])

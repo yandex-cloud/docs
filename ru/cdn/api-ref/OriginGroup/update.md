@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/cdn/api-ref/OriginGroup/update.md
 ---
+
 
 # Method update
 Updates origin group.
@@ -9,7 +11,7 @@ Updates origin group.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://cdn.api.cloud.yandex.net/cdn/v1/origin_groups
+PATCH https://cdn.api.cloud.yandex.net/cdn/v1/originGroups
 ```
  
 ## Body parameters {#body_params}

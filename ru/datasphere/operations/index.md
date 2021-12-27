@@ -11,6 +11,7 @@ description: "Из статьи вы узнаете как работать с Y
 * [{#T}](projects/checkpoints.md)
 * [{#T}](projects/control-compute-resources.md)
 * [{#T}](projects/custom-limits.md)
+* [{#T}](projects/storage-resize.md)
 * [{#T}](user-images.md)
 * [{#T}](user-images-cell.md)
 * [{#T}](projects/clear-kernel-state.md)
@@ -34,3 +35,8 @@ description: "Из статьи вы узнаете как работать с Y
 
 * [{#T}](data/connect-to-clickhouse.md)
 * [{#T}](data/connect-to-postgresql.md)
+
+## Развертывание эксплуатации моделей {#deployment}
+* [{#T}](node-cell.md)
+* [{#T}](node-customization.md)
+* [{#T}](node-api.md)

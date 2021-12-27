@@ -1,3 +1,10 @@
+
+{% note info %}
+
+{{ mkf-name }} имеет встроенную поддержку некоторых коннекторов и позволяет управлять ими. Список доступных коннекторов приведен в разделе [{#T}](../../managed-kafka/concepts/connectors.md). Если вам нужны другие коннекторы, или вы хотите управлять работой Kafka Connect вручную, используйте информацию из этого руководства.
+
+{% endnote %}
+
 Инструмент {{ KFC }} предназначен для перемещения данных между {{ KF }} и другими хранилищами данных.
 
 Работа с данными в {{ KFC }} осуществляется с помощью _процессов-исполнителей_ (workers). Инструмент может быть развернут как в виде распределенной системы (distributed mode) с несколькими процессами-исполнителями, так и в виде отдельной инсталляции из одного процесса-исполнителя (standalone mode).
@@ -32,6 +39,7 @@
     1. [Создайте учетную запись](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ей права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
+
 
 1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) c Ubuntu 20.04 и публичным IP-адресом.
 
@@ -172,4 +180,5 @@
 
 * [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 * Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+
 * [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).

@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/patch-worklog.md
+---
 # Edit a record of time spent
 
 Use this request to edit a record of the time spent on an issue.

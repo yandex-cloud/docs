@@ -1,3 +1,6 @@
+---
+sourcePath: ru/_cli-ref/cli-ref/managed-services/container/image/index.md
+---
 # yc container image
 
 Manage Docker images.

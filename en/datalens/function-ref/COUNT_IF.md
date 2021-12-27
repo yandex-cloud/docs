@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/COUNT_IF.md
 ---
+
 
 # COUNT_IF
 
@@ -22,7 +24,7 @@ Returns the number of items in the group meeting the `condition` condition.
 
 **Return type**: `Integer`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 COUNT_IF([Profit] > 5)

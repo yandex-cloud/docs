@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/queues/restore-queue.md
+---
 # Restore a queue
 
 Use this request to restore a deleted queue.

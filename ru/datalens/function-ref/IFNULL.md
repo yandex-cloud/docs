@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/IFNULL.md
 ---
+
 
 # IFNULL
 
@@ -30,7 +32,7 @@ IFNULL( check_value, alt_value )
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 IFNULL([Profit], 0)

@@ -1,3 +1,6 @@
+---
+sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/update.md
+---
 # yc logging group update
 
 Update log group
@@ -18,6 +21,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/> New log group description.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> New list of label KEY=VALUE pairs to add.|
 |`--retention-period`|<b>`duration`</b><br/> New retention period.|
+|`--data-stream`|<b>`string`</b><br/> New data stream.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Flags

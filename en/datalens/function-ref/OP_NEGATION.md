@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/OP_NEGATION.md
 ---
+
 
 # Negation (-)
 
@@ -22,7 +24,7 @@ Returns the number `value` with the opposite sign.
 
 **Return type**: Same type as (`value`)
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 - (5) = -5

@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/VARP.md
 ---
+
 
 # VARP
 
@@ -22,7 +24,7 @@ Returns the statistical variance of all values in an expression across the entir
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 VARP([Profit])

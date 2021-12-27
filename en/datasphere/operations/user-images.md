@@ -31,19 +31,26 @@ To create a Docker image:
 
     1. Select a Python installation script template: `python_3_7` or `python_3_8`.
 
-    1. Edit the **Dockerfile** section. For example, to install CUDA<sup>®</sup> packages, add the following code after the line `# Write your instructions here`:
+    1. Edit the **Dockerfile** section. For example, to install CUDA<sup>®</sup> packages, choose the python 3.8 template and add the following code:
 
         ```bash
-        ENV LD_LIBRARY_PATH /usr/local/cuda-11.2/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64
-        RUN\
-          apt-get update &&\
-          apt-get install -y -q xserver-xorg-core wget &&\
-          wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin -O /etc/apt/preferences.d/cuda-repository-pin-600 &&\
-          apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub &&\
-          add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
-          apt-get update &&\
-          apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
-          exit
+        FROM ubuntu:18.04
+        ENV DEBIAN_FRONTEND noninteractive
+        RUN useradd -ms /bin/bash --uid 1000 jupyter\
+         && apt update\
+         && apt install -y python3.8-dev python3.8-distutils gnupg wget software-properties-common curl\
+         && ln -s /usr/bin/python3.8 /usr/local/bin/python3\
+         && curl https://bootstrap.pypa.io/get-pip.py | python3
+        ENV LD_LIBRARY_PATH /usr/local/cuda-11.2/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
+        RUN apt-get update &&\
+         apt-get install -y -q xserver-xorg-core wget &&\
+         wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin -O /etc/apt/preferences.d/cuda-repository-pin-600 &&\
+         apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub &&\
+         add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /" &&\
+         apt-get update &&\
+         apt-get -y install cuda libcudnn8 nvidia-cuda-toolkit &&\
+         exit
+        RUN pip install tensorflow-gpu==2.4.1
         ```
 
     1. Click **Build**.
@@ -56,7 +63,6 @@ Make sure that the custom image environment is available in your project. For ex
 
 ```bash
 #!g1.1
-%pip install tensorflow==2.4.1
 import tensorflow as tf
 tf.config.list_physical_devices('GPU')
 ```

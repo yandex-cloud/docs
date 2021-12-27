@@ -9,9 +9,9 @@ items:
         href: operations/index.md
       - name: Подготовка к трансферу
         href: operations/prepare.md
-      - name: Управление эндпоинтом-источником
+      - name: Управление эндпоинтом для источника
         href: operations/source-endpoint.md
-      - name: Управление эндпоинтом-приемником
+      - name: Управление эндпоинтом для приемника
         href: operations/target-endpoint.md
       - name: Управление трансфером
         href: operations/transfer.md
@@ -61,6 +61,8 @@ items:
                 href: api-ref/Endpoint/delete.md
               - name: get
                 href: api-ref/Endpoint/get.md
+              - name: list
+                href: api-ref/Endpoint/list.md
               - name: update
                 href: api-ref/Endpoint/update.md
           - name: Transfer
@@ -77,6 +79,8 @@ items:
                 href: api-ref/Transfer/delete.md
               - name: get
                 href: api-ref/Transfer/get.md
+              - name: list
+                href: api-ref/Transfer/list.md
               - name: update
                 href: api-ref/Transfer/update.md
   - name: Вопросы и ответы

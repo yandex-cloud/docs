@@ -1,3 +1,6 @@
+---
+sourcePath: en/tracker/api-ref/concepts/issues/get-attachment.md
+---
 # Download a file
 
 Use this request to download files attached to issues.

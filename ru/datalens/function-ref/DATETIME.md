@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/DATETIME.md
 ---
+
 
 # DATETIME
 
@@ -39,7 +41,7 @@ DATETIME( expression [ , timezone ] )
 {% endnote %}
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 DATETIME("2019-01-23 15:07:47") = #2019-01-23 15:07:47#

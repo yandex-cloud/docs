@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref/datalens/function-ref/AVG_IF.md
 ---
+
 
 # AVG_IF
 
@@ -23,7 +25,7 @@ Returns the average of all values that meet the `condition` condition. If the va
 
 **Return type**: `Fractional number`
 
-#### Examples {#examples}
+#### Example {#examples}
 
 ```
 AVG_IF([Profit], [Profit] > 5)

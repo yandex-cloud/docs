@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: en/_api-ref-grpc/managed-mysql/api-ref/grpc/resource_preset_service.md
 ---
+
 
 # ResourcePresetService
 

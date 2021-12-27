@@ -1,6 +1,8 @@
 ---
 editable: false
+sourcePath: ru/_api-ref/datalens/function-ref/REGEXP_REPLACE.md
 ---
+
 
 # REGEXP_REPLACE
 
@@ -36,7 +38,7 @@ REGEXP_REPLACE( string, pattern, replace_with )
 
 
 
-#### Примеры {#examples}
+#### Пример {#examples}
 
 ```
 REGEXP_REPLACE("RU 912873", "\s", "-") = "RU-912873"
