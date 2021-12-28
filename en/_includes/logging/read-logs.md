@@ -1,4 +1,4 @@
-The maximum record retention period is 3 days. The log uses Coordinated Universal Time, [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
+Maximum record retention period is 3 days. The log uses [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
 
 You can filter records using the [language of filter expressions](../../logging/concepts/filter.md).
 
@@ -19,17 +19,17 @@ You can filter records using the [language of filter expressions](../../logging/
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  When viewing the log, you can set a specific interval using the `--since` and `--until` flags. If no interval is specified when invoking a function, information for the last hour is displayed.
+  When viewing the log, you can set a specific interval using the `--since` and `--until` flags. If no time interval is specified, information for the previous hour is displayed.
 
   The following flags are used:
-
+  
   * `--since`: Time N and later.
   * `--until`: Time N and earlier.
 
   If you only specify one flag, information is displayed for the hour before or after N depending on the flag.
 
   Allowed time formats:
-
+	
   * `HH:MM:SS`. Example: `15:04:05`.
   * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt). Example: `2006-01-02T15:04:05Z`, `2h`, `3h30m ago`.
 
@@ -41,22 +41,22 @@ You can filter records using the [language of filter expressions](../../logging/
   yc logging read --group-name=default --format=json
   ```
 
-  Result:
-  
+	Result:
+
   ```
   [
-    {
-      "uid": "488ece3c-75b8-4d35-95ac-2b491b123472",
-      "resource": {},
-      "timestamp": "2021-06-22T02:10:40Z",
-      "ingested_at": "2021-06-22T08:49:15.716Z",
-      "saved_at": "2021-06-22T08:49:16.176097Z",
-      "level": "INFO",
-      "message": "My message",
-      "json_payload": {
-        "request_id": "1234"
-      }
-    }
+	{
+	  "uid": "488ece3c-75b8-4d35-95ac-2b491b123472",
+	  "resource": {},
+	  "timestamp": "2021-06-22T02:10:40Z",
+	  "ingested_at": "2021-06-22T08:49:15.716Z",
+	  "saved_at": "2021-06-22T08:49:16.176097Z",
+	  "level": "INFO",
+	  "message": "My message",
+	  "json_payload": {
+	    "request_id": "1234"
+	  }
+	}
   ]
   ```
 
@@ -67,5 +67,9 @@ You can filter records using the [language of filter expressions](../../logging/
   ```
 
   This command will return records for the last hour and continue to return new ones until you interrupt it with **Ctrl+C**. The `--follow` flag is not compatible with the `--since` and `--until` flags.
+
+- API
+
+  You can view the entries in a log group using the API [read](../../logging/api-ref/grpc/log_reading_service.md) method.
 
 {% endlist %}
