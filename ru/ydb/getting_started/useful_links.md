@@ -1,7 +1,7 @@
 
 {% include [useful_links.md](_includes/useful_links.md) %}
 
-{% if audience == "internal" %}
+{% if audience == "internal" or audience == "tech" %}
 ## Ссылки на ресурсы внутри Yandex
 
 * [Веб-консоль YandexDB](https://yc.yandex-team.ru/)

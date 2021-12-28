@@ -2,9 +2,8 @@ title: Yandex Database
 href: index.yaml
 items:
 # Replaced with index.yaml
-#- name: Оглавление
-#  href: index.md
-#  when: audience != "external"
+- name: Оглавление
+  href: index.yaml
 - name: Как попробовать
   href: quickstart.md
   when: audience != "external"
@@ -30,10 +29,15 @@ items:
       href: reference/ydb-sdk/index.md
   - name: Document API, совместимый с Amazon DynamoDB
     include: { mode: link, path : quickstart/document-api/toc_i.yaml }
+  - name: Полезные ссылки
+    href: getting_started/useful_links.md
+
 
 - name: Начало работы
   when: audience != "external"
   items:
+  - name: Обзор
+    href: getting_started/index.md
   - name: Базы данных — создание и управление
     href: getting_started/create_manage_database.md
   - name: Настройка сетевого доступа к базе данных
@@ -153,6 +157,8 @@ items:
 - name: Пошаговые инструкции
   when: audience == "external"
   items:
+  - name: Обзор
+    href: operations/index.md
   - name: Переименование
     href: operations/rename.md
   - name: Использование плана запроса и AST
@@ -190,6 +196,8 @@ items:
 
 - name: Рекомендации
   items:
+  - name: Обзор
+    href: best_practices/index.md
   - name: Проектирование схемы
     href: best_practices/schema_design.md
   - name: Партицирование таблиц
