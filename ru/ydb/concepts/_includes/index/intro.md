@@ -10,14 +10,14 @@ description: 'Yandex Database (YDB) — это горизонтально мас
 {{ ydb-short-name }} обеспечивает:
 
 * [строгую консистентность](https://en.wikipedia.org/wiki/Consistency_model#Strict_Consistency) с возможностью ослабления для увеличения производительности;
-* поддержку запросов [YQL](../../yql/reference/overview.md) (диалект SQL для работы с большими данными);
+* поддержку запросов [YQL](../../../yql/reference/overview.md) (диалект SQL для работы с большими данными);
 * автоматическую репликацию данных;
 * высокую доступность с автоматической обработкой отказов вычислительных узлов, стоек, или зон доступности;
 * автоматическое партицирование данных при увеличении их объема или увеличении нагрузки.
 
-Для взаимодействия с {{ ydb-short-name }} доступен [YDB CLI](../../quickstart/yql-api/ydb-cli.md), а также SDK для   [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk), [Node.js](https://github.com/yandex-cloud/ydb-nodejs-sdk), [PHP](https://github.com/yandex-cloud/ydb-php-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk)
+Для взаимодействия с {{ ydb-short-name }} доступен [YDB CLI](../../../quickstart/yql-api/ydb-cli.md), а также [SDK](../../../reference/ydb-sdk/index.md) для   Java, Python, Node.js, PHP и Go.
 
-{{ ydb-short-name }} поддерживает реляционную [модель данных](../../concepts/datamodel.md) и оперирует таблицами с предопределённой схемой. Для удобства организации таблиц поддерживается создание директорий по аналогии с файловой системой.
+{{ ydb-short-name }} поддерживает реляционную [модель данных](../../../concepts/datamodel.md) и оперирует таблицами с предопределённой схемой. Для удобства организации таблиц поддерживается создание директорий по аналогии с файловой системой.
 
 В качестве основного способа формирования команд к базе данных используется язык YQL, являющийся диалектом SQL. Таким образом, пользователю предлагается мощный и, в то же время, привычный способ взаимодействия с БД.
 
@@ -26,8 +26,3 @@ description: 'Yandex Database (YDB) — это горизонтально мас
 В дизайн {{ ydb-short-name }} заложена поддержка разных сценариев нагрузки, таких как [OLTP](https://en.wikipedia.org/wiki/Online_transaction_processing) и [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing). В текущей реализации поддержка аналитических запросов ограничена. Поэтому можно говорить, что в данный момент {{ ydb-short-name }} — это OLTP-база данных.
 
 {{ ydb-short-name }} используется в сервисах Яндекса в качестве высокопроизводительной [OLTP](https://en.wikipedia.org/wiki/Online_transaction_processing) СУБД. В частности, сервисы {{ yandex-cloud }} Yandex Object Storage и Yandex Block Storage используют {{ ydb-short-name }} для хранения данных и базируются на её компонентах.
-
-## YDB в Yandex.Cloud
-
-Вы можете создать базу данных в бессерверной (Serverless) конфигурации или с выделенными серверами (Dedicated). Подробнее о различиях в конфигурациях читайте в разделе [{#T}](../serverless_and_dedicated.md).
-

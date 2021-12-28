@@ -1,29 +1,14 @@
 # Развертывание группы доступности Always On с внутренним сетевым балансировщиком
 
-Сценарий описывает развертывание в {{ yandex-cloud }} группы доступности Always On с балансировкой нагрузки между узлами с помощью внутреннего сетевого балансировщика. Несколько подсетей будут объединены в одну общую подсеть с помощью настройки сетевых интерфейсов. Благодаря этому не потребуется использование [Multisubnet Failover](https://docs.microsoft.com/ru-ru/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). Основной IP-адрес будет назначаться реплике, в которую ведется запись. У этой же реплики будет открыт порт, на который балансировщик будет направлять трафик. Поскольку порт, указанный для подключения к балансировщику, становится недоступным, для приема трафика будет использоваться дополнительный нестандартный порт.
+Сценарий описывает развертывание в {{ yandex-cloud }} группы доступности Always On с балансировкой нагрузки между узлами с помощью внутреннего сетевого балансировщика. Несколько подсетей будут объединены в одну общую подсеть путем настройки сетевых интерфейсов. Благодаря этому не потребуется использование [Multisubnet Failover](https://docs.microsoft.com/ru-ru/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). Основной IP-адрес будет назначаться реплике, в которую ведется запись. У этой же реплики будет открыт порт, на который балансировщик будет направлять трафик. Поскольку порт, указанный для подключения к балансировщику, становится недоступным, для приема трафика будет использоваться дополнительный нестандартный порт.
 
 Чтобы создать и настроить группу доступности Always On с внутренним сетевым балансировщиком:
 
 1. [Подготовьте облако к работе](#before-begin).
-1. [Необходимые платные ресурсы](#paid-resources).
 1. [Создайте сетевую инфраструктуру](#prepare-network).
 1. [Создайте внутренний сетевой балансировщик](#create-load-balancer).
-1. [Создайте обработчик](#create-listener).
-1. [Создайте и подключите целевую группу](#create-target-group).
 1. [Подготовьте виртуальные машины для группы доступности](#create-vms).
-1. [Создайте файл с учетными данными администратора](#prepare-admin-credentials).
-1. [Создайте виртуальные машины](#create-group-vms).
-1. [Создайте ВМ для бастионного хоста](#create-jump-server).
-1. [Создайте ВМ для Active Directory](#create-ad-controller).
-1. [Создайте ВМ для серверов MSSQL](#create-ad-server).
-1. [Установите и настройте Active Directory](#install-ad).
-1. [Создайте пользователей и группы в Active Directory](#install-ad).
-1. [Установите и настройте MSSQL](#install-mssql).
-1. [Установите MSSQL на серверы баз данных](#mssql-nodes).
-1. [Создайте Windows Failover Cluster](#configure-failover-cluster).
-1. [Настройте Always On](#configure-always-on).
 1. [Протестируйте группу доступности](#test).
-1. [Протестируйте работу базы данных](#test-always-on).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -41,15 +26,15 @@
 
 В стоимость поддержки группы доступности входят:
 
-* плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
-* плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 Вы можете воспользоваться [мобильностью лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию MSSQL Server в {{ yandex-cloud }}.
 
 ## Создайте сетевую инфраструктуру {#prepare-network}
 
-У всех реплик группы будет несколько IP-адресов, трафик на которые будет направляться с помощью [статических маршрутов](../../vpc/concepts/static-routes.md). Подготовьте сетевую инфраструктуру для размещения группы доступности.
+Подготовьте сетевую инфраструктуру для размещения группы доступности.
 
 1. Создайте сеть с именем `ya-network`:
 
@@ -64,10 +49,12 @@
 
     - Bash 
       
-      [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}, чтобы использовать команды CLI в Bash. 
+	  {% include [cli-install](../cli-install.md) %}
+  
+      {% include [default-catalogue](../default-catalogue.md) %}
 
       ```
-      $ yc vpc network create --name ya-network
+      yc vpc network create --name ya-network
       ```
 
     - PowerShell 
@@ -75,7 +62,7 @@
       [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}, чтобы использовать команды CLI в PowerShell. 
 
       ```
-      yc vpc network create --name ya-network
+	  yc vpc network create --name ya-network
       ```
 
     {% endlist %}
@@ -86,13 +73,14 @@
    * Подсеть `ya-ilb-rc1a` для сетевого балансировщика.
    * Подсеть `ya-ad-rc1a` для Active Directory.
 
+
     {% list tabs %}
 
     - Консоль управления
 
       1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсети.
       1. Выберите сеть `ya-network`.
-      1. Нажмите кнопку **Добавить подсеть**.
+      1. Нажмите кнопку ![image](../../_assets/plus.svg)**Добавить подсеть**.
       1. Заполните форму: введите имя подсети `ya-sqlserver-rc1a`, выберите зону доступности `ru-central1-a` из выпадающего списка.
       1. Введите CIDR подсети: IP-адрес и маску подсети: `192.168.1.0/28`.
       1. Нажмите кнопку **Создать подсеть**.
@@ -100,21 +88,14 @@
       Повторите шаги для подсетей со следующими именами и CIDR:
 
       * `ya-sqlserver-rc1b` в зоне доступности `ru-central1-b` — `192.168.1.16/28`;
-      * `ya-sqlserver-rc1c` в зоне доступности `ru-central1-b` — `192.168.1.32/28`;
+      * `ya-sqlserver-rc1c` в зоне доступности `ru-central1-c` — `192.168.1.32/28`;
       * `ya-ilb-rc1a` в зоне доступности `ru-central1-a` — `192.168.1.48/28`;
-      * `ya-ad-rc1a` в зоне доступности `ru-central1-a` — `10.0.0.0/28`;
-    
-      Чтобы использовать статические маршруты, необходимо привязать таблицу маршрутизации к подсети:
-
-      1. В строке нужной подсети нажмите кнопку ![image](../../_assets/options.svg).
-      1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
-      1. В открывшемся окне выберите созданную таблицу в списке.
-      1. Нажмите кнопку **Добавить**.
+      * `ya-ad-rc1a` в зоне доступности `ru-central1-a` — `10.0.0.0/28`.
 
     - Bash
 
       ```
-      $ yc vpc subnet create \
+      yc vpc subnet create \
          --name ya-sqlserver-rc1a \
          --zone ru-central1-a \
          --range 192.168.1.0/28 \
@@ -122,15 +103,15 @@
       ```
 
       ```
-      $ yc vpc subnet create \
-         --name ya-sqlserver-rc1b \
+      yc vpc subnet create \
+		 --name ya-sqlserver-rc1b \
          --zone ru-central1-b \
          --range 192.168.1.16/28 \
          --network-name ya-network
       ```
 
       ```
-      $ yc vpc subnet create \
+      yc vpc subnet create \
          --name ya-sqlserver-rc1c \
          --zone ru-central1-c \
          --range 192.168.1.32/28 \
@@ -138,7 +119,7 @@
       ```
 
       ```
-      $ yc vpc subnet create \
+      yc vpc subnet create \
          --name ya-ilb-rc1a \
          --zone ru-central1-a \
          --range 192.168.1.48/28 \
@@ -146,8 +127,8 @@
       ```
 
       ```
-      $ yc vpc subnet create \
-         --name ya-ad-rc1a \
+      yc vpc subnet create \
+		 --name ya-ad-rc1a \
          --zone ru-central1-a \
          --range 10.0.0.0/28 \
          --network-name ya-network
@@ -157,34 +138,42 @@
 
       ```
       yc vpc subnet create `
-        --name ya-sqlserver-rc1a `
-        --zone ru-central1-a `
-        --range 192.168.1.0/28 `
-        --network-name ya-network
+         --name ya-sqlserver-rc1a `
+         --zone ru-central1-a `
+         --range 192.168.1.0/28 `
+         --network-name ya-network
+      ```
 
+      ```
       yc vpc subnet create `
-        --name ya-sqlserver-rc1b `
-        --zone ru-central1-b `
-        --range 192.168.1.16/28 `
-        --network-name ya-network
+         --name ya-sqlserver-rc1b `
+         --zone ru-central1-b `
+         --range 192.168.1.16/28 `
+         --network-name ya-network
+      ```
 
+      ```
       yc vpc subnet create `
-        --name ya-sqlserver-rc1c `
-        --zone ru-central1-c `
-        --range 192.168.1.32/28 `
-        --network-name ya-network
+         --name ya-sqlserver-rc1c `
+         --zone ru-central1-c `
+         --range 192.168.1.32/28 `
+         --network-name ya-network
+      ```
 
+      ```
       yc vpc subnet create `
-        --name ya-ilb-rc1a `
-        --zone ru-central1-a `
-        --range 192.168.1.48/28 `
-        --network-name ya-network
+         --name ya-ilb-rc1a `
+         --zone ru-central1-a `
+         --range 192.168.1.48/28 `
+         --network-name ya-network
+      ```
 
+      ```
       yc vpc subnet create `
-        --name ya-ad-rc1a `
-        --zone ru-central1-a `
-        --range 10.0.0.0/28 `
-        --network-name ya-network
+		 --name ya-ad-rc1a `
+         --zone ru-central1-a `
+         --range 10.0.0.0/28 `
+         --network-name ya-network
       ```
 
     {% endlist %}
@@ -196,7 +185,7 @@
 - Bash
 
   ```
-  $ yc load-balancer network-load-balancer create \
+  yc load-balancer network-load-balancer create \
      --name ya-loadbalancer \
      --type internal
   ```
@@ -206,7 +195,7 @@
   ```
   yc load-balancer network-load-balancer create `
      --name ya-loadbalancer `
-     --type internal
+	 --type internal
   ```
 
 {% endlist %}
@@ -217,28 +206,32 @@
 
 - Bash 
   
-  Получите идентификатор подсети следующей командой:
+  Получите идентификатор подсети:
 
   ```
-  $ yc vpc subnet get --name ya-ilb-rc1a
+  yc vpc subnet get --name ya-ilb-rc1a
   ```
   
-  Выполните команду, указав идентификатор подсети:
+  Создайте обработчик, указав идентификатор подсети:
 
   ```
-  $ yc load-balancer network-load-balancer add-listener \
+  yc load-balancer network-load-balancer add-listener \
      --name ya-loadbalancer \
-     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=<идентификатор подсети>
+     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=<идентификатор_подсети>
   ```
 
 - PowerShell
 
   ```
-  $inlbSubnet = yc vpc subnet get --name ya-ilb-rc1a --format json | ConvertFrom-Json
+  $inlbSubnet = yc vpc subnet get `
+     --name ya-ilb-rc1a `
+	 --format json | ConvertFrom-Json
+  ```
 
+  ```
   yc load-balancer network-load-balancer add-listener `
-    --name ya-loadbalancer `
-    --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=$($inlbSubnet.id)
+	 --name ya-loadbalancer `
+	 --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-subnet-id=$($inlbSubnet.id)
   ```
 
 {% endlist %}
@@ -250,8 +243,7 @@
 - Bash
 
   ```
-
-  $ yc load-balancer target-group create \
+  yc load-balancer target-group create \
      --name ya-tg \
      --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a \
      --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b \
@@ -261,27 +253,31 @@
   Скопируйте из ответа идентификатор целевой группы и выполните команду:
 
   ```
-  $ yc load-balancer network-load-balancer attach-target-group \
-     --name ya-loadbalancer \
-     --target-group target-group-id=<идентификатор целевой группы>,healthcheck-name=listener,healthcheck-tcp-port=59999
+  yc load-balancer network-load-balancer attach-target-group \
+	 --name ya-loadbalancer \
+	 --target-group target-group-id=<идентификатор_целевой_группы>,healthcheck-name=listener,healthcheck-tcp-port=59999
   ```
 
 - PowerShell
 
   ```
   yc load-balancer target-group create `
-    --name ya-tg `
-    --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a `
-    --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b `
-    --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1c
+     --name ya-tg `
+     --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a `
+     --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b `
+     --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1c
+  ```
+  
+  ```
+  $TargetGroup = yc load-balancer target-group get `
+     --name ya-tg `
+     --format json | ConvertFrom-Json
+  ```
 
   ```
-  ```
-  $TargetGroup = yc load-balancer target-group get --name ya-tg --format json | ConvertFrom-Json
-
   yc load-balancer network-load-balancer attach-target-group `
-    --name ya-loadbalancer `
-    --target-group target-group-id=$($TargetGroup.id),healthcheck-name=listener,healthcheck-tcp-port=59999
+     --name ya-loadbalancer `
+     --target-group target-group-id=$($TargetGroup.id),healthcheck-name=listener,healthcheck-tcp-port=59999
   ```
 
 {% endlist %}
@@ -292,13 +288,25 @@
 
 Создайте файл `setpass` со скриптом для установки пароля локальной учетной записи администратора. Этот скрипт будет выполняться при создании виртуальных машин через CLI.
 
+{% note alert %}
+
+Файл `setpass` должен быть в кодировке UTF-8.
+
+{% endnote %}
+
 {% list tabs %}
 
 - Bash
 
   ```
   touch ~/setpass
+  ```
+  
+  ```
   echo '#ps1' >> ~/setpass
+  ```
+  
+  ```
   echo 'Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "YaQWErty123" -AsPlainText -Force)' >> ~/setpass
   cd
   ```
@@ -307,7 +315,13 @@
 
   ```
   ni ~/setpass
+  ```
+  
+  ```
   echo '#ps1' >> ~/setpass
+  ```
+  
+  ```
   echo 'Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "YaQWErty123" -AsPlainText -Force)' >> ~/setpass
   ```
 
@@ -319,7 +333,7 @@
 
 Пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
 
-Подробные рекомендации по защите Active Directory читайте на [сайте разработчика](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Подробные рекомендации по защите Active Directory читайте [на сайте разработчика](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 {% endnote %}
 
@@ -327,14 +341,14 @@
 
 #### Создайте ВМ для бастионного хоста {#create-jump-server}
 
-Создайте бастионный хост с публичным IP-адресом. Через этот хост будет осуществляться доступ ко всем остальным ВМ:
+Создайте бастионный хост с публичным IP-адресом для доступа к остальным ВМ:
 
 {% list tabs %}
 
 - Bash
 
   ```
-  $ yc compute instance create \
+  yc compute instance create \
      --name ya-jump1 \
      --hostname ya-jump1 \
      --zone ru-central1-a \
@@ -342,41 +356,39 @@
      --cores 2 \
      --metadata-from-file user-data=setpass \
      --create-boot-disk \
-       type=network-nvme,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
      --network-interface \
        subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 \
      --async
   ```
 
-- Powershell
+- PowerShell
 
   ```
   yc compute instance create `
-    --name ya-jump1 `
-    --hostname ya-jump1 `
-    --zone ru-central1-a `
-    --memory 4 `
-    --cores 2 `
-    --metadata-from-file user-data=setpass `
-    --create-boot-disk `
-      type=network-nvme,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
-    --network-interface `
-      subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
-    --async
+     --name ya-jump1 `
+     --hostname ya-jump1 `
+     --zone ru-central1-a `
+     --memory 4 `
+     --cores 2 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+     --network-interface `
+       subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
+     --async
   ```
 
 {% endlist %}
 
 #### Создайте ВМ для Active Directory {#create-ad-controller}
 
-Создайте виртуальную машину для установки Active Directory:
-
 {% list tabs %}
 
 - Bash
 
   ```
-  $ yc compute instance create \
+  yc compute instance create \
      --name ya-ad \
      --hostname ya-ad \
      --zone ru-central1-a \
@@ -384,7 +396,7 @@
      --cores 2 \
      --metadata-from-file user-data=setpass \
      --create-boot-disk \
-       type=network-nvme,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
      --network-interface \
        subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 \
      --async
@@ -394,17 +406,17 @@
 
   ```
   yc compute instance create `
-    --name ya-ad `
-    --hostname ya-ad `
-    --zone ru-central1-a `
-    --memory 6 `
-    --cores 2 `
-    --metadata-from-file user-data=setpass `
-    --create-boot-disk `
-      type=network-nvme,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
-    --network-interface `
-      subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 `
-    --async
+     --name ya-ad `
+     --hostname ya-ad `
+     --zone ru-central1-a `
+     --memory 6 `
+     --cores 2 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+     --network-interface `
+       subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 `
+     --async
   ```
 
 {% endlist %}
@@ -418,7 +430,7 @@
 - Bash
 
   ```
-  $ yc compute instance create \
+  yc compute instance create \
      --name ya-mssql1 \
      --hostname ya-mssql1 \
      --zone ru-central1-a \
@@ -426,16 +438,16 @@
      --cores 4 \
      --metadata-from-file user-data=setpass \
      --create-boot-disk \
-       type=network-nvme,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
      --create-disk \
-       type=network-nvme,size=200 \
+       type=network-ssd,size=200 \
      --network-interface \
        subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 \
      --async
   ```
 
   ```
-  $ yc compute instance create \
+  yc compute instance create \
      --name ya-mssql2 \
      --hostname ya-mssql2 \
      --zone ru-central1-b \
@@ -443,16 +455,16 @@
      --cores 4 \
      --metadata-from-file user-data=setpass \
      --create-boot-disk \
-       type=network-nvme,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
      --create-disk \
-       type=network-nvme,size=200 \
+       type=network-ssd,size=200 \
      --network-interface \
        subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 \
      --async
   ```
 
   ```
-  $ yc compute instance create \
+  yc compute instance create \
      --name ya-mssql3 \
      --hostname ya-mssql3 \
      --zone ru-central1-c \
@@ -460,9 +472,9 @@
      --cores 4 \
      --metadata-from-file user-data=setpass \
      --create-boot-disk \
-       type=network-nvme,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
      --create-disk \
-       type=network-nvme,size=200 \
+       type=network-ssd,size=200 \
      --network-interface \
        subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 \
      --async
@@ -472,62 +484,62 @@
 
   ```
   yc compute instance create `
-    --name ya-mssql1 `
-    --hostname ya-mssql1 `
-    --zone ru-central1-a `
-    --memory 16 `
-    --cores 4 `
-    --metadata-from-file user-data=setpass `
-    --create-boot-disk `
-      type=network-nvme,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
-    --create-disk `
-      type=network-nvme,size=200 `
-    --network-interface `
-      subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 `
-    --async
+     --name ya-mssql1 `
+     --hostname ya-mssql1 `
+     --zone ru-central1-a `
+     --memory 16 `
+     --cores 4 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+     --create-disk `
+       type=network-ssd,size=200 `
+     --network-interface `
+       subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 `
+     --async
   ```
 
   ```
   yc compute instance create `
-    --name ya-mssql2 `
-    --hostname ya-mssql2 `
-    --zone ru-central1-b `
-    --memory 16 `
-    --cores 4 `
-    --metadata-from-file user-data=setpass `
-    --create-boot-disk `
-      type=network-nvme,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
-    --create-disk `
-      type=network-nvme,size=200 `
-    --network-interface `
-      subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 `
-    --async
+     --name ya-mssql2 `
+     --hostname ya-mssql2 `
+     --zone ru-central1-b `
+     --memory 16 `
+     --cores 4 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+     --create-disk `
+       type=network-ssd,size=200 `
+     --network-interface `
+       subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 `
+     --async
   ```
 
   ```
   yc compute instance create `
-    --name ya-mssql3 `
-    --hostname ya-mssql3 `
-    --zone ru-central1-c `
-    --memory 16 `
-    --cores 4 `
-    --metadata-from-file user-data=setpass `
-    --create-boot-disk `
-      type=network-nvme,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
-    --create-disk `
-      type=network-nvme,size=200 `
-    --network-interface `
-      subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 `
-    --async
+     --name ya-mssql3 `
+     --hostname ya-mssql3 `
+     --zone ru-central1-c `
+     --memory 16 `
+     --cores 4 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+     --create-disk `
+       type=network-ssd,size=200 `
+     --network-interface `
+       subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 `
+     --async
   ```
-
+  
 {% endlist %}
 
 ### Установите и настройте Active Directory {#install-ad}
 
 1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. 
-1. Запустите RDP и подключитесь к виртуальной машине `ya-ad`.
-1. Установите необходимые роли сервера. Запустите PowerShell и выполните следующую команду:
+1. С ВМ `ya-jump1` подключитесь к ВМ `ya-ad` с помощью RDP и той же учетной записи.
+1. На ВМ `ya-ad` запустите PowerShell и установите необходимые роли сервера:
 
    {% list tabs %}
 
@@ -600,9 +612,13 @@
 
     {% endlist %}
 
-### Создайте пользователей и группы в Active Directory {#install-ad}
+### Создайте пользователей и группы в Active Directory {#create-ad-users-groups}
 
-1. Создайте сервисную учетную запись `mssql-svc`:
+1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+
+1. С ВМ `ya-jump1` подключитесь к ВМ `ya-ad` с помощью RDP и той же учетной записи.
+
+1. На ВМ `ya-ad` запустите PowerShell и создайте сервисную учетную запись `mssql-svc`:
 
     {% list tabs %}
 
@@ -667,9 +683,32 @@
 
 ### Установите и настройте MSSQL {#install-mssql}
 
-#### Установите MSSQL на серверы баз данных {#mssql-nodes}
+Установите MSSQL на серверы баз данных:
 
+1. Настройте на ВМ с серверами БД доступ в интернет:
+
+    {% list tabs %}
+
+    - Bash
+
+       ```
+       yc compute instance add-one-to-one-nat <идентификатор_ВМ_ya-mssql1> --network-interface-index 0
+       yc compute instance add-one-to-one-nat <идентификатор_ВМ_ya-mssql2> --network-interface-index 0
+       yc compute instance add-one-to-one-nat <идентификатор_ВМ_ya-mssql3> --network-interface-index 0
+       ```
+
+    - PowerShell
+
+       ```
+       yc compute instance add-one-to-one-nat <идентификатор_ВМ_ya-mssql1> --network-interface-index 0
+       yc compute instance add-one-to-one-nat <идентификатор_ВМ_ya-mssql2> --network-interface-index 0
+       yc compute instance add-one-to-one-nat <идентификатор_ВМ_ya-mssql3> --network-interface-index 0
+       ```
+
+    {% endlist %}
+	
 1. Запустите RDP и подключитесь к ВМ `ya-mssql1` с учетной записью `Administrator` и вашим паролем. Для подключения используйте публичный IP-адрес ВМ.
+
 1. Запустите PowerShell и установите роль: 
 
     {% list tabs %}
@@ -682,7 +721,9 @@
 
     {% endlist %}
 
-1. Перезагрузите ВМ и снова запустите PowerShell. 
+1. [Перезапустите ВМ](../compute/operations/vm-control/vm-stop-and-start.md/#restart).
+
+1. Снова подключитесь к ВМ `ya-mssql1` и запустите PowerShell.
 
 1. Инициализируйте и отформатируйте второй логический диск:
 
@@ -696,17 +737,18 @@
           Initialize-Disk -PassThru -PartitionStyle:GPT | `
             New-Partition -DriveLetter 'X' -UseMaximumSize | `
               Format-Volume `
-                -FileSystem:NTFS `
-                -AllocationUnitSize:64KB `
-                -Force `
-                -ShortFileNameSupport $false `
-                -Confirm:$false
-       ```
+                 -FileSystem:NTFS `
+                 -AllocationUnitSize:64KB `
+                 -Force `
+                 -ShortFileNameSupport $false `
+                 -Confirm:$false
+      ```
+	   
     {% endlist %}
 
-    Появится запрос подтверждения форматирования диска. Нажмите кнопку **Format disk**. Нажмите кнопку **Start**. Нажмите кнопку **OK**. 
+    Появится запрос подтверждения форматирования диска. Нажмите кнопку **Format disk**. Нажмите кнопку **Start**. После завершения форматирования нажмите кнопку **OK**. 
     
-1. Подготовьте папки для резервного копирования, хранения баз данных, логов и временных файлов:
+1. Подготовьте папки для дистрибутива, резервного копирования, хранения баз данных, логов и временных файлов:
 
     {% list tabs %}
 
@@ -715,37 +757,16 @@
        ```
        mkdir C:\dist
        mkdir X:\BACKUP
-       mkdir X:\TEMPDB
-       mkdir X:\TEMPDBLOG
        mkdir X:\DB
        mkdir X:\DBLOG
+       mkdir X:\TEMPDB
+       mkdir X:\TEMPDBLOG
        ```
 
     {% endlist %}
 
-1. Дайте виртуальным машинам с серверами БД доступ в интернет:
+1. Загрузите в папку `C:\dist` англоязычный образ MSSQL Server 2019 из интернета.
 
-    {% list tabs %}
-
-    - Bash
-
-       ```
-       $ yc compute instance add-one-to-one-nat ya-mssql1 --network-interface-index 0
-       $ yc compute instance add-one-to-one-nat ya-mssql2 --network-interface-index 0
-       $ yc compute instance add-one-to-one-nat ya-mssql3 --network-interface-index 0
-       ```
-
-    - PowerShell
-
-       ```
-       yc compute instance add-one-to-one-nat ya-mssql1 --network-interface-index 0
-       yc compute instance add-one-to-one-nat ya-mssql2 --network-interface-index 0
-       yc compute instance add-one-to-one-nat ya-mssql3 --network-interface-index 0
-       ```
-
-    {% endlist %}
-
-1. Загрузите в папку `C:\dist` дистрибутив MSSQL Server из интернета.
 1. Установите модуль SqlServer:
 
     {% list tabs %}
@@ -757,6 +778,20 @@
        ```
        
     {% endlist %}
+	
+1. При запросе подтверждения установки введите `Y`.
+
+1. Импортируйте команды модуля SqlServer для PowerShell:
+
+    {% list tabs %}
+
+    - PowerShell
+
+       ```
+       Import-Module SQLServer
+	   ```
+	   
+	{% endlist %} 
 
 1. Укажите адрес DNS-сервера:
 
@@ -779,8 +814,8 @@
        ```
        $domain_credential = `
          New-Object System.Management.Automation.PSCredential (
-           'yantoso\Administrator', `
-           ('YaQWErty123' | ConvertTo-SecureString -AsPlainText -Force))
+             'yantoso\Administrator', `
+             ('YaQWErty123' | ConvertTo-SecureString -AsPlainText -Force))
        ```
        
     {% endlist %}
@@ -799,16 +834,16 @@
    
    ВМ автоматически перезапустится. 
 
-1. После перезагрузки снова подключитесь к ВМ с логином `yantoso\Administrator`, откройте PowerShell.
+1. После перезапуска снова подключитесь к ВМ с логином `yantoso\Administrator`, откройте PowerShell.
 
-1. Дайте необходимые права служебной учетной записи. 
+1. Настройте необходимые права служебной учетной записи: 
 
     {% list tabs %}
 
     - PowerShell
 
        ```
-       & secedit /export /cfg sec_conf_export.ini  /areas user_rights
+       & secedit /export /cfg sec_conf_export.ini /areas user_rights
 
        $secConfig = Get-Content sec_conf_export.ini | Select-Object -SkipLast 3
        $versionSection = Get-Content sec_conf_export.ini | Select-Object -Last 3
@@ -847,7 +882,7 @@
 
     {% endlist %}
 
-1. Настройте фаерволл: 
+1. Настройте файрвол: 
    
     {% list tabs %}
 
@@ -866,7 +901,7 @@
          -Group "MSSQL" `
          -DisplayName "MSSQL Server AAG Custom" `
          -Name "MSSQLAAG-In-TCP" `
-         -LocalPort 14333 `
+		 -LocalPort 14333 `
          -Action "Allow" `
          -Protocol "TCP"
 
@@ -896,21 +931,25 @@
    - PowerShell
 
       ```
-      Mount-DiskImage -ImagePath C:\dist\<имя образа MSSQL Server>.iso
-
+      Mount-DiskImage -ImagePath C:\dist\<имя_образа_MSSQL_Server>.iso
+	  ```
+	  
+	  ```
       & D:\setup.exe /QUIET /INDICATEPROGRESS /IACCEPTSQLSERVERLICENSETERMS `
         /ACTION=INSTALL /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER `
         /SQLSVCACCOUNT="yantoso\mssql-svc" /SQLSVCPASSWORD="YaQWErty123" `
         /SQLSYSADMINACCOUNTS="yantoso\mssql-admins-grp" /UpdateEnabled=FALSE `
         /SQLBACKUPDIR="X:\BACKUP" /SQLTEMPDBDIR="X:\TEMPDB" /SQLTEMPDBLOGDIR="X:\TEMPDBLOG" `
         /SQLUSERDBDIR="X:\DB" /SQLUSERDBLOGDIR="X:\DBLOG"
-
-      Dismount-DiskImage -ImagePath C:\dist\<имя образа MSSQL Server>.iso
+	  ```
+	  
+	  ```
+      Dismount-DiskImage -ImagePath C:\dist\<имя_образа_MSSQL_Server>.iso
       ```
 
    {% endlist %}
 
-1. Повторите шаги 2-13 для ВМ `ya-mssql2` и `ya-mssql3`.
+1. Повторите шаги 2-16 для ВМ `ya-mssql2` и `ya-mssql3`. 
 
 1. Отключите у ВМ доступ в интернет:
 
@@ -919,21 +958,23 @@
     - Bash
 
        ```
-       $ yc compute instance remove-one-to-one-nat ya-mssql1 --network-interface-index 0
-       $ yc compute instance remove-one-to-one-nat ya-mssql2 --network-interface-index 0
-       $ yc compute instance remove-one-to-one-nat ya-mssql3 --network-interface-index 0
+       yc compute instance remove-one-to-one-nat <идентификатор_ВМ_ya-mssql1> --network-interface-index 0
+       yc compute instance remove-one-to-one-nat <идентификатор_ВМ_ya-mssql2> --network-interface-index 0
+       yc compute instance remove-one-to-one-nat <идентификатор_ВМ_ya-mssql3> --network-interface-index 0
        ```
-    - Powershell
+    - PowerShell
 
        ```
-       yc compute instance remove-one-to-one-nat ya-mssql1 --network-interface-index 0
-       yc compute instance remove-one-to-one-nat ya-mssql2 --network-interface-index 0
-       yc compute instance remove-one-to-one-nat ya-mssql3 --network-interface-index 0
+       yc compute instance remove-one-to-one-nat <идентификатор_ВМ_ya-mssql1> --network-interface-index 0
+       yc compute instance remove-one-to-one-nat <идентификатор_ВМ_ya-mssql2> --network-interface-index 0
+       yc compute instance remove-one-to-one-nat <идентификатор_ВМ_ya-mssql3> --network-interface-index 0
        ```
 
     {% endlist %}
 
-1. На каждой ВМ:
+1. Подключитесь к ВМ `ya-jump1` [с помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+
+1. С ВМ `ya-jump1` подключитесь к ВМ `ya-mssql1` с помощью RDP и той же учетной записи. Настройте статический адрес со своей маской подсети:
 
    ```
    $IPAddress = Get-NetAdapter | Get-NetIPAddress -AddressFamily IPv4 | Select-Object -ExpandProperty IPAddress
@@ -942,6 +983,8 @@
 
    netsh interface ip set address $InterfaceName static $IPAddress 255.255.255.192 $Gateway
    ```
+
+1. Повторите шаги 19-20 для ВМ `ya-mssql2` и `ya-mssql3`.
 
 1. Для работы группы доступности Always On требуется настроенный Windows Server Failover Cluster. Для его создания необходимо протестировать серверы БД. На любой из ВМ кластера выполните:
 
@@ -957,9 +1000,10 @@
 
     {% endlist %}
 
-### Создайте Windows Failover Cluster {#configure-failover-cluster}
+### Создайте Windows Server Failover Cluster {#configure-failover-cluster}
 
-1. Подключитесь к ВМ `jump-server-vm` с [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль. Откройте RDP и подключитесь к ВМ `ya-mssql1`.
+1. Подключитесь к ВМ `ya-jump1` с [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. С ВМ `ya-jump1` подключитесь к ВМ `ya-mssql1` с помощью RDP и учетной записи `yantoso\Administrator`.
 1. Создайте кластер из трех серверов БД:
 
     {% list tabs %}
@@ -1033,15 +1077,13 @@
     
     {% endlist %}
 
-1. Импортируйте команды модуля SqlServer для PowerShell и назначьте служебному пользователю `mssql-svc` разрешения на управление серверами:
+1. Назначьте служебному пользователю `mssql-svc` разрешения на управление серверами:
 
     {% list tabs %}
 
     - PowerShell
 
        ```
-       Import-Module SqlServer
-
        Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql1\Default" `
          -LoginName "yantoso\mssql-svc" `
          -LoginType "WindowsUser" `
@@ -1077,7 +1119,7 @@
 
 ### Настройте Always On {#configure-always-on}
 
-1. По очереди подключитесь к каждому серверу и включите SqlAlwaysOn. При включении Always On сервис СУБД будет перезапускаться.
+1. По очереди подключитесь к каждому серверу и включите SqlAlwaysOn:
 
     {% list tabs %}
 
@@ -1095,6 +1137,8 @@
        ```
 
     {% endlist %}
+	
+    При включении Always On сервис СУБД будет перезапускаться.
 
 
 1. Создайте и запустите [эндпоинты HADR](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
@@ -1271,6 +1315,7 @@
           $tcp.IsEnabled = $true
           $tcp.Alter()
           $altered = $true
+		  
         }
         if (-not $np.IsEnabled) {
           $np.IsEnabled = $true
@@ -1331,7 +1376,7 @@
          -ServerInstance "ya-mssql1.yantoso.net"
 
        Backup-SqlDatabase `
-         -Database "MyDatabase"  -Initialize `
+         -Database "MyDatabase" -Initialize `
          -BackupFile "MyDatabase.log" `
          -ServerInstance "ya-mssql1.yantoso.net" `
          -BackupAction Log
@@ -1409,21 +1454,7 @@
 
 ## Протестируйте группу доступности {#test}
 
-### Протестируйте работу базы данных {#test-always-on}
-
-Тестирование можно провести на любой из доменных ВМ, войдя под учетной записью `yantoso\Administrator`.
-
-1. Импортируйте PowerShell-модуль `SqlServer`:
-
-    {% list tabs %}
-
-    - PowerShell
-
-       ```
-       Import-Module SQLServer
-       ```
-
-    {% endlist %}
+Тестирование работы базы данных можно провести на любой из доменных ВМ. Для входа используйте учетную запись `yantoso\Administrator`.
 
 1. Создайте таблицу в реплицируемой БД `MyDatabase`:
 
@@ -1469,6 +1500,8 @@
        FROM MyDatabase.dbo.test;
        "@
        ```
+	   
+	   Результат:
        ```
        test_id test_name
        ------- ---------
@@ -1484,8 +1517,10 @@
     - PowerShell
 
        ```
-       Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'mylistener.yantoso.net'
+       Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
        ```
+	   
+	   Результат:
        ```
        Column1
        -------
@@ -1507,7 +1542,7 @@
 
     {% endlist %}
 
-1. Через некоторое время снова проверьте имя основной реплики:
+1. Cнова проверьте имя основной реплики:
 
     {% list tabs %}
 
@@ -1516,6 +1551,8 @@
        ```
        Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
        ```
+	   
+	   Результат:
        ```
        Column1
        -------
@@ -1548,6 +1585,8 @@
        ```
        Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
        ```
+	   
+	   Результат:
        ```
        test_id test_name
        ------- ---------
@@ -1557,11 +1596,11 @@
 
     {% endlist %}
 
-## Удалите созданные ресурсы {#clear-out}
+## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за развернутые ресурсы, [удалите](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины и балансировщик: 
+Чтобы перестать платить за созданные ресурсы, [удалите](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины и балансировщик: 
 
-* `vm-jump-server`; 
+* `ya-jump1`; 
 * `ya-ad`;
 * `ya-mssql1`;
 * `ya-mssql2`;

@@ -6,7 +6,6 @@
 1. [Создайте ВМ с Mikrotik Cloud Hosted Router](#create-router).
 1. [Зайдите на ВМ и смените пароль](#change-password).
 1. [Создайте тестовую ВМ](#create-test-vm).
-1. [Проверьте связь роутера и тестовой ВМ](#test-connection).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

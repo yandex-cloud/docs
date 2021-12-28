@@ -61,35 +61,23 @@ To enable [health checks](../../network-load-balancer/concepts/health-check.md) 
 * Recommended method: in the `predefined_target` field, enter `loadbalancer_healthchecks`.
 * Manually allow traffic to be transferred between `198.18.235.0/24`, `198.18.248.0/24`, and target resources.
 
+### Recommendations for incoming traffic {#incoming-traffic-recommendations}
+
+For incoming traffic, we recommend rules allowing:
+
+* Any incoming traffic from members of the same security group.
+* SSH connections to port `22` (`TCP`) from any address (`0.0.0.0/0`).
+* RDP connections to port `3389` (`TCP`) from any address (`0.0.0.0/0`).
+* All incoming traffic over `ICMP` from any address (`0.0.0.0/0`).
+
 ## Default security group {#default-security-group}
 
-The default security group is automatically:
+A new network automatically creates a default security group. This group:
 
-* Created in a new network.
+* Allows any incoming and outgoing traffic.
+* Assigns itself to VMs connecting to subnets on the new network if they don't have any security groups.
 
-* Assigned to VMs when connecting to the new network subnets if they don't have any security groups.
-
-    In this case, the automatically assigned security group isn't displayed in API or CLI responses.
-
-### Default security group rules {#rules-default}
-
-The default security group is created with the following rules:
-
-{% list tabs %}
-
-- Outgoing traffic
-
-    All outgoing traffic is allowed.
-
-- Incoming traffic
-
-    Allowed:
-    * All incoming traffic from members of the same security group.
-    * SSH connections to port `22` (`TCP`) from any address (`0.0.0.0/0`).
-    * RDP connections to port `3389` (`TCP`) from any address (`0.0.0.0/0`).
-    * All incoming traffic over `ICMP` from any address (`0.0.0.0/0`).
-
-{% endlist %}
+    If the default security group is assigned automatically, the security group will not display in API or CLI responses to information requests about the VM interface, managed database cluster, or Managed Service for Kubernetes. A prompt will appear in the management console that the default security group applies.
 
 You can't delete the default security group.
 

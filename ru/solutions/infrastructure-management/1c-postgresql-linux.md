@@ -218,7 +218,7 @@
    $ sudo chmod -R 777 /1c-files
    ```
 
-1. Отключите фаерволл:
+1. Отключите файрвол:
 
    ```
    $ sudo systemctl stop firewalld
@@ -336,7 +336,7 @@ $ systemctl status srv1cv83
    $ sudo chmod -R 777 /1c-files
    ```
 
-1. Отключите фаерволл:
+1. Отключите файрвол:
 
    ```
    $ sudo systemctl stop firewalld

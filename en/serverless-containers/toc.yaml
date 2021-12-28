@@ -23,6 +23,10 @@ items:
             href: operations/invoke.md
           - name: Updating a container
             href: operations/update.md
+          - name: Monitoring
+            href: operations/monitoring.md
+          - name: Viewing the execution log
+            href: operations/logs.md
           - name: Deleting a container
             href: operations/delete.md
   - name: Concepts
@@ -37,8 +41,6 @@ items:
         href: concepts/runtime.md
       - name: Container logs
         href: concepts/logs.md
-      - name: Monitoring
-        href: concepts/monitoring.md
       - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits
