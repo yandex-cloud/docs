@@ -1,15 +1,17 @@
 title: Yandex Database
 href: index.yaml
 items:
-- name: Оглавление
-  href: index.md
-  when: audience != "external"
+# Replaced with index.yaml
+#- name: Оглавление
+#  href: index.md
+#  when: audience != "external"
 - name: Как попробовать
   href: quickstart.md
   when: audience != "external"
-- name: Обзор
-  href: overview.md
-  when: audience != "external"
+# Убираем "Обзор", так как он дублирует информацию из concepts/index, а также есть общая обзорная страница index.yaml
+# - name: Обзор
+#  href: overview.md
+#  when: audience != "external"
 
 - name: Начало работы
   when: audience == "external"
@@ -68,6 +70,8 @@ items:
   - name: REST API
     href: getting_started/start_rest.md
     when: audience == "tech"
+  - name: Полезные ссылки
+    href: getting_started/useful_links.md
 
 - name: Сценарии использования
   when: audience == "external"
@@ -167,7 +171,7 @@ items:
   when: audience == "external"
 
 - name: Правила тарификации
-  when: audience == "external"
+  hidden: audience != "external"
   items:
   - name: Обзор
     href: pricing.md
