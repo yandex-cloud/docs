@@ -157,6 +157,30 @@ FALSE
 157
 ```
 
+## Массив {#array}
+
+Структура, которая состоит из последовательности элементов одного типа.
+
+{{ datalens-short-name }} поддерживает работу со столбцами одномерных массивов в БД {{ CH }}{% if audience == "internal" %}, CH over YT, CH over YDB{% endif %} и {{ PG }}. Элементы массива могут быть следующих типов:
+
+* `Целое число`
+* `Дробное число`
+* `Строка`
+
+{% note warning %}
+
+Определить массив внутри {{ datalens-short-name }} нельзя.
+
+{% endnote %}
+
+#### Пример записи {#array-example}
+
+```sql
+[1, 2, 3]
+[1.1, 1.2, 1.3]
+["Cheese", "Bread"]
+```
+
 ## Таблица соответствий типов данных {#types-lookup-table}
 
 При создании датасета {{ datalens-short-name }} приводит данные из источника в свой тип для оптимизации.
@@ -164,15 +188,18 @@ FALSE
 
 Ниже приведена таблица соответствий типов баз данных и внутренних типов {{ datalens-short-name }}.
 
-DataLens | Материализованный<br/>датасет | ClickHouse | PostgreSQL | MySQL | MS SQL | 
------ | ----- | ----- | ----- | ----- | ----- | 
-**Логический** | boolean | boolean | boolean | bit | bit |
-**Дата**| date | date | date | date | date |
-**Дата и время** | datetime | datetime | timestamp | datetime<br/>timestamp | datetime<br/>datetime2<br/>smalldatetime<br/>datetimeoffset |
-**Дробное число** | float | float<br/>float32<br/>float64<br/>decimal<sup>*</sup> | real<br/>double precision<br/>numeric | float<br/>double<br/>numeric<br/>decimal<sup>*</sup> | float<br/>real<br/>numeric<br/>decimal<sup>*</sup>
-**Целое число** | int64 | integer<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | smallint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>mediumint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>integer<br/>bigint
-**Строка** | string | string<br/>enum8<br/>enum16 | char<br/>varchar<br/>text<br/> | tinyblob<br/>blob<br/>binary<br/>varbinary<br/>char<br/>varchar<br/>tinytext<br/>text<br/>enum | char<br/>varchar</br>text<br/>nchar<br/>nvarchar<br/>ntext<br/>
-**Геоточка** | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} |
-**Геополигон** | Задается формулой в {{ datalens-short-name }}  | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} |
+DataLens | Материализованный<br/>датасет | ClickHouse | PostgreSQL | MySQL | MS SQL |{% if audience == "internal" %} CH over YT | CH over YDB{% endif %}
+----- | ----- | ----- | ----- | ----- | ----- |{% if audience == "internal" %} ----- | ----- |{% endif %}
+**Логический** | boolean | boolean | boolean | bit | bit |{% if audience == "internal" %} boolean<br/>bool | bool |{% endif %}
+**Дата** | date | date | date | date | date |{% if audience == "internal" %} date | date |{% endif %}
+**Дата и время** | datetime | datetime | timestamp | datetime<br/>timestamp | datetime<br/>datetime2<br/>smalldatetime<br/>datetimeoffset |{% if audience == "internal" %} datetime<br/>timestamp | datetime<br/>timestamp |{% endif %}
+**Дробное число** | float | float<br/>float32<br/>float64<br/>decimal<sup>*</sup> | real<br/>double precision<br/>numeric | float<br/>double<br/>numeric<br/>decimal<sup>*</sup> | float<br/>real<br/>numeric<br/>decimal<sup>*</sup> |{% if audience == "internal" %} float<br/>double<br/>decimal<sup>*</sup> | float<br/>double<br/>decimal<sup>*</sup> |{% endif %}
+**Целое число** | int64 | integer<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | smallint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>mediumint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>integer<br/>bigint |{% if audience == "internal" %} interval<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | interval<br/>DyNumber<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 |{% endif %}
+**Строка** | string | string<br/>enum8<br/>enum16 | char<br/>varchar<br/>text<br/> | tinyblob<br/>blob<br/>binary<br/>varbinary<br/>char<br/>varchar<br/>tinytext<br/>text<br/>enum | char<br/>varchar</br>text<br/>nchar<br/>nvarchar<br/>ntext<br/> |{% if audience == "internal" %} string<br/>utf8 | string<br/>utf8<br/>json<br/>JsonDocument<br/>Uuid |{% endif %}
+**Геоточка** | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} |{% if audience == "internal" %} Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} |{% endif %}
+**Геополигон** | Задается формулой в {{ datalens-short-name }}  | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} |{% if audience == "internal" %} Задается формулой в {{ datalens-short-name }} | Задается формулой в {{ datalens-short-name }} |{% endif %}
+**Массив целых чисел** | Array(int64) | Array(integer)<br/> Array(int8)<br/>Array(int16)<br/>Array(int32)<br/>Array(int64)<br/>Array(uint8)<br/>Array(uint16)<br/>Array(uint32)<br/>Array(uint64) | Array(smallint)<br/>Array(integer)<br/>Array(bigint) | Не поддерживается | Не поддерживается |{% if audience == "internal" %} list | list |{% endif %}
+**Массив дробных чисел** | Array(float64) | Array(float32)<br/>Array(float64) | Array(real)<br/>Array(double)<br/>Array(precision)<br/>Array(numeric)| Не поддерживается | Не поддерживается |{% if audience == "internal" %} list | list |{% endif %}
+**Массив строк** | Array(string) | Array(string) | Array(char)<br/>Array(varchar)<br/>Array(text) | Не поддерживается | Не поддерживается |{% if audience == "internal" %} list | list |{% endif %}
 
 <sup>*</sup> Возможна потеря точности при конвертации данных.
