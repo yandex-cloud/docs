@@ -11,11 +11,12 @@ items:
       - name: Cайт на LAMP- или LEMP-стеке
         href: web/lamp-lemp.md
       - name: >-
-          Отказоустойчивый сайт с балансировкой нагрузки через Yandex Load
+          Отказоустойчивый сайт с балансировкой нагрузки через Network Load
           Balancer
         href: web/load-balancer-website.md
-      - name: Отказоустойчивый сайт с использованием DNS-балансировки
-        href: web/dns-load-balancer.md
+      - name: Отказоустойчивый сайт с балансировкой нагрузки через Application Load
+          Balancer
+        href: web/application-load-balancer-website.md
       - name: Сайт на базе Joomla с БД PostgreSQL
         href: web/joomla-postgresql.md
       - name: Сайт на WordPress
