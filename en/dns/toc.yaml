@@ -39,6 +39,8 @@ items:
         href: concepts/limits.md
   - name: Practical guidelines
     items:
+      - name: Configuring a local caching DNS resolver
+        href: solutions/local-dns-cache.md
       - name: Migrating DNS zones from Yandex.Connect
         href: solutions/connect-migration.md
   - name: Access management

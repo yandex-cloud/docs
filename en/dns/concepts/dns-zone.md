@@ -31,7 +31,7 @@ For security reasons, nested public zones can only be created by users and servi
 
 The service does not require confirmation of domain ownership. You can use a domain zone even if it's not registered to you. However, if its owner confirms their rights to the domain zone, you'll lose access to it. If you are the owner of the domain and the zone is already used by someone, contact [support](../../support/overview.md).
 
-To request external domain names, use caching resolvers like unbound, dnsmasq, or systemd-resolved. They can reduce the number of queries and service usage [costs](../pricing.md).
+To request external domain names, we recommend using [caching resolvers](../solutions/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. They can reduce the number of queries and service usage [costs](../pricing.md).
 
 ## Internal zones {#private-zones}
 
