@@ -191,6 +191,8 @@ items:
             href: operations/chart/create-alert.md
           - name: Добавление иерархии
             href: operations/chart/add-hierarchy.md
+          - name: Настройка навигатора
+            href: operations/chart/config-chart-navigator.md
           - name: Публикация чарта
             when: audience == "external"
             href: operations/chart/publish.md

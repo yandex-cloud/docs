@@ -45,6 +45,7 @@
 - [{#T}](chart/create-tree-chart.md)
 - [{#T}](chart/create-sql-chart.md)
 - [{#T}](chart/add-hierarchy.md)
+- [{#T}](chart/config-chart-navigator.md)
 {% if audience == "internal" %} - [{#T}](chart/create-alert.md){% endif %}
 {% if audience != "internal" %} - [{#T}](chart/publish.md) {% endif %}
 - [{#T}](chart/manage-access.md)
