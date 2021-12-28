@@ -12,8 +12,8 @@ Function execution logs are stored for 3 days. The log uses [UTC](https://en.wik
 - Management console
 
     1. Select **{{ sf-name }}** in the [management console]({{ link-console-main }}).
-    1. Click the function you want to view the execution log for.
-    1. In the window that opens, go to **Logs** and specify the time period. The default time period is 1 hour.
+    1. Click a function to view its runtime log.
+    1. In the resulting window, go to **Logs** and specify the period for which you wish to view logs. The default time period is 1 hour.
 
 - CLI
 
@@ -32,7 +32,7 @@ Function execution logs are stored for 3 days. The log uses [UTC](https://en.wik
     ```
 
     Result:
-
+    
     ```
     2019-07-04 09:27:43     START RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad Version: b09i2s85a0c1fisjboft
     2019-07-04 09:27:43     END RequestID: 34dc9533-ed6e-4468-b9f2-2aa082266fad

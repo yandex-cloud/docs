@@ -1,6 +1,8 @@
 title: Yandex Database
 href: index.yaml
 items:
+  - name: Оглавление
+    href: index.yaml
   - name: Начало работы
     items:
       - name: Обзор
@@ -59,6 +61,8 @@ items:
                 href: quickstart/document-api/aws-sdk/query-and-scan.md
               - name: Удаление таблицы
                 href: quickstart/document-api/aws-sdk/delete-table.md
+      - name: Полезные ссылки
+        href: getting_started/useful_links.md
   - name: Сценарии использования
     items:
       - name: Развертывание веб-приложения
@@ -69,6 +73,8 @@ items:
         href: solutions/ydb_docker.md
       - name: Подключение к YDB из функции Yandex Cloud Functions на Python
         href: solutions/connect-from-cf.md
+      - name: Подключение к YDB из функции Yandex Cloud Functions на Node.js
+        href: solutions/connect-from-cf-nodejs.md
       - name: Конвертация видео в GIF на Python
         href: solutions/video-converting-queue.md
       - name: Разработка навыка Алисы и сайта с авторизацией
@@ -124,6 +130,8 @@ items:
         href: concepts/limits-ydb.md
   - name: Пошаговые инструкции
     items:
+      - name: Обзор
+        href: operations/index.md
       - name: Переименование
         href: operations/rename.md
       - name: Использование плана запроса и AST
@@ -139,6 +147,7 @@ items:
   - name: Управление доступом
     href: security/start_auth.md
   - name: Правила тарификации
+    hidden: audience != "external"
     items:
       - name: Обзор
         href: pricing.md
@@ -156,6 +165,8 @@ items:
         href: pricing/dedicated.md
   - name: Рекомендации
     items:
+      - name: Обзор
+        href: best_practices/index.md
       - name: Проектирование схемы
         href: best_practices/schema_design.md
       - name: Партицирование таблиц

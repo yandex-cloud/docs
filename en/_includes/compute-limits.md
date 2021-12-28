@@ -86,8 +86,7 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
 
     | Limits | Value |
     | ----- | ----- |
-    | Maximum disk size | 4 TB |
-    | Maximum disk snapshot size | 4 TB |
+    | Maximum disk size | 256 TB |
     | [Allocation unit size](../compute/concepts/storage-read-write.md) | 32 GB |
     | Maximum^3^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 40,000 |
     | Maximum^3^ IOPS for writes per allocation unit | 1000 |
@@ -102,7 +101,7 @@ The limits per VM depend on its [platform](../compute/concepts/vm-platforms.md):
 
     | Limits | Value |
     | ----- | ----- |
-    | Maximum disk snapshot size | 4 TB |
+    | Maximum disk size | 256 TB |
     | [Allocation unit size](../compute/concepts/storage-read-write.md) | 256 GB |
     | Maximum^3^ [IOPS](../compute/concepts/storage-read-write.md) for writes per disk | 11,000 |
     | Maximum^3^ IOPS for writes per allocation unit | 300 |

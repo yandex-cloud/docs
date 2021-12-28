@@ -157,6 +157,8 @@ items:
             href: operations/chart/create-sql-chart.md
           - name: Добавление иерархии
             href: operations/chart/add-hierarchy.md
+          - name: Настройка навигатора
+            href: operations/chart/config-chart-navigator.md
           - name: Публикация чарта
             href: operations/chart/publish.md
           - name: Управление доступом к чарту

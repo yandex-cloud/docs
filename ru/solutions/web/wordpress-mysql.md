@@ -18,12 +18,12 @@ keywords:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте виртуальную машину для WordPress](#create-vm).
-1. [Создайте кластер БД MySQL](#create-clusters).
+1. [Создайте кластер БД MySQL](#create-cluster).
 1. [Настройте веб-сервер Nginx](#configure-nginx).
 1. [Установите WordPress и дополнительные компоненты](#install-wordpress).
-1. [Настройте WordPress](#configure-wordpress).
-1. [Проверьте работу веб-сайта](#test-site).
+1. [Завершите настройку WordPress](#configure-wordpress).
 1. [Настройте DNS](#configure-dns).
+1. [Проверьте работу веб-сайта](#test-site).
 
 Если сайт вам больше не нужен, [удалите все используемые им ресурсы](#clear-out).
 
@@ -38,6 +38,7 @@ keywords:
 * плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за кластер базы данных MySQL (см. [тарифы {{ mmy-full-name }}](../../managed-mysql/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за публичные DNS-запросы и зоны (см. [тарифы {{ dns-full-name }}](../../dns/pricing.md)).
 
 ## Создайте виртуальную машину для WordPress {#create-vm}
 
@@ -49,21 +50,21 @@ keywords:
 
 3. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
 
-4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [Debian 10](https://cloud.yandex.ru/marketplace/products/f2eec74qhul8dvtq413l), [Ubuntu 18.04 lts](https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc) или [CentOS 7](https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo).
+4. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. Выберите публичный образ [Debian 11](https://cloud.yandex.ru/marketplace/products/yc/debian-11), [Ubuntu 20.04 LTS](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts) или [CentOS 7](https://cloud.yandex.ru/marketplace/products/f2esfplfav536pn90mdo).
 
 5. В блоке **Вычислительные ресурсы**:
     - Выберите [платформу](../../compute/concepts/vm-platforms.md).
     - Укажите необходимое количество vCPU и объем RAM:
        * **vCPU** — 2.
-       * **Гарантированная доля vCPU** — 5%.
-       * **RAM** — 1 ГБ.
+       * **Гарантированная доля vCPU** — 20%.
+       * **RAM** — 2 ГБ.
 
 6. В блоке **Сетевые настройки** выберите сеть и подсеть, к которым нужно подключить виртуальную машину. Если нужной сети или подсети еще нет, вы можете создать их прямо на странице создания ВМ.
 
 7. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
 8. Укажите данные для доступа на виртуальную машину:
-    - В поле **Логин** введите имя пользователя.
+    - В поле **Логин** введите имя пользователя, например, `yc-user`.
     - В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
       
       Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [раздел о подключении к виртуальным машинам по SSH](../../compute/operations/vm-connect/ssh.md).
@@ -94,7 +95,9 @@ keywords:
     - В поле **Имя БД** введите `wp-mysql-tutorial-db`.
     - В поле **Имя пользователя** введите `wordpress`.
     - В поле **Пароль** введите пароль, который вы будете использовать для доступа к базе.
-    - В списке **Сеть** выберите сеть, к которой будет подключена ваша виртуальная машина.
+
+1. В блоке **Сетевые настройки**:
+    - В списке **Сеть** выберите сеть, к которой будет подключен кластер.
 
 1. В блоке **Хосты** добавьте еще два хоста в других зонах доступности. При создании хостов не включайте для них **Публичный доступ**.
 
@@ -123,7 +126,7 @@ keywords:
    - Debian/Ubuntu
 
      ```bash
-     sudo apt-get update -qq
+     sudo apt-get update
      sudo apt-get install -y nginx-full php-fpm php-mysql
      sudo systemctl enable nginx
      ```
@@ -131,13 +134,13 @@ keywords:
    - CentOS
 
      ```bash
-     $ sudo yum -y install epel-release
-     $ sudo yum -y install nginx
-     $ sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-     $ sudo yum -y --enablerepo=remi-php72 install php php-mysql php-xml php-soap php-xmlrpc php-mbstring php-json php-gd php-mcrypt
-     $ sudo yum -y --enablerepo=remi-php72 install php-fpm
-     $ sudo systemctl enable nginx
-     $ sudo systemctl enable php-fpm
+     sudo yum -y install epel-release
+     sudo yum -y install nginx
+     sudo rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+     sudo yum -y --enablerepo=remi-php74 install php php-mysql php-xml php-soap php-xmlrpc php-mbstring php-json php-gd php-mcrypt
+     sudo yum -y --enablerepo=remi-php74 install php-fpm
+     sudo systemctl enable nginx
+     sudo systemctl enable php-fpm
      ```
 
    {% endlist %}
@@ -146,57 +149,10 @@ keywords:
 
    {% list tabs %}
 
-   - Debian
+   - Debian/Ubuntu
 
      1. Вы можете отредактировать файл с помощью редактора `nano`:
 
-         ```bash
-         $ sudo nano /etc/nginx/sites-available/wordpress
-         ```
-
-     1. Приведите файл к виду:
-
-         ```nginx
-         server {
-             listen 80 default_server;
-
-             root /var/www/wordpress;
-             index index.php;
-
-             server_name <DNS-имя севера>;
-
-             location / {
-                 try_files $uri $uri/ =404;
-             }
-
-             error_page 404 /404.html;
-             error_page 500 502 503 504 /50x.html;
-             location = /50x.html {
-                 root /usr/share/nginx/html;
-             }
-
-             location ~ \.php$ {
-                 try_files $uri =404;
-                 fastcgi_split_path_info ^(.+\.php)(/.+)$;
-                 fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
-                 fastcgi_index index.php;
-                 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-                 include fastcgi_params;
-             }
-         }
-         ```
-
-     1. Разрешите запуск вашего сайта:
-
-         ```bash
-         sudo rm /etc/nginx/sites-enabled/default
-         sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
-         ```
-
-
-   - Ubuntu
-
-     1. Вы можете отредактировать файл с помощью редактора `nano`:
          ```bash
          sudo nano /etc/nginx/sites-available/wordpress
          ```
@@ -210,7 +166,7 @@ keywords:
              root /var/www/wordpress;
              index index.php;
 
-             server_name <DNS-имя севера>;
+             server_name <DNS-имя сервера>;
 
              location / {
                  try_files $uri $uri/ =404;
@@ -225,7 +181,7 @@ keywords:
              location ~ \.php$ {
                  try_files $uri =404;
                  fastcgi_split_path_info ^(.+\.php)(/.+)$;
-                 fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+                 fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
                  fastcgi_index index.php;
                  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
                  include fastcgi_params;
@@ -240,7 +196,6 @@ keywords:
          sudo ln -s /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/
          ```
 
-
    - CentOS
 
      Вы можете отредактировать файлы `nginx.conf` и `wordpress.conf` с помощью редактора `nano`:
@@ -248,7 +203,7 @@ keywords:
      1. Откройте файл `nginx.conf`:
 
          ```bash
-         $ sudo nano /etc/nginx/nginx.conf
+         sudo nano /etc/nginx/nginx.conf
          ```
 
      1. Приведите файл к виду:
@@ -287,7 +242,7 @@ keywords:
      1. Откройте файл `wordpress.conf`:
 
          ```bash
-         sudo nano /etc/nginx/wordpress.conf
+         sudo nano /etc/nginx/conf.d/wordpress.conf
          ```
 
      1. Приведите файл к виду:
@@ -299,7 +254,7 @@ keywords:
              root /usr/share/nginx/wordpress/;
              index index.php;
 
-             server_name <DNS-имя севера>;
+             server_name <DNS-имя сервера>;
 
              location / {
                  try_files $uri $uri/ =404;
@@ -343,19 +298,19 @@ keywords:
    - CentOS
 
      ```bash
-     $ curl https://wordpress.org/latest.tar.gz --output latest.tar.gz
-     $ tar -xzf latest.tar.gz
-     $ mv wordpress/wp-config-sample.php wordpress/wp-config.php
-     $ sudo mv wordpress /usr/share/nginx/wordpress
-     $ sudo chown -R nginx:nginx /usr/share/nginx/wordpress/
+     curl https://wordpress.org/latest.tar.gz --output latest.tar.gz
+     tar -xzf latest.tar.gz
+     mv wordpress/wp-config-sample.php wordpress/wp-config.php
+     sudo mv wordpress /usr/share/nginx/wordpress
+     sudo chown -R nginx:nginx /usr/share/nginx/wordpress/
      ```
      Измените настройки SELinux:
 
      ```bash
-     $ sudo semanage fcontext -a -t httpd_sys_content_t "/usr/share/nginx/wordpress(/.*)?"
-     $ sudo semanage fcontext -a -t httpd_sys_rw_content_t "/usr/share/nginx/wordpress(/.*)?"
-     $ sudo restorecon -R /usr/share/nginx/wordpress
-     $ sudo setsebool -P httpd_can_network_connect 1
+     sudo semanage fcontext -a -t httpd_sys_content_t "/usr/share/nginx/wordpress(/.*)?"
+     sudo semanage fcontext -a -t httpd_sys_rw_content_t "/usr/share/nginx/wordpress(/.*)?"
+     sudo restorecon -R /usr/share/nginx/wordpress
+     sudo setsebool -P httpd_can_network_connect 1
      ```
 
    {% endlist %}
@@ -381,7 +336,7 @@ keywords:
    - CentOS
 
      ```bash
-     $ sudo nano /usr/share/nginx/wordpress/wp-config.php
+     sudo nano /usr/share/nginx/wordpress/wp-config.php
      ```
 
    {% endlist %}
@@ -420,36 +375,56 @@ keywords:
    - `<DB_NAME>` — имя БД `wp-mysql-tutorial-db`.
    - `<DB_USER>` — имя пользователя `wordpress`.
    - `<DB_PASSWORD>` — пароль, заданный при [создании кластера БД](#create-cluster).
-   - `<DB_HOST>` — хост вида `c-<идентификатор мастера>.rw.mdb.yandexcloud.net`. Чтобы узнать идентификатор мастера, [получите список хостов](../../managed-mysql/operations/hosts.md#list) через CLI и скопируйте `CLUSTER ID` с ролью `MASTER`. Также идентификатор мастера можно узнать в консоли управления. Для этого на вкладке **База данных** нажмите **...**, выберите **Подключиться** и найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net`, где `ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net` — это идентификатор мастера.
+   - `<DB_HOST>` — имя хоста MySQL вида `XXXX-XXXXXXXXXX.mdb.yandexcloud.net`.
+
+		Чтобы узнать FQDN хоста MySQL:
+
+		{% list tabs %}
+
+		- Консоль управления
+
+			1. Перейдите на страницу кластера MySQL.
+			1. На вкладке **Базы данных** нажмите значок ![image](../../_assets/options.svg).
+			1. Выберите **Подключиться**.
+			1. Найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net`, где `ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net` — это FQDN хоста с ролью `MASTER`.
+
+		- CLI
+
+			[Получите список хостов](../../managed-mysql/operations/hosts.md#list) и скопируйте `NAME` хоста с ролью `MASTER`:
+			```
+			yc managed-mysql host list --cluster-name <имя кластера MySQL>
+
+			+-----------------------------+----------------------+---------+--------+---------------+-----------+ 
+			|             NAME            |      CLUSTER ID      |  ROLE   | HEALTH |    ZONE ID    | PUBLIC IP | 
+			+-----------------------------+----------------------+---------+--------+---------------+-----------+ 
+			| rc1a-...mdb.yandexcloud.net | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | ru-central1-a | false     | 
+			| rc1b-...mdb.yandexcloud.net | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | ru-central1-b | false     | 
+			+-----------------------------+----------------------+---------+--------+---------------+-----------+ 
+			```
+
+		{% endlist %}
 
 3. Перезапустите Nginx и PHP-FPM:
 
    {% list tabs %}
 
-   - Debian
-
-     ```bash
-     $ sudo systemctl restart nginx.service 
-     $ sudo systemctl restart php7.3-fpm.service
-     ```
-
-   - Ubuntu
+   - Debian/Ubuntu
 
      ```bash
      sudo systemctl restart nginx.service 
-     sudo systemctl restart php7.2-fpm.service
+     sudo systemctl restart php7.4-fpm.service
      ```
 
    - CentOS
 
      ```bash
-     $ sudo systemctl restart nginx.service 
-     $ sudo systemctl restart php-fpm.service
+     sudo systemctl restart nginx.service 
+     sudo systemctl restart php-fpm.service
      ```
 
    {% endlist %}
 
-## Настройте WordPress {#configure-wordpress}
+## Завершите настройку WordPress {#configure-wordpress}
 
 1. В блоке **Сеть** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес виртуальной машины.
 
@@ -459,13 +434,10 @@ keywords:
 
 1. Заполните информацию для доступа к сайту:
 
-   - Укажите любое название сайта, например, `yc-wordpress`.
-
-   - Укажите имя пользователя, которое будет использоваться для входа в административную панель, например, `yc-user`.
-
-   - Укажите пароль, который будет использоваться для входа в административную панель.
-
-   - Укажите вашу электронную почту.
+   * Укажите любое название сайта, например, `wp-your-project`.
+   * Укажите имя пользователя, которое будет использоваться для входа в административную панель, например, `admin`.
+   * Укажите пароль, который будет использоваться для входа в административную панель.
+   * Укажите вашу электронную почту.
 
 1. Нажмите кнопку **Установить WordPress**.
 
@@ -473,23 +445,27 @@ keywords:
 
 1. Войдите на сайт, используя указанные на прошлых шагах имя пользователя и пароль. После этого откроется административная панель, в которой можно приступать к работе с вашим сайтом.
 
+## Настройте DNS {#configure-dns}
+
+Если у вас есть зарегистрированное доменное имя, воспользуйтесь сервисом {{ dns-name }} для управления доменом.
+
+{% include [configure-a-record-and-cname](../../_includes/solutions/web/configure-a-record-and-cname.md) %}
+
 ## Проверьте работу сайта {#test-site}
 
-Чтобы проверить работу сайта, перейдите по публичному IP-адресу виртуальной машины в браузере.
+Чтобы проверить работу сайта, введите в браузере его IP-адрес или доменное имя:
+* `http://<публичный IP-адрес виртуальной машины>`.
+* `http://www.example.com`.
 
-## Настройте DNS (если есть доменное имя) {#configure-dns}
-
-Чтобы привязать сайт к домену, настройте DNS у вашего регистратора следующим образом:
-
-* A-запись: поддомен `@`, в качестве адреса используйте публичный IP-адрес виртуальной машины.
-* CNAME-запись: поддомен `www`, в качестве канонического имени используйте домен с точкой на конце, например: `example.com.`
+Для входа в панель управления WordPress используйте адрес `http://www.example.com/wp-admin/`.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за развернутый сайт, достаточно удалить [виртуальную машину](../../compute/operations/vm-control/vm-delete.md) `wp-mysql-tutorial-web` и [кластер MySQL](../../managed-mysql/operations/cluster-delete.md) `wp-mysql-tutorial-db-cluster`.
+Чтобы перестать платить за развернутый сайт:
 
-Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
+1. [Удалите зону DNS](../../dns/operations/zone-delete.md).
+1. [Удалите кластер MySQL](../../managed-mysql/operations/cluster-delete.md).
+1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
 
-1. Откройте сервис **Virtual Private Cloud** в вашем каталоге.
-1. Перейдите на вкладку **IP-адреса**.
-1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/options.svg) и выберите пункт **Удалить**. 
+Если вы зарезервировали для ВМ статический публичный IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+

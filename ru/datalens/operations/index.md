@@ -44,6 +44,7 @@
 - [{#T}](chart/create-tree-chart.md)
 - [{#T}](chart/create-sql-chart.md)
 - [{#T}](chart/add-hierarchy.md)
+- [{#T}](chart/config-chart-navigator.md)
 - [{#T}](chart/publish.md)
 - [{#T}](chart/manage-access.md)
 

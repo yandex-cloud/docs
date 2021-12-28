@@ -18,16 +18,16 @@ keywords:
 
 Чтобы развернуть инфраструктуру Active Directory:
 
-1. [Подготовьте облако к работе](#before-you-begin)
-1. [Необходимые платные ресурсы](#paid-resources)
-1. [Создайте облачную сеть и подсети](#create-network)
-1. [Создайте скрипт для управления локальной учетной записью администратора](#admin-script)
-1. [Создайте ВМ для Active Directory](#ad-vm)
-1. [Создайте ВМ для бастионного хоста](#jump-server-vm)
-1. [Установите и настройте Active Directory](#install-ad)
-1. [Настройте второй контроллер домена](#install-ad-2)
-1. [Проверьте работу Active Directory](#test-ad)
-1. [Удалите созданные ресурсы](#clear-out)
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Создайте облачную сеть и подсети](#create-network).
+1. [Создайте скрипт для управления локальной учетной записью администратора](#admin-script).
+1. [Создайте ВМ для Active Directory](#ad-vm).
+1. [Создайте ВМ для бастионного хоста](#jump-server-vm).
+1. [Установите и настройте Active Directory](#install-ad).
+1. [Настройте второй контроллер домена](#install-ad-2).
+1. [Проверьте работу Active Directory](#test-ad).
+
+Если инфраструктура вам больше не нужна, [удалите все используемые ею ресурсы](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -65,10 +65,14 @@ keywords:
 
    - CLI
 
+     {% include [cli-install](../cli-install.md) %}
+
+     {% include [default-catalogue](../default-catalogue.md) %}
+
      Чтобы создать облачную сеть, выполните команду:
 
-     ```
-     $ yc vpc network create --name ad-network
+     ```powershell
+     yc vpc network create --name ad-network
      ```
 
    {% endlist %}
@@ -87,13 +91,16 @@ keywords:
        1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
        1. Нажмите кнопку **Создать подсеть**.
 
-       Повторите шаги еще для двух подсетей `ad-subnet-b` и `ad-subnet-c` в зонах доступности `ru-central1-b` и `ru-central1-c` с CIDR `10.2.0.0/16` и `10.3.0.0/16` соответственно.
+       Повторите шаги еще для двух подсетей:
+
+         * Название: `ad-subnet-b`. Зона доступности: `ru-central1-b`. CIDR: `10.2.0.0/16`.
+         * Название: `ad-subnet-c`. Зона доступности: `ru-central1-c`. CIDR: `10.3.0.0/16`.
 
      - CLI
 
        Чтобы создать подсети, выполните команды:
 
-       ```
+       ```powershell
        yc vpc subnet create \
          --name ad-subnet-a \
          --zone ru-central1-a \
@@ -117,9 +124,11 @@ keywords:
 
 ## Создайте скрипт для управления локальной учетной записью администратора {#admin-script}
 
-Создайте файл `setpass`, содержащий скрипт, который будет устанавливать пароль для локальной учетной записи администратора при создании виртуальных машин через CLI:
+При создании виртуальных машин через CLI необходимо устанавливать пароль для локальной учетной записи администратора.
 
-```
+Для этого в корневой директории командной строки создайте файл с названием `setpass` и без расширения. Скопируйте в файл скрипт и укажите ваш пароль:
+
+```powershell
 #ps1
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<ваш пароль>" -AsPlainText -Force)
 ```
@@ -139,44 +148,49 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `ad-vm-a`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`.
-  1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
-  1. В блоке **Диски** укажите размер загрузочного диска 35 ГБ.
+  1. В блоке **Выбор образа/загрузочного диска** → **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ **Windows Server 2019 Datacenter** и нажмите **Использовать**.
+  1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
-      - Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      - Укажите необходимое количество vCPU и объем RAM:
+
+      * Выберите [платформу](../../compute/concepts/vm-platforms.md) **Intel Ice Lake**.
+      * Укажите необходимое количество vCPU и объем RAM:
          * **vCPU** — 4.
          * **Гарантированная доля vCPU** — 100%.
          * **RAM** — 8 ГБ.
 
-  1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `exchange-network`. Выберите подсеть `exchange-subnet-a`. В блоке **Публичный адрес** выберите вариант **Без адреса**.
-  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      - В поле **Пароль** укажите ваш пароль.
+  1. В блоке **Сетевые настройки**:
+  
+      * Выберите подсеть `ad-subnet-a`.
+      * **Публичный адрес** — **Без адреса**.
+      * **Внутренний адрес** — выберите **Вручную** и укажите `10.1.0.3`.
+
+  1. В блоке **Доступ** в поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
 
-  Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `ru-central1-a` и подключите ее к подсети `exchange-subnet-b`
+  Повторите операцию для ВМ с именем `ad-vm-b` в зоне доступности `ru-central1-b`, подключите ее к подсети `ad-subnet-b` и вручную укажите внутренний адрес `10.2.0.3`.
 
 - CLI
 
-  ```
-  $ yc compute instance create \
-      --name ad-vm-a \
-      --hostname ad-vm-a \
-      --memory 8 \
-      --cores 4 \
-      --zone ru-central1-a \
-      --network-interface subnet-name=exchange-subnet-a,ipv4-address=10.1.0.3 \
-      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
-      --metadata-from-file user-data=setpass
+  ```powershell
+  yc compute instance create \
+    --name ad-vm-a \
+    --hostname ad-vm-a \
+    --memory 8 \
+    --cores 4 \
+    --zone ru-central1-a \
+    --network-interface subnet-name=ad-subnet-a,ipv4-address=10.1.0.3 \
+    --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
+    --metadata-from-file user-data=setpass
 
-  $ yc compute instance create \
-      --name ad-vm-b \
-      --hostname ad-vm-b \
-      --memory 8 \
-      --cores 4 \
-      --zone ru-central1-b \
-      --network-interface subnet-name=exchange-subnet-b,ipv4-address=10.2.0.3 \
-      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
-      --metadata-from-file user-data=setpass
+  yc compute instance create \
+    --name ad-vm-b \
+    --hostname ad-vm-b \
+    --memory 8 \
+    --cores 4 \
+    --zone ru-central1-b \
+    --network-interface subnet-name=ad-subnet-b,ipv4-address=10.2.0.3 \
+    --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
+    --metadata-from-file user-data=setpass
   ```
 
 {% endlist %}
@@ -192,59 +206,57 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
   1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
   1. В поле **Имя** введите имя виртуальной машины: `jump-server-vm`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-c`.
-  1. В блоке **Образы из {{ marketplace-name }}** нажмите кнопку **Выбрать**. В открывшемся окне выберите образ **2016 Datacenter**.
-  1. В блоке **Диски** укажите размер загрузочного диска 35 ГБ.
+  1. В блоке **Выбор образа/загрузочного диска** → **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ **Windows Server 2019 Datacenter** и нажмите **Использовать**.
+  1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
   1. В блоке **Вычислительные ресурсы**:
-      - Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      - Укажите необходимое количество vCPU и объем RAM:
+
+      * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
+      * Укажите необходимое количество vCPU и объем RAM:
          * **vCPU** — 2.
          * **Гарантированная доля vCPU** — 100%.
          * **RAM** — 4 ГБ.
 
-  1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `exchange-network`. Выберите подсеть `exchange-subnet-c`. В блоке **Публичный адрес** выберите вариант **Без адреса**.
-  1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
-      - В поле **Пароль** укажите ваш пароль.
+  1. В блоке **Сетевые настройки** выберите подсеть `ad-subnet-c`. В блоке **Публичный адрес** выберите вариант **Автоматически**.
+  1. В блоке **Доступ** в поле **Пароль** укажите ваш пароль.
   1. Нажмите кнопку **Создать ВМ**.
 
 - CLI
 
-  ```
-  $ yc compute instance create \
-      --name jump-server-vm \
-      --hostname jump-server-vm \
-      --memory 4 \
-      --cores 2 \
-      --zone ru-central1-c \
-      --network-interface subnet-name=exchange-subnet-c,nat-ip-version=ipv4 \
-      --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk \
-      --metadata-from-file user-data=setpass
+  ```powershell
+  yc compute instance create \
+    --name jump-server-vm \
+    --hostname jump-server-vm \
+    --memory 4 \
+    --cores 2 \
+    --zone ru-central1-c \
+    --network-interface subnet-name=ad-subnet-c,nat-ip-version=ipv4 \
+    --create-boot-disk image-folder-id=standard-images,image-family=windows-2019-dc-gvlk \
+    --metadata-from-file user-data=setpass
   ```
 
 {% endlist %}
 
 ## Установите и настройте Active Directory {#install-ad}
 
-У машин с Active Directory нет доступа в интернет, поэтому их следует настраивать через ВМ `jump-server-vm` с помощью RDP.
+У машин с Active Directory нет доступа в интернет, поэтому их следует настраивать через ВМ `jump-server-vm` с помощью [RDP](https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol).
 
-1. Подключитесь к ВМ `jump-server-vm` с помощью RDP. Используйте логин `Administrator` и ваш пароль.
-1. Запустите RDP и подключитесь к виртуальной машине `ad-vm-a`.
+1. [Подключитесь к ВМ](../../compute/operations/vm-connect/rdp.md) `jump-server-vm` с помощью RDP. Используйте логин `Administrator` и ваш пароль.
+1. Запустите RDP и подключитесь к виртуальной машине `ad-vm-a` — используйте ее локальный IP адрес, имя пользователя `Administrator` и ваш пароль.
 1. Запустите PowerShell и задайте статический адрес:
 
    ```powershell
-   netsh interface ip set address "Ethernet 2" static 10.1.0.3 255.255.255.0 10.1.0.1
-   ```
-
-1. Создайте временную папку:
-
-   ```
-   mkdir C:\Windows\temp
+   netsh interface ip set address "eth0" static 10.1.0.3 255.255.255.0 10.1.0.1
    ```
 
 1. Установите роли Active Directory:
 
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+   ```
+   
+   Результат:
 
+   ```powershell
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
    True    No             Success        {Active Directory Domain Services, Group P...
@@ -256,7 +268,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
    Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
    ```
 
-   Windows перезапустится автоматически. Снова откройте PowerShell.
+   Затем введите пароль и подтвердите его.
+
+   Windows перезапустится автоматически. Снова подключитесь к `ad-vm-a` и откройте PowerShell.
 
 1. Переименуйте сайт по умолчанию в `ru-central1-a`:
 
@@ -303,21 +317,19 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 ## Настройте второй контроллер домена {#install-ad-2}
 
 1. Подключитесь к ВМ `jump-server-vm` с помощью RDP.
-1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и ваш пароль.
-1. Создайте временную папку:
-
-   ```
-   mkdir C:\Windows\temp
-   ```
-
+1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b` — используйте ее локальный IP адрес, имя пользователя `Administrator` и ваш пароль.
 1. Установите роли Active Directory:
 
    ```powershell
    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+   ```
+   
+   Результат:
 
+   ```powershell
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
-   True    No             Success        {Active Directory Domain Services, Group P...
+   True    No             NoChangeNeeded {}
    ```
 
 1. Настройте DNS-клиент:
@@ -329,7 +341,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 1. Настройте статический IP-адрес:
 
    ```powershell
-   netsh interface ip set address "Ethernet 2" static 10.2.0.3 255.255.255.0 10.2.0.1
+   netsh interface ip set address "eth0" static 10.2.0.3 255.255.255.0 10.2.0.1
    ```
 
 1. Добавьте контроллер в домен:
@@ -341,7 +353,9 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
        -Force:$true
    ```
 
-   Windows перезапустится автоматически. Снова откройте PowerShell.
+   Затем введите пароль и подтвердите его.
+
+   Windows перезапустится автоматически. Снова подключитесь к `ad-vm-a` и откройте PowerShell.
 
 1. Укажите сервер переадресации DNS:
 
@@ -352,7 +366,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 ## Проверьте работу Active Directory {#test-ad}
 
 1. Подключитесь к ВМ `jump-server-vm` с помощью RDP.
-1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b`. Используйте логин `Administrator` и ваш пароль. Запустите PowerShell.
+1. С помощью RDP подключитесь к виртуальной машине `ad-vm-b` — используйте ее локальный IP адрес, имя пользователя `Administrator` и ваш пароль. Запустите PowerShell.
 1. Создайте тестового пользователя:
 
    ```powershell
@@ -360,11 +374,37 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
    ```
 1. Убедитесь, что пользователь присутствует на обоих серверах:
 
-   ```
-   Get-ADUser testUser -Server yadc-b
-   Get-ADUser testUser -Server yadc-a
+   ```powershell
+   Get-ADUser testUser -Server 10.1.0.3
+   Get-ADUser testUser -Server 10.2.0.3
    ```
 
-## Удалите созданные ресурсы {#clear-out}
+   Результат:
+
+   ```powershell
+   DistinguishedName : CN=testUser,CN=Users,DC=yantoso,DC=net
+   Enabled           : False
+   GivenName         :
+   Name              : testUser
+   ObjectClass       : user
+   ObjectGUID        : 7202f41a-(...)-2d168ecd5271
+   SamAccountName    : testUser
+   SID               : S-1-5-21-(...)-1105
+   Surname           :
+   UserPrincipalName :
+
+   DistinguishedName : CN=testUser,CN=Users,DC=yantoso,DC=net
+   Enabled           : False
+   GivenName         :
+   Name              : testUser
+   ObjectClass       : user
+   ObjectGUID        : 7202f41a-(...)-2d168ecd5271
+   SamAccountName    : testUser
+   SID               : S-1-5-21-(...)-1105
+   Surname           :
+   UserPrincipalName :
+   ```
+
+## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за развернутые серверы, достаточно удалить все созданные [виртуальные машины](../../compute/operations/vm-control/vm-delete.md).

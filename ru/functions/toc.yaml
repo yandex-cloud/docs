@@ -309,6 +309,8 @@ items:
         href: solutions/telegram-bot-serverless.md
       - name: Подключение к базе данных YDB из функции на Python
         href: solutions/connect-to-ydb.md
+      - name: Подключение к базе данных YDB из функции на Node.js
+        href: solutions/connect-to-ydb-nodejs.md
       - name: Конвертация видео в GIF на Python
         href: solutions/video-converting-queue.md
   - name: Правила тарификации

@@ -3,7 +3,7 @@
 * [{#T}](static.md)
 * [{#T}](lamp-lemp.md)
 * [{#T}](load-balancer-website.md)
-* [{#T}](dns-load-balancer.md)
+* [{#T}](application-load-balancer-website.md)
 * [{#T}](joomla-postgresql.md)
 * [{#T}](wordpress.md)
 * [{#T}](wordpress-mysql.md)

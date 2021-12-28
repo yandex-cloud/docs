@@ -2,7 +2,7 @@
 
 You can update a [container name or description](#update-name) and [manage container labels](#manage-label). To change the operation parameters of a container, [create a new revision of the container](./manage-revision.md).
 
-To access a container, use its name or unique ID. To get them, [get a list of containers](./list.md) in the folder.
+{% include [function-list-note](../../_includes/serverless-containers/container-list-note.md) %}
 
 ## Updating a container's name or description {#update-name}
 

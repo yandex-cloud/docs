@@ -11,7 +11,7 @@ description: 'Чтобы начать работу с YDB, воспользуй�
 * YQL API:
   * [{#T}](yql-api/ydb-ui.md) — выполняйте запросы с помощью консоли {{ yandex-cloud }}.
   * [{#T}](yql-api/ydb-cli.md) — настройте консольный клиент {{ ydb-short-name }}, посмотрите примеры использования.
-  * [{#T}](../reference/ydb-sdk/index.md) — познакомьтесь с {{ ydb-short-name }} SDK для Python, Go, Node.js, PHP или Java.
+  * [YDB SDK](../reference/ydb-sdk/index.md) — познакомьтесь с {{ ydb-short-name }} SDK для Python, Go, Node.js, PHP или Java.
 * Document API:
   * [{#T}](document-api/aws-setup.md) — подготовьте окружение для работы в режиме совместимости с AWS DynamoDB.
   * [{#T}](document-api/aws-http.md) — управляйте данными с помощью HTTP API.
