@@ -5,6 +5,10 @@
 `POST` `https://api.dash.yandex.net/v1/dashboards/<id>`
 
 * `data` - схема дашборда
+* `mode` - режим обновления, возможные варианты: 
+    * `publish` - обновленная версия дашборда станет актуальной
+    * `save` - обновленная версия станет черновиком. Если поле не передано, по умолчанию будет применено значение `publish`.
+Подробнее см. [Версионирование](../../../../datalens/concepts/dashboard.md).
 
 ### Пример запроса {#example-request-update-dash}
 
@@ -225,7 +229,8 @@ curl -X POST "https://api.dash.yandex.net/v1/dashboards/ujnm9ovaaewur" \
           ]
         }
       ]
-    }
+    },
+    "mode": "publish"
   }'
 ```
 
