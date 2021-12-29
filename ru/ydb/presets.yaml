@@ -114,6 +114,10 @@ default:
   roles-owner: owner
   roles-editor: editor
   roles-viewer: viewer
+  roles-ydb-editor: ydb.editor
+  roles-ydb-viewer: ydb.viewer
+  roles-ydb-admin: ydb.admin
+
 
   # Ссылки
   link-console-billing: https://console.cloud.yandex.ru/billing
