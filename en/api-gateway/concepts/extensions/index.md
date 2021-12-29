@@ -55,6 +55,7 @@ The extension's content changes depending on the type (`type`) specified in the 
 * [cloud_datasphere](datasphere.md): calls the specified {{ ml-platform-name }} node passing it the request body with input variable values and returning the node output in the response body.
 * [cloud_datastreams](datastreams.md): accesses {{ yds-full-name }} to perform an operation with the specified stream.
 * [serverless_containers](containers.md): redirects a request to a specified container.
+* [cloud_ymq](ymq.md): Accesses {{ message-queue-full-name }} to perform an operation with the specified queue.
 
 All types support parameter substitution when all keys are replaced with the appropriate value. A key should be defined as a parameter of the corresponding operation (all types of parameters defined in the [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification) are allowed: `path`, `query`, `header`, and `cookie`).
 
