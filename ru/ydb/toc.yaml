@@ -1,23 +1,19 @@
 title: Yandex Database
 href: index.yaml
 items:
-# Replaced with index.yaml
+# Header
 - name: Оглавление
   href: index.yaml
 - name: Как попробовать
   href: quickstart.md
   when: audience != "external"
-# Убираем "Обзор", так как он дублирует информацию из concepts/index, а также есть общая обзорная страница index.yaml
-# - name: Обзор
-#  href: overview.md
-#  when: audience != "external"
 
 - name: Начало работы
   when: audience == "external"
   items:
   - name: Обзор
     href: quickstart/index.md
-  - name: Создание базы данных
+  - name: Создание облачной базы данных
     href: quickstart/create-db.md
   - name: YQL API
     items:
@@ -28,9 +24,8 @@ items:
     - name: Работа с YDB SDK
       href: reference/ydb-sdk/index.md
   - name: Document API, совместимый с Amazon DynamoDB
-    include: { mode: link, path : quickstart/document-api/toc_i.yaml }
-  - name: Полезные ссылки
-    href: getting_started/useful_links.md
+    include: { mode: link, path: quickstart/document-api/toc_i.yaml }
+  - include: { mode: link, path: getting_started/toc_i.yaml }
 
 
 - name: Начало работы
@@ -69,277 +64,32 @@ items:
     href: getting_started/ydb_recipe.md
   - name: ClickHouse over YDB
     href: getting_started/start_chydb.md
-  - name: Сервис координации
-    href: coordination/overview.md
   - name: REST API
     href: getting_started/start_rest.md
     when: audience == "tech"
-  - name: Полезные ссылки
-    href: getting_started/useful_links.md
+  - include: { mode: link, path: getting_started/toc_i.yaml }
 
-- name: Сценарии использования
-  when: audience == "external"
-  items:
-  - name: Развертывание веб-приложения
-    href: solutions/java-servlet-todo-list.md
-  - name: Разработка Slack-бота
-    href: solutions/slack-bot-serverless.md
-  - name: Использование Docker-контейнера YDB
-    href: solutions/ydb_docker.md
-    when: audience == "external"
-  - name: Подключение к YDB из функции Yandex Cloud Functions на Python
-    href: solutions/connect-from-cf.md
-  - name: Подключение к YDB из функции Yandex Cloud Functions на Node.js
-    href: solutions/connect-from-cf-nodejs.md
-  - name: Конвертация видео в GIF на Python
-    href: solutions/video-converting-queue.md
-  - name: Разработка навыка Алисы и сайта с авторизацией
-    href: solutions/alice-shareable-todolist.md
-
-- name: Развертывание YDB
-  when: audience == "external"
-  items:
-  - name: Подготовка
-    href: oss/public/administration/deploy/production_checklist.md
-  - name: С использованием оркестратора
-    items:
-    - name: Обзор
-      href: oss/public/administration/deploy/orchestrated/concepts.md
-    - name: Развертывание в Yandex Managed Service for Kubernetes
-      href: oss/public/administration/deploy/orchestrated/yc_managed_kubernetes.md
-    - name: Развертывание в AWS Elastic Kubernetes Service
-      href: oss/public/administration/deploy/orchestrated/aws_eks.md
-    - name: Эксплуатация
-      href: oss/public/administration/deploy/orchestrated/operate.md
-  - name: Вручную
-    when: false
-    items:
-    - name: Штатные работы
-      href: oss/public/administration/deploy/manual/operation.md
-  - name: Средства интроспекции
-    items:
-    - name: Обзор средств интроспекции
-      href: oss/public/administration/monitoring/overview.md
-    - name: Viewer
-      href: oss/public/administration/monitoring/viewer.md
-      when: false
-    - name: YDB Monitoring
-      href: oss/public/administration/monitoring/ydb_monitoring.md
-    - name: Обзор соединений
-      href: oss/public/administration/monitoring/interconnect_overview.md
-      when: false
-    - name: Логи
-      href: oss/public/administration/monitoring/logs.md
-    - name: Графики
-      href: oss/public/administration/monitoring/charts.md
-  # - name: Возможные проблемы
-  #  href: deploy/common_issues.md
-
-- name: Концепции
-  items:
-  - { name: Обзор,                                  href: concepts/index.md }
-  - { name: Термины и определения,                  href: concepts/databases.md }
-  - { name: Модель данных и схема,                  href: concepts/datamodel.md }
-  - { name: Кластеры,                               href: concepts/clusters.md,                   when: audience != "external" }
-  - { name: Режимы работы Serverless и Dedicated,   href: concepts/serverless_and_dedicated.md }
-  - { name: Типы данных,                            href: concepts/datatypes.md }
-  - { name: Транзакции,                             href: concepts/transactions.md }
-  - { name: Порядок выполнения транзакций,          href: concepts/out_of_order.md,               when: audience != "external" }
-  - { name: Вторичные индексы,                      href: concepts/secondary_indexes.md }
-  - { name: Time to Live (TTL),                     href: concepts/ttl.md }
-  - { name: Скан запросы,                           href: concepts/scan_query.md }
-  - { name: Разграничение прав доступа,             href: concepts/internal/iam.md,               when: audience != "external" }
-  - { name: Квоты и лимиты,                         href: concepts/limits.md }
-  - { name: Квоты и лимиты (Yandex),                href: concepts/quotas_and_limits.md,          when: audience != "external" }
-  - { name: Ограничения базы данных,                href: concepts/limits-ydb.md }
-  - { name: YDB в сравнении,                        href: concepts/comparision.md,                when: audience == "tech" }
-  - { name: OLAP сценарии,                          href: concepts/olap.md,                       when: audience == "tech" }
-  - { name: Использование ролей,                    href: howto/apply_iam.md,                     when: audience == "tech" }
-
-- name: Пошаговые инструкции
-  when: audience == "external"
-  items:
-  - name: Обзор
-    href: operations/index.md
-  - name: Переименование
-    href: operations/rename.md
-  - name: Использование плана запроса и AST
-    href: operations/get-query-plan.md
-  - name: Управление базами данных
-    href: operations/create_manage_database.md # !!!!!!!!!!!!
-  - name: Управление таблицами
-    href: operations/schema.md
-  - name: Чтение и запись данных
-    href: operations/crud.md
-  - name: Работа со вторичными индексами
-    href: operations/secondary_indexes.md
+# Main
+- { name: Сценарии использования,                  include: { mode: link, path: solutions/toc_i.yaml },       when: audience == "external" }
+- { name: Концепции,                               include: { mode: link, path: concepts/toc_i.yaml } }
+- { name: Пошаговые инструкции,                    include: { mode: link, path: operations/toc_i.yaml },     when: audience == "external" }
 
 - name: Управление доступом
   href: security/start_auth.md
   when: audience == "external"
 
-- name: Правила тарификации
-  hidden: audience != "external"
-  items:
-  - name: Обзор
-    href: pricing.md
-  - name: Бессерверный режим
-    items:
-    - name: Правила тарификации для бессерверного режима
-      href: pricing/serverless.md
-    - name: Стоимость запроса для YQL
-      href: pricing/request_units_yql.md
-    - name: Стоимость запроса для Document API
-      href: pricing/request_units_docapi.md
-    - name: Стоимость запроса для специальных API
-      href: pricing/request_units_special.md
-  - name: Режим с выделенными инстансами
-    href: pricing/dedicated.md
+- { name: Рекомендации,                            include: { mode: link, path: best_practices/toc_i.yaml } }
+- { name: Обслуживание,                            include: { mode: link, path: maintenance/toc_i.yaml } }
+- { name: Диагностика,                             include: { mode: link, path: troubleshooting/toc_i.yaml } }
+- { name: Правила тарификации,                     include: { mode: link, path: pricing/toc_i.yaml },        hidden: audience != "external" }
 
-- name: Рекомендации
-  items:
-  - name: Обзор
-    href: best_practices/index.md
-  - name: Проектирование схемы
-    href: best_practices/schema_design.md
-  - name: Партицирование таблиц
-    href: best_practices/table_sharding.md
-  - name: Вторичные индексы
-    href: best_practices/secondary_indexes.md
-  - name: Постраничный вывод
-    href: best_practices/paging.md
-  - name: Загрузка больших объемов данных
-    href: best_practices/batch_upload.md
-  - name: Использование таймаутов
-    href: best_practices/timeouts.md
-  - name: Удаление устаревших данных с помощью вспомогательных таблиц
-    when: audience != "external"
-    href: best_practices/internal/ttl.md
-  - name: Загрузка данных из YT
-    href: best_practices/internal/import_from_yt.md
-    when: audience != "external"
-  - name: Настройка групп колонок
-    href: best_practices/internal/column_families.md
-    when: audience == "tech"
-  
-- name: YDB API и справочник
-  when: audience == "tech"
-  items:
-  - name: REST
-    href: api/rest.md
-  - name: Консольный клиент
-    href: api/cli.md
-  - name: miniKQL
-    items:
-    - name: Модель языка транзакции miniKQL
-      href: api/minikql.md
-    - name: miniKQL в AST YQL
-      href: api/minikql_ast.md
-    - name: Текстовое представление языка miniKQL
-      href: api/minikql_text.md
-  - name: Prepared Statements
-    href: api/yql_prepared_statements.md
+# References  
+- { name: HTTP API, совместимый с Amazon DynamoDB, include: { mode: link, path: docapi/toc_i.yaml },         when: audience == "external" }
+- { name: YQL,                                     include: { mode: link, path: yql/toc_i.yaml } }
+- { name: Работа с YDB CLI,                        include: { mode: link, path: reference/ydb-cli/toc_i.yaml } }
+- { name: Работа с YDB SDK,                        include: { mode: link, path: reference/ydb-sdk/toc_i.yaml } }
 
-- name: HTTP API, совместимый с Amazon DynamoDB
-  when: audience == "external"
-  items:
-  - name: Справочник API
-    items:
-    - name: Все методы
-      href: docapi/api-ref/index.md
-    - name: Actions
-      items:
-      - name: BatchGetItem
-        href: docapi/api-ref/actions/batchGetItem.md
-      - name: BatchWriteItem
-        href: docapi/api-ref/actions/batchWriteItem.md
-      - name: CreateTable
-        href: docapi/api-ref/actions/createTable.md
-      - name: DeleteItem
-        href: docapi/api-ref/actions/deleteItem.md
-      - name: DeleteTable
-        href: docapi/api-ref/actions/deleteTable.md
-      - name: DescribeTable
-        href: docapi/api-ref/actions/describeTable.md
-      - name: DescribeTimeToLive
-        href: docapi/api-ref/actions/describeTimeToLive.md
-      - name: GetItem
-        href: docapi/api-ref/actions/getItem.md
-      - name: ListTables
-        href: docapi/api-ref/actions/listTables.md
-      - name: PutItem
-        href: docapi/api-ref/actions/putItem.md
-      - name: Query
-        href: docapi/api-ref/actions/query.md
-      - name: Scan
-        href: docapi/api-ref/actions/scan.md
-      - name: TransactGetItems
-        href: docapi/api-ref/actions/transactGetItems.md
-      - name: TransactWriteItems
-        href: docapi/api-ref/actions/transactWriteItems.md
-      - name: UpdateItem
-        href: docapi/api-ref/actions/updateItem.md
-      - name: UpdateTimeToLive
-        href: docapi/api-ref/actions/updateTimeToLive.md
-    - name: Общие ошибки
-      href: docapi/api-ref/common-errors.md
-    - name: Рецепты
-      when: audience == "internal"
-      items:
-      - name: Обеспечение уникальности атрибутов
-        href: docapi/uniqueConstraint.md
-
-- name: YQL
-  items:
-  - name: Обзор
-    href: yql/reference/overview.md
-  - name: Справочник YQL
-    when: audience == "external"
-    include: { mode: link, path: yql/reference/toc_i.yaml }
-  - name: Туториал YQL
-    when: audience == "external"
-    items:
-    - name: Обзор
-      href: yql/tutorial/index.md
-    - name: Создание таблицы
-      href: yql/tutorial/create_demo_tables.md
-    - name: Добавление данных в таблицу
-      href: yql/tutorial/fill_tables_with_data.md
-    - name: Выборка данных из всех колонок
-      href: yql/tutorial/select_all_columns.md
-    - name: Выборка данных из определенных колонок
-      href: yql/tutorial/select_specific_columns.md
-    - name: Сортировка и фильтрация
-      href: yql/tutorial/basic_filter_and_sort.md
-    - name: Агрегирование данных
-      href: yql/tutorial/basic_aggregation.md
-    - name: Дополнительные условия выборки
-      href: yql/tutorial/conditional_values.md
-    - name: Объединение таблиц с помощью JOIN
-      href: yql/tutorial/join_tables.md
-    - name: Вставка и модификация данных с помощью REPLACE
-      href: yql/tutorial/replace_into.md
-    - name: Вставка и модификация данных с помощью UPSERT
-      href: yql/tutorial/upsert_into.md
-    - name: Вставка данных с помощью INSERT
-      href: yql/tutorial/insert_into.md
-    - name: Обновление данных с помощью UPDATE
-      href: yql/tutorial/update.md
-    - name: Удаление данных
-      href: yql/tutorial/delete.md
-    - name: Добавление и удаление колонок
-      href: yql/tutorial/alter_table.md
-    - name: Удаление таблицы
-      href: yql/tutorial/delete_table.md
-
-- name: Обслуживание
-  items:
-    - name: Резервное копирование
-      href: maintenance/backup_and_recovery.md
-    - name: Мониторинг
-      href: maintenance/monitoring.md
-      when: audience != "external"
-
+# Tech
 - name: Безопасность
   when: audience == "tech"
   items:
@@ -348,40 +98,11 @@ items:
   - name: Шифрование данных
     href: security/data_encryption.md
 
-- name: Техническая документация
-  when: audience == "tech"
-  include: { mode: link, path: internals/toc_i.yaml }
-
-- name: Работа с YDB CLI
-  include: { mode: link, path: reference/ydb-cli/toc_i.yaml }
-
-- name: Работа с YDB SDK
-  include: { mode: link, path: reference/ydb-sdk/toc_i.yaml }
-
-- name: Интерфейсы доступа к данным
-  when: audience != "external"
-  items:
-    - name: Scan queries
-      href: data_interfaces/scan_queries.md
-
-- name: Диагностика
-  include: { mode: link, path: troubleshooting/toc_i.yaml }
-
-- name: Вопросы и ответы
-  items:
-  - name: Общие вопросы
-    href: oss/public/faq/common.md
-  - name: Общие вопросы (Yandex)
-    when: audience != "external"
-    href: faq/internal/common.md
-  - name: Ошибки
-    href: oss/public/faq/errors.md
-  - name: YQL
-    href: oss/public/faq/yql.md
-  - name: Serverless
-    href: faq/serverless.md
-  - name: Все вопросы на одной странице
-    href: oss/public/faq/all.md
+- { name: YDB API и справочник,                    include: { mode: link, path: api/toc_i.yaml },            when: audience == "tech" }
+- { name: Техническая документация,                include: { mode: link, path: internals/toc_i.yaml },      when: audience == "tech" }
+  
+# Footer
+- { name: Вопросы и ответы,                        include: { mode: link, path: faq/toc_i.yaml } }
 
 - name: Публичные материалы
   href: public_talks.md

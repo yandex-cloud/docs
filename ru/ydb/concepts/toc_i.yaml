@@ -1,0 +1,20 @@
+items:
+- { name: Обзор,                                  href: index.md }
+- { name: Термины и определения,                  href: databases.md }
+- { name: Модель данных и схема,                  href: datamodel.md }
+- { name: Кластеры,                               href: clusters.md,                   when: audience != "external" }
+- { name: Режимы работы Serverless и Dedicated,   href: serverless_and_dedicated.md }
+- { name: Типы данных,                            href: datatypes.md }
+- { name: Транзакции,                             href: transactions.md }
+- { name: Порядок выполнения транзакций,          href: out_of_order.md,               when: audience != "external" }
+- { name: Вторичные индексы,                      href: secondary_indexes.md }
+- { name: Time to Live (TTL),                     href: ttl.md }
+- { name: Скан запросы,                           href: scan_query.md }
+- { name: Разграничение прав доступа,             href: internal/iam.md,               when: audience != "external" }
+- { name: Квоты и лимиты,                         href: limits.md }
+- { name: Квоты и лимиты (Yandex),                href: quotas_and_limits.md,          when: audience != "external" }
+- { name: Ограничения базы данных,                href: limits-ydb.md }
+- { name: YDB в сравнении,                        href: comparision.md,                when: audience == "tech" }
+- { name: OLAP сценарии,                          href: olap.md,                       when: audience == "tech" }
+- { name: Сервис координации,                     href: coordination.md,               when: audience != "external" }
+# EMPTY FILE! - { name: Использование ролей,                    href: ../howto/apply_iam.md,                     when: audience == "tech" }

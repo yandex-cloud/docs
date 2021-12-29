@@ -141,11 +141,13 @@ tech:
   s3-storage-host: mds.yandex.ru
   deploy: arc
   oss: true
+  k8s: Kubernetes
 internal:
   audience: internal
   ydb-cli: ya ydb
   objstorage-name: MDS
   s3-storage-host: mds.yandex.ru
+  k8s: Kubernetes
   deploy: arc
   oss: true
   concept_secondary_index: http://ydb.yandex-team.ru/docs/concepts/secondary_indexes

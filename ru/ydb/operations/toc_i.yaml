@@ -1,0 +1,15 @@
+items:
+- name: Обзор
+  href: index.md
+- name: Переименование
+  href: rename.md
+- name: Использование плана запроса и AST
+  href: get-query-plan.md
+- name: Управление базами данных
+  href: create_manage_database.md # !!!!!!!!!!!!
+- name: Управление таблицами
+  href: schema.md
+- name: Чтение и запись данных
+  href: crud.md
+- name: Работа со вторичными индексами
+  href: secondary_indexes.md

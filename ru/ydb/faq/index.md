@@ -1,3 +1,10 @@
-# Общие вопросы про {{ ydb-name }}
 
-{% include [qa-logs](../../_includes/qa-logs.md) %}
+{% include [index.md](_includes/index.md) %}
+
+* [Serverless](serverless.md)
+{% if audience != "external" %}
+* [Общие (Yandex-Team)](common_yndx.md)
+{% endif %}
+
+
+
