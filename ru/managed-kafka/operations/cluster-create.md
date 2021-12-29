@@ -89,10 +89,11 @@
          * Репликация возможна при наличии как минимум двух хостов в кластере.
          * Если в блоке **Хранилище** выбран тип `local-ssd` или `network-ssd-nonreplicated`, то необходимо добавить не менее трех хостов в кластер.
          * Добавление в кластер более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
+     {% if audience != "internal" %}
      1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
 
          {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
+     {% endif %}
   1. Если вы указали более одного хоста-брокера, то в блоке **Класс хоста {{ ZK }}** укажите характеристики [хостов {{ ZK }}](../concepts/index.md) для размещения в каждой выбранной зоне доступности.
 
   1. При необходимости задайте дополнительные настройки кластера:
@@ -151,7 +152,7 @@
           ```
 
       1. После создания кластера [создайте учетную запись администратора](./cluster-accounts.md#create-account).
-
+  {% if audience != "internal" %}
   1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
       ```bash
@@ -161,7 +162,7 @@
       ```
 
       {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
+  {% endif %}
 - Terraform
 
     {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
@@ -275,8 +276,10 @@
     Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`.
 
     {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-
+    
+    {% if audience != "internal" %}
     Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
+    {% endif %}
 
     {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
