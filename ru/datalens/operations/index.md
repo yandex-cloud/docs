@@ -2,7 +2,7 @@
 
 ## Создание подключения {#creating-connection}
 
-{% if audience != "internal" %} - [{#T}](connection/create-clickhouse.md) {% endif %}
+- [{#T}](connection/create-clickhouse.md)
 - [{#T}](connection/create-csv.md)
 - [{#T}](connection/create-google-sheets.md)
 - [{#T}](connection/create-mysql.md)
