@@ -6,8 +6,8 @@
 
 {% if audience != "external" %}
 
-  ## Общие вопросы (Yandex-Team) {#common_yndx}
+## Общие вопросы (Yandex-Team) {#common_yndx}
 
-  {% include notitle [common_yndx.md](common_yndx.md) %}
+{% include notitle [common_yndx.md](common_yndx.md) %}
   
 {% endif %}
