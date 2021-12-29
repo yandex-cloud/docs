@@ -4,7 +4,7 @@ For the following products, funds are debited once for the calendar month in adv
 
 | Resource | Cost per vCPU per month, with VAT
 | --- | ---
-| Windows Server Datacenter | ₸5482.512
+| Windows Server Datacenter | ₸6306.0
 | Microsoft SQL Server Standard | ₸35379
 | Microsoft SQL Server Enterprise | ₸120978
 
