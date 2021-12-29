@@ -2,6 +2,54 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+## 29.12.2021 — CVE-2021-45105, CVE-2021-44832 — Denial of Service and Remote code execution (Log4j) {#CVE-2021-45105-CVE-2021-44832}
+
+### Description
+
+#### CVE-2021-45105
+
+Apache Log4j2 versions 2.0-alpha1 through 2.16.0, excluding 2.12.3 – an attacker could perform a denial of service attack.
+
+#### CVE-2021-45105
+
+Apache Log4j2 versions 2.0-beta7 through 2.17.0, excluding security fix releases 2.3.2 and 2.12.4 – an attacker could perform a Remote code execution attack.
+
+### Impact
+
+#### General impact
+
+The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
+
+Vulnerable software lists: 
+* https://github.com/NCSC-NL/log4shell/tree/main/software
+* https://gist.github.com/SwitHak/b66db3a06c2955a9cb71a8718970c592
+
+#### Impact on {{ yandex-cloud }} services
+
+Vulnerable versions of the library are not used in {{yandex-cloud}} services.
+
+### Compensatory measures
+
+#### Log4j 1.x 
+
+Log4j 1.x is not impacted by this vulnerability.
+
+#### Log4j 2.x
+
+* Java 6 – users should upgrade Log4j to release 2.3.2.
+* Java 7 – users should upgrade Log4j to release 2.12.4.
+* Java 8 (or later) users should upgrade to release 2.17.1.
+* In prior releases confirm that if the JDBC Appender is being used it is not configured to use any protocol other than Java. 
+
+Note that only the `log4j-core JAR` file is impacted by this vulnerability. Applications using only the `log4j-api JAR` file without the `log4j-core JAR` file are not impacted by this vulnerability.
+
+Source: https://logging.apache.org/log4j/2.x/security.html
+
+Useful utilities to check for a vulnerability:
+* https://github.com/google/log4jscanner
+* https://github.com/bi-zone/Log4j_Detector
+
+
 ## 17.12.2021 — CVE-2021-45046 – Remote code execution (Log4j) {#CVE-2021-45046}
 
 ### Description
