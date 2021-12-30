@@ -19,7 +19,20 @@ _Подключение_ содержит информацию о парамет
 - **AppMetrica** (в режиме прямого доступа)
 - **Yandex Cloud Billing**
 
-{% if audience != "internal" %} Вы можете добавить дополнительные типы подключений из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md). {% endif %}
+{% if audience == "internal" %}
+
+{% note warning %}
+
+* Доступ из {{ datalens-short-name }} к источникам во внешней сети по умолчанию закрыт. Чтобы получить доступ, закажите его через [Puncher](https://puncher.yandex-team.ru/?create_protocol=tcp&create_sources=_DL_INT_BACK_PROD_NETS_&create_until=persistent) от `_DL_INT_BACK_PROD_NETS_ ` к источнику и пройдите согласование в СИБ.
+* Сетевой доступ от {{ datalens-short-name }} к вашему источнику может быть закрыт и во внутренней сети Яндекса. В этом случае также необходимо заказать доступ через [Puncher](https://puncher.yandex-team.ru/?create_protocol=tcp&create_sources=_DL_INT_BACK_PROD_NETS_&create_until=persistent) от `_DL_INT_BACK_PROD_NETS_ ` к источнику.
+
+{% endnote %}
+
+{% else %}
+
+Вы можете добавить дополнительные типы подключений из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md).
+ 
+{% endif %}
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}
 
