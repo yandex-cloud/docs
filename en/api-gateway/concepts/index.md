@@ -14,10 +14,11 @@ Available extensions:
 * [Static response](../concepts/extensions/dummy.md).
 * [Invoking a function](../concepts/extensions/cloud-functions.md).
 * [Access via HTTP](../concepts/extensions/http.md).
-* [Integration with Object Storage](../concepts/extensions/object-storage.md).
-* [DataSphere integration](../concepts/extensions/datasphere.md).
-* [Integration with Data Streams](../concepts/extensions/datastreams.md).
-* [Integration with Serverless Containers](../concepts/extensions/containers.md).
+* [Integration with {{ objstorage-name }}](../concepts/extensions/object-storage.md).
+* [{{ ml-platform-name }} integration](../concepts/extensions/datasphere.md).
+* [Integration with {{ yds-name }}](../concepts/extensions/datastreams.md).
+* [Integration with {{ serverless-containers-name }}](../concepts/extensions/containers.md).
+* [Integration with {{ message-queue-short-name }}](../concepts/extensions/ymq.md).
 * [Greedy parameters](../concepts/extensions/greedy-parameters.md).
 * [Generalized HTTP method](../concepts/extensions/any-method.md).
 

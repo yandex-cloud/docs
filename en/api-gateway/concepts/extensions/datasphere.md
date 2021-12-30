@@ -16,7 +16,7 @@ The `x-yc-apigateway-integration:cloud_datasphere` extension calls a {{ ml-platf
 
 Example specification:
 
-```
+```yaml
 /node/call:
     post:
       summary: Call DataSphere Node

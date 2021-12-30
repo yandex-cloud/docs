@@ -13,3 +13,9 @@
 1. В левой части экрана под блоком **Таблицы** нажмите ![image](../../../_assets/plus-sign.svg)**Добавить**.
 1. Введите **Название источника** и текст SQL-запроса в поле **Подзапрос**.
 1. Нажмите **Создать**.
+
+{% cut "Пример SQL-запроса" %}
+
+{% include [datalens-sql-join-example](../../../_includes/datalens/datalens-sql-join-example.md) %}
+
+{% endcut %}

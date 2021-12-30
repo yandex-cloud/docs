@@ -121,10 +121,7 @@ Returns the number of the month in the year of the specified date `datetime`.
 
 **Syntax:**`NOW()`
 
-Returns the current date and time, depending on the data source and connection type:
-- For a direct connection, the function returns the server date and time of the source.
-- On materialization, the function returns the UTC+3 date and time.
-
+Returns the current date and time, depending on the data source and connection type.
 
 
 
@@ -148,10 +145,7 @@ Returns the number of the second in the minute of the specified date `datetime`.
 
 **Syntax:**`TODAY()`
 
-Returns the current date, depending on the data source and connection type:
-- For a direct connection, the function returns the server date and time of the source.
-- On materialization, the function returns the UTC+3 date and time.
-
+Returns the current date, depending on the data source and connection type.
 
 
 

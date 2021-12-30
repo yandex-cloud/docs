@@ -18,7 +18,7 @@ Parameter | Type | Description
 
 Sample specification:
 
-```(json)
+```yaml
   /static/{file}:
     get:
       summary: Serve static file from Yandex Cloud Object Storage

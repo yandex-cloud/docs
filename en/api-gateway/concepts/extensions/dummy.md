@@ -16,7 +16,7 @@ Parameter | Type | Description
 
 Sample specification:
 
-```
+```yaml
 x-yc-apigateway-integration:
   type: dummy
   http_code: 302

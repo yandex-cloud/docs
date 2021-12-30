@@ -51,6 +51,8 @@ items:
             href: concepts/extensions/datasphere.md
           - name: Data Streams integration
             href: concepts/extensions/datastreams.md
+          - name: Message Queue integration
+            href: concepts/extensions/ymq.md
           - name: Greedy parameters
             href: concepts/extensions/greedy-parameters.md
           - name: Generalized HTTP method

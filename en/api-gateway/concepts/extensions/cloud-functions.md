@@ -18,7 +18,7 @@ The `x-yc-apigateway-integration:cloud-functions` extension invokes the specifie
 
 Example specification:
 
-```
+```yaml
 /example/{ID}:
     get:
       summary: Get ID

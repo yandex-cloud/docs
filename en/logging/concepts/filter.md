@@ -11,54 +11,57 @@ You can filter log group records using the language of filter expressions. With 
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where the log group is located.
-  1. Open **{{ cloud-logging-name }}**.
-  1. Click the **Groups** tab.
-  1. Click on the line with the log group you want to filter.
-  1. Click the **Logs** tab.
-  1. Set a filter and press **Enter**.
+    1. In the [management console]({{ link-console-main }}), go to the folder where the log group is located.
+    1. Open **{{ cloud-logging-name }}**.
+    1. Click the **Groups** tab.
+    1. Click on the line with the log group you want to filter.
+    1. Click the **Logs** tab.
+    1. Set a filter and press **Enter**.
 
 - CLI
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To set a filter using the filter expression language, run the command:
+    To set a filter using the filter expression language, run the command:
 
-  ```
-  yc logging read --group-name=default --filter="<filter>"
-  ```
+    ```
+    yc logging read --group-name=default --filter="<filter>"
+    ```
 
-  {% note info %}
+    {% note info %}
 
-  You can filter records using the `--filter` and other flags of the `yc logging read` command at the same time. This combines the conditions with the `AND` operator. For example, you can set logging levels using the `levels` flag and the `level` parameter of the `--filter` flag:
+    You can filter records using the `--filter` and other flags of the `yc logging read` command at the same time. This combines the conditions with the `AND` operator. For example, you can set logging levels using the `levels` flag and the `level` parameter of the `--filter` flag:
 
-  ```
-  yc logging read --group-name=default --levels=WARN --filter="level=INFO"
-  ```
+    ```
+    yc logging read --group-name=default --levels=WARN --filter="level=INFO"
+    ```
 
-  This filter outputs records sent during the last hour with the `INFO` and `WARN` logging levels.
+    This filter outputs records sent during the last hour with the `INFO` and `WARN` logging levels.
 
-  {% endnote %}
+    {% endnote %}
+
+- API
+
+    You can set a filter using the API [read](../api-ref/grpc/log_reading_service.md) method.
 
 {% endlist %}
 
 #### Examples of filters {#examples}
 
 >* Records whose messages contain `warning` or `error dialing endpoint`:
->    ```
->    message: warning "error dialing endpoint"
->    ```
+>   ```
+>   message: warning "error dialing endpoint"
+>   ```
 >* Records sent after June 8, 2021:
->    ```
->    timestamp > "2021-06-08T00:00:00Z"
->    ```
+>   ```
+>   timestamp > "2021-06-08T00:00:00Z"
+>   ```
 >* Records whose logging level is higher than or equal to `INFO`:
->    
->    ```
->    level >= INFO
->    ```
+>   ```
+>   level >= INFO
+>   ```
 
 {% endlist %}
 
@@ -70,7 +73,7 @@ You can filter log group records using the language of filter expressions. With 
 | `resource_type` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records sent by the specified service. | ```resource_type = "serverless.function"``` |
 | `resource_id` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records sent by the specified resource, such as a function. | ```resource_id: "d4e155orh3nu********"``` |
 | `json_payload` | ```parameter: "value"``` | Search for records with `json_payload` set to certain values. Based on text. | ```json_payload: "error"``` |
-| `json_payload.<element>` ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records by `json_payload` elements. If the filter uses a comparison operator, the element can be a string, a number, or a Boolean value. Otherwise, only a string. You can omit the `json_payload` prefix if the tree root element doesn't match any of the parameters. Check if `json_payload` contains a certain element using the `EXISTS` operator. For example: ```json_payload.result EXISTS```. This filter outputs records whose `json_payload` contains the `result` element. | ```json_payload.flag = FALSE``` |
+| `json_payload.<element>` | ```parameter: "value"```<br>```parameter <comparison operator> "value"``` | Search for records by `json_payload` elements. If the filter uses a comparison operator, the element can be a string, a number, or a Boolean value. Otherwise, only a string. You can omit the `json_payload` prefix if the tree root element doesn't match any of the parameters. Check if `json_payload` contains a certain element using the `EXISTS` operator. For example: ```json_payload.result EXISTS```. This filter outputs records whose `json_payload` contains the `result` element. | ```json_payload.flag = FALSE``` |
 | `timestamp` | ```parameter <comparison operator> "value"``` | Search for records sent within the specified interval. | ```timestamp >= "2021-06-08T00:00:00Z"``` |
 | `ingested_at` | ```parameter <comparison operator> "value"``` | Search for records delivered to the {{ cloud-logging-name }} system within the specified interval. | ```ingested_at = "2021-06-22T05:15:03Z"``` |
 | `saved_at` | ```parameter <comparison operator> "value"``` | Search for records saved to the {{ cloud-logging-name }} database within the specified interval. | ```saved_at >= 1622198048``` |
@@ -88,11 +91,12 @@ It's not necessary to enclose a value in quotation marks if it:
 Possible types of `timestamp`, `ingested_at`, and `saved_at` parameter values:
 
 * A string in RFC3339 format:
+
     ```bash
     saved_at > "2021-05-28T15:20:31Z"
     ```
-
 * Number of seconds after 00:00 1970-01-01:
+
     ```
     saved_at >= 1622198048
     ```
@@ -102,7 +106,7 @@ Possible types of `timestamp`, `ingested_at`, and `saved_at` parameter values:
 To filter records by multiple values of the same parameter, list the values one by one:
 
 ```
-parameter: "value1" "value2" " value3"
+parameter: "value1" "value2" "value3"
 ```
 
 ## Comparison operators {#comparison-operations}
@@ -112,7 +116,7 @@ Apart from checking for an exact match, the filter expression language supports 
 * **Equal to**
 
     ```
-    parameter = " value"
+    parameter = "value"
     ```
 
 * **Not equal to**
@@ -121,7 +125,7 @@ Apart from checking for an exact match, the filter expression language supports 
     parameter <> "value"
     ```
 
-- **Greater than**, **Less than**, **Less than or equal to**, and **Greater than or equal to**
+* **Greater than**, **Less than**, **Less than or equal to**, and **Greater than or equal to**
 
     ```
     parameter > "value"
@@ -139,7 +143,6 @@ You can combine multiple conditions in a single filter using logical operators:
 * `AND`: Conditions combined with the logical operator **AND** must be fulfilled simultaneously.
 
     Example:
-
     ```
     parameter1: "value1" AND parameter2: "value2"
     ```
@@ -149,7 +152,6 @@ You can combine multiple conditions in a single filter using logical operators:
 * `OR`: If you use the logical operator **OR**, at least one of the conditions must be fulfilled.
 
     Example:
-
     ```
     parameter1: "value1" OR parameter2 > "value2"
     ```
@@ -159,11 +161,9 @@ You can combine multiple conditions in a single filter using logical operators:
 * `NOT`: With the logical operator **NOT**, a condition that is inverse of the specified one must be fulfilled.
 
     Example:
-
     ```
     NOT parameter1: "value1"
     ```
-
     This request returns records with `parameter1` not equal to `value1`.
 
 You can create complex filters by combining multiple operators in a single request:
@@ -184,3 +184,4 @@ You can change the order of computations using parentheses:
 ```
 parameter1: "value1" AND (parameter2 = "value2" OR parameter3 < "value3")
 ```
+

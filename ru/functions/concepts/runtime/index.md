@@ -33,7 +33,7 @@ description: Среда выполнения выбирается при соз�
 | **PHP** |  |  |
 | PHP 7.4 | `php74` | нет |
 | **Python** |  |  |
-| Python 3.9 | `python39-preview` | да |
+| Python 3.9 | `python39` | да |
 | Python 3.8 | `python38` | нет |
 | Python 3.7 | `python37` | нет |
 | **Go** |  |  |

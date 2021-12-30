@@ -10,7 +10,7 @@ Greedy parameters are compatible with all [x-yc-apigateway-integration](./index.
 
 Sample specification:
 
-```(json)
+```yaml
 /static/{file+}:
     get:
       summary: Serve static file from Yandex Cloud Object Storage
