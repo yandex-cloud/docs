@@ -8,7 +8,7 @@
 
 {% else %}
 
-Доступ к системным таблицам возможен через [ClickHouse over YDB](../getting_started/start_chydb.md) и через [аналитические запросы](../concepts/scan_query.md).
+Доступ к системным таблицам возможен через [ClickHouse over YDB](../getting_started/start_chydb.md) и через [аналитические запросы](../data_interfaces/scan_queries.md).
 
 Для обращения к системным таблицам через ClickHouse over YDB следует использовать функцию `ydbTable`, например: `ydbTable('cluster', '/cluster/path/to/database', '.sys/system_view_name')`.
 

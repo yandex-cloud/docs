@@ -1,0 +1,202 @@
+title: Yandex Database
+href: index.yaml
+items:
+  - name: Начало работы
+    items:
+      - name: Обзор
+        href: quickstart/index.md
+      - name: Работа с YDB CLI
+        href: quickstart/yql-api/ydb-cli.md
+      - name: Работа с YDB SDK
+        href: quickstart/yql-api/ydb-sdk.md
+  - name: Разработка
+    items:
+      - name: Концепции
+        items:
+          - name: Обзор
+            href: concepts/index.md
+          # - name: Термины и определения
+          #  href: concepts/databases.md
+          - name: Модель данных и схема
+            href: concepts/datamodel.md
+          #- name: Режимы работы Serverless и Dedicated
+          #  href: concepts/serverless_and_dedicated.md
+          - name: Типы данных
+            href: concepts/datatypes.md
+          - name: Транзакции
+            href: concepts/transactions.md
+          - name: Вторичные индексы
+            href: concepts/secondary_indexes.md
+          - name: Time to Live (TTL)
+            href: concepts/ttl.md
+          - name: Переименование таблиц
+            href: concepts/rename.md
+          - name: Скан запросы
+            href: concepts/scan_query.md
+          - name: Ограничения базы данных
+            href: concepts/limits-ydb.md
+      - name: Туториал YQL
+        items:
+          - name: Обзор
+            href: yql/tutorial/index.md
+          - name: Создание таблицы
+            href: yql/tutorial/create_demo_tables.md
+          - name: Добавление данных в таблицу
+            href: yql/tutorial/fill_tables_with_data.md
+          - name: Выборка данных из всех колонок
+            href: yql/tutorial/select_all_columns.md
+          - name: Выборка данных из определенных колонок
+            href: yql/tutorial/select_specific_columns.md
+          - name: Сортировка и фильтрация
+            href: yql/tutorial/basic_filter_and_sort.md
+          - name: Агрегирование данных
+            href: yql/tutorial/basic_aggregation.md
+          - name: Дополнительные условия выборки
+            href: yql/tutorial/conditional_values.md
+          - name: Объединение таблиц с помощью JOIN
+            href: yql/tutorial/join_tables.md
+          - name: Вставка и модификация данных с помощью REPLACE
+            href: yql/tutorial/replace_into.md
+          - name: Вставка и модификация данных с помощью UPSERT
+            href: yql/tutorial/upsert_into.md
+          - name: Вставка данных с помощью INSERT
+            href: yql/tutorial/insert_into.md
+          - name: Обновление данных с помощью UPDATE
+            href: yql/tutorial/update.md
+          - name: Удаление данных
+            href: yql/tutorial/delete.md
+          - name: Добавление и удаление колонок
+            href: yql/tutorial/alter_table.md
+          - name: Удаление таблицы
+            href: yql/tutorial/delete_table.md
+      - name: Рекомендации
+        items:
+          - name: Проектирование схемы
+            href: best_practices/schema_design.md
+          - name: Партицирование таблиц
+            href: best_practices/table_sharding.md
+          - name: Вторичные индексы
+            href: best_practices/secondary_indexes.md
+          - name: Постраничный вывод
+            href: best_practices/paging.md
+          - name: Загрузка больших объемов данных
+            href: best_practices/batch_upload.md
+          - name: Использование таймаутов
+            href: best_practices/timeouts.md
+      - name: Пошаговые инструкции
+        items:
+          - name: Использование плана запроса и AST
+            href: operations/get-query-plan.md
+          - name: Работа со вторичными индексами
+            href: operations/indexes.md      
+  - name: Администрирование
+    items:
+      - name: Развертывание YDB
+        items:
+          - name: Подготовка
+            href: oss/public/deploy/production_checklist.md
+          - name: С использованием оркестратора
+            items:
+              - name: Обзор
+                href: oss/public/deploy/orchestrated/concepts.md
+              - name: Развертывание в Yandex Managed Service for Kubernetes
+                href: oss/public/deploy/orchestrated/yc_managed_kubernetes.md
+              - name: Развертывание в AWS Elastic Kubernetes Service
+                href: oss/public/deploy/orchestrated/aws_eks.md
+              - name: Эксплуатация
+                href: oss/public/deploy/orchestrated/operate.md
+          - name: Вручную
+            when: false
+            items:
+              - name: Штатные работы
+                href: oss/public/deploy/manual/operation.md
+      - name: Средства интроспекции
+        items:
+          - name: Обзор средств интроспекции
+            href: oss/public/deploy/monitoring/overview.md
+          - name: Viewer
+            href: oss/public/deploy/monitoring/viewer.md
+            when: false
+          - name: YDB Monitoring
+            href: oss/public/deploy/monitoring/ydb_monitoring.md
+          - name: Обзор соединений
+            href: oss/public/deploy/monitoring/interconnect_overview.md
+            when: false
+          - name: Логи
+            href: oss/public/deploy/monitoring/logs.md
+          - name: Графики
+            href: oss/public/deploy/monitoring/charts.md
+      - name: Техническая документация
+      - name: Возможные проблемы
+  - name: Справочник
+    items:
+      - name: YQL
+      - name: CLI
+        items:
+          - name: Установка YDB CLI
+            href: ydb-cli/install.md
+          - name: Авторизация в YDB CLI
+            href: ydb-cli/authorization.md
+          - name: Управление профилем
+            items:
+              - name: Создание профиля
+                href: ydb-cli/profile/create.md
+              - name: Получение информации о профиле
+                href: ydb-cli/profile/list-and-get.md
+              - name: Активация профиля
+                href: ydb-cli/profile/activate.md
+              - name: Удаление профиля
+                href: ydb-cli/profile/delete.md
+          - name: Команды
+            items:
+              - name: Обзор
+                href: ydb-cli/commands/index.md
+              - name: Структура и описание команд YDB CLI
+                href: ydb-cli/commands/commands.md
+              - name: Глобальные параметры
+                href: ydb-cli/commands/global-options.md
+              - name: Листинг объектов
+                href: ydb-cli/commands/scheme-ls.md
+              - name: Получение информации об объекте схемы
+                href: ydb-cli/commands/scheme-describe.md
+              - name: Получение списка эндпоинтов для базы данных
+                href: ydb-cli/commands/discovery-list.md
+              - name: Выполнение запроса к данным
+                href: ydb-cli/commands/query.md
+              - name: Потоковое чтение таблицы
+                href: ydb-cli/commands/readtable.md
+              - name: Работа со вторичными индексами
+                href: ydb-cli/commands/operations-index.md
+              - name: Работа с директориями
+                href: ydb-cli/commands/scheme-mkdir.md
+              - name: Скан запросы
+                href: ydb-cli/commands/scan-query.md
+              - name: tools
+                items:
+              #    - name: copy
+              #      href: ydb-cli/commands/tools/copy.md
+              #    - name: dump
+              #      href: ydb-cli/commands/tools/dump.md
+              #    - name: restore
+              #      href: ydb-cli/commands/tools/restore.md
+                  - name: rename
+                    href: ydb-cli/commands/tools/rename.md
+      - name: SDK
+        items:
+          - name: Работа с SDK
+            href: ydb-sdk/index.md
+            when: audience == "external"
+          - name: Обработка ошибок в API
+            href: ydb-sdk/error_handling.md
+  - name: Вопросы и ответы
+    items:
+      - name: Общие вопросы
+        href: faq/common.md
+      - name: Ошибки
+        href: faq/errors.md
+      - name: YQL
+        href: faq/yql.md
+      - name: Serverless
+        href: faq/serverless.md
+      - name: Все вопросы на одной странице
+        href: faq.md
