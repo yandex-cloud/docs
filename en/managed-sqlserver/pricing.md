@@ -4,6 +4,12 @@ editable: false
 
 # Pricing for {{ mms-name }}
 
+{% note warning %}
+
+The billing rules described on this page are valid until and including December 31, 2021. Starting from January 01, 2022 the rules described in section [{#T}](pricing.md) will come into effect.
+
+{% endnote %}
+
 ## Cluster status {#running-stopped}
 
 Pricing is applied differently depending on the cluster status:

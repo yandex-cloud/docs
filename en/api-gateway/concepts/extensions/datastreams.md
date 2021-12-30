@@ -17,7 +17,7 @@ The `x-yc-apigateway-integration:cloud_datastreams` extension enables you to acc
 
 Example specification:
 
-```
+```yaml
   /pets-stream/{petId}:
     post:
       x-yc-apigateway-integration:

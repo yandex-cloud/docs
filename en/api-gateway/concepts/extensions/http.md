@@ -17,7 +17,7 @@ The `x-yc-apigateway-integration:http` extension redirects a request to the spec
 
 Sample specification:
 
-```
+```yaml
 x-yc-apigateway-integration:
   type: http
   url: https://example.com/backend1

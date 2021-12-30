@@ -112,6 +112,9 @@ default:
   roles-owner: owner
   roles-editor: editor
   roles-viewer: viewer
+  roles-ydb-editor: ydb.editor
+  roles-ydb-viewer: ydb.viewer
+  roles-ydb-admin: ydb.admin
   link-console-billing: https://console.cloud.yandex.ru/billing
   link-console-main: https://console.cloud.yandex.ru/
   link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb

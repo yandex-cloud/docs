@@ -16,7 +16,7 @@ The `x-yc-apigateway-integration:serverless_containers` redirects requests to a 
 
 Example specification:
 
-```
+```yaml
 /example/{ID}:
     get:
       summary: Get ID

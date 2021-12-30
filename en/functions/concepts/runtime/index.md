@@ -33,7 +33,7 @@ Runtime environments available in {{ sf-name }}.
 | **PHP** |  |  |
 | PHP 7.4 | `php74` | No |
 | **Python** |  |  |
-| Python 3.9 | `python39-preview` | Yes |
+| Python 3.9 | `python39` | Yes |
 | Python 3.8 | `python38` | No |
 | Python 3.7 | `python37` | No |
 | **Go** |  |  |

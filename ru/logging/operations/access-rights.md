@@ -14,25 +14,25 @@
 
 - CLI
 
-	{% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
     
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     Чтобы посмотреть [роли](../security/index.md), назначенные на [пользовательскую лог-группу](../concepts/log-group.md), выполните команду:
 
-	```
-	yc logging group list-access-bindings --name=<имя_лог-группы>
-	```
+    ```
+    yc logging group list-access-bindings --name=<имя_лог-группы>
+    ```
 
-	Результат:
+    Результат:
 
-	```
-	+---------+--------------+-----------------------+
+    ```
+    +---------+--------------+-----------------------+
     | ROLE ID | SUBJECT TYPE |      SUBJECT ID       |
     +---------+--------------+-----------------------+
     | editor  | system       | allAuthenticatedUsers |
     +---------+--------------+-----------------------+
-	```
+    ```
 
 - API
 
@@ -46,9 +46,9 @@
 
 - CLI
 
-	Выполните команду, чтобы назначить [роль](../security/index.md) на пользовательскую лог-группу:
+    Выполните команду, чтобы назначить [роль](../security/index.md) на пользовательскую лог-группу:
 
-	* пользователю:
+    * пользователю:
         ```
         yc logging group add-access-binding \
             --name <имя_лог-группы> \
@@ -94,9 +94,9 @@
 
 - CLI
 
-	Выполните команду, чтобы отозвать [роль](../security/index.md) на пользовательскую лог-группу:
+    Выполните команду, чтобы отозвать [роль](../security/index.md) на пользовательскую лог-группу:
 
-	* у пользователя:
+    * у пользователя:
         ```
         yc logging group remove-access-binding \
             --name <имя_лог-группы> \
