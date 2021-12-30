@@ -1,5 +1,5 @@
 
-{% include [common.md](_includes/common.md) %}
+{% include notitle [common.md](_includes/common.md) %}
 
 {% if audience == "external" %}
 
