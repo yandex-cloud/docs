@@ -231,6 +231,15 @@
 
 {% include [copy-folder](../_includes/datalens/qa/copy-folder.md) %}
 
+### В чарте ошибка — клика CHYT недоступна. Как восстановить клику? {#сlique-is-not-running}
+
+Если вы видите ошибку типа Clique `*chyt_analytics is not running; actual state = failed`, попросите ответственного поднять клику.
+Чтобы найти ответственного:
+1. Откройте операцию на нужном вам кластере YT, например на [Hahn](https://yt.yandex-team.ru/hahn/operations).
+1. Введите имя клики со звездочкой, например, `*chyt_analytics`.
+1. Нажмите **Go to operation**.
+1. Посмотрите логин ответственного в поле **User**.
+
 ### Можно ли откатить версию объекта {{ datalens-short-name }} в прошлом? {#dl-rollback}
 
 Пользователь не может самостоятельно откатить версию объекта (см. [тикет](https://st.yandex-team.ru/DLFR-458)).
