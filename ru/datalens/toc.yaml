@@ -76,6 +76,8 @@ items:
             href: concepts/chart/settings.md
       - name: Дашборд
         href: concepts/dashboard.md
+      - name: Объединение данных
+        href: concepts/data-join.md
       - name: Использование Markdown в DataLens
         href: concepts/markdown.md
       - name: DataLens Public
@@ -186,6 +188,8 @@ items:
             href: operations/chart/create-tree-chart.md
           - name: Создание SQL-чарта
             href: operations/chart/create-sql-chart.md
+          - name: Создание мультидатасетного чарта
+            href: operations/chart/create-multidataset-chart.md
           - name: Создание алерта
             when: audience == "internal"
             href: operations/chart/create-alert.md

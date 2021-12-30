@@ -44,6 +44,7 @@
 - [{#T}](chart/create-indicator-chart.md)
 - [{#T}](chart/create-tree-chart.md)
 - [{#T}](chart/create-sql-chart.md)
+- [{#T}](chart/create-multidataset-chart.md)
 - [{#T}](chart/add-hierarchy.md)
 - [{#T}](chart/config-chart-navigator.md)
 {% if audience == "internal" %} - [{#T}](chart/create-alert.md){% endif %}
