@@ -57,4 +57,4 @@ ALTER TABLE `series` DROP INDEX `title_index`;
 
 {% endnote %}
 
-Про вторичные индексы Вы можете прочитать больше [тут](ru/ydb/concepts/secondary_indexes.md)
+Про вторичные индексы Вы можете прочитать больше [тут](../../../../concepts/secondary_indexes.md)
