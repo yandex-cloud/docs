@@ -44,3 +44,17 @@ ALTER TABLE `series` ADD INDEX `title_index` GLOBAL ON (`title`);
 ```sql
 ALTER TABLE `series` DROP INDEX `title_index`;
 ```
+
+{% note warning %}
+
+Отменить построение вторичного индекса средствами YQL невозможно, при необходимости используйте {{ ydb-short-name }} CLI.
+
+{% endnote %}
+
+{% note info %}
+
+Если не указать тип индекса, то по умолчанию будет создан синхронный индекс.
+
+{% endnote %}
+
+Про вторичные индексы Вы можете прочитать больше [тут](ru/ydb/concepts/secondary_indexes.md)
