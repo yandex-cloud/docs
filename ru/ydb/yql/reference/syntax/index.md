@@ -5,7 +5,7 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/index.md
 
 * [Лексическая структура](lexer.md)
 * [Выражения](expressions.md)
-* [Методы проверки строки на соответствие шаблону](string-work.md)
+* [Методы проверки строки на соответствие шаблону](string_work.md)
 * [SELECT](select.md)
 * [VALUES](values.md)
 * [CREATE TABLE](create_table.md)
