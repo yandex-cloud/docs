@@ -51,9 +51,7 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
       - Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
 
-        When selecting a storage type, remember that:
-        - The size of the local storage can only be changed in 100 GB increments.
-        - The size of non-replicated network storage can only be changed in 93 GB increments.
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
       {% endif %}
       - Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).

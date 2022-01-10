@@ -1,7 +1,6 @@
 ---
 editable: false
 ---
-
 # Pricing for {{ mkf-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -39,17 +38,19 @@ When you create a cluster with two or more {{ KF }} broker hosts, three {{ ZK }}
 
 {% endnote %}
 
-The minimum billing unit is one minute (for example, the cost of 1.5 minutes of operation is the same as the cost of 2 minutes of operation). You are not charged for the time when a broker host or {{ ZK }} doesn't perform its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when a broker host or {{ ZK }} doesn't perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
 The following is charged:
 
 * Storage allocated for clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more broker hosts in 100 GB increments.
-    * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more broker hosts in 93 GB increments.
+  * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more broker hosts:
+      * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
+      * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+  * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more broker hosts in increments of 93 GB.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, the cost of storing 1 GB for 1.5 minutes is equal to the cost of storage for 2 minutes).
+The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 {% if region == "ru"%}
 
@@ -63,7 +64,7 @@ For example, you created a cluster:
 
 Cost per hour for the hosts: `3 × (2 × ₽1.05 + 8 × ₽0.28) + 3 × (2 × ₽0.49 + 4 × ₽0.20) = ₽18.36`
 
-Total cost per cluster per month (hosts and storage): `720 × ₽18.36 + 100 × ₽2.2881 = ₽13,448.01`
+Total cluster cost per month (hosts and storage): `720 × ₽18.36 + 100 × ₽2.2881 = ₽13448.01`
 
 {% endif %}
 
@@ -71,7 +72,7 @@ Total cost per cluster per month (hosts and storage): `720 × ₽18.36 + 100 × 
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mkf-name}} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
+{{mkf-name}} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 
@@ -80,6 +81,12 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 {% endnote %}
 
 ## Pricing {#prices}
+
+{% if region != "int" %}
+
+All prices are shown with VAT.
+
+{% endif %}
 
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
 
@@ -127,11 +134,15 @@ Prices for host uptime are calculated based on [host classes](concepts/instance-
 
 {% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
 
+{% if region != "int" %}
+
+All prices are shown with VAT.
+
+{% endif %}
+
 ### {{ KF }} broker hosts {#calculated-kafka-brokers}
 
 {% if region == "ru" %}
-
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, RUB.
 
 {% include notitle [rub-calculated.md](../_pricing/managed-kafka/rub-calculated.md) %}
 
@@ -139,16 +150,13 @@ For a month of host operation at the rate of 720 hours per month, rounded to an 
 
 {% if region == "kz" %}
 
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, KZT.
-
 {% include notitle [kzt-calculated.md](../_pricing/managed-kafka/kzt-calculated.md) %}
 
 {% endif %}
 
 {% if region == "int" %}
 
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
-
 {% include notitle [usd-calculated.md](../_pricing/managed-kafka/usd-calculated.md) %}
 
 {% endif %}
+
