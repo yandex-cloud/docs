@@ -234,6 +234,9 @@ items:
       - name: Data is not available because materialization is not yet complete
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
+      - name: Data source (table) does not exist
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md
       - name: Data source refused connection
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md
