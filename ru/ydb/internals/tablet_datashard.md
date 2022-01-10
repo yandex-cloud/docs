@@ -10,8 +10,8 @@
 
 Инициатором схемных транзакций является SchemeShard. Инициатором пользовательских транзакций и сканов обычно является TxProxy. Транзакции могут быть одношардовыми и многошардовыми (распределенными).
 
-Акторный интерфейс DataShard-а описан в [datashard.h](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/datashard.h)
-и [tx_processing.h](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/tx_processing.h).
+Акторный интерфейс DataShard-а описан в [datashard.h](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/datashard.h)
+и [tx_processing.h](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/tx_processing.h).
 Соответсвующие protobuf сообщения описаны в [tx_datashard.proto](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/protos/tx_datashard.proto)
 и [tx.proto](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/protos/tx.proto).
 
@@ -60,13 +60,13 @@ TEvInterconnect::TEvNodeDisconnected, когда теряется связь с 
 ### Выполнение транзакций в DataShard
 
 За выполнение транзакций на DataShard отвечает компонента Pipeline, которая описана в
-[datashard_pipeline.h](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/datashard_pipeline.h).
+[datashard_pipeline.h](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/datashard_pipeline.h).
 При выполнении транзакций Pipeline оперирует объектами операций и исполняющих блоков.
 
 #### Операции
 
 В пайплайне все исполняемые транзакции представлены объектами, реализующими интерфейс TOperation.
-Данный интерфейс описан в [operation.h](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/operation.h).
+Данный интерфейс описан в [operation.h](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/operation.h).
 Интерфейс операции позволяет:
  * получить базовую информацию об операции (TxId, Step, Kind, флаги и т.п)
  * управлять входящими данными операции (входящие ReadSet-ы, сообщения, результаты асинхронного скана и т.п.)
@@ -80,15 +80,15 @@ TEvInterconnect::TEvNodeDisconnected, когда теряется связь с 
    операций. Ряд виртуальных методов, описанных для операции в разделе DEPENDENCIES, может быть переопределен в производных классах
    для идентификации данных, которые читаются и модифицируются операцией. Также для этого могут быть использованы некоторые флаги,
    например GlobalReader, GlobalWriter, UsingSnapshot (полный список флагов операции описан в структуре TTxFlags в файле
-   [datashard.h](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/datashard.h))
+   [datashard.h](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/datashard.h))
  
  Планировалось, что для каждого типа операции будет определен свой производный класс операции, но на данный момент таких классов
  всего два:
- * [TBarrierOperation](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/barrier_operation.h) -
+ * [TBarrierOperation](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/barrier_operation.h) -
  псевдо-операция, которая ограничивает работу out-of-order после рестарта таблетки (подробнее о том, зачем нужен барьер описано
  в комментариях в
- [build_and_wait_dependencies_unit.cpp](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/build_and_wait_dependencies_unit.cpp)).
- * [TActiveTransaction](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/datashard_active_transaction.h) - 
+ [build_and_wait_dependencies_unit.cpp](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/build_and_wait_dependencies_unit.cpp)).
+ * [TActiveTransaction](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/datashard_active_transaction.h) - 
  представляет все остальные типы операции - data transaction, scheme transaction и read table. Планировалось разбить этот класс
  на несколько, но эта работа еще не была сделана.
 
@@ -100,21 +100,21 @@ TEvInterconnect::TEvNodeDisconnected, когда теряется связь с 
 
 Исполняющий блок отвечает за продвижение операции по пайплайну. Исполняющие блоки позволяют разбить код выполнения инструкции на
 независимые шаги. Далее при составлении плана выполнения операции набираются необходимые для нее блоки. Интерфейс описан в
-[execution_unit.h](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/execution_unit.h)
+[execution_unit.h](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/execution_unit.h)
 Блок реализует простой интерфейс:
  * IsReadyToExecute(op) - проверка, можно ли продвинуть выполнение операции 
  * FindReadyOperation() - возвращает операцию, которая в данный момент готова для исполнения на блоке
    (переопределено только в некоторых блоках, например, PlanQueue)
  * Execute(op, txc, ctx) - выполняет операцию на блоке. Возвращает статус исполнения, согласно которому операция либо остается на этом
    же блоке, либо продвигается дальше. Также через статус может быть запрошен рестарт или коммит таблеточной транзакции. Статусы
-   и их значения описаны в [EExecutionStatus](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/execution_unit.h)
+   и их значения описаны в [EExecutionStatus](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/execution_unit.h)
  * Complete(op, ctx) - если было запрошено статусом возврата Execute, то Complete вызывается после коммита транзакции
 
 #### Жизненный цикл операции
 
 Создаются операции в Pipeline в двух случаях - при инициализации таблетки и при обработке TEvDataShard::TEvProposeTransaction.
 
-При инициализации таблетки в компоненте [TransQueue](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/datashard_trans_queue.cpp)
+При инициализации таблетки в компоненте [TransQueue](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/datashard_trans_queue.cpp)
 вычитывается таблица TxMain с базовой информацией о сохраненных на шарде операциях и по ней строятся TActiveTransaction. Далее
 для каждой операции строится план и она добавляется в первый в своем плане исполняющий блок.
 
@@ -122,10 +122,10 @@ TEvInterconnect::TEvNodeDisconnected, когда теряется связь с 
 по запросу операцию.
 
 Далее начинается продвижение операции по ее плану выполнения. Выполнение операции происходит в рамках одной из таблеточных транзакций
-[TxProposeTransactionBase](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/datashard__propose_tx_base.cpp)
-и [TxProgressTransaction](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/datashard__progress_tx.cpp).
+[TxProposeTransactionBase](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/datashard__propose_tx_base.cpp)
+и [TxProgressTransaction](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/datashard__progress_tx.cpp).
 Если операция была только что создана для входящего TEvDataShard::TEvProposeTransaction, то это было сделано в рамках таблеточной транзакции
-[TxProposeTransactionBase](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/datashard__propose_tx_base.cpp)
+[TxProposeTransactionBase](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/datashard__propose_tx_base.cpp)
 и прямо там же мы начинаем продвижение операции. В TxProgressTransaction мы ищем первую готовую операцию вызовои метода
 TPipeline::GetNextActiveOp. Готовая операция ищется среди операций-кандидатов на исполнение, проверяя их готовность через
 вызов IsReadyToExecute текущего блока операции. Также проверяются блоки-кандидаты методом FindReadyOperation. Кандидатами операции
@@ -145,19 +145,19 @@ TPipeline::GetNextActiveOp. Готовая операция ищется сре�
 Когда операция попадает в Pipeline, он начинает ее выполнять, не обращая внимания на то, какие операции уже есть в полете.
 Если операция имеет ограничения на параллельное выполнение с другими операциями (а таковыми являются почти все операции),
 то в ее плане должен присутствовать исполняющий блок
-[BuildAndWaitDependencies](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/build_and_wait_dependencies_unit.cpp),
+[BuildAndWaitDependencies](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/build_and_wait_dependencies_unit.cpp),
 который отвечает за ограничение параллельного выполнения операций
 
 В Pipeline есть множество операций
 [ExecuteBlockers](https://a.yandex-team.ru/search?search=THashSet<TOperation%3A%3ATPtr>%20ExecuteBlockers%3B,datashard_pipeline.h,,arcadia,,200),
 в котором хранятся все исполняемые операции, которые могут помешать исполняться другим операциям. В блоке
-[BuildAndWaitDependencies](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/build_and_wait_dependencies_unit.cpp),
+[BuildAndWaitDependencies](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/build_and_wait_dependencies_unit.cpp),
 операция анализируется на зависимости со всеми операциями из множества
 [ExecuteBlockers](https://a.yandex-team.ru/search?search=THashSet<TOperation%3A%3ATPtr>%20ExecuteBlockers%3B,datashard_pipeline.h,,arcadia,,200)
 и сама добавляется в это множество.
 Далее мы смотрим, есть ли какие-нибудь зависимости, которые мешают начать исполнение операции. Если такие зависимости есть, то
 операция остается в блоке
-[BuildAndWaitDependencies](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/build_and_wait_dependencies_unit.cpp)
+[BuildAndWaitDependencies](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/build_and_wait_dependencies_unit.cpp)
 ожидать разрешения конфликтов (в коде комментарии описывают, какие зависимости могут помешать продвижению операции). При завершении
 операций, связанных с ожидающей операцией, ожидающая операция будет попадать в кандидаты на выполнение и мы будем заново проверять,
 можно ли ей начать выполняться. Когда все кронфликты уйдут, операция получит флаг Executing и продвинется дальше по плану выполнения.
@@ -165,14 +165,14 @@ TPipeline::GetNextActiveOp. Готовая операция ищется сре�
 Важной моментом является то, что анализ зависимостей проводится только с операциями из
 [ExecuteBlockers](https://a.yandex-team.ru/search?search=THashSet<TOperation%3A%3ATPtr>%20ExecuteBlockers%3B,datashard_pipeline.h,,arcadia,,200),
 а не со всеми операциями в Pipeline. Это значит, что для планируемых операций важен порядок их обработки в
-[BuildAndWaitDependencies](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/build_and_wait_dependencies_unit.cpp).
+[BuildAndWaitDependencies](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/build_and_wait_dependencies_unit.cpp).
 Правильный порядок обеспечивается добавлением в план выполнения планируемых операций блока
-[PlanQueue](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/plan_queue_unit.cpp), при этом мы не влозьмем из
-[PlanQueue](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/plan_queue_unit.cpp) очередную операцию, пока для
+[PlanQueue](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/plan_queue_unit.cpp), при этом мы не влозьмем из
+[PlanQueue](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/plan_queue_unit.cpp) очередную операцию, пока для
 предыдущей не будут построены зависимости.
 
 ### Схема данных
-Схема данных описана в [datashard_impl.h](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/core/tx/datashard/datashard_impl.h)
+Схема данных описана в [datashard_impl.h](https://a.yandex-team.ru/arc/trunk/arcadia/ydb/core/tx/datashard/datashard_impl.h)
 в структуре [TFlatterDataShard::Schema](https://a.yandex-team.ru/search?search=struct%20Schema%20%3A%20NIceDb%3A%3ASchema,datashard_impl.h,,arcadia,,200)
 
 |**Sys**|**Таблица предназначена для хранения глобального состояния**||
