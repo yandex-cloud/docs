@@ -27,6 +27,4 @@
 
 Включите эту опцию, чтобы разрешить пользователю выбрать несколько сотрудников или подразделений.
 
-### Валидация {#validate}
-
 {% include [validate-blockrefs](../../_includes/forms/validate-blockrefs.md) %}
