@@ -167,36 +167,15 @@
 
 - SDK
 
-   SDK предоставляет методы создания, удаления, листинга и просмотра информации о директории.
-  
-   {% if audience == "internal" %}
+   [YDB SDK](../reference/ydb-sdk/index.md) предоставляет методы создания, удаления, листинга и просмотра информации о директории. В таблице ниже приведены имена методов для разных языков программирования.
    
-   В таблице ниже приведены имена методов в SDK для [С++](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/cpp/client/ydb_scheme.h), [Java](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/java/table/src/SchemeClient.java), [Python](https://a.yandex-team.ru/arc/trunk/arcadia/kikimr/public/sdk/python/client/scheme.py) и [Go](https://godoc.yandex-team.ru/pkg/a.yandex-team.ru/kikimr/public/sdk/go/ydb/scheme/).
-   
-   {% else if audience == "external" %}
-   
-   В таблице ниже приведены имена методов в SDK для [Java](https://github.com/yandex-cloud/ydb-java-sdk), [Python](https://github.com/yandex-cloud/ydb-python-sdk) и [Go](https://github.com/yandex-cloud/ydb-go-sdk).
-   
-   {% endif %}
-   
-   {% if audience == "internal" %}
-   
-   | Метод    | С++ | Java | Python | Go |
-   | ---- | ---- | ---- | ---- | ---- |
-   | Создание директории | ```TClient::MakeDirectory``` | ```SchemeClient.makeDirectory``` | ```scheme_client.make_directory``` | ```Client.MakeDirectory``` |
-   | Удаление директории | ```TClient::RemoveDirectory``` | ```SchemeClient.removeDirectory``` | ```scheme_client.remove_directory``` | ```Client.RemoveDirectory``` |
-   | Просмотр информации о директории  | ```TClient::DescribePath``` | ```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` |  ```Client.DescribePath``` |
-   | Листинг директории  | ```TClient::ListDirectory``` | ```scheme_client.describe_path``` | ```SchemeClient.list_directory``` | ```Client.ListDirectory``` |
-   
-   {% else if audience == "external" %}
-  
-   | Метод    | Java | Python |  Go |
-   | ---- | ---- | ---- | ---- |
-   | Создание директории | ```SchemeClient.makeDirectory``` | ```scheme_client.make_directory``` | ```Client.MakeDirectory``` |
-   | Удаление директории | ```SchemeClient.removeDirectory``` | ```scheme_client.remove_directory``` | ```Client.RemoveDirectory``` |
-   | Просмотр информации о директории  | ```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` | ```Client.DescribePath``` |
-   | Листинг директории  | ```scheme_client.describe_path``` | ```SchemeClient.list_directory``` | ```Client.ListDirectory``` |
-  
-   {% endif %}
-   
+   | Метод    | {% if oss %}С++ | {% endif %}Java | Python | Go |
+   | ---- | ---- | {% if oss %}---- | {% endif %}---- | ---- |
+   | Создание директории | {% if oss %}```TClient::MakeDirectory``` | {% endif %}```SchemeClient.makeDirectory``` | ```scheme_client.make_directory``` | ```Client.MakeDirectory``` |
+   | Удаление директории | {% if oss %}```TClient::RemoveDirectory``` | {% endif %}```SchemeClient.removeDirectory``` | ```scheme_client.remove_directory``` | ```Client.RemoveDirectory``` |
+   | Просмотр информации о директории  |{% if oss %} ```TClient::DescribePath``` | {% endif %}```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` |  ```Client.DescribePath``` |
+   | Просмотр информации о директории  | {% if oss %}```TClient::DescribePath``` | {% endif %}```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` |  ```Client.DescribePath``` |
+   | Просмотр информации о директории  |{% if oss %} ```TClient::DescribePath``` | {% endif %}```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` |  ```Client.DescribePath``` |
+   | Листинг директории  | {% if oss %}```TClient::ListDirectory``` | {% endif %}```scheme_client.describe_path``` | ```SchemeClient.list_directory``` | ```Client.ListDirectory``` |
+         
 {% endlist %}

@@ -6,8 +6,6 @@
 
 {% if audience != "external" %}
 
-## Общие вопросы (Yandex-Team) {#common_yndx}
+<!-- common_yndx is to be here, but currently breaks the build with contributors -->
 
-{% include notitle [common_yndx.md](common_yndx.md) %}
-  
 {% endif %}
