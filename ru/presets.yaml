@@ -448,7 +448,7 @@ default:
   yds: yds
 
   # ML
-  stt-short-fileSize: 1 МБ
+  stt-short-fileSize: 1 МБ
   stt-short-audioLength: 30 секунд
   stt-short-channelsCount: 1
   stt-long-fileSize: 1 ГБ
