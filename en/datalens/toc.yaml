@@ -117,7 +117,7 @@ items:
             href: operations/dataset/create-filter.md
           - name: Updating fields in datasets
             href: operations/dataset/update-field.md
-          - name: Adding data to a dataset using SQL
+          - name: Describing a dataset via a source SQL query
             href: operations/dataset/add-data.md
           - name: Dataset materialization
             href: operations/dataset/materialize.md
