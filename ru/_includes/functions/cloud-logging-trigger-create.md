@@ -67,6 +67,8 @@
     yc serverless trigger create logging \
         --name <имя триггера> \
         --log-group-name <имя лог-группы> \
+        --batch-size 1 \
+        --batch-cutoff 1s \
         --invoke-function-id <идентификатор функции> \
         --invoke-function-service-account-id <идентификатор сервисного аккаунта> \
         --retry-attempts 1 \
