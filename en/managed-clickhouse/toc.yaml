@@ -66,6 +66,9 @@ items:
         href: tutorials/fetch-data-from-mkf.md
       - name: Getting data from RabbitMQ
         href: tutorials/fetch-data-from-rabbitmq.md
+      - name: >-
+          Configuring {{ dns-full-name }} for cluster access from other cloud networks
+        href: tutorials/dns-peering.md
   - name: Concepts
     items:
       - name: Relationship between service resources

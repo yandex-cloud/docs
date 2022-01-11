@@ -96,6 +96,9 @@ items:
         href: dataplatform/kafka-cdc.md
       - name: Migrating databases to Managed Service for Microsoft SQL Server
         href: dataplatform/mssql-data-migration.md
+      - name: >-
+          Configuring {{ dns-full-name }} for access to managed database clusters from other cloud networks
+        href: dataplatform/mdb-dns-peering.md
   - name: Windows in Yandex.Cloud
     items:
       - name: All use cases

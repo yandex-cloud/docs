@@ -231,10 +231,12 @@ default:
   pem-path: /cloud-certs/CA.pem
   dns-zone: mdb.yandexcloud.net
   network-name: default
+  zk-host-class: b2.medium
   security-group: enp6saqnq4ie244g67sb
   host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
   mch-hs-version: 21.7
+  mch-ck-version: 21.11 # Минимальная версия ClickHouse для ClickHouse Keeper
   mmg-backup-retention: 7
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
@@ -251,6 +253,7 @@ default:
   RD: Redis
   RMQ: RabbitMQ
   TF: Terraform
+  CK: ClickHouse Keeper
   ZK: ZooKeeper
   ssms: SQL Server Management Studio
   tag-con: <code><b><small>Management console</small></b></code>
@@ -260,6 +263,8 @@ default:
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-all: <code><b><small>All interfaces</small></b></code>
   zone-id: ru-central1-c
+
+  compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
 
   # Host classes
   host-class: s2.micro
@@ -529,6 +534,7 @@ internal:
   tag-all: <code><b><small>All interfaces</small></b></code>
   zone-id: vla
   host-class: db1.micro
+  zk-host-class: b2.medium
   mch-backup-retention: 7
   mch-dedup-retention: 30
   link-console-billing: https://yc.yandex-team.ru/billing

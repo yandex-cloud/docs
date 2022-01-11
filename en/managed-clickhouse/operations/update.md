@@ -32,6 +32,12 @@ After creating a cluster, you can:
 
 ## Changing the host class {#change-resource-preset}
 
+{% note info %}
+
+Clusters with {{ CK }} support do not use {{ ZK }} hosts. For more information, see [{#T}](../concepts/replication.md).
+
+{% endnote %}
+
 {% list tabs %}
 
 - Management console
@@ -49,12 +55,6 @@ After creating a cluster, you can:
       1. Under **Host class {{ ZK }}**, select the class for the {{ ZK }} host.
 
   1. Click **Save changes**.
-
-  {% note info %}
-
-  You can change the class of {{ ZK }} hosts only if [fault tolerance](zk-hosts.md#add-zk) is enabled for the cluster.
-
-  {% endnote %}
 
 - CLI
 
@@ -105,7 +105,7 @@ After creating a cluster, you can:
 
      {% endif %}
 
-  3. Specify the class in the update cluster command:
+  1. Specify the class in the update cluster command:
 
      ```
      $ {{ yc-mdb-ch }} cluster update <cluster name>
@@ -114,7 +114,7 @@ After creating a cluster, you can:
 
      {{ mch-short-name }} will run the update host class command for the cluster.
 
-     You can change the {{ZK}} host class using a similar parameter: `--zookeeper-resource-preset`.
+  1. To change the class of a {{ ZK }} host, pass the desired value in the `--zookeeper-resource-preset` parameter.
 
 - Terraform
 
@@ -161,6 +161,12 @@ After creating a cluster, you can:
 {% endlist %}
 
 ## Increasing storage size {#change-disk-size}
+
+{% note info %}
+
+Clusters with {{ CK }} support do not use {{ ZK }} hosts. For more information, see [{#T}](../concepts/replication.md).
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -216,7 +222,7 @@ After creating a cluster, you can:
 
      If all these conditions are met, {{ mch-short-name }} launches the operation to increase storage space.
 
-     You can change the storage size for ZooKeeper by using the same parameter, `--zookeeper-disk-size`.
+  1. To increase the storage capacity of {{ ZK }} hosts, pass the desired value in the `--zookeeper-disk-size` parameter.
 
 - Terraform
 
@@ -387,7 +393,8 @@ After creating a cluster, you can:
            --maintenance-window type=<weekly or anytime> \
            --metrika-access=<true or false> \
            --websql-access=<true or false>
-           --deletion-protection=<protect cluster from deletion: true or false>
+           --deletion-protection=<protect cluster from deletion: true or false> \
+           --serverless-access=<true or false>
         ```
 
     You can change the following settings:
@@ -400,6 +407,8 @@ After creating a cluster, you can:
     * `--metrika-access`: Enables the [import of AppMetrica data to a cluster]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/cloud/index.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/cloud/index.html){% endif %}. Default value: `false`.
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. Default value: `false`.
+
+    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
     {% include [deletion-protection-db](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
 
@@ -432,7 +441,7 @@ After creating a cluster, you can:
           access {
             datalens   = <access from DataLens: true or false>
             metrika    = <access from Yandex.Metrica and AppMetrica: true or false>
-            serverless = <access from Serverless: true or false>
+            serverless = <access from Cloud Functions: true or false>
             web_sql    = <execution of SQL queries from management console: true or false>
           }
           ...
@@ -476,13 +485,15 @@ After creating a cluster, you can:
 
     * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
-     You can get the cluster ID with a [list of clusters in a folder ](./cluster-list.md#list-clusters).
+    You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
 
     {% note warning %}
 
     This API method resets any cluster settings that aren't passed explicitly in the request to their defaults. To avoid this, pass the names of the fields to be changed in the `updateMask` parameter.
 
     {% endnote %}
+
+  To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the value `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 {% endlist %}
 
@@ -513,7 +524,7 @@ After creating a cluster, you can:
 
       ```
       $ {{ yc-mdb-ch }} cluster update <cluster name>
-           --security-group-ids <list of security groups>
+           --security-group-ids <list of security group IDs>
       ```
 
 - Terraform
@@ -527,7 +538,7 @@ After creating a cluster, you can:
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
           ...
-          security_group_ids = [ <list of cluster security groups> ]
+          security_group_ids = [ <list of IDs of cluster security groups> ]
         }
         ```
 
@@ -545,7 +556,7 @@ After creating a cluster, you can:
 
   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-  * The list of groups in the `securityGroupIds` parameter.
+  * The list of security group IDs in the `securityGroupIds` parameter.
   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
 
 {% endlist %}

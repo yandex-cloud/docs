@@ -43,6 +43,9 @@ items:
         href: solutions/local-dns-cache.md
       - name: Migrating DNS zones from Yandex.Connect
         href: solutions/connect-migration.md
+      - name: >-
+          Configuring {{ dns-name }} for access to managed database clusters from other cloud networks
+        href: solutions/mdb-dns-peering.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
