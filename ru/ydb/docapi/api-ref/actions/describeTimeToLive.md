@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/docapi/api-ref/actions/describeTimeToLive.md
+---
 # Метод DescribeTimeToLive
 
 Возвращает информацию о состоянии TTL в указанной таблице.

@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/insert_into.md
+---
 # Вставка данных с помощью INSERT
 
 Добавьте данные в таблицу с помощью конструкции [INSERT INTO](../reference/syntax/insert_into.md).

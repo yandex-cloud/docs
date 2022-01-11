@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/action/begin.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/action/begin.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/action/begin.md
 ---
+
 ## BEGIN .. END DO {#begin}
 
 Выполнение действия без его объявления (анонимное действие).

@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/upsert_into.md
+---
 # Вставка и модификация данных с помощью UPSERT
 
 Добавьте данные в таблицу с помощью конструкции [UPSERT INTO](../reference/syntax/upsert_into.md).

@@ -1,7 +1,6 @@
 ---
 editable: false
 ---
-
 # Pricing for {{ mms-name }}
 
 {% note warning %}
@@ -15,6 +14,7 @@ The billing rules described on this page are valid until and including December 
 Pricing is applied differently depending on the cluster status:
 
 * `Running` cluster: You pay for software licenses, computing resources, storage, and backups.
+
 * `Stopped` cluster: You're charged for storage and backups in full, but pricing for software licenses is described in [{#T}](#license). Computing resources are free of charge.
 
   {% note alert %}
@@ -35,11 +35,13 @@ The cost of {{ mms-name }} usage is based on:
 
 ### Software license usage {#license}
 
-You're charged for using licenses monthly on an pre-payment basis. This means that a fee is charged at the beginning of a billing period before you actually start using the service resources. In this case:
+You're charged for using licenses on an pre-payment basis. This means that a fee is charged at the beginning of a billing period before you actually start using the service resources. In this case:
 
+* The billing period is one calendar month.
+* If you create a new cluster during the billing period, the license cost is calculated based on the number of days remaining in the billing period. For example, if there are 30 days in the month and 7 days left until the end of the month, you'll pay 7/30 of the monthly license cost.
 * If you stop or delete your cluster during the billing period, license costs for this period are not refunded.
+* If you start a cluster that was stopped in the previous period, you need to pay the full license cost for the entire billing period. If you stop and start a cluster multiple times within one period, you need to pay the license cost only at the first start.
 * If you change the cluster configuration and reduce resource consumption, the cost of released licenses for this period is not refunded. A new cost is valid from the first day of the following month.
-* If you create a new cluster or restart a previously stopped cluster during the billing period, the license cost is calculated based on the number of days remaining in the billing period. For example, if there are 30 days in the month and 7 days left until the end of the month, you'll pay 7/30 of the monthly license cost.
 * If you change the cluster configuration and increase resource consumption, you need additional licenses. Their cost is calculated based on the number of days remaining in the billing period. For example, if there are 30 days in the month and 7 days left until the end of the month, you'll additionally pay 7/30 of the monthly cost of new licenses.
 * {{ MS }} multi-host clusters with [unreadable secondary replicas](./concepts/replication.md#readable-and-non-readable-replicas) require only one Microsoft SQL Server Enterprise license for the primary replica.
 * {{ MS }} multi-host clusters with [readable secondary replicas](./concepts/replication.md#readable-and-non-readable-replicas) require a Microsoft SQL Server Enterprise license for each replica.
@@ -55,7 +57,11 @@ The minimum billing unit is a minute (for example, 1.5 minutes of host usage cos
 The disk space usage fee is charged in accordance with the agreement. The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts in 100 GB increments.
+
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts:
+       * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
+       * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+
     * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in 93 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.
@@ -75,7 +81,7 @@ All prices are shown with VAT.
 
 
 
-{% include [usd-pricing.md](../_pricing/managed-sqlserver/usd-pricing-old.md) %}
+{% include [usd-pricing.md](../_pricing/managed-sqlserver/usd-pricing.md) %}
 
 ### Outgoing traffic {#prices-traffic}
 
@@ -83,4 +89,5 @@ All prices are shown with VAT.
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
 

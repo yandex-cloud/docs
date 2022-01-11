@@ -1,6 +1,6 @@
 # Emulating multiple IoT devices
 
-In this scenario, you will learn to emulate many devices that are able to signal MQTT topics. The example shows the emulation of air sensors that measure the following parameters:
+In this scenario, you will learn to emulate many devices that send messages to MQTT topics. The example shows the emulation of air sensors that measure the following parameters:
 
 * Temperature.
 * Humidity.
@@ -64,13 +64,25 @@ By using Terraform in {{ yandex-cloud }}, you can create all kinds of cloud reso
     * `trigger.tf`: Parameters of the [trigger](../../functions/concepts/trigger/index.md) to invoke a function with a specified timeout.
     * `variables.tf`: Variables used and their values.
 
-1. Edit the files by populating them with your data. You can specify the number of emulated devices and the publication launch timeout in `variables.tf`.
+1. Edit the `variables.tf` file, specifying the following emulation parameters:
 
-    {% note info %}
+    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access {{ yandex-cloud }}.
+    * `cloud_id`: cloud ID.
+    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md).
+    * `zone`: The [availability zone](../../overview/concepts/geo-scope.md).
+    * `device_count`: number of emulated devices.
 
-    To emulate the operation of over 1000 devices, you need to increase [quotas](../../iot-core/concepts/limits.md) by making a request to technical support.
+        {% note info %}
 
-    {% endnote %}
+        To emulate the operation of over 1000 devices, you need to increase [quotas](../../iot-core/concepts/limits.md) by making a request to technical support.
+
+        {% endnote %}
+
+    * `subtopic_for_publish`: [subtopic](../../iot-core/concepts/topic/subtopic.md) in the following format: `$devices/<device ID>/events/<subtopic>`.
+    * `publish_execution_timeout`: message send timeout in seconds.
+    * `publish_cron_expression`: schedule for sending messages to an MQTT topic as a cron expression. By default, messages send every minute.
+
+    You can leave the remaining files unchanged.
 
 ## Deploy cloud resources {#deploy}
 

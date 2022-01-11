@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/execution.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/select/execution.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/select/execution.md
 ---
+
 ## Процедура выполнения SELECT {#selectexec}
 
 Результат запроса `SELECT` вычисляется следующим образом:

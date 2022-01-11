@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/into_result.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/into_result.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/into_result.md
 ---
+
 # INTO RESULT
 
 Позволяет задать пользовательскую метку для [SELECT](../select.md). Не может быть задано одновременно с [DISCARD](../discard.md).

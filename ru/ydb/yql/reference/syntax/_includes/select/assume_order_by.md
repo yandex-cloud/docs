@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/assume_order_by.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/select/assume_order_by.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/select/assume_order_by.md
 ---
+
 
 ## ASSUME ORDER BY
 

@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/without.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/select/without.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/select/without.md
 ---
+
 ## WITHOUT {#without}
 
 Исключение столбцов из результата `SELECT *`.

@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/reference/ydb-cli/profile/delete.md
+---
 # Удаление профиля
 
 {% include [profile-list](../_includes/profile-list.md) %}
@@ -5,7 +8,7 @@
 Удалите профиль `example`:
 
 ```bash
-{{ ydb-cli }} config profile delete example
+ydb config profile delete example
 ```
 
 Результат:

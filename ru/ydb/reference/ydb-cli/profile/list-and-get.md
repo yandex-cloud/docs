@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/reference/ydb-cli/profile/list-and-get.md
+---
 # Получение информации о профиле
 
 Чтобы указать профиль, используйте его имя. Узнать имя профиля можно, получив список профилей.
@@ -7,7 +10,7 @@
 Получите список профилей:
 
 ```bash
-{{ ydb-cli }} config profile list
+ydb config profile list
 ```
 
 Результат:
@@ -21,7 +24,7 @@ example (active)
 Получите подробную информацию о профиле с именем `example`:
 
 ```bash
-{{ ydb-cli }} config profile get example
+ydb config profile get example
 ```
 
 Результат:

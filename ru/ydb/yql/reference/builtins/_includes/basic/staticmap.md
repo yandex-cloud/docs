@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/staticmap.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/staticmap.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/staticmap.md
 ---
+
 ## StaticMap
 
 Преобразует структуру или кортеж, применяя лямбду к каждому элементу.

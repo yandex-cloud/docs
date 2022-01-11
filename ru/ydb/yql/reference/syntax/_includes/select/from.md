@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/from.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/select/from.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/select/from.md
 ---
+
 ## FROM {#from}
 
 Источник данных для `SELECT`. В качестве аргумента может принимать имя таблицы, результат другого `SELECT` или [именованное выражение](../../expressions.md#named-nodes). Между `SELECT` и `FROM` через запятую указываются имена столбцов из источника или `*` для выбора всех столбцов.

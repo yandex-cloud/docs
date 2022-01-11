@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_number.md
+sourcePath: core/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_number.md
+sourcePath: yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_number.md
 ---
+
 Тип | Описание | Примечания
 ----- | ----- | ----- 
 `Bool` | Логическое значение. |
@@ -15,4 +17,4 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/datatypes_primi
 `Float` | Вещественное число с переменной точностью размером 4 байта. | Не может быть использован в первичном ключе
 `Double` | Вещественное число с переменной точностью размером 8 байт. | Не может быть использован в первичном ключе
 `Decimal` | Вещественное число с указанной точностью, до 35 десятичных знаков | При использовании в колонках таблиц точность фиксирована: Decimal (22,9).</br>Не может быть использован в первичном ключе
-`DyNumber` | Бинарное представление вещественного числа точностью до 38 знаков.<br/>Допустимые значения: положительные от 1×10<sup>-130</sup> до 1×10<sup>126</sup>–1, отрицательные от -1×10<sup>126</sup>–1 до -1×10<sup>-130</sup> и 0.<br/>Совместим с типом `Number` AWS DynamoDB. Не рекомендуется для использования в {{ backend_name_lower }}-native приложениях.  |
+`DyNumber` | Бинарное представление вещественного числа точностью до 38 знаков.<br/>Допустимые значения: положительные от 1×10<sup>-130</sup> до 1×10<sup>126</sup>–1, отрицательные от -1×10<sup>126</sup>–1 до -1×10<sup>-130</sup> и 0.<br/>Совместим с типом `Number` AWS DynamoDB. Не рекомендуется для использования в ydb-native приложениях.  |

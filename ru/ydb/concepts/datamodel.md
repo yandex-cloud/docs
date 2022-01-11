@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/concepts/datamodel.md
+---
 {% include [Introduction](_includes/datamodel/intro.md) %}
 
 {% include [Table](_includes/datamodel/table.md) %}

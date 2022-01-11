@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/update.md
+---
 # Обновление данных с помощью UPDATE
 
 Обновите данные в таблице с помощью оператора [UPDATE](../reference/syntax/update.md).

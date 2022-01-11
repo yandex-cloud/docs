@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/sample.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/select/sample.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/select/sample.md
 ---
+
 ## TABLESAMPLE и SAMPLE {#tablesample} {#sample}
 
 Построение случайной выборки из указанного во `FROM` источника данных.

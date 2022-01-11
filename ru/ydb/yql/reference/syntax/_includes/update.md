@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/update.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/update.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/update.md
 ---
+
 # UPDATE
 
 Изменяет данные в таблице. После ключевого слова `SET` указываются столбцы, значение которых необходимо заменить, и сами новые значения. Список строк задается с помощью условия `WHERE`. Если `WHERE` отсутствует, изменения будут применены ко всем строкам таблицы.

@@ -1,6 +1,10 @@
 # Describing a dataset via a source SQL query
 
-You can enable the use of subqueries as a source when [creating a connection](../../operations/index.md#creating-connection).
+{% note info %}
+
+To use subqueries as a source, in the connection settings, enable **Raw SQL level** → **Allow subselects in datasets**.
+
+{% endnote %}
 
 To add data to a dataset using a SQL query:
 

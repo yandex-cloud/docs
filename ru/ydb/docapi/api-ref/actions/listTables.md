@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/docapi/api-ref/actions/listTables.md
+---
 # Метод ListTables
 
 Возвращает список таблиц.

@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/pragma.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/pragma.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/pragma.md
 ---
+
 # PRAGMA
 
 {% include [x](_includes/pragma/definition.md) %}

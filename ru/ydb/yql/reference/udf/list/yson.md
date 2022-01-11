@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/yson.md
+sourcePath: core/yql/reference/yql-docs-core-2/udf/list/yson.md
+sourcePath: yql/reference/yql-docs-core-2/udf/list/yson.md
 ---
+
 # Yson
 [YSON](https://yt.yandex-team.ru/docs/description/common/yson.html) — разработанный в Яндексе формат данных, похожий на JSON:
 

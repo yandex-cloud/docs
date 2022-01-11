@@ -1,3 +1,6 @@
+---
+sourcePath: core/concepts/_includes/limits-ydb.md
+---
 # Ограничения базы данных
 
 В  разделе описаны параметры ограничений, установленных в YDB.

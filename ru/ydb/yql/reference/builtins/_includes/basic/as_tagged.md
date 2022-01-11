@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/as_tagged.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/as_tagged.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/as_tagged.md
 ---
+
 ## AsTagged, Untag {#as-tagged}
 
 Оборачивает значение в [Tagged тип данных](../../../types/special.md) с указанной меткой с сохранением физического типа данных. `Untag` — обратная операция.

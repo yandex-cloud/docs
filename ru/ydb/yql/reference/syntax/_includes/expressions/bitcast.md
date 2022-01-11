@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/bitcast.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/bitcast.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/expressions/bitcast.md
 ---
+
 ## BITCAST {#bitcast}
 Выполняет побитное преобразование целочисленного значения к указанному целочисленному типу. Преобразование всегда успешно, но может потерять точность или старшие биты.
 

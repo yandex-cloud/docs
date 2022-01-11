@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/group_by/distinct.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/group_by/distinct.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/group_by/distinct.md
 ---
+
 ## DISTINCT {#distinct}
 
 Применение [агрегатных функций](../../../builtins/aggregation.md) только к уникальным значениям столбца.

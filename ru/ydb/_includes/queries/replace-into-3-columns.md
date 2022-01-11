@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/_includes/queries/replace-into-3-columns.md
+---
 ```sql
 REPLACE INTO series (series_id, title, release_date, series_info)
 VALUES

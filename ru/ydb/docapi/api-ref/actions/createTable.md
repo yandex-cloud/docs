@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/docapi/api-ref/actions/createTable.md
+---
 # Метод CreateTable
 
 Создает новую таблицу.

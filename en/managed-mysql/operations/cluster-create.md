@@ -36,6 +36,8 @@ The number of hosts that can be created together with a {{ MY }} cluster depends
 
       * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
 
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
           {% note info %}

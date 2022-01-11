@@ -29,7 +29,11 @@ The minimum billing unit is one minute (for example, the cost of 1.5 minutes of 
 The following is charged:
 
 * Storage allocated for DB clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts in 100 GB increments.
+
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more hosts:
+        * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
+        * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+
     * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in 93 GB increments.
 
 * Space used by DB backups in excess of the storage specified for the cluster.

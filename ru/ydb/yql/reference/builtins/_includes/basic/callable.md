@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/callable.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/callable.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/callable.md
 ---
+
 ## Callable {#callable}
 
 Создать вызываемое значение с заданной сигнатурой из лямбда-функции. Обычно используется для того, чтобы размещать вызываемые значения в контейнерах.

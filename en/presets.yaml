@@ -226,10 +226,12 @@ default:
   pem-path: /cloud-certs/CA.pem
   dns-zone: mdb.yandexcloud.net
   network-name: default
+  zk-host-class: b2.medium
   security-group: enp6saqnq4ie244g67sb
   host-net-example: zone-id=ru-central1-c,subnet-id=b0rcctk2rvtr8efcch64
   disk-type-example: network-ssd
   mch-hs-version: 21.7
+  mch-ck-version: 21.11
   mmg-backup-retention: 7
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
@@ -246,6 +248,7 @@ default:
   RD: Redis
   RMQ: RabbitMQ
   TF: Terraform
+  CK: ClickHouse Keeper
   ZK: ZooKeeper
   ssms: SQL Server Management Studio
   tag-con: <code><b><small>Management console</small></b></code>
@@ -255,6 +258,7 @@ default:
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-all: <code><b><small>All interfaces</small></b></code>
   zone-id: ru-central1-c
+  compute-ubuntu-lts-image-id: fd81hgrcv6lsnkremf32
   host-class: s2.micro
   b1-nano: b1.nano (2 vCPU × 5%, 2 GB)
   b1-micro: b1.micro (2 vCPU × 20%, 2 GB)
@@ -381,6 +385,8 @@ default:
   hm3-c24-m384: "hm3-c24-m384 (24\_vCPU, 384\_GB)"
   hm3-c28-m448: "hm3-c28-m448 (28\_vCPU, 448\_GB)"
   hm3-c32-m512: "hm3-c32-m512 (32\_vCPU, 512\_GB)"
+  local-ssd-v3-max: 2944 GB
+  local-ssd-v3-step: 368 GB
   graph-update: 15 seconds
   graph-update-burstable: 150 seconds
   mch-backup-retention: 7

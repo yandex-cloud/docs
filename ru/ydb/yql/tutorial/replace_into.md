@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/replace_into.md
+---
 # Вставка и модификация данных с помощью REPLACE
 
 Добавьте данные в таблицу с помощью конструкции [REPLACE INTO](../reference/syntax/replace_into.md).

@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/special.md
+sourcePath: core/yql/reference/yql-docs-core-2/types/_includes/special.md
+sourcePath: yql/reference/yql-docs-core-2/types/_includes/special.md
 ---
+
 # Специальные типы данных
 
 Тип | Описание

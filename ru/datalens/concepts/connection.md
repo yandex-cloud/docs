@@ -19,6 +19,7 @@ _Подключение_ содержит информацию о парамет
 - **AppMetrica** (в режиме прямого доступа)
 - **Yandex Cloud Billing**
 
+
 Вы можете добавить дополнительные типы подключений из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md).
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}

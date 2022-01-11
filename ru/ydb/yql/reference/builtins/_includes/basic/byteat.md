@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/byteat.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/byteat.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/byteat.md
 ---
+
 ## ByteAt {#byteat}
 
 Получение значение байта в строке по индексу от её начала. В случае некорректного индекса возвращается `NULL`.

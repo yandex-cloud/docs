@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/datetime.md
+sourcePath: core/yql/reference/yql-docs-core-2/udf/list/datetime.md
+sourcePath: yql/reference/yql-docs-core-2/udf/list/datetime.md
 ---
+
 # DateTime
 
 В модуле DateTime основным внутренним форматом представления является `Resource<TM>`, хранящий следующие компоненты даты:

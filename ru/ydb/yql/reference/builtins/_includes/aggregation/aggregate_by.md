@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/aggregate_by.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/aggregate_by.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/aggregation/aggregate_by.md
 ---
+
 
 ## AGGREGATE_BY и MULTI_AGGREGATE_BY {#aggregate-by}
 Применение [фабрики агрегационной функции](../../basic.md#aggregationfactory) ко всем значениям колонки или выражения. Функция `MULTI_AGGREGATE_BY` требует, чтобы в значении колонки или выражения была структура, кортеж или список, и применяет фабрику поэлементно, размещая результат в контейнере той же формы. Если в разных значениях колонки или выражения содержатся списки разной длины, результирующий список будет иметь наименьшую из длин этих списков.

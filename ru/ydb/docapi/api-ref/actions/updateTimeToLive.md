@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/docapi/api-ref/actions/updateTimeToLive.md
+---
 # Метод UpdateTimeToLive
 
 Включает или отключает TTL для указанной таблицы.

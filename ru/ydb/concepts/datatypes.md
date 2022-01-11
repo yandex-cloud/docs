@@ -1,3 +1,6 @@
-# Типы данных {{ ydb-name }}
+---
+sourcePath: overlay/concepts/datatypes.md
+---
+# Типы данных Yandex Database
 
-{{ ydb-short-name }} оперирует [типами данных YQL](../yql/reference/types/index.md).
+YDB оперирует [типами данных YQL](../yql/reference/types/index.md).

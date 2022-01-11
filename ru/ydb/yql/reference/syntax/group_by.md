@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/group_by.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/group_by.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/group_by.md
 ---
+
 
 {% include [x](_includes/group_by/general.md) %}
 

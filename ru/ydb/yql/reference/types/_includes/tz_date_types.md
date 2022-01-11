@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/tz_date_types.md
+sourcePath: core/yql/reference/yql-docs-core-2/types/_includes/tz_date_types.md
+sourcePath: yql/reference/yql-docs-core-2/types/_includes/tz_date_types.md
 ---
+
 ### Особенности поддержки типов с меткой временной зоны
 
 Метка временной зоны у типов `TzDate`, `TzDatetime`, `TzTimestamp` это атрибут, который используется:

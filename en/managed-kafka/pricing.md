@@ -1,7 +1,6 @@
 ---
 editable: false
 ---
-
 # Pricing for {{ mkf-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -39,24 +38,26 @@ When you create a cluster with two or more {{ KF }} broker hosts, three {{ ZK }}
 
 {% endnote %}
 
-The minimum billing unit is one minute (for example, the cost of 1.5 minutes of operation is the same as the cost of 2 minutes of operation). You are not charged for the time when a broker host or {{ ZK }} doesn't perform its main functions.
+The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for the time when a broker host or {{ ZK }} doesn't perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
 The following is charged:
 
 * Storage allocated for clusters.
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more broker hosts in 100 GB increments.
-    * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more broker hosts in 93 GB increments.
+  * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with three or more broker hosts:
+      * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
+      * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+  * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more broker hosts in increments of 93 GB.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, the cost of storing 1 GB for 1.5 minutes is equal to the cost of storage for 2 minutes).
+The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mkf-name}} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
+{{mkf-name}} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 
@@ -65,6 +66,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 {% endnote %}
 
 ## Pricing {#prices}
+
 
 ### {{ KF }} broker host computing resources {#prices-kafka-brokers}
 
@@ -86,11 +88,11 @@ Prices for host uptime are calculated based on [host classes](concepts/instance-
 
 {% include [host-class-price-alert](../_includes/mdb/pricing-host-class-alert.md) %}
 
+
 ### {{ KF }} broker hosts {#calculated-kafka-brokers}
 
 
 
 
-For a month of host operation at the rate of 720 hours per month, rounded to an integer, USD.
-
 {% include notitle [usd-calculated.md](../_pricing/managed-kafka/usd-calculated.md) %}
+

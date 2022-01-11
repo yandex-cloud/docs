@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/operators.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/operators.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/expressions/operators.md
 ---
+
 ## Операторы
 
 ### Арифметические операторы {#math-operators}

@@ -1,9 +1,12 @@
+---
+sourcePath: overlay/reference/ydb-cli/commands/scheme-describe.md
+---
 # Получение информации об объекте схемы
 
 Получите информацию об объекте схемы:
 
 ```bash
-{{ ydb-cli }} scheme describe episodes --stats
+ydb scheme describe episodes --stats
 ```
 
 Результат:

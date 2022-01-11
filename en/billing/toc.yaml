@@ -22,6 +22,8 @@ items:
         href: operations/pay-the-bill.md
       - name: Link another bank card
         href: operations/pin-card.md
+      - name: Unlink a card
+        href: operations/unlink-card.md
       - name: Link a new cloud
         href: operations/pin-cloud.md
       - name: Change the payment method

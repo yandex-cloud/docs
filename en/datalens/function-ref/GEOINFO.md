@@ -43,9 +43,15 @@ Only constant values are accepted for arguments (`scale`).
 
 #### Example {#examples}
 
-```
-GEOINFO("посёлок Свободный Серп", "country") = "Россия"
-```
+
+
+| **[value]**                | **GEOINFO([value], 'country')**   |
+|:---------------------------|:----------------------------------|
+| `'Paris, France'`          | `'Франция'`                       |
+| `'New York'`               | `'Соединённые Штаты Америки'`     |
+| `'посёлок Свободный Серп'` | `'Россия'`                        |
+
+
 
 
 #### Data source support {#data-source-support}

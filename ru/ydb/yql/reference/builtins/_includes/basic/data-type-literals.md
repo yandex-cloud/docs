@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/data-type-literals.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/data-type-literals.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/data-type-literals.md
 ---
+
 ## Литералы простых типов {#data-type-literals}
 
 Для простых типов могут быть созданы литералы на основании строковых литералов.

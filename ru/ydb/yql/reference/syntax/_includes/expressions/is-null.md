@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/is-null.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/is-null.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/expressions/is-null.md
 ---
+
 ## IS \[NOT\] NULL {#is-null}
 
 Проверка на пустое значение (`NULL`). Так как `NULL` является особым значением, которое [ничему не равно](../../../types/optional.md#null_expr), то обычные [операторы сравнения](#comparison-operators) для этой задачи не подходят.

@@ -1,9 +1,10 @@
-1. In the command line, go to the folder where you created the configuration file.
-1. Run the check using the command:
+1. Using the command line, navigate to the folder that contains the up-to-date {{ TF }} configuration files with an infrastructure plan.
 
-    ```bash
-    terraform plan
-    ```
+1. Run the command:
 
-If the configuration is described correctly, the terminal displays a list of updated resources and their parameters. If there are errors in the configuration, Terraform points them out. This is a test step. No resources are updated.
+   ```bash
+   terraform validate
+   ```
+
+   If there are errors in the configuration files, {{ TF }} will point to them.
 

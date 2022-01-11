@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/length.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/length.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/length.md
 ---
+
 ## LENGTH {#length}
 
 Возвращает длину строки в байтах. Также эта функция доступна под именем `LEN`.

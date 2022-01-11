@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/cast.md
+sourcePath: core/yql/reference/yql-docs-core-2/types/_includes/cast.md
+sourcePath: yql/reference/yql-docs-core-2/types/_includes/cast.md
 ---
+
 # Правила преобразования типов через оператор [CAST](../../syntax/expressions.md#cast)
 
 ## Правила преобразования примитивных типов данных.

@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/ensure.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/ensure.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/ensure.md
 ---
+
 ## Ensure... {#ensure}
 
 Проверка пользовательских условий:

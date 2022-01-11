@@ -441,7 +441,7 @@ default:
   yandex-cloud: Yandex.Cloud
   yds-short-name: Data Streams
   yds: yds
-  stt-short-fileSize: 1 МБ
+  stt-short-fileSize: "1\_МБ"
   stt-short-audioLength: 30 секунд
   stt-short-channelsCount: 1
   stt-long-fileSize: "1\_ГБ"

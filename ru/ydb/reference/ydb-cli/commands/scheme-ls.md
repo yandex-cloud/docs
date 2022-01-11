@@ -1,9 +1,12 @@
+---
+sourcePath: overlay/reference/ydb-cli/commands/scheme-ls.md
+---
 # Листинг объектов
 
 Чтобы получить листинг объектов, используйте подкоманду `scheme ls <Путь>`. Если путь не указан, то будет выведен листинг корня базы данных:
 
 ```bash
-{{ ydb-cli }} scheme ls
+ydb scheme ls
 ```
 
 Результат:
@@ -15,7 +18,7 @@ episodes seasons  series .sys
 Чтобы посмотреть подробную информацию об объектах, добавьте флаг `-l`:
 
 ```bash
-{{ ydb-cli }} scheme ls -l
+ydb scheme ls -l
 ```
 
 Результат:

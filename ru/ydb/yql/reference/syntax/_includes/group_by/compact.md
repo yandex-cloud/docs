@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/group_by/compact.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/group_by/compact.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/group_by/compact.md
 ---
+
 ## GROUP COMPACT BY
 
 Позволяет более эффективно выполнять агрегацию в тех случаях, когда автору запроса заранее известно, что ни по одному из ключей агрегации не встречаются большие объемы данных (больше примерно гигабайт или миллионов строк). Если это предположение на практике окажется неверным, то операция оставляет за собой право упасть из-за превышения потребления оперативной памяти или работать значительно медленнее не-COMPACT версии.

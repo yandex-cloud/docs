@@ -1,9 +1,12 @@
+---
+sourcePath: overlay/reference/ydb-cli/commands/query.md
+---
 # Выполнение запроса к данным
 
 Выполните запрос к данным:
 
 ```bash
-{{ ydb-cli }} table query execute \
+ydb table query execute \
   --query "SELECT season_id, episode_id, title \
   FROM episodes \
   WHERE series_id = 1 AND season_id > 1 \

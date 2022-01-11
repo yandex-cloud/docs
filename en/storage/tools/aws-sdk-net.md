@@ -1,6 +1,6 @@
-# The AWS SDK for.NET
+# The AWS SDK for .NET
 
-[The AWS SDK for.NET](https://aws.amazon.com/ru/sdk-for-net/) is a set of tools for developers working with AWS services.
+[The AWS SDK for .NET](https://aws.amazon.com/sdk-for-net/) is a set of tools for developers working with AWS services.
 
 ## Before you start {#before-you-begin}
 
@@ -19,7 +19,7 @@
 To connect to {{ objstorage-name }}, use the code
 
 ```
-AmazonS3Config configsS3 = new AmazonS3Config { 
+AmazonS3Config configsS3 = new AmazonS3Config {
     ServiceURL = "https://s3.yandexcloud.net"
 };
 

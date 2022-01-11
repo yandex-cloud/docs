@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/enum.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/enum.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/enum.md
 ---
+
 ## Enum, AsEnum {#enum}
 
 `Enum()` cоздает значение перечисления.

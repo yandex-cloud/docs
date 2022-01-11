@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/stddev_variance.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/stddev_variance.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/aggregation/stddev_variance.md
 ---
+
 ## STDDEV и VARIANCE {#stddev-variance}
 
 Стандартное отклонение и дисперсия по колонке. Используется [однопроходной параллельный алгоритм](https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance#Parallel_algorithm), результат которого может отличаться от полученного более распространенными методами, требующими двух проходов по данным.

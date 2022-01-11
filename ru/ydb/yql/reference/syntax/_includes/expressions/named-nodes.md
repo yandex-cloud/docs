@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/named-nodes.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/named-nodes.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/expressions/named-nodes.md
 ---
+
 ## Именованные выражения {#named-nodes}
 
 Сложные запросы могут выглядеть громоздко и содержать много уровней вложенности и/или повторяющихся частей. В YQL имеется возможность использовать именованные выражения – способ назначить имя произвольному выражению или подзапросу. На это именованное выражение можно ссылаться в других выражениях или подзапросах. При этом фактически происходит подстановка исходного выражения/подзапроса по месту использования.

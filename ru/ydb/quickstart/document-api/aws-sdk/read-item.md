@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
+---
 # Чтение записи
 
 Чтобы прочитать запись из таблицы `Series`:
