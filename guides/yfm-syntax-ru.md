@@ -222,7 +222,7 @@
 {% include [File content](../_includes/basic.md) %}
 ``` 
 
-Чтобы сделать ссылку на якорь `anchor` в файле `basic.md`, воспользуйтесь разметкой вида:
+В таком случае, чтобы сделать ссылку на якорь `anchor` в файле `basic.md`, воспользуйтесь разметкой вида:
 
 ```markdown
 [Link to anchor](./hard.md#anchor)
