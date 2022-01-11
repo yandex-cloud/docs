@@ -218,7 +218,7 @@
 
 Например, файл `basic.md` расположен в папке `_includes` и используется в файле `hard.md`:
 
-````markdown
+```markdown
 {% include [File content](../_includes/basic.md) %}
 ``` 
 
