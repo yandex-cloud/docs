@@ -15,6 +15,8 @@ sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/re2.md
 
 В силу ограничений библиотеки Pire, связанных с оптимизацией для эффективной проверки строк на соответствие регулярным выражениям, бывают ситуации, когда решить задачу с помощью [Pire](pire.md) неоправданно сложно или невозможно. Для таких ситуаций мы добавили ещё один модуль для работы с регулярными выражениями на основе [google::RE2](https://github.com/google/re2), где предоставляется более широкий ассортимент возможностей ([см. официальную документацию](https://github.com/google/re2/wiki/Syntax)).
 
+Переведенная сокращенная выписка из официальной документации находится [здесь.](../../_includes/re2_syntax.md)
+
 По умолчанию UTF-8 режим включается автоматически, если регулярное выражение является валидной строкой в кодировке UTF-8, но не является валидной ASCII-строкой. Вручную настройками библиотеки re2 можно управлять с помощью передачи результата функции `Re2::Options` вторым аргументом другим функциям модуля, рядом с регулярным выражением.
 
 {% note warning %}
@@ -81,3 +83,48 @@ SELECT
 ## Re2::Count {#count}
 
 Возвращает количество совпавших с регулярным выражением непересекающихся подстрок во входной строке.
+
+
+## Re2::Options {#options}
+
+Пояснения к параметрам Re2::Options из официального [репозитория](https://github.com/google/re2/blob/main/re2/re2.h#L595-L617)
+
+
+| Параметр            | Комментарий                                                                                                                                                                                                                              |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CaseSensitive:Bool? | (true)  match is case-sensitive (regexp can override with (?i) unless in posix_syntax mode)                                                                                                                                              |
+| DotNl:Bool?         | let . match \n (default false)                                                                                                                                                                                                           |
+| Literal:Bool?       | (false) interpret string as literal, not regexp                                                                                                                                                                                          |
+| LogErrors:Bool?     | (true)  log syntax and execution errors to ERROR                                                                                                                                                                                         |
+| LongestMatch:Bool?  | (false) search for longest match, not first match                                                                                                                                                                                        |
+| MaxMem:Uint64?      | (see below)  approx. max memory footprint of RE2                                                                                                                                                                                         |
+| NeverCapture:Bool?  | (false) parse all parens as non-capturing                                                                                                                                                                                                |
+| NeverNl:Bool?       | (false) never match \n, even if it is in regexp                                                                                                                                                                                          |
+| PosixSyntax:Bool?   | (false) restrict regexps to POSIX egrep syntax                                                                                                                                                                                           |
+| Utf8:Bool?          | (true)  text and pattern are UTF-8; otherwise Latin-1                                                                                                                                                                                    |
+|                     | The following options are only consulted when posix_syntax == true. <bt>When posix_syntax == false, these features are always enabled and cannot be turned off; to perform multi-line matching in that case, begin the regexp with (?m). |
+| PerlClasses:Bool?   | (false) allow Perl's \d \s \w \D \S \W                                                                                                                                                                                                   |                                                      
+| WordBoundary:Bool?  | (false) allow Perl's \b \B (word boundary and not)                                                                                                                                                                                       |                                          
+| OneLine:Bool?       | (false) ^ and $ only match beginning and end of text                                                                                                                                                                                     |                                   
+
+Не рекомендуется Re2::Options использовать в коде. Большинство параметров можно заменить на флаги регулярного выражения.
+
+** Пример использования флагов **
+```sql
+$value = "ВАСЯ ел банан и сосал сушку"u;
+-- включить режим без учета регистра
+$capture = Re2::Capture(@@(?i)(вася)@@); 
+$capture = Re2::Capture(@@(?i)(?P<vasya>вАсЯ).*(?P<banan>банан)@@);
+
+SELECT  $capture($value) AS capture;
+
+-- Результат:
+-- (
+--     "_0": "ВАСЯ ел банан",
+--     "banan": "банан",
+--     "vasya": "ВАСЯ"
+-- )
+
+```
+
+В обоих случаях слово ВАСЯ будет найдено. Применение raw строки @@regexp@@ позволяет не удваивать слеши.
