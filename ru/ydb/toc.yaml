@@ -253,6 +253,8 @@ items:
                 href: yql/reference/syntax/lexer.md
               - name: Выражения
                 href: yql/reference/syntax/expressions.md
+              - name: Методы проверки строк
+                href: yql/reference/syntax/string_template.md
               - name: SELECT
                 href: yql/reference/syntax/select.md
               - name: VALUES
