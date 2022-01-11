@@ -71,7 +71,7 @@ Column, name: series_info, type: Utf8?
 Column, name: release_date, type: Uint64?
 ```
 
-{% include [pragmatablepathprefix.md](aux/pragmatablepathprefix.md) %}
+{% include [pragmatablepathprefix.md](auxilary/pragmatablepathprefix.md) %}
 
 {% include [query_processing.md](steps/03_query_processing.md) %}
 

@@ -2,7 +2,7 @@
 
 На этой странице подробно разбирается код [тестового приложения](https://github.com/yandex-cloud/ydb-go-sdk/tree/master/example/basic_example_v1), доступного в составе [Go SDK](https://github.com/yandex-cloud/ydb-go-sdk) {{ ydb-short-name }}.
 
-{% include [addition.md](aux/addition.md) %}
+{% include [addition.md](auxilary/addition.md) %}
 
 {% include [init.md](steps/01_init.md) %}
 
@@ -74,7 +74,7 @@ func describeTable(ctx context.Context, sp *table.SessionPool, path string) (err
   )
 ```
 
-{% include [pragmatablepathprefix.md](aux/pragmatablepathprefix.md) %}
+{% include [pragmatablepathprefix.md](auxilary/pragmatablepathprefix.md) %}
 
 {% include [query_processing.md](steps/03_query_processing.md) %}
 

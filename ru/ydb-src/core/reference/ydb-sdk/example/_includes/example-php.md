@@ -2,7 +2,7 @@
 
 На этой странице подробно разбирается код тестового приложения, доступного в составе [PHP SDK](https://github.com/yandex-cloud/ydb-php-sdk) {{ ydb-short-name }}.
 
-{% include [addition.md](aux/addition.md) %}
+{% include [addition.md](auxilary/addition.md) %}
 
 {% include [init.md](steps/01_init.md) %}
 
