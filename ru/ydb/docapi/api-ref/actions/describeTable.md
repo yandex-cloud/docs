@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/docapi/api-ref/actions/describeTable.md
+---
 # Метод DescribeTable
 
 Возвращает информацию о таблице, включая текущее состояние, время создания, схему первичного ключа и индексы.

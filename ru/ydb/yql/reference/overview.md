@@ -1,29 +1,9 @@
 ---
-title: Что такое YQL? Обзор Yandex Query Language
-description: YQL (Yandex Query Language) — универсальный декларативный язык запросов к системам хранения и обработки данных, диалект SQL. Начать работать с YQL можно в веб-интерфейсе после создания базы данных.
-keywords:
-  - yql
-  - что такое yql
-  - Yandex Query Language
+sourcePath: overlay/yql/reference/overview.md
 ---
 
-# Обзор YQL
+{% include [intro.md](_includes/overview/intro.md) %}
 
-*YQL* (Yandex Query Language) — универсальный декларативный язык запросов к системам хранения и обработки данных, диалект SQL.
 
-{% if audience == "internal" or audience == "tech" %}
-
-* [Документация по YQL](https://yql.yandex-team.ru/docs/ydb/)
-
-Начать работать с YQL можно в [веб-интерфейсе](https://yql.yandex-team.ru/Tutorial/ydb_01_Create_demo_tables) после создания базы данных.
-
-{% endif %}
-
-{% if audience == "external" %}
-
-Начать работать с YQL можно в консоли управления после создания базы данных. В разделе [{#T}](../../operations/crud.md) описаны базовые операции с данными.
-
-В [туториале YQL](../tutorial/) приведены примеры YQL-инструкций, с помощью которых можно познакомиться с базовым синтаксисом и возможностями YQL. Туториал можно пройти в консоли управления, просто скопировав инструкции в поле **SQL-запрос** и нажав кнопку **Run**.
-
-{% endif %}
+{% include [start.md](_includes/overview/start.md) %}
 

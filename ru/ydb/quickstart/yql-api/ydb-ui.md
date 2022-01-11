@@ -1,10 +1,13 @@
+---
+sourcePath: overlay/quickstart/yql-api/ydb-ui.md
+---
 # Работа с данными через консоль управления
 
-После [создания базы данных](../create-db.md) выполните базовые YQL-запросы используя консоль управления {{ yandex-cloud }}.
+После [создания базы данных](../create-db.md) выполните базовые YQL-запросы используя консоль управления Yandex.Cloud.
 
 {% note tip %}
 
-Подробнее о синтаксисе YQL читайте в [Справочнике YQL](../../yql/reference/overview.md).
+Подробнее о синтаксисе YQL читайте в [Справочнике YQL](../../yql/reference/index.md).
 
 {% endnote %}
 
@@ -32,11 +35,6 @@
 
 {% endlist %}
 
-{% if audience == "internal" %}
-
-![Table preview](../../_assets/db_ui_table_preview.png)
-
-{% endif %}
 
 ## Измените данные {#update-data}
 
@@ -50,11 +48,6 @@
 
 {% endlist %}
 
-{% if audience == "internal" %}
-
-![Update preview](../../_assets/db_ui_run_update.png)
-
-{% endif %}
 
 ## Удалите данные {#delete-data}
 
@@ -68,11 +61,6 @@
 
 {% endlist %}
 
-{% if audience == "internal" %}
-
-![Delete preview](../../_assets/db_ui_run_delete.png)
-
-{% endif %}
 
 ## Запросите данные {#select-data}
 
@@ -86,11 +74,6 @@
 
 {% endlist %}
 
-{% if audience == "internal" %}
-
-![Select from table](../../_assets/db_ui_run_select.png)
-
-{% endif %}
 
 ## Удалите таблицу {#drop-table}
 

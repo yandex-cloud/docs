@@ -1,3 +1,6 @@
+---
+sourcePath: core/concepts/_includes/transactions.md
+---
 # Транзакции и запросы к YDB
 
 Этот раздел описывает особенности реализации YQL для YDB транзакций.
@@ -20,7 +23,7 @@
 
 Реализованные конструкции YQL можно разделить на два класса: [data definition language (DDL)](https://en.wikipedia.org/wiki/Data_definition_language) и [data manipulation language (DML)](https://en.wikipedia.org/wiki/Data_manipulation_language).
 
-Подробнее о поддерживаемых конструкциях YQL можно почитать в [документации YQL]{% if audience == "external" %}(../../yql/reference/overview.md){% else %}(https://yql.yandex-team.ru/docs/ydb/){% endif %}.
+Подробнее о поддерживаемых конструкциях YQL можно почитать в [документации YQL](../../yql/reference/index.md).
 
 Ниже перечислены возможности и ограничения поддержки YQL в YDB, которые могут быть неочевидны на первый взгляд и на которые стоит обратить внимание.
 
@@ -39,7 +42,7 @@
        COMMIT;
 ```
 
-Подробнее о поддержке YQL в YDB можно прочитать в [документации YQL]{% if audience == "external" %}(../../yql/reference/overview.md){% else %}(https://yql.yandex-team.ru/docs/ydb/){% endif %}.
+Подробнее о поддержке YQL в YDB можно прочитать в [документации YQL](../../yql/reference/index.md).
 
 ## Распределенные транзакции {#distributed-tx}
 

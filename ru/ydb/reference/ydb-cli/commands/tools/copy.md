@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/reference/ydb-cli/commands/tools/copy.md
+---
 # Копирование таблицы
 
 С помощью подкоманды `tools copy` вы можете создать копию таблицы БД.
@@ -5,7 +8,7 @@
 Общий вид команды:
 
 ```bash
-{{ ydb-cli }} [global options...] tools copy [options...]
+ydb [global options...] tools copy [options...]
 ```
 
 * `global options` — [глобальные параметры](../global-options.md).
@@ -14,7 +17,7 @@
 Посмотрите описание команды для копирования таблицы:
 
 ```bash
-{{ ydb-cli }} tools copy --help
+ydb tools copy --help
 ```
 
 ## Параметры подкоманды {#options}
@@ -33,20 +36,20 @@
 Создайте в базе данных директорию `backup`:
 
 ```bash
-{{ ydb-cli }} scheme mkdir backup
+ydb scheme mkdir backup
 ```
 
 Скопируйте таблицу `seasons` в таблицу `seasons-v1` директории `backup`:
 
 ```bash
-{{ ydb-cli }} tools copy \
+ydb tools copy \
   --item destination=backup/seasons-v1,source=seasons
 ```
 
 Посмотрите листинг объектов директории `backup`:
 
 ```bash
-{{ ydb-cli }} scheme ls backup
+ydb scheme ls backup
 ```
 
 Результат:

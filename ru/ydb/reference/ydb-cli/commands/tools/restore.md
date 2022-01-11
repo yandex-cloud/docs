@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/reference/ydb-cli/commands/tools/restore.md
+---
 # Восстановление данных из дампа
 
 С помощью подкоманды `tools restore` вы можете восстановить данные из созданного ранее дампа.
@@ -5,7 +8,7 @@
 Общий вид команды:
 
 ```bash
-{{ ydb-cli }} [global options...] tools restore [options...]
+ydb [global options...] tools restore [options...]
 ```
 
 * `global options` — [глобальные параметры](../global-options.md).
@@ -14,7 +17,7 @@
 Посмотрите описание команды для восстановления данных из дампа:
 
 ```bash
-{{ ydb-cli }} tools restore --help
+ydb tools restore --help
 ```
 
 ## Параметры подкоманды {#options}
@@ -53,7 +56,7 @@
 Сделайте дамп БД:
 
 ```bash
-{{ ydb-cli }} tools dump -o ~/dump
+ydb tools dump -o ~/dump
 ```
 
 Посмотрите список объектов директории `dump`:

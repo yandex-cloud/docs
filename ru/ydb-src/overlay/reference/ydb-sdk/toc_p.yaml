@@ -1,0 +1,5 @@
+items:
+  - include: { mode: link, path: toc_i.yaml }
+  - name: Установка и конфигурация
+    href: yc_setup.md
+    when: audience == "external"

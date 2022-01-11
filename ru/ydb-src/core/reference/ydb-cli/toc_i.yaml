@@ -1,0 +1,6 @@
+items:
+- name: Обзор
+  href: index.md
+- name: Scan Query
+  href: commands/scan-query.md
+  hidden: true

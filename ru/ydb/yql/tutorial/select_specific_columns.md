@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/select_specific_columns.md
+---
 # Выборка данных из определенных колонок
 
 Выберите данные из колонок `series_id`, `release_date` и `title`. При этом переименуйте `title` в `series_title` и преобразуйте тип `release_date` из `Uint32` в `Date`.

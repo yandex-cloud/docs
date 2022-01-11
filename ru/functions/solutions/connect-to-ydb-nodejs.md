@@ -1,5 +1,5 @@
 ---
-author: Ulibka68
+author: gayratv
 ---
 
 # Подключение к базе данных {{ ydb-full-name }} из функции {{ sf-name }} на Node.js

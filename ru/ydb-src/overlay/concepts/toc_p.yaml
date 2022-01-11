@@ -1,0 +1,11 @@
+items:
+- include: { mode: link, path: toc_i.yaml }
+- { name: Квоты и лимиты,                         href: limits.md,                     when: audience == "external" }
+- { name: Кластеры,                               href: clusters.md,                   when: audience != "external" }
+- { name: Порядок выполнения транзакций,          href: out_of_order.md,               when: audience != "external" }
+- { name: Разграничение прав доступа,             href: internal/iam.md,               when: audience != "external" }
+- { name: Квоты и лимиты (Yandex),                href: quotas_and_limits.md,          when: audience != "external" }
+- { name: YDB в сравнении,                        href: comparision.md,                when: audience != "external" }
+- { name: OLAP сценарии,                          href: olap.md,                       when: audience == "tech" }
+- { name: Сервис координации,                     href: coordination.md,               when: audience != "external" }
+

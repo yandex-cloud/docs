@@ -1,3 +1,6 @@
+---
+sourcePath: core/maintenance/embedded_monitoring/interconnect_overview.md
+---
 # Interconnect Overview
 
 Обзор соединений узлов кластера друг с другом. Доступен по адресу:

@@ -1,10 +1,13 @@
+---
+sourcePath: core/concepts/_includes/ttl.md
+---
 # Time to Live (TTL)
 
 В разделе описан принцип работы TTL, его ограничения, а также приведены примеры команд и фрагменты кода, с помощью которых можно включить, настроить и выключить TTL.
 
 ## Принцип работы {#how-it-works}
 
-{{ ydb-short-name }} позволяет указать для таблицы колонку (TTL-колонка), значения которой будут использоваться для определения времени жизни строк. TTL автоматически удаляет из таблицы строки, когда проходит указанное количество секунд от времени, записанного в TTL-колонку.
+YDB позволяет указать для таблицы колонку (TTL-колонка), значения которой будут использоваться для определения времени жизни строк. TTL автоматически удаляет из таблицы строки, когда проходит указанное количество секунд от времени, записанного в TTL-колонку.
 
 {% note warning %}
 
@@ -59,9 +62,9 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 Управление настройками TTL в настоящий момент возможно с использованием:
 
-* [YQL](../../yql/reference/overview.md)
-* [Консольного клиента {{ ydb-short-name }}]{% if audience != "external" %}(https://cloud.yandex.ru/docs/ydb/quickstart/yql-api/ydb-cli){% else %}(../../quickstart/yql-api/ydb-cli.md){% endif %}.
-* {{ ydb-short-name }} {% if oss %}C++ и{% endif %}  Python [SDK](../../reference/ydb-sdk/index.md)
+* [YQL](../../yql/reference/index.md)
+* [Консольного клиента YDB](../../quickstart/yql-api/ydb-cli.md).
+* YDB   Python [SDK](../../reference/ydb-sdk/index.md)
 
 {% note info %}
 
@@ -82,21 +85,9 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 - CLI
   ```bash
-  $ {{ ydb-cli }} -e <endpoint> -d <database> table ttl set --column created_at --expire-after 3600 mytable
+  $ ydb -e <endpoint> -d <database> table ttl set --column created_at --expire-after 3600 mytable
   ```
 
-{% if oss == true %}
-- C++
-  ```c++
-  session.AlterTable(
-      "mytable",
-      TAlterTableSettings()
-          .BeginAlterTtlSettings()
-              .Set("created_at", TDuration::Hours(1))
-          .EndAlterTtlSettings()
-  );
-  ```
-{% endif %}
 
 - Python
   ```python
@@ -128,20 +119,6 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   );
   ```
 
-{% if oss == true %}
-- C++
-  ```c++
-  session.CreateTable(
-      "mytable",
-      TTableBuilder()
-          .AddNullableColumn("id", EPrimitiveType::Uint64)
-          .AddNullableColumn("expire_at", EPrimitiveType::Timestamp)
-          .SetPrimaryKeyColumn("id")
-          .SetTtlSettings("expire_at")
-          .Build()
-  );
-  ```
-{% endif %}
 
 - Python
   ```python
@@ -168,21 +145,9 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 - CLI
   ```bash
-  $ {{ ydb-cli }} -e <endpoint> -d <database> table ttl drop mytable
+  $ ydb -e <endpoint> -d <database> table ttl drop mytable
   ```
 
-{% if oss == true %}
-- C++
-  ```c++
-  session.AlterTable(
-      "mytable",
-      TAlterTableSettings()
-          .BeginAlterTtlSettings()
-              .Drop()
-          .EndAlterTtlSettings()
-  );
-  ```
-{% endif %}
 
 - Python
   ```python
@@ -199,16 +164,9 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 
 - CLI
   ```bash
-  $ {{ ydb-cli }} -e <endpoint> -d <database> scheme describe mytable
+  $ ydb -e <endpoint> -d <database> scheme describe mytable
   ```
 
-{% if oss == true %}
-- C++
-  ```c++
-  auto desc = session.DescribeTable("mytable").GetValueSync().GetTableDescription();
-  auto ttl = desc.GetTtlSettings();
-  ```
-{% endif %}
 
 - Python
   ```python

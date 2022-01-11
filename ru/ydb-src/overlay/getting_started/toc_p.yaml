@@ -1,0 +1,39 @@
+# common internal + external "Getting started" items
+items:
+- name: Обзор
+  href: index.md
+- name: Базы данных — создание и управление
+  href: create_manage_database.md
+- name: Настройка сетевого доступа к базе данных
+  href: setup_network_access.md
+- name: Разграничение прав доступа
+  href: start_auth.md
+- name: Где взять
+  href: get_cluster.md
+  when: audience == "tech"
+- name: Старт локального кластера
+  href: start_local_cluster.md
+  when: audience == "tech"
+- name: Использование консольного клиента YDB
+  href: ydb_cli.md
+- name: Работа со схемой
+  href: start_scheme.md
+- name: Работа с данными
+  href: crud.md
+- name: Разработка на C++
+  href: start_cpp.md
+  hidden: true
+- name: Разработка на Java
+  href: start_java.md
+  hidden: true
+- name: Разработка на Python
+  href: start_python.md
+  hidden: true
+- name: Использование рецепта YDB
+  href: ydb_recipe.md
+- name: ClickHouse over YDB
+  href: start_chydb.md
+- name: REST API
+  href: start_rest.md
+  when: audience == "tech"
+- include: { mode: link, path: toc_i.yaml }

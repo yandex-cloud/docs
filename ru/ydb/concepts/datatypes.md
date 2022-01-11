@@ -1,3 +1,6 @@
-# Типы данных {{ ydb-name }}
+---
+sourcePath: overlay/concepts/datatypes.md
+---
+# Типы данных Yandex Database
 
-{{ ydb-short-name }} оперирует [типами данных YQL]{% if audience == "external" %}(../yql/reference/types/index.md){% else %}(https://yql.yandex-team.ru/docs/ydb/types/){% endif %}.
+YDB оперирует [типами данных YQL](../yql/reference/types/index.md).

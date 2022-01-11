@@ -1,3 +1,6 @@
+---
+sourcePath: core/reference/ydb-sdk/_includes/example/step-param-queries-intro.md
+---
 ## Параметризованные запросы {#param-queries}
 
 {% note warning "Использование параметров в запросах" %}

@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/join_tables.md
+---
 # Объединение таблиц с помощью JOIN
 
 Объедините колонки исходных таблиц `seasons` и `series` и выведите все сезоны сериала IT Crowd в результирующей таблице с помощью оператора [JOIN](../reference/syntax/join.md).

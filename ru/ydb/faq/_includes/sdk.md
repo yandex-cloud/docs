@@ -1,3 +1,6 @@
+---
+sourcePath: core/faq/_includes/sdk.md
+---
 # SDK
 
 #### Почему может возникать ошибка <q>Status: OVERLOADED Error: Pending previous query completion</q> в C++ SDK?

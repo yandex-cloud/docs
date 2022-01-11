@@ -1,0 +1,11 @@
+items:
+- include: { mode: link, path: toc_i.yaml }
+- name: Удаление устаревших данных с помощью вспомогательных таблиц
+  when: audience != "external"
+  href: internal/ttl.md
+- name: Загрузка данных из YT
+  href: internal/import_from_yt.md
+  when: audience != "external"
+- name: Настройка групп колонок
+  href: internal/column_families.md
+  when: audience == "tech"

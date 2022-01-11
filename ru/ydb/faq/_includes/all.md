@@ -1,15 +1,12 @@
+---
+sourcePath: core/faq/_includes/all.md
+---
 # Все вопросы на одной странице
 
 ## Общие вопросы {#common}
 
 {% include notitle [common.md](../common.md) %}
 
-{% if oss %}
-## SDK {#SDK}
-
-{% include notitle [sdk.md](../sdk.md) %}
-
-{% endif %}
 
 ## YQL {#yql}
 

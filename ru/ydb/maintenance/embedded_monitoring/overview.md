@@ -1,3 +1,6 @@
+---
+sourcePath: core/maintenance/embedded_monitoring/overview.md
+---
 # Обзор средств интроспекции
 
 YDB предоставляет инструменты для мониторинга и определения состояния системы:

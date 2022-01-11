@@ -1,3 +1,6 @@
+---
+sourcePath: core/faq/_includes/yql.md
+---
 # YQL
 
 ### Общие вопросы {#common}
@@ -71,7 +74,7 @@ WHERE t.Key IS NULL;
 
 #### Есть ли особенности в работе операции Join? {#join-operations}
 
-Операция Join в {{ ydb-short-name }} выполняется одним из двух способов:
+Операция Join в YDB выполняется одним из двух способов:
 * Common Join
 * Index Lookup Join
 

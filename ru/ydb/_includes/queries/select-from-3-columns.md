@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/_includes/queries/select-from-3-columns.md
+---
 ```sql
 SELECT
     series_id,

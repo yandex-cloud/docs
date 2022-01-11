@@ -1,7 +1,9 @@
 ---
 title: Использование таймаутов в Yandex Database (YDB)
 description: 'Значение operation_timeout определяет время, в течение которого результат запроса интересен пользователю. Если за данное время операция не выполнилась, сервер возвращает ошибку c кодом Timeout и попытается прекратить выполнение запроса, однако отмена запроса не гарантируется. Всегда рекомендуется устанавливать и таймаут на операцию, и транспортный таймаут. '
+sourcePath: core/best_practices/_includes/timeouts.md
 ---
+
 
 В разделе приведено описание доступных таймаутов и представлены примеры использования на различных языках программирования.
 
@@ -42,31 +44,6 @@ description: 'Значение operation_timeout определяет время
     )
   ```
 
-{% if oss == true %}
-
-- С++
-
-  ```cpp
-  #include <kikimr/public/sdk/cpp/client/ydb.h>
-  #include <kikimr/public/sdk/cpp/client/ydb_table.h>
-  #include <kikimr/public/sdk/cpp/client/ydb_value.h>
-
-  using namespace NYdb;
-  using namespace NYdb::NTable;
-
-  TAsyncStatus ExecuteInTx(TSession& session, TString query, TParams params) {
-    return session.ExecuteDataQuery(
-        query
-        , TTxControl::BeginTx(TTxSettings::SerializableRW()).CommitTx()
-        , TExecDataQuerySettings()
-        .OperationTimeout(TDuration::MilliSeconds(300))  // operation timeout
-        .ClientTimeout(TDuration::MilliSeconds(400))   // transport timeout
-        .CancelAfter(TDuration::MilliSeconds(300)));  // cancel after timeout
-  }
-
-  ```
-
-{% endif %}
 
 - Go
 

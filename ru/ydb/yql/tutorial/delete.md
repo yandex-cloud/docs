@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/delete.md
+---
 # Удаление данных
 
 Удалите данные из таблицы с помощью оператора [DELETE](../reference/syntax/delete.md).

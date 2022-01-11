@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/create_demo_tables.md
+---
 # Создание таблицы
 
 Создайте таблицы и задайте для них схемы данных с помощью конструкции [CREATE TABLE](../reference/syntax/create_table.md).

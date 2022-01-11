@@ -1,8 +1,10 @@
 ---
 editable: false
+sourcePath: overlay/pricing/dedicated.md
 ---
 
-# Правила тарификации для режима {{ ydb-name }} с выделенными инстансами
+
+# Правила тарификации для режима Yandex Database с выделенными инстансами
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -10,15 +12,15 @@ editable: false
 
 ## Из чего складывается стоимость использования YDB {#rules}
 
-При работе {{ ydb-name }} в режиме с выделенными инстансами вы оплачиваете:
+При работе Yandex Database в режиме с выделенными инстансами вы оплачиваете:
 
 * тип и размер [групп хранения](../concepts/databases.md#storage-groups), выделенных для базы данных;
 * вычислительные ресурсы, выделенные базе данных.
 
 Дополнительно оплачиваются иные потребляемые ресурсы:
 
-* место, занятое в сервисе {{ objstorage-name }} для хранения резервных копий по требованию;
-* объем исходящего трафика из {{ yandex-cloud }} в интернет.
+* место, занятое в сервисе Object Storage для хранения резервных копий по требованию;
+* объем исходящего трафика из Yandex.Cloud в интернет.
 
 
 {% include [pricing-gb-size](../_includes/pricing/pricing-gb-size.md) %}
@@ -35,7 +37,7 @@ editable: false
 
 * Объем хранилища, выделенный для групп хранения базы данных.
 
-* Объем, занимаемый резервными копиями баз данных по требованию, сохраненными в сервисе {{ objstorage-name }}.
+* Объем, занимаемый резервными копиями баз данных по требованию, сохраненными в сервисе Object Storage.
 
    {% note info %}
 
@@ -49,7 +51,7 @@ editable: false
 
 Вы можете получить гарантированную скидку за потребление ресурсов сервиса, запланированное на месяц, на год или на три года вперед.
 
-Сервис Yandex Database предоставляет {% if deploy != "arc" %} [CVoS](../../billing/concepts/cvos.md) {% else %} CVoS {% endif %} двух видов: на vCPU и RAM для хостов, составляющих базу данных. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для баз данных, использующих виртуальные машины определенного класса.
+Сервис Yandex Database предоставляет CVoS двух видов: на vCPU и RAM для хостов, составляющих базу данных. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для баз данных, использующих виртуальные машины определенного класса.
 
 {% note info %}
 
@@ -57,7 +59,6 @@ editable: false
 
 {% endnote %}
 
-{% if audience == "external" %}
 
 ## Цены {#prices}
 
@@ -65,82 +66,17 @@ editable: false
 
 ### Вычислительные ресурсы хостов {#prices-compute-units}
 
-{% if region == "ru" %}
 
-{% include notitle [rub-compute-units.md](../../_pricing/ydb/rub-compute-units.md) %}
 
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include notitle [kzt-compute-units.md](../../_pricing/ydb/kzt-compute-units.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include notitle [usd-compute-units.md](../../_pricing/ydb/usd-compute-units.md) %}
-
-{% endif %}
 
 ### Хранилище и резервные копии {#prices-storage}
 
-{% if region == "ru" %}
 
-{% include notitle [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
 
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include notitle [kzt-storage.md](../../_pricing/ydb/kzt-storage.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include notitle [usd-storage.md](../../_pricing/ydb/usd-storage.md) %}
-
-{% endif %}
 
 ### Исходящий трафик {#prices-traffic}
 
-{% if region == "ru" %}
 
-{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
 
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include notitle [kzt-egress-traffic.md](../../_pricing/kzt-egress-traffic.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
-
-{% endif %}
 
 ## Расчетные цены для вычислительных ресурсов {#calculated-prices}
-
-{% if region == "ru" %}
-
-{% include notitle [rub-dedicated.md](../../_pricing/ydb/rub-dedicated.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include notitle [kzt-dedicated.md](../../_pricing/ydb/kzt-dedicated.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include notitle [usd-dedicated.md](../../_pricing/ydb/usd-dedicated.md) %}
-
-{% endif %}
-
-{% endif %}

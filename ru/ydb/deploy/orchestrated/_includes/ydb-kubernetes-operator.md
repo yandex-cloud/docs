@@ -1,8 +1,11 @@
+---
+sourcePath: core/deploy/orchestrated/_includes/ydb-kubernetes-operator.md
+---
 # Установка кластера
 
-## Установите контроллер {{ ydb-name }} в кластер {#install-ydb-controller}
+## Установите контроллер Yandex Database в кластер {#install-ydb-controller}
 
-Установите {{ ydb-name }} в стандартной конфигурации:
+Установите Yandex Database в стандартной конфигурации:
 
 {% list tabs %}
 
@@ -30,9 +33,9 @@
 
 {% endlist %}
 
-## Создайте кластер {{ ydb-name }} {#create-cluster}
+## Создайте кластер Yandex Database {#create-cluster}
 
-Примените манифест для создания кластера {{ ydb-short-name }}:
+Примените манифест для создания кластера YDB:
 
 {% list tabs %}
 
@@ -61,7 +64,7 @@
 
   Эта команда создаст объект StatefulSet, который описывает набор контейнеров с предсказуемыми сетевыми именами и закрепленными за ними дисками, а также необходимые для работы кластера объекты Service и ConfigMap.
 
-  Прогресс создания кластера {{ ydb-short-name }} можно посмотреть с помощью следующих команд:
+  Прогресс создания кластера YDB можно посмотреть с помощью следующих команд:
 
   ```bash
   kubectl get storages.ydb.tech
@@ -78,7 +81,7 @@
 
 {% endnote %}
 
-Стандартная конфигурация включает минимально необходимые 8 нод хранения, каждая с диском размером 80 ГБ. Мы рекомендуем использовать диски не менее 80 ГБ для стабильной работы кластера {{ ydb-short-name }}.
+Стандартная конфигурация включает минимально необходимые 8 нод хранения, каждая с диском размером 80 ГБ. Мы рекомендуем использовать диски не менее 80 ГБ для стабильной работы кластера YDB.
 
 ## Создайте базу данных {#create-database}
 
@@ -140,7 +143,7 @@
 
 ## Проверьте работу {#test-ydb}
 
-Проверьте работоспособность {{ ydb-name }}:
+Проверьте работоспособность Yandex Database:
 
 {% list tabs %}
 
@@ -168,13 +171,13 @@
       storage-sample-7    1/1     Running   0          1m
       ```
 
-  1. Запустите новый под с {{ ydb-short-name }} CLI:
+  1. Запустите новый под с YDB CLI:
 
       ```bash
       kubectl run -it --image=cr.yandex/yc/ydb:21.4.30 --rm ydb-cli bash 
       ```
 
-  1. Выполните запрос к базе данных {{ ydb-short-name }}:
+  1. Выполните запрос к базе данных YDB:
 
       ```bash
       ydb \
@@ -197,7 +200,7 @@
       └─────────┘
       ```
 
-      Подробнее о командах {{ ydb-short-name }} CLI читайте в [документации](https://cloud.yandex.ru/docs/ydb/oss/public/reference/ydb-cli/commands/).
+      Подробнее о командах YDB CLI читайте в [документации](https://cloud.yandex.ru/docs/ydb/oss/public/reference/ydb-cli/commands/).
 
 {% endlist %}
 
@@ -209,20 +212,20 @@
 
 - CLI
 
-  1. Чтобы удалить базу данных {{ ydb-short-name }}, достаточно удалить сопоставленный с ней ресурс `Database`:
+  1. Чтобы удалить базу данных YDB, достаточно удалить сопоставленный с ней ресурс `Database`:
 
       ```bash
       kubectl delete database.ydb.tech database-sample
       ```
 
-  1. Чтобы удалить кластер {{ ydb-short-name }}, выполните следующие команды:
+  1. Чтобы удалить кластер YDB, выполните следующие команды:
 
       ```bash
       kubectl delete storage.ydb.tech storage-sample
       kubectl delete pvc -l app.kubernetes.io/name=ydb
       ```
 
-  1. Чтобы удалить контроллер {{ ydb-name }} из кластера {{ k8s }}, удалите релиз, созданный Helm:
+  1. Чтобы удалить контроллер Yandex Database из кластера {{ k8s }}, удалите релиз, созданный Helm:
 
       ```bash
       helm delete ydb-operator

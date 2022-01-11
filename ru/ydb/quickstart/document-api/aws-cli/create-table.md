@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/quickstart/document-api/aws-cli/create-table.md
+---
 # Создание таблицы
 
 Чтобы создать таблицу `series` с ключом партицирования `series_id` и ключом сортировки `title`:
@@ -10,7 +13,7 @@
 
     {% note warning %}
 
-    Для работы с AWS CLI из Windows рекомендуется использовать [WSL]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/wsl/){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/wsl/){% endif %}.
+    Для работы с AWS CLI из Windows рекомендуется использовать [WSL].
 
     {% endnote %}
 

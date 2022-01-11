@@ -1,9 +1,0 @@
-items:
-- name: Обзор
-  href: reference/overview.md
-- name: Справочник YQL
-  when: audience == "external"
-  include: { mode: link, path: reference/toc_i.yaml }
-- name: Туториал YQL
-  when: audience == "external"
-  include: { mode: link, path: tutorial/toc_i.yaml }

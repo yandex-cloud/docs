@@ -1,26 +1,28 @@
-# Авторизация в {{ ydb-short-name }} CLI
+---
+sourcePath: overlay/reference/ydb-cli/authorization.md
+---
+# Авторизация в YDB CLI
 
-Для выполнения запросов к {{ ydb-full-name }} в {{ yandex-cloud }} с помощью {{ ydb-short-name }} CLI необходимо авторизоваться. Выберите один из доступных способов:
+Для выполнения запросов к Yandex Database в Yandex.Cloud с помощью YDB CLI необходимо авторизоваться. Выберите один из доступных способов:
 
-* Если вы работаете от имени {% if audience == "external" %}[аккаунта на Яндексе](../../../iam/concepts/index.md#passport){% else %}аккаунта на Яндексе{% endif %}, авторизуйтесь с помощью {% if audience == "external" %}[OAuth-токена](../../../iam/concepts/authorization/oauth-token.md){% else %}OAuth-токена{% endif %}.
-* Если вы работаете от имени {% if audience == "external" %}[федеративного аккаунта](../../../iam/concepts/index.md#saml-federation){% else %}федеративного аккаунта{% endif %}, авторизуйтесь с помощью {% if audience == "external" %}[IAM-токена](../../../iam/concepts/authorization/iam-token.md){% else %}IAM-токена{% endif %}.
-* Для авторизации из {% if audience == "external" %}[виртуальной машины](../../../compute/concepts/vm.md){% else %}виртуальной машины{% endif %} используйте {% if audience == "external" %}[сервис метаданных](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md){% else %}сервис метаданных{% endif %}.
-* Если вы хотите выполнять команды от имени {% if audience == "external" %}[сервисного аккаунта](../../../iam/concepts/index#sa){% else %}сервисного аккаунта{% endif %}, используйте {% if audience == "external" %}[авторизованный ключ доступа](../../../iam/concepts/authorization/key.md){% else %}авторизованный ключ доступа{% endif %}.
+* Если вы работаете от имени [аккаунта на Яндексе](../../../iam/concepts/index.md#passport), авторизуйтесь с помощью [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md).
+* Если вы работаете от имени [федеративного аккаунта](../../../iam/concepts/index.md#saml-federation), авторизуйтесь с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md).
+* Для авторизации из [виртуальной машины](../../../compute/concepts/vm.md) используйте [сервис метаданных](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md).
+* Если вы хотите выполнять команды от имени [сервисного аккаунта](../../../iam/concepts/index#sa), используйте [авторизованный ключ доступа](../../../iam/concepts/authorization/key.md).
 
 {% list tabs %}
 
 - OAuth-токен
 
-  {% if audience == "external" %}
+  
+  Получите OAuth-токен с помощью [запроса](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) и сохраните его в файл. При запуске команды YDB CLI в параметре `--yc-token-file` укажите путь к файлу, в котором содержится ваш OAuth-токен.
 
-  Получите OAuth-токен с помощью [запроса]({{ link-cloud-oauth }}) и сохраните его в файл. При запуске команды {{ ydb-short-name }} CLI в параметре `--yc-token-file` укажите путь к файлу, в котором содержится ваш OAuth-токен.
-
-  Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение OAuth-токена в переменную окружения `YC_TOKEN` или [настройте профиль](profile/create.md) {{ ydb-short-name }} CLI.
+  Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение OAuth-токена в переменную окружения `YC_TOKEN` или [настройте профиль](profile/create.md) YDB CLI.
 
   Проверьте корректность авторизации, запросив информацию о пользователе:
 
   ```bash
-  {{ ydb-cli }} \
+  ydb \
     --endpoint <эндпоинт> \
     --database <база_данных> \
     --yc-token-file <путь> \
@@ -36,7 +38,7 @@
   Пример команды:
 
   ```bash
-  {{ ydb-cli }} \
+  ydb \
     --endpoint ydb.serverless.yandexcloud.net:2135 \
     --database /ru-central1/b1gia87mbaomkfvscrup/etn02j1mlm4vgjhij03e \
     --yc-token-file oauth-token.txt \
@@ -52,41 +54,22 @@
   User has no groups
   ```
 
-  {% else %}
-
-  Получите [OAuth-токен](../../getting_started/start_auth.md) для аутентификации и сохраните его в файл. При запуске команды {{ ydb-short-name }} CLI в параметре `--token-file` укажите путь к файлу, в котором содержится ваш OAuth-токен.
-
-  Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение OAuth-токена в переменную окружения `YDB_TOKEN` или сохраните токен в файл по умолчанию `~/.ydb/token`.
-
-  Проверьте корректность авторизации, запросив информацию о пользователе:
-
-  ```bash
-  {{ ydb-cli }} \
-    --endpoint ydb-ru.yandex.net:2135 \
-    --database /ru/tutorial/home/testdb \
-    --token-file ~/my_token \
-    discovery whoami \
-    --groups
-  ```
-
-  {% endif %}
-
 - IAM-токен
 
-  1. С помощью {% if audience == "external" %}[CLI {{ yandex-cloud }}](../../../cli/index.yaml){% else %}CLI {{ yandex-cloud }}{% endif %} получите IAM-токен:
+  1. С помощью [CLI Yandex.Cloud](../../../cli/index.yaml) получите IAM-токен:
 
       ```bash
       yc iam create-token
       ```
 
   1. Сохраните полученный токен в файл.
-  1. При запуске команды {{ ydb-short-name }} CLI в параметре `--iam-token-file` укажите путь к файлу с вашим IAM-токеном.
+  1. При запуске команды YDB CLI в параметре `--iam-token-file` укажите путь к файлу с вашим IAM-токеном.
 
-      Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение IAM-токена в переменную окружения `IAM_TOKEN` или [настройте профиль](profile/create.md) {{ ydb-short-name }} CLI.
+      Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение IAM-токена в переменную окружения `IAM_TOKEN` или [настройте профиль](profile/create.md) YDB CLI.
   1. Проверьте корректность авторизации, запросив информацию о пользователе:
 
       ```bash
-      {{ ydb-cli }} \
+      ydb \
         --endpoint <эндпоинт> \
         --database <база_данных> \
         --iam-token-file <путь> \
@@ -102,7 +85,7 @@
       Пример команды:
 
       ```bash
-      {{ ydb-cli }} \
+      ydb \
         --endpoint ydb.serverless.yandexcloud.net:2135 \
         --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
         --iam-token-file iam-token.txt \
@@ -120,20 +103,20 @@
 
   {% note alert %}
 
-  {% if audience == "external" %}[Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime){% else %}Время жизни{% endif %} IAM-токена не более 12 часов.
+  [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена не более 12 часов.
 
   {% endnote %}
 
 - Сервис метаданных
 
-  При запуске команды {{ ydb-short-name }} CLI из виртуальной машины в {{ yandex-cloud }} укажите параметр `--use-metadata-credentials`. {{ ydb-cli }} получит IAM-токен с помощью сервиса метаданных.
+  При запуске команды YDB CLI из виртуальной машины в Yandex.Cloud укажите параметр `--use-metadata-credentials`. ydb получит IAM-токен с помощью сервиса метаданных.
 
-  Чтобы не указывать этот параметр при каждом вызове команды, установите значение переменной окружения `USE_METADATA_CREDENTIALS` в  `1` или [настройте профиль](profile/create.md) {{ ydb-short-name }} CLI.
+  Чтобы не указывать этот параметр при каждом вызове команды, установите значение переменной окружения `USE_METADATA_CREDENTIALS` в  `1` или [настройте профиль](profile/create.md) YDB CLI.
 
   Проверьте корректность авторизации, запросив информацию о пользователе:
 
   ```bash
-  {{ ydb-cli }} \
+  ydb \
     --endpoint <эндпоинт> \
     --database <база_данных> \
     --use-metadata-credentials \
@@ -149,7 +132,7 @@
   Пример команды:
 
   ```bash
-  {{ ydb-cli }} \
+  ydb \
     --endpoint ydb.serverless.yandexcloud.net:2135 \
     --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
     --use-metadata-credentials \
@@ -167,7 +150,7 @@
 
 - Авторизованный ключ доступа
 
-  1. С помощью {% if audience == "external" %}[CLI {{ yandex-cloud }}](../../../cli/index.yaml){% else %}CLI {{ yandex-cloud }}{% endif %} создайте авторизованный ключ сервисного аккаунта:
+  1. С помощью [CLI Yandex.Cloud](../../../cli/index.yaml) создайте авторизованный ключ сервисного аккаунта:
 
       ```bash
       yc iam key create \
@@ -178,14 +161,14 @@
       * `--service-account-name` — имя сервисного аккаунта.
       * `--output` — имя файла, в который будет сохранен авторизованный ключ.
 
-  1. При запуске команды {{ ydb-short-name }} CLI в параметре `--sa-key-file` укажите путь к файлу с авторизованным ключом доступа сервисного аккаунта.
+  1. При запуске команды YDB CLI в параметре `--sa-key-file` укажите путь к файлу с авторизованным ключом доступа сервисного аккаунта.
 
-      Чтобы не указывать этот параметр при каждом вызове команды, сохраните путь к файлу в переменную окружения `SA_KEY_FILE` или [настройте профиль](profile/create.md) {{ ydb-short-name }} CLI.
+      Чтобы не указывать этот параметр при каждом вызове команды, сохраните путь к файлу в переменную окружения `SA_KEY_FILE` или [настройте профиль](profile/create.md) YDB CLI.
 
   1. Проверьте корректность авторизации, запросив информацию о пользователе:
 
       ```bash
-      {{ ydb-cli }} \
+      ydb \
         --endpoint <эндпоинт> \
         --database <база данных> \
         --sa-key-file <путь к файлу с ключом>\
@@ -201,7 +184,7 @@
       Пример команды:
 
       ```bash
-      {{ ydb-cli }} \
+      ydb \
         --endpoint ydb.serverless.yandexcloud.net:2135 \
         --database /ru-central1/b1gia87mbaomkfvsgrup/etn02j1mlm4vgjhig16t \
         --sa-key-file sa-key-file.txt \
