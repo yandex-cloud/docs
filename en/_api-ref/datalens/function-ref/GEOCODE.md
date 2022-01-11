@@ -30,9 +30,15 @@ To enable the function, go to the [Service Settings]({{ link-datalens-settings }
 
 #### Example {#examples}
 
-```
-GEOCODE("посёлок Свободный Серп") = [53.650704, 37.224461]
-```
+
+
+| **[value]**                | **GEOCODE([value])**       |
+|:---------------------------|:---------------------------|
+| `'Paris, France'`          | `'[48.856663,2.351556]'`   |
+| `'New York'`               | `'[40.714606,-74.002800]'` |
+| `'посёлок Свободный Серп'` | `'[53.650704,37.224461]'`  |
+
+
 
 
 #### Data source support {#data-source-support}
