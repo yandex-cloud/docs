@@ -1,13 +1,16 @@
+---
+sourcePath: overlay/reference/ydb-cli/commands/operations-index.md
+---
 # Работа со вторичными индексами
 
-В разделе описано как управлять вторичными индексами. Добавление вторичного индекса выполняется в асинхронном режиме. После запуска такой команды {{ ydb-short-name }} CLI сразу выдает информацию об операции и дает пользователю возможность продолжить работу.
+В разделе описано как управлять вторичными индексами. Добавление вторичного индекса выполняется в асинхронном режиме. После запуска такой команды YDB CLI сразу выдает информацию об операции и дает пользователю возможность продолжить работу.
 
 ## Добавление вторичного индекса {#operation-index}
 
 Добавьте индекс `title_index` по колонке `title` таблицы `series`:
 
 ```bash
-{{ ydb-cli }} table index add global \
+ydb table index add global \
   --index-name title_index \
   --columns title series
 ```
@@ -29,7 +32,7 @@
 Чтобы получить информацию о ходе добавления вторичного индекса, проверьте статус операции:
 
 ```bash
-{{ ydb-cli }} operation get ydb://buildindex/7?id=562950460138467
+ydb operation get ydb://buildindex/7?id=562950460138467
 ```
 
 Результат:
@@ -54,7 +57,7 @@
 Посмотрите все операции построения индекса для БД:
 
 ```bash
-{{ ydb-cli }} operation list buildindex
+ydb operation list buildindex
 ```
 
 Результат:
@@ -79,13 +82,13 @@ Next page token: 0
 Отмените операцию построения индекса:
 
 ```bash
-{{ ydb-cli }} operation cancel ydb://buildindex/7?id=562950460138467
+ydb operation cancel ydb://buildindex/7?id=562950460138467
 ```
 
 После того как операция завершена или отменена, удалите ее из базы:
 
 ```bash
-{{ ydb-cli }} operation forget ydb://buildindex/7?id=562950460138467
+ydb operation forget ydb://buildindex/7?id=562950460138467
 ```
 
 ## Удаление индекса {#delete-index}
@@ -95,5 +98,5 @@ Next page token: 0
 Удалите индекс:
 
 ```bash
-{{ ydb-cli }} table index drop --index-name title_index series
+ydb table index drop --index-name title_index series
 ```

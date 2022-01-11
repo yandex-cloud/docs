@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/max_min.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/max_min.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/max_min.md
 ---
+
 ## MAX_OF, MIN_OF, GREATEST и LEAST {#max-min}
 
 Возвращает минимальный или максимальный среди N аргументов. Эти функции позволяют не использовать стандартную для SQL конструкцию `CASE WHEN a < b THEN a ELSE b END`, которая была бы особенно громоздкой для N больше двух.

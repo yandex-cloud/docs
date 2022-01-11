@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/container_literal.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/container_literal.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/container_literal.md
 ---
+
 ## Литералы контейнеров {#containerliteral}
 
 Для некоторых контейнеров возможна операторная форма записи их литеральных значений:

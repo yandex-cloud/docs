@@ -1,3 +1,6 @@
+---
+sourcePath: core/concepts/_includes/datamodel/intro.md
+---
 # Модель данных и схема
 
 В разделе собраны описания сущностей, которыми оперирует YDB в рамках БД.

@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/fill_tables_with_data.md
+---
 # Добавление данных в таблицу
 
 Наполните данными [созданные](create_demo_tables.md) таблицы с помощью конструкции [REPLACE INTO](../reference/syntax/replace_into.md).

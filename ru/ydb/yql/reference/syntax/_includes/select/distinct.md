@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/distinct.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/select/distinct.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/select/distinct.md
 ---
+
 
 
 ## DISTINCT {#distinct}

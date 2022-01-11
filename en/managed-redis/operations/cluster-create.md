@@ -47,7 +47,13 @@ The number of hosts that can be created together with a {{ RD }} cluster depends
   1. Set up a [host class](../concepts/instance-types.md) for the cluster:
       * Select the host type: it defines the [guaranteed vCPU performance](../../compute/concepts/performance-levels.md). **High-memory** hosts allow full core usage, whereas **burstable** hosts only a portion.
       * Select the amount of RAM for the host.
-      * Select the disk size. The available disk size depends on the amount of RAM and is limited by [quotas and limits](../concepts/limits.md#limits). The minimum disk size is twice the selected amount of RAM, while the maximum disk size is 8 times the selected amount of RAM.
+
+      
+      * Select the type of storage, either a more flexible network type (`network-ssd` or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
+
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
+
+      * Select the disk size. The available disk size is limited by [quotas and limits](../concepts/limits.md#limits). For `network-ssd` or `network-ssd-nonreplicated` storage types, the available disk size also depends on the amount of RAM: the minimum disk size is twice as much than the amount of selected RAM, the maximum is 8 times larger.
 
   1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
 

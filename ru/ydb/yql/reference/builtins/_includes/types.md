@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/types.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/types.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/types.md
 ---
+
 # Функции для работы с типами данных
 
 ## FormatType {#formattype}

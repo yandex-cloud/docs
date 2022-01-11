@@ -1,3 +1,6 @@
+---
+sourcePath: core/reference/ydb-sdk/_includes/index/intro.md
+---
 # YDB SDK
 
 Для работы с YDB доступны OpenSource SDK для следующих языков программирования:

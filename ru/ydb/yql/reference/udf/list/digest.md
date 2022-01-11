@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/digest.md
+sourcePath: core/yql/reference/yql-docs-core-2/udf/list/digest.md
+sourcePath: yql/reference/yql-docs-core-2/udf/list/digest.md
 ---
+
 # Digest
 
 Набор распространенных хеш-функций.

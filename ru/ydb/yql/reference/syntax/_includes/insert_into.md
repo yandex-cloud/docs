@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/insert_into.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/insert_into.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/insert_into.md
 ---
+
 # INSERT INTO
 Добавляет строки в таблицу. При попытке вставить в таблицу строку с уже существующим значением первичного ключа операция завершится ошибкой с кодом `PRECONDITION_FAILED` и текстом `Operation aborted due to constraint violation: insert_pk`.
 

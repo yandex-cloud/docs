@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
+---
 # Удаление таблицы
 
 Чтобы удалить таблицу `Series`:

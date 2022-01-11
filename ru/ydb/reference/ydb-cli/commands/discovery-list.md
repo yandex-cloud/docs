@@ -1,9 +1,12 @@
+---
+sourcePath: overlay/reference/ydb-cli/commands/discovery-list.md
+---
 # Получение списка эндпоинтов для базы данных
 
 Получите список эндпойнтов для базы данных:
 
 ```bash
-{{ ydb-cli }} discovery list
+ydb discovery list
 ```
 
 Результат:

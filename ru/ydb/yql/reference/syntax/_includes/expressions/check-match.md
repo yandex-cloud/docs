@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/check-match.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/check-match.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/expressions/check-match.md
 ---
+
 ## Проверка строки на соответствие шаблону {#check-match}
 
 `REGEXP` и `RLIKE` являются алиасами и представляют собой короткий способ записи для вызова [Hyperscan::Grep](../../../udf/list/hyperscan.md#grep). `MATCH` — аналогично для [Hyperscan::Match](../../../udf/list/hyperscan.md#match).

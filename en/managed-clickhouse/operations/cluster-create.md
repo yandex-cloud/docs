@@ -2,22 +2,31 @@
 
 {{ CH }} clusters are one or more database hosts that replication can be configured between.
 
-{% note warning %}
+The number of hosts to add to a cluster when it is created depends on the selected [storage type](../concepts/storage.md):
 
-
-When creating a {{ CH }} cluster with 2 or more hosts, {{ mch-short-name }} automatically creates a cluster of 3 ZooKeeper hosts for managing replication and fault tolerance. These hosts are considered when calculating the [resource quotas]({{ link-console-quotas }}) used by the cloud and the cluster cost. Read more about replication for [{{ CH }}](../concepts/replication.md#clickhouse).
-
-{% endnote %}
-
-
-The number of hosts that can be created together with a {{ CH }} cluster depends on the selected [type of storage](../concepts/storage.md):
-
-* With **local storage**, you can create a cluster with 2 or more hosts (to ensure fault tolerance, a minimum of 2 hosts is necessary).
+* When using **local storage** (`local-ssd`), you can create a cluster with two or more hosts (a minimum of two hosts is required for fault tolerance).
 * When using network storage:
     * If you select **standard** or **fast network storage**, you can add any number of hosts within the [current quota](../concepts/limits.md).
     * If you select **non-replicated network storage**, you can create a cluster with 3 or more hosts (to ensure fault tolerance, a minimum of 3 hosts is necessary).
 
-After creating a cluster, you can add extra hosts to it if there are enough available [folder resources](../concepts/limits.md).
+The selected [replication mechanism](../concepts/replication.md) also affects the number of hosts in a multi-host cluster:
+
+* A cluster that uses {{ CK }} to manage replication and fault tolerance should consist of three hosts with no individual hosts required to run {{ CK }}. You can only create this kind of cluster using the CLI or API.
+
+    {% note info %}
+
+    This feature is at the [Preview stage](../../overview/concepts/launch-stages.md) stage. At the [General Availability](../../overview/concepts/launch-stages.md) stage, this restriction will be lifted.
+
+    {% endnote %}
+
+* When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
+
+    {% note alert %}
+
+    
+    These hosts are taken into account when calculating the used up [resource quotas]({{ link-console-quotas }}) in the cloud and in [calculating the cost](../pricing.md#prices-zookeeper) of the cluster.
+
+    {% endnote %}
 
 {% list tabs %}
 
@@ -27,11 +36,11 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
 
   1. In the management console, select the folder where you want to create a DB cluster.
 
-  1. Select **{{ mch-name }}**.
+    1. Select **{{ mch-name }}**.
 
   1. Click **Create cluster**.
 
-  1. Enter a name for the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
+  1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
 
   1. From the **Version** drop-down list, select the version of {{ CH }} which the {{ mch-name }} cluster will use:
      1. For most clusters, it's recommended to select the latest LTS version.
@@ -50,14 +59,12 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
       
       * Choose the [type of storage](../concepts/storage.md), either a more flexible network type (`network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`) or faster local SSD storage (`local-ssd`).
 
-        When selecting a storage type, remember that:
-        * The size of the local storage can only be changed in 100 GB increments.
-        * The size of non-replicated network storage can only be changed in 93 GB increments.
+        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
   1. Under **Database**, specify the DB attributes:
       * DB name.
-      * Username.
+      * User name.
       * User password. At least 8 characters.
 
   1. To [manage users via SQL](cluster-users.md#sql-user-management), enable the **User management via SQL** setting and specify the password of the `admin` user.
@@ -93,16 +100,16 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
   
   1. Check whether the folder has any subnets for the cluster hosts:
 
-     ```
-     $ yc vpc subnet list
+     ```bash
+     yc vpc subnet list
      ```
 
      If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
   1. View a description of the CLI create cluster command:
 
-      ```
-      $ {{ yc-mdb-ch }} cluster create --help
+      ```bash
+      {{ yc-mdb-ch }} cluster create --help
       ```
 
   1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
@@ -152,34 +159,74 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
              --admin-password <admin user password>
           ```
 
+      1. To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
+      1. To enable [{{ CK }}](../concepts/replication.md#ck) in a cluster:
+         * Set the {{ CH }} version ({{ mch-ck-version }} or higher) in the `--version` parameter.
+         * Set `--embedded-keeper` to `true`.
+
+          ```bash
+          {{ yc-mdb-ch }} cluster create \
+             ...
+             --version "<{{ CH }} version: {{ mch-ck-version }} or higher>" \
+             --embedded-keeper true
+          ```
+
+          {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
+
+          To get a list of available {{ CH }} versions, run the command:
+
+          ```bash
+          {{ yc-mdb-ch }} version list
+          ```
+
 - Terraform
 
   {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
-  If you don't have Terraform, [install it and configure the provider](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
-
   To create a cluster:
 
-    1. In the configuration file, describe the parameters of resources that you want to create:
-       * Database cluster: Description of the cluster and its hosts. If required, here you can also configure [DBMS settings](../concepts/settings-list.md).
-       * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be located. If you already have a suitable network, you don't need to describe it again.
-       * Subnets: Description of the [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
+    1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-       Example configuration file structure:
+    1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+    1. Create a configuration file with a description of your [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
+
+       The cluster is hosted on a cloud network. If you already have a suitable network, you don't need to describe it again.
+       Cluster hosts are located on subnets of the selected cloud network. If you already have suitable subnets, you don't need to describe them again.
+
+       Example structure of a configuration file that describes a cloud network with a single subnet:
 
        ```hcl
-       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+       resource "yandex_vpc_network" "<name of network in {{ TF }}>" { name = "<network name>" }
+       
+       resource "yandex_vpc_subnet" "<name of subnet in {{ TF }}>" {
+         name           = "<subnet name>"
+         zone           = "<availability zone>"
+         network_id     = yandex_vpc_network.<name of network in {{ TF }}>.id
+         v4_cidr_blocks = ["<subnet>"]
+       }
+       ```
+
+    1. Create a configuration file with a description of the cluster and its hosts.
+
+       You can also configure [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) here if necessary.
+
+       Example structure of a configuration file that describes a cluster with a single host:
+
+       ```hcl
+       resource "yandex_mdb_clickhouse_cluster" "<name of cluster in {{ TF }}>" {
          name                = "<cluster name>"
          environment         = "<environment>"
-         network_id          = "<network ID>"
-         security_group_ids = ["<list of security groups>"]
+         network_id          = yandex_vpc_network.<name of network in {{ TF }}>.id
+         security_group_ids  = ["<security group ID list>"]
          deletion_protection = <protect cluster from deletion: true or false>
        
          clickhouse {
            resources {
              resource_preset_id = "<host class>"
              disk_type_id       = "<storage type>"
-             disk_size          = <storage size, GB>
+             disk_size          = <storage size in GB>
            }
          }
        
@@ -198,39 +245,45 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
          host {
            type      = "CLICKHOUSE"
            zone      = "<availability zone>"
-           subnet_id = "<subnet ID>"
+           subnet_id = yandex_vpc_subnet.<name of subnet in {{ TF }}>.id
          }
-       }
-       
-       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
-       
-       resource "yandex_vpc_subnet" "<subnet name>" {
-         name           = "<subnet name>"
-         zone           = "<availability zone>"
-         network_id     = "<network ID>"
-         v4_cidr_blocks = ["<range>"]
        }
        ```
 
        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+       To enable access from other {{ yandex-cloud }} services and [SQL query execution from the management console](web-sql-query.md), add an `access` block with the necessary settings:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
+          ...
+          access {
+            datalens   = <access from DataLens: true or false>
+            metrika    = <access from Yandex.Metrica and AppMetrica: true or false>
+            serverless = <access from Cloud Functions: true or false>
+            web_sql    = <execution of SQL queries from management console: true or false>
+          }
+          ...
+        }
+        ```
+
        For more information about resources that you can create using Terraform, see the [provider's documentation](https://www.terraform.io/docs/providers/yandex/r/mdb_clickhouse_cluster.html).
 
-    1. Make sure the settings are correct.
+    1. Check the {{ TF }} configuration files for errors:
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Create a cluster.
+    1. Create a cluster:
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        After this, all the necessary resources will be created in the specified folder and the IP addresses of the VMs will be displayed in the terminal. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 - API
 
   To create a cluster, use the [create](../api-ref/Cluster/create.md) API method and pass the following in the request:
-  * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
-  * The cluster name, in the `name` parameter.
+  * The ID of the folder where the cluster should be placed in the `folderId` parameter.
+  * The cluster name in the `name` parameter.
   * The environment of the cluster, in the `environment` parameter.
   * Cluster configuration, in the `configSpec` parameter.
   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
@@ -242,9 +295,20 @@ After creating a cluster, you can add extra hosts to it if there are enough avai
   * `configSpec.sqlDatabaseManagement`: Set `true` to enable [database management via SQL](databases.md#sql-database-management). User management via SQL needs to be enabled.
   * `configSpec.adminPassword` : Set the password for the `admin` user whose account is used for management.
 
+  To enable cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass the value `true` for the `configSpec.access.serverless` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
+
   When creating a cluster with multiple hosts:
-    * If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each of the [availability zones](../../overview/concepts/geo-scope.md), one {{ ZK }} host is automatically added to each subnet if you don't explicitly specify the settings for these hosts. If necessary, you can explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
-    * If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify 3 {{ ZK }} hosts and their settings when creating a cluster.
+
+  * If `embeddedKeeper` is `true`, replication will be managed using [{{ CK }}](../concepts/replication.md#ck).
+
+      {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
+
+      To use {{ CK }}, your {{ CH }} version must be {{ mch-ck-version }} or higher. You can get a list of available {{ CH }} versions using the [list](../api-ref/Versions/list.md) API method.
+
+  * If `embeddedKeeper` is undefined or `false`, replication and query distribution will be managed using {{ ZK }}.
+
+      If a cluster's [cloud network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md), and {{ ZK }} host settings are undefined, one such host will be added to each subnet automatically.
+      If only some availability zones in the cluster's network have subnets, explicitly specify the {{ ZK }} host settings.
 
 {% endlist %}
 
@@ -271,10 +335,11 @@ If you specified security group IDs when creating a cluster, you may also need t
   * In the `default` network.
   * In the security group `{{ security-group }}`.
   * With a single `{{ host-class }}` class ClickHouse host in the `b0rcctk2rvtr8efcch64` subnet and `ru-central1-c` availability zone.
+  * With {{ CK }}.
   * With 20 GB of fast network storage (`{{ disk-type-example }}`).
   * With one user, `user1`, with the password `user1user1`.
   * With one database, `db1`.
-  * With protection against accidental cluster deletion.
+  * With accidental cluster deletion protection.
 
   Run the command:
 
@@ -286,6 +351,8 @@ If you specified security group IDs when creating a cluster, you may also need t
      --network-name default \
      --clickhouse-resource-preset {{ host-class }} \
      --host type=clickhouse,zone-id=ru-central1-c,subnet-id=b0cl69g98qumiqmtg12a \
+     --version {{ mch-ck-version }} \
+     --embedded-keeper true \
      --clickhouse-disk-size 20 \
      --clickhouse-disk-type {{ disk-type-example }} \
      --user name=user1,password=user1user1 \
@@ -294,93 +361,109 @@ If you specified security group IDs when creating a cluster, you may also need t
      --deletion-protection=true
   ```
 
-- Terraform
+- {{ TF }}
 
   Let's say we need to create a {{ CH }} cluster and a network for it with the following characteristics:
-    * Named `mych`.
-    * In the `PRESTABLE` environment.
-    * In the cloud with the ID `{{ tf-cloud-id }}`.
-    * In the folder with the ID `{{ tf-folder-id }}`.
-    * Network: `mynet`.
-    * In the new security group `mych-sg` allowing connections to the cluster from the internet via ports `8443` and `9440`.
-    * With a single `{{ host-class }}` class host in the new subnet named `mysubnet` and the `ru-central1-c` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
-    * With 32 GB of fast network storage.
-    * With the database name `my_db`.
-    * With the username `user1` and password `user1user1`.
-    * With protection against accidental cluster deletion.
 
-  The configuration file for the cluster looks like this:
+  * Named `mych`.
 
-  ```hcl
-  provider "yandex" {
-    token     = "<OAuth or static key of service account>"
-    cloud_id  = "{{ tf-cloud-id }}"
-    folder_id = "{{ tf-folder-id }}"
-    zone      = "ru-central1-c"
-  }
-  
-  resource "yandex_mdb_clickhouse_cluster" "mych" {
-    name                = "mych"
-    environment         = "PRESTABLE"
-    network_id          = yandex_vpc_network.mynet.id
-    security_group_ids  = [ yandex_vpc_security_group.mych-sg.id ]
-    deletion_protection = true
-  
-    clickhouse {
-      resources {
-        resource_preset_id = "{{ host-class }}"
-        disk_type_id       = "network-ssd"
-        disk_size          = 32
-      }
-    }
-  
-    database {
-      name = "my_db"
-    }
-  
-    user {
-      name     = "user1"
-      password = "user1user1"
-      permission {
-        database_name = "my_db"
-      }
-    }
-  
-    host {
-      type      = "CLICKHOUSE"
-      zone      = "ru-central1-c"
-      subnet_id = yandex_vpc_subnet.mysubnet.id
-    }
-  }
-  
-  resource "yandex_vpc_network" "mynet" { name = "mynet" }
-  
-  resource "yandex_vpc_subnet" "mysubnet" {
-    name           = "mysubnet"
-    zone           = "ru-central1-c"
-    network_id     = yandex_vpc_network.mynet.id
-    v4_cidr_blocks = ["10.5.0.0/24"]
-  }
-  
-  resource "yandex_vpc_security_group" "mych-sg" {
-    name       = "mych-sg"
-    network_id = yandex_vpc_network.mynet.id
-  
-    ingress {
-      description    = "MCHSSSH"
-      port           = 8443
-      protocol       = "TCP"
-      v4_cidr_blocks = [ "0.0.0.0/0" ]
-    }
-  
-    ingress {
-      description    = "MCHSSH2"
-      port           = 9440
-      protocol       = "TCP"
-      v4_cidr_blocks = [ "0.0.0.0/0" ]
-    }
-  }
-  ```
+  * In the `PRESTABLE` environment.
+
+  * In the cloud with the ID `{{ tf-cloud-id }}`.
+
+  * In the folder with the ID `{{ tf-folder-id }}`.
+
+  * In a new cloud network named `cluster-net`.
+
+  * In a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (on the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+
+  * With one `{{ host-class }}` class host on a new subnet called `cluster-subnet-ru-central1-c`.
+
+    Subnet parameters:
+    * Address range: `172.16.3.0/24`.
+    * Network: `cluster-net`.
+    * Availability zone: `{{ zone-id }}`.
+
+  * With 32 GB of fast network storage.
+
+  * With a database named `db1`.
+
+  * With the username `user1` and password `user1user1`.
+
+  The configuration files for this cluster look like this:
+
+  1. Configuration file with a description of provider settings:
+
+      {% include [terraform-provider](../../_includes/mdb/terraform-provider.md) %}
+
+  1. Configuration file with a description of the cloud network and subnet:
+
+      {% include [terraform-mdb-single-network](../../_includes/mdb/terraform-single-network.md) %}
+
+  1. Configuration file with a description of the security group:
+
+      {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
+
+  1. Configuration file with a description of the cluster and cluster host:
+
+      {% include [terraform-mch-single-host-single-shard](../../_includes/mdb/mch/terraform/single-host-single-shard.md) %}
+
+{% endlist %}
+
+### Creating a multi-host cluster {#creating-a-multi-host-cluster}
+
+{% list tabs %}
+
+- {{ TF }}
+
+  Let's say we need to create a {{ CH }} cluster with the following characteristics:
+
+  * Named `mych`.
+
+  * In the `PRESTABLE` environment.
+
+  * In the cloud with the ID `{{ tf-cloud-id }}`.
+
+  * In the folder with the ID `{{ tf-folder-id }}`.
+
+  * In a new cloud network named `cluster-net`.
+
+  * With three {{ CH }} hosts of the `{{ host-class }}` class and three {{ ZK }} hosts of the `{{ zk-host-class }}` class (to provide [replication](../concepts/replication.md)).
+
+    One host of each type will be added to the new subnets:
+    * `cluster-subnet-ru-central1-a`: `172.16.1.0/24`, availability zone `ru-central1-a`.
+    * `cluster-subnet-ru-central1-b`: `172.16.2.0/24`, availability zone `ru-central1-b`.
+    * `cluster-subnet-ru-central1-c`: `172.16.3.0/24`, availability zone `ru-central1-c`.
+
+    These subnets will belong to the `cluster-net` network.
+
+  * In a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (on the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+
+  * With 32 GB of fast network storage for each {{ CH }} host in the cluster.
+
+  * With 10 GB of fast network storage for each {{ ZK }} host in the cluster.
+
+  * With a database named `db1`.
+
+  * With the username `user1` and password `user1user1`.
+
+  The configuration files for this cluster look like this:
+
+  1. Configuration file with a description of provider settings:
+
+      {% include [terraform-provider](../../_includes/mdb/terraform-provider.md) %}
+
+  1. Configuration file with a description of the cloud network and subnets:
+
+      {% include [terraform-mdb-multiple-networks](../../_includes/mdb/terraform-multiple-networks.md) %}
+
+  1. Configuration file with a description of the security group:
+
+      {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
+
+  1. Configuration file with a description of the cluster and cluster hosts:
+
+      {% include [terraform-mch-multiple-hosts-single-shard](../../_includes/mdb/mch/terraform/multiple-hosts-single-shard.md) %}
 
 {% endlist %}
 

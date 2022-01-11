@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
+---
 # Добавление записи
 
 Чтобы добавить новую запись в таблицу `Series`:  

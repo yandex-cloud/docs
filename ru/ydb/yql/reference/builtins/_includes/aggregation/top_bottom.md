@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/top_bottom.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/top_bottom.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/aggregation/top_bottom.md
 ---
+
 ## TOP и BOTTOM {#top-bottom}
 
 Вернуть список максимальных/минимальных значений выражения. Первый аргумент - выражение, второй - ограничение на количество элементов.

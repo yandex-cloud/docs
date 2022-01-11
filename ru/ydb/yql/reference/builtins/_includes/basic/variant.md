@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/variant.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/variant.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/variant.md
 ---
+
 ## Variant, AsVariant {#variant}
 
 `Variant()` создает значение варианта над кортежем или структурой.

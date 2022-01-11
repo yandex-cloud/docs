@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/optional.md
+sourcePath: core/yql/reference/yql-docs-core-2/types/_includes/optional.md
+sourcePath: yql/reference/yql-docs-core-2/types/_includes/optional.md
 ---
+
 ## Типы данных, допускающие значение NULL
 
 Любые типизированные данные в YQL, включая столбцы таблиц, бывают как гарантированно имеющие значение, так и потенциально пустые (что обозначается как `NULL`). Типы данных, которые могут содержать значения `NULL`, называются _опциональными_ или, в терминах SQL, — _nullable_.

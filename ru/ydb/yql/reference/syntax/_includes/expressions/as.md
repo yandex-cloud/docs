@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/expressions/as.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/expressions/as.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/expressions/as.md
 ---
+
 ## AS {#as}
 
 Может использоваться в следующих сценариях:

@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/to_from_bytes.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/to_from_bytes.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/to_from_bytes.md
 ---
+
 ## ToBytes и FromBytes {#to-from-bytes}
 
 Конвертация [простых типов данных](../../../types/primitive.md) в строку со своим бинарным представлением и обратно. Числа представляются в [little endian](https://en.wikipedia.org/wiki/Endianness#Little-endian).

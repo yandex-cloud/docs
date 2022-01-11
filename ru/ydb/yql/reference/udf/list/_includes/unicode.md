@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/unicode.md
+sourcePath: core/yql/reference/yql-docs-core-2/udf/list/_includes/unicode.md
+sourcePath: yql/reference/yql-docs-core-2/udf/list/_includes/unicode.md
 ---
+
 # Unicode
 Функции для работы с Unicode строками.
 

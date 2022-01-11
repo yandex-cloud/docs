@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
+---
 # Удаление записи
 
 Чтобы удалить с условием запись в таблице `Series`:

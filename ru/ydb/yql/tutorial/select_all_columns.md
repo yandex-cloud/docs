@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/select_all_columns.md
+---
 # Выборка данных из всех колонок
 
 Выберите все колонки из таблицы с помощью оператора [SELECT](../reference/syntax/select.md).

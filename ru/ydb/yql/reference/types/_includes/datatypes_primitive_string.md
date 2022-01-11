@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_string.md
+sourcePath: core/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_string.md
+sourcePath: yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_string.md
 ---
+
 Тип | Описание | Примечания
 ----- | ----- | ----- 
 `String` | Строка, может содержать произвольные бинарные данные | 

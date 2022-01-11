@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_datetime.md
+sourcePath: core/yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_datetime.md
+sourcePath: yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_datetime.md
 ---
+
 Тип | Описание | Примечания
 ----- | ----- | -----
 `Date` | Дата, точность до дней | 

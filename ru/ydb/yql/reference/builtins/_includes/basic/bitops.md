@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/bitops.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/bitops.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/bitops.md
 ---
+
 ## ...Bit {#bitops}
 
 `TestBit()`, `ClearBit()`, `SetBit()` и `FlipBit()` - проверить, сбросить, установить или инвертировать бит в беззнаковом числе по указанному порядковому номеру бита.

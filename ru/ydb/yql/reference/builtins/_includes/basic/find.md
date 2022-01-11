@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/basic/find.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/basic/find.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/basic/find.md
 ---
+
 ## FIND {#find}
 
 Поиск позиции подстроки в строке.

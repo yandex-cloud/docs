@@ -1,3 +1,6 @@
+---
+sourcePath: core/concepts/_includes/index/when_use.md
+---
 ## Сценарии применения
 
 YDB является альтернативой имеющимся решениям в следующих случаях: 

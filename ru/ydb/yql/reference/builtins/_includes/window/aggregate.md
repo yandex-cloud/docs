@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/window/aggregate.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/window/aggregate.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/window/aggregate.md
 ---
+
 ## Агрегатные функции {#aggregate-functions}
 
 Все [агрегатные функции](../../aggregation.md) также могут использоваться в роли оконных.

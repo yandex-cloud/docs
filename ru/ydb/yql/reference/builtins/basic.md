@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/basic.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/basic.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/basic.md
 ---
+
 
 {% include [x](_includes/basic/intro.md) %}
 

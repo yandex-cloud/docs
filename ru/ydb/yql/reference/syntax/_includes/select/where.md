@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/where.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/select/where.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/select/where.md
 ---
+
 ## WHERE {#where}
 
 Фильтрация строк в результате `SELECT` по условию.

@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/quickstart/document-api/aws-cli/put-item.md
+---
 # Добавление данных в таблицу
 
 Чтобы добавить две записи в таблицу `series`:
@@ -10,7 +13,7 @@
 
     {% note warning %}
 
-    Для работы с AWS CLI из Windows рекомендуется использовать [WSL](https://docs.microsoft.com/ru-ru/windows/wsl/).
+    Для работы с AWS CLI из Windows рекомендуется использовать [WSL].
 
     {% endnote %}
 

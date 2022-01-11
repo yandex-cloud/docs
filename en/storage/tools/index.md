@@ -11,9 +11,10 @@
   * [WinSCP](winscp.md)
 
 * SDK
-  * [AWS Java SDK](aws-sdk-java.md)
-  * [Python SDK (boto)](boto.md)
-  * [AWS .NET SDK](aws-sdk-net.md)
+  * [AWS SDK for Java](aws-sdk-java.md)
+  * [SDK for Python (boto)](boto.md)
+  * [The AWS SDK for .NET](aws-sdk-net.md)
+  * [AWS SDK for PHP](aws-sdk-php.md)
 
 * FUSE
   * [GeeseFS](geesefs.md)

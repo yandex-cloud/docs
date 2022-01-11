@@ -121,7 +121,7 @@ items:
             href: operations/dataset/create-filter.md
           - name: Updating fields in datasets
             href: operations/dataset/update-field.md
-          - name: Adding data to a dataset using SQL
+          - name: Describing a dataset via a source SQL query
             href: operations/dataset/add-data.md
           - name: Dataset materialization
             href: operations/dataset/materialize.md
@@ -605,6 +605,9 @@ items:
       - name: Data is not available because materialization is not yet complete
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
+      - name: Data source (table) does not exist
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md
       - name: Data source refused connection
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md
@@ -613,7 +616,8 @@ items:
         href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
       - name: Inconsistent aggregation among operands
         hidden: true
-        href: troubleshooting/errors/ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md
+        href: >-
+          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
       - name: Memory limit has been exceeded during query execution
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
@@ -640,10 +644,8 @@ items:
       - name: Unknown field
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FIELD-NOT_FOUND.md
-      - name: Unknown referenced column
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FORMULA-TRANSLATION-UNKNOWN_FIELD.md
       - name: Window function has no aggregated expressions among its arguments
         hidden: true
-        href: troubleshooting/errors/ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md
+        href: >-
+          troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md
 base: en/datalens

@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/window.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/window.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/window.md
 ---
+
 
 {% include [x](_includes/window/intro.md) %}
 

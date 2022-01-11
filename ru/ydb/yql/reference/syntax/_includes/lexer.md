@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/lexer.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/lexer.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/lexer.md
 ---
+
 
 # Лексическая структура
 

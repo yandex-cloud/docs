@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/window/row_number.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/window/row_number.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/window/row_number.md
 ---
+
 ## ROW_NUMBER {#row_number}
 
 Номер строки в рамках [раздела](../../../syntax/window.md#partition). Без аргументов.

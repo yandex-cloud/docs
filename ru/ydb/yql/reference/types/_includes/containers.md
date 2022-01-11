@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/types/_includes/containers.md
+sourcePath: core/yql/reference/yql-docs-core-2/types/_includes/containers.md
+sourcePath: yql/reference/yql-docs-core-2/types/_includes/containers.md
 ---
+
 # Контейнеры
 
 | Тип | Объявление,</br>пример | Описание |

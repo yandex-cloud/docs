@@ -1,10 +1,13 @@
+---
+sourcePath: overlay/quickstart/yql-api/ydb-ui.md
+---
 # Работа с данными через консоль управления
 
-После [создания базы данных](../create-db.md) выполните базовые YQL-запросы используя консоль управления {{ yandex-cloud }}.
+После [создания базы данных](../create-db.md) выполните базовые YQL-запросы используя консоль управления Yandex.Cloud.
 
 {% note tip %}
 
-Подробнее о синтаксисе YQL читайте в [Справочнике YQL](../../yql/reference/overview.md).
+Подробнее о синтаксисе YQL читайте в [Справочнике YQL](../../yql/reference/index.md).
 
 {% endnote %}
 

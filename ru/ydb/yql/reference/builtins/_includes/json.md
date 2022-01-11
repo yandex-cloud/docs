@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/json.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/json.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/json.md
 ---
+
 # Функции для работы с JSON
 
 **JSON** - слабо схематизированный [формат данных](https://www.json.org), представленный в YQL типом `Json`. В отличии от реляционных таблиц, JSON может хранить данные, для которых схема не определена. Вот пример валидного JSON:

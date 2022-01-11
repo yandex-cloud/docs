@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/operations/_includes/secondary_indexes.md
+---
 # Работа со вторичными индексами
 
 ## Добавление вторичных индексов {#add-si}

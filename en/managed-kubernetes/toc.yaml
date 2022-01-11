@@ -75,6 +75,8 @@ items:
         href: solutions/backup.md
       - name: Integration with a corporate DNS zone
         href: solutions/custom-dns.md
+      - name: Automatic DNS scaling by cluster size
+        href: solutions/dns-autoscaler.md
   - name: Concepts
     items:
       - name: Relationship between service resources

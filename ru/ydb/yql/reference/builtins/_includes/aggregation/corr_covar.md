@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/corr_covar.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/corr_covar.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/aggregation/corr_covar.md
 ---
+
 ## CORRELATION и COVARIANCE {#correlation-covariance}
 
 Корреляция и ковариация двух колонок.

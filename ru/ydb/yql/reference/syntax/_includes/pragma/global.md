@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/pragma/global.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/pragma/global.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/pragma/global.md
 ---
+
 ## Глобальные {#pragmas}
 
 ### AutoCommit

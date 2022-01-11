@@ -1,13 +1,16 @@
-# Структура и описание команд {{ ydb-short-name }} CLI
+---
+sourcePath: overlay/reference/ydb-cli/commands/commands.md
+---
+# Структура и описание команд YDB CLI
 
-Получите информацию обо всех доступных командах {{ ydb-short-name }} CLI или узнайте подробное описание конкретной команды.
+Получите информацию обо всех доступных командах YDB CLI или узнайте подробное описание конкретной команды.
 
-## Получение общей информации обо всех подкомандах {{ ydb-short-name }} CLI {#all}
+## Получение общей информации обо всех подкомандах YDB CLI {#all}
 
-Получите список всех доступных подкоманд {{ ydb-short-name }} CLI с кратким описанием:
+Получите список всех доступных подкоманд YDB CLI с кратким описанием:
 
 ```bash
-{{ ydb-cli }} --help
+ydb --help
 ```
 
 Результат:
@@ -139,12 +142,12 @@ Free args: min: 1, max: unlimited
   <subcommand>  config,discovery,export,import,init,operation,scheme,scripting,table,tools,update,version
 ```
 
-## Получение детальной информации о подкомандах {{ ydb-short-name }} CLI {#one}
+## Получение детальной информации о подкомандах YDB CLI {#one}
 
 Для любой подкоманды также можно получить более подробное описание со списком доступных параметров:
 
 ```bash
-{{ ydb-cli }} discovery whoami --help
+ydb discovery whoami --help
 ```
 
 Результат:

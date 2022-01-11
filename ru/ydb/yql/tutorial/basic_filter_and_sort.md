@@ -1,3 +1,6 @@
+---
+sourcePath: core/yql/tutorial/basic_filter_and_sort.md
+---
 # Сортировка и фильтрация
 
 Выберите первые три эпизода из всех сезонов IT Crowd за исключением первого.

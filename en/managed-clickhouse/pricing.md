@@ -1,7 +1,6 @@
 ---
 editable: false
 ---
-
 # Pricing for {{ mch-short-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -22,9 +21,7 @@ The cost of {{ mch-name }} usage is based on:
 
 * Outgoing traffic from {{ yandex-cloud }} to the internet.
 
-
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
-
 
 ### DB host usage {#rules-hosts-uptime}
 
@@ -40,14 +37,14 @@ When you create a cluster with 2 or more {{ CH }} hosts, 3 {{ ZK }} hosts with t
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You aren't charged for time when the DBMS or {{ ZK }} host isn't performing its main functions.
 
-
 ### Disk space usage {#rules-storage}
 
 The following is charged:
 
 * Storage allocated for DB clusters.
-    
-    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 2 hosts in 100 GB increments.
+    * Storage on fast local disks (`local-ssd`) can only be ordered for clusters with more than 2 hosts:
+        * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
+        * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
     * Storage on non-replicated network drives (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in 93 GB increments.
 
 * The storage size used by data backups of [local](concepts/storage.md) and [network](concepts/storage.md) storage devices:
@@ -85,7 +82,6 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
-
 ## Pricing {#prices}
 
 ### {{ CH }} host computing resources {#prices-clickhouse}
@@ -94,7 +90,6 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
-
 
 ### {{ ZK }} host computing resources {#prices-zookeeper}
 
@@ -109,14 +104,12 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 {% include [usd-host-zoo.md](../_pricing/managed-clickhouse/usd-host-zoo.md) %}
 
-
 ### Storage and backups {#prices-storage}
 
 
 
 
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
-
 
 ### Outgoing traffic {#prices-traffic}
 
@@ -148,7 +141,6 @@ Prices for host uptime are calculated based on [host classes](concepts/instance-
 
 {% endlist %}
 
-
 ### ZooKeeper hosts {#prices-zookeeper-host}
 
 {% note info %}
@@ -171,3 +163,4 @@ You can't order {{ ZK }} host resources using a CVoS.
   {% include [usd-zoo-classes-hour.md](../_pricing/managed-clickhouse/usd-zoo-classes-hour.md) %}
 
 {% endlist %}
+

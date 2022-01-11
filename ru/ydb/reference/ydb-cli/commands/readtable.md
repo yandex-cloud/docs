@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/reference/ydb-cli/commands/readtable.md
+---
 # Потоковое чтение таблицы
 
 Чтобы прочитать снэпшот таблицы целиком, используйте подкоманду `readtable`. Данные передаются в виде стрима, что позволяет прочитать таблицу произвольного размера.
@@ -5,7 +8,7 @@
 Прочитайте данные:
 
 ```bash
-{{ ydb-cli }} table readtable episodes \
+ydb table readtable episodes \
   --ordered \
   --limit 5 \
   --columns series_id,season_id,episode_id,title
@@ -38,7 +41,7 @@
 Если вам нужно получить только количество прочитанных записей, используйте параметр `--count-only`:
 
 ```bash
-{{ ydb-cli }} table readtable episodes \
+ydb table readtable episodes \
   --columns series_id \
   --count-only
 ```

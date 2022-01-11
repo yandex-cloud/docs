@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/udf/list/_includes/url.md
+sourcePath: core/yql/reference/yql-docs-core-2/udf/list/_includes/url.md
+sourcePath: yql/reference/yql-docs-core-2/udf/list/_includes/url.md
 ---
+
 # Url
 
 ## Normalize {#normalize}

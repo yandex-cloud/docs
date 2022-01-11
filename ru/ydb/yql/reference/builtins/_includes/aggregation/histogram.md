@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/histogram.md
+sourcePath: core/yql/reference/yql-docs-core-2/builtins/_includes/aggregation/histogram.md
+sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/aggregation/histogram.md
 ---
+
 ## HISTOGRAM {#histogram}
 
 Построение примерной гистограммы по числовому выражению с автоматическим выбором корзин.

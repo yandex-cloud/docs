@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/calc.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/select/calc.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/select/calc.md
 ---
+
 ## SELECT
 
 Возвращает результат вычисления выражений, указанных после `SELECT`.

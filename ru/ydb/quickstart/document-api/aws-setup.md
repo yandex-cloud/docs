@@ -1,3 +1,6 @@
+---
+sourcePath: overlay/quickstart/document-api/aws-setup.md
+---
 # Настройка инструментов AWS
 
 Для работы с БД через Document API в режиме совместимости с AWS DynamoDB вы можете использовать инструменты AWS:
@@ -120,7 +123,7 @@
     ```
 
     В результате будут созданы файлы `~/.aws/credentials` и `~/.aws/config` (`C:\Users\USERNAME\.aws\credentials` и `C:\Users\USERNAME\.aws\config` в Windows).
-1. Проверьте корректность настройки, запустив команду листинга таблиц в [созданной](../create-db.md) ранее БД. В качестве значения `--endpoint` укажите Document API эндпоинт, доступный на вкладке **Обзор** вашей базы данных в [консоли управления]({{ link-console-main }}).
+1. Проверьте корректность настройки, запустив команду листинга таблиц в [созданной](../create-db.md) ранее БД. В качестве значения `--endpoint` укажите Document API эндпоинт, доступный на вкладке **Обзор** вашей базы данных в [консоли управления](https://console.cloud.yandex.ru/).
 
     ```bash
     aws dynamodb list-tables \

@@ -1,6 +1,8 @@
 ---
-sourcePath: ru/ydb/yql/reference/yql-docs-core-2/syntax/_includes/select/from_select.md
+sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/select/from_select.md
+sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/select/from_select.md
 ---
+
 
 ## FROM ... SELECT ... {#from-select}
 
