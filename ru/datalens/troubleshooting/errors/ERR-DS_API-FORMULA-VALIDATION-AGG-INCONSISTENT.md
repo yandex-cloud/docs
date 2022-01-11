@@ -1,6 +1,6 @@
 # Inconsistent aggregation among operands
 
-`ERR.DS_API.VALIDATION.AGG.INCONSISTENT`
+`ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT`
 
 Происходит, когда аргументами и той же одной функции (или операндами одного оператора)
 являются одновременно агрегированное и неагрегированное выражения.

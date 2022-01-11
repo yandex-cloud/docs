@@ -8,6 +8,7 @@
 [ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED](ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md) | Request size limit exceeded |
 [ERR.CK.TOO_MANY_LINES](ERR-CK_TOO_MANY_LINES.md) | Too many series on the chart |
 [ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md) | Subquery source is disallowed in the connection settings |
+[ERR.DS_API.DATABASE_UNAVAILABLE](ERR-DS_API-DATABASE_UNAVAILABLE.md) | Data source is unavailable |
 [ERR.DS_API.DB.CANNOT_PARSE.DATETIME](ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md) | Cannot parse datetime |
 [ERR.DS_API.DB.CANNOT_PARSE.NUMBER](ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md) | Cannot parse number |
 {% if audience == "internal" %}[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.MORE_THAN_ONE_TABLE](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md) | Cannot join a concatenation of tables with another table |{% endif %}
@@ -23,13 +24,16 @@
 [ERR.DS_API.DB.SOURCE_CONNECT_ERROR](ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md) | Data source refused connection |
 [ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST](ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md) | Data source (table) does not exist |
 [ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT](ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md) | Data source timed out |
+[ERR.DS_API.DB.ZERO_DIVISION](ERR-DS_API-DB-ZERO_DIVISION.md) | Division by zero |
 [ERR.DS_API.FIELD.NOT_FOUND](ERR-DS_API-FIELD-NOT_FOUND.md) | Unknown field |
+[ERR.DS_API.FIELD.TITLE.CONFLICT](ERR-DS_API-FIELD-TITLE-CONFLICT.md) | Field title conflicts with another field |
 {% if audience == "internal" %}[ERR.DS_API.FILTER.INVALID_VALUE](ERR-DS_API-FILTER-INVALID_VALUE.md) | Filter invalid value |{% endif %}
-[ERR.DS_API.FORMULA.TRANSLATION.UNKNOWN_FIELD](ERR-DS_API-FORMULA-TRANSLATION-UNKNOWN_FIELD.md) | Unknown referenced column |
+[ERR.DS_API.FORMULA.UNKNOWN_FIELD_IN_FORMULA](ERR-DS_API-FORMULA-UNKNOWN_FIELD_IN_FORMULA.md) | Unknown field found in formula |
+[ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN](ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md) | Unknown referenced source column |
+[ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT](ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md) | Inconsistent aggregation among operands |
+[ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG](ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md) | Window function has no aggregated expressions among its arguments |
 [ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED](ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md) | Referenced connection <идентификатор подключения> cannot be loaded: access denied |
 [ERR.DS_API.ROW_COUNT_LIMIT](ERR-DS_API-ROW_COUNT_LIMIT.md) | Received too many result data rows |
 [ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED](ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md) | Table is not ready yet |
 [ERR.DS_API.US.ACCESS_DENIED](ERR-DS_API-US-ACCESS_DENIED.md) | Access denied |
-[ERR.DS_API.VALIDATION.AGG.INCONSISTENT](ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md) | Inconsistent aggregation among operands |
-[ERR.DS_API.VALIDATION.WIN_FUNC.NO_AGG](ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md) | Window function has no aggregated expressions among its arguments |
 {% if audience == "internal" %}[Нет прав на просмотр данных](no-access-to-read-this-operation.md) | You have no access to read this operation |{% endif %}

@@ -245,7 +245,7 @@ items:
         href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md
       - name: Inconsistent aggregation among operands
         hidden: true
-        href: troubleshooting/errors/ERR-DS_API-VALIDATION-AGG-INCONSISTENT.md
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
       - name: Memory limit has been exceeded during query execution
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
@@ -270,9 +270,6 @@ items:
       - name: Unknown field
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FIELD-NOT_FOUND.md
-      - name: Unknown referenced column
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FORMULA-TRANSLATION-UNKNOWN_FIELD.md
       - name: Window function has no aggregated expressions among its arguments
         hidden: true
-        href: troubleshooting/errors/ERR-DS_API-VALIDATION-WIN_FUNC-NO_AGG.md  
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md
