@@ -98,7 +98,7 @@ private void describeTables() {
 }
 ```
 
-{% include [pragmatablepathprefix.md](aux/pragmatablepathprefix.md) %}
+{% include [pragmatablepathprefix.md](auxa/pragmatablepathprefix.md) %}
 
 {% include [query_processing.md](steps/03_query_processing.md) %}
 

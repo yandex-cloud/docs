@@ -5,7 +5,7 @@ sourcePath: core/reference/ydb-sdk/example/_includes/example-php.md
 
 На этой странице подробно разбирается код тестового приложения, доступного в составе [PHP SDK](https://github.com/yandex-cloud/ydb-php-sdk) YDB.
 
-{% include [addition.md](aux/addition.md) %}
+{% include [addition.md](auxa/addition.md) %}
 
 {% include [init.md](steps/01_init.md) %}
 

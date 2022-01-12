@@ -5,7 +5,7 @@ sourcePath: core/reference/ydb-sdk/example/_includes/example-nodejs.md
 
 На этой странице подробно разбирается код [тестового приложения](https://github.com/ydb-platform/ydb-nodejs-sdk/tree/master/examples/basic-example-v1), доступного в составе [Node.js SDK](https://github.com/yandex-cloud/ydb-nodejs-sdk) YDB.
 
-{% include [addition.md](aux/addition.md) %}
+{% include [addition.md](auxa/addition.md) %}
 
 {% include [scan_query.md](steps/08_scan_query.md) %}
 

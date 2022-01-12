@@ -68,7 +68,7 @@ def describe_table(session, path, name):
 ('column, name:', 'release_date', ',', 'type_id: UINT64')
 ```
 
-{% include [pragmatablepathprefix.md](aux/pragmatablepathprefix.md) %}
+{% include [pragmatablepathprefix.md](auxa/pragmatablepathprefix.md) %}
 
 {% include [create_table.md](steps/03_query_processing.md) %}
 
