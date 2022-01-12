@@ -130,7 +130,7 @@
 
           ```yaml
           #ps1
-          net user administrator "<пароль>"
+          net user administrator '<пароль>'
           ```
 
       1. Выполните команду:

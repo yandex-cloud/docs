@@ -12,7 +12,7 @@
 
     ```yaml
     #ps1
-    net user administrator "<пароль>"
+    net user administrator '<пароль>'
     ```
 
 1. Создайте виртуальную машину в каталоге по умолчанию:
