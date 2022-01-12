@@ -245,6 +245,8 @@
 История изменений и возможность отката версии доступна для дашбордов в меню дашборда (см. [пост](https://clubs.at.yandex-team.ru/datalens/31)). Для остальных объектов пользователь не может самостоятельно откатить версию объекта (см. [тикет](https://st.yandex-team.ru/DLFR-458)).
 Заведите тикет в очереди [DLHELP](https://st.yandex-team.ru/DLHELP/). В тикете укажите объекты {{ datalens-short-name }} и версию (время), к которому требуется вернуть объект.
 
+{% include [object-id](../_includes/datalens/qa/object-id.md) %}
+
 ## Как сообщить о проблеме {#how-to-resolve-problem}
 
 Мы всегда поможем, если у вас возникнут трудности и проблемы.
@@ -254,3 +256,4 @@
 * картинки, GIF или видео (совсем не обязательно, но совсем не лишнее).
 Предложения и пожелания — очередь [DLFR](https://st.yandex-team.ru/createTicket?queue=DLFR).
 За новостями сервиса следите в [Этушке](https://clubs.at.yandex-team.ru/statistics/) и Telegram-канале [DataLens News](https://t.me/joinchat/AAAAAEY_2U2A53YOLnT5_A).
+

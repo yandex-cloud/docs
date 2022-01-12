@@ -19,6 +19,8 @@ items:
               Granting access to an app running in a Kubernetes
               cluster
             href: operations/create-load-balancer.md
+          - name: Configuring the Cilium network policy controller
+            href: operations/cilium.md
           - name: Using Kubernetes cluster network policies
             href: operations/running-network-policy.md
           - name: Configuring the Calico network policy controller
