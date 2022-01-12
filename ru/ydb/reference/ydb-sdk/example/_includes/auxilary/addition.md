@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/aux/addition.md
+sourcePath: core/reference/ydb-sdk/example/_includes/auxilary/addition.md
 ---
 {% note info %}
 

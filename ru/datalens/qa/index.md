@@ -168,6 +168,8 @@ description: "Как получить логи моей работы в серв
 
 Подробнее о блокировке можно прочитать в разделе [Автоматическая блокировка облака](../../overview/concepts/data-deletion.md#block).
 
+{% include [object-id](../../_includes/datalens/qa/object-id.md) %}
+
 ## Как сообщить о проблеме {#how-to-resolve-problem}
 
 Сообщить о проблеме можно двумя способами:
