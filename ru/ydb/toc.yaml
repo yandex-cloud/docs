@@ -475,4 +475,6 @@ items:
       - name: SDK-Hidden
         href: faq/sdk.md
         hidden: true
+  - name: Публичные материалы
+    href: public_talks.md
 base: .
