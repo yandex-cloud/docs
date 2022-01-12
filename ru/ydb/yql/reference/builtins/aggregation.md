@@ -25,7 +25,10 @@ sourcePath: yql/reference/yql-docs-core-2/builtins/aggregation.md
 
 {% include [x](_includes/aggregation/bool_bit.md) %}
 
+{% if feature_window_functions %}
 
   {% include [x](_includes/aggregation/session_start.md) %}
+
+{% endif %}
 
 {% include [x](_includes/aggregation/aggregate_by.md) %}

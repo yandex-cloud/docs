@@ -48,7 +48,17 @@ SELECT * FROM test;`
 
 Список кодов предупреждений и ошибок: https://a.yandex-team.ru/arc/trunk/arcadia/yql/core/issue/protos/issue_id.proto
 
+{% if feature_mapreduce %}
+### DqEngine
 
+| Тип значения | По умолчанию |
+| --- | --- |
+| Строка | "disable" |
+
+При значении "auto" включает новый движок вычислений. Вычисления по возможности делаются без создания map/reduce операций.
+{% endif %}
+
+{% if feature_join %}
 ### SimpleColumns {#simplecolumns}
 
 `SimpleColumns` / `DisableSimpleColumns`
@@ -81,6 +91,8 @@ SELECT * FROM test;`
 Если флаг установлен, то [JOIN](../../join.md) будет требовать строгого совпадения типов ключей.
 По умолчанию JOIN предварительно конвертирует ключи к общему типу, что может быть нежелательно с точки зрения производительности.
 StrictJoinKeyTypes является [scoped](#pragmascope) настройкой.
+
+{% endif %}
 
 ### AnsiInForEmptyOrNullableItemsCollections
 
@@ -174,6 +186,7 @@ ClassicDivision является [scoped](#pragmascope) настройкой.
 
 Увеличение лимита на число  группировок в [GROUP BY](../../group_by.md).
 
+{% if feature_group_by_rollup_cube %}
 
 ### GroupByCubeLimit
 
@@ -184,3 +197,5 @@ ClassicDivision является [scoped](#pragmascope) настройкой.
 Увеличение лимита на число размерностей [GROUP BY](../../group_by.md#rollup-cube-group-sets).
 
 Использовать нужно аккуратно, так как вычислительная сложность запроса растет экспоненциально по отношению к числу размерностей.
+
+{% endif %}

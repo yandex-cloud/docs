@@ -5,7 +5,7 @@ sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/into_result.md
 
 # INTO RESULT
 
-Позволяет задать пользовательскую метку для [SELECT](../select.md). Не может быть задано одновременно с [DISCARD](../discard.md).
+Позволяет задать пользовательскую метку для [SELECT](../select.md){% if feature_mapreduce and process_command == "PROCESS" %}, [PROCESS](../process.md) или [REDUCE](../reduce.md){% endif %}. Не может быть задано одновременно с [DISCARD](../discard.md).
 
 **Примеры:**
 

@@ -6,3 +6,18 @@ sourcePath: overlay/troubleshooting/_includes/system_views/tops.md
 
 Примеры:
 
+{% if audience != "external" %}
+
+{% list tabs %}
+
+- YQL
+
+{% include [example_yql.md](tops_example_yql.md) %}
+
+- Clickhouse over YDB
+
+{% include [example_ch](tops_example_ch.md) %}
+
+{% endlist %}
+
+{% endif %}

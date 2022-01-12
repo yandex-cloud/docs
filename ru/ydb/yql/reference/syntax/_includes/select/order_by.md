@@ -20,4 +20,6 @@ SELECT key, string_column
 FROM my_table
 ORDER BY key DESC, LENGTH(string_column) ASC;
 ```
+{% if feature_window_functions %}
 Ключевое слово `ORDER BY` также может использоваться в механизме [оконных функций](../../window.md).
+{% endif %}

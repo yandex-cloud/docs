@@ -20,5 +20,5 @@ sourcePath: yql/reference/yql-docs-core-2/udf/list/_includes/histogram.md
 * ```Histogram::CalcUpperBoundSafe(HistogramStruct{Flags:AutoMap}, Double) -> Double```
 * ```Histogram::CalcLowerBoundSafe(HistogramStruct{Flags:AutoMap}, Double) -> Double```
 
-У `Histogram::Print` есть опциональный числовой аргумент, который задает максимальную длину столбцов гистограммы (в символах, так как гистограмма рисуется в технике ASCII-арт). Значение по умолчанию — 25. Данная функция предназначена в первую очередь для просмотра гистограмм в консоли.
+У `Histogram::Print` есть опциональный числовой аргумент, который задает максимальную длину столбцов гистограммы (в символах, так как гистограмма рисуется в технике ASCII-арт). Значение по умолчанию — 25. Данная функция предназначена в первую очередь для просмотра гистограмм в консоли{% if feature_webui %}. [Веб-интерфейс](../../../interfaces/web.md) автоматически делает их интерактивную визуализацию{% endif %}.
 

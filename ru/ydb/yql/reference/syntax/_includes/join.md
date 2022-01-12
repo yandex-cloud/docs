@@ -81,3 +81,55 @@ CROSS JOIN b_table AS b
 LEFT  JOIN c_table AS c ON c.ref = a.key and c.column1 = b.value;
 ```
 
+{% if feature_mapreduce %}
+Если в выражении помимо `JOIN` выполняется фильтрация данных, то рекомендуется обернуть те условия, про которые известно, что они вернут `true` для большинства строк, в вызов функции `LIKELY(...)`. Если предположение о преобладании положительных значений в условии окажется верно, такая подсказка может положительно сказаться на времени выполнения запроса. Также `LIKELY` может быть полезен в том случае, когда вычисление предиката ресурсоёмко и при этом сам JOIN значительно сокращает число строк.
+
+Перед любым источником данных для `JOIN` можно указать ключевое слово `ANY`, которое служит для подавления дубликатов по ключам `JOIN` с соответствующей стороны. В этом случае из множества строк с одинаковым значением ключей `JOIN` остается только одна (не уточняется какая именно – отсюда и название `ANY`).
+Данный синтаксис отличается от принятого в [ClickHouse](https://clickhouse.tech/docs/ru/sql-reference/statements/select/join/), где `ANY` пишется перед типом `JOIN` и работает только для правой стороны.
+
+Запрос
+
+``` yql
+$t1 = AsList(
+    AsStruct("1" AS key, "v111" AS value),
+    AsStruct("2" AS key, "v121" AS value),
+    AsStruct("2" AS key, "v122" AS value),
+    AsStruct("3" AS key, "v131" AS value),
+    AsStruct("3" AS key, "v132" AS value));
+
+$t2 = AsList(
+    AsStruct("2" AS key, "v221" AS value),
+    AsStruct("2" AS key, "v222" AS value),
+    AsStruct("3" AS key, "v231" AS value),
+    AsStruct("3" AS key, "v232" AS value),
+    AsStruct("4" AS key, "v241" AS value));
+
+SELECT
+  a.key, a.value, b.value
+FROM ANY AS_TABLE($t1) AS a
+JOIN ANY AS_TABLE($t2) AS b
+ON a.key == b.key;
+```
+
+выдаст:
+
+|a.key|a.value|b.value|
+| --- | --- | --- |
+|"3"|"v131"|"v231"|
+|"2"|"v121"|"v221"|
+
+
+а без `ANY` выдал бы:
+
+|a.key|a.value|b.value|
+| --- | --- | --- |
+|"3"|"v131"|"v231"|
+|"3"|"v131"|"v232"|
+|"3"|"v132"|"v231"|
+|"3"|"v132"|"v232"|
+|"2"|"v121"|"v221"|
+|"2"|"v121"|"v222"|
+|"2"|"v122"|"v221"|
+|"2"|"v122"|"v222"|
+
+{% endif %}

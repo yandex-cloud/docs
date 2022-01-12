@@ -38,15 +38,37 @@ sourcePath: yql/reference/yql-docs-core-2/builtins/basic.md
 
 {% include [x](_includes/basic/as_tagged.md) %}
 
+{% if feature_bulk_tables %}
+
+  {% include [x](_includes/basic/table_path_name_recindex.md) %}
+
+{% endif %}
 
 {% include [x](_includes/basic/table_row.md) %}
 
+{% if feature_mapreduce %}
+
+  {% include [x](_includes/basic/files.md) %}
+
+  {% include [x](_includes/basic/weakfield.md) %}
+
+{% endif %}
 
 {% include [x](_includes/basic/ensure.md) %}
 
+{% if feature_codegen %}
+
+  {% include [x](_includes/basic/evaluate_expr_atom.md) %}
+
+{% endif %}
 
 {% include [x](_includes/basic/data-type-literals.md) %}
 
+{% if feature_webui %}
+
+  {% include [x](_includes/basic/metadata.md) %}
+
+{% endif %}
 
 {% include [x](_includes/basic/to_from_bytes.md) %}
 
@@ -66,3 +88,8 @@ sourcePath: yql/reference/yql-docs-core-2/builtins/basic.md
 
 {% include [x](_includes/basic/aggr_factory.md) %}
 
+{% if tech %}
+
+  {% include [x](_includes/basic/s_expressions.md) %}
+
+{% endif %}

@@ -35,6 +35,13 @@ sourcePath: yql/reference/yql-docs-core-2/syntax/select.md
 
 {% include [x](_includes/select/commit.md) %}
 
+{% if feature_bulk_tables %}
+
+  {% include [x](_includes/select/functional_tables.md) %}
+
+  {% include [x](_includes/select/folder.md) %}
+
+{% endif %}
 
 {% include [x](_includes/select/without.md) %}
 

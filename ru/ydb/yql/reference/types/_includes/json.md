@@ -53,7 +53,7 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/json.md
 * Пример значения YDB — `-320.789`.
 * Пример значения JSON — `"-320.789"`.
 
-## String {#string}
+## String{% if audience != "external" %}, Yson{% endif %} {#string}
 
 Бинарные строки. Алгоритм кодирования в зависимости от значения байта:
 

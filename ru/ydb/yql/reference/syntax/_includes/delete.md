@@ -5,7 +5,7 @@ sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/delete.md
 
 # DELETE FROM
 
-Удаляет строки из таблицы, заданные с помощью условия `WHERE`.
+Удаляет строки из таблицы, заданные с помощью условия `WHERE`.{% if feature_mapreduce %}  Таблица по имени ищется в базе данных, заданной оператором [USE](../use.md).{% endif %}
 
 {% note info %}
 

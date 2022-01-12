@@ -63,8 +63,8 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
 Управление настройками TTL в настоящий момент возможно с использованием:
 
 * [YQL](../../yql/reference/index.md)
-* [Консольного клиента YDB](../../quickstart/yql-api/ydb-cli.md).
-* YDB   Python [SDK](../../reference/ydb-sdk/index.md)
+* [Консольного клиента YDB]{% if audience != "external" %}(https://cloud.yandex.ru/docs/ydb/quickstart/yql-api/ydb-cli){% else %}(../../quickstart/yql-api/ydb-cli.md){% endif %}.
+* YDB {% if oss %}C++ и{% endif %}  Python [SDK](../../reference/ydb-sdk/index.md)
 
 {% note info %}
 
@@ -88,6 +88,18 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   $ ydb -e <endpoint> -d <database> table ttl set --column created_at --expire-after 3600 mytable
   ```
 
+{% if oss == true %}
+- C++
+  ```c++
+  session.AlterTable(
+      "mytable",
+      TAlterTableSettings()
+          .BeginAlterTtlSettings()
+              .Set("created_at", TDuration::Hours(1))
+          .EndAlterTtlSettings()
+  );
+  ```
+{% endif %}
 
 - Python
   ```python
@@ -119,6 +131,20 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   );
   ```
 
+{% if oss == true %}
+- C++
+  ```c++
+  session.CreateTable(
+      "mytable",
+      TTableBuilder()
+          .AddNullableColumn("id", EPrimitiveType::Uint64)
+          .AddNullableColumn("expire_at", EPrimitiveType::Timestamp)
+          .SetPrimaryKeyColumn("id")
+          .SetTtlSettings("expire_at")
+          .Build()
+  );
+  ```
+{% endif %}
 
 - Python
   ```python
@@ -148,6 +174,18 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   $ ydb -e <endpoint> -d <database> table ttl drop mytable
   ```
 
+{% if oss == true %}
+- C++
+  ```c++
+  session.AlterTable(
+      "mytable",
+      TAlterTableSettings()
+          .BeginAlterTtlSettings()
+              .Drop()
+          .EndAlterTtlSettings()
+  );
+  ```
+{% endif %}
 
 - Python
   ```python
@@ -167,6 +205,13 @@ expiration_time = valueof(ttl_column) + expire_after_seconds
   $ ydb -e <endpoint> -d <database> scheme describe mytable
   ```
 
+{% if oss == true %}
+- C++
+  ```c++
+  auto desc = session.DescribeTable("mytable").GetValueSync().GetTableDescription();
+  auto ttl = desc.GetTtlSettings();
+  ```
+{% endif %}
 
 - Python
   ```python

@@ -19,7 +19,7 @@ sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/expressions/named-nod
 ```
 В этом случае число выражений должно совпадать с размером кортежа.
 
-У каждого именованного выражения есть область видимости. Она начинается сразу после определения именованного выражения и заканчивается в конце ближайшего охватывающего scope имен (например в конце запроса либо в конце тела [лямбда-функции](#lambda), [ACTION](../../action.md#define-action)).
+У каждого именованного выражения есть область видимости. Она начинается сразу после определения именованного выражения и заканчивается в конце ближайшего охватывающего scope имен (например в конце запроса либо в конце тела [лямбда-функции](#lambda), [ACTION](../../action.md#define-action){% if feature_subquery %}, [SUBQUERY](../../subquery.md#define-subquery){% endif %}{% if feature_mapreduce %} или цикла [EVALUATE FOR](../../action.md#evaluate-for){% endif %}).
 Повторное определение именованного выражения с тем же именем приводит к сокрытию предыдущего выражения из текущей области видимости.
 
 Если именованное выражение ни разу не использовалось, то генерируется предупреждение. Для того, чтобы избавиться от такого предупреждения, достаточно использовать символ подчеркивания в качестве первого символа идентификатора (например `$_foo`).
@@ -36,7 +36,13 @@ $_ = 1;
 select $_; --- ошибка: Unable to reference anonymous name $_
 export $_; --- ошибка: Can not export anonymous name $_
 ```
-Анонимные имена аргументов поддерживаются также для [лямбда-функций](#lambda), [ACTION](../../action.md#define-action).
+{% if feature_mapreduce %}
+Кроме того, нельзя импортировать именованное выражение под анонимным алиасом:
+```yql
+import utils symbols $sqrt as $_; --- ошибка: Can not import anonymous name $_
+```
+{% endif %}
+Анонимные имена аргументов поддерживаются также для [лямбда-функций](#lambda), [ACTION](../../action.md#define-action){% if feature_subquery %}, [SUBQUERY](../../subquery.md#define-subquery){% endif %}{% if feature_mapreduce %} и в [EVALUATE FOR](../../action.md#evaluate-for){% endif %}.
 
 {% note info %}
 

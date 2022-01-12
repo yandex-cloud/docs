@@ -43,6 +43,11 @@ SELECT SetCreate(Tuple<Int32?,String>);
 ``` yql
 SELECT DictLength(AsDict(AsTuple(1, AsList("foo", "bar"))));
 ```
+{% if feature_column_container_type %}
+``` yql
+SELECT DictLength(dict_column) FROM my_table;
+```
+{% endif %}
 ## DictHasItems {#dicthasitems}
 
 Проверка того, что словарь содержит хотя бы один элемент.
@@ -51,6 +56,11 @@ SELECT DictLength(AsDict(AsTuple(1, AsList("foo", "bar"))));
 ``` yql
 SELECT DictHasItems(AsDict(AsTuple(1, AsList("foo", "bar")))) FROM my_table;
 ```
+{% if feature_column_container_type %}
+``` yql
+SELECT DictHasItems(dict_column) FROM my_table;
+```
+{% endif %}
 
 
 ## DictItems {#dictitems}
@@ -63,6 +73,12 @@ SELECT DictHasItems(AsDict(AsTuple(1, AsList("foo", "bar")))) FROM my_table;
 SELECT DictItems(AsDict(AsTuple(1, AsList("foo", "bar"))));
 -- [ ( 1, [ "foo", "bar" ] ) ]
 ```
+{% if feature_column_container_type %}
+``` yql
+SELECT DictItems(dict_column)
+FROM my_table;
+```
+{% endif %}
 ## DictKeys {#dictkeys}
 
 Получение списка ключей словаря.
@@ -73,6 +89,12 @@ SELECT DictItems(AsDict(AsTuple(1, AsList("foo", "bar"))));
 SELECT DictKeys(AsDict(AsTuple(1, AsList("foo", "bar"))));
 -- [ 1 ]
 ```
+{% if feature_column_container_type %}
+``` yql
+SELECT DictKeys(dict_column)
+FROM my_table;
+```
+{% endif %}
 ## DictPayloads {#dictpayloads}
 
 Получение списка значений словаря.
@@ -83,6 +105,12 @@ SELECT DictKeys(AsDict(AsTuple(1, AsList("foo", "bar"))));
 SELECT DictPayloads(AsDict(AsTuple(1, AsList("foo", "bar"))));
 -- [ [ "foo", "bar" ] ]
 ```
+{% if feature_column_container_type %}
+``` yql
+SELECT DictPayloads(dict_column)
+FROM my_table;
+```
+{% endif %}
 
 ## DictLookup {#dictlookup}
 
@@ -97,6 +125,12 @@ SELECT DictLookup(AsDict(
 ), 1);
 -- [ "foo", "bar" ]
 ```
+{% if feature_column_container_type %}
+``` yql
+SELECT DictLookup(dict_column, "foo")
+FROM my_table;
+```
+{% endif %}
 
 ## DictContains {#dictcontains}
 
@@ -111,6 +145,12 @@ SELECT DictContains(AsDict(
 ), 42);
 -- false
 ```
+{% if feature_column_container_type %}
+``` yql
+SELECT DictContains(dict_column, "foo")
+FROM my_table;
+```
+{% endif %}
 
 ## DictAggregate {#dictaggregate}
 

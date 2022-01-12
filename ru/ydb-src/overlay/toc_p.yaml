@@ -44,12 +44,13 @@ items:
 - { name: Рекомендации,                            include: { mode: link, path: best_practices/toc_p.yaml } }
 - { name: Обслуживание,                            include: { mode: link, path: maintenance/toc_p.yaml } }
 - { name: Диагностика,                             include: { mode: link, path: troubleshooting/toc_p.yaml } }
-- { name: Правила тарификации,                     include: { mode: link, path: pricing/toc_i.yaml },        hidden: audience != "external" }
+- { name: Правила тарификации,                     include: { mode: link, path: pricing/toc_i.yaml },        when: audience == "external" }
+- { name: Правила тарификации,                     include: { mode: link, path: pricing/toc_i.yaml },        when: audience != "external", hidden: true }
 
 # References  
-- { name: HTTP API, совместимый с Amazon DynamoDB, include: { mode: link, path: docapi/toc_i.yaml },         when: audience == "external" }
+- { name: "HTTP API, совместимый с Amazon DynamoDB", include: { mode: link, path: docapi/toc_i.yaml },       when: audience == "external" }
 - { name: YQL,                                     include: { mode: link, path: yql/toc_i.yaml } }
-- { name: Работа с YDB CLI,                        include: { mode: link, path: reference/ydb-cli/toc_i.yaml } }
+- { name: Работа с YDB CLI,                        include: { mode: link, path: reference/ydb-cli/toc_p.yaml } }
 - { name: Работа с YDB SDK,                        include: { mode: link, path: reference/ydb-sdk/toc_p.yaml } }
 
 # Tech

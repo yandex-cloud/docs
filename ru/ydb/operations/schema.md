@@ -105,11 +105,11 @@ sourcePath: overlay/operations/schema.md
 
    1. В [консоли управления](https://console.cloud.yandex.ru/) перейдите на страницу каталога и выберите сервис **Yandex Database**.
    1. Выберите базу данных, в которой нужно изменить таблицу.
-   1. Найдите таблицу в списке и выберите    → **Изменить**.
+   1. Найдите таблицу в списке и выберите  {% if deploy != "arc" %} ![image](../../_assets/horizontal-ellipsis.svg) {% endif %}  → **Изменить**.
    1. Добавьте новые колонки в таблицу и укажите их параметры:
       * **Имя** колонки. Должно быть уникальным в рамках таблицы.
       * **Тип** данных колонки. Независимо от типа данных, каждая колонка может содержать значение NULL.
-   1. Чтобы удалить неключевые колонки из таблицы, нажмите на значок    в нужной строке. Удалить колонки, которые образуют первичный ключ, невозможно.
+   1. Чтобы удалить неключевые колонки из таблицы, нажмите на значок  {% if deploy != "arc" %} ![image](../../_assets/cross.svg) {% endif %}  в нужной строке. Удалить колонки, которые образуют первичный ключ, невозможно.
    1. Настройте автопартицирование:
       * **By size** — если включено, то партиция разделяется на две при достижении определенного размера данных.
       * **By load** — если включено, то партиция разделяется на две если в течение некоторого промежутка времени испытывает высокую нагрузку (потребляет много процессорного времени).
@@ -144,7 +144,7 @@ sourcePath: overlay/operations/schema.md
 
    1. В [консоли управления](https://console.cloud.yandex.ru/) перейдите на страницу каталога и выберите сервис **Yandex Database**.
    1. Выберите базу данных, в которой нужно удалить таблицу.
-   1. Найдите таблицу в списке и выберите    → **Удалить**.
+   1. Найдите таблицу в списке и выберите  {% if deploy != "arc" %} ![image](../../_assets/horizontal-ellipsis.svg) {% endif %}  → **Удалить**.
    1. Подтвердите удаление.
 
 - SQL
@@ -172,13 +172,13 @@ sourcePath: overlay/operations/schema.md
 
    [YDB SDK](../reference/ydb-sdk/index.md) предоставляет методы создания, удаления, листинга и просмотра информации о директории. В таблице ниже приведены имена методов для разных языков программирования.
    
-   | Метод    | Java | Python | Go |
-   | ---- | ---- | ---- | ---- |
-   | Создание директории | ```SchemeClient.makeDirectory``` | ```scheme_client.make_directory``` | ```Client.MakeDirectory``` |
-   | Удаление директории | ```SchemeClient.removeDirectory``` | ```scheme_client.remove_directory``` | ```Client.RemoveDirectory``` |
-   | Просмотр информации о директории  |```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` |  ```Client.DescribePath``` |
-   | Просмотр информации о директории  | ```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` |  ```Client.DescribePath``` |
-   | Просмотр информации о директории  |```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` |  ```Client.DescribePath``` |
-   | Листинг директории  | ```scheme_client.describe_path``` | ```SchemeClient.list_directory``` | ```Client.ListDirectory``` |
+   | Метод    | {% if oss %}С++ | {% endif %}Java | Python | Go |
+   | ---- | ---- | {% if oss %}---- | {% endif %}---- | ---- |
+   | Создание директории | {% if oss %}```TClient::MakeDirectory``` | {% endif %}```SchemeClient.makeDirectory``` | ```scheme_client.make_directory``` | ```Client.MakeDirectory``` |
+   | Удаление директории | {% if oss %}```TClient::RemoveDirectory``` | {% endif %}```SchemeClient.removeDirectory``` | ```scheme_client.remove_directory``` | ```Client.RemoveDirectory``` |
+   | Просмотр информации о директории  |{% if oss %} ```TClient::DescribePath``` | {% endif %}```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` |  ```Client.DescribePath``` |
+   | Просмотр информации о директории  | {% if oss %}```TClient::DescribePath``` | {% endif %}```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` |  ```Client.DescribePath``` |
+   | Просмотр информации о директории  |{% if oss %} ```TClient::DescribePath``` | {% endif %}```SchemeClient.describePath``` | ```SchemeClient.describeDirectory``` |  ```Client.DescribePath``` |
+   | Листинг директории  | {% if oss %}```TClient::ListDirectory``` | {% endif %}```scheme_client.describe_path``` | ```SchemeClient.list_directory``` | ```Client.ListDirectory``` |
          
 {% endlist %}

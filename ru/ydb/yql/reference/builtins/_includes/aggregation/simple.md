@@ -7,7 +7,7 @@ sourcePath: yql/reference/yql-docs-core-2/builtins/_includes/aggregation/simple.
 
 Подсчет количества строк в таблице (если в качестве аргумента указана `*` или константа) или непустых значений в столбце таблицы (если в качестве аргумента указано имя столбца).
 
-Как и другие агрегатные функции, может использоваться в сочетании с [GROUP BY](../../../syntax/group_by.md) для получения статистики по частям таблицы, соответствующим значениям в столбцах, по которым идет группировка. А модификатор [DISTINCT](../../../syntax/group_by.md#distinct) позволяет посчитать число уникальных значений.
+Как и другие агрегатные функции, может использоваться в сочетании с [GROUP BY](../../../syntax/group_by.md) для получения статистики по частям таблицы, соответствующим значениям в столбцах, по которым идет группировка. {% if select_statement != "SELECT STREAM" %}А модификатор [DISTINCT](../../../syntax/group_by.md#distinct) позволяет посчитать число уникальных значений.{% endif %}
 
 **Примеры**
 ``` yql
@@ -17,10 +17,12 @@ SELECT COUNT(*) FROM my_table;
 ``` yql
 SELECT key, COUNT(value) FROM my_table GROUP BY key;
 ```
+{% if select_statement != "SELECT STREAM" %}
 
 ``` yql
 SELECT COUNT(DISTINCT value) FROM my_table;
 ```
+{% endif %}
 
 ## MIN и MAX {#min-max}
 
@@ -72,11 +74,13 @@ SELECT
   COUNT_IF(value % 2 == 1) AS odd_count
 ```
 
+{% if select_statement != "SELECT STREAM" %}
 {% note info %}
 
 Если нужно посчитать число уникальных значений на строках, где выполняется условие, то в отличие от остальных агрегатных функций модификатор [DISTINCT](../../../syntax/group_by.md#distinct) тут не поможет, так как в аргументах нет никаких значений. Для получения данного результата, стоит воспользоваться в подзапросе встроенной функцией [IF](../../../builtins/basic.md#if) с двумя аргументами (чтобы в else получился `NULL`), а снаружи сделать [COUNT(DISTINCT ...)](#count) по её результату.
 
 {% endnote %}
+{% endif %}
 
 ## SUM_IF и AVG_IF {#sum-if}
 
@@ -108,7 +112,7 @@ FROM my_table;
 
 ## SOME {#some}
 
-Получить значение указанного в качестве аргумента выражения для одной из строк таблицы. Не дает никаких гарантий о том, какая именно строка будет использована. Аналог функции [any()](https://clickhouse.tech/docs/ru/sql-reference/aggregate-functions/reference/any/) в ClickHouse.
+Получить значение указанного в качестве аргумента выражения для одной из строк таблицы. Не дает никаких гарантий о том, какая именно строка будет использована. Аналог функции [any()]{% if lang == "en" %}(https://clickhouse.tech/docs/en/sql-reference/aggregate-functions/reference/any/){% else %}(https://clickhouse.tech/docs/ru/sql-reference/aggregate-functions/reference/any/){% endif %} в ClickHouse.
 
 Из-за отсутствия гарантий `SOME` вычислительно дешевле, чем часто использующиеся в подобных ситуациях [MIN](#min)/[MAX](#max).
 

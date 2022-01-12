@@ -1,10 +1,9 @@
 title: Yandex Database
 description:
   - >-
-    <i>Yandex Database</i> (YDB) — это распределённая отказоустойчивая
-    Distributed SQL СУБД. YDB обеспечивает высокую доступность, горизонтальную
-    масштабируемость, а также строгую консистентность и поддержку
-    ACID-транзакций. Для запросов используется диалект SQL (<a
+    <i>Yandex Database</i> (YDB) — это распределённая отказоустойчивая Distributed SQL СУБД.
+    YDB обеспечивает высокую доступность, горизонтальную масштабируемость, а также строгую консистентность и поддержку ACID-транзакций.
+    Для запросов используется диалект SQL (<a
     href="yql/reference/overview">YQL</a>).
 nav:
   title: Yandex Database
@@ -14,6 +13,11 @@ links:
   - title: Начало работы
     description: Создание базы данных, подключение, настройка доступа, простейшие операции
     href: quickstart/index
+    when: audience == "external"
+  - title: Начало работы
+    description: Создание базы данных, подключение, настройка доступа, простейшие операции
+    href: getting_started/index
+    when: audience != "external"
   - title: Концепции
     description: Как устроена YDB, возможности и доступные режимы использования
     href: concepts/index
@@ -26,6 +30,13 @@ links:
   - title: Пошаговые инструкции
     description: Инструкции по выполнению стандартных операций
     href: operations/
+    when: audience == "external"
+  # - title: Квоты и лимиты
+  #  description: Технические и организационные ограничения сервиса
+  #  href: concepts/limits
+  #- title: Управление доступом
+  #  description: Настройте права доступа для работы с сервисом
+  #  href: security/start_auth
   - title: Рекомендации
     description: Набор рекомендаций по практическому использованию сервиса
     href: best_practices/
@@ -35,12 +46,19 @@ links:
   - title: Туториал YQL
     description: Серия уроков для знакомства с базовыми возможностями YQL
     href: yql/tutorial/
+    when: audience == "external"
+  - title: Туториал YQL
+    description: Серия уроков для знакомства с базовыми возможностями YQL
+    href: https://yql.yandex-team.ru/Tutorial/ydb_01_Create_demo_tables    
+    when: audience != "external"
   - title: HTTP API, совместимый с Amazon DynamoDB
     description: Описание Document API, совместимого с Amazon DynamoDB
     href: docapi/api-ref/
+    when: audience == "external"
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: audience == "external"
   - title: Полезные ссылки
     description: Ссылки на различные ресурсы, имеющие отношение к YDB
     href: getting_started/useful_links

@@ -7,14 +7,14 @@ sourcePath: yql/reference/yql-docs-core-2/types/_includes/datatypes_primitive_st
 ----- | ----- | ----- 
 `String` | Строка, может содержать произвольные бинарные данные | 
 `Utf8` | Текст в кодировке [UTF-8](https://en.wikipedia.org/wiki/UTF-8) | 
-`Json` | [JSON](https://en.wikipedia.org/wiki/JSON) в текстовом представлении|Не поддерживает возможность сравнения, не может быть использован в первичном ключе
-`JsonDocument` | [JSON](https://en.wikipedia.org/wiki/JSON) в бинарном индексированном представлении | Не поддерживает возможность сравнения, не может быть использован в первичном ключе
-`Yson` | [YSON](https://yt.yandex-team.ru/docs/description/common/yson.html) в текстовом или бинарном представлении | Не поддерживает возможность сравнения, не может быть использован в первичном ключе
+`Json` | [JSON](https://en.wikipedia.org/wiki/JSON) в текстовом представлении|Не поддерживает возможность сравнения{% if feature_map_tables %}, не может быть использован в первичном ключе{% endif %}
+`JsonDocument` | [JSON](https://en.wikipedia.org/wiki/JSON) в бинарном индексированном представлении | Не поддерживает возможность сравнения{% if feature_map_tables %}, не может быть использован в первичном ключе{% endif %}
+`Yson` | [YSON](https://yt.yandex-team.ru/docs/description/common/yson.html) в текстовом или бинарном представлении | Не поддерживает возможность сравнения{% if feature_map_tables %}, не может быть использован в первичном ключе{% endif %}
 `Uuid` | Универсальный идентификатор [UUID](https://tools.ietf.org/html/rfc4122) | Не поддержан для столбцов таблиц 
 
 {% note info "Ограничения на размер" %}
 
-Максимальный размер значения в ячейке неключевого столбца с любым строковым типом данных —  8 МБ.
+Максимальный размер значения в ячейке {% if feature_map_tables %} неключевого столбца {% endif %} с любым строковым типом данных —  8 МБ.
 
 {% endnote %}
 

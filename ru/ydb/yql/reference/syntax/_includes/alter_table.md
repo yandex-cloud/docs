@@ -29,6 +29,7 @@ ALTER TABLE episodes ADD COLUMN is_deleted Bool;
 ALTER TABLE episodes DROP column is_deleted;
 ```
 
+{% if feature_secondary_index %}
 ## Добавление или удаление вторичного индекса {#secondary-index}
 
 ```ADD INDEX``` — добавляет индекс с указанным именем и типом для заданного набора колонок. Приведенный ниже код добавит глобальный индекс с именем ```title_index``` для колонки ```title```.
@@ -46,6 +47,8 @@ ALTER TABLE `series` ADD INDEX `title_index` GLOBAL ON (`title`);
 ```sql
 ALTER TABLE `series` DROP INDEX `title_index`;
 ```
+{% endif %}
+{% if concept_table %}
 ## Изменение групп колонок {#column-family}
 
 ```ADD FAMILY``` — создаёт новую группу колонок в таблице. Приведенный ниже код создаст в таблице ```series_with_families``` группу колонок ```family_small```.
@@ -118,3 +121,4 @@ ALTER TABLE table_name RESET (key);
 ```sql
 ALTER TABLE series RESET (TTL);
 ```
+{% endif %}

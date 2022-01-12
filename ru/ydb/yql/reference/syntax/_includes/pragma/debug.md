@@ -3,3 +3,42 @@ sourcePath: core/yql/reference/yql-docs-core-2/syntax/_includes/pragma/debug.md
 sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/pragma/debug.md
 ---
 
+{% if tech %}
+
+## Отладочные и служебные {#debug}
+
+{% if feature_webui %}
+### `DirectRead`
+
+| Тип значения | По умолчанию |
+| --- | --- |
+| Флаг | false |
+
+Служебная настройка для работы preview таблиц в [HTTP API](../../../interfaces/http.md) (для веб-интерфейса и консольного клиента).
+{% endif %}
+
+### `config.flags("ValidateUdf", "Lazy")`
+
+| Тип значения | По умолчанию |
+| --- | --- |
+| Строка: None / Lazy / Greedy | None |
+
+Валидация результатов UDF на соответствие объявленной сигнатуре. Greedy режим форсирует материализацию «ленивых» контейнеров, а Lazy — нет.
+
+### `ydb.DefaultCluster`
+
+| Тип значения | По умолчанию |
+| --- | --- |
+| Строка с именем кластера | hahn |
+
+Выбор кластера для выполнения вычислений, не использующих таблицы.
+
+### `config.flags("Diagnostics")`
+
+| Тип значения | По умолчанию |
+| --- | --- |
+| Флаг | false |
+
+Получение диагностической информации от YQL в виде дополнительного результата запроса.
+
+{% endif %}

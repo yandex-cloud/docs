@@ -35,6 +35,11 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
 
 {% endlist %}
 
+{% if audience == "internal" %}
+
+![Table preview](../../_assets/db_ui_table_preview.png)
+
+{% endif %}
 
 ## Измените данные {#update-data}
 
@@ -48,6 +53,11 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
 
 {% endlist %}
 
+{% if audience == "internal" %}
+
+![Update preview](../../_assets/db_ui_run_update.png)
+
+{% endif %}
 
 ## Удалите данные {#delete-data}
 
@@ -61,6 +71,11 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
 
 {% endlist %}
 
+{% if audience == "internal" %}
+
+![Delete preview](../../_assets/db_ui_run_delete.png)
+
+{% endif %}
 
 ## Запросите данные {#select-data}
 
@@ -74,6 +89,11 @@ sourcePath: overlay/quickstart/yql-api/ydb-ui.md
 
 {% endlist %}
 
+{% if audience == "internal" %}
+
+![Select from table](../../_assets/db_ui_run_select.png)
+
+{% endif %}
 
 ## Удалите таблицу {#drop-table}
 

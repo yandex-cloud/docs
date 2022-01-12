@@ -34,17 +34,32 @@ SELECT AsList(1, 2, 3, 4, 5);
 Количество элементов в списке.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT ListLength(list_column) FROM my_table;
+```
+{% endif %}
 ## ListHasItems
 
 Проверка того, что список содержит хотя бы один элемент.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT ListHasItems(list_column) FROM my_table;
+```
+{% endif %}
 
 ## ListCollect {#listcollect}
 
 Преобразовать ленивый список (строится, например, функциями [ListFilter](#listfilter), [ListMap](#listmap), [ListFlatMap](#listflatmap)) в энергичный. В отличие от ленивого списка, в котором каждый повторный проход заново вычисляет его содержимое, в энергичном списке содержимое списка строится сразу ценой большего потребления памяти.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT ListCollect(list_column) FROM my_table;
+```
+{% endif %}
 ## ListSort, ListSortAsc и ListSortDesc {#listsort}
 
 Отсортировать список. По умолчанию выполняется сортировка по возрастанию (`ListSort` — алиас к `ListSortAsc`).
@@ -56,6 +71,11 @@ SELECT AsList(1, 2, 3, 4, 5);
 
 **Примеры**
 
+{% if feature_column_container_type %}
+``` yql
+SELECT ListSortDesc(list_column) FROM my_table;
+```
+{% endif %}
 ``` yql
 $list = AsList(
     AsTuple("x", 3),
@@ -82,6 +102,15 @@ SELECT ListSort($list, ($x) -> {
 Если хотя бы один аргумент является `NULL`, то тип результата - `NULL`.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT ListExtend(
+    list_column_1,
+    list_column_2,
+    list_column_3
+) FROM my_table;
+```
+{% endif %}
 
 ## ListUnionAll {#listunionall}
 
@@ -90,6 +119,15 @@ SELECT ListSort($list, ($x) -> {
 Если хотя бы один из списков является опциональным, то таким же является и результат.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT ListUnionAll(
+    list_column_1,
+    list_column_2,
+    list_column_3
+) FROM my_table;
+```
+{% endif %}
 
 ## ListZip и ListZipAll {#listzip}
 
@@ -99,18 +137,36 @@ SELECT ListSort($list, ($x) -> {
 Когда более короткий список исчерпан, в качестве пары к элементам более длинного списка подставляется пустое значение (`NULL`) соответствующего [optional типа](../../types/optional.md).
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ListZip(list_column_1, list_column_2, list_column_3),
+    ListZipAll(list_column_1, list_column_2)
+FROM my_table;
+```
+{% endif %}
 
 ## ListEnumerate {#listenumerate}
 
 Построить список пар (Tuple), содержащих номер элемента и сам элемент (`List<Tuple<Uint64,list_element_type>>`).
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT ListEnumerate(list_column) FROM my_table;
+```
+{% endif %}
 
 ## ListReverse {#listreverse}
 
 Развернуть список.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT ListReverse(list_column) FROM my_table;
+```
+{% endif %}
 
 ## ListSkip {#listskip}
 
@@ -119,6 +175,13 @@ SELECT ListSort($list, ($x) -> {
 Первый аргумент — исходный список, второй — сколько элементов пропустить.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ListSkip(list_column, 3)
+FROM my_table;
+```
+{% endif %}
 
 ## ListTake {#listtake}
 
@@ -127,12 +190,24 @@ SELECT ListSort($list, ($x) -> {
 Первый аргумент — исходный список, второй — не больше скольких элементов с начала оставить.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT ListTake(list_column, 3) FROM my_table;
+```
+{% endif %}
 
 ## ListIndexOf {#listindexof}
 
 Ищет элемент с указанным значением в списке и при первом обнаружении возвращает его индекс. Отсчет индексов начинается с 0, а в случае отсутствия элемента возвращается `NULL`.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ListIndexOf(list_column, 123)
+FROM my_table;
+```
+{% endif %}
 
 ## ListMap, ListFlatMap и ListFilter {#listmap}
 
@@ -154,6 +229,23 @@ SELECT ListSort($list, ($x) -> {
 2. Функции для обработки элементов, например:
     * [Лямбда функция](../../syntax/expressions.md#lambda);
     * `Module::Function` - С++ UDF;
+{% if feature_udf_noncpp %} 
+    * [Python UDF](../../udf/python.md), [JavaScript UDF](../../udf/javascript.md) или любое другое вызываемое значение;
+
+Если исходный список является опциональным, то таким же является и выходной список.
+
+**Примеры**
+{% if feature_column_container_type %}
+``` yql
+$callable = Python::test(Callable<(Int64)->Bool>, "def test(i): return i % 2");
+SELECT
+    ListMap(list_column, ($x) -> { RETURN $x > 2; }),
+    ListFlatMap(list_column, My::Udf),
+    ListFilter(list_column, $callable)
+FROM my_table;
+```
+{% endif %}
+{% endif %}
 
 ## ListNotNull {#listnotnull}
 
@@ -184,6 +276,13 @@ SELECT ListFlatten([[1,2],[3,4]]),   -- [1,2,3,4]
 Возвращает копию списка, в котором оставлен только уникальный набор элементов.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ListUniq(list_column)
+FROM my_table;
+```
+{% endif %}
 
 ## ListAny и ListAll {#listany}
 
@@ -195,24 +294,57 @@ SELECT ListFlatten([[1,2],[3,4]]),   -- [1,2,3,4]
 В противном случае возвращает false.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ListAll(bool_column),
+    ListAny(bool_column)
+FROM my_table;
+```
+{% endif %}
 
 ## ListHas {#listhas}
 
 Содержит ли список указанный элемент.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ListHas(list_column, "my_needle")
+FROM my_table;
+```
+{% endif %}
 
 ## ListHead, ListLast {#listheadlast}
 
 Возвращают первый и последний элемент списка.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ListHead(numeric_list_column) AS head,
+    ListLast(numeric_list_column) AS last
+FROM my_table;
+```
+{% endif %}
 
 ## ListMin, ListMax, ListSum и ListAvg {#listminy}
 
 Применяет соответствующую агрегатную функцию ко всем элементам списка числовых значений.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ListMax(numeric_list_column) AS max,
+    ListMin(numeric_list_column) AS min,
+    ListSum(numeric_list_column) AS sum,
+    ListAvg(numeric_list_column) AS avg
+FROM my_table;
+```
+{% endif %}
 
 ## ListFromRange {#listfromrange}
 
@@ -260,12 +392,27 @@ SELECT ListReplicate(true, 3); -- [true, true, true]
 Вторым параметром можно задать разделитель.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ListConcat(string_list_column),
+    ListConcat(string_list_column, "; ")
+FROM my_table;
+```
+{% endif %}
 
 ## ListExtract {#listextract}
 
 По списку структур возвращает список содержащихся в них полей с указанным именем.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ListExtract(struct_list_column, "MyMember")
+FROM my_table;
+```
+{% endif %}
 
 ## ListTakeWhile, ListSkipWhile {#listtakewhile}
 
@@ -322,6 +469,13 @@ SELECT ListAggregate(AsList(1, 2, 3), AggregationFactory("Sum")); -- 6
 Также поддерживаются опциональные списки, что приводит к опциональному словарю в результате.
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ToDict(tuple_list_column)
+FROM my_table;
+```
+{% endif %}
 
 ## ToSet {#toset}
 Преобразует список в словарь, в котором ключи являются уникальными элементами этого списка, а значения отсутствуют и имеют тип `Void`. Для списка `List<T>` тип результата будет `Dict<T, Void>`.
@@ -330,3 +484,10 @@ SELECT ListAggregate(AsList(1, 2, 3), AggregationFactory("Sum")); -- 6
 Обратная функция - получить список ключей словаря [DictKeys](../dict.md#dictkeys).
 
 **Примеры**
+{% if feature_column_container_type %}
+``` yql
+SELECT
+    ToSet(list_column)
+FROM my_table;
+```
+{% endif %}

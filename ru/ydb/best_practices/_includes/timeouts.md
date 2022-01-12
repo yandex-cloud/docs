@@ -44,6 +44,31 @@ sourcePath: core/best_practices/_includes/timeouts.md
     )
   ```
 
+{% if oss == true %}
+
+- С++
+
+  ```cpp
+  #include <kikimr/public/sdk/cpp/client/ydb.h>
+  #include <kikimr/public/sdk/cpp/client/ydb_table.h>
+  #include <kikimr/public/sdk/cpp/client/ydb_value.h>
+
+  using namespace NYdb;
+  using namespace NYdb::NTable;
+
+  TAsyncStatus ExecuteInTx(TSession& session, TString query, TParams params) {
+    return session.ExecuteDataQuery(
+        query
+        , TTxControl::BeginTx(TTxSettings::SerializableRW()).CommitTx()
+        , TExecDataQuerySettings()
+        .OperationTimeout(TDuration::MilliSeconds(300))  // operation timeout
+        .ClientTimeout(TDuration::MilliSeconds(400))   // transport timeout
+        .CancelAfter(TDuration::MilliSeconds(300)));  // cancel after timeout
+  }
+
+  ```
+
+{% endif %}
 
 - Go
 

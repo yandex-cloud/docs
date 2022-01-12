@@ -5,10 +5,11 @@ sourcePath: yql/reference/yql-docs-core-2/syntax/_includes/discard.md
 
 # DISCARD
 
-Вычисляет [`SELECT`](../select.md), но не возвращает результат ни в клиент, ни в таблицу. 
+Вычисляет {% if select_command == "SELECT STREAM" %}[`SELECT STREAM`](../select_stream.md){% else %}[`SELECT`](../select.md){% endif %}{% if feature_mapreduce %}{% if reduce_command %}, [`{{ reduce_command }}`](../reduce.md){% endif %}  или [`{{ process_command }}`](../process.md){% endif %}, но не возвращает результат ни в клиент, ни в таблицу. {% if feature_mapreduce %}Не может быть задано одновременно с [INTO RESULT](../into_result.md).{% endif %}
 
 Полезно использовать в сочетании с [`Ensure`](../../builtins/basic.md#ensure) для проверки выполнения пользовательских условий на финальный результат вычислений.
 
+{% if select_command != true or select_command == "SELECT" %}
 **Примеры**
 
 ``` yql
@@ -30,3 +31,5 @@ DISCARD SELECT Ensure(
 ) FROM result_table;
 
 ```
+
+{% endif %}
