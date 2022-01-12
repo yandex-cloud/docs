@@ -5,12 +5,12 @@ description: "Доступ к Биллингу предоставляется п
 
 # Управление доступом
 
-## Доступ к Биллингу {#billing} 
+## Доступ к Биллингу {#billing}
 
 {% include [yandex-account](../_includes/yandex-account.md) %}
 
 
-## Доступ к платежному аккаунту {#billing-account}      
+## Доступ к платежному аккаунту {#billing-account}
 
 Доступ к [платежному аккаунту](../concepts/billing-account.md) предоставляется через сервис Биллинг. Операции, которые пользователь может выполнять над платежным аккаунтом, определяются назначенной ему ролью. 
 
@@ -20,7 +20,7 @@ description: "Доступ к Биллингу предоставляется п
 
 {% endnote %}
 
-## Роли в платежном аккаунте {#role-list}  
+## Роли в платежном аккаунте {#role-list}
 
 В Биллинге существуют следующие роли: 
 
@@ -65,12 +65,13 @@ description: "Доступ к Биллингу предоставляется п
 Выдача ролей на платежный аккаунт | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | 
 Просмотр и редактирование ролей | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | 
 Привязка облаков к платежному аккаунту | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+Создание экспорта детализации | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 Создание бюджета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 Просмотр и получение уведомлений о потреблении | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 
 
 
-## Добавление пользователя {#set-member-role}  
+## Добавление пользователя {#set-member-role}
 
 Владелец платежного аккаунта может добавить в список **Пользователи** любого пользователя {{ yandex-cloud }}, получившего роль `billing.accounts.member` на облако, которое привязано к платежному аккаунту. Чтобы добавить пользователя:
 
@@ -83,7 +84,7 @@ description: "Доступ к Биллингу предоставляется п
 
 Пользователь с указанным логином получит роль `billing.accounts.member` и будет добавлен в список **Пользователи**. Чтобы разрешить доступ к платежному аккаунту, назначьте пользователю нужную роль.
 
-## Назначение роли {#set-role}   
+## Назначение роли {#set-role}
 
 Владелец может предоставить доступ к платежному аккаунту любому пользователю, добавленному в список **Пользователи**. Для этого:
  
@@ -94,7 +95,7 @@ description: "Доступ к Биллингу предоставляется п
 1. Нажмите кнопку **Назначить роль**.
 1. Выберите необходимую роль из списка. Роль будет предоставлена бессрочно. 
 
-## Отзыв  роли {#delete-role}  
+## Отзыв  роли {#delete-role}
 
 В любой момент владелец платежного аккаунта может отозвать роль у пользователя из списка. Для этого:
 

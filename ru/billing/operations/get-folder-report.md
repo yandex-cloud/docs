@@ -14,6 +14,8 @@
 
    {% endnote %}
 
+1. Проверьте, что у вас есть одна из ролей: `billing.accounts.owner`, `billing.accounts.admin`, `billing.accounts.editor`.
+
 ## Получите детализацию расходов {#download-detail}
 
 {% list tabs %}
