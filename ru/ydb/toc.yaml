@@ -177,7 +177,6 @@ items:
       - name: Мониторинг
         href: troubleshooting/monitoring.md
   - name: Правила тарификации
-    hidden: audience != "external"
     items:
       - name: Обзор
         href: pricing/index.md
@@ -193,8 +192,7 @@ items:
             href: pricing/request_units_special.md
       - name: Режим с выделенными инстансами
         href: pricing/dedicated.md
-  - name: HTTP API
-    совместимый с Amazon DynamoDB: null
+  - name: HTTP API, совместимый с Amazon DynamoDB
     items:
       - name: Все методы
         href: docapi/api-ref/index.md

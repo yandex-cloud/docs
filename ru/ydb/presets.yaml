@@ -1,6 +1,7 @@
 default:
   ydb-cli: ydb
   deploy: yfm
+  lang: ru
   iam-full-name: Yandex Identity and Access Management
   resmgr-full-name: Yandex Resource Manager
   compute-full-name: Yandex Compute Cloud

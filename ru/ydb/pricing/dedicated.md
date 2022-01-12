@@ -51,7 +51,7 @@ sourcePath: overlay/pricing/dedicated.md
 
 Вы можете получить гарантированную скидку за потребление ресурсов сервиса, запланированное на месяц, на год или на три года вперед.
 
-Сервис Yandex Database предоставляет CVoS двух видов: на vCPU и RAM для хостов, составляющих базу данных. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для баз данных, использующих виртуальные машины определенного класса.
+Сервис Yandex Database предоставляет [CVoS](../../billing/concepts/cvos.md) двух видов: на vCPU и RAM для хостов, составляющих базу данных. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для баз данных, использующих виртуальные машины определенного класса.
 
 {% note info %}
 
@@ -67,16 +67,25 @@ sourcePath: overlay/pricing/dedicated.md
 ### Вычислительные ресурсы хостов {#prices-compute-units}
 
 
+{% include notitle [rub-compute-units.md](../../_pricing/ydb/rub-compute-units.md) %}
+
 
 
 ### Хранилище и резервные копии {#prices-storage}
 
+
+{% include notitle [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
 
 
 
 ### Исходящий трафик {#prices-traffic}
 
 
+{% include notitle [rub-egress-traffic.md](../../_pricing/rub-egress-traffic.md) %}
+
 
 
 ## Расчетные цены для вычислительных ресурсов {#calculated-prices}
+
+
+{% include notitle [rub-dedicated.md](../../_pricing/ydb/rub-dedicated.md) %}

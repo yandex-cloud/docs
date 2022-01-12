@@ -133,7 +133,7 @@ To change a VM's metadata, follow these steps:
 
           ```yaml
           #ps1
-          net user administrator "<password>"
+          net user administrator '<password>'
           ```
 
       1. Run the command:
