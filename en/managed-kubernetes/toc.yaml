@@ -7,6 +7,8 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
+      - name: Configuring security groups
+        href: operations/security-groups.md
       - name: Connecting to a node over SSH
         href: operations/node-connect-ssh.md
       - name: Creating a configuration file
