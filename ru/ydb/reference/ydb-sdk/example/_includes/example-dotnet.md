@@ -5,7 +5,7 @@ sourcePath: core/reference/ydb-sdk/example/_includes/example-dotnet.md
 
 На этой странице подробно разбирается код [тестового приложения](https://github.com/ydb-platform/ydb-dotnet-examples), доступного в составе [C# (.NET) SDK](https://github.com/ydb-platform/ydb-dotnet-sdk) YDB.
 
-{% include [addition.md](aux/addition.md) %}
+{% include [addition.md](auxilary/addition.md) %}
 
 {% include [init.md](steps/01_init.md) %}
 
@@ -76,7 +76,7 @@ var response = await tableClient.SessionExec(async session =>
 response.Status.EnsureSuccess();
 ```
 
-{% include [pragmatablepathprefix.md](aux/pragmatablepathprefix.md) %}
+{% include [pragmatablepathprefix.md](auxilary/pragmatablepathprefix.md) %}
 
 {% include [query_processing.md](steps/03_query_processing.md) %}
 

@@ -7,8 +7,12 @@ description: "In this article you will learn how to work with managed Kubernetes
 
 * [{#T}](node-connect-ssh.md)
 * [{#T}](create-static-conf.md)
-* [{#T}](create-load-balancer.md)
 * [{#T}](encrypting-secrets.md)
+
+## Network scenarios {#network-scenarios}
+
+* [{#T}](create-load-balancer.md)
+* [{#T}](cilium.md)
 
 ## Working with persistent volumes {#persistent-volumes}
 
@@ -18,10 +22,10 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](volumes/volume-expansion.md)
 * [{#T}](volumes/mode-block.md)
 
-## Managing a cluster {{ k8s }} {#kubernetes-cluster}
+## Managing a {{ k8s }} cluster {#kubernetes-cluster}
 
-* [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-get-credetials.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-delete.md)
@@ -31,5 +35,5 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](node-group/node-group-list.md)
 * [{#T}](node-group/node-group-create.md)
 * [{#T}](node-group/node-group-update.md)
+* [{#T}](node-group/node-label-management.md)
 * [{#T}](node-group/node-group-delete.md)
-

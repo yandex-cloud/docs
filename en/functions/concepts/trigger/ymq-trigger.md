@@ -1,6 +1,8 @@
 # Trigger for {{ message-queue-short-name }}
 
-[Triggers](../trigger/) for {{ message-queue-short-name }} are used to unload a message queue. They receive messages from a queue and pass them to a [function](../function.md) in {{ sf-name }} or a [container](../../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} for processing. The trigger must be in the same cloud with the queue it reads messages from. Only one trigger can be created for each message queue.
+[Triggers](../trigger/) for {{ message-queue-short-name }} are used to unload a message queue. They receive messages from a queue and pass them to a [function](../function.md) in {{ sf-name }} or a [container](../../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} for processing. Once successfully processed, a trigger deletes messages from the queue, and if an error occurs, it places messages back in the queue and sets a [visibility timeout](../../../message-queue/concepts/visibility-timeout.md). If a queue does not have a [Dead Letter Queue](../../../message-queue/concepts/dlq.md) configured, message will be retransmitted to a function or container until they are successfully processed or their retention period expires.
+
+The trigger must be in the same cloud with the queue it reads messages from. Only one trigger can be created for each message queue.
 
 The {{ message-queue-short-name }} trigger needs [service accounts](../../../iam/concepts/users/service-accounts.md) to read messages from a queue and invoke functions or containers. You can use the same service account for both operations.
 

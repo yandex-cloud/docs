@@ -1,5 +1,5 @@
 ---
-sourcePath: core/reference/ydb-sdk/example/_includes/aux/pragmatablepathprefix.md
+sourcePath: core/reference/ydb-sdk/example/_includes/auxilary/pragmatablepathprefix.md
 ---
 `PRAGMA TablePathPrefix` добавляет указанный префикс к путям таблиц внутри БД. Работает по принципу объединения путей в файловой системе — поддерживает ссылки на родительский каталог и не требует добавления слеша справа. Например:
 
