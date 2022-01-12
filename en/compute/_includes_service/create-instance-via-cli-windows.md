@@ -12,7 +12,7 @@
 
     ```yaml
     #ps1
-    net user administrator "<password>"
+    net user administrator '<password>'
     ```
 
 1. Create a VM in the default folder:

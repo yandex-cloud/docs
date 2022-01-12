@@ -20,6 +20,10 @@
    * In the **Subnet** field, select the subnet to create the master in.
 
      For the regional master, specify three subnets in each availability zone.
+   * Select security groups to control the cluster's network traffic.
+
+     {% include [security-groups-alert](security-groups-alert.md) %}
+
 1. Under **Maintenance window settings**:
    * In the **Maintenance frequency / Disable** field, configure the maintenance window:
      * **Disabled**: Automatic updates are disabled.

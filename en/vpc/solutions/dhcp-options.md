@@ -136,7 +136,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 		```
 		#ps1
-		net user administrator "<password>"
+		net user administrator '<password>'
 		```
 
 		To create a VM, run the command:
