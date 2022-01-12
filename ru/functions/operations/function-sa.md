@@ -45,9 +45,18 @@
                         };
                     };
                     ```
-            1. Добавьте файл  `index.js` в ZIP-архив `index-js.zip`.
+            1. Если будете получать IAM-токен с помощью API, сохраните следующий код в файл с названием `package.json`:
+                ```
+                {
+                    "name": "my-app",
+                    "dependencies": {
+                        "node-fetch": "2.x"
+                    }
+                }
+                ```
+            1. Добавьте файл  `index.js` и, если будете получать IAM-токен с помощью API, файл `package.json` в ZIP-архив `index-js.zip`.
         1. [Создайте](../operations/function/version-manage.md#version-create) версию функции. Укажите:
-            * среду выполнения — `nodejs12`;
+            * среду выполнения — `nodejs16`;
             * способ загрузки кода — `ZIP-архив`;
             * файл — `index-js.zip`;
             * точку входа — `index.main`;
