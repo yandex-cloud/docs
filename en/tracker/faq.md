@@ -14,33 +14,33 @@ If you activated {{ tracker-name }} before {{release-date }}, the service is lin
 
 The {{ tracker-name }} mobile app is available:
 
-- In [Google Play]({{ mobile-google-link }}) for mobile devices powered by Android 8.0 or newer versions.
+- In [Google Play]({{ mobile-google-link }}) for mobile devices running Android version 8.0 and higher.
 
-- In the [App Store]({{ mobile-apple-link }}) for mobile devices powered by iOS 11.0 or newer versions.
+- In the [App Store]({{ mobile-apple-link }}) for mobile devices running iOS 11.0 and higher.
 
-For more information see [{#T}](mobile.md).
+[Learn more about the mobile app.](mobile.md)
 
 {% if audience == "external" %}
 
 ## How to add users to {{ tracker-name }} {#section_yvw_tyk_nbb}
 
-To enable your employees to use {{ tracker-name }}:
+To grant your employees access to {{ tracker-name }}:
 
-1. [Add them to {{ tracker-name }}](enable-tracker.md#add-users). You can invite users with Yandex accounts or create an identity federation so that your company's employees can log in to {{ tracker-name }} with their corporate accounts.
+1. [Add employees to {{ tracker-name }}](add-users.md). You can invite users with Yandex accounts or create an identity federation so that your company's employees can log in to {{ tracker-name }} with their corporate accounts.
 
-1. Set up [full access to {{ tracker-name }}](enable-tracker.md#access) for the employees.
+1. Set up [full access to {{ tracker-name }}](access.md) for the employees.
 
 {% endif %}
 
 ## How to delete an issue {#section_z1d_r1l_nbb}
 
-You can&apos;t delete an issue, but you can close it with an appropriate resolution. For example, duplicate issues can be closed with the resolution `Duplicate`, and issues created by mistake can be closed with the resolution `Cancelled`. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
+You can't delete an issue, but you can close it with an appropriate resolution. For example, duplicate issues can be closed with the <q>Duplicate</q> resolution, while issues created by mistake can be closed with the <q>Canceled</q> resolution. For more information about issues, see [Working with issues](user/ticket-in-progress.md).
 
 {% if audience == "external" %}
 
 {% note tip %}
 
-You can [delete a queue](manager/delete-queue.md) and all issues in it. [Move](user/edit-ticket.md#section_xwx_qpn_jz) the issues you don't need to a special queue and then delete it.
+You can [delete a queue](manager/delete-queue.md) and all issues in it. [Move](user/move-ticket.md) the issues you don't need to a special queue and then delete it.
 
 {% endnote %}
 
@@ -64,7 +64,7 @@ To delete a queue:
 
 1. Confirm the deletion.
 
-For more information about deleting a queue, see [Delete a queue](manager/delete-queue.md).
+For more information about deleting a queue, see [{#T}](manager/delete-queue.md).
 
 {% endif %}
 
@@ -83,8 +83,8 @@ The access permissions for issues are determined by the [queue settings](manager
 
 If you don't have sufficient rights to access the queue page and its issues, contact the queue owner{% if audience == "external" %} or your organization's administrator{% endif %}. The queue owner's name is usually mentioned in the access restriction message.
 
-If you can access the queue page but some of the issues remain unaccessible, some of the issues may include [components with limited access](manager/queue-access.md#section_tbh_cs5_qbb). If this is the case, please contact the queue owner.
+If you can access the queue page but some of the issues remain inaccessible, these issues may include [components with limited access](manager/queue-access.md#section_tbh_cs5_qbb). If this is the case, please contact the queue owner.
 
 ## How can I find the queue owner? {#section_hgc_xyk_nbb}
 
-The owner is listed on the **Description** tab on the queue page. For more information, see [List of queue issues](user/queue.md).
+The owner is specified on the **Description** tab on the queue page. For more information, see [List of queue issues](user/queue.md).

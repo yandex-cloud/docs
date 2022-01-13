@@ -22,13 +22,12 @@ To connect a repository, do the following:
 
     - Specify the token for private GitHub and GitLab repositories. For public repositories, you do not need to specify a token.
 
-    - For Bitbucket repositories, you need to specify your Bitbucket login and a special password generated for {{ tracker-name }}.
+    - For Bitbucket repositories, specify your Bitbucket login and a special password generated for {{ tracker-name }}.
 
-    For more information about repository connection parameters, see [{#T}](manager/add-repository.md).
+    For more information about the connection parameters, see [{#T}](manager/add-repository.md).
 
-1. To display related commits on the issue page, go to your [queue settings](manager/edit-queue-general.md#integration) and enable the option **Show "Commits" tab**.
+1. To display related commits on the issue page, go to your [queue settings](manager/edit-queue-general.md#integration) and enable **Show "Commits" tab**.
 
-To link a commit to an issue in {{ tracker-name }}, specify your [issue key](user/create-ticket.md#key) in a comment on the commit.
+To link a commit to an issue in {{ tracker-name }}, specify your [issue key](user/create-ticket.md#key) in a comment under the commit.
 
 {% endif %}
-

@@ -1,6 +1,8 @@
-#### Resource {#req-resource}
+{% cut "Resource" %}
 
-- **\<issue-id\>**
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| \<issue-id> | ID or key of the current issue. | String |
 
-    Issue ID or key.
+{% endcut %}
 

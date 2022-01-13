@@ -6,13 +6,13 @@ You can subscribe to a specific issue, or to all issues related to a particular 
 
 You can [configure your notifications and subscriptions](notification-settings.md) so that you only receive updates about events you're interested in.
 
-## How to subscribe to an issue {#section_xt5_xrv_jz}
+## Subscribing to an issue {#section_xt5_xrv_jz}
 
 If you want to be notified of changes to a specific issue, subscribe to it:
 
 1. Open the issue page.
 
-1. On the right-hand panel in the **Followers** field, click **Add me**. If you don't see the **Followers** field, add it using the button ![](../../_assets/tracker/task-params-btn.png).
+1. On the right-hand panel in the **Followers** field, click **Add me**. If you don't see the **Followers** field, add it by clicking ![](../../_assets/tracker/task-params-btn.png).
 
 If you did everything correctly, your name will appear in the followers field. Now you will receive emails with notifications of any changes to this issue.
 
@@ -22,19 +22,25 @@ You can also add other users to the list of followers. To do this, click on the 
 
 {% endnote %}
 
-## How to subscribe to a queue {#section_k13_z5v_jz}
+## Subscribing to a queue {#section_k13_z5v_jz}
 
 Subscribe to changes to a queue to track changes to all of the issues in the queue:
 
 1. Open the [queue page](queue.md).
 
-1. Choose:
-    - ![](../../_assets/tracker/icon-settings.png) → **Subscribe to new issues** to only get notifications about new issues created in the queue.
+1. Select:
+    - ![](../../_assets/tracker/icon-settings.png) → **Subscribe to new issues** to get notifications about new issues created in the queue. You'll also be subscribed to notifications about all the events specified in the [notification settings](user-notifications.md#sec_add_role) for the **Queue subscriber** role.
     - ![](../../_assets/tracker/icon-settings.png) → **Subscribe to all notifications** to get notifications of any changes to issues in the queue.
 
 You can also [select events](user-subscriptions.md) to be notified about.
 
-## How to subscribe to a component {#section_km3_jnf_qz}
+{% note tip %}
+
+If the **Subscriptions** tab doesn't allow changing the list of events, go to the **Notifications** tab. You can [edit](user-notifications.md) the events in the section for the **Queue subscriber** role.
+
+{% endnote %}
+
+## Subscribing to a component {#section_km3_jnf_qz}
 
 You can subscribe not only to a queue, but also to its individual components. This way you will only receive notifications about issues that are related to the components you are interested in.
 
@@ -48,11 +54,11 @@ To subscribe to a component:
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
 
-If you did everything right, an icon appears next to the component name: ![](../../_assets/tracker/subscribtion.png)
+If you did everything right, you'll see the following icon next to the component name: ![](../../_assets/tracker/subscribtion.png)
 
 By default, all notifications are sent to your email. You can [select events](user-subscriptions.md) to be notified about.
 
-## How to subscribe to a version {#section_n2y_jnf_qz}
+## Subscribing to a version {#section_n2y_jnf_qz}
 
 To track issues associated with a specific version, subscribe to it:
 
@@ -64,41 +70,31 @@ To track issues associated with a specific version, subscribe to it:
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
 
-If you did everything right, an icon appears next to the version number: ![](../../_assets/tracker/subscribtion.png)
+If you did everything right, you'll see the following icon next to the version number: ![](../../_assets/tracker/subscribtion.png)
 
 By default, all notifications are sent to your email. You can [select events](user-subscriptions.md) to be notified about.
 
 {% if audience == "internal" %}
 
-## Subscribe to a goal {#section_as4_ny4_xgb}
+## Subscribing to a goal {#section_as4_ny4_xgb}
 
-To track issues associated with a specific goal, subscribe to it:
+To track issues related to a specific goal, subscribe to it:
 
 1. Open the [queue page](queue.md).
 
 1. Go to the **Goals** tab.
 
-1. Click ![](../../_assets/tracker/subscribtion.png) in the goal line.
+1. Click ![](../../_assets/tracker/subscribtion.png) in the line with the goal.
 
 By default, all notifications are sent to your email. You can [select events](user-subscriptions.md) to be notified about.
 
 {% endif %}
 
-## Get notifications about your own actions {#sec_self}
+## Getting notifications about your own actions {#sec_self}
 
 By default you don't get notifications for the actions you've done yourself. To enable notifications about your own actions:
 
-1. {% if audience == "external" %}On the {{ tracker-name }} top panel, click ![](../../_assets/tracker/tracker-settings.png) → **Personal settings**.{% else %}On the {{ tracker-name }} top panel, click on your profile picture and select **Personal settings** or follow the link: [https://st.yandex-team.ru/settings]({{ link-settings-ya }}){% endif %}
-
-    {% if audience == "external" %}
-
-    {% note info %}
-
-    You can also follow this link: [https://tracker.yandex.com/settings]({{ link-settings }}).
-
-    {% endnote %}
-
-    {% endif %}
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
 1. Enable **Receive updates with my own actions**.
 

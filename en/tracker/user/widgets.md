@@ -1,66 +1,66 @@
 # Widgets
 
-Widgets are small cards with useful information. They can show lists of issues, statistics on issue completion, pivot tables, or notes. Widget content is generated automatically. The list of issues that a widget is based on is set using [filters](filters.md). You can go to [{#T}](../support-process-dashboards.md) to find sample widgets for the support service dashboard.
+Widgets are small cards with useful information. They can show issue lists, statistics on issue completion, pivot tables, or notes. Widget content is generated automatically. The list of issues that a widget is based on is set using [filters](filters.md). You can go to [{#T}](../support-process-dashboards.md) to find sample widgets for the support service dashboard.
 
-## List of issues {#section_ll1_zdp_pz}
+## Issue lists {#section_ll1_zdp_pz}
 
 ![image](../../_assets/tracker/widgets/filter.png)
 
 This widget allows you to view a list of issues that meet a specific filter. For example, you can use these widgets to set up a page where you can see both the issues in a particular queue and the issues that you are currently working on.
 
-To configure a widget, make these settings:
+To configure a widget, set the following:
 
 - **Name**: The name to display in the widget title.
 - **Results**: The number of issues to display on a single widget page. If there are more issues, you can navigate between pages at the bottom of the widget.
-- **Filter**: The filter used for creating the list of issues. You can set the filter using a [direct link](filters.md), [name](create-filter.md), or the [query language](query-filter.md).
-- **Columns**: The issue fields to show in the list. You can add multiple fields. To remove a field, click **х**.
-- **Auto-update**: How often to refresh the widget data.
+- **Filter**: The filter used for creating the issue list. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
+- **Columns**: The issue fields to show in the list. You can add multiple fields. To remove a field, click **x**.
+- **Auto-update**: How often to refresh the data in the widget.
 
 ## Summary tables {#section_esm_vjp_pz}
 
 Summary tables automatically collect statistics on issues and display them in a table. {{ tracker-name }} supports several types of summary tables:
 
-#### Two-dimensional table
+#### Simple pivot table
 
 ![image](../../_assets/tracker/widgets/table.png)
 
-A simple pivot table that allows you to view statistics for any two parameters. The number of issues that meet the parameters is shown at intersections in the table. For instance, you can use a two-dimensional table to track the quantity and status of issues for a specific group of assignees.
+A simple pivot table that allows you to view statistics for any two parameters. The number of issues that meet the parameters is shown at intersections in the table. You can use this type of table, for instance, to track the quantity and status of issues for a specific group of assignees.
 
-To configure a widget, make these settings:
+To configure a widget, set the following:
 
-- **Name**: The name to display in the widget title.
+- **Widget name**: The name to display in the widget title.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set the filter using a [direct link](filters.md), [name](create-filter.md), or the [query language](query-filter.md).
+- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
 
-- **X axis**: The parameter to use for table columns.
+- **Columns**: The parameter to use for table columns.
 
-- **Y axis**: The parameter to use for table rows.
+- **Rows**: The parameter to use for table rows.
 
 - **Number of rows on page**: The maximum number of table rows to display in the widget. If there are more rows, you can use the **Show all** button at the bottom of the widget.
 
 - **Sort by**: The order for sorting table rows.
 
-- **Show total**: If this option is enabled, the table contains the sum of values for rows and columns.
+- **Show total**: If this option is selected, the table contains the sum of values for rows and columns.
 
-- **Auto-update**: How often to refresh the widget data.
+- **Auto-update**: How often to refresh the data in the widget.
 
-#### Two-dimensional table with sum of values
+#### Summary table with totaled values
 
 ![image](../../_assets/tracker/widgets/table-with-sum.png)
 
-A special type of pivot table with two parameters. In contrast to a simple two-dimensional table, the intersections show the sum of the values of a third parameter, instead of the number of issues. For instance, you can use this table to track the time spent by assignees working on various components in the queue.
+A special type of pivot table with two parameters. In contrast to a simple pivot table, the intersections show the sum of the values of a third parameter, instead of the number of issues. For instance, you can use this table to track the time spent by assignees working on various components in the queue.
 
-To configure a widget, make these settings:
+To configure a widget, set the following:
 
-- **Name**: The name to display in the widget title.
+- **Widget name**: The name to display in the widget title.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set the filter using a [direct link](filters.md), [name](create-filter.md), or the [query language](query-filter.md).
+- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
 
-- **X axis**: The parameter to use for table columns.
+- **Columns**: The parameter to use for table columns.
 
-- **Y axis**: The parameter to use for table rows.
+- **Rows**: The parameter to use for table rows.
 
-- **Total for**: The parameter to show totals for in the intersections.
+- **Cells**: The parameter to show totals for in the intersections.
 
 - **Number of rows on page**: The maximum number of table rows to display in the widget. If there are more rows, you can use the **Show all** button at the bottom of the widget.
 
@@ -68,13 +68,13 @@ To configure a widget, make these settings:
 
 - **Sort columns**: The sort order in table columns.
 
-- **Show total**: If this option is enabled, the table contains the sum of values for rows and columns.
+- **Show total**: If this option is selected, the table contains the sum of values for rows and columns.
 
-- **Auto-update**: How often to refresh the widget data.
+- **Auto-update**: How often to refresh the data in the widget.
 
 ## Statistics {#section_htb_kvp_pz}
 
-Statistics widgets automatically gather information on issues and display it in graphs and charts. {{ tracker-name }} supports multiple types of statistics widgets:
+Statistics widgets automatically gather information on issues and display it in graphs and charts. {{ tracker-name }} supports multiple statistics widgets:
 
 #### Issue statistics
 
@@ -86,15 +86,15 @@ To configure the widget, make these settings:
 
 - **Name**: The name to display in the widget title.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set the filter using a [direct link](filters.md), [name](create-filter.md), or the [query language](query-filter.md).
+- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
 
-- **Number of rows on page**: The maximum number of rows to display in the widget. If there are more rows, you can use the **Show all** button at the bottom of the widget.
+- **Number of rows on page**: The maximum number of chart rows to display in the widget. If there are more rows, you can use the **Show all** button at the bottom of the widget.
 
 - **Key parameter**: The issue field to gather statistics for.
 
-- **Sort by**: The sort order of the columns.
+- **Sort by**: The sort order in chart columns.
 
-- **Auto-update**: How often to refresh the widget data.
+- **Auto-update**: How often to refresh the data in the widget.
 
 #### Events
 
@@ -102,9 +102,9 @@ To configure the widget, make these settings:
 
 The chart displays statistics for _events_ in issues over a certain period of time. You can choose one of the events:
 
-- Work on the issue was completed. This event is defined by the **End date**.
+- Work on the issue was completed. This event is defined by **End date**.
 
-- Work on the issue has started. This event is defined by the **Start date**.
+- Work on the issue has started. This event is defined by **Start date**.
 
 - Last update to the issue.
 
@@ -112,13 +112,13 @@ The chart displays statistics for _events_ in issues over a certain period of ti
 
 - Issue was switched to the **Resolved** status.
 
-- Issue created.
+- The issue was created.
 
 To configure the widget, make these settings:
 
 - **Name**: The name to display in the widget title.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set the filter using a [direct link](filters.md), [name](create-filter.md), or the [query language](query-filter.md).
+- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
 
 - **Key parameter**: Select the event to track in the statistics.
 
@@ -126,7 +126,7 @@ To configure the widget, make these settings:
 
 - **Show cumulative total**: If this option is enabled, data collected from previous steps is included in each subsequent step.
 
-- **Auto-update**: How often to refresh the widget data.
+- **Auto-update**: How often to refresh the data in the widget.
 
 #### <q>Created vs. Resolved chart</q>
 
@@ -138,7 +138,7 @@ To configure the widget, make these settings:
 
 - **Name**: The name to display in the widget title.
 
-- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set the filter using a [direct link](filters.md), [name](create-filter.md), or the [query language](query-filter.md).
+- **Filter**. Statistics are gathered for issues that correspond to a specific filter. You can set filters using [direct links](filters.md), [names](create-filter.md), or the [query language](query-filter.md).
 
 - **Group**: Select the step and specify the period for collecting statistics.
 
@@ -146,10 +146,22 @@ To configure the widget, make these settings:
 
 - **Show cumulative total**: If this option is enabled, data collected from previous steps is included in each subsequent step.
 
-- **Show versions**: If this option is enabled, the chart shows the versions that issues are related to.
+- **Show versions**: If this option is enabled, the chart shows the versions that issues belong to.
 
 ## Notes {#section_rtw_3gr_pz}
 
 ![image](../../_assets/tracker/widgets/note.png)
 
-Write down your ideas and make notes right on the dashboard. You can enter notes in plain text or use [Wiki markup](wiki-markup.md).																										
+Write down your ideas and make notes right on the dashboard. You can enter notes in plain text or use [Wiki markup](wiki-markup.md).
+
+
+{% if audience == "external" %}
+
+## Invitation form {#invite_form}
+
+![image](../../_assets/tracker/widgets/invite-form.png)
+
+Invite your employees to {{ tracker-name }} using a widget. To log in, they need a Yandex account. The employees you invited can use {{ tracker-name }} for free in [<q>Read only</q>](../access.md#readonly) mode.
+
+{% endif %}
+

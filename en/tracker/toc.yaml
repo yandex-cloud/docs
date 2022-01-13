@@ -3,81 +3,86 @@ href: index.yaml
 items:
 - name: Getting started
   items:
-    - name: Activate Tracker
+    - name: Activating Yandex Tracker
       when: audience == "external"
       href: enable-tracker.md
-    - name: Setting up Tracker
+    - name: Logging in to Yandex Tracker
+      when: audience == "external"
+      href: user/login.md
+    - name: Adding users
+      when: audience == "external"
+      href: add-users.md
+    - name: Configuring access to Yandex Tracker
+      when: audience == "external"
+      href: access.md
+    - name: Setting up Yandex Tracker
       href: quick-start.md
-    - name: How to use Tracker
+    - name: Working with Yandex Tracker
       items:
-      - name: Logging in to Tracker
-        when: audience == "external"
-        href: user/login.md
-      - name: Main page
+      - name: Home page
         href: user/startpage.md
       - name: My issues
         href: user/my-tickets.md
-      - name: Work with an issue
+      - name: Working with issues
         href: user/ticket-in-progress.md
       - name: Favorite issues, boards, and dashboards
         href: user/favourites.md
       - name: Personal settings
         href: user/personal.md
-    - name: Migrating to Tracker
+    - name: Migrating to Yandex Tracker
       when: audience == "external"
       href: import.md
-    - name: Deactivating paid services
+    - name: Disabling paid services
       when: audience == "external"
       href: disable-tracker.md
 - name: Yandex Tracker mobile app
   href: mobile.md
 - name: Use cases
   items:
-    - name: Setting up Tracker for a development team
+    - name: Setting up Yandex Tracker for a development team
       items:
         - name: Overview
           href: dev-process.md
-        - name: Create a queue for the development team
+        - name: Creating a queue for a development team
           href: dev-process-create-queue.md
         - name: Structuring issues
           href: dev-process-manage-tickets.md
-        - name: Use Agile methodologies
+        - name: Using Agile methodologies
           href: dev-process-agile.md
-        - name: Configure issue templates
+        - name: Configuring issue templates
           href: dev-process-templates.md
         - name: Connecting repositories
           when: audience == "external"
           href: dev-process-repo.md
-        - name: Automate recurring actions
+        - name: Automating recurring actions
           href: dev-process-automation.md
-        - name: Integrate Tracker with other platforms
+        - name: Integrating Yandex Tracker with other platforms
           href: dev-process-api.md
-    - name: Setting up Tracker for use by the support team
+    - name: Setting up Yandex Tracker for a support team
       items:
         - name: Overview
           href: support-process.md
-        - name: Create a queue for the support team
+        - name: Creating a queue for the support team
           href: support-process-create-queue.md
-        - name: Accept requests by mail and via forms
+        - name: Accepting requests by mail and via forms
           href: support-process-mail-forms.md
-        - name: Configure multi-tiered support
+        - name: Configuring multi-tiered support
           href: support-process-lines.md
-        - name: Send emails from the issue page
-
+        - name: Sending emails from the issue page
           href: support-process-send-mail.md
-        - name: Group requests by topic
+        - name: Grouping requests by topic
           href: support-process-group.md
-        - name: Track the time it takes to process a request
+        - name: Tracking the time it takes to process a request
           href: support-process-sla.md
-        - name: Collect request statistics
+        - name: Collecting request statistics
           href: support-process-dashboards.md
-        - name: Configure integration with third-party platforms
+        - name: Configuring integration with third-party platforms
           href: support-process-integration.md
 - name: Concepts
   items:
-    - name: Tracker overview
+    - name: Service overview
       href: about-tracker.md
-    - name: Basic terms
+    - name: Concepts
       href: glossary.md
 #    - name: Обучающие материалы
 #      href: education.md
@@ -86,96 +91,95 @@ items:
   items:
     - name: Overview
       href: queue-intro.md
-    - name: Create a queue
+    - name: Creating a queue
       href: manager/create-queue.md
     - name: Queue templates
       href: manager/workflows.md
-    - name: View issues in a queue
+    - name: Viewing issues in a queue
       href: user/queue.md
     - name: Changing basic queue settings
       href: manager/edit-queue-general.md
-    - name: Configure issue types and statuses
+    - name: Configuring issue types and statuses
       items:
         - name: Overview
           href: manager/workflow.md
-        - name: Configure issue types
+        - name: Configuring issue types
           href: manager/add-ticket-type.md
-        - name: Configure workflow
+        - name: Creating a workflow
           href: manager/add-workflow.md
-        - name: Configure statuses
+        - name: Setting up statuses
           href: manager/workflow-status-edit.md
-        - name: Configure transitions
+        - name: Configuring transitions
           href: manager/workflow-action-edit.md
-        - name: Add issue types, statuses, and resolutions
+        - name: Adding issue types, statuses, and resolutions
           when: audience == "external"
           items:
-            - name: Create an issue type
+            - name: Creating an issue type
               href: manager/create-ticket-type.md
-            - name: Create a status
+            - name: Creating a status
               href: manager/create-status.md
-            - name: Create a resolution
+            - name: Creating a resolution
               href: manager/create-resolution.md
     - name: Local issue fields
       href: local-fields.md
-    - name: Add a queue team
+    - name: Adding a queue team
       href: manager/queue-team.md
-    - name: Set access rights to queues
+    - name: Setting access rights for queues
       href: manager/queue-access.md
     - name: Advanced queue features
       href: manager/queue-advanced.md
-    - name: View the history of queue changes
+    - name: Viewing the history of queue changes
       href: manager/queue-history.md
     - name: Deleting a queue
       when: audience == "external"
       href: manager/delete-queue.md
-- name: Work with issues
+- name: Working with issues
   items:
-    - name: Creating issues
+    - name: Creating an issue
       items:
         - name: Overview
           href: user/create-ticket.md
         - name: Creating an issue via email
-
           href: user/create-ticket-by-mail.md
         - name: Creating an issue from a form
-          when: audience == "internal"
-
-
           href: user/create-ticket-with-forms.md
-        - name: Clone an issue
+        - name: Cloning an issue
           href: user/clone.md
-    - name: Edit an issue
+    - name: Editing an issue
       items:
         - name: Overview
           href: user/edit-ticket.md
-        - name: Add comments to issues
+        - name: Adding comments to issues
           href: user/comments.md
-        - name: Format text in issues
-          href: user/wiki-markup.md
+        - name: Creating a checklist
+          href: user/checklist.md
         - name: Editing issue links
           href: user/ticket-links.md
-
-        - name: Run a macro
+        - name: Attaching images and files to an issue
+          href: user/attach-file.md
+        - name: Formatting text in issues
+          href: user/wiki-markup.md
+        - name: Running a macro
           href: user/macroses.md
-        - name: Change multiple issues
+        - name: Voting for an issue
+          href: user/votes.md
+        - name: Moving an issue to another queue
+          href: user/move-ticket.md
+        - name: Changing multiple issues
           href: manager/bulk-change.md
-    - name: Create a checklist
-      href: user/checklist.md
-    - name: Set up an issue reminder
+    - name: Setting up an issue reminder
       href: user/reminder.md
-    - name: Register time spent
+    - name: Registering time spent
       href: user/time-spent.md
     - name: Adding issue fields
       href: user/create-param.md
-    - name: View the history of issue changes
+    - name: Viewing the history of issue changes
       href: user/history.md
-    - name: Vote for an issue
-      href: user/votes.md
-    - name: Get access to an issue
+    - name: Getting access to an issue
       href: user/ticket-access.md
-    - name: Delete an issue
+    - name: Deleting an issue
       href: user/ticket-cancel.md
-- name: Structure issues
+- name: Structuring issues
   items:
     - name: Overview
       href: structure.md
@@ -191,11 +195,11 @@ items:
   items:
     - name: Overview
       href: manager/agile.md
-    - name: Create a board
+    - name: Creating a board
       href: manager/create-agile-board.md
-    - name: Work with an agile board
+    - name: Working with an agile board
       href: user/agile.md
-    - name: Edit or delete a board
+    - name: Editing and deleting a board
       href: manager/edit-agile-board.md
     - name: Sprints
       href: manager/create-agile-sprint.md
@@ -203,17 +207,19 @@ items:
       href: manager/epic.md
     - name: Collaborative workload estimation
       href: manager/planning-poker.md
-    - name: Burndown chart
+    - name: Burn down charts
       href: manager/burndown.md
-- name: Find issues
+- name: Searching for issues
   items:
     - name: Overview
       href: user/filters.md
-    - name: Finding my issues
+    - name: Searching for issues by key or name
+      href: user/search-task.md
+    - name: Searching for my issues
       href: user/default-filters.md
-    - name: Find issues in queues
+    - name: Searching for issues in queues
       href: manager/quick-filters.md
-    - name: Create an issue filter
+    - name: Creating an issue filter
       href: user/create-filter.md
     - name: Query language
       href: user/query-filter.md
@@ -221,15 +227,13 @@ items:
   items:
     - name: Overview
       href: user/notifications.md
-    - name: Subscribe to notifications
+    - name: Subscribing to notifications
       href: user/subscribe.md
     - name: Receiving update reports
       href: user/notification-digest.md
-    - name: Subscribe other users to queue updates
+    - name: Subscribing other users to queue updates
       href: manager/subscriptions.md
-    - name: Configuring notification contents
-
-
+    - name: Notification settings
       items:
         - name: Overview
           href: user/notification-settings.md
@@ -239,7 +243,7 @@ items:
           href: user/user-subscriptions.md
 #    - name: Отправлять уведомления на почтовые ящики в вашем домене
 #      href: manager/mail-notifications.md
-    - name: Filtering incoming mail
+    - name: Filtering incoming emails
       when: audience == "internal"
       href: user/email-filtering.md
 - name: Statistics and dashboards
@@ -248,19 +252,19 @@ items:
       items:
         - name: Overview
           href: user/dashboard.md
-        - name: How to create a dashboard
+        - name: Creating a dashboard
           href: user/create-dashboard.md
         - name: Widgets
           href: user/widgets.md
-        - name: How to change a dashboard
+        - name: Editing a dashboard
           href: user/edit-dashboard.md
         - name: Shared access to dashboards
           href: user/share-dashboard.md
-        - name: How to make a dashboard your home page
+        - name: Making a dashboard your home page
           href: user/startpage-dashboard.md
     - name: Queue statistics
       href: manager/statistics.md
-    - name: Gantt chart
+    - name: Gantt charts
       href: manager/gantt.md
 - name: Automation and templates
   items:
@@ -274,11 +278,11 @@ items:
           href: user/create-trigger.md
         - name: Setting trigger conditions
           href: user/set-condition.md
-        - name: Setting trigger actions
+        - name: Configuring trigger actions
           href: user/set-action.md
         - name: Editing and deleting triggers
           href: user/manage-trigger.md
-        - name: Trigger examples
+        - name: Examples
           href: manager/trigger-examples.md
     - name: Auto actions
       items:
@@ -288,7 +292,7 @@ items:
           href: user/create-autoaction.md
         - name: Scheduled issue creation
           href: user/ticket-schedule.md
-        - name: Change or delete auto actions
+        - name: Editing or deleting auto actions
           href: user/manage-autoaction.md
     - name: Macros
       href: manager/create-macroses.md
@@ -296,16 +300,15 @@ items:
       items:
         - name: Overview
           href: user/ticket-template.md
-        - name: Create a template
+        - name: Creating a template
           href: user/create-template.md
-        - name: Change a template
+        - name: Editing a template
           href: user/edit-template.md
-        - name: Delete a template
+        - name: Deleting a template
           href: user/delete-template.md
-        - name: Use shared templates
+        - name: Using shared templates
           href: user/share-template.md
-    - name: Use a form as a template for creating issues
-      when: audience == "internal"
+    - name: Using a form as a template for creating issues
       href: manager/attach-form.md
 - name: Configuring an SLA for issues
   items:
@@ -313,16 +316,15 @@ items:
       href: sla-head.md
     - name: Configuring rules
       href: manager/sla.md
-    - name: Work schedule
+    - name: Work schedules
       href: manager/schedule.md
 - name: Integration with other services
   items:
-    - name: Mail
-
+    - name: Email
       href: manager/queue-mail.md
-    - name: Forms
+    - name: Yandex Forms
       href: manager/forms-integration.md
-    - name: Wiki
+    - name: Yandex Wiki
       href: user/wiki.md
     - name: Messengers
       items:
@@ -356,9 +358,17 @@ items:
     - name: Code review
       when: audience == "internal"
       href: user/review.md
+    - name: Setting up links to external applications
+      items:
+        - name: Overview
+          href: external-links.md
+        - name: Setting up an external application
+          href: ext-app-setup.md
+        - name: Sending your application data to the Tracker team
+          href: ext-app-info.md
 - name: Developer tools
   items:
-    - name: Plugin for the IntelliJ IDE
+    - name: Plugin for IDE
       href: idea-plugin.md
     - name: API
       href: user/API.md
@@ -380,5 +390,5 @@ items:
     path: en/tracker/api-ref/toc.yaml
 - name: Questions and answers
   href: faq.md
-- name: Technical support
+- name: Support
   href: troubleshooting.md

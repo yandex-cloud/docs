@@ -1,6 +1,6 @@
-# Setting up {{ tracker-name }} for a development team
+# Setting up {{ tracker-full-name }} for a development team
 
-{{ tracker-full-name }} is a collaboration tool that makes it easier to manage the development of apps and programs. {{ tracker-name }} features a variety of tools for developers:
+{{ tracker-full-name }} is a collaboration tool that makes it easier to manage the development of apps and programs. {{ tracker-name }} provides a wide range of tools for developers:
 
 - Flexible issue management: customizable issue types, statuses, and parameters, templates, and [issue decomposing and structuring via links](dev-process-manage-tickets.md).
 

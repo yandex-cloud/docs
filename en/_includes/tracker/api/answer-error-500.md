@@ -1,3 +1,3 @@
 500
-:   Internal service error. Try resending your request in a few minutes.
+:   Internal service error. Try again later.
 

@@ -13,6 +13,7 @@ default:
   api-short-name: Tracker API
   host: 'https://api.tracker.yandex.net'
   ver: v2
+  org-id: "X-Org-ID: <organization's ID>"
   
   #Ссылки на Tracker и Коннект
   link-tracker: https://tracker.yandex.com/

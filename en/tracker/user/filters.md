@@ -1,23 +1,23 @@
-# Searching issues
+# Searching for issues
 
-{% if audience == "internal" %}						   
-You can use the search box in the top panel in {{ tracker-name }} to find issues by their key or name.
-{% endif %}		   
+{% if audience == "internal" %}
+To [search for issues by their key or name](search-task.md), use the search box on the top panel in {{ tracker-name }}.
+{% endif %}
 
 You can use filters to search for issues by parameters.
 
-<!--{% if locale == "ru" %}
+{% if audience == "draft" %}
 
 @[youtube](nZ6XGsGG7dQ)
 
-{% endif %}-->
+{% endif %}
 
 You can use filters to:
 
-- [Find issues you're working on.](default-filters.md)
+* [Find the issues you're working on.](default-filters.md)
 
-- [Find issues in queues.](../manager/quick-filters.md)
+* [Find issues in a queue.](../manager/quick-filters.md)
 
-- [Set your own search parameters and save them as a preset filter.](create-filter.md)
+* [Set your own search criteria and save them as a preset filter.](create-filter.md)
 
     You can use your saved filters to pick issues for [dashboards](dashboard.md) and [agile boards](../manager/create-agile-board.md).

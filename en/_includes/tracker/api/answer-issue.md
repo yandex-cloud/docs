@@ -87,125 +87,76 @@
 ]
 ```
 
-#### Response parameters {#answer-params}
+{% cut "Response parameters" %}
 
-Parameter | Description | Data type
------ | ----- | -----
-self | Address of the API resource with information about the issue. | String
-id | Issue ID. | String
-key | Issue key. | String
-version | Issue version. Each change to the issue parameters increases its version number. | Number
-lastCommentUpdatedAt | Date and time when the last comment was added. | String
-summary | Issue name. | String
-[parent](#parent) | Object with information about the parent issue. | Object
-aliases | Array with information about alternative issue keys. | Array of strings.
-[updatedBy](#updated-by) | Object with information about the employee who edited the issue last. | Object
-description | Issue description. | String
-[sprint](#sprint) | Array of objects with information about the sprint. | Array of objects
-[type](#type) | Object with information about the issue type. | Object
-[priority](#priority) | Object with information about the priority. | Object
-createdAt | Issue creation date and time. | String
-[followers](#followers) | Array of objects with information about issue followers. | Array of objects
-[createdBy](#created-by) | Object with information about the user who created the issue. | Object
-votes | Number of votes for the issue. | Number
-[assignee](#assignee) | Object with information about the issue's assignee. | Object
-[queue](#queue) | Object with information about the issue queue. | Object
-updatedAt | Date and time when the issue was last updated. | String
-[status](#status) | Object with information about the issue status. | Object
-[previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object
-favorite | Flag indicating a favorite issue:<ul><li>`true`: The user added the issue to favorites.</li><li>`false`: The issue is not added to favorites.</li></ul> | Boolean.
+   | Parameter | Description | Data type |
+   | ----- | ----- | ----- |
+   | self | Address of the API resource with information about the issue. | String |
+   | id | Issue ID. | String |
+   | key | Issue key. | String |
+   | version | Issue version. Each change to the issue parameters increases its version number. | Number |
+   | lastCommentUpdatedAt | Date and time when the last comment was added. | String |
+   | summary | Issue name. | String |
+   | [parent](#parent) | Object with information about the parent issue. | Objects |
+   | aliases | Array with information about alternative issue keys. | Array of strings |
+   | [updatedBy](#updated-by) | Object with information about the employee who edited the issue last. | Objects |
+   | description | Issue description. | String |
+   | [sprint](#sprint) | Array of objects with information about the sprint. | Array of objects |
+   | [type](#type) | Object with information about the issue type. | Objects |
+   | [priority](#priority) | Object with information about the priority. | Objects |
+   | createdAt | Issue creation date and time. | String |
+   | [followers](#followers) | Array of objects with information about issue followers. | Array of objects |
+   | [createdBy](#created-by) | Object with information about the user who created the issue. | Objects |
+   | votes | Number of votes for the issue. | Number |
+   | [assignee](#assignee) | Object with information about the issue's assignee. | Objects |
+   | [queue](#queue) | Object with information about the issue queue. | Objects |
+   | updatedAt | Date and time when the issue was last updated. | String |
+   | [status](#status) | Object with information about the issue status. | Objects |
+   | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Objects |
+   | favorite | Flag indicating a favorite issue:<ul><li>`true`: The user added the issue to favorites.</li><li>`false`: The issue is not added to favorites.</li></ul> | Logical |
 
-**Object fields** `parent` {#parent}
+   **Object fields** `parent` {#parent}
 
-Parameter | Description | Data type
------ | ----- | -----
-self | Issue link. | String
-id | Issue ID. | String
-key | Issue key. | String
-display | Issue name displayed. | String
+   | Parameter | Description | Data type |
+   | ----- | ----- | ----- |
+   | self | Address of the API resource with information about the issue. | String |
+   | id | Issue ID. | String |
+   | key | Issue key. | String |
+   | display | Issue name displayed. | String |
 
-**Object fields** `updatedBy` {#updated-by}
+   **Object fields** `updatedBy` {#updated-by}
 
-Parameter | Description | Data type
------ | ----- | -----
-self | Link to the user. | String
-id | User ID. | String
-display | User's name displayed. | String
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-**Array object fields** `sprint` {#sprint}
+   {% include [sprint](../../../_includes/tracker/api/sprint.md) %}
 
-Parameter | Description | Data type
------ | ----- | -----
-self | Sprint link. | String
-id | Sprint ID. | String
-display | Sprint name displayed. | String
+   {% include [type](../../../_includes/tracker/api/type.md) %}
 
-**Object fields** `type` {#type}
+   {% include [priority](../../../_includes/tracker/api/priority.md) %}
 
-Parameter | Description | Data type
------ | ----- | -----
-self | Link to the issue type. | String
-id | ID of the issue type. | String
-key | Key of the issue type. | String
-display | Issue type name displayed. | String
+   **Array object fields** `followers` {#followers}
 
-**Object fields** `priority` {#priority}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-Parameter | Description | Data type
------ | ----- | -----
-self | Link to the priority type. | String
-id | Priority ID. | String
-key | Priority key. | String
-display | Priority name displayed. | String
+   **Object fields** `createdBy` {#created-by}
 
-**Array object fields** `followers` {#followers}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-Parameter | Description | Data type
------ | ----- | -----
-self | Link to the user. | String
-id | User ID. | String
-display | User's name displayed. | String
+   **Object fields** `assignee` {#assignee}
 
-**Object fields** `createdBy` {#created-by}
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
-Parameter | Description | Data type
------ | ----- | ----- |
-self | Link to the user. | String
-id | User ID. | String |
-display | User's name displayed. | String
+   **Object fields** `queue` {#queue}
 
-**Object fields** `assignee` {#assignee}
+   {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-Parameter | Description | Data type
------ | ----- | -----
-self | Link to the user. | String
-id | User ID. | String
-display | User's name displayed. | String
+   **Object fields** `status` {#status}
 
-**Object fields** `queue` {#queue}
+   {% include [status](../../../_includes/tracker/api/status.md) %}
 
-Parameter | Description | Data type
------ | ----- | -----
-self | Queue link. | String
-id | Queue ID. | String
-key | Queue key. | String
-display | Queue name displayed. | String
+   **Object fields** `previousStatus` {#previous-status}
 
-**Object fields** `status` {#status}
+   {% include [status](../../../_includes/tracker/api/status.md) %}
 
-Parameter | Description | Data type
------ | ----- | -----
-self | Status link. | String
-id | Status ID. | String
-key | Status key. | String
-display | Status name displayed. | String
-
-**Object fields** `previousStatus` {#previous-status}
-
-Parameter | Description | Data type
------ | ----- | -----
-self | Status link. | String
-id | Status ID. | String
-key | Status key. | String
-display | Status name displayed. | String
+{% endcut %}
 

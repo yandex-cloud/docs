@@ -6,25 +6,25 @@ By default, queue settings can only be accessed by the queue owner.
 
 {% endnote %}
 
-You can use Yandex.Forms to set up your form to act as a template for creating issues as well as integrate it with the {{ tracker-name }} interface. Such form will be displayed on the issue creation page next to the basic one. It will help users create issues by following a preset template without feeling distracted by other fields and parameters.
+You can use {{ forms-full-name }} to set up your form to act as a template for creating issues as well as integrate it with the {{ tracker-name }} interface. Such form will be displayed on the issue creation page next to the basic one. It will help users create issues by following a preset template without feeling distracted by other fields and parameters.
 
 ## Step 1. Create and configure your form {#section_ovd_5hl_1gb}
 
-1. {% if audience == "external" %} Go to [Yandex.Forms]({{ link-forms }}). If it isn't activated, contact your organization's administration.{% else %}Go to [Yandex.Forms]({{ link-forms }}).{% endif %}
+1. {% if audience == "external" %}Go to [{{ forms-full-name }}]({{ link-forms }}). If the service hasn't been activated, contact your company's administrator.{% else %}Go to [{{ forms-full-name }}]({{ link-forms }}).{% endif %}
 
-1. [Create]{% if audience == "external" %}({{ support-forms-create }}){% else %}({{ support-forms-create-ya }}){% endif %} a new form from scratch or use the **Issue for {{ tracker-name }}** template.
+1. [Create](../../forms/new-form.md) a new form from scratch or use the **Issue for {{ tracker-name }}** template.
 
    Set up your form's fields to collect data needed for issue creation.
 
-1. Configure the name of the form. This name will be displayed in the {{ tracker-name }} interface during issue creation.
+1. Configure the name of the form. This name will be displayed in the {{ tracker-name }} interface when creating an issue.
 
-1. Set up [{{ tracker-name }} integration]{% if audience == "external" %}({{ support-forms-tracker }}){% else %}({{ support-forms-tracker-ya }}){% endif %} for the form.
+1. Set up your form's [integration with {{ tracker-name }}](../../forms/create-task.md).
 
-1. [Publish]{% if audience == "external" %}({{ support-forms-publish }}){% else %}({{ support-forms-publish-ya }}){% endif %} your form and copy the link to the form from the **Link** field.
+1. [Publish](../../forms/publish.md#section_link) your form and copy the link to it from the **Link** field.
 
 ## Step 2. Connect your form to the queue {#section_xxj_fll_1gb}
 
-1. Go to [{{ tracker-name }}]{% if audience == "external" %}({{ link-tracker }}){% else %}({{ link-tracker-ya }}){% endif %}.
+1. Go to the [{{ tracker-name }}]({{ link-tracker }}).
 
 1. Open the [queue page](../user/queue.md).
 

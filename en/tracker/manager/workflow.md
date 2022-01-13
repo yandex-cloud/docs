@@ -8,7 +8,7 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 Issues are generally completed in multiple stages. In {{ tracker-name }}, each issue stage corresponds to a certain status. A set of possible issue statuses and status transition rules is called a _workflow_.
 
-A queue can include different types of issues, such as <q>New feature</q>, <q>Improvement</q>, or <q>Bug</q>. A unique workflow can be configured for each issue type.
+You can add different issue types to a single queue, such as <q>New feature</q>, <q>Improvement</q>, or <q>Bug</q>. A unique workflow can be configured for each issue type.
 
 To configure a workflow for a particular issue type:
 
@@ -18,7 +18,7 @@ To configure a workflow for a particular issue type:
 
    You can select an existing [workflow from the queue template](workflows.md) or [create a new workflow](add-workflow.md). The same workflow can be used for multiple types of issues.
 
-1. Once you've created a workflow, [set the available issue statuses](workflow-status-edit.md).
+1. Once you've created a workflow, [set possible issue statuses](workflow-status-edit.md).
 
 1. [Set status transitions](workflow-action-edit.md) for each available status:
     - The order and conditions for status transitions.

@@ -6,11 +6,11 @@ By default, only the queue owner can configure a queue.
 
 {% endnote %}
 
-## Set access rights for queues {#section_bvq_dc3_3z}
+## Setting access rights for queues {#section_bvq_dc3_3z}
 
-{% if audience == "external" %} By default, users have unrestricted access to issues in a queue.{% else %}By default, access to issues in a queue is granted to all Yandex employees except [Business support team and external consultants (outstaff)](#outsource_access).{% endif %}
+{% if audience == "external" %}By default, users are not restricted from accessing queue issues.{% else %}By default, access to queue issues is granted to all Yandex employees except [Business support team members and External consultants](#outsource_access).{% endif %}
 
-If you restrict access to your queue, only the users specified in the following fields will have access to its issues by default: **Reporter**, **Assignee**, **Followers**, and **Access**.
+If you restrict access to your queue, only the users specified in the following fields will have access to its issues by default: **Author**, **Assignee**, **Followers**, and **Access**.
 
 You can change access settings for individual users, groups, or roles:
 
@@ -18,19 +18,21 @@ You can change access settings for individual users, groups, or roles:
 
 1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
 
-1. Go to the **Access** → **All issues** tab.
+1. Go to **Access** → **All issues**.
 
-1. Add users and groups to configure access permissions for:
-
-    - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user's name in the search bar at the top of the table.
-
+1. Add users and groups to configure access for:
+    - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user&apos;s name in the search bar at the top of the table.
     - **Groups**: {% if audience == "external" %}Settings for all employees.{% else %}Settings for departments and teams. To add a new department, enter its name in the search bar at the top of the table.{% endif %}
 
-{% if audience == "internal" %}{% note tip %}
+{% if audience == "internal" %}
 
+        {% note tip %}
+    
         To add all Yandex employees, select the `Yandex` group.
+    
+        {% endnote %}
 
-        {% endnote %}{% endif %}
+{% endif %}
 
     - **Roles**: Settings for users who have specific roles in queue issues:
         - **Access**: Users listed in the **Access** field of an issue.
@@ -40,21 +42,21 @@ You can change access settings for individual users, groups, or roles:
         - **Queue owner**.
         - **Queue team member**: Users added to the [queue team](queue-team.md). This role isn't on the list by default, but you can add it via the search bar at the top of the table.
 
-1. Set permissions to perform queue actions:
+1. Set permissions for queue actions:
 
-    - **Create issues**: Users can create issues for this queue.
+    - **Create issues**: Users are allowed to create new issues in this queue.
 
-    - **View issues**: Users can comment on an issue and change its status, but they can't edit the issue field values.
+    - **View issues**: Users are allowed to add comments to an issue and change its status, but not to edit issue field values.
 
         {% note warning %}
 
-        The View Issues permission isn't sufficient for a [bulk change of multiple issue statuses at once](bulk-change.md#section_kkf_tjr_fgb). Users need permissions to edit issues.
+        To [bulk change multiple issues' statuses](bulk-change.md#section_kkf_tjr_fgb), view permissions are not sufficient. This requires permission to edit issues.
 
         {% endnote %}
 
-    - **Edit issues**: Users can comment on an issue, change its status, and edit field values (for instance, update the deadline, add followers, and so on).
+    - **Edit issues**: Users are allowed to comment on an issue, change its status, and edit issue fields (such as changing its deadline, adding followers, and so on).
 
-    - **Queue settings**: Users can edit the [queue settings](edit-queue-general.md).
+    - **Queue settings**: Users are allowed to edit [queue settings](edit-queue-general.md).
 
 1. Click **Save**.
 
@@ -66,11 +68,11 @@ If a user has multiple roles, they gain all access rights associated with each r
 > 
 > If a user is both the reporter and the assignee, they're allowed to **Create issues**, **View issues**, and **Edit issues**.
 
-## Add a message for users who can't access issues {#deny-message}
+## Adding a message for users who can't access issues {#deny-message}
 
-When a user is trying to open an issue from a queue they don't have access to, a message pops out that says <q>Contact the queue owner</q> with the owner's name.
+When a user is trying to open an issue from a queue that they don't have access to, a message saying <q>Contact the queue owner</q> pops out with the owner's name specified.
 
-This message can be changed, however. For instance, you can specify another user with queue admin rights who can give access to issues. You can also specify the reason for restricting access to the queue.
+This message can be changed. For instance, you can specify another user with queue admin rights who can give access to issues. You can also specify the reason for restricting access to the queue.
 
 To edit the message displayed to users with no access to the queue, do the following:
 
@@ -78,7 +80,7 @@ To edit the message displayed to users with no access to the queue, do the follo
 
 1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
 
-1. Go to the **Access** → **All issues** tab.
+1. Go to **Access** → **All issues**.
 
 1. Under **Message for users without access**, click **Edit**.
 
@@ -88,7 +90,7 @@ To edit the message displayed to users with no access to the queue, do the follo
 If you want to add a link to a user profile in your message, enter their username followed by the `@` symbol, such as `login@`.
 {% endif %}
 
-## Set access rights to issues with components {#section_tbh_cs5_qbb}
+## Setting access rights to issues with components {#section_tbh_cs5_qbb}
 
 You can configure access to various [components](components.md) of the queue. This lets you create separate setups for issues that have components and those that do not. The rules for component access take priority over the rules for queue access.
 
@@ -102,17 +104,19 @@ To configure access to issues by component:
 
 1. Go to **Access** → **Issues with component**.
 
-1. Add users and groups to configure access permissions for:
+1. Add users and groups to configure access for:
 
-    - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user's name in the search bar at the top of the table.
+    - **Users and robots**: Individual settings for individual users. To add a user to this category, enter the login or the user&apos;s name in the search bar at the top of the table.
 
     - **Groups**: {% if audience == "external" %}Settings for all employees.{% else %}Settings for departments and teams. To add a new department, enter its name in the search bar at the top of the table.{% endif %}
 
-{% if audience == "internal" %}{% note tip %}
+    {% if audience == "internal" %}
+    {% note tip %}
 
-        To add all Yandex employees, select the `Yandex` group.
+            To add all Yandex employees, select the `Yandex` group.
 
-        {% endnote %}{% endif %}
+            {% endnote %}
+    {% endif %}
 
     - **Roles**: Settings for users who have specific roles in queue issues:
         - **Access**: Users listed in the **Access** field of an issue.
@@ -120,9 +124,15 @@ To configure access to issues by component:
         - **Reporter**: The person who created the issue.
         - **Assignee**: The person assigned to the issue.
         - **Queue owner**.
-        - **Queue team member**: Users added to the [queue team](queue-team.md). This role isn't on the list by default, but you can add it via the search bar at the top of the table.
+        - **Queue team members**: Users added to the [queue team](queue-team.md). This role isn't on the list by default, but you can add it via the search bar at the top of the table.
 
 1. Click **Save**.
+
+    {% note tip %}
+
+    To disable special access rights for a component, click **Clear**.
+
+    {% endnote %}
 
 1. To configure access to an individual issue that differs from the access settings for the entire queue, add a component to the issue.
 
@@ -136,35 +146,35 @@ If an issue has several associated components, all users with access to at least
 
 {% if audience == "internal" %}
 
-## Set access rights for freelance employees {#outsource_access}
+## Configuring access for external employees {#outsource_access}
 
-The [Business support team](https://staff.yandex-team.ru/departments/outstaff) and [External consultants](https://staff.yandex-team.ru/departments/ext) have no access to queue issues by default. You can't invite them to comment on an issue or specify them in the **Reporter**, **Assignee**, **Followers**, or **Access** fields.
+By default, [Business support team members](https://staff.yandex-team.ru/departments/outstaff) and [External consultants](https://staff.yandex-team.ru/departments/ext) can't access queue issues. You can't invite them to comment on an issue or specify them in the **Author**, **Assignee**, **Followers**, and **Access** fields.
 
 #### Configuring access
 
-To grant queue access to individual freelancers or groups:
+To grant access to the queue for individual external employees or groups:
 
-1. In the queue access settings, enable **Allow access for external users**.
+1. Enable **Allow access for external users** in the queue access settings.
 
-1. Add freelancers or groups to the [**Access rights** list](#section_bvq_dc3_3z).
+1. Add the appropriate employees or groups to the [**Access rights** list](#section_bvq_dc3_3z).
 
-If you enable the **Allow access for external employees** option, but don't add specific users to the **Access rights** list, you'll be able to invite any external employees to comment on an issue and specify them in the **Reporter**, **Assignee**, **Followers**, and **Access** fields.
+Selecting **Allow access for external users** without adding specific users to the **Access rights** list allows inviting external staff to comment on issues and specifying them in the **Author**, **Assignee**, **Followers**, and **Access** fields.
 
-#### Allow inviting Yandex employees to comments
+#### Allowing inviting Yandex employees
 
-External employees with access to a queue or issue can invite Yandex employees to comments only if they have access to employee profiles on the Staff page.
+External employees with queue or issue access permissions can invite Yandex staff members to comments only if they have access to their Staff profiles.
 
-To allow external employees to invite your department employees to comments, [request a Staff role for them](https://idm.yandex-team.ru/system/staff/roles#rf=1,rf-role=dOY3rEJ023staff/department_roles/EXT_WITH_STAFF_PROFILE_ACCESS(fields:()),f-status=all,f-role=staff,sort-by=-updated,rf-expanded=dOY3rEJ0). Learn more about Staff access permissions [on the Wiki](https://wiki.yandex-team.ru/staff/vodstvo/zapros-dostupa-na-staff-dlja-vneshnix-sotrudnikov/).
+To allow external staff to invite employees from your department to comments, [request for them a Staff role](https://idm.yandex-team.ru/system/staff/roles#rf=1,rf-role=dOY3rEJ0%23staff/department_roles/EXT_WITH_STAFF_PROFILE_ACCESS(fields:()),f-status=all,f-role=staff,sort-by=-updated,rf-expanded=dOY3rEJ0). For more information about access to Staff, see [Wiki](https://wiki.yandex-team.ru/staff/vodstvo/zapros-dostupa-na-staff-dlja-vneshnix-sotrudnikov/).
 
-#### How to find out who has access to a queue or issue
+#### Finding out who has permission
 
-A warning saying **Access: Not only Yandex** means that both Yandex employees and external employees have access to a queue or issue.
+The warning **Access: Not only Yandex** means that both Yandex and external staff are allowed to access a queue or issue.
 
-To find out who has access to a queue or issue:
+To find out who has access permissions:
 
-- If the access permission set for a queue is **Yandex** and the one set for an individual issue is **Access: Not only Yandex**, this means that external employees are included as issue followers, reporters, or assignees.
+- If a queue's access category is **Yandex** and an individual issue's is **Access: Not only Yandex**, this means that the issue's reporter, assignee, or followers inlcude external employees.
 
-- If you are not the owner of the queue, but you believe that it should not be available to external employees, write to `tools@`.
+- If you aren't the queue owner, but you think that it shouldn't be available to external employees, please contact `tools@`.
 
 - If you are the queue owner, you can see external employees in the [queue access settings](#section_bvq_dc3_3z).
 

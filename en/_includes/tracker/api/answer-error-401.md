@@ -1,3 +1,3 @@
 401
-:   The user isn't authorized. Make sure that actions described in the [API access](../access.md) section are performed.
+:   The user isn't authorized. Make sure to perform the actions described in [API access](../../../tracker/concepts/access.md).
 

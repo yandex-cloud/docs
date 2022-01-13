@@ -1,14 +1,14 @@
 # Local issue fields
 
-If you want to add a new issue parameter that isn't already an existing field in {{ tracker-name }}, you can add local fields to your queue.
+If you need to add a new issue field that is not available in {{ tracker-name }}, you can add local fields to your queue.
 
 {% note info %}
 
-You can see the list of existing global fields on the [{{ tracker-name }} settings]{% if audience == "external" %}({{ link-admin-fields }}){% else %}({{ link-admin-fields-ya }}){% endif %} page.
+You can see the list of existing global fields on the [{{ tracker-name }} settings]({{ link-admin-fields }}) page.
 
 {% endnote %}
 
-You can only use a local field for issues in the queue that the field is linked to. The advantage of local fields is that the queue owner can manage them without the risk of affecting the workflow in other queues. Users working in other queues won't see this field in their issues.
+A local field can only be used in the issues of the queue it's linked to. The advantage of local fields is that the queue owner can manage them without the risk of affecting the workflows in other queues. Users working in other queues won't see this field in their issues.
 
 ## Add a local field
 
@@ -34,7 +34,7 @@ By default, [only the queue owner](manager/queue-access.md) can configure a queu
 
     - **Name**. Try to give the fields short and informative names.
 
-    - **Name in English**. This name will be shown in the {{ tracker-name }} English interface.
+    - **Name in English**. This name is shown in the English interface of {{ tracker-name }}.
 
     - **Type of number** (only for fields with the <q>number</q> type).
 
@@ -42,17 +42,19 @@ By default, [only the queue owner](manager/queue-access.md) can configure a queu
 
     - **Number of list items** (only for fields with the <q>drop-down list</q> type).
 
-    - **Number of employees** (only for fields with the <q>selecting employees</q> type).
+    - **Number of employees** (only for fields with the <q>user list</q> type).
 
 1. Click **Create**.
 
-{% if audience == "internal" %}
-
 ## Edit a local field
 
-Editing local field parameters via the {{ tracker-name }} web interface is not supported. To change the parameters of a local field, send a request using [this form](https://forms.yandex-team.ru/surveys/66769/). In the request comment, specify the queue the field is linked to.
+Editing local field parameters via the {{ tracker-name }} web interface is not supported. To do this, you can use the [{{ api-name }}](concepts/queues/edit-local-field.md).
 
-Requests are processed within 2-3 business days. If the issue is urgent, increase its priority to <q>critical</q> and write in the comments why it's urgent.
+{% if audience == "internal" %}
+
+You can also submit a request to edit local field parameters via this [form](https://forms.yandex-team.ru/surveys/66769/). In the request comment, specify the queue the field is linked to.
+
+Requests are reviewed within 2-3 business days. If the issue is urgent, set its priority to <q>critical</q> and provide a comment on why it's urgent.
 
 {% endif %}
 
@@ -62,44 +64,27 @@ Requests are processed within 2-3 business days. If the issue is urgent, increas
 
 - To search for issues in a local field using the query language, you need to [specify a queue before the key or field name](user/query-filter.md#local_fields).
 
-- When you [move](user/edit-ticket.md#section_xwx_qpn_jz) or [clone](user/clone.md) issues with local fields to a different queue, the local field values are automatically deleted.
+- When you [move](user/move-ticket.md) or [clone](user/clone.md) issues with local fields to a different queue, the local field values are automatically deleted.
 
 #### Where you can't use local fields
 
-Local fields are temporarily not supported in some issue use scenarios. Support for these scenarios will be added later.
+Local fields are temporarily not supported in certain cases. They will be implemented later.
 
 - On issue boards, local fields are not displayed on [cards](manager/edit-agile-board.md#sec_layout). Also, local fields can't be used in [filters on issue boards](user/agile.md#section_cxl_x31_2gb).
 
-- You can't use local fields in [macros](manager/create-macroses.md), [SLA rules](sla-head.md), or [status transition functions](manager/workflow-action-edit.md).
+- You can't use local fields in [SLA rules](sla-head.md).
 
 - You can't edit the values of local fields using [bulk change operations](manager/bulk-change.md).
 
-{% if audience == "internal" %}
+## Accessing local fields via the API {#local-fields-api}
 
-- Local fields are not exported to YT.
+The following two types of actions are supported when working with local fields via the [{{ tracker-name }} API](about-api.md):
 
-{% endif %}
+- Assign a value to a local field.
 
-## How to access local fields via the API
+  To get or change the value for an issue's local field via the API, specify the field ID in the [request](concepts/issues/patch-issue.md) body, for example `603fb94c38bbe658d04da2e6--<field key>: "<new local field value>"`.
 
-To get or change the value for an issue local field via the [{{ tracker-name }} API](user/API.md), specify the field ID in the request body like: `603fb94c38bbe658d04da2e6--<field key>`.
+  To find out the ID of a local field, run a query that lets you get [a list of local fields in a certain queue](concepts/queues/get-local-fields.md).
 
-To find out the ID of a local field, run a query that allows you to get a list of local fields in a certain queue:
-
-{% if audience == "internal" %}
-
-```
-curl -X GET 'https://st-api.yandex-team.ru/v2/queues/<queue key>/localFields/' \
--H 'Authorization: OAuth <OAuth token>'
-```
-
-{% else %}
-
-```
-curl -X GET 'https://api.tracker.yandex.net/v2/queues/<queue key>/localFields' \
--H 'Authorization: OAuth <OAuth token>' \
--H 'X-Org-Id: <organization ID>'
-```
-
-{% endif %}
+- Change a local field's parameter, such as its name or description, or add multiple parameter values. For more information, see the [{{ tracker-name }} API reference](concepts/queues/edit-local-field.md).
 

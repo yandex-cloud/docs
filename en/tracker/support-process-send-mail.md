@@ -1,4 +1,4 @@
-# Send emails from the issue page
+# Sending emails from the issue page
 
 If you want to respond to a user request, you can send them an email right from the issue page in {{ tracker-name }}. Their response to you will then be added as a comment to the corresponding issue. This lets you keep all correspondence right on the issue page, so you don't have to waste time with a dedicated email client.
 
@@ -6,7 +6,7 @@ To send emails from the issue page, do the following:
 
 ### Step 1. Configure email integration in your queue
 
-1. {% if audience == "external" %} Go to the queue settings, the **Mailboxes** [tab, and add a queue address](manager/queue-mail.md#section_gwv_hqb_hgb){% else %}[Set up an email address](manager/queue-mail.md#sec-mail-yandex) for the support team queue{% endif %}.
+1. {% if audience == "external" %}Go to **Mailboxes** in the queue settings and [add a queue address](manager/queue-mail.md#section_gwv_hqb_hgb){% else %}[Set up an email address](manager/queue-mail.md#sec-mail-yandex) for the support queue{% endif %}
 
     If you want to send issues from the issue page, you need a shared queue address. Responses sent to the queue address will be added to issue comments.
 
@@ -20,11 +20,11 @@ To send emails from the issue page, do the following:
 
 1. Open any issue in the support team queue.
 
-1. Turn on the **Email** option above the comment box and specify the recipient's address.
+1. Enable the **Email** option above the comment box and specify the recipient's address.
 
     If the issue was [generated from a user email](#mail), the requester's email address will be automatically added to the **To** field.
 
-    If you're [using forms to process user requests](#form), ask users to provide their email in the form and save their responses in the issue's <q>From</q> field. In this case, the **To** field will still be automatically filled in with the requester's email address.
+    If you're [using forms to process user requests](#form), ask users to provide their email address in the form and save their responses in the issue's <q>From</q> field. In this case, the **To** field will still be automatically filled in with the requester's email address.
 
 1. Click **Submit**.
 

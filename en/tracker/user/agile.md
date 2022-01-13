@@ -1,4 +1,4 @@
-# How to use the board
+# Working with an agile board
 
 Issues are displayed on the board as cards with general issue parameters on them. You can [customize](../manager/edit-agile-board.md#sec_layout) the appearance of cards on the board, such as by choosing which fields to display or setting colors for highlighting tags and components.
 

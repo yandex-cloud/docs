@@ -8,7 +8,7 @@ To link a ticket in Conductor to an issue:
 
     1. Open the issue page.
 
-    1. Choose **Actions** → **Link to Conductor**.
+    1. Select **Actions** → **Link to Conductor**.
 
     1. Enter the ticket ID.
 

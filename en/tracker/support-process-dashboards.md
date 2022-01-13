@@ -1,6 +1,6 @@
-# Collect request statistics
+# Collecting request statistics
 
-Managers and staff members of the support team often require various information about the ongoing issues as well as statistics on previously resolved requests. In {{ tracker-name }}, you can view all relevant information and statistics on a dashboard. First you need to [create a dashboard](user/create-dashboard.md#section_cv2_ck3_pz) and then add [widgets](user/widgets.md#section_ll1_zdp_pz), which may include issue lists, tables, and charts, all of which are created automatically based on filters.
+Managers and staff members of the support team often require various kinds of information about the ongoing issues as well as statistics on previously resolved requests. In {{ tracker-name }}, you can view all relevant information and statistics on a dashboard. First, [create a dashboard](user/create-dashboard.md#section_cv2_ck3_pz) and then add [widgets](user/widgets.md#section_ll1_zdp_pz). These may include issue lists, tables, and charts, all of which are created automatically based on filters.
 
 For example, a manager may use a dashboard to display a list of requests without assignees or view data on opened and resolved requests for a specific period. A support team member can view a list of issues they're assigned to and the list of issues with no assignees that need to be dealt with.
 
@@ -12,9 +12,9 @@ Add a widget that displays the list of issues for your support employees to thei
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Add a widget with the **Issues** type.
+1. Add an **Issues** widget.
 
-1. In the **Filter** field, choose **Query** and enter the [query text](user/query-filter.md#section_pgq_xjk_lz):
+1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
     ```
     Queue: "<queue name>" AND Assignee: me() AND Resolution: empty()
@@ -22,7 +22,7 @@ Add a widget that displays the list of issues for your support employees to thei
 
     This filter will find all unresolved issues you've been assigned to in the specified queue.
 
-1. To display the [SLA rules timer](#sla), in the issue list, add the **SLA** parameter to the **Columns** field.
+1. To display the [SLA rules timer](#sla) in the issue list, add the **SLA** parameter to the **Columns** field.
 
     ![](../_assets/tracker/support-widget-my-tickets.png)
 
@@ -34,9 +34,9 @@ To help the support team quickly find and resolve unassigned requests, add this 
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Add a widget with the **Issues** type.
+1. Add an **Issues** widget.
 
-1. In the **Filter** field, choose **Query** and enter the [query text](user/query-filter.md#section_pgq_xjk_lz):
+1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
     ```
     Queue: "<queue name>" AND Assignee: empty()
@@ -44,7 +44,7 @@ To help the support team quickly find and resolve unassigned requests, add this 
 
     This filter will find unassigned issues in the specified queue.
 
-1. To display the [SLA rules timer](#sla), in the issue list, add the **SLA** parameter to the **Columns** field.
+1. To display the [SLA rules timer](#sla) in the issue list, add the **SLA** parameter to the **Columns** field.
 
     ![](../_assets/tracker/support-widget-no-assignee.png)
 
@@ -58,7 +58,7 @@ If you want to learn how many issues have been distributed per employee within t
 
 1. Add **Summary table** widget.
 
-1. In the **Filter** field, choose **Query** and enter the [query text](user/query-filter.md#section_pgq_xjk_lz):
+1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
     ```
     Queue: "<queue name>" AND Created: >= today() - 30d
@@ -66,7 +66,7 @@ If you want to learn how many issues have been distributed per employee within t
 
     This filter will find all issues in the queue created within the last 30 days.
 
-1. Find the **Columns** field and choose **Status**, then find **Rows** and choose **Assignee**. This displays the number of issues assigned to each user and sorts them by status in the table cells.
+1. In the **Columns** field, select **Status**, and in the **Rows** field, select **Assignee**. This displays the number of issues assigned to each user and sorts them by status in the table cells.
 
 1. If you want to display the totals by columns and rows, select **Show total**.
 
@@ -80,9 +80,9 @@ Add a chart to the dashboard to monitor statistics on issue creation and resolut
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Add a widget of the **"Created vs. Resolved" Chart** type.
+1. Add a **"Created vs. Resolved" Chart** widget.
 
-1. In the **Filter** field, choose **Query** and enter the [query text](user/query-filter.md#section_pgq_xjk_lz):
+1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
     ```
     Queue: "<queue name>"
@@ -90,7 +90,7 @@ Add a chart to the dashboard to monitor statistics on issue creation and resolut
 
     This filter will find all issues in the specified queue.
 
-1. In the **Group** field, choose **By day** and specify the number of days to be displayed on the chart.
+1. In the **Group** field, select **By day** and specify the number of days to be displayed on the chart.
 
 1. If you want to display the totals for created and resolved requests on the chart, select **Show total**.
 
@@ -98,15 +98,15 @@ Add a chart to the dashboard to monitor statistics on issue creation and resolut
 
 1. Save the widget.
 
-### Request statistics by subject {#widget-components}
+### Request statistics by topic {#widget-components}
 
-If you use components to [group issues by subject](#group), you can create a chart that displays issue statistics by components:
+If you use components to [group issues by topic](#group), you can create a chart that displays issue statistics by components:
 
 1. On the dashboard page, click ![](../_assets/tracker/icon-settings.png) → **Edit**.
 
 1. Add an **Issue statistics** widget.
 
-1. In the **Filter** field, choose **Query** and enter the [query text](user/query-filter.md#section_pgq_xjk_lz):
+1. In the **Filter** field, select **Query** and enter the [query text](user/query-filter.md#query-format):
 
     ```
     Queue: "<queue name>"
@@ -114,7 +114,7 @@ If you use components to [group issues by subject](#group), you can create a cha
 
     This filter will find all issues in the specified queue.
 
-1. In the **Key parameter** field, choose **Components**.
+1. In the **Key parameter** field, select **Components**.
 
     ![](../_assets/tracker/support-widget-components.png)
 

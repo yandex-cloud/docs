@@ -10,11 +10,11 @@ The most popular issue types are available in {{ tracker-name }} by default. If 
 
 1. Make sure that you are logged in as an administrator in {{ tracker-full-name }}.
 
-1. On the top panel in {{ tracker-name }}, choose ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
+1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
 
 1. Go to the **Issue types** tab.
 
-1. Click **Create an issue type**.
+1. Click **Add issue type**.
 
 1. Fill in the fields and click **Create**.
 

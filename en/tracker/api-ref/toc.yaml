@@ -1,6 +1,6 @@
 items:
 - name: Overview
-  href: about.md
+  href: about-api.md
 - name: API access
   href: concepts/access.md
 - name: Issues
@@ -77,6 +77,16 @@ items:
       href: patch-macros.md
     - name: Delete a macro
       href: delete-macros.md
+- name: External links
+  items:
+    - name: Get a list of external applications
+      href: concepts/issues/get-applications.md
+    - name: Get a list of issue external links
+      href: concepts/issues/get-external-links.md
+    - name: Add an external link
+      href: concepts/issues/add-external-link.md
+    - name: Delete an external link
+      href: concepts/issues/delete-external-link.md
 - name: Attached files
   items:  
     - name: Get a list of attached files

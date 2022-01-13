@@ -2,23 +2,21 @@
 
 Let's look at some examples of how triggers work in {{ tracker-name }}:
 
-- How to [automatically pick assignees](#assign_ticket) based on status or component.
+- How to [automatically pick assignees](#assign_ticket) based on their status or component.
 
 - How to [automatically invite assignees](#summon_ticket) based on the status or field value.
 
+- How to [automatically change an issue's status](#new-link) after adding a certain type of link to it.
+
 - How to [automatically notify a user](#notify_mail) after an issue was created based on a request sent to the support team via email.
 
-- How to [automatically notify a user](#notify_form) after an issue was created based on a request sent to the support team via Yandex.Forms.
-
-{% if audience == "internal" %}
+- How to [automatically notify a user](#notify_form) after an issue was created based on a request sent to the support team via {{ forms-full-name }}.
 
 - How to [automatically add a form](#insert_form) to the issue comment.
 
-{% endif %}
-
 - How to [set up notifications in messengers](#section_vsn_mb2_d3b) via HTTP requests.
 
-## Pick assignees automatically {#assign_ticket}
+## Picking assignees automatically {#assign_ticket}
 
 Different stages of a project are often handled by different employees. When an employee does their part, they transfer the issue to another assignee. In {{ tracker-name }}, each issue stage has its own status. When an issue receives a status update, a new employee can be automatically assigned to work on the issue with a trigger.
 
@@ -28,19 +26,21 @@ Let's set up a trigger that automatically picks an assignee for our issue:
 
 {% if audience == "external" %}
 
-1. Make sure every employee you might want to assign [has full access to {{ tracker-name }}](../enable-tracker.md).
+1. Make sure every employee you might want to assign [has full access to {{ tracker-name }}](../access.md).
 
 {% endif %}
 
-1. Go to queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
-1. Set the trigger to react when the issue's <q>Status</q> or <q>Components</q> change:
+1. Enter the trigger name.
+
+1. Set the trigger to fire when the issue's <q>Status</q> or <q>Components</q> change:
 
     1. Choose **Conditions to be met** → **All**.
 
     1. Add the condition **Event type** → **Issue changed**.
 
-    1. If you want a new assignee to be picked after a status update, add the following condition: **System** → **Status** → **Field value became equal to** and specify the status.
+    1. If you want a new assignee to be picked after a status update, add the following condition: **System** → **Status** → **Field value became equal to** and specify the status. The available statuses depend on the [workflow](workflow.md) set up for the queue.
 
         ![](../../_assets/tracker/trigger-example-status.png)
 
@@ -56,28 +56,30 @@ Let's set up a trigger that automatically picks an assignee for our issue:
 
 1. Set a trigger action:
 
-    1. Add the action **Change field values**.
+    1. Add the action **Update fields**.
 
-    1. Choose **System** → **Assignee** → **Set value** and specify who should be picked as the assignee after the trigger is executed.
+    1. Choose **System** → **Assignee** → **Set value** and specify who should be picked as the assignee after the trigger is fired.
 
         ![](../../_assets/tracker/trigger-example-assignee.png)
 
 1. Save your trigger.
 To see if you trigger works, pick any issue from the queue with the added trigger and change the issue's status or components.
 
-## Invite assignees automatically {#summon_ticket}
+## Inviting assignees automatically {#summon_ticket}
 
 After completing an issue, the assignee may forget to specify some important information, such as time spent. In this case, you can configure a trigger that will automatically invite the assignee if the issue is closed and the time spent is not specified:
 
-1. Go to queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+
+1. Enter the trigger name.
 
 1. Set the trigger to react when the issue is closed with the <q>Time spent</q> field being empty:
 
     1. Choose **Conditions to be met** → **All**.
 
-    1. Add the condition **Status** → **Field value became equal to** → **Closed**.
+    1. Add the condition **System** → **Status** → **Field value became equal to** → **Closed**. The available statuses depend on the [workflow](workflow.md) set up for the queue.
 
-    1. Add the condition **Time spent** → **Field value empty**.
+    1. Add the condition **Time Spent** → **Time spent** → **Field value is empty**.
 
 1. Set trigger actions:
 
@@ -93,7 +95,41 @@ After completing an issue, the assignee may forget to specify some important inf
 
 When closing any issue that does not specify the time spent, the robot will create a comment and invite the assignee.
 
-## Send a notification when an issue is created from an email {#notify_mail}
+## Changing an issue's status after creating a link {#new-link}
+
+In many projects, issues depend on each other even if different people are working on them. If an issue affects the progress of one or more other issues, it's important to notify other team members if any problems arise. For example, you can link such issues to each other and set the [link type](../user/links.md) **Blocker to**.
+
+Let's set up a trigger that will change an issue's status and add a comment for its reporter when the **Blocker to** link is added:
+
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+
+1. Enter the trigger name.
+
+1. Set the trigger to fire when the **Blocker to** link appears:
+
+    1. Choose **Conditions to be met** → **All**.
+
+    1. Add the following condition: **Action with link** → **Link created** → **Blocking issue**.
+
+    ![](../../_assets/tracker/blocker-conditions.png)
+
+1. Set trigger actions:
+
+    1. Add the action **Change issue status**.
+
+    1. In the **Next status** field, select the status to switch the issue to when the condition is met. For example, **Need info**. The available statuses depend on the [workflow](workflow.md) set up for the queue.
+
+    1. Add the **Add comment** action.
+
+    1. Click ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Reporter</q>.
+
+    1. Enter the comment to be displayed to the issue reporter and choose **Send as robot**. Otherwise, the comment is sent on behalf of the user who initiates the trigger action by adding the link.
+
+    ![](../../_assets/tracker/blocker-actions.png)
+
+1. Click **Create** to save the trigger.
+
+## Sending a notification when an issue is created from an email {#notify_mail}
 
 Let's say the support team is processing user requests in {{ tracker-name }}. Users contact the support team via email, and those emails are used as the basis for issues in {{ tracker-name }}.
 
@@ -105,7 +141,7 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 1. [Set up an email address for the queue]{% if audience == "external" %} (queue-mail.md#section_gwv_hqb_hgb){% else %}(queue-mail.md#sec-mail-yandex){% endif %} that will create issues from user requests.
 
-    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex.Mail 360 for Business]({{ support-business-domain }}).
+    If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex 360 for Business]({{ support-business-domain }}).
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
@@ -113,9 +149,9 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 1. If users aren't your organization's employees:
 
-    1. [Allow accepting email from external addresses](queue-mail.md#mail_tasks).
+    1. [Allow receiving emails from external addresses](queue-mail.md#mail_tasks).
 
-    1. [Allow sending email from issue pages to external addresses](queue-mail.md#send_outside).
+    1. [Allow sending emails from issue pages to external addresses](queue-mail.md#send_outside).
 
 {% else %}
 
@@ -127,7 +163,9 @@ You need to set up email integration if you want to send emails right from {{ tr
 
 Set up a trigger that automatically notifies users by mail when a new issue is created based on an email:
 
-1. Go to queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+
+1. Enter the trigger name.
 
 1. Set the trigger to fire when a new issue is created based on an incoming email:
 
@@ -157,9 +195,9 @@ Set up a trigger that automatically notifies users by mail when a new issue is c
 
     To see if the trigger works, send an email to the queue address.
 
-## Send a notification when an issue is created based on a form {#notify_form}
+## Sending a notification when an issue is created based on a form {#notify_form}
 
-Let's say the support team is processing user requests in {{ tracker-name }}. Users contact the support team via a feedback form created in [Yandex.Forms]{% if audience == "external" %}({{ link-forms }}){% else %}({{ link-forms-ya }}){% endif %}. A {{ tracker-name }} issue is then created based on that form.
+Let's say the support team is processing user requests in {{ tracker-name }}. Users contact the support team via a feedback form created in [{{ forms-full-name }}]({{ link-forms }}). A {{ tracker-name }} issue is then created based on that form.
 
 Let's set up a trigger that automatically sends an email to the user telling them that their request has been registered:
 
@@ -169,7 +207,7 @@ You need to set up email integration if you want to send emails from {{ tracker-
 
 1. [Set up an email address for the queue]{% if audience == "external" %} (queue-mail.md#section_gwv_hqb_hgb){% else %}(queue-mail.md#sec-mail-yandex){% endif %} that will create issues from user requests.
 
-   If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex.Mail 360 for Business]({{ support-business-domain }}).
+   If you can't create such an address, this means your organization doesn't have its own domain. You need a domain to create mailboxes and newsletters. This includes creating queue addresses. A domain is free to [add in Yandex 360 for Business]({{ support-business-domain }}).
 
 1. [Set up sender names and signatures](queue-mail.md#send_outside) if needed.
 
@@ -179,7 +217,7 @@ You need to set up email integration if you want to send emails from {{ tracker-
 
 To create issues from requests sent through forms:
 
-1. Go to [Yandex.Forms]{% if audience == "external" %}({{ link-forms }}){% else %}({{ link-forms-ya }}){% endif %} and create a new form.
+1. Go to [{{ forms-full-name }}]({{ link-forms }}) and create a new form.
 
 1. Add questions that let users provide relevant information necessary to register their request.
 
@@ -187,25 +225,27 @@ To create issues from requests sent through forms:
 
     ![](../../_assets/tracker/trigger-example-form-constructor.png)
 
-1. Set up [{{ tracker-name }} integration]{% if audience == "external" %}({{ support-forms-tracker }}){% else %}({{ support-forms-tracker-ya }}){% endif %} for the form:
+1. Set up your form's [integration with {{ tracker-name }}](../../forms/create-task.md):
 
     1. Specify your queue and other issue parameters.
 
     1. Use the **Issue description** field to add answers to the questions included in your form.
 
-    1. If you want to save a user's email address in your issue parameters, add the **From** field and choose **Variables** → **Answer** → **Email**.
+    1. To save the user's email address in the issue settings, add the **From** field and select **Variables** → **Answer to question** → **Email**.
 
     1. Save your integration settings.
 
-    ![](../../_assets/tracker/trigger-example-form-integration.png)
+    ![image](../../_assets/tracker/trigger-example-form-integration.png)
 
-1. [Publish]{% if audience == "external" %}({{ support-forms-publish }}){% else %}({{ support-forms-publish-ya }}){% endif %} the form.
+1. [Publish](../../forms/publish.md#section_link) your form.
 
 #### Step 3. Set up a trigger for sending email
 
 Set up a trigger that automatically notifies users by email when a new issue is created from a form:
 
-1. Go to queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+
+1. Enter the trigger name.
 
 1. Set the trigger to fire when a new issue is created based on an incoming email:
 
@@ -213,7 +253,7 @@ Set up a trigger that automatically notifies users by email when a new issue is 
 
     1. Add the condition **Event type** → **Issue created**.
 
-    1. Add the condition **Email** → **From** → **Field value became not empty**.
+    1. Add the condition **Email** → **From** → **Field value became not empty.**.
 
     ![](../../_assets/tracker/trigger-example-form-condition.png)
 
@@ -233,23 +273,21 @@ Set up a trigger that automatically notifies users by email when a new issue is 
 
     To see if your trigger works, fill out the form you integrated with {{ tracker-name }}.
 
-    {% if audience == "internal" %}
+## Automatically adding a form to the issue comments {#insert_form}
 
-## Automatically add a form to the issue comments {#insert_form}
-
-Using a trigger, you can add a form with auto-prefilled fields to the issue comments. To do this, add a special code with a link to the form in the comment text. Values can be passed to the form fields via [GET-params](../../forms/get-params.md). For example, you can pass the issue parameters using variables that are available in the trigger.
+Using a trigger, you can add a form with auto-prefilled fields to the issue comments. To do this, add a special code with a link to the form in the comment text. Values can be passed to the form fields via [GET parameters](../../forms/get-params.md). For example, you can pass the issue parameters using variables that are available in the trigger.
 
 Let's set up a trigger that adds a feedback form to the comments and invites an assignee after the issue is closed:
 
 #### Step 1. Create a feedback form
 
-1. Go to [Yandex.Forms]{% if audience == "external" %}({{ link-forms }}){% else %}({{ link-forms-ya }}){% endif %} and create a form. {% if audience == "internal" %}For information on which admin panel to create a form in, [see the Forms documentation](../../forms/new-form.md#create-form).{% endif %}
+1. Go to [{{ forms-full-name }}]({{ link-forms }}) and create a form. {% if audience == "internal" %}For information about which admin panel to create a form in, [see the documentation](../../forms/go-to-forms.md).{% endif %}
 
 1. Add questions to the form so that the assignee can provide necessary information.
 
 #### Step 2. Create a trigger to add the form
 
-1. Go to queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
+1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](../user/create-trigger.md).
 
 1. Set the trigger to fire when the issue is closed:
 
@@ -259,51 +297,75 @@ Let's set up a trigger that adds a feedback form to the comments and invites an 
 
     ![](../../_assets/tracker/trigger-example-add-form-1.png)
 
-1. Set a trigger action:
+1. Add the **Add comment** action.
 
-    1. Add the **Add comment** action.
+1. In the comment text, insert the code:
 
-    1. In the comment text, insert the code:
+   {% if audience == "internal" %}
 
     ```
-    {{=<% %>=}}{{iframe src=//forms.yandex-team.ru/surveys/<id_формы>/?iframe=1&<id_вопроса>=<значение> frameborder=0 width=100% height=660px scrolling=no}}
+    {{=<% %>=}}{{iframe src=//forms.yandex-team.ru/surveys/<form_id>/?iframe=1&<question_id>=<value> frameborder=0 width=100% height=660px scrolling=no}}
     ```
 
-    `<form id>` is the ID of the form to be added.
+   {% else%}
 
-    `<question_id>` is the [ID of the question](../../forms/question-id.md#sec_question).
+    ```
+    {{=<% %>=}}{{iframe src=//forms.yandex.ru/surveys/<form_id>/?iframe=1&<question_id>=<value> frameborder=0 width=100% height=660px scrolling=no}}
+    ```
 
-    `<value>` is the value to populate the form field.
+   {% endif %}
 
-    To transfer issue parameters to the form, use variables as values: at the bottom of the window, click the **Add variable** button and choose the issue parameter. Then replace the `not_var{{ }}` characters around the name of a variable with `<% %>`.
+    - `<form id>` is the ID of the form to be added.
 
-    For example, to pass an issue key, use the `<%issue.key%>` value. To pass the username of an assignee, use the `<%issue.assignee.login%>` value.
+    - `<question_id>` is the [ID of the question](../../forms/question-id.md#sec_question).
+
+    - `<value>` is the value to populate the form field.
+
+      To transfer issue parameters to the form, use variables as values: at the bottom of the window, click **Add variable** and choose the issue parameter. Then replace the `not_var{{ }}` characters around the name of the variable with `<% %>`.
+
+      For example, to pass an issue key, use the `<%issue.key%>` value. To pass the username of an assignee, use the `<%issue.assignee.login%>` value.
 
     Code example where an issue key is passed to the form field:
 
+    {% if audience == "internal" %}
+
+     ```
+     {{=<% %>=}}{{iframe src=//forms.yandex-team.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%> frameborder=0 width=100% height=660px scrolling=no}}
+     ```
+
+    {% else%}
+
     ```
-    {{=<% %>=}}{{iframe src=//forms.yandex-team.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%> frameborder=0 width=100% height=660px scrolling=no}}
+    {{=<% %>=}}{{iframe src=//forms.yandex.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%> frameborder=0 width=100% height=660px scrolling=no}}
     ```
 
-    1. Click ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Assignee</q>.
+    {% endif %}
 
-    1. Enable the **Send as robot** option.
+1. Click ![](../../_assets/tracker/summon.png), find the line **Invite users from a field**, and enter <q>Assignee</q>.
+
+1. Enable the **Send as robot** option.
+
+    {% if audience == "internal" %}
 
     ![](../../_assets/tracker/trigger-example-add-form-2.png)
 
+    {% endif %}
+
 1. Click **Create** to save the trigger.
 
-#### Step 3. Add robot-forms@ to the queue
+#### Step 3. Add {% if audience == "internal" %}robot-forms@{% else%}yndx-forms-cnt-robot@{% endif %} to the queue
 
-To ensure the form is inserted correctly, provide access to the queue for the `robot-forms@` robot. To learn more about configuring access, see [Setting access rights for queues](queue-access.md).
+To ensure the form is inserted correctly, provide access to the queue for the {% if audience == "internal" %}`robot-forms@`{% else%}yndx-forms-cnt-robot@{% endif %} robot. To learn more about configuring access, see [Setting access rights for queues](queue-access.md).
+
+{% if audience == "internal" %}
 
 ![](../../_assets/tracker/trigger-example-add-form-3.png)
 
-Once the issue is closed, the robot will create a comment with the form and invite the assignee.
-
 {% endif %}
 
-## Send notifications to instant messengers {#section_vsn_mb2_d3b}
+Once the issue is closed, the robot will create a comment with the form and invite the assignee.
+
+## Sending notifications to instant messengers {#section_vsn_mb2_d3b}
 
 Messengers are a great way to quickly notify employees about important events. If a messenger has an API, you can use {{ tracker-name }} to set up a trigger that sends HTTP requests to the messenger's API when certain events occur. For instance, a request can be triggered once an error with the critical priority status is added to the queue.
 
