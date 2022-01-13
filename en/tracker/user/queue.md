@@ -10,7 +10,7 @@ To view all the issues in a queue, open the queue page:
 
 By default, the queue page only displays active issues (the **Without resolution** option). You can customize which issues to display by using the [quick filter](../manager/quick-filters.md) buttons above the list of issues.
 
-## Add a queue to Favorites {#section_p4p_4sv_jz}
+## Adding a queue to Favorites {#section_p4p_4sv_jz}
 
 If you need quick access to a particular [queue](queue.md), add it to your Favorites:
 
@@ -18,9 +18,9 @@ If you need quick access to a particular [queue](queue.md), add it to your Favor
 
 1. Click ![](../../_assets/tracker/add-to-favorites.png) to the right of the queue name.
 
-The queues that you added to your Favorites are available in the **Queues** menu on the top panel in {{ tracker-name }}.
+The queues you added to Favorites are available in the **Queues** menu on the top panel in {{ tracker-name }}.
 
-## Save a list in Wiki {#section_uy5_hds_3bb}
+## Saving a list in {{ wiki-full-name }} {#section_uy5_hds_3bb}
 
 You can insert a list of issues on a Wiki page:
 
@@ -32,7 +32,7 @@ You can insert a list of issues on a Wiki page:
 
 The list will be updated automatically. It will always show up-to-date information about the status of issues, their names, and assignees.
 
-## Save the list in a file {#section_vjt_x3h_11b}
+## Saving a list to a file {#section_vjt_x3h_11b}
 
 You can save the list of issues as a file in XML, CSV, or XLS format.
 
@@ -44,11 +44,9 @@ The list of issues is saved with all filters and field settings applied.
 
 To save a list to a file:
 
-1. Click ![](../../_assets/tracker/icon-settings2.png) above the list of issues.
+1. Click ![](../../_assets/tracker/icon-settings2.png) above the issue list.
 
 1. Select the format for saving the list.
 
 1. Wait until the file is downloaded to your device.
-
-
 

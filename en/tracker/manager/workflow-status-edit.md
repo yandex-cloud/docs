@@ -8,7 +8,7 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 You can choose a set of available statuses for each individual workflow. These statuses can be assigned to issues under your workflow.
 
-## Add a status {#section_dcl_jdv_vbb}
+## Adding a status {#section_dcl_jdv_vbb}
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
 
@@ -18,27 +18,27 @@ You can choose a set of available statuses for each individual workflow. These s
 
     | Field | Description |
     | ----- | ----- |
-    | **Choose new status** | Select one of the available statuses. |
+    | **Name** | Select one of the available statuses. |
     | **Previous status** | Select a status to transition from. If there are multiple statuses, you can [add them later](workflow-action-edit.md#section_en2_fhb_wbb). |
-    | **Button name in English** | The name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The same name is used for the transition in the editor. |
-    | **Button name in Russian** | The name of the button in the Russian {{ tracker-name }} interface that will switch the issue to this status. |
+    | **Transition button name** | The name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The same name is used for the transition in the editor. |
+    | **Transition button name in Russian** | The name of the button in the English {{ tracker-name }} interface that will switch the issue to this status. |
 
    
-   The most popular statuses are available in {{ tracker-name }} by default. If you don't see the status you need, your company's admin can [create it](create-status.md).
+   The most popular statuses are available in {{ tracker-name }} by default. If you don't see the status you need, your company's admin can [create one](create-status.md).
 
 1. Click **Save**.
 
-## Change status{#section_q4q_nfv_vbb}
+## Changing the status {#section_q4q_nfv_vbb}
 
-#### Set this status as initial
+#### Making a status the initial status
 
-Initial status is the first status of a newly created issue. To make the status initial:
+The initial status is the first status of a newly created issue. To make the status initial:
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
 
-1. Put the cursor on the desired status.
+1. Put the cursor over the desired status.
 
-1. Click ![](../../_assets/tracker/initial-ststus-icon.png).
+1. Click the ![](../../_assets/tracker/initial-ststus-icon.png) icon that appears.
 
 #### Configure the action when comments are added
 
@@ -46,7 +46,7 @@ You can configure automatically changing the issue status when a comment is adde
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
 
-1. Select a status on the **Statuses and transitions** panel.
+1. Select a status in the **Statuses and transitions** panel.
 
 1. Go to the **Actions on comment** tab.
 
@@ -68,7 +68,7 @@ You can add transitions between statuses available in your workflow:
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
 
-1. Select the initial status on the **Statuses and transitions** panel.
+1. Select the initial status in the **Statuses and transitions** panel.
 
 1. Go to the **Add transition** tab.
 
@@ -78,13 +78,13 @@ You can add transitions between statuses available in your workflow:
     | ---- | -------- |
     | **Transition to status** | Indicate the status to transition to. |
     | **Button name** | The name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The same name is used for the transition in the editor. |
-    | **Button name in Russian** | The name of the button in the Russian {{ tracker-name }} interface that will switch the issue to this status. |
+    | **Button name in English** | The name of the button in the English {{ tracker-name }} interface that will switch the issue to this status. |
 
 1. Click **Save**.
 
-1. [Edit your transition](workflow-action-edit.md) if you want to add conditions or auto-actions.
+1. [Edit your transition](workflow-action-edit.md) if you want to add conditions or auto actions.
 
-## Remove a status{#section_mqt_5fv_vbb}
+## Removing a status {#section_mqt_5fv_vbb}
 
 {% note warning %}
 
@@ -96,9 +96,9 @@ To remove a status from a workflow:
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
 
-1. Put the cursor on the desired status.
+1. Put the cursor over the desired status.
 
-1. Click ![](../../_assets/tracker/remove-task-type.png).
+1. Click the ![](../../_assets/tracker/remove-task-type.png).
 
 1. Confirm the deletion.
 

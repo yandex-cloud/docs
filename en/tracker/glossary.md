@@ -39,7 +39,7 @@ Filter
 ## I {#rus-p}
 
 Invite to comment
-:  Inviting a user to comment means entering that user's name when [sending a comment to an issue](user/comments.md#section_nl2_1qv_tz) in order to draw their attention to that comment. The selected user will receive an email notification with the comment in question.
+:  Inviting a user to comment means entering that user's name when [sending a comment to an issue](user/comments.md#call-comment) in order to draw their attention to that comment. The selected user will receive an email notification with the comment in question.
 
 Issue
 :  In {{ tracker-name }}, issues can be used to register tasks, requests, and other types of work. Each issue has its own name, assignee, deadline, and other parameters. Learn more about [creating issues](user/create-ticket.md) and [working with issues](user/ticket-in-progress.md).

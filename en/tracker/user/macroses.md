@@ -4,7 +4,7 @@ In {{ tracker-name }}, macros are scripted algorithms that can be executed on th
 
 {% note info %}
 
-Each {{ tracker-name }} queue has its own set of macros. If you didn't find an appropriate macro, [create one](../manager/create-macroses.md#section_inq_5b1_x2b).
+Each {{ tracker-name }} queue has its own set of macros. If you didn't find the right macro, [create one](../manager/create-macroses.md#section_inq_5b1_x2b).
 
 {% endnote %}
 
@@ -14,8 +14,9 @@ To run a macro:
 
 1. Go to the comment field.
 
-1. Select a macro from the drop-down **Macros** list.
+1. Select a macro from the **Macros** drop-down list.
 You can select multiple macros at the same time. If multiple macros change the same field, only the last executed change will be applied.
 
 
-1. To execute the macro, click **Send**.
+1. To execute the macro, click **Submit**.
+

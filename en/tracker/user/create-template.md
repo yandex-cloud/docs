@@ -20,5 +20,3 @@ To create a template of an issue or comment:
 
 The new template will be available on the [template page]({{ link-tracker-templates }}).
 
-
-

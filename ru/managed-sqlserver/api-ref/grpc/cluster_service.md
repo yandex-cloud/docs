@@ -59,6 +59,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring}
@@ -142,6 +143,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring1}
@@ -209,6 +211,7 @@ network_id | **string**<br>ID of the network to create the SQL Server cluster in
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>name of SQL Collation that cluster will be created with The maximum string length in characters is 100.
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -315,6 +318,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring2}
@@ -450,6 +454,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring3}
@@ -589,6 +594,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring4}
@@ -688,6 +694,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring5}
@@ -790,6 +797,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring6}
@@ -889,6 +897,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring7}
@@ -954,6 +963,8 @@ host_specs[] | **[HostSpec](#HostSpec)**<br>Configurations for SQL Server hosts 
 network_id | **string**<br>ID of the network to create the SQL Server cluster in. The maximum string length in characters is 50.
 folder_id | **string**<br>ID of the folder to create the SQL Server cluster in. <br>To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 security_group_ids[] | **string**<br>User security groups 
+deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### ConfigSpec {#ConfigSpec2}
@@ -1037,6 +1048,7 @@ status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOW
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
 sqlcollation | **string**<br>SQL Server Collation 
+host_group_ids[] | **string**<br>Host groups hosting VMs of the cluster. 
 
 
 ### Monitoring {#Monitoring8}

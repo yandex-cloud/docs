@@ -1,15 +1,14 @@
 ---
 title: Yandex Tracker API. Overview
 description: Yandex Tracker API is designed for web services and applications that work with the tasks of your organization on behalf of a user. In this case, API capabilities depend on the access rights of the user on whose behalf the requests are made. You can control Tracker using HTTP REST API requests.
-sourcePath: en/tracker/api-ref/about.md
+sourcePath: en/tracker/api-ref/about-api.md
 ---
 
-
-# Overview
+# {{ api-name }}. Overview
 
 You can manage {{ tracker-name }} using HTTP requests to the REST API.
 
-{{ api-name }} is designed for web services and apps that work with your organization's issues on behalf of a user. Users may have different features available in the API depending on their access rights.
+{{ api-name }} is designed for web services and apps that work with your organization's issues on behalf of a user. The actions available in the API depend on the access rights of the user on whose behalf requests are made.
 
 {% note info %}
 
@@ -20,18 +19,9 @@ You can manage {{ tracker-name }} using HTTP requests to the REST API.
 {{ api-name }} lets you:
 
 - Search, create, and edit issues.
+- Create and edit issue boards.
 - View queue settings.
+- Add and edit issue fields.
 
-[Access to the {{ api-short-name }}](concepts/access.md)
-
-#### Issues
-
-- [Search](concepts/issues/search-issues.md)
-- [Create](concepts/issues/create-issue.md)
-- [Edit](concepts/issues/patch-issue.md)
-
-#### Queues
-
-- [View](concepts/queues/get-queue.md)
-- [Get all queues](concepts/queues/get-queues.md)
+For information on how to get started with {{ api-name }}, see [{#T}](concepts/access.md).
 

@@ -1,5 +1,5 @@
 ---
-sourcePath: en/_api-ref-grpc/marketplace/v1/metering-api/api-ref/grpc/index.md
+sourcePath: en/_api-ref-grpc/marketplace/metering-api/api-ref/grpc/index.md
 ---
 # Yandex.Cloud Marketplace Metering API
 This reference provides descriptions of the Yandex.Cloud Marketplace Metering API.

@@ -1,14 +1,16 @@
-# Set up an issue reminder
+# Setting up an issue reminder
 
 {{ tracker-name }} can send issue reminders. You can send reminders to yourself or other users. Only the sender and the recipient will be able to see the reminder.
 
-## Create a reminder {#section_ct4_trk_t2b}
+## Creating a reminder {#section_ct4_trk_t2b}
 
 To set up a reminder:
 
 1. Open the issue page.
 
-1. Click ![](../../_assets/tracker/reminder2.png)
+1. Click ![](../../_assets/tracker/reminder2.png).
+
+1. Click **Add reminder**.
 
 1. Enter the date and time for the reminder.
 
@@ -24,7 +26,7 @@ To set up a reminder:
 
 {{ tracker-name }} will send an email to the user at the time specified, and a pop-up reminder will appear on the issue page.
 
-## Edit and delete reminders {#section_pxf_tzk_t2b}
+## Editing and deleting reminders {#section_pxf_tzk_t2b}
 
 To change or delete a reminder, do the following:
 
@@ -32,6 +34,5 @@ To change or delete a reminder, do the following:
 
 1. Click ![](../../_assets/tracker/reminder2.png)
 
-1. Click ![](../../_assets/tracker/icon-edit.png) to make changes, or ![](../../_assets/tracker/icon-delete.png) to delete a reminder.
-
+1. Click ![](../../_assets/tracker/icon-edit.png) to edit or ![](../../_assets/tracker/icon-delete.png) to delete a reminder.
 

@@ -1,11 +1,11 @@
-#### Headers {#req-headers}
+{% cut "Headers" %}
 
 - **Host**
 
-    API host address:
+    Address of the node that provides the API:
 
     ```
-    https://api.tracker.yandex.net
+    {{ host }}
     ```
 
 - **Authorization**
@@ -16,7 +16,10 @@
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
+
 - **X-Org-ID**
 
-    Company ID.
+    Organization ID.
+
+{% endcut %}
 

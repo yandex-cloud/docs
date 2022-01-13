@@ -4,15 +4,15 @@ Components help users group queue issues based on a shared theme, such as their 
 
 For example, you can use components to [group support service requests](../support-process-group.md).
 
-## Create a component {#section_zrt_szk_xz}
+## Creating a component {#section_zrt_szk_xz}
 
 To create a new queue component:
 
-1. Open the queue page.
+1. Open the [queue page](../user/queue.md).
 
 1. Go to the **Components** tab.
 
-1. Click **Add**.
+1. Click **Create component**.
 
 1. Enter the component **Name**.
 
@@ -22,11 +22,11 @@ To create a new queue component:
 
 1. Click **Create**.
 
-## Edit a component {#section_vj2_5zk_xz}
+## Editing a component {#section_vj2_5zk_xz}
 
 To change an existing queue component:
 
-1. Open the queue page.
+1. Open the [queue page](../user/queue.md).
 
 1. Go to the **Components** tab.
 
@@ -34,9 +34,9 @@ To change an existing queue component:
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Edit**.
 
-1. Make changes and click **Refresh**.
+1. Make your changes and click **Save**.
 
-## Subscribe to a component {#section_rzw_5zk_xz}
+## Subscribing to a component {#section_rzw_5zk_xz}
 
 If you want to be notified of changes to issues related to a particular component, you can subscribe to it:
 
@@ -48,15 +48,29 @@ If you want to be notified of changes to issues related to a particular componen
 
 1. Select ![](../../_assets/tracker/icon-settings.png) → **Subscribe**.
 
-If you did everything right, an icon appears next to the component name: ![](../../_assets/tracker/subscribtion.png)
+If you did everything right, you'll see the following icon next to the component name: ![](../../_assets/tracker/subscribtion.png)
 
-## View component issues {#section_l31_brz_xz}
+## Viewing component issues {#section_l31_brz_xz}
 
 You can view a list of issues related to a specific component:
 
-1. Open the queue page.
+1. Open the [queue page](../user/queue.md).
 
 1. Go to the **Components** tab.
 
 1. Click the name of the component.
+
+## Deleting a component {#delete-component}
+
+To delete a queue component:
+
+1. Open the [queue page](../user/queue.md).
+
+1. Go to the **Components** tab.
+
+1. Hold the cursor over the component.
+
+1. Select ![](../../_assets/tracker/icon-settings.png) → **Delete**.
+
+1. Confirm the deletion.
 

@@ -35,4 +35,4 @@ View component changes: creation, deletion, field changes, etc.
 Find changes for a specific timeframe. You can specify just the start and end dates, as well as the whole interval.
 
 1. **Disabling filters**
-Click Reset to disable a filter.
+Click **Reset** to disable a filter.
