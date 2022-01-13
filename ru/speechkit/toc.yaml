@@ -97,15 +97,17 @@ items:
             - name: Аутентификация в API
               href: hybrid-speechkit/auth.md
             - name: Синтез речи
-              items: null
-              include:
-                repo: docs
-                path: en/_api-ref-grpc/ai/tts/new-v3/toc.yaml
+              items:
+                - name: Overview
+                  href: hybrid-speechkit/api-ref/tts/v3/grpc/index.md
+                - name: Synthesizer
+                  href: hybrid-speechkit/api-ref/tts/v3/grpc/tts_service.md
             - name: Потоковое распознавание
-              items: null
-              include:
-                repo: docs
-                path: en/_api-ref-grpc/ai/stt/v3/toc.yaml
+              items:
+                - name: Overview
+                  href: hybrid-speechkit/api-ref/stt/v3/grpc/index.md
+                - name: Recognizer
+                  href: hybrid-speechkit/api-ref/stt/v3/grpc/stt_service.md
   - name: Интеграция телефонии
     href: concepts/ivr-integration.md
   - name: Использование API

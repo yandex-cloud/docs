@@ -45,5 +45,5 @@ items:
         items: null
         include:
           repo: docs
-          path: en/_api-ref-grpc/marketplace/v1/metering-api/toc.yaml
+          path: en/_api-ref-grpc/marketplace/metering-api/toc.yaml
 base: ru/marketplace

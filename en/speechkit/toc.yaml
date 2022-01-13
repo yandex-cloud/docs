@@ -63,6 +63,20 @@ items:
         - name: Monitoring
           hidden: true
           href: hybrid-speechkit/monitoring.md
+        - name: API Reference gRPC
+          items:
+          - name: Speech synthesis
+            items:
+            - name: Overview
+              href: hybrid-speechkit/api-ref/tts/v3/grpc/index.md
+            - name: Synthesizer
+              href: hybrid-speechkit/api-ref/tts/v3/grpc/tts_service.md
+          - name: Data streaming recognition
+            items:
+            - name: Overview
+              href: hybrid-speechkit/api-ref/stt/v3/grpc/index.md
+            - name: Recognizer
+              href: hybrid-speechkit/api-ref/stt/v3/grpc/stt_service.md
   - name: IVR integration
     href: concepts/ivr-integration.md
   - name: Using the API
