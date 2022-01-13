@@ -481,6 +481,7 @@ default:
   dt-type-copy-repl: Копировать и реплицировать
   dt-type-copy: Копировать
   dt-type-repl: Реплицировать
+  dt-white-ip-list-uri: https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
 
   # Провайдеры Terraform
   tf-provider-mch: https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster
