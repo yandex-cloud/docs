@@ -42,14 +42,3 @@ module.exports = {
 };
 ```
 
-## Как работать с CHYT из ChartWizard {#working-from-chartwizard}
-
-Чтобы подключить кластер CHYT и начать работать с ним ChartWizard вам необходимо выполнить следующие шаги:
-* Перейти на [страницу соединений](https://charts.yandex-team.ru/connections).
-* Создать соединение к CHYT.
-* Cоздать [датасет](https://stat.yandex-team.ru/datasets) на основании этого соединения.
-* Cоздать чарт в [Wizard](https://charts.yandex-team.ru/wizard) на основании этого датасета.
-
-Также много информации и рекомендаций по работе с CHYT содержится в нашем клубе в Этушке:
-* [Базовые вещи](https://clubs.at.yandex-team.ru/statistics/1692)
-* [Рекомендации](https://clubs.at.yandex-team.ru/statistics/1921)
