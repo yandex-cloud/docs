@@ -2,17 +2,16 @@
 title: Runtime. Overview
 description: The runtime environment is selected when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration.
 ---
+# Runtime environment. Overview
 
-# Runtime. Overview
-
-The runtime environment is selected when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration.
+The runtime environment is selected when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration. The [preloaded runtime environment](./preload-runtime.md) automatically updates to the latest version in the function version settings.
 
 Runtime environment characteristics:
 
 - Operating system: Ubuntu 18.04 LTS.
-- Linux Kernel v. 4.14.
+- Linux kernel: 4.19.
 
-When invoking a function, the service tries to use the runtime environment from the previous invocation if it's still available. This lets you save time preparing the runtime environment and resources, such as DB connections and temporary files, which don't have to be re-created when the runtime environment is used again.
+A first function call creates a function instance. The service uses existing function instances for new calls, if available. This lets you save time preparing the runtime environment and resources, such as DB connections and temporary files, which don't have to be re-created when the runtime environment is used again.
 
 {% note info %}
 
@@ -38,7 +37,7 @@ Runtime environments available in {{ sf-name }}.
 | Python 3.7 | `python37` | No |
 | **Go** |  |  |
 | Go 1.17 | `golang117` | No |
-| Go 1.16 | `golang114` | No |
+| Go 1.16 | `golang116` | No |
 | **Java** |  |  |
 | Java 11 | `java11` | No |
 | **.NET Core** |  |  |
