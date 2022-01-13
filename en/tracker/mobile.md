@@ -1,56 +1,56 @@
 # {{ tracker-name }} mobile app
 
-You can use the {{ tracker-full-name }} mobile app to manage your issues when you don't have access to a computer. Create issues, change their parameters, and leave comments.
+You can use the {{ tracker-full-name }} mobile app to manage your issues when you don't have access to a computer. You can create issues, change their parameters, and leave comments.
 
 ## Installing the app {#install}
+
 The {{ tracker-name }} mobile app is available:
 
-- In [Google Play]({{ mobile-google-link }}) for mobile devices powered by Android 8.0 or newer versions.
+* In [Google Play]({{ mobile-google-link }}) for mobile devices running Android version 8.0 and higher.
 
-- In the [App Store]({{ mobile-apple-link }}) for mobile devices powered by iOS 11.0 or newer versions.
+* In the [App Store]({{ mobile-apple-link }}) for mobile devices running iOS 11.0 and higher.
 
 ## App features {#features}
 
 With the {{ tracker-name }} mobile app, you can:
- - Create issues.
 
-- Search issues using predefined filters.
+* [Create issues](user/create-ticket.md#create-task).
 
-- View and edit issue parameters.
+* [View your issues using preset filters](user/default-filters.md#sys_filters).
 
-- Leave comments.
+* [Search for issues by key or name](user/search-task.md).
 
-- View links and create sub-issues.
+* [View and edit issue parameters](user/edit-ticket.md).
+
+* [Add comments](user/comments.md).
+
+* [Attach files](user/attach-file.md).
+
+* [View and edit issue links](user/ticket-links.md).
+
+* [View the time spent on an issue](user/time-spent.md).
+
+* [Create and edit checklists](user/checklist.md).
 
 ## Logging in to the app {#login}
 
 
-[Log in](user/login.md) using your account when you first launch the app:
+When you launch the app for the first time, [log in](user/login.md) under your corporate account.
 
-- To log in using a Yandex email address or your organization's domain, tap **Log in** and enter your username in the format `{{ example-account }}` or `login@example.com`.
+## Limitations {#restrictions}
 
-  {% note info %}   
+ Some {{ tracker-name }} features are not available in the mobile app. To use them, go to the [web intrface]({{ link-tracker }}).
 
-  If you don't have an organization yet, it will be created automatically the first time you log in to the app.
+* [Adding links](user/ticket-links.md) between issues.
 
-  {% endnote %}
+* Creating [custom issue filters](user/create-filter.md).
 
-- If your company uses a Single Sign-On authentication scheme with [identity federation](enable-tracker.md#federation), click **Log in via SSO**, specify the federation ID, and log in to your corporate account.
+* Creating [projects](manager/projects.md), [components](manager/components.md), and [versions](manager/versions.md).
 
-## Restrictions {#restrictions}
+* Using [issue boards](manager/agile.md) and [dashboards](user/dashboard.md).
 
-Some {{ tracker-name }} features are not available in the mobile app. To use them, go to the [web version of the service]({{ link-tracker }}).
+* [Creating and configuring queues](manager/create-queue.md).
 
-- [Adding links](user/ticket-links.md) between issues.
+  This includes setting up [triggers](user/trigger.md), [auto actions](user/autoactions.md), and [macros](manager/create-macroses.md).
 
-- Creating [custom issue filters](user/create-filter.md).
-
-- Creating [projects](manager/projects.md), [components](manager/components.md) and [versions](manager/versions.md).
-
-- Using [agile boards](manager/agile.md) and [dashboards](user/dashboard.md).
-
-- [Creating and configuring queues](manager/create-queue.md).
-
-  This includes setting up [triggers](user/trigger.md), [auto actions](user/autoactions.md) and [macros](manager/create-macroses.md).
-
-- [Setting up user access](enable-tracker.md#access) to {{ tracker-name }}.
+- [Managing user access rights](access.md) in {{ tracker-name }}.

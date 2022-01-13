@@ -27,4 +27,24 @@ items:
         href: concepts/product.md
       - name: Service plan
         href: concepts/tariff.md
+      - name: Billing of products based on publisher metrics
+        href: metering/api-usage.md
+  - name: API reference
+    items:
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: ImageProductUsage
+            items:
+              - name: Overview
+                href: api-ref/ImageProductUsage/index.md
+              - name: write
+                href: api-ref/ImageProductUsage/write.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: ImageProductUsageService
+            href: api-ref/grpc/image_product_usage_service.md
 base: en/marketplace

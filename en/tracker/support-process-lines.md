@@ -1,4 +1,4 @@
-# Configure multi-tiered support
+# Configuring multi-tiered support
 
 Support services often use a multi-tiered organization:
 
@@ -10,22 +10,22 @@ Support services often use a multi-tiered organization:
 
 You can use {{ tracker-name }} issue statuses to distribute issues between support lines and determine which line they are assigned to. You can also use issue fields to specify support lines for each issue.
 
-## Use statuses
+## Using statuses
 
 A dedicated issue status can be assigned to each support line. For example, the [<q>Multi-tiered support</q>](manager/workflows.md#section_sup_lines) template includes issue statuses like <q>Support line 1</q> and <q>Support line 2</q>. If you need to set up a third support line, [configure an additional status](manager/workflow.md).
 
-## Use issue fields
+## Using issue fields
 
-Sometimes it may be more convenient to [create a new issue field](user/create-param.md#section_pxn_fp4_xgb). Let's say you [receive user requests via forms](#form), and you want them to be automatically distributed between your two support lines based on the request subject. When you create an issue based on a form, you can't assign an issue status corresponding to any of the support lines, because all new issues automatically have the <q>Open</q> status. However, you can still assign values to issue fields provided the request has a specific subject. You can then automatically change issue statuses based on the value in that issue field.
+Sometimes it may be more convenient to [create a new issue field](user/create-param.md#section_pxn_fp4_xgb). Let's say you [receive user requests via forms](#form) and you want them to be automatically distributed between your two support lines based on the subject of the request. When you create an issue from a form, you can't assign an issue a status that corresponds to any of the support lines, because all new issues automatically have the <q>Open</q> status. However, you can assign values to issue fields provided the request has a specific subject. You can then automatically change issue statuses based on the value in that issue field.
 
 To do this in {{ tracker-name }}:
 
 
 ### Step 1. Create a new issue field
 
-Go to {{ tracker-name }} settings and [create a new field](user/create-param.md#section_pxn_fp4_xgb) with the following parameters:
+Go to the {{ tracker-name }} settings and [create a new field](user/create-param.md#section_pxn_fp4_xgb) with the following parameters:
 
-- Field type: **Dropdown list**.
+- Field type: **Drop-down list**.
 
 - Category: **System**.
 
@@ -39,15 +39,15 @@ Go to {{ tracker-name }} settings and [create a new field](user/create-param.md#
 
 ### Step 2. Set up a request form
 
-1. Go to [Yandex.Forms]({{ link-forms }}) and create a new form.
+1. Go to [{{ forms-full-name }}]({{ link-forms }}) and create a new form.
 
 1. Add questions that let users provide relevant information necessary to register their request.
 
-    To distribute requests between support lines, add a dropdown list to the <q>Request subject</q> form and specify some common problems.
+    To distribute requests between support lines, add a drop-down list to the <q>Request subject</q> form and specify some common problems.
 
-1. In the form integration settings, configure [issue creation in {{ tracker-name }}]({{ support-forms-tracker }}) for the first support line:
+1. Configure [issue creation in {{ tracker-name }}](../forms/create-task.md) for the first support line in the integration settings:
 
-    1. Set up a [notification conditions]({{ support-forms-notify }}), the <q>Request subject</q> list contains the subjects selected for the first support line.
+    1. Configure [notification conditions](../forms/notifications.md). The <q>Request subject</q> list displays subjects that should be tackled by the first support line.
 
         ![](../_assets/tracker/support-form-condition.png)
 
@@ -65,7 +65,7 @@ Go to {{ tracker-name }} settings and [create a new field](user/create-param.md#
 
 ### Step 3. Set up a condition that triggers a status change
 
-In the support team queue, create two triggers that react to changes in the **Line** field and update issue statuses:
+In the support team queue, create two triggers that will be fired if the **Line** field value changes and will update issue statuses:
 
 1. Go to the queue settings, open the **Triggers** section, and click [**Create trigger**](user/create-trigger.md).
 
@@ -80,4 +80,3 @@ In the support team queue, create two triggers that react to changes in the **Li
 1. Create a similar trigger for the second support line.
 
 Issues created via the form will now automatically be distributed between the two support lines based on their subject.
-

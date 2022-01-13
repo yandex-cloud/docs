@@ -89,7 +89,10 @@ POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters
     "string"
   ],
   "deletionProtection": true,
-  "sqlcollation": "string"
+  "sqlcollation": "string",
+  "hostGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -142,6 +145,7 @@ networkId | **string**<br><p>ID of the network to create the SQL Server cluster 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 sqlcollation | **string**<br><p>name of SQL Collation that cluster will be created with</p> <p>The maximum string length in characters is 100.</p> 
+hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

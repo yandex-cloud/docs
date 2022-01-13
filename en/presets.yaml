@@ -443,6 +443,8 @@ default:
   ds-api-addr: datasphere.api.cloud.yandex.net:443
   taas-name: Training as a Service
   taas: TaaS
+  mp-test-product-id: f2e4tmlj4qqciunhr7e6
+  mp-test-sku-id: dn2r898fr4ec6c3odbd6
   dt-copy: Copy
   dt-repl: Replicate
   dt-copy-repl: Copy and replicate

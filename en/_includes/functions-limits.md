@@ -26,7 +26,8 @@ Calls are distributed across [availability zones](../overview/concepts/geo-scope
 | **Other restrictions** |
 | Maximum size of the JSON structure of a [request](../functions/concepts/function-invoke.md#request) and [response](../functions/concepts/function-invoke.md#response) | 3.5 MB |
 | Maximum [temporary file size](../functions/concepts/runtime/environment-variables.md#files) | 512 MB |
-| Maximum function execution time before [timeout](../functions/operations/function/version-manage.md#version-create) (including original initialization at first call) | 10 minutes |
+| Maximum function execution time before [timeout](../functions/operations/function/version-manage.md#version-create), including initialization at first call | 10 minutes |
+| Maximum total environment variable storage, including variable names | 4 KB |
 | Maximum number of [triggers](../functions/concepts/trigger/index.md) per [message queue](../message-queue/concepts/queue.md) | 1 |
 
 #### Other restrictions {#functions-other-restrictions}

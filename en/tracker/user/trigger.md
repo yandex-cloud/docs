@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-By default, only a [queue owner](../manager/queue-access.md) can create, edit, and delete triggers.
+Only [queue owners](../manager/queue-access.md) can create, edit, and delete triggers by default.
 
 {% endnote %}
 
@@ -15,3 +15,4 @@ Each queue has its own set of triggers. Triggers are executed in the same order 
 [Creating triggers](create-trigger.md)
 
 [Editing and deleting triggers](manage-trigger.md)
+

@@ -101,4 +101,3 @@ To delete a board:
 1. Click **Delete board** at the bottom of the page.
 
 1. Confirm the deletion.
-

@@ -20,13 +20,13 @@ Each {{ tracker-name }} queue has its own set of macros. To create a new queue m
 
 1. Set up your macro parameters:
     - **Macro name**.
-    - **Message**: Message body (comment) created when executing a macro. If you don't want your macro to leave any messages, leave this field empty.
+    - **Message**: Message body (comment) created when executing a macro. If you don't want your macro to create any messages, leave this field empty.
 You can insert field values into your comments. To do this, click **Add variable** and select one or more values. The **Message** field will show a sequence like `not_var{{issue.fieldKey}}`.
-    - **Actions**: Choose the issue fields a macro should change and specify their values after the change.
+    - **Actions**: Choose issue fields a macro should change and specify their values after the change.
 
 1. Click **Create macro**.
 
-## Edit and delete macros {#section_swl_sdb_x2b}
+## Editing and deleting macros {#section_swl_sdb_x2b}
 
 {% note warning %}
 
@@ -38,12 +38,12 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 1. To the left of the queue name, select ![](../../_assets/tracker/icon-settings.png) → **Administration**.
 
-1. On the left-hand panel, select **Automation** → **Macros** and hover the cursor over the macro you need.
+1. On the left-hand panel, select **Automation** → **Macros** and hover over the macro you need.
 
 1. To edit the macro, click ![](../../_assets/tracker/icon-edit.png).
 To delete a macro, click ![](../../_assets/tracker/icon-delete.png).
 
-## Run a macro {#section_ekq_22b_x2b}
+## Running a macro {#section_ekq_22b_x2b}
 
 Macros let you change issue fields, create automated comments. Any user with access rights to issue editing can execute macros.
 
@@ -53,11 +53,11 @@ To run a macro:
 
 1. Go to the comment field.
 
-1. Select a macro from the drop-down **Macros** list.
+1. Select a macro from the **Macros** drop-down list.
 You can select multiple macros at the same time. If multiple macros change the same field, only the last executed change will be applied.
 
 
-1. To execute the macro, click **Send**.
+1. To execute the macro, click **Submit**.
 
 ## Example of a macro {#macro_example}
 
@@ -85,7 +85,7 @@ To run a macro you created:
 
 1. Open any issue from the queue you made the macro in.
 
-1. Click **Macro** in the comment box and choose a name for your macro.
+1. Click **Macros** in the comment box and choose a name for your macro.
 
 1. Your text is automatically added to the comment. If necessary, edit it.
 

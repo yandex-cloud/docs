@@ -1,10 +1,10 @@
-# How to make a dashboard your home page
+# Making a dashboard your home page
 
-You can make any available dashboard your [home page](startpage.md):
+You can make any of the available dashboards your [home page](startpage.md):
 
-1. Click ![](../../_assets/tracker/tracker-settings.png) on the top panel in {{ tracker-name }} or follow the link: [https://tracker.yandex.ru/settings]({{ link-settings }}).
+1. {% include [open-personal-settings](../../_includes/tracker/open-personal-settings.md) %}
 
-1. In the **My page** block, select **Dashboard** from the list and specify the dashboard you want to use as your home page.
+1. Under **My page**, select **Dashboard** from the list and specify the dashboard you want to use as your home page.
 
     {% note tip %}
 
@@ -12,7 +12,5 @@ You can make any available dashboard your [home page](startpage.md):
 
     {% endnote %}
 
-1. Click **Done**.
-
-
+1. Click **Save**.
 

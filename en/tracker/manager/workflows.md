@@ -1,6 +1,6 @@
 # Queue templates
 
-{{ tracker-name }} offers multiple queue templates for common operations, which make it much easier to manage your {{ tracker-name }} issues. Queue templates include a [workflow](workflow.md) with preset issue types and statuses. Some templates have preset [issue boards](agile.md#sec_boards).
+{{ tracker-name }} offers multiple queue templates for common operations, which make it much easier to manage your issues in {{ tracker-name }}. Queue templates include a [workflow](workflow.md) with preset issue types and statuses. Some templates have an [issue board](agile.md#sec_boards) set up.
 
 ## Start now {#section_now}
 
@@ -14,7 +14,7 @@ The following issue statuses are available:
 
 - **Open**
 - **In progress**
-- **Needs info**
+- **Need info**
 - **Closed**
 
 Possible transitions between statuses:
@@ -44,7 +44,7 @@ The following issue statuses are available:
 
 - **Open**
 - **In progress**
-- **Needs info**
+- **Need info**
 - **Review**
 - **Ready for testing**
 - **Testing**
@@ -79,7 +79,7 @@ The workflow includes the following issue types:
 The following issue statuses are available:
 
 - **Open**
-- **Needs info**
+- **Need info**
 - **Need estimate**
 - **In progress**
 - **Resolved**
@@ -100,9 +100,9 @@ When an issue is **Closed**, the user is asked to leave a comment and choose a r
 
 ## Scrum {#sec_scrum}
 
-This queue template is meant for [Scrum]({{ link-wiki-scrum }}) development.
+This queue template fits the [Scrum]({{ link-wiki-scrum }}) methodology.
 
-Selecting this template automatically creates an [<q>Scrum</q> issue board](agile.md#sec_boards). This board type lets you plan [sprints](create-agile-sprint.md), [rate issues](planning-poker.md), and view [burn down charts](burndown.md).
+A [<q>Scrum</q> issue board](agile.md#sec_boards) is automatically created when you select this template. It lets you plan [sprints](create-agile-sprint.md), [estimate issues](planning-poker.md), and view [burn down charts](burndown.md).
 
 The workflow includes the following issue types:
 
@@ -115,7 +115,7 @@ The following issue statuses are available:
 
 - **Open**
 - **In progress**
-- **Needs info**
+- **Need info**
 - **Review**
 - **Ready for testing**
 - **Testing**
@@ -137,7 +137,7 @@ When an issue is **Closed**, the user is asked to leave a comment and choose a r
 
 This queue template is meant for [Kanban]({{ link-wiki-kanban }}) development.
 
-A [<q>Kanban</q> issue board](agile.md#sec_boards) is created automatically when you select this template.
+A [<q>Kanban</q> issue board](agile.md#sec_boards) is created when you select this template.
 
 The workflow includes the following issue types:
 
@@ -150,7 +150,7 @@ The following issue statuses are available:
 
 - **Open**
 - **In progress**
-- **Needs info**
+- **Need info**
 - **Review**
 - **Ready for testing**
 - **Testing**
@@ -169,65 +169,6 @@ When an issue is **Closed**, the user is asked to leave a comment and choose a r
 - **Won't fix**
 - **Duplicate**
 
-## Basic support {#section_nsm_jrm_qz}
-
-This template helps you manage your user support service.
-
-The workflow includes the following issue types:
-
-- **Incident**
-- **Service request**
-- **Issue**
-
-The following issue statuses are available:
-
-- **Open**
-- **In progress**
-- **Needs info**
-- **Resolved**
-- **Closed**
-
-Possible transitions between statuses:
-
-![](../../_assets/tracker/workflow-support-common.png)
-
-When an issue is **Closed**, the user is asked to leave a comment and choose a resolution:
-
-- **Resolved**
-- **Won't fix**
-- **Can't reproduce**
-- **Duplicate**
-- **Later**
-
-## Multi-tiered support {#section_sup_lines}
-
-This template helps you manage support service with two lines.
-The workflow includes the following issue types:
-
-- **Incident**
-- **Service request**
-- **Issue**
-
-The following issue statuses are available:
-
-- **Open**
-- **Support line 1**
-- **Support line 2**
-- **Needs info**
-- **Resolved**
-- **Closed**
-
-Possible transitions between statuses:
-
-![](../../_assets/tracker/workflow-support-lines.png)
-
-When an issue is **Closed**, the user is asked to leave a comment and choose a resolution:
-
-- **Resolved**
-- **Won't fix**
-- **Can't reproduce**
-- **Duplicate**
-- **Later**
 
 ## Services {#section_service}
 
@@ -241,7 +182,7 @@ The workflow includes the following issue types:
 The following issue statuses are available:
 
 - **New**
-- **Needs info**
+- **Need info**
 - **Awaiting confirmation**
 - **In progress**
 - **Awaiting approval**
@@ -271,7 +212,7 @@ The workflow includes the following issue types:
 The following issue statuses are available:
 
 - **New**
-- **Needs info**
+- **Need info**
 - **Awaiting confirmation**
 - **In progress**
 - **Awaiting approval**
@@ -302,7 +243,7 @@ The following issue statuses are available:
 
 - **Open**
 - **In progress**
-- **Needs info**
+- **Need info**
 - **Resolved**
 - **Closed**
 
@@ -325,7 +266,7 @@ The workflow includes one issue type: **Task**.
 The following issue statuses are available:
 
 - **New**
-- **Needs info**
+- **Need info**
 - **Awaiting confirmation**
 - **In progress**
 - **Documents ready**
@@ -357,7 +298,7 @@ The workflow includes the following issue types:
 The following issue statuses are available:
 
 - **New**
-- **Needs info**
+- **Need info**
 - **Awaiting confirmation**
 - **In progress**
 - **Documents ready**
@@ -386,7 +327,7 @@ The workflow includes the following issue types:
 The following issue statuses are available:
 
 - **New**
-- **Needs info**
+- **Need info**
 - **Awaiting confirmation**
 - **In progress**
 - **Awaiting approval**

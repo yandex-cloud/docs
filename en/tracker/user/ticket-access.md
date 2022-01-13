@@ -1,4 +1,4 @@
-# Get access to an issue
+# Getting access to an issue
 
 Access permissions for issues are determined by the [queue settings](../manager/queue-access.md).
 

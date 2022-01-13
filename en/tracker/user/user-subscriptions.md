@@ -16,11 +16,11 @@ To do this:
 
 1. To add a role, click ![](../../_assets/tracker/button-plus.png).
 
-1. [Configure the list of events](notification-settings.md#section_iqn_y55_xgb) you want to be notified about for the selected role.
+1. [Configure the list of events](user-notifications.md#section_iqn_y55_xgb) you want to be notified about for the selected role.
 
    {% note info %}
 
-   For some roles, events can't be deleted. This means that [notifications are already configured](user-notifications.md) for a similar role.
+   For some roles, events can't be deleted. This means that [notifications are already configured](user-notifications.md) for a similar role. You can edit these events in the relevant section on the **Notifications** tab.
 
    {% endnote %}
 

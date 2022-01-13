@@ -97,7 +97,10 @@ A set of methods for managing SQL Server clusters.
     "string"
   ],
   "deletionProtection": true,
-  "sqlcollation": "string"
+  "sqlcollation": "string",
+  "hostGroupIds": [
+    "string"
+  ]
 }
 ```
  
@@ -171,6 +174,7 @@ status | **string**<br><p>Current state of the cluster.</p> <ul> <li>STATUS_UNKN
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
 sqlcollation | **string**<br><p>SQL Server Collation</p> 
+hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
 
 ## Methods {#methods}
 Method | Description

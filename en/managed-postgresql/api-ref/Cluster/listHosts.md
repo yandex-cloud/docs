@@ -55,7 +55,7 @@ pageToken | Page token.  To get the next page of results, set [pageToken](/docs/
       "priority": "integer",
       "config": {
 
-        // `hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`
+        // `hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`
         "postgresqlConfig_9_6": {
           "recoveryMinApplyDelay": "integer",
           "sharedBuffers": "integer",
@@ -598,6 +598,74 @@ pageToken | Page token.  To get the next page of results, set [pageToken](/docs/
           "effectiveIoConcurrency": "integer",
           "effectiveCacheSize": "integer"
         },
+        "postgresqlConfig_14": {
+          "recoveryMinApplyDelay": "integer",
+          "sharedBuffers": "integer",
+          "tempBuffers": "integer",
+          "workMem": "integer",
+          "tempFileLimit": "integer",
+          "backendFlushAfter": "integer",
+          "oldSnapshotThreshold": "integer",
+          "maxStandbyStreamingDelay": "integer",
+          "constraintExclusion": "string",
+          "cursorTupleFraction": "number",
+          "fromCollapseLimit": "integer",
+          "joinCollapseLimit": "integer",
+          "forceParallelMode": "string",
+          "clientMinMessages": "string",
+          "logMinMessages": "string",
+          "logMinErrorStatement": "string",
+          "logMinDurationStatement": "integer",
+          "logCheckpoints": true,
+          "logConnections": true,
+          "logDisconnections": true,
+          "logDuration": true,
+          "logErrorVerbosity": "string",
+          "logLockWaits": true,
+          "logStatement": "string",
+          "logTempFiles": "integer",
+          "searchPath": "string",
+          "rowSecurity": true,
+          "defaultTransactionIsolation": "string",
+          "statementTimeout": "integer",
+          "lockTimeout": "integer",
+          "idleInTransactionSessionTimeout": "integer",
+          "byteaOutput": "string",
+          "xmlbinary": "string",
+          "xmloption": "string",
+          "ginPendingListLimit": "integer",
+          "deadlockTimeout": "integer",
+          "maxLocksPerTransaction": "integer",
+          "maxPredLocksPerTransaction": "integer",
+          "arrayNulls": true,
+          "backslashQuote": "string",
+          "defaultWithOids": true,
+          "escapeStringWarning": true,
+          "loCompatPrivileges": true,
+          "quoteAllIdentifiers": true,
+          "standardConformingStrings": true,
+          "synchronizeSeqscans": true,
+          "transformNullEquals": true,
+          "exitOnError": true,
+          "seqPageCost": "number",
+          "randomPageCost": "number",
+          "enableBitmapscan": true,
+          "enableHashagg": true,
+          "enableHashjoin": true,
+          "enableIndexscan": true,
+          "enableIndexonlyscan": true,
+          "enableMaterial": true,
+          "enableMergejoin": true,
+          "enableNestloop": true,
+          "enableSeqscan": true,
+          "enableSort": true,
+          "enableTidscan": true,
+          "maxParallelWorkers": "integer",
+          "maxParallelWorkersPerGather": "integer",
+          "timezone": "string",
+          "effectiveIoConcurrency": "integer",
+          "effectiveCacheSize": "integer"
+        },
         // end of the list of possible fields`hosts[].config`
 
       },
@@ -629,7 +697,7 @@ hosts[].<br>subnetId | **string**<br><p>ID of the subnet that the host belongs t
 hosts[].<br>replicationSource | **string**<br><p>Name of the host to be used as the replication source for cascading replication.</p> 
 hosts[].<br>priority | **integer** (int64)<br><p>Priority of the host as a replica. Higher value means higher priority.</p> <p>The host with the highest priority is the synchronous replica. All others are asynchronous. The synchronous replica replaces the master when needed.</p> <p>When a replica becomes the master, its priority is ignored.</p> 
 hosts[].<br>config | **object**<br><p>Configuration of a PostgreSQL server for the host.</p> 
-hosts[].<br>config.<br>postgresqlConfig_9_6 | **object**<br>Configuration for a host with PostgreSQL 9.6 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`<br><br><p>Options and structure of ``PostgresqlHostConfig`` reflects parameters of a PostgreSQL configuration file. Detailed description is available in <a href="https://www.postgresql.org/docs/9.6/runtime-config.html">PostgreSQL documentation</a>.</p> 
+hosts[].<br>config.<br>postgresqlConfig_9_6 | **object**<br>Configuration for a host with PostgreSQL 9.6 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlHostConfig`` reflects parameters of a PostgreSQL configuration file. Detailed description is available in <a href="https://www.postgresql.org/docs/9.6/runtime-config.html">PostgreSQL documentation</a>.</p> 
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>sharedBuffers | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>tempBuffers | **integer** (int64)<br>
@@ -685,7 +753,7 @@ hosts[].<br>config.<br>postgresqlConfig_9_6.<br>randomPageCost | **number** (dou
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>sqlInheritance | **boolean** (boolean)<br><p>This option has been removed in PostgreSQL 10.</p> 
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_9_6.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10_1C | **object**<br>Configuration for a host with PostgreSQL 10 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`<br><br><p>Options and structure of ``PostgresqlHostConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
+hosts[].<br>config.<br>postgresqlConfig_10_1C | **object**<br>Configuration for a host with PostgreSQL 10 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlHostConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>sharedBuffers | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>tempBuffers | **integer** (int64)<br>
@@ -754,7 +822,7 @@ hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>maxParallelWorkersPerGather | 
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>timezone | **string**<br>
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_10 | **object**<br>Configuration for a host with PostgreSQL 10 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`<br><br><p>Options and structure of ``PostgresqlHostConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
+hosts[].<br>config.<br>postgresqlConfig_10 | **object**<br>Configuration for a host with PostgreSQL 10 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlHostConfig`` reflects PostgreSQL configuration file parameters whose detailed description is available in <a href="https://www.postgresql.org/docs/10/runtime-config.html">PostgreSQL documentation</a>.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_10.<br>sharedBuffers | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_10.<br>tempBuffers | **integer** (int64)<br>
@@ -823,7 +891,7 @@ hosts[].<br>config.<br>postgresqlConfig_10.<br>maxParallelWorkersPerGather | **i
 hosts[].<br>config.<br>postgresqlConfig_10.<br>timezone | **string**<br>
 hosts[].<br>config.<br>postgresqlConfig_10.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_10.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11 | **object**<br>Configuration for a host with PostgreSQL 11 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
+hosts[].<br>config.<br>postgresqlConfig_11 | **object**<br>Configuration for a host with PostgreSQL 11 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_11.<br>sharedBuffers | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_11.<br>tempBuffers | **integer** (int64)<br>
@@ -891,7 +959,7 @@ hosts[].<br>config.<br>postgresqlConfig_11.<br>maxParallelWorkersPerGather | **i
 hosts[].<br>config.<br>postgresqlConfig_11.<br>timezone | **string**<br>
 hosts[].<br>config.<br>postgresqlConfig_11.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a host with PostgreSQL 11 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
+hosts[].<br>config.<br>postgresqlConfig_11_1C | **object**<br>Configuration for a host with PostgreSQL 11 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>sharedBuffers | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>tempBuffers | **integer** (int64)<br>
@@ -959,7 +1027,7 @@ hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>maxParallelWorkersPerGather | 
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>timezone | **string**<br>
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_11_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12 | **object**<br>Configuration for a host with PostgreSQL 12 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
+hosts[].<br>config.<br>postgresqlConfig_12 | **object**<br>Configuration for a host with PostgreSQL 12 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_12.<br>sharedBuffers | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_12.<br>tempBuffers | **integer** (int64)<br>
@@ -1027,7 +1095,7 @@ hosts[].<br>config.<br>postgresqlConfig_12.<br>maxParallelWorkersPerGather | **i
 hosts[].<br>config.<br>postgresqlConfig_12.<br>timezone | **string**<br>
 hosts[].<br>config.<br>postgresqlConfig_12.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a host with PostgreSQL 12 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
+hosts[].<br>config.<br>postgresqlConfig_12_1C | **object**<br>Configuration for a host with PostgreSQL 12 1C server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>sharedBuffers | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>tempBuffers | **integer** (int64)<br>
@@ -1095,7 +1163,7 @@ hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>maxParallelWorkersPerGather | 
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>timezone | **string**<br>
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_12_1C.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
-hosts[].<br>config.<br>postgresqlConfig_13 | **object**<br>Configuration for a host with PostgreSQL 13 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
+hosts[].<br>config.<br>postgresqlConfig_13 | **object**<br>Configuration for a host with PostgreSQL 13 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
 hosts[].<br>config.<br>postgresqlConfig_13.<br>recoveryMinApplyDelay | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_13.<br>sharedBuffers | **integer** (int64)<br>
 hosts[].<br>config.<br>postgresqlConfig_13.<br>tempBuffers | **integer** (int64)<br>
@@ -1163,6 +1231,73 @@ hosts[].<br>config.<br>postgresqlConfig_13.<br>maxParallelWorkersPerGather | **i
 hosts[].<br>config.<br>postgresqlConfig_13.<br>timezone | **string**<br>
 hosts[].<br>config.<br>postgresqlConfig_13.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
 hosts[].<br>config.<br>postgresqlConfig_13.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
+hosts[].<br>config.<br>postgresqlConfig_14 | **object**<br>Configuration for a host with PostgreSQL 14 server deployed. <br>`hosts[].config` includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1C`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1C`, `postgresqlConfig_12`, `postgresqlConfig_12_1C`, `postgresqlConfig_13`, `postgresqlConfig_14`<br><br><p>Options and structure of ``PostgresqlConfig`` reflects PostgreSQL configuration file parameters which detailed description is available in <a href="https://www.postgresql.org/docs/11/runtime-config.html">PostgreSQL documentation</a>.</p> 
+hosts[].<br>config.<br>postgresqlConfig_14.<br>recoveryMinApplyDelay | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>sharedBuffers | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>tempBuffers | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>workMem | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>tempFileLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>backendFlushAfter | **integer** (int64)<br><p>Acceptable values are 0 to 2048, inclusive.</p> 
+hosts[].<br>config.<br>postgresqlConfig_14.<br>oldSnapshotThreshold | **integer** (int64)<br><p>Acceptable values are -1 to 86400, inclusive.</p> 
+hosts[].<br>config.<br>postgresqlConfig_14.<br>maxStandbyStreamingDelay | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>constraintExclusion | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>cursorTupleFraction | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>fromCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+hosts[].<br>config.<br>postgresqlConfig_14.<br>joinCollapseLimit | **integer** (int64)<br><p>Acceptable values are 1 to 2147483647, inclusive.</p> 
+hosts[].<br>config.<br>postgresqlConfig_14.<br>forceParallelMode | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>clientMinMessages | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logMinMessages | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logMinErrorStatement | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logMinDurationStatement | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logCheckpoints | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logConnections | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logDisconnections | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logDuration | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logErrorVerbosity | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logLockWaits | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logStatement | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>logTempFiles | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>searchPath | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>rowSecurity | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>defaultTransactionIsolation | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>statementTimeout | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>lockTimeout | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>idleInTransactionSessionTimeout | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>byteaOutput | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>xmlbinary | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>xmloption | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>ginPendingListLimit | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>deadlockTimeout | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>maxLocksPerTransaction | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>maxPredLocksPerTransaction | **integer** (int64)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>arrayNulls | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>backslashQuote | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>defaultWithOids | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>escapeStringWarning | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>loCompatPrivileges | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>quoteAllIdentifiers | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>standardConformingStrings | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>synchronizeSeqscans | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>transformNullEquals | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>exitOnError | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>seqPageCost | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>randomPageCost | **number** (double)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableBitmapscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableHashagg | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableHashjoin | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableIndexscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableIndexonlyscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableMaterial | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableMergejoin | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableNestloop | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableSeqscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableSort | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>enableTidscan | **boolean** (boolean)<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>maxParallelWorkers | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+hosts[].<br>config.<br>postgresqlConfig_14.<br>maxParallelWorkersPerGather | **integer** (int64)<br><p>Acceptable values are 0 to 1024, inclusive.</p> 
+hosts[].<br>config.<br>postgresqlConfig_14.<br>timezone | **string**<br>
+hosts[].<br>config.<br>postgresqlConfig_14.<br>effectiveIoConcurrency | **integer** (int64)<br><p>Acceptable values are 0 to 1000, inclusive.</p> 
+hosts[].<br>config.<br>postgresqlConfig_14.<br>effectiveCacheSize | **integer** (int64)<br><p>Acceptable values are 0 to 549755813888, inclusive.</p> 
 hosts[].<br>assignPublicIp | **boolean** (boolean)<br><p>Flag showing public IP assignment status to this host.</p> 
 hosts[].<br>replicaType | **string**<br>
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#query_params">pageSize</a>, use the <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#responses">nextPageToken</a> as the value for the <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-postgresql/api-ref/Cluster/listHosts#responses">nextPageToken</a> to continue paging through the results.</p> 
