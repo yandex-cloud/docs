@@ -175,6 +175,10 @@ Method | Description
 --- | ---
 [create](create.md) | Create a new bucket in specified folder.
 [delete](delete.md) | Delete the specified bucket.
+[deleteHTTPSConfig](deleteHTTPSConfig.md) | 
 [get](get.md) | Get specific bucket.
+[getHTTPSConfig](getHTTPSConfig.md) | Fetch Bucket's HTTPS configuration.
+[getStats](getStats.md) | Fetch stats of the bucket.
 [list](list.md) | Returns the list of buckets for specified folder id. The following fields will not be set in listing: * "cors" * "website_settings" * "lifecycle_rules" * "acl" * "policy" will be empty.
+[setHTTPSConfig](setHTTPSConfig.md) | Inserts HTTPS configuration for bucket.
 [update](update.md) | Update the specified bucket.

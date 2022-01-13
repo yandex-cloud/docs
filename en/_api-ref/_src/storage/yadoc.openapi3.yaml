@@ -161,6 +161,103 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateBucketMetadata'
       x-y-operation-response: '[Bucket](/docs/storage/api-ref/Bucket#representation)'
+  /storage/v1/buckets/{name}:getStats:
+    get:
+      tags:
+      - Bucket
+      summary: Fetch stats of the bucket.
+      operationId: BucketGetStats
+      parameters:
+      - name: name
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BucketStats'
+      x-y-navtitle: getStats
+  /storage/v1/buckets/{name}:getHttpsConfig:
+    get:
+      tags:
+      - Bucket
+      summary: Fetch Bucket's HTTPS configuration.
+      operationId: BucketGetHTTPSConfig
+      parameters:
+      - name: name
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPSConfig'
+      x-y-navtitle: getHTTPSConfig
+  /storage/v1/buckets/{name}:setHttpsConfig:
+    post:
+      tags:
+      - Bucket
+      summary: Inserts HTTPS configuration for bucket.
+      operationId: BucketSetHTTPSConfig
+      parameters:
+      - name: name
+        in: path
+        description: |-
+          Required.
+          Bucket name
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetBucketHTTPSConfigRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setHTTPSConfig
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetBucketHTTPSConfigMetadata'
+      x-y-operation-response: '`HTTPSConfig`'
+  /storage/v1/buckets/{name}:deleteHttpsConfig:
+    post:
+      tags:
+      - Bucket
+      operationId: BucketDeleteHTTPSConfig
+      parameters:
+      - name: name
+        in: path
+        description: Required.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: deleteHTTPSConfig
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteBucketHTTPSConfigMetadata'
+      x-y-operation-response: Empty
 components:
   schemas:
     ACL:
@@ -280,6 +377,64 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LifecycleRule'
+    BucketStats:
+      description: BucketStats describes bucket statistics.
+      type: object
+      properties:
+        name:
+          description: |-
+            Counters holds amount and size of various type
+            of objects.
+            Requested bucket name.
+          type: string
+        maxSize:
+          description: Maximum size of bucket.
+          type: integer
+          format: int64
+        usedSize:
+          description: Size of used space in bucket.
+          type: string
+          format: int64
+        storageClassMaxSizes:
+          description: Maximum size of bucket in projection of storage classes.
+          type: array
+          items:
+            $ref: '#/components/schemas/OptionalSizeByClass'
+        storageClassUsedSizes:
+          description: Size of used space in projection of storage classes.
+          type: array
+          items:
+            $ref: '#/components/schemas/SizeByClass'
+        storageClassCounters:
+          description: Meta-info about objects stored in bucket in projection of storage
+            classes.
+          type: array
+          items:
+            $ref: '#/components/schemas/CountersByClass'
+        defaultStorageClass:
+          description: Bucket's default storage class.
+          type: string
+        anonymousAccessFlags:
+          $ref: '#/components/schemas/AnonymousAccessFlags_in_BucketStats_anonymousAccessFlags'
+        createdAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        updatedAt:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+    CertificateManagerHTTPSConfigParams:
+      description: |-
+        CertificateManagerHTTPSConfigParams allows to set existing certificate
+        from certificate manager.
+        For more information, see [Own certificate](/docs/storage/operations/hosting/certificate#cert-manager)
+      type: object
+      properties:
+        certificateId:
+          type: string
     CorsRule:
       type: object
       properties:
@@ -326,6 +481,37 @@ components:
       - METHOD_POST
       - METHOD_PUT
       - METHOD_DELETE
+    Counters:
+      type: object
+      properties:
+        simpleObjectSize:
+          type: string
+          format: int64
+        simpleObjectCount:
+          type: string
+          format: int64
+        objectsPartsSize:
+          type: string
+          format: int64
+        objectsPartsCount:
+          type: string
+          format: int64
+        multipartObjectsSize:
+          type: string
+          format: int64
+        multipartObjectsCount:
+          type: string
+          format: int64
+        activeMultipartCount:
+          type: string
+          format: int64
+    CountersByClass:
+      type: object
+      properties:
+        storageClass:
+          type: string
+        counters:
+          $ref: '#/components/schemas/Counters_in_CountersByClass_counters'
     CreateBucketMetadata:
       type: object
       properties:
@@ -365,6 +551,11 @@ components:
           $ref: '#/components/schemas/AnonymousAccessFlags_in_CreateBucketRequest_anonymousAccessFlags'
         acl:
           $ref: '#/components/schemas/ACL_in_CreateBucketRequest_acl'
+    DeleteBucketHTTPSConfigMetadata:
+      type: object
+      properties:
+        name:
+          type: string
     DeleteBucketMetadata:
       type: object
       properties:
@@ -402,6 +593,38 @@ components:
       - VIEW_BASIC
       - VIEW_ACL
       - VIEW_FULL
+    HTTPSConfig:
+      type: object
+      properties:
+        name:
+          type: string
+        sourceType:
+          $ref: '#/components/schemas/HTTPSConfigSourceType_in_HTTPSConfig_sourceType'
+        issuer:
+          type: string
+        subject:
+          type: string
+        dnsNames:
+          type: array
+          items:
+            type: string
+        notBefore:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        notAfter:
+          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format.
+          type: string
+          format: date-time
+        certificateId:
+          type: string
+    HTTPSConfigSourceType:
+      type: string
+      enum:
+      - SOURCE_TYPE_SELF_MANAGED
+      - SOURCE_TYPE_MANAGED
     LifecycleRule:
       type: object
       properties:
@@ -494,6 +717,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Bucket'
+    ManagedHTTPSConfigParams:
+      description: ManagedHTTPSConfigParams allows manage HTTPS by our services.
+      type: object
+      properties: {}
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -551,6 +778,53 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
+    OptionalSizeByClass:
+      type: object
+      properties:
+        storageClass:
+          type: string
+        classSize:
+          type: integer
+          format: int64
+    SelfManagedHTTPSConfigParams:
+      description: |-
+        SelfManagedHTTPSConfigParams accepts created by yourself a pair
+        or certificate and private key and uses it to serve https connection.
+        For more information, see [Own certificate](/docs/storage/operations/hosting/certificate#own)
+      type: object
+      properties:
+        certificatePem:
+          description: The maximum string length in characters is 3145728.
+          type: string
+        privateKeyPem:
+          description: The maximum string length in characters is 3145728.
+          type: string
+    SetBucketHTTPSConfigMetadata:
+      type: object
+      properties:
+        name:
+          type: string
+    SetBucketHTTPSConfigRequest:
+      type: object
+      allOf:
+      - title: params
+        type: object
+        maxProperties: 1
+        properties:
+          selfManaged:
+            $ref: '#/components/schemas/SelfManagedHTTPSConfigParams'
+          managed:
+            $ref: '#/components/schemas/ManagedHTTPSConfigParams'
+          certificateManager:
+            $ref: '#/components/schemas/CertificateManagerHTTPSConfigParams'
+    SizeByClass:
+      type: object
+      properties:
+        storageClass:
+          type: string
+        classSize:
+          type: string
+          format: int64
     Status:
       description: The error result of the operation in case of failure or cancellation.
       type: object
@@ -775,6 +1049,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WebsiteSettingsRoutingRule'
+    AnonymousAccessFlags_in_BucketStats_anonymousAccessFlags:
+      type: object
+      properties:
+        read:
+          type: boolean
+          format: boolean
+        list:
+          type: boolean
+          format: boolean
+        configRead:
+          type: boolean
+          format: boolean
+    Counters_in_CountersByClass_counters:
+      type: object
+      properties:
+        simpleObjectSize:
+          type: string
+          format: int64
+        simpleObjectCount:
+          type: string
+          format: int64
+        objectsPartsSize:
+          type: string
+          format: int64
+        objectsPartsCount:
+          type: string
+          format: int64
+        multipartObjectsSize:
+          type: string
+          format: int64
+        multipartObjectsCount:
+          type: string
+          format: int64
+        activeMultipartCount:
+          type: string
+          format: int64
     AnonymousAccessFlags_in_CreateBucketRequest_anonymousAccessFlags:
       description: |-
         Access flags for anonymous access.
@@ -802,6 +1112,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ACLGrant'
+    HTTPSConfigSourceType_in_HTTPSConfig_sourceType:
+      type: string
+      enum:
+      - SOURCE_TYPE_SELF_MANAGED
+      - SOURCE_TYPE_MANAGED
     LifecycleRuleRuleFilter_in_LifecycleRule_filter:
       type: object
       properties:

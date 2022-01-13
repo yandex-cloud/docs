@@ -68,6 +68,10 @@ POST https://mdb.api.cloud.yandex.net/mdb/sqlserver/v1/clusters:restore
   "folderId": "string",
   "securityGroupIds": [
     "string"
+  ],
+  "deletionProtection": true,
+  "hostGroupIds": [
+    "string"
   ]
 }
 ```
@@ -113,6 +117,8 @@ hostSpecs[].<br>assignPublicIp | **boolean** (boolean)<br><p>Whether the host sh
 networkId | **string**<br><p>ID of the network to create the SQL Server cluster in.</p> <p>The maximum string length in characters is 50.</p> 
 folderId | **string**<br><p>ID of the folder to create the SQL Server cluster in.</p> <p>To get the folder ID, use a <a href="/docs/resource-manager/api-ref/Folder/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
+hostGroupIds[] | **string**<br><p>Host groups hosting VMs of the cluster.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

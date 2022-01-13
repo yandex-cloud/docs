@@ -27,4 +27,18 @@ items:
         href: concepts/product.md
       - name: Service plan
         href: concepts/tariff.md
+      - name: Billing of products based on publisher metrics
+        href: metering/api-usage.md
+  - name: API reference
+    items:
+      - name: REST
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/marketplace/metering/toc.yaml
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/marketplace/metering-api/toc.yaml
 base: ru/marketplace

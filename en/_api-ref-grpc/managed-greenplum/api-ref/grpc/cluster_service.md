@@ -18,6 +18,7 @@ A set of methods for managing Greenplum clusters.
 | [ListOperations](#ListOperations) | Retrieves the list of Operation resources for the specified cluster. |
 | [ListMasterHosts](#ListMasterHosts) | Retrieves a list of master hosts for the specified cluster. |
 | [ListSegmentHosts](#ListSegmentHosts) | Retrieves a list of segment hosts for the specified cluster. |
+| [ListLogs](#ListLogs) | Retrieves logs for the specified Greenplum cluster. |
 
 ## Calls ClusterService {#calls}
 
@@ -1782,5 +1783,42 @@ Field | Description
 resource_preset_id | **string**<br>ID of the preset for computational resources available to a host (CPU, memory etc.). All available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). 
 disk_size | **int64**<br>Volume of the storage available to a host. 
 disk_type_id | **string**<br><ul><li>network-hdd - network HDD drive, </li><li>network-ssd - network SSD drive, </li><li>local-ssd - local SSD storage.</li></ul> 
+
+
+## ListLogs {#ListLogs}
+
+Retrieves logs for the specified Greenplum cluster.
+
+**rpc ListLogs ([ListClusterLogsRequest](#ListClusterLogsRequest)) returns ([ListClusterLogsResponse](#ListClusterLogsResponse))**
+
+### ListClusterLogsRequest {#ListClusterLogsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. ID of the Greenplum cluster to request logs for. To get the Greenplum cluster ID, use a [ClusterService.List](#List) request. The maximum string length in characters is 50.
+column_filter[] | **string**<br>Columns from logs table to request. If no columns are specified, entire log records are returned. 
+service_type | enum **ServiceType**<br>Type of the service to request logs about. <ul><li>`GREENPLUM`: Logs of Greenplum activity.</li><ul/>
+from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests. The maximum value is 1000.
+page_token | **string**<br>Page token.  To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#ListClusterLogsResponse) returned by a previous list request. The maximum string length in characters is 100.
+always_next_page_token | **bool**<br>Always return `next_page_token`, even if current page is empty. 
+filter | **string**<br><ol><li>The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname](#LogRecord), </li><li>A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values. </li><li>The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`. </li></ol> The maximum string length in characters is 1000.
+
+
+### ListClusterLogsResponse {#ListClusterLogsResponse}
+
+Field | Description
+--- | ---
+logs[] | **[LogRecord](#LogRecord)**<br>Requested log records. 
+next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterLogsRequest.page_size](#ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#ListClusterLogsRequest) query parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. This value is interchangeable with the [StreamLogRecord.next_record_token] from StreamLogs method. 
+
+
+### LogRecord {#LogRecord}
+
+Field | Description
+--- | ---
+timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+message | **map<string,string>**<br>Contents of the log record. 
 
 

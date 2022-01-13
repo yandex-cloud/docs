@@ -352,6 +352,7 @@ Method | Description
 [delete](delete.md) | Deletes the specified Greenplum cluster.
 [get](get.md) | Returns the specified Greenplum cluster.
 [list](list.md) | Retrieves a list of Greenplum clusters that belong to the specified folder.
+[listLogs](listLogs.md) | Retrieves logs for the specified Greenplum cluster.
 [listMasterHosts](listMasterHosts.md) | Retrieves a list of master hosts for the specified cluster.
 [listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.
 [listSegmentHosts](listSegmentHosts.md) | Retrieves a list of segment hosts for the specified cluster.

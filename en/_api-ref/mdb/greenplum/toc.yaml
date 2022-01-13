@@ -13,6 +13,8 @@ items:
         href: api-ref/Cluster/get.md
       - name: list
         href: api-ref/Cluster/list.md
+      - name: listLogs
+        href: api-ref/Cluster/listLogs.md
       - name: listMasterHosts
         href: api-ref/Cluster/listMasterHosts.md
       - name: listOperations

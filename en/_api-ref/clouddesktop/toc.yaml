@@ -35,11 +35,9 @@ items:
         href: api-ref/Desktop/get.md
       - name: getRdpFile
         href: api-ref/Desktop/getRdpFile.md
-      - name: getTmpPassword
-        href: api-ref/Desktop/getTmpPassword.md
       - name: list
         href: api-ref/Desktop/list.md
       - name: listOperations
         href: api-ref/Desktop/listOperations.md
-      - name: resetTmpPassword
-        href: api-ref/Desktop/resetTmpPassword.md
+      - name: resetPassword
+        href: api-ref/Desktop/resetPassword.md

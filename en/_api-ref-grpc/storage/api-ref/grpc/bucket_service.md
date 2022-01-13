@@ -14,6 +14,10 @@ storage.
 | [Create](#Create) | Create a new bucket in specified folder. |
 | [Update](#Update) | Update the specified bucket. |
 | [Delete](#Delete) | Delete the specified bucket. |
+| [GetStats](#GetStats) | Fetch stats of the bucket. |
+| [GetHTTPSConfig](#GetHTTPSConfig) | Fetch Bucket's HTTPS configuration. |
+| [SetHTTPSConfig](#SetHTTPSConfig) | Inserts HTTPS configuration for bucket. |
+| [DeleteHTTPSConfig](#DeleteHTTPSConfig) |  |
 
 ## Calls BucketService {#calls}
 
@@ -996,6 +1000,225 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 
 
 ### DeleteBucketMetadata {#DeleteBucketMetadata}
+
+Field | Description
+--- | ---
+name | **string**<br> 
+
+
+## GetStats {#GetStats}
+
+Fetch stats of the bucket.
+
+**rpc GetStats ([GetBucketStatsRequest](#GetBucketStatsRequest)) returns ([BucketStats](#BucketStats))**
+
+### GetBucketStatsRequest {#GetBucketStatsRequest}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+
+
+### BucketStats {#BucketStats}
+
+Field | Description
+--- | ---
+name | **string**<br>Counters holds amount and size of various type of objects. Requested bucket name. 
+max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Maximum size of bucket. 
+used_size | **int64**<br>Size of used space in bucket. 
+storage_class_max_sizes[] | **[OptionalSizeByClass](#OptionalSizeByClass)**<br>Maximum size of bucket in projection of storage classes. 
+storage_class_used_sizes[] | **[SizeByClass](#SizeByClass)**<br>Size of used space in projection of storage classes. 
+storage_class_counters[] | **[CountersByClass](#CountersByClass)**<br>Meta-info about objects stored in bucket in projection of storage classes. 
+default_storage_class | **google.protobuf.StringValue**<br>Bucket's default storage class. 
+anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags6)**<br> 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+
+
+### OptionalSizeByClass {#OptionalSizeByClass}
+
+Field | Description
+--- | ---
+storage_class | **string**<br> 
+class_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br> 
+
+
+### SizeByClass {#SizeByClass}
+
+Field | Description
+--- | ---
+storage_class | **string**<br> 
+class_size | **int64**<br> 
+
+
+### CountersByClass {#CountersByClass}
+
+Field | Description
+--- | ---
+storage_class | **string**<br> 
+counters | **[Counters](#Counters)**<br> 
+
+
+### Counters {#Counters}
+
+Field | Description
+--- | ---
+simple_object_size | **int64**<br> 
+simple_object_count | **int64**<br> 
+objects_parts_size | **int64**<br> 
+objects_parts_count | **int64**<br> 
+multipart_objects_size | **int64**<br> 
+multipart_objects_count | **int64**<br> 
+active_multipart_count | **int64**<br> 
+
+
+### AnonymousAccessFlags {#AnonymousAccessFlags6}
+
+Field | Description
+--- | ---
+read | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+list | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+config_read | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br> 
+
+
+## GetHTTPSConfig {#GetHTTPSConfig}
+
+Fetch Bucket's HTTPS configuration.
+
+**rpc GetHTTPSConfig ([GetBucketHTTPSConfigRequest](#GetBucketHTTPSConfigRequest)) returns ([HTTPSConfig](#HTTPSConfig))**
+
+### GetBucketHTTPSConfigRequest {#GetBucketHTTPSConfigRequest}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+
+
+### HTTPSConfig {#HTTPSConfig}
+
+Field | Description
+--- | ---
+name | **string**<br> 
+source_type | enum **SourceType**<br> <ul><ul/>
+issuer | **google.protobuf.StringValue**<br> 
+subject | **google.protobuf.StringValue**<br> 
+dns_names[] | **string**<br> 
+not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+certificate_id | **string**<br> 
+
+
+## SetHTTPSConfig {#SetHTTPSConfig}
+
+Inserts HTTPS configuration for bucket.
+
+**rpc SetHTTPSConfig ([SetBucketHTTPSConfigRequest](#SetBucketHTTPSConfigRequest)) returns ([operation.Operation](#Operation3))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[SetBucketHTTPSConfigMetadata](#SetBucketHTTPSConfigMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[HTTPSConfig](#HTTPSConfig1)<br>
+
+### SetBucketHTTPSConfigRequest {#SetBucketHTTPSConfigRequest}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Bucket name 
+params | **oneof:** `self_managed`, `managed` or `certificate_manager`<br>
+&nbsp;&nbsp;self_managed | **[SelfManagedHTTPSConfigParams](#SelfManagedHTTPSConfigParams)**<br> 
+&nbsp;&nbsp;managed | **[ManagedHTTPSConfigParams](#ManagedHTTPSConfigParams)**<br> 
+&nbsp;&nbsp;certificate_manager | **[CertificateManagerHTTPSConfigParams](#CertificateManagerHTTPSConfigParams)**<br> 
+
+
+### SelfManagedHTTPSConfigParams {#SelfManagedHTTPSConfigParams}
+
+Field | Description
+--- | ---
+certificate_pem | **string**<br> The maximum string length in characters is 3145728.
+private_key_pem | **string**<br> The maximum string length in characters is 3145728.
+
+
+### ManagedHTTPSConfigParams {#ManagedHTTPSConfigParams}
+
+
+
+### CertificateManagerHTTPSConfigParams {#CertificateManagerHTTPSConfigParams}
+
+Field | Description
+--- | ---
+certificate_id | **string**<br> 
+
+
+### Operation {#Operation3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[SetBucketHTTPSConfigMetadata](#SetBucketHTTPSConfigMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[HTTPSConfig](#HTTPSConfig1)>**<br>if operation finished successfully. 
+
+
+### SetBucketHTTPSConfigMetadata {#SetBucketHTTPSConfigMetadata}
+
+Field | Description
+--- | ---
+name | **string**<br> 
+
+
+### HTTPSConfig {#HTTPSConfig1}
+
+Field | Description
+--- | ---
+name | **string**<br> 
+source_type | enum **SourceType**<br> <ul><ul/>
+issuer | **google.protobuf.StringValue**<br> 
+subject | **google.protobuf.StringValue**<br> 
+dns_names[] | **string**<br> 
+not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br> 
+certificate_id | **string**<br> 
+
+
+## DeleteHTTPSConfig {#DeleteHTTPSConfig}
+
+
+
+**rpc DeleteHTTPSConfig ([DeleteBucketHTTPSConfigRequest](#DeleteBucketHTTPSConfigRequest)) returns ([operation.Operation](#Operation4))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteBucketHTTPSConfigMetadata](#DeleteBucketHTTPSConfigMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### DeleteBucketHTTPSConfigRequest {#DeleteBucketHTTPSConfigRequest}
+
+Field | Description
+--- | ---
+name | **string**<br>Required.  
+
+
+### Operation {#Operation4}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteBucketHTTPSConfigMetadata](#DeleteBucketHTTPSConfigMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteBucketHTTPSConfigMetadata {#DeleteBucketHTTPSConfigMetadata}
 
 Field | Description
 --- | ---

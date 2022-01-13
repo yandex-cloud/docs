@@ -372,6 +372,106 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListClusterHostsResponse'
       x-y-navtitle: listSegmentHosts
+  /mdb/managed-greenplum/v1/clusters/{clusterId}:logs:
+    get:
+      tags:
+      - Cluster
+      summary: Retrieves logs for the specified Greenplum cluster.
+      operationId: ClusterListLogs
+      parameters:
+      - name: clusterId
+        in: path
+        description: |-
+          Required.
+          ID of the Greenplum cluster to request logs for.
+          To get the Greenplum cluster ID, use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: columnFilter
+        in: query
+        description: |-
+          Columns from logs table to request.
+          If no columns are specified, entire log records are returned.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: serviceType
+        in: query
+        description: Type of the service to request logs about.
+        schema:
+          $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
+      - name: fromTime
+        in: query
+        description: |-
+          Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: toTime
+        in: query
+        description: |-
+          End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        schema:
+          type: string
+          format: date-time
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token.  To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses)
+          returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: alwaysNextPageToken
+        in: query
+        description: Always return `next_page_token`, even if current page is empty.
+        schema:
+          type: boolean
+          format: boolean
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname],
+          [LogRecord.logs.message.error_severity] (for GREENPLUM service), [LogRecord.logs.message.level] (for GREENPLUM_POOLER service) fields.
+          2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
+          Examples of a filter:
+          `message.hostname='node1.db.cloud.yandex.net'`
+          `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`
+
+          The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListClusterLogsResponse'
+      x-y-navtitle: listLogs
 components:
   schemas:
     Access:
@@ -999,6 +1099,28 @@ components:
             for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listSegmentHosts#responses) to continue paging through the results.
           type: string
+    ListClusterLogsRequestServiceType:
+      description: ' - GREENPLUM: Logs of Greenplum activity.'
+      type: string
+      enum:
+      - GREENPLUM
+      - GREENPLUM_POOLER
+    ListClusterLogsResponse:
+      type: object
+      properties:
+        logs:
+          description: Requested log records.
+          type: array
+          items:
+            $ref: '#/components/schemas/LogRecord'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params), use the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) as the value
+            for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listLogs#responses) to continue paging through the results.
+            This value is interchangeable with the [StreamLogRecord.next_record_token] from StreamLogs method.
+          type: string
     ListClusterOperationsResponse:
       type: object
       properties:
@@ -1029,6 +1151,21 @@ components:
             for the [pageToken](/docs/managed-greenplum/api-ref/Cluster/list#query_params) parameter in the next list request. Each subsequent
             list request will have its own [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/list#responses) to continue paging through the results.
           type: string
+    LogRecord:
+      type: object
+      properties:
+        timestamp:
+          description: |-
+            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          type: string
+          format: date-time
+        message:
+          description: Contents of the log record.
+          type: object
+          additionalProperties:
+            type: string
     MaintenanceOperation:
       type: object
       properties:

@@ -453,6 +453,10 @@ default:
   taas-name: Training as a Service
   taas: TaaS  
 
+  # Marketplace
+  mp-test-product-id: f2e4tmlj4qqciunhr7e6
+  mp-test-sku-id: dn2r898fr4ec6c3odbd6
+
   # Data Transfer
   dt-copy: Copy
   dt-repl: Replicate

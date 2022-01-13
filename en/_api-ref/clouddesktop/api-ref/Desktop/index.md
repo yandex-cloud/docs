@@ -57,7 +57,6 @@ Method | Description
 [delete](delete.md) | Deletes the specified desktop.
 [get](get.md) | Returns the specified desktop resource.
 [getRdpFile](getRdpFile.md) | Returns a RDP file for the specified desktop.
-[getTmpPassword](getTmpPassword.md) | Returns temporary password for the specified desktop.
 [list](list.md) | Retrieves the list of desktop resources.
 [listOperations](listOperations.md) | Returns list of the operations for the specified desktop.
-[resetTmpPassword](resetTmpPassword.md) | Reset temporary password for the specified desktop.
+[resetPassword](resetPassword.md) | Reset password

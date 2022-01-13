@@ -2,27 +2,21 @@
 editable: false
 ---
 
-# Method delete
-Deletes the specified dashboard.
+# Method deleteHTTPSConfig
+
  
 
  
 ## HTTP request {#https-request}
 ```
-DELETE https://monitoring.api.cloud.yandex.net/monitoring/v3/dashboards/{dashboardId}
+POST https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}:deleteHttpsConfig
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-dashboardId | Required. Required. Dashboard ID.  The maximum string length in characters is 50.
- 
-## Query parameters {#query_params}
- 
-Parameter | Description
---- | ---
-etag | The current etag of the dashboard.
+name | Required.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

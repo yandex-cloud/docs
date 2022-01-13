@@ -2,34 +2,50 @@
 editable: false
 ---
 
-# Method resetTmpPassword
-Reset temporary password for the specified desktop.
+# Method setHTTPSConfig
+Inserts HTTPS configuration for bucket.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://cloud-desktop.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}:resetTmpPassword
+POST https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}:setHttpsConfig
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-desktopId | Required. ID of the desktop.  The maximum string length in characters is 50.
+name | Required. Bucket name
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "subjectId": "string"
+
+  //  includes only one of the fields `selfManaged`, `managed`, `certificateManager`
+  "selfManaged": {
+    "certificatePem": "string",
+    "privateKeyPem": "string"
+  },
+  "managed": {},
+  "certificateManager": {
+    "certificateId": "string"
+  },
+  // end of the list of possible fields
+
 }
 ```
 
  
 Field | Description
 --- | ---
-subjectId | **string**<br><p>Subject ID of the desktop.</p> 
+selfManaged | **object** <br> includes only one of the fields `selfManaged`, `managed`, `certificateManager`<br><br><p>SelfManagedHTTPSConfigParams accepts created by yourself a pair or certificate and private key and uses it to serve https connection. For more information, see <a href="/docs/storage/operations/hosting/certificate#own">Own certificate</a></p> 
+selfManaged.<br>certificatePem | **string**<br><p>The maximum string length in characters is 3145728.</p> 
+selfManaged.<br>privateKeyPem | **string**<br><p>The maximum string length in characters is 3145728.</p> 
+managed | **object** <br> includes only one of the fields `selfManaged`, `managed`, `certificateManager`<br><br><p>ManagedHTTPSConfigParams allows manage HTTPS by our services.</p> 
+certificateManager | **object** <br> includes only one of the fields `selfManaged`, `managed`, `certificateManager`<br><br><p>CertificateManagerHTTPSConfigParams allows to set existing certificate from certificate manager. For more information, see <a href="/docs/storage/operations/hosting/certificate#cert-manager">Own certificate</a></p> 
+certificateManager.<br>certificateId | **string**<br>
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

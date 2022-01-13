@@ -690,6 +690,11 @@ paths:
         required: true
         schema:
           type: string
+      - name: etag
+        in: query
+        description: The current etag of the dashboard.
+        schema:
+          type: string
       responses:
         "200":
           description: OK
@@ -773,7 +778,12 @@ paths:
       - name: filter
         in: query
         description: |-
-          The filter expression. Currently you can use filtering only on [Dashboard.name](/docs/monitoring/api-ref/Dashboard#representation) field.
+          A filter expression that filters resources listed in the response.
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on the [Dashboard.name](/docs/monitoring/api-ref/Dashboard#representation) field.
+          2. An `=` operator.
+          3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Example: name="abc"
 
           The maximum string length in characters is 1000.
         schema:
@@ -1508,192 +1518,6 @@ components:
       - SERIES_AGGREGATION_MAX
       - SERIES_AGGREGATION_LAST
       - SERIES_AGGREGATION_SUM
-    ChartWidgetVisualizationSettingsUnitFormat:
-      description: |-
-        Unit format.
-
-         - UNIT_NONE: None (show tick values as-is).
-         - UNIT_COUNT: Count.
-         - UNIT_PERCENT: Percent (0-100).
-         - UNIT_PERCENT_UNIT: Percent (0-1).
-         - UNIT_NANOSECONDS: Nanoseconds (ns).
-         - UNIT_MICROSECONDS: Microseconds (µs).
-         - UNIT_MILLISECONDS: Milliseconds (ms).
-         - UNIT_SECONDS: Seconds (s).
-         - UNIT_MINUTES: Minutes (m).
-         - UNIT_HOURS: Hours (h).
-         - UNIT_DAYS: Days (d).
-         - UNIT_BITS_SI: Bits (SI).
-         - UNIT_BYTES_SI: Bytes (SI).
-         - UNIT_KILOBYTES: Kilobytes (KB).
-         - UNIT_MEGABYTES: Megabytes (MB).
-         - UNIT_GIGABYTES: Gigabytes (GB).
-         - UNIT_TERABYTES: Terabytes (TB)
-         - UNIT_PETABYTES: Petabytes (PB).
-         - UNIT_EXABYTES: Exabytes (EB).
-         - UNIT_BITS_IEC: Bits (IEC).
-         - UNIT_BYTES_IEC: Bytes (IEC).
-         - UNIT_KIBIBYTES: Kibibytes (KiB).
-         - UNIT_MEBIBYTES: Mebibytes (MiB).
-         - UNIT_GIBIBYTES: Gigibytes (GiB).
-         - UNIT_TEBIBYTES: Tebibytes (TiB).
-         - UNIT_PEBIBYTES: Pebibytes (PiB).
-         - UNIT_EXBIBYTES: Exbibytes (EiB).
-         - UNIT_REQUESTS_PER_SECOND: Requests per second (reqps).
-         - UNIT_OPERATIONS_PER_SECOND: Operations per second (ops).
-         - UNIT_WRITES_PER_SECOND: Writes per second (wps).
-         - UNIT_READS_PER_SECOND: Reads per second (rps).
-         - UNIT_PACKETS_PER_SECOND: Packets per second (pps).
-         - UNIT_IO_OPERATIONS_PER_SECOND: IO operations per second (iops).
-         - UNIT_COUNTS_PER_SECOND: Counts per second (counts/sec).
-         - UNIT_BITS_SI_PER_SECOND: Bits (SI) per second (bits/sec).
-         - UNIT_BYTES_SI_PER_SECOND: Bytes (SI) per second (bytes/sec).
-         - UNIT_KILOBITS_PER_SECOND: Kilobits per second (KBits/sec).
-         - UNIT_KILOBYTES_PER_SECOND: Kilobytes per second (KB/sec).
-         - UNIT_MEGABITS_PER_SECOND: Megabits per second (MBits/sec).
-         - UNIT_MEGABYTES_PER_SECOND: Megabytes per second (MB/sec).
-         - UNIT_GIGABITS_PER_SECOND: Gigabits per second (GBits/sec).
-         - UNIT_GIGABYTES_PER_SECOND: Gigabytes per second (GB/sec).
-         - UNIT_TERABITS_PER_SECOND: Terabits per second (TBits/sec).
-         - UNIT_TERABYTES_PER_SECOND: Terabytes per second (TB/sec).
-         - UNIT_PETABITS_PER_SECOND: Petabits per second (Pbits/sec).
-         - UNIT_PETABYTES_PER_SECOND: Petabytes per second (PB/sec).
-         - UNIT_BITS_IEC_PER_SECOND: Bits (IEC) per second (bits/sec).
-         - UNIT_BYTES_IEC_PER_SECOND: Bytes (IEC) per second (bytes/sec).
-         - UNIT_KIBIBITS_PER_SECOND: Kibibits per second (KiBits/sec).
-         - UNIT_KIBIBYTES_PER_SECOND: Kibibytes per second (KiB/sec).
-         - UNIT_MEBIBITS_PER_SECOND: Mebibits per second (MiBits/sec).
-         - UNIT_MEBIBYTES_PER_SECOND: Mebibytes per second (MiB/sec).
-         - UNIT_GIBIBITS_PER_SECOND: Gibibits per second (GiBits/sec).
-         - UNIT_GIBIBYTES_PER_SECOND: Gibibytes per second (GiB/sec).
-         - UNIT_TEBIBITS_PER_SECOND: Tebibits per second (TiBits/sec).
-         - UNIT_TEBIBYTES_PER_SECOND: Tebibytes per second (TiB/sec).
-         - UNIT_PEBIBITS_PER_SECOND: Pebibits per second (PiBits/sec).
-         - UNIT_PEBIBYTES_PER_SECOND: Pebibytes per second (PiB/sec).
-         - UNIT_DATETIME_UTC: Datetime (UTC).
-         - UNIT_DATETIME_LOCAL: Datetime (local).
-         - UNIT_HERTZ: Hertz (Hz).
-         - UNIT_KILOHERTZ: Kilohertz (KHz).
-         - UNIT_MEGAHERTZ: Megahertz (MHz).
-         - UNIT_GIGAHERTZ: Gigahertz (GHz).
-         - UNIT_DOLLAR: Dollar.
-         - UNIT_EURO: Euro.
-         - UNIT_ROUBLE: Rouble.
-         - UNIT_CELSIUS: Celsius (°C).
-         - UNIT_FAHRENHEIT: Fahrenheit (°F).
-         - UNIT_KELVIN: Kelvin (K).
-         - UNIT_FLOP_PER_SECOND: Flop per second (FLOP/sec).
-         - UNIT_KILOFLOP_PER_SECOND: Kiloflop per second (KFLOP/sec).
-         - UNIT_MEGAFLOP_PER_SECOND: Megaflop per second (MFLOP/sec).
-         - UNIT_GIGAFLOP_PER_SECOND: Gigaflop per second (GFLOP/sec).
-         - UNIT_PETAFLOP_PER_SECOND: Petaflop per second (PFLOP/sec).
-         - UNIT_EXAFLOP_PER_SECOND: Exaflop per second (EFLOP/sec).
-         - UNIT_METERS_PER_SECOND: Meters per second (m/sec).
-         - UNIT_KILOMETERS_PER_HOUR: Kilometers per hour (km/h).
-         - UNIT_MILES_PER_HOUR: Miles per hour (mi/h).
-         - UNIT_MILLIMETER: Millimeter.
-         - UNIT_CENTIMETER: Centimeter.
-         - UNIT_METER: Meter.
-         - UNIT_KILOMETER: Kilometer.
-         - UNIT_MILE: Mile.
-         - UNIT_PPM: Parts per million (ppm).
-         - UNIT_EVENTS_PER_SECOND: Events per second
-         - UNIT_PACKETS: Packets
-         - UNIT_DBM: dBm (dbm)
-         - UNIT_VIRTUAL_CPU: Virtual CPU cores based on CPU time (vcpu)
-         - UNIT_MESSAGES_PER_SECOND: Messages per second (mps)
-      type: string
-      enum:
-      - UNIT_NONE
-      - UNIT_COUNT
-      - UNIT_PERCENT
-      - UNIT_PERCENT_UNIT
-      - UNIT_NANOSECONDS
-      - UNIT_MICROSECONDS
-      - UNIT_MILLISECONDS
-      - UNIT_SECONDS
-      - UNIT_MINUTES
-      - UNIT_HOURS
-      - UNIT_DAYS
-      - UNIT_BITS_SI
-      - UNIT_BYTES_SI
-      - UNIT_KILOBYTES
-      - UNIT_MEGABYTES
-      - UNIT_GIGABYTES
-      - UNIT_TERABYTES
-      - UNIT_PETABYTES
-      - UNIT_EXABYTES
-      - UNIT_BITS_IEC
-      - UNIT_BYTES_IEC
-      - UNIT_KIBIBYTES
-      - UNIT_MEBIBYTES
-      - UNIT_GIBIBYTES
-      - UNIT_TEBIBYTES
-      - UNIT_PEBIBYTES
-      - UNIT_EXBIBYTES
-      - UNIT_REQUESTS_PER_SECOND
-      - UNIT_OPERATIONS_PER_SECOND
-      - UNIT_WRITES_PER_SECOND
-      - UNIT_READS_PER_SECOND
-      - UNIT_PACKETS_PER_SECOND
-      - UNIT_IO_OPERATIONS_PER_SECOND
-      - UNIT_COUNTS_PER_SECOND
-      - UNIT_BITS_SI_PER_SECOND
-      - UNIT_BYTES_SI_PER_SECOND
-      - UNIT_KILOBITS_PER_SECOND
-      - UNIT_KILOBYTES_PER_SECOND
-      - UNIT_MEGABITS_PER_SECOND
-      - UNIT_MEGABYTES_PER_SECOND
-      - UNIT_GIGABITS_PER_SECOND
-      - UNIT_GIGABYTES_PER_SECOND
-      - UNIT_TERABITS_PER_SECOND
-      - UNIT_TERABYTES_PER_SECOND
-      - UNIT_PETABITS_PER_SECOND
-      - UNIT_PETABYTES_PER_SECOND
-      - UNIT_BITS_IEC_PER_SECOND
-      - UNIT_BYTES_IEC_PER_SECOND
-      - UNIT_KIBIBITS_PER_SECOND
-      - UNIT_KIBIBYTES_PER_SECOND
-      - UNIT_MEBIBITS_PER_SECOND
-      - UNIT_MEBIBYTES_PER_SECOND
-      - UNIT_GIBIBITS_PER_SECOND
-      - UNIT_GIBIBYTES_PER_SECOND
-      - UNIT_TEBIBITS_PER_SECOND
-      - UNIT_TEBIBYTES_PER_SECOND
-      - UNIT_PEBIBITS_PER_SECOND
-      - UNIT_PEBIBYTES_PER_SECOND
-      - UNIT_DATETIME_UTC
-      - UNIT_DATETIME_LOCAL
-      - UNIT_HERTZ
-      - UNIT_KILOHERTZ
-      - UNIT_MEGAHERTZ
-      - UNIT_GIGAHERTZ
-      - UNIT_DOLLAR
-      - UNIT_EURO
-      - UNIT_ROUBLE
-      - UNIT_CELSIUS
-      - UNIT_FAHRENHEIT
-      - UNIT_KELVIN
-      - UNIT_FLOP_PER_SECOND
-      - UNIT_KILOFLOP_PER_SECOND
-      - UNIT_MEGAFLOP_PER_SECOND
-      - UNIT_GIGAFLOP_PER_SECOND
-      - UNIT_PETAFLOP_PER_SECOND
-      - UNIT_EXAFLOP_PER_SECOND
-      - UNIT_METERS_PER_SECOND
-      - UNIT_KILOMETERS_PER_HOUR
-      - UNIT_MILES_PER_HOUR
-      - UNIT_MILLIMETER
-      - UNIT_CENTIMETER
-      - UNIT_METER
-      - UNIT_KILOMETER
-      - UNIT_MILE
-      - UNIT_PPM
-      - UNIT_EVENTS_PER_SECOND
-      - UNIT_PACKETS
-      - UNIT_DBM
-      - UNIT_VIRTUAL_CPU
-      - UNIT_MESSAGES_PER_SECOND
     ChartWidgetVisualizationSettingsVisualizationType:
       description: |-
         Chart visualization type.
@@ -1733,7 +1557,7 @@ components:
           description: Max value in extended number format or empty.
           type: string
         unitFormat:
-          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsUnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat'
+          $ref: '#/components/schemas/UnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat'
         precision:
           description: Tick value precision (null as default, 0-7 in other cases).
           type: integer
@@ -1921,48 +1745,55 @@ components:
           type: string
     CreateDashboardRequest:
       type: object
-      properties:
-        folderId:
-          description: |-
-            Required.
-            Required. Folder ID.
+      allOf:
+      - type: object
+        properties:
+          name:
+            description: |-
+              Required. Dashboard name.
 
-            The maximum string length in characters is 50.
-          type: string
-        name:
-          description: |-
-            Required. Dashboard name.
-
-            Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
-          type: string
-        description:
-          description: |-
-            Dashboard description.
-
-            The maximum string length in characters is 256.
-          type: string
-        labels:
-          description: |-
-            Resource labels as `key:value` pairs.
-
-            No more than 64 per resource.
-            The string length in characters for each key must be 1-63.
-            Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
-            The maximum string length in characters for each value is 63.
-            Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
-          type: object
-          additionalProperties:
+              Value must match the regular expression `` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
             type: string
-        title:
-          description: Dashboard title.
-          type: string
-        widgets:
-          description: List of dashboard widgets.
-          type: array
-          items:
-            $ref: '#/components/schemas/Widget'
-        parametrization:
-          $ref: '#/components/schemas/Parametrization_in_CreateDashboardRequest_parametrization'
+          description:
+            description: |-
+              Dashboard description.
+
+              The maximum string length in characters is 256.
+            type: string
+          labels:
+            description: |-
+              Resource labels as `key:value` pairs.
+
+              No more than 64 per resource.
+              The string length in characters for each key must be 1-63.
+              Each key must match the regular expression `` [a-z][-_./\@0-9a-z]* ``.
+              The maximum string length in characters for each value is 63.
+              Each value must match the regular expression `` [-_./\@0-9a-z]* ``.
+            type: object
+            additionalProperties:
+              type: string
+          title:
+            description: Dashboard title.
+            type: string
+          widgets:
+            description: List of dashboard widgets.
+            type: array
+            items:
+              $ref: '#/components/schemas/Widget'
+          parametrization:
+            $ref: '#/components/schemas/Parametrization'
+            description: Dashboard parametrization.
+      - title: container
+        type: object
+        maxProperties: 1
+        properties:
+          folderId:
+            description: |-
+              Required.
+              Required. Folder ID.
+
+              The maximum string length in characters is 50.
+            type: string
     CustomParameter:
       description: Custom parameter.
       type: object
@@ -1984,41 +1815,64 @@ components:
     Dashboard:
       description: Dashboard resource.
       type: object
-      properties:
-        id:
-          description: Dashboard ID.
-          type: string
-        folderId:
-          description: Folder ID.
-          type: string
-        createdAt:
-          description: |-
-            Creation timestamp.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-          type: string
-          format: date-time
-        name:
-          description: Dashboard name.
-          type: string
-        description:
-          description: Dashboard description.
-          type: string
-        labels:
-          description: Resource labels as key:value pairs.
-          type: object
-          additionalProperties:
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Dashboard ID.
             type: string
-        title:
-          description: Dashboard title.
-          type: string
-        widgets:
-          description: List of dashboard widgets.
-          type: array
-          items:
-            $ref: '#/components/schemas/Widget'
-        parametrization:
-          $ref: '#/components/schemas/Parametrization_in_Dashboard_parametrization'
+          createdAt:
+            description: |-
+              Creation timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          modifiedAt:
+            description: |-
+              Modification timestamp.
+
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user who created the dashboard.
+            type: string
+          modifiedBy:
+            description: ID of the user who modified the dashboard.
+            type: string
+          name:
+            description: Dashboard name.
+            type: string
+          description:
+            description: Dashboard description.
+            type: string
+          labels:
+            description: Resource labels as `key:value` pairs.
+            type: object
+            additionalProperties:
+              type: string
+          title:
+            description: Dashboard title.
+            type: string
+          widgets:
+            description: List of dashboard widgets.
+            type: array
+            items:
+              $ref: '#/components/schemas/Widget'
+          parametrization:
+            $ref: '#/components/schemas/Parametrization'
+            description: Dashboard parametrization.
+          etag:
+            description: Dashboard etag.
+            type: string
+      - title: container
+        type: object
+        maxProperties: 1
+        properties:
+          folderId:
+            description: Folder ID.
+            type: string
     DeleteAlertMetadata:
       type: object
       properties:
@@ -2037,6 +1891,16 @@ components:
         dashboardId:
           description: Dashboard ID.
           type: string
+    DoubleParameter:
+      description: Double parameter.
+      type: object
+      properties:
+        defaultValue:
+          description: Default value.
+          type: number
+          format: double
+        unitFormat:
+          $ref: '#/components/schemas/UnitFormat_in_DoubleParameter_unitFormat'
     Downsampling:
       description: List of available aggregate functions for downsampling.
       type: object
@@ -2282,27 +2146,43 @@ components:
           $ref: '#/components/schemas/EvaluationStats_in_GetAlertStatsResponse_evaluationStats'
         notificationStats:
           $ref: '#/components/schemas/NotificationStats_in_GetAlertStatsResponse_notificationStats'
+    IntegerParameter:
+      description: Integer parameter.
+      type: object
+      properties:
+        defaultValue:
+          description: Default value.
+          type: string
+          format: int64
+        unitFormat:
+          $ref: '#/components/schemas/UnitFormat_in_IntegerParameter_unitFormat'
     LabelValuesParameter:
       description: Label values parameter.
       type: object
-      properties:
-        folderId:
-          description: Required. Folder ID.
-          type: string
-        selectors:
-          description: Required. Selectors to select metric label values.
-          type: string
-        labelKey:
-          description: Required. Label key to list label values.
-          type: string
-        multiselectable:
-          description: Specifies the multiselectable values of parameter.
-          type: boolean
-          format: boolean
-        defaultValues:
-          description: Default values.
-          type: array
-          items:
+      allOf:
+      - type: object
+        properties:
+          selectors:
+            description: Required. Selectors to select metric label values.
+            type: string
+          labelKey:
+            description: Required. Label key to list label values.
+            type: string
+          multiselectable:
+            description: Specifies the multiselectable values of parameter.
+            type: boolean
+            format: boolean
+          defaultValues:
+            description: Default values.
+            type: array
+            items:
+              type: string
+      - title: container
+        type: object
+        maxProperties: 1
+        properties:
+          folderId:
+            description: Required. Folder ID.
             type: string
     ListAlertOperationsResponse:
       type: object
@@ -2663,6 +2543,9 @@ components:
             description: UI-visibility.
             type: boolean
             format: boolean
+          description:
+            description: Parameter description.
+            type: string
       - title: data
         type: object
         maxProperties: 1
@@ -2676,6 +2559,15 @@ components:
           text:
             $ref: '#/components/schemas/TextParameter'
             description: Text parameter.
+          integerParameter:
+            $ref: '#/components/schemas/IntegerParameter'
+            description: Integer parameter.
+          doubleParameter:
+            $ref: '#/components/schemas/DoubleParameter'
+            description: Double parameter.
+          textValues:
+            $ref: '#/components/schemas/TextValuesParameter'
+            description: Integer parameter.
     Parametrization:
       description: Parametrization.
       type: object
@@ -2779,6 +2671,15 @@ components:
         defaultValue:
           description: Default value.
           type: string
+    TextValuesParameter:
+      description: Text multiple values parameter.
+      type: object
+      properties:
+        defaultValues:
+          description: Default value.
+          type: array
+          items:
+            type: string
     TextWidget:
       description: Text widget.
       type: object
@@ -2884,6 +2785,190 @@ components:
       - TITLE_SIZE_S
       - TITLE_SIZE_M
       - TITLE_SIZE_L
+    UnitFormat:
+      description: |2-
+         - UNIT_NONE: None (show tick values as-is).
+         - UNIT_COUNT: Count.
+         - UNIT_PERCENT: Percent (0-100).
+         - UNIT_PERCENT_UNIT: Percent (0-1).
+         - UNIT_NANOSECONDS: Nanoseconds (ns).
+         - UNIT_MICROSECONDS: Microseconds (µs).
+         - UNIT_MILLISECONDS: Milliseconds (ms).
+         - UNIT_SECONDS: Seconds (s).
+         - UNIT_MINUTES: Minutes (m).
+         - UNIT_HOURS: Hours (h).
+         - UNIT_DAYS: Days (d).
+         - UNIT_BITS_SI: Bits (SI).
+         - UNIT_BYTES_SI: Bytes (SI).
+         - UNIT_KILOBYTES: Kilobytes (KB).
+         - UNIT_MEGABYTES: Megabytes (MB).
+         - UNIT_GIGABYTES: Gigabytes (GB).
+         - UNIT_TERABYTES: Terabytes (TB)
+         - UNIT_PETABYTES: Petabytes (PB).
+         - UNIT_EXABYTES: Exabytes (EB).
+         - UNIT_BITS_IEC: Bits (IEC).
+         - UNIT_BYTES_IEC: Bytes (IEC).
+         - UNIT_KIBIBYTES: Kibibytes (KiB).
+         - UNIT_MEBIBYTES: Mebibytes (MiB).
+         - UNIT_GIBIBYTES: Gigibytes (GiB).
+         - UNIT_TEBIBYTES: Tebibytes (TiB).
+         - UNIT_PEBIBYTES: Pebibytes (PiB).
+         - UNIT_EXBIBYTES: Exbibytes (EiB).
+         - UNIT_REQUESTS_PER_SECOND: Requests per second (reqps).
+         - UNIT_OPERATIONS_PER_SECOND: Operations per second (ops).
+         - UNIT_WRITES_PER_SECOND: Writes per second (wps).
+         - UNIT_READS_PER_SECOND: Reads per second (rps).
+         - UNIT_PACKETS_PER_SECOND: Packets per second (pps).
+         - UNIT_IO_OPERATIONS_PER_SECOND: IO operations per second (iops).
+         - UNIT_COUNTS_PER_SECOND: Counts per second (counts/sec).
+         - UNIT_BITS_SI_PER_SECOND: Bits (SI) per second (bits/sec).
+         - UNIT_BYTES_SI_PER_SECOND: Bytes (SI) per second (bytes/sec).
+         - UNIT_KILOBITS_PER_SECOND: Kilobits per second (KBits/sec).
+         - UNIT_KILOBYTES_PER_SECOND: Kilobytes per second (KB/sec).
+         - UNIT_MEGABITS_PER_SECOND: Megabits per second (MBits/sec).
+         - UNIT_MEGABYTES_PER_SECOND: Megabytes per second (MB/sec).
+         - UNIT_GIGABITS_PER_SECOND: Gigabits per second (GBits/sec).
+         - UNIT_GIGABYTES_PER_SECOND: Gigabytes per second (GB/sec).
+         - UNIT_TERABITS_PER_SECOND: Terabits per second (TBits/sec).
+         - UNIT_TERABYTES_PER_SECOND: Terabytes per second (TB/sec).
+         - UNIT_PETABITS_PER_SECOND: Petabits per second (Pbits/sec).
+         - UNIT_PETABYTES_PER_SECOND: Petabytes per second (PB/sec).
+         - UNIT_BITS_IEC_PER_SECOND: Bits (IEC) per second (bits/sec).
+         - UNIT_BYTES_IEC_PER_SECOND: Bytes (IEC) per second (bytes/sec).
+         - UNIT_KIBIBITS_PER_SECOND: Kibibits per second (KiBits/sec).
+         - UNIT_KIBIBYTES_PER_SECOND: Kibibytes per second (KiB/sec).
+         - UNIT_MEBIBITS_PER_SECOND: Mebibits per second (MiBits/sec).
+         - UNIT_MEBIBYTES_PER_SECOND: Mebibytes per second (MiB/sec).
+         - UNIT_GIBIBITS_PER_SECOND: Gibibits per second (GiBits/sec).
+         - UNIT_GIBIBYTES_PER_SECOND: Gibibytes per second (GiB/sec).
+         - UNIT_TEBIBITS_PER_SECOND: Tebibits per second (TiBits/sec).
+         - UNIT_TEBIBYTES_PER_SECOND: Tebibytes per second (TiB/sec).
+         - UNIT_PEBIBITS_PER_SECOND: Pebibits per second (PiBits/sec).
+         - UNIT_PEBIBYTES_PER_SECOND: Pebibytes per second (PiB/sec).
+         - UNIT_DATETIME_UTC: Datetime (UTC).
+         - UNIT_DATETIME_LOCAL: Datetime (local).
+         - UNIT_HERTZ: Hertz (Hz).
+         - UNIT_KILOHERTZ: Kilohertz (KHz).
+         - UNIT_MEGAHERTZ: Megahertz (MHz).
+         - UNIT_GIGAHERTZ: Gigahertz (GHz).
+         - UNIT_DOLLAR: Dollar.
+         - UNIT_EURO: Euro.
+         - UNIT_ROUBLE: Rouble.
+         - UNIT_CELSIUS: Celsius (°C).
+         - UNIT_FAHRENHEIT: Fahrenheit (°F).
+         - UNIT_KELVIN: Kelvin (K).
+         - UNIT_FLOP_PER_SECOND: Flop per second (FLOP/sec).
+         - UNIT_KILOFLOP_PER_SECOND: Kiloflop per second (KFLOP/sec).
+         - UNIT_MEGAFLOP_PER_SECOND: Megaflop per second (MFLOP/sec).
+         - UNIT_GIGAFLOP_PER_SECOND: Gigaflop per second (GFLOP/sec).
+         - UNIT_PETAFLOP_PER_SECOND: Petaflop per second (PFLOP/sec).
+         - UNIT_EXAFLOP_PER_SECOND: Exaflop per second (EFLOP/sec).
+         - UNIT_METERS_PER_SECOND: Meters per second (m/sec).
+         - UNIT_KILOMETERS_PER_HOUR: Kilometers per hour (km/h).
+         - UNIT_MILES_PER_HOUR: Miles per hour (mi/h).
+         - UNIT_MILLIMETER: Millimeter.
+         - UNIT_CENTIMETER: Centimeter.
+         - UNIT_METER: Meter.
+         - UNIT_KILOMETER: Kilometer.
+         - UNIT_MILE: Mile.
+         - UNIT_PPM: Parts per million (ppm).
+         - UNIT_EVENTS_PER_SECOND: Events per second
+         - UNIT_PACKETS: Packets
+         - UNIT_DBM: dBm (dbm)
+         - UNIT_VIRTUAL_CPU: Virtual CPU cores based on CPU time (vcpu)
+         - UNIT_MESSAGES_PER_SECOND: Messages per second (mps)
+      type: string
+      enum:
+      - UNIT_NONE
+      - UNIT_COUNT
+      - UNIT_PERCENT
+      - UNIT_PERCENT_UNIT
+      - UNIT_NANOSECONDS
+      - UNIT_MICROSECONDS
+      - UNIT_MILLISECONDS
+      - UNIT_SECONDS
+      - UNIT_MINUTES
+      - UNIT_HOURS
+      - UNIT_DAYS
+      - UNIT_BITS_SI
+      - UNIT_BYTES_SI
+      - UNIT_KILOBYTES
+      - UNIT_MEGABYTES
+      - UNIT_GIGABYTES
+      - UNIT_TERABYTES
+      - UNIT_PETABYTES
+      - UNIT_EXABYTES
+      - UNIT_BITS_IEC
+      - UNIT_BYTES_IEC
+      - UNIT_KIBIBYTES
+      - UNIT_MEBIBYTES
+      - UNIT_GIBIBYTES
+      - UNIT_TEBIBYTES
+      - UNIT_PEBIBYTES
+      - UNIT_EXBIBYTES
+      - UNIT_REQUESTS_PER_SECOND
+      - UNIT_OPERATIONS_PER_SECOND
+      - UNIT_WRITES_PER_SECOND
+      - UNIT_READS_PER_SECOND
+      - UNIT_PACKETS_PER_SECOND
+      - UNIT_IO_OPERATIONS_PER_SECOND
+      - UNIT_COUNTS_PER_SECOND
+      - UNIT_BITS_SI_PER_SECOND
+      - UNIT_BYTES_SI_PER_SECOND
+      - UNIT_KILOBITS_PER_SECOND
+      - UNIT_KILOBYTES_PER_SECOND
+      - UNIT_MEGABITS_PER_SECOND
+      - UNIT_MEGABYTES_PER_SECOND
+      - UNIT_GIGABITS_PER_SECOND
+      - UNIT_GIGABYTES_PER_SECOND
+      - UNIT_TERABITS_PER_SECOND
+      - UNIT_TERABYTES_PER_SECOND
+      - UNIT_PETABITS_PER_SECOND
+      - UNIT_PETABYTES_PER_SECOND
+      - UNIT_BITS_IEC_PER_SECOND
+      - UNIT_BYTES_IEC_PER_SECOND
+      - UNIT_KIBIBITS_PER_SECOND
+      - UNIT_KIBIBYTES_PER_SECOND
+      - UNIT_MEBIBITS_PER_SECOND
+      - UNIT_MEBIBYTES_PER_SECOND
+      - UNIT_GIBIBITS_PER_SECOND
+      - UNIT_GIBIBYTES_PER_SECOND
+      - UNIT_TEBIBITS_PER_SECOND
+      - UNIT_TEBIBYTES_PER_SECOND
+      - UNIT_PEBIBITS_PER_SECOND
+      - UNIT_PEBIBYTES_PER_SECOND
+      - UNIT_DATETIME_UTC
+      - UNIT_DATETIME_LOCAL
+      - UNIT_HERTZ
+      - UNIT_KILOHERTZ
+      - UNIT_MEGAHERTZ
+      - UNIT_GIGAHERTZ
+      - UNIT_DOLLAR
+      - UNIT_EURO
+      - UNIT_ROUBLE
+      - UNIT_CELSIUS
+      - UNIT_FAHRENHEIT
+      - UNIT_KELVIN
+      - UNIT_FLOP_PER_SECOND
+      - UNIT_KILOFLOP_PER_SECOND
+      - UNIT_MEGAFLOP_PER_SECOND
+      - UNIT_GIGAFLOP_PER_SECOND
+      - UNIT_PETAFLOP_PER_SECOND
+      - UNIT_EXAFLOP_PER_SECOND
+      - UNIT_METERS_PER_SECOND
+      - UNIT_KILOMETERS_PER_HOUR
+      - UNIT_MILES_PER_HOUR
+      - UNIT_MILLIMETER
+      - UNIT_CENTIMETER
+      - UNIT_METER
+      - UNIT_KILOMETER
+      - UNIT_MILE
+      - UNIT_PPM
+      - UNIT_EVENTS_PER_SECOND
+      - UNIT_PACKETS
+      - UNIT_DBM
+      - UNIT_VIRTUAL_CPU
+      - UNIT_MESSAGES_PER_SECOND
     UnmuteAlertMetadata:
       type: object
       properties:
@@ -3018,8 +3103,6 @@ components:
     UpdateDashboardRequest:
       type: object
       properties:
-        updateMask:
-          $ref: '#/components/schemas/FieldMask_in_UpdateDashboardRequest_updateMask'
         name:
           description: |-
             Required. Dashboard name.
@@ -3056,6 +3139,9 @@ components:
             $ref: '#/components/schemas/Widget'
         parametrization:
           $ref: '#/components/schemas/Parametrization_in_UpdateDashboardRequest_parametrization'
+        etag:
+          description: The current etag of the dashboard.
+          type: string
     Widget:
       description: Widget.
       type: object
@@ -3434,10 +3520,8 @@ components:
       enum:
       - YAXIS_TYPE_LINEAR
       - YAXIS_TYPE_LOGARITHMIC
-    ChartWidgetVisualizationSettingsUnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat:
+    UnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat:
       description: |-
-        Unit format.
-
         Unit format.
 
          - UNIT_NONE: None (show tick values as-is).
@@ -3641,7 +3725,7 @@ components:
           description: Max value in extended number format or empty.
           type: string
         unitFormat:
-          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsUnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat'
+          $ref: '#/components/schemas/UnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat'
         precision:
           description: Tick value precision (null as default, 0-7 in other cases).
           type: integer
@@ -3665,41 +3749,197 @@ components:
           description: Max value in extended number format or empty.
           type: string
         unitFormat:
-          $ref: '#/components/schemas/ChartWidgetVisualizationSettingsUnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat'
+          $ref: '#/components/schemas/UnitFormat_in_ChartWidgetVisualizationSettingsYaxis_unitFormat'
         precision:
           description: Tick value precision (null as default, 0-7 in other cases).
           type: integer
           format: int64
-    Parametrization_in_CreateDashboardRequest_parametrization:
+    UnitFormat_in_DoubleParameter_unitFormat:
       description: |-
-        Dashboard parametrization.
+        Parameter unit.
 
-        Parametrization.
-      type: object
-      properties:
-        parameters:
-          description: Parameters.
-          type: array
-          items:
-            $ref: '#/components/schemas/Parameter'
-        selectors:
-          description: Predefined selectors.
-          type: string
-    Parametrization_in_Dashboard_parametrization:
-      description: |-
-        Dashboard parametrization.
-
-        Parametrization.
-      type: object
-      properties:
-        parameters:
-          description: Parameters.
-          type: array
-          items:
-            $ref: '#/components/schemas/Parameter'
-        selectors:
-          description: Predefined selectors.
-          type: string
+         - UNIT_NONE: None (show tick values as-is).
+         - UNIT_COUNT: Count.
+         - UNIT_PERCENT: Percent (0-100).
+         - UNIT_PERCENT_UNIT: Percent (0-1).
+         - UNIT_NANOSECONDS: Nanoseconds (ns).
+         - UNIT_MICROSECONDS: Microseconds (µs).
+         - UNIT_MILLISECONDS: Milliseconds (ms).
+         - UNIT_SECONDS: Seconds (s).
+         - UNIT_MINUTES: Minutes (m).
+         - UNIT_HOURS: Hours (h).
+         - UNIT_DAYS: Days (d).
+         - UNIT_BITS_SI: Bits (SI).
+         - UNIT_BYTES_SI: Bytes (SI).
+         - UNIT_KILOBYTES: Kilobytes (KB).
+         - UNIT_MEGABYTES: Megabytes (MB).
+         - UNIT_GIGABYTES: Gigabytes (GB).
+         - UNIT_TERABYTES: Terabytes (TB)
+         - UNIT_PETABYTES: Petabytes (PB).
+         - UNIT_EXABYTES: Exabytes (EB).
+         - UNIT_BITS_IEC: Bits (IEC).
+         - UNIT_BYTES_IEC: Bytes (IEC).
+         - UNIT_KIBIBYTES: Kibibytes (KiB).
+         - UNIT_MEBIBYTES: Mebibytes (MiB).
+         - UNIT_GIBIBYTES: Gigibytes (GiB).
+         - UNIT_TEBIBYTES: Tebibytes (TiB).
+         - UNIT_PEBIBYTES: Pebibytes (PiB).
+         - UNIT_EXBIBYTES: Exbibytes (EiB).
+         - UNIT_REQUESTS_PER_SECOND: Requests per second (reqps).
+         - UNIT_OPERATIONS_PER_SECOND: Operations per second (ops).
+         - UNIT_WRITES_PER_SECOND: Writes per second (wps).
+         - UNIT_READS_PER_SECOND: Reads per second (rps).
+         - UNIT_PACKETS_PER_SECOND: Packets per second (pps).
+         - UNIT_IO_OPERATIONS_PER_SECOND: IO operations per second (iops).
+         - UNIT_COUNTS_PER_SECOND: Counts per second (counts/sec).
+         - UNIT_BITS_SI_PER_SECOND: Bits (SI) per second (bits/sec).
+         - UNIT_BYTES_SI_PER_SECOND: Bytes (SI) per second (bytes/sec).
+         - UNIT_KILOBITS_PER_SECOND: Kilobits per second (KBits/sec).
+         - UNIT_KILOBYTES_PER_SECOND: Kilobytes per second (KB/sec).
+         - UNIT_MEGABITS_PER_SECOND: Megabits per second (MBits/sec).
+         - UNIT_MEGABYTES_PER_SECOND: Megabytes per second (MB/sec).
+         - UNIT_GIGABITS_PER_SECOND: Gigabits per second (GBits/sec).
+         - UNIT_GIGABYTES_PER_SECOND: Gigabytes per second (GB/sec).
+         - UNIT_TERABITS_PER_SECOND: Terabits per second (TBits/sec).
+         - UNIT_TERABYTES_PER_SECOND: Terabytes per second (TB/sec).
+         - UNIT_PETABITS_PER_SECOND: Petabits per second (Pbits/sec).
+         - UNIT_PETABYTES_PER_SECOND: Petabytes per second (PB/sec).
+         - UNIT_BITS_IEC_PER_SECOND: Bits (IEC) per second (bits/sec).
+         - UNIT_BYTES_IEC_PER_SECOND: Bytes (IEC) per second (bytes/sec).
+         - UNIT_KIBIBITS_PER_SECOND: Kibibits per second (KiBits/sec).
+         - UNIT_KIBIBYTES_PER_SECOND: Kibibytes per second (KiB/sec).
+         - UNIT_MEBIBITS_PER_SECOND: Mebibits per second (MiBits/sec).
+         - UNIT_MEBIBYTES_PER_SECOND: Mebibytes per second (MiB/sec).
+         - UNIT_GIBIBITS_PER_SECOND: Gibibits per second (GiBits/sec).
+         - UNIT_GIBIBYTES_PER_SECOND: Gibibytes per second (GiB/sec).
+         - UNIT_TEBIBITS_PER_SECOND: Tebibits per second (TiBits/sec).
+         - UNIT_TEBIBYTES_PER_SECOND: Tebibytes per second (TiB/sec).
+         - UNIT_PEBIBITS_PER_SECOND: Pebibits per second (PiBits/sec).
+         - UNIT_PEBIBYTES_PER_SECOND: Pebibytes per second (PiB/sec).
+         - UNIT_DATETIME_UTC: Datetime (UTC).
+         - UNIT_DATETIME_LOCAL: Datetime (local).
+         - UNIT_HERTZ: Hertz (Hz).
+         - UNIT_KILOHERTZ: Kilohertz (KHz).
+         - UNIT_MEGAHERTZ: Megahertz (MHz).
+         - UNIT_GIGAHERTZ: Gigahertz (GHz).
+         - UNIT_DOLLAR: Dollar.
+         - UNIT_EURO: Euro.
+         - UNIT_ROUBLE: Rouble.
+         - UNIT_CELSIUS: Celsius (°C).
+         - UNIT_FAHRENHEIT: Fahrenheit (°F).
+         - UNIT_KELVIN: Kelvin (K).
+         - UNIT_FLOP_PER_SECOND: Flop per second (FLOP/sec).
+         - UNIT_KILOFLOP_PER_SECOND: Kiloflop per second (KFLOP/sec).
+         - UNIT_MEGAFLOP_PER_SECOND: Megaflop per second (MFLOP/sec).
+         - UNIT_GIGAFLOP_PER_SECOND: Gigaflop per second (GFLOP/sec).
+         - UNIT_PETAFLOP_PER_SECOND: Petaflop per second (PFLOP/sec).
+         - UNIT_EXAFLOP_PER_SECOND: Exaflop per second (EFLOP/sec).
+         - UNIT_METERS_PER_SECOND: Meters per second (m/sec).
+         - UNIT_KILOMETERS_PER_HOUR: Kilometers per hour (km/h).
+         - UNIT_MILES_PER_HOUR: Miles per hour (mi/h).
+         - UNIT_MILLIMETER: Millimeter.
+         - UNIT_CENTIMETER: Centimeter.
+         - UNIT_METER: Meter.
+         - UNIT_KILOMETER: Kilometer.
+         - UNIT_MILE: Mile.
+         - UNIT_PPM: Parts per million (ppm).
+         - UNIT_EVENTS_PER_SECOND: Events per second
+         - UNIT_PACKETS: Packets
+         - UNIT_DBM: dBm (dbm)
+         - UNIT_VIRTUAL_CPU: Virtual CPU cores based on CPU time (vcpu)
+         - UNIT_MESSAGES_PER_SECOND: Messages per second (mps)
+      type: string
+      enum:
+      - UNIT_NONE
+      - UNIT_COUNT
+      - UNIT_PERCENT
+      - UNIT_PERCENT_UNIT
+      - UNIT_NANOSECONDS
+      - UNIT_MICROSECONDS
+      - UNIT_MILLISECONDS
+      - UNIT_SECONDS
+      - UNIT_MINUTES
+      - UNIT_HOURS
+      - UNIT_DAYS
+      - UNIT_BITS_SI
+      - UNIT_BYTES_SI
+      - UNIT_KILOBYTES
+      - UNIT_MEGABYTES
+      - UNIT_GIGABYTES
+      - UNIT_TERABYTES
+      - UNIT_PETABYTES
+      - UNIT_EXABYTES
+      - UNIT_BITS_IEC
+      - UNIT_BYTES_IEC
+      - UNIT_KIBIBYTES
+      - UNIT_MEBIBYTES
+      - UNIT_GIBIBYTES
+      - UNIT_TEBIBYTES
+      - UNIT_PEBIBYTES
+      - UNIT_EXBIBYTES
+      - UNIT_REQUESTS_PER_SECOND
+      - UNIT_OPERATIONS_PER_SECOND
+      - UNIT_WRITES_PER_SECOND
+      - UNIT_READS_PER_SECOND
+      - UNIT_PACKETS_PER_SECOND
+      - UNIT_IO_OPERATIONS_PER_SECOND
+      - UNIT_COUNTS_PER_SECOND
+      - UNIT_BITS_SI_PER_SECOND
+      - UNIT_BYTES_SI_PER_SECOND
+      - UNIT_KILOBITS_PER_SECOND
+      - UNIT_KILOBYTES_PER_SECOND
+      - UNIT_MEGABITS_PER_SECOND
+      - UNIT_MEGABYTES_PER_SECOND
+      - UNIT_GIGABITS_PER_SECOND
+      - UNIT_GIGABYTES_PER_SECOND
+      - UNIT_TERABITS_PER_SECOND
+      - UNIT_TERABYTES_PER_SECOND
+      - UNIT_PETABITS_PER_SECOND
+      - UNIT_PETABYTES_PER_SECOND
+      - UNIT_BITS_IEC_PER_SECOND
+      - UNIT_BYTES_IEC_PER_SECOND
+      - UNIT_KIBIBITS_PER_SECOND
+      - UNIT_KIBIBYTES_PER_SECOND
+      - UNIT_MEBIBITS_PER_SECOND
+      - UNIT_MEBIBYTES_PER_SECOND
+      - UNIT_GIBIBITS_PER_SECOND
+      - UNIT_GIBIBYTES_PER_SECOND
+      - UNIT_TEBIBITS_PER_SECOND
+      - UNIT_TEBIBYTES_PER_SECOND
+      - UNIT_PEBIBITS_PER_SECOND
+      - UNIT_PEBIBYTES_PER_SECOND
+      - UNIT_DATETIME_UTC
+      - UNIT_DATETIME_LOCAL
+      - UNIT_HERTZ
+      - UNIT_KILOHERTZ
+      - UNIT_MEGAHERTZ
+      - UNIT_GIGAHERTZ
+      - UNIT_DOLLAR
+      - UNIT_EURO
+      - UNIT_ROUBLE
+      - UNIT_CELSIUS
+      - UNIT_FAHRENHEIT
+      - UNIT_KELVIN
+      - UNIT_FLOP_PER_SECOND
+      - UNIT_KILOFLOP_PER_SECOND
+      - UNIT_MEGAFLOP_PER_SECOND
+      - UNIT_GIGAFLOP_PER_SECOND
+      - UNIT_PETAFLOP_PER_SECOND
+      - UNIT_EXAFLOP_PER_SECOND
+      - UNIT_METERS_PER_SECOND
+      - UNIT_KILOMETERS_PER_HOUR
+      - UNIT_MILES_PER_HOUR
+      - UNIT_MILLIMETER
+      - UNIT_CENTIMETER
+      - UNIT_METER
+      - UNIT_KILOMETER
+      - UNIT_MILE
+      - UNIT_PPM
+      - UNIT_EVENTS_PER_SECOND
+      - UNIT_PACKETS
+      - UNIT_DBM
+      - UNIT_VIRTUAL_CPU
+      - UNIT_MESSAGES_PER_SECOND
     EvaluationStatus_in_ExplainAlertEvaluationResponse_evaluationStatus:
       description: |2-
          - EVALUATION_STATUS_OK: OK.
@@ -3857,6 +4097,192 @@ components:
         notSubscribed:
           type: string
           format: int64
+    UnitFormat_in_IntegerParameter_unitFormat:
+      description: |-
+        Parameter unit.
+
+         - UNIT_NONE: None (show tick values as-is).
+         - UNIT_COUNT: Count.
+         - UNIT_PERCENT: Percent (0-100).
+         - UNIT_PERCENT_UNIT: Percent (0-1).
+         - UNIT_NANOSECONDS: Nanoseconds (ns).
+         - UNIT_MICROSECONDS: Microseconds (µs).
+         - UNIT_MILLISECONDS: Milliseconds (ms).
+         - UNIT_SECONDS: Seconds (s).
+         - UNIT_MINUTES: Minutes (m).
+         - UNIT_HOURS: Hours (h).
+         - UNIT_DAYS: Days (d).
+         - UNIT_BITS_SI: Bits (SI).
+         - UNIT_BYTES_SI: Bytes (SI).
+         - UNIT_KILOBYTES: Kilobytes (KB).
+         - UNIT_MEGABYTES: Megabytes (MB).
+         - UNIT_GIGABYTES: Gigabytes (GB).
+         - UNIT_TERABYTES: Terabytes (TB)
+         - UNIT_PETABYTES: Petabytes (PB).
+         - UNIT_EXABYTES: Exabytes (EB).
+         - UNIT_BITS_IEC: Bits (IEC).
+         - UNIT_BYTES_IEC: Bytes (IEC).
+         - UNIT_KIBIBYTES: Kibibytes (KiB).
+         - UNIT_MEBIBYTES: Mebibytes (MiB).
+         - UNIT_GIBIBYTES: Gigibytes (GiB).
+         - UNIT_TEBIBYTES: Tebibytes (TiB).
+         - UNIT_PEBIBYTES: Pebibytes (PiB).
+         - UNIT_EXBIBYTES: Exbibytes (EiB).
+         - UNIT_REQUESTS_PER_SECOND: Requests per second (reqps).
+         - UNIT_OPERATIONS_PER_SECOND: Operations per second (ops).
+         - UNIT_WRITES_PER_SECOND: Writes per second (wps).
+         - UNIT_READS_PER_SECOND: Reads per second (rps).
+         - UNIT_PACKETS_PER_SECOND: Packets per second (pps).
+         - UNIT_IO_OPERATIONS_PER_SECOND: IO operations per second (iops).
+         - UNIT_COUNTS_PER_SECOND: Counts per second (counts/sec).
+         - UNIT_BITS_SI_PER_SECOND: Bits (SI) per second (bits/sec).
+         - UNIT_BYTES_SI_PER_SECOND: Bytes (SI) per second (bytes/sec).
+         - UNIT_KILOBITS_PER_SECOND: Kilobits per second (KBits/sec).
+         - UNIT_KILOBYTES_PER_SECOND: Kilobytes per second (KB/sec).
+         - UNIT_MEGABITS_PER_SECOND: Megabits per second (MBits/sec).
+         - UNIT_MEGABYTES_PER_SECOND: Megabytes per second (MB/sec).
+         - UNIT_GIGABITS_PER_SECOND: Gigabits per second (GBits/sec).
+         - UNIT_GIGABYTES_PER_SECOND: Gigabytes per second (GB/sec).
+         - UNIT_TERABITS_PER_SECOND: Terabits per second (TBits/sec).
+         - UNIT_TERABYTES_PER_SECOND: Terabytes per second (TB/sec).
+         - UNIT_PETABITS_PER_SECOND: Petabits per second (Pbits/sec).
+         - UNIT_PETABYTES_PER_SECOND: Petabytes per second (PB/sec).
+         - UNIT_BITS_IEC_PER_SECOND: Bits (IEC) per second (bits/sec).
+         - UNIT_BYTES_IEC_PER_SECOND: Bytes (IEC) per second (bytes/sec).
+         - UNIT_KIBIBITS_PER_SECOND: Kibibits per second (KiBits/sec).
+         - UNIT_KIBIBYTES_PER_SECOND: Kibibytes per second (KiB/sec).
+         - UNIT_MEBIBITS_PER_SECOND: Mebibits per second (MiBits/sec).
+         - UNIT_MEBIBYTES_PER_SECOND: Mebibytes per second (MiB/sec).
+         - UNIT_GIBIBITS_PER_SECOND: Gibibits per second (GiBits/sec).
+         - UNIT_GIBIBYTES_PER_SECOND: Gibibytes per second (GiB/sec).
+         - UNIT_TEBIBITS_PER_SECOND: Tebibits per second (TiBits/sec).
+         - UNIT_TEBIBYTES_PER_SECOND: Tebibytes per second (TiB/sec).
+         - UNIT_PEBIBITS_PER_SECOND: Pebibits per second (PiBits/sec).
+         - UNIT_PEBIBYTES_PER_SECOND: Pebibytes per second (PiB/sec).
+         - UNIT_DATETIME_UTC: Datetime (UTC).
+         - UNIT_DATETIME_LOCAL: Datetime (local).
+         - UNIT_HERTZ: Hertz (Hz).
+         - UNIT_KILOHERTZ: Kilohertz (KHz).
+         - UNIT_MEGAHERTZ: Megahertz (MHz).
+         - UNIT_GIGAHERTZ: Gigahertz (GHz).
+         - UNIT_DOLLAR: Dollar.
+         - UNIT_EURO: Euro.
+         - UNIT_ROUBLE: Rouble.
+         - UNIT_CELSIUS: Celsius (°C).
+         - UNIT_FAHRENHEIT: Fahrenheit (°F).
+         - UNIT_KELVIN: Kelvin (K).
+         - UNIT_FLOP_PER_SECOND: Flop per second (FLOP/sec).
+         - UNIT_KILOFLOP_PER_SECOND: Kiloflop per second (KFLOP/sec).
+         - UNIT_MEGAFLOP_PER_SECOND: Megaflop per second (MFLOP/sec).
+         - UNIT_GIGAFLOP_PER_SECOND: Gigaflop per second (GFLOP/sec).
+         - UNIT_PETAFLOP_PER_SECOND: Petaflop per second (PFLOP/sec).
+         - UNIT_EXAFLOP_PER_SECOND: Exaflop per second (EFLOP/sec).
+         - UNIT_METERS_PER_SECOND: Meters per second (m/sec).
+         - UNIT_KILOMETERS_PER_HOUR: Kilometers per hour (km/h).
+         - UNIT_MILES_PER_HOUR: Miles per hour (mi/h).
+         - UNIT_MILLIMETER: Millimeter.
+         - UNIT_CENTIMETER: Centimeter.
+         - UNIT_METER: Meter.
+         - UNIT_KILOMETER: Kilometer.
+         - UNIT_MILE: Mile.
+         - UNIT_PPM: Parts per million (ppm).
+         - UNIT_EVENTS_PER_SECOND: Events per second
+         - UNIT_PACKETS: Packets
+         - UNIT_DBM: dBm (dbm)
+         - UNIT_VIRTUAL_CPU: Virtual CPU cores based on CPU time (vcpu)
+         - UNIT_MESSAGES_PER_SECOND: Messages per second (mps)
+      type: string
+      enum:
+      - UNIT_NONE
+      - UNIT_COUNT
+      - UNIT_PERCENT
+      - UNIT_PERCENT_UNIT
+      - UNIT_NANOSECONDS
+      - UNIT_MICROSECONDS
+      - UNIT_MILLISECONDS
+      - UNIT_SECONDS
+      - UNIT_MINUTES
+      - UNIT_HOURS
+      - UNIT_DAYS
+      - UNIT_BITS_SI
+      - UNIT_BYTES_SI
+      - UNIT_KILOBYTES
+      - UNIT_MEGABYTES
+      - UNIT_GIGABYTES
+      - UNIT_TERABYTES
+      - UNIT_PETABYTES
+      - UNIT_EXABYTES
+      - UNIT_BITS_IEC
+      - UNIT_BYTES_IEC
+      - UNIT_KIBIBYTES
+      - UNIT_MEBIBYTES
+      - UNIT_GIBIBYTES
+      - UNIT_TEBIBYTES
+      - UNIT_PEBIBYTES
+      - UNIT_EXBIBYTES
+      - UNIT_REQUESTS_PER_SECOND
+      - UNIT_OPERATIONS_PER_SECOND
+      - UNIT_WRITES_PER_SECOND
+      - UNIT_READS_PER_SECOND
+      - UNIT_PACKETS_PER_SECOND
+      - UNIT_IO_OPERATIONS_PER_SECOND
+      - UNIT_COUNTS_PER_SECOND
+      - UNIT_BITS_SI_PER_SECOND
+      - UNIT_BYTES_SI_PER_SECOND
+      - UNIT_KILOBITS_PER_SECOND
+      - UNIT_KILOBYTES_PER_SECOND
+      - UNIT_MEGABITS_PER_SECOND
+      - UNIT_MEGABYTES_PER_SECOND
+      - UNIT_GIGABITS_PER_SECOND
+      - UNIT_GIGABYTES_PER_SECOND
+      - UNIT_TERABITS_PER_SECOND
+      - UNIT_TERABYTES_PER_SECOND
+      - UNIT_PETABITS_PER_SECOND
+      - UNIT_PETABYTES_PER_SECOND
+      - UNIT_BITS_IEC_PER_SECOND
+      - UNIT_BYTES_IEC_PER_SECOND
+      - UNIT_KIBIBITS_PER_SECOND
+      - UNIT_KIBIBYTES_PER_SECOND
+      - UNIT_MEBIBITS_PER_SECOND
+      - UNIT_MEBIBYTES_PER_SECOND
+      - UNIT_GIBIBITS_PER_SECOND
+      - UNIT_GIBIBYTES_PER_SECOND
+      - UNIT_TEBIBITS_PER_SECOND
+      - UNIT_TEBIBYTES_PER_SECOND
+      - UNIT_PEBIBITS_PER_SECOND
+      - UNIT_PEBIBYTES_PER_SECOND
+      - UNIT_DATETIME_UTC
+      - UNIT_DATETIME_LOCAL
+      - UNIT_HERTZ
+      - UNIT_KILOHERTZ
+      - UNIT_MEGAHERTZ
+      - UNIT_GIGAHERTZ
+      - UNIT_DOLLAR
+      - UNIT_EURO
+      - UNIT_ROUBLE
+      - UNIT_CELSIUS
+      - UNIT_FAHRENHEIT
+      - UNIT_KELVIN
+      - UNIT_FLOP_PER_SECOND
+      - UNIT_KILOFLOP_PER_SECOND
+      - UNIT_MEGAFLOP_PER_SECOND
+      - UNIT_GIGAFLOP_PER_SECOND
+      - UNIT_PETAFLOP_PER_SECOND
+      - UNIT_EXAFLOP_PER_SECOND
+      - UNIT_METERS_PER_SECOND
+      - UNIT_KILOMETERS_PER_HOUR
+      - UNIT_MILES_PER_HOUR
+      - UNIT_MILLIMETER
+      - UNIT_CENTIMETER
+      - UNIT_METER
+      - UNIT_KILOMETER
+      - UNIT_MILE
+      - UNIT_PPM
+      - UNIT_EVENTS_PER_SECOND
+      - UNIT_PACKETS
+      - UNIT_DBM
+      - UNIT_VIRTUAL_CPU
+      - UNIT_MESSAGES_PER_SECOND
     MetricType_in_ListMetricsResponseMetricMeta_type:
       description: |-
         Type of the metric.
@@ -4015,19 +4441,6 @@ components:
       - TITLE_SIZE_S
       - TITLE_SIZE_M
       - TITLE_SIZE_L
-    FieldMask_in_UpdateDashboardRequest_updateMask:
-      description: |-
-        Field mask that specifies which fields of the Dashboard resource are going to be updated.
-
-        A comma-separated names off ALL fields to be updated.
-        Оnly the specified fields will be changed. The others will be left untouched.
-        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
-        the field's value will be reset to the default. The default value for most fields is null or 0.
-
-        If `` updateMask `` is not sent in the request, all fields' values will be updated.
-        Fields specified in the request will be updated to provided values.
-        The rest of the fields will be reset to the default.
-      type: string
     Parametrization_in_UpdateDashboardRequest_parametrization:
       description: |-
         Dashboard parametrization.

@@ -9,9 +9,17 @@ items:
         href: api-ref/Bucket/create.md
       - name: delete
         href: api-ref/Bucket/delete.md
+      - name: deleteHTTPSConfig
+        href: api-ref/Bucket/deleteHTTPSConfig.md
       - name: get
         href: api-ref/Bucket/get.md
+      - name: getHTTPSConfig
+        href: api-ref/Bucket/getHTTPSConfig.md
+      - name: getStats
+        href: api-ref/Bucket/getStats.md
       - name: list
         href: api-ref/Bucket/list.md
+      - name: setHTTPSConfig
+        href: api-ref/Bucket/setHTTPSConfig.md
       - name: update
         href: api-ref/Bucket/update.md

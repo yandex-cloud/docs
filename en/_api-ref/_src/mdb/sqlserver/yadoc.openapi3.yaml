@@ -1339,6 +1339,11 @@ components:
         sqlcollation:
           description: SQL Server Collation
           type: string
+        hostGroupIds:
+          description: Host groups hosting VMs of the cluster.
+          type: array
+          items:
+            type: string
     ClusterConfig:
       type: object
       allOf:
@@ -1533,6 +1538,11 @@ components:
 
             The maximum string length in characters is 100.
           type: string
+        hostGroupIds:
+          description: Host groups hosting VMs of the cluster.
+          type: array
+          items:
+            type: string
     CreateDatabaseMetadata:
       type: object
       properties:
@@ -2147,6 +2157,15 @@ components:
           type: string
         securityGroupIds:
           description: User security groups
+          type: array
+          items:
+            type: string
+        deletionProtection:
+          description: Deletion Protection inhibits deletion of the cluster
+          type: boolean
+          format: boolean
+        hostGroupIds:
+          description: Host groups hosting VMs of the cluster.
           type: array
           items:
             type: string

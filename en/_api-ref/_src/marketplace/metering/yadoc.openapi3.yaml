@@ -7,6 +7,7 @@ info:
     This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs. All API methods are presented on this page. For more information about usage Metering API, see [GitHub examples](https://github.com/yandex-cloud/python-sdk/tree/master/examples/marketplace/metering-api).
   version: v1
   x-y-docUri: api-ref
+  x-y-baseUrl: https://marketplace.api.cloud.yandex.net
 paths:
   /marketplace/v1/metering/imageProductUsage/write:
     post:
@@ -67,13 +68,13 @@ components:
         skuId:
           description: |-
             Required.
-            Consumed Marketplace SaaS Sku ID, linked to `UsageRecord.product_id`.
+            Consumed Marketplace SKU ID, linked to `UsageRecord.product_id`.
 
             The maximum string length in characters is 50.
           type: string
         quantity:
           description: |-
-            Quantity of sku consumed, measured in `sku.usage_unit` units (e.g. bytes).
+            Quantity of SKU consumed, measured in `sku.usage_unit` units (e.g. bytes).
 
             Value must be greater than 0.
           type: string
@@ -103,7 +104,7 @@ components:
         usageRecords:
           description: |-
             Required.
-            List of product usage records (up to 25 pet request).
+            List of product usage records (up to 25 per request).
 
             The number of elements must be in the range 1-25.
           type: array

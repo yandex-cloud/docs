@@ -642,42 +642,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListDesktopOperationsResponse'
       x-y-navtitle: listOperations
-  /cloud-desktop/v1/desktops/{desktopId}:getTmpPassword:
-    get:
-      tags:
-      - Desktop
-      summary: Returns temporary password for the specified desktop.
-      operationId: DesktopGetTmpPassword
-      parameters:
-      - name: desktopId
-        in: path
-        description: |-
-          Required.
-          ID of the desktop.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      - name: subjectId
-        in: query
-        description: User of the desktop.
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TmpPasswordResponse'
-      x-y-navtitle: getTmpPassword
-  /cloud-desktop/v1/desktops/{desktopId}:resetTmpPassword:
+  /cloud-desktop/v1/desktops/{desktopId}:resetPassword:
     post:
       tags:
       - Desktop
-      summary: Reset temporary password for the specified desktop.
-      operationId: DesktopResetTmpPassword
+      summary: Reset password
+      operationId: DesktopResetPassword
       parameters:
       - name: desktopId
         in: path
@@ -693,7 +663,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ResetTmpPasswordRequest'
+              $ref: '#/components/schemas/ResetPasswordRequest'
         required: true
       responses:
         "200":
@@ -701,11 +671,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: resetTmpPassword
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/ResetTmpPasswordMetadata'
-      x-y-operation-response: Empty
+                $ref: '#/components/schemas/ResetPasswordResponse'
+      x-y-navtitle: resetPassword
 components:
   schemas:
     AccessBinding:
@@ -1098,20 +1065,16 @@ components:
         content:
           description: RDP file content.
           type: string
-    ResetTmpPasswordMetadata:
+    ResetPasswordRequest:
       type: object
       properties:
-        desktopId:
-          description: ID of the desktop.
-          type: string
-        subjectId:
-          description: Subject ID of the desktop.
-          type: string
-    ResetTmpPasswordRequest:
+        user:
+          $ref: '#/components/schemas/User_in_ResetPasswordRequest_user'
+    ResetPasswordResponse:
       type: object
       properties:
-        subjectId:
-          description: Subject ID of the desktop.
+        password:
+          description: Generated password
           type: string
     Resources:
       type: object
@@ -1201,12 +1164,6 @@ components:
             For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
 
             The maximum string length in characters is 100.
-          type: string
-    TmpPasswordResponse:
-      type: object
-      properties:
-        password:
-          description: Desktop user password.
           type: string
     UpdateAccessBindingsMetadata:
       type: object
@@ -1447,6 +1404,17 @@ components:
           type: array
           items:
             type: string
+    User_in_ResetPasswordRequest_user:
+      description: |-
+        Required.
+        User of the desktop.
+      type: object
+      properties:
+        subjectId:
+          description: |-
+            Required.
+            Identity of the access binding.
+          type: string
 tags:
 - name: DesktopGroup
   description: A set of methods for managing desktop group resources.
