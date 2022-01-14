@@ -8,6 +8,8 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 * [AWS CLI](https://aws.amazon.com/ru/cli/) — интерфейс командной строки AWS.
 * [AWS SDK](https://aws.amazon.com/ru/tools/#sdk) — инструменты для разработки.
 
+{% include [doc-tables-only.md](../../_includes/doc-tables-only.md) %}
+
 Для работы инструментов AWS выполните следующие настройки:
 
 1. Создайте сервисный аккаунт, от имени которого вы будете работать с базой.

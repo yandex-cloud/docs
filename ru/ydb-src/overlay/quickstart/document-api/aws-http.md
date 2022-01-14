@@ -4,6 +4,8 @@
 
 Для выполнения HTTP-запросов в примерах раздела используется утилита [cURL](https://curl.se/).
 
+{% include [doc-tables-only.md](../../_includes/doc-tables-only.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 1. {% if deploy != "arc" %} Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите и инициализируйте его](../../../cli/quickstart.md#install) {% else %} Установите YC CLI{% endif %}.

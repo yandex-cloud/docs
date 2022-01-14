@@ -4,7 +4,7 @@
 
 {% list tabs %}
 
-* AWS CLI
+- AWS CLI
 
     Выполните команду, заменив `https://your-database-endpoint` эндпоинтом вашей БД:
 
@@ -45,3 +45,5 @@
         }
     }
     ```
+
+{% endlist %}
