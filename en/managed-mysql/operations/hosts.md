@@ -1,6 +1,6 @@
 # Managing hosts in a cluster
 
-You can add and remove cluster hosts.
+You can add and remove cluster hosts and manage their settings.
 
 ## Getting a list of cluster hosts {#list}
 
@@ -124,8 +124,6 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
       }
       ```
 
-      You can't request public access after creating a host, but you can [remove](#remove) one of the existing hosts and create a new one with a public address.
-
   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -150,6 +148,91 @@ If you can't [connect](connect.md) to the added host, check that the cluster's [
 
 {% endnote %}
 
+## Changing a host {#update}
+
+For each host in a {{ mmy-short-name }} cluster, specify the [replication](../concepts/replication.md) source and manage host [public access](../concepts/network.md#public-access-to-a-host).
+
+{% list tabs %}
+
+- Management console
+
+  To change the parameters of the cluster host:
+
+    1. Go to the folder page and select **{{ mmy-name }}**.
+    1. Click on the name of the cluster you want and select the **Hosts** tab.
+    1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the row next to the desired host and select **Edit**.
+    1. Set new settings for the host:
+        1. Select a replication source for the host to manually control replication threads.
+        1. Enable **Public access** if a host must be accessible from outside {{ yandex-cloud }}.
+    1. Click **Save**.
+
+- CLI
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To change the parameters of a host in a cluster, run the command below:
+
+  ```
+  $ {{ yc-mdb-my }} host update <host name>
+       --cluster-name <cluster name>
+       --replication-source <source host's name>
+       --assign-public-ip=<public access to the host: true or false>
+  ```
+
+  You can request a host name with a [list of cluster hosts](#list), and a cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
+
+  To manage replication in the cluster, change in the `--host` parameter:
+    - Replication source for the host in the `replication-source` option to manually control replication threads.
+    - External host visibility {{ yandex-cloud }} in the `assign-public-ip` option.
+
+- Terraform
+
+  To change the parameters of the cluster host:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+       For information about how to create this file, see [{#T}](cluster-create.md).
+
+    1. In the {{ mmy-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
+
+        ```hcl
+        resource "yandex_mdb_mysql_cluster" "<cluster name>" {
+          ...
+          host {
+            replication_source_name = "<replication source>"
+            assign_public_ip        = <host public access: true or false>
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm the update of resources.
+
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mmy }}).
+
+- API
+
+  To modify host parameters, use the API [updateHosts](../api-ref/Cluster/updateHosts.md) method and pass the following in the call:
+    1. In the `clusterId` parameter, the ID of the cluster where you want to change the host.
+    1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change.
+
+  You can request a host name with a [list of cluster hosts](#list), and a cluster ID with a [list of clusters in a folder](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+{% note warning %}
+
+If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
+{% endnote %}
+
 ## Removing a host {#remove}
 
 You can remove a host from a {{ MY }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
@@ -161,7 +244,7 @@ If the host is the master when deleted, {{ mmy-short-name }} automatically assig
 - Management console
   1. Go to the folder page and select **{{ mmy-name }}**.
   1. Click on the name of the cluster you want and select the **Hosts** tab.
-  1. Click ![image](../../_assets/cross.svg) in the row of the host you need.
+  1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line of the desired host and select **Delete**.
 
 - CLI
 
