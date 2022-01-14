@@ -7,48 +7,13 @@ description: "In this tutorial, you will learn how to create secrets and retriev
 
 Create your first secret and get its content.
 
-## Create a secret {#create}
-
 A secret is a set of versions that store your data. A version contains sets of keys and values:
-
 * A key is a non-secret name that identifies a value.
 * The value is your secret data.
 
 Versions can't be changed. Whenever you need to change the number of key-value pairs or their content, you must create a new version.
 
-{% list tabs %}
-
-- Management console
-
-    To create a secret:
-
-    1. In [management console]({{ link-console-main}}), select the folder to create a secret in.
-
-    1. In the list of services, select **{{ lockbox-name }}**.
-
-    1. Click **Create secret**.
-
-    1. In the **Name** field, enter a name for the secret.
-
-    1. (optional) In the **{{ kms-short-name }} key** field, specify an existing key or [create a new key](../kms/operations/key.md#create).
-
-        The specified {{ kms-short-name }} key is used to encrypt your secret. If you omit the key, the secret is encrypted with a special system key.
-
-        {% note tip %}
-
-        By using your own [{{ kms-short-name }} key](../kms/concepts/key.md) you can take full advantage of {{ kms-full-name }}.
-
-        {% endnote %}
-
-    1. Under **Version**:
-        * In the **Key** field, enter a non-secret ID.
-        * In the **Value** field, enter the confidential data you want to store.
-        * Click **Add value**.
-        * (optional) Repeat the steps to add more data.
-
-    1. Click **Save**.
-
-{% endlist %}
+{% include [secret-create](operations/secret-create.md) %}
 
 ## Get the content of the secret {#get}
 
@@ -67,7 +32,6 @@ You can use this logic in scripts, services, and applications where you need to 
 - API
 
     To get the content of the secret:
-
     1. [Get an IAM token](../iam/operations/iam-token/create.md) required for authentication and save it to the variable:
 
         ```
@@ -86,6 +50,4 @@ You can use this logic in scripts, services, and applications where you need to 
         curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
         https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/<ID of the secret>/payload
         ```
-
 {% endlist %}
-
