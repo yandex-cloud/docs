@@ -17,9 +17,12 @@
 1. [Создайте](../../iam/operations/sa/create.md) [сервисный аккаунт](../../iam/concepts/index.md#sa), необходимый для работы Ingress-контроллера.
 
    1. [Назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
+   
       * `alb.editor` — для создания необходимых ресурсов;
       * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list);
-      * `certificate-manager.certificates.downloader` — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
+      * `certificate-manager.certificates.downloader` — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/);
+      * `compute.viewer` — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
+      
    1. Создайте для него [авторизованный ключ](../../iam/operations/sa/create-access-key.md) и сохраните в файл `sa-key.json`:
 
       ```bash
