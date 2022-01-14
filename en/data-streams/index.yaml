@@ -10,12 +10,18 @@ links:
   - title: Getting started
     description: Create a stream, set up data streaming and saving
     href: quickstart/
+  - title: Step-by-step instructions
+    description: Instructions on how to perform basic operations
+    href: operations/
   - title: Concepts
     description: Learn about service concepts and features
     href: concepts/index
   - title: Quotas and limits
-    description: Technical and organizational limitations
+    description: Technical and organizational limitations of the service
     href: concepts/limits
   - title: Access management
     description: Configure access rights to work with the service
     href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

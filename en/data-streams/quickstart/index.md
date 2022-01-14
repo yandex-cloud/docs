@@ -14,7 +14,6 @@
 
     1. Enter the following one by one:
 
-        * `AWS Access Key ID [None]`: The [ID of the key](../../iam/concepts/authorization/access-key.md) of the service account.
-        * `AWS Secret Access Key [None]`: The [secret key](../../iam/concepts/authorization/access-key.md) of the service account.
-        * `Default region name [None]`: The `ru-central1` availability zone.
-
+        * `AWS Access Key ID [None]:`: The [ID of the key](../../iam/concepts/authorization/access-key.md) of the service account.
+        * `AWS Secret Access Key [None]:`: The [secret key](../../iam/concepts/authorization/access-key.md) of the service account.
+        * `Default region name [None]:`: The `ru-central1` availability zone.

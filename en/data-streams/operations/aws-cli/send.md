@@ -6,7 +6,7 @@
 
 - CLI
 
-  To send data to [stream](../../concepts/glossary.md#stream-concepts), run the command:
+  To send data to a [stream](../../concepts/glossary.md#stream-concepts), run the command:
 
   ```bash
   aws kinesis put-record \
@@ -18,7 +18,6 @@
   ```
 
   * `--endpoint`: Specify the endpoint `https://yds.serverless.yandexcloud.net` to send data to a stream over the AWS Kinesis Data Streams protocol.
-
   * `--stream-name`: Consists of the availability zone, the folder ID, the {{ ydb-full-name }} database ID, and the stream name.
 
      > For example, specify the stream ID `/ru-central1/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:

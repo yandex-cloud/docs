@@ -80,7 +80,7 @@ Where:
 
 ### Cost of allocated resources {#resources}
 
-Cost of using allocated resources per month:
+Cost of using allocated resources per hour:
 
 {% if region == "ru"%}
 
@@ -99,4 +99,3 @@ Cost of using allocated resources per month:
 {% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
 
 {% endif %}
-
