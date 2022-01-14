@@ -11,7 +11,7 @@ You may need to restore access to a VM in the following cases:
 If you lost your SSH private key for Linux or your Windows user password:
 
 1. [Create a snapshot](../disk-control/create-snapshot.md) of the disk of the VM that you want to restore access to.
-1. [Create a VM with the disk from the snapshot](../disk-control/create-snapshot.md) specifying it as the boot disk. When creating a VM, enter your new credentials under **Access**.
+1. [Create a VM with the disk from the snapshot](../vm-create/create-from-snapshots.md) specifying it as the boot disk. When creating a VM, enter your new credentials under **Access**.
 1. Connect to the VM via SSH or RDP using the new credentials.
 
 If the 'cloud-init' or network configuration was changed for the VM, the described method may not work. In this case, see [{#T}](#os-recovery).
