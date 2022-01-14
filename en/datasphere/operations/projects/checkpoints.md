@@ -1,6 +1,6 @@
 # Versioning. Working with checkpoints
 
-A checkpoint in {{ ml-platform-name }} is the [saved state](../../concepts/save-state.md) of a notebook. A checkpoint consists of the cell code, output, and variable values.
+A checkpoint in {{ ml-platform-name }} is the [saved state](../../concepts/save-state.md) of a notebook. A checkpoint consists of the cell code, output, variable values, and project storage data. Data versioning is maintained if the amount of data does not exceed {{ ml-project-size }}. Checkpoints with versioned data are marked with ![](../../../_assets/datasphere/disk.svg).
 
 ## Before you start {#before-begin}
 

@@ -72,9 +72,4 @@ You can filter records using the [language of filter expressions](../../logging/
 
     You can view the entries in a log group using the API [read](../../logging/api-ref/grpc/log_reading_service.md) method.
 
-- API
-
-  You can view the entries in a log group using the API [read](../../logging/api-ref/grpc/log_reading_service.md) method.
-
 {% endlist %}
-

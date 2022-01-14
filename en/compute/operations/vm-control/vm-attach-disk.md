@@ -228,3 +228,4 @@ To partition and mount an empty disk yourself:
 
   1. Use the **New Simple Volume Wizard** to set the desired partition size, [assign a drive letter](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/change-a-drive-letter), and specify the file system type.
 
+{% endlist %}

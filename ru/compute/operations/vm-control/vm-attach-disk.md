@@ -239,3 +239,5 @@
   1. Выберите [стиль разделов](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/initialize-new-disks#about-partition-styles---gpt-and-mbr) и нажмите **ОК**.
   1. Создайте разделы на диске. Для этого нажмите правой кнопкой мыши на пустой диск и выберите пункт **Создать простой том**.
   1. С помощью **Мастера создания простых томов** задайте размер раздела, [назначьте букву](https://docs.microsoft.com/ru-ru/windows-server/storage/disk-management/change-a-drive-letter) диска и укажите файловую систему.
+  
+{% endlist %}

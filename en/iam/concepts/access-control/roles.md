@@ -46,6 +46,14 @@ For example, the `{{ roles-admin }}` role lets you perform the following operati
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
+## {{ dns-name }} {#dns-roles}
+
+{% include [roles-dns-viewer](../../../_includes/iam/roles/dns-viewer.md) %}
+
+{% include [roles-dns-editor](../../../_includes/iam/roles/dns-editor.md) %}
+
+{% include [roles-dns-admin](../../../_includes/iam/roles/dns-admin.md) %}
+
 ## {{ compute-name }} {#compute-roles}
 
 {% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}

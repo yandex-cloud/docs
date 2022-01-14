@@ -42,5 +42,5 @@ To delete an HTTP router:
      yc alb http-router list
      ```
 
-{% list tabs %}
+{% endlist %}
 

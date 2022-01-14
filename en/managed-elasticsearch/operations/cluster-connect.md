@@ -82,7 +82,7 @@ To use an encrypted connection, get an SSL certificate:
 
 {% list tabs %}
 
-* Linux (Bash)
+- Linux (Bash)
 
   
   ```bash
@@ -93,7 +93,7 @@ To use an encrypted connection, get an SSL certificate:
 
   The certificate will be saved in the `$HOME/.elasticsearch/root.crt` folder.
 
-* Windows (PowerShell)
+- Windows (PowerShell)
 
   
   ```powershell
@@ -101,6 +101,8 @@ To use an encrypted connection, get an SSL certificate:
   ```
 
   The certificate will be saved in the `$HOME\.elasticsearch\root.crt` folder.
+
+{% endlist %}
 
 ## Automatically selecting the host to connect to {#automatic-host-selection}
 

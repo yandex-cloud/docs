@@ -7,7 +7,7 @@
 | Requirement | Value |
 | --- | --- |
 | Sampling frequency | 48 kHz |
-| Bit rate | 16 bit PCM |
+| Bit rate | Audio bit depth: 16-bit PCM |
 | Channel | Mono |
 | Format | .wav |
 
@@ -48,16 +48,16 @@ To train a voice model, you need:
 
 The text transcript must be in UTF-8 encoding, the table must have no title.
 
-### Basic requirements for both datasets {#dataset-requirements}
+### Basic dataset requirements {#dataset-requirements}
 
 * One phrase to one recorded audio file.
 * No inaccuracies, micro repeats, reservations, and word substitutions are allowed.
 * Each audio recording must have an absolutely accurate text transcript.
 * Transcripts must not have any grammatical errors.
 * To name files, use phrase numbers.
-* Spelling must be accurate.<q></q>
+* Spelling must be accurate.
 * Misspelt words, such as <q>necessery</q> instead of <q>necessary</q> are not acceptable.
-* Abbreviations must be denormalized (BBC -> <q>biːbiːsiː</q>) or expanded.
+* Abbreviations must be denormalized (BBC → <q>biːbiːsiː</q>) or expanded.
 
 ### Pattern requirements {#pattern-requirements}
 
@@ -66,7 +66,7 @@ The text transcript must be in UTF-8 encoding, the table must have no title.
 * The duration of a variable must match the sample in the pattern. If variables vary greatly in length, we recommend recording several patterns with examples of different lengths.
 * Divide long utterances into independent sentences and different patterns.
 * For each pattern, there must be at least 10 options of variables with different durations of pronunciation.
-For example:
+    For example:
 
     >Hello, I'm **Anastasia** from **Yandex Cloud**.
     >
@@ -95,6 +95,8 @@ For example:
    > * Did the cat go \*\*to the forest\*\*?: This means <q>Where did the cat go or what for? To the forest, outside, to look for a sausage?</q>
    >
    > In all sentences, the logical stress emphasizes the main meaning of the sentence.
+
+1. The total phrase length must not exceed 160 characters, including the variable part.
 
 ### Example of a summary text table {#example}
 

@@ -1,13 +1,8 @@
 ---
 sourcePath: overlay/reference/ydb-cli/commands/discovery-list.md
 ---
-# Получение списка эндпоинтов для базы данных
+{% include [intro.md](_includes/discovery-list/intro.md) %}
 
-Получите список эндпойнтов для базы данных:
-
-```bash
-ydb discovery list
-```
 
 Результат:
 

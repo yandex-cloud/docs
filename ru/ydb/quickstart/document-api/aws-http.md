@@ -7,6 +7,8 @@ sourcePath: overlay/quickstart/document-api/aws-http.md
 
 Для выполнения HTTP-запросов в примерах раздела используется утилита [cURL](https://curl.se/).
 
+{% include [doc-tables-only.md](../../_includes/doc-tables-only.md) %}
+
 ## Перед началом работы {#before-you-begin}
 
 1. Если у вас еще нет интерфейса командной строки Yandex.Cloud, [установите и инициализируйте его](../../../cli/quickstart.md#install).

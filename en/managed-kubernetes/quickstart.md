@@ -66,7 +66,7 @@ To start working with {{ managed-k8s-short-name }}:
       ...
       ```
 
-{% endlist%}
+{% endlist %}
 
 ## Create a node group {#node-group-create}
 

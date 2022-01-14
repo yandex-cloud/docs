@@ -182,6 +182,8 @@ Use the `encrypt` and `decrypt` methods to encrypt and decrypt data. The code us
     plaintext := response.Plaintext
     ```
 
+{% endlist %}
+
 #### See also {#see-also}
 
 * [Yandex.Cloud Java SDK](https://github.com/yandex-cloud/java-sdk).

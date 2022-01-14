@@ -125,6 +125,8 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Группы узлов с GPU
             href: concepts/node-group/node-group-gpu.md
+      - name: Сеть в {{ managed-k8s-name }}
+        href: concepts/network.md
       - name: Внешние узлы кластера
         href: concepts/external-nodes.md
       - name: Сетевые настройки и политики кластера

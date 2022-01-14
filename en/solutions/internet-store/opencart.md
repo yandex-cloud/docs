@@ -111,9 +111,10 @@ Creating the DB cluster may take several minutes.
 1. Configure database access:
 
    {% list tabs %}
+
    - Local server {{ MY }}
 
-   DB connection attributes are generated in a special file when a VM is created:
+     DB connection attributes are generated in a special file when a VM is created:
      1. Log in to the created VM via SSH.
      1. Switch to `sudo -i` administration mode.
      1. Open `default_passwords.txt` in the admin's home directory:
@@ -129,7 +130,7 @@ Creating the DB cluster may take several minutes.
         - **Username**: The `MYSQL_USER` variable value.
         - **Database**: The `MYSQL_DB` variable value.
         - **Password**: The `MYSQL_PASS` variable value.
-Leave the other fields as they are.
+     Leave the other fields as they are.
 
    - Cluster {{ mmy-name }}
 
@@ -143,9 +144,9 @@ Leave the other fields as they are.
        - **Username**: The username (`user1` in the example).
        - **Database**: The DB name (`db1` in the example).
        - **Password**: The user password you specified.
-Leave the other fields as they are.
+     Leave the other fields as they are.
 
-   {% endlist%}
+   {% endlist %}
 
 1. Enter the administrator's name, their password, and current email address. Then click **Continue**.
 

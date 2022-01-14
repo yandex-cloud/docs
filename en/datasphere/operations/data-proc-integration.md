@@ -208,5 +208,5 @@ To delete a cluster using the notebook interface:
 
     {{ dataproc-name }} runs the delete cluster operation.
 
-{% endlist%}
+{% endlist %}
 

@@ -20,7 +20,7 @@
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     1. Посмотрите описание команды CLI для удаления секрета:
-	   ```
+       ```
        yc lockbox secret delete --help
        ```
 

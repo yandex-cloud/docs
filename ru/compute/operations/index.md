@@ -113,6 +113,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](instance-groups/create-with-load-balancer.md)
 * [{#T}](instance-groups/create-autoscaled-group.md)
 * [{#T}](instance-groups/create-with-coi.md)
+* [{#T}](instance-groups/create-from-yaml.md)
 
 ## Получение информации о группе виртуальных машин {#ig-info}
 

@@ -177,7 +177,7 @@ Create an image from the VM's boot disk.
     --source-disk-name my_bootdisk_of_my_instance
   ```
 
-{% end list %}
+{% endlist %}
 
 #### What's next? {#what-next}
 

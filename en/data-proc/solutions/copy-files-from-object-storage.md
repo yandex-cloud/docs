@@ -210,7 +210,7 @@ For more information, see [Component properties](../concepts/settings-list.md#sp
   df = sql.read.parquet("s3a://<bucket name>/<object path>")
   ```
 
-{% endlist%}
+{% endlist %}
 
 For more information, see [{#T}](../concepts/settings-list.md#spark-settings).
 

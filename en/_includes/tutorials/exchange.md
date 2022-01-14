@@ -438,7 +438,7 @@ VMs with Active Directory don't have internet access, so they should be configur
        --metadata-from-file user-data=setpass
      ```
 
-   {% list tabs %}
+   {% endlist %}
 
 1. Connect to `fsw-vm` using RDP.
 1. On `fsw-vm`, start the RDP client and use it to connect to `vm-exchange-a`. Enter `Administrator` as the username and then your password. Launch PowerShell.

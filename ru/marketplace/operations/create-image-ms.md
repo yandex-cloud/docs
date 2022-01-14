@@ -176,7 +176,7 @@
     --source-disk-name my_bootdisk_of_my_instance
   ```
 
-{% end list %}
+{% endlist %}
 
 #### Что дальше? {#what-next}
 

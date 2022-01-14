@@ -208,6 +208,6 @@ hadoop distcp \
   df = sql.read.parquet("s3a://<имя бакета>/<путь к объекту>")
   ```
 
-{% endlist%}
+{% endlist %}
 
 Подробнее см. на странице [{#T}](../concepts/settings-list.md#spark-settings).

@@ -67,5 +67,5 @@ When you add environment variables, a new container revision is created. You can
     * `--memory`: Required memory. The default is 128 MB.
     * `--environment`: Environment variables in `key=value` format. You can specify multiple pairs separated by commas.
 
-{% end list %}
+{% endlist %}
 

@@ -164,7 +164,8 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
     yc serverless function remove-scaling-policy \
     	--id=d4eokpuol55h******** \
     	--tag=\$latest
-```
+    ```
+
     * `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
     * `--tag`: [Tag](../../concepts/function.md#tag) of the function version.
 

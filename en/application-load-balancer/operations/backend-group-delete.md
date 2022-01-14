@@ -44,5 +44,5 @@ To delete a backend group:
      yc alb backend-group list
      ```
 
-{% list tabs %}
+{% endlist %}
 
