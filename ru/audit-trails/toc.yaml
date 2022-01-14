@@ -34,7 +34,9 @@ items:
       - name: Поиск в лог-группе
         href: solutions/search-cloud-logging.md  
       - name: Настройка алертов в {{ monitoring-name }}
-        href: solutions/alerts-monitoring.md 
+        href: solutions/alerts-monitoring.md
+      - name: Настройка реагирования в Cloud Functions
+        href: solutions/logging-functions.md 
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
