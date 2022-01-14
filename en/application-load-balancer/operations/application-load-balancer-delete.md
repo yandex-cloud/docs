@@ -44,5 +44,5 @@ To delete an L7 load balancer:
      done (1m10s)
      ```
 
-{% list tabs %}
+{% endlist %}
 

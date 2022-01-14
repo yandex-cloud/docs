@@ -80,7 +80,7 @@ Examples of working with the Cap'n Proto and Protobuf formats when inserting dat
 
     For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
-{% endtabs %}
+{% endlist %}
 
 ## Changing a format schema {#update-format-schema}
 
@@ -146,7 +146,7 @@ To update the contents of a schema that is already connected to the cluster:
 
         For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
-   {% endtabs %}
+   {% endlist %}
 
 ## Disabling a format schema {#disable-format-schema}
 
@@ -196,7 +196,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
     For more information, see the [{{ TF }} provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
-{% endtabs %}
+{% endlist %}
 
 ## Getting a list of format schemas in a cluster {#list-format-schemas}
 
@@ -220,7 +220,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
   You can query the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-{% endtabs %}
+{% endlist %}
 
 ## Getting detailed information about a format schema {get-format-schema}
 
@@ -241,5 +241,5 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
   The schema name can be requested with a [list of format schemas in the cluster](#list-format-schemas); the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-{% endtabs %}
+{% endlist %}
 

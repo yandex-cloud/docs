@@ -24,4 +24,4 @@ description: "Вы можете удалить кластер Data Proc вмес
 
     {{ dataproc-name }} запустит операцию удаления кластера.
 
-{% endlist%}
+{% endlist %}

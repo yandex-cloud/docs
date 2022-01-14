@@ -105,4 +105,4 @@ Authorization: OAuth <токен>
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
-{% list tabs %}
+{% endlist %}

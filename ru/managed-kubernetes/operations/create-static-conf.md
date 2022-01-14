@@ -326,7 +326,7 @@ __system: {"dislikeVariants":["Нет ответа на мой вопрос","Р
                        --kubeconfig=test.kubeconfig
         ```    
     
-    {% endnote %}
+    {% endlist %}
     
 ## Проверьте результат {#check-result} 
 

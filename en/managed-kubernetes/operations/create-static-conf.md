@@ -309,7 +309,7 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
                        --kubeconfig=test.kubeconfig
         ```
 
-    {% endnote %}
+    {% endlist %}
 
 ## Check the results {#check-result}
 

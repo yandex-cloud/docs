@@ -37,4 +37,4 @@
      yc alb backend-group list
      ```
 
-{% list tabs %}
+{% endlist %}

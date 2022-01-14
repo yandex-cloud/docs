@@ -458,7 +458,7 @@ VMs with Active Directory don't have internet access, so they should be configur
        --metadata-from-file user-data=setpass
      ```
 
-   {% list tabs %}
+   {% endlist %}
 
 1. Connect to `fsw-vm` using RDP.
 

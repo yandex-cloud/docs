@@ -144,5 +144,6 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
      1. Click ![image](../_assets/vertical-ellipsis.svg) in the row of the queue to delete.
      1. In the menu that opens, click **Delete**.
      1. In the window that opens, click **Delete**.
-{% endlist %}
+
+   {% endlist %}
 

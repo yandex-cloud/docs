@@ -32,3 +32,4 @@ To display an Y-axis grouped bar chart:
 
       <iframe src="https://datalens.yandex/0oxyakxold4gu?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
 
+    {% endlist %}

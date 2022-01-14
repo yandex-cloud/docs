@@ -503,6 +503,8 @@ At the end of the use case, you need to check that, when user requests are made,
 
      1. In the resulting list, find the object with the log saved after downloading `ycgame-update-v1.1.exe` and download it using the [get](../../storage/s3/api-ref/object/get.md) API method.
 
+   {% endlist %}
+
 1. Check the logs of requests to the source bucket to make sure that the CDN servers did not download the file from the origin after your request. For more information about the log contents, see [{#T}](../../storage/concepts/server-logs.md#object-format) in the {{ objstorage-name }} documentation.
 
 ## Delete the resources created {#clear-out}

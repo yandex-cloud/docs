@@ -54,10 +54,10 @@
     ```
     yc serverless container revision deploy \
        --container-name <имя_контейнера> \
-	   --image <URL_Docker-образа> \
-  	   --cores 1 \
-  	   --memory 1GB \
-  	   --service-account-id <идентификатор_сервисного_аккаунта> \
+       --image <URL_Docker-образа> \
+       --cores 1 \
+       --memory 1GB \
+       --service-account-id <идентификатор_сервисного_аккаунта> \
        --environment <переменные_окружения>
     ```
 
@@ -67,4 +67,4 @@
     * `--memory` — требуемая память. По умолчанию — 128 МБ.
     * `--environment` — переменные окружения в формате `key=value`. Можно указать несколько пар через запятую.
 
-{% end list %}
+{% endlist %}

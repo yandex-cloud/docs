@@ -23,5 +23,5 @@ You can delete a cluster along with all the data stored in it. Keep in mind that
 
     {{ dataproc-name }} runs the delete cluster operation.
 
-{% endlist%}
+{% endlist %}
 

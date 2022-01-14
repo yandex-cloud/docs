@@ -36,4 +36,4 @@
      yc alb http-router list
      ```
 
-{% list tabs %}
+{% endlist %}

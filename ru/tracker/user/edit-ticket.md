@@ -133,5 +133,3 @@
 * [{#T}](attach-file.md)
 * [{#T}](move-ticket.md)
 
-{% list tabs %}
-

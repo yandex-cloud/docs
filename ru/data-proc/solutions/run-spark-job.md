@@ -186,7 +186,7 @@ Spark Submit позволяет запускать заранее написан
       hdfs dfs -ls /tmp/month_stat
       ```
 
-{% endlist%}
+{% endlist %}
 
 
 ## Завершение работы приложения {#yarn-kill}
@@ -377,7 +377,7 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar s3://<ваш б�
     main_class: com.yandex.cloud.dataproc.scala.Main
   ```
 
-{% endlist%}
+{% endlist %}
 
 
 ### Запуск PySpark Job {#cli-python}

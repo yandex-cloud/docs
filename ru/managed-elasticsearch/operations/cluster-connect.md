@@ -130,7 +130,7 @@ keywords:
 
 {% list tabs %}
 
-* Linux (Bash)
+- Linux (Bash)
 
   {% if audience == "internal" %}
 
@@ -152,7 +152,7 @@ keywords:
 
   Сертификат будет сохранен в каталоге `$HOME/.elasticsearch/root.crt`.
 
-* Windows (PowerShell)
+- Windows (PowerShell)
 
   {% if audience == "internal" %}
 
@@ -169,6 +169,8 @@ keywords:
   {% endif %}
 
   Сертификат будет сохранен в каталоге `$HOME\.elasticsearch\root.crt`.
+
+{% endlist %}
 
 ## Автоматический выбор хоста для подключения {#automatic-host-selection}
 
