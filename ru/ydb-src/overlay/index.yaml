@@ -42,7 +42,7 @@ links:
     href: best_practices/
   - title: Справочник YQL
     description: Описание синтаксиса и встроенных функций YQL
-    href: yql/reference/overview
+    href: yql/reference/
   - title: Туториал YQL
     description: Серия уроков для знакомства с базовыми возможностями YQL
     href: yql/tutorial/

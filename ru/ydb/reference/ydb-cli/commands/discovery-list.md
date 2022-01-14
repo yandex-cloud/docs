@@ -1,13 +1,9 @@
 ---
 sourcePath: overlay/reference/ydb-cli/commands/discovery-list.md
 ---
-# Получение списка эндпоинтов для базы данных
+{% include [intro.md](_includes/discovery-list/intro.md) %}
 
-Получите список эндпойнтов для базы данных:
-
-```bash
-ydb discovery list
-```
+{% if audience == "external" %}
 
 Результат:
 
@@ -16,3 +12,5 @@ grpcs://vm-etn03umae82ti1blr6in-ru-central1-a-odjg-ozyl.etn03umae82ti1blr6in.ydb
 ```
 
 Где `#table_service`, `#scripting`, `#discovery` и другие — это gRPC-сервисы, доступные на данном эндпоинте.
+
+{% endif %}

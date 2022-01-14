@@ -1,19 +1,11 @@
 ---
 sourcePath: overlay/reference/ydb-cli/commands/operations-index.md
 ---
-# Работа со вторичными индексами
+{% include [intro.md](_includes/operations-index/intro.md) %}
 
-В разделе описано как управлять вторичными индексами. Добавление вторичного индекса выполняется в асинхронном режиме. После запуска такой команды YDB CLI сразу выдает информацию об операции и дает пользователю возможность продолжить работу.
+{% include [operation-index.md](_includes/operations-index/operation-index.md %}
 
-## Добавление вторичного индекса {#operation-index}
-
-Добавьте индекс `title_index` по колонке `title` таблицы `series`:
-
-```bash
-ydb table index add global \
-  --index-name title_index \
-  --columns title series
-```
+{% if audience == "external" %}
 
 Результат:
 
@@ -25,15 +17,13 @@ ydb table index add global \
 └───────────────────────────────────────┴───────┴────────┘
 ```
 
-Где `id` — идентификатор операции построения индекса.
+{% endif %}
 
-## Получение информации о выполнении операции {#one-get}
+{% include [operations-index-exp.md](_includes/operations-index/operations-index-exp.md) %}
 
-Чтобы получить информацию о ходе добавления вторичного индекса, проверьте статус операции:
+{% include [one-get.md](_includes/operations-index/one-get.md) %}
 
-```bash
-ydb operation get ydb://buildindex/7?id=562950460138467
-```
+{% if audience == "external" %}
 
 Результат:
 
@@ -47,18 +37,11 @@ ydb operation get ydb://buildindex/7?id=562950460138467
 └──────────────────────────────────┴───────┴─────────┴───────┴──────────┴────────────────────────────────┴─────────────┘
 ```
 
-Где:
+{% endif %}
 
-* `progress` — процент шардов исходной таблицы, завершивших трансфер данных.
-* `status` — Результат всей операции построения. Отображается, когда операция уже завершена.
+{% include [one-get-exp.md](_includes/operations-index/one-get-exp.md) %}
 
-## Получение информации обо всех операциях построения индекса для базы {#all-get}
-
-Посмотрите все операции построения индекса для БД:
-
-```bash
-ydb operation list buildindex
-```
+{% if audience == "external" %}
 
 Результат:
 
@@ -77,6 +60,12 @@ ydb operation list buildindex
 Next page token: 0
 ```
 
+{% endif %}
+
+{% include [all-get.md](_includes/operations-index/all-get.md) %}
+
+{% if audience == "external" %}
+
 ## Отмена операции построения индекса {#cancel}
 
 Отмените операцию построения индекса:
@@ -91,12 +80,6 @@ ydb operation cancel ydb://buildindex/7?id=562950460138467
 ydb operation forget ydb://buildindex/7?id=562950460138467
 ```
 
-## Удаление индекса {#delete-index}
+{% endif %}
 
-Если индекс не нужен, то его можно удалить. Удаление индекса — обычный синхронный запрос. Результат возвращается сразу по исполнению запроса.
-
-Удалите индекс:
-
-```bash
-ydb table index drop --index-name title_index series
-```
+{% include [delete-index.md](_includes/operations-index/delete-index.md) %}

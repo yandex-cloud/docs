@@ -1,16 +1,6 @@
-# Получение плана запроса
+{% include [intro.md](_includes/explain-plan/intro.md) %}
 
-Получите план запроса:
-
-```bash
-{{ ydb-cli }} table query explain \
-  -q "SELECT season_id, episode_id, title
-  FROM episodes
-  WHERE series_id = 1
-  AND season_id > 1
-  ORDER BY season_id, episode_id
-  LIMIT 3"
-```
+{% if audience == "external" %}
 
 Результат:
 
@@ -23,7 +13,7 @@ Query plan:
     },
     tables : [
         {
-            name : "/ru-central1/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e/episodes",
+            name : "{{ cloud-bases-path }}/episodes",
             reads : [
                 {
                     type : Lookup,
@@ -46,38 +36,13 @@ Query plan:
 }
 ```
 
-Основная секция плана запроса, `tables`, содержит информацию об обращениях к таблицам. Чтения описаны в разделе `reads`, а записи — в разделе `writes`. Ключевой характеристикой любого обращения к таблице является его тип.
+{% endif %}
 
-Типы чтения:
+{% include [intro-exp.md](_includes/explain-plan/intro-exp.md) %}
 
-* `FullScan` — полное сканирование таблицы. Читаются все записи на всех шардах.
-* `Scan` — чтение определенного диапазона записей.
-* `Lookup` — чтение по ключу или префиксу ключа.
-* `MultiLookup` — множественные чтения по ключу или префиксу ключа. Данный тип обращения возможен, например, в JOIN'ах.
+{% include [examples.md](_includes/explain-plan/examples.md) %}
 
-Типы записи:
-
-* `Upsert` — добавление одной записи.
-* `MultiUpsert` — добавление нескольких записей.
-* `Erase` — единичное удаление по ключу.
-* `MultiErase` — множественное удаление.
-
-Рассмотрим план запроса из примера выше.
-Параметр `lookup_by` показывает, по каким колонкам (ключу или префиксу ключа) выполняется чтение.
-Параметр `scan_by` показывает, по каким колонкам выполняется чтение всех записей в определенном диапазоне значений.
-В `columns` перечислены колонки, значения которых будут вычитываться из таблицы.
-
-## Пример модификации запроса {#examples}
-
-Измените запрос так, чтобы получить только первые сезоны всех сериалов:
-
-```bash
-{{ ydb-cli }} table query explain \
-  -q "SELECT sa.title AS season_title, sr.title AS series_title, sr.series_id, sa.season_id 
-  FROM seasons AS sa 
-  INNER JOIN series AS sr ON sa.series_id = sr.series_id 
-  WHERE sa.season_id = 1"
-```
+{% if audience == "external" %}
 
 Результат:
 
@@ -125,4 +90,6 @@ Query plan:
 }
 ```
 
-Из данного плана запроса следует, что для таблицы `seasons` будет выполнен `FullScan`, а для таблицы `series` — множественные чтения (тип обращения `MultiLookup`) по ключу `series_id` (lookup_by). А тип чтения `MultiLookup` и раздел `lookup_by` говорят о том, что для таблицы `series` будут выполнены множественные чтения по ключу `series_id`.
+{% endif %}
+
+{% include [examples-exp.md](_includes/explain-plan/examples-exp.md) %}

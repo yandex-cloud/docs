@@ -1,28 +1,6 @@
-# Получение информации о профиле
+{% include [list-and-get.md](_includes/list-and-get.md) %}
 
-Чтобы указать профиль, используйте его имя. Узнать имя профиля можно, получив список профилей.
-
-## Получение списка профилей {#profile-list}
-
-Получите список профилей:
-
-```bash
-{{ ydb-cli }} config profile list
-```
-
-Результат:
-
-```text
-example (active)
-```
-
-## Получение подробной информации о профиле {#profile-get}
-
-Получите подробную информацию о профиле с именем `example`:
-
-```bash
-{{ ydb-cli }} config profile get example
-```
+{% if audience == "external" %}
 
 Результат:
 
@@ -31,3 +9,5 @@ example (active)
   database: /ru-central1/b1gia87mbaomkfvscrus/etn02j1mlm4vgjhij03e
   use-metadata-credentials
 ```
+
+{% endif %}

@@ -1,11 +1,14 @@
+---
+sourcePath: core/reference/ydb-cli/profile/_includes/activate.md
+---
 # Активация профиля
 
-{% include [profile-list](../_includes/profile-list.md) %}
+{% include [profile-list](profile-list.md) %}
 
 Активируйте профиль с именем `example`:
 
 ```bash
-{{ ydb-cli }} config profile activate example
+ydb config profile activate example
 ```
 
 Результат:
