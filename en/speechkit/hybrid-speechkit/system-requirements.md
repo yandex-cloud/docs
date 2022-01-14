@@ -34,7 +34,7 @@ Recommended system requirements for running {{sk-hybrid-name }} containers:
    | Speech recognition (80-100 channels) | 1 [Intel Gold 6230R](https://ark.intel.com/content/www/us/en/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) CPU | Nvidia Tesla V100 (16 GB or 32 GB) | 128 GB | 300 GB |
    | Speech synthesis (200 SPS^1^) | 1 Intel Gold 6230R CPU | Nvidia Tesla V100 (16 GB or 32 GB) | 128 GB | 300 GB |
 
-{% endtab %}
+{% endlist %}
 
 ^1^ Seconds per second (SPS): The number of seconds of synthesized text generated per runtime second.
 

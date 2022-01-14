@@ -30,3 +30,5 @@
         1. Перетащите измерение `Measure Names` в секцию **X**. Порядок измерений будет влиять на порядок группировки.
     
         <iframe src="https://datalens.yandex/tgc7ep00pz26n?_embedded=1&_theme=system" width="600" height="400" frameborder="0"></iframe>
+
+    {% endlist %}

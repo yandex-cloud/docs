@@ -233,6 +233,12 @@ When you create a `LoadBalancer` service, the {{ yandex-cloud }} controller crea
 
 ## Create a LoadBalancer service with an internal IP address {#lb-int-create}
 
+{% note info %}
+
+[Internal network load balancer](../../network-load-balancer/concepts/internal-load-balancer) is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+
+{% endnote %}
+
 To create a network load balancer with an internal IP address, specify the `yandex.cloud/load-balancer-type` and `yandex.cloud/subnet-id` parameters in the YAML specification for the service under `annotations`:
 
 ```yaml

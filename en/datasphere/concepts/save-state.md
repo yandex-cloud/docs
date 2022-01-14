@@ -1,10 +1,12 @@
 # Saving a state
 
-The notebook state is the cell code, output, and variable values at a specific point in time.
+The notebook state is the cell code, output, variable values at a specific point in time, and project storage data.
 
 {% include [include](../../_includes/datasphere/saving-variables-warn.md) %}
 
-States is saved as checkpoints. For more information about working with checkpoints, see [{#T}](../operations/projects/checkpoints.md)
+States is saved as checkpoints. For more information about working with checkpoints, see [{#T}](../operations/projects/checkpoints.md).
+
+If the amount of data in project storage does not exceed {{ ml-project-size }}, the state of the data is also stored in checkpoints. Such checkpoints are marked with ![](../../_assets/datasphere/disk.svg). If project storage data exceeds {{ ml-project-size }}, they will not be included in versioning, the rest of the notebook's state will be saved, however.
 
 There are two save state modes: standard and automatic. Save modes only apply to regular cells. Cells with [background operations](async.md) create a checkpoint automatically after execution is complete or prompt the user to create one by running `%apply_state`.
 

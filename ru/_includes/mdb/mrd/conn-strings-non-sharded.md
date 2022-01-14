@@ -520,7 +520,7 @@
 
 {% list tabs %}
 
-* Подключение без SSL
+- Подключение без SSL
 
     **Пример кода для подключения с помощью Sentinel:**
 
@@ -562,7 +562,7 @@
     print(r.get("foo"))
     ```
 
-* Подключение с SSL
+- Подключение с SSL
 
     `connect.py`
 
@@ -580,6 +580,8 @@
     r.set("foo", "bar")
     print(r.get("foo"))
     ```
+
+{% endlist %}
 
 {% include [Подключение к кластеру](./connect/python/after-connect.md) %}
 

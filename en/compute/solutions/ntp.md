@@ -88,4 +88,4 @@ The list of recommended servers may change. Yandex.Cloud notifies you 72 hours b
   net start w32time
   ```
 
-{% endlist%}
+{% endlist %}

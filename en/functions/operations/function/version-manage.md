@@ -182,7 +182,7 @@ When you add environment variables, a new version of the function is created. Yo
 
     You can add environment labels using the [Yandex.Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
-{% end list %}
+{% endlist %}
 
 ## Managing version tags {#manage-tags}
 

@@ -434,7 +434,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
        --metadata-from-file user-data=setpass
      ```
 
-   {% list tabs %}
+   {% endlist %}
 
 1. Подключитесь к ВМ `fsw-vm` с помощью RDP.
 1. На ВМ `fsw-vm` запустите RDP и подключитесь к ВМ `vm-exchange-a`. Используйте логин `Administrator` и ваш пароль. Запустите PowerShell.

@@ -12,8 +12,12 @@
 
 * Apache Kafka®
 
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
     1. Настройте кластер-источник, чтобы к нему можно было подключиться из интернета.
+
     1. [Настройте права доступа](https://kafka.apache.org/documentation/#multitenancy-security) для учетной записи на нужный топик.
+
     1. (Опционально) Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/documentation/#security_sasl).
 
 {% endlist %}
@@ -29,8 +33,12 @@
 
 * {{ CH }}
 
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
     1. Настройте кластер-источник, чтобы к нему можно было подключиться из интернета.
+
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.tech/docs/ru/engines/table-engines/special/materializedview/) (MaterializedView).
+
     1. Создайте пользователя с доступом к базе источника.
 
 {% endlist %}
@@ -46,8 +54,12 @@
 
 * {{ MG }}
 
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
     1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ MG }}. Если нагрузка на базы выше 10000 транзакций на запись в секунду, создайте несколько эндпойнтов и трансферов. Подробнее см. в разделе [Подготовка источника {{ MG }}](../../data-transfer/operations/source-endpoint.md#settings-mongodb).
+
     1. Убедитесь, что мажорная версия {{ MG }} на приемнике не ниже `4.0`.
+
     1. [Настройте кластер-источник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/), чтобы к нему можно было подключиться из интернета:
 
         1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
@@ -141,6 +153,8 @@
 
 - {{ MY }}
 
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
     1. Убедитесь, что источник использует подсистему хранения данных низкого уровня MyISAM или InnoDB. При использовании других подсистем трансфер может завершиться с ошибкой.
 
     1. [Включите режим полного бинарного лога](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) на источнике с помощью параметра `binlog_row_image`.
@@ -198,6 +212,8 @@
     1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее см. в разделе [Параметры эндпойнта для источника {{ PG }}](source-endpoint.md#settings-postgresql).
 
 * {{ PG }}
+
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
     1. Настройте пользователя, от имени которого трансфер подключится к источнику:
 
@@ -365,6 +381,8 @@
 
 - {{ CH }}
 
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
     1. Создайте базу-приемник. Ее имя должно совпадать с именем базы-источника. Если нужно перенести несколько баз данных, создайте для каждой из них отдельный трансфер.
 
     1. Создайте пользователя с доступом к базе приемника.
@@ -384,7 +402,10 @@
 
 * Пользовательская инсталляция
 
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
     1. Убедитесь, версия {{ MG }} на приемнике не ниже чем на источнике.
+
     1. [Настройте кластер-приемник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/), чтобы к нему можно было подключиться из интернета:
 
         1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
@@ -471,6 +492,8 @@
 
 * {{ MY }}
 
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
+
     1. Убедитесь, что мажорная версия {{ MY }} на приемнике не ниже версии на источнике.
 
     1. Убедитесь, что приемник использует подсистему хранения данных низкого уровня MyISAM или InnoDB.
@@ -519,6 +542,8 @@
         После старта трансфер подключится к приемнику от имени этого пользователя.
 
 * {{ PG }}
+
+    1. {% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
     1. Убедитесь, что мажорная версия {{ PG }} на приемнике не ниже версии на источнике.
 

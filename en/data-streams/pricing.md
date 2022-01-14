@@ -54,10 +54,9 @@ Where:
 
 ### Cost of allocated resources {#resources}
 
-Cost of using allocated resources per month:
+Cost of using allocated resources per hour:
 
 
 
 
 {% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
-

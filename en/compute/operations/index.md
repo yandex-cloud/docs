@@ -2,7 +2,6 @@
 title: "How to work with virtual machines. Step-by-step instructions"
 description: "Step-by-step instructions for working and managing virtual machines in the Yandex.Cloud. From the article you will learn how to create virtual machines, manage resources, connect to them using SSH, RDP and PowerShell. Learn more about working with disks, images and hosts."
 ---
-
 # Step-by-step instructions for {{ compute-name }}
 
 ## Creating VMs {#vm-create}
@@ -60,7 +59,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
 
-## Creating new disks {#disk-create}
+## Creating a disk {#disk-create}
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
@@ -77,7 +76,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](disk-placement-groups/create.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
 
-## Creating new images {#image-create}
+## Creating an image {#image-create}
 
 * [{#T}](image-create/custom-image.md)
 * [{#T}](image-create/upload.md)
@@ -109,6 +108,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](instance-groups/create-with-load-balancer.md)
 * [{#T}](instance-groups/create-autoscaled-group.md)
 * [{#T}](instance-groups/create-with-coi.md)
+* [{#T}](instance-groups/create-from-yaml.md)
 
 ## Getting information about instance groups {#ig-info}
 
@@ -119,6 +119,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Managing instance groups {#ig-control}
 
 * [{#T}](instance-groups/update.md)
+* [{#T}](instance-groups/update-from-yaml.md)
 * [{#T}](instance-groups/enable-autohealing.md)
 * [{#T}](instance-groups/deploy/rolling-update.md)
 * [{#T}](instance-groups/deploy/zero-downtime.md)

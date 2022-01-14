@@ -82,7 +82,7 @@
 
     Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
-{% endtabs %}
+{% endlist %}
 
 ## Изменить схему формата данных {#update-format-schema}
 
@@ -148,7 +148,7 @@
 
         Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
-   {% endtabs %}
+   {% endlist %}
 
 ## Отключить схему формата данных {#disable-format-schema}
 
@@ -200,7 +200,7 @@
 
     Подробнее см. в [документации провайдера {{ TF }}](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_clickhouse_cluster).
 
-{% endtabs %}
+{% endlist %}
 
 ## Получить список схем формата данных в кластере {#list-format-schemas}
 
@@ -225,7 +225,7 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-{% endtabs %}
+{% endlist %}
 
 ## Получить детальную информацию о схеме формата данных {get-format-schema}
 
@@ -246,4 +246,4 @@
 
   Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-{% endtabs %}
+{% endlist %}

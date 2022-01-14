@@ -58,3 +58,5 @@ If successful, HTTP code 200 and data in JSON format are returned.
 | `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
 | `ProvisionedThroughputExceededException` | Insufficient throughput to execute the request. | 400 |
 | `ResourceNotFoundException` | The requested resource was not found. | 400 |
+
+[Errors](../common-errors.md) that are common to all methods may occur.

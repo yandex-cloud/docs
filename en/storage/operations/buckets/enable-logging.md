@@ -95,3 +95,5 @@ To disable logging, follow these steps:
   ```xml
   <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" />
   ```
+
+{% endlist %}

@@ -7,7 +7,7 @@ sourcePath: overlay/quickstart/document-api/aws-cli/query.md
 
 {% list tabs %}
 
-* AWS CLI
+- AWS CLI
 
     Выполните команду, заменив `https://your-database-endpoint` эндпоинтом вашей БД:
 
@@ -51,3 +51,5 @@ sourcePath: overlay/quickstart/document-api/aws-cli/query.md
         "ConsumedCapacity": null
     }
     ```
+
+{% endlist %}

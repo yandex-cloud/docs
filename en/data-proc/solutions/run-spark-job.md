@@ -194,7 +194,7 @@ Spark Submit lets you run pre-written applications using the `spark-submit` scri
       hdfs dfs -ls /tmp/month_stat
       ```
 
-{% endlist%}
+{% endlist %}
 
 ## Terminating the application {#yarn-kill}
 
@@ -388,7 +388,7 @@ Below are two CLI command templates for running Spark jobs: with results output 
     main_class: com.yandex.cloud.dataproc.scala.Main
   ```
 
-{% endlist%}
+{% endlist %}
 
 ### Running PySpark Job {#cli-python}
 

@@ -97,5 +97,5 @@ For example, if the `my-bucket` {{ objstorage-name }} bucket with restricted acc
      └───┘
      ```
 
-{% endtabs %}
+{% endlist %}
 
