@@ -9,4 +9,5 @@
 - [Web analytics with funnels and cohorts calculated based on Yandex.Metrica data](data-from-metrica-yc-visualization.md)
 - [Mobile app analytics based on AppMetrica data](data-from-appmetrica-visualization.md)
 - [Analyzing Yandex Music podcast statistics (for podcasters)](data-from-podcasts.md)
+- [Visualizing data with a SQL chart](data-from-ch-to-sql-chart.md)
 - [Customer journey analytics based on AppMetrica data](data-from-appmetrica-yc-visualization.md)

@@ -25,6 +25,8 @@ items:
         href: solutions/data-from-appmetrica-visualization.md
       - name: Analyzing Yandex Music podcast statistics (for podcast authors)
         href: solutions/data-from-podcasts.md
+      - name: Visualizing data with a SQL chart
+        href: solutions/data-from-ch-to-sql-chart.md
       - name: Building customer journey charts based on AppMetrica data
         href: solutions/data-from-appmetrica-yc-visualization.md
   - name: Concepts
