@@ -69,7 +69,7 @@ service_account_id: ajefnb8427bhl9t0pvf8
 * в описании метода [create](../../api-ref/InstanceGroup/create) ресурса `InstanceGroup` REST API (формат [JSON]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/JSON){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/JSON){% endif %});
 * в описании вызова [InstanceGroupService/Create](../../api-ref/grpc/instance_group_service.md#Create) gRPC API.
 
-Справочники API генерируются из спецификаций, разиещенных на GitHub.
+Справочники API генерируются из спецификаций, размещенных на GitHub.
 
 Некоторые поля первого уровня и вложенные в них поля также описаны {% if lang == "ru" %} на русском языке {% endif %} в разделах документации:
 

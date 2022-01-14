@@ -166,7 +166,9 @@ items:
           - name: Creating an automatically scaled instance group
             href: operations/instance-groups/create-autoscaled-group.md
           - name: Creating an instance group from a Container Optimized Image
-            href: operations/instance-groups/create-with-coi
+            href: operations/instance-groups/create-with-coi.md
+          - name: Creating an instance group based on the YAML specification
+            href: operations/instance-groups/create-from-yaml.md
       - name: Getting information about instance groups
         items:
           - name: Getting a list of instance groups
@@ -179,6 +181,8 @@ items:
         items:
           - name: Editing an instance group
             href: operations/instance-groups/update.md
+          - name: Editing an instance group based on the YAML specification
+            href: operations/instance-groups/update-from-yaml.md
           - name: Configuring application health check on the VM
             href: operations/instance-groups/enable-autohealing.md
           - name: Updating a instance group
@@ -267,6 +271,8 @@ items:
             href: concepts/instance-groups/index.md
           - name: Access
             href: concepts/instance-groups/access.md
+          - name: YAML specification
+            href: concepts/instance-groups/specification.md
           - name: Instance template
             href: concepts/instance-groups/instance-template.md
           - name: Variables in an instance template
