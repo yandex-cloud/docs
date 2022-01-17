@@ -1,12 +1,12 @@
-title: Yandex Container Optimized Solutions
+title: Yandex Container Solution
 description:
   - >-
-    Yandex Container Optimized Solutions are use cases based on VMs with a
-    Container Optimized Image for running Docker containers. The Container
-    Optimized Image is also available on the <a
-    href="https://cloud.yandex.com/marketplace/products/f2ea2mtumfqb17k9eso7">marketplace</a>.
+    Yandex Container Solution provides use cases based on
+    VMs with a Container Optimized Image for running
+    Docker containers. The Container Optimized Image is also available in the <a
+    href="https://cloud.yandex.com/marketplace/products/f2ea2mtumfqb17k9eso7">Cloud Marketplace</a>.
 meta:
-  title: Yandex Container Optimized Solutions
+  title: Yandex Container Solution
 links:
   - title: Getting started
     description: Create your first VM from a Container Optimized Image
@@ -14,8 +14,8 @@ links:
   - title: Concepts
     description: Learn more about the Container Optimized Image
     href: concepts/
-  - title: Solutions
-    description: Container Optimized Image solutions
+  - title: Use cases
+    description: Container Optimized Image use cases
     href: solutions/
   - title: Quotas and limits
     description: Technical and organizational limitations
@@ -23,3 +23,6 @@ links:
   - title: Pricing policy
     description: Pricing and cost calculations
     href: pricing
+  - title: Troubleshooting
+    description: Common errors and how to fix them
+    href: error/

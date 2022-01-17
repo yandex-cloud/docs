@@ -1,4 +1,4 @@
-title: Yandex Container Optimized Solutions
+title: Yandex Container Solution
 href: index.yaml
 items:
   - name: Getting started
@@ -10,12 +10,12 @@ items:
       - name: Creating a VM from a Container Optimized Image
         href: solutions/vm-create.md
       - name: >-
-          Creating a VM from a Container Optimized Image and an additional
-          volume for a Docker container
+          Creating a VM from a Container Optimized Image and an additional volume for a
+          Docker container
         href: solutions/vm-create-with-second-disk.md
       - name: >-
-          Creating a VM from a Container Optimized Image with multiple Docker
-          containers
+          Creating a VM from a Container Optimized Image with multiple
+          Docker containers
         href: solutions/docker-compose.md
       - name: Creating an instance group from a Container Optimized Image
         href: solutions/ig-create.md
@@ -25,9 +25,7 @@ items:
         href: solutions/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: solutions/serial-port.md
-      - name: >-
-          Creating a VM and an instance group from a Container Optimized Image
-          using Terraform
+      - name: Creating a VM and an instance group from a Container Optimized Image using Terraform
         href: solutions/coi-with-terraform.md
   - name: Concepts
     items:
@@ -35,9 +33,11 @@ items:
         href: concepts/index.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: COI Releases
+  - name: COI releases
     href: release-notes.md
   - name: Pricing policy
     href: pricing.md
   - name: Questions and answers
     href: qa/index.md
+  - name: Troubleshooting
+    href: error/index.md
