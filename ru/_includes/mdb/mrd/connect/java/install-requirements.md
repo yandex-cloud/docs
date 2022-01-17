@@ -35,7 +35,7 @@
         <dependency>
           <groupId>redis.clients</groupId>
           <artifactId>jedis</artifactId>
-          <version>3.3.0</version>
+          <version>3.7.0</version>
         </dependency>
         <dependency>
           <groupId>org.slf4j</groupId>
@@ -98,3 +98,18 @@
 
     * [jedis](https://mvnrepository.com/artifact/redis.clients/jedis)
     * [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
+
+1. Для подключения с SSL:
+
+    1. [Получите SSL-сертификат](../../../../../managed-redis/operations/connect/index.md#get-ssl-cert).
+    1. Создайте защищенное хранилище сертификатов:
+
+        ```bash
+        keytool \
+            -importcert \
+            -alias YARootCrt \
+            -file ~/.redis/YandexInternalRootCA.crt \
+            -keystore ~/.redis/YATrustStore \
+            -storepass <пароль защищенного хранилища> \
+            --noprompt && chmod 0655 ~/.redis/YATrustStore
+        ```

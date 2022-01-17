@@ -1,6 +1,6 @@
 # Auto Unseal in Hashicorp Vault
 
-[Vault](https://www.vaultproject.io/) lets you use {{ kms-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) feature.
+A build of [Hashicorp Vault](https://www.vaultproject.io/) with {{ kms-name }} support can be found in [{{ marketplace-name }}](https://cloud.yandex.com/en/marketplace/products/yc/vault-yckms). The build will enable you to use {{ kms-name }} as a trusted service for encrypting secrets. This is implemented through the [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal) feature.
 
 ## Before you start { #before-you-begin }
 
@@ -24,7 +24,7 @@
 
     - Yandex account
 
-        Authentication is done using an [OAuth token](../../iam/concepts/authorization/oauth-token.md).
+        An [OAuth token](../../iam/concepts/authorization/oauth-token.md) is used for authentication.
 
     {% endlist %}
 
