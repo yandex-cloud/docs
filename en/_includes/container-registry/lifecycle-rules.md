@@ -1,10 +1,8 @@
 Example of the contents of a file with rules, where:
-
 * `description`: Description of the policy rule.
-* `tag_regexp`: Docker image tag for filtering.
+* `tag_regexp`: Docker image tag for filtering. A `test.*` regular expression for `tag_regexp` lets you get all images with tags starting with `test`.
 * `untagged`: Flag indicating that the rule applies to Docker images without tags.
-* `expire_period`: Time after which the lifecycle policy may apply to the Docker image.
-    Parameter format: Number and unit of measurement `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
+* `expire_period`: Time after which the lifecycle policy may apply to the Docker image. Parameter format: Number and unit of measurement `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
 * `retained_top`: Number of Docker images that are not deleted even if they match the rule.
 
 ```json
@@ -25,6 +23,5 @@ Example of the contents of a file with rules, where:
     "untagged": true,
     "expire_period": "48h"
   }
-]    
+]
 ```
-
