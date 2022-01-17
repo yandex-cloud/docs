@@ -241,7 +241,7 @@ yc iam create-token
 
 - Go
 
-  Пример создания JWT с использованием [jwt-go](https://github.com/dgrijalva/jwt-go):
+  Пример создания JWT с использованием [golang-jwt](https://github.com/golang-jwt/jwt):
 
   ```go
   import (
@@ -249,7 +249,7 @@ yc iam create-token
   	"io/ioutil"
   	"time"
 
-  	"github.com/dgrijalva/jwt-go"
+  	"github.com/golang-jwt/jwt/v4"
   )
 
   const (
@@ -260,13 +260,14 @@ yc iam create-token
 
   // Формирование JWT.
   func signedToken() string {
-  	issuedAt := time.Now()
-  	token := jwt.NewWithClaims(ps256WithSaltLengthEqualsHash, jwt.StandardClaims{
-  		Issuer:    serviceAccountID,
-  		IssuedAt:  issuedAt.Unix(),
-  		ExpiresAt: issuedAt.Add(time.Hour).Unix(),
-  		Audience:  "https://iam.api.cloud.yandex.net/iam/v1/tokens",
-  	})
+  	claims := jwt.RegisteredClaims{
+            Issuer:    serviceAccountID,
+            ExpiresAt: jwt.NewNumericDate(time.Now().Add(1 * time.Hour)),
+            IssuedAt:  jwt.NewNumericDate(time.Now()),
+            NotBefore: jwt.NewNumericDate(time.Now()),
+            Audience:  []string{"https://iam.api.cloud.yandex.net/iam/v1/tokens"},
+  	}
+  	token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
   	token.Header["kid"] = keyID
 
   	privateKey := loadPrivateKey()
@@ -275,18 +276,6 @@ yc iam create-token
   		panic(err)
   	}
   	return signed
-  }
-
-  // По умолчанию Go RSA PSS использует PSSSaltLengthAuto,
-  // но на странице https://tools.ietf.org/html/rfc7518#section-3.5 сказано, что
-  // размер значения соли должен совпадать с размером вывода хеш-функции.
-  // После исправления https://github.com/dgrijalva/jwt-go/issues/285
-  // можно будет заменить на jwt.SigningMethodPS256.
-  var ps256WithSaltLengthEqualsHash = &jwt.SigningMethodRSAPSS{
-  	SigningMethodRSA: jwt.SigningMethodPS256.SigningMethodRSA,
-  	Options: &rsa.PSSOptions{
-  		SaltLength: rsa.PSSSaltLengthEqualsHash,
-  	},
   }
 
   func loadPrivateKey() *rsa.PrivateKey {
