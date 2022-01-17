@@ -14,6 +14,8 @@
 | g1.2 | 0 |
 | g1.4 | 0 |
 | g2.1 | 0 |
+| g2.2 | 0 |
+| g2.4 | 0 |
 | g2.8 | 0 |
 
 ^1^ for all projects created after October 15, 2021.

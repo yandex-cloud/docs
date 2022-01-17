@@ -1,4 +1,4 @@
-# Обзор способов подключения к базе данных
+# Подготовка к подключению
 
 Доступные способы подключения зависят от того, включено ли в кластере [шардирование](../../concepts/sharding.md):
 
@@ -6,6 +6,7 @@
 * [Подключение к шардированному кластеру](./sharded.md).
 
 ## Доступ к хостам кластера {#connect}
+
 
 Хостам кластера {{ mrd-name }} нельзя назначать публичные IP-адреса. Доступ к кластеру возможен только из той же [облачной сети](../../../vpc/concepts/network.md), в которой размещены его хосты.
 
@@ -66,9 +67,9 @@
 
 
 ```bash
-sudo mkdir ~/.redis && \
-sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt && \
-sudo chmod 655 ~/.redis/YandexInternalRootCA.crt
+mkdir ~/.redis && \
+    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.redis/YandexInternalRootCA.crt && \
+    chmod 0655 ~/.redis/YandexInternalRootCA.crt
 ```
 
 Для использования графических IDE [скачайте сертификат](https://{{ s3-storage-host }}{{ pem-path }}) и укажите путь к нему в настройках подключения.

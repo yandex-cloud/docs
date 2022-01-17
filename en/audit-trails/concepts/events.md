@@ -24,19 +24,19 @@ Below are events for services:
 
 ## {{ at-name }} {#audit-trails}
 
-Service Name: `audittrails`.
+Service name: `audittrails`.
 
 | Event name | Description |
 | --- | --- |
 | `CreateTrail` | Creating a trail |
 | `DeleteTrail` | Deleting a trail |
 | `SetTrailAccessBindings` | Setting access bindings for a trail |
-| `UpdateTrail` | Editing the trail |
+| `UpdateTrail` | Editing a trail |
 | `UpdateTrailAccessBindings` | Updating access bindings for a trail |
 
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
-Service Name: `logging`.
+Service name: `logging`.
 
 | Event name | Description |
 | --- | --- |
@@ -52,20 +52,20 @@ Service name: `compute`.
 
 | Event name | Description |
 | --- | --- |
-| `AddInstanceOneToOneNat` | Adding a public IP address to a VM |
-| `AttachInstanceDisk` | Connecting a disk to a VM |
+| `AddInstanceOneToOneNat` | Adding a public IP address for a VM instance |
+| `AttachInstanceDisk` | Attaching a disk to a VM instance |
 | `AttachInstanceFilesystem` | Connecting a file system to a VM |
 | `CreateDisk` | Creating a disk |
 | `CreateFilesystem` | Creating a file system |
 | `CreateImage` | Creating a disk image |
-| `CreateInstance` | Creating a VM |
+| `CreateInstance` | Creating a VM instance |
 | `CreateSnapshot` | Creating a disk snapshot |
 | `DeleteDisk` | Deleting a disk |
 | `DeleteFilesystem` | Deleting a file system |
 | `DeleteImage` | Deleting a disk image |
 | `DeleteInstance` | Delete VM |
 | `DeleteSnapshot` | Deleting a disk snapshot |
-| `DetachInstanceDisk` | Detaching a disk from a VM |
+| `DetachInstanceDisk` | Detaching a disk from a VM instance |
 | `DetachInstanceFilesystem` | Detaching a file system from a VM |
 | `RemoveInstanceOneToOneNat` | Removing a VM's public IP address |
 | `RestartInstance` | Restarting a VM |
@@ -73,18 +73,18 @@ Service name: `compute`.
 | `StopInstance` | Stopping a VM |
 | `UpdateDisk` | Changing a disk |
 | `UpdateFilesystem` | Modifying a file system |
-| `UpdateImage` | Changing a disk image |
-| `UpdateInstance` | Changing a VM |
-| `UpdateInstanceMetadata` | Changing VM metadata |
-| `UpdateInstanceNetworkInterface` | Changing a VM's network settings |
-| `UpdateSnapshot` | Changing a disk snapshot |
+| `UpdateImage` | Updating a disk image |
+| `UpdateInstance` | Updating a VM instance |
+| `UpdateInstanceMetadata` | Updating VM instance metadata |
+| `UpdateInstanceNetworkInterface` | Updating VM network settings |
+| `UpdateSnapshot` | Updating a disk snapshot |
 | `instancegroup.CreateInstanceGroup` | Creating an instance group |
 | `instancegroup.DeleteInstanceGroup` | Deleting an instance group. |
 | `instancegroup.PauseInstanceGroup` | Pausing instance group management processes |
-| `instancegroup.ResumeInstanceGroup` | Resuming instance group's management processes |
+| `instancegroup.ResumeInstanceGroup` | Resuming instance group management processes |
 | `instancegroup.StartInstanceGroup` | Starting an instance group |
 | `instancegroup.StopInstanceGroup` | Stopping an instance group |
-| `instancegroup.UpdateInstanceGroup` | Changing an instance group |
+| `instancegroup.UpdateInstanceGroup` | Updating an instance group |
 | `instancegroup.UpdateInstanceGroupAccessBindings` | Assigning a role to an instance group |
 
 ## {{ iam-name }} {#iam}
@@ -122,7 +122,7 @@ Service name: `kms`.
 | Event name | Description |
 | --- | --- |
 | `CancelDeleteSymmetricKey` | Canceling a previously scheduled key destruction |
-| `CancelSymmetricKeyVersionDestruction` | Canceling a previously planned destruction of the symmetric key version |
+| `CancelSymmetricKeyVersionDestruction` | Canceling a previously planned destruction of a symmetric key version |
 | `CreateSymmetricKey` | Creating a symmetric key |
 | `DeleteSymmetricKey` | Deleting a symmetric key |
 | `RotateSymmetricKey` | Rotating a symmetric key |
@@ -139,14 +139,14 @@ Service Name: `lockbox`.
 | Event name | Description |
 | --- | --- |
 | `AddVersion` | Adding a version of a secret |
-| `ActivateSecret` | Activating the secret |
+| `ActivateSecret` | Activating a secret |
 | `CancelVersionDestruction` | Canceling a previously scheduled destruction of a secret version |
 | `CreateSecret` | Creating a secret |
-| `DeactivateSecret` | Deactivate secret |
+| `DeactivateSecret` | Deactivating a secret |
 | `DeleteSecret` | Destroying a secret |
-| `ScheduleVersionDestruction` | Scheduling destruction of the secret version |
+| `ScheduleVersionDestruction` | Scheduling the destruction of a secret version |
 | `SetSecretAccessBindings` | Selecting access bindings for a secret |
-| `UpdateSecret` | Editing a secret |
+| `UpdateSecret` | Updating a secret |
 | `UpdateSecretAccessBindings` | Updating access bindings for a secret |
 
 ## {{ network-load-balancer-name }} {#network-load-balancer}
@@ -176,18 +176,21 @@ Service name: `storage`.
 
 | Event name | Description |
 | --- | --- |
-| `BucketAclUpdate` | Changing a bucket's ACL |
-| `BucketCorsUpdate` | Changing the configuration of a CORS bucket |
+| `BucketAclUpdate` | Updating the ACL for a bucket |
+| `BucketCorsUpdate` | Updating the CORS configuration for a bucket |
 | `BucketCreate` | Creating a bucket |
 | `BucketDelete` | Deleting a bucket |
-| `BucketHttpsUpdate` | Changing an HTTPS configuration for a bucket |
+| `BucketHttpsUpdate` | Updating the HTTPS configuration for a bucket |
 | `BucketLifecycleUpdate` | Changing the lifecycle of an object in a bucket |
-| `BucketPolicyUpdate` | Changing bucket access policies |
+| `BucketPolicyUpdate` | Updating the access policies for a bucket |
 | `BucketUpdate` | Updating a bucket |
-| `BucketWebsiteUpdate` | Changing a website configuration |
-| `ObjectCreate` | Creating an object in a bucket |
-| `ObjectDelete` | Deleting an object in a bucket |
-| `ObjectUpdate` | Updating an object in a bucket |
+| `BucketWebsiteUpdate` | Updating a website configuration |
+| `ObjectCreate` | Creating an object in a bucket * |
+| `ObjectDelete` | Deleting an object from a bucket * |
+| `ObjectUpdate` | Updating an object in a bucket * |
+
+\* The audit log does not include the above events by default. To add these events to the audit log, contact [technical support]({{ link-console-support }}). Message template:
+"Please enable the recording of data plane object storage events in audit trail <trail id>."
 
 ## {{ resmgr-name }} {#resmgr}
 
@@ -220,20 +223,20 @@ Service name: `network`.
 | `DeleteRouteTable` | Deleting a routing table |
 | `DeleteSecurityGroup` | Deleting a security group |
 | `DeleteSubnet` | Deleting a cloud subnet |
-| `MoveAddress` | Moving an address of cloud resources to another folder |
-| `MoveNetwork` | Moving a cloud network to a different folder |
-| `MoveRouteTable` | Moving a routing table to a different folder |
-| `MoveSecurityGroup` | Moving a security group to a different folder |
-| `MoveSubnet` | Moving a cloud subnet to a different folder |
-| `UpdateAddress` | Changing a cloud resource address |
-| `UpdateNetwork` | Changing a cloud network |
-| `UpdateRouteTable` | Changing a routing table |
-| `UpdateSecurityGroup` | Changing a security group |
-| `UpdateSubnet` | Changing a cloud subnet |
+| `MoveAddress` | Moving the address of cloud resources to another folder |
+| `MoveNetwork` | Moving a cloud network to another folder |
+| `MoveRouteTable` | Moving a routing table to another folder |
+| `MoveSecurityGroup` | Moving a security group to another folder |
+| `MoveSubnet` | Moving a cloud subnet to another folder |
+| `UpdateAddress` | Updating the address of a cloud resource |
+| `UpdateNetwork` | Updating a cloud network |
+| `UpdateRouteTable` | Updating a routing table |
+| `UpdateSecurityGroup` | Updating a security group |
+| `UpdateSubnet` | Updating a cloud subnet |
 
-## {{ ydb-short-name }} {#YDB}
+## {{ ydb-short-name }} {#ydb}
 
-Service Name: `ydb`.
+Service name: `ydb`.
 
 | Event name | Description |
 | --- | --- |
@@ -244,4 +247,4 @@ Service Name: `ydb`.
 | `RestoreBackup` | Restoring a database from a backup |
 | `StartDatabase` | Starting a database |
 | `StopDatabase` | Stopping a database |
-| `UpdateDatabase` | Edit database |
+| `UpdateDatabase` | Updating a database |

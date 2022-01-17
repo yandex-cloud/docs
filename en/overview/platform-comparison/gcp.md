@@ -33,6 +33,7 @@
 | Identity and Access Management, Cloud Identity | [{{ iam-full-name }}](../../iam/) |
 | Kubernetes Engine | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |
 | Managed Instance Groups | [Yandex Instance Groups](../../compute/concepts/instance-groups/) |
+| Pub/Sub | [{{ yds-full-name }}](../../data-streams/) |
 | Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | SQL Server on Google Cloud | [{{ mms-full-name }}](../../managed-sqlserver/) |
 | Translation API | [{{ translate-full-name }}](../../translate/) |

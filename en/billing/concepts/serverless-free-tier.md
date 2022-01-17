@@ -12,6 +12,7 @@ Free tier applies to the following services:
 * [{{ message-queue-full-name }}](#message-queue)
 * [{{ iot-full-name }}](#iot)
 * [{{ vpc-full-name }}](#vpc)
+* [{{ yds-full-name }}](#yds)
 
 ## {{ api-gw-full-name }} {#api-gw}
 
@@ -76,3 +77,16 @@ The first 10 GB of outgoing traffic are provided free of charge every month.
 After you spend the free amount of services, you will be charged at the applicable [rate](../../vpc/pricing.md).
 
 The unused balance of free services is reset at the end of the month.
+
+## {{ yds-full-name }} {#yds}
+
+Data stream services with the following properties are provided free of charge each month:
+
+* Segment write speed: no more than 128 KB/s.
+* Message retention period: 1 hour.
+* Number of data units written per month: no more than 2 million.
+
+After you spend the free amount of services, you will be charged at the applicable [rate](../../data-streams/pricing.md).
+
+The unused balance of free services is reset at the end of the month.
+

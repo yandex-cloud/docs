@@ -1,3 +1,3 @@
-Storage type| Storage duration | Price per 1 GB, without VAT
---- | --- | ---
-Dataset | 1 hour | $0.000133
+Storage type| Price for 1 GB per month, without VAT
+--- | --- 
+Dataset | $0.095437

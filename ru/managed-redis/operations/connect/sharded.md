@@ -6,8 +6,6 @@
 
 {% include [How to use TLS](../../../_includes/mdb/mrd/connect/how-to-use-tls.md) %}
 
-
-
 ## Подключение из графических IDE {#connection-ide}
 
 {% include [IDE environment settings](../../../_includes/mdb/mrd/ide-envs.md) %}

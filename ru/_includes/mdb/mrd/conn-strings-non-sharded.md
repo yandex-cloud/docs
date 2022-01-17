@@ -1,6 +1,6 @@
 ### Bash {#bash}
 
-{% include [Установка зависимостей](./connect/bash/install-requirements.md) %}
+{% include [Install requirements](./connect/bash/install-requirements.md) %}
 
 {% list tabs %}
 
@@ -51,7 +51,7 @@
 
 ### Go {#go}
 
-{% include [Установка зависимостей](./connect/go/install-requirements.md) %}
+{% include [Install requirements](./connect/go/install-requirements.md) %}
 
 {% list tabs %}
 
@@ -147,7 +147,7 @@
     )
 
     const (
-    	cert = "~/.redis/YandexInternalRootCA.crt"
+    	cert = "/home/<домашняя директория>/.redis/YandexInternalRootCA.crt"
     )
 
     func main() {
@@ -272,20 +272,32 @@
     ```java
     package com.example;
 
+    import redis.clients.jedis.DefaultJedisClientConfig;
+    import redis.clients.jedis.HostAndPort;
     import redis.clients.jedis.Jedis;
+
+    import javax.net.ssl.SSLParameters;
 
     public class App {
       public static void main(String[] args) {
-        String redisHost = "c-<идентификатор кластера>.rw.{{ dns-zone }}:{{ port-mrd-tls }}";
-        String redisPass = "<пароль>";
+        String redisHost = "c-<идентификатор кластера>.rw.{{ dns-zone }}";
+        String redisPass = "<пароль кластера>";
+
+        System.setProperty("javax.net.ssl.trustStore", "/home/<домашняя директория>/.redis/YATrustStore");
+        System.setProperty("javax.net.ssl.trustStorePassword", "<пароль защищенного хранилища сертификатов>");
+
+        SSLParameters sslParameters = new SSLParameters();
+        DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().
+                password(redisPass).
+                ssl(true).
+                sslParameters(sslParameters).
+                build();
 
         try {
-          Jedis conn = new Jedis("rediss://" + redisHost);
+          Jedis conn = new Jedis(new HostAndPort(redisHost, {{ port-mrd-tls }}), jedisClientConfig);
 
-          conn.auth(redisPass);
           conn.set("foo", "bar");
           System.out.println(conn.get("foo"));
-
           conn.close();
         } catch (Exception ex) {
           ex.printStackTrace();
@@ -348,10 +360,11 @@
 
     ```js
     "use strict";
+
     const Redis = require("ioredis");
 
     const conn = new Redis({
-        host: "<c-<идентификатор кластера>.rw.{{ dns-zone }}>",
+        host: "c-<идентификатор кластера>.rw.{{ dns-zone }}",
         port: {{ port-mrd }},
         password: "<пароль>"
     });
@@ -385,11 +398,11 @@
     const Redis = require("ioredis");
 
     const conn = new Redis({
-        host: "<c-<идентификатор кластера>.rw.{{ dns-zone }}>",
+        host: "c-<идентификатор кластера>.rw.{{ dns-zone }}",
         port: {{ port-mrd-tls }},
         password: "<пароль>",
         tls: {
-            ca: fs.readFileSync("~/.redis/YandexInternalRootCA.crt"),
+            ca: fs.readFileSync("/home/<домашняя директория>/.redis/YandexInternalRootCA.crt"),
         }
     });
 
@@ -493,7 +506,7 @@
         "parameters" => [
             "scheme" => "tls",
             "ssl" => [
-                "cafile" => "~/.redis/YandexInternalRootCA.crt",
+                "cafile" => "/home/<домашняя директория>/.redis/YandexInternalRootCA.crt",
                 "verify_peer" => true,
                 "verify_peer_name" => false,
             ],
@@ -516,7 +529,12 @@
 
 ### Python {#python}
 
-{% include [Установка зависимостей](./connect/python/install-requirements.md) %}
+**Перед подключением установите зависимости:**
+
+```bash
+sudo apt update && sudo apt install -y python3 python3-pip && \
+    pip3 install redis
+```
 
 {% list tabs %}
 
@@ -574,7 +592,7 @@
         port={{ port-mrd-tls }},
         password="<пароль>",
         ssl=True,
-        ssl_ca_certs="~/.redis/YandexInternalRootCA.crt",
+        ssl_ca_certs="/home/<домашняя директория>/.redis/YandexInternalRootCA.crt",
     )
 
     r.set("foo", "bar")
@@ -598,23 +616,27 @@
     `connect.rb`
 
     ```ruby
-    require "redis"
+    # coding: utf-8
 
-    SENTINELS = [{ host: "<FQDN хоста 1 {{ RD }}>", port: {{ port-mrd-sentinel }} },
-                 ...
-                 { host: "<FQDN хоста N {{ RD }}>", port: {{ port-mrd-sentinel }} }]
+    require 'redis'
+
+    SENTINELS = [
+      { host: '<FQDN хоста 1 {{ RD }}>', port: {{ port-mrd-sentinel }} },
+      ...
+      { host: '<FQDN хоста N {{ RD }}>', port: {{ port-mrd-sentinel }} }
+    ]
 
     conn = Redis.new(
-      host: "<имя кластера {{ RD }}>",
+      host: '<имя кластера {{ RD }}>',
       sentinels: SENTINELS,
-      role: "master",
-      password: "<пароль>",
+      role: 'master',
+      password: '<пароль>'
     )
 
-    conn.set("foo", "bar")
-    puts conn.get("foo")
+    conn.set('foo', 'bar')
+    puts conn.get('foo')
 
-    conn.close()
+    conn.close
     ```
 
     **Пример кода для подключения без использования SSL-соединения напрямую к мастеру:**
@@ -622,18 +644,20 @@
     `connect.rb`
 
     ```ruby
-    require "redis"
+    # coding: utf-8
+
+    require 'redis'
 
     conn = Redis.new(
-      host: "c-<идентификатор кластера>.rw.{{ dns-zone }}",
+      host: 'c-<идентификатор кластера>.rw.{{ dns-zone }}',
       port: {{ port-mrd }},
-      password: "<пароль>",
+      password: '<пароль>'
     )
 
-    conn.set("foo", "bar")
-    puts conn.get("foo")
+    conn.set('foo', 'bar')
+    puts conn.get('foo')
 
-    conn.close()
+    conn.close
     ```
 
 * Подключение с SSL
@@ -641,20 +665,22 @@
     `connect.rb`
 
     ```ruby
-    require "redis"
+    # coding: utf-8
+
+    require 'redis'
 
     conn = Redis.new(
-      host: "c-<идентификатор кластера>.rw.{{ dns-zone }}",
+      host: 'c-<идентификатор кластера>.rw.{{ dns-zone }}',
       port: {{ port-mrd-tls }},
-      password: "<пароль>",
+      password: '<пароль>',
       ssl: true,
-      ssl_params: { ca_file: "~/.redis/YandexInternalRootCA.crt" },
+      ssl_params: { ca_file: '/home/<домашняя директория>/.redis/YandexInternalRootCA.crt' },
     )
 
-    conn.set("foo", "bar")
-    puts conn.get("foo")
+    conn.set('foo', 'bar')
+    puts conn.get('foo')
 
-    conn.close()
+    conn.close
     ```
 
 {% endlist %}
