@@ -47,8 +47,6 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Дисковое пространство в Managed Service for MongoDB
-        href: concepts/disk-space.md
       - name: Резервные копии
         href: concepts/backup.md
       - name: Репликация
