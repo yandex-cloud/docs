@@ -1,6 +1,6 @@
 # Auto Unseal в Hashicorp Vault
 
-Сборка [Hashicorp Vault](https://www.vaultproject.io/) с поддержкой {{ kms-name }} размещена в [{{ marketplace-name }}](https://cloud.yandex.ru/marketplace/products/f2eokige6vtlf94uvgs2). Сборка  позволяет использовать {{ kms-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
+Сборка [Hashicorp Vault](https://www.vaultproject.io/) с поддержкой {{ kms-name }} размещена в [{{ marketplace-name }}]{% if lang=="ru" %}(https://cloud.yandex.ru/marketplace/products/f2eokige6vtlf94uvgs2){% endif %}{% if lang=="en" %}(https://cloud.yandex.com/en/marketplace/products/yc/vault-yckms){% endif %}. Сборка  позволяет использовать {{ kms-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
 
 ## Перед началом работы { #before-you-begin }
 
