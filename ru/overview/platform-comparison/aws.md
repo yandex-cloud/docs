@@ -36,5 +36,5 @@
 | AWS Shield | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Elastic Load Balancing: Network Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | Polly, Transcribe | [{{ speechkit-full-name }}](../../speechkit/) |
-| Rekognition | [{{ vision-full-name }}](../../vision/) |
+| Recognition | [{{ vision-full-name }}](../../vision/) |
 | Translate | [{{ translate-full-name }}](../../translate/) |
