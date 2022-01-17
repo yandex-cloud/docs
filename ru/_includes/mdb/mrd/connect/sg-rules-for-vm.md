@@ -1,4 +1,4 @@
-{{% if audience != "internal" %}}
+{% if audience != "internal" %}
 
 [Настройте группу безопасности](../../../../vpc/operations/security-group-update.md#add-rule), в которой находится ВМ так, чтобы можно было подключаться к ВМ и был разрешен трафик между ВМ и хостами кластера.
 

@@ -16,7 +16,7 @@ items:
         href: operations/update.md
       - name: Подключение к базе данных
         items:
-          - name: Обзор способов подключения к базе данных
+          - name: Подготовка к подключению
             href: operations/connect/index.md
           - name: Подключение к нешардированному кластеру
             href: operations/connect/non-sharded.md
