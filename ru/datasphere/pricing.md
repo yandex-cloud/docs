@@ -31,7 +31,10 @@ c1.80 | 80
 g1.1 | 72 
 g1.2 | 144
 g1.4 | 288 
+g2.mig | 18
 g2.1 | 116
+g2.2 | 232
+g2.4 | 464
 g2.8 | 928
 
 
@@ -83,6 +86,10 @@ g2.8 | 928
 
 Если вам требуется хранить большие объемы данных, вы можете использовать сервис {{ objstorage-full-name }}. В этом случае хранение данных будет тарифицироваться по [правилам тарификации {{ objstorage-name }}](../storage/pricing.md).
 
+{% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
+Цены за месяц использования формируются из расчета 720 часов в месяц.
+
 ## Цены {#prices}
 
 {% if region == "ru"%}
@@ -129,12 +136,6 @@ g2.8 | 928
 
 #### Хранение данных проекта {#project-data}
 
-{% note warning %}
-
-С 15 декабря 2021 года за все проекты объемом больше {{ ml-project-size }} будет взиматься плата. Чтобы изменить объем хранилища проекта, обратитесь в [техническую поддержку](https://console.cloud.yandex.ru/support). Уменьшение возможно до фактически занятого объема, округленного до целых ГБ.
-
-{% endnote %}
-
 {% if region == "ru"%}
 
 {% include [rub-storage.md](../_pricing/datasphere/rub-storage.md) %}
@@ -172,7 +173,6 @@ g2.8 | 928
 {% include [usd-data-storage.md](../_pricing/datasphere/usd-dataset.md) %}
 
 {% endif %}
-
 
 ### Исходящий трафик {#prices-traffic}
 

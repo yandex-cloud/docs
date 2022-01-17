@@ -30,7 +30,10 @@ c1.80 | 80
 g1.1 | 72
 g1.2 | 144
 g1.4 | 288
+g2.mig | 18
 g2.1 | 116
+g2.2 | 232
+g2.4 | 464
 g2.8 | 928
 
 {% if region == "int"%}
@@ -76,6 +79,10 @@ From December 15, 2021, a fee will be charged for all projects with a volume of 
 
 If you need to store large amounts of data that exceed the specified limits, use the {{ objstorage-full-name }} service. In this case, data storage will be charged according to [pricing rules {{ objstorage-name }}](../storage/pricing.md).
 
+{% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
+The monthly usage rate is based on 720 hours a month.
+
 ## Pricing {#prices}
 
 {% if region == "ru"%}
@@ -119,12 +126,6 @@ If you need to store large amounts of data that exceed the specified limits, use
 ### {{ ml-platform-name }} data storing {#prices-storage}
 
 #### Project data {#project-data}
-
-{% note warning %}
-
-From December 15, 2021, a fee will be charged for all projects with a volume of more than {{ ml-project-size }}. To change the project storage, contact [technical support](https://console.cloud.yandex.com/support). The reduction is possible to the actual occupied volume, rounded up to GB.
-
-{% endnote %}
 
 {% if region == "ru"%}
 
