@@ -121,6 +121,8 @@ items:
       when: audience == "external"
     - name: Удалить тег из очереди
       href: concepts/queues/delete-tag.md
+    - name: Создать триггер
+      href: concepts/queues/create-trigger.md      
 - name: Доски задач
   items:
     - name: Получить параметры всех досок
