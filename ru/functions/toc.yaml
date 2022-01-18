@@ -167,6 +167,8 @@ items:
         href: lang/nodejs/errors.md
       - name: Использование SDK
         href: lang/nodejs/sdk.md
+      - name: Использование ES-модулей
+        href: lang/nodejs/esm.md        
   - name: Разработка на Python
     items:
       - name: Обзор
