@@ -45,30 +45,20 @@
    kubectl cluster-info
    ```
 
-## Создайте пространство имен и секрет для {{ alb-name }} Ingress-контроллера {#create-namespace-and-secret}
+## Создайте пространство имен для {{ alb-name }} Ingress-контроллера {#create-namespace}
 
-1. Создайте [пространство имен](../concepts/index.md#namespace):
+Создайте [пространство имен](../concepts/index.md#namespace):
 
    ```bash
    kubectl create namespace yc-alb-ingress
    ```
-
-1. Создайте секрет:
-
-   ```bash
-   kubectl create secret generic yc-alb-ingress-controller-sa-key \
-     --namespace yc-alb-ingress \
-     --from-file=sa-key.json
-   ```
-
-   Подробнее о секретах см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/configuration/secret/).
 
 ## Установите {{ alb-name }} Ingress-контроллер {#install-alb}
 
 Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с [Ingress-контроллером](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) выполните команды:
 
 ```bash
-export VERSION=v0.0.7
+export VERSION=v0.0.8
 export HELM_EXPERIMENTAL_OCI=1
 helm pull \
   --version ${VERSION} \
@@ -77,6 +67,7 @@ helm install \
   --namespace yc-alb-ingress \
   --set folderId=<идентификатор каталога> \
   --set clusterId=<идентификатор кластера> \
+  --set-file saKeySecretKey=sa-key.json \
   yc-alb-ingress-controller ./yc-alb-ingress-controller-chart-${VERSION}.tgz
 ```
 
@@ -147,7 +138,7 @@ yc certificate-manager certificate list
                    service:
                      name: alb-demo-2
                      port:
-                       number: 80
+                       name: http
      ```
 
      Где:

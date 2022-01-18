@@ -18,7 +18,7 @@ A partition is a sequence of topic messages that are stored in the order they ar
 
 Using partitions, you can:
 
-- Distribute the message storage and request processing load among multiple [brokers {{ KF }}](brokers.md).
+- Distribute the message storage and request processing load among multiple [{{ KF }} brokers](brokers.md).
 - Provide fault tolerance: a partition can be replicated to a specified number of brokers.
 
 For more information about topics and partitions, see the [documentation for {{ KF }}](https://kafka.apache.org/documentation/#intro_topics).

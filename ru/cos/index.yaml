@@ -20,6 +20,7 @@ links:
     href: solutions/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения
+    href: concepts/limits
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг
     href: pricing

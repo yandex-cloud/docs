@@ -7,7 +7,7 @@
 
 ### Version 2.0.4 {#version2.0.4}
 
-* Added a Container Optimized Image with GPU support.`yc compute image get-latest-from-family coi-base-gpu --folder-id standard-images`
+* Added a Container Optimized Image with GPU support: `yc compute image get-latest-from-family coi-base-gpu --folder-id standard-images`.
 
 ### Version 2.0.3 {#version2.0.3}
 
@@ -46,7 +46,7 @@
 
 ### Version 1.1.2 {#version1.1.2}
 
-* Fixes in automatic launch of Docker containers:
+* Fixes in automatic launch of Docker containers.
 
 ### Version 1.1.1 {#version1.1.1}
 
@@ -59,7 +59,6 @@
 ### Version 1.0.3 {#version1.0.3}
 
 Fixes in automatic launch of Docker containers:
-
 * When a VM is restarted and its metadata is updated, an outdated Docker container is no longer started.
 * Reduced the number of logs in `yc-container-daemon`.
 * Added retries to update a Docker container if the previous update attempt fails.
@@ -67,13 +66,11 @@ Fixes in automatic launch of Docker containers:
 ### Version 1.0.2 {#version1.0.2}
 
 Fix in automatic launch of Docker containers:
-
 * Added a detailed error message when using `docker login` for a domain with Docker Credential Helper configured.
 
 ### Version 1.0.1 {#version1.0.1}
 
 Fix in automatic launch of Docker containers:
-
 * Now Docker containers with `-` in their name are not deleted.
 
 ### Version 1.0 {#version1.0}

@@ -17,6 +17,8 @@ items:
         href: operations/cluster-stop.md
       - name: SQL queries in the management console
         href: operations/web-sql-query.md
+      - name: Updating the PostgreSQL version
+        href: operations/cluster-version-update.md
       - name: Changing cluster and database settings
         href: operations/update.md
       - name: Connecting to DataLens
