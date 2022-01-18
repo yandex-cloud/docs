@@ -33,6 +33,12 @@ items:
         href: operations/cluster-delete.md
       - name: Performance diagnostics
         href: operations/performance-diagnostics.md
+  - name: Use cases
+    items:
+      - name: All use cases
+        href: tutorials/index.md
+      - name: Migrating databases to Managed Service for Microsoft SQL Server
+        href: tutorials/data-migration.md
       - name: Monitoring the state of a cluster and hosts
         href: operations/monitoring.md
   - name: Concepts
@@ -53,6 +59,8 @@ items:
         href: concepts/replication.md
       - name: SQL Server settings
         href: concepts/settings-list.md
+      - name: Access to SQL Server components
+        href: concepts/components.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

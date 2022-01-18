@@ -1,21 +1,48 @@
 # Релизы YC CLI
 
-## Версия 0.86.0 (15.12.21) {#latest-release}
-
-### Изменения в CLI {#cli}
-
-* Добавлена возможность передачи [IAM-токена](../iam/concepts/authorization/iam-token.md) через переменную окружения `YC_IAM_TOKEN`.
+## Версия 0.87.0 (18.01.22) {#latest-release}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
+#### {{ dataproc-name }} {#dataproc}
+
+* Добавлена команда `yc dataproc job cancel <JOB-ID>|<JOB-NAME>`.
+
+  Теперь можно отменить выполнение незавершенного задания.
+
 #### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mes-name }}**
+
+* В информацию о кластере добавлена информация о текущем окне обслуживания и запланированной операции обслуживания.
+* В команду `yc managed-elasticsearch cluster update` добавлены флаги `--maintenance-window-anytime` и `--maintenance-window-weekly` для указания параметров окна обслуживания.
+* Добавлена команда `yc managed-elasticsearch cluster reschedule-maintenance` для управления запланированной задачей по обслуживанию кластера.
+* Добавлена команда `yc managed-elasticsearch cluster backup` для снятия снапшота с кластера.
+* Добавлена команда `yc managed-elasticsearch cluster restore` для восстановления кластера из бэкапа.
+* Добавлена команда `yc managed-elasticsearch cluster list-backups` для просмотра бэкапов данного кластера.
+* Добавлена команда `yc managed-elasticsearch backup list` для просмотра бэкапов всех кластеров в каталоге.
+* Добавлена команда `yc managed-elasticsearch backup get` для просмотра информации о конкретном бэкапе.
+* В команды `yc managed-sqlserver cluster create` и `yc managed-sqlserver cluster restore` добавлен флаг `--host-group-ids`, который задает список хостов для размещение кластера на выделенных серверах.
+* В команду `yc managed-sqlserver cluster restore`  добавлен флаг `--deletion-protection`, который позволяет установить защиту от случайного удаления кластера.
+
+## Предыдущие релизы {#previous-releases}
+
+### Версия 0.86.0 (15.12.21) {#version0.86.0}
+
+#### Изменения в CLI {#cli}
+
+* Добавлена возможность передачи [IAM-токена](../iam/concepts/authorization/iam-token.md) через переменную окружения `YC_IAM_TOKEN`.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### Сервисы управляемых баз данных {#managed-db}
 
 **{{ mkf-name }}**
 
 * В команду `yc managed-kafka cluster update` добавлен параметр `--maintenance-window`, позволяющий задать параметры окна обслуживания.
 * Добавлена команда `yc managed-kafka cluster reschedule-maintenance`, позволяющая изменить время запуска запланированной задачи по обслуживанию кластера.
 
-#### {{ alb-name }} {#alb}
+##### {{ alb-name }} {#alb}
 
 * В команды `yc application-load-balancer target-group {add,update,remove}-targets` для параметра `--target` добавлен ключ `private-ip-address`, который позволяет не указывать идентификаторы подсетей для адресов из приватных диапазонов.
 * Добавлены команды для управления TCP-обработчиками L7-балансировщиков: 
@@ -34,28 +61,26 @@
   * `yc alb load-balancer remove-listener` — `remove-http-listener`, `remove-stream-listener`;
   * `yc alb load-balancer remove-sni` — `remove-http-sni`, `remove-stream-sni`.
 
-#### {{ cdn-name }} {#cdn}
+##### {{ cdn-name }} {#cdn}
 
 * Добавлены команды для управления CDN-ресурсами: 
   
   * `yc cdn resource create`;
   * `yc cdn resource update`.
 
-#### {{ cloud-logging-name }} {#cloud-logging}
+##### {{ cloud-logging-name }} {#cloud-logging}
 
 * В команды `yc logging group {create,update}` добавлен параметр `--data-stream` для поддержки {{ yds-full-name }}.
 
-#### {{ vpc-name }} {#vpc}
+##### {{ vpc-name }} {#vpc}
 
 * Добавлены команды `yc vpc subnet add-range` и `remove-range` для добавления или удаления диапазонов адресов в подсетях.
 
-#### {{ ydb-name }} {#ydb}
+##### {{ ydb-name }} {#ydb}
 
 * В команду `yc ydb database create` добавлен параметр `--labels` — он задает набор меток для базы данных.
 * В команду `yc ydb database update` добавлен параметр `--labels` — он меняет весь набор меток для базы данных.
 * Добавлены команды для управления метками `yc ydb database add-labels` и `yc ydb database remove-labels`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.85.0 (29.11.21) {#version0.85.0}
 

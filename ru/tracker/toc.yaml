@@ -338,8 +338,9 @@ items:
       - name: Подключить репозиторий
         href: manager/add-repository.md
   - name: Правила тарификации
-    href: pricing.md
     items:
+      - name: Тарифы
+        href: pricing.md
       - name: Настроить платежный аккаунт
         href: billing-account.md
       - name: Пополнить счет
@@ -468,6 +469,8 @@ items:
             href: concepts/queues/restore-queue.md
           - name: Удалить тег из очереди
             href: concepts/queues/delete-tag.md
+          - name: Создать триггер
+            href: concepts/queues/create-trigger.md
       - name: Доски задач
         items:
           - name: Получить параметры всех досок

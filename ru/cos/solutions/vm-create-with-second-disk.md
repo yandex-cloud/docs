@@ -48,9 +48,9 @@
      ```bash
      yc compute instance create-with-container \
        --name coi-vm \
-       --zone=ru-central1-a \
+       --zone ru-central1-a \
        --public-ip \
-       --create-boot-disk size=10 \
+       --create-boot-disk size=30 \
        --create-disk name=data-disk,size=10,device-name=coi-data \
        --ssh-key <публичный SSH-ключ для подключения к ВМ> \
        --docker-compose-file docker-compose.yaml
@@ -89,7 +89,7 @@
            ```bash
            df -H
            Filesystem      Size  Used Avail Use% Mounted on
-           overlay          11G  3.1G  7.0G  31% /
+           overlay          32G  4.0G   27G  14% /
            tmpfs            68M     0   68M   0% /dev
            tmpfs           1.1G     0  1.1G   0% /sys/fs/cgroup
            /dev/vdb         11G   24M  9.9G   1% /data
