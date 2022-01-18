@@ -381,8 +381,9 @@ items:
       href: manager/add-repository.md
 - name: Правила тарификации
   when: audience == "external"
-  href: pricing.md
   items:
+    - name: Тарифы
+      href: pricing.md
     - name: Настроить платежный аккаунт
       href: billing-account.md
     - name: Пополнить счет
