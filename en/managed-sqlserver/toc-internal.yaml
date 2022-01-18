@@ -43,6 +43,8 @@ items:
         href: concepts/backup.md
       - name: Supported clients
         href: concepts/supported-clients.md
+      - name: Access to SQL Server components
+        href: concepts/components.md
   - name: Access management
     href: security/index.md
   - name: Resources and quotas
