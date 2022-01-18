@@ -16,9 +16,9 @@ After creating a cluster, you can:
 
 * [Change cluster security groups](#change-sg-set).
 
-{% note warning %}
+{% note info %}
 
-You can't change {{ PG }} server settings using SQL commands.
+For information about how to update the {{ PG }} cluster version, see [{#T}](cluster-version-update.md).
 
 {% endnote %}
 
@@ -48,17 +48,19 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
   1. View a description of the CLI's update cluster command:
 
-      ```
-      $ {{ yc-mdb-pg }} cluster update --help
+      ```bash
+      {{ yc-mdb-pg }} cluster update --help
       ```
 
   1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
      {% if audience != "internal" %}
 
+     ```bash
+     {{ yc-mdb-pg }} resource-preset list
      ```
-     $ {{ yc-mdb-pg }} resource-preset list
-     
+
+     ```text
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
@@ -70,7 +72,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
      {% else %}
 
-     ```
+     ```text
      +------------+---------------+-------+----------+
      |     ID     |   ZONE IDS    | CORES |  MEMORY  |
      +------------+---------------+-------+----------+
@@ -87,9 +89,9 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
   1. Specify the class in the update cluster command:
 
-      ```
-      $ {{ yc-mdb-pg }} cluster update <cluster name>
-           --resource-preset <class ID>
+      ```bash
+      {{ yc-mdb-pg }} cluster update <cluster name or ID> \
+          --resource-preset <host class ID>
       ```
 
       {{ mpg-short-name }} will run the update host class command for the cluster.
@@ -122,7 +124,7 @@ Some {{ PG }} settings [depend on the selected host class](../concepts/settings-
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -160,9 +162,11 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
   1. Make sure the required cluster uses standard or fast network storage (it's not possible to increase the size of local or non-replicated network storage). To do this, request information about the cluster and find the `disk_type_id` field: it should be set to `network-hdd` or `network-ssd`:
 
+      ```bash
+      {{ yc-mdb-pg }} cluster get <cluster ID or name>
       ```
-      $ {{ yc-mdb-pg }} cluster get <cluster name>
-      
+
+      ```text
       id: c7qkvr3u78qiopj3u4k2
       folder_id: b1g0ftj57rrjk9thribv
       ...
@@ -179,16 +183,16 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
   1. View a description of the CLI's update cluster command:
 
-     ```
-     $ {{ yc-mdb-pg }} cluster update --help
+     ```bash
+     {{ yc-mdb-pg }} cluster update --help
      ```
 
   1. Make sure the cloud's quota is sufficient to increase the storage size: open the [Quotas]({{ link-console-quotas }}) page for your cloud and check that the {{ mpg-full-name }} section still has space available in the **space** line.
 
   1. Specify the required amount of storage in the update cluster command (it must be at least as large as `disk_size` in the cluster properties):
 
-      ```
-      $ {{ yc-mdb-pg }} cluster update <cluster name>
+      ```bash
+      {{ yc-mdb-pg }} cluster update <cluster name or ID> \
            --disk-size <storage size in GB>
       ```
 
@@ -222,7 +226,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -236,9 +240,10 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 You can change the DBMS settings of the hosts in your cluster.
 
-{% note info %}
+{% note warning %}
 
-Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
+* You can't change {{ PG }} settings using SQL commands.
+* Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
 
 {% endnote %}
 
@@ -261,20 +266,20 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
 
   1. View the full list of settings specified for the cluster:
 
-     ```
-     $ {{ yc-mdb-pg }} cluster get <cluster name> --full
+     ```bash
+     {{ yc-mdb-pg }} cluster get <cluster ID or name> --full
      ```
 
   1. View a description of the CLI's update cluster configuration command:
 
-      ```
-      $ {{ yc-mdb-pg }} cluster update-config --help
+      ```bash
+      {{ yc-mdb-pg }} cluster update-config --help
       ```
 
   1. Set the required parameter values:
 
-      ```
-      $ {{ yc-mdb-pg }} cluster update-config <cluster name>
+      ```bash
+      {{ yc-mdb-pg }} cluster update-config <cluster ID or name> \
            --set <parameter name1>=<value1>,...
       ```
 
@@ -313,7 +318,7 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -352,12 +357,13 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
     1. Run the command with a list of settings to update:
 
         ```bash
-        {{ yc-mdb-pg }} cluster update <cluster name> \
+        {{ yc-mdb-pg }} cluster update <cluster name or ID> \
             --backup-window-start <backup start time> \
             --datalens-access=<true or false> \
             --maintenance-window type=<weekly or anytime> \
             --websql-access=<true or false>
-            --deletion-protection=<protect cluster from deletion: true or false>
+            --deletion-protection=<protect cluster from deletion: true or false> \
+            --serverless-access=<true or false>
         ```
 
     You can change the following settings:
@@ -366,6 +372,7 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
     * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about how to connect to DataLens, see [{#T}](datalens-connect.md).
 
     {% include [maintenance-window](../../_includes/mdb/cli-additional-settings/maintenance-window.md) %}
+
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) to be run from the management console. Default value: `false`.
 
     {% include [deletion-protection-db](../../_includes/mdb/cli-additional-settings/deletion-protection-db.md) %}
@@ -427,7 +434,7 @@ Some {{ PG }} settings [depend on the selected host class or storage size](../co
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -471,15 +478,15 @@ You can set session or transaction mode for the connection pooler. For more info
 
   1. View a description of the CLI's update cluster command:
 
-      ```
-      $ {{ yc-mdb-pg }} cluster update --help
+      ```bash
+      {{ yc-mdb-pg }} cluster update --help
       ```
 
   1. Specify the necessary operation mode using the `--connection-pooling-mode` flag:
 
-      ```
-      $ {{ yc-mdb-pg }} cluster update <cluster name>
-           --connection-pooling-mode <SESSION or TRANSACTION>
+      ```bash
+      {{ yc-mdb-pg }} cluster update <cluster name or ID> \
+         --connection-pooling-mode <SESSION or TRANSACTION>
       ```
 
       {{ mpg-short-name }} runs the operation to change the connection pooler mode.
@@ -515,7 +522,7 @@ You can set session or transaction mode for the connection pooler. For more info
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -554,8 +561,9 @@ To switch the master:
 
   Run the command:
 
-  ```
-  $ {{ yc-mdb-pg }} cluster start-failover <cluster name> --host <replica host name>
+  ```bash
+  {{ yc-mdb-pg }} cluster start-failover <cluster ID or name> \
+      --host <replica host name>
   ```
 
   You can request the replica host name with a [list of cluster hosts](hosts.md#list-hosts) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -584,7 +592,7 @@ To switch the master:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
@@ -613,15 +621,15 @@ To switch the master:
 
   1. View a description of the CLI's update cluster command:
 
-      ```
-      $ {{ yc-mdb-pg }} cluster update --help
+      ```bash
+      {{ yc-mdb-pg }} cluster update --help
       ```
 
   1. Specify the security groups in the update cluster command:
 
-      ```
-      $ {{ yc-mdb-pg }} cluster update <cluster name>
-           --security-group-ids <list of security groups>
+      ```bash
+      {{ yc-mdb-pg }} cluster update <cluster name or ID> \
+          --security-group-ids <list of security groups>
       ```
 
 - Terraform
@@ -647,7 +655,7 @@ To switch the master:
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-mpg }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
 - API
 
