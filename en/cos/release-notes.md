@@ -10,7 +10,7 @@
 
   Command execution result:
 
-  ```
+  ```bash
   coi-version: 2.0.4
   ```
 
