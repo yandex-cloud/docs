@@ -59,7 +59,6 @@ SELECT * FROM $to_update;
 
 В примере ниже primary key таблицы season состоит только из одного столбца season_id.
 ```yql
-
 $updated_fld=AsList(
     AsStruct(
         3ul as season_id,
@@ -67,4 +66,32 @@ $updated_fld=AsList(
         301ul as series_id
     )
 );
-update season on select * from As_Table( $updated_fld);```
+update season on select * from As_Table( $updated_fld);
+```
+
+
+{% note info %}
+
+Если В рамках одной транзакции Вы хотите многократно обновлять одну и ту же таблицу - то используйте оператор UPSERT
+
+{% endnote %}
+
+**Пример:**
+
+```уql
+$updated_fld=AsList(
+    AsStruct(
+        1ul as season_id,
+        'update_on title 30'u as title,
+        301ul as series_id
+    )
+);
+update season on select * from As_Table( $updated_fld);
+
+UPSERT INTO season (season_id, title)
+values (30ul,'30'u),
+        (31ul,'31'u);
+       
+UPSERT INTO season (season_id, title)
+values (33ul,'33'u);        
+```
