@@ -35,8 +35,10 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
-          - name: Expanding a volume
+          - name: Expanding a pod volume
             href: operations/volumes/volume-expansion.md
+          - name: Expanding a StatefulSet controller volume
+            href: operations/volumes/statefulset-pvc-expansion.md
           - name: Mounting a volume in Block mode
             href: operations/volumes/mode-block.md
       - name: Managing a Kubernetes cluster
