@@ -165,6 +165,8 @@ When a cloud is suspended, your {{ datalens-short-name }} instance will be unava
 
 For more information about cloud suspension, see [Automatic cloud suspension](../../overview/concepts/data-deletion.md#block).
 
+{% include [object-id](../../_includes/datalens/qa/object-id.md) %}
+
 ## How to report a problem {#how-to-resolve-problem}
 
 There are two ways to report a problem:
