@@ -6,7 +6,7 @@
 
   Подробнее про плагины аутентификации см. [в документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/pluggable-authentication.html).
 
-- **Administrative privileges**{#setting-administrative-priveleges} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+- **Administrative privileges**{#setting-administrative-privileges} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
   Административные привилегии — [права пользователя](../../managed-mysql/concepts/user-rights.md), которые действуют на уровне всего кластера баз данных.
 
