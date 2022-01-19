@@ -44,7 +44,7 @@ Window functions can be nested. You can also specify a custom grouping for each 
 
 **Example**
 
-You need to arrange the rows in the `Selling` table based on the the average sales amount for all dates in the city. The average sales amount for the city can be calculated using the [AVG](../function-ref/AVG_WINDOW.md) function: `AVG(SUM([Sales]) WITHIN [City])`. City names repeat in the table, so for ranking, use the [RANK_DENSE](../function-ref/RANK_DENSE.md) function. It doesn't skip sequence numbers for rows with the same value. The resulting formula is `RANK_DENSE(AVG(SUM([Sales]) WITHIN [City]) TOTAL)`.
+You need to arrange the rows in the `Selling` table based on the average sales amount for all dates in the city. The average sales amount for the city can be calculated using the [AVG](../function-ref/AVG_WINDOW.md) function: `AVG(SUM([Sales]) WITHIN [City])`. City names repeat in the table, so for ranking, use the [RANK_DENSE](../function-ref/RANK_DENSE.md) function. It doesn't skip sequence numbers for rows with the same value. The resulting formula is `RANK_DENSE(AVG(SUM([Sales]) WITHIN [City]) TOTAL)`.
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-11.png)
 

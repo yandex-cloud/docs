@@ -4,7 +4,7 @@ Create triggers for [{{ yds-name }}](../../data-streams/) that'll invoke a [func
 
 To create a trigger, you need:
 
-* A function or container the the trigger will launch.
+* A function or container the trigger will launch.
     * If you don't have a function:
         * [Create a function](../../functions/operations/function/function-create.md).
         * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
