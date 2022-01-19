@@ -2,7 +2,7 @@
 
 Сейчас функции на Node.js всегда запускаются в режиме [CommonJS](https://nodejs.org/docs/latest/api/modules.html#modules-commonjs-modules), т.е. предполагают использование `require()` для подключения зависимостей. Чтобы писать код функции в новом формате [ES-модулей](https://nodejs.org/docs/latest-v17.x/api/esm.html#modules-ecmascript-modules), а также подключать npm пакеты, которые опубликованы [только](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) в формате ES-модулей, необходима небольшая настройка.
 
-### Пример ошибки
+### Пример
 Для примера создадим функцию, использующую пакет [node-fetch](https://www.npmjs.com/package/node-fetch) версии 3+:
 ```js
 const fetch = require('node-fetch');
@@ -13,7 +13,7 @@ exports.handler = (event, context) => {
 ```
 При запуске такой функции будет ошибка:
 ```
-Must use import to load ES Module: /function/code/node_modules/node-fetch/src/index.js
+Error: Must use import to load ES Module: /function/code/node_modules/node-fetch/src/index.js
 ```
 
 Если же заменить `require()` на `import`:
@@ -26,7 +26,7 @@ exports.handler = (event, context) => {
 ```
 то получим другую ошибку:
 ```
-Cannot use import statement outside a module
+Error: Cannot use import statement outside a module
 ```
 
 ## Настройка ES-модулей в функции
@@ -60,7 +60,7 @@ Cannot use import statement outside a module
 
 Финальная файловая структура:
 ```
-cjs
+cjs/
   index.js
   package.json
 index.js
@@ -76,7 +76,7 @@ package.json
 2. В файле `tsconfig.json` указать `"module": "es2020"` 
 3. При импорте файлов везде использвать полный путь с расширением `.js` ([обсуждение, почему так](https://github.com/microsoft/TypeScript/issues/16577#issuecomment-754941937))
 4. Чтобы при компиляции автоматически копировался файл `cjs/index.js`, можно выставить в `tsconfig.json` настройку `"allowJs": true`
-5. И наконец, чтобы автоматически забирать `cjs/package.json` можно выставить в `tsconfig.json` настройку `"resolveJsonModule": true`. А в файле `cjs/index.js` просто использовать reference:
+5. И наконец, чтобы автоматически забирать `cjs/package.json` можно выставить в `tsconfig.json` настройку `"resolveJsonModule": true`. А в файле `cjs/index.js`  использовать reference:
    ```js
    /// <reference path="./package.json" />
 
@@ -88,7 +88,7 @@ package.json
 
 Финальная файловая структура:
 ```
-cjs
+cjs/
   index.js
   package.json
 index.ts
@@ -97,3 +97,5 @@ tsconfig.json
 ```
 
 После компиляции через команду `tsc` получится код функции в ES-модулях, готовый к запуску в облаке.
+
+Полный код всех файлов можно посмотреть [в примере на GitHub](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/typescript-esm).
