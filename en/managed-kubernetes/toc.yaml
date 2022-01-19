@@ -85,6 +85,8 @@ items:
         href: solutions/custom-dns.md
       - name: Automatic DNS scaling by cluster size
         href: solutions/dns-autoscaler.md
+      - name: Setting up local DNS caching
+        href: solutions/node-local-dns.md
   - name: Concepts
     items:
       - name: Relationship between service resources
