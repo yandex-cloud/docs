@@ -24,21 +24,46 @@ description: "Управление доступом в сервисе, пред�
 
 ![service-roles-hierarchy](../../_assets/storage/service-roles-hierarchy.svg)
 
-### Сервисные роли {#service-roles}
+### storage.admin {#storage-admin}
 
-Роль | Разрешения
------ | -----
-`resource-manager.clouds.member` | Роль, необходимая для доступа к ресурсам в облаке всем, кроме [владельцев облака](../../resource-manager/concepts/resources-hierarchy.md#owner) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
-`resource-manager.clouds.owner` | Дает полный доступ к облаку и ресурсам в нем. Можно назначить только на облако.
-`storage.admin` | Дает право на управление сервисом {{ objstorage-name }}.
-`storage.configViewer` | Роль дает права просматривать настройки безопасности бакетов и [объектов](../../storage/concepts/object.md) в них, при этом не дает доступ к данным внутри бакета.
-`storage.configurer` | Позволяет управлять настройками [жизненных циклов объектов](../../storage/concepts/lifecycles.md), [хостинга статических сайтов](../../storage/concepts/hosting.md), [политики доступа](../concepts/policy.md) и [CORS](../../storage/concepts/cors.md).
-`storage.editor` | Разрешает любые операции с бакетами и объектами в них, кроме изменения настроек [версионирования](../../storage/concepts/versioning.md) и [политики доступа](../../storage/concepts/policy.md), для которых нужна роль `storage.admin`.
-`storage.uploader` | Дает право на загрузку объектов в бакет.
-`storage.viewer` | Дает доступ на чтение списка бакетов, их настроек и данных в бакетах.
+{% include notitle [roles-storage-admin](../../_includes/roles-storage-admin.md) %}
 
-Более подробную информацию о сервисных ролях читайте на странице [{#T}](../../iam/concepts/access-control/roles.md) в документации сервиса {{ iam-full-name }}.
+### storage.configViewer {#storage-config-viewer}
 
-### Примитивные роли {#primitive-roles}
+{% include notitle [roles-storage-config-viewer](../../_includes/roles-storage-config-viewer.md) %}
 
-{% include [roles-primitive](../../_includes/roles-primitive.md) %}
+### storage.configurer {#storage-configurer}
+
+{% include notitle [roles-storage-configurer](../../_includes/roles-storage-configurer.md) %}
+
+### storage.editor {#storage-editor}
+
+{% include notitle [roles-storage-editor](../../_includes/roles-storage-editor.md) %}
+
+### storage.uploader {#storage-uploader}
+
+{% include notitle [roles-storage-uploader](../../_includes/roles-storage-uploader.md) %}
+
+### storage.viewer {#storage-viewer}
+
+{% include notitle [roles-storage-viewer](../../_includes/roles-storage-viewer.md) %}
+
+### {{ roles-cloud-member }} {#resmgr-clouds-member}
+
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
+
+### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+### {{ roles-viewer }} {#viewer}
+
+{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+
+### {{ roles-editor }} {#editor}
+
+{% include [roles-editor](../../_includes/roles-editor.md) %}
+
+### {{ roles-admin }} {#admin}
+
+{% include [roles-admin](../../_includes/roles-admin.md) %}
