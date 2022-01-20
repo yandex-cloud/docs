@@ -1,6 +1,6 @@
-# Создание функции на PHP
+# Создание функции на Java
 
-Создайте и выполните [функцию](../../concepts/function.md) на PHP, которая приветствует пользователя.
+Создайте и выполните [функцию](../../concepts/function.md) на Java, которая приветствует пользователя.
 
 {% include [function-before-begin](../../../_includes/functions/function-before-begin.md) %}
 
@@ -13,7 +13,7 @@
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
     1. Откройте сервис **{{ sf-name }}**
     1. Нажмите кнопку **Создать функцию**.
-    1. Введите имя функции — `php-function`.
+    1. Введите имя функции — `java-function`.
     1. Нажмите кнопку **Создать**.
 
 - CLI
@@ -25,7 +25,7 @@
     Чтобы создать функцию, выполните команду:
 
     ```
-    yc serverless function create --name=php-function
+    yc serverless function create --name=java-function
     ```
 
     Результат:
@@ -34,7 +34,7 @@
     id: b09bhaokchn9********
     folder_id: aoek49ghmknn********
     created_at: "2019-06-14T10:03:37.475Z"
-    name: php-function
+    name: java-function
     log_group_id: eolm8aoq9vcp********
     http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
     status: ACTIVE
@@ -56,20 +56,46 @@
 
 ### Подготовьте ZIP-архив с кодом функции {#create-zip}
 
-1. Сохраните следующий код в файл с названием `hello.php`:
-    ```php
-    <?php
+1. Сохраните следующий код в файл с названием `Handler.java`:
+    ```java
+    import java.util.HashMap;
+    import java.util.Map;
+    import java.util.function.Function;
 
-    function handler () {
-        $resp =  'Hello, World!';
-        return [
-            'statusCode' => 200,
-            'body' => json_encode($resp),
-        ];
+    class Request {
+        Map<String, String> queryStringParameters;
+    }
+
+    class Response {
+        private int statusCode;
+        private Map<String, String> headers;
+        private Boolean isBase64Encoded;
+        private String body;
+
+        public Response(int statusCode, Map<String, String> headers, Boolean isBase64Encoded, String body) {
+            this.statusCode = statusCode;
+            this.headers = headers;
+            this.isBase64Encoded = isBase64Encoded;
+            this.body = body;
+        }
+    }
+
+    public class Handler implements Function<Request, Response> {
+        private Integer statusCode = 200;
+        private Boolean isBase64Encoded = false;
+
+        @Override
+        public Response apply(Request request) {
+            Map<String, String> headers = new HashMap<>();
+            headers.put("Content-Type", "text/plain");
+
+            String name = request.queryStringParameters.get("name");
+            return new Response(statusCode, headers, isBase64Encoded, String.format("Hello, %s!", name));
+        }
     }
     ```
 
-1. Добавьте файл `hello.php` в ZIP-архив `hello-php.zip`.
+1. Добавьте файл `Handler.java` в ZIP-архив `hello-java.zip`.
 
 ### Создайте версию функции {#create-version}
 
@@ -79,13 +105,13 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. Выберите сервис **{{ sf-name }}**.
-    1. Выберите функцию `php-function`.
+    1. Выберите функцию `java-function`.
     1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
     1. Задайте параметры версии:
-        - **Среда выполнения:** `php74`.
+        - **Среда выполнения:** `java11`.
         - **Способ:** ZIP-архив.
-        - **Файл:** `hello-php.zip`.
-        - **Точка входа:** `hello.handler`.
+        - **Файл:** `hello-java.zip`.
+        - **Точка входа:** `Handler`.
         - **Таймаут, секунды:** 3.
         - **Память:** 128 МБ.
         - **Сервисный аккаунт:** Не выбрано.         
@@ -101,19 +127,19 @@
 
     ```
     yc serverless function version create \
-      --function-name=php-function \
-      --runtime php74 \
-      --entrypoint hello.handler \
+      --function-name=java-function \
+      --runtime java11 \
+      --entrypoint Handler \
       --memory 128m \
       --execution-timeout 3s \
-      --source-path ./hello-php.zip
+      --source-path ./hello-java.zip
     ```
 
     где:
 
     * `--function-name` — имя функции, версию которой вы хотите создать.
     * `--runtime` — среда выполнения.
-    * `--entrypoint` — точка входа, указывается в формате <имя файла с функцией>.<имя обработчика>.
+    * `--entrypoint` — точка входа.
     * `--memory` — объем RAM.
     * `--execution-timeout` — максимальное время выполнения функции до таймаута.
     * `--source-path` — ZIP-архив c кодом функции и необходимыми зависимостями.
@@ -125,8 +151,8 @@
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
     created_at: "2020-08-01T19:09:19.531Z"
-    runtime: php74
-    entrypoint: hello.handler
+    runtime: java11
+    entrypoint: Handler
     resources:
         memory: "134217728"
     execution_timeout: 3s
@@ -147,6 +173,6 @@
 
 {% endlist %}
 
-{% include [function-invoke](../../../_includes/functions/function-invoke-no-param.md) %}
+{% include [function-invoke](../../../_includes/functions/function-invoke-with-param.md) %}
 
 {% include [function-what-is-next](../../../_includes/functions/function-what-is-next.md) %}

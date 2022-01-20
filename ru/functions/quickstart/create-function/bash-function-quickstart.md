@@ -31,12 +31,12 @@
     Результат:
 
     ```
-    id: b09bhaokchn9pnbrlseb
-    folder_id: aoek49ghmknnpj1ll45e
+    id: b09bhaokchn9********
+    folder_id: aoek49ghmknn********
     created_at: "2019-06-14T10:03:37.475Z"
     name: bash-function
-    log_group_id: eolm8aoq9vcppsieej6h
-    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9pnbrlseb
+    log_group_id: eolm8aoq9vcp********
+    http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
     status: ACTIVE
     ```
 
@@ -95,12 +95,12 @@
 
     ```
     yc serverless function version create \
-    --function-name=bash-function \
-    --runtime bash \
-    --entrypoint hello.sh \
-    --memory 128m \
-    --execution-timeout 3s \
-    --source-path ./hello-sh.zip
+      --function-name=bash-function \
+      --runtime bash \
+      --entrypoint hello.sh \
+      --memory 128m \
+      --execution-timeout 3s \
+      --source-path ./hello-sh.zip
     ```
 
     где:
@@ -116,8 +116,8 @@
 
     ```
     done (1s)
-    id: d4evvn8obisajd51plaq
-    function_id: d4elpv8pft639ku7k0u6
+    id: d4evvn8obisa********
+    function_id: d4elpv8pft63********
     created_at: "2020-08-01T19:09:19.531Z"
     runtime: bash
     entrypoint: hello.sh
@@ -128,7 +128,7 @@
     status: ACTIVE
     tags:
     - $latest
-    log_group_id: ckg3qh8h363p40gmr9gn
+    log_group_id: ckg3qh8h363p********
     ```
 
 - API
