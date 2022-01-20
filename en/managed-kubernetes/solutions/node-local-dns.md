@@ -48,7 +48,7 @@ To set up DNS query caching, follow these steps:
      --network-name <cloud network name>
    ```
 
-   Execution result:
+   Execution output:
 
    ```text
    done (7m21s)
@@ -62,11 +62,11 @@ To set up DNS query caching, follow these steps:
      --name node-group \
      --cluster-name node-local-dns \
      --location zone=ru-central1-a \
-     --public-ip \
+     --network-interface subnets=<subnet or node group name>,ipv4-address=nat \
      --fixed-size 3
    ```
 
-   Execution result:
+   Execution output:
 
    ```text
    done (2m43s)
@@ -89,7 +89,7 @@ To set up DNS query caching, follow these steps:
    yc managed-kubernetes cluster get-credentials --external --name node-local-dns
    ```
 
-   Execution result:
+   Execution output:
 
    ```text
    Context 'node-local-dns' was added as default to kubeconfig '/home/<your home folder>/.kube/config'.
@@ -102,40 +102,90 @@ To set up DNS query caching, follow these steps:
 
 ### Download a specification template {#download-spec}
 
-You can download the [specification template](https://raw.githubusercontent.com/kubernetes/kubernetes/master/cluster/addons/dns/nodelocaldns/nodelocaldns.yaml) manually or using the command:
+You can download the [specification template](https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml) manually or using the command:
 
-```bash
-wget https://raw.githubusercontent.com/kubernetes/kubernetes/master/cluster/addons/dns/nodelocaldns/nodelocaldns.yaml
-```
+{% list tabs %}
+
+- Windows (PowerShell)
+
+  ```
+  wget "https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml" -OutFile "nodelocaldns.yaml"
+  ```
+
+- Linux
+
+  ```bash
+  wget https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml
+  ```
+
+- macOS
+
+  ```bash
+  brew install wget
+
+  wget https://storage.yandexcloud.net/doc-files/nodelocaldns.yaml
+  ```
+
+{% endlist %}
 
 ### Replace variables in the template {#variables}
 
 The template contains the NodeLocal DNS Cache configuration. To change the configuration to suit your needs, use the following five variables:
 * `__PILLAR__DNS__DOMAIN__`
-  Zone of Kubernetes clusters (`cluster.local` by default).
+  Kubernetes cluster zone (`cluster.local` by default).
 * `__PILLAR__LOCAL__DNS__`
-  The `link-local` address that NodeLocal DNS Cache will listen on. We recommend using an address within the 169.254.0.0/16 range for IPv4 or fd00::/8 for IPv6.
+  Address `link-local` that NodeLocal DNS Cache will listen on. We recommend using an address within the 169.254.0.0/16 range for IPv4 or fd00::/8 for IPv6.
 * `__PILLAR__DNS__SERVER__`
-  The `ClusterIp` address [of the service](../concepts/service.md) `kube-dns`. Queries from user pods at this IP address will also be forwarded to NodeLocal DNS Cache using the iptables rules.
+  Address `ClusterIp` [of the service](../concepts/service.md) `kube-dns`. Queries from user pods at this IP address will also be forwarded to NodeLocal DNS Cache using the iptables rules.
 * `__PILLAR__CLUSTER__DNS__`
-  The upstream server for requests within the cluster's zone. When launching NodeLocal DNS Cache, a new  `kube-dns-upstream` service is created with `ClusterIp`. You can use this IP address to access `kube-dns` bypassing the caching agent. This variable must be filled in automatically.
+  Upstream server for requests within the cluster zone. When starting Node Local DNS Cache, a new service `kube-dns-upstream` with `ClusterIP` is created. You can use this IP address to access `kube-dns` bypassing the caching agent. This variable must be filled in automatically.
 * `__PILLAR__UPSTREAM__SERVERS__`
-  Upstream servers for requests within the cluster's zone. Variables must be automatically filled in from the `configmap` of `kube-dns`.
+  Upstream servers for requests outside the cluster zone. The variable should be filled in automatically from `configmap` of `kube-dns`.
 
 Set the following values:
 * `__PILLAR__DNS__DOMAIN__`: `cluster.local`.
 * `__PILLAR__LOCAL__DNS__`: `169.254.20.10`.
 * `__PILLAR__DNS__SERVER__`: `ClusterIp` of `kube-dns`.
 
-To do this, perform automatic replacement in a text editor or using the command:
+To do this, perform automatic replacement in any text editor or using the command line:
 
-```bash
-domain=cluster.local
-localdns=169.254.20.10
-kubedns=$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})
+{% list tabs %}
 
-sed -i "s/__PILLAR__LOCAL__DNS__/$localdns/g; s/__PILLAR__DNS__DOMAIN__/$domain/g; s/__PILLAR__DNS__SERVER__/$kubedns/g" nodelocaldns.yaml
-```
+- Windows (PowerShell)
+
+  ```
+  $domain="cluster.local"
+  $localdns="169.254.20.10"
+  $kubedns=(kubectl get svc kube-dns -n kube-system -o jsonpath="{.spec.clusterIP}")
+
+  ((Get-Content -path nodelocaldns.yaml -Raw) -replace '__PILLAR__LOCAL__DNS__',$localdns) | Set-Content -Path nodelocaldns.yaml
+  ((Get-Content -path nodelocaldns.yaml -Raw) -replace '__PILLAR__DNS__DOMAIN__',$domain) | Set-Content -Path nodelocaldns.yaml
+  ((Get-Content -path nodelocaldns.yaml -Raw) -replace '__PILLAR__DNS__SERVER__',$kubedns) | Set-Content -Path nodelocaldns.yaml
+  ```
+
+- Linux
+
+  ```bash
+  domain=cluster.local
+  localdns=169.254.20.10
+  kubedns=$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})
+
+  sed -i "s/__PILLAR__LOCAL__DNS__/$localdns/g; s/__PILLAR__DNS__DOMAIN__/$domain/g; s/__PILLAR__DNS__SERVER__/$kubedns/g" nodelocaldns.yaml
+  ```
+
+- macOS
+
+  ```bash
+  brew install gnu-sed
+
+  domain=cluster.local
+  localdns=169.254.20.10
+  kubedns=$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})
+
+  gsed -i "s/__PILLAR__LOCAL__DNS__/$localdns/g; s/__PILLAR__DNS__DOMAIN__/$domain/g; s/__PILLAR__DNS__SERVER__/$kubedns/g" nodelocaldns.yaml
+  ```
+
+{% endlist %}
 
 ### Run NodeLocal DNS Cache {#startup}
 
@@ -145,7 +195,7 @@ To run NodeLocal DNS Cache, use the command:
 kubectl create -f nodelocaldns.yaml
 ```
 
-Execution result:
+Execution output:
 
 ```text
 serviceaccount/node-local-dns created
@@ -158,14 +208,14 @@ service/node-local-dns created
 To make sure that the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) is deployed successfully, run the command:
 
 ```bash
-kubectl get ds -l  k8s-app=node-local-dns -n kube-system
+kubectl get ds -l k8s-app=node-local-dns -n kube-system
 ```
 
-Execution result:
+Execution output:
 
 ```text
-NAME             DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-node-local-dns   3         3         3       3            3           <none>          24m
+NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE SELECTOR  AGE
+node-local-dns  3        3        3      3           3          <none>         24m
 ```
 
 ### Change the NodeLocal DNS Cache configuration {#configure}
@@ -197,7 +247,7 @@ To change the configuration, edit the appropriate `configmap`. For example, to e
 
 1. Save the changes.
 
-   Execution result:
+   Execution output:
 
    ```text
    configmap/node-local-dns edited
@@ -215,7 +265,7 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    kubectl apply -f https://k8s.io/examples/admin/dns/dnsutils.yaml
    ```
 
-   Execution result:
+   Execution output:
 
    ```text
    pod/dnsutils created
@@ -227,11 +277,11 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    kubectl get pods dnsutils
    ```
 
-   Execution result:
+   Execution output:
 
    ```text
-   NAME       READY   STATUS    RESTARTS   AGE
-   dnsutils   1/1     Running   0          26m
+   NAME      READY  STATUS   RESTARTS  AGE
+   dnsutils  1/1    Running  0         26m
    ```
 
 1. Connect to the pod and run queries:
@@ -246,22 +296,22 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
 
    After `node-local-dns` is run, the iptables rules are set up so that the [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) responds at both addresses (10.96.128.2:53 and 169.254.20.10:53).
 
-    The `kube-dns` service can be accessed at the new address, that is, the `ClusterIp` of `kube-dns-upstream`. You may need this IP address to set up query forwarding.
+   The `kube-dns` service can be accessed at the new address, that is, the `ClusterIp` of `kube-dns-upstream`. You may need this IP address to set up query forwarding.
 
-    Execution result:
+   Execution output:
 
-    ```text
-    # dig +short @169.254.20.10 www.com
-    52.128.23.153
-    # dig +short @10.96.128.2 example.com
-    93.184.216.34
-    # nslookup kubernetes.default
-    Server:         10.96.128.2
-    Address:        10.96.128.2#53
+   ```text
+   # dig +short @169.254.20.10 www.com
+   52.128.23.153
+   # dig +short @10.96.128.2 example.com
+   93.184.216.34
+   # nslookup kubernetes.default
+   Server:  10.96.128.2
+   Address: 10.96.128.2#53
 
-    Name:   kubernetes.default.svc.cluster.local
-    Address: 10.96.128.1
-    ```
+   Name:    kubernetes.default.svc.cluster.local
+   Address: 10.96.128.1
+   ```
 
 ### Check logs {#check-logs}
 
@@ -273,7 +323,7 @@ kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f
 
 To stop displaying a log, press ___Ctrl + C___.
 
-Execution result:
+Execution output:
 
 ```text
 ...
@@ -290,7 +340,7 @@ To disable the DaemonSet of NodeLocal DNS Cache, run:
 kubectl delete -f nodelocaldns.yaml
 ```
 
-Execution result:
+Execution output:
 
 ```text
 serviceaccount "node-local-dns" deleted
