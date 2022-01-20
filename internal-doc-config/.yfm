@@ -63,6 +63,7 @@ ignore:
   - "ru/vision/*"
   - "ru/vpc/*"
   - "en/*"
+  - "ru/marketplace-v2/*"
 
 docs-viewer:
   project-name: cloud
