@@ -91,9 +91,6 @@ items:
   - name: Кабинет партнера Marketplace
     href: marketplace/index.md
     when: audience == "external"
-  - name: Партнерам Marketplace
-    href: marketplace-v2/index.md
-    when: audience == "external"
   - name: MDB
     href: mdb/index.yaml
     when: audience == "internal"
