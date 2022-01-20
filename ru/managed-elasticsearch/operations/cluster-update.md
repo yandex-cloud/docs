@@ -13,7 +13,7 @@ keywords:
 
 * [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size) (доступно только для стандартного `network-hdd` и быстрого сетевого `network-ssd` хранилищ).
+* [{#T}](#change-disk-size) (доступно только для [типов хранилищ](../concepts/storage.md) `network-hdd` и `network-ssd`).
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).
 
@@ -98,9 +98,13 @@ keywords:
 
 ## Увеличить размер хранилища {#change-disk-size}
 
+{% include [storage type check](../../_includes/mdb/note-change-disk-size.md) %}
+
 {% list tabs %}
 
 - Консоль управления
+
+  Чтобы увеличить размер хранилища для кластера:
 
   1. Перейдите на страницу каталога и выберите сервис **{{ mes-name }}**.
   1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
@@ -140,9 +144,9 @@ keywords:
 
 - API
 
-  Воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
+  Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом [update](../api-ref/Cluster/update.md) и передайте в запросе:
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Необходимый размер диска (в байтах) в параметрах:
+  * Необходимый размер хранилища (в байтах) в параметрах:
     * `configSpec.elasticsearchSpec.dataNode.resources.diskSize`  — для хостов с ролью *Data node*.
     * `configSpec.elasticsearchSpec.masterNode.resources.diskSize` — для хостов с ролью *Master node*.
   * Список настроек, которые необходимо изменить, в параметре `updateMask`. Если не задать этот параметр, метод API сбросит на значения по умолчанию все настройки кластера, которые не были явно указаны в запросе.

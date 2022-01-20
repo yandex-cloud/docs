@@ -6,7 +6,7 @@
 
 * [{#T}](#change-resource-preset).
 
-* [{#T}](#change-disk-size) (доступно только для стандартного `network-hdd` и быстрого сетевого `network-ssd` хранилищ).
+* [{#T}](#change-disk-size) (доступно только для [типов хранилищ](../concepts/storage.md) `network-hdd` и `network-ssd`).
 
 * [Настроить серверы](#change-clickhouse-config) {{ CH }} согласно [документации {{ CH }}]{% if lang == "ru" %}(https://clickhouse.yandex/docs/ru/operations/server_settings/settings/){% endif %}{% if lang == "en" %}(https://clickhouse.yandex/docs/en/operations/server_settings/settings/){% endif %}.
 
@@ -171,10 +171,14 @@
 
 {% endnote %}
 
+{% include [storage type check](../../_includes/mdb/note-change-disk-size.md) %}
+
 {% list tabs %}
 
 - Консоль управления
 
+  Чтобы увеличить размер хранилища для кластера:
+  
   1. Перейдите на страницу каталога и выберите сервис **{{ mch-name }}**.
   1. Выберите кластер и нажмите кнопку **Изменить кластер** на панели сверху.
   1. В разделе **Размер хранилища** укажите необходимое значение.
@@ -188,39 +192,18 @@
 
   Чтобы увеличить размер хранилища для кластера:
 
-  {% if audience != "internal" %}
-
-  1. Проверьте, что нужный кластер использует стандартное или быстрое сетевое хранилище (увеличить размер локального или нереплицируемого сетевого хранилища невозможно). Для этого запросите информацию о кластере и найдите поле `disk_type_id` — его значение должно быть `network-hdd` или `network-ssd`:
-
-     ```bash
-     {{ yc-mdb-ch }} cluster get <имя кластера>
-
-     id: c7qkvr3u78qiopj3u4k2
-     folder_id: b1g0ftj57rrjk9thribv
-     ...
-     config:
-       clickhouse:
-         resources:
-           resource_preset_id: s1.micro
-           disk_size: "21474836480"
-           disk_type_id: network-ssd
-     ...
-     ```
-
-  {% endif %}
-
   1. Посмотрите описание команды CLI для изменения кластера:
 
+     ```bash
+     {{ yc-mdb-ch }} cluster update --help
      ```
-     $ {{ yc-mdb-ch }} cluster update --help
-     ```
-
-  1. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции {{ mch-full-name }} не исчерпано место в строке **space**.
+     
+  1. Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{ link-console-quotas }}) для вашего облака и проверьте, что в секции **Managed Databases** не исчерпано место в строке **Объем HDD-хранилищ** или **Объем SSD-хранилищ**.
 
   1. Укажите нужный объем хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
      ```bash
-     {{ yc-mdb-ch }} cluster update <имя кластера> \
+     {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
         --clickhouse-disk-size <размер хранилища в ГБ>
      ```
 
@@ -229,6 +212,8 @@
   1. Чтобы увеличить объем хранилища хостов {{ ZK }}, передайте нужное значение в параметре `--zookeeper-disk-size`.
 
 - Terraform
+
+  Чтобы увеличить размер хранилища:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -266,9 +251,16 @@
 
 - API
 
-  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.clickhouse.resources.diskSize` (для ZooKeeper — `configSpec.zookeeper.resources.diskSize`).
+  Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{link-console-quotas}}) для вашего облака и проверьте, что в секции **Managed Databases** не исчерпано место в строке **Объем HDD-хранилищ** или **Объем SSD-хранилищ**.
 
-  Проверьте, что в облаке хватает квоты на увеличение хранилища: откройте страницу [Квоты]({{link-console-quotas}}) для вашего облака и проверьте, что в секции {{ mch-full-name }} не исчерпано место в строке **space**.
+  Чтобы увеличить размер хранилища, воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+  * Идентификатор кластера в параметре `clusterId`. Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+  * Нужный объем хранилища в параметре `configSpec.clickhouse.resources.diskSize`.
+  * Нужный объем хранилища хостов {{ ZK }} в параметре `configSpec.zookeeper.resources.diskSize`.
+  * Список полей конфигурации кластера, подлежащих изменению, в параметре `updateMask`.
+
+    {% include [Сброс настроек изменяемого объекта](../../_includes/mdb/note-api-updatemask.md) %}
 
 {% endlist %}
 
