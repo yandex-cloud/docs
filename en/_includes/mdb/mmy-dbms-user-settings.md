@@ -6,7 +6,7 @@
 
   To learn more about authentication plugins, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/pluggable-authentication.html).
 
-- **Administrative privileges**{#setting-administrative-priveleges} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+- **Administrative privileges**{#setting-administrative-privileges} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
   Administrative privileges are [user permissions](../../managed-mysql/concepts/user-rights.md) that apply at the level of the entire DB cluster.
 

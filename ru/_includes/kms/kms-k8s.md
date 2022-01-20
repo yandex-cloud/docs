@@ -46,7 +46,7 @@
 
     Если у вас еще нет Terraform, [установите его и настройте провайдер](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-    Укажите ключ при [создании кластера]((../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md)) {{ k8s }}:
+    Укажите ключ при [создании кластера](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ k8s }}:
 
     1. Добавьте блок `kms_provider` в описание кластера:
 

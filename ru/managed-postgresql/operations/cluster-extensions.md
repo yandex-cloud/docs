@@ -123,11 +123,11 @@
 
 Полный список поддерживаемых расширений:
 
-* [address_standardizer](https://postgis.net/docs/Address_Standardizer.html) {#ext-address_standardizer}
+* [address_standardizer](https://postgis.net/docs/manual-3.1/postgis_installation.html#installing_pagc_address_standardizer) {#ext-address_standardizer}
 
     Содержит функции для нормализации почтовых адресов, переданных в виде строки.
 
-* [address_standardizer_data_us](https://postgis.net/docs/Address_Standardizer.html#Address_Standardizer_Tables) {#ext-address_standardizer_data_us}
+* [address_standardizer_data_us](https://postgis.net/docs/manual-3.1/postgis_installation.html#make_install_postgis_extensions) {#ext-address_standardizer_data_us}
 
     Содержит правила нормализации почтовых адресов США и Канады для расширения [address_standardizer](#ext-address_standardizer).
 

@@ -280,4 +280,4 @@
     1. [Удалите](../../application-load-balancer/operations/http-router-delete.md) HTTP-роутер `alb-router`.
     1. [Удалите](../../application-load-balancer/operations/backend-group-delete.md) группу бэкендов `alb-bg`
 
-1. [Удалите]((../../compute/operations/instance-groups/delete.md)) группу виртуальных машин `alb-vm-group`.
+1. [Удалите](../../compute/operations/instance-groups/delete.md) группу виртуальных машин `alb-vm-group`.

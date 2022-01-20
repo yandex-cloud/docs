@@ -47,8 +47,11 @@ default:
   link-get-token: https://oauth.yandex.ru/
   link-OAuth-dev-guide: https://yandex.ru/dev/oauth/doc/dg/concepts/about.html
   link-register-application: https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html
+  link-oauth-token: https://yandex.ru/dev/oauth/doc/dg/tasks/get-oauth-token.html
+  link-web-oauth: https://yandex.ru/dev/oauth/doc/dg/reference/web-client.html#web-client__request-url
   link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
   link-python-official: https://www.python.org/downloads/
+  link-yandex: https://yandex.ru
   tracker-settings: Настройки Tracker
   release-date: 1 марта
   example-account: login@yandex.ru

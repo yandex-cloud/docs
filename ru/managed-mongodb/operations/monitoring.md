@@ -15,6 +15,12 @@
 
 {% endnote %}
 
+Для сбора диагностической информации используются команды {{ MG }}. Их подробное описание представлено в официальной документации:
+
+* [dbStats](https://docs.mongodb.com/manual/reference/command/dbStats/);
+* [serverStatus](https://docs.mongodb.com/manual/reference/command/serverStatus/);
+* [top](https://docs.mongodb.com/manual/reference/command/top/).
+
 ## Мониторинг состояния кластера {#cluster}
 
 Для просмотра детальной информации о состоянии кластера {{ mmg-name }}:
@@ -24,50 +30,52 @@
 
 На странице появятся следующие графики:
 
-* **Asserts total** — количество срабатываний [assert](https://docs.mongodb.com/manual/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.asserts) в кластере.
-* **Average operation time per host** — среднее время выполнения команд каждым хостом (в микросекундах).
+* **Hosts available for write** — количество хостов, принимающих запросы на запись.
+* **Hosts available for read** — количество хостов, принимающих запросы на чтение.
+* **Queries on primary** — количество запросов каждого типа, выполненных на первичной реплике.
+* **Queries on secondaries** — количество запросов каждого типа, выполненных на вторичных репликах.
+* **Replicated queries** — количество реплицированных запросов в кластере.
 * **Average operations time on primary** — среднее время выполнения команд на первичных репликах (в микросекундах).
 * **Average operations time on secondaries** — среднее время выполнения команд на вторичных репликах (в микросекундах).
-* **CPU usage per host** — степень использования vCPU на каждом хосте (в тысячных долях).
-* **CPU usage per host, top 5 hosts** — первые пять хостов с максимальной нагрузкой на vCPU (в процентах).
-* **Configured oplog size per host** — размер журнала операций (oplog) на каждом хосте кластера (в гигабайтах).
-* **Connections per host** — среднее количество подключений к каждому хосту.
-* **Data size on primary, top 5 collections** — размер пяти самых больших коллекций на первичной реплике (в байтах).
-* **Disk read per host, top 5 hosts** — первые пять хостов с максимальной нагрузкой на чтение (байт/с).
-* **Disk space usage per host, top 5 hosts** — первые пять хостов с наибольшим использованием места в хранилище (выводится два графика: в байтах и в процентах).
-* **Disk usage per host, top 5 hosts** — первые пять хостов с максимальной нагрузкой на подсистему I/O хранилища (байт/с).
-* **Disk write per host, top 5 hosts** — первые пять хостов с максимальной нагрузкой на запись (килобайт/с).
-* **Documents affected on primary** — среднее количество затронутых запросами документов на первичной реплике.
-* **Documents affected on secondaries** — среднее количество затронутых запросами документов на всех вторичных репликах.
-* **Documents affected per host** — среднее количество документов, затронутое запросами на каждом хосте.
-* **Hosts available for read** — количество хостов, принимающих запросы на чтение.
-* **Hosts available for write** — количество хостов, принимающих запросы на запись.
-* **Index size on primary, top 5 indexes** — размер пяти самых больших индексов на первичной реплике (в байтах).
-* **Memory usage per host** — объем оперативной памяти, использованной каждым хостом (в байтах).
-* **Memory usage per host, top 5 hosts** — первые пять хостов с максимальным использованием оперативной памяти (в процентах).
-* **Network data received per host, top 5 hosts** — первые пять хостов с наибольшей нагрузкой чтения на сеть (килобайт/с).
-* **Network data sent per host, top 5 hosts** — первые пять хостов с наибольшей нагрузкой записи на сеть (килобайт/с).
-* **Network usage per host, top 5 hosts** — первые пять хостов с максимальной общей нагрузкой на сеть (килобайт/с).
-* **Open cursors total** — количество открытых в кластере курсоров.
-* **Page faults per host** — количество ошибок в работе со страницами оперативной памяти на каждом хосте.
-* **Queries on secondaries** — среднее количество запросов каждого типа, выполненных на вторичных репликах.
-* **Queryes on primary** — среднее количество выполненных на первичных репликах запросов каждого типа.
-* **Readers/writers active queue per host, top 5** — первые пять хостов с наибольшим соотношением количества запросов на чтение к количеству запросов на запись, стоящих в очереди.
-* **Replicated queries** — среднее количество реплицированных запросов в кластере.
-* **Replication lag per host and write_concern wait** — задержки репликации на каждом хосте и ожидание [подтверждения записи](https://docs.mongodb.com/manual/reference/write-concern/) (в секундах).
-* **Scan and order per host** — среднее количество операций сканирования и сортировки данных на каждом хосте.
+* **Average operation time per host** — среднее время выполнения команд каждым хостом (в микросекундах).
+* **Total operations count on cluster** — общее количество выполненных в кластере операций.
+* **Total operations time on cluster** — общее время выполнения операций в кластере (в миллисекундах).
+* **Connections per host** — количество подключений к каждому хосту.
+* **Documents affected on primary** — количество затронутых запросами документов на первичной реплике.
+* **Documents affected on secondaries** — количество затронутых запросами документов на всех вторичных репликах.
+* **Documents affected per host** — количество документов, затронутое запросами на каждом хосте.
 * **Scanned / returned** — показывает соотношения:
     * `scanned_docs / returned_docs` — количество просканированных документов к количеству возвращенных;
     * `scanned_keys / returned_docs` — количество просканированных ключей индекса к количеству возвращенных документов.
-* **TTL indexes total** — общее количество [индексов TTL](https://docs.mongodb.com/manual/core/index-ttl/).
-* **Total operations count on cluster** — общее количество выполненных в кластере операций.
-* **Total operations time on cluster** — общее время выполнения операций в кластере (в миллисекундах).
-* **WiredTiger cache pages evicted on primary** — среднее количество страниц оперативной памяти, вытесненных на первичной реплике.
-* **WiredTiger cache state on primary** — использование кеша WiredTiger на первичной реплике (в байтах).
-* **WiredTiger checkpoint time on primary** — среднее время создания контрольных точек WiredTiger на первичной реплике (в миллисекундах).
-* **WiredTiger concurrent transactions on primary** — среднее количество параллельных транзакций на первичной реплике.
-* **WiredTiger transactions state on primary** — среднее количество транзакций каждого уровня на первичной реплике.
+* **Replication lag per host and write_concern wait** — задержки репликации на каждом хосте и ожидание [подтверждения записи](https://docs.mongodb.com/manual/reference/write-concern/) (в секундах).
+* **Page faults per host** — количество [отказов страниц](https://ru.wikipedia.org/wiki/Отказ_страницы) на каждом хосте.
+* **Open cursors total** — количество открытых в кластере курсоров.
+* **TTL indexes activity** — использование индексов при обработке документов с истекшим сроком жизни (Time to Life, TTL).
+* **Asserts total** — количество срабатываний [assert](https://docs.mongodb.com/manual/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.asserts) в кластере.
 * **Write conflicts per host** — количество конфликтов записи на каждом хосте.
+* **Scan and order per host** — количество сортировок данных без использования индекса на каждом хосте.
+* **Readers/writers active queue per host, top 5** — суммарный размер пяти наибольших очередей для каждого хоста:
+    * с запросами на чтение;
+    * с запросами на запись.
+* **Data size on primary, top 5 databases** — размер пяти наибольших баз данных на первичной реплике (в байтах).
+* **Index size on primary, top 5 indexes** — размер пяти наибольших индексов на первичной реплике (в байтах).
+* **Configured oplog size per host** — размер журнала операций (oplog) на каждом хосте кластера (в гигабайтах).
+* **CPU usage per host** — степень использования vCPU на каждом хосте (в тысячных долях).
+* **Memory usage per host** — объем оперативной памяти, использованной каждым хостом (в байтах).
+* **Disk space usage per host, top 5 hosts** — 5 хостов с наибольшим использованием места в хранилище (выводится два графика: в байтах и в процентах).
+* **CPU usage per host, top 5 hosts** — 5 хостов с наибольшей утилизацией vCPU (в процентах).
+* **Memory usage per host, top 5 hosts** — 5 хостов с наибольшим использованием оперативной памяти (в процентах).
+* **Disk usage per host, top 5 hosts** — 5 хостов с наибольшей нагрузкой на подсистему I/O хранилища (байт/с).
+* **Disk read per host, top 5 hosts** — 5 хостов с наибольшей нагрузкой на чтение из дисковой подсистемы (байт/с).
+* **Disk write per host, top 5 hosts** — 5 хостов с наибольшей нагрузкой на запись в дисковую подсистему (килобайт/с).
+* **Network usage per host, top 5 hosts** — 5 хостов с наибольшей суммарной сетевой нагрузкой (килобайт/с).
+* **Network data received per host, top 5 hosts** — 5 хостов с наибольшей сетевой нагрузкой на чтение (килобайт/с).
+* **Network data sent per host, top 5 hosts** — 5 хостов с наибольшей сетевой нагрузкой на запись (килобайт/с).
+* **WiredTiger checkpoint time on primary** — время создания контрольных точек WiredTiger на первичной реплике (в миллисекундах).
+* **WiredTiger cache state on primary** — использование кеша WiredTiger на первичной реплике (в байтах).
+* **WiredTiger transactions state on primary** — количество транзакций каждого уровня на первичной реплике.
+* **WiredTiger concurrent transactions on primary** — количество параллельных транзакций на первичной реплике.
+* **WiredTiger cache pages evicted on primary** — количество страниц оперативной памяти, вытесненных на первичной реплике.
 
 ## Мониторинг состояния хостов {#hosts}
 
@@ -86,7 +94,7 @@
 * **Network Bytes** — скорость обмена данными по сети (байт/с).
 * **Network Packets** — интенсивность обмена данными по сети (пакетов/с).
 
-## Состояния кластера и хостов {#cluster-hosts-state}
+## Состояния кластера и хостов {#cluster-and-hosts-states}
 
 Для просмотра детальной информации о состоянии кластера {{ mmg-name }}:
 
