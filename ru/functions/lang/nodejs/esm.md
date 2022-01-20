@@ -2,16 +2,26 @@
 
 Сейчас функции на Node.js всегда запускаются в режиме [CommonJS](https://nodejs.org/docs/latest/api/modules.html#modules-commonjs-modules), т.е. предполагают использование `require()` для подключения зависимостей. Чтобы писать код функции в новом формате [ES-модулей](https://nodejs.org/docs/latest-v17.x/api/esm.html#modules-ecmascript-modules), а также подключать npm пакеты, которые опубликованы [только](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) в формате ES-модулей, необходима небольшая настройка.
 
+{% note info %}
+
+Если в коде функции просто использовать `import/export`, то при запуске будут ошибки вида:
+* `Error: Cannot use import statement outside a module`
+* `Error: Must use import to load ES Module`
+
+{% endnote %}
+
 ## Настройка ES-модулей в функции
 Чтобы ES-модули заработали в функции, нужно сделать следующее:
 
 1. Добавить в корневой `package.json` поле `type: "module"` 
-2. Создать `index.js` в формате esm:
+2. Создать `index.js` в формате ESM, т.е. использовать `import` вместо `require()` и `export` вместо `exports`. Для примера подключим пакет [node-fetch](https://www.npmjs.com/package/node-fetch) версии 3+, который доступен только как ES-модуль:
    ```js
    import fetch from 'node-fetch';
    
    export const handler = (event, context) => { 
-     return { body: 'hello esm!' };
+     return { 
+       body: 'hello esm!' 
+     };
    }
    ```
 
@@ -21,7 +31,7 @@
      "type": "commonjs"
    }
    ```
-4. Рядом положить `cjs/index.js` в формате `commonjs`. Именно он служит универсальным мостиком между `commonjs` и `esm`:
+4. Рядом положить `cjs/index.js` в формате `commonjs`. Именно он будет точкой входа и универсальным мостиком между `commonjs` и `esm`:
    ```js
    exports.handler = async (...args) => {
      const { handler } = await import('../index.js');
@@ -40,7 +50,7 @@ index.js
 package.json
 ```
 
-После запуска такой функции в ответе получаем `hello esm!`. Ошибки пропали, ES-модули работают.
+После запуска такой функции в ответе получаем `hello esm!`, т.е. ES-модули работают.
 
 ## TypeScript
 Если вы пишите на TypeScript, для компиляции функции в ES-модулях нужно сделать следующее:
