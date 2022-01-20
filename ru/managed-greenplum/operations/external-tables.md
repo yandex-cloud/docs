@@ -283,7 +283,7 @@ GPFDIST может работать с любыми текстовыми фай�
 
 ### Запуск GPFDIST {#run-gpfdist}
 
-1. [Скачайте и установите](https://greenplum.docs.pivotal.io/43330/client_tool_guides/load/unix/unix_load_install.html) пакет Greenplum Loader.
+1. [Скачайте и установите](https://greenplum.docs.pivotal.io/6-19/client_tool_guides/installing.html) пакет Greenplum Loader.
 
 1. Запустите утилиту GPFDIST:
 

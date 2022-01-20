@@ -207,7 +207,7 @@ Hystax Acura Controller: для UDP-порта 12201 в направлении i
 
 ### Компенсационные меры
 
-Если вы используете устаревший образ {{ GL }} из {{ marketplace-full-name }}, либо собственный образ, [обновите](https://about.gitlab.com/update) его до актуальной версии. Если по каким-то причинам вы не можете обновить версию {{ GL }}, используйте [hotpatch](https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918/2).
+Если вы используете устаревший образ {{ GL }} из {{ marketplace-full-name }}, либо собственный образ, [обновите](https://about.gitlab.com/update) его до актуальной версии. Если по каким-то причинам вы не можете обновить версию {{ GL }}, используйте [hotpatch](https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918#hotpatch-2).
 
 ### Дополнительная информация
 

@@ -2,7 +2,7 @@
 
 - Windows/Linux
 
-  [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его по [инструкции](https://www.terraform.io/intro/getting-started/install.html).
+  [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его по [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
 
 - macOS
 
@@ -14,6 +14,6 @@
       $ brew install terraform
       ```
 
-    * Для установки вручную [скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его по [инструкции](https://www.terraform.io/intro/getting-started/install.html).
+    * Для установки вручную [скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его по [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
   
 {% endlist %}

@@ -2,7 +2,7 @@
 
 Data in {{ serverless-containers-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can get:
 
-* [Container lists](containers-list).
+* [Container lists](#containers-list).
 * [Container revision lists](#revision-list).
 * [Information about container revisions](#revision-get).
 
