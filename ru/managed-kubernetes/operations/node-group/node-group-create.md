@@ -42,7 +42,8 @@
        --platform-id <идентификатор платформы> \
        --preemptible \
        --public-ip \
-       --version <версия {{ k8s }} на узлах группы>
+       --version <версия {{ k8s }} на узлах группы> \
+       --node-taints <метки taint-политик>
      ```
 
      Где:
@@ -65,9 +66,10 @@
        {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
      * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
-     * `--preemptible` — флаг, который указывается, если ВМ должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
+     * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--version` — версия {{ k8s }} на узлах группы.
+     * `--node-taints` — метки [taint-политик](../../concepts/index.md#taints-tolerations) {{ k8s }}. Можно указать несколько меток.
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
@@ -105,6 +107,8 @@
        * `version` — версия {{ k8s }} для группы узлов.
      * `labels` — [набор меток](node-label-management.md) для группы узлов:
        * `key` — значения меток.
+     * `node_taints` — метки [taint-политик](../../concepts/index.md#taints-tolerations) {{ k8s }}:
+       * `key` — значения политик.
      * `instance_template` — описание ВМ для группы узлов:
        * `platform_id` — [платформа](../../../compute/concepts/vm-platforms.md) для группы узлов.
        * `network_interface` — настройки сетевого интерфейса:
@@ -113,7 +117,7 @@
        * `resources` — ресурсы, доступные ВМ:
          * `memory` — объем RAM.
          * `cores` — количество ядер vCPU.
-       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных  образов](../../../compute/operations/images-with-pre-installed-software/get-list.md).
+       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../../../compute/operations/images-with-pre-installed-software/get-list.md).
          * `size` — размер диска узла Гб. Минимальный размер: 64 Гб.
          * `type` — тип диска.
        * `placement_policy` — (опционально) настройка группы размещения:
@@ -145,6 +149,9 @@
        labels = {
          "key" = "value"
        }
+       node_taints = [
+         "key=value:effect"
+       ]
        instance_template {
          platform_id = "standard-v2"
          network_interface {
@@ -250,18 +257,21 @@
 
 - API
 
-  Воспользуйтесь методом [create](../../api-ref/NodeGroup/create.md) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md).
-  * [Конфигурацию группы узлов](../../concepts/index.md#config) в параметре `nodeTemplate`.
-  * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
-  * Настройки размещения группы узлов в параметре `allocationPolicy`.
-  * Политику обновлений в параметре `maintenancePolicy`.
-  * Список изменяемых настроек в параметре `updateMask`.
+  Воспользуйтесь методом API [create](../../api-ref/NodeGroup/create.md) и передайте в запросе:
 
-    {% include [updateMask warning](../../../_includes/mdb/warning-default-settings.md) %}
+    * Идентификатор кластера в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
+    * [Конфигурацию группы узлов](../../concepts/index.md#config) в параметре `nodeTemplate`.
+    * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
+    * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов в параметрах `allocationPolicy`.
+    * Настройки окна обновлений в параметрах `maintenancePolicy`.
+    * Список изменяемых настроек в параметре `updateMask`.
+
+      {% include [updateMask warning](../../../_includes/mdb/warning-default-settings.md) %}
 
   Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) узлов кластера, передайте идентификатор группы размещения в параметре `nodeTemplate.placementPolicy.placementGroupId`.
 
   Чтобы разрешить использование узлами группы [небезопасных параметров ядра](../../concepts/index.md#node-group), передайте их имена в параметре `allowedUnsafeSysctls`.
+
+  Чтобы задать метки [taint-политик](../../concepts/index.md#taints-tolerations), передайте их значения в параметре `nodeTaints`.
 
 {% endlist %}
