@@ -21,7 +21,7 @@ Groups of {{ k8s }} nodes require internet access for downloading images and com
 
 Internet access can be provided in the following ways:
 * By assigning each node in the group a [public IP address](../../vpc/concepts/address.md#public-addresses).
-* [Configuring a VM as a NAT instance](../../solutions/routing/nat-instance.md).
+* [Configuring a virtual machine as a NAT instance](../../solutions/routing/nat-instance.md).
 * [Enabling NAT to the internet](../../vpc/operations/enable-nat.md).
 
 {% endnote %}
@@ -99,17 +99,15 @@ By default, a service is only available within a specific {{ k8s }} cluster, but
 
 _A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resources and distributes quotas to them. This is useful for isolating resources of different teams and projects in a single {{ k8s }} cluster.
 
-### Service accounts {#service-accounts}
+## Service accounts {#service-accounts}
 
 {{ managed-k8s-full-name }} clusters use two types of service accounts:
 * **Cloud service accounts**
-
-  These accounts exist at the individual folder level in the cloud and can be used by {{ managed-k8s-name }} and other services.
+  These accounts exist on the level of a cloud's individual folders and can be used by {{ managed-k8s-name }} and other services.
 
   For more information, see [{#T}](../security/index.md) and [{#T}](../../iam/concepts/users/service-accounts.md).
 * **{{ k8s }} service accounts**
-
-  These accounts exist and function only at the individual {{ managed-k8s-name }} cluster level. {{ k8s }} uses them:
+  These accounts exist and are only valid on the level of an individual {{ managed-k8s-name }} cluster. They are applied by {{ k8s }}:
   * To authenticate cluster API calls from applications deployed in the cluster.
   * To configure access for these applications.
 
@@ -127,7 +125,7 @@ In the service documentation, _service account_ refers to a regular cloud servic
 
 {% endnote %}
 
-### Node labels {#node-labels}
+## Node labels {#node-labels}
 
 _Node labels_, `node_labels` are a mechanism for grouping nodes together in {{ k8s }}. You can use node labels to manage pod distribution across the nodes of a cluster. For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes).
 
