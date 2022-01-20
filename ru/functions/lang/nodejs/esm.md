@@ -2,33 +2,6 @@
 
 Сейчас функции на Node.js всегда запускаются в режиме [CommonJS](https://nodejs.org/docs/latest/api/modules.html#modules-commonjs-modules), т.е. предполагают использование `require()` для подключения зависимостей. Чтобы писать код функции в новом формате [ES-модулей](https://nodejs.org/docs/latest-v17.x/api/esm.html#modules-ecmascript-modules), а также подключать npm пакеты, которые опубликованы [только](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) в формате ES-модулей, необходима небольшая настройка.
 
-### Пример
-Для примера создадим функцию, использующую пакет [node-fetch](https://www.npmjs.com/package/node-fetch) версии 3+:
-```js
-const fetch = require('node-fetch');
-
-exports.handler = (event, context) => { 
-  return { body: 'hello esm!' };
-};
-```
-При запуске такой функции будет ошибка:
-```
-Error: Must use import to load ES Module: /function/code/node_modules/node-fetch/src/index.js
-```
-
-Если же заменить `require()` на `import`:
-```js
-import fetch from 'node-fetch';
-
-exports.handler = (event, context) => { 
-  return { body: 'hello esm!' };
-};
-```
-то получим другую ошибку:
-```
-Error: Cannot use import statement outside a module
-```
-
 ## Настройка ES-модулей в функции
 Чтобы ES-модули заработали в функции, нужно сделать следующее:
 
