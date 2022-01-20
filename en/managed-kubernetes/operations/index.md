@@ -12,7 +12,6 @@ description: "In this article you will learn how to work with managed Kubernetes
 ## Network scenarios {#network-scenarios}
 
 * [{#T}](create-load-balancer.md)
-* [{#T}](cilium.md)
 
 ## Working with persistent volumes {#persistent-volumes}
 
@@ -20,6 +19,7 @@ description: "In this article you will learn how to work with managed Kubernetes
 * [{#T}](volumes/static-create-pv.md)
 * [{#T}](volumes/manage-storage-class.md)
 * [{#T}](volumes/volume-expansion.md)
+* [{#T}](volumes/statefulset-pvc-expansion.md)
 * [{#T}](volumes/mode-block.md)
 
 ## Managing a {{ k8s }} cluster {#kubernetes-cluster}

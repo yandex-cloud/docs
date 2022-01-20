@@ -34,13 +34,15 @@ The input data is validated using the [{{ ml-platform-full-name }}](../../../dat
 
 1. To validate the uploaded data, run a cell with the following code:
 
-   ```python
-   tts_dataset_list
+   ```bash
+   #!nirvana
+   tts_dataset_list --list-path <name of file with output>.json
    ```
 
 1. To delete the data you do not need, run a cell with the following code:
 
    ```python
+   #!nirvana
    delete_tts_audio --dataset-name <recording date>
    ```
 

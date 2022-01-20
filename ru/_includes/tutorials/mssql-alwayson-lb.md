@@ -721,7 +721,7 @@
 
     {% endlist %}
 
-1. [Перезапустите ВМ](../compute/operations/vm-control/vm-stop-and-start.md/#restart).
+1. [Перезапустите ВМ](../../compute/operations/vm-control/vm-stop-and-start.md#restart).
 
 1. Снова подключитесь к ВМ `ya-mssql1` и запустите PowerShell.
 

@@ -1,10 +1,10 @@
-# Expanding a volume
+# Expanding a pod volume
 
-To expand a [volume](../../concepts/volume.md), follow these steps.
+To expand a [volume](../../concepts/volume.md) for [pods](../../concepts/index.md#pod), follow the steps below.
 
 ## Enable volume expansion {#enabling-expansion}
 
-To enable the volume expansion feature, make sure the [storage class](manage-storage-class.md) (`StorageClass`) description contains `allowVolumeExpansion: true`. In {{ managed-k8s-short-name }} storage, this feature is enabled by default:
+To enable the volume expansion feature, make sure the [storage class](manage-storage-class.md) (`StorageClass`) description contains `allowVolumeExpansion: true`. In {{ managed-k8s-name }} storage, this feature is enabled by default:
 
 ```yaml
 kind: StorageClass
@@ -20,11 +20,11 @@ allowVolumeExpansion: true
 reclaimPolicy: Delete
 ```
 
-## Create a PersistentVolumeClaim {#create-pvc}
+## Create a PersistentVolumeClaim object {#create-pvc}
 
-1. Save the following [PersistentVolumeClaim](dynamic-create-pv.md) creation specification to a YAML file named `pvc-expansion.yaml`.
+1. Save the following [PersistentVolumeClaim creation specification](dynamic-create-pv.md) to a YAML file named `pvc-expansion.yaml`.
 
-   To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   For more on specifications for creating `PersistentVolumeClaim` objects, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    ```yaml
    apiVersion: v1
@@ -46,7 +46,7 @@ reclaimPolicy: Delete
    kubectl create -f pvc-expansion.yaml
    ```
 
-   Command execution result:
+   Command output:
 
    ```bash
    persistentvolumeclaim/pvc-expansion created
@@ -84,7 +84,7 @@ reclaimPolicy: Delete
    kubectl create -f pod.yaml
    ```
 
-   Command execution result:
+   Command output:
 
    ```bash
    pod/pod created
@@ -100,7 +100,7 @@ To request volume expansion, you need to delete the pod.
    kubectl delete pod pod
    ```
 
-   Command execution result:
+   Command output:
 
    ```bash
    pod "pod" deleted
@@ -178,7 +178,7 @@ Make changes to the `spec.resources.requests.storage` field of the `PersistentVo
    kubectl create -f pod.yaml
    ```
 
-   Command execution result:
+   Command output:
 
    ```bash
    pod/pod created

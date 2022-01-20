@@ -146,7 +146,7 @@ items:
           - name: Прикрепить к задаче изображения и файлы
             href: user/attach-file.md
           - name: Форматировать текст в задаче
-            href: user/wiki-markup.md
+            href: user/markup.md
           - name: Выполнить макрос
             href: user/macroses.md
           - name: Проголосовать за задачу

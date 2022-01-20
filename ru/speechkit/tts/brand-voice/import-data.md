@@ -34,12 +34,14 @@
 
 1. Чтобы проверить загруженные данные, выполните ячейку с кодом: 
 
-   ```python
-   tts_dataset_list
+   ```bash
+   #!nirvana
+   tts_dataset_list --list-path <имя файла с результатами>.json
    ```
 
 1. Чтобы удалить лишние данные, выполните ячейку с кодом:
 
    ```python
+   #!nirvana
    delete_tts_audio --dataset-name <дата записи>
    ```

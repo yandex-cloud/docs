@@ -8,7 +8,7 @@
 
 1. [Создание и настройка SAML-приложения в Keycloak](#keycloak-settings).
 
-1. [Добавление пользователей в {{org-full-name}}]({#add-users}).
+1. [Добавление пользователей в {{org-full-name}}](#add-users).
 
 1. [Проверка аутентификации](#test-auth).
 

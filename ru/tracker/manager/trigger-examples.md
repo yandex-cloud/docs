@@ -294,7 +294,7 @@
 
    
     ```
-   {{=<% %>=}}{{iframe src=//forms.yandex.ru/surveys/<id_формы>/?iframe=1&<id_вопроса>=<значение> frameborder=0 width=100% height=660px scrolling=no}}
+   {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/<id_формы>/?iframe=1&<id_вопроса>=<значение>" frameborder=0 width=500)
     ```
 
 
@@ -312,7 +312,7 @@
 
     
     ```
-    {{=<% %>=}}{{iframe src=//forms.yandex.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%> frameborder=0 width=100% height=660px scrolling=no}}
+    {{=<% %>=}}/iframe/(src="https://forms.yandex.ru/surveys/68417/?iframe=1&answer_short_text_584943=<%issue.key%>" frameborder=0 width=100% height=660px scrolling=no}}
     ```
 
 

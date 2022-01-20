@@ -23,7 +23,7 @@ keywords:
 Резервные копии могут быть созданы автоматически и вручную, в обоих случаях используется инкрементальная схема:
 
 * При создании очередной резервной копии [куски данных](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) проверяются на уникальность.
-* Если идентичные [куски данных](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) уже есть в одной из существующих резервных копий и они не старше {{ mch-dedup-retention }} дней, то они не дублируются. Для холодных данных [гибридного хранилища](storage .md#hybrid-storage-features) этот срок составляет {{ mch-backup-retention }} дней.
+* Если идентичные [куски данных](https://clickhouse.tech/docs/ru/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) уже есть в одной из существующих резервных копий и они не старше {{ mch-dedup-retention }} дней, то они не дублируются. Для холодных данных [гибридного хранилища](storage.md#hybrid-storage-features) этот срок составляет {{ mch-backup-retention }} дней.
 
 В резервной копии хранятся данные только для движков семейства `MergeTree`. Для остальных движков хранятся только схемы таблиц. Подробнее про движки см. в [документации {{ CH }}](https://clickhouse.tech/docs/ru/engines/table-engines/).
 

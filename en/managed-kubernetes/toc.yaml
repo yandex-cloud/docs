@@ -33,8 +33,10 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
-          - name: Expanding a volume
+          - name: Expanding a pod volume
             href: operations/volumes/volume-expansion.md
+          - name: Expanding a StatefulSet controller volume
+            href: operations/volumes/statefulset-pvc-expansion.md
           - name: Mounting a volume in Block mode
             href: operations/volumes/mode-block.md
       - name: Managing a Kubernetes cluster
@@ -81,6 +83,8 @@ items:
         href: solutions/custom-dns.md
       - name: Automatic DNS scaling by cluster size
         href: solutions/dns-autoscaler.md
+      - name: Setting up local DNS caching
+        href: solutions/node-local-dns.md
   - name: Concepts
     items:
       - name: Relationship between service resources
@@ -107,6 +111,8 @@ items:
         href: concepts/network-policy.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Recommendations for using {{ managed-k8s-name }}
+        href: concepts/usage-recommendations.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

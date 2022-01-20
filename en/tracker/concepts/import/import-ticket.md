@@ -58,7 +58,7 @@ Content-Type: application/json
 }
 ```
 
-If necessary, you can extend the list of fields available for import. To do this, [create](https://yandex.ru/support/connect-tracker/user/create-param.html) additional fields in {{ tracker-name }} and specify them in the request body in the following format:
+If necessary, you can extend the list of fields available for import. To do this, [create](../../user/create-param.md) additional fields in {{ tracker-name }} and specify them in the request body in the following format:
 
 ```
 "field_name": "field value"

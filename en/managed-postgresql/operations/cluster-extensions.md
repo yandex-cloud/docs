@@ -78,8 +78,8 @@ You can't manage {{ PG }} extensions using SQL commands.
 
 All supported extensions are listed here:
 
-- [address_standardizer](https://postgis.net/docs/Address_Standardizer.html)
-- [address_standardizer_data_us](https://postgis.net/docs/Address_Standardizer.html)
+- [address_standardizer](https://postgis.net/docs/manual-3.1/postgis_installation.html#installing_pagc_address_standardizer)
+- [address_standardizer_data_us](https://postgis.net/docs/manual-3.1/postgis_installation.html#make_install_postgis_extensions)
 - [autoinc](https://www.postgresql.org/docs/current/static/contrib-spi.html#id-1.11.7.46.7)
 - [bloom](https://www.postgresql.org/docs/current/static/bloom.html)
 - [btree_gin](https://www.postgresql.org/docs/current/static/btree-gin.html)
