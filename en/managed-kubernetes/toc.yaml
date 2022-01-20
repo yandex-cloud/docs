@@ -113,6 +113,8 @@ items:
         href: concepts/network-policy.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Recommendations for using {{ managed-k8s-name }}
+        href: concepts/usage-recommendations.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

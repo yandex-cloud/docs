@@ -5,7 +5,7 @@ Create a {{ k8s }} cluster and then [create a node group](../node-group/node-gro
 ## Before you start {#before-you-begin}
 
 To create a {{ k8s }} cluster:
-1. Log in to [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
 1. [On the billing page]({{ link-console-billing }}) make sure that you have enabled a [billing account](../../../billing/concepts/billing-account.md) and that it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account).
 1. If you don't have a folder, [create one](../../../resource-manager/operations/folder/create.md).
 1. Install the [{{ k8s }} CLI (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
@@ -17,8 +17,8 @@ To create a {{ k8s }} cluster:
    * A service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#required-roles) role for the folder containing the Docker image registry. Nodes will download the Docker images they require from the registry on behalf of this account.
 
    You can use the same service account for both operations.
-
 1. Create the necessary [security groups](../security-groups.md).
+1. Review the [recommendations for using {{ managed-k8s-name }}](../../concepts/usage-recommendations.md).
 
 ## Create a {{ k8s }} cluster {#kubernetes-cluster-create}
 
@@ -57,7 +57,7 @@ To create a {{ k8s }} cluster:
      * `--network-name`: Name of the network.
      * `--zone`: Availability zone.
      * `--subnet-name`: Name of the subnet.
-     * `--public-ip`: Flag that is specified if the {{ k8s }} cluster needs a public IP address.
+     * `--public-ip`: Flag indicating that the {{ k8s }} cluster needs a public IP address.
      * `--release-channel`: [Release channel](../../concepts/release-channels-and-updates.md#release-channels).
      * `--version`: {{ k8s }} version.
      * `--cluster-ipv4-range`: Range of IP addresses for allocating addresses for [pods](../../concepts/index.md#pod).
@@ -70,7 +70,7 @@ To create a {{ k8s }} cluster:
      * `--node-service-account-id`: The unique ID of the service account for the nodes. Nodes will download the Docker images they require from the registry on behalf of this account.
      * `--daily-maintenance-window`: The maintenance window settings.
 
-     Command execution result:
+     Command output:
 
      ```bash
      done (5m47s)
@@ -80,14 +80,6 @@ To create a {{ k8s }} cluster:
        service_account_id: aje3932acd0c5ur7gatp
        node_service_account_id: aje3932acd0c5hg8dagp
        release_channel: REGULAR
-     ```
-
-  1. To enable the Calico [network policy controller](../../concepts/network-policy.md), pass the `--enable-network-policy` parameter in the cluster create command:
-
-     ```bash
-     {{ yc-k8s }} cluster create \
-       ...
-       --enable-network-policy
      ```
 
   1. To enable the Calico [network policy controller](../../concepts/network-policy.md), pass the `--enable-network-policy` parameter in the cluster create command:
@@ -220,7 +212,7 @@ To create a {{ k8s }} cluster:
      terraform plan
      ```
 
-     Command execution result:
+     Command output:
 
      ```
      Refreshing Terraform state in-memory prior to plan...
@@ -246,7 +238,7 @@ To create a {{ k8s }} cluster:
      terraform apply
      ```
 
-     Command execution result:
+     Command output:
 
      ```
      An execution plan has been generated and is shown below.
