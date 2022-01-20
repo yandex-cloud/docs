@@ -69,6 +69,9 @@ default:
   link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
   link-python-official: https://www.python.org/downloads/
 
+  #Ссылки на сервисы
+  link-yandex: https://yandex.ru
+
   #Интерфейс
   tracker-settings: Настройки Tracker
   
