@@ -41,6 +41,8 @@ items:
             href: operations/volumes/statefulset-pvc-expansion.md
           - name: Mounting a volume in Block mode
             href: operations/volumes/mode-block.md
+          - name: Integration with Object Storage
+            href: operations/volumes/s3-csi-integration.md
       - name: Managing a Kubernetes cluster
         items:
           - name: >-

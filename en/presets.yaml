@@ -47,17 +47,16 @@ default:
   data-transfer-full-name: Yandex Data Transfer
   api-gw-full-name: Yandex API Gateway
   ig-full-name: Yandex Instance Groups
-  lockbox-full-name: Yandex Lockbox
   tracker-full-name: Yandex Tracker
   alb-full-name: Yandex Application Load Balancer
   dns-full-name: Yandex Cloud DNS
   at-full-name: Yandex Audit Trails
   yds-full-name: Yandex Data Streams
   cdn-full-name: Yandex Cloud CDN
+  serverless-containers-full-name: Yandex Serverless Containers
   org-full-name: Yandex Cloud Organization
   forms-full-name: Yandex Forms
   wiki-full-name: Yandex Wiki
-  serverless-containers-full-name: Yandex Serverless Containers
   load-testing-full-name: Yandex Load Testing
   cloud-desktop-full-name: Yandex Cloud Desktop
   marketplace-full-name: Yandex Cloud Marketplace
@@ -98,6 +97,10 @@ default:
   dataproc-name: Data Proc
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
+  k8s-ca: Cluster Autoscaler
+  k8s-hpa: Horizontal Pod Autoscaler
+  k8s-vpa: Vertical Pod Autoscaler
+  k8s-decomission-timeout: 7 minutes
   iot-name: Yandex IoT Core
   sf-name: Cloud Functions
   ydb-name: Yandex Database
@@ -138,6 +141,7 @@ default:
   mgp-short-name: Managed Service for Greenplum<sup>®</sup>
   mgl-short-name: Managed Service for GitLab
   monitoring-short-name: Monitoring
+  mkf-msr: Managed Schema Registry
   unified-agent-short-name: Unified Agent
   vpc-short-name: VPC
   ddos-protection-short-name: DDoS Protection
@@ -213,14 +217,13 @@ default:
   subnet-id: b0rcctk2rvtr8efcch64
   s3-storage-host: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
-  yс-k8s: yc managed-kubernetes
+  yc-k8s: yc managed-kubernetes
   yc-mdb-mg: yc managed-mongodb
   yc-mdb-ch: yc managed-clickhouse
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
   yc-mdb-my: yc managed-mysql
   yc-mdb-kf: yc managed-kafka
-  yc-k8s: yc managed-kubernetes
   yc-mdb-ms: yc managed-sqlserver
   yc-mdb-es: yc managed-elasticsearch
   yc-compute-ig: yc compute instance-group
@@ -242,8 +245,10 @@ default:
   mmg-backup-retention-min: 7
   mmg-backup-retention-max: 35
   mrd-max-disk-size: 4096 GB
+  CSI: Container Storage Interface
   CH: ClickHouse
   ES: Elasticsearch
+  GL: GitLab
   GP: Greenplum<sup>®</sup>
   KF: Apache Kafka<sup>®</sup>
   KFC: Kafka Connect
@@ -411,8 +416,8 @@ default:
   yc-install-path: /yandexcloud-yc/install.sh
   yc-windows-path: /yandexcloud-yc/install.ps1
   link-console-billing: https://console.cloud.yandex.com/billing
-  link-console-main: https://console.cloud.yandex.com
   link-console-cloud: https://console.cloud.yandex.com/cloud
+  link-console-main: https://console.cloud.yandex.com
   link-console-quotas: https://console.cloud.yandex.com/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.com/iam
   link-console-support: https://console.cloud.yandex.com/support
@@ -447,12 +452,12 @@ default:
   stt-long-audioLength: 4 hours
   stt-streaming-fileSize: 10 MB
   stt-streaming-audioLength: 5 minutes
-  ml-project-size: 10 GB
   ya-client-app: https://oauth.yandex.com/client/new
   ya-oauth: https://oauth.yandex.com/verification_code
   ds-api-addr: datasphere.api.cloud.yandex.net:443
   taas-name: Training as a Service
-  taas: TaaS  
+  taas: TaaS
+  ml-project-size: 10 GB
 
   # Marketplace
   mp-test-product-id: f2e4tmlj4qqciunhr7e6
@@ -495,9 +500,9 @@ default:
 
   __system:
     dislikeVariants:
-      - "No answer to my question"
-      - "Recommendations didn't help"
-      - "The content doesn't match title"
+      - "There's no answer to my question"
+      - "Recommendations aren't helpful"
+      - "Content does not match the title"
       - "Other"
 
   # External Links
