@@ -1,7 +1,6 @@
 # Рекомендации по использованию {{ managed-k8s-name }}
 
 Используйте эти рекомендации для ваших `PRODUCTION`-приложений, которым требуется:
-
 * высокая доступность и отказоустойчивость;
 * масштабирование нагрузки;
 * изоляция ресурсов.
@@ -12,29 +11,28 @@
 
 {% note tip %}
 
-Используйте релизный канал `RAPID` для непродуктивных окружений, чтобы быстрее тестировать обновления {{ k8s }} и {{ managed-k8s-name }}.
+Используйте релизный канал `RAPID` для тестовых окружений, чтобы быстрее тестировать обновления {{ k8s }} и {{ managed-k8s-name }}.
 
 {% endnote %}
 
-* Обновляйте кластер и группы узлов вручную. Для этого отключите автоматические обновления [мастера](../operations/kubernetes-cluster/kubernetes-cluster-update.md) и [групп узлов](../operations/node-group/node-group-update.md).
-* Выбирайте [региональный](../concepts/index.md#master) тип мастера при [создании кластера](../operations/kubernetes-cluster/kubernetes-cluster-create.md). Сервисы {{ k8s }} будут доступны в случае сбоя на уровне зоны доступности. [Соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_kb/) сервиса {{ managed-k8s-name }} распространяется на конфигурацию с региональным мастером.
+* Обновляйте [кластер](./index.md#kubernetes-cluster) и [группы узлов](./index.md#node-group) вручную. Для этого отключите автоматические обновления [мастера](../operations/kubernetes-cluster/kubernetes-cluster-update.md) и [групп узлов](../operations/node-group/node-group-update.md).
+* Выбирайте [региональный](../concepts/index.md#master) тип мастера при [создании кластера](../operations/kubernetes-cluster/kubernetes-cluster-create.md). [Сервисы](service.md) {{ k8s }} будут доступны в случае сбоя на уровне [зоны доступности](../../overview/concepts/geo-scope.md). [Соглашение об уровне обслуживания]{% if region == "int" %}(https://yandex.com/legal/cloud_sla_kb/){% else %}(https://yandex.ru/legal/cloud_sla_kb/){% endif %} сервиса {{ managed-k8s-name }} распространяется на конфигурацию с региональным мастером.
 * Разворачивайте сервисы типа `Deployment` и `StatefulSet` в нескольких экземплярах в разных зонах доступности. Используйте стратегии [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) и [AntiAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity), чтобы обеспечить высокую доступность сервисов и эффективное потребление ресурсов кластера {{ k8s }}.
 
-  Для обоих стратегий используйте комбинации меток:
-  * `failure-domain.beta.kubernetes.io/zone`, чтобы сервисы сохраняли доступность в случае отказа зоны доступности.
-  * `failure-domain.beta.kubernetes.io/hostname`, чтобы сервисы сохраняли доступность в случае отказа узла кластера.
+  Для всех стратегий используйте комбинации меток:
+  * `topology.kubernetes.io/zone`, чтобы сервисы сохраняли доступность в случае отказа зоны доступности.
+  * `kubernetes.io/hostname`, чтобы сервисы сохраняли доступность в случае отказа узла кластера.
 
   {% note tip %}
 
-  Протестируйте стратегии на непродуктивном окружении перед внедрением в `PRODUCTION`.
+  Протестируйте стратегии на тестовом окружении перед внедрением в `PRODUCTION`.
 
   {% endnote %}
 
 ## Масштабирование нагрузки {#scaling}
 
 Используйте эти рекомендации, если нагрузка на ваш кластер {{ managed-k8s-name }} постоянно растет:
-
-* Для повышения надежности кластера [создавайте группы узлов](../operations/node-group/node-group-create.md) с автоматическим масштабированием в нескольких зонах доступности.
+* Для повышения надежности кластера [создавайте группы узлов](../operations/node-group/node-group-create.md) с [автоматическим масштабированием](autoscale.md) в нескольких зонах доступности.
 * Для снижения нагрузки на {{ k8s }} DNS используйте [Node Local DNS](../solutions/node-local-dns.md).
 * Чтобы снизить горизонтальный трафик внутри кластера, используйте [Сетевой балансировщик нагрузки](../operations/create-load-balancer.md) и [правило `externalTrafficPolicy:Local`](../operations/create-load-balancer.md#advanced), если это возможно.
 * Заранее продумайте требования к хранилищам узлов:
@@ -48,24 +46,23 @@
 
 Настройте значения `limits` и `requests` для всех сервисов кластера:
 
-  ```yaml
-  ---
-  ...
-  containers:
-    ...
-      resources:
-        limits:
-          cpu: 250m
-          memory: 128Mi
-        requests:
-          cpu: 100m
-          memory: 64Mi
-    ...
-  ```
+```yaml
+---
+...
+containers:
+...
+  resources:
+    limits:
+      cpu: 250m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 64Mi
+...
+```
 
-Укажите доступность vCPU в тысячных долях, а RAM — в мегабайтах. Сервис не превысит лимиты vCPU и RAM, указанные в значениях `limits`. Настройка `requests` позволяет масштабировать узлы кластера при помощи [автоматического масштабирования](../concepts/autoscale.md).
+Укажите доступность vCPU в тысячных долях, а RAM — в мегабайтах. Сервис не превысит лимиты vCPU и RAM, указанные в значениях `limits`. Настройка `requests` позволяет масштабировать узлы кластера при помощи автоматического масштабирования.
 
 Чтобы автоматически управлять ресурсами подов настройте политики {{ k8s }}:
-
-- [Quality of Service for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) для создания подов различных классов доступности.
-- [Limit Ranges](https://kubernetes.io/docs/concepts/policy/limit-range/) для установки лимитов на уровне [пространства имен](../concepts/index.md#namespace).
+* [Quality of Service for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) для создания подов различных классов доступности.
+* [Limit Ranges](https://kubernetes.io/docs/concepts/policy/limit-range/) для установки лимитов на уровне [пространства имен](../concepts/index.md#namespace).
