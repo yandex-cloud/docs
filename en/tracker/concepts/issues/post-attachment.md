@@ -5,37 +5,26 @@ sourcePath: en/tracker/api-ref/concepts/issues/post-attachment.md
 
 Use this request to attach a file to an issue.
 
-## Request format {#section_rnm_x4j_p1b}
+## Request format {#query}
 
-To attach a file, Use an HTTP `POST` request:
+Before making the request, [get permission to access the API](../access.md).
+
+To attach a file, use an HTTP `POST` request.
 
 ```
-POST /{{ ver }}/issues/<issue-id>/attachments/?filename=<new file name>
+POST /{{ ver }}/issues/<issue-id>/attachments/
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 Content-Type: multipart/form-data
 
 <file_data>
 ```
 
-#### Resource {#resource}
-
-- **\<issue-id\>**
-
-    Issue ID or key.
-
-#### Request parameters {#req-params}
-
-- **filename (optional)**
-
-    New name that a file will be stored on the server with. Optional parameter.
-
-#### Request headers {#req-headers}
+{% cut "Headers" %}
 
 - **Host**
-
-    Address of the node that provides the API:
+        Address of the node that provides the API:
 
     ```
     {{ host }}
@@ -49,6 +38,7 @@ Content-Type: multipart/form-data
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
+    
 - **X-Org-ID**
 
     Organization ID.
@@ -57,71 +47,103 @@ Content-Type: multipart/form-data
 
     Request body format. Must be `multipart/form-data`.
 
-#### Request body {#req-body}
+{% endcut %}
 
-- **\<file_data\>**
-
-    Binary file. The file size may not exceed 1024 Mb.
-
-## Response format {#section_xc3_53j_p1b}
-
-If the request is successful, the API returns a response with code 201. The response body contains the parameters of the attached file in JSON format:
-
-```json
-{
-  "self" : "<address of the API resource corresponding to the file attached>",
-  "id" : "<file ID>",
-  "name" : "<file name>",
-  "content" : "<address to download the file from>",
-  "thumbnail" : "<address to download the preview from>",
-  "createdBy" : {
-    "self" : "<resource corresponding to the file author>",
-    "id" : "<username of the file author>",
-    "display" : "<name of the file author>"
-  },
-  "createdAt" : "<date and time when the file is added>",
-  "mimetype" : "<file data type>",
-  "size" : <file size>
-  "metadata" : {
-    "size" : "<dimensions (for images)>"
-  }
-}
-```
-
-#### Response parameters {#answer-params}
+{% cut "Resource" %}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the API resource corresponding to the attached file. | String |
-| id | Unique ID of the file. | String |
-| name | File name. | String |
-| content | Address of the resource to download the file from. | String |
-| thumbnail | Address of the resource to download the preview thumbnail from. Available for image files only. | String |
-| [createdBy](#createdBy) | Object with information about the user who attached the file. | JSON object |
-| createdAt | Date and time when the file is uploaded, in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String |
-| mimetype | File type, for example:<ul><li>`text/plain`: Text file.</li><li>`image/png`: Image in PNG format.</li></ul> | String |
-| size | File size in bytes. | Integer |
-| [metadata](#metadata) | Object with file metadata. | JSON object |
+| \<issue-id\> | Issue ID or key | String |
 
-**Object fields** `createdBy` {#createdBy}
+{% endcut %}
+
+{% cut "Request parameters" %}
+
+**Additional parameters**
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Address of the resource corresponding to the user who uploaded the file. | String |
-| id | Username of the user. | String |
-| display | User's name (as in the interface). | String |
+| \<filename\> | New name that a file will be stored on the server as | String |
 
-**Object fields** `metadata` {#metadata}
+{% endcut %}
+
+{% cut "Request body parameters" %}
+
+**Required parameters**
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| size | Image size in pixels. | String |
+| \<file_data\> | Binary file. The file size may not exceed 1024 Mb. | File |
 
-## Possible response codes {#section_otf_jrj_p1b}
+{% endcut %}
 
-201
-:  The `POST` request resulted in creating a new object.
+## Response format {#answer}
 
-404
-:   The requested object was not found. You may have specified an invalid object ID or key.
+{% list tabs %}
+
+- Successful execution of the request
+
+    {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
+
+    The response body contains the parameters of the attached file in JSON format.
+
+    ```json
+    {
+      "self" : "<address of the API resource corresponding to the file attached>",
+      "id" : "<file ID>",
+      "name" : "<file name>",
+      "content" : "<address to download the file from>",
+      "thumbnail" : "<address to download the preview from>",
+      "createdBy" : {
+        "self" : "<resource corresponding to the file author>",
+        "id" : "<username of the file author>",
+        "display" : "<name of the file author>"
+      },
+      "createdAt" : "<date and time when the file is added>",
+      "mimetype" : "<file data type>",
+      "size" : <file size>,
+      "metadata" : {
+        "size" : "<dimensions (for images)>"
+      }
+    }
+    ```
+
+    {% cut "Response parameters" %}
+
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the API resource corresponding to the attached file. | String |
+    | id | Unique ID of the file. | String |
+    | name | File name. | String |
+    | content | Address of the resource to download the file from. | String |
+    | thumbnail | Address of the resource to download the preview thumbnail from. Available for image files only. | String |
+    | [createdBy](#createdBy) | Object with information about the user who attached the file. | Object |
+    | createdAt | Date and time when the file is uploaded, in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String |
+    | mimetype | File type, for example:<ul><li>`text/plain`: Text file.</li><li>`image/png`: Image in PNG format.</li></ul> | String |
+    | size | File size in bytes. | Integer |
+    | [metadata](#metadata) | Object with file metadata. | Object |
+
+    **Object fields** `createdBy` {#createdBy}
+
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the resource corresponding to the user who uploaded the file | String |
+    | id | Username of the user | String |
+    | display | User's name (as in the interface) | String |
+
+    **Object fields** `metadata` {#metadata}
+
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | size | Image size in pixels | String |
+
+    {% endcut %}
+
+- The request failed
+
+    If the request is processed incorrectly, the API returns a response with an error code:
+
+    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+
+{% endlist %}
 

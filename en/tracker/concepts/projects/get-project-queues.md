@@ -15,51 +15,62 @@ To get a list of project queues, use an HTTP `GET` request:
 GET /{{ ver }}/projects/<project-id>/queues
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 ```
 
-#### Request parameters
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-**Resource**
+{% cut "Resource" %}
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
 | \<project-id> | Project ID. | Number |
+
+{% endcut %}
+
+{% cut "Request parameters" %}
+
+**Additional parameters**
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
 | expand | Additional fields to include in the response. If there are multiple queues in the project, parameters are displayed for each queue:<ul><li>`all`: All queue parameters.</li><li>`projects`: All organization projects.</li><li>`components`: Queue components.</li><li>`versions`: Queue versions.</li><li>`types`: Queue issue types.</li><li>`team`: Queue team members.</li><li>`workflows`: Queue workflows and their issue types.</li><li>`fields`: Required queue fields.</li><li>`notification_fields`: Queue issue notification fields.</li><li>`issue_types_config`: Queue issue settings.</li><li>`enabled_features`: Queue integration settings.</li><li> `signature_settings`: Information about the queue mailbox: address, alias, and signature.</li></ul> | String |
+
+{% endcut %}
 
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code `200 OK`.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
     The response body contains information about the project in JSON format.
 
     ```json
     [
         {
-            "self": "https://api.tracker.yandex.net/v2/queues/ORG",
+            "self": "{{ host }}/v2/queues/ORG",
             "id": 1,
             "key": "ORG",
             "version": 6,
             "name": "Default",
             "description": "Queue description "Default" (ORG)",
             "lead": {
-                "self": "https://api.tracker.yandex.net/v2/users/780889736",
+                "self": "{{ host }}/v2/users/780889736",
                 "id": "780889736",
                 "display": "Tracker service robot"
             },
             "assignAuto": false,
             "defaultType": {
-                "self": "https://api.tracker.yandex.net/v2/issuetypes/2",
+                "self": "{{ host }}/v2/issuetypes/2",
                 "id": "2",
                 "key": "task",
                 "display": "Issue"
             },
             "defaultPriority": {
-                "self": "https://api.tracker.yandex.net/v2/priorities/3",
+                "self": "{{ host }}/v2/priorities/3",
                 "id": "3",
                 "key": "normal",
                 "display": "Medium"
@@ -73,26 +84,26 @@ X-Org-Id: <organization ID>
             "useLastSignature": false
         },
         {
-            "self": "https://api.tracker.yandex.net/v2/queues/TEST",
+            "self": "{{ host }}/v2/queues/TEST",
             "id": 3,
             "key": "TEST",
             "version": 8,
             "name": "Testing",
             "description": "Description of the "Testing" queue (TEST)",
             "lead": {
-                "self": "https://api.tracker.yandex.net/v2/users/1234567890",
+                "self": "{{ host }}/v2/users/1234567890",
                 "id": "1234567890",
                 "display": "First and Last name"
             },
             "assignAuto": true,
             "defaultType": {
-                "self": "https://api.tracker.yandex.net/v2/issuetypes/2",
+                "self": "{{ host }}/v2/issuetypes/2",
                 "id": "2",
                 "key": "task",
                 "display": "Issue"
             },
             "defaultPriority": {
-                "self": "https://api.tracker.yandex.net/v2/priorities/3",
+                "self": "{{ host }}/v2/priorities/3",
                 "id": "3",
                 "key": "normal",
                 "display": "Medium"
@@ -108,7 +119,7 @@ X-Org-Id: <organization ID>
     ]
     ```
 
-    #### Response parameters
+   {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -156,21 +167,19 @@ X-Org-Id: <organization ID>
     | key | Issue priority key. | String |
     | display | Issue priority name displayed. | String |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
-    400
-    :   One or more request parameters have an invalid value.
+    {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    401
-    :  The user isn't authorized. Make sure that actions described in the [API access](../access.md) section are performed.
+    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    403
-    :  Insufficient rights to perform this action. You can check what rights you have in the {{ tracker-name }} interface. The same rights are required to perform an action via the API and interface.
+    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    404
-    :   The requested object was not found. You may have specified an invalid object ID or key.
+    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
 

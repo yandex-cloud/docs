@@ -3,7 +3,7 @@ sourcePath: en/tracker/api-ref/concepts/issues/get-checklist.md
 ---
 # Get checklist parameters
 
-Use this request to get the parameters of the checklist in the issue.
+Use this request to get the parameters of an issue's [checklist](../../user/checklist.md).
 
 ## Request format {#query}
 
@@ -15,26 +15,28 @@ To get checklist parameters, use an HTTP `GET` request:
 GET /{{ ver }}/issues/<issue-id>/checklistItems
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 ```
 
-#### Resource
-
-- **\<issues-id\>**
-   
-   Issue ID or key.
-
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
+
+{% cut "Resource" %}
+
+| Parameter | Description | Data type |
+| --- | --- | --- |
+| \<issues-id\> | Issue ID or key | String |
+
+{% endcut %}
 
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code `200 OK`.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains information about checklist items in JSON format.
+    The response body contains information about the checklist items in JSON format.
 
     ```json
     {
@@ -42,11 +44,26 @@ X-Org-Id: <organization ID>
         "text": "Checklist item",
         "textHtml": "Item text in HTML format",
         "checked": false,
+        "assignee": {
+            "id": 1134669209,
+            "display": "First and Last name",
+            "passportUid": 1134669209,
+            "login": "user_login",
+            "firstName": "First name",
+            "Lastname": "Last name",
+            "email": "user_login@example.com",
+            "trackerUid": 1134669209
+        },
+        "deadline": {
+            "date": "2021-05-09T00:00:00.000+0000",
+            "deadlineType": "date",
+            "isExceeded": false
+        },
         "checklistItemType": "standard"
     }
     ```
 
-    #### Response parameters
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -54,23 +71,44 @@ X-Org-Id: <organization ID>
     | text | Text of the checklist item. | String |
     | textHtml | Text of the checklist item in HTML format. | String |
     | checked | Flag indicating that the checklist item is completed:<ul><li>`true`: The item is marked as completed.</li><li>`false`: The item is not marked as completed.</li></ul> | Boolean |
+    | [assignee](#assignee) | Assignee of the checklist item. | Object |
+    | [deadline](#deadline) | Deadline for the checklist item. | Object |
     | checklistItemType | Type of the checklist item. | String |
 
-- Request failed
+    **Object fields** `assignee` {#assignee}
+
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | id | User ID. | Number |
+    | display | User's name displayed. | String |
+    | passportUid | Unique ID of the user's Yandex account. | Number |
+    | login | Username of the user. | String |
+    | firstName | User's first name. | String |
+    | lastName | Last name of the user. | String |
+    | email | User's email address. | String |
+    | trackerUid | Unique ID of the user's {{ tracker-name }} account. | Number |
+
+    **Object fields** `deadline` {#deadline}
+
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | date | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
+    | deadlineType | The `deadline` parameter data type. | String |
+    | isExceeded | Flag indicating if the deadline has passed: <ul><li>`true`: Passed.</li><li>`false`: Not passed.</li></ul> | Boolean |
+
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
-    400
-    : One or more request parameters have an invalid value.
+    {% include [error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    401
-    : The user isn't authorized. Make sure that actions described in the [API access](../access.md) section are performed.
+    {% include [error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    403
-    : Insufficient rights to perform this action. You can check what rights you have in the {{ tracker-name }} interface. The same rights are required to perform an action via the API and interface.
+    {% include [error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    404
-    : The requested object was not found. You may have specified an invalid object ID or key.
+    {% include [error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
 

@@ -3,19 +3,19 @@ sourcePath: en/tracker/api-ref/concepts/issues/create-issue-field-category.md
 ---
 # Create an issue field category
 
-Use this request to create an issue field category.
+Use this request to create a category for an issue field.
 
 ## Request format {#query}
 
 Before making the request, [get permission to access the API](../access.md).
 
-To create a category for an issue field, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format:
+To create an issue field category, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format:
 
 ```json
 POST /{{ ver }}/fields/categories
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 
 {
     "name": {
@@ -27,29 +27,32 @@ X-Org-Id: <organization ID>
 }
 ```
 
-#### Request parameters {#req-params}
-
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-#### Request body parameters {#req-body-params}
-
-The request body contains the information needed to create a field category:
+{% cut "Request body parameters" %}
 
 **Required parameters**
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
 | name | Category name:<ul><li>`en`: In English.</li><li>`ru`: In Russian.</li></ul> | String |
-| description | Category description. | String |
 | order | Weight of the field when displayed in the interface. Fields with a lower weight are displayed above fields with a higher weight. | Number |
+
+**Additional parameters**
+
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| description | Category description. | String |
+
+{% endcut %}
 
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If a request is successful, the API returns a `201` response code.
+    {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
     The response body contains information about the updated project in JSON format.
 
@@ -57,44 +60,39 @@ The request body contains the information needed to create a field category:
     {
         "id" : "604f9920d23cd5e1697ee3",
         "name" : "category_name",
-        "self" : "https://api.tracker.yandex.net/v2/fields/categories/604f9920d23cd5e1697ee3",
+        "self" : "{{ host }}/v2/fields/categories/604f9920d23cd5e1697ee3",
         "version" : 1
     }
     ```
 
-    #### Response parameters {#answer-params}
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
-    | id | Unique category ID. | String |
+    | id | Unique ID of the category. | String |
     | name | Category name in Russian. | String |
     | self | Address of the API resource with information about the category. | String |
     | version | Category version. Each change to the field increases the version number. | Number |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
-    400
-    : One or more request parameters have an invalid value.
+    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    401
-    : The user isn't authorized. Make sure that actions described in the [API access](../access.md) section are performed.
+    {% include [error](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    403
-    : The user or application doesn't have permission to access the resource, the request is rejected.
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    404
-    : The requested object is not found. You may have specified an invalid object ID or key.
+    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
 
-    422
-    : JSON validation error, the request is rejected.
+    {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
 
-    500
-    : Internal service error. Try resending your request in a few minutes.
+    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
 
-    503
-    : The API service is temporarily unavailable.
+    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

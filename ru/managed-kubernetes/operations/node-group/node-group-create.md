@@ -59,8 +59,8 @@
      * `--memory` — количество памяти для узлов.
      * `--name` — имя группы узлов.
      * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
-        * `standard` — без ускорения.
-        * `software-accelerated` — программно-ускоренная сеть.
+       * `standard` — без ускорения.
+       * `software-accelerated` — программно-ускоренная сеть.
      * `--network-interface` — настройки сети:
 
        {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
@@ -258,17 +258,20 @@
 - API
 
   Воспользуйтесь методом API [create](../../api-ref/NodeGroup/create.md) и передайте в запросе:
+  * Идентификатор кластера в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
+  * [Конфигурацию группы узлов](../../concepts/index.md#config) в параметре `nodeTemplate`.
+  * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
+  * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов в параметрах `allocationPolicy`.
+  * Настройки окна обновлений в параметрах `maintenancePolicy`.
+  * Список изменяемых настроек в параметре `updateMask`.
 
-    * Идентификатор кластера в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
-    * [Конфигурацию группы узлов](../../concepts/index.md#config) в параметре `nodeTemplate`.
-    * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
-    * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов в параметрах `allocationPolicy`.
-    * Настройки окна обновлений в параметрах `maintenancePolicy`.
-    * Список изменяемых настроек в параметре `updateMask`.
+    {% include [updateMask warning](../../../_includes/mdb/warning-default-settings.md) %}
 
-      {% include [updateMask warning](../../../_includes/mdb/warning-default-settings.md) %}
+  Чтобы узлы использовали нереплицируемые диски, передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
 
-  Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) узлов кластера, передайте идентификатор группы размещения в параметре `nodeTemplate.placementPolicy.placementGroupId`.
+  Размер нереплицируемых дисков можно менять только с шагом 93 ГБ. Максимальный размер такого диска — 4 ТБ.
+
+  {% include [Нереплицируемый диск не имеет резервирования](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
 
   Чтобы разрешить использование узлами группы [небезопасных параметров ядра](../../concepts/index.md#node-group), передайте их имена в параметре `allowedUnsafeSysctls`.
 

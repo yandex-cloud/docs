@@ -525,6 +525,8 @@ items:
                 href: concepts/issues/get-worklog.md
       - name: Issue fields
         items:
+          - name: Create an issue field
+            href: concepts/issues/create-field.md
           - name: Get issue field parameters
             href: concepts/issues/get-issue-fields.md
           - name: Edit issue field names

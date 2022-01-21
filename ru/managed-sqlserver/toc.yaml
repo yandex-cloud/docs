@@ -67,10 +67,10 @@ items:
     href: security/index.md
   - name: Правила тарификации
     items:
-      - name: Правила тарификации до 31 декабря 2021
+      - name: Действующие правила тарификации
         href: pricing/index.md
-      - name: Правила тарификации с 1 января 2022
-        href: pricing/pricing.md
+      - name: Правила тарификации с 1 февраля 2022 года
+        href: pricing/pricing-01022022.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

@@ -13,38 +13,22 @@ To get records of time spent, use the HTTP `GET` request:
 GET /{{ ver }}/worklog?createdBy=<user ID or name>&createdAt=from:<start of the time range>&createdAt=to:<end of the time range>
 Host: {{ host }}
 Authorization: OAuth <token>
-X-Org-ID: <organization ID>
+{{ org-id }}
 ```
 
-#### Headers {#req-get-headers}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **Host**
+{% cut "Request parameters" %}
 
-    Address of the node that provides the API:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth token in `OAuth <token value>` format. For example:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Organization ID.
-
-#### Request parameters {#req-get-params}
+**Additional parameters**
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| createdBy | ID or username of the record author. Optional parameter. | String |
+| createdBy | ID or username of the record author. Optional. | String |
 | createdAt=from | Start of the time range the records are created in. Format: ```YYYY-MM-DDThh:mm:ss.sss±hhmm```</br>Optional parameter. | String |
 | createdAt=to | End of the time range the records are created in. Format: ```YYYY-MM-DDThh:mm:ss.sss±hhmm```</br>Optional parameter. | String |
+
+{% endcut %}
 
 ## POST request format {#section_shz_tqb_kfb}
 
@@ -54,7 +38,7 @@ To get records of time spent, use an HTTP `POST` request:
 POST /{{ ver }}/worklog/_search
 Host: {{ host }}
 Authorization: OAuth <token>
-X-Org-ID: <organization ID>
+{{ org-id }}
 
 {
   "createdBy": "veikus",
@@ -65,34 +49,14 @@ X-Org-ID: <organization ID>
 }
 ```
 
-#### Headers {#req-post-headers}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **Host**
-
-    Address of the node that provides the API:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth token in `OAuth <token value>` format. For example:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Organization ID.
-
-#### Request body {#req-post-body-params}
+{% cut "Request body parameters" %}
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| createdBy | ID or username of the record author. Optional parameter. | String |
-| [createdAt](#createdAt) | Object with information about the record creation date and time. Optional parameter. | Object |
+| createdBy | ID or username of the record author. Optional. | String |
+| [createdAt](#createdAt) | Object with information about the record creation date and time. Optional. | Object |
 
 **Object fields** `createdAt` {#createdAt}
 
@@ -101,15 +65,17 @@ X-Org-ID: <organization ID>
 | from | Start of the time range the records are created in. Format: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | String |
 | to | End of the time range the records are created in. Format: ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` | String |
 
+{% endcut %}
+
 ## Response format {#section_x4q_jcc_kfb}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code 200. The response body contains a JSON array with records about the time spent, which were selected according to the specified parameters (user, date, and time).
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    #### Response body {#answer-body}
+    The response body contains a JSON array with records about the time spent, which were selected according to the specified parameters.
 
     ```json
     [
@@ -143,7 +109,7 @@ X-Org-ID: <organization ID>
     ]
     ```
 
-    #### Response parameters {#answer-params}
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -184,17 +150,21 @@ X-Org-ID: <organization ID>
     | id | User ID. | String |
     | display | User's name displayed. | String |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP error code | Error description |
-    | --------------- | --------------- |
-    | 400 Bad Request | One of the request parameters has an invalid value or data format. |
-    | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |
-    | 404 Not Found | The requested resource not found. |
-    | 500 Internal Server Error | Internal service error. Try again later. |
-    | 503 Service Unavailable | The API service is temporarily unavailable. |
+    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

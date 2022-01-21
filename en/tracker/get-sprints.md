@@ -13,63 +13,45 @@ To get the parameters of all sprints for a board, use an HTTP `GET` request:
 GET /{{ ver }}/boards/<board-id>/sprints
 Host: {{ host }}
 Authorization: OAuth <token>
-X-Org-ID: <organization ID>
+{{ org-id }}
 ```
 
-#### Resource {#req-resource}
+{% include [headings](../_includes/tracker/api/headings.md) %}
 
-- **\<board-id\>**
+{% cut "Resource" %}
 
-    Board ID.
+| Parameter | Description | Data type |
+| --- | --- | --- |
+| \<board-id\> | Board ID. | String |
 
-#### Headers {#req-headers}
-
-- **Host**
-
-    Address of the node that provides the API:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth token in `OAuth <token value>` format. For example:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Organization ID.
+{% endcut %}
 
 ## Response format {#section_tns_n3z_pfb}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code 200. The response body contains a JSON array with board sprint parameters.
+    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
-    #### Response body {#answer-body}
+    The response body contains a JSON array with board sprint parameters.
 
     ```json
     [ 
       {
-      "self" : "http://api.tracker.yandex.net/v2/sprints/4469",
+      "self" : "{{ host }}/v2/sprints/4469",
       "id" : 4469,
       "version" : 1435288720018,
       "name" : "sprint1",
       "board" : {
-        "self" : "http://api.tracker.yandex.net/v2/boards/3",
+        "self" : "{{ host }}/v2/boards/3",
         "id" : "3",
         "display" : "Testing"
       },
       "status" : "in_progress",
       "archived" : false,
       "createdBy" : {
-        "self" : "http://api.tracker.yandex.net/v2/users/1120000000014425",
+        "self" : "{{ host }}/v2/users/1120000000014425",
         "id" : "1120000000014425",
         "display" : "Victor Buldakov"
       },
@@ -83,7 +65,7 @@ X-Org-ID: <organization ID>
     ]
     ```
 
-    #### Response parameters {#answer-params}
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -94,7 +76,7 @@ X-Org-ID: <organization ID>
     | [board](#board) | Object with information about the board whose issues the sprint refers to. | String |
     | status | Sprint status. <br/>Possible statuses:<ul><li>`draft`: Open.</li><li>`in_progress`: In progress.</li><li>`released`: Resolved.</li><li>`archived`: Archived.</li></ul> | String |
     | archived | Shows whether the sprint is archived:<ul><li>`true`: The sprint is archived.</li><li>`false`: The sprint is not archived.</li></ul> | Boolean |
-    | [createdBy](#createdBy) | Object with information about the user who created the sprint. | Object |
+    | [createdBy](#createdBy) | Object with information about the user who created the sprint. | Objects |
     | createdAt | Sprint creation date and time in ```YYYY-MM-DDThh:mm:ss.sss±hhmm``` format | String |
     | startDate | Sprint start date in ```YYYY-MM-DD``` format | String |
     | endDate | Sprint end date in ```YYYY-MM-DD``` format | String |
@@ -117,17 +99,21 @@ X-Org-ID: <organization ID>
     | id | User ID. | String |
     | display | User's name displayed. | String |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP error code | Error description |
-    | --------------- | --------------- |
-    | 400 Bad Request | One of the request parameters has an invalid value or data format. |
-    | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |
-    | 404 Not Found | The requested resource not found. |
-    | 500 Internal Server Error | Internal service error. Try again later. |
-    | 503 Service Unavailable | The API service is temporarily unavailable. |
+    {% include [error](../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [error](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

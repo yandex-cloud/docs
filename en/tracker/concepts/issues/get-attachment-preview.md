@@ -5,36 +5,45 @@ sourcePath: en/tracker/api-ref/concepts/issues/get-attachment-preview.md
 
 Use this request to get thumbnails of image files attached to issues.
 
-## Request format {#section_rnm_x4j_p1b}
+## Request format {#query}
 
-To get a thumbnail, use an HTTP `GET` request:
+Before making the request, [get permission to access the API](../access.md).
+
+To get a thumbnail, use an HTTP `GET` request.
 
 ```
 GET /{{ ver }}/issues/<issue-id>/thumbnails/<attachment-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 ```
 
-#### Resource {#resource}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **\<issue-id\>**
+{% cut "Resource" %}
 
-    Issue ID or key.
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<issue-id\> | Issue ID or key | String |
+| \<attachment-id\> | Unique ID of the file attached | String or number |
 
-- **\<attachment-id\>**
+{% endcut %}
 
-    Unique ID of the file attached.
+## Response format {#answer}
 
-## Response format {#section_xc3_53j_p1b}
+{% list tabs %}
 
-If the request is successful, the API returns a response with code 200. The response body contains a thumbnail of the image file.
+- Successful execution of the request
 
-## Possible response codes {#section_otf_jrj_p1b}
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-200
-:   Request executed successfully.
+    The response body contains a thumbnail of the image file.
 
-404
-:   The requested object was not found. You may have specified an invalid object ID or key.
+- The request failed
+
+    If the request is processed incorrectly, the API returns a response with an error code:
+
+    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+
+{% endlist %}
 

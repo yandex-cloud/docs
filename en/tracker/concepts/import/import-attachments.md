@@ -23,46 +23,43 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
     POST /{{ ver }}/issues/<issue_id>/attachments/_import?filename={filename}&createdAt={createdAt}&createdBy={createdBy} 
     Host: {{ host }}
     Authorization: OAuth <token>
-    X-Org-ID: <organization ID>
+    {{ org-id }}
     Content-Type: multipart/form-data
     <file_data>
     ```
 
-    #### Resource {#resource}
+    {% include [headings-content-multi-data](../../../_includes/tracker/api/headings-content-multi-data.md) %}
 
-    - **<issue_id>**
+    {% cut "Resource" %}
 
-        Key of the issue to attach the file to.
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | \<issues-id\> | Key of the issue to attach the file to. | String |
+    | \<comment_id\> | ID of the comment to attach the file to. | String |
 
-    - **<comment_id>**
+    {% endcut %}
 
-        ID of the comment to attach the file to.
+    {% cut "Request parameters" %}
 
-    #### Request parameters {#request-parametres}
+    **Required parameters**
 
-    - **filename**
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | filename | File name, no more than 255 characters. | String |
+    | createdAt | Date and time when the file is attached, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the issue's creation time to its latest update. | String |
+    | createdBy | Username or ID of the user who attached the file. | String |
 
-       File name, no more than 255 characters.
+    {% endcut %}
 
-    - **createdAt**
+    {% cut "Request body parameters" %}
 
-       Date and time when the file is attached, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the issue's creation time to its latest update.
+    **Required parameters**
 
-    - **createdBy**
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | file_data | Binary file. The file size may not exceed 1024 Mb. | String |
 
-       Username or ID of the user who attached the file.
-
-    {% include [headings](../../../_includes/tracker/api/headings.md) %}
-
-    - **Content-Type**
-
-        Request body format. Must be `multipart/form-data`.
-
-    #### Request body {#request-body}
-
-    - **<file_data>**
-
-        Binary file. The file size may not exceed 1024 Mb.
+    {% endcut %}
 
 - Attach a file to a comment
 
@@ -70,66 +67,43 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
     POST /{{ ver }}/issues/<issue_id>/comments/<comment_id>/attachments/_import?filename={filename}&createdAt={createdAt}&createdBy={createdBy} 
     Host: {{ host }}
     Authorization: OAuth <token>
-    X-Org-ID: <organization ID>
+    {{ org-id }}
     Content-Type: multipart/form-data
     <file_data>
     ```
 
-    #### Resource {#resource}
+    {% include [headings-content-multi-data](../../../_includes/tracker/api/headings-content-multi-data.md) %}
 
-    - **<issue_id>**
+    {% cut "Resource" %}
 
-        Key of the issue to attach the file to.
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | \<issues-id\> | Key of the issue to attach the file to. | String |
+    | \<comment_id\> | ID of the comment to attach the file to. | String |
 
-    - **<comment_id>**
+    {% endcut %}
 
-        ID of the comment to attach the file to.
+    {% cut "Request parameters" %}
 
-    #### Request parameters {#request-parametres}
+    **Required parameters**
 
-    - **filename**
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | filename | File name, no more than 255 characters. | String |
+    | createdAt | Date and time when the file is attached, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the issue's creation time to its latest update. | String |
+    | createdBy | Username or ID of the user who attached the file. | String |
 
-       File name, no more than 255 characters.
+    {% endcut %}
 
-    - **createdAt**
+    {% cut "Request body parameters" %}
 
-       Date and time when the file is attached, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the issue's creation time to its latest update.
+    **Required parameters**
 
-    - **createdBy**
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | \<file_data\> | Binary file. The file size may not exceed 1024 Mb. | String |
 
-       Username or ID of the user who attached the file.
-
-    #### Request headers {#request-headers}
-
-    - **Host**
-
-        Address of the node that provides the API:
-
-        ```
-        {{ host }}
-        ```
-
-    - **Authorization**
-
-        OAuth token in `OAuth <token value>` format. For example:
-
-        ```
-        OAuth 0c4181a7c2cf4521964a72ff57a34a07
-        ```
-
-    - **X-Org-ID**
-
-        Organization ID.
-
-    - **Content-Type**
-
-        Request body format. Must be `multipart/form-data`.
-
-    #### Request body {#request-body}
-
-    - **<file_data>**
-
-        Binary file. The file size may not exceed 1024 Mb.
+    {% endcut %}
 
 {% endlist %}
 
@@ -137,32 +111,34 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code 201. The response body contains the parameters of the attached file in JSON format:
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+
+    The response body contains the parameters of the attached file in JSON format:
 
     ```json
-    {
-      "self" : "<address of the API resource corresponding to the file attached>",
-      "id" : "<file ID>",
-      "name" : "<file name>",
-      "content" : "<address to download the file from>",
-      "thumbnail" : "<address to download the preview from>",
-      "createdBy" : {
-        "self" : "<resource corresponding to the file author>",
-        "id" : "<username of the file author>",
-        "display" : "<name of the file author>"
-      },
-      "createdAt" : "<date and time when the file is added>",
-      "mimetype" : "<file data type>",
-      "size" : <file size>
-      "metadata" : {
-        "size" : "<dimensions (for images)>"
-      }
-    }
+    	{
+    	"self" : "{{ host }}/v2/issues/JUNE-2/attachments/123",
+      "id" : "123",
+      "name" : "pic.png",
+      "content" : "{{ host }}/v2/issues/JUNE-2/attachments/123/pic.png",
+      "thumbnail" : "{{ host }}/v2/issues/JUNE-2/thumbnails/123",
+    	  "createdBy" : {
+    		"self" : "{{ host }}/v2/users/12314567890",
+    		"id" : "1234567890",
+    		"display" : "<employee name displayed>"
+    	  },
+    	  "createdAt" : "2017-06-11T05:16:01.339+0000",
+    	  "mimetype" : "image/png",
+    	  "size" : 5678
+    	  "metadata" : {
+    		"size" : "128x128"
+    	  }
+    	}
     ```
 
-    #### Response parameters {#answer-parametres}
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -174,7 +150,7 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
     | [createdBy](#createdBy) | Object with information about the user who attached the file. | JSON object |
     | createdAt | Date and time when the file is uploaded, in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String |
     | mimetype | File type, for example:<ul><li>`text/plain`: Text file.</li><li>`image/png`: Image in PNG format.</li></ul> | String |
-    | size | File size in bytes. | Integer |
+    | size | File size in bytes. | Integer. |
     | [metadata](#metadata) | Object with file metadata. | JSON object |
 
     **Object fields** `createdBy` {#createdBy}
@@ -191,19 +167,25 @@ To import a file, use an HTTP `POST` request. Files are passed in the request bo
     | -------- | -------- | ---------- |
     | size | Image size in pixels. | String |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP error code | Error description |
-    | --------------- | --------------- |
-    | 400 Bad Request | One of the request parameters has an invalid value or data format. |
-    | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |
-    | 404 Not Found | The requested resource not found. |
-    | 413 Request Entity Too Large | The file size exceeds 1024 Mb. |
-    | 422 Unprocessable Entity | Validation error, the request is rejected. |
-    | 500 Internal Server Error | Internal service error. Try again later. |
-    | 503 Service Unavailable | The API service is temporarily unavailable. |
+    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-413.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

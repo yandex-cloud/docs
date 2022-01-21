@@ -73,7 +73,7 @@ items:
         href: solutions/container-registry.md
       - name: Running workloads with GPUs
         href: solutions/running-pod-gpu.md
-      - name: Installing the NGINX Ingress Controller with Let's Encrypt®
+      - name: Installing the NGINX Ingress controller with Let's Encrypt®
         href: solutions/ingress-cert-manager.md
       - name: Configuring the Application Load Balancer Ingress controller
         href: solutions/alb-ingress-controller.md

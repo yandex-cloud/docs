@@ -161,6 +161,8 @@ items:
             href: operations/chart/create-sql-chart.md
           - name: Adding a hierarchy
             href: operations/chart/add-hierarchy.md
+          - name: Configuring the navigator
+            href: operations/chart/config-chart-navigator.md
           - name: Publishing a chart
             href: operations/chart/publish.md
           - name: Managing chart access

@@ -21,7 +21,7 @@ To update issue statuses, use an HTTP `POST` request. Request parameters are pas
 POST /{{ ver }}/bulkchange/_transition
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 
 {
   "transition": "start_progress",
@@ -29,7 +29,9 @@ X-Org-Id: <organization ID>
 }
 ```
 
-#### Request parameters {#req-params}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
+
+{% cut "Request parameters" %}
 
 **Additional parameters**
 
@@ -37,7 +39,9 @@ X-Org-Id: <organization ID>
 | -------- | -------- | ---------- |
 | notify | Flag indicating if users should be notified about issue changes:<ul><li>`true`: Users specified in the issue fields are notified.</li><li>`false` (by default): No users are notified.</li></ul> | Boolean |
 
-#### Request body parameters {#req-body-params}
+{% endcut %}
+
+{% cut "Request body parameters" %}
 
 **Required parameters**
 
@@ -52,14 +56,18 @@ X-Org-Id: <organization ID>
 | -------- | -------- | ---------- |
 | values | Issue parameters that will be updated after the status change. Use the parameters that are available when [editing the issue](../issues/patch-issue.md#req-get-params). | String |
 
-> Example: Bulk change of multiple issues' statuses.
+{% endcut %}
+
+> Example. Bulk change of multiple issues' statuses.
+>
 >- An HTTP POST method is used.
 >- The status of the <q>TEST-1</q>, <q>TEST-2</q>, and <q>TEST-3</q> issues is changed to <q>Closed</q> with the <q>Resolved</q> resolution.
->```
+>
+>```json
 >POST /{{ ver }}/bulkchange/_transition
 >Host: {{ host }}
 >Authorization: OAuth <OAuth token>
->X-Org-Id: <organization ID>
+>{{ org-id }}
 >{
 >  "transition": "close",
 >  "issues": ["TEST-1", "TEST-2", "TEST-3"],
@@ -73,18 +81,18 @@ X-Org-Id: <organization ID>
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code `201 Created`.
+    {% include [answer-201](../../../_includes/tracker/api/answer-201.md) %}
 
     The response body contains information about the bulk change operation in JSON format.
 
     ```json
     {
         "id": "1ab23cd4e56789012fg345h6",
-        "self": "https://api.tracker.yandex.net/v2/bulkchange/1ab23cd4e56789012fg345h6",
+        "self": "{{ host }}/v2/bulkchange/1ab23cd4e56789012fg345h6",
         "createdBy": {
-            "self": "https://api.tracker.yandex.net/v2/users/1234567890",
+            "self": "{{ host }}/v2/users/1234567890",
             "id": "1234567890",
             "display": "First and Last name"
         },
@@ -96,7 +104,7 @@ X-Org-Id: <organization ID>
     }
     ```
 
-    #### Response parameters {#answer-params}
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -117,21 +125,19 @@ X-Org-Id: <organization ID>
     | id | User ID. | Number |
     | display | User's name displayed. | String |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
-    400
-    :   One or more request parameters have an invalid value.
+    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    401
-    :  The user isn't authorized. Make sure that actions described in [{#T}](../access.md) are performed.
+    {% include [error](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    403
-    :  Insufficient rights to perform this action. You can check what rights you have in the {{ tracker-name }} interface. The same rights are required to perform an action via the API and interface.
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    422
-    :  Validation error. The request body may contain an invalid or non-existent parameter.
+    {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
 
 {% endlist %}
 

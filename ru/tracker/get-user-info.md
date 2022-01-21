@@ -31,26 +31,26 @@ Authorization: OAuth <OAuth-токен>
     Тело ответа содержит JSON-массив с параметрами текущего пользователя.
 
     
-      ```json
-         [
-            {
-            "self": "{{ host }}/v2/users/1234567890",
-            "uid": 1234567890,
-            "login": "<user_login>",
-            "trackerUid": 1234567890>,
-            "passportUid": 1234567890,
-            "firstName": "<Имя>",
-            "lastName": "<Фамилия>",
-            "display": "<Имя Фамилия>",
-            "email": "<login@yandex.ru>",
-            "external": false,
-            "hasLicense": true,
-            "dismissed": false,
-            "useNewFilters": true,
-            "disableNotifications": false
-            }
-         ]
-      ```
+    ```json
+       [
+          {
+          "self": "{{ host }}/v2/users/1234567890",
+          "uid": 1234567890,
+          "login": "<user_login>",
+          "trackerUid": 1234567890>,
+          "passportUid": 1234567890,
+          "firstName": "<Имя>",
+          "lastName": "<Фамилия>",
+          "display": "<Имя Фамилия>",
+          "email": "<login@yandex.ru>",
+          "external": false,
+          "hasLicense": true,
+          "dismissed": false,
+          "useNewFilters": true,
+          "disableNotifications": false
+          }
+       ]
+    ```
 
     {% cut "Параметры ответа" %}
 

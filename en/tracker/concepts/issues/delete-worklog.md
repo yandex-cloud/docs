@@ -13,59 +13,41 @@ To delete records of time spent on issues, use an HTTP `DELETE` request:
 DELETE /{{ ver }}/issues/<issue-id>/worklog/<worklog-id>
 Host: {{ host }}
 Authorization: OAuth <token>
-X-Org-ID: <organization ID>
+{{ org-id }}
 ```
 
-#### Resource {#req-resource}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **\<issue-id\>**
+{% cut "Resource" %}
 
-    Issue ID or key.
+| Parameter | Description | Data type |
+| --- | --- | --- |
+| \<issues-id\> | Issue ID or key. | String |
+| \<worklog-id\> | ID of the record of time spent. | String |
 
-- **\<worklog-id\>**
-
-    ID of the record of time spent.
-
-#### Headers {#req-headers}
-
-- **Host**
-
-    Address of the node that provides the API:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth token in `OAuth <token value>` format. For example:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Organization ID.
+{% endcut %}
 
 ## Response format {#section_wlq_d5g_jfb}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code 204. The response body is missing.
+    {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-- Request failed
+    The response body is missing.
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP error code | Error description |
-    | --------------- | --------------- |
-    | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |
-    | 404 Not Found | The requested resource not found. |
-    | 500 Internal Server Error | Internal service error. Try again later. |
-    | 503 Service Unavailable | The API service is temporarily unavailable. |
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

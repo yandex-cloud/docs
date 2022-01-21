@@ -4,7 +4,7 @@ sourcePath: en/tracker/api-ref/error-codes.md
 # Possible response codes
 
 200
-:   Request executed successfully.
+:   Successful execution of the request.
 
 201
 :  The `POST` request resulted in creating a new object.
@@ -12,27 +12,19 @@ sourcePath: en/tracker/api-ref/error-codes.md
 204
 :  The DELETE request is executed, the object was deleted.
 
-400
-:   One or more request parameters have an invalid value.
+{% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 
-401
-:  The user isn't authorized. Make sure that actions described in [{#T}](concepts/access.md) are performed.
+{% include [answer-error-401](../_includes/tracker/api/answer-error-401.md) %}
 
-403
-:  Insufficient rights to perform this action. You can check what rights you have in the {{ tracker-name }} interface. The same rights are required to perform an action via the API and interface.
+{% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
 
-404
-:   The requested object was not found. You may have specified an invalid object ID or key.
+{% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
 
-412
-:   There was a conflict when editing the object. The error may be due to an invalid update version.
+{% include [answer-error-409](../_includes/tracker/api/answer-error-409.md) %}
 
-412
-:   There was a conflict when editing the object. The error may be due to an invalid update version.
+{% include [answer-error-412](../_includes/tracker/api/answer-error-412.md) %}
 
-422
-:  Validation error. The request body may contain an invalid or non-existent parameter.
+{% include [answer-error-422](../_includes/tracker/api/answer-error-422.md) %}
 
-428
-:   Access to the resource is denied. Make sure all required conditions for the request are specified.
+{% include [answer-error-428](../_includes/tracker/api/answer-error-428.md) %}
 
