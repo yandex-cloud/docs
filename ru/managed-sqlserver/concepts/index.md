@@ -20,15 +20,17 @@ description: "Основная сущность, которой оперируе
    *  `PRODUCTION` — для стабильных версий ваших приложений.
    *  `PRESTABLE` — для тестирования, в том числе самого сервиса {{ mms-short-name }}. В Prestable-окружении раньше появляются новая функциональность, улучшения и исправления ошибок. При этом не все обновления обеспечивают обратную совместимость.
 
-* _Версию_ {{ MS }}.
+* _Версию_ {{ MS }}. Кластер {{ mms-name }} поддерживает версии:
 
-  Кластер {{ mms-name }} поддерживает версию `2016 ServicePack 2` следующих редакций:
-  * Standard Edition.
-  
-    Эта редакция доступна только для кластеров из одного хоста.
-  
+  * 2016 ServicePack 2;
+  * 2017;
+  * 2019\.
+
+  Для каждой из версий поддерживаются редакции:
+
+  * Standard Edition. Доступна только для кластеров из одного хоста.
   * Enterprise Edition.
-  
+
   Полный список ограничений, накладываемых {{ mms-name }} на кластеры этих редакций, приведен в разделе [{#T}](limits.md).
   
   Подробнее о возможностях этих редакций см. в [документации {{ MS }}]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2016?view=sql-server-ver15){% endif %}. 
