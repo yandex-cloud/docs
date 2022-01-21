@@ -1,3 +1,4 @@
+
 # Создание {{ CH }}-кластера
 
 {{ CH }}-кластер — это один или несколько хостов базы данных, между которыми можно настроить репликацию.
@@ -148,8 +149,7 @@
              --enable-sql-database-management=true \
              --admin-password <пароль пользователя admin>
           ```
-
-      1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+            1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
       1. Чтобы включить [{{ CK }}](../concepts/replication.md#ck) в кластере:
 
@@ -173,14 +173,14 @@
 
 - Terraform
 
-  {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
+    {% include [terraform-definition](../../_includes/solutions/terraform-definition.md) %}
 
   Чтобы создать кластер:
 
     1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
-    1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+        1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../solutions/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
     1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
 
        Кластер размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
@@ -285,8 +285,8 @@
   * `configSpec.sqlUserManagement` — задайте значение `true` для включения режима [управления пользователями через SQL](cluster-users.md#sql-user-management).
   * `configSpec.sqlDatabaseManagement` — задайте значение `true` для включения режима [управления базами данных через SQL](databases.md#sql-database-management). Необходимо, чтобы был включен режим управления пользователями через SQL.
   * `configSpec.adminPassword` — задайте пароль пользователя `admin`, с помощью которого осуществляется управление.
-
-  Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
+  
+    Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
   При создании кластера из нескольких хостов:
 
@@ -298,8 +298,9 @@
 
   * Если значение параметра `embeddedKeeper` не задано или равно `false`, для управления репликацией и распределением запросов будет использоваться {{ ZK }}.
 
-      Если в [облачной сети](../../vpc/concepts/network.md) кластера есть подсети в каждой из [зон доступности](../../overview/concepts/geo-scope.md), а настройки хостов {{ ZK }} не заданы, в каждую подсеть будет автоматически добавлено по одному такому хосту.
-      Если подсети в сети кластера есть только в некоторых зонах доступности, укажите настройки хостов {{ ZK }} явно.
+        Если в [облачной сети](../../vpc/concepts/network.md) кластера есть подсети в каждой из [зон доступности](../../overview/concepts/geo-scope.md), а настройки хостов {{ ZK }} не заданы, в каждую подсеть будет автоматически добавлено по одному такому хосту.
+    
+    Если подсети в сети кластера есть только в некоторых зонах доступности, укажите настройки хостов {{ ZK }} явно.
 
 {% endlist %}
 

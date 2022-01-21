@@ -7,90 +7,79 @@ Use this request to get information about the account of the user on whose behal
 
 ## Request format {#query}
 
+Before making the request, [get permission to access the API](concepts/access.md).
+
 To get information about the current user, use an HTTP `GET` request:
 
 ```json
 GET /v2/myself
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-ID: <organization ID>
+{{ org-id }}
 ```
 
-#### Headers {#req-headers}
-
-- **Host**
-
-    Address of the node that provides the API:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth token in `OAuth <token value>` format. For example:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Organization ID.
+{% include [headings](../_includes/tracker/api/headings.md) %}
 
 ## Response format {#answer}
 
-If the request is successful, the API returns a response with code 200. The response body contains a JSON array with the current user's parameters.
+{% list tabs %}
 
-```json
-[
-   {
-   "self": "https://api.tracker.yandex.net/v2/users/<ID>",
-   "uid": <ID>,
-   "login": "<user_login>",
-   "passportUid": <Yandex.Passport ID>,
-   "firstName": "<First name>",
-   "lastName": "<Last name>",
-   "display": "<First and Last name>",
-   "email": "<login@yandex.ru>",
-   "external": false,
-   "hasLicense": true,
-   "dismissed": false,
-   "useNewFilters": true,
-   "disableNotifications": false
-   }
-]
-```
+- Successful execution of the request
 
-#### Response parameters {#answer-params}
+    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| self | Address of the API resource with information about the user account. | String |
-| uid | Unique ID of the user account. | Number |
-| login | Username of the user. | String |
-| passportUid | Unique ID of the user's Yandex account. | Number |
-| firstName | Username. | String |
-| lastName | Last name of the user. | String |
-| display | User's name displayed. | String |
-| email | User's email address. | String |
-| external | Service parameter. | Boolean |
-| hasLicense | Flag indicating whether the user has full access to {{ tracker-name }}:<ul><li>`true`: Full access.</li><li>`false`: Read-only access.</li></ul> | Boolean |
-| dismissed | User status in the organization:<ul><li>`true`: The user was dismissed.</li><li>`false`: The user is a current employee.</li></ul> | Boolean |
-| useNewFilters | Service parameter. | Boolean |
-| disableNotifications | Flag indicating whether user notifications are forced disabled:<ul><li>`true`: Disabled.</li><li>`false`: Enabled.</li></ul> | Boolean |
+    The response body contains a JSON array with the current user's parameters.
 
-## Possible response codes {#answer-codes}
+    
+    ```json
+       [
+          {
+          "self": "{{ host }}/v2/users/1234567890",
+          "uid": 1234567890,
+          "login": "<user_login>",
+          "trackerUid": 1234567890>,
+          "passportUid": 1234567890,
+          "firstName": "<First name>",
+          "lastName": "<Last name>",
+          "display": "<First and Last name>",
+          "email": "<login@yandex.ru>",
+          "external": false,
+          "hasLicense": true,
+          "dismissed": false,
+          "useNewFilters": true,
+          "disableNotifications": false
+          }
+       ]
+    ```
 
-200
-:   Request executed successfully.
+    {% cut "Response parameters" %}
 
-401
-:  The user isn't authorized. Make sure that actions described in [{#T}](concepts/access.md) are performed.
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the user account. | String |
+    | uid | Unique ID of the user account. | Number |
+    | login | Username of the user. | String |
+    | trackerUid | Unique ID of the user's {{ tracker-name }} account. | Number |
+    | passportUid | Unique ID of the user's Yandex account. | Number |
+    | firstName | User's first name. | String |
+    | lastName | Last name of the user. | String |
+    | display | User's name displayed. | String |
+    | email | User's email address. | String |
+    | external | Service parameter. | Boolean |
+    | hasLicense | Flag indicating whether the user has full access to {{ tracker-name }}:<ul><li>`true`: Full access.</li><li>`false`: Read-only access.</li></ul> | Boolean |
+    | dismissed | User status in the organization:<ul><li>`true`: The user was dismissed.</li><li>`false`: The user is a current employee.</li></ul> | Boolean |
+    | useNewFilters | Service parameter. | Boolean |
+    | disableNotifications | Flag indicating whether user notifications are forced disabled:<ul><li>`true`: Disabled.</li><li>`false`: Enabled.</li></ul> | Boolean |
 
-403
-:  Insufficient rights to perform this action. You can check what rights you have in the {{ tracker-name }} interface. The same rights are required to perform an action via the API and interface.
+    {% endcut %}
 
-404
-:   The requested object was not found. You may have specified an invalid object ID or key.
+- The request failed
+
+    {% include [answer-error-401](../_includes/tracker/api/answer-error-401.md) %}
+
+    {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
+
+{% endlist %}
 

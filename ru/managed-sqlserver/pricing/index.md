@@ -2,11 +2,12 @@
 editable: false
 ---
 
-# Правила тарификации для {{ mms-name }} до 31 декабря 2021
+# Правила тарификации для {{ mms-name }}
 
 {% note info %}
 
-Указанные тарифы действуют до 31 декабря 2021 года включительно. Тарифы с 1 января 2022 года см. в разделе [{#T}](pricing.md).
+* Указанные тарифы будут действовать до 31 января 2022 года включительно.
+* Тарифы, которые будут действовать с 1 февраля 2022 года см. в разделе [{#T}](./pricing-01022022.md).
 
 {% endnote %}
 
@@ -81,7 +82,7 @@ editable: false
 Все цены указаны с включением НДС.
 
 
-{% include [rub-pricing-old.md](../../_pricing/managed-sqlserver/rub-pricing-old.md) %}
+{% include [rub-pricing.md](../../_pricing/managed-sqlserver/rub-pricing.md) %}
 
 
 

@@ -13,11 +13,13 @@ If an issue you want to move has a type and status that are missing in the targe
 
 By default, when an issue is moved, the values of its components, versions, and projects are cleared. If the new queue has the same values of the fields specified, use the `MoveAllFields` parameter to move the components, versions, and projects.
 
-If the issue has values set for [local fields](../../local-fields.md), they are deleted when the issue is moved to another queue.
+If the issue has the [local field](../../local-fields.md) values specified, they will be reset when moving the issue to a different queue.
 
 {% endnote %}
 
 ## Request format {#section_rnm_x4j_p1b}
+
+Before making the request, [get permission to access the API](../access.md).
 
 To move issues, use an HTTP `POST` request:
 
@@ -25,22 +27,20 @@ To move issues, use an HTTP `POST` request:
 POST /{{ ver }}/issues/<issue-id>/_move?queue=<queue-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 ```
 
-#### Request parameters {#req-get-params}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-**Resource**
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| \<issue-id\> | Required parameter. ID of the issue being moved. | String |
+{% cut "Request parameters" %}
 
 **Required parameters**
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| \<queue-id\> | Required parameter. Key of the queue to move the issue to. | String |
+| \<queue-id\> | Key of the queue to move the issue to. | String |
 
 **Additional parameters**
 
@@ -52,224 +52,185 @@ X-Org-Id: <organization ID>
 | initialStatus | Resetting the issue status. The status is reset if the issue is moved to another queue with a different [workflow](../../manager/add-workflow.md):<ul><li>`true`: Reset the status.</li><li>`false` (by default): Retain the status as is.</li></ul> | Boolean |
 | expand | Additional fields to be included in the response:<ul><li>`attachments`: Attachments.</li><li>`comments`: Comments.</li><li>`workflow`: Issue workflow.</li><li>`transitions`: Workflow transitions between statuses.</li></ul> | String |
 
-#### Request body {#req-body-params}
+{% endcut %}
+
+{% cut "Request body parameters" %}
 
 You can use the request body if you need to change the parameters of the issue being moved. The request body has the same format as when [editing issues](patch-issue.md#req-body-params).
 
-> Moving an issue:
-> 
-> - An HTTP POST method is used.
-> - We're moving the <q>TEST-1</q> issue to the <q>NEW</q> queue.
-> 
-> ```
-> POST /v2/issues/TEST-1/_move?queue=NEW
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> X-Org-Id: <organization ID>
-> ```
+{% endcut %}
+
+> Example: Move an issue
+>
+>- An HTTP POST method is used.
+>- We're moving the <q>TEST-1</q> issue to the <q>NEW</q> queue.
+>
+>```
+>POST /v2/issues/TEST-1/_move?queue=NEW
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>```
 
 ## Response format {#section_xpm_q1y_51b}
 
-```json
-{
-    "self": "{{ host }}/v2/issues/NEW-1",
-    "id": "1a2345678b",
-    "key": "NEW-1",
-    "version": 2,
-    "aliases": [
-        "TEST-1"
-    ],
-    "previousQueue": {
-        "self": "https://api.tracker.yandex.net/v2/queues/TEST",
-        "id": "3",
-        "key": "TEST",
-        "display": "TEST"
-    },
-    "description": "<issue description>",
-    "type": {
-        "self": "https://api.tracker.yandex.net/v2/issuetypes/2",
-        "id": "2",
-        "key": "task",
-        "display": "Issue"
-    },
-    "createdAt": "2020-09-04T14:18:56.776+0000",
-    "updatedAt": "2020-11-12T12:38:19.040+0000",
-    "lastCommentUpdatedAt": "2020-10-18T13:33:44.291+0000",
-    },
-    "summary": "Test",
-    "updatedBy": {
-        "self": "https://api.tracker.yandex.net/v2/users/1234567890",
-        "id": "1234567890",
-        "display": "First and Last name"
-    },
-    "priority": {
-        "self": "https://api.tracker.yandex.net/v2/priorities/3",
-        "id": "3",
-        "key": "normal",
-        "display": "Medium"
-    },
-    "followers": [
-        {
-            "self": "https://api.tracker.yandex.net/v2/users/1234567890",
+{% list tabs %}
+
+- Successful execution of the request
+
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+
+    The response body contains the results in JSON format.
+
+    ```json
+    {
+        "self": "{{ host }}/v2/issues/NEW-1",
+        "id": "1a2345678b",
+        "key": "NEW-1",
+        "version": 2,
+        "aliases": [
+            "TEST-1"
+        ],
+        "previousQueue": {
+            "self": "{{ host }}/v2/queues/TEST",
+            "id": "3",
+            "key": "TEST",
+            "display": "TEST"
+        },
+        "description": "<issue description>",
+        "type": {
+            "self": "{{ host }}/v2/issuetypes/2",
+            "id": "2",
+            "key": "task",
+            "display": "Issue"
+        },
+        "createdAt": "2020-09-04T14:18:56.776+0000",
+        "updatedAt": "2020-11-12T12:38:19.040+0000",
+        "lastCommentUpdatedAt": "2020-10-18T13:33:44.291+0000",
+        },
+        "summary": "Test",
+        "updatedBy": {
+            "self": "{{ host }}/v2/users/1234567890",
             "id": "1234567890",
             "display": "First and Last name"
-        }
-    ],
-    "createdBy": {
-        "self": "https://api.tracker.yandex.net/v2/users/1234567890",
-        "id": "1234567890",
-        "display": "First and Last name"
-    },
-    "assignee": {
-        "self": "https://api.tracker.yandex.net/v2/users/1234567890",
-        "id": "1234567890",
-        "display": "First and Last name"
-    },
-    "queue": {
-        "self": "https://api.tracker.yandex.net/v2/queues/NEW",
-        "id": "5",
-        "key": "NEW",
-        "display": "Queue"
-    },
-    "status": {
-        "self": "https://api.tracker.yandex.net/v2/statuses/8",
-        "id": "1",
-        "key": "open",
-        "display": "Open"
-    },
-    "previousStatus": {
-        "self": "https://api.tracker.yandex.net/v2/statuses/1",
-        "id": "1",
-        "key": "open",
-        "display": "Open"
-    },
-    "favorite": false
-}
-```
+        },
+        "priority": {
+            "self": "{{ host }}/v2/priorities/3",
+            "id": "3",
+            "key": "normal",
+            "display": "Medium"
+        },
+        "followers": [
+            {
+                "self": "{{ host }}/v2/users/1234567890",
+                "id": "1234567890",
+                "display": "First and Last name"
+            }
+        ],
+        "createdBy": {
+            "self": "{{ host }}/v2/users/1234567890",
+            "id": "1234567890",
+            "display": "First and Last name"
+        },
+        "assignee": {
+            "self": "{{ host }}/v2/users/1234567890",
+            "id": "1234567890",
+            "display": "First and Last name"
+        },
+        "queue": {
+            "self": "{{ host }}/v2/queues/NEW",
+            "id": "5",
+            "key": "NEW",
+            "display": "Queue"
+        },
+        "status": {
+            "self": "{{ host }}/v2/statuses/8",
+            "id": "1",
+            "key": "open",
+            "display": "Open"
+        },
+        "previousStatus": {
+            "self": "{{ host }}/v2/statuses/1",
+            "id": "1",
+            "key": "open",
+            "display": "Open"
+        },
+        "favorite": false
+    }
+    ```
 
-#### Response parameters {#answer-params}
+    {% cut "Response parameters" %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the issue. | String |
-| id | Issue ID. | String |
-| key | Issue key. | String |
-| version | Issue version. Each change to the issue parameters increases its version number. | Number |
-| aliases | Array with information about alternative issue keys. | Array of strings |
-| [previousQueue](#previous-queue) | Object with information about the issue's previous queue. | Object |
-| description | Issue description. | String |
-| [type](#type) | Object with information about the issue type. | Object |
-| createdAt | Issue creation date and time. | String |
-| updatedAt | Issue update date and time. | String |
-| lastCommentUpdatedAt | Date and time when the last comment was added. | String |
-| summary | Issue name. | String |
-| [updatedBy](#updated-by) | Object with information about the user who edited the issue last. | Object |
-| [priority](#priority) | Object with information about the priority. | Object |
-| [followers](#followers) | Array of objects with information about issue followers. | Array of strings |
-| [createdBy](#created-by) | Object with information about the user who created the issue. | Object |
-| [assignee](#assignee) | Object with information about the issue's assignee. | Object |
-| [queue](#queue) | Object with information about the issue queue. | Object |
-| [status](#status) | Object with information about the issue status. | Object |
-| [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
-| favorite | Flag indicating a favorite issue:<ul><li>`true`: Notifications are disabled.</li><li>`false`: Notifications are enabled.</li></ul> | Boolean |
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the API resource with information about the issue. | String |
+    | id | Issue ID. | String |
+    | key | Issue key. | String |
+    | version | Issue version. Each change to the issue parameters increases its version number. | Number |
+    | aliases | Array with information about alternative issue keys. | Array of strings |
+    | [previousQueue](#previous-queue) | Object with information about the issue's previous queue. | Object |
+    | description | Issue description. | String |
+    | [type](#type) | Object with information about the issue type. | Object |
+    | createdAt | Issue creation date and time. | String |
+    | updatedAt | Issue update date and time. | String |
+    | lastCommentUpdatedAt | Date and time when the last comment was added. | String |
+    | summary | Issue name. | String |
+    | [updatedBy](#updated-by) | Object with information about the user who edited the issue last. | Object |
+    | [priority](#priority) | Object with information about the priority. | Object |
+    | [followers](#followers) | Array of objects with information about issue followers. | Array of strings |
+    | [createdBy](#created-by) | Object with information about the user who created the issue. | Object |
+    | [assignee](#assignee) | Object with information about the issue's assignee. | Object |
+    | [queue](#queue) | Object with information about the issue queue. | Object |
+    | [status](#status) | Object with information about the issue status. | Object |
+    | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
+    | favorite | Flag indicating a favorite issue:<ul><li>`true`: Notifications are disabled.</li><li>`false`: Notifications are enabled.</li></ul> | Boolean |
 
-**Object fields** `previousQueue` {#previous-queue}
+    **Object fields** `previousQueue` {#previous-queue}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the queue. | String |
-| id | Queue ID. | Number |
-| key | Queue key. | String |
-| display | Queue name displayed. | String |
+    {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-**Object fields** `type` {#type}
+    {% include [type](../../../_includes/tracker/api/type.md) %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the issue type. | String |
-| id | ID of the issue type. | Number |
-| key | Key of the issue type. | String |
-| display | Issue type name displayed. | String |
+    **Object fields** `updatedBy` {#updated-by}
 
-**Object fields** `updatedBy` {#updated-by}
+    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the user. | String |
-| id | User ID. | Number |
-| display | User's name displayed. | String |
+    {% include [priority](../../../_includes/tracker/api/priority.md) %}
 
-**Object fields** `priority` {#priority}
+    **Object array fields** `followers` {#followers}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the priority. | String |
-| id | Priority type ID. | Number |
-| key | Priority type key. | String |
-| display | Priority type name displayed. | String |
+    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-**Object array fields** `followers` {#followers}
+    **Object fields** `createdBy` {#created-by}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the user. | String |
-| id | User ID. | Number |
-| display | User's name displayed. | String |
+    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-**Object fields** `createdBy` {#created-by}
+    **Object fields** `assignee` {#assignee}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the user. | String |
-| id | User ID. | Number |
-| display | User's name displayed. | String |
+    {% include [user](../../../_includes/tracker/api/user.md) %}
 
-**Object fields** `assignee` {#assignee}
+    **Object fields** `queue` {#queue}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the user. | String |
-| id | User ID. | Number |
-| display | User's name displayed. | String |
+    {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-**Object fields** `queue` {#queue}
+    **Object fields** `status` {#status}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the queue. | String |
-| id | Queue ID. | Number |
-| key | Queue key. | String |
-| display | Queue name displayed. | String |
+    {% include [status](../../../_includes/tracker/api/status.md) %}
 
-**Object fields** `status` {#status}
+    **Object fields** `previousStatus` {#previousStatus}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the status. | String |
-| id | Status ID. | Number |
-| key | Status type key. | String |
-| display | Status type name displayed. | String |
+    {% include [status](../../../_includes/tracker/api/status.md) %}
 
-**Object fields** `previousStatus` {#previousStatus}
+    {% endcut %}
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Address of the API resource with information about the status. | String |
-| id | Status ID. | Number |
-| key | Status type key. | String |
-| display | Status type name displayed. | String |
+- The request failed
 
-## Possible response codes {#section_otf_jrj_p1b}
+    If the request is processed incorrectly, the API returns a response with an error code:
 
-200
-:   Request executed successfully.
+    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-401
-:  The user isn't authorized. Make sure that actions described in [{#T}](../access.md) are performed.
+    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-403
-:  Insufficient rights to perform this action. You can check what rights you have in the {{ tracker-name }} interface. The same rights are required to perform an action via the API and interface.
+    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
-404
-:   The requested object was not found. You may have specified an invalid object ID or key.
-
+{% endlist %}

@@ -3,7 +3,7 @@ sourcePath: en/tracker/api-ref/concepts/queues/create-local-field.md
 ---
 # Create a local queue field
 
-Use this request to create an issue [local field](../../local-fields.md) linked to the specified queue.
+Use this request to create an issue [local field](../../local-fields.md) linked to a given queue.
 
 ## Request format {#query}
 
@@ -15,7 +15,7 @@ To create a local field, use an HTTP `POST` request. Request parameters are pass
 POST /{{ ver }}/queues/<queue-id>/localFields
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 
 {
     "name":
@@ -31,72 +31,76 @@ X-Org-Id: <organization ID>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-**Resource**
+{% cut "Resource" %}
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
 | \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String |
 
-### Request body parameters {#req-body-params}
+{% endcut %}
 
-The request body contains the information needed to create a local field:
+{% cut "Request body parameters" %}
 
-#### Required parameters
+**Required parameters**
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| name | Name of a local field:<ul><li>`en` — In English.</li><li>`ru` — In Russian.</li></ul> | String |
+| name | Local field name:<ul><li>`en`: In English.</li><li>`ru`: In Russian.</li></ul> | String |
 | id | Local field ID. | String |
 | category | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | String |
-| type | Type of a local field:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType`: Date.</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType`: Date/time.</li><li>`ru.yandex.startrek.core.fields.StringFieldType`: Single-line text field.</li><li>`ru.yandex.startrek.core.fields.TextFieldType`: Multi-line text field.</li><li>`ru.yandex.startrek.core.fields.FloatFieldType`: Fraction.</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType`: Integer.</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User name.</li><li>`ru.yandex.startrek.core.fields.UriFieldType`: Link.</li> | String |
+| type | Local field type:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType`: Date.</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType`: Date/Time.</li><li>`ru.yandex.startrek.core.fields.StringFieldType`: Single-line text field.</li><li>`ru.yandex.startrek.core.fields.TextFieldType`: Multi-line text field.</li><li>`ru.yandex.startrek.core.fields.FloatFieldType`: Fractional number.</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType`: Integer.</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name.</li><li>`ru.yandex.startrek.core.fields.UriFieldType`: Link.</li> | String |
 
-#### Advanced settings
+**Additional parameters**
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| [optionsProvider](#optionsProvider1) | Object with information about list items. | Objects |
+| [optionsProvider](#optionsProvider1) | Object with information about the list items. | Object |
 | order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}). | Number |
-| description | Description of the local field. | String|
-| readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable.</li><li>`false`: Editable.</li></ul> | Boolean|
-| visible | Flag that indicates if the field is shown in the interface:<ul><li>`true`: Always show the field in the interface.</li><li>`false`: Don't show the field in the interface.</li></ul> | Boolean|
-| hidden | Flag that indicates if the field is visible in the interface:<ul><li>`true`: Hide the field even if it's filled in.</li><li>`false`: Don't hide the field.</li></ul> | Boolean|
-| container | Flag that indicates whether it's possible to specify multiple values in the field at the same time (for example, as in the **Tags** field):<ul><li>`true`: multiple values can be specified in the field.</li><li>`false`: Only one value can be specified in the field.</li></ul>This parameter can be used for the following types of fields:<ul><li>`ru.yandex.startrek.core.fields.StringFieldType`: Single-line text field.</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: Username.</li><li>Drop-down list (see the description for `optionsProvider`).</li></ul> | Boolean |
+| description | Local field description. | String |
+| readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable.</li><li>`false`: Editable.</li></ul> | Boolean |
+| visible | Indicates if the field is visible in the interface:<ul><li>`true`: Always visible.</li><li>`false`: Not visible.</li></ul> | Boolean |
+| hidden | Indicates if the field should be hidden in the interface:<ul><li>`true`: Hide the field even if it isn't empty.</li><li>`false`: Don't hide the field.</li></ul> | Boolean |
+| container | Indicates if you can specify multiple values in the field (like in the **Tags** field):<ul><li>`true`: You can specify multiple values in the field.</li><li>`false`: You can only specify one value in the field.</li></ul>This parameter can be used for the following types of fields:<ul><li>`ru.yandex.startrek.core.fields.StringFieldType`: One-line text field.</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name.</li><li>drop-down list (see the `optionsProvider` description).</li></ul> | Boolean |
 
 **Object fields** `optionsProvider` {#optionsProvider1}
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| type | Drop-down list type: <ul><li>`FixedListOptionsProvider`: List of string or numeric values (for `ru.yandex.startrek.core.fields.StringFieldType` or `ru.yandex.startrek.core.fields.IntegerFieldType` type fields).</li><li>`FixedUserListOptionsProvider`: List of users (for `ru.yandex.startrek.core.fields.UserFieldType` type fields).</li></ul> | String |
-| values | Values for the drop-down list. | Array of strings |
+| type | Type of drop-down list: <ul><li>`FixedListOptionsProvider`: List of strings or numbers (for the `ru.yandex.startrek.core.fields.StringFieldType` or `ru.yandex.startrek.core.fields.IntegerFieldType` field types).</li><li>`FixedUserListOptionsProvider`: List of users (for the `ru.yandex.startrek.core.fields.UserFieldType` field type).</li></ul> | String |
+| values | Drop-down list values. | Array of strings |
 
-> Example: Let's create a <q>Drop-down list</q> type local field with a fixed set of string values.
+{% endcut %}
+
+> Example: Create a local field of the <q>Drop-down list</q> type with a fixed set of string values:
+>
 >- An HTTP POST method is used.
->- A local field for the QUEUE-TEST queue is created.
+>- A local field is created for the QUEUE-TEST queue.
 >- Field type: `FixedListOptionsProvider`.
->- Values in the drop-down list: <q>list item 1</q>, <q>list item 2</q>, <q>list item 3</q>.
+>- Drop-down list values: <q>the first list item</q>, <q>the second list item</q>, <q>the third list item</q>.
+>
 >```json
 >POST /v2/queues/QUEUE-TEST/localFields
 >Host: {{ host }}
 >Authorization: OAuth <OAuth token>
->X-Org-Id: <organization ID>
+>{{ org-id }}
 >
 >{
->   "name":
->   {
->       "en": "Name in English",
->       "ru": "Name in Russian"
->   },
->   "id": "loc_field_key",
->   "category": "000000000000000000000003",
->   "type": "ru.yandex.startrek.core.fields.StringFieldType",
->   "optionsProvider": {
->       "type": "FixedListOptionsProvider",
->       "values": [
->           "list item 1",
->           "list item 2",
->           "list item 3"
->       ]
->   },
+>"name":
+>{
+>   "en": "Name in English",
+>   "ru": "Name in Russian"
+>},
+>"id": "loc_field_key",
+>"category": "000000000000000000000003",
+>"type": "ru.yandex.startrek.core.fields.StringFieldType",
+>"optionsProvider": {
+>   "type": "FixedListOptionsProvider",
+>   "values": [
+>       "the first list item",
+>       "the second list item",
+>       "the third list item"
+>   ]
+>},
 >}
 >```
 
@@ -104,19 +108,19 @@ The request body contains the information needed to create a local field:
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code `200 OK`.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
     The response body contains information about the local queue field in JSON format.
 
     ```json
      {
         "type": "local",
-        "self": "https://api.tracker.yandex.net/v2/queues/ORG/localFields/loc_field_key",
+        "self": "{{ host }}/v2/queues/ORG/localFields/loc_field_key",
         "id": "6054ae3a2b6b2c7f80bb9a93--loc_field_key",
         "name": "Field name in Russian",
-        "description": "Description of the local field",
+        "description": "Local field description",
         "key": "loc_field_key",
         "version": 1,
         "schema": {
@@ -131,14 +135,14 @@ The request body contains the information needed to create a local field:
         },
         "order": 100, 
         "category": {
-            "self": "https://api.tracker.yandex.net/v2/fields/categories/000000000000000000000003",
+            "self": "{{ host }}/v2/fields/categories/000000000000000000000003",
             "id": "000000000000000000000003",
             "display": "category_name"
         }    
      }
     ```
 
-    #### Response parameters {#answer-params}
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | ----- | ----- | ----- |
@@ -149,20 +153,20 @@ The request body contains the information needed to create a local field:
     | description | Field description. | String |
     | key | Field key. | String |
     | version | Field version. Each change to the field increases the version number. | Number |
-    | [schema](#schema) | Object with information about the field value's data type. | Objects |
+    | [schema](#schema) | Object with information about the field value's data type. | Object |
     | readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable.</li><li>`false`: Editable.</li></ul> | Boolean |
     | options | Shows if the list of values is restricted:<ul><li>`true`: The list of values is not restricted, you can set any value.</li><li>`false`: The list of values is restricted by the organization's settings.</li></ul> | Boolean |
     | suggest | Enables/disables search suggestions when entering field values:<ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> | Boolean |
-    | [optionsProvider](#optionsProvider) | Object with information about drop-down list items. | Objects |
-    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You can't change the class using the API. | Objects |
+    | [optionsProvider](#optionsProvider) | Object with information about the drop-down list items. | Object |
+    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You can't change the class using the API. | Object |
     | order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Number |
-    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Objects |
+    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Object |
 
     **Object fields** `schema` {#schema}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | type | Field value type. Possible data types:<ul><li>`string`: String Available for fields with a single value.</li><li>`array`: Array Available for fields with multiple values.</li></ul> | String |
+    | type | Field value type. Possible data types:<ul><li>`string`: String. Available for fields with a single value.</li><li>`array`: Array. Available for fields with multiple values.</li></ul> | String |
     | items | Value type. Available for fields with multiple values. | String |
     | required | Shows if the field is required:<ul><li>`true`: Required.</li><li>`false`: Optional.</li></ul> | Boolean |
 
@@ -170,9 +174,9 @@ The request body contains the information needed to create a local field:
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | type | Type of the drop-down list. | String |
-    | needValidation | Checking values for validity:<ul><li>`true`: Check a list value for validity.</li><li>`false`: Don't check a list value for validity.</li></ul> | Boolean |
-    | values | List items. | Array of strings |
+    | type | Type of drop-down list. | String |
+    | needValidation | Indicates if a list value requires validation:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Boolean |
+    | values | List items | Array of strings |
 
     **Object fields** `queryProvider` {#queryProvider}
 
@@ -188,30 +192,25 @@ The request body contains the information needed to create a local field:
     | id | Field category ID. | String |
     | display | Category name displayed. | String |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
-    400
-    : One or more request parameters have an invalid value.
+    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    401
-    : The user isn't authorized. Make sure that actions described in the [API access](../access.md) section are performed.
+    {% include [error](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    403
-    : The user or application doesn't have permission to access the resource, the request is rejected.
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    404
-    : The requested object is not found. You may have specified an invalid object ID or key.
+    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
 
-    422
-    : Validation error. The request body may contain an invalid or non-existent parameter.
+    {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
 
-    500
-    : Internal service error. Try resending your request in a few minutes.
+    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
 
-    503
-    : The API service is temporarily unavailable.
+    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

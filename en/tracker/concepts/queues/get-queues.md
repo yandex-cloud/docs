@@ -3,47 +3,48 @@ sourcePath: en/tracker/api-ref/concepts/queues/get-queues.md
 ---
 # Get a list of queues
 
-Use this request to get a list of available queues. If there are more than 50 queues in the response, use [paging](#section_mtj_ldk_p1b).
+Use this request to get a list of available queues. If there are more than 50 queues in the response, use [pagination](#view-pages).
 
-## Request format {#section_rnm_x4j_p1b}
+## Request format {#query}
 
-To search for issues, use an HTTP `POST` request:
+Before making the request, [get permission to access the API](../access.md).
 
-```json
-GET /v2/queues?
-&expand=<additional response fields>
+To search for issues, use an HTTP `POST` request.
+
+```
+GET /v2/queues/
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 ```
 
-#### Request parameters {#req-get-params}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **expand (optional)**
+{% cut "Request parameters" %}
 
-    Additional fields to include in the response. Possible values:
-    - `projects`: Queue projects.
-    - `components`: Components.
-    - `versions`: Versions.
-    - `types`: Issue types.
-    - `team`: List of team members.
-    - `workflows`: Workflows.
+**Additional parameters**
 
-- **perPage (optional)**
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| expand | Additional fields to include in the response. Possible values:<ul><li>`projects`: Queue projects.</li><li>`components`: Components.</li><li>`versions`: Versions.</li><li>`types`: Issue types.</li><li>`team`: List of team members.</li><li>`workflows`: Workflows.</li></ul> | String |
+| perPage | Number of queues per response page. Default: 50. To set up additional response output parameters, use [pagination](#view-pages). | Integer |
 
-    Number of queues on the response page. The default value is 50. Additional parameters for displaying the response can be configured using [paging](#section_mtj_ldk_p1b).
+{% endcut %}
 
-> Request for a list of issues with additional filtering options:
->- Use the HTTP GET method.
+> Example: Get a list of issues with additional filtering options.
+>
+>- An HTTP `GET` method is used.
+>
 >```
 >GET /v2/queues HTTP/1.1
 >Host: {{ host }}
 >Authorization: OAuth <OAuth token>
->X-Org-Id: <organization ID>
->Cache-Control: no-cache
+>{{ org-id }}
 >```
 
-## Response format {#section_xc3_53j_p1b}
+## Response format {#answer}
+
+{% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
 ```json
 [
@@ -138,7 +139,7 @@ X-Org-Id: <organization ID>
 ]  
 ```
 
-#### Response parameters {#answer-params}
+{% cut "Response parameters" %}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
@@ -149,117 +150,113 @@ X-Org-Id: <organization ID>
 | name | Queue name. | String |
 | description | Text description of the queue. | String |
 | [lead](#lead) | Block with information about the queue owner. | Object |
-| assignAuto | Automatically assign new issues in the queue:<br/><br/>`true`: Assign.<br/><br/>`false`: Do not assign. | Boolean |
+| assignAuto | Automatically assign new issues in the queue:<ul><li>`true`: Assign.</li><li>`false`: Do not assign.</li></ul> | Boolean |
 | [defaultType](#default-type) | Block with information about the default issue type. | Object |
 | [defaultPriority](#default-priority) | Block with information about the default issue priority | Object |
 | [teamUsers](#team-users) | Array with information about queue team members | Array of objects |
 | [issueTypes](#issue-types) | Array with information about queue issue types. | Array of objects |
 | [versions](#versions) | Array with information about queue versions | Array of objects |
-| [workflows](#workflows) | List of queue workflows and their issue types. | Array |
+| [workflows](#workflows) | List of queue workflows and their issue types. | Array. |
 | denyVoting | Flag that indicates if voting for issues is enabled. | Boolean |
 | [issueTypesConfig](#issue-types-config) | Array with queue issue settings. | Array of objects |
 
-**Object fields** `lead` {#lead}
-
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Link to the user. | String |
-| id | User ID. | String |
-| display | User's name displayed. | String |
+{% include [user](../../../_includes/tracker/api/user.md) %}
 
 **Object fields** `defaultType` {#default-type}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the issue type. | String |
-| id | ID of the issue type. | String |
-| key | Key of the issue type. | String |
-| display | Issue type name displayed. | String |
+| self | Link to the issue type | String |
+| id | ID of the issue type | String |
+| key | Key of the issue type | String |
+| display | Issue type name displayed | String |
 
 **Object fields** `defaultPriority` {#default-priority}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the priority type. | String |
-| id | Priority ID. | String |
-| key | Priority key. | String |
-| display | Priority name displayed. | String |
+| self | Link to the priority type | String |
+| id | Priority ID | String |
+| key | Priority key | String |
+| display | Priority name displayed | String |
 
 **Array object fields** `teamUsers` {#team-users}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the user. | String |
-| id | User ID. | String |
-| display | User's name displayed. | String |
+| self | Link to the user | String |
+| id | User ID | String |
+| display | User's name displayed | String |
 
 **Array object fields** `issueTypes` {#issue-types}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the issue type. | String |
-| id | ID of the issue type. | String |
-| key | Key of the issue type. | String |
-| display | Issue type name displayed. | String |
+| self | Link to the issue type | String |
+| id | ID of the issue type | String |
+| key | Key of the issue type | String |
+| display | Issue type name displayed | String |
 
 **Array object fields** `versions` {#versions}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the queue version. | String |
-| id | Version ID. | String |
-| display | Version name displayed. | String |
+| self | Link to the queue version | String |
+| id | Version ID | String |
+| display | Version name displayed | String |
 
 **Array object fields** `workflows` {#workflows}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the issue type. | String |
-| id | ID of the issue type. | String |
-| key | Key of the issue type. | String |
-| display | Issue type name displayed. | String |
+| self | Link to the issue type | String |
+| id | ID of the issue type | String |
+| key | Key of the issue type | String |
+| display | Issue type name displayed | String |
 
 **Array object fields** `issueTypesConfig` {#issue-types-config}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| [issueType](#issue-type) | Block with information about the issue type. | Object |
-| [workflow](#workflow) | Block with information about the issue type workflow. | Object |
-| [resolutions](#resolutions) | Array with possible issue type resolutions. | Array of objects |
+| [issueType](#issue-type) | Block with information about the issue type | Object |
+| [workflow](#workflow) | Block with information about the issue type workflow | Object |
+| [resolutions](#resolutions) | Array with possible issue type resolutions | Array of objects |
 
 **Object fields** `issueType` {#issue-type}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the issue type. | String |
-| id | ID of the issue type. | String |
-| key | Key of the issue type. | String |
-| display | Issue type name displayed. | String |
+| self | Link to the issue type | String |
+| id | ID of the issue type | String |
+| key | Key of the issue type | String |
+| display | Issue type name displayed | String |
 
 **Object fields** `workflow` {#workflow}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the workflow object. | String |
-| id | Workflow ID. | String |
-| display | Workflow name displayed. | String |
+| self | Link to the workflow object | String |
+| id | Workflow ID | String |
+| display | Workflow name displayed | String |
 
 **Array object fields** `resolutions` {#resolutions}
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| self | Link to the resolution object. | String |
-| id | Resolution ID. | String |
-| key | Resolution ID. | String |
-| display | Resolution name displayed. | String |
+| self | Link to the resolution object | String |
+| id | Resolution ID | String |
+| key | Resolution ID | String |
+| display | Resolution name displayed | String |
 
-## Paginated result output {#section_mtj_ldk_p1b}
+{% endcut %}
+
+## Paginated result output {#view-pages}
 
 If more than 50 queues meet the request criteria, you should use the scrolling mechanism to output the results page by page. To enable scrolling, use the following parameters in the request:
 
 - **perPage (optional)**
 
-    Number of tickets per page. The default value is 50. The maximum value is 100.
+    Number of queues per page. Default: 50.
 
 - **page (optional)**
 
@@ -274,9 +271,4 @@ The response will contain the following headers:
 - **X-Total-Count**
 
     Total number of entries in the response.
-
-## Possible response codes {#section_otf_jrj_p1b}
-
-200
-:   Request executed successfully.
 

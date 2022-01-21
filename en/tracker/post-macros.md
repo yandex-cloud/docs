@@ -7,13 +7,15 @@ Use this request to create macros.
 
 ## Request format {#section_sw2_w4f_sfb}
 
+Before making the request, [get permission to access the API](concepts/access.md).
+
 To create a macro, use an HTTP `POST` request:
 
 ```json
 POST /{{ ver }}/queues/<queue-id>/macros
 Host: {{ host }}
 Authorization: OAuth <token>
-X-Org-ID: <organization ID>
+{{ org-id }}
 
 {
   "name": "Test macro",
@@ -28,62 +30,56 @@ X-Org-ID: <organization ID>
 }
 ```
 
-#### Resource
+{% include [headings](../_includes/tracker/api/headings.md) %}
 
-- **\<issue-id\>**
-Queue ID or key. Queue key is case-sensitive.
+{% cut "Resource" %}
 
-#### Headers
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| \<queue-id> | Queue ID or key. The queue key is case-sensitive. | String |
 
-- **Host**
-Address of the node that provides the API:
+{% endcut %}
 
-  ```
-  {{ host }}
-  ```
+{% cut "Request body parameters" %}
 
-- **Authorization**
-OAuth token in `OAuth <token value>` format, such as:
+**Required parameters**
 
-  ```
-  OAuth 0c4181a7c2cf4521964a72ff57a34a07
-  ```
+| Parameter | Value | Data type |
+| ----- | ----- | ----- |
+| name | Macro name. | String |
 
-- **X-Org-ID**
-Organization ID.
+**Additional parameters**
 
-#### Request body
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
+| [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
 
-  The request body contains the macro parameters.
-  
-Parameter | Description | Data type
------ | ----- | -----
-name | Macro name.<br/><br/>Required field. | String
-body | [Message](manager/create-macroses.md#section_inq_5b1_x2b)  to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field whose value will be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String
-[fieldChanges](#fieldChanges) | Array with information about the issue fields changes to which the macro will trigger. | Array of objects
-
-  **Array objects** `fieldChanges` {#fieldChanges}
+**Array objects** `fieldChanges` {#fieldChanges}
 
 Parameter | Description | Data type
 -------- | -------- | ----------
 field | Issue field ID.<br/><br/>[Full list of issue fields]({{ link-admin-fields }}) | String
 value | Issue field value. | String
 
+{% endcut %}
+
 ## Response format {#section_ibd_4yf_sfb}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-  If the request is successful, the API returns a response with code 200. Response body
-contains a JSON object with the parameters of the created macro.
+    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
+
+    The response body contains a JSON object with the parameters of the created macro.
 
     ```json
       {
-        "self": "https://api.tracker.yandex.net/v2/queues/TEST/macros/3",
+        "self": "{{ host }}/v2/queues/TEST/macros/3",
         "id": 3,
         "queue": {
-          "self": "https://api.tracker.yandex.net/v2/queues/TEST", 
+          "self": "{{ host }}/v2/queues/TEST", 
           "id": "1",
           "key": "TEST",
           "display": "Test queue"
@@ -93,7 +89,7 @@ contains a JSON object with the parameters of the created macro.
         "fieldChanges": [
           {
             "field": {
-               "self": "https://api.tracker.yandex.net/v2/fields/tags", 
+               "self": "{{ host }}/v2/fields/tags", 
                "id": "tags",
                "display": "Tags"
               },
@@ -106,54 +102,53 @@ contains a JSON object with the parameters of the created macro.
       }
     ```
 
-  #### Response parameters {#answer-params}
+    {% cut "Response parameters" %}
 
-  | Parameter | Description | Data type |
-  | ----- | ----- | ----- |
-  | self | Address of the API resource with macro parameters. | String |
-  | id | Macro ID. | Number |
-  | [queue](#queue) | Object with information about the queue whose issues that the macro is applied to. | Object |
-  | name | Macro name. | String |
-  | body | [Message](manager/create-macroses.md#section_inq_5b1_x2b) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field whose value will be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
-  | [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the API resource with macro parameters. | String |
+    | id | Macro ID. | Number |
+    | [queue](#queue) | Object with information about the queue whose issues that the macro is applied to. | Objects |
+    | name | Macro name. | String |
+    | body | [Message](manager/create-macroses.md) to be created when executing the macro. Format: ``` <Message text>\n<variable> ```<br/>where:<ul><li> `<Message text>`: Text to be created in the **Comment** field when executing the macro.</li><li> ``\n``: Line break symbol.</li><li> Variable that may contain:<br/>`not_var{{currentUser}}`: Name of the user who ran the macro.<br/> `not_var{{currentDateTime.date}}`: Macro execution date. <br/>`not_var{{currentDateTime}}`: Macro execution date and time.<br/>`{{issue.<field_key>}}`: Key of the issue field to be displayed in the message. Full list of issue fields: [https://tracker.yandex.ru/admin/fields]({{ link-admin-fields }})</li></ul>To delete the message, use the construction `"body": {"unset":1}` | String |
+    | [fieldChanges](#fieldChanges) | Array with information about the issue fields that the macro will trigger changes to. | Array of objects |
 
-  **Object fields** `queue` {#queue}
+    **Object fields** `queue`{#queue}
 
-  Parameter | Description | Data type
-  -------- | -------- | ----------
-  self| Address of the API resource with information about the queue. | String
-  id | Queue ID. | String
-  key | Queue key. | String
-  display | Queue name displayed. | String
+    {% include [queue](../_includes/tracker/api/queue.md) %}
 
-  **Object fields** `fieldChanges` {#fieldChanges}
+    **Object fields** `fieldChanges` {#fieldChanges}
 
-  Parameter | Description | Data type
-  -------- | -------- | ----------
-  [field](#field) | Object with information about the issue field. | Object
-  value | Array with issue field values. | Array of objects
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | [field](#field) | Object with information about the issue field. | Objects |
+    | value | Array of issue field values. | Array of objects |
 
-  **Object fields** `field` {#field}
+    **Object fields** `field` {#field}
 
-  Parameter | Description | Data type
-  -------- | -------- | ----------
-  self | Address of the API resource with information about the issue field. | String
-  id | Issue field ID. | String
-  display | Issue field name displayed. | String
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the issue field. | String |
+    | id | Issue field ID. | String |
+    | display | Issue field name displayed. | String |
 
-- Request failed
+    {% endcut %}
 
-  If the request is processed incorrectly, the response contains error details:
+- The request failed
 
-  HTTP error code | Error description
-  ----- | -----
-  `400 Bad Request` | One of the request parameters has an invalid value or data format.
-  `403 Forbidden` | The user or application has no access rights to the resource, the request is rejected.
-  `404 Not Found` | The requested resource was not found.
-  `409 Conflict` | The request can't be executed due to a name conflict.
-  `422 Unprocessable Entity` | JSON validation error, the request is rejected.
-  `500 Internal Server Error` | Internal service error. Try again later.
-  `503 Service Unavailable` | The API service is temporarily unavailable.
+    If the request is processed incorrectly, the API returns a response with an error code:
+
+    {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [answer-error-409](../_includes/tracker/api/answer-error-409.md) %}
+
+    {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 
