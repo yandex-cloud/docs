@@ -2,6 +2,14 @@
 
 Use this request to edit a record of the time spent on an issue.
 
+{% note info %}
+
+In {{ tracker-full-name }}, time spent is measured in business weeks (5 days) and business days (8 hours).
+
+For example, if you pass a time interval of 5 days (`P5D`), the request will return the value 1 week (`P1W`), which you'll see when viewing the issue.
+
+{% endnote %}
+
 ## Request format {#section_q5n_mtk_gfb}
 
 To edit records of time spent on issues, use an HTTP `PATCH` request: Request parameters are passed in the request body in JSON format:
@@ -10,95 +18,81 @@ To edit records of time spent on issues, use an HTTP `PATCH` request: Request pa
 PATCH /{{ ver }}/issues/<issue-id>/worklog/<worklog-id>
 Host: {{ host }}
 Authorization: OAuth <token>
-X-Org-ID: <organization ID>
+{{ org-id }}
 
 {
-    "duration": "P3W",
+    "duration": "PT520M",
     "comment": "time changed!"
 }
 ```
 
-#### Resource {#req-resource}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **\<issue-id\>**
+{% cut "Resource" %}
 
-    Issue ID or key.
+| Parameter | Description | Data type |
+| --- | --- | --- |
+| \<issues-id\> | Issue ID or key. | String |
+| \<worklog-id\> | ID of the record of time spent. | String |
 
-- **\<worklog-id\>**
+{% endcut %}
 
-    ID of the record of time spent.
+{% cut "Request body parameters" %}
 
-#### Headers {#req-headers}
-
-- **Host**
-
-    Address of the node that provides the API:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth token in `OAuth <token value>` format. For example:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Organization ID.
-
-#### Request body {#req-body-params}
-
-The request body contains the issue parameters:
+**Required parameters**
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
-| duration | Time spent, in ```PnYnMnDTnHnMnS, PnW``` format, according to the [ISO 8601]({{ link-iso-8601 }}). | String |
-| comment | Text of the comment to the record. The comment is saved to the Time Spent report. | String |
+| duration | Time spent, in ```PnYnMnDTnHnMnS, PnW``` format, according to the [ISO 8601]({{ link-iso-8601 }}).<br><br>Separate hours, minutes, and seconds from the rest using the letter T.<br><br>For example, the value `P6W` corresponds to an interval of 6 weeks (30 business days), the value `PT300M` to an interval of 300 minutes (5 hours), and the value `P0Y0M30DT2H10M25S` to an interval of 30 days, 2 hours, 10 minutes, and 25 seconds. | String |
+
+**Additional parameters**
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| comment | Text of the comment to the record. The comment is saved to the [Time Spent](../../manager/statistics.md) report. | String |
+
+{% endcut %}
 
 ## Response format {#section_gvv_tdl_gfb}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code 200. The response body contains a JSON object with an updated record of the time spent on the issue.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    #### Response body {#answer-body}
+     The response body contains a JSON object with an updated record of the time spent on the issue.
 
     ```json
     {
-      "self": "https://api.tracker.yandex.net/v2/issues/TEST-324/worklog/1",
+      "self": "{{ host }}/v2/issues/TEST-324/worklog/1",
       "id": 1,
       "version": 1402121720882,
       "issue": {
-        "self": "https://api.tracker.yandex.net/v2/issues/TEST-324",
+        "self": "{{ host }}/v2/issues/TEST-324",
         "id": "515ec9eae4b09cfa984e2047",
         "key": "TEST-324",
         "display": "important issue"
       },
-      "comment": "important comment",
+      "comment": "time changed!",
       "createdBy": {
-        "self": "https://api.tracker.yandex.net/v2/users/1120000000014909",
+        "self": "{{ host }}/v2/users/1120000000014909",
         "id": "veikus",
         "display": "Artem Veikus"
       },
       "updatedBy": {
-        "self": "https://api.tracker.yandex.net/v2/users/1120000000014909",
+        "self": "{{ host }}/v2/users/1120000000014909",
         "id": "veikus",
         "display": "Artem Veikus"
       },
-      "createdAt": "2014-06-06T08:42:06.258+0000",
-      "updatedAt": "2014-06-06T08:42:06.258+0000",
-      "start": "2014-06-06T08:41:58.000+0000",
-      "duration": "P3W"
+      "createdAt": "2021-09-28T08:42:06.258+0000",
+      "updatedAt": "2021-09-28T08:42:06.258+0000",
+      "start": "2021-09-21T10:30:00.000+0000",
+      "duration": "P1DT40M"
     }
     ```
 
-    #### Response parameters {#answer-params}
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -139,18 +133,23 @@ The request body contains the issue parameters:
     | id | User ID. | String |
     | display | User's name displayed. | String |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP error code | Error description |
-    | --------------- | --------------- |
-    | 400 Bad Request | One of the request parameters has an invalid value or data format. |
-    | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |
-    | 404 Not Found | The requested resource not found. |
-    | 422 Unprocessable Entity | JSON validation error, the request is rejected. |
-    | 500 Internal Server Error | Internal service error. Try again later. |
-    | 503 Service Unavailable | The API service is temporarily unavailable. |
+    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

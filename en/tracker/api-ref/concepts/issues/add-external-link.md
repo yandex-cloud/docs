@@ -31,7 +31,7 @@ Authorization: OAuth <OAuth token>
 
 | Parameter | Description | Data type |
 | ----- | ----- | ----- |
-| backlink | Set `true` to execute a [request from {{ tracker-name }}, when adding a link, to create a duplicate link in an external application](../../ext-app-setup.md#create). | Logical |
+| backlink | Set `true` to execute a [request from {{ tracker-name }}, when adding a link, to create a duplicate link in an external application](../../ext-app-setup.md#create). | Boolean |
 
 {% endcut %}
 
@@ -100,11 +100,11 @@ Authorization: OAuth <OAuth token>
     | ----- | ----- | ----- |
     | self | Address of the API resource with information about the external link. | String |
     | id | Link ID. | String |
-    | [type](#type) | Block with information about the link type. | Objects |
+    | [type](#type) | Block with information about the link type. | Object |
     | direction {#direction} | <q>Link</q> direction. The parameter is relevant for non-symmetric link types, such as <q>Parent issue</q> — <q>Sub-issue</q>. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the object.</li><li>`inward`: The object is the main one for the issue specified in the request.</li></ul> | String |
-    | [object](#object){#object-param} | Block with information about an external application object. | Objects |
-    | [createdBy](#createdBy) | Block with information about the user who created the link. | Objects |
-    | [updatedBy](#updatedBy) | Block with information about the employee who updated the link last. | Objects |
+    | [object](#object){#object-param} | Block with information about an external application object. | Object |
+    | [createdBy](#createdBy) | Block with information about the user who created the link. | Object |
+    | [updatedBy](#updatedBy) | Block with information about the employee who updated the link last. | Object |
     | createdAt | Link creation date and time. | String |
     | updatedAt | Date and time when the link was last updated. | String |
 
@@ -124,7 +124,7 @@ Authorization: OAuth <OAuth token>
     | self | Address of the API resource with information about the external application object. | String |
     | id | Object ID. | String |
     | key | Object key. | String |
-    | [application](#application) | Block with information about the external application. | Objects |
+    | [application](#application) | Block with information about the external application. | Object |
 
     **Object fields** `application` {#application}
 

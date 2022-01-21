@@ -115,8 +115,10 @@ items:
       href: concepts/queues/get-fields.md
     - name: Delete a queue
       href: concepts/queues/delete-queue.md
+      when: audience == "external"
     - name: Restore a queue
       href: concepts/queues/restore-queue.md
+      when: audience == "external"
     - name: Remove a tag from a queue
       href: concepts/queues/delete-tag.md
 - name: Issue boards
@@ -185,24 +187,32 @@ items:
           href: concepts/issues/get-worklog.md
 - name: Issue fields
   items:
+#    - name: Обзор
+#      href: extra-api-requests.md
+    - name: Create an issue field
+      href: concepts/issues/create-field.md
+      when: audience == "external"
     - name: Get issue field parameters
       href: concepts/issues/get-issue-fields.md
     - name: Edit issue field names
       href: concepts/issues/patch-issue-field-name.md
+      when: audience == "external"
     - name: Edit possible values of issue fields
       href: concepts/issues/patch-issue-field-value.md
+      when: audience == "external"
     - name: Create an issue field category
       href: concepts/issues/create-issue-field-category.md
+      when: audience == "external"
     - name: Local fields
       items:
         - name: Create a local queue field
-          href: concepts/queues/create-local-field.md        
+          href: concepts/queues/create-local-field.md
         - name: Get local queue fields
           href: concepts/queues/get-local-fields.md
         - name: Get information about a local queue field
-          href: concepts/queues/get-info-local-field.md      
+          href: concepts/queues/get-info-local-field.md
         - name: Edit a local queue field
-          href: concepts/queues/edit-local-field.md  
+          href: concepts/queues/edit-local-field.md
 - name: Get information about the current user
   href: get-user-info.md
 - name: Possible response codes

@@ -14,9 +14,9 @@ To import links, use an HTTP `POST` request. Link parameters are passed in the r
 
 ```json
 POST /{{ ver }}/issues/<issue_id>/links/_import
-Host: {{ host }}Authorization: OAuth <token>
-X-Org-ID: <organization ID>
-Content-Type: application/json
+Host: {{ host }}
+Authorization: OAuth <token>
+{{ org-id }}
 
 {
   "relationship": "relates",
@@ -28,41 +28,19 @@ Content-Type: application/json
 }
 ```
 
-#### Resource {request-resourse}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **<issue_id>**
+{% cut "Resource" %}
 
-    Key of the issue to add the comment to.
+| Parameter | Description | Data type |
+| --- | --- | --- |
+| \<issues-id\> | Key of the issue to attach the file to. | String |
 
-#### Request headers {request-headers}
+{% endcut %}
 
-- **Host**
+{% cut "Request body parameters" %}
 
-    Address of the node that provides the API:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth token in `OAuth <token value>` format. For example:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Organization ID.
-
-- **Content-Type**
-
-    Request body format. Must be `application/json`.
-
-#### Request body
-
-The request body contains the comment parameters:
+**Required parameters**
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
@@ -70,16 +48,25 @@ The request body contains the comment parameters:
 | issue | ID or key of the issue being linked. | String |
 | createdAt | Link creation date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify a value in the interval from the time of creation to the time the issue being linked was last updated. | String |
 | createdBy | Username or ID of the user who created the link. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
+
+**Additional parameters**
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
 | updatedAt | Date and time of the link's last update in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify a value in the interval from the time of creation to the time the issues being linked were last updated.<br/><br/>The parameter is only used together with the `updatedBy` parameter. | String |
 | updatedBy | Username or ID of the user who edited the link last.<br/><br/>The parameter is only used together with the `updatedAt` parameter. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
+
+{% endcut %}
 
 ## Response format {#section_isd_myb_p1b}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code 201. The request body contains information about the imported issue in JSON format.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+
+    The response body contains the parameters of the attached file in JSON format:
 
     ```json
     {
@@ -124,14 +111,14 @@ The request body contains the comment parameters:
         }
     ```
 
-  #### Response parameters
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
     | self | Address of the API resource with information about the link. | String |
     | id | Link ID. | Number |
     | [type](#type) | Block with information about the link type. | Object |
-    | direction | Link type of the issue specified in the request in relation to the issue specified in the [object](#resp-object-param) field. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the issue in the [object](#resp-object-param) field.</li><li>`inward`: The issue specified in the [object](#resp-object-param) field is the main one for the issue in the request.</li></ul> | String |
+    | sdirection | Link type of the issue specified in the request in relation to the issue specified in the [object](#resp-object-param) field. Possible values:<ul><li>`outward`: The issue specified in the request is the main one for the issue in the [object](#resp-object-param) field.</li><li>`inward`: The issue specified in the [object](#resp-object-param) field is the main one for the issue in the request.</li></ul> | String |
     | [object](#object) | Block with information about the linked issue. | Object |
     | [createdBy](#createdBy) | Block with information about the user who created the link. | Object |
     | [updatedBy](#updatedBy) | Block with information about the user who edited the linked issue last. | Object |
@@ -191,18 +178,23 @@ The request body contains the comment parameters:
     | key | Status key. | String |
     | display | Status name displayed. | String |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP error code | Error description |
-    | --------------- | --------------- |
-    | 400 Bad Request | One of the request parameters has an invalid value or data format. |
-    | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |
-    | 404 Not Found | The requested resource not found. |
-    | 422 Unprocessable Entity | JSON validation error, the request is rejected. |
-    | 500 Internal Server Error | Internal service error. Try again later. |
-    | 503 Service Unavailable | The API service is temporarily unavailable. |
+    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

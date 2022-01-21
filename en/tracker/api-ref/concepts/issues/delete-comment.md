@@ -10,16 +10,19 @@ To delete a comment, use an HTTP `DELETE` request:
 DELETE /{{ ver }}/issues/<issue-id>/comments/<comment-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 ```
 
-#### Resource {#resource}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **\<issue-id\>**
-Issue ID or key.
+{% cut "Resource" %}
 
-- **\<comment-id\>**
-[Unique ID of the comment](get-comments.md#section_xc3_53j_p1b) in numeric (id) or string format (longId).
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| \<issue-id> | ID or key of the current issue. | String |
+| \<comment-id> | [Unique ID of the comment](get-comments.md#section_xc3_53j_p1b) in numeric (id) or string format (longId). | String or number |
+
+{% endcut %}
 
 > Request for deleting a comment added to the `JUNE-2` issue:
 > 
@@ -29,18 +32,22 @@ Issue ID or key.
 > DELETE /v2/issues/JUNE-2/comments/53a170e8e4b07a4c3358d60a
 > Host: {{ host }}
 > Authorization: OAuth <OAuth token>
-> X-Org-Id: <organization ID>
+> {{ org-id }}
 > ```
 
 ## Response format {#section_xc3_53j_p1b}
 
-If the request is successful, the API returns a response with code 204. The response body is missing.
+{% list tabs %}
 
-## Possible response codes {#section_otf_jrj_p1b}
+- Successful execution of the request
 
-204
-:  The DELETE request is executed, the object was deleted.
+    {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-404
-:   The requested object was not found. You may have specified an invalid object ID or key.
+    The response body is missing.
+
+- The request failed
+
+    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+
+{% endlist %}
 

@@ -1,8 +1,8 @@
 {% cut "Headers" %}
 
 - **Host**
-{% if audience == "external" %}
-Address of the node that provides the API:
+    {% if audience == "external" %}
+    Address of the node that provides the API:
 
     ```
     https://api.tracker.yandex.net

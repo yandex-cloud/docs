@@ -10,35 +10,39 @@ To delete a checklist from an issue, use an HTTP `DELETE` request:
 DELETE /{{ ver }}/issues/<issue-id>/checklistItems
 Host: {{ host }}
 Authorization: OAuth <token>
-X-Org-ID: <organization ID> 
+{{ org-id }}
 ```
 
-#### Resource
-
-- **\<issue-id\>**
- 
-   Issue ID or key.
-
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
+
+{% cut "Resource" %}
+
+| Parameter | Description | Data type |
+| --- | --- | --- |
+| \<issues-id\> | Issue ID or key. | String |
+
+{% endcut %}
 
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-  If the request is successful, the API returns a response with code `200 OK`. The response body contains a JSON object with the parameters of the issue the checklist was deleted from.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+
+    The response body contains a JSON object with the parameters of the issue to delete the checklist from.
 
   ```json
   {
-      "self": "https://api.tracker.yandex.net/v2/issues/ORG-3",
+      "self": "{{ host }}/v2/issues/ORG-3",
       "id": "5f981c00b982f0755dbdc13d",
       "key": "ORG-3",
       "version": 147,
       "lastCommentUpdatedAt": "2020-12-13T13:18:22.965+0000",
-      "pendingReplayFrom": [
+      "pendingReplyFrom": [
           {
-              "self": "https://api.tracker.yandex.net/v2/users/1134669289",
+              "self": "{{ host }}/v2/users/1134669289",
               "id": "Employee ID",
               "display": "First and Last name"
           }
@@ -46,65 +50,65 @@ X-Org-ID: <organization ID>
       "summary": "Issue name",
       "statusStartTime": "2020-11-03T11:19:24.733+0000",
       "updatedBy": {
-          "self": "https://api.tracker.yandex.net/v2/users/19904929",
+          "self": "{{ host }}/v2/users/19904929",
           "id": "Employee ID",
           "display": "First and Last name"
       },
       "checklistDone": "0",
       "description": "Issue description",
       "type": {
-          "self": "https://api.tracker.yandex.net/v2/issuetypes/2",
+          "self": "{{ host }}/v2/issuetypes/2",
           "id": "2",
           "key": "task",
           "display": "Issue"
       },
       "priority": {
-          "self": "https://api.tracker.yandex.net/v2/priorities/3",
+          "self": "{{ host }}/v2/priorities/3",
           "id": "3",
           "key": "normal",
           "display": "Medium"
       },
       "previousStatusLastAssignee": {
-          "self": "https://api.tracker.yandex.net/v2/users/1134669289",
+          "self": "{{ host }}/v2/users/1134669289",
           "id": "Employee ID",
           "display": "First and Last name"
       },
       "createdAt": "2020-10-27T13:09:20.085+0000",
       "followers": [
           {
-              "self": "https://api.tracker.yandex.net/v2/users/19904929",
+              "self": "{{ host }}/v2/users/19904929",
               "id": "Employee ID",
               "display": "First and Last name"
           }
       ],
       "createdBy": {
-          "self": "https://api.tracker.yandex.net/v2/users/1134669289",
+          "self": "{{ host }}/v2/users/1134669289",
           "id": "Employee ID",
           "display": "First and Last name"
       },
      "checklistTotal": 4,
      "votes": 0,
      "assignee": {
-          "self": "https://api.tracker.yandex.net/v2/users/1134669289",
+          "self": "{{ host }}/v2/users/1134669289",
           "id": "Employee ID",
           "display": "First and Last name"
       },
      "deadline": "2020-10-28",
      "queue": {
-          "self": "https://api.tracker.yandex.net/v2/queues/ORG",
+          "self": "{{ host }}/v2/queues/ORG",
           "id": "1",
           "key": "ORG",
           "display": "Startrack"
       },
      "updatedAt": "2021-02-16T08:28:41.095+0000",
      "status": {
-          "self": "https://api.tracker.yandex.net/v2/statuses/2",
+          "self": "{{ host }}/v2/statuses/2",
           "id": "2",
           "key": "needInfo",
           "display": "Need info"
       },
       "previousStatus": {
-          "self": "https://api.tracker.yandex.net/v2/statuses/3",
+          "self": "{{ host }}/v2/statuses/3",
           "id": "3",
           "key": "inProgress",
           "display": "In progress"
@@ -113,7 +117,7 @@ X-Org-ID: <organization ID>
   }
   ```
 
-  #### Response parameters {#answer-params}
+  {% cut "Response parameters" %}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
@@ -122,11 +126,11 @@ X-Org-ID: <organization ID>
   | key | Issue key. | String |
   | version | Issue version. Each change of the parameters increases the version number. | Number |
   | lastCommentUpdatedAt | Last comment's update time. | String |
-  | [pendingReplayFrom](#pending-replay-from) | Object with information about the employee whose response is awaited. | Object |
+  | [pendingReplyFrom](#pending-reply-from) | Object with information about the employee whose response is awaited. | Object |
   | summary | Issue name. | String |
   | statusStartTime | Issue creation time. | String |
   | [updatedBy](#updated-by) | Object with information about the employee who edited the issue last. | Object |
-  | checklistDone | Number of items in the checklist that are marked as completed. | Number |
+  | checklistDone | Number of checklist items that are marked as done. | Number |
   | description | Issue description. | String |
   | [type](#type) | Object with information about the issue type. | Object |
   | [priority](#priority) | Object with information about the priority. | Object |
@@ -134,7 +138,7 @@ X-Org-ID: <organization ID>
   | createdAt | Issue creation date and time. | String |
   | [followers](#followers) | Array of objects with information about issue followers. | Object |
   | [createdBy](#created-by) | Object with information about the user who created the issue. | Object |
-  | checklistTotal | Number of items in the checklist. | Number |
+  | checklistTotal | Number of checklist items. | Number |
   | votes | Number of votes for the issue. | Number |
   | [assignee](#assignee) | Object with information about the issue's assignee. | Object |
   | deadline | Deadline for completing the issue. | String |
@@ -152,7 +156,7 @@ X-Org-ID: <organization ID>
   | id | User ID. | Number |
   | display | User's name displayed. | String |
 
-  **Object fields** `pendingReplayFrom` {#pending-replay-from}
+  **Object fields** `pendingReplyFrom` {#pending-reply-from}
 
   | Parameter | Description | Data type |
   | ----- | ----- | ----- |
@@ -237,21 +241,19 @@ X-Org-ID: <organization ID>
   | key | Status key. | String |
   | display | Status name displayed. | String |
 
-- Request failed
+  {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
-    400
-    : One or more request parameters have an invalid value.
+    {% include [error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    401
-    : The user isn't authorized. Make sure that actions described in [{#T}](../access.md) are performed.
+    {% include [error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    403
-    : Insufficient rights to perform this action. You can check what rights you have in the {{ tracker-name }} interface. The same rights are required to perform an action via the API and interface.
+    {% include [error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    404
-    : The requested object was not found. You may have specified an invalid object ID or key.
+    {% include [error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
 

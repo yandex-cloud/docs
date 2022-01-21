@@ -2,51 +2,55 @@
 
 Use this request to download files attached to issues.
 
-## Request format {#section_rnm_x4j_p1b}
+## Request format {#query}
 
-To download a file, use an HTTP `GET` request:
+Before making the request, [get permission to access the API](../access.md).
+
+To download a file, use an HTTP `GET` request.
 
 ```
 GET /{{ ver }}/issues/<issue-id>/attachments/<attachment-id>/<filename>
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 ```
 
-#### Resource {#resource}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **\<issue-id\>**
+{% cut "Resource" %}
 
-    Issue ID or key.
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<issue-id\> | Issue ID or key | String |
+| \<attachment-id\> | Unique file ID | String or number |
+| \<filename\> | File name | String |
 
-- **\<attachment-id\>**
+{% endcut %}
 
-    Unique ID of the file.
+> Example: Download a file attached to the `JUNE-2` issue.
+>
+>- An HTTP `GET` method is used.
+>
+>```
+>GET /v2/issues/JUNE-2/attachments/4159/attachment.txt HTTP/1.1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>```
 
-- **\<filename\>**
+## Response format {#answer}
 
-    File name.
+{% list tabs %}
 
-> Request to download a file attached to the `JUNE-2` issue:
-> 
-> - Use the HTTP GET method.
-> 
-> ```
-> GET /v2/issues/JUNE-2/attachments/4159/attachment.txt HTTP/1.1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> X-Org-Id: <organization ID>
-> ```
+- Successful execution of the request
 
-## Response format {#section_xc3_53j_p1b}
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-If the request is successful, the API returns a response with code 200.
+- The request failed
 
-## Possible response codes {#section_otf_jrj_p1b}
+    If the request is processed incorrectly, the API returns a response with an error code:
 
-200
-:   Request executed successfully.
+    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
-404
-:   The requested object was not found. You may have specified an invalid object ID or key.
+{% endlist %}
 

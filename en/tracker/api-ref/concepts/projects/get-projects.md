@@ -12,10 +12,12 @@ To get a list of projects, use an HTTP `GET` request.
 GET /{{ ver }}/projects
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 ```
 
-#### Request parameters
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
+
+{% cut "Request parameters" %}
 
 **Additional parameters**
 
@@ -23,26 +25,28 @@ X-Org-Id: <organization ID>
 | -------- | -------- | ---------- |
 | expand | Additional fields to be included in the response: <ul><li>`queues`: Project queues. </li></ul> | String |
 
+{% endcut %}
+
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code `200 OK`.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
     The response body contains information about all the organization's projects in JSON format.
 
     ```json
     {
-        "self": "https://api.tracker.yandex.net/v2/projects/1",
+        "self": "{{ host }}/v2/projects/1",
         "id": "1",
         "version": 1,
         "key": "Project 1",
         "name": "Project 1",
         "description": "First project",
         "lead": {
-            "self": "https://api.tracker.yandex.net/v2/users/12314567890",
+            "self": "{{ host }}/v2/users/12314567890",
             "id": "1234567890",
             "display": "First and Last name"
         },
@@ -51,14 +55,14 @@ X-Org-Id: <organization ID>
         "endDate": "2020-12-01"
     },
     {
-        "self": "https://api.tracker.yandex.net/v2/projects/2",
+        "self": "{{ host }}/v2/projects/2",
         "id": "2",
         "version": 1,
         "key": "Project 2",
         "name": "Project 2",
         "description": "Another project",
         "lead": {
-            "self": "https://api.tracker.yandex.net/v2/users/12314567890",
+            "self": "{{ host }}/v2/users/12314567890",
             "id": "1234567890",
             "display": "First and Last name"
         },
@@ -74,7 +78,7 @@ X-Org-Id: <organization ID>
     }
     ```
 
-    #### Response parameters
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -97,18 +101,17 @@ X-Org-Id: <organization ID>
     | id | User ID. | Number |
     | display | User's name displayed. | String |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
-    400
-    :   One or more request parameters have an invalid value.
+    {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    401
-    :  The user isn't authorized. Make sure that actions described in the [API access](../access.md) section are performed.
+    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    403
-    :  Insufficient rights to perform this action. You can check what rights you have in the {{ tracker-name }} interface. The same rights are required to perform an action via the API and interface.
+    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
 {% endlist %}
 

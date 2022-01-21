@@ -124,6 +124,3 @@ You can add comments, links, and files, and perform other actions on issues:
 * [{#T}](ticket-links.md)
 * [{#T}](attach-file.md)
 * [{#T}](move-ticket.md)
-
-{% list tabs %}
-

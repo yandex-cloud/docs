@@ -2,45 +2,39 @@
 
 Use this request to edit column parameters.
 
-## Request format {#section_fpk_2k4_qfb}
+## Request format {#query}
 
-To edit column parameters, use an HTTP `PATCH` request:
+Before making the request, [get permission to access the API](concepts/access.md).
 
-```json
+To edit column parameters, use an HTTP `PATCH` request. Request parameters are passed in the request body in JSON format.
+
+```
 PATCH /{{ ver }}/boards/<board-id>/columns/<column-id>
 Host: {{ host }}
 Authorization: OAuth <token>
-X-Org-ID: <organization ID>
+{{ org-id }}
 If-Match: "<version number>"
 
-{
-  "name": "Approve",
-  "statuses": 
-      [
-        "needInfo", "adjustment",...
-      ]
-}
+<new column parameters in JSON format>
 ```
 
-#### Resource {#req-resource}
-
-- **\<board-id\>**
-
-    Board ID.
-
-- **\<column-id\>**
-
-    Column ID.
-
-#### Headers {#req-headers}
+{% cut "Headers" %}
 
 - **Host**
-
+    {% if audience == "external" %}
     Address of the node that provides the API:
 
     ```
     {{ host }}
     ```
+
+    {% else %}
+
+    ```
+    https://st-api.yandex-team.ru/
+    ```
+
+    {% endif %}
 
 - **Authorization**
 
@@ -50,40 +44,81 @@ If-Match: "<version number>"
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
+    {% if audience == "external" %}
+
 - **X-Org-ID**
 
     Organization ID.
+
+    {% endif %}
 
 - **If-Match**
 
     Number of the current board version. If you specify an obsolete version of the board, the HTTP request returns an error message saying `412 Precondition Failed`.
 
-#### Request body {#req-body-params}
+{% endcut %}
+
+{% cut "Resource" %}
+
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<board-id\> | Board ID | Number |
+| \<column-id\> | Column ID | Number |
+
+{% endcut %}
+
+{% cut "Request body parameters" %}
 
 The request body contains the column parameters to be changed.
+
+**Additional parameters**
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
 | name | Column name. | String |
-| statuses | The array contains the keys of possible statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-admin-statuses }}]({{ link-admin-statuses }}) | Array |
+| statuses | The array contains the keys of possible statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Array |
 
-## Response format {#section_rf4_nr4_qfb}
+{% endcut %}
+
+> Example: Edit the parameters of the column with ID `1` on the board with ID `5`.
+
+- An HTTP `POST` method is used.
+
+```
+PATCH /v2/boards/5/columns/1
+Host: {{ host }}
+Authorization: OAuth <token>
+X-Org-ID: <organization ID>
+If-Match: "<version number>"
+
+{
+  "name": "Approve",
+  "statuses":
+      [
+        "needInfo", "needAcceptance"
+      ]
+}
+```
+
+## Response format {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code 200. The response body contains a JSON object with all column parameters, including the updated ones.
+    {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
+
+    The response body contains a JSON object with all column parameters, including the updated ones.
 
     ```json
     {
-        "self": "https://api.tracker.yandex.net/v2/boards/73/columns/5",
+        "self": "{{ host }}/v2/boards/73/columns/5",
         "id": 5,
         "name": "Approve",
         "statuses":
          [
             {
-               "self": "https://api.tracker.yandex.net/v2/statuses/2",
+               "self": "{{ host }}/v2/statuses/2",
                "id": "2",
                "key": "needInfo",
                "display": "Need info"
@@ -93,38 +128,40 @@ The request body contains the column parameters to be changed.
     }
     ```
 
-    #### Response parameters {#answer-params}
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the board column. | String |
-    | id | Column ID. | Number |
-    | name | Column name. | String |
-    | [statuses](#statuses) | Array with the statuses of the issues included in the column. | Array |
+    | self | Address of the API resource with information about the board column | String |
+    | id | Column ID | Number |
+    | name | Column name | String |
+    | [statuses](#statuses) | Array with the statuses of the issues included in the column | Array |
 
     **Object fields** `statuses` {#statuses}
 
-    | Parameter | Description | Data type |
-    | -------- | -------- | ---------- |
-    | self | Address of the API resource with information about the status. | String |
-    | id | Status ID. | String |
-    | key | Status key. | String |
-    | display | Status name displayed. | String |
+    {% include [status](../_includes/tracker/api/status.md) %}
 
-- Request failed
+    {% endcut %}
 
-    If the request is processed incorrectly, the API returns a message with error details:
+- The request failed
 
-    | HTTP error code | Error description |
-    | --------------- | --------------- |
-    | 400 Bad Request | One of the request parameters has an invalid value or data format. |
-    | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |
-    | 404 Not Found | The requested resource not found. |
-    | 412 Precondition Failed | Invalid header value. |
-    | 422 Unprocessable Entity | JSON validation error, the request is rejected. |
-    | 428 Precondition Required | A header is required. |
-    | 500 Internal Server Error | Internal service error. Try again later. |
-    | 503 Service Unavailable | The API service is temporarily unavailable. |
+    If the request is processed incorrectly, the API returns a response with an error code:
+
+    {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [answer-error-412](../_includes/tracker/api/answer-error-412.md) %}
+
+    {% include [answer-error-422](../_includes/tracker/api/answer-error-422.md) %}
+
+    {% include [answer-error-428](../_includes/tracker/api/answer-error-428.md) %}
+
+    {% include [answer-error-500](../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

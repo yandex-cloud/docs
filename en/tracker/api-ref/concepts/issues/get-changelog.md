@@ -12,83 +12,63 @@ To get a list of issue changes, use an HTTP `GET` request.
 GET /{{ ver }}/issues/<issue-id>/changelog
 Host: {{ host }}
 Authorization: OAuth <token>
-X-Org-ID: <organization ID>
+{{ org-id }}
 ```
 
-### Request parameters
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-#### Headings
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
 
-- **Host**
-
-    API host address:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth token in `OAuth <token value>` format. For example:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Company ID.
-
-#### Resource
-
-| Parameter | Description | Data type |
-| -------- | -------- | ---------- |
-| \<issue-id> | Issue ID or key. | String |
+{% cut "Request parameters" %}
 
 #### Additional parameters {#params}
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
 | id | ID of the change followed by the requested changes. | String |
-| perPage | Number of changes per page. If this parameter is not specified, each page contains 50 changes by default. | Number |
-| field | ID of the [change parameter](#field). Examples: `checklistItems` to view changes in the checklist or `status` to view all issue status updates. | String |
+| perPage | Number of changes per page. If this parameter is omitted, each page will display 50 changes by default. | Number |
+| field | ID of the [change parameter](#field). For example, `checklistItems` for viewing changes to the checklist or `status` for viewing all issue status updates. | String |
 | type | Key of the [change type](#diff-type). | String |
+
+{% endcut %}
 
 ## Response format {#section_kms_pbr_1fb}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-  If the request is successful, the API returns a response with code 200. The response body contains a JSON array with the history of issue changes.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-  ### Response headers {#answer-headers}
+    The response body contains a JSON array with the history of issue changes.
+
+  {% cut "Response headers" %}
 
     The `Link` headers contain links to the first (`rel="first"`) and subsequent (`rel="next"`) pages of the response. By default, each page contains 50 changes.
 
     ```
     ...
-    Link: <https://api.tracker.yandex.net/v2/issues/SCR-8/changelog?perPage=50>; rel="first"
-    Link: <https://api.tracker.yandex.net/v2/issues/SCR-8/changelog?id=5b9a1a88f7c605001c0e14a5&perPage=50>; rel="next"
+    Link: <{{ host }}/v2/issues/SCR-8/changelog?perPage=50>; rel="first"
+    Link: <{{ host }}/v2/issues/SCR-8/changelog?id=5b9a1a88f7c605001c0e14a5&perPage=50>; rel="next"
     ...
     ```
 
-  ### Response body {#answer-body}
+  {% endcut %}
 
     ```json
     [
      {
             "id": "6033f986bd6c4a042c688392",
-            "self": "https://api.tracker.yandex.net/v2/issues/TEST-27/changelog/6033f986bd6c4a042c688392",
+            "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f986bd6c4a042c688392",
             "issue": {
-                "self": "https://api.tracker.yandex.net/v2/issues/TEST-27",
+                "self": "{{ host }}/v2/issues/TEST-27",
                 "id": "6033f986bd6c4a042c688392",
                 "key": "TEST-27",
                 "display": "Issue name"
             },
          "updatedAt": "2021-02-22T18:35:50.157+0000",
          "updatedBy": {
-             "self": "https://api.tracker.yandex.net/v2/users/1234567890",
+             "self": "{{ host }}/v2/users/1234567890",
              "id": "1234567890",
              "display": "First and Last name"
          },
@@ -97,13 +77,13 @@ X-Org-ID: <organization ID>
          "fields": [
              {
                  "field": {
-                     "self": "https://api.tracker.yandex.net/v2/fields/status",
+                     "self": "{{ host }}/v2/fields/status",
                      "id": "status",
                      "display": "Status"
                  },
                  "from": null,
                  "to": {
-                     "self": "https://api.tracker.yandex.net/v2/statuses/1",
+                     "self": "{{ host }}/v2/statuses/1",
                      "id": "1",
                      "key": "open",
                      "display": "Open"
@@ -113,16 +93,16 @@ X-Org-ID: <organization ID>
      },
      {
          "id": "6033f98d4417c101b655b93b",
-         "self": "https://api.tracker.yandex.net/v2/issues/TEST-27/changelog/6033f98d4417c101b655b93b",
+         "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f98d4417c101b655b93b",
          "issue": {
-             "self": "https://api.tracker.yandex.net/v2/issues/TEST-27",
+             "self": "{{ host }}/v2/issues/TEST-27",
              "id": "6033f986bd6c4a042c688391",
              "key": "TEST-27",
              "display": "Issue name"
          },
          "updatedAt": "2021-02-22T18:35:57.359+0000",
          "updatedBy": {
-             "self": "https://api.tracker.yandex.net/v2/users/1234567890",
+             "self": "{{ host }}/v2/users/1234567890",
              "id": "1234567890",
              "display": "First and Last name"
          },
@@ -131,14 +111,14 @@ X-Org-ID: <organization ID>
          "fields": [
              {
                  "field": {
-                     "self": "https://api.tracker.yandex.net/v2/fields/followers",
+                     "self": "{{ host }}/v2/fields/followers",
                      "id": "followers",
                      "display": "Followers"
                  },
                  "from": null,
                  "to": [
                      {
-                         "self": "https://api.tracker.yandex.net/v2/users/1234567890",
+                         "self": "{{ host }}/v2/users/1234567890",
                          "id": "1234567890",
                          "display": "First and Last name"
                      }
@@ -148,16 +128,16 @@ X-Org-ID: <organization ID>
      },
      {
          "id": "6033f9954417c101b655b940",
-         "self": "https://api.tracker.yandex.net/v2/issues/TEST-27/changelog/6033f9954417c101b655b940",
+         "self": "{{ host }}/v2/issues/TEST-27/changelog/6033f9954417c101b655b940",
          "issue": {
-             "self": "https://api.tracker.yandex.net/v2/issues/TEST-27",
+             "self": "{{ host }}/v2/issues/TEST-27",
              "id": "6033f986bd6c4a042c688391",
              "key": "TEST-27",
              "display": "Issue name"
          },
          "updatedAt": "2021-02-22T18:36:05.553+0000",
          "updatedBy": {
-             "self": "https://api.tracker.yandex.net/v2/users/1234567890",
+             "self": "{{ host }}/v2/users/1234567890",
              "id": "1234567890",
              "display": "First and Last name"
          },
@@ -166,7 +146,7 @@ X-Org-ID: <organization ID>
          "fields": [
              {
                  "field": {
-                     "self": "https://api.tracker.yandex.net/v2/fields/tags",
+                     "self": "{{ host }}/v2/fields/tags",
                      "id": "tags",
                      "display": "Tags"
                  },
@@ -180,7 +160,7 @@ X-Org-ID: <organization ID>
     ]
     ```
 
-  #### Response parameters {#answer-params}
+  {% cut "Response parameters" %}
 
    | Parameter | Description | Data type |
    | ----- | ----- | ----- |
@@ -195,20 +175,11 @@ X-Org-ID: <organization ID>
 
    **Object fields** `issue` {#issue}
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | self | Issue link. | String |
-   | id | Issue ID. | String |
-   | key | Issue key. | String |
-   | display | Issue name displayed. | String |
+   {% include [issue](../../../_includes/tracker/api/issue.md) %}
 
    **Object fields** `updatedBy` {#updated-by}
 
-   | Parameter | Description | Data type |
-   | ----- | ----- | ----- |
-   | self | Link to the user. | String |
-   | id | User ID. | String |
-   | display | User's name displayed. | String |
+   {% include [user](../../../_includes/tracker/api/user.md) %}
 
    **Array object fields** `fields` {#fields}
 
@@ -240,7 +211,7 @@ X-Org-ID: <organization ID>
    | Type of change. | Description |
    | ----- | ----- |
    | IssueUpdated | The issue was edited. |
-   | IssueCreated | Issue created. |
+   | IssueCreated | The issue was created. |
    | IssueMoved | The issue was moved to another queue. |
    | IssueCloned | A clone of the issue was created. |
    | IssueCommentAdded | A comment was added to the issue. |
@@ -261,18 +232,23 @@ X-Org-ID: <organization ID>
    | IssueAttachmentRemoved | A file attached to the issue was removed. |
    | IssueWorkflow | The issue status changed. |
 
-- Request failed
+  {% endcut %}
+
+- The request failed
 
   If the request is processed incorrectly, the API returns a response with an error code:
 
-  | HTTP error code | Error description |
-  | ----- | ----- |
-  | 400 Bad Request | A request parameter contains an invalid value or data format. |
-  | 403 Forbidden | The user or application doesn't have permission to access the resource and the request was rejected. |
-  | 404 Not Found | The requested resource wasn't found. |
-  | 422 Unprocessable Entity | JSON validation error, the request is rejected. |
-  | 500 Internal Server Error | The service experienced an internal error. Try resending your request in a few minutes. |
-  | 503 Service Unavailable | The API service is temporarily unavailable. |
+  {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
+
+  {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
+
+  {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+
+  {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
+
+  {% include [answer-error-500](../../../_includes/tracker/api/answer-error-500.md) %}
+
+  {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

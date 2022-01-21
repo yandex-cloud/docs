@@ -1,10 +1,10 @@
 # Remove a tag from a queue
 
-Use this request to remove a tag from the queue.
+Use this request to remove a tag from a queue.
 
 {% note warning %}
 
-The tag cannot be deleted if it's used in at least one issue in the queue.
+You can't remove a tag if it is used in at least one issue of the queue.
 
 {% endnote %}
 
@@ -12,78 +12,62 @@ The tag cannot be deleted if it's used in at least one issue in the queue.
 
 Before making the request, [get permission to access the API](../access.md).
 
-To delete a tag, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
+To remove a tag, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
 
-```json
+```
 POST /{{ ver }}/queues/<queue-id>/tags/_remove
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 
 {
     "tag": "<tag name>"
 }
 ```
 
-#### Resource
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **\<queue-id\>**
+{% cut "Resource" %}
 
-    Queue ID or key. The queue key is case-sensitive.
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
-#### Headers {#req-headers}
+{% endcut %}
 
-- **Host**
+{% cut "Request body parameters" %}
 
-    Address of the node that provides the API:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth token in `OAuth <token value>` format. For example:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Organization ID.
-
-#### Request body {#req-body-params}
+**Required parameters**
 
 | Parameter | Value | Data type |
 | ----- | ----- | ----- |
-| tag | Tag name. | String |
+| tag | Tag name | String |
+
+{% endcut %}
 
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with the code `204 No Content`. The response body is missing.
+    {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-- Request failed
+    The response body is missing.
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
-    400
-    : One or more request parameters have an invalid value.
+    {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    401
-    : The user isn't authorized. Make sure that actions described in the [API access](../access.md) section are performed.
+    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    403
-    : Insufficient rights to perform this action. You can check what rights you have in the {{ tracker-name }} interface. The same rights are required to perform an action via the API and interface.
+    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    404
-    : The requested object was not found. You may have specified an invalid object ID or key.
+    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
-    422
-    : The tag is used in the issue.
+    {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
 
 {% endlist %}
+

@@ -7,49 +7,33 @@ To get possible values of an issue field, use an HTTP `GET` request:
 ```json
 GET /{{ ver }}/fields/<field-id>
 Host: {{ host }}
-Authorization: OAuth <token> 
-X-Org-ID: <organization ID>
+Authorization: OAuth <token>
+{{ org-id }}
 ```
 
-#### Resource {#req-resource}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **\<field-id\>**
+{% cut "Resource" %}
 
-    Issue field ID.
+| Parameter | Description | Data type |
+| --- | --- | --- |
+| \<field-id\> | Issue field ID. | String |
 
-#### Headers {#req-headers}
-
-- **Host**
-
-    Address of the node that provides the API:
-
-    ```
-    {{ host }}
-    ```
-
-- **Authorization**
-
-    OAuth token in `OAuth <token value>` format. For example:
-
-    ```
-    OAuth 0c4181a7c2cf4521964a72ff57a34a07
-    ```
-
-- **X-Org-ID**
-
-    Organization ID.
+{% endcut %}
 
 ## Response format {#section_qqm_y1q_4gb}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the request is successful, the API returns a response with code 200. The response body contains a JSON object with all issue field parameters.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+
+    The response body contains a JSON object with all issue field parameters.
 
     ```json
     {
-        "self": "https://api.tracker.yandex.net/v2/fields/ruName",
+        "self": "{{ host }}/v2/fields/ruName",
         "id": "ruName",
         "name": "ru_name",
         "description": "description text",
@@ -77,14 +61,14 @@ X-Org-ID: <organization ID>
         },
         "order": 14,
         "category": {
-            "self": "https://api.tracker.yandex.net/v2/fields/categories/58bc3b921d9c7d68164e",
+            "self": "{{ host }}/v2/fields/categories/58bc3b921d9c7d68164e",
             "id": "58bc3b921d9c7d68164e",
             "display": "System"
         }
     }
     ```
 
-    #### Response parameters {#answer-params}
+    {% cut "Response parameters" %}
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
@@ -107,7 +91,7 @@ X-Org-ID: <organization ID>
 
     | Parameter | Description | Data type |
     | -------- | -------- | ---------- |
-    | type | Field value type. Possible data types:<ul><li>`string`: String Available for fields with a single value.</li><li>`array`: Array Available for fields with multiple values.</li></ul> | String |
+    | type | Field value type. Possible data types:<ul><li>`string`: String. Available for fields with a single value.</li><li>`array`: Array. Available for fields with multiple values.</li></ul> | String |
     | items | Value type. Available for fields with multiple values. | String |
     | required | Shows if the field is required:<ul><li>`true`: Required.</li><li>`false`: Optional.</li></ul> | Boolean |
 
@@ -138,17 +122,21 @@ X-Org-ID: <organization ID>
     | id | Field category ID. | String |
     | display | Category name displayed. | String |
 
-- Request failed
+    {% endcut %}
+
+- The request failed
 
     If the request is processed incorrectly, the API returns a message with error details:
 
-    | HTTP error code | Error description |
-    | --------------- | --------------- |
-    | 400 Bad Request | One of the request parameters has an invalid value or data format. |
-    | 403 Forbidden | The user or application has no access rights to the resource, the request is rejected. |
-    | 404 Not Found | The requested resource not found. |
-    | 500 Internal Server Error | Internal service error. Try again later. |
-    | 503 Service Unavailable | The API service is temporarily unavailable. |
+    {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
+
+    {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
 

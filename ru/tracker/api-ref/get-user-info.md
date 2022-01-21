@@ -29,57 +29,57 @@ Authorization: OAuth <OAuth-токен>
 
     {% if audience == "external" %}
 
-      ```json
-         [
-            {
-            "self": "{{ host }}/v2/users/1234567890",
-            "uid": 1234567890,
-            "login": "<user_login>",
-            "trackerUid": 1234567890>,
-            "passportUid": 1234567890,
-            "firstName": "<Имя>",
-            "lastName": "<Фамилия>",
-            "display": "<Имя Фамилия>",
-            "email": "<login@yandex.ru>",
-            "external": false,
-            "hasLicense": true,
-            "dismissed": false,
-            "useNewFilters": true,
-            "disableNotifications": false
-            }
-         ]
-      ```
+    ```json
+       [
+          {
+          "self": "{{ host }}/v2/users/1234567890",
+          "uid": 1234567890,
+          "login": "<user_login>",
+          "trackerUid": 1234567890>,
+          "passportUid": 1234567890,
+          "firstName": "<Имя>",
+          "lastName": "<Фамилия>",
+          "display": "<Имя Фамилия>",
+          "email": "<login@yandex.ru>",
+          "external": false,
+          "hasLicense": true,
+          "dismissed": false,
+          "useNewFilters": true,
+          "disableNotifications": false
+          }
+       ]
+    ```
 
     {% else %}
 
-      ```json
-         [
-            {
-            "self": "{{ host }}/v2/users/1234567890",
-            "uid": 1234567890,
-            "login": "<user_login>",
-            "trackerUid": 1234567890,
-            "passportUid": 1234567890,
-            "firstName": "<Имя>",
-            "lastName": "<Фамилия>",
-            "display": "<Имя Фамилия>",
-            "email": "<login@yandex-team.ru>",
-            "office": {
-               "self": "https://st-api.test.yandex-team.ru/v2/offices/1",
-               "id": "1",
-               "display": "Москва, БЦ Морозов"
-            },
-            "external": false,
-            "hasLicense": true,
-            "dismissed": false,
-            "useNewFilters": true,
-            "disableNotifications": false,
-            "activeExperiments": [
-               <список экспериментов>
-            ]
-            }
-         ]
-      ```
+    ```json
+       [
+          {
+          "self": "{{ host }}/v2/users/1234567890",
+          "uid": 1234567890,
+          "login": "<user_login>",
+          "trackerUid": 1234567890,
+          "passportUid": 1234567890,
+          "firstName": "<Имя>",
+          "lastName": "<Фамилия>",
+          "display": "<Имя Фамилия>",
+          "email": "<login@yandex-team.ru>",
+          "office": {
+             "self": "https://st-api.test.yandex-team.ru/v2/offices/1",
+             "id": "1",
+             "display": "Москва, БЦ Морозов"
+          },
+          "external": false,
+          "hasLicense": true,
+          "dismissed": false,
+          "useNewFilters": true,
+          "disableNotifications": false,
+          "activeExperiments": [
+             <список экспериментов>
+          ]
+          }
+       ]
+    ```
 
     {% endif %}
 

@@ -12,37 +12,36 @@ To delete a project, use an HTTP `DELETE` request.
 DELETE /{{ ver }}/projects/<project-id>
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 ```
 
-#### Request parameters
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-**Resource**
+{% cut "Resource" %}
 
 | Parameter | Description | Data type |
 | -------- | -------- | ---------- |
 | \<project-id> | Project ID. | Number |
 
+{% endcut %}
+
 ## Response format {#answer}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    If the project is deleted, the API returns a response with code `204 No Content`.
+    {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-- Request failed
+- The request failed
 
     If the request is processed incorrectly, the API returns a response with an error code:
 
-    401
-    :  The user isn't authorized. Make sure that actions described in the [API access](../access.md) section are performed.
+    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    403
-    :  Insufficient rights to perform this action. You can check what rights you have in the {{ tracker-name }} interface. The same rights are required to perform an action via the API and interface.
+    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    404
-    :   The requested object was not found. You may have specified an invalid object ID or key.
+    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
 

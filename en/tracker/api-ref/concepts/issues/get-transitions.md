@@ -4,75 +4,66 @@ Use this request to get a list of possible issue transitions. The issue is selec
 
 ## Request format {#section_rnm_x4j_p1b}
 
+Before making the request, [get permission to access the API](../access.md).
+
 To get a list of possible transitions, use an HTTP `GET` request:
 
 ```json
 GET /v2/issues/<issue-id>/transitions
 Host: {{ host }}
 Authorization: OAuth <OAuth token>
-X-Org-Id: <organization ID>
+{{ org-id }}
 ```
 
-#### Request parameters {#req-get-params}
+{% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-- **\<issue-id\>**
-
-    Issue ID or key.
-
-> Getting a list of transitions:
-> 
-> - Use the HTTP GET method.
-> 
-> ```
-> GET /v2/issues/JUNE-3/transitions HTTP/1.1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth token>
-> X-Org-Id: <organization ID>
-> Cache-Control: no-cache
-> ```
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
 
 ## Response format {#section_xc3_53j_p1b}
 
-```json
-[
-    {
-        "id": "resolve",
-        "self": "{{ host }}/v2/issues/JUNE-2/transitions/resolve",
-        "display": "Resolve",
-        "to": {
-            "self": "{{ host }}/v2/statuses/1",
-            "id": "1",
-            "key": "open",
-            "display": "Open"
-        }
-    },
-    ...
-]
-```
+{% list tabs %}
 
-#### Response parameters {#answer-params}
+- Successful execution of the request
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| id | Transition ID. | String |
-| self | Transition link. | String |
-| display | Transition name displayed. Matches the corresponding button name in the {{ tracker-name }} interface. | String |
-| [to](#to) | Object with information about a new issue status. | Object |
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-**Object fields** `to` {#to}
+    The response body contains the results in JSON format.
 
-| Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| self | Status link. | String |
-| id | Status ID. | String |
-| key | Status key. | String |
-| display | Status name displayed. | String |
+    ```json
+    [
+        {
+            "id": "resolve",
+            "self": "{{ host }}/v2/issues/JUNE-2/transitions/resolve",
+            "display": "Resolve",
+            "to": {
+                "self": "{{ host }}/v2/statuses/1",
+                "id": "1",
+                "key": "open",
+                "display": "Open"
+            }
+        },
+        ...
+    ]
+    ```
 
-## Possible response codes {#section_otf_jrj_p1b}
+  {% cut "Response parameters" %}
 
-200
-:   Request executed successfully.
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | id | Transition ID. | String |
+    | self | Address of the API resource with information about the transition. | String |
+    | display | Transition name displayed. Matches the corresponding button name in the {{ tracker-name }} interface. | String |
+    | [to](#to) | Object with information about a new issue status. | Object |
 
-404
-:   The requested object was not found. You may have specified an invalid object ID or key.
+    **Object fields** `to` {#to}
+
+    {% include [status](../../../_includes/tracker/api/status.md) %}
+
+  {% endcut %}
+
+- The request failed
+
+    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+
+{% endlist %}
 
