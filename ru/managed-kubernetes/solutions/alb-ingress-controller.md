@@ -3,7 +3,7 @@
 Сервис [{{ alb-full-name }}](../../application-load-balancer/) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в кластере {{ managed-k8s-name }}, необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 Чтобы настроить доступ к запущенным в кластере приложениям через {{ alb-name }}:
-1. [{#T}](#create-namespace).
+1. [{#T}](#create-namespace-and-secret).
 1. [{#T}](#install-alb).
 1. [{#T}](#create-ingress-and-apps).
 1. [{#T}](#verify-setup).
@@ -15,14 +15,11 @@
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Создайте](../../iam/operations/sa/create.md) [сервисный аккаунт](../../iam/concepts/index.md#sa), необходимый для работы Ingress-контроллера.
-
    1. [Назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md):
-   
-      * `alb.editor` — для создания необходимых ресурсов;
-      * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list);
-      * `certificate-manager.certificates.downloader` — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/);
+      * `alb.editor` — для создания необходимых ресурсов.
+      * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
+      * `certificate-manager.certificates.downloader` — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
       * `compute.viewer` — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
-      
    1. Создайте для него [авторизованный ключ](../../iam/operations/sa/create-access-key.md) и сохраните в файл `sa-key.json`:
 
       ```bash
@@ -30,6 +27,7 @@
         --service-account-name <имя сервисного аккаунта для Ingress-контроллера> \
         --output sa-key.json
       ```
+
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
 1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис {{ certificate-manager-name }}. Или [создайте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
 1. [Создайте кластер {{ managed-k8s-name }} ](../operations/kubernetes-cluster/kubernetes-cluster-create.md) с настройками:
@@ -37,38 +35,48 @@
    * **Публичный адрес**: `Автоматически`.
 1. [Создайте группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации с версией {{ k8s }} не ниже 1.19.
 1. [Настройте группы безопасности кластера и группы узлов](../operations/security-groups.md).
-1. [Установите менеджер пакетов Helm]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %} версии не ниже 3.7.0.
-1. [Установите kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
+1. [Установите менеджер пакетов Helm]{% if region == "int" %}(https://helm.sh/docs/intro/install/){% else %}(https://helm.sh/ru/docs/intro/install/){% endif %} версии не ниже 3.7.0.
+1. [Установите kubectl]{% if region == "int" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% else %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %} и [настройте его на работу с созданным кластером](../operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md).
 1. Убедитесь, что вы можете подключиться к кластеру с помощью `kubectl`:
 
    ```bash
    kubectl cluster-info
    ```
 
-## Создайте пространство имен для {{ alb-name }} Ingress-контроллера {#create-namespace}
+## Создайте пространство имен и секрет для {{ alb-name }} Ingress-контроллера {#create-namespace-and-secret}
 
-Создайте [пространство имен](../concepts/index.md#namespace):
+1. Создайте [пространство имен](../concepts/index.md#namespace):
 
    ```bash
    kubectl create namespace yc-alb-ingress
    ```
+
+1. Создайте секрет:
+
+   ```bash
+   kubectl create secret generic yc-alb-ingress-controller-sa-key \
+     --namespace yc-alb-ingress \
+     --from-file=sa-key.json
+   ```
+
+   Подробнее о секретах см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/configuration/secret/).
 
 ## Установите {{ alb-name }} Ingress-контроллер {#install-alb}
 
 Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с [Ingress-контроллером](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) выполните команды:
 
 ```bash
-export VERSION=v0.0.8
-export HELM_EXPERIMENTAL_OCI=1
-helm pull \
-  --version ${VERSION} \
-  oci://cr.yandex/yc/yc-alb-ingress-controller-chart
+export HELM_EXPERIMENTAL_OCI=1 && \
+cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
+helm pull oci://cr.yandex/crpsjg1coh47p81vh2lc/yc-alb-ingress-controller-chart \
+     --version=v0.0.7 \
+     --untar && \
 helm install \
-  --namespace yc-alb-ingress \
-  --set folderId=<идентификатор каталога> \
-  --set clusterId=<идентификатор кластера> \
-  --set-file saKeySecretKey=sa-key.json \
-  yc-alb-ingress-controller ./yc-alb-ingress-controller-chart-${VERSION}.tgz
+     --namespace yc-alb-ingress \
+     --set folderId=<идентификатор каталога> \
+     --set clusterId=<идентификатор кластера> \
+     --set-file saKeySecretKey=sa-key.json \
+     yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
 ```
 
 Идентификатор кластера можно [получить со списком кластеров в каталоге](../operations/kubernetes-cluster/kubernetes-cluster-list.md).
@@ -138,7 +146,7 @@ yc certificate-manager certificate list
                    service:
                      name: alb-demo-2
                      port:
-                       name: http
+                       number: 80
      ```
 
      Где:
@@ -208,7 +216,6 @@ yc certificate-manager certificate list
              }
            }
          }
-
      ---
      apiVersion: apps/v1
      kind: Deployment
@@ -312,7 +319,6 @@ yc certificate-manager certificate list
              }
            }
          }
-
      ---
      apiVersion: apps/v1
      kind: Deployment
@@ -367,7 +373,6 @@ yc certificate-manager certificate list
                  requests:
                    cpu: 100m
                    memory: 64Mi
-
      ---
      apiVersion: v1
      kind: Service
@@ -448,7 +453,6 @@ yc certificate-manager certificate list
              }
            }
          }
-
      ---
      apiVersion: apps/v1
      kind: Deployment

@@ -2,6 +2,12 @@
 
 Вы можете загружать чарты [Helm Chart](https://helm.sh/docs/topics/charts/) в репозитории {{ container-registry-name }}. В {{ container-registry-name }} Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).
 
+{% note info %}
+
+Если вы используете Helm версии ниже 3.7.1, при обновлении до более новой версии повторно загрузите чарты в репозиторий {{ container-registry-name }}.
+
+{% endnote %}
+
 Чтобы загрузить Helm-чарт:
 
 {% list tabs %}
@@ -9,7 +15,6 @@
 - CLI
 
   1. [Установите]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %} клиент Helm версии 3.
-
   1. Включите поддержку [Open Container Initiative](https://opencontainers.org/) в клиенте Helm:
 
      ```bash
@@ -17,11 +22,8 @@
      ```
 
   1. Аутентифицируйте свой клиент Helm в реестре {{ container-registry-name }} одним из способов.
-
      * С помощью OAuth-токена:
-
        1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
-
        1. Выполните команду:
 
           ```bash
@@ -30,9 +32,7 @@
           ```
 
      * С помощью IAM-токена:
-
        1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md).
-
        1. Выполните команду:
 
           ```bash
