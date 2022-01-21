@@ -62,6 +62,8 @@ ignore:
   - "ru/translate/*"
   - "ru/vision/*"
   - "ru/vpc/*"
+  - "ru/ydb/*"
+  - "ru/ydb-src/*"
   - "en/*"
   - "ru/marketplace-v2/*"
 

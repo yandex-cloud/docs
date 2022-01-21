@@ -129,4 +129,4 @@
 
 ## Устранение проблем с дисковым пространством {#solve-disk-deficit}
 
-Рекомендации по устранению проблем приведены в разделах [{#T}](../concepts/storage.md#read-only-solutions) и [{#T}](../operations/monitoring.md#read-only-monitor).
+Рекомендации по устранению проблем приведены в разделе [{#T}](../concepts/storage.md#read-only-solutions).
