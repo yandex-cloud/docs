@@ -7,3 +7,4 @@
 * [{#T}](backup.md)
 * [{#T}](custom-dns.md)
 * [{#T}](node-local-dns.md)
+* [{#T}](fluent-bit-logging.md)

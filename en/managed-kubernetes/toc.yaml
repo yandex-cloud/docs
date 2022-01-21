@@ -87,6 +87,8 @@ items:
         href: solutions/dns-autoscaler.md
       - name: Setting up local DNS caching
         href: solutions/node-local-dns.md
+      - name: Configuring Fluent Bit for Yandex Cloud Logging
+        href: solutions/fluent-bit-logging.md
   - name: Concepts
     items:
       - name: Relationship between service resources
