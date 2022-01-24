@@ -32,7 +32,7 @@
 
 ## Добавление параметров селектора {#selector-parameters}
 
-Для [SQL-чартов](../../concepts/chart/index.md#sql-charts) в области редактирования чарта на вкладке **Параметры** можно управлять параметрами селектора, а на вкладке **Запрос** указывать переменную в самом запросе в формате `{{{{variable}}}}`.
+Для [SQL-чартов](../../concepts/chart/index.md#sql-charts) в области редактирования чарта на вкладке **Параметры** можно управлять параметрами селектора, а на вкладке **Запрос** указывать переменную в самом запросе в формате `not_var{{variable}}`.
 
 Параметры типа`date-interval` и `datetime-interval` можно использовать в коде запроса только с постфиксами `_from` и `_to`. Например, для параметра с именем `interval` нужно указать:
 
@@ -44,7 +44,7 @@
 ```sql
 SELECT toDate(Date) as datedate, count (OrederID)
 FROM samples.SampleLite
-WHERE {{interval_from}} < datedate AND datedate < {{interval_to}}
+WHERE not_var{{interval_from}} < datedate AND datedate < not_var{{interval_to}}
 GROUP BY datedate
 ORDER BY datedate
 ```

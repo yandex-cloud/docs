@@ -39,6 +39,8 @@ items:
             href: operations/volumes/statefulset-pvc-expansion.md
           - name: Mounting a volume in Block mode
             href: operations/volumes/mode-block.md
+          - name: Integration with Object Storage
+            href: operations/volumes/s3-csi-integration.md
       - name: Managing a Kubernetes cluster
         items:
           - name: >-
@@ -85,6 +87,8 @@ items:
         href: solutions/dns-autoscaler.md
       - name: Setting up local DNS caching
         href: solutions/node-local-dns.md
+      - name: Configuring Fluent Bit for Yandex Cloud Logging
+        href: solutions/fluent-bit-logging.md
   - name: Concepts
     items:
       - name: Relationship between service resources

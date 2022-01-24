@@ -1,6 +1,6 @@
 # Удалить Helm-чарт из реестра
 
-Вы можете удалять чарты [Helm Chart](https://helm.sh/docs/topics/charts/) в репозитории {{ container-registry-name }}. В {{ container-registry-name }} Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).
+Вы можете удалять [Helm-чарты](https://helm.sh/docs/topics/charts/) в репозитории {{ container-registry-name }}. В {{ container-registry-name }} Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).
 
 ## Удалить Helm-чарт локально
 
@@ -11,7 +11,7 @@
   Чтобы удалить Helm-чарт локально, выполните команду:
 
   ```bash
-  helm chart remove cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
+  helm repo remove cr.yandex/<ID реестра>/<имя Helm-чарта>:<версия>
   ```
 
 {% endlist %}

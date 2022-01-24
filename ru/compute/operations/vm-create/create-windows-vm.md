@@ -2,6 +2,8 @@
 
 В этом разделе приведена инструкция для создания виртуальной машины с операционной системой Windows. Для создания виртуальной машины на базе Linux воспользуйтесь инструкцией [{#T}](create-linux-vm.md).
 
+{% include [ms-licensing-personal-data](../../../_includes/ms-licensing-personal-data.md) %}
+
 {% list tabs %}
 
 - Консоль управления
