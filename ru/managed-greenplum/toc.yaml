@@ -63,25 +63,19 @@ items:
       - name: Правила тарификации на стадии General Availability
         href: pricing/general-availability.md
   - name: Справочник API
-    when: api != "no-show"
     items:
-      - name: Authentication
+      - name: Аутентификация в API
         href: api-ref/authentication.md
-        when: state != "public-preview"
       - name: gRPC (англ.)
         items: null
-        when: state != "public-preview"
         include:
           repo: docs
           path: en/_api-ref-grpc/managed-greenplum/toc.yaml
-          when: state != "public-preview"
       - name: REST (англ.)
         items: null
-        when: state != "public-preview"
         include:
           repo: docs
           path: en/_api-ref/mdb/greenplum/toc.yaml
-          when: state != "public-preview"
   - name: Вопросы и ответы
     when: state != "public-preview"
     items:

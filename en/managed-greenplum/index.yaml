@@ -22,7 +22,9 @@ links:
   - title: Concepts
     description: Learn about basic concepts and how the service works
     href: concepts/
-    when: state != "public-preview"
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
