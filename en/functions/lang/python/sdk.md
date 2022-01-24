@@ -1,6 +1,6 @@
 # Using the SDK for Python functions
 
-The runtime environment has a pre-installed library that lets you access the [{{ yandex-cloud }} API](../../../api-design-guide/). To use it, you don't need to add [dependencies](dependencies.md) to your Python application, except when a library version that isn't already pre-installed is required. See the library's source code on [GitHub](https://github.com/yandex-cloud/python-sdk).
+The `python37` and `python38` runtime environments contain a built-in library to handle the [{{ yandex-cloud }} API](../../../api-design-guide/). To use it, you don't need to add a [dependency](dependencies.md) to a Python application unless you need a version of the library other than the one built in. See the library's source code on [GitHub](https://github.com/yandex-cloud/python-sdk). You can install the library in other runtime versions by specifying a dependency in `requirements.txt`.
 
 [Software development kits (SDK)](https://en.wikipedia.org/wiki/Software_development_kit) let you interact with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the function. For example, you can get a list of available clouds (similar to the `yc resource-manager cloud list` command):
 

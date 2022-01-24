@@ -44,4 +44,52 @@ items:
         href: pricing/index.md
       - name: Правила тарификации на стадии General Availability
         href: pricing/general-availability.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: ClusterService
+            href: api-ref/grpc/cluster_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listLogs
+                href: api-ref/Cluster/listLogs.md
+              - name: listMasterHosts
+                href: api-ref/Cluster/listMasterHosts.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: listSegmentHosts
+                href: api-ref/Cluster/listSegmentHosts.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
+              - name: update
+                href: api-ref/Cluster/update.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
 base: ru/managed-greenplum

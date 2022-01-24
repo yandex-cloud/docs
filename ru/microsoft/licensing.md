@@ -1,5 +1,7 @@
 # Лицензии Microsoft в {{ yandex-cloud }}
 
+{% include [ms-licensing-personal-data-note](../_includes/ms-licensing-personal-data-note.md) %}
+
 ## Использование ПО Microsoft в {{ yandex-cloud }}
 
 {{ yandex-cloud }} предоставляет готовые образы с предустановленными Microsoft Windows Server в редакции Datacenter и Microsoft SQL Server. Лицензии на ПО в этих образах полностью соответствуют требованиям Microsoft. При использовании готовых образов {{ yandex-cloud }} вы оплачиваете необходимые лицензии и ресурсы {{ compute-name }}. Оплата будет начисляться в зависимости от [тарифного плана](pricing.md). 
