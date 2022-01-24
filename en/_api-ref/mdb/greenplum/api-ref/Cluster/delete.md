@@ -3,7 +3,7 @@ editable: false
 ---
 
 # Method delete
-Deletes the specified Greenplum cluster.
+Deletes the specified Greenplum® cluster.
  
 
  
@@ -16,7 +16,7 @@ DELETE https://mdb.api.cloud.yandex.net/mdb/managed-greenplum/v1/clusters/{clust
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Greenplum cluster to delete. To get the Greenplum cluster ID, use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Greenplum® cluster to delete. To get the Greenplum® cluster ID, use a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.  The maximum string length in characters is 50.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

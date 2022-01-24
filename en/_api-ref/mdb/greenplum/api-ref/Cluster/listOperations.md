@@ -16,14 +16,14 @@ GET https://mdb.api.cloud.yandex.net/mdb/managed-greenplum/v1/clusters/{clusterI
  
 Parameter | Description
 --- | ---
-clusterId | Required. ID of the Greenplum Cluster resource to list operations for.  The maximum string length in characters is 50.
+clusterId | Required. ID of the Greenplum® Cluster resource to list operations for.  The maximum string length in characters is 50.
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
 pageSize | The maximum number of results per page to return. If the number of available results is larger than [pageSize](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params), the service returns a [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses) that can be used to get the next page of results in subsequent list requests.  The maximum value is 1000.
-pageToken | Page token.  To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
+pageToken | Page token. To get the next page of results, set [pageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#query_params) to the [nextPageToken](/docs/managed-greenplum/api-ref/Cluster/listOperations#responses) returned by a previous list request.  The maximum string length in characters is 100.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
