@@ -17,6 +17,8 @@ items:
         href: operations/create-static-conf.md
       - name: Обновление {{ k8s }}
         href: operations/update-kubernetes.md
+      - name: Настройка автомасштабирования
+        href: operations/autoscale.md
       - name: Работа с {{ marketplace-name }}
         href: operations/marketplace.md
       - name: Сетевые сценарии
@@ -31,8 +33,6 @@ items:
             href: operations/cilium.md
           - name: Настройка Node Local DNS для контроллера сетевых политик Cilium
             href: operations/cilium-node-local-dns.md
-      - name: Настройка автомасштабирования
-        href: operations/autoscale.md
       - name: Работа с постоянными томами
         items:
           - name: Динамическая подготовка тома
@@ -47,7 +47,7 @@ items:
             href: operations/volumes/statefulset-pvc-expansion.md
           - name: Подключение тома в блочном режиме
             href: operations/volumes/mode-block.md
-          - name: Интеграция с Object Storage
+          - name: Интеграция с {{ objstorage-full-name }}
             href: operations/volumes/s3-csi-integration.md
       - name: Управление кластером Kubernetes
         items:
@@ -55,7 +55,7 @@ items:
               Добавление учетных данных кластера Kubernetes в конфигурационный
               файл kubectl
             href: operations/kubernetes-cluster/kubernetes-cluster-get-credetials.md
-          - name: Получение информации о кластере Kubernetes
+          - name: Информация об имеющихся кластерах
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
           - name: Создание кластера Kubernetes
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
@@ -65,13 +65,13 @@ items:
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Управление группой узлов
         items:
-          - name: Получение информации о группе узлов
+          - name: Информация об имеющихся группах узлов
             href: operations/node-group/node-group-list.md
           - name: Создание группы узлов
             href: operations/node-group/node-group-create.md
           - name: Изменение группы узлов
             href: operations/node-group/node-group-update.md
-          - name: Управление метками узлов кластера
+          - name: Управление метками узлов кластера {{ k8s }}
             href: operations/node-group/node-label-management.md
           - name: Удаление группы узлов
             href: operations/node-group/node-group-delete.md
