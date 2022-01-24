@@ -1,5 +1,7 @@
 # Как начать работать с {{ mms-short-name }}
 
+{% include [ms-licensing-personal-data](../_includes/ms-licensing-personal-data.md) %}
+
 Чтобы начать работу с сервисом:
 
 1. [Создайте кластер](#cluster-create).

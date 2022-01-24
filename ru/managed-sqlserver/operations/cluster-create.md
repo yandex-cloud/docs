@@ -19,6 +19,8 @@
 
 {% endif %}
 
+{% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}
+
 ## Как создать кластер {{ MS }} {#create-cluster}
 
 {% list tabs %}

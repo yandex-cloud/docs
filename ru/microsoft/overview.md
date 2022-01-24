@@ -13,6 +13,8 @@
 
 О возможностях использования собственных лицензий читайте на странице [{#T}](licensing.md#byol).
 
+{% include [ms-licensing-personal-data-note](../_includes/ms-licensing-personal-data-note.md) %}
+
 ## Windows Server {#win-server}
 
 Создавайте виртуальные машины с операционной системой Microsoft Windows Server, чтобы запускать приложения для Windows. Доступны несколько версий системы в редакциях Standard и Datacenter:
