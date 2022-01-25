@@ -60,6 +60,7 @@ default:
   load-testing-full-name: Yandex Load Testing
   cloud-desktop-full-name: Yandex Cloud Desktop
   marketplace-full-name: Yandex Cloud Marketplace
+  captcha-full-name: Yandex SmartCaptcha
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -124,6 +125,7 @@ default:
   wiki-name: Wiki
   load-testing-name: Load Testing
   cloud-desktop-name: Cloud Desktop
+  captcha-name: SmartCaptcha
 
   # Короткие имена
   iam-short-name: IAM
@@ -482,14 +484,14 @@ default:
   mp-test-sku-id: dn2r898fr4ec6c3odbd6
 
   # Data Transfer
-  dt-status-copy: "**Копируется**"
-  dt-status-created: "**Создан**"
-  dt-status-creation: "**Создается**"
-  dt-status-error: "**Ошибка**"
-  dt-status-finished: "**Завершен**"
-  dt-status-repl: "**Реплицируется**"
-  dt-status-stopped: "**Остановлен**"
-  dt-status-stopping: "**Останавливается**"
+  dt-status-copy: '**Копируется**'
+  dt-status-created: '**Создан**'
+  dt-status-creation: '**Создается**'
+  dt-status-error: '**Ошибка**'
+  dt-status-finished: '**Завершен**'
+  dt-status-repl: '**Реплицируется**'
+  dt-status-stopped: '**Остановлен**'
+  dt-status-stopping: '**Останавливается**'
   dt-type-copy-repl: Копировать и реплицировать
   dt-type-copy: Копировать
   dt-type-repl: Реплицировать
