@@ -1,10 +1,10 @@
 # Создание ВМ с {{ coi }} и дополнительным томом для Docker-контейнера
 
-В этой инструкции вы создадите виртуальную машину из образа [{{ coi }}](../concepts/index.md), в которой будет Docker-контейнер с запущенным MongoDB и подключенным дополнительным [томом](../../container-registry/concepts/docker-volume.md) объемом 10 ГБ.
+В этой инструкции вы создадите [виртуальную машину](../../compute/concepts/vm.md) из образа [{{ coi }}](../concepts/index.md), в которой будет Docker-контейнер с запущенным MongoDB и подключенным дополнительным [томом](../../container-registry/concepts/docker-volume.md) объемом 10 ГБ.
 
 ## Перед началом работы {#before-you-begin}
 
-Если нужный Docker-образ загружен в {{ container-registry-name }}, то создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на используемый реестр. От его имени ВМ на базе {{ coi }} будет скачивать из реестра Docker-образ.
+Если нужный Docker-образ загружен в {{ container-registry-full-name }}, создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на используемый [реестр](../../container-registry/concepts/registry.md). От его имени ВМ на базе {{ coi }} будет скачивать из реестра Docker-образ.
 
 ## Создайте ВМ на базе образа {{ coi }} и дополнительным томом для Docker-контейнера {#create-vm}
 
@@ -49,56 +49,66 @@
      yc compute instance create-with-container \
        --name coi-vm \
        --zone ru-central1-a \
-       --public-ip \
        --create-boot-disk size=30 \
        --create-disk name=data-disk,size=10,device-name=coi-data \
-       --ssh-key <публичный SSH-ключ для подключения к ВМ> \
+       --network-interface subnet-name=<имя подсети>,nat-ip-version=ipv4 \
+       --ssh-key <путь к открытой части SSH-ключа> \
        --docker-compose-file docker-compose.yaml
      ```
 
      Где:
      * `--name` — имя ВМ.
-     * `--zone` — зона доступности.
-     * `--public-ip` — выделение публичного IP-адреса для ВМ.
-     * `--create-boot-disk` — параметры диска ВМ.
-     * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md).
+     * `--create-boot-disk` — параметры [диска](../../compute/concepts/disk.md) ВМ.
+     * `--network-interface` — параметры [сети](../../vpc/concepts/network.md#network):
+       * `subnet-name` — имя [подсети](../../vpc/concepts/network.md#subnet), в которой будет размещена ВМ.
+       * `nat-ip-version` — способ назначения [публичного IPv4-адреса](../../vpc/concepts/ips.md).
+     * `--ssh-key` — путь к файлу с [открытым ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--docker-compose-file` — YAML-файл со спецификацией контейнера.
 
      После создания ВМ появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}).
 
   1. Проверьте результат.
-
      1. [Подключитесь к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
-
      1. Получите идентификатор запущенного Docker-контейнера:
 
         ```bash
         sudo docker ps -a
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-        1f71192ded4c        mongo:latest        "docker-entrypoint.s…"   5 minutes ago       Up 5 minutes        27017/tcp           container-name
         ```
 
-        1. Подключитесь к запущенному Docker-контейнеру:
+        Результат выполнения команды:
 
-           ```bash
-           sudo docker exec -it 1f71192ded4c bash
-           ```
+        ```text
+        CONTAINER ID  IMAGE         COMMAND                 CREATED        STATUS        PORTS      NAMES
+        1f71192ded4c  mongo:latest  "docker-entrypoint.s…"  5 minutes ago  Up 5 minutes  27017/tcp  container-name
+        ```
 
-        1. Посмотрите список подключенных дисков. Обратите внимание на смонтированный диск `/dev/vdb 11G 24M 9.9G 1% /data`:
+     1. Подключитесь к запущенному Docker-контейнеру:
 
-           ```bash
-           df -H
-           Filesystem      Size  Used Avail Use% Mounted on
-           overlay          32G  4.0G   27G  14% /
-           tmpfs            68M     0   68M   0% /dev
-           tmpfs           1.1G     0  1.1G   0% /sys/fs/cgroup
-           /dev/vdb         11G   24M  9.9G   1% /data
-           /dev/vda2        11G  3.1G  7.0G  31% /data/db
-           shm              68M     0   68M   0% /dev/shm
-           tmpfs           1.1G     0  1.1G   0% /proc/acpi
-           tmpfs           1.1G     0  1.1G   0% /proc/scsi
-           tmpfs           1.1G     0  1.1G   0% /sys/firmware
-           ```
+        ```bash
+        sudo docker exec -it 1f71192ded4c bash
+        ```
+
+     1. Посмотрите список подключенных дисков. Обратите внимание на смонтированный диск `/dev/vdb 11G 24M 9.9G 1% /data`:
+
+        ```bash
+        df -H
+        ```
+
+        Результат выполнения команды:
+
+        ```text
+        Filesystem  Size  Used  Avail  Use%  Mounted on
+        overlay     32G   4.0G    27G   14%  /
+        tmpfs       68M      0    68M    0%  /dev
+        tmpfs       1.1G     0   1.1G    0%  /sys/fs/cgroup
+        /dev/vdb    11G    24M   9.9G    1%  /data
+        /dev/vda2   11G   3.1G   7.0G   31%  /data/db
+        shm         68M      0    68M    0%  /dev/shm
+        tmpfs       1.1G     0   1.1G    0%  /proc/acpi
+        tmpfs       1.1G     0   1.1G    0%  /proc/scsi
+        tmpfs       1.1G     0   1.1G    0%  /sys/firmware
+        ```
 
 {% endlist %}
 

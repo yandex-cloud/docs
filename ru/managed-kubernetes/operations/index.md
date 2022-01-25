@@ -9,6 +9,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](node-connect-ssh.md)
 * [{#T}](create-static-conf.md)
 * [{#T}](update-kubernetes.md)
+* [{#T}](autoscale.md)
 * [{#T}](marketplace.md)
 
 ## Сетевые сценарии {#network-scenarios}
@@ -16,10 +17,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](create-load-balancer.md)
 * [{#T}](calico.md)
 * [{#T}](cilium.md)
-
-## Шифрование {#encrypting}
-
-* [{#T}](autoscale.md)
+* [{#T}](cilium-node-local-dns.md)
 
 ## Работа с постоянными томами {#persistent-volumes}
 
@@ -29,13 +27,7 @@ description: "Из статьи вы узнаете, как работать с 
 * [{#T}](volumes/volume-expansion.md)
 * [{#T}](volumes/statefulset-pvc-expansion.md)
 * [{#T}](volumes/mode-block.md)
-
-## Сетевые сценарии {#network-scenarios}
-
-* [{#T}](create-load-balancer.md)
-* [{#T}](calico.md)
-* [{#T}](cilium.md)
-* [{#T}](cilium-node-local-dns.md)
+* [{#T}](volumes/s3-csi-integration.md)
 
 ## Управление кластером {{ k8s }} {#kubernetes-cluster}
 

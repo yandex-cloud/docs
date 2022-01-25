@@ -32,13 +32,13 @@ You can filter log group records using the language of filter expressions. With 
 
     {% note info %}
 
-    You can filter records using the `--filter` and other flags of the `yc logging read` command at the same time. This combines the conditions with the `AND` operator. For example, you can set logging levels using the `levels` flag and the `level` parameter of the `--filter` flag:
+    You can filter records using the `--filter` and other flags of the `yc logging read` command at the same time. This combines the conditions with the `AND` operator. For example, you can set a filter using the `--resource-types` flag and the `level` parameter of the `--filter` flag:
 
     ```
-    yc logging read --group-name=default --levels=WARN --filter="level=INFO"
+    yc logging read --group-name=default --resource-types=serverless.function --filter="level=INFO"
     ```
 
-    This filter outputs records sent during the last hour with the `INFO` and `WARN` logging levels.
+    This filter will output records with the `INFO` logging level sent in the previous hour by {{ sf-name }} functions.
 
     {% endnote %}
 
@@ -122,7 +122,7 @@ Apart from checking for an exact match, the filter expression language supports 
 * **Not equal to**
 
     ```
-    parameter <> "value"
+	parameter <> "value"
     ```
 
 * **Greater than**, **Less than**, **Less than or equal to**, and **Greater than or equal to**
@@ -162,7 +162,7 @@ You can combine multiple conditions in a single filter using logical operators:
 
     Example:
     ```
-    NOT parameter1: "value1"
+	NOT parameter1: "value1"
     ```
     This request returns records with `parameter1` not equal to `value1`.
 
@@ -184,4 +184,3 @@ You can change the order of computations using parentheses:
 ```
 parameter1: "value1" AND (parameter2 = "value2" OR parameter3 < "value3")
 ```
-
