@@ -41,7 +41,7 @@ description: 'Стоимость использования Tracker зависи
 
 Правила расчета ежемесячной платы за использование {{ tracker-name }}:
 
-- Плата за месяц рассчитывается исходя из максимального количества пользователей, которые одновременно имели доступ к {{ tracker-name }} в течение месяца.
+* Плата за месяц рассчитывается исходя из максимального количества пользователей, которые одновременно имели доступ к {{ tracker-name }} в течение месяца.
 
     {% note tip %}
 
@@ -51,28 +51,48 @@ description: 'Стоимость использования Tracker зависи
 
 {% if audience == "draft" %} - Если вы случайно дали доступ к {{ tracker-name }} пользователю или команде, которые не будут работать с {{ tracker-name }}, вы можете отозвать доступ в течение 30 минут. Тогда эти пользователи не будут учитываться при расчете платы за месяц.
 {% endif %}
-- Для крупных организаций ежемесячная плата рассчитывается по ступенчатой системе.
+* Для крупных организаций ежемесячная плата рассчитывается по ступенчатой системе.
 
 > Например, в январе действовали тарифы:
 >
-> - для первых 100 пользователей — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }};
+> * для первых 100 пользователей — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }}{% endif %} за пользователя в месяц;
 >
-> - для следующих 150 пользователей — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }};
+> * для следующих 150 пользователей — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }}{% endif %} за пользователя в месяц;
 >
-> - для всех пользователей свыше 250 — {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}.
+> * для всех пользователей свыше 250 — {% if region == "ru"%}{{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}{% endif %}{% if region == "kz"%}{{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|string }}{% endif %}{% if region == "int"%}{{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}{% endif %} за пользователя в месяц.
 >
 > Количество сотрудников, имеющих полный доступ к {{ tracker-name }}, в январе изменялось так:
 > 
-> - 14 дней было 245 сотрудников.
+> * 14 дней было 245 сотрудников.
 >
-> - 7 дней — 270 сотрудников.
+> * 7 дней — 270 сотрудников.
 >
-> - остальные 10 дней — 260 сотрудников.
+> * остальные 10 дней — 260 сотрудников.
 > 
 > Максимальное количество пользователей, которые одновременно имели доступ к {{ tracker-name }} в течение месяца, равно 270.
 > 
 > Сумма оплаты за 270 пользователей будет рассчитана по формуле:
+>
+> {% if region == "ru" %}
 > 
 > ```
 > 100 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|RUB|b2b.tracker.license.v1|pricingRate.250|string }}
 > ```
+> 
+> {% endif %}
+> 
+> {% if region == "kz" %}
+> 
+> ```
+> 100 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|KZT|b2b.tracker.license.v1|pricingRate.250|string }}
+> ```
+> 
+> {% endif %}
+> 
+> {% if region == "int" %}
+> 
+> ```
+> 100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
+> ```
+> 
+> {% endif %}
