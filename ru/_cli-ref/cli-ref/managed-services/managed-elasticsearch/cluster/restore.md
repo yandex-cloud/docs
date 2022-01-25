@@ -1,17 +1,18 @@
-# yc managed-elasticsearch cluster create
+# yc managed-elasticsearch cluster restore
 
-Create a ElasticSearch cluster.
+Restore a Elasticsearch cluster from a backup.
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-elasticsearch cluster create <CLUSTER-NAME> [Flags...] [Global Flags...]`
+`yc managed-elasticsearch cluster restore [Flags...] [Global Flags...]`
 
 #### Global Flags
 
 | Flag | Description |
 |----|----|
+|`--backup-id`|<b>`string`</b><br/> ID of the backup to use for restoring a cluster.|
 |`--name`|<b>`string`</b><br/> Name of the ElasticSearch cluster.|
 |`--description`|<b>`string`</b><br/> Description of the cluster.|
 |`--environment`|<b>`string`</b><br/> Environment to deploy the cluster in. Supported values: 'production', 'prestable'.|

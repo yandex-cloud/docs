@@ -1,29 +1,22 @@
-# yc dataproc job
+# yc managed-elasticsearch cluster reschedule-maintenance
 
-Manage DataProc jobs.
+Reschedule currently planned maintenance operation.
 
 #### Command Usage
 
 Syntax: 
 
-`yc dataproc job <command>`
+`yc managed-elasticsearch cluster reschedule-maintenance <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-Aliases: 
+#### Global Flags
 
-- `jobs`
-- `tasks`
-- `task`
-
-#### Command Tree
-
-- [yc dataproc job get](get.md) — Get information about a Dataproc job.
-- [yc dataproc job list](list.md) — List Dataproc jobs for a cluster.
-- [yc dataproc job log](log.md) — List logs for Dataproc job.
-- [yc dataproc job create-spark](create-spark.md) — Create a Dataproc Spark job.
-- [yc dataproc job create-pyspark](create-pyspark.md) — Create a Dataproc PySpark job.
-- [yc dataproc job create-mapreduce](create-mapreduce.md) — Create a Dataproc MapReduce job.
-- [yc dataproc job create-hive](create-hive.md) — Create a Dataproc Hive job.
-- [yc dataproc job cancel](cancel.md) — Cancel Dataproc job.
+| Flag | Description |
+|----|----|
+|`--id`|<b>`string`</b><br/>ID of the ElasticSearch cluster.|
+|`--name`|<b>`string`</b><br/>Name of the ElasticSearch cluster.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--reschedule-type`|<b>`string`</b><br/>Type of the reschedule of currently planned maintenance operation. Values: 'immediate', 'next-available-window', 'specific-time'|
+|`--delayed-until`|<b>`timestamp`</b><br/>New timestamp of currently maintenance operation when selected SPECIFIC_TIME reschedule type. Format: RFC-3339, HH:MM:SS, or a moment of time relative to the current time. Examples: '2006-01-02T15:04:05Z', '15:04:05', '2h' or '3h30m ago'.|
 
 #### Flags
 

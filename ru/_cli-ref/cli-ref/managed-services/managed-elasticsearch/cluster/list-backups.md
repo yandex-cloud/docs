@@ -1,29 +1,20 @@
-# yc dataproc job
+# yc managed-elasticsearch cluster list-backups
 
-Manage DataProc jobs.
+List available backups for a Elasticsearch cluster.
 
 #### Command Usage
 
 Syntax: 
 
-`yc dataproc job <command>`
+`yc managed-elasticsearch cluster list-backups <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
 
-Aliases: 
+#### Global Flags
 
-- `jobs`
-- `tasks`
-- `task`
-
-#### Command Tree
-
-- [yc dataproc job get](get.md) — Get information about a Dataproc job.
-- [yc dataproc job list](list.md) — List Dataproc jobs for a cluster.
-- [yc dataproc job log](log.md) — List logs for Dataproc job.
-- [yc dataproc job create-spark](create-spark.md) — Create a Dataproc Spark job.
-- [yc dataproc job create-pyspark](create-pyspark.md) — Create a Dataproc PySpark job.
-- [yc dataproc job create-mapreduce](create-mapreduce.md) — Create a Dataproc MapReduce job.
-- [yc dataproc job create-hive](create-hive.md) — Create a Dataproc Hive job.
-- [yc dataproc job cancel](cancel.md) — Cancel Dataproc job.
+| Flag | Description |
+|----|----|
+|`--id`|<b>`string`</b><br/>ID of the ElasticSearch cluster.|
+|`--name`|<b>`string`</b><br/>Name of the ElasticSearch cluster.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 
 #### Flags
 

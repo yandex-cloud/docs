@@ -1,29 +1,21 @@
-# yc dataproc job
+# yc managed-elasticsearch backup
 
-Manage DataProc jobs.
+Manage Elasticsearch backups.
 
 #### Command Usage
 
 Syntax: 
 
-`yc dataproc job <command>`
+`yc managed-elasticsearch backup <command>`
 
 Aliases: 
 
-- `jobs`
-- `tasks`
-- `task`
+- `backups`
 
 #### Command Tree
 
-- [yc dataproc job get](get.md) — Get information about a Dataproc job.
-- [yc dataproc job list](list.md) — List Dataproc jobs for a cluster.
-- [yc dataproc job log](log.md) — List logs for Dataproc job.
-- [yc dataproc job create-spark](create-spark.md) — Create a Dataproc Spark job.
-- [yc dataproc job create-pyspark](create-pyspark.md) — Create a Dataproc PySpark job.
-- [yc dataproc job create-mapreduce](create-mapreduce.md) — Create a Dataproc MapReduce job.
-- [yc dataproc job create-hive](create-hive.md) — Create a Dataproc Hive job.
-- [yc dataproc job cancel](cancel.md) — Cancel Dataproc job.
+- [yc managed-elasticsearch backup get](get.md) — Get information about a Elasticsearch backup.
+- [yc managed-elasticsearch backup list](list.md) — List Elasticsearch backups available in a folder.
 
 #### Flags
 
