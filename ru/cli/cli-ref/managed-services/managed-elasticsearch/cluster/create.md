@@ -32,7 +32,7 @@ Syntax:
 |`--edition`|<b>`string`</b><br/> ElasticSearch edition|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of ElasticSearch cluster labels as key-value pairs.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the ElasticSearch cluster.|
-|`--service-account`|<b>`string`</b><br/> Service account for the Elasticsearch cluster.|
+|`--service-account-id`|<b>`string`</b><br/> Service account for the Elasticsearch cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--admin-password`|<b>`string`</b><br/> Password for entity. Usage of --read-admin-password is more secure|
 |`--read-admin-password`| Read password for entity from input|

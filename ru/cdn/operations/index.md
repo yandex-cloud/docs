@@ -5,6 +5,7 @@
 * [{#T}](resources/create-resource.md)
 * [{#T}](resources/configure-basics.md)
 * [{#T}](resources/configure-caching.md)
+* [{#T}](resources/configure-logs.md)
 * [{#T}](resources/prefetch-files.md)
 * [{#T}](resources/purge-cache.md)
 * [{#T}](resources/configure-headers.md)

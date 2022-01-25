@@ -19,7 +19,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/> New description for the ElasticSearch cluster.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> New set of labels for the ElasticSearch cluster as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/> A list of security groups for the ElasticSearch cluster.|
-|`--service-account`|<b>`string`</b><br/> Service account for the Elasticsearch cluster.|
+|`--service-account-id`|<b>`string`</b><br/> Service account for the Elasticsearch cluster.|
 |`--deletion-protection`| Deletion Protection inhibits deletion of the cluster.|
 |`--version`|<b>`string`</b><br/> Set new version of the Elasticsearch server software|
 |`--edition`|<b>`string`</b><br/> Set new Elasticsearch server edition|
@@ -33,6 +33,7 @@ Syntax:
 |`--admin-password`|<b>`string`</b><br/> Password for entity. Usage of --read-admin-password is more secure|
 |`--read-admin-password`| Read password for entity from input|
 |`--generate-admin-password`| Generate random password|
+|`--maintenance-window`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/> Maintenance window settings  Possible property names:  type type of a maintenance window, it can be anytime or weekly. A day and hour of the window needs to be specified with the weekly window itself.  hour Hour of a day in UTC time zone (1-24) for a maintenance window if the window type is weekly.  day Day of the week for a maintenance window if the window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'|
 
 #### Flags
 

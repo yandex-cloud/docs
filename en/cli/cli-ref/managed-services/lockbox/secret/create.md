@@ -20,7 +20,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/> A list of label KEY=VALUE pairs to add.|
 |`--kms-key-id`|<b>`string`</b><br/> KMS key ID will be used to encrypt the secret payload.|
 |`--version-description`|<b>`string`</b><br/> Description of the first version.|
-|`--payload`|<b>`string`</b><br/> YAML or JSON array defining the entries of the secret payload. Each item of the array must match the format: https://cloud.yandex.com/docs/lockbox/grpc/secret_service#PayloadEntryChange For instance, the following payload JSON defines a payload containing two text value entries: [{"key": "username", "text_value": "alice"}, {"key": "password", "text_value": "p@$$w0rd"}] Use - value to pass payload string via stdin.|
+|`--payload`|<b>`string`</b><br/> YAML or JSON array defining the entries of the secret payload. Each item of the array must match the format: https://cloud.yandex.com/docs/lockbox/api-ref/grpc/secret_service#PayloadEntryChange For instance, the following payload JSON defines a payload containing two text value entries: [{"key": "username", "text_value": "alice"}, {"key": "password", "text_value": "p@$$w0rd"}] Use - value to pass payload string via stdin.|
 |`--deletion-protection`| Enable deletion protection for the secret.|
 |`--async`| Display information about the operation in progress, without waiting for the operation to complete.|
 

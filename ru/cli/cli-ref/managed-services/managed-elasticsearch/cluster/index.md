@@ -20,7 +20,10 @@ Aliases:
 - [yc managed-elasticsearch cluster get](get.md) — Get information about an ElasticSearch cluster.
 - [yc managed-elasticsearch cluster list](list.md) — List ElasticSearch clusters in a folder.
 - [yc managed-elasticsearch cluster create](create.md) — Create a ElasticSearch cluster.
+- [yc managed-elasticsearch cluster restore](restore.md) — Restore a Elasticsearch cluster from a backup.
 - [yc managed-elasticsearch cluster delete](delete.md) — Delete a ElasticSearch cluster.
+- [yc managed-elasticsearch cluster backup](backup.md) — Create a backup for a Elasticsearch cluster.
+- [yc managed-elasticsearch cluster list-backups](list-backups.md) — List available backups for a Elasticsearch cluster.
 - [yc managed-elasticsearch cluster list-logs](list-logs.md) — Retrieve logs for a ElasticSearch cluster.
 - [yc managed-elasticsearch cluster list-operations](list-operations.md) — List operations for a ElasticSearch cluster.
 - [yc managed-elasticsearch cluster start](start.md) — Start the specified ElasticSearch cluster.
@@ -29,6 +32,7 @@ Aliases:
 - [yc managed-elasticsearch cluster update-config](update-config.md) — Update the configuration of a ElasticSearch cluster.
 - [yc managed-elasticsearch cluster add-labels](add-labels.md) — Assign labels to a ElasticSearch cluster.
 - [yc managed-elasticsearch cluster remove-labels](remove-labels.md) — Remove labels from specified ElasticSearch cluster
+- [yc managed-elasticsearch cluster reschedule-maintenance](reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 
 #### Flags
 

@@ -40,6 +40,7 @@ Syntax:
 	- [yc dataproc job create-pyspark](job/create-pyspark.md) — Create a Dataproc PySpark job.
 	- [yc dataproc job create-mapreduce](job/create-mapreduce.md) — Create a Dataproc MapReduce job.
 	- [yc dataproc job create-hive](job/create-hive.md) — Create a Dataproc Hive job.
+	- [yc dataproc job cancel](job/cancel.md) — Cancel Dataproc job.
 - [yc dataproc resource-preset](resource-preset/index.md) — Learn about Data Proc resource presets.
 	- [yc dataproc resource-preset get](resource-preset/get.md) — Get information about a Data Proc resource preset.
 	- [yc dataproc resource-preset list](resource-preset/list.md) — List available resource presets for Data Proc.

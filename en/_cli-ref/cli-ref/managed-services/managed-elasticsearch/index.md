@@ -18,7 +18,10 @@ Aliases:
 	- [yc managed-elasticsearch cluster get](cluster/get.md) — Get information about an ElasticSearch cluster.
 	- [yc managed-elasticsearch cluster list](cluster/list.md) — List ElasticSearch clusters in a folder.
 	- [yc managed-elasticsearch cluster create](cluster/create.md) — Create a ElasticSearch cluster.
+	- [yc managed-elasticsearch cluster restore](cluster/restore.md) — Restore a Elasticsearch cluster from a backup.
 	- [yc managed-elasticsearch cluster delete](cluster/delete.md) — Delete a ElasticSearch cluster.
+	- [yc managed-elasticsearch cluster backup](cluster/backup.md) — Create a backup for a Elasticsearch cluster.
+	- [yc managed-elasticsearch cluster list-backups](cluster/list-backups.md) — List available backups for a Elasticsearch cluster.
 	- [yc managed-elasticsearch cluster list-logs](cluster/list-logs.md) — Retrieve logs for a ElasticSearch cluster.
 	- [yc managed-elasticsearch cluster list-operations](cluster/list-operations.md) — List operations for a ElasticSearch cluster.
 	- [yc managed-elasticsearch cluster start](cluster/start.md) — Start the specified ElasticSearch cluster.
@@ -27,10 +30,14 @@ Aliases:
 	- [yc managed-elasticsearch cluster update-config](cluster/update-config.md) — Update the configuration of a ElasticSearch cluster.
 	- [yc managed-elasticsearch cluster add-labels](cluster/add-labels.md) — Assign labels to a ElasticSearch cluster.
 	- [yc managed-elasticsearch cluster remove-labels](cluster/remove-labels.md) — Remove labels from specified ElasticSearch cluster
+	- [yc managed-elasticsearch cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
 - [yc managed-elasticsearch hosts](hosts/index.md) — Manage hosts of a ElasticSearch cluster.
 	- [yc managed-elasticsearch hosts list](hosts/list.md) — List hosts for a ElasticSearch cluster.
 	- [yc managed-elasticsearch hosts add](hosts/add.md) — Add new hosts to the cluster in specified availability zones.
 	- [yc managed-elasticsearch hosts delete](hosts/delete.md) — Remove specified hosts from the cluster.
+- [yc managed-elasticsearch backup](backup/index.md) — Manage Elasticsearch backups.
+	- [yc managed-elasticsearch backup get](backup/get.md) — Get information about a Elasticsearch backup.
+	- [yc managed-elasticsearch backup list](backup/list.md) — List Elasticsearch backups available in a folder.
 - [yc managed-elasticsearch resource-preset](resource-preset/index.md) — Learn about ElasticSearch resource presets.
 	- [yc managed-elasticsearch resource-preset get](resource-preset/get.md) — Get information about a ElasticSearch resource preset.
 	- [yc managed-elasticsearch resource-preset list](resource-preset/list.md) — List available resource presets for Managed Service for ElasticSearch.

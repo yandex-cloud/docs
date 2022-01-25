@@ -26,6 +26,7 @@ Aliases:
 - [yc dataproc job create-pyspark](create-pyspark.md) — Create a Dataproc PySpark job.
 - [yc dataproc job create-mapreduce](create-mapreduce.md) — Create a Dataproc MapReduce job.
 - [yc dataproc job create-hive](create-hive.md) — Create a Dataproc Hive job.
+- [yc dataproc job cancel](cancel.md) — Cancel Dataproc job.
 
 #### Flags
 
