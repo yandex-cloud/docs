@@ -140,18 +140,19 @@
 | Утилизация CPU                               | `win_cpu.percent_idle_time`                      | `10`                       | `20`                       |
 | Количество запросов, ожидающих выделения RAM | `mdb_performance_counters.memory_grants_pending` | `2`                        | `1`                        |
 
+## Состояние и статус кластера {#cluster-health-and-status}
 
-## Состояния кластера и хостов
-Для просмотра детальной информации о состоянии кластера {{ mch-name }}:
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-1. Перейдите на страницу каталога и выберите **{{ mch-name }}**.
-2. Выберите нужный кластер из списка.
+Для просмотра состояния и статуса кластера:
 
-### Состояния кластера
+1. Перейдите на страницу каталога и выберите **{{ mms-name }}**.
+1. Наведите курсор на индикатор в столбце **Статус** в строке нужного кластера.
 
-{% include [monitoring-cluster-state](../../_includes/mdb/monitoring-cluster-state.md) %}
+### Состояния кластера {#cluster-health}
 
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 
-### Статусы кластера
+### Статусы кластера {#cluster-status}
 
-{% include notitle [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md)
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}

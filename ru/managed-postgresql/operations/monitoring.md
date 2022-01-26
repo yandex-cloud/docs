@@ -104,17 +104,19 @@ description: "Вы можете отслеживать состояние кла
 | Среднее время выполнения запросов     | `pooler-avg_query_time`    | —                         | `2000`                    |
 | Объем использованного хранилища       | `disk.used_bytes`          | 90% от размера хранилища  | 80% от размера хранилища  |
 
-## Состояния кластера и хостов
-Для просмотра детальной информации о состоянии кластера {{ mch-name }}:
+## Состояние и статус кластера {#cluster-health-and-status}
 
-1. Перейдите на страницу каталога и выберите **{{ mch-name }}**.
-2. Выберите нужный кластер из списка.
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-### Состояния кластера
+Для просмотра состояния и статуса кластера:
 
-{% include [monitoring-cluster-state](../../_includes/mdb/monitoring-cluster-state.md) %}
+1. Перейдите на страницу каталога и выберите **{{ mpg-name }}**.
+1. Наведите курсор на индикатор в столбце **Статус** в строке нужного кластера.
 
+### Состояния кластера {#cluster-health}
 
-### Статусы кластера
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 
-{% include notitle [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+### Статусы кластера {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
